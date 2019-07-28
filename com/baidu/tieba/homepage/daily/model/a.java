@@ -17,7 +17,7 @@ import tbclient.DailyPage.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0318a gdu;
+    private InterfaceC0324a gdu;
     private DailyNetModel gea;
     private boolean gec;
     private boolean mHasMore;
@@ -105,7 +105,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.homepage.daily.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0318a {
+    public interface InterfaceC0324a {
         void M(int i, String str);
 
         void a(b bVar, boolean z, boolean z2);
@@ -150,8 +150,8 @@ public class a {
         this.gea.aIQ();
     }
 
-    public void a(InterfaceC0318a interfaceC0318a) {
-        this.gdu = interfaceC0318a;
+    public void a(InterfaceC0324a interfaceC0324a) {
+        this.gdu = interfaceC0324a;
     }
 
     public boolean hasMore() {

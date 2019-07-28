@@ -21,12 +21,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0272a {
+    public static class C0278a {
         private static final a daY = new a();
     }
 
     public static a aEw() {
-        return C0272a.daY;
+        return C0278a.daY;
     }
 
     public void init(Context context) {

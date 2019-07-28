@@ -8,6 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -45,7 +46,7 @@ public class a {
     public static volatile long gPu = 0;
     private a.c gPx;
     private VoiceSendModel gPy;
-    private WeakReference<a.InterfaceC0251a<ChatMessage>> gPz;
+    private WeakReference<a.InterfaceC0256a<ChatMessage>> gPz;
     private d mSendCallback;
     private final LinkedList<ChatMessage> gPv = new LinkedList<>();
     private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> gPw = new HashMap<>();
@@ -61,7 +62,7 @@ public class a {
                             z.setVoice_md5(str);
                             chatMessage.setContent("[" + OrmObject.jsonStrWithObject(z) + "]");
                         }
-                        com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
+                        com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
                         a.bGn().r(chatMessage);
                         if (a.this.mSendCallback != null) {
                             a.this.mSendCallback.vT(2);
@@ -69,7 +70,7 @@ public class a {
                         }
                         return;
                     }
-                    com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", -1, "voice http fail", new Object[0]);
+                    com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", -1, "voice http fail", new Object[0]);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                     if (chatMessage instanceof CommonGroupChatMessage) {
                         final CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
@@ -152,9 +153,9 @@ public class a {
                     if (aVar != null && (chatMessage = (ChatMessage) aVar.atC()) != null) {
                         if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                             if (imageUploadResult != null) {
-                                com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
+                                com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
                             } else {
-                                com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", -1, "result is null", new Object[0]);
+                                com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", -1, "result is null", new Object[0]);
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                             if (chatMessage instanceof CommonGroupChatMessage) {
@@ -207,7 +208,7 @@ public class a {
                                 });
                             }
                         } else {
-                            com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", 0, null, new Object[0]);
+                            com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", 0, null, new Object[0]);
                             String str3 = imageUploadResult.picInfo.bigPic == null ? null : imageUploadResult.picInfo.bigPic.picUrl;
                             if (imageUploadResult.picInfo.smallPic != null) {
                                 str2 = imageUploadResult.picInfo.smallPic.picUrl;
@@ -607,7 +608,7 @@ public class a {
         }
     }
 
-    public void setImageUploadUIProgressCallback(a.InterfaceC0251a<ChatMessage> interfaceC0251a) {
-        this.gPz = new WeakReference<>(interfaceC0251a);
+    public void setImageUploadUIProgressCallback(a.InterfaceC0256a<ChatMessage> interfaceC0256a) {
+        this.gPz = new WeakReference<>(interfaceC0256a);
     }
 }

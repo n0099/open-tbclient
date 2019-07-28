@@ -8,6 +8,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -267,7 +268,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 try {
                     String[] split3 = URLDecoder.decode(split2[split2.length - 3], "utf-8").split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                     for (String str2 : split3) {
-                        if (str2.startsWith("q")) {
+                        if (str2.startsWith(IXAdRequestInfo.COST_NAME)) {
                             if (Integer.valueOf(str2.split("=")[split.length - 1]).intValue() <= 50) {
                                 return false;
                             }

@@ -50,7 +50,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0361a {
+    public static class C0367a {
         private static final a iOj = new a();
     }
 
@@ -195,7 +195,7 @@ public class a {
     }
 
     public static final a ciR() {
-        return C0361a.iOj;
+        return C0367a.iOj;
     }
 
     private void initListener() {

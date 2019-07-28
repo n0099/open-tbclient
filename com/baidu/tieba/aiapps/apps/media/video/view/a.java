@@ -35,8 +35,8 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         this.dfY = false;
         this.isMute = false;
         b.a(this);
-        a(new c.InterfaceC0386c() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1
-            @Override // com.baidu.tieba.play.c.InterfaceC0386c
+        a(new c.InterfaceC0392c() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1
+            @Override // com.baidu.tieba.play.c.InterfaceC0392c
             public void pz() {
                 if (!a.this.isFullScreen) {
                     a.this.isFullScreen = true;
@@ -64,7 +64,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
                 }
             }
 
-            @Override // com.baidu.tieba.play.c.InterfaceC0386c
+            @Override // com.baidu.tieba.play.c.InterfaceC0392c
             public void pA() {
                 if (a.this.isFullScreen) {
                     a.this.isFullScreen = false;

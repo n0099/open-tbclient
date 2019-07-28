@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Pair;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
 /* loaded from: classes2.dex */
 public class NetStateManager {
@@ -32,7 +33,7 @@ public class NetStateManager {
         public void onReceive(Context context, Intent intent) {
             Context unused = NetStateManager.mContext = context;
             if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
                 WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                 if (!wifiManager.isWifiEnabled() || -1 == connectionInfo.getNetworkId()) {
                     NetStateManager.CUR_NETSTATE = NetState.Mobile;

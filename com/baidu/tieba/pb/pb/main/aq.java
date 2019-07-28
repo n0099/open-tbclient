@@ -240,8 +240,8 @@ public class aq {
     public static int hVp = 4;
     public static int hVq = 5;
     public static int hVr = 6;
-    private static a.InterfaceC0406a hVO = new a.InterfaceC0406a() { // from class: com.baidu.tieba.pb.pb.main.aq.11
-        @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0406a
+    private static a.InterfaceC0412a hVO = new a.InterfaceC0412a() { // from class: com.baidu.tieba.pb.pb.main.aq.11
+        @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0412a
         public void onRefresh() {
         }
     };
@@ -688,8 +688,8 @@ public class aq {
             layoutParams.height = com.baidu.adp.lib.util.l.g(this.hMD.getActivity(), R.dimen.ds120);
         }
         this.textView.setLayoutParams(layoutParams);
-        this.hTu.bYB().setOnTouchListener(new com.baidu.tieba.pb.a.a(new a.InterfaceC0366a() { // from class: com.baidu.tieba.pb.pb.main.aq.31
-            @Override // com.baidu.tieba.pb.a.a.InterfaceC0366a
+        this.hTu.bYB().setOnTouchListener(new com.baidu.tieba.pb.a.a(new a.InterfaceC0372a() { // from class: com.baidu.tieba.pb.pb.main.aq.31
+            @Override // com.baidu.tieba.pb.a.a.InterfaceC0372a
             public void bTn() {
                 if (aq.this.hTy != null) {
                     if (aq.this.hTo != null) {
@@ -699,7 +699,7 @@ public class aq {
                 }
             }
 
-            @Override // com.baidu.tieba.pb.a.a.InterfaceC0366a
+            @Override // com.baidu.tieba.pb.a.a.InterfaceC0372a
             public void bTo() {
                 aq.this.hMD.bmk();
             }

@@ -2038,9 +2038,9 @@ public class VerticalViewPager extends ViewGroup {
         return new c(getContext(), attributeSet);
     }
 
-    public void setEventListener(a.InterfaceC0260a interfaceC0260a) {
+    public void setEventListener(a.InterfaceC0265a interfaceC0265a) {
         if (this.cQI != null) {
-            this.cQI.setEventListener(interfaceC0260a);
+            this.cQI.setEventListener(interfaceC0265a);
         }
     }
 

@@ -18,7 +18,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
     private com.baidu.tieba.homepage.gamevideo.a.b ggA;
-    private InterfaceC0319a ggB;
+    private InterfaceC0325a ggB;
     private GameVideoGridView ggz;
     private BdUniqueId mBdUniqueId;
     private TbPageContext mContext;
@@ -45,7 +45,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0319a {
+    public interface InterfaceC0325a {
         void a(com.baidu.tieba.homepage.gamevideo.c.a aVar);
     }
 
@@ -98,8 +98,8 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0319a interfaceC0319a) {
-        this.ggB = interfaceC0319a;
+    public void a(InterfaceC0325a interfaceC0325a) {
+        this.ggB = interfaceC0325a;
     }
 
     public void onDestroy() {

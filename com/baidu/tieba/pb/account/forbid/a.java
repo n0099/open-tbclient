@@ -22,12 +22,12 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C0368a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C0374a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0368a extends BdAsyncTask<String, Object, ForbidResultData> {
+    private static class C0374a extends BdAsyncTask<String, Object, ForbidResultData> {
         private String FM;
         private String ckh;
         private String ckl;
@@ -39,7 +39,7 @@ public class a {
         private String mThreadId;
         private String mUserName;
 
-        public C0368a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0374a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;

@@ -190,7 +190,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                     if (aVar.bEi == ChannelHomeActivity.this.getUniqueId()) {
                         ChannelHomeActivity.this.closeLoadingDialog();
                     }
-                    if (aVar instanceof a.C0235a) {
+                    if (aVar instanceof a.C0240a) {
                         ChannelHomeActivity.this.b(aVar);
                     } else if (aVar instanceof a.c) {
                         ChannelHomeActivity.this.a(aVar);
@@ -295,7 +295,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             case 3:
             case 5:
                 if (aMQ() && this.eHy != null && this.eHy.baB() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0235a.a(this.eHy.baB().getChannelId(), getUniqueId())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0240a.a(this.eHy.baB().getChannelId(), getUniqueId())));
                     pK(4);
                     return;
                 }

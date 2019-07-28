@@ -34,12 +34,12 @@ public class a implements com.baidu.swan.apps.camera.c.a {
 
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0118a {
+    private static class C0123a {
         private static final a ali = new a();
     }
 
     public static a xF() {
-        return C0118a.ali;
+        return C0123a.ali;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2) {

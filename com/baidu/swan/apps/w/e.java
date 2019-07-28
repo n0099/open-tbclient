@@ -56,8 +56,8 @@ public final class e implements d.b {
         this.aAi.exit();
     }
 
-    public void a(int i, @NonNull String[] strArr, a.InterfaceC0106a interfaceC0106a) {
-        this.aAi.a(i, strArr, interfaceC0106a);
+    public void a(int i, @NonNull String[] strArr, a.InterfaceC0111a interfaceC0111a) {
+        this.aAi.a(i, strArr, interfaceC0111a);
     }
 
     public void Gi() {

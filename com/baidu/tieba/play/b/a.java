@@ -74,7 +74,7 @@ public class a {
         if (!cfh() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
             return false;
         }
-        com.baidu.tieba.play.a.b.ceP().a(new C0385a(this.mHandler, this.izo, i, uri, gVar, i2, i3, i4));
+        com.baidu.tieba.play.a.b.ceP().a(new C0391a(this.mHandler, this.izo, i, uri, gVar, i2, i3, i4));
         return com.baidu.tieba.play.a.b.ceP().Db(uri.getHost());
     }
 
@@ -85,7 +85,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.play.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0385a implements b.InterfaceC0384b {
+    public static class C0391a implements b.InterfaceC0390b {
         private c izo;
         private g izr;
         private int izs;
@@ -95,7 +95,7 @@ public class a {
         private int times;
         private int what;
 
-        public C0385a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
+        public C0391a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
             this.mHandler = handler;
             this.izo = cVar;
             this.mUri = uri;
@@ -106,7 +106,7 @@ public class a {
             this.times = i4;
         }
 
-        @Override // com.baidu.tieba.play.a.b.InterfaceC0384b
+        @Override // com.baidu.tieba.play.a.b.InterfaceC0390b
         public void dT(String str, String str2) {
             try {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {

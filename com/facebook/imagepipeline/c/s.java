@@ -30,14 +30,14 @@ public class s implements r {
     }
 
     @Override // com.facebook.imagepipeline.c.r
-    public bolts.g<com.facebook.imagepipeline.request.a> a(final String str, final a.C0455a c0455a) {
+    public bolts.g<com.facebook.imagepipeline.request.a> a(final String str, final a.C0461a c0461a) {
         try {
             return bolts.g.a(new Callable<com.facebook.imagepipeline.request.a>() { // from class: com.facebook.imagepipeline.c.s.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
                 /* renamed from: cHE */
                 public com.facebook.imagepipeline.request.a call() throws Exception {
-                    return s.this.b(str, c0455a);
+                    return s.this.b(str, c0461a);
                 }
             }, this.keX);
         } catch (Exception e) {
@@ -47,7 +47,7 @@ public class s implements r {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [130=4] */
-    protected com.facebook.imagepipeline.request.a b(String str, a.C0455a c0455a) {
+    protected com.facebook.imagepipeline.request.a b(String str, a.C0461a c0461a) {
         com.facebook.imagepipeline.request.a cLF;
         Cursor cursor = null;
         synchronized (s.class) {
@@ -59,7 +59,7 @@ public class s implements r {
                 Cursor query = this.kfB.getWritableDatabase().query("media_variations_index", aBW, "media_id = ?", new String[]{str}, null, null, null);
                 try {
                     if (query.getCount() == 0) {
-                        cLF = c0455a.cLF();
+                        cLF = c0461a.cLF();
                         if (query != null) {
                             query.close();
                         }
@@ -70,9 +70,9 @@ public class s implements r {
                         int columnIndexOrThrow4 = query.getColumnIndexOrThrow("cache_choice");
                         while (query.moveToNext()) {
                             String string = query.getString(columnIndexOrThrow4);
-                            c0455a.a(Uri.parse(query.getString(columnIndexOrThrow)), query.getInt(columnIndexOrThrow2), query.getInt(columnIndexOrThrow3), TextUtils.isEmpty(string) ? null : ImageRequest.CacheChoice.valueOf(string));
+                            c0461a.a(Uri.parse(query.getString(columnIndexOrThrow)), query.getInt(columnIndexOrThrow2), query.getInt(columnIndexOrThrow3), TextUtils.isEmpty(string) ? null : ImageRequest.CacheChoice.valueOf(string));
                         }
-                        cLF = c0455a.cLF();
+                        cLF = c0461a.cLF();
                         if (query != null) {
                             query.close();
                         }

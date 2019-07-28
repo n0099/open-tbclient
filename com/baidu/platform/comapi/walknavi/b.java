@@ -31,6 +31,7 @@ import com.baidu.mapapi.walknavi.adapter.IWNaviStatusListener;
 import com.baidu.mapapi.walknavi.adapter.IWRouteGuidanceListener;
 import com.baidu.mapapi.walknavi.model.BaseNpcModel;
 import com.baidu.mapapi.walknavi.model.WalkNaviDisplayOption;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.platform.comapi.walknavi.fsm.WGuideFSM;
 import com.baidu.platform.comapi.walknavi.g.a;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
@@ -605,7 +606,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
 
     public void a(Context context, a.b bVar, int i) {
         if (context != null) {
-            if (((WifiManager) context.getSystemService("wifi")).isWifiEnabled()) {
+            if (((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).isWifiEnabled()) {
                 bVar.a(i);
             } else if (i != 1 && i != 3) {
                 if (i == 2) {

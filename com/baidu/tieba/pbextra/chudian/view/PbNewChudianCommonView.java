@@ -29,7 +29,7 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     private TextView ifF;
     private TextView ifG;
     private i ifH;
-    private a.InterfaceC0365a ifI;
+    private a.InterfaceC0371a ifI;
     private Context mContext;
     private View mRootView;
 
@@ -83,13 +83,13 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
         }
     }
 
-    public void setData(i iVar, BdBaseActivity<?> bdBaseActivity, a.InterfaceC0365a interfaceC0365a) {
+    public void setData(i iVar, BdBaseActivity<?> bdBaseActivity, a.InterfaceC0371a interfaceC0371a) {
         h hVar;
         h hVar2;
         if (iVar != null && bdBaseActivity != null) {
             this.ifH = iVar;
             this.ifA = bdBaseActivity;
-            this.ifI = interfaceC0365a;
+            this.ifI = interfaceC0371a;
             ArrayList<h> coT = this.ifH.coT();
             if (coT != null && coT.size() > 0 && (hVar = coT.get(0)) != null && !aq.isEmpty(hVar.getText())) {
                 am.f(this.ifB, R.color.cp_other_c, 1);

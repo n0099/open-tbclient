@@ -15,20 +15,20 @@ import java.util.Arrays;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static C0181a c(String str, String str2, String str3, int i) {
+    public static C0186a c(String str, String str2, String str3, int i) {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate start.");
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
         long hO = com.baidu.swan.apps.swancore.b.hO(str);
         if (hO == 0) {
-            return C0181a.hQ("invalid version code : " + str);
+            return C0186a.hQ("invalid version code : " + str);
         }
         if (!w.b(new File(str2), str3)) {
-            return C0181a.hQ("sign failed.");
+            return C0186a.hQ("sign failed.");
         }
         if (!com.baidu.swan.c.a.bs(str2, f(hO, i).getPath())) {
-            return C0181a.hQ("unzip bundle failed.");
+            return C0186a.hQ("unzip bundle failed.");
         }
         if (DEBUG) {
             String b = com.baidu.swan.c.b.b(new File(str2), false);
@@ -41,7 +41,7 @@ public class a {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + hO);
         }
-        return C0181a.Oj();
+        return C0186a.Oj();
     }
 
     private static ArrayList<Long> d(long j, long j2) {
@@ -99,7 +99,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0181a {
+    public static class C0186a {
         public String message;
         public int statusCode = 0;
 
@@ -107,19 +107,19 @@ public class a {
             return this.statusCode == 0;
         }
 
-        public static C0181a Oj() {
+        public static C0186a Oj() {
             return q(0, "");
         }
 
-        public static C0181a hQ(String str) {
+        public static C0186a hQ(String str) {
             return q(1, str);
         }
 
-        public static C0181a q(int i, String str) {
-            C0181a c0181a = new C0181a();
-            c0181a.statusCode = i;
-            c0181a.message = str;
-            return c0181a;
+        public static C0186a q(int i, String str) {
+            C0186a c0186a = new C0186a();
+            c0186a.statusCode = i;
+            c0186a.message = str;
+            return c0186a;
         }
 
         public String toString() {

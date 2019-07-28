@@ -22,7 +22,7 @@ public class a {
     private g aRN;
     private e.a dcJ;
     private BdMultiPicker.b dcK;
-    private InterfaceC0278a dcL;
+    private InterfaceC0284a dcL;
     private JSONArray aIq = new JSONArray();
     private JSONArray aIr = new JSONArray();
     private List<d> dch = new ArrayList();
@@ -33,7 +33,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0278a {
+    public interface InterfaceC0284a {
         void aG(List<d> list);
     }
 
@@ -167,7 +167,7 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0278a interfaceC0278a) {
-        this.dcL = interfaceC0278a;
+    public void a(InterfaceC0284a interfaceC0284a) {
+        this.dcL = interfaceC0284a;
     }
 }

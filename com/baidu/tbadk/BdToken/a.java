@@ -9,12 +9,12 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     public static final a YC() {
-        return C0229a.bxw;
+        return C0234a.bxw;
     }
 
     /* renamed from: com.baidu.tbadk.BdToken.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0229a {
+    private static class C0234a {
         private static final a bxw = new a();
     }
 

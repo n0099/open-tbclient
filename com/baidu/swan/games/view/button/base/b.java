@@ -13,7 +13,7 @@ import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.an.z;
 import com.baidu.swan.games.view.button.base.a;
 /* loaded from: classes2.dex */
-public class b extends EventTargetImpl implements a.InterfaceC0214a {
+public class b extends EventTargetImpl implements a.InterfaceC0219a {
     protected ApiButton blU;
     @V8JavascriptField
     public String image;
@@ -108,7 +108,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0214a {
         });
     }
 
-    @Override // com.baidu.swan.games.view.button.base.a.InterfaceC0214a
+    @Override // com.baidu.swan.games.view.button.base.a.InterfaceC0219a
     public void TO() {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.5
             @Override // java.lang.Runnable

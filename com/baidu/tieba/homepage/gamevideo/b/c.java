@@ -211,8 +211,8 @@ public class c {
             }
         }
     };
-    private a.InterfaceC0319a ggB = new a.InterfaceC0319a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.9
-        @Override // com.baidu.tieba.homepage.gamevideo.b.a.InterfaceC0319a
+    private a.InterfaceC0325a ggB = new a.InterfaceC0325a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.9
+        @Override // com.baidu.tieba.homepage.gamevideo.b.a.InterfaceC0325a
         public void a(com.baidu.tieba.homepage.gamevideo.c.a aVar) {
             if (aVar != null) {
                 c.this.bWH = aVar.sub_class_id;

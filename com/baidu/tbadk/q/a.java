@@ -30,7 +30,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     private static a cBu = new a();
     private static BdFileDownloadData cBv = null;
     private static List<BdFileDownloadData> mTaskList = new LinkedList();
-    private C0254a cBw = null;
+    private C0259a cBw = null;
     @SuppressLint({"HandlerLeak"})
     private Handler crB = new Handler() { // from class: com.baidu.tbadk.q.a.1
         @Override // android.os.Handler
@@ -132,7 +132,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
         if (cBv == null && !mTaskList.isEmpty()) {
             cBv = mTaskList.get(0);
             if (cBv != null) {
-                this.cBw = new C0254a();
+                this.cBw = new C0259a();
                 this.cBw.execute(cBv);
             }
         }
@@ -176,13 +176,13 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     @SuppressLint({"DefaultLocale"})
     /* renamed from: com.baidu.tbadk.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0254a extends BdAsyncTask<BdFileDownloadData, BdFileDownloadData, Integer> {
+    public class C0259a extends BdAsyncTask<BdFileDownloadData, BdFileDownloadData, Integer> {
         private BdFileDownloadData cBA;
         private x mNetWork = new x();
         private long cBy = -1;
         private String cBz = null;
 
-        C0254a() {
+        C0259a() {
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -436,7 +436,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             String string;
-            super.onPostExecute((C0254a) num);
+            super.onPostExecute((C0259a) num);
             if (num == null) {
                 num = -1;
             }

@@ -25,12 +25,12 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0179a {
+    private static class C0184a {
         private static final a aWE = new a();
     }
 
     public static a NY() {
-        return C0179a.aWE;
+        return C0184a.aWE;
     }
 
     public static String dQ(int i) {

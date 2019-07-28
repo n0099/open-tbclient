@@ -223,11 +223,11 @@ public class a {
                 com.baidu.swan.apps.database.a aVar = new com.baidu.swan.apps.database.a();
                 SwanAppDbControl.aX(AppRuntime.getAppContext()).a(query2, aVar);
                 if (!TextUtils.isEmpty(aVar.appId)) {
-                    C0141a c0141a = new C0141a();
-                    c0141a.avo = aVar;
-                    c0141a.avq.id = aVar.appId;
-                    c0141a.avq.avp = query2.getLong(query2.getColumnIndex("favorite_time"));
-                    hashMap.put(c0141a.avq.id, c0141a);
+                    C0146a c0146a = new C0146a();
+                    c0146a.avo = aVar;
+                    c0146a.avq.id = aVar.appId;
+                    c0146a.avq.avp = query2.getLong(query2.getColumnIndex("favorite_time"));
+                    hashMap.put(c0146a.avq.id, c0146a);
                     if (DEBUG) {
                         Log.v("favorite_migrate_pms", "Aps&Favotite == " + aVar.appId);
                     }
@@ -358,9 +358,9 @@ public class a {
     }
 
     private static void a(MatrixCursor matrixCursor, int i, c cVar) {
-        if (cVar instanceof C0141a) {
-            C0141a c0141a = (C0141a) cVar;
-            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), c0141a.avo.appId).add(SwanAppDbControl.SwanAppTable.app_key.name(), c0141a.avo.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), c0141a.avo.version).add(SwanAppDbControl.SwanAppTable.description.name(), c0141a.avo.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(c0141a.avo.errorCode)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), c0141a.avo.errorDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), c0141a.avo.errorMsg).add(SwanAppDbControl.SwanAppTable.resume_date.name(), c0141a.avo.auS).add(SwanAppDbControl.SwanAppTable.icon.name(), c0141a.avo.icon).add(SwanAppDbControl.SwanAppTable.icon_url.name(), c0141a.avo.iconUrl).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), c0141a.avo.auT).add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), c0141a.avo.auU).add(SwanAppDbControl.SwanAppTable.name.name(), c0141a.avo.name).add(SwanAppDbControl.SwanAppTable.service_category.name(), c0141a.avo.auV).add(SwanAppDbControl.SwanAppTable.subject_info.name(), c0141a.avo.auW).add(SwanAppDbControl.SwanAppTable.bear_info.name(), c0141a.avo.auX).add(SwanAppDbControl.SwanAppTable.sign.name(), c0141a.avo.sign).add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(c0141a.avo.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), Integer.valueOf(c0141a.avo.auY)).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), c0141a.avo.auZ).add(SwanAppDbControl.SwanAppTable.app_download_url.name(), c0141a.avo.ava).add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), c0141a.avo.avb).add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(c0141a.avo.avc)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(c0141a.avo.avd)).add(SwanAppDbControl.SwanAppTable.version_code.name(), c0141a.avo.avf).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(c0141a.avo.ave)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(c0141a.avo.orientation)).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(c0141a.avo.avg)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(c0141a.avo.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), Integer.valueOf(c0141a.avo.avh ? 1 : 0)).add("favorite_time", Long.valueOf(c0141a.avq.avp));
+        if (cVar instanceof C0146a) {
+            C0146a c0146a = (C0146a) cVar;
+            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), c0146a.avo.appId).add(SwanAppDbControl.SwanAppTable.app_key.name(), c0146a.avo.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), c0146a.avo.version).add(SwanAppDbControl.SwanAppTable.description.name(), c0146a.avo.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(c0146a.avo.errorCode)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), c0146a.avo.errorDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), c0146a.avo.errorMsg).add(SwanAppDbControl.SwanAppTable.resume_date.name(), c0146a.avo.auS).add(SwanAppDbControl.SwanAppTable.icon.name(), c0146a.avo.icon).add(SwanAppDbControl.SwanAppTable.icon_url.name(), c0146a.avo.iconUrl).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), c0146a.avo.auT).add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), c0146a.avo.auU).add(SwanAppDbControl.SwanAppTable.name.name(), c0146a.avo.name).add(SwanAppDbControl.SwanAppTable.service_category.name(), c0146a.avo.auV).add(SwanAppDbControl.SwanAppTable.subject_info.name(), c0146a.avo.auW).add(SwanAppDbControl.SwanAppTable.bear_info.name(), c0146a.avo.auX).add(SwanAppDbControl.SwanAppTable.sign.name(), c0146a.avo.sign).add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(c0146a.avo.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), Integer.valueOf(c0146a.avo.auY)).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), c0146a.avo.auZ).add(SwanAppDbControl.SwanAppTable.app_download_url.name(), c0146a.avo.ava).add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), c0146a.avo.avb).add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(c0146a.avo.avc)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(c0146a.avo.avd)).add(SwanAppDbControl.SwanAppTable.version_code.name(), c0146a.avo.avf).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(c0146a.avo.ave)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(c0146a.avo.orientation)).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(c0146a.avo.avg)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(c0146a.avo.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), Integer.valueOf(c0146a.avo.avh ? 1 : 0)).add("favorite_time", Long.valueOf(c0146a.avq.avp));
             return;
         }
         f fVar = (f) cVar;
@@ -380,10 +380,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.database.favorite.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0141a extends c {
+    public static class C0146a extends c {
         com.baidu.swan.apps.database.a avo;
 
-        private C0141a() {
+        private C0146a() {
             super();
         }
     }

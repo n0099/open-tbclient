@@ -43,7 +43,7 @@ public class a {
             linkedHashMap.put("op_type", "add");
             String xg = com.baidu.swan.apps.u.a.Ew().xg();
             if (!TextUtils.isEmpty(xg)) {
-                HttpManager.getDefault(com.baidu.swan.apps.u.a.Ek()).getRequest().url(xg).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.EH().Ff()).build().executeAsyncOnUIBack(new C0184a(this.baX.getCallback(), false));
+                HttpManager.getDefault(com.baidu.swan.apps.u.a.Ek()).getRequest().url(xg).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.EH().Ff()).build().executeAsyncOnUIBack(new C0189a(this.baX.getCallback(), false));
                 return;
             }
             return;
@@ -61,7 +61,7 @@ public class a {
             linkedHashMap.put("third_id", this.baY.aDJ);
             String xf = com.baidu.swan.apps.u.a.Ew().xf();
             if (!TextUtils.isEmpty(xf)) {
-                HttpManager.getDefault(com.baidu.swan.apps.u.a.Ek()).getRequest().url(xf).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.EH().Ff()).build().executeAsyncOnUIBack(new C0184a(this.baX.getCallback(), true));
+                HttpManager.getDefault(com.baidu.swan.apps.u.a.Ek()).getRequest().url(xf).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.u.a.EH().Ff()).build().executeAsyncOnUIBack(new C0189a(this.baX.getCallback(), true));
             }
         }
     }
@@ -69,11 +69,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0184a extends ResponseCallback<String> {
+    public class C0189a extends ResponseCallback<String> {
         private BearLayout.a baZ;
         private boolean bba;
 
-        C0184a(BearLayout.a aVar, boolean z) {
+        C0189a(BearLayout.a aVar, boolean z) {
             this.baZ = aVar;
             this.bba = z;
         }

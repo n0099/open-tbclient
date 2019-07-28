@@ -15,6 +15,7 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tbadk.TbConfig;
@@ -348,7 +349,7 @@ public class a {
             return;
         }
         b a = f.a(downloadStaticsData, 101, 0);
-        a.ea("dl", IntentConfig.START);
+        a.ea(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, IntentConfig.START);
         c.ciy().a(a);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
@@ -379,7 +380,7 @@ public class a {
             } else {
                 return;
             }
-            a.ea("dl", str2);
+            a.ea(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
             c.ciy().a(a);
         }
     }
@@ -389,7 +390,7 @@ public class a {
         if (downloadStaticsData != null) {
             b a = f.a(downloadStaticsData, 101, 0);
             a.setDownloadStaticsData(null);
-            a.ea("dl", WriteImageActivityConfig.DELET_FLAG);
+            a.ea(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, WriteImageActivityConfig.DELET_FLAG);
             c.ciy().a(a);
         }
     }

@@ -11,6 +11,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -307,7 +308,7 @@ public final class g {
     public static String l(Context context) {
         String str;
         try {
-            str = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getBSSID();
+            str = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getBSSID();
         } catch (Throwable th) {
             str = "";
         }

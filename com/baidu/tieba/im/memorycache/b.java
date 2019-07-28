@@ -461,8 +461,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
         if (this.gLQ.get()) {
-            this.gLR.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.12
-                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+            this.gLR.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.12
+                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
                 public void a(Iterator<ImMessageCenterPojo> it) {
                     while (it.hasNext()) {
                         ImMessageCenterPojo next = it.next();
@@ -475,8 +475,8 @@ public class b {
                     }
                 }
             });
-            this.gLS.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.13
-                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+            this.gLS.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.13
+                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
                 public void a(Iterator<ImMessageCenterPojo> it) {
                     while (it.hasNext()) {
                         ImMessageCenterPojo next = it.next();
@@ -489,8 +489,8 @@ public class b {
                     }
                 }
             });
-            this.gLT.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.14
-                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+            this.gLT.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.14
+                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
                 public void a(Iterator<ImMessageCenterPojo> it) {
                     while (it.hasNext()) {
                         ImMessageCenterPojo next = it.next();
@@ -570,24 +570,24 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<ImMessageCenterPojo> bFd() {
         final LinkedList linkedList = new LinkedList();
-        this.gLR.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.15
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLR.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.15
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     linkedList.add(it.next());
                 }
             }
         });
-        this.gLS.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.16
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLS.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.16
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     linkedList.add(it.next());
                 }
             }
         });
-        this.gLT.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.17
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLT.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.17
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     linkedList.add(it.next());
@@ -600,8 +600,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<ImMessageCenterPojo> bFe() {
         final LinkedList linkedList = new LinkedList();
-        this.gLR.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.18
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLR.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.18
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     linkedList.add(it.next());
@@ -613,8 +613,8 @@ public class b {
 
     public List<ImMessageCenterPojo> bFf() {
         final LinkedList linkedList = new LinkedList();
-        this.gLT.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.2
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLT.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.2
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     linkedList.add(it.next());
@@ -626,8 +626,8 @@ public class b {
 
     public List<ImMessageCenterPojo> bFg() {
         final LinkedList linkedList = new LinkedList();
-        this.gLS.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.3
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLS.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.3
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
@@ -643,8 +643,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<ImMessageCenterPojo> bFh() {
         final LinkedList linkedList = new LinkedList();
-        this.gLS.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.4
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLS.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.4
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
@@ -697,8 +697,8 @@ public class b {
         }
         final ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
         imMessageCenterPojo2.setIs_hidden(1);
-        this.gLS.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.5
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLS.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.5
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
@@ -770,8 +770,8 @@ public class b {
         }
         final ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
         imMessageCenterPojo2.setIs_hidden(1);
-        this.gLT.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.7
-            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+        this.gLT.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.7
+            @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
             public void a(Iterator<ImMessageCenterPojo> it) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
@@ -842,8 +842,8 @@ public class b {
     public LongSparseArray<Long> bFk() {
         final LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
         if (this.gLQ.get()) {
-            this.gLR.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.9
-                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+            this.gLR.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.9
+                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
                 public void a(Iterator<ImMessageCenterPojo> it) {
                     while (it.hasNext()) {
                         ImMessageCenterPojo next = it.next();
@@ -861,8 +861,8 @@ public class b {
         final NewpushRepair.Builder builder = new NewpushRepair.Builder();
         final ArrayList arrayList = new ArrayList();
         if (this.gLQ.get()) {
-            this.gLT.a(new a.InterfaceC0334a() { // from class: com.baidu.tieba.im.memorycache.b.10
-                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0334a
+            this.gLT.a(new a.InterfaceC0340a() { // from class: com.baidu.tieba.im.memorycache.b.10
+                @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0340a
                 public void a(Iterator<ImMessageCenterPojo> it) {
                     while (it.hasNext()) {
                         ImMessageCenterPojo next = it.next();

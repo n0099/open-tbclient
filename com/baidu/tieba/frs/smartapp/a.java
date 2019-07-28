@@ -51,40 +51,40 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0310a c0310a;
+        C0316a c0316a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.frs_lite_program_list_fragment_item, viewGroup, false);
-            C0310a c0310a2 = new C0310a();
-            c0310a2.fNM = (RelativeLayout) view.findViewById(R.id.card);
-            c0310a2.fNK = (HeadImageView) view.findViewById(R.id.portrait);
-            c0310a2.mTitle = (TextView) view.findViewById(R.id.title);
-            c0310a2.fNL = (TextView) view.findViewById(R.id.desc);
-            view.setTag(c0310a2);
-            c0310a = c0310a2;
+            C0316a c0316a2 = new C0316a();
+            c0316a2.fNM = (RelativeLayout) view.findViewById(R.id.card);
+            c0316a2.fNK = (HeadImageView) view.findViewById(R.id.portrait);
+            c0316a2.mTitle = (TextView) view.findViewById(R.id.title);
+            c0316a2.fNL = (TextView) view.findViewById(R.id.desc);
+            view.setTag(c0316a2);
+            c0316a = c0316a2;
         } else {
-            c0310a = (C0310a) view.getTag();
+            c0316a = (C0316a) view.getTag();
         }
         b bVar = (b) getItem(i);
         int g = l.g(this.mContext.getPageActivity(), R.dimen.tbds136);
-        c0310a.fNK.setIsRound(true);
-        c0310a.fNK.startLoad(bVar.avatar, 10, g, g, false);
-        c0310a.mTitle.setText(bVar.name);
-        c0310a.fNL.setText(bVar.fNO);
-        am.f(c0310a.mTitle, R.color.cp_cont_b, 1);
-        am.f(c0310a.fNL, R.color.cp_cont_d, 1);
-        am.k(c0310a.fNM, R.drawable.lite_progrom_icorner_bg);
+        c0316a.fNK.setIsRound(true);
+        c0316a.fNK.startLoad(bVar.avatar, 10, g, g, false);
+        c0316a.mTitle.setText(bVar.name);
+        c0316a.fNL.setText(bVar.fNO);
+        am.f(c0316a.mTitle, R.color.cp_cont_b, 1);
+        am.f(c0316a.fNL, R.color.cp_cont_d, 1);
+        am.k(c0316a.fNM, R.drawable.lite_progrom_icorner_bg);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.frs.smartapp.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0310a {
+    public class C0316a {
         HeadImageView fNK;
         TextView fNL;
         RelativeLayout fNM;
         TextView mTitle;
 
-        public C0310a() {
+        public C0316a() {
         }
     }
 }

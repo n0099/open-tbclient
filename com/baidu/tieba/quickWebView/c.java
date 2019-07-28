@@ -356,7 +356,7 @@ public class c {
             }
             Util.VersionCompare J = Util.J(str2, str3);
             if (J != Util.VersionCompare.EQUAL && J != Util.VersionCompare.GREATER) {
-                new C0391c(str, str3, str4).execute(new Object[0]);
+                new C0397c(str, str3, str4).execute(new Object[0]);
             }
         }
     }
@@ -369,13 +369,13 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.quickWebView.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0391c extends BdAsyncTask {
+    public static class C0397c extends BdAsyncTask {
         private final String mMd5;
         private x mNetWork;
         private final String mUrl;
         private final String mVersion;
 
-        public C0391c(String str, String str2, String str3) {
+        public C0397c(String str, String str2, String str3) {
             this.mUrl = str;
             this.mVersion = str2;
             this.mMd5 = str3;

@@ -2,64 +2,72 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
+import android.graphics.Path;
 import android.graphics.RectF;
-import android.graphics.drawable.shapes.RoundRectShape;
-import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import java.util.Arrays;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class RoundRelativeLayout extends RelativeLayout {
-    private Shape bOr;
-    private Paint mPaint;
     private float[] mRadius;
+    private RectF mRectF;
+    private float mRoundLayoutRadius;
+    private Path mRoundPath;
 
     public RoundRelativeLayout(Context context) {
-        this(context, null);
+        super(context);
+        this.mRoundLayoutRadius = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
+        init();
     }
 
     public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+        super(context, attributeSet);
+        this.mRoundLayoutRadius = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
+        init();
     }
 
     public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        setLayerType(1, null);
-        this.mPaint = new Paint();
-        this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(-7829368);
-        this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.mRoundLayoutRadius = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
+        init();
+    }
+
+    private void init() {
+        setWillNotDraw(false);
+        this.mRoundPath = new Path();
+        this.mRectF = new RectF();
+    }
+
+    private void setRoundPath() {
+        this.mRoundPath.addRoundRect(this.mRectF, this.mRadius, Path.Direction.CW);
     }
 
     public void setRoundLayoutRadius(float[] fArr) {
-        if (fArr != null && fArr.length == 8) {
-            this.mRadius = Arrays.copyOf(fArr, fArr.length);
+        if (fArr != null && fArr.length > 0) {
+            this.mRadius = new float[fArr.length];
+            for (int i = 0; i < fArr.length; i++) {
+                this.mRadius[i] = fArr[i];
+            }
+            setRoundPath();
+            invalidate();
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (z) {
-            if (this.bOr == null) {
-                RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
-                float[] fArr = new float[8];
-                Arrays.fill(fArr, 0.0f);
-                this.bOr = new RoundRectShape(fArr, rectF, this.mRadius);
-            }
-            this.bOr.resize(getWidth(), getHeight());
-        }
+        this.mRectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        setRoundPath();
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (this.bOr != null) {
-            this.bOr.draw(canvas, this.mPaint);
-        }
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        canvas.clipPath(this.mRoundPath);
+        super.draw(canvas);
     }
 }

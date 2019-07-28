@@ -62,8 +62,8 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.jFC.dxn = this.mFrom;
         this.jFB.setAdapter(this.jFC);
         this.jFB.setOffscreenPageLimit(1);
-        this.jFB.setEventListener(new a.InterfaceC0260a() { // from class: com.baidu.tieba.videoplay.VideoPlayView.2
-            @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0260a
+        this.jFB.setEventListener(new a.InterfaceC0265a() { // from class: com.baidu.tieba.videoplay.VideoPlayView.2
+            @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0265a
             public void aAp() {
                 VideoPlayFragment Cw = VideoPlayView.this.jFC.Cw(VideoPlayView.this.jFB.getCurrentItem());
                 if (Cw != null) {
@@ -71,7 +71,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                 }
             }
 
-            @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0260a
+            @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0265a
             public void x(float f, float f2) {
                 VideoPlayFragment Cw = VideoPlayView.this.jFC.Cw(VideoPlayView.this.jFB.getCurrentItem());
                 if (Cw != null) {
@@ -79,7 +79,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                 }
             }
 
-            @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0260a
+            @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0265a
             public void aAq() {
                 VideoPlayFragment Cw = VideoPlayView.this.jFC.Cw(VideoPlayView.this.jFB.getCurrentItem());
                 if (Cw != null) {

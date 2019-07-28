@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.crabsdk.b.r;
 import com.baidu.crabsdk.b.s;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
@@ -211,7 +212,7 @@ public final class k {
                                     c.put("dump", encodeToString);
                                     c.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
                                     c.put("appKey", com.baidu.crabsdk.a.d);
-                                    c.put("os", "Android");
+                                    c.put(IXAdRequestInfo.OS, "Android");
                                     c.put("osVN", Build.VERSION.RELEASE);
                                     c.put("osVC", Build.VERSION.SDK_INT);
                                     c.put("isRoot", com.baidu.crabsdk.b.p.J());

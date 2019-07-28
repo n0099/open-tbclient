@@ -114,18 +114,18 @@ public class b {
             return false;
         }
     };
-    private a.InterfaceC0299a eac = new a.InterfaceC0299a() { // from class: com.baidu.tieba.homepage.gamevideo.view.b.7
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+    private a.InterfaceC0305a eac = new a.InterfaceC0305a() { // from class: com.baidu.tieba.homepage.gamevideo.view.b.7
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void aY(int i, int i2) {
             b.this.fwd = true;
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void aZ(int i, int i2) {
             b.this.fwd = false;
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void ba(int i, int i2) {
         }
     };
@@ -572,7 +572,7 @@ public class b {
             this.Op.setRecyclerListener(null);
         }
         if (this.fRt != null) {
-            this.fRt.a((a.InterfaceC0299a) null);
+            this.fRt.a((a.InterfaceC0305a) null);
         }
         if (this.gbT != null) {
             this.gbT.a((h.d) null);

@@ -11,19 +11,19 @@ import java.util.List;
 import tbclient.SimpleForum;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.tieba.c.a {
-    private a.InterfaceC0289a eXZ;
+    private a.InterfaceC0295a eXZ;
     private com.baidu.tieba.write.transmit.model.a jLc;
     private List<SimpleForum> jLd;
     private boolean jLe;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> dPJ = new ArrayList<>();
-    private a.InterfaceC0429a jLf = new a.InterfaceC0429a() { // from class: com.baidu.tieba.write.a.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0429a
+    private a.InterfaceC0435a jLf = new a.InterfaceC0435a() { // from class: com.baidu.tieba.write.a.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0435a
         public void onError() {
             a.this.czd();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0429a
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0435a
         public void g(List<SimpleForum> list, int i) {
             a.this.jLd = list;
             a.this.mPrivateThread = i;
@@ -74,7 +74,7 @@ public class a implements com.baidu.tieba.c.a {
     }
 
     @Override // com.baidu.tieba.c.a
-    public void a(a.InterfaceC0289a interfaceC0289a) {
-        this.eXZ = interfaceC0289a;
+    public void a(a.InterfaceC0295a interfaceC0295a) {
+        this.eXZ = interfaceC0295a;
     }
 }

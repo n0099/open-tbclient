@@ -60,6 +60,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
@@ -208,7 +209,7 @@ public class UtilHelper {
 
     public static String getWifiMac(Context context) {
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
             if (!wifiManager.isWifiEnabled()) {
                 wifiManager.setWifiEnabled(true);
             }

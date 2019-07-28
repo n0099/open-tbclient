@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.i.g;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -298,7 +299,7 @@ public class b {
             String string = context.getSharedPreferences("pst", 0).getString("push_mac_id", null);
             if (string == null || string.length() == 0) {
                 try {
-                    str = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
+                    str = ((WifiManager) context.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getMacAddress();
                     if (str != null) {
                         try {
                             if (str.length() > 0) {

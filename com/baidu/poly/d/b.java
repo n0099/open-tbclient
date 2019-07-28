@@ -28,19 +28,19 @@ public class b {
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
             public void onSuccess(Map<String, String> map) {
-                a.C0085a c0085a = new a.C0085a() { // from class: com.baidu.poly.d.b.1.1
-                    @Override // com.baidu.poly.d.a.C0085a
+                a.C0090a c0090a = new a.C0090a() { // from class: com.baidu.poly.d.b.1.1
+                    @Override // com.baidu.poly.d.a.C0090a
                     public void onResult(int i, String str) {
                         cVar.onResult(i, str);
                     }
 
-                    @Override // com.baidu.poly.d.a.C0085a
+                    @Override // com.baidu.poly.d.a.C0090a
                     public void onFail(String str) {
                         cVar.onFail(str);
                     }
                 };
                 if (payChannel.getActionType().equals(PayChannel.ACTION_TYPE_SDK)) {
-                    b.this.agV.a(map, payChannel.getPayChannel(), c0085a);
+                    b.this.agV.a(map, payChannel.getPayChannel(), c0090a);
                 }
                 if (aVar != null) {
                     aVar.onSuccess(map);

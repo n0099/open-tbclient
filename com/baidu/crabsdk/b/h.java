@@ -5,6 +5,7 @@ import android.net.wifi.WifiManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -54,7 +55,7 @@ public final class h {
                 return aaa;
             }
             try {
-                aaa = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                aaa = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.v("getCUID fail," + e);
                 aaa = "N/A";

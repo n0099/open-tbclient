@@ -6,6 +6,7 @@ import com.airbnb.lottie.model.a.c;
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.f;
 import com.airbnb.lottie.model.content.ShapeStroke;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +97,7 @@ public class e implements b {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static e q(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
-            JSONObject optJSONObject = jSONObject.optJSONObject("g");
+            JSONObject optJSONObject = jSONObject.optJSONObject(IXAdRequestInfo.GPS);
             if (optJSONObject != null && optJSONObject.has(Config.APP_KEY)) {
                 optJSONObject = optJSONObject.optJSONObject(Config.APP_KEY);
             }
@@ -120,7 +121,7 @@ public class e implements b {
             if (optJSONObject4 != null) {
                 fVar2 = f.a.i(optJSONObject4, eVar);
             }
-            com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject(Config.DEVICE_WIDTH), eVar);
+            com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject("w"), eVar);
             ShapeStroke.LineCapType lineCapType = ShapeStroke.LineCapType.values()[jSONObject.optInt("lc") - 1];
             ShapeStroke.LineJoinType lineJoinType = ShapeStroke.LineJoinType.values()[jSONObject.optInt("lj") - 1];
             com.airbnb.lottie.model.a.b bVar = null;
@@ -133,7 +134,7 @@ public class e implements b {
                     String optString2 = optJSONObject5.optString("n");
                     if (optString2.equals(Config.OS)) {
                         bVar2 = b.a.e(optJSONObject5.optJSONObject("v"), eVar);
-                    } else if (optString2.equals("d") || optString2.equals("g")) {
+                    } else if (optString2.equals("d") || optString2.equals(IXAdRequestInfo.GPS)) {
                         arrayList.add(b.a.e(optJSONObject5.optJSONObject("v"), eVar));
                     }
                 }

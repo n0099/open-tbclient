@@ -19,7 +19,7 @@ public class b {
     private l ceA;
     private String ceB;
     private String ceC;
-    private List<C0240b> ceD = new ArrayList();
+    private List<C0245b> ceD = new ArrayList();
     private a cez;
     private x mNetwork;
 
@@ -76,9 +76,9 @@ public class b {
         this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.ceC);
         this.mNetwork.o("voice_md5", kVar.amo());
         if (v.Z(this.ceD) != 0) {
-            for (C0240b c0240b : this.ceD) {
-                if (c0240b != null) {
-                    this.mNetwork.o(c0240b.getKey(), c0240b.getValue());
+            for (C0245b c0245b : this.ceD) {
+                if (c0245b != null) {
+                    this.mNetwork.o(c0245b.getKey(), c0245b.getValue());
                 }
             }
         }
@@ -183,7 +183,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.core.voice.service.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0240b {
+    public class C0245b {
         private String key;
         private String value;
 
@@ -195,13 +195,13 @@ public class b {
             return this.key;
         }
 
-        public C0240b(String str, String str2) {
+        public C0245b(String str, String str2) {
             this.key = str;
             this.value = str2;
         }
     }
 
     public void addPostParam(String str, int i) {
-        this.ceD.add(new C0240b(str, String.valueOf(i)));
+        this.ceD.add(new C0245b(str, String.valueOf(i)));
     }
 }

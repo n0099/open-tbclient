@@ -129,13 +129,13 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(h hVar) {
-        com.baidu.swan.apps.core.pms.b.Bh().a(hVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.games.subpackage.b.a.2
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+        com.baidu.swan.apps.core.pms.b.Bh().a(hVar, new b.InterfaceC0141b() { // from class: com.baidu.swan.games.subpackage.b.a.2
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType) {
                 com.baidu.swan.games.subpackage.b.d(a.this.blA);
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
                 com.baidu.swan.games.subpackage.b.b(a.this.blA, 2103);
             }

@@ -18,11 +18,11 @@ public class a {
     private final String mMediaId;
     private final String mSource;
 
-    private a(C0455a c0455a) {
-        this.mMediaId = c0455a.mMediaId;
-        this.klu = c0455a.klu;
-        this.klv = c0455a.klv;
-        this.mSource = c0455a.mSource;
+    private a(C0461a c0461a) {
+        this.mMediaId = c0461a.mMediaId;
+        this.klu = c0461a.klu;
+        this.klv = c0461a.klv;
+        this.mSource = c0461a.mSource;
     }
 
     public String getMediaId() {
@@ -122,25 +122,25 @@ public class a {
         }
     }
 
-    public static C0455a HU(String str) {
-        return new C0455a(str);
+    public static C0461a HU(String str) {
+        return new C0461a(str);
     }
 
     /* renamed from: com.facebook.imagepipeline.request.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0455a {
+    public static class C0461a {
         private List<b> klu;
         private boolean klv;
         private final String mMediaId;
         private String mSource;
 
-        private C0455a(String str) {
+        private C0461a(String str) {
             this.klv = false;
             this.mSource = "request";
             this.mMediaId = str;
         }
 
-        public C0455a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
+        public C0461a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
             if (this.klu == null) {
                 this.klu = new ArrayList();
             }
@@ -148,12 +148,12 @@ public class a {
             return this;
         }
 
-        public C0455a sD(boolean z) {
+        public C0461a sD(boolean z) {
             this.klv = z;
             return this;
         }
 
-        public C0455a HV(String str) {
+        public C0461a HV(String str) {
             this.mSource = str;
             return this;
         }

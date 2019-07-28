@@ -1,7 +1,6 @@
 package com.baidu.ubs.analytics.d;
 
 import android.util.Log;
-import com.baidu.mobstat.Config;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,7 +38,7 @@ public final class b {
         if (jWi) {
             Log.w("BaiDuUbs", str);
         }
-        a(Config.DEVICE_WIDTH, "BaiDuUbs", str);
+        a("w", "BaiDuUbs", str);
     }
 
     public static void Hn(String str) {

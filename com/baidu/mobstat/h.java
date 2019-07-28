@@ -14,7 +14,7 @@ public class h {
             jSONObject.put("s", Build.VERSION.SDK_INT);
             jSONObject.put("sv", Build.VERSION.RELEASE);
             jSONObject.put(Config.CUID_SEC, bw.a(2, context));
-            jSONObject.put(Config.DEVICE_WIDTH, bw.c(context));
+            jSONObject.put("w", bw.c(context));
             jSONObject.put("h", bw.d(context));
             jSONObject.put("ly", ab.c);
             jSONObject.put("pv", "24");

@@ -18,7 +18,7 @@ public class a {
     private boolean geE;
     private b hyO = null;
     private c hyP = null;
-    private C0358a hyQ = null;
+    private C0364a hyQ = null;
     private int hyS = 0;
     private int hyT = 0;
     protected com.baidu.tieba.myCollection.c hyU = null;
@@ -435,7 +435,7 @@ public class a {
         if (i >= this.hyR.size() || this.hyR.get(i) == null || this.hyR.get(i).getId() == null) {
             return false;
         }
-        this.hyQ = new C0358a(this.hyR.get(i).getId(), i, this.hyR.get(i).getForumId());
+        this.hyQ = new C0364a(this.hyR.get(i).getId(), i, this.hyR.get(i).getForumId());
         this.hyQ.setPriority(2);
         this.hyQ.execute(new Boolean[0]);
         return true;
@@ -443,14 +443,14 @@ public class a {
 
     /* renamed from: com.baidu.tieba.myCollection.baseEditMark.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0358a extends BdAsyncTask<Boolean, Integer, Boolean> {
+    private class C0364a extends BdAsyncTask<Boolean, Integer, Boolean> {
         private String fid;
         private com.baidu.tieba.myCollection.baseEditMark.c hyV;
         private x mNetWork = null;
         private int pos;
         private String tid;
 
-        public C0358a(String str, int i, String str2) {
+        public C0364a(String str, int i, String str2) {
             this.tid = null;
             this.fid = null;
             this.pos = 0;

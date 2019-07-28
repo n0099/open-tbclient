@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class a implements a.InterfaceC0392a {
+public class a implements a.InterfaceC0398a {
     private boolean eMx = false;
     private boolean eMy = false;
     private boolean eMz = false;
@@ -63,7 +63,7 @@ public class a implements a.InterfaceC0392a {
         }
     };
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0392a
+    @Override // com.baidu.tieba.r.a.InterfaceC0398a
     public void f(Application application) {
         MessageManager.getInstance().registerListener(this.byN);
         MessageManager.getInstance().registerListener(this.cWE);
@@ -323,21 +323,21 @@ public class a implements a.InterfaceC0392a {
         return "DailyBuild";
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0392a
+    @Override // com.baidu.tieba.r.a.InterfaceC0398a
     public void onPause(Activity activity) {
         if (this.eMx && activity != null) {
             CrabSDK.onPause(activity);
         }
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0392a
+    @Override // com.baidu.tieba.r.a.InterfaceC0398a
     public void onResume(Activity activity) {
         if (this.eMx && activity != null) {
             CrabSDK.onResume(activity);
         }
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0392a
+    @Override // com.baidu.tieba.r.a.InterfaceC0398a
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
         if (this.eMx && activity != null && motionEvent != null) {
             CrabSDK.behaviorRecordEvent(motionEvent, activity);

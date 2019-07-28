@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.mipush.sdk.Constants;
@@ -121,7 +122,7 @@ public class t {
                             treeMap.put(Constants.EXTRA_KEY_IMEI_MD5, str8);
                         }
                     }
-                    treeMap.put("os", Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
+                    treeMap.put(IXAdRequestInfo.OS, Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
                     b3 = com.xiaomi.channel.commonutils.android.d.b();
                     if (b3 >= 0) {
                         treeMap.put("space_id", Integer.toString(b3));
@@ -169,7 +170,7 @@ public class t {
             treeMap.put("board", Build.BOARD);
             if (!com.xiaomi.channel.commonutils.android.f.g()) {
             }
-            treeMap.put("os", Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
+            treeMap.put(IXAdRequestInfo.OS, Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
             b3 = com.xiaomi.channel.commonutils.android.d.b();
             if (b3 >= 0) {
             }

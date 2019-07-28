@@ -25,22 +25,22 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class a {
-    private final C0228a bvv;
+    private final C0233a bvv;
     private final n bvw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.bvv = new C0228a(context, "bdbehavior.db");
+        this.bvv = new C0233a(context, "bdbehavior.db");
         this.bvw = new n(context);
     }
 
     /* renamed from: com.baidu.swan.ubc.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0228a {
+    private static class C0233a {
         private String bvL;
         private Context mContext;
 
-        C0228a(Context context, String str) {
+        C0233a(Context context, String str) {
             this.bvL = str;
             this.mContext = context.getApplicationContext();
         }

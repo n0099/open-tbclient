@@ -86,8 +86,8 @@ public class b {
             }
         }
     };
-    private a.InterfaceC0320a ggM = new a.InterfaceC0320a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
-        @Override // com.baidu.tieba.homepage.gamevideo.view.a.InterfaceC0320a
+    private a.InterfaceC0326a ggM = new a.InterfaceC0326a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
+        @Override // com.baidu.tieba.homepage.gamevideo.view.a.InterfaceC0326a
         public void bvY() {
             b.this.bvV();
         }

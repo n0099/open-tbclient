@@ -32,7 +32,7 @@ public abstract class d implements h {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sendMessage(Message<?> message) {
-        a.C0237a.sendMessage(message);
+        a.C0242a.sendMessage(message);
     }
 
     protected void m(String str, JSONObject jSONObject) {

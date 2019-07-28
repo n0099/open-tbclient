@@ -76,8 +76,8 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             }
         });
         this.fIr = new com.baidu.tieba.frs.gamesubpb.model.a(this, this.mForumId, this.fIu);
-        this.fIr.a(new a.InterfaceC0309a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.3
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0309a
+        this.fIr.a(new a.InterfaceC0315a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.3
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0315a
             public void a(boolean z, int i, String str, boolean z2, boolean z3, com.baidu.tieba.frs.gamesubpb.model.b bVar, List<m> list) {
                 if (FrsGameSubPbActivity.this.fIq != null && FrsGameSubPbActivity.this.fIq.bpZ()) {
                     FrsGameSubPbActivity.this.fIq.sl(R.color.cp_bg_line_k_alpha10_1);
@@ -105,7 +105,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                 }
             }
 
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0309a
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0315a
             public void a(boolean z, int i, String str, d dVar) {
                 FrsGameSubPbActivity.this.fIp.a(z, str, dVar);
                 if (z) {
@@ -113,7 +113,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                 }
             }
 
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0309a
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0315a
             public void b(boolean z, int i, String str, d dVar) {
                 FrsGameSubPbActivity.this.fIp.b(z, str, dVar);
                 if (z) {

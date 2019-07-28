@@ -23,8 +23,8 @@ public class b {
     private int mStatusBarHeight;
     private TextView mTitle;
     private boolean eXD = false;
-    private a.InterfaceC0298a eXE = new a.InterfaceC0298a() { // from class: com.baidu.tieba.enterForum.home.b.1
-        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0298a
+    private a.InterfaceC0304a eXE = new a.InterfaceC0304a() { // from class: com.baidu.tieba.enterForum.home.b.1
+        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0304a
         public void mB(int i) {
             b.this.mSortType = i;
             TiebaStatic.log(new an("c13369").P("obj_type", i == 1 ? 2 : 1));

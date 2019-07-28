@@ -235,8 +235,8 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
         this.mPermissionJudgePolicy.ajQ();
         this.mPermissionJudgePolicy.e(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        this.mPermissionJudgePolicy.a(new a.InterfaceC0238a() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.4
-            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0238a
+        this.mPermissionJudgePolicy.a(new a.InterfaceC0243a() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.4
+            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0243a
             public void ajR() {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }

@@ -69,7 +69,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         }
         if (!TextUtils.isEmpty(payText)) {
             if ("度小满支付".equals(displayName)) {
-                this.ain.setTextColor(getResources().getColor(b.C0084b.duxiaomancolor));
+                this.ain.setTextColor(getResources().getColor(b.C0089b.duxiaomancolor));
             }
             this.ain.setText(payText);
             return;

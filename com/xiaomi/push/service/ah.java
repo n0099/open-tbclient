@@ -439,7 +439,7 @@ public class ah {
     public static c a(Context context, com.xiaomi.xmpush.thrift.af afVar, byte[] bArr) {
         Notification notification;
         c cVar = new c();
-        if (com.xiaomi.channel.commonutils.android.a.c(context, a(afVar)) == a.EnumC0477a.NOT_ALLOWED) {
+        if (com.xiaomi.channel.commonutils.android.a.c(context, a(afVar)) == a.EnumC0483a.NOT_ALLOWED) {
             com.xiaomi.xmpush.thrift.u m = afVar.m();
             if (m != null) {
                 com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(f(afVar), m.b(), "Do not notify because user block " + a(afVar) + "‘s notification");

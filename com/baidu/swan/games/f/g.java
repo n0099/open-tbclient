@@ -516,7 +516,7 @@ public class g {
         if (e == null) {
             g(jsObject);
             bVar.errMsg = str;
-            a(d.get(LivenessStat.TYPE_FACE_MATCH_FAIL), d.get("complete"), bVar, d.get("success"));
+            a(d.get(LivenessStat.TYPE_FACE_MATCH_FAIL), d.get(com.baidu.mobads.openad.c.b.COMPLETE), bVar, d.get("success"));
             return null;
         }
         HashMap hashMap = new HashMap();
@@ -572,7 +572,7 @@ public class g {
         }
         c cVar = bVar.bgD;
         JsFunction d = d(LivenessStat.TYPE_FACE_MATCH_FAIL, map2);
-        JsFunction d2 = d("complete", map2);
+        JsFunction d2 = d(com.baidu.mobads.openad.c.b.COMPLETE, map2);
         JsFunction d3 = d("success", map2);
         if (!TextUtils.isEmpty(str)) {
             bVar2.errMsg = bVar.bgE + str;
@@ -594,7 +594,7 @@ public class g {
     }
 
     public static void b(Object obj, Map<String, Object> map) {
-        b(d("success", map), d("complete", map), obj, d(LivenessStat.TYPE_FACE_MATCH_FAIL, map));
+        b(d("success", map), d(com.baidu.mobads.openad.c.b.COMPLETE, map), obj, d(LivenessStat.TYPE_FACE_MATCH_FAIL, map));
     }
 
     public static b a(c cVar, String str, Map<String, Object> map) {

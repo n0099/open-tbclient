@@ -25,7 +25,7 @@ public class a {
     private static a iGq = new a();
     private static DownloadData cry = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private C0395a iGr = null;
+    private C0401a iGr = null;
     private int crA = 20;
     @SuppressLint({"HandlerLeak"})
     private Handler crB = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
@@ -112,7 +112,7 @@ public class a {
         if (cry == null && !mTaskList.isEmpty()) {
             cry = mTaskList.get(0);
             if (cry != null) {
-                this.iGr = new C0395a();
+                this.iGr = new C0401a();
                 this.iGr.execute(cry);
             }
         }
@@ -170,10 +170,10 @@ public class a {
     @SuppressLint({"DefaultLocale"})
     /* renamed from: com.baidu.tieba.recapp.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0395a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
+    public class C0401a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         private b iGt = new b();
 
-        C0395a() {
+        C0401a() {
         }
 
         public void arW() {
@@ -321,7 +321,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             String string;
-            super.onPostExecute((C0395a) num);
+            super.onPostExecute((C0401a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
                     a.cry.setStatus(0);

@@ -36,16 +36,16 @@ public class a<T> {
             }
         }
     };
-    private InterfaceC0302a frw;
+    private InterfaceC0308a frw;
 
     /* renamed from: com.baidu.tieba.forumMember.tbtitle.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0302a {
+    public interface InterfaceC0308a {
         void a(DataRes dataRes, boolean z, int i, String str);
     }
 
-    public a(InterfaceC0302a interfaceC0302a, BaseActivity<T> baseActivity) {
-        this.frw = interfaceC0302a;
+    public a(InterfaceC0308a interfaceC0308a, BaseActivity<T> baseActivity) {
+        this.frw = interfaceC0308a;
         this.cWM = baseActivity;
         bkF();
     }

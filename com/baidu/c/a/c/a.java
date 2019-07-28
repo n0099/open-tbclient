@@ -21,6 +21,7 @@ import com.baidu.crius.CriusMeasureMode;
 import com.baidu.crius.CriusMeasureOutput;
 import com.baidu.crius.CriusNode;
 import com.baidu.crius.CriusPositionType;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
@@ -657,7 +658,7 @@ public class a {
         if (!TextUtils.isEmpty(this.abR)) {
             if ("flex".equalsIgnoreCase(this.abR)) {
                 this.abr.setDisplay(CriusDisplay.FLEX);
-            } else if ("none".equalsIgnoreCase(this.abR)) {
+            } else if (IXAdSystemUtils.NT_NONE.equalsIgnoreCase(this.abR)) {
                 this.abr.setDisplay(CriusDisplay.NONE);
             } else {
                 this.abr.setDisplay(CriusDisplay.FLEX);

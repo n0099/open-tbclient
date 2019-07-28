@@ -3,6 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.HostFilter;
@@ -30,7 +31,7 @@ public class ax extends bh.a implements HostManager.HostManagerFactory {
             Uri.Builder buildUpon = Uri.parse(str).buildUpon();
             buildUpon.appendQueryParameter("sdkver", String.valueOf(37));
             buildUpon.appendQueryParameter("osver", String.valueOf(Build.VERSION.SDK_INT));
-            buildUpon.appendQueryParameter("os", com.xiaomi.smack.util.d.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
+            buildUpon.appendQueryParameter(IXAdRequestInfo.OS, com.xiaomi.smack.util.d.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
             buildUpon.appendQueryParameter("mi", String.valueOf(com.xiaomi.channel.commonutils.android.n.b()));
             String builder = buildUpon.toString();
             com.xiaomi.channel.commonutils.logger.b.c("fetch bucket from : " + builder);
@@ -88,15 +89,15 @@ public class ax extends bh.a implements HostManager.HostManagerFactory {
     }
 
     @Override // com.xiaomi.push.service.bh.a
-    public void a(a.C0485a c0485a) {
+    public void a(a.C0491a c0491a) {
     }
 
     @Override // com.xiaomi.push.service.bh.a
-    public void a(b.C0486b c0486b) {
+    public void a(b.C0492b c0492b) {
         Fallback fallbacksByHost;
         boolean z;
-        if (c0486b.e() && c0486b.d() && System.currentTimeMillis() - this.b > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0486b.d());
+        if (c0492b.e() && c0492b.d() && System.currentTimeMillis() - this.b > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0492b.d());
             this.b = System.currentTimeMillis();
             HostManager hostManager = HostManager.getInstance();
             hostManager.clear();

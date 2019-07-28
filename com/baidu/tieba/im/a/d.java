@@ -4,6 +4,7 @@ import android.support.v4.util.LongSparseArray;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.a.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 import com.baidu.tieba.im.message.ResponsePullMessage;
@@ -25,7 +26,7 @@ public class d extends j {
                 messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
             }
             if (messageSyncMessage != null) {
-                com.baidu.tbadk.core.e.a.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+                com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
             }
             if (socketResponsedMessage.getError() == 110000) {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());

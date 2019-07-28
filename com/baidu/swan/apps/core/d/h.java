@@ -27,7 +27,7 @@ import com.baidu.swan.apps.res.widget.floatlayer.a;
 import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes2.dex */
-public class h extends b implements a.InterfaceC0167a, com.baidu.swan.games.q.a.b.b {
+public class h extends b implements a.InterfaceC0172a, com.baidu.swan.games.q.a.b.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private boolean aoh;
     private DuMixGameSurfaceView arP;
@@ -370,7 +370,7 @@ public class h extends b implements a.InterfaceC0167a, com.baidu.swan.games.q.a.
         }
     }
 
-    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0167a
+    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0172a
     public com.baidu.swan.apps.res.widget.floatlayer.a vF() {
         if (this.ark == null && this.arX != null && this.arX.Ty() != null) {
             this.ark = new com.baidu.swan.apps.res.widget.floatlayer.a(this, this.arX.Ty(), 0);

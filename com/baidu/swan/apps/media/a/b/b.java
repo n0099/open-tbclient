@@ -23,20 +23,20 @@ public class b extends c.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public c.C0147c a(Context context, c.C0147c c0147c) {
+    public c.C0152c a(Context context, c.C0152c c0152c) {
         MediaMetadataRetriever mediaMetadataRetriever;
         if (DEBUG) {
             Log.i("CameraTaskStrategy", "CameraTaskStrategy doInBackground uri=" + this.aCb.uri);
         }
-        if (c0147c == null) {
-            c0147c = new c.C0147c();
+        if (c0152c == null) {
+            c0152c = new c.C0152c();
         }
         if (this.aCb.uri == null) {
-            c0147c.d(true, "uri in pickData is null");
+            c0152c.d(true, "uri in pickData is null");
         } else {
             String path = this.aCb.uri.getPath();
             if (TextUtils.isEmpty(path)) {
-                c0147c.d(true, this.aCb.uri + " get file path failed");
+                c0152c.d(true, this.aCb.uri + " get file path failed");
             } else {
                 d.c cVar = new d.c();
                 cVar.aCr = path;
@@ -66,7 +66,7 @@ public class b extends c.b {
                             this.aCb.aCk = cVar;
                             if (f(this.aCb)) {
                             }
-                            return c0147c;
+                            return c0152c;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -88,12 +88,12 @@ public class b extends c.b {
                 this.aCb.aCk = cVar;
                 if (f(this.aCb)) {
                     this.aCb.aCk.aCo = com.baidu.swan.apps.storage.b.aG(path, com.baidu.swan.apps.ae.b.Mo());
-                    c0147c.b(0, this.aCb);
+                    c0152c.b(0, this.aCb);
                 } else {
-                    c0147c.b(1, this.aCb);
+                    c0152c.b(1, this.aCb);
                 }
             }
         }
-        return c0147c;
+        return c0152c;
     }
 }

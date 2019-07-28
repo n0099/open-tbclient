@@ -383,7 +383,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
 
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.c.a
     public void a(View view, int i, int i2, long j) {
-        a.C0342a zI;
+        a.C0348a zI;
         ChatMessage msg;
         String ao;
         super.a(view, i, i2, j);

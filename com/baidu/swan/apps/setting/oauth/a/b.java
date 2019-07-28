@@ -28,7 +28,7 @@ public class b extends g<d> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
     public boolean DN() {
-        a(new C0177b());
+        a(new C0182b());
         return super.DN();
     }
 
@@ -95,8 +95,8 @@ public class b extends g<d> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0177b extends com.baidu.swan.apps.setting.oauth.d {
-        private C0177b() {
+    public class C0182b extends com.baidu.swan.apps.setting.oauth.d {
+        private C0182b() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
@@ -111,7 +111,7 @@ public class b extends g<d> {
                     }
                     b.this.aTj = eVar;
                     if (eVar == null) {
-                        C0177b.this.m(new Exception("no such scope"));
+                        C0182b.this.m(new Exception("no such scope"));
                         return;
                     }
                     if (eVar.Nw() && !b.this.aUY) {
@@ -119,7 +119,7 @@ public class b extends g<d> {
                     } else {
                         b.this.a(new a());
                     }
-                    C0177b.this.Nt();
+                    C0182b.this.Nt();
                 }
             });
             return false;
@@ -137,7 +137,7 @@ public class b extends g<d> {
             b.this.aUY = true;
             if (b.this.Mu().Mi().aD(b.this.mActivity)) {
                 com.baidu.swan.apps.setting.oauth.c.a("LoginPreparation: isLogin true", (Boolean) false);
-                b.this.a(new C0177b());
+                b.this.a(new C0182b());
                 return true;
             }
             b.this.Mu().Mi().a(b.this.mActivity, null, this);
@@ -159,7 +159,7 @@ public class b extends g<d> {
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.a("Login Preparation ok, is already login", (Boolean) false);
-                    b.this.a(new C0177b());
+                    b.this.a(new C0182b());
                     Nt();
                     return;
             }

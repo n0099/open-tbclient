@@ -14,7 +14,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class a {
     private String bGA;
-    private InterfaceC0427a jOU;
+    private InterfaceC0433a jOU;
     private com.baidu.tieba.write.a.a jOV;
     private BdUniqueId mBdUniqueId;
     private HttpMessageListener jOW = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
@@ -60,7 +60,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0427a {
+    public interface InterfaceC0433a {
         void a(com.baidu.tieba.write.a.a aVar);
     }
 
@@ -94,8 +94,8 @@ public class a {
         e.iK().removeCallbacks(this.cXv);
     }
 
-    public void a(InterfaceC0427a interfaceC0427a) {
-        this.jOU = interfaceC0427a;
+    public void a(InterfaceC0433a interfaceC0433a) {
+        this.jOU = interfaceC0433a;
     }
 
     public com.baidu.tieba.write.a.a cAE() {

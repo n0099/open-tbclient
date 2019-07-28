@@ -282,7 +282,7 @@ public final class c {
             } else {
                 str3 = str5 + str2;
             }
-            new a.C0178a(i).hp(str4).hq(str3).Gb();
+            new a.C0183a(i).hp(str4).hq(str3).Gb();
             if (DEBUG) {
                 Log.d("OAuthUtils", "error reported: " + i + " ,content: " + str3);
             }
@@ -291,7 +291,7 @@ public final class c {
                 Log.e("OAuthUtils", "error report error: " + i);
                 e.printStackTrace();
             }
-            new a.C0178a(i).hq("ReportError" + e.getMessage()).Gb();
+            new a.C0183a(i).hq("ReportError" + e.getMessage()).Gb();
         }
     }
 

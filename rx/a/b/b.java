@@ -50,15 +50,15 @@ public class b extends g {
             if (this.kuI) {
                 return e.cQT();
             }
-            RunnableC0499b runnableC0499b = new RunnableC0499b(this.kuH.d(aVar), this.handler);
-            Message obtain = Message.obtain(this.handler, runnableC0499b);
+            RunnableC0505b runnableC0505b = new RunnableC0505b(this.kuH.d(aVar), this.handler);
+            Message obtain = Message.obtain(this.handler, runnableC0505b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
             if (this.kuI) {
-                this.handler.removeCallbacks(runnableC0499b);
+                this.handler.removeCallbacks(runnableC0505b);
                 return e.cQT();
             }
-            return runnableC0499b;
+            return runnableC0505b;
         }
 
         @Override // rx.g.a
@@ -70,12 +70,12 @@ public class b extends g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class RunnableC0499b implements Runnable, k {
+    public static final class RunnableC0505b implements Runnable, k {
         private final rx.functions.a action;
         private final Handler handler;
         private volatile boolean kuI;
 
-        RunnableC0499b(rx.functions.a aVar, Handler handler) {
+        RunnableC0505b(rx.functions.a aVar, Handler handler) {
             this.action = aVar;
             this.handler = handler;
         }

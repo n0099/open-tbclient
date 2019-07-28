@@ -55,8 +55,8 @@ public class g extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "has authorize");
             return;
         }
-        com.baidu.swan.apps.w.e.GF().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0106a() { // from class: com.baidu.swan.apps.camera.a.g.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0106a
+        com.baidu.swan.apps.w.e.GF().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0111a() { // from class: com.baidu.swan.apps.camera.a.g.2
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0111a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
                 if (i != 1) {

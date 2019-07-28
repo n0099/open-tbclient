@@ -212,7 +212,7 @@ public class a {
             c(eVar);
             if (this.bMZ != null) {
                 this.bNk.setVisibility(0);
-                this.bNk.setOnClickListener(new View$OnClickListenerC0236a(this, this.bMZ));
+                this.bNk.setOnClickListener(new View$OnClickListenerC0241a(this, this.bMZ));
                 am.g(this.bNk, R.drawable.icon_popup_close_n, isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0);
             }
             if (this.bMU != -1) {
@@ -232,7 +232,7 @@ public class a {
                 this.bNg.setText(this.bMS);
                 this.bNg.setTag(this.bNf);
                 if (this.bMX != null) {
-                    this.bNg.setOnClickListener(new View$OnClickListenerC0236a(this, this.bMX));
+                    this.bNg.setOnClickListener(new View$OnClickListenerC0241a(this, this.bMX));
                 }
                 z = true;
             }
@@ -241,7 +241,7 @@ public class a {
             } else {
                 this.bNh.setText(this.bMT);
                 if (this.bMY != null) {
-                    this.bNh.setOnClickListener(new View$OnClickListenerC0236a(this, this.bMY));
+                    this.bNh.setOnClickListener(new View$OnClickListenerC0241a(this, this.bMY));
                 }
             }
             p(z, z2);
@@ -462,11 +462,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.core.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0236a implements View.OnClickListener {
+    public class View$OnClickListenerC0241a implements View.OnClickListener {
         private final a TX;
         private final b bNn;
 
-        public View$OnClickListenerC0236a(a aVar, b bVar) {
+        public View$OnClickListenerC0241a(a aVar, b bVar) {
             this.TX = aVar;
             this.bNn = bVar;
         }

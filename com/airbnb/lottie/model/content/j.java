@@ -14,6 +14,7 @@ import com.airbnb.lottie.model.content.f;
 import com.airbnb.lottie.model.content.g;
 import com.airbnb.lottie.model.content.i;
 import com.airbnb.lottie.model.content.k;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.ArrayList;
@@ -80,7 +81,7 @@ public class j implements b {
                 }
                 break;
             case 3669:
-                if (optString.equals("sh")) {
+                if (optString.equals(IXAdRequestInfo.SCREEN_HEIGHT)) {
                     c = 6;
                     break;
                 }
@@ -98,7 +99,7 @@ public class j implements b {
                 }
                 break;
             case 3705:
-                if (optString.equals("tm")) {
+                if (optString.equals(IXAdRequestInfo.MAX_TITLE_LENGTH)) {
                     c = '\t';
                     break;
                 }

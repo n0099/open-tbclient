@@ -10,9 +10,9 @@ import rx.k;
 public final class b extends rx.g implements h {
     static final int kyU;
     static final c kyV;
-    static final C0511b kyW;
+    static final C0517b kyW;
     final ThreadFactory ahu;
-    final AtomicReference<C0511b> kyG = new AtomicReference<>(kyW);
+    final AtomicReference<C0517b> kyG = new AtomicReference<>(kyW);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -23,18 +23,18 @@ public final class b extends rx.g implements h {
         kyU = intValue;
         kyV = new c(RxThreadFactory.NONE);
         kyV.unsubscribe();
-        kyW = new C0511b(null, 0);
+        kyW = new C0517b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0511b {
+    public static final class C0517b {
         final int kzc;
         final c[] kzd;
         long n;
 
-        C0511b(ThreadFactory threadFactory, int i) {
+        C0517b(ThreadFactory threadFactory, int i) {
             this.kzc = i;
             this.kzd = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
@@ -72,22 +72,22 @@ public final class b extends rx.g implements h {
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0511b c0511b = new C0511b(this.ahu, kyU);
-        if (!this.kyG.compareAndSet(kyW, c0511b)) {
-            c0511b.shutdown();
+        C0517b c0517b = new C0517b(this.ahu, kyU);
+        if (!this.kyG.compareAndSet(kyW, c0517b)) {
+            c0517b.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C0511b c0511b;
+        C0517b c0517b;
         do {
-            c0511b = this.kyG.get();
-            if (c0511b == kyW) {
+            c0517b = this.kyG.get();
+            if (c0517b == kyW) {
                 return;
             }
-        } while (!this.kyG.compareAndSet(c0511b, kyW));
-        c0511b.shutdown();
+        } while (!this.kyG.compareAndSet(c0517b, kyW));
+        c0517b.shutdown();
     }
 
     public k g(rx.functions.a aVar) {

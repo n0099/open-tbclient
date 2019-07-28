@@ -8,6 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -81,7 +82,7 @@ public class ImMemoryCacheRegister {
                     chatMessage.setMsgId(msgId);
                     chatMessage.setRecordId(recordId);
                 }
-                com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+                com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
                 b.bEZ().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
                 final ImMessageCenterPojo aQ = b.bEZ().aQ(chatMessage.getGroupId(), chatMessage.getCustomGroupType());
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.1.1
@@ -132,7 +133,7 @@ public class ImMemoryCacheRegister {
                         com.baidu.tieba.im.sendmessage.a.dR(com.baidu.adp.lib.g.b.c(responseCommitPersonalMessage.getGroupId(), 0L));
                     }
                 }
-                com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), ClientCookie.COMMENT_ATTR, "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), "content", chatMessage.getContent());
+                com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), ClientCookie.COMMENT_ATTR, "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), "content", chatMessage.getContent());
                 if (chatMessage instanceof PersonalChatMessage) {
                     b.bEZ().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
                 } else if (chatMessage instanceof OfficialChatMessage) {
@@ -1094,7 +1095,7 @@ public class ImMemoryCacheRegister {
             Object[] objArr = new Object[2];
             objArr[0] = ClientCookie.COMMENT_ATTR;
             objArr[1] = sb2 == null ? "" : sb2.toString();
-            com.baidu.tbadk.core.e.a.a("im", j, cmd, "ack", error, errorString, objArr);
+            com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, j, cmd, "ack", error, errorString, objArr);
             ArrayList arrayList4 = null;
             ArrayList arrayList5 = null;
             ImMessageCenterPojo imMessageCenterPojo6 = null;

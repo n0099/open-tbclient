@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.screenrecord.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0212a implements Comparator<a> {
+    public static class C0217a implements Comparator<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */

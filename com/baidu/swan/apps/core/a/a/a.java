@@ -25,19 +25,19 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0126a {
+    public static class C0131a {
         private a aqb = new a();
 
         public a zi() {
             return this.aqb;
         }
 
-        public C0126a bY(int i) {
+        public C0131a bY(int i) {
             this.aqb.apW = i;
             return this;
         }
 
-        public C0126a aZ(boolean z) {
+        public C0131a aZ(boolean z) {
             this.aqb.apX = z;
             return this;
         }

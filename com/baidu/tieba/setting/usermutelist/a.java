@@ -17,12 +17,12 @@ public class a extends BaseAdapter {
     private ArrayList<MuteUser> aIn;
     private BaseActivity cWM;
     private b iTU;
-    private InterfaceC0400a iTV;
+    private InterfaceC0406a iTV;
     private SimpleDateFormat iTX = new SimpleDateFormat("yyyy.MM.dd");
 
     /* renamed from: com.baidu.tieba.setting.usermutelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0400a {
+    public interface InterfaceC0406a {
         void r(long j, String str);
     }
 
@@ -31,10 +31,10 @@ public class a extends BaseAdapter {
         void q(long j, String str);
     }
 
-    public a(BaseActivity baseActivity, b bVar, InterfaceC0400a interfaceC0400a) {
+    public a(BaseActivity baseActivity, b bVar, InterfaceC0406a interfaceC0406a) {
         this.cWM = baseActivity;
         this.iTU = bVar;
-        this.iTV = interfaceC0400a;
+        this.iTV = interfaceC0406a;
     }
 
     public void setData(ArrayList<MuteUser> arrayList) {

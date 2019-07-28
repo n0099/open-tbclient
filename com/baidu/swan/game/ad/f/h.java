@@ -18,7 +18,7 @@ import com.baidu.swan.game.ad.a;
 import com.baidu.swan.game.ad.b.a;
 import com.baidu.swan.game.ad.c.b;
 /* loaded from: classes2.dex */
-public class h implements a.InterfaceC0194a, a.b, a.c {
+public class h implements a.InterfaceC0199a, a.b, a.c {
     public String b;
     private a beA;
     private com.baidu.swan.game.ad.c beq;
@@ -117,7 +117,7 @@ public class h implements a.InterfaceC0194a, a.b, a.c {
         }
     }
 
-    @Override // com.baidu.swan.game.ad.b.a.InterfaceC0194a
+    @Override // com.baidu.swan.game.ad.b.a.InterfaceC0199a
     public void a(com.baidu.swan.game.ad.a.a aVar) {
         this.bes = aVar;
         this.g = 258;
@@ -125,7 +125,7 @@ public class h implements a.InterfaceC0194a, a.b, a.c {
         com.baidu.swan.games.view.a.b.bk("video", "success");
     }
 
-    @Override // com.baidu.swan.game.ad.b.a.InterfaceC0194a
+    @Override // com.baidu.swan.game.ad.b.a.InterfaceC0199a
     public void a(String str) {
         this.g = 259;
         a(this.bev, str);
@@ -217,7 +217,7 @@ public class h implements a.InterfaceC0194a, a.b, a.c {
         }
         if (this.beq != null) {
             this.beq.g();
-            this.beq.a().setAnimation(AnimationUtils.loadAnimation(this.c, a.C0193a.ng_game_ad_close));
+            this.beq.a().setAnimation(AnimationUtils.loadAnimation(this.c, a.C0198a.ng_game_ad_close));
             com.baidu.swan.games.view.a.c.an(this.beq.a());
         }
         if (this.beu != null) {
@@ -369,7 +369,7 @@ public class h implements a.InterfaceC0194a, a.b, a.c {
             };
             com.baidu.swan.games.view.a.c.a(this.beu);
         }
-        this.beq.a().setAnimation(AnimationUtils.loadAnimation(this.c, a.C0193a.ng_game_ad_open));
+        this.beq.a().setAnimation(AnimationUtils.loadAnimation(this.c, a.C0198a.ng_game_ad_open));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

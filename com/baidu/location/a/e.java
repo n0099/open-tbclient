@@ -6,6 +6,7 @@ import android.location.Location;
 import android.net.http.Headers;
 import android.os.Handler;
 import com.baidu.location.Jni;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedOutputStream;
@@ -86,7 +87,7 @@ public class e {
             this.h = "http://loc.map.baidu.com/cc.php";
             String encode = Jni.encode(this.a);
             this.a = null;
-            this.k.put("q", encode);
+            this.k.put(IXAdRequestInfo.COST_NAME, encode);
         }
 
         public void a(String str) {

@@ -26,7 +26,7 @@ public final class a {
     public Context b;
     com.baidu.sofire.rp.d.a.a c;
     public Receiver d;
-    private HandlerC0103a e = new HandlerC0103a(l.a());
+    private HandlerC0108a e = new HandlerC0108a(l.a());
 
     public a(Context context) {
         this.b = context.getApplicationContext();
@@ -41,8 +41,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.rp.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC0103a extends Handler {
-        public HandlerC0103a(Looper looper) {
+    public class HandlerC0108a extends Handler {
+        public HandlerC0108a(Looper looper) {
             super(looper);
         }
 
@@ -321,7 +321,7 @@ public final class a {
                 eVar.f.putInt("re_net_hr_bc", optInt3);
                 eVar.f.commit();
             }
-            int optInt4 = jSONObject.optInt(Config.DEVICE_WIDTH);
+            int optInt4 = jSONObject.optInt("w");
             if (optInt4 > 0) {
                 eVar.f.putInt("re_net_wt", optInt4);
                 eVar.f.commit();

@@ -21,7 +21,7 @@ public class ak {
     private static ThreadPoolExecutor c = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     public static void a() {
-        a.C0485a d;
+        a.C0491a d;
         long currentTimeMillis = System.currentTimeMillis();
         if ((c.getActiveCount() <= 0 || currentTimeMillis - b >= 1800000) && com.xiaomi.stats.f.a().c() && (d = bh.a().d()) != null && d.m() > 0) {
             b = currentTimeMillis;

@@ -23,18 +23,18 @@ public class MiTinyDataClient {
         private Context b;
         private String c;
         private Boolean d;
-        private C0483a e = new C0483a();
+        private C0489a e = new C0489a();
         private final ArrayList<com.xiaomi.xmpush.thrift.f> f = new ArrayList<>();
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0483a {
+        public class C0489a {
             private ScheduledFuture<?> d;
             private ScheduledThreadPoolExecutor c = new ScheduledThreadPoolExecutor(1);
             public final ArrayList<com.xiaomi.xmpush.thrift.f> a = new ArrayList<>();
             private final Runnable e = new an(this);
 
-            public C0483a() {
+            public C0489a() {
             }
 
             /* JADX INFO: Access modifiers changed from: private */

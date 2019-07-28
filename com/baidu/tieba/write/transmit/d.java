@@ -30,7 +30,7 @@ import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     private com.baidu.tieba.likedForum.a dPI;
-    private a.InterfaceC0349a dPL;
+    private a.InterfaceC0355a dPL;
     private List<TransmitForumData> jLd;
     private s jQi;
     private ArrayList<HotTopicBussinessData> mForumList;
@@ -81,8 +81,8 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                 d.this.dPI.auD();
             }
         };
-        this.dPL = new a.InterfaceC0349a() { // from class: com.baidu.tieba.write.transmit.d.2
-            @Override // com.baidu.tieba.likedForum.a.InterfaceC0349a
+        this.dPL = new a.InterfaceC0355a() { // from class: com.baidu.tieba.write.transmit.d.2
+            @Override // com.baidu.tieba.likedForum.a.InterfaceC0355a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
                 if (v.Z(list2) > 0) {

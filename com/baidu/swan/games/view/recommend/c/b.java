@@ -65,8 +65,8 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
                 b.this.Uk();
             }
         });
-        this.bna.a(new a.InterfaceC0216a() { // from class: com.baidu.swan.games.view.recommend.c.b.2
-            @Override // com.baidu.swan.games.view.recommend.c.a.InterfaceC0216a
+        this.bna.a(new a.InterfaceC0221a() { // from class: com.baidu.swan.games.view.recommend.c.b.2
+            @Override // com.baidu.swan.games.view.recommend.c.a.InterfaceC0221a
             public void fq(int i) {
                 if (b.this.bmD != null) {
                     b.this.bmD.fm(i);

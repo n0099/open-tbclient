@@ -23,7 +23,7 @@ public class MiPushClient4Hybrid {
         String str2 = miPushMessage.getExtra() == null ? "" : miPushMessage.getExtra().get(Constants.EXTRA_KEY_HYBRID_DEVICE_STATUS);
         int intValue = !TextUtils.isEmpty(str2) ? Integer.valueOf(str2).intValue() : 0;
         if (d != null && !d.isAllowNotification(str)) {
-            intValue = (intValue & (-4)) + a.EnumC0477a.NOT_ALLOWED.a();
+            intValue = (intValue & (-4)) + a.EnumC0483a.NOT_ALLOWED.a();
         }
         return (short) intValue;
     }
@@ -134,7 +134,7 @@ public class MiPushClient4Hybrid {
     public static void onPlatformNotificationMessageArrived(Context context, MiPushMessage miPushMessage, boolean z) {
         int intValue = Integer.valueOf(miPushMessage.getExtra().get(Constants.EXTRA_KEY_HYBRID_DEVICE_STATUS)).intValue();
         if (!z) {
-            intValue = (intValue & (-4)) + a.EnumC0477a.NOT_ALLOWED.a();
+            intValue = (intValue & (-4)) + a.EnumC0483a.NOT_ALLOWED.a();
         }
         a(context, miPushMessage, context.getPackageName(), (short) intValue);
     }

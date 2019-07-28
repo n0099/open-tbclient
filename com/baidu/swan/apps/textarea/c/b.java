@@ -412,8 +412,8 @@ public class b {
             }
         });
         final View decorView = swanAppActivity.getWindow().getDecorView();
-        com.baidu.swan.apps.textarea.a.OM().a(decorView, aVar.id, new a.InterfaceC0182a() { // from class: com.baidu.swan.apps.textarea.c.b.4
-            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0182a
+        com.baidu.swan.apps.textarea.a.OM().a(decorView, aVar.id, new a.InterfaceC0187a() { // from class: com.baidu.swan.apps.textarea.c.b.4
+            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0187a
             public void y(String str, int i) {
                 int i2;
                 com.baidu.swan.apps.b.c.d Gs = e.GF().Gs();
@@ -463,7 +463,7 @@ public class b {
                 }
             }
 
-            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0182a
+            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0187a
             public void z(String str, int i) {
                 if (b.this.axH != 0 && b.this.aZg.get(str) != null) {
                     b.this.axH = 0;
@@ -484,7 +484,7 @@ public class b {
                 }
             }
 
-            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0182a
+            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0187a
             public void eD(String str) {
                 if (b.this.aZg.get(str) != null && ((com.baidu.swan.apps.textarea.b.a) b.this.aZg.get(str)).aZc != editText.getLineCount()) {
                     c.d("TextAreaSecondaryParser", "send line change callback");

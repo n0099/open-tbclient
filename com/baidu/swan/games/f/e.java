@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.system.Os;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -1042,7 +1043,7 @@ public class e {
             }
         } else {
             try {
-                Field declaredField = Class.forName("libcore.io.Libcore").getDeclaredField("os");
+                Field declaredField = Class.forName("libcore.io.Libcore").getDeclaredField(IXAdRequestInfo.OS);
                 if (!declaredField.isAccessible()) {
                     declaredField.setAccessible(true);
                 }

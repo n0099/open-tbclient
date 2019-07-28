@@ -67,46 +67,46 @@ public class a extends BaseAdapter {
         Exception exc;
         View view3;
         View view4;
-        C0264a c0264a;
+        C0269a c0269a;
         View view5;
         try {
             try {
                 if (view != null) {
-                    c0264a = (C0264a) view.getTag();
+                    c0269a = (C0269a) view.getTag();
                     view5 = view;
                 } else if (getItemViewType(i) == 0) {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                    c0264a = new C0264a();
-                    c0264a.cWt = (TextView) view5.findViewById(R.id.account);
-                    c0264a.cWv = (ImageView) view5.findViewById(R.id.active);
-                    c0264a.cWw = (TextView) view5.findViewById(R.id.delete);
-                    c0264a.mLine = view5.findViewById(R.id.account_item_line);
-                    c0264a.cWw.setOnClickListener(this.bZH);
-                    view5.setTag(c0264a);
+                    c0269a = new C0269a();
+                    c0269a.cWt = (TextView) view5.findViewById(R.id.account);
+                    c0269a.cWv = (ImageView) view5.findViewById(R.id.active);
+                    c0269a.cWw = (TextView) view5.findViewById(R.id.delete);
+                    c0269a.mLine = view5.findViewById(R.id.account_item_line);
+                    c0269a.cWw.setOnClickListener(this.bZH);
+                    view5.setTag(c0269a);
                 } else {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                    c0264a = new C0264a();
-                    c0264a.cWu = (TextView) view5.findViewById(R.id.add_text);
-                    view5.setTag(c0264a);
+                    c0269a = new C0269a();
+                    c0269a.cWu = (TextView) view5.findViewById(R.id.add_text);
+                    view5.setTag(c0269a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0264a.cWv.setVisibility(8);
-                    c0264a.cWw.setVisibility(8);
-                    c0264a.cWw.setTag(accountData);
+                    c0269a.cWv.setVisibility(8);
+                    c0269a.cWw.setVisibility(8);
+                    c0269a.cWw.setTag(accountData);
                     if (accountData != null) {
-                        c0264a.cWt.setText(accountData.getAccountNameShow());
+                        c0269a.cWt.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0264a.cWv.setVisibility(0);
+                            c0269a.cWv.setVisibility(0);
                         }
                         if (this.cWs) {
-                            c0264a.cWw.setVisibility(0);
+                            c0269a.cWw.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
-                        c0264a.mLine.setVisibility(8);
+                        c0269a.mLine.setVisibility(8);
                     } else {
-                        c0264a.mLine.setVisibility(0);
+                        c0269a.mLine.setVisibility(0);
                     }
                 }
                 this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
@@ -172,14 +172,14 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0264a {
+    private class C0269a {
         TextView cWt;
         TextView cWu;
         ImageView cWv;
         TextView cWw;
         View mLine;
 
-        private C0264a() {
+        private C0269a() {
         }
     }
 }

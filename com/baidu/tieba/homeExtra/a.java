@@ -7,14 +7,14 @@ import com.baidu.tieba.homepage.framework.c;
 /* loaded from: classes6.dex */
 class a extends CustomMessageTask {
     public a() {
-        super(2001406, new C0317a());
+        super(2001406, new C0323a());
         setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
     }
 
     /* renamed from: com.baidu.tieba.homeExtra.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0317a implements CustomMessageTask.CustomRunnable<c> {
-        private C0317a() {
+    private static class C0323a implements CustomMessageTask.CustomRunnable<c> {
+        private C0323a() {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

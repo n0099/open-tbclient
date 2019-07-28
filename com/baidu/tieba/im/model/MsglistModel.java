@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.g.b;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -743,7 +744,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             ChatMessage chatMessage = (ChatMessage) responseCommitMessage.getOrginalMessage();
             if (responseCommitMessage.getError() != 0) {
                 com.baidu.tbadk.lcs.a.e(responseCommitMessage.getCmd(), 0, 0, 0, 13, MessageManager.getInstance().getSocketClient().isValid() ? 1 : 2);
-                com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), responseCommitMessage.getCmd(), "ack", responseCommitMessage.getError(), responseCommitMessage.getErrorString(), ClientCookie.COMMENT_ATTR, createMsgLog(chatMessage) + "rid" + chatMessage.getRecordId());
+                com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), responseCommitMessage.getCmd(), "ack", responseCommitMessage.getError(), responseCommitMessage.getErrorString(), ClientCookie.COMMENT_ATTR, createMsgLog(chatMessage) + "rid" + chatMessage.getRecordId());
                 if (responseCommitMessage.getError() > 0) {
                     if (AntiHelper.aG(responseCommitMessage.getError(), responseCommitMessage.getErrorString())) {
                         if (this.mAntiDialog != null) {
@@ -761,7 +762,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                         this.mActivity.showToast(responseCommitMessage.getErrorString());
                         if (chatMessage.getRecordId() != responseCommitMessage.getRecordId()) {
                             responseCommitMessage.setRecordId(chatMessage.getRecordId());
-                            com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), responseCommitMessage.getCmd(), "ack", responseCommitMessage.getError(), responseCommitMessage.getErrorString(), ClientCookie.COMMENT_ATTR, "orgRId != sRId");
+                            com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), responseCommitMessage.getCmd(), "ack", responseCommitMessage.getError(), responseCommitMessage.getErrorString(), ClientCookie.COMMENT_ATTR, "orgRId != sRId");
                         }
                     }
                 }
@@ -770,7 +771,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             }
             if (chatMessage.getRecordId() != responseCommitMessage.getRecordId()) {
                 responseCommitMessage.setRecordId(chatMessage.getRecordId());
-                com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), responseCommitMessage.getCmd(), "ack", responseCommitMessage.getError(), responseCommitMessage.getErrorString(), ClientCookie.COMMENT_ATTR, "orgRId != sRId");
+                com.baidu.tbadk.core.e.a.a(IXAdRequestInfo.IMSI, chatMessage.getClientLogID(), responseCommitMessage.getCmd(), "ack", responseCommitMessage.getError(), responseCommitMessage.getErrorString(), ClientCookie.COMMENT_ATTR, "orgRId != sRId");
             }
             sendMsgSuc(responseCommitMessage);
         }
@@ -1059,7 +1060,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         com.baidu.tieba.im.sendmessage.a.bGn().setSendCallback(dVar);
     }
 
-    public void setImageUploadUIProgressCallback(a.InterfaceC0251a<ChatMessage> interfaceC0251a) {
-        com.baidu.tieba.im.sendmessage.a.bGn().setImageUploadUIProgressCallback(interfaceC0251a);
+    public void setImageUploadUIProgressCallback(a.InterfaceC0256a<ChatMessage> interfaceC0256a) {
+        com.baidu.tieba.im.sendmessage.a.bGn().setImageUploadUIProgressCallback(interfaceC0256a);
     }
 }

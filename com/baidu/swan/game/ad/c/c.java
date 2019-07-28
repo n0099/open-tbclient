@@ -1,7 +1,7 @@
 package com.baidu.swan.game.ad.c;
 
 import android.content.Context;
-import com.baidu.mobstat.Config;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.tencent.open.SocialConstants;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
@@ -25,9 +25,9 @@ public class c extends d {
         hashMap.put(SocialConstants.PARAM_ACT, this.f);
         hashMap.put("prod", this.c);
         hashMap.put("at", this.d);
-        hashMap.put("fet", this.e);
+        hashMap.put(IXAdRequestInfo.FET, this.e);
         if (this.bdS != null) {
-            hashMap.put(Config.DEVICE_WIDTH, "" + this.bdS.a());
+            hashMap.put("w", "" + this.bdS.a());
             hashMap.put("h", "" + this.bdS.b());
         }
         return hashMap;

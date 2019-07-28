@@ -48,8 +48,8 @@ public class a extends z {
                 i = "game".equals(optString2) ? 1 : 3;
             }
             c.d("StartDeviceMotionAction", "startSensor===");
-            if (!com.baidu.swan.apps.aj.g.a.OC().a(i, new a.InterfaceC0113a() { // from class: com.baidu.swan.apps.aj.g.a.a.1
-                @Override // com.baidu.swan.apps.aj.g.a.InterfaceC0113a
+            if (!com.baidu.swan.apps.aj.g.a.OC().a(i, new a.InterfaceC0118a() { // from class: com.baidu.swan.apps.aj.g.a.a.1
+                @Override // com.baidu.swan.apps.aj.g.a.InterfaceC0118a
                 public void h(float[] fArr) {
                     if (fArr != null && fArr.length == 3) {
                         a.this.a(unitedSchemeEntity, callbackHandler, optString, fArr);

@@ -263,8 +263,8 @@ public class e {
             aVar.e(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             aVar.e(tbPageContext.getPageActivity(), "android.permission.CAMERA");
             aVar.e(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
-            aVar.a(new a.InterfaceC0238a() { // from class: com.baidu.tieba.write.e.11
-                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0238a
+            aVar.a(new a.InterfaceC0243a() { // from class: com.baidu.tieba.write.e.11
+                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0243a
                 public void ajR() {
                     String str2;
                     String str3 = null;
@@ -468,8 +468,8 @@ public class e {
         com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
         aVar.ajQ();
         aVar.e(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        aVar.a(new a.InterfaceC0238a() { // from class: com.baidu.tieba.write.e.4
-            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0238a
+        aVar.a(new a.InterfaceC0243a() { // from class: com.baidu.tieba.write.e.4
+            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0243a
             public void ajR() {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, WriteActivityConfig.this));
             }

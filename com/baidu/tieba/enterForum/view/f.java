@@ -144,8 +144,8 @@ public class f {
         this.fcm.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity(), 0, false));
         this.fcm.setItemAnimator(new DefaultItemAnimator());
         this.fcm.addItemDecoration(new b(l.g(this.mPageContext.getPageActivity(), R.dimen.tbds35), l.g(this.mPageContext.getPageActivity(), R.dimen.tbds1), l.g(this.mPageContext.getPageActivity(), R.dimen.tbds44)));
-        this.fcn.a(new b.InterfaceC0295b() { // from class: com.baidu.tieba.enterForum.view.f.7
-            @Override // com.baidu.tieba.enterForum.a.b.InterfaceC0295b
+        this.fcn.a(new b.InterfaceC0301b() { // from class: com.baidu.tieba.enterForum.view.f.7
+            @Override // com.baidu.tieba.enterForum.a.b.InterfaceC0301b
             public void a(b.a aVar) {
                 if (!f.this.eVG && aVar != null && aVar.itemView != null && (aVar.itemView.getTag() instanceof VisitedForumData)) {
                     VisitedForumData visitedForumData = (VisitedForumData) aVar.itemView.getTag();

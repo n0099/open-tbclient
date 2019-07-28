@@ -30,12 +30,12 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0443a jZg;
-        private C0443a jZh;
+        private C0449a jZg;
+        private C0449a jZh;
         private boolean jZi;
 
         private a(String str) {
-            this.jZg = new C0443a();
+            this.jZg = new C0449a();
             this.jZh = this.jZg;
             this.jZi = false;
             this.className = (String) g.checkNotNull(str);
@@ -57,28 +57,28 @@ public final class f {
             boolean z = this.jZi;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0443a c0443a = this.jZg.jZj; c0443a != null; c0443a = c0443a.jZj) {
-                if (!z || c0443a.value != null) {
+            for (C0449a c0449a = this.jZg.jZj; c0449a != null; c0449a = c0449a.jZj) {
+                if (!z || c0449a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0443a.name != null) {
-                        append.append(c0443a.name).append('=');
+                    if (c0449a.name != null) {
+                        append.append(c0449a.name).append('=');
                     }
-                    append.append(c0443a.value);
+                    append.append(c0449a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0443a cEC() {
-            C0443a c0443a = new C0443a();
-            this.jZh.jZj = c0443a;
-            this.jZh = c0443a;
-            return c0443a;
+        private C0449a cEC() {
+            C0449a c0449a = new C0449a();
+            this.jZh.jZj = c0449a;
+            this.jZh = c0449a;
+            return c0449a;
         }
 
         private a u(String str, @Nullable Object obj) {
-            C0443a cEC = cEC();
+            C0449a cEC = cEC();
             cEC.value = obj;
             cEC.name = (String) g.checkNotNull(str);
             return this;
@@ -87,12 +87,12 @@ public final class f {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0443a {
-            C0443a jZj;
+        public static final class C0449a {
+            C0449a jZj;
             String name;
             Object value;
 
-            private C0443a() {
+            private C0449a() {
             }
         }
     }

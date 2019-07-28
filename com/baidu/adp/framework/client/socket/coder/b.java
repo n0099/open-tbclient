@@ -7,6 +7,7 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.g;
 import com.baidu.adp.lib.util.u;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -144,7 +145,7 @@ public class b {
             } else {
                 str = th.getMessage();
             }
-            BdStatisticsManager.getInstance().error("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(i2), ClientCookie.COMMENT_ATTR, str);
+            BdStatisticsManager.getInstance().error(IXAdRequestInfo.IMSI, j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(i2), ClientCookie.COMMENT_ATTR, str);
             throw new CoderException(h.ux);
         }
     }

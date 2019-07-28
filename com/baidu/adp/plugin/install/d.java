@@ -17,6 +17,7 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.adp.plugin.util.e;
 import com.baidu.adp.plugin.util.f;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
@@ -677,12 +678,12 @@ public class d {
         ZipFile zipFile;
         if (!TextUtils.isEmpty(str)) {
             String lowerCase = Build.CPU_ABI.toLowerCase();
-            String str4 = "none";
+            String str4 = IXAdSystemUtils.NT_NONE;
             if (Build.VERSION.SDK_INT > 7) {
                 try {
                     str4 = ((String) Build.class.getDeclaredField("CPU_ABI2").get(Build.class)).toLowerCase();
                 } catch (Throwable th) {
-                    str4 = "none";
+                    str4 = IXAdSystemUtils.NT_NONE;
                     zipFile = null;
                     zipFile = new ZipFile(str);
                     if (zipFile == null) {
@@ -1016,7 +1017,7 @@ public class d {
         Ix = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
-            str = "none";
+            str = IXAdSystemUtils.NT_NONE;
         } else {
             try {
                 try {
@@ -1024,7 +1025,7 @@ public class d {
                 } catch (Throwable th) {
                 }
             } catch (Throwable th2) {
-                str = "none";
+                str = IXAdSystemUtils.NT_NONE;
             }
         }
         if (lowerCase.contains(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || str.contains(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || mb()) {

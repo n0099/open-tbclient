@@ -14,13 +14,13 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0238a bVA;
+    private InterfaceC0243a bVA;
     private ArrayList<String> bVy = new ArrayList<>();
     private b bVz;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0238a {
+    public interface InterfaceC0243a {
         void ajR();
     }
 
@@ -138,8 +138,8 @@ public class a {
         return "android.permission.CALL_PHONE".equals(str) ? R.string.request_permission_cellphone : R.string.request_permission_default_text;
     }
 
-    public void a(InterfaceC0238a interfaceC0238a) {
-        this.bVA = interfaceC0238a;
+    public void a(InterfaceC0243a interfaceC0243a) {
+        this.bVA = interfaceC0243a;
     }
 
     public void ajR() {

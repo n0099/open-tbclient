@@ -8,7 +8,7 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 /* loaded from: classes2.dex */
 public class a implements Interceptor {
-    private InterfaceC0148a aFq;
+    private InterfaceC0153a aFq;
     final e aFr = new e() { // from class: com.baidu.swan.apps.network.a.a.1
         @Override // com.baidu.swan.apps.network.e
         public void a(long j, long j2, boolean z) {
@@ -40,7 +40,7 @@ public class a implements Interceptor {
 
     /* renamed from: com.baidu.swan.apps.network.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0148a {
+    public interface InterfaceC0153a {
         void K(long j);
 
         void b(int i, long j, long j2);
@@ -48,8 +48,8 @@ public class a implements Interceptor {
         void e(long j, long j2);
     }
 
-    public void a(InterfaceC0148a interfaceC0148a) {
-        this.aFq = interfaceC0148a;
+    public void a(InterfaceC0153a interfaceC0153a) {
+        this.aFq = interfaceC0153a;
     }
 
     @Override // okhttp3.Interceptor

@@ -17,7 +17,7 @@ public class c extends b {
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (a(context, bVar, unitedSchemeEntity)) {
-            a.C0110a bE = com.baidu.swan.apps.aj.b.a.bE(context);
+            a.C0115a bE = com.baidu.swan.apps.aj.b.a.bE(context);
             if (bE == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;

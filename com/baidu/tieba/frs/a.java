@@ -29,7 +29,7 @@ public class a {
     }
 
     public static a bkY() {
-        return C0303a.fsP;
+        return C0309a.fsP;
     }
 
     public boolean bkZ() {
@@ -98,7 +98,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0303a {
+    public static class C0309a {
         private static a fsP = new a();
     }
 

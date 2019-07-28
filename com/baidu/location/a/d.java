@@ -18,6 +18,7 @@ import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.tencent.connect.common.Constants;
@@ -303,7 +304,7 @@ public class d {
         this.b = null;
         try {
             this.f = (TelephonyManager) this.e.getSystemService("phone");
-            this.n = (WifiManager) this.e.getApplicationContext().getSystemService("wifi");
+            this.n = (WifiManager) this.e.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI);
             str = this.f.getDeviceId();
         } catch (Exception e) {
             this.n = null;

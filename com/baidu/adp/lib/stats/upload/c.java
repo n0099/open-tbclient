@@ -2,6 +2,7 @@ package com.baidu.adp.lib.stats.upload;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -63,7 +64,7 @@ class c {
             sb.append("=");
             sb.append(URLEncoder.encode(cVar.mAppVersion, "utf-8"));
             sb.append("&");
-            sb.append("os");
+            sb.append(IXAdRequestInfo.OS);
             sb.append("=");
             sb.append("android");
             sb.append("&");

@@ -41,7 +41,7 @@ public class a extends c<TbTitleActivity> {
     public LinearLayout frE;
     private List<LevelInfo> frF;
     private DataRes frG;
-    private C0301a frH;
+    private C0307a frH;
     private View.OnClickListener frt;
     private TbTitleActivity fry;
     private LinearLayout frz;
@@ -50,7 +50,7 @@ public class a extends c<TbTitleActivity> {
 
     public a(TbTitleActivity tbTitleActivity, View.OnClickListener onClickListener) {
         super(tbTitleActivity.getPageContext());
-        this.frH = new C0301a(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.tbtitle.a.a.1
+        this.frH = new C0307a(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.tbtitle.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.fry.getPageContext().getContext()).createNormalCfg(a.this.getPageContext().getString(R.string.tieba_text), "from")));
@@ -100,10 +100,10 @@ public class a extends c<TbTitleActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.forumMember.tbtitle.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0301a extends ClickableSpan {
+    public class C0307a extends ClickableSpan {
         private View.OnClickListener bZH;
 
-        public C0301a(View.OnClickListener onClickListener) {
+        public C0307a(View.OnClickListener onClickListener) {
             this.bZH = onClickListener;
         }
 

@@ -20,7 +20,7 @@ public class a {
         if (b != null && b.bog != null) {
             str = b.bog.id;
         }
-        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("markerId", str).UI();
+        JSONObject UI = C0222a.UH().m("mapId", bVar.id).m("markerId", str).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "markertap");
@@ -35,7 +35,7 @@ public class a {
     }
 
     public static void c(com.baidu.swan.impl.map.item.b bVar, com.baidu.swan.apps.x.a.a.d dVar) {
-        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("markerId", dVar.id).UI();
+        JSONObject UI = C0222a.UH().m("mapId", bVar.id).m("markerId", dVar.id).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "callouttap");
@@ -55,7 +55,7 @@ public class a {
         if (aA != null && aA.boc != null) {
             str = aA.boc.id;
         }
-        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("controlId", str).UI();
+        JSONObject UI = C0222a.UH().m("mapId", bVar.id).m("controlId", str).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "controltap");
@@ -70,8 +70,8 @@ public class a {
     }
 
     public static void a(com.baidu.swan.impl.map.item.b bVar, MapStatus mapStatus) {
-        JSONObject UI = C0217a.UH().m("latitude", Double.valueOf(mapStatus.bound.northeast.latitude)).m("longitude", Double.valueOf(mapStatus.bound.northeast.longitude)).UI();
-        JSONObject UI2 = C0217a.UH().m("mapId", bVar.id).m("northeast", UI).m("southwest", C0217a.UH().m("latitude", Double.valueOf(mapStatus.bound.southwest.latitude)).m("longitude", Double.valueOf(mapStatus.bound.southwest.longitude)).UI()).UI();
+        JSONObject UI = C0222a.UH().m("latitude", Double.valueOf(mapStatus.bound.northeast.latitude)).m("longitude", Double.valueOf(mapStatus.bound.northeast.longitude)).UI();
+        JSONObject UI2 = C0222a.UH().m("mapId", bVar.id).m("northeast", UI).m("southwest", C0222a.UH().m("latitude", Double.valueOf(mapStatus.bound.southwest.latitude)).m("longitude", Double.valueOf(mapStatus.bound.southwest.longitude)).UI()).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "regionchange");
@@ -86,7 +86,7 @@ public class a {
     }
 
     public static void a(com.baidu.swan.impl.map.item.b bVar, LatLng latLng) {
-        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("position", C0217a.UH().m("latitude", Double.valueOf(latLng.latitude)).m("longitude", Double.valueOf(latLng.longitude)).UI()).UI();
+        JSONObject UI = C0222a.UH().m("mapId", bVar.id).m("position", C0222a.UH().m("latitude", Double.valueOf(latLng.latitude)).m("longitude", Double.valueOf(latLng.longitude)).UI()).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "tap");
@@ -101,7 +101,7 @@ public class a {
     }
 
     public static void b(com.baidu.swan.impl.map.item.b bVar) {
-        JSONObject UI = C0217a.UH().m("mapId", bVar.id).UI();
+        JSONObject UI = C0222a.UH().m("mapId", bVar.id).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "updated");
@@ -117,8 +117,8 @@ public class a {
 
     public static void a(com.baidu.swan.impl.map.item.b bVar, MapPoi mapPoi) {
         LatLng position = mapPoi.getPosition();
-        C0217a.UH().m("latitude", Double.valueOf(position.latitude)).m("longitude", Double.valueOf(position.longitude)).UI();
-        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("name", mapPoi.getName()).m("latitude", Double.valueOf(position.latitude)).m("longitude", Double.valueOf(position.longitude)).UI();
+        C0222a.UH().m("latitude", Double.valueOf(position.latitude)).m("longitude", Double.valueOf(position.longitude)).UI();
+        JSONObject UI = C0222a.UH().m("mapId", bVar.id).m("name", mapPoi.getName()).m("latitude", Double.valueOf(position.latitude)).m("longitude", Double.valueOf(position.longitude)).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "poitap");
@@ -134,14 +134,14 @@ public class a {
 
     /* renamed from: com.baidu.swan.impl.map.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static class C0217a {
+    private static class C0222a {
         private JSONObject params = new JSONObject();
 
-        static C0217a UH() {
-            return new C0217a();
+        static C0222a UH() {
+            return new C0222a();
         }
 
-        C0217a m(String str, Object obj) {
+        C0222a m(String str, Object obj) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     this.params.put(str, obj);
@@ -156,7 +156,7 @@ public class a {
             return this.params;
         }
 
-        C0217a() {
+        C0222a() {
         }
     }
 }

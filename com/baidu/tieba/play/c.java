@@ -109,7 +109,7 @@ public class c {
     private g.a ius;
     private g.b iut;
     private View.OnClickListener iuw;
-    protected InterfaceC0386c iux;
+    protected InterfaceC0392c iux;
     private d iuy;
     protected Activity mActivity;
     private AudioManager mAudioManager;
@@ -262,8 +262,8 @@ public class c {
             }
         }
     };
-    private g.InterfaceC0387g cTt = new g.InterfaceC0387g() { // from class: com.baidu.tieba.play.c.2
-        @Override // com.baidu.tieba.play.g.InterfaceC0387g
+    private g.InterfaceC0393g cTt = new g.InterfaceC0393g() { // from class: com.baidu.tieba.play.c.2
+        @Override // com.baidu.tieba.play.g.InterfaceC0393g
         public void b(com.baidu.tieba.play.g gVar) {
             if (c.this.iuM) {
                 com.baidu.adp.lib.g.e.iK().postDelayed(c.this.iuY, 200L);
@@ -501,7 +501,7 @@ public class c {
 
     /* renamed from: com.baidu.tieba.play.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0386c {
+    public interface InterfaceC0392c {
         void pA();
 
         void pz();
@@ -1710,8 +1710,8 @@ public class c {
         }
     }
 
-    public void a(InterfaceC0386c interfaceC0386c) {
-        this.iux = interfaceC0386c;
+    public void a(InterfaceC0392c interfaceC0392c) {
+        this.iux = interfaceC0392c;
     }
 
     public void wD(int i2) {

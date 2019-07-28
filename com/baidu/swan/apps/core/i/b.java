@@ -18,12 +18,12 @@ public final class b {
     public static class a {
         public com.baidu.swan.apps.b.c.c atB;
         public boolean atC;
-        public final ArrayList<InterfaceC0134b> atD = new ArrayList<>();
+        public final ArrayList<InterfaceC0139b> atD = new ArrayList<>();
     }
 
     /* renamed from: com.baidu.swan.apps.core.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0134b {
+    public interface InterfaceC0139b {
         void onReady();
     }
 
@@ -97,12 +97,12 @@ public final class b {
         return removeFirst;
     }
 
-    public static void a(a aVar, InterfaceC0134b interfaceC0134b) {
-        if (interfaceC0134b != null) {
+    public static void a(a aVar, InterfaceC0139b interfaceC0139b) {
+        if (interfaceC0139b != null) {
             if (aVar.atC) {
-                interfaceC0134b.onReady();
+                interfaceC0139b.onReady();
             } else {
-                aVar.atD.add(interfaceC0134b);
+                aVar.atD.add(interfaceC0139b);
             }
         }
     }
@@ -118,9 +118,9 @@ public final class b {
                 }
                 a.this.atC = true;
                 if (!a.this.atD.isEmpty()) {
-                    Iterator<InterfaceC0134b> it = a.this.atD.iterator();
+                    Iterator<InterfaceC0139b> it = a.this.atD.iterator();
                     while (it.hasNext()) {
-                        InterfaceC0134b next = it.next();
+                        InterfaceC0139b next = it.next();
                         if (next != null) {
                             next.onReady();
                         }

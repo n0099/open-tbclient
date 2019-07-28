@@ -34,7 +34,7 @@ public final class a {
     private Messenger aHt;
     private g aHu;
     private e aHv;
-    private final List<C0156a> aHw;
+    private final List<C0161a> aHw;
     public final ServiceConnection aHx;
     private Messenger mMessenger;
 
@@ -101,16 +101,16 @@ public final class a {
                 if (a.this.aHw.size() > 0) {
                     Iterator it = a.this.aHw.iterator();
                     while (it.hasNext()) {
-                        C0156a c0156a = (C0156a) it.next();
-                        if (c0156a.aHz instanceof SwanAppIPCData) {
-                            a.this.a(c0156a.msgType, (SwanAppIPCData) c0156a.aHz);
-                        } else if (c0156a.aHz instanceof b) {
-                            b bVar = (b) c0156a.aHz;
+                        C0161a c0161a = (C0161a) it.next();
+                        if (c0161a.aHz instanceof SwanAppIPCData) {
+                            a.this.a(c0161a.msgType, (SwanAppIPCData) c0161a.aHz);
+                        } else if (c0161a.aHz instanceof b) {
+                            b bVar = (b) c0161a.aHz;
                             a.this.a(bVar.mParams, bVar.mDelegation, bVar.aHA);
-                        } else if (c0156a.aHz instanceof Bundle) {
-                            a.this.e(c0156a.msgType, (Bundle) c0156a.aHz);
+                        } else if (c0161a.aHz instanceof Bundle) {
+                            a.this.e(c0161a.msgType, (Bundle) c0161a.aHz);
                         } else {
-                            a.this.p(c0156a.msgType, c0156a.aHz == null ? "" : c0156a.aHz.toString());
+                            a.this.p(c0161a.msgType, c0161a.aHz == null ? "" : c0161a.aHz.toString());
                         }
                         it.remove();
                     }
@@ -160,8 +160,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(IBinder iBinder) {
         if (iBinder != null) {
-            com.baidu.swan.apps.process.a.a.a(iBinder, new a.InterfaceC0154a() { // from class: com.baidu.swan.apps.process.messaging.client.a.1
-                @Override // com.baidu.swan.apps.process.a.a.InterfaceC0154a
+            com.baidu.swan.apps.process.a.a.a(iBinder, new a.InterfaceC0159a() { // from class: com.baidu.swan.apps.process.messaging.client.a.1
+                @Override // com.baidu.swan.apps.process.a.a.InterfaceC0159a
                 public void Jm() {
                     if (a.DEBUG) {
                         Log.d("SwanAppMessengerClient", "service process goes away");
@@ -200,7 +200,7 @@ public final class a {
             bVar.mParams = bundle;
             bVar.mDelegation = cls;
             bVar.aHA = cVar;
-            this.aHw.add(new C0156a(12, bVar));
+            this.aHw.add(new C0161a(12, bVar));
             if (DEBUG) {
                 Log.d("SwanAppMessengerClient", String.format("sendMessage Cached(%d) msg(%d) deleData(%s)", Integer.valueOf(this.aHw.size()), 12, bVar.toString()));
                 return;
@@ -243,7 +243,7 @@ public final class a {
         SwanAppProcessInfo current = SwanAppProcessInfo.current();
         if (this.aHt == null || this.mMessenger == null || !current.isSwanAppProcess()) {
             if (i == 6) {
-                this.aHw.add(new C0156a(i, str));
+                this.aHw.add(new C0161a(i, str));
                 if (DEBUG) {
                     Log.d("SwanAppMessengerClient", String.format("sendMessage Cached(%d) msg(%d) strData(%s)", Integer.valueOf(this.aHw.size()), Integer.valueOf(i), str));
                     return;
@@ -281,7 +281,7 @@ public final class a {
                 if (DEBUG) {
                     Log.d("SwanAppMessengerClient", String.format("sendMessage Cached(%d) msg(%d) ipcData(%s)", Integer.valueOf(this.aHw.size()), Integer.valueOf(i), swanAppIPCData.toString()));
                 }
-                this.aHw.add(new C0156a(i, swanAppIPCData));
+                this.aHw.add(new C0161a(i, swanAppIPCData));
                 return;
             }
             return;
@@ -317,7 +317,7 @@ public final class a {
             if (DEBUG) {
                 Log.i("SwanAppMessengerClient", "sendMessage: msgType=" + obtain + " Bundle=" + bundle);
             }
-            this.aHw.add(new C0156a(i, bundle));
+            this.aHw.add(new C0161a(i, bundle));
             if (DEBUG) {
                 Log.d("SwanAppMessengerClient", String.format("sendMessage Cached(%d) msg(%d) bData(%s)", Integer.valueOf(this.aHw.size()), Integer.valueOf(i), bundle));
                 return;
@@ -474,11 +474,11 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.client.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0156a<T> {
+    public static class C0161a<T> {
         private T aHz;
         private int msgType;
 
-        C0156a(int i, T t) {
+        C0161a(int i, T t) {
             this.msgType = i;
             this.aHz = t;
         }

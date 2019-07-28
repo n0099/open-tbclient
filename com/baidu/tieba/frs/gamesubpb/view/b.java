@@ -11,7 +11,7 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes4.dex */
 public class b {
-    private a.InterfaceC0308a fIy;
+    private a.InterfaceC0314a fIy;
     private SpannableTextView fJp;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
@@ -41,9 +41,9 @@ public class b {
         return this.mRootView;
     }
 
-    public void setClickListener(a.InterfaceC0308a interfaceC0308a) {
-        this.fIy = interfaceC0308a;
-        this.fJp.setClickListener(interfaceC0308a);
+    public void setClickListener(a.InterfaceC0314a interfaceC0314a) {
+        this.fIy = interfaceC0314a;
+        this.fJp.setClickListener(interfaceC0314a);
     }
 
     /* loaded from: classes4.dex */

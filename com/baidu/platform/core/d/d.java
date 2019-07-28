@@ -2,6 +2,7 @@ package com.baidu.platform.core.d;
 
 import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
 import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.tencent.connect.common.Constants;
 import java.util.List;
@@ -24,7 +25,7 @@ public class d extends com.baidu.platform.base.e {
         this.a.a("rp_format", "json");
         this.a.a("rp_filter", "mobile");
         this.a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
-        this.a.a("sn", a(drivingRoutePlanOption.mFrom));
+        this.a.a(IXAdRequestInfo.SN, a(drivingRoutePlanOption.mFrom));
         this.a.a("en", a(drivingRoutePlanOption.mTo));
         if (drivingRoutePlanOption.mCityName != null) {
             this.a.a("c", drivingRoutePlanOption.mCityName);

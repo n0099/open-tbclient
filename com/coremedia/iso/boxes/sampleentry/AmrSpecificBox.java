@@ -11,13 +11,13 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class AmrSpecificBox extends AbstractBox {
     public static final String TYPE = "damr";
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_6 = null;
     private int decoderVersion;
     private int framesPerSample;
     private int modeChangePeriod;

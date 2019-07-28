@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -54,7 +55,7 @@ public class SwanAppNetworkUtils {
             try {
                 jSONObject.put("isConnected", isNetworkConnected);
                 if (TextUtils.equals(HQ, "no")) {
-                    HQ = "none";
+                    HQ = IXAdSystemUtils.NT_NONE;
                 }
                 jSONObject.put("networkType", HQ);
                 if (DEBUG) {
@@ -132,7 +133,7 @@ public class SwanAppNetworkUtils {
             return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
-            return "wifi";
+            return IXAdSystemUtils.NT_WIFI;
         }
         if (activeNetworkInfo.getType() == 0) {
             return o(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
@@ -175,7 +176,7 @@ public class SwanAppNetworkUtils {
                 }
                 break;
             case 3649301:
-                if (HQ.equals("wifi")) {
+                if (HQ.equals(IXAdSystemUtils.NT_WIFI)) {
                     c = 3;
                     break;
                 }
@@ -200,7 +201,7 @@ public class SwanAppNetworkUtils {
     /* loaded from: classes2.dex */
     public enum NetType {
         NONE("no"),
-        WIFI("wifi"),
+        WIFI(IXAdSystemUtils.NT_WIFI),
         _2G("2g"),
         _3G("3g"),
         _4G("4g"),

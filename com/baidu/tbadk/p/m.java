@@ -3,6 +3,7 @@ package com.baidu.tbadk.p;
 import android.os.Process;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
@@ -109,7 +110,7 @@ public class m {
                     return oVar2;
                 case 1002:
                     j jVar = new j();
-                    jVar.subType = "im";
+                    jVar.subType = IXAdRequestInfo.IMSI;
                     return jVar;
                 case 1003:
                 default:

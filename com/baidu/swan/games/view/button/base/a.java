@@ -14,7 +14,7 @@ import java.util.HashSet;
 public class a {
     @V8JavascriptField
     public String backgroundColor;
-    private InterfaceC0214a blT;
+    private InterfaceC0219a blT;
     @V8JavascriptField
     public String borderColor;
     @V8JavascriptField
@@ -47,7 +47,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0214a {
+    public interface InterfaceC0219a {
         void TO();
     }
 
@@ -217,8 +217,8 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0214a interfaceC0214a) {
-        this.blT = interfaceC0214a;
+    public void a(InterfaceC0219a interfaceC0219a) {
+        this.blT = interfaceC0219a;
     }
 
     public static int fj(@ColorInt int i) {

@@ -17,6 +17,7 @@ import android.support.v4.internal.view.SupportMenu;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PhoneUtils;
@@ -133,7 +134,7 @@ public class PassBiometricUtil {
                 str = Build.CPU_ABI;
                 if (Build.VERSION.SDK_INT >= 8) {
                 }
-                str2 = "none";
+                str2 = IXAdSystemUtils.NT_NONE;
                 Log.i(TAG, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
                 if (!str.equals(CPU_TYPE_ARMEABI)) {
                 }
@@ -196,7 +197,7 @@ public class PassBiometricUtil {
             }
             return CPU_TYPE_ARMEABI;
         }
-        str2 = "none";
+        str2 = IXAdSystemUtils.NT_NONE;
         Log.i(TAG, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
         if (!str.equals(CPU_TYPE_ARMEABI)) {
         }

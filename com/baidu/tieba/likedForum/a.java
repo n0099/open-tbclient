@@ -11,7 +11,7 @@ public class a {
     private List<ForumInfo> fTZ;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
-    private InterfaceC0349a hjC = null;
+    private InterfaceC0355a hjC = null;
     private com.baidu.adp.framework.listener.a ghB = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440) { // from class: com.baidu.tieba.likedForum.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -42,7 +42,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.likedForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0349a {
+    public interface InterfaceC0355a {
         void a(boolean z, int i, String str, List<ForumInfo> list);
     }
 
@@ -62,8 +62,8 @@ public class a {
         return false;
     }
 
-    public void a(InterfaceC0349a interfaceC0349a) {
-        this.hjC = interfaceC0349a;
+    public void a(InterfaceC0355a interfaceC0355a) {
+        this.hjC = interfaceC0355a;
     }
 
     public void destroy() {

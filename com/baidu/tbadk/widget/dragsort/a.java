@@ -58,7 +58,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     private float cGg;
     private int cGj;
     private MotionEvent cGo;
-    private C0257a cGs;
+    private C0262a cGs;
     private e cGu;
     private k cGx;
     private j cGy;
@@ -139,7 +139,7 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
     @Override // com.baidu.tbadk.widget.dragsort.c
     public void setAdapter(ListAdapter listAdapter) {
         if (listAdapter != null) {
-            this.cGs = new C0257a(listAdapter);
+            this.cGs = new C0262a(listAdapter);
             listAdapter.registerDataSetObserver(this.mObserver);
             if (listAdapter instanceof g) {
                 a((g) listAdapter);
@@ -1204,20 +1204,20 @@ public class a implements com.baidu.tbadk.widget.dragsort.c {
 
     /* renamed from: com.baidu.tbadk.widget.dragsort.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0257a extends BaseAdapter {
+    private class C0262a extends BaseAdapter {
         private ListAdapter mAdapter;
 
-        public C0257a(ListAdapter listAdapter) {
+        public C0262a(ListAdapter listAdapter) {
             this.mAdapter = listAdapter;
             this.mAdapter.registerDataSetObserver(new DataSetObserver() { // from class: com.baidu.tbadk.widget.dragsort.a.a.1
                 @Override // android.database.DataSetObserver
                 public void onChanged() {
-                    C0257a.this.notifyDataSetChanged();
+                    C0262a.this.notifyDataSetChanged();
                 }
 
                 @Override // android.database.DataSetObserver
                 public void onInvalidated() {
-                    C0257a.this.notifyDataSetInvalidated();
+                    C0262a.this.notifyDataSetInvalidated();
                 }
             });
         }

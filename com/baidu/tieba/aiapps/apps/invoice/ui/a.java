@@ -10,7 +10,7 @@ import com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class a extends RecyclerView.Adapter<C0280a> {
+public class a extends RecyclerView.Adapter<C0286a> {
     private List<InvoiceInfo> ddp = new ArrayList();
     private b dex;
     private Context mContext;
@@ -149,33 +149,33 @@ public class a extends RecyclerView.Adapter<C0280a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: k */
-    public C0280a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        C0280a c0280a = new C0280a(LayoutInflater.from(this.mContext).inflate(R.layout.invoice_list_item_view, viewGroup, false));
+    public C0286a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        C0286a c0286a = new C0286a(LayoutInflater.from(this.mContext).inflate(R.layout.invoice_list_item_view, viewGroup, false));
         if (i == 0) {
-            c0280a.dez.aFX();
+            c0286a.dez.aFX();
         } else if (i == 1) {
-            c0280a.dez.aFY();
+            c0286a.dez.aFY();
         }
-        return c0280a;
+        return c0286a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(C0280a c0280a, int i) {
+    public void onBindViewHolder(C0286a c0286a, int i) {
         final InvoiceInfo invoiceInfo = this.ddp.get(i);
         if (invoiceInfo != null) {
-            if (c0280a.getItemViewType() == 0) {
-                c0280a.dez.setCompanyInfo(invoiceInfo.mTitle, invoiceInfo.ddq);
-            } else if (c0280a.getItemViewType() == 1) {
-                c0280a.dez.setPersonageInfo(invoiceInfo.mTitle);
+            if (c0286a.getItemViewType() == 0) {
+                c0286a.dez.setCompanyInfo(invoiceInfo.mTitle, invoiceInfo.ddq);
+            } else if (c0286a.getItemViewType() == 1) {
+                c0286a.dez.setPersonageInfo(invoiceInfo.mTitle);
             }
             if (invoiceInfo.mIsDefault == 1) {
-                c0280a.dez.gw(true);
+                c0286a.dez.gw(true);
             } else {
-                c0280a.dez.gw(false);
+                c0286a.dez.gw(false);
             }
-            c0280a.dez.setEditClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.1
+            c0286a.dez.setEditClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (a.this.dex != null) {
@@ -183,7 +183,7 @@ public class a extends RecyclerView.Adapter<C0280a> {
                     }
                 }
             });
-            c0280a.dez.setItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.2
+            c0286a.dez.setItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (a.this.dex != null) {
@@ -191,7 +191,7 @@ public class a extends RecyclerView.Adapter<C0280a> {
                     }
                 }
             });
-            c0280a.dez.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.3
+            c0286a.dez.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.3
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     if (a.this.dex != null) {
@@ -229,10 +229,10 @@ public class a extends RecyclerView.Adapter<C0280a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.aiapps.apps.invoice.ui.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0280a extends RecyclerView.ViewHolder {
+    public class C0286a extends RecyclerView.ViewHolder {
         InvoiceListItemView dez;
 
-        public C0280a(View view) {
+        public C0286a(View view) {
             super(view);
             this.dez = (InvoiceListItemView) view.findViewById(R.id.invoice_list_item);
         }

@@ -41,7 +41,7 @@ public class a extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.games.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0205a {
+    public interface InterfaceC0210a {
         void bE(boolean z);
     }
 
@@ -49,8 +49,8 @@ public class a extends HandlerThread {
         super("SwanGamePageMonitor", 5);
         this.bjn = false;
         this.aEh = 0;
-        this.aEk = a.C0192a.fz("solid_parser");
-        this.aEl = a.C0192a.fz("hsv_parser");
+        this.aEk = a.C0197a.fz("solid_parser");
+        this.aEl = a.C0197a.fz("hsv_parser");
     }
 
     public static a Sy() {
@@ -104,8 +104,8 @@ public class a extends HandlerThread {
                     return;
                 case 3:
                     final com.baidu.swan.apps.y.c cVar = (com.baidu.swan.apps.y.c) message.obj;
-                    a.this.a(cVar, a.this.aEk, new InterfaceC0205a() { // from class: com.baidu.swan.games.n.a.c.1
-                        @Override // com.baidu.swan.games.n.a.InterfaceC0205a
+                    a.this.a(cVar, a.this.aEk, new InterfaceC0210a() { // from class: com.baidu.swan.games.n.a.c.1
+                        @Override // com.baidu.swan.games.n.a.InterfaceC0210a
                         public void bE(boolean z) {
                             if (z) {
                                 a.this.log("simple error report");
@@ -113,8 +113,8 @@ public class a extends HandlerThread {
                             }
                         }
                     });
-                    a.this.a(cVar, a.this.aEl, new InterfaceC0205a() { // from class: com.baidu.swan.games.n.a.c.2
-                        @Override // com.baidu.swan.games.n.a.InterfaceC0205a
+                    a.this.a(cVar, a.this.aEl, new InterfaceC0210a() { // from class: com.baidu.swan.games.n.a.c.2
+                        @Override // com.baidu.swan.games.n.a.InterfaceC0210a
                         public void bE(boolean z) {
                             if (z) {
                                 a.this.log("grid error report");
@@ -189,15 +189,15 @@ public class a extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.swan.apps.y.c cVar, com.baidu.swan.apps.y.a aVar, @NonNull InterfaceC0205a interfaceC0205a) {
+    public void a(com.baidu.swan.apps.y.c cVar, com.baidu.swan.apps.y.a aVar, @NonNull InterfaceC0210a interfaceC0210a) {
         if (cVar == null || aVar == null) {
-            interfaceC0205a.bE(false);
+            interfaceC0210a.bE(false);
         } else if (TextUtils.equals(cVar.getToken(), this.bjo)) {
             log("start parse");
-            interfaceC0205a.bE(aVar.a(cVar.Hw(), cVar.getRect()));
+            interfaceC0210a.bE(aVar.a(cVar.Hw(), cVar.getRect()));
         } else {
             log("page has changed from " + cVar.getToken() + " => " + this.bjo);
-            interfaceC0205a.bE(false);
+            interfaceC0210a.bE(false);
         }
     }
 

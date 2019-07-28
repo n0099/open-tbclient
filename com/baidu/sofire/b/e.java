@@ -29,7 +29,6 @@ import com.baidu.sofire.ac.F;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
 import java.io.BufferedReader;
@@ -1853,7 +1852,7 @@ public final class e {
             String str = b() + "p/1/prt";
             JSONObject jSONObject = new JSONObject();
             String packageName = context.getPackageName();
-            jSONObject.put(PushConstants.URI_PACKAGE_NAME, packageName);
+            jSONObject.put("pk", packageName);
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
             if (packageInfo != null) {
                 PublicKey a2 = a(packageInfo, packageInfo.applicationInfo.sourceDir);
@@ -1928,7 +1927,7 @@ public final class e {
                                 com.baidu.sofire.b.a();
                                 if (!TextUtils.isEmpty(a3) && a3.equals(str2)) {
                                     JSONObject jSONObject = new JSONObject();
-                                    jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
+                                    jSONObject.put("pk", str);
                                     jSONObject.put("av", packageInfo.versionName);
                                     jSONObject.put("sm", a3);
                                     jSONObject.put("dm", Build.MODEL);

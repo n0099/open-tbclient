@@ -6,7 +6,7 @@ public final class a {
     public static final d kub = c.kuh;
     public static final d kuc = kub;
     public static final d kud = b.kug;
-    public static final d kue = C0498a.kuf;
+    public static final d kue = C0504a.kuf;
 
     /* loaded from: classes2.dex */
     public interface d {
@@ -28,10 +28,10 @@ public final class a {
 
     /* renamed from: rx.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    static final class C0498a implements d {
-        static final C0498a kuf = new C0498a();
+    static final class C0504a implements d {
+        static final C0504a kuf = new C0504a();
 
-        private C0498a() {
+        private C0504a() {
         }
 
         @Override // rx.a.d

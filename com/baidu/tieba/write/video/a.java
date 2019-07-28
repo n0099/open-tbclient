@@ -16,7 +16,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0430a {
+    public static class C0436a {
         public View divider;
         public TextView title;
     }
@@ -43,22 +43,22 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0430a c0430a;
+        C0436a c0436a;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.video_activity_title_item, (ViewGroup) null);
-            C0430a c0430a2 = new C0430a();
-            c0430a2.title = (TextView) view.findViewById(R.id.title);
-            c0430a2.divider = view.findViewById(R.id.divider_line);
-            am.j(c0430a2.title, R.color.cp_cont_b);
-            am.l(c0430a2.divider, R.color.cp_bg_line_c);
-            view.setTag(c0430a2);
-            c0430a = c0430a2;
+            C0436a c0436a2 = new C0436a();
+            c0436a2.title = (TextView) view.findViewById(R.id.title);
+            c0436a2.divider = view.findViewById(R.id.divider_line);
+            am.j(c0436a2.title, R.color.cp_cont_b);
+            am.l(c0436a2.divider, R.color.cp_bg_line_c);
+            view.setTag(c0436a2);
+            c0436a = c0436a2;
         } else {
-            c0430a = (C0430a) view.getTag();
+            c0436a = (C0436a) view.getTag();
         }
         am.k(view, R.drawable.addresslist_item_bg);
         if (getItem(i) != null) {
-            c0430a.title.setText("#" + getItem(i).name + "#");
+            c0436a.title.setText("#" + getItem(i).name + "#");
         }
         return view;
     }

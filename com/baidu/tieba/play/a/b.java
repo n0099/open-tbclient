@@ -17,12 +17,12 @@ import org.apache.http.protocol.HTTP;
 public class b {
     private static b ixJ = null;
     private com.baidu.tieba.play.a.a ixI;
-    private InterfaceC0384b ixK = null;
+    private InterfaceC0390b ixK = null;
     private int ixL = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0384b {
+    public interface InterfaceC0390b {
         void dT(String str, String str2);
     }
 
@@ -40,8 +40,8 @@ public class b {
         return ixJ;
     }
 
-    public void a(InterfaceC0384b interfaceC0384b) {
-        this.ixK = interfaceC0384b;
+    public void a(InterfaceC0390b interfaceC0390b) {
+        this.ixK = interfaceC0390b;
     }
 
     public boolean Db(String str) {
@@ -50,11 +50,11 @@ public class b {
         }
         if (Dc(str) && this.ixI.ceO().size() > this.ixL) {
             if (this.ixK != null) {
-                InterfaceC0384b interfaceC0384b = this.ixK;
+                InterfaceC0390b interfaceC0390b = this.ixK;
                 List<String> ceO = this.ixI.ceO();
                 int i = this.ixL;
                 this.ixL = i + 1;
-                interfaceC0384b.dT(ceO.get(i), str);
+                interfaceC0390b.dT(ceO.get(i), str);
             }
             return true;
         } else if (this.ixI != null && this.ixI.ceO() != null && this.ixI.ceO().size() <= this.ixL) {

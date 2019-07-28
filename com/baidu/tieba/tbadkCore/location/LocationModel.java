@@ -170,7 +170,7 @@ public class LocationModel extends BdBaseModel {
     }
 
     private void d(com.baidu.tieba.tbadkCore.location.a aVar) {
-        List<a.C0409a> cpU;
+        List<a.C0415a> cpU;
         int i;
         int i2;
         if (aVar != null && (cpU = aVar.cpU()) != null && !cpU.isEmpty()) {
@@ -200,9 +200,9 @@ public class LocationModel extends BdBaseModel {
                 }
                 return;
             }
-            for (a.C0409a c0409a : cpU) {
-                if (aVar.cpT().equals(c0409a.getName())) {
-                    aVar.EO(c0409a.getSn());
+            for (a.C0415a c0415a : cpU) {
+                if (aVar.cpT().equals(c0415a.getName())) {
+                    aVar.EO(c0415a.getSn());
                     return;
                 }
             }

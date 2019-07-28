@@ -16,6 +16,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.c;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.a.e;
@@ -372,7 +373,7 @@ public class CDNIPDirectConnect extends e {
     public String getNetIdentifier() {
         if (j.kd()) {
             try {
-                WifiManager wifiManager = (WifiManager) TbadkCoreApplication.getInst().getContext().getSystemService("wifi");
+                WifiManager wifiManager = (WifiManager) TbadkCoreApplication.getInst().getContext().getSystemService(IXAdSystemUtils.NT_WIFI);
                 if (!wifiManager.isWifiEnabled()) {
                     wifiManager.setWifiEnabled(true);
                 }

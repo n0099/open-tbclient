@@ -16,11 +16,11 @@ import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 /* loaded from: classes4.dex */
 public class a {
     private l<byte[]> dsK;
-    private InterfaceC0305a fFi;
+    private InterfaceC0311a fFi;
 
     /* renamed from: com.baidu.tieba.frs.game.strategy.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0305a {
+    public interface InterfaceC0311a {
         void e(List<e> list, List<m> list2, boolean z);
     }
 
@@ -76,7 +76,7 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0305a interfaceC0305a) {
-        this.fFi = interfaceC0305a;
+    public void a(InterfaceC0311a interfaceC0311a) {
+        this.fFi = interfaceC0311a;
     }
 }

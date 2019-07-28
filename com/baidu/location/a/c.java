@@ -27,6 +27,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
@@ -350,7 +351,7 @@ public class c {
                 this.e = (TelephonyManager) this.d.getSystemService("phone");
                 str2 = this.e.getDeviceId();
                 try {
-                    this.g = (WifiManager) this.d.getApplicationContext().getSystemService("wifi");
+                    this.g = (WifiManager) this.d.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI);
                 } catch (Exception e) {
                     str = str2;
                     str2 = str;

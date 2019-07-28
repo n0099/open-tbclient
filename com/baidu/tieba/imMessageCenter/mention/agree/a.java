@@ -35,7 +35,7 @@ public class a {
     protected BdSwipeRefreshLayout dpi;
     private e gVT;
     private boolean gVW;
-    private InterfaceC0343a gWA;
+    private InterfaceC0349a gWA;
     private View gWz;
     private TbPageContext mContext;
     private NavigationBar mNavigationBar;
@@ -67,7 +67,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.mention.agree.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0343a {
+    public interface InterfaceC0349a {
         void aYo();
 
         void box();
@@ -80,8 +80,8 @@ public class a {
         this.gVT = new e(tbPageContext, this.Op);
     }
 
-    public void a(InterfaceC0343a interfaceC0343a) {
-        this.gWA = interfaceC0343a;
+    public void a(InterfaceC0349a interfaceC0349a) {
+        this.gWA = interfaceC0349a;
     }
 
     private void q(TbPageContext tbPageContext) {

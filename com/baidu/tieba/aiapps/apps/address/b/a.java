@@ -357,7 +357,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0277a implements com.baidu.tieba.aiapps.apps.address.b.b {
+    public static class C0283a implements com.baidu.tieba.aiapps.apps.address.b.b {
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
         public void aEJ() {
         }

@@ -57,37 +57,37 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0256a c0256a;
+        C0261a c0261a;
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
-            c0256a = new C0256a();
-            c0256a.cob = (LinearLayout) view.findViewById(R.id.photo_container);
-            c0256a.cCu = (TbImageView) view.findViewById(R.id.photo);
+            c0261a = new C0261a();
+            c0261a.cob = (LinearLayout) view.findViewById(R.id.photo_container);
+            c0261a.cCu = (TbImageView) view.findViewById(R.id.photo);
         } else {
-            c0256a = (C0256a) view.getTag();
+            c0261a = (C0261a) view.getTag();
         }
         if (kV(i) == 1) {
-            c0256a.cob.setPadding(0, this.padding, 0, 0);
+            c0261a.cob.setPadding(0, this.padding, 0, 0);
         } else if (kV(i) == 2) {
-            c0256a.cob.setPadding(0, 0, 0, this.padding);
+            c0261a.cob.setPadding(0, 0, 0, this.padding);
         } else {
-            c0256a.cob.setPadding(0, 0, 0, 0);
+            c0261a.cob.setPadding(0, 0, 0, 0);
         }
-        c0256a.cCu.setDrawerType(0);
-        c0256a.cCu.setBorderSurroundContent(true);
-        c0256a.cCu.setDrawBorder(true);
+        c0261a.cCu.setDrawerType(0);
+        c0261a.cCu.setBorderSurroundContent(true);
+        c0261a.cCu.setDrawBorder(true);
         if (itemViewType == 0) {
-            c0256a.cCu.setBorderColor(this.bXL);
-            c0256a.cCu.setBorderWidth(this.cCs);
+            c0261a.cCu.setBorderColor(this.bXL);
+            c0261a.cCu.setBorderWidth(this.cCs);
         } else {
-            c0256a.cCu.setBorderColor(this.cCr);
-            c0256a.cCu.setBorderWidth(this.cCt);
+            c0261a.cCu.setBorderColor(this.cCr);
+            c0261a.cCu.setBorderWidth(this.cCt);
         }
-        c0256a.cCu.setDefaultResource(R.drawable.transparent_bg);
-        c0256a.cCu.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        c0256a.cCu.startLoad(this.cCq.get(i).getUrl(), 10, false);
-        view.setTag(c0256a);
+        c0261a.cCu.setDefaultResource(R.drawable.transparent_bg);
+        c0261a.cCu.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        c0261a.cCu.startLoad(this.cCq.get(i).getUrl(), 10, false);
+        view.setTag(c0261a);
         return view;
     }
 
@@ -128,11 +128,11 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tbadk.system.portrait.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0256a {
+    private class C0261a {
         TbImageView cCu;
         LinearLayout cob;
 
-        private C0256a() {
+        private C0261a() {
         }
     }
 }

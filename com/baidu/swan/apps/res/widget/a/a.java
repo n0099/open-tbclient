@@ -20,7 +20,7 @@ public abstract class a {
     protected b.a aPt;
     protected PopupWindow aPu;
     protected View.OnKeyListener aPv;
-    private InterfaceC0162a aPy;
+    private InterfaceC0167a aPy;
     private View arQ;
     protected Context mContext;
     protected Resources mResources;
@@ -42,7 +42,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0162a {
+    public interface InterfaceC0167a {
         void C(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 

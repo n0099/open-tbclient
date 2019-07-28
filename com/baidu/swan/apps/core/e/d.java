@@ -37,14 +37,14 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
     }
 
     /* loaded from: classes2.dex */
-    public static class a extends b.C0166b {
+    public static class a extends b.C0171b {
         private View contentView;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0166b, com.baidu.swan.apps.res.widget.dialog.g.a
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0171b, com.baidu.swan.apps.res.widget.dialog.g.a
         protected g aU(Context context) {
             return new d(context);
         }
@@ -62,7 +62,7 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0166b, com.baidu.swan.apps.res.widget.dialog.g.a
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0171b, com.baidu.swan.apps.res.widget.dialog.g.a
         public g AX() {
             d dVar = (d) super.AX();
             dVar.a(this);

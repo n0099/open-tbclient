@@ -47,17 +47,17 @@ public class a {
         MessageManager.getInstance().registerListener(this.eMv);
     }
 
-    public RunnableC0321a p(long j, long j2) {
-        return new RunnableC0321a(j2, j);
+    public RunnableC0327a p(long j, long j2) {
+        return new RunnableC0327a(j2, j);
     }
 
     /* renamed from: com.baidu.tieba.homepage.topic.topicdetail.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC0321a implements Runnable {
+    public class RunnableC0327a implements Runnable {
         private long postId;
         private long threadId;
 
-        public RunnableC0321a(long j, long j2) {
+        public RunnableC0327a(long j, long j2) {
             this.threadId = j;
             this.postId = j2;
         }

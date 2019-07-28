@@ -41,7 +41,7 @@ public class a {
             }
         }
     };
-    private InterfaceC0429a jLf;
+    private InterfaceC0435a jLf;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
     private int privateThread;
@@ -51,7 +51,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.transmit.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0429a {
+    public interface InterfaceC0435a {
         void g(List<SimpleForum> list, int i);
 
         void onError();
@@ -100,8 +100,8 @@ public class a {
         return this.recommendExt;
     }
 
-    public void a(InterfaceC0429a interfaceC0429a) {
-        this.jLf = interfaceC0429a;
+    public void a(InterfaceC0435a interfaceC0435a) {
+        this.jLf = interfaceC0435a;
     }
 
     public void destroy() {

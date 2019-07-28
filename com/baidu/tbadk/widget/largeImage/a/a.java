@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 public class a {
     private static final String TAG = a.class.getSimpleName();
     private Canvas aKL;
-    private final C0258a cIm;
+    private final C0263a cIm;
     private final Rect cIn;
     private final Rect cIo;
     private final Rect cIp;
@@ -17,7 +17,7 @@ public class a {
     private Bitmap mBitmap;
 
     public a(int i) {
-        this.cIm = new C0258a();
+        this.cIm = new C0263a();
         this.cIn = new Rect();
         this.cIo = new Rect();
         this.cIp = new Rect();
@@ -27,7 +27,7 @@ public class a {
     }
 
     public a(Bitmap bitmap) {
-        this.cIm = new C0258a();
+        this.cIm = new C0263a();
         this.cIn = new Rect();
         this.cIo = new Rect();
         this.cIp = new Rect();
@@ -79,7 +79,7 @@ public class a {
         this.cIm.cIr = i3;
     }
 
-    public C0258a axN() {
+    public C0263a axN() {
         return this.cIm;
     }
 
@@ -92,15 +92,15 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.widget.largeImage.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0258a {
+    public static class C0263a {
         int KX;
         int cIr;
         int cuN;
 
-        public C0258a() {
+        public C0263a() {
         }
 
-        public C0258a(int i, int i2, int i3) {
+        public C0263a(int i, int i2, int i3) {
             this.cuN = i;
             this.KX = i2;
             this.cIr = i3;
@@ -111,9 +111,9 @@ public class a {
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof C0258a) {
-                C0258a c0258a = (C0258a) obj;
-                return this.cuN == c0258a.atd() && this.KX == c0258a.atc() && this.cIr == c0258a.axP();
+            if (obj instanceof C0263a) {
+                C0263a c0263a = (C0263a) obj;
+                return this.cuN == c0263a.atd() && this.KX == c0263a.atc() && this.cIr == c0263a.axP();
             }
             return false;
         }

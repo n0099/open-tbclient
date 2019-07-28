@@ -4,7 +4,7 @@ public final class a {
 
     /* renamed from: com.baidu.swan.game.ad.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0193a {
+    public static final class C0198a {
         public static final int abc_fade_in = 2130968576;
         public static final int abc_fade_out = 2130968577;
         public static final int abc_grow_fade_in_from_bottom = 2130968578;

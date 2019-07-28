@@ -199,8 +199,8 @@ public class b {
         return hashSet;
     }
 
-    public static void a(final a.InterfaceC0168a interfaceC0168a) {
-        if (interfaceC0168a != null) {
+    public static void a(final a.InterfaceC0173a interfaceC0173a) {
+        if (interfaceC0173a != null) {
             rx.d.bm("").b(Schedulers.io()).d(new rx.functions.f<String, Cursor>() { // from class: com.baidu.swan.apps.database.a.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
@@ -229,10 +229,10 @@ public class b {
                                 }
                             }
                         }
-                        a.InterfaceC0168a.this.ab(null);
+                        a.InterfaceC0173a.this.ab(null);
                         return;
                     }
-                    a.InterfaceC0168a.this.ab(b.f(cursor));
+                    a.InterfaceC0173a.this.ab(b.f(cursor));
                 }
             });
         }
@@ -554,13 +554,13 @@ public class b {
         HashMap hashMap22 = new HashMap();
         if (query == null && query.moveToFirst()) {
             do {
-                C0140b c0140b = new C0140b();
-                c0140b.id = query.getString(query.getColumnIndex(Constants.APP_ID));
-                c0140b.from = query.getString(query.getColumnIndex("app_from"));
-                c0140b.avC = query.getLong(query.getColumnIndex("visit_time"));
-                hashMap22.put(c0140b.id, c0140b);
+                C0145b c0145b = new C0145b();
+                c0145b.id = query.getString(query.getColumnIndex(Constants.APP_ID));
+                c0145b.from = query.getString(query.getColumnIndex("app_from"));
+                c0145b.avC = query.getLong(query.getColumnIndex("visit_time"));
+                hashMap22.put(c0145b.id, c0145b);
                 if (DEBUG) {
-                    Log.v("history_migrate_pms", "History == " + c0140b.id);
+                    Log.v("history_migrate_pms", "History == " + c0145b.id);
                 }
             } while (query.moveToNext());
             com.baidu.swan.c.a.c(query);
@@ -599,7 +599,7 @@ public class b {
             }
             if (pMSAppInfo.appName != null && pMSAppInfo.appName.contains(str) && hashMap22.containsKey(pMSAppInfo.appId)) {
                 e eVar = new e();
-                eVar.avD = (C0140b) hashMap22.get(pMSAppInfo.appId);
+                eVar.avD = (C0145b) hashMap22.get(pMSAppInfo.appId);
                 eVar.avr = pMSAppInfo;
                 arrayList222.add(eVar);
             }
@@ -647,12 +647,12 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.database.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0140b {
+    public static class C0145b {
         long avC;
         String from;
         String id;
 
-        private C0140b() {
+        private C0145b() {
         }
     }
 
@@ -679,10 +679,10 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static abstract class c {
-        C0140b avD;
+        C0145b avD;
 
         private c() {
-            this.avD = new C0140b();
+            this.avD = new C0145b();
         }
     }
 

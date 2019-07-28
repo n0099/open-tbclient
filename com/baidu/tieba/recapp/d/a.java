@@ -4,6 +4,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.j;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tieba.tbadkCore.location.c;
@@ -45,7 +46,7 @@ public class a {
 
     private String ciu() {
         if (TextUtils.isEmpty(this.iKX)) {
-            WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo();
             if (connectionInfo != null) {
                 this.iKX = connectionInfo.getBSSID();
             } else {

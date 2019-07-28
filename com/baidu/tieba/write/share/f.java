@@ -8,6 +8,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
@@ -98,7 +99,7 @@ public class f {
             com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cpV().getLocationData();
             if (locationData != null) {
                 xVar.o("name", locationData.cpT());
-                xVar.o("sn", locationData.getSn());
+                xVar.o(IXAdRequestInfo.SN, locationData.getSn());
             }
             xVar.o("is_link_thread", "0");
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {

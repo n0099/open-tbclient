@@ -11,7 +11,7 @@ import com.xiaomi.push.service.timers.a;
 import com.xiaomi.smack.g;
 @TargetApi(21)
 /* loaded from: classes3.dex */
-public class c implements a.InterfaceC0489a {
+public class c implements a.InterfaceC0495a {
     Context a;
     JobScheduler b;
     private boolean c = false;
@@ -21,7 +21,7 @@ public class c implements a.InterfaceC0489a {
         this.b = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0489a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0495a
     public void a() {
         this.c = false;
         this.b.cancel(1);
@@ -37,7 +37,7 @@ public class c implements a.InterfaceC0489a {
         this.b.schedule(builder.build());
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0489a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0495a
     public void a(boolean z) {
         if (z || this.c) {
             long c = g.c();
@@ -50,7 +50,7 @@ public class c implements a.InterfaceC0489a {
         }
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0489a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0495a
     public boolean b() {
         return this.c;
     }

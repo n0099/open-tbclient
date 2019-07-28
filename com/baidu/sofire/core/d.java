@@ -18,7 +18,6 @@ import com.baidu.sofire.ac.U;
 import com.baidu.sofire.rp.Report;
 import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.IOException;
@@ -250,7 +249,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 JSONArray jSONArray2 = new JSONArray();
                 for (ApkInfo apkInfo2 : hashMap.values()) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(PushConstants.URI_PACKAGE_NAME, apkInfo2.packageName);
+                    jSONObject.put("pk", apkInfo2.packageName);
                     jSONObject.put(Config.MODEL, apkInfo2.apkMD5);
                     jSONObject.put("l", apkInfo2.key);
                     jSONObject.put("v", apkInfo2.versionName);

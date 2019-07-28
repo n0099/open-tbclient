@@ -94,7 +94,7 @@ public class c extends com.baidu.adp.framework.a.d {
     private void c(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
         httpMessage.addParam("_client_type", "2");
         if (!TbadkCoreApplication.getInst().isOfficial()) {
-            httpMessage.addParam("apid", TbConfig.SW_APID);
+            httpMessage.addParam("apid", "sw");
         }
         httpMessage.addParam("_client_version", TbConfig.getVersion());
         if (TbadkCoreApplication.getInst().getImei() != null) {

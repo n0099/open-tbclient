@@ -84,8 +84,8 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         this.mPostId = intent.getStringExtra("post_id");
         this.ckl = intent.getStringExtra("name_show");
         this.ckh = intent.getStringExtra(IntentConfig.PORTRAIT);
-        com.baidu.tieba.pb.account.forbid.b.a(this.mForumId, this.hFA, new b.InterfaceC0369b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.2
-            @Override // com.baidu.tieba.pb.account.forbid.b.InterfaceC0369b
+        com.baidu.tieba.pb.account.forbid.b.a(this.mForumId, this.hFA, new b.InterfaceC0375b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.2
+            @Override // com.baidu.tieba.pb.account.forbid.b.InterfaceC0375b
             public void a(ForbidTplData forbidTplData) {
                 ForbidActivity.this.hFC.setText(ForbidActivity.this.ckl);
                 if (forbidTplData.type == 1 || forbidTplData.type == 2) {
@@ -99,7 +99,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 }
             }
 
-            @Override // com.baidu.tieba.pb.account.forbid.b.InterfaceC0369b
+            @Override // com.baidu.tieba.pb.account.forbid.b.InterfaceC0375b
             public void b(ForbidTplData forbidTplData) {
                 if (StringUtils.isNull(forbidTplData.error.errMsg)) {
                     ForbidActivity.this.showToast(R.string.neterror);

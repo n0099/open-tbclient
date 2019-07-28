@@ -17,12 +17,12 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
 
     /* renamed from: com.baidu.swan.apps.canvas.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0121a {
+    private static class C0126a {
         private static final a alR = new a();
     }
 
     public static a xP() {
-        return C0121a.alR;
+        return C0126a.alR;
     }
 
     public boolean a(Context context, AbsoluteLayout absoluteLayout, com.baidu.swan.apps.canvas.c.a aVar) {

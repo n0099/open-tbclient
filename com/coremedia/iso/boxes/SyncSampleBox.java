@@ -11,9 +11,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SyncSampleBox extends AbstractFullBox {
     public static final String TYPE = "stss";
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
     private long[] sampleNumber;
 
     static {

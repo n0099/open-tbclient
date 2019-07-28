@@ -11,8 +11,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0180a aWK;
-    private static C0180a aWL;
+    private static C0185a aWK;
+    private static C0185a aWL;
 
     public static void c(boolean z, int i) {
         f.NX().putBoolean(ec(i), z);
@@ -30,20 +30,20 @@ public final class a {
         return f.NX().getLong(eh(i), 0L);
     }
 
-    public static C0180a ee(int i) {
+    public static C0185a ee(int i) {
         return i == 1 ? Og() : Oh();
     }
 
-    private static C0180a Og() {
+    private static C0185a Og() {
         if (aWL == null) {
-            aWL = C0180a.c(ej(1), 1);
+            aWL = C0185a.c(ej(1), 1);
         }
         return aWL;
     }
 
-    private static C0180a Oh() {
+    private static C0185a Oh() {
         if (aWK == null) {
-            aWK = C0180a.c(ej(0), 0);
+            aWK = C0185a.c(ej(0), 0);
         }
         return aWK;
     }
@@ -54,7 +54,7 @@ public final class a {
                 Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
             }
             if (eb(i)) {
-                C0180a ee = ee(i);
+                C0185a ee = ee(i);
                 long j = f.NX().getLong(eg(i), 0L);
                 long hO = com.baidu.swan.apps.swancore.b.hO(ee.aWM);
                 if (DEBUG) {
@@ -138,15 +138,15 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0180a {
+    public static class C0185a {
         public String aWM;
 
-        public static C0180a c(JSONObject jSONObject, int i) {
-            C0180a c0180a = new C0180a();
+        public static C0185a c(JSONObject jSONObject, int i) {
+            C0185a c0185a = new C0185a();
             if (jSONObject != null) {
-                c0180a.aWM = jSONObject.optString(dT(i));
+                c0185a.aWM = jSONObject.optString(dT(i));
             }
-            return c0180a;
+            return c0185a;
         }
 
         private static String dT(int i) {

@@ -24,7 +24,6 @@ import com.baidu.sofire.core.d;
 import com.baidu.sofire.e;
 import com.baidu.sofire.jni.Asc;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.security.PublicKey;
@@ -305,8 +304,8 @@ public class U extends Thread {
                         JSONObject jSONObject4 = new JSONObject();
                         JSONObject jSONObject5 = new JSONObject();
                         String packageName = this.context.getPackageName();
-                        jSONObject5.put(PushConstants.URI_PACKAGE_NAME, packageName);
-                        jSONObject4.put(PushConstants.URI_PACKAGE_NAME, packageName);
+                        jSONObject5.put("pk", packageName);
+                        jSONObject4.put("pk", packageName);
                         jSONObject4.put("dm", Build.MODEL);
                         jSONObject5.put("dm", Build.MODEL);
                         jSONObject4.put("cuid", g.a(this.context));

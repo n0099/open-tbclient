@@ -2376,8 +2376,8 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
             }
         }
     };
-    private final a.InterfaceC0233a hLH = new a.InterfaceC0233a() { // from class: com.baidu.tieba.pb.pb.main.PbActivity.47
-        @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0233a
+    private final a.InterfaceC0238a hLH = new a.InterfaceC0238a() { // from class: com.baidu.tieba.pb.pb.main.PbActivity.47
+        @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0238a
         public void c(boolean z, boolean z2, String str) {
             PbActivity.this.hKC.bXr();
             if (z) {
@@ -3165,14 +3165,14 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
             return false;
         }
     };
-    private a.InterfaceC0299a eac = new a.InterfaceC0299a() { // from class: com.baidu.tieba.pb.pb.main.PbActivity.84
+    private a.InterfaceC0305a eac = new a.InterfaceC0305a() { // from class: com.baidu.tieba.pb.pb.main.PbActivity.84
         final int ekN;
 
         {
             this.ekN = (int) PbActivity.this.getResources().getDimension(R.dimen.ds98);
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void aY(int i, int i2) {
             if (ax(i2) && PbActivity.this.hKC != null && PbActivity.this.hKd != null) {
                 PbActivity.this.hKC.bXR();
@@ -3181,7 +3181,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void aZ(int i, int i2) {
             if (ax(i2) && PbActivity.this.hKC != null && PbActivity.this.hKd != null) {
                 PbActivity.this.hKd.kl(true);
@@ -3195,7 +3195,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void ba(int i, int i2) {
         }
 
@@ -3230,10 +3230,10 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.b.a)) {
                 com.baidu.tbadk.core.b.a aVar = (com.baidu.tbadk.core.b.a) customResponsedMessage.getData();
                 boolean z = aVar.bEi == PbActivity.this.getUniqueId();
-                if (aVar instanceof a.C0235a) {
+                if (aVar instanceof a.C0240a) {
                     if (aVar.bEj != null && !aVar.bEj.hasError() && aVar.bEj.getError() == 0) {
                         if (PbActivity.this.hKC != null) {
-                            PbActivity.this.hKC.q(((a.C0235a) aVar).channelId, 1);
+                            PbActivity.this.hKC.q(((a.C0240a) aVar).channelId, 1);
                         }
                         if (z) {
                             PbActivity.this.bUE();
@@ -3248,7 +3248,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
                 } else if (aVar instanceof a.c) {
                     if (aVar.bEj != null && !aVar.bEj.hasError() && aVar.bEj.getError() == 0) {
                         if (PbActivity.this.hKC != null && PbActivity.this.hKC != null) {
-                            PbActivity.this.hKC.q(((a.C0235a) aVar).channelId, 2);
+                            PbActivity.this.hKC.q(((a.C0240a) aVar).channelId, 2);
                         }
                     } else if (z) {
                         if (aVar.bEj != null && aVar.bEj.getErrorString() != null) {

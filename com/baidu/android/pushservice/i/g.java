@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.i;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class g {
@@ -45,7 +46,7 @@ public class g {
                 case 0:
                     return "mobile";
                 case 1:
-                    return "wifi";
+                    return IXAdSystemUtils.NT_WIFI;
                 case 2:
                     return "mobile_mms";
                 case 3:

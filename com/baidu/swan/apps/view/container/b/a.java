@@ -15,8 +15,8 @@ public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private String bcj;
     private long bck;
-    private List<C0188a> bcl;
-    private List<C0188a> bcm;
+    private List<C0193a> bcl;
+    private List<C0193a> bcm;
     private int[] bcn;
 
     public a(MotionEvent motionEvent) {
@@ -126,16 +126,16 @@ public class a {
         }
     }
 
-    public C0188a b(MotionEvent motionEvent, int i) {
+    public C0193a b(MotionEvent motionEvent, int i) {
         int pointerId = motionEvent.getPointerId(i);
-        C0188a c0188a = new C0188a();
-        c0188a.identifier = pointerId;
-        c0188a.x = motionEvent.getX(i);
-        c0188a.y = motionEvent.getY(i);
-        c0188a.bco = (motionEvent.getRawX() + c0188a.x) - motionEvent.getX();
-        c0188a.bcp = (motionEvent.getRawY() + c0188a.y) - motionEvent.getY();
-        c0188a.bcq = motionEvent.getPressure(i);
-        return c0188a;
+        C0193a c0193a = new C0193a();
+        c0193a.identifier = pointerId;
+        c0193a.x = motionEvent.getX(i);
+        c0193a.y = motionEvent.getY(i);
+        c0193a.bco = (motionEvent.getRawX() + c0193a.x) - motionEvent.getX();
+        c0193a.bcp = (motionEvent.getRawY() + c0193a.y) - motionEvent.getY();
+        c0193a.bcq = motionEvent.getPressure(i);
+        return c0193a;
     }
 
     public JSONObject Qm() {
@@ -143,17 +143,17 @@ public class a {
         try {
             JSONArray jSONArray = new JSONArray();
             if (!this.bcl.isEmpty()) {
-                for (C0188a c0188a : this.bcl) {
-                    if (c0188a != null) {
-                        jSONArray.put(c0188a.Qn());
+                for (C0193a c0193a : this.bcl) {
+                    if (c0193a != null) {
+                        jSONArray.put(c0193a.Qn());
                     }
                 }
             }
             JSONArray jSONArray2 = new JSONArray();
             if (!this.bcm.isEmpty()) {
-                for (C0188a c0188a2 : this.bcm) {
-                    if (c0188a2 != null) {
-                        jSONArray2.put(c0188a2.Qn());
+                for (C0193a c0193a2 : this.bcm) {
+                    if (c0193a2 != null) {
+                        jSONArray2.put(c0193a2.Qn());
                     }
                 }
             }
@@ -171,7 +171,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.container.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0188a {
+    public class C0193a {
         private float bco;
         private float bcp;
         private float bcq;
@@ -179,7 +179,7 @@ public class a {
         private float x;
         private float y;
 
-        private C0188a() {
+        private C0193a() {
         }
 
         JSONObject Qn() {

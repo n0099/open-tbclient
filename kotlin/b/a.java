@@ -4,7 +4,7 @@ import kotlin.collections.y;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public class a implements Iterable<Integer> {
-    public static final C0491a krZ = new C0491a(null);
+    public static final C0497a krZ = new C0497a(null);
     private final int krX;
     private final int krY;
     private final int step;
@@ -58,11 +58,11 @@ public class a implements Iterable<Integer> {
 
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0491a {
-        private C0491a() {
+    public static final class C0497a {
+        private C0497a() {
         }
 
-        public /* synthetic */ C0491a(o oVar) {
+        public /* synthetic */ C0497a(o oVar) {
             this();
         }
 

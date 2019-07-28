@@ -19,24 +19,24 @@ public class b {
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
     private boolean cDj = false;
-    private a.InterfaceC0299a eac = new a.InterfaceC0299a() { // from class: com.baidu.tieba.frs.gametab.b.1
+    private a.InterfaceC0305a eac = new a.InterfaceC0305a() { // from class: com.baidu.tieba.frs.gametab.b.1
         final int ekN = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds98);
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void aY(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && ax(i2)) {
                 b.this.kl(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void aZ(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && ax(i2)) {
                 b.this.kl(true);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        @Override // com.baidu.tieba.f.a.InterfaceC0305a
         public void ba(int i, int i2) {
         }
 

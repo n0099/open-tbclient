@@ -106,7 +106,7 @@ public class g {
                     bd.cE(this.mContext.getPageActivity());
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0235a.a(this.dxr.channelId, this.mContext.getUniqueId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0240a.a(this.dxr.channelId, this.mContext.getUniqueId())));
             }
         }
     }

@@ -18,7 +18,7 @@ import com.baidu.tieba.c.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0289a {
+public class e implements a.InterfaceC0295a {
     private static e eMh = null;
     private a eMi;
     private a eMj;
@@ -96,7 +96,7 @@ public class e implements a.InterfaceC0289a {
         }
     }
 
-    @Override // com.baidu.tieba.c.a.InterfaceC0289a
+    @Override // com.baidu.tieba.c.a.InterfaceC0295a
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {

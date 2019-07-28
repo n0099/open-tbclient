@@ -44,7 +44,7 @@ public class a {
     private f cwm;
     private AntiData jgl;
     private com.baidu.tieba.tbadkCore.videoupload.a jgm;
-    private InterfaceC0407a jgn;
+    private InterfaceC0413a jgn;
     private h jgo;
     private ErrorData mErrorData;
     private x mNetwork = null;
@@ -52,7 +52,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0407a {
+    public interface InterfaceC0413a {
         void onUploadProgress(int i);
     }
 
@@ -65,8 +65,8 @@ public class a {
         this.jgo = hVar;
     }
 
-    public void a(InterfaceC0407a interfaceC0407a) {
-        this.jgn = interfaceC0407a;
+    public void a(InterfaceC0413a interfaceC0413a) {
+        this.jgn = interfaceC0413a;
     }
 
     public ImageUploadResult e(ImageFileInfo imageFileInfo, boolean z) {

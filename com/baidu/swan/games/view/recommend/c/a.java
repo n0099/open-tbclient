@@ -10,12 +10,12 @@ import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
     private com.baidu.swan.games.view.recommend.d.b bmC;
-    private InterfaceC0216a bmU;
+    private InterfaceC0221a bmU;
     private LayoutInflater mInflater;
 
     /* renamed from: com.baidu.swan.games.view.recommend.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0216a {
+    public interface InterfaceC0221a {
         void fq(int i);
     }
 
@@ -67,7 +67,7 @@ public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0216a interfaceC0216a) {
-        this.bmU = interfaceC0216a;
+    public void a(InterfaceC0221a interfaceC0221a) {
+        this.bmU = interfaceC0221a;
     }
 }

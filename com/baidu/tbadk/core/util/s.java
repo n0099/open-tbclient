@@ -5,6 +5,8 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDomainConfig;
 import com.tencent.open.SocialConstants;
@@ -272,7 +274,7 @@ public class s {
                 str5 = ain();
             }
             aVar.append("url", str);
-            aVar.append(SocialConstants.PARAM_ACT, "dl");
+            aVar.append(SocialConstants.PARAM_ACT, IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS);
             aVar.append("result", z ? "1" : "0");
             aVar.append("fullurl", str2);
             aVar.append("netlib", String.valueOf(dVar.AG));
@@ -436,7 +438,7 @@ public class s {
 
     private static String ain() {
         try {
-            DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApp().getSystemService("wifi")).getDhcpInfo();
+            DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApp().getSystemService(IXAdSystemUtils.NT_WIFI)).getDhcpInfo();
             return intToIp(dhcpInfo.dns1) + Constants.ACCEPT_TIME_SEPARATOR_SP + intToIp(dhcpInfo.dns2);
         } catch (Exception e) {
             e.printStackTrace();

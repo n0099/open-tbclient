@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.an;
 
+import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
@@ -300,7 +301,7 @@ public final class l {
         e("video/3gpp", "3gpp", 0);
         e("video/3gpp", "3gp", 0);
         e("video/3gpp", "3g2", 0);
-        e("video/dl", "dl", 0);
+        e("video/dl", IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, 0);
         e("video/dv", "dif", 0);
         e("video/dv", "dv", 0);
         e("video/fli", "fli", 0);

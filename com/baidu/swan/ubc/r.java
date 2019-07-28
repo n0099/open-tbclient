@@ -7,6 +7,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.WindowManager;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.poly.bean.PayChannel;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.coremedia.iso.boxes.UserBox;
@@ -79,7 +80,7 @@ public class r {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.putOpt("os", this.bwR.os);
+            jSONObject2.putOpt(IXAdRequestInfo.OS, this.bwR.os);
             jSONObject2.putOpt("osversion", this.bwR.osVersion);
             jSONObject2.putOpt("model", this.bwR.model);
             jSONObject2.putOpt("deviceType", this.bwR.deviceType);

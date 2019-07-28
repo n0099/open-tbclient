@@ -10,7 +10,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public final class m implements a.InterfaceC0439a {
+public final class m implements a.InterfaceC0445a {
     private static n jWV;
     private static long jWW;
     private static long jWn = f.cDu();
@@ -71,7 +71,7 @@ public final class m implements a.InterfaceC0439a {
         return jWV;
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0439a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0445a
     public final void T() {
         this.jWY = false;
         boolean z = this.jWX ? false : true;
@@ -88,7 +88,7 @@ public final class m implements a.InterfaceC0439a {
         }
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0439a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0445a
     public final void U() {
         this.jWY = true;
         if (this.jWZ != null) {
@@ -132,11 +132,11 @@ public final class m implements a.InterfaceC0439a {
         handler.postDelayed(runnable, 1000L);
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0439a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0445a
     public final void a(Activity activity) {
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0439a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0445a
     public final void onActivityDestroyed(Activity activity) {
     }
 

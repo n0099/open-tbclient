@@ -25,7 +25,7 @@ public class a implements View.OnClickListener {
     public TextView cbW;
     public HeadImageView fNK;
     private final LinearLayout hyx;
-    private InterfaceC0388a iAc;
+    private InterfaceC0394a iAc;
     protected final LinearLayout irn;
     protected final ColumnLayout iro;
     protected final ColumnLayout irp;
@@ -37,7 +37,7 @@ public class a implements View.OnClickListener {
 
     /* renamed from: com.baidu.tieba.post.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0388a {
+    public interface InterfaceC0394a {
         void cM(View view);
     }
 
@@ -77,8 +77,8 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void a(InterfaceC0388a interfaceC0388a) {
-        this.iAc = interfaceC0388a;
+    public void a(InterfaceC0394a interfaceC0394a) {
+        this.iAc = interfaceC0394a;
     }
 
     public void a(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {

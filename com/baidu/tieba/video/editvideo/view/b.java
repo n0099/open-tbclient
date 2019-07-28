@@ -47,8 +47,8 @@ public class b extends com.baidu.adp.base.c {
         this.jxN = (CoverSeekBar) this.mRootView.findViewById(R.id.cover_seek_bar);
         this.jxP = (HListView) this.mRootView.findViewById(R.id.pendant_list_view);
         this.jxQ = new com.baidu.tieba.video.editvideo.a.a(getPageContext());
-        this.jxQ.a(new a.InterfaceC0415a() { // from class: com.baidu.tieba.video.editvideo.view.b.1
-            @Override // com.baidu.tieba.video.editvideo.a.a.InterfaceC0415a
+        this.jxQ.a(new a.InterfaceC0421a() { // from class: com.baidu.tieba.video.editvideo.view.b.1
+            @Override // com.baidu.tieba.video.editvideo.a.a.InterfaceC0421a
             public void a(View view, int i, PendantData pendantData) {
                 b.this.jxR.a(view, pendantData);
                 an anVar = new an("c12305");

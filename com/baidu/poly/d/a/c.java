@@ -8,11 +8,11 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class c implements d {
-    protected a.C0085a aic;
+    protected a.C0090a aic;
 
     @Override // com.baidu.poly.d.a.d
-    public void a(Activity activity, Map<String, String> map, a.C0085a c0085a) {
-        this.aic = c0085a;
+    public void a(Activity activity, Map<String, String> map, a.C0090a c0090a) {
+        this.aic = c0090a;
     }
 
     public Map<String, String> l(Map<String, String> map) {

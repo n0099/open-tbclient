@@ -22,7 +22,7 @@ public final class a<T> implements c<T> {
 
     /* renamed from: kotlin.sequences.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0493a implements Iterator<T> {
+    public static final class C0499a implements Iterator<T> {
         private T Eu;
         private final Iterator<T> iterator;
         private int ksh = -1;
@@ -33,7 +33,7 @@ public final class a<T> implements c<T> {
         }
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        C0493a() {
+        C0499a() {
             this.iterator = a.this.kse.iterator();
         }
 
@@ -74,6 +74,6 @@ public final class a<T> implements c<T> {
 
     @Override // kotlin.sequences.c
     public Iterator<T> iterator() {
-        return new C0493a();
+        return new C0499a();
     }
 }

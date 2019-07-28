@@ -30,11 +30,11 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0406a {
+    public interface InterfaceC0412a {
         void onRefresh();
     }
 
-    public static void a(final BaseActivity<?> baseActivity, View view, final boolean z, InterfaceC0406a interfaceC0406a) {
+    public static void a(final BaseActivity<?> baseActivity, View view, final boolean z, InterfaceC0412a interfaceC0412a) {
         int defaultBubbleEndTime;
         final SpannableString spannableString;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && (defaultBubbleEndTime = TbadkCoreApplication.getInst().getDefaultBubbleEndTime()) > 0) {
@@ -43,8 +43,8 @@ public class a {
                 MessageManager.getInstance().runTask(2001283, TbPageContext.class, baseActivity.getPageContext());
                 TbadkCoreApplication.getInst().setDefaultBubble(null);
                 TbadkCoreApplication.getInst().setDefaultBubbleEndTime(0);
-                if (interfaceC0406a != null) {
-                    interfaceC0406a.onRefresh();
+                if (interfaceC0412a != null) {
+                    interfaceC0412a.onRefresh();
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
                 aVar.dR(false);

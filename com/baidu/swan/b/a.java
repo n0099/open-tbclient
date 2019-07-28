@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes2.dex */
 public class a {
@@ -22,7 +23,7 @@ public class a {
             return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
-            return "wifi";
+            return IXAdSystemUtils.NT_WIFI;
         }
         if (activeNetworkInfo.getType() == 0) {
             return o(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());

@@ -4,6 +4,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
@@ -57,7 +58,7 @@ public class e extends com.baidu.platform.base.e {
                 str5 = "bt";
                 break;
         }
-        aVar.a("sn", str2);
+        aVar.a(IXAdRequestInfo.SN, str2);
         aVar.a("en", str4);
         this.a.a("url", "http://map.baidu.com/?newmap=1&s=" + str5 + (AppMD5.encodeUrlParamsValue("&" + aVar.a() + ("&start=" + name + "&end=" + name2)) + str6));
         this.a.a("from", "android_map_sdk");

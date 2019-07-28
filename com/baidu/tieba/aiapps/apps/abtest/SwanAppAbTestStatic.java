@@ -48,8 +48,8 @@ public class SwanAppAbTestStatic {
                             com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
                             aVar.ajQ();
                             aVar.e(eU, "android.permission.WRITE_EXTERNAL_STORAGE");
-                            aVar.a(new a.InterfaceC0238a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1.1
-                                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0238a
+                            aVar.a(new a.InterfaceC0243a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1.1
+                                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0243a
                                 public void ajR() {
                                     Uri parse = Uri.parse((String) customMessage.getData());
                                     SwanAppAbTestStatic.r(parse);

@@ -244,7 +244,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public a.C0250a aj(Context context, String str) {
+    public a.C0255a aj(Context context, String str) {
         return null;
     }
 }

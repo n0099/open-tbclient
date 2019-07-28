@@ -1,6 +1,5 @@
 package com.airbnb.lottie;
 
-import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g {
@@ -22,7 +21,7 @@ public class g {
     static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static g d(JSONObject jSONObject) {
-            return new g(jSONObject.optInt(Config.DEVICE_WIDTH), jSONObject.optInt("h"), jSONObject.optString("id"), jSONObject.optString("p"), jSONObject.optString("u"));
+            return new g(jSONObject.optInt("w"), jSONObject.optInt("h"), jSONObject.optString("id"), jSONObject.optString("p"), jSONObject.optString("u"));
         }
     }
 

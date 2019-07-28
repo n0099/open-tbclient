@@ -24,14 +24,14 @@ import tbclient.ThemeElement;
 public class b extends RecyclerView.Adapter<a> {
     private LinkedList<VisitedForumData> eVF;
     private boolean eVG;
-    private InterfaceC0295b eVH;
+    private InterfaceC0301b eVH;
     private View.OnLongClickListener eVI;
     private View.OnClickListener eVJ;
     private TbPageContext<?> mPageContext;
 
     /* renamed from: com.baidu.tieba.enterForum.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0295b {
+    public interface InterfaceC0301b {
         void a(a aVar);
     }
 
@@ -152,8 +152,8 @@ public class b extends RecyclerView.Adapter<a> {
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0295b interfaceC0295b) {
-        this.eVH = interfaceC0295b;
+    public void a(InterfaceC0301b interfaceC0301b) {
+        this.eVH = interfaceC0301b;
     }
 
     public void a(View.OnLongClickListener onLongClickListener) {

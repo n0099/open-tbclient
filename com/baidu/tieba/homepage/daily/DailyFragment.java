@@ -27,8 +27,8 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
     private boolean eYY;
     private com.baidu.tieba.homepage.daily.model.a gds;
     private a gdt;
-    private a.InterfaceC0318a gdu = new a.InterfaceC0318a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
-        @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0318a
+    private a.InterfaceC0324a gdu = new a.InterfaceC0324a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
+        @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0324a
         public void a(b bVar, boolean z, boolean z2) {
             DailyFragment.this.gdt.hideLoadingView();
             DailyFragment.this.gdt.aJB();
@@ -42,7 +42,7 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
             }
         }
 
-        @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0318a
+        @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0324a
         public void M(int i, String str) {
             DailyFragment.this.gdt.hideLoadingView();
             DailyFragment.this.gdt.aJB();

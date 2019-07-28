@@ -7,6 +7,7 @@ import android.os.Message;
 import android.os.Process;
 import android.util.Log;
 import android.view.Choreographer;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.swan.apps.ak.e;
 import com.baidu.swan.apps.an.j;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -30,7 +31,7 @@ public class b {
     private int anR;
     private d aoc;
     private e aod;
-    private Choreographer$FrameCallbackC0125b aoe;
+    private Choreographer$FrameCallbackC0130b aoe;
     private a aof;
     private ConcurrentMap<String, Object> aog;
     private boolean aoh;
@@ -73,7 +74,7 @@ public class b {
             return;
         }
         this.aoh = true;
-        this.aoe = new Choreographer$FrameCallbackC0125b();
+        this.aoe = new Choreographer$FrameCallbackC0130b();
         Choreographer.getInstance().postFrameCallback(this.aoe);
         this.aof = new a();
         this.aod = new e();
@@ -161,7 +162,7 @@ public class b {
             ?? append = new StringBuilder().append("top -n 1 | grep ");
             try {
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", append.append(myPid).toString()}).getInputStream()));
+                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{IXAdRequestInfo.SCREEN_HEIGHT, "-c", append.append(myPid).toString()}).getInputStream()));
                     try {
                         String a = a(bufferedReader);
                         b.this.aog.put("cpu", a);
@@ -250,11 +251,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.property.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class Choreographer$FrameCallbackC0125b implements Choreographer.FrameCallback {
+    public class Choreographer$FrameCallbackC0130b implements Choreographer.FrameCallback {
         long aol;
         int aom;
 
-        private Choreographer$FrameCallbackC0125b() {
+        private Choreographer$FrameCallbackC0130b() {
             this.aol = -1L;
             this.aom = -1;
         }

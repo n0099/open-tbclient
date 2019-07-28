@@ -101,7 +101,7 @@ public class b extends com.baidu.swan.apps.setting.oauth.a.b {
                     }
                     Log.e("aiapps-oauth", "isUidScope: " + eVar.Nw() + "mFlagTryLogin:" + b.this.aUY);
                     if (eVar.Nw() && !b.this.aUY) {
-                        b.this.a(new C0160b());
+                        b.this.a(new C0165b());
                     } else {
                         b.this.a(new b.a());
                     }
@@ -115,8 +115,8 @@ public class b extends com.baidu.swan.apps.setting.oauth.a.b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.q.a.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0160b extends com.baidu.swan.apps.setting.oauth.d implements com.baidu.swan.apps.a.a {
-        private C0160b() {
+    public class C0165b extends com.baidu.swan.apps.setting.oauth.d implements com.baidu.swan.apps.a.a {
+        private C0165b() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d

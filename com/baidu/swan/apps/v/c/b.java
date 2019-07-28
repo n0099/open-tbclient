@@ -53,7 +53,7 @@ public final class b {
 
     public synchronized b d(com.baidu.swan.apps.an.d.a<b> aVar) {
         if (aVar == null) {
-            aVar = new C0183b();
+            aVar = new C0188b();
         }
         aVar.D(this);
         return this;
@@ -120,8 +120,8 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.v.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0183b implements com.baidu.swan.apps.an.d.a<b> {
-        private C0183b() {
+    public class C0188b implements com.baidu.swan.apps.an.d.a<b> {
+        private C0188b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

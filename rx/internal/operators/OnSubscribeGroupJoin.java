@@ -290,19 +290,19 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
         public void call(rx.j<? super T> jVar) {
             rx.k cQN = this.kvJ.cQN();
-            C0502a c0502a = new C0502a(jVar, cQN);
-            c0502a.add(cQN);
-            this.kvK.a((rx.j) c0502a);
+            C0508a c0508a = new C0508a(jVar, cQN);
+            c0508a.add(cQN);
+            this.kvK.a((rx.j) c0508a);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public final class C0502a extends rx.j<T> {
+        public final class C0508a extends rx.j<T> {
             private final rx.k kvL;
             final rx.j<? super T> subscriber;
 
-            public C0502a(rx.j<? super T> jVar, rx.k kVar) {
+            public C0508a(rx.j<? super T> jVar, rx.k kVar) {
                 super(jVar);
                 this.subscriber = jVar;
                 this.kvL = kVar;

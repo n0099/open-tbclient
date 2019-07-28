@@ -89,8 +89,8 @@ public class i extends z {
         if (DEBUG) {
             Log.d("redirectTo", "tryToExecutePageRoute start. isReady : " + aVar.atC);
         }
-        com.baidu.swan.apps.core.i.b.a(aVar, new b.InterfaceC0134b() { // from class: com.baidu.swan.apps.scheme.actions.i.i.2
-            @Override // com.baidu.swan.apps.core.i.b.InterfaceC0134b
+        com.baidu.swan.apps.core.i.b.a(aVar, new b.InterfaceC0139b() { // from class: com.baidu.swan.apps.scheme.actions.i.i.2
+            @Override // com.baidu.swan.apps.core.i.b.InterfaceC0139b
             public void onReady() {
                 if (i.DEBUG) {
                     Log.d("redirectTo", "tryToExecutePageRoute onReady start.");

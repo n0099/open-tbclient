@@ -2,7 +2,6 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
@@ -127,7 +126,7 @@ public class y {
                     bb.c().b(e6);
                 }
                 try {
-                    this.k = jSONObject.getLong(PushConstants.URI_PACKAGE_NAME);
+                    this.k = jSONObject.getLong("pk");
                 } catch (JSONException e7) {
                     bb.c().b(e7);
                 }

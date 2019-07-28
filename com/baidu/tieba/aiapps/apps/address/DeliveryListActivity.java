@@ -138,18 +138,18 @@ public class DeliveryListActivity extends TbSwanAppBaseActivity implements a.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aEI() {
-        com.baidu.tieba.aiapps.apps.address.b.a.aEN().a(new a.C0277a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.5
-            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+        com.baidu.tieba.aiapps.apps.address.b.a.aEN().a(new a.C0283a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.5
+            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
             public void aEJ() {
                 DeliveryListActivity.this.dismissLoading();
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
             public void g(List<com.baidu.tieba.aiapps.apps.address.c.b> list, int i) {
                 DeliveryListActivity.this.aE(list);
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
             public void onFailure() {
                 d.a(AppRuntime.getAppContext(), DeliveryListActivity.this.getResources().getString(R.string.delivery_net_error)).LQ();
                 if (DeliveryListActivity.this.dbz == null || DeliveryListActivity.this.dbz.size() == 0) {
@@ -241,8 +241,8 @@ public class DeliveryListActivity extends TbSwanAppBaseActivity implements a.b {
     private void a(com.baidu.tieba.aiapps.apps.address.c.b bVar, final int i) {
         com.baidu.tieba.aiapps.apps.address.c.b bVar2 = new com.baidu.tieba.aiapps.apps.address.c.b();
         bVar2.id = bVar.id;
-        com.baidu.tieba.aiapps.apps.address.b.a.aEN().d(bVar2, new a.C0277a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.6
-            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+        com.baidu.tieba.aiapps.apps.address.b.a.aEN().d(bVar2, new a.C0283a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.6
+            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
             public void aj(String str, int i2) {
                 for (int i3 = 0; i3 < DeliveryListActivity.this.dbz.size(); i3++) {
                     com.baidu.tieba.aiapps.apps.address.c.b bVar3 = (com.baidu.tieba.aiapps.apps.address.c.b) DeliveryListActivity.this.dbz.get(i3);
@@ -254,7 +254,7 @@ public class DeliveryListActivity extends TbSwanAppBaseActivity implements a.b {
                 DeliveryListActivity.this.dby.aJ(DeliveryListActivity.this.dbz);
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+            @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
             public void onFailure() {
                 d.a(AppRuntime.getAppContext(), DeliveryListActivity.this.getResources().getString(R.string.delivery_net_error)).LQ();
             }
@@ -286,13 +286,13 @@ public class DeliveryListActivity extends TbSwanAppBaseActivity implements a.b {
             com.baidu.tieba.aiapps.apps.address.c.b bVar2 = new com.baidu.tieba.aiapps.apps.address.c.b();
             bVar2.id = bVar.id;
             showLoading();
-            com.baidu.tieba.aiapps.apps.address.b.a.aEN().b(bVar2, new a.C0277a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.8
-                @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+            com.baidu.tieba.aiapps.apps.address.b.a.aEN().b(bVar2, new a.C0283a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryListActivity.8
+                @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
                 public void aEJ() {
                     DeliveryListActivity.this.dismissLoading();
                 }
 
-                @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+                @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
                 public void ak(String str, int i2) {
                     DeliveryListActivity.this.dbz.remove(i);
                     if (z && DeliveryListActivity.this.dbz.size() > 0) {
@@ -302,7 +302,7 @@ public class DeliveryListActivity extends TbSwanAppBaseActivity implements a.b {
                     DeliveryListActivity.this.dby.aJ(DeliveryListActivity.this.dbz);
                 }
 
-                @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+                @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
                 public void onFailure() {
                     d.a(AppRuntime.getAppContext(), "网络异常").LQ();
                 }

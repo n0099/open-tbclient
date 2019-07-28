@@ -17,12 +17,12 @@ public class a {
     private TextView asg;
     private TextView ash;
     private b asi;
-    private InterfaceC0132a asj;
+    private InterfaceC0137a asj;
     private final Context mContext;
 
     /* renamed from: com.baidu.swan.apps.core.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0132a {
+    public interface InterfaceC0137a {
         void onCancel();
     }
 
@@ -50,8 +50,8 @@ public class a {
         this.asi = bVar;
     }
 
-    public void a(InterfaceC0132a interfaceC0132a) {
-        this.asj = interfaceC0132a;
+    public void a(InterfaceC0137a interfaceC0137a) {
+        this.asj = interfaceC0137a;
     }
 
     public void show() {

@@ -3,6 +3,7 @@ package com.baidu.platform.core.d;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.route.IndoorRoutePlanOption;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 /* loaded from: classes5.dex */
 public class g extends com.baidu.platform.base.e {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +17,7 @@ public class g extends com.baidu.platform.base.e {
         this.a.a("version", "1");
         GeoPoint ll2mc = CoordUtil.ll2mc(indoorRoutePlanOption.mFrom.getLocation());
         if (ll2mc != null) {
-            this.a.a("sn", (String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6())) + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
+            this.a.a(IXAdRequestInfo.SN, (String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6())) + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
         }
         GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
         if (ll2mc2 != null) {

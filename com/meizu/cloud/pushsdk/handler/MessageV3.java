@@ -116,7 +116,7 @@ public class MessageV3 implements Parcelable {
             if ("url".equals(key)) {
                 messageV3.setWebUrl(value);
             }
-            if (PushConstants.URI_PACKAGE_NAME.equals(key)) {
+            if ("pk".equals(key)) {
                 messageV3.setUriPackageName(value);
             }
             if (NotificationStyle.NOTIFICATION_STYLE.equals(key)) {
@@ -186,8 +186,8 @@ public class MessageV3 implements Parcelable {
                     com.meizu.cloud.a.a.e(TAG, "Flyme 4 notification message by through message or taskId is null");
                     messageV3.setTaskId(jSONObject2.getString("task_id"));
                 }
-                if (!jSONObject2.isNull(PushConstants.URI_PACKAGE_NAME)) {
-                    messageV3.setUriPackageName(jSONObject2.getString(PushConstants.URI_PACKAGE_NAME));
+                if (!jSONObject2.isNull("pk")) {
+                    messageV3.setUriPackageName(jSONObject2.getString("pk"));
                 }
                 if (!jSONObject2.isNull(PushConstants.PARAMS)) {
                     messageV3.setParamsMap(getParamsMap(jSONObject2.getJSONObject(PushConstants.PARAMS)));

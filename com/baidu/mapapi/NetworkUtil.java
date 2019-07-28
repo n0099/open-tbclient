@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes5.dex */
 public class NetworkUtil {
     public static NetworkInfo getActiveNetworkInfo(Context context) {
@@ -138,7 +139,7 @@ public class NetworkUtil {
             return false;
         }
         try {
-            i = ((WifiManager) context.getSystemService("wifi")).getWifiState();
+            i = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getWifiState();
         } catch (Exception e) {
             i = -1;
         }

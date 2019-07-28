@@ -24,6 +24,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -281,11 +282,11 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
         String optString = optParamsAsJo.optString("title");
         boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-        if (!(context instanceof a.InterfaceC0167a)) {
+        if (!(context instanceof a.InterfaceC0172a)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a vF = ((a.InterfaceC0167a) context).vF();
+        com.baidu.swan.apps.res.widget.floatlayer.a vF = ((a.InterfaceC0172a) context).vF();
         View view = vF.getView();
         if (view instanceof LoadingView) {
             loadingView = (LoadingView) view;
@@ -302,11 +303,11 @@ public class g extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        if (!(context instanceof a.InterfaceC0167a)) {
+        if (!(context instanceof a.InterfaceC0172a)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support FloatLayer");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a vF = ((a.InterfaceC0167a) context).vF();
+        com.baidu.swan.apps.res.widget.floatlayer.a vF = ((a.InterfaceC0172a) context).vF();
         if (vF.getView() instanceof LoadingView) {
             vF.reset();
         }
@@ -429,7 +430,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (TextUtils.isEmpty(HQ)) {
             HQ = "unknown";
         } else if ("no".equals(HQ)) {
-            HQ = "none";
+            HQ = IXAdSystemUtils.NT_NONE;
         }
         JSONObject jSONObject = new JSONObject();
         try {

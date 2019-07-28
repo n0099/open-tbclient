@@ -13,7 +13,7 @@ import java.io.IOException;
 public class a implements MediaController.MediaPlayerControl {
     private String alH;
     private MediaPlayer bAa;
-    private InterfaceC0265a cXo;
+    private InterfaceC0270a cXo;
     private MediaPlayer.OnPreparedListener cXp;
     private MediaPlayer.OnErrorListener cXq;
     private MediaPlayer.OnCompletionListener cXr;
@@ -71,7 +71,7 @@ public class a implements MediaController.MediaPlayerControl {
 
     /* renamed from: com.baidu.tieba.ad.play.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0265a {
+    public interface InterfaceC0270a {
         void onLoading();
 
         void onPlay();
@@ -253,8 +253,8 @@ public class a implements MediaController.MediaPlayerControl {
         this.cXr = onCompletionListener;
     }
 
-    public void a(InterfaceC0265a interfaceC0265a) {
-        this.cXo = interfaceC0265a;
+    public void a(InterfaceC0270a interfaceC0270a) {
+        this.cXo = interfaceC0270a;
     }
 
     private boolean isInPlaybackState() {

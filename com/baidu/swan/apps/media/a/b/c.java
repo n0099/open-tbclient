@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import rx.functions.f;
 import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
-public class c extends AsyncTask<d.a, String, C0147c> {
+public class c extends AsyncTask<d.a, String, C0152c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private UnitedSchemeEntity aBX;
     private CallbackHandler aBY;
@@ -42,62 +42,62 @@ public class c extends AsyncTask<d.a, String, C0147c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public C0147c doInBackground(d.a... aVarArr) {
+    public C0152c doInBackground(d.a... aVarArr) {
         d.a aVar;
         if (DEBUG) {
             Log.i("PickVideoTask", "Pick task doInBackground run >>");
         }
-        C0147c c0147c = new C0147c();
+        C0152c c0152c = new C0152c();
         if (aVarArr == null) {
             aVar = null;
         } else {
             aVar = aVarArr[0];
         }
         if (aVar == null || aVar.uri == null) {
-            return c0147c.d(true, "uri is null");
+            return c0152c.d(true, "uri is null");
         }
         Context context = this.mContextRef.get();
         if (context == null) {
-            return c0147c.d(true, "context is null");
+            return c0152c.d(true, "context is null");
         }
-        return b.e(aVar).a(context, c0147c);
+        return b.e(aVar).a(context, c0152c);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: b */
-    public void onPostExecute(C0147c c0147c) {
+    public void onPostExecute(C0152c c0152c) {
         if (DEBUG) {
             Log.i("PickVideoTask", "Pick task onPostExecute.");
         }
-        super.onPostExecute(c0147c);
-        if (c0147c.He() || c0147c.isFinished()) {
+        super.onPostExecute(c0152c);
+        if (c0152c.He() || c0152c.isFinished()) {
             if (DEBUG) {
-                Log.w("PickVideoTask", "Pick task has Error:" + c0147c.extra);
+                Log.w("PickVideoTask", "Pick task has Error:" + c0152c.extra);
             }
-            if (c0147c.object instanceof d.a) {
-                c((d.a) c0147c.object);
+            if (c0152c.object instanceof d.a) {
+                c((d.a) c0152c.object);
                 return;
             }
             return;
         }
-        switch (c0147c.aCe) {
+        switch (c0152c.aCe) {
             case 1:
-                if (c0147c.object instanceof d.a) {
+                if (c0152c.object instanceof d.a) {
                     if (DEBUG) {
                         Log.i("PickVideoTask", "Pick task performVideoCompressed.");
                     }
-                    a((d.a) c0147c.object);
+                    a((d.a) c0152c.object);
                     return;
                 }
                 return;
             case 2:
-                if (c0147c.object instanceof d.a) {
+                if (c0152c.object instanceof d.a) {
                     if (DEBUG) {
                         Log.i("PickVideoTask", "Pick task performMovingVideo.");
                     }
-                    b((d.a) c0147c.object);
+                    b((d.a) c0152c.object);
                     return;
                 }
                 return;
@@ -253,13 +253,13 @@ public class c extends AsyncTask<d.a, String, C0147c> {
     public static abstract class b {
         private static final b aCc = new b(null) { // from class: com.baidu.swan.apps.media.a.b.c.b.1
             @Override // com.baidu.swan.apps.media.a.b.c.b
-            public C0147c a(Context context, C0147c c0147c) {
-                return c0147c;
+            public C0152c a(Context context, C0152c c0152c) {
+                return c0152c;
             }
         };
         protected d.a aCb;
 
-        public abstract C0147c a(Context context, C0147c c0147c);
+        public abstract C0152c a(Context context, C0152c c0152c);
 
         public b(@NonNull d.a aVar) {
             this.aCb = aVar;
@@ -289,21 +289,21 @@ public class c extends AsyncTask<d.a, String, C0147c> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.media.a.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0147c {
+    public static class C0152c {
         private boolean aCd = false;
         int aCe = 0;
         public String extra;
         public Object object;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C0147c b(int i, Object obj) {
+        public C0152c b(int i, Object obj) {
             this.aCe = i;
             this.object = obj;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C0147c d(boolean z, String str) {
+        public C0152c d(boolean z, String str) {
             this.aCd = z;
             this.extra = str;
             return this;

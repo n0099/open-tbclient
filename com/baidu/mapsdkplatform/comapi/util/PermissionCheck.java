@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.Hashtable;
 import org.json.JSONException;
@@ -121,7 +122,7 @@ public class PermissionCheck {
         Bundle b2 = f.b();
         if (b2 != null) {
             d.put("mb", b2.getString("mb"));
-            d.put("os", b2.getString("os"));
+            d.put(IXAdRequestInfo.OS, b2.getString(IXAdRequestInfo.OS));
             d.put("sv", b2.getString("sv"));
             d.put("imt", "1");
             d.put("net", b2.getString("net"));

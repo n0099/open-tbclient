@@ -213,8 +213,8 @@ public class a extends d implements e.a {
             this.axb.bK(2);
             if (vO()) {
                 com.baidu.swan.apps.p.a DI = com.baidu.swan.apps.p.a.DI();
-                DI.a(this.axb, DI.DK(), new a.InterfaceC0150a() { // from class: com.baidu.swan.apps.o.a.a.2
-                    @Override // com.baidu.swan.apps.p.a.InterfaceC0150a
+                DI.a(this.axb, DI.DK(), new a.InterfaceC0155a() { // from class: com.baidu.swan.apps.o.a.a.2
+                    @Override // com.baidu.swan.apps.p.a.InterfaceC0155a
                     public void zW() {
                         if (a.this.axb != null) {
                             a.this.axb.moveTaskToBack(true);

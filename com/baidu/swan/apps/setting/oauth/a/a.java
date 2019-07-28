@@ -8,7 +8,7 @@ import okhttp3.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends g<C0175a> {
+public class a extends g<C0180a> {
     protected final boolean aUV;
     protected final Activity mActivity;
     protected final String mScope;
@@ -54,7 +54,7 @@ public class a extends g<C0175a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
     /* renamed from: y */
-    public C0175a z(JSONObject jSONObject) throws JSONException {
+    public C0180a z(JSONObject jSONObject) throws JSONException {
         String str;
         JSONObject jSONObject2;
         JSONObject af = com.baidu.swan.apps.setting.oauth.c.af(jSONObject);
@@ -74,7 +74,7 @@ public class a extends g<C0175a> {
             str = jSONObject3.optString("code", "");
             jSONObject2 = jSONObject3.optJSONObject("opendata");
         }
-        return new C0175a(this.aUV, str, jSONObject2);
+        return new C0180a(this.aUV, str, jSONObject2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -86,12 +86,12 @@ public class a extends g<C0175a> {
 
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0175a {
+    public static class C0180a {
         public final boolean aUW;
         public final JSONObject aUX;
         public final String code;
 
-        private C0175a(boolean z, String str, JSONObject jSONObject) {
+        private C0180a(boolean z, String str, JSONObject jSONObject) {
             this.code = str == null ? "" : str;
             this.aUW = z;
             this.aUX = jSONObject;

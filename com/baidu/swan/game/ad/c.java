@@ -189,7 +189,7 @@ public abstract class c {
             this.j.setVisibility(0);
         }
         if (this.m.getVisibility() != 0) {
-            this.m.setAnimation(AnimationUtils.loadAnimation(this.c, a.C0193a.ng_game_ad_open));
+            this.m.setAnimation(AnimationUtils.loadAnimation(this.c, a.C0198a.ng_game_ad_open));
             this.m.setVisibility(0);
         }
     }

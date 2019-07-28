@@ -9,6 +9,7 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -202,7 +203,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
                 if (this.tP != null && this.tP.fB() != null) {
                     j = this.tP.fB().getClientLogID();
                 }
-                BdStatisticsManager.getInstance().error("im", j, String.valueOf(this.tQ), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.tQ));
+                BdStatisticsManager.getInstance().error(IXAdRequestInfo.IMSI, j, String.valueOf(this.tQ), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.tQ));
                 i.a("unpacker", i, j, this.tQ, "unpacktask", h.uI, "onBinaryMesssage decodebody error");
                 i3 = i;
                 cVar2 = cVar;
@@ -222,7 +223,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             if (this.tP != null) {
                 j = this.tP.fB().getClientLogID();
             }
-            BdStatisticsManager.getInstance().error("im", j, String.valueOf(this.tQ), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.tQ));
+            BdStatisticsManager.getInstance().error(IXAdRequestInfo.IMSI, j, String.valueOf(this.tQ), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.tQ));
             i.a("unpacker", i, j, this.tQ, "unpacktask", h.uI, "onBinaryMesssage decodebody error");
             i3 = i;
             cVar2 = cVar;

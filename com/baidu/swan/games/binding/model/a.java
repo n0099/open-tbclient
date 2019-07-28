@@ -15,7 +15,7 @@ public final class a {
         a aVar = new a();
         aVar.bfD = cVar.iY("success");
         aVar.bfE = cVar.iY(LivenessStat.TYPE_FACE_MATCH_FAIL);
-        aVar.bfF = cVar.iY("complete");
+        aVar.bfF = cVar.iY(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 

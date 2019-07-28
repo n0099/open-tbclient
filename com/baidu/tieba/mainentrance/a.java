@@ -64,50 +64,50 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0354a c0354a;
+        C0360a c0360a;
         String str;
         if (view == null) {
             view = LayoutInflater.from(this.cWM.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
-            C0354a c0354a2 = new C0354a();
-            c0354a2.hku = (BarImageView) view.findViewById(R.id.forum_avatar);
-            c0354a2.hku.setGifIconSupport(false);
-            c0354a2.cbW = (TextView) view.findViewById(R.id.name);
-            c0354a2.hkv = (TextView) view.findViewById(R.id.forum_member_count);
-            c0354a2.hkw = (TextView) view.findViewById(R.id.forum_thread_count);
-            c0354a2.hkx = (TextView) view.findViewById(R.id.slogan);
-            c0354a2.hkt = view.findViewById(R.id.offical_icon);
-            view.setTag(c0354a2);
-            c0354a = c0354a2;
+            C0360a c0360a2 = new C0360a();
+            c0360a2.hku = (BarImageView) view.findViewById(R.id.forum_avatar);
+            c0360a2.hku.setGifIconSupport(false);
+            c0360a2.cbW = (TextView) view.findViewById(R.id.name);
+            c0360a2.hkv = (TextView) view.findViewById(R.id.forum_member_count);
+            c0360a2.hkw = (TextView) view.findViewById(R.id.forum_thread_count);
+            c0360a2.hkx = (TextView) view.findViewById(R.id.slogan);
+            c0360a2.hkt = view.findViewById(R.id.offical_icon);
+            view.setTag(c0360a2);
+            c0360a = c0360a2;
         } else {
-            c0354a = (C0354a) view.getTag();
+            c0360a = (C0360a) view.getTag();
         }
         ForumSuggestModel.Forum item = getItem(i);
         if (item != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            c0354a.hku.setTag(str2);
-            c0354a.hku.startLoad(str2, 10, false);
-            c0354a.hku.invalidate();
+            c0360a.hku.setTag(str2);
+            c0360a.hku.startLoad(str2, 10, false);
+            c0360a.hku.invalidate();
             if (this.hkr) {
                 str = this.cWM.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
-            a(c0354a.cbW, str);
-            c0354a.hku.setTag(item.avatar);
-            c0354a.hkv.setText(this.cWM.getPageContext().getString(R.string.attention) + " " + wL(item.member_num));
-            c0354a.hkw.setText(this.cWM.getPageContext().getString(R.string.text_post) + " " + wL(item.thread_num));
+            a(c0360a.cbW, str);
+            c0360a.hku.setTag(item.avatar);
+            c0360a.hkv.setText(this.cWM.getPageContext().getString(R.string.attention) + " " + wL(item.member_num));
+            c0360a.hkw.setText(this.cWM.getPageContext().getString(R.string.text_post) + " " + wL(item.thread_num));
             if (this.hkr || !TextUtils.isEmpty(item.slogan)) {
-                c0354a.hkx.setVisibility(0);
-                c0354a.hkx.setText(item.slogan);
+                c0360a.hkx.setVisibility(0);
+                c0360a.hkx.setText(item.slogan);
             } else {
-                c0354a.hkx.setVisibility(8);
+                c0360a.hkx.setVisibility(8);
             }
             if (item.is_offical == 1) {
-                c0354a.hkt.setVisibility(0);
-                am.k(c0354a.hkt, R.drawable.icon_search_official);
+                c0360a.hkt.setVisibility(0);
+                am.k(c0360a.hkt, R.drawable.icon_search_official);
             } else {
-                c0354a.hkt.setVisibility(8);
+                c0360a.hkt.setVisibility(8);
             }
             this.cWM.getLayoutMode().setNightMode(skinType == 1);
             this.cWM.getLayoutMode().onModeChanged(view);
@@ -140,7 +140,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.mainentrance.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0354a {
+    private class C0360a {
         TextView cbW;
         View hkt;
         BarImageView hku;
@@ -148,7 +148,7 @@ public class a extends BaseAdapter {
         TextView hkw;
         TextView hkx;
 
-        private C0354a() {
+        private C0360a() {
         }
     }
 }

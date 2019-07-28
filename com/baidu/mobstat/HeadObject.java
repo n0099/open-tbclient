@@ -147,7 +147,7 @@ public class HeadObject {
                 jSONObject.put(Config.DEVICE_ID_SEC, this.i == null ? "" : this.i);
                 jSONObject.put(Config.CUID_SEC, this.f == null ? "" : this.f);
                 jSONObject.put(Config.SDK_TAG, 1);
-                jSONObject.put(Config.DEVICE_WIDTH, this.j);
+                jSONObject.put("w", this.j);
                 jSONObject.put("h", this.k);
                 jSONObject.put(Config.DEVICE_NAME, this.v == null ? "" : this.v);
                 jSONObject.put("c", this.l == null ? "" : this.l);

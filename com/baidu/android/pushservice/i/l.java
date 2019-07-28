@@ -36,6 +36,7 @@ import com.baidu.android.pushservice.c.c;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.coloros.mcssdk.PushManager;
 import com.coloros.mcssdk.callback.PushCallback;
@@ -2278,7 +2279,7 @@ public final class l {
         NetworkInfo c2;
         String str = "";
         if (context != null && (c2 = g.c(context)) != null && c2.isConnectedOrConnecting()) {
-            if (!c2.getTypeName().toLowerCase().equals("wifi")) {
+            if (!c2.getTypeName().toLowerCase().equals(IXAdSystemUtils.NT_WIFI)) {
                 str = "2G";
                 switch (c2.getSubtype()) {
                     case 3:

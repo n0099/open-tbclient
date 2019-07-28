@@ -4,10 +4,8 @@ import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.ubc.UBC;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -99,7 +97,7 @@ public class a implements Parcelable {
             this.j = jSONObject.optString("curl", "");
             this.k = jSONObject.optString("w_picurl", "");
             this.l = jSONObject.optString("vurl", "");
-            this.m = jSONObject.optInt(Config.DEVICE_WIDTH, 0);
+            this.m = jSONObject.optInt("w", 0);
             this.n = jSONObject.optInt("h", 0);
             this.o = jSONObject.optInt(UBC.CONTENT_KEY_DURATION, 0);
             this.p = jSONObject.optInt("closetype", 0);
@@ -143,7 +141,7 @@ public class a implements Parcelable {
                 }
             }
             this.x = jSONObject.optString("appname", "");
-            this.y = jSONObject.optString(PushConstants.URI_PACKAGE_NAME, "");
+            this.y = jSONObject.optString("pk", "");
             this.z = jSONObject.optString("apk_name", "");
             this.A = jSONObject.optLong("sz", 0L);
             if (jSONObject.optJSONObject("apo") != null) {

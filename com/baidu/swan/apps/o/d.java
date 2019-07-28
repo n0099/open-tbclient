@@ -388,12 +388,12 @@ public abstract class d {
         }
     }
 
-    public void a(int i, @NonNull String[] strArr, a.InterfaceC0106a interfaceC0106a) {
+    public void a(int i, @NonNull String[] strArr, a.InterfaceC0111a interfaceC0111a) {
         if (Build.VERSION.SDK_INT >= 23) {
             if (this.axg == null) {
                 this.axg = new com.baidu.swan.apps.ab.a();
             }
-            this.axg.a(this.axb, i, strArr, interfaceC0106a);
+            this.axg.a(this.axb, i, strArr, interfaceC0111a);
             if (com.baidu.swan.apps.u.a.En().wj()) {
                 com.baidu.swan.apps.y.f.Hy().HE();
             }

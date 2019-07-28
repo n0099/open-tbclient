@@ -24,7 +24,7 @@ public class SwanInspectorEndpoint {
     private InspectorNativeChannel biC;
     private String bio;
     private String bip;
-    private a.C0200a bis;
+    private a.C0205a bis;
     private Runnable biu;
     private Throwable bix;
     private int biy;
@@ -231,9 +231,9 @@ public class SwanInspectorEndpoint {
     private SwanInspectorEndpoint() {
     }
 
-    public void a(com.baidu.swan.games.inspector.a aVar, com.baidu.swan.games.e.a aVar2, a.C0200a c0200a, Runnable runnable) {
+    public void a(com.baidu.swan.games.inspector.a aVar, com.baidu.swan.games.e.a aVar2, a.C0205a c0205a, Runnable runnable) {
         ak(false);
-        a(c0200a);
+        a(c0205a);
         try {
             x(aVar2);
             if (aVar.Sn()) {
@@ -251,8 +251,8 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void a(a.C0200a c0200a) {
-        this.bis = c0200a;
+    public void a(a.C0205a c0205a) {
+        this.bis = c0205a;
     }
 
     private void b(com.baidu.swan.games.inspector.a aVar) {
@@ -290,12 +290,12 @@ public class SwanInspectorEndpoint {
         String string3;
         StringBuilder sb = new StringBuilder();
         long currentTimeMillis = System.currentTimeMillis();
-        a.C0200a c0200a = this.bis;
-        if (c0200a == null) {
-            c0200a = a.C0200a.Sq();
+        a.C0205a c0205a = this.bis;
+        if (c0205a == null) {
+            c0205a = a.C0205a.Sq();
         }
-        sb.append(c0200a.Sr()).append("\n");
-        if (!c0200a.isEnabled()) {
+        sb.append(c0205a.Sr()).append("\n");
+        if (!c0205a.isEnabled()) {
             return sb.toString();
         }
         String str = null;

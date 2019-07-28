@@ -69,7 +69,7 @@ public class an {
                 jSONObject.put("screenshot", bj.a(b2));
                 jSONObject.put("hash", bj.b(b2));
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(Config.DEVICE_WIDTH, b2.getWidth());
+                jSONObject2.put("w", b2.getWidth());
                 jSONObject2.put("h", b2.getHeight());
                 jSONObject.put("screen", jSONObject2);
                 jSONObject.put("page", activity.getClass().getName());
@@ -126,7 +126,7 @@ public class an {
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put(Config.EVENT_HEAT_X, ah.a(activity, e.left));
                         jSONObject3.put("y", ah.a(activity, e.top));
-                        jSONObject3.put(Config.DEVICE_WIDTH, ah.a(activity, e.width()));
+                        jSONObject3.put("w", ah.a(activity, e.width()));
                         jSONObject3.put("h", ah.a(activity, e.height()));
                         jSONObject.put("frame", jSONObject3);
                         jSONObject.put("alpha", bj.i(view));

@@ -6,6 +6,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.dnsproxy.pbdata.ConnectPointData;
 import com.baidu.tieba.dnsproxy.pbdata.DnsIpData;
@@ -31,7 +32,7 @@ public class a {
                 if (TextUtils.isEmpty(typeName)) {
                     str = extraInfo;
                 } else {
-                    str = (TextUtils.isEmpty(extraInfo) && typeName.equalsIgnoreCase("WIFI") && (connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getContext().getSystemService("wifi")).getConnectionInfo()) != null) ? connectionInfo.getBSSID() : extraInfo;
+                    str = (TextUtils.isEmpty(extraInfo) && typeName.equalsIgnoreCase("WIFI") && (connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getContext().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo()) != null) ? connectionInfo.getBSSID() : extraInfo;
                     if (!TextUtils.isEmpty(str)) {
                         return typeName + "_" + str;
                     }

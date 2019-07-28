@@ -130,9 +130,9 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0066a(this.n, true).execute(new Integer[0]);
+            new AsyncTaskC0071a(this.n, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0066a(this.n, false).execute(new Integer[0]);
+            new AsyncTaskC0071a(this.n, false).execute(new Integer[0]);
         }
     }
 
@@ -277,12 +277,12 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class AsyncTaskC0066a extends AsyncTask<Integer, Integer, String> {
+    public class AsyncTaskC0071a extends AsyncTask<Integer, Integer, String> {
         private ScrollView b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0066a(ScrollView scrollView, boolean z) {
+        public AsyncTaskC0071a(ScrollView scrollView, boolean z) {
             this.b = scrollView;
             this.c = z;
         }

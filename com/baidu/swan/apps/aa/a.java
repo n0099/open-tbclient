@@ -276,7 +276,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
         if (aFH != null) {
             return aFH;
         }
-        aFH = new a.C0080a().a(new com.baidu.poly.d.b.a(activity)).bD(getChannel()).az(activity);
+        aFH = new a.C0085a().a(new com.baidu.poly.d.b.a(activity)).bD(getChannel()).az(activity);
         return aFH;
     }
 

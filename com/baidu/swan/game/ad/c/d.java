@@ -2,12 +2,11 @@ package com.baidu.swan.game.ad.c;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.TbConfig;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -44,16 +43,16 @@ public abstract class d {
         com.baidu.swan.apps.v.b.b vL;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
-            hashMap.put("lw", String.valueOf(Math.round(z.getDisplayWidth(this.a) / z.bT(this.a))));
-            hashMap.put("lh", String.valueOf(Math.round(z.getDisplayHeight(this.a) / z.bT(this.a))));
+            hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(z.getDisplayWidth(this.a) / z.bT(this.a))));
+            hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(z.getDisplayHeight(this.a) / z.bT(this.a))));
             hashMap.put("net", "" + d());
             hashMap.put("n", this.g);
-            hashMap.put(PushConstants.URI_PACKAGE_NAME, this.f);
+            hashMap.put("pk", this.f);
             hashMap.put("appid", this.e);
-            hashMap.put(TbConfig.SW_APID, "" + z.getDisplayWidth(this.a));
-            hashMap.put("sh", "" + z.getDisplayHeight(this.a));
-            hashMap.put("sn", "" + e());
-            hashMap.put("os", "android");
+            hashMap.put("sw", "" + z.getDisplayWidth(this.a));
+            hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + z.getDisplayHeight(this.a));
+            hashMap.put(IXAdRequestInfo.SN, "" + e());
+            hashMap.put(IXAdRequestInfo.OS, "android");
             hashMap.put("apid", "" + this.d);
             hashMap.put("chid", "0");
             String PN = ac.PN();
@@ -62,7 +61,7 @@ public abstract class d {
             }
             hashMap.put("imei", PN);
             hashMap.put("cuid", com.baidu.swan.apps.u.a.Ep().bd(com.baidu.swan.apps.u.a.Ek()));
-            hashMap.put("p_ver", this.i);
+            hashMap.put(IXAdRequestInfo.P_VER, this.i);
             hashMap.put("rpt", this.h);
             hashMap.put("tab", "2");
             hashMap.put("req_id", "");

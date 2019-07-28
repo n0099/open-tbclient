@@ -12,6 +12,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import java.io.BufferedReader;
 import java.io.File;
@@ -96,7 +97,7 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String l(Context context) {
         String encode;
-        WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+        WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {

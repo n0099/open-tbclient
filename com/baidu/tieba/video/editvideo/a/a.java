@@ -14,13 +14,13 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0415a jvr;
+    private InterfaceC0421a jvr;
     private List<PendantData> mList;
     private e mPageContext;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0415a {
+    public interface InterfaceC0421a {
         void a(View view, int i, PendantData pendantData);
     }
 
@@ -131,8 +131,8 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void a(InterfaceC0415a interfaceC0415a) {
-        this.jvr = interfaceC0415a;
+    public void a(InterfaceC0421a interfaceC0421a) {
+        this.jvr = interfaceC0421a;
     }
 
     /* loaded from: classes5.dex */

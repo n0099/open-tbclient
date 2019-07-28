@@ -40,8 +40,8 @@ public class h extends com.baidu.tbadk.editortools.view.a {
     public void init(Context context) {
         ky(4);
         kz(2);
-        a(new a.InterfaceC0249a() { // from class: com.baidu.tbadk.editortools.h.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0249a
+        a(new a.InterfaceC0254a() { // from class: com.baidu.tbadk.editortools.h.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0254a
             public View getView(int i, View view, ViewGroup viewGroup) {
                 DLauncher kq = h.this.kq(i);
                 if (kq.getLayoutParams() == null) {
