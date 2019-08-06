@@ -101,7 +101,7 @@ public class c {
             public void onSuccess(com.baidu.tbadk.BdToken.activeConfig.a aVar) {
                 if (aVar != null) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    com.baidu.tbadk.core.sharedPref.b.ahO().putLong("pref_key_active_config_info", currentTimeMillis);
+                    com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("pref_key_active_config_info", currentTimeMillis);
                     c.this.byK = currentTimeMillis;
                     c.this.K(aVar.ZU());
                 }
@@ -153,7 +153,7 @@ public class c {
         this.byL.setPriority(Integer.MIN_VALUE);
         this.byL.setTag(this.mBdUniqueId);
         MessageManager.getInstance().registerListener(this.byL);
-        com.baidu.tbadk.core.g.a.ahL().init();
+        com.baidu.tbadk.core.g.a.ahN().init();
         p.ZI().h(this.mBdUniqueId);
         iO();
         if (isMainProcess()) {
@@ -177,7 +177,7 @@ public class c {
 
     private long Zj() {
         if (this.byK == 0) {
-            this.byK = com.baidu.tbadk.core.sharedPref.b.ahO().getLong("pref_key_active_config_info", 0L);
+            this.byK = com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("pref_key_active_config_info", 0L);
         }
         return this.byK;
     }

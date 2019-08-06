@@ -24,7 +24,7 @@ public class b {
     public void show() {
         if (this.mData != null) {
             if (this.mData.showType == a.bAi) {
-                this.bAu = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).agW();
+                this.bAu = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).agY();
             } else if (this.mData.showType == a.bAj) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 com.baidu.tbadk.core.business.b bVar = new com.baidu.tbadk.core.business.b(currentActivity);

@@ -10,46 +10,46 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.personCenter.data.m;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.a<m> {
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a> bOH;
-    private LinearLayout ilg;
-    private AutoBannerView ilh;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a> bON;
+    private LinearLayout imk;
+    private AutoBannerView iml;
     private int mSkinType;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bOH = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a>() { // from class: com.baidu.tieba.personCenter.view.e.1
+        this.bON = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a>() { // from class: com.baidu.tieba.personCenter.view.e.1
             @Override // com.baidu.tbadk.core.flow.a.d
             public void B(int i, String str) {
-                if (e.this.ilh != null && str != null) {
-                    if (e.this.ilh.checkIndex(i)) {
+                if (e.this.iml != null && str != null) {
+                    if (e.this.iml.checkIndex(i)) {
                         TiebaStatic.log(new an("c13247").P("obj_locate", i).bT("obj_param1", str));
                     }
-                    e.this.ilh.aln();
-                    e.this.ilh.yc(str);
+                    e.this.iml.alp();
+                    e.this.iml.yd(str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.personCenter.data.a aVar) {
-                if (e.this.ilh != null && aVar != null && aVar.cbf() != null && e.this.ilh.checkIndex(i)) {
-                    TiebaStatic.log(new an("c13246").bT("uid", TbadkCoreApplication.getCurrentAccount()).P("obj_locate", i).bT("obj_param1", aVar.cbf()));
+                if (e.this.iml != null && aVar != null && aVar.cbx() != null && e.this.iml.checkIndex(i)) {
+                    TiebaStatic.log(new an("c13246").bT("uid", TbadkCoreApplication.getCurrentAccount()).P("obj_locate", i).bT("obj_param1", aVar.cbx()));
                 }
             }
         };
         View view = getView();
-        this.ilg = (LinearLayout) view.findViewById(R.id.viewpager);
-        this.ilh = (AutoBannerView) view.findViewById(R.id.person_center_auto_banner_view);
-        this.ilh.setMarqueenTime(3000L);
-        this.ilh.getCoverFlowView().setCallback(this.bOH);
+        this.imk = (LinearLayout) view.findViewById(R.id.viewpager);
+        this.iml = (AutoBannerView) view.findViewById(R.id.person_center_auto_banner_view);
+        this.iml.setMarqueenTime(3000L);
+        this.iml.getCoverFlowView().setCallback(this.bON);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            if (this.ilh != null) {
-                this.ilh.onChangeSkinType(i);
+            if (this.iml != null) {
+                this.iml.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
@@ -64,8 +64,8 @@ public class e extends com.baidu.tieba.card.a<m> {
     @Override // com.baidu.tieba.card.a
     public void a(m mVar) {
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (this.ilg != null && mVar != null && mVar.ijX != null && this.ilh != null && mVar.ijX.size() != 0) {
-            this.ilh.cD(mVar.ijX);
+        if (this.imk != null && mVar != null && mVar.ikZ != null && this.iml != null && mVar.ikZ.size() != 0) {
+            this.iml.cC(mVar.ikZ);
         }
     }
 
@@ -75,8 +75,8 @@ public class e extends com.baidu.tieba.card.a<m> {
 
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
-        if (this.ilh != null) {
-            this.ilh.aln();
+        if (this.iml != null) {
+            this.iml.alp();
         }
     }
 }

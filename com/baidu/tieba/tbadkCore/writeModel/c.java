@@ -48,9 +48,9 @@ public class c {
                 xVar.o("lat", String.valueOf(X.getLatitude()));
                 xVar.o("lng", String.valueOf(X.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cpV().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cqr().getLocationData();
             if (locationData != null) {
-                xVar.o("name", locationData.cpT());
+                xVar.o("name", locationData.cqp());
                 xVar.o(IXAdRequestInfo.SN, locationData.getSn());
             }
         }

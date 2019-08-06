@@ -13,42 +13,42 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c dck;
+    private static volatile c dcr;
     private boolean aKG;
-    private List<d> dch = new ArrayList();
-    private Map<d, List<d>> dci = new HashMap();
-    private Map<d, List<d>> dcj = new HashMap();
+    private List<d> dco = new ArrayList();
+    private Map<d, List<d>> dcp = new HashMap();
+    private Map<d, List<d>> dcq = new HashMap();
 
-    public static c aES() {
-        if (dck == null) {
+    public static c aEU() {
+        if (dcr == null) {
             synchronized (c.class) {
-                if (dck == null) {
-                    dck = new c();
+                if (dcr == null) {
+                    dcr = new c();
                 }
             }
         }
-        return dck;
+        return dcr;
     }
 
     public void initData() {
-        D(aEX());
+        D(aEZ());
         this.aKG = true;
     }
 
-    public boolean aET() {
+    public boolean aEV() {
         return this.aKG;
     }
 
-    public List<d> aEU() {
-        return this.dch;
+    public List<d> aEW() {
+        return this.dco;
     }
 
-    public Map<d, List<d>> aEV() {
-        return this.dci;
+    public Map<d, List<d>> aEX() {
+        return this.dcp;
     }
 
-    public Map<d, List<d>> aEW() {
-        return this.dcj;
+    public Map<d, List<d>> aEY() {
+        return this.dcq;
     }
 
     private void D(JSONArray jSONArray) {
@@ -60,12 +60,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (bg = d.bg(optJSONObject)) != null) {
-                        this.dch.add(bg);
-                        if (bg.aFb()) {
-                            this.dci.put(bg, bg.acU);
+                        this.dco.add(bg);
+                        if (bg.aFd()) {
+                            this.dcp.put(bg, bg.acU);
                             for (d dVar : bg.acU) {
-                                if (dVar.aFb()) {
-                                    this.dcj.put(dVar, dVar.acU);
+                                if (dVar.aFd()) {
+                                    this.dcq.put(dVar, dVar.acU);
                                 }
                             }
                         }
@@ -78,7 +78,7 @@ public class c {
         }
     }
 
-    private JSONArray aEX() {
+    private JSONArray aEZ() {
         JSONArray jSONArray;
         Exception e;
         InputStream open;

@@ -1,24 +1,24 @@
 package rx;
 /* loaded from: classes2.dex */
 public class b {
-    static final b kuj = new b(new a() { // from class: rx.b.1
+    static final b kvp = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cQT());
+            cVar.onSubscribe(rx.subscriptions.e.cRo());
             cVar.onCompleted();
         }
     }, false);
-    static final b kuk = new b(new a() { // from class: rx.b.2
+    static final b kvq = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cQT());
+            cVar.onSubscribe(rx.subscriptions.e.cRo());
         }
     }, false);
-    private final a kui;
+    private final a kvo;
 
     /* loaded from: classes2.dex */
     public interface a extends rx.functions.b<c> {
@@ -55,14 +55,14 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.kui = rx.c.c.b(aVar);
+        this.kvo = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.kui = z ? rx.c.c.b(aVar) : aVar;
+        this.kvo = z ? rx.c.c.b(aVar) : aVar;
     }
 
-    public final k cOM() {
+    public final k cPh() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         a(new c() { // from class: rx.b.3
             @Override // rx.c
@@ -93,7 +93,7 @@ public class b {
     public final void a(c cVar) {
         bk(cVar);
         try {
-            rx.c.c.b(this, this.kui).call(cVar);
+            rx.c.c.b(this, this.kvo).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

@@ -24,12 +24,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String cBI = "#";
-    public static String cBJ = "＃";
+    public static String cBP = "#";
+    public static String cBQ = "＃";
     private static final Pattern byU = Pattern.compile("#([^#(]+)#", 2);
 
     public static boolean qV(String str) {
-        return cBI.equals(str);
+        return cBP.equals(str);
     }
 
     public static boolean fI(boolean z) {
@@ -45,7 +45,7 @@ public class b {
         return false;
     }
 
-    public static boolean avK() {
+    public static boolean avM() {
         return PluginPackageManager.ms().bL("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -65,7 +65,7 @@ public class b {
                 return true;
             }
             return true;
-        } else if (avK()) {
+        } else if (avM()) {
             String string4 = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(R.string.setup);
             if (z) {
@@ -109,7 +109,7 @@ public class b {
                     }
                 });
             }
-            aVar.b(tbPageContext).agI();
+            aVar.b(tbPageContext).agK();
         }
     }
 
@@ -152,7 +152,7 @@ public class b {
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(cBI).append(str).append(cBI);
+            sb.append(cBP).append(str).append(cBP);
             return sb.toString();
         }
         return str;
@@ -160,7 +160,7 @@ public class b {
 
     public static boolean qY(String str) {
         String substring;
-        return str != null && str.startsWith(cBI) && str.endsWith(cBI) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(cBP) && str.endsWith(cBP) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(k kVar) {

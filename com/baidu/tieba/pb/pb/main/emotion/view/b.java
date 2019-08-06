@@ -5,40 +5,40 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes4.dex */
 public class b {
-    private SearchEmotionModel.a fcH;
-    private SearchEmotionModel hXN;
-    private String hXO;
-    private Runnable hXP = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a fdh;
+    private SearchEmotionModel hYJ;
+    private String hYK;
+    private Runnable hYL = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.hXO) && b.this.fcH != null) {
-                if (b.this.hXN == null) {
-                    b.this.hXN = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.hYK) && b.this.fdh != null) {
+                if (b.this.hYJ == null) {
+                    b.this.hYJ = new SearchEmotionModel();
                 }
-                b.this.hXN.a(b.this.hXO, 0, 30, b.this.fcH);
+                b.this.hYJ.a(b.this.hYK, 0, 30, b.this.fdh);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void Cl(String str) {
+    public void Cm(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.hXO = "";
+            this.hYK = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.hXP);
-        this.mHandler.postDelayed(this.hXP, 300L);
-        this.hXO = str;
+        this.mHandler.removeCallbacks(this.hYL);
+        this.mHandler.postDelayed(this.hYL, 300L);
+        this.hYK = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.fcH = aVar;
+        this.fdh = aVar;
     }
 
-    public void bos() {
-        if (this.hXN != null) {
-            this.hXN.cancelLoadData();
+    public void boF() {
+        if (this.hYJ != null) {
+            this.hYJ.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.hXP);
+        this.mHandler.removeCallbacks(this.hYL);
     }
 }

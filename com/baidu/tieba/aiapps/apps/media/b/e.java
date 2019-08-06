@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.media.b;
 /* loaded from: classes2.dex */
 public class e {
-    private static volatile d dfl;
+    private static volatile d dfs;
 
-    public static synchronized d aGf() {
+    public static synchronized d aGh() {
         d dVar;
         synchronized (e.class) {
-            if (dfl == null) {
-                dfl = new d();
+            if (dfs == null) {
+                dfs = new d();
             }
-            dVar = dfl;
+            dVar = dfs;
         }
         return dVar;
     }

@@ -13,13 +13,13 @@ public class e {
 
     public static int ap(List<Integer> list) {
         if (II == null) {
-            awc();
+            awe();
         }
         Integer aq = aq(list);
         return aq != null ? aq.intValue() : R.color.cp_atp_a;
     }
 
-    private static void awc() {
+    private static void awe() {
         II = new LinkedList<>();
         II.offer(Integer.valueOf((int) R.color.cp_atp_a));
         II.offer(Integer.valueOf((int) R.color.cp_atp_b));

@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class SearchView extends LinearLayout {
-    private ImageView dDS;
-    private View ezd;
-    private TextView eze;
+    private ImageView dDZ;
+    private View ezk;
+    private TextView ezl;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -38,22 +38,22 @@ public class SearchView extends LinearLayout {
     }
 
     private void qX() {
-        this.ezd = findViewById(R.id.search_container);
-        this.dDS = (ImageView) findViewById(R.id.search_bar_icon);
-        this.eze = (TextView) findViewById(R.id.search_text);
+        this.ezk = findViewById(R.id.search_container);
+        this.dDZ = (ImageView) findViewById(R.id.search_bar_icon);
+        this.ezl = (TextView) findViewById(R.id.search_text);
     }
 
-    public void nz(int i) {
-        am.b(this.ezd, l.g(getContext(), R.dimen.tbds100), (int) R.color.cp_bg_line_c, (int) R.color.cp_bg_line_c, i);
-        am.b(this.dDS, (int) R.drawable.icon_bazhu_search_n, i);
-        am.d(this.eze, R.color.cp_cont_d, 1, i);
+    public void nA(int i) {
+        am.b(this.ezk, l.g(getContext(), R.dimen.tbds100), (int) R.color.cp_bg_line_c, (int) R.color.cp_bg_line_c, i);
+        am.b(this.dDZ, (int) R.drawable.icon_bazhu_search_n, i);
+        am.d(this.ezl, R.color.cp_cont_d, 1, i);
         am.g(this, R.drawable.bar_select_bg_top_round, i);
     }
 
     public void p(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.ezd.setOnClickListener(this.mOnClickListener);
+            this.ezk.setOnClickListener(this.mOnClickListener);
         }
     }
 }

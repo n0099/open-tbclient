@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class g extends a<com.baidu.tieba.e.e> {
-    private View eBa;
-    private View eBb;
-    private TextView eBd;
-    private TextView eBe;
-    private TextView eBf;
-    private TextView eBg;
-    private TextView eBh;
+    private View eBh;
+    private View eBi;
+    private TextView eBk;
+    private TextView eBl;
+    private TextView eBm;
+    private TextView eBn;
+    private TextView eBo;
     private String mForumId;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -26,17 +26,17 @@ public class g extends a<com.baidu.tieba.e.e> {
     }
 
     private void init(View view) {
-        this.eBd = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
-        this.eBe = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
-        this.eBf = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
-        this.eBg = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
-        this.eBh = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
-        this.eBe.setOnClickListener(this);
-        this.eBf.setOnClickListener(this);
-        this.eBg.setOnClickListener(this);
-        this.eBh.setOnClickListener(this);
-        this.eBa = view.findViewById(R.id.divider_line_1);
-        this.eBb = view.findViewById(R.id.divider_line_2);
+        this.eBk = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
+        this.eBl = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
+        this.eBm = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
+        this.eBn = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
+        this.eBo = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
+        this.eBl.setOnClickListener(this);
+        this.eBm.setOnClickListener(this);
+        this.eBn.setOnClickListener(this);
+        this.eBo.setOnClickListener(this);
+        this.eBh = view.findViewById(R.id.divider_line_1);
+        this.eBi = view.findViewById(R.id.divider_line_2);
     }
 
     public void setForumId(String str) {
@@ -46,13 +46,13 @@ public class g extends a<com.baidu.tieba.e.e> {
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.k(getView(), R.color.cp_bg_line_d);
-        am.k(this.eBa, R.color.cp_bg_line_e);
-        am.k(this.eBb, R.color.cp_bg_line_e);
-        am.f(this.eBd, R.color.cp_cont_f, 1);
-        am.f(this.eBe, R.color.cp_cont_b, 1);
-        am.f(this.eBf, R.color.cp_cont_b, 1);
-        am.f(this.eBg, R.color.cp_cont_b, 1);
-        am.f(this.eBh, R.color.cp_cont_b, 1);
+        am.k(this.eBh, R.color.cp_bg_line_e);
+        am.k(this.eBi, R.color.cp_bg_line_e);
+        am.f(this.eBk, R.color.cp_cont_f, 1);
+        am.f(this.eBl, R.color.cp_cont_b, 1);
+        am.f(this.eBm, R.color.cp_cont_b, 1);
+        am.f(this.eBn, R.color.cp_cont_b, 1);
+        am.f(this.eBo, R.color.cp_cont_b, 1);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -63,42 +63,42 @@ public class g extends a<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.bdZ() != null) {
-            if (!TextUtils.isEmpty(eVar.bdZ().title)) {
-                this.eBd.setText(eVar.bdZ().title);
+        if (eVar != null && eVar.beb() != null) {
+            if (!TextUtils.isEmpty(eVar.beb().title)) {
+                this.eBk.setText(eVar.beb().title);
             }
-            this.eBe.setVisibility(8);
-            this.eBf.setVisibility(8);
-            this.eBg.setVisibility(8);
-            this.eBh.setVisibility(8);
-            if (eVar.bdZ().sub_nodes.size() >= 1) {
-                this.eBe.setVisibility(0);
-                this.eBe.setTag(eVar.bdZ().sub_nodes.get(0).url);
-                this.eBe.setText(eVar.bdZ().sub_nodes.get(0).title);
+            this.eBl.setVisibility(8);
+            this.eBm.setVisibility(8);
+            this.eBn.setVisibility(8);
+            this.eBo.setVisibility(8);
+            if (eVar.beb().sub_nodes.size() >= 1) {
+                this.eBl.setVisibility(0);
+                this.eBl.setTag(eVar.beb().sub_nodes.get(0).url);
+                this.eBl.setText(eVar.beb().sub_nodes.get(0).title);
             }
-            if (eVar.bdZ().sub_nodes.size() >= 2) {
-                this.eBf.setVisibility(0);
-                this.eBf.setTag(eVar.bdZ().sub_nodes.get(1).url);
-                this.eBf.setText(eVar.bdZ().sub_nodes.get(1).title);
+            if (eVar.beb().sub_nodes.size() >= 2) {
+                this.eBm.setVisibility(0);
+                this.eBm.setTag(eVar.beb().sub_nodes.get(1).url);
+                this.eBm.setText(eVar.beb().sub_nodes.get(1).title);
             }
-            if (eVar.bdZ().sub_nodes.size() >= 3) {
-                this.eBg.setVisibility(0);
-                this.eBg.setTag(eVar.bdZ().sub_nodes.get(2).url);
-                this.eBg.setText(eVar.bdZ().sub_nodes.get(2).title);
+            if (eVar.beb().sub_nodes.size() >= 3) {
+                this.eBn.setVisibility(0);
+                this.eBn.setTag(eVar.beb().sub_nodes.get(2).url);
+                this.eBn.setText(eVar.beb().sub_nodes.get(2).title);
             }
-            if (eVar.bdZ().sub_nodes.size() >= 4) {
-                this.eBh.setVisibility(0);
-                this.eBh.setTag(eVar.bdZ().sub_nodes.get(3).url);
-                this.eBh.setText(eVar.bdZ().sub_nodes.get(3).title);
+            if (eVar.beb().sub_nodes.size() >= 4) {
+                this.eBo.setVisibility(0);
+                this.eBo.setTag(eVar.beb().sub_nodes.get(3).url);
+                this.eBo.setText(eVar.beb().sub_nodes.get(3).title);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eBe || view == this.eBf || view == this.eBg || view == this.eBh) {
+        if (view == this.eBl || view == this.eBm || view == this.eBn || view == this.eBo) {
             TiebaStatic.log(new an("c13047").P("obj_locate", 8).bT("fid", this.mForumId));
-            bb.ajC().a((TbPageContext) com.baidu.adp.base.i.ab(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
+            bb.ajE().a((TbPageContext) com.baidu.adp.base.i.ab(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 }

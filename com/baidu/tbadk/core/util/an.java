@@ -61,13 +61,13 @@ public class an {
         }
     }
 
-    public an ajh() {
+    public an ajj() {
         an anVar = new an(getKey());
         anVar.ab(getParams());
         return anVar;
     }
 
-    public void aji() {
+    public void ajk() {
         TiebaStatic.log(this);
     }
 }

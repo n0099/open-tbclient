@@ -1,45 +1,45 @@
 package com.baidu.tieba.homepage.topic.topicdetail.b;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import tbclient.NewHottopic.TopicThread;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId glJ = BdUniqueId.gen();
-    public long glK;
-    public int glL;
-    public boolean glM;
+    public static final BdUniqueId gmB = BdUniqueId.gen();
+    public long gmC;
+    public int gmD;
+    public boolean gmE;
     public int source;
-    public bg threadData;
+    public bh threadData;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return glJ;
+        return gmB;
     }
 
     public void a(TopicThread topicThread) {
         if (topicThread != null) {
-            this.glK = topicThread.feed_id.longValue();
+            this.gmC = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.threadData = new bg();
+                this.threadData = new bh();
                 this.threadData.a(topicThread.thread_info);
-                this.threadData.afn();
+                this.threadData.afo();
             }
-            this.glL = topicThread.user_agree.intValue();
+            this.gmD = topicThread.user_agree.intValue();
             this.source = topicThread.source.intValue();
         }
     }
 
     public void a(tbclient.NewTopicThread.TopicThread topicThread) {
         if (topicThread != null) {
-            this.glK = topicThread.feed_id.longValue();
+            this.gmC = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.threadData = new bg();
+                this.threadData = new bh();
                 this.threadData.a(topicThread.thread_info);
-                this.threadData.afn();
+                this.threadData.afo();
             }
-            this.glL = Integer.parseInt(topicThread.user_agree);
+            this.gmD = Integer.parseInt(topicThread.user_agree);
             this.source = topicThread.source.intValue();
         }
     }

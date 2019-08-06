@@ -24,9 +24,9 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
 
     private void a(View view) {
         this.f = view.findViewById(2131165254);
-        this.c = (ImageView) view.findViewById(R.raw.rim_video_lrc_tip);
-        this.d = (TextView) view.findViewById(R.raw.rim_video_put_face_round);
-        this.e = view.findViewById(R.raw.refresh_load);
+        this.c = (ImageView) view.findViewById(R.raw.refresh_load);
+        this.d = (TextView) view.findViewById(R.raw.rim_video_lrc_tip);
+        this.e = view.findViewById(R.raw.mime_1);
         this.e.setVisibility(8);
     }
 

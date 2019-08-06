@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes.dex */
 public class b {
-    public boolean bSg;
-    private final g bUF = new g();
+    public boolean bSm;
+    private final g bUL = new g();
     public boolean mIsNeedTbs = false;
-    public boolean bUG = true;
+    public boolean bUM = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean bUH = false;
+    public boolean bUN = false;
     public int mImageType = 0;
 
-    public g ajH() {
-        return this.bUF;
+    public g ajJ() {
+        return this.bUL;
     }
 
     public void a(q qVar) {
@@ -62,20 +62,20 @@ public class b {
         }
         int netType = j.netType();
         qVar.o("net_type", String.valueOf(netType));
-        String alN = com.baidu.tbadk.coreExtra.b.a.alK().alN();
+        String alP = com.baidu.tbadk.coreExtra.b.a.alM().alP();
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = alN + "ka=open";
+                str = alP + "ka=open";
                 z = true;
             }
-            str = alN;
+            str = alP;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = alN + "ka=open";
+                str = alP + "ka=open";
                 z = true;
             }
-            str = alN;
+            str = alP;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.aa(z);
@@ -88,23 +88,23 @@ public class b {
         qVar.o("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
         qVar.o("timestamp", Long.toString(System.currentTimeMillis()));
         qVar.o("model", Build.MODEL);
-        if (com.baidu.tbadk.core.sharedPref.b.ahO().getInt("android_safe_sdk_open", 0) == 1) {
+        if (com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("android_safe_sdk_open", 0) == 1) {
             qVar.o("z_id", FH.gz(TbadkCoreApplication.getInst()));
         }
     }
 
-    public String ajI() {
-        if (this.bUF.mUrl == null) {
+    public String ajK() {
+        if (this.bUL.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.bUF.mUrl.startsWith(str)) {
-            int indexOf = this.bUF.mUrl.indexOf(63);
+        if (this.bUL.mUrl.startsWith(str)) {
+            int indexOf = this.bUL.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.bUF.mUrl.length();
+                indexOf = this.bUL.mUrl.length();
             }
-            return this.bUF.mUrl.substring(str.length(), indexOf);
+            return this.bUL.mUrl.substring(str.length(), indexOf);
         }
-        return this.bUF.mUrl;
+        return this.bUL.mUrl;
     }
 }

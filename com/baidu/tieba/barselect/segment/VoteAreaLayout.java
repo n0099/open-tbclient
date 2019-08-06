@@ -21,11 +21,11 @@ import com.baidu.tieba.barselect.view.TrapezoidButton;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
 /* loaded from: classes3.dex */
 public class VoteAreaLayout extends CardBasicLayout {
-    private RoundAndShadowLinearLayout eyK;
-    private View eyL;
-    private TextView eyM;
-    private TrapezoidButton eyN;
-    private TextView eyO;
+    private RoundAndShadowLinearLayout eyR;
+    private View eyS;
+    private TextView eyT;
+    private TrapezoidButton eyU;
+    private TextView eyV;
     private Context mContext;
 
     public VoteAreaLayout(Context context) {
@@ -50,31 +50,31 @@ public class VoteAreaLayout extends CardBasicLayout {
     }
 
     private void qX() {
-        this.eyK = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
-        this.eyK.setRadius(l.g(this.mContext, R.dimen.tbds8));
-        this.eyM = (TextView) findViewById(R.id.vote_num);
-        this.eyN = (TrapezoidButton) findViewById(R.id.vote_button);
-        this.eyO = (TextView) findViewById(R.id.vote_button_tv);
-        this.eyL = findViewById(R.id.button_container);
+        this.eyR = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
+        this.eyR.setRadius(l.g(this.mContext, R.dimen.tbds8));
+        this.eyT = (TextView) findViewById(R.id.vote_num);
+        this.eyU = (TrapezoidButton) findViewById(R.id.vote_button);
+        this.eyV = (TextView) findViewById(R.id.vote_button_tv);
+        this.eyS = findViewById(R.id.button_container);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, final f fVar) {
         super.setData(i, fVar);
-        if (this.euM == null || this.eyD == null || this.status < 0) {
+        if (this.euT == null || this.eyK == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.eyM.setText(aq.aO(this.eyD.aYC()) + "票");
-        this.eyO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
+        this.eyT.setText(aq.aO(this.eyK.aYE()) + "票");
+        this.eyV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ((VoteAreaLayout.this.mContext instanceof Activity) && bd.cF(VoteAreaLayout.this.mContext)) {
-                    new an("c13441").aji();
-                    if (VoteAreaLayout.this.eyD != null && fVar != null && fVar.aYP() != null) {
-                        if (fVar.aYP().aYM()) {
+                    new an("c13441").ajk();
+                    if (VoteAreaLayout.this.eyK != null && fVar != null && fVar.aYR() != null) {
+                        if (fVar.aYR().aYO()) {
                             if (fVar.getFid() != 0 && fVar.getUniqueId() != null) {
-                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.eyD.getUid(), fVar.getFid(), VoteAreaLayout.this.eyD.getTid(), 1);
+                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.eyK.getUid(), fVar.getFid(), VoteAreaLayout.this.eyK.getTid(), 1);
                                 commitVoteReqMsg.setTag(fVar.getUniqueId());
                                 MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                                 return;
@@ -86,17 +86,17 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
         });
-        if (this.eyD.aYF()) {
-            this.eyO.setEnabled(false);
+        if (this.eyK.aYH()) {
+            this.eyV.setEnabled(false);
         } else {
-            this.eyO.setEnabled(true);
+            this.eyV.setEnabled(true);
         }
     }
 
-    public void nz(int i) {
-        am.d(this.eyM, R.color.cp_link_tip_b, 1, i);
-        am.a(this.eyL, (int) R.color.cp_link_tip_b, 0.2f, i);
-        am.d(this.eyO, R.color.cp_btn_a, 1, i);
-        am.g(this.eyO, R.drawable.bar_select_bg_gradient, i);
+    public void nA(int i) {
+        am.d(this.eyT, R.color.cp_link_tip_b, 1, i);
+        am.a(this.eyS, (int) R.color.cp_link_tip_b, 0.2f, i);
+        am.d(this.eyV, R.color.cp_btn_a, 1, i);
+        am.g(this.eyV, R.drawable.bar_select_bg_gradient, i);
     }
 }

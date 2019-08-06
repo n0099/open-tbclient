@@ -44,7 +44,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData mo22do = b.bGq().mo22do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            GroupSettingItemData mo22do = b.bGE().mo22do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (mo22do != null) {
                 buildNormalItem.setGroupSetting(mo22do);
             }
@@ -65,7 +65,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             if ((!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || !TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData mo22do = e.bGt().mo22do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                PersonalSettingItemData mo22do = e.bGH().mo22do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                 if (mo22do != null) {
                     buildNormalItem.setGroupSetting(mo22do);
                 }
@@ -170,10 +170,10 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     private boolean u(ImMessageCenterPojo imMessageCenterPojo) {
-        HashMap<Integer, HashSet> aob = com.baidu.tbadk.coreExtra.messageCenter.b.anD().aob();
-        if (aob != null && aob.size() > 0) {
-            HashSet hashSet = aob.get(0);
-            HashSet hashSet2 = aob.get(1);
+        HashMap<Integer, HashSet> aod = com.baidu.tbadk.coreExtra.messageCenter.b.anF().aod();
+        if (aod != null && aod.size() > 0) {
+            HashSet hashSet = aod.get(0);
+            HashSet hashSet2 = aod.get(1);
             if (hashSet != null && !aq.isEmpty(imMessageCenterPojo.getGid()) && hashSet.contains(imMessageCenterPojo.getGid())) {
                 return false;
             }

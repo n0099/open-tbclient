@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.adp.widget.ListView.r;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private r eYZ;
-    private e gdB;
-    private d gdC;
-    private c gdD;
-    private b gdE;
-    private f gdF;
+    private r eZn;
+    private e ges;
+    private d get;
+    private c geu;
+    private b gev;
+    private f gew;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eYZ = rVar;
+        this.eZn = rVar;
         initAdapters();
-        this.eYZ.addAdapters(this.mAdapters);
+        this.eZn.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.gdB = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.gdT);
-        this.gdC = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.gdP);
-        this.gdD = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.gdN);
-        this.gdE = new b(this.mPageContext, bg.bJj);
-        this.gdF = new f(this.mPageContext, bg.bJx);
-        this.mAdapters.add(this.gdB);
-        this.mAdapters.add(this.gdC);
-        this.mAdapters.add(this.gdD);
-        this.mAdapters.add(this.gdE);
-        this.mAdapters.add(this.gdF);
+        this.ges = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.geK);
+        this.get = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.geG);
+        this.geu = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.geE);
+        this.gev = new b(this.mPageContext, bh.bJo);
+        this.gew = new f(this.mPageContext, bh.bJC);
+        this.mAdapters.add(this.ges);
+        this.mAdapters.add(this.get);
+        this.mAdapters.add(this.geu);
+        this.mAdapters.add(this.gev);
+        this.mAdapters.add(this.gew);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eYZ != null) {
-            this.eYZ.getListAdapter().notifyDataSetChanged();
+        if (this.eZn != null) {
+            this.eZn.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eYZ.setData(list);
+        this.eZn.setData(list);
     }
 
     public void onChangeSkinType(int i) {

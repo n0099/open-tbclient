@@ -8,14 +8,14 @@ import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
 /* loaded from: classes3.dex */
 public class a {
-    private List<e> cZK;
-    private List<e> cZL;
+    private List<e> cZR;
+    private List<e> cZS;
 
     public List<e> getAddressList() {
-        if (this.cZK == null) {
-            this.cZK = new ArrayList();
+        if (this.cZR == null) {
+            this.cZR = new ArrayList();
         }
-        return this.cZK;
+        return this.cZR;
     }
 
     public boolean a(DataRes dataRes) {
@@ -23,7 +23,7 @@ public class a {
         if (dataRes == null || dataRes.robots_list == null) {
             z = false;
         } else {
-            this.cZL = new ArrayList();
+            this.cZS = new ArrayList();
             boolean z2 = false;
             for (robotsList robotslist : dataRes.robots_list) {
                 if (TextUtils.isEmpty(robotslist.key)) {
@@ -31,13 +31,13 @@ public class a {
                 } else {
                     e eVar = new e();
                     eVar.a(robotslist);
-                    this.cZL.add(eVar);
+                    this.cZS.add(eVar);
                 }
             }
             z = z2;
         }
         if (dataRes != null && dataRes.address_list != null) {
-            this.cZK = new ArrayList();
+            this.cZR = new ArrayList();
             boolean z3 = z;
             for (listData listdata : dataRes.address_list) {
                 if (TextUtils.isEmpty(listdata.key)) {
@@ -47,14 +47,14 @@ public class a {
                     eVar2.a(listdata);
                     if (eVar2.getContacts() != null) {
                         for (com.baidu.tbadk.coreExtra.relationship.a aVar : eVar2.getContacts()) {
-                            if (a(this.cZL, aVar)) {
+                            if (a(this.cZS, aVar)) {
                                 aVar.setUserType(1);
                             } else {
                                 aVar.setUserType(0);
                             }
                         }
                     }
-                    this.cZK.add(eVar2);
+                    this.cZR.add(eVar2);
                 }
             }
             return z3;

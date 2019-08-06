@@ -6,31 +6,31 @@ import java.util.LinkedHashMap;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class j {
-    private static int cCP;
-    private static final int[] cCQ = {R.color.cp_atp_a, R.color.cp_atp_b, R.color.cp_atp_c, R.color.cp_atp_d, R.color.cp_atp_e};
-    private static int cCR;
-    private static LinkedHashMap<String, Integer> cCS;
+    private static int cCW;
+    private static final int[] cCX = {R.color.cp_atp_a, R.color.cp_atp_b, R.color.cp_atp_c, R.color.cp_atp_d, R.color.cp_atp_e};
+    private static int cCY;
+    private static LinkedHashMap<String, Integer> cCZ;
 
     public static int rd(String str) {
-        if (cCS == null) {
-            cCS = new LinkedHashMap<>(20);
+        if (cCZ == null) {
+            cCZ = new LinkedHashMap<>(20);
         }
         if (StringUtils.isNull(str)) {
-            return cCQ[0];
+            return cCX[0];
         }
-        if (cCS.containsKey(str)) {
-            return cCS.get(str).intValue();
+        if (cCZ.containsKey(str)) {
+            return cCZ.get(str).intValue();
         }
-        int nextInt = new Random().nextInt(cCQ.length);
-        if (cCR != nextInt) {
-            cCR = nextInt;
+        int nextInt = new Random().nextInt(cCX.length);
+        if (cCY != nextInt) {
+            cCY = nextInt;
         } else {
-            cCR = (cCR + 1) % cCQ.length;
+            cCY = (cCY + 1) % cCX.length;
         }
-        if (cCR < cCQ.length) {
-            cCP = cCQ[cCR];
+        if (cCY < cCX.length) {
+            cCW = cCX[cCY];
         }
-        cCS.put(str, Integer.valueOf(cCP));
-        return cCP;
+        cCZ.put(str, Integer.valueOf(cCW));
+        return cCW;
     }
 }

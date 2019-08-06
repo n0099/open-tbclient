@@ -31,7 +31,7 @@ public final class WeiboSsoManager {
         bVar.setContext(context);
         bVar.setAppKey(str);
         bVar.setFrom("1478195010");
-        bVar.Ih("1000_0001");
+        bVar.Ii("1000_0001");
         WeiboSsoSdk.a(bVar);
     }
 
@@ -39,10 +39,10 @@ public final class WeiboSsoManager {
         Exception e;
         LogUtil.d(TAG, "getAid()");
         try {
-            String aid = WeiboSsoSdk.cNi().getAid();
+            String aid = WeiboSsoSdk.cND().getAid();
             try {
                 if (TextUtils.isEmpty(aid)) {
-                    return WeiboSsoSdk.cNi().cNj().getAid();
+                    return WeiboSsoSdk.cND().cNE().getAid();
                 }
                 return aid;
             } catch (Exception e2) {

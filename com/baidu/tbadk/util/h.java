@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class h {
-    private static h cCL = new h();
-    private b cCM;
-    private a cCN;
+    private static h cCS = new h();
+    private b cCT;
+    private a cCU;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,22 +18,22 @@ public class h {
     private h() {
     }
 
-    public static h awe() {
-        return cCL;
+    public static h awg() {
+        return cCS;
     }
 
     public void a(a aVar) {
-        this.cCN = aVar;
-        if (this.cCM != null) {
-            this.cCM.cancel();
+        this.cCU = aVar;
+        if (this.cCT != null) {
+            this.cCT.cancel();
         }
-        this.cCM = new b();
-        this.cCM.setPriority(4);
-        this.cCM.execute(new String[0]);
+        this.cCT = new b();
+        this.cCT.setPriority(4);
+        this.cCT.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean awf() {
+    public boolean awh() {
         int i;
         long j = 0;
         byte[] nA = com.baidu.tbadk.core.util.m.nA(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
@@ -69,15 +69,15 @@ public class h {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(h.this.awf());
+            return Boolean.valueOf(h.this.awh());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (h.this.cCN != null && bool != null) {
-                h.this.cCN.bE(bool.booleanValue());
+            if (h.this.cCU != null && bool != null) {
+                h.this.cCU.bE(bool.booleanValue());
             }
         }
     }

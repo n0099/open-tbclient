@@ -22,18 +22,18 @@ import com.tencent.connect.common.Constants;
 public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     private ab<l> VC;
     private r YY;
-    private int bWH;
-    private BdUniqueId cxx;
-    private ac gcM;
+    private int bWN;
+    private BdUniqueId cxE;
+    private ac gdC;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, l lVar) {
-        if (this.gcM != null && this.gcM.qU() != null && this.gcM.qU().cdO() != null) {
-            if (view.getId() == this.gcM.qU().cdO().getId()) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.bWH);
+        if (this.gdC != null && this.gdC.qU() != null && this.gdC.qU().ceg() != null) {
+            if (view.getId() == this.gdC.qU().ceg().getId()) {
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.bWN);
             } else if (view.getId() == R.id.thread_card_root) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.bWH);
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.bWN);
             }
         }
     }
@@ -62,14 +62,14 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     /* renamed from: aO */
     public com.baidu.card.a<l> onCreateViewHolder(ViewGroup viewGroup) {
         x.a aVar = new x.a(this.mPageContext.getPageActivity(), false);
-        this.gcM = new t(this.mPageContext.getPageActivity());
-        this.gcM.setPageUniqueId(this.cxx);
-        this.gcM.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
-        aVar.b(this.gcM);
+        this.gdC = new t(this.mPageContext.getPageActivity());
+        this.gdC.setPageUniqueId(this.cxE);
+        this.gdC.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
+        aVar.b(this.gdC);
         aVar.qN().setBackgroundResource(R.color.cp_bg_line_d);
         x a = aVar.a(false, viewGroup, this.YY);
         com.baidu.card.a<l> aVar2 = new com.baidu.card.a<>(a);
-        aVar2.setPageId(this.cxx);
+        aVar2.setPageId(this.cxE);
         a.a(this.VC);
         a.bq(18);
         setOnAdapterItemClickListener(new s() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.2
@@ -101,9 +101,9 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
         if (aVar == null) {
             return null;
         }
-        lVar.pI(lVar.position + 1);
+        lVar.pJ(lVar.position + 1);
         aVar.qP().setPosition(i);
-        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.bWH);
+        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.bWN);
         aVar.setVideoStatsData(c(lVar));
         aVar.a(lVar);
         aVar.qP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -116,36 +116,36 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
         if (lVar != null) {
             zVar = new com.baidu.tieba.play.z();
             zVar.mLocate = Constants.VIA_REPORT_TYPE_START_GROUP;
-            zVar.bWO = lVar.tid;
-            if (lVar.acx() != null) {
-                zVar.eFy = String.valueOf(lVar.acx().getFid());
-                if (lVar.acx().aeO() != null) {
-                    zVar.ixC = lVar.acx().aeO().video_md5;
-                    zVar.ixE = String.valueOf(lVar.acx().aeO().is_vertical);
+            zVar.bWU = lVar.tid;
+            if (lVar.acy() != null) {
+                zVar.eFF = String.valueOf(lVar.acy().getFid());
+                if (lVar.acy().aeP() != null) {
+                    zVar.iyF = lVar.acy().aeP().video_md5;
+                    zVar.iyH = String.valueOf(lVar.acy().aeP().is_vertical);
                 }
             }
-            zVar.bGR = lVar.baa();
+            zVar.bGS = lVar.bac();
             zVar.mSource = lVar.getSource();
-            zVar.ixB = lVar.aZY();
-            zVar.ixz = lVar.getWeight();
+            zVar.iyE = lVar.baa();
+            zVar.iyC = lVar.getWeight();
             zVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            zVar.mFloor = String.valueOf(lVar.aZX());
-            zVar.ixF = String.valueOf(this.bWH);
+            zVar.mFloor = String.valueOf(lVar.aZZ());
+            zVar.iyI = String.valueOf(this.bWN);
         }
         return zVar;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.cxx = bdUniqueId;
+        this.cxE = bdUniqueId;
     }
 
-    public void tX(int i) {
-        this.bWH = i;
+    public void tZ(int i) {
+        this.bWN = i;
     }
 
     public void onPause() {
-        if (this.gcM != null) {
-            this.gcM.onPause();
+        if (this.gdC != null) {
+            this.gdC.onPause();
         }
     }
 }

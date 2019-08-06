@@ -10,9 +10,9 @@ public class e extends a implements org.aspectj.lang.reflect.c {
         this.returnType = cls2;
     }
 
-    public Class cOb() {
+    public Class cOw() {
         if (this.returnType == null) {
-            this.returnType = EL(6);
+            this.returnType = EN(6);
         }
         return this.returnType;
     }
@@ -20,18 +20,18 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.EN(cOc()));
-        if (hVar.ksU) {
-            stringBuffer.append(hVar.G(cOb()));
+        stringBuffer.append(hVar.EP(cOx()));
+        if (hVar.kua) {
+            stringBuffer.append(hVar.G(cOw()));
         }
-        if (hVar.ksU) {
+        if (hVar.kua) {
             stringBuffer.append(" ");
         }
-        stringBuffer.append(hVar.i(cOd(), cOe()));
+        stringBuffer.append(hVar.i(cOy(), cOz()));
         stringBuffer.append(".");
         stringBuffer.append(getName());
-        hVar.b(stringBuffer, cNX());
-        hVar.c(stringBuffer, cNY());
+        hVar.b(stringBuffer, cOs());
+        hVar.c(stringBuffer, cOt());
         return stringBuffer.toString();
     }
 }

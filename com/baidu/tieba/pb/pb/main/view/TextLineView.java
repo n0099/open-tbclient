@@ -14,12 +14,12 @@ import com.baidu.tieba.c;
 /* loaded from: classes4.dex */
 public class TextLineView extends TextView {
     private int DS4;
-    private int dYN;
-    private int hZm;
-    private int hZn;
-    private int hZo;
-    private int hZp;
-    private int hZq;
+    private int dYU;
+    private int iaj;
+    private int iak;
+    private int ial;
+    private int iam;
+    private int ian;
     private int mHeight;
     private int mMargin;
     private Paint mPaint;
@@ -33,14 +33,14 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.TextLineView);
-        this.hZm = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-        this.hZn = obtainStyledAttributes.getDimensionPixelSize(4, 0);
-        this.hZo = obtainStyledAttributes.getDimensionPixelSize(5, 0);
-        this.hZq = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
-        this.hZp = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.hZn + this.hZm + this.hZo);
-        setTextColor(this.hZq);
-        this.dYN = l.g(context, R.dimen.ds56);
+        this.iaj = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.iak = obtainStyledAttributes.getDimensionPixelSize(4, 0);
+        this.ial = obtainStyledAttributes.getDimensionPixelSize(5, 0);
+        this.ian = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
+        this.iam = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.iak + this.iaj + this.ial);
+        setTextColor(this.ian);
+        this.dYU = l.g(context, R.dimen.ds56);
         this.mRectF = new RectF();
         this.DS4 = l.g(getContext(), R.dimen.ds4);
         obtainStyledAttributes.recycle();
@@ -49,11 +49,11 @@ public class TextLineView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        bYK();
+        bZb();
         if (this.mRectF == null) {
             this.mRectF = new RectF();
         }
-        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.hZo) - this.hZm, this.mWidth - this.mMargin, this.mHeight - this.hZo);
+        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.ial) - this.iaj, this.mWidth - this.mMargin, this.mHeight - this.ial);
         canvas.drawRoundRect(this.mRectF, this.DS4, this.DS4, this.mPaint);
     }
 
@@ -61,14 +61,14 @@ public class TextLineView extends TextView {
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.hZq);
+            setTextColor(this.ian);
         } else {
-            setTextColor(this.hZp);
+            setTextColor(this.iam);
         }
         invalidate();
     }
 
-    private void bYK() {
+    private void bZb() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -82,14 +82,14 @@ public class TextLineView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        this.hZq = am.getColor(R.color.cp_cont_b);
-        this.hZp = am.getColor(R.color.cp_cont_j);
+        this.ian = am.getColor(R.color.cp_cont_b);
+        this.iam = am.getColor(R.color.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.hZq);
+            setTextColor(this.ian);
         } else {
-            setTextColor(this.hZp);
+            setTextColor(this.iam);
         }
-        bYK();
+        bZb();
         invalidate();
     }
 
@@ -98,6 +98,6 @@ public class TextLineView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.mWidth = i;
         this.mHeight = i2;
-        this.mMargin = (this.mWidth - this.dYN) / 2;
+        this.mMargin = (this.mWidth - this.dYU) / 2;
     }
 }

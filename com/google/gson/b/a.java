@@ -6,20 +6,20 @@ import java.lang.reflect.Type;
 /* loaded from: classes2.dex */
 public class a<T> {
     final int hashCode;
-    final Type kos;
-    final Class<? super T> kpF;
+    final Type kpy;
+    final Class<? super T> kqL;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        this.kos = D(getClass());
-        this.kpF = (Class<? super T>) C$Gson$Types.g(this.kos);
-        this.hashCode = this.kos.hashCode();
+        this.kpy = D(getClass());
+        this.kqL = (Class<? super T>) C$Gson$Types.g(this.kpy);
+        this.hashCode = this.kpy.hashCode();
     }
 
     a(Type type) {
-        this.kos = C$Gson$Types.f((Type) com.google.gson.internal.a.checkNotNull(type));
-        this.kpF = (Class<? super T>) C$Gson$Types.g(this.kos);
-        this.hashCode = this.kos.hashCode();
+        this.kpy = C$Gson$Types.f((Type) com.google.gson.internal.a.checkNotNull(type));
+        this.kqL = (Class<? super T>) C$Gson$Types.g(this.kpy);
+        this.hashCode = this.kpy.hashCode();
     }
 
     static Type D(Class<?> cls) {
@@ -30,12 +30,12 @@ public class a<T> {
         return C$Gson$Types.f(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class<? super T> cMy() {
-        return this.kpF;
+    public final Class<? super T> cMT() {
+        return this.kqL;
     }
 
-    public final Type cMz() {
-        return this.kos;
+    public final Type cMU() {
+        return this.kpy;
     }
 
     public final int hashCode() {
@@ -43,11 +43,11 @@ public class a<T> {
     }
 
     public final boolean equals(Object obj) {
-        return (obj instanceof a) && C$Gson$Types.a(this.kos, ((a) obj).kos);
+        return (obj instanceof a) && C$Gson$Types.a(this.kpy, ((a) obj).kpy);
     }
 
     public final String toString() {
-        return C$Gson$Types.h(this.kos);
+        return C$Gson$Types.h(this.kpy);
     }
 
     public static a<?> l(Type type) {

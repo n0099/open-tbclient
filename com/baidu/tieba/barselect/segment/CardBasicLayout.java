@@ -11,8 +11,8 @@ import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CardBasicLayout extends LinearLayout {
-    protected f euM;
-    protected d eyD;
+    protected f euT;
+    protected d eyK;
     public int status;
 
     public CardBasicLayout(Context context) {
@@ -25,29 +25,29 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i, f fVar) {
-        e aYP;
-        this.euM = fVar;
-        if (this.euM != null && this.euM.aYP() != null && (aYP = this.euM.aYP()) != null) {
-            int status = aYP.getStatus();
-            if (status == com.baidu.tieba.barselect.a.d.eyW) {
-                if (i == VoteCandidateCard.ezg) {
-                    this.status = a.eyU;
-                    this.eyD = this.euM.aYO();
+        e aYR;
+        this.euT = fVar;
+        if (this.euT != null && this.euT.aYR() != null && (aYR = this.euT.aYR()) != null) {
+            int status = aYR.getStatus();
+            if (status == com.baidu.tieba.barselect.a.d.ezd) {
+                if (i == VoteCandidateCard.ezn) {
+                    this.status = a.ezb;
+                    this.eyK = this.euT.aYQ();
                     return;
                 }
-                this.status = a.eyR;
-                List<d> aYN = this.euM.aYN();
-                if (aYN != null && aYN.size() > i) {
-                    this.eyD = aYN.get(i);
+                this.status = a.eyY;
+                List<d> aYP = this.euT.aYP();
+                if (aYP != null && aYP.size() > i) {
+                    this.eyK = aYP.get(i);
                 }
-            } else if (status == com.baidu.tieba.barselect.a.d.eyX) {
-                if (i == VoteCandidateCard.ezg) {
-                    this.status = a.eyT;
-                    List<d> aYN2 = this.euM.aYN();
-                    if (aYN2 != null && aYN2.size() > 0) {
-                        for (d dVar : aYN2) {
+            } else if (status == com.baidu.tieba.barselect.a.d.eze) {
+                if (i == VoteCandidateCard.ezn) {
+                    this.status = a.eza;
+                    List<d> aYP2 = this.euT.aYP();
+                    if (aYP2 != null && aYP2.size() > 0) {
+                        for (d dVar : aYP2) {
                             if (dVar.getRank() == 1) {
-                                this.eyD = dVar;
+                                this.eyK = dVar;
                                 return;
                             }
                         }
@@ -55,12 +55,12 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.eyS;
-                List<d> aYN3 = this.euM.aYN();
-                if (aYN3 != null && aYN3.size() > i) {
-                    this.eyD = aYN3.get(i);
-                    if (this.eyD.getRank() == 1 && i == 0) {
-                        this.status = a.eyT;
+                this.status = a.eyZ;
+                List<d> aYP3 = this.euT.aYP();
+                if (aYP3 != null && aYP3.size() > i) {
+                    this.eyK = aYP3.get(i);
+                    if (this.eyK.getRank() == 1 && i == 0) {
+                        this.status = a.eza;
                     }
                 }
             }

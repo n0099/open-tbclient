@@ -10,33 +10,33 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class g<K, V> {
-    private final ac<V> kfg;
+    private final ac<V> kgm;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> kfh = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> kgn = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int kfi = 0;
+    private int kgo = 0;
 
     public g(ac<V> acVar) {
-        this.kfg = acVar;
+        this.kgm = acVar;
     }
 
     public synchronized int getCount() {
-        return this.kfh.size();
+        return this.kgn.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.kfi;
+        return this.kgo;
     }
 
     @Nullable
-    public synchronized K cHo() {
-        return this.kfh.isEmpty() ? null : this.kfh.keySet().iterator().next();
+    public synchronized K cHJ() {
+        return this.kgn.isEmpty() ? null : this.kgn.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable Predicate<K> predicate) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.kfh.entrySet().size());
-        for (Map.Entry<K, V> entry : this.kfh.entrySet()) {
+        arrayList = new ArrayList<>(this.kgn.entrySet().size());
+        for (Map.Entry<K, V> entry : this.kgn.entrySet()) {
             if (predicate == null || predicate.apply(entry.getKey())) {
                 arrayList.add(entry);
             }
@@ -46,24 +46,24 @@ public class g<K, V> {
 
     @Nullable
     public synchronized V get(K k) {
-        return this.kfh.get(k);
+        return this.kgn.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.kfh.remove(k);
-        this.kfi -= aT(remove);
-        this.kfh.put(k, v);
-        this.kfi += aT(v);
+        remove = this.kgn.remove(k);
+        this.kgo -= aT(remove);
+        this.kgn.put(k, v);
+        this.kgo += aT(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.kfh.remove(k);
-        this.kfi -= aT(remove);
+        remove = this.kgn.remove(k);
+        this.kgo -= aT(remove);
         return remove;
     }
 
@@ -71,6 +71,6 @@ public class g<K, V> {
         if (v == null) {
             return 0;
         }
-        return this.kfg.aR(v);
+        return this.kgm.aR(v);
     }
 }

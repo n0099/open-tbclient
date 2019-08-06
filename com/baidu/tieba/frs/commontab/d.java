@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.commontab;
 
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
@@ -15,11 +15,11 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class d implements j {
-    public String fBA;
-    public boolean fBB;
-    public SportScheduleInfo fBC;
-    public int fBy;
-    public String fBz;
+    public int fCm;
+    public String fCn;
+    public String fCo;
+    public boolean fCp;
+    public SportScheduleInfo fCq;
     public boolean hasMore;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<m> threadList = new ArrayList<>();
@@ -42,22 +42,22 @@ public class d implements j {
             if (!v.aa(dataRes.general_list)) {
                 for (ThreadInfo threadInfo : dataRes.general_list) {
                     if (threadInfo != null) {
-                        bg bgVar = new bg();
-                        bgVar.setUserMap(this.userMap);
-                        bgVar.a(threadInfo);
-                        bgVar.setCurrentPage(3);
-                        bgVar.afn();
-                        this.threadList.add(bgVar);
+                        bh bhVar = new bh();
+                        bhVar.setUserMap(this.userMap);
+                        bhVar.a(threadInfo);
+                        bhVar.setCurrentPage(3);
+                        bhVar.afo();
+                        this.threadList.add(bhVar);
                     }
                 }
             }
-            this.fBy = dataRes.new_thread_num.intValue();
+            this.fCm = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.fBz = dataRes.sport_head_info.head_url;
-                this.fBA = dataRes.sport_head_info.jump_url;
-                this.fBB = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.fCn = dataRes.sport_head_info.head_url;
+                this.fCo = dataRes.sport_head_info.jump_url;
+                this.fCp = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.fBC = dataRes.sport_schedule_info;
+            this.fCq = dataRes.sport_schedule_info;
         }
     }
 

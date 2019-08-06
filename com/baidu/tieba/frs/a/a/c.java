@@ -14,8 +14,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
@@ -23,136 +23,137 @@ import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.x;
 /* loaded from: classes4.dex */
 public class c extends v.a {
-    View.OnClickListener dWK;
-    private View fEA;
-    private TextView fEB;
-    private ImageView fEC;
-    private View fED;
-    private RelativeLayout fEt;
-    private LinearLayout fEu;
-    private TbImageView fEv;
-    private TextView fEw;
-    private TextView fEx;
-    private TextView fEy;
-    private TextView fEz;
+    View.OnClickListener dWR;
+    private RelativeLayout fFh;
+    private LinearLayout fFi;
+    private TbImageView fFj;
+    private TextView fFk;
+    private TextView fFl;
+    private TextView fFm;
+    private TextView fFn;
+    private View fFo;
+    private TextView fFp;
+    private ImageView fFq;
+    private View fFr;
     private TbPageContext mContext;
     private int mSkinType;
-    private bl news_info;
-    private bi top_code;
+    private bm news_info;
+    private bj top_code;
 
     public c(TbPageContext tbPageContext, View view, BdUniqueId bdUniqueId) {
         super(view);
         this.mSkinType = 3;
-        this.dWK = new View.OnClickListener() { // from class: com.baidu.tieba.frs.a.a.c.1
+        this.dWR = new View.OnClickListener() { // from class: com.baidu.tieba.frs.a.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (bd.cF(c.this.mContext.getPageActivity()) && l.kt()) {
-                    if (view2 == c.this.fEt) {
-                        if (c.this.top_code != null && !TextUtils.isEmpty(c.this.top_code.agr())) {
+                    if (view2 == c.this.fFh) {
+                        if (c.this.top_code != null && !TextUtils.isEmpty(c.this.top_code.agt())) {
                             TiebaStatic.eventStat(c.this.mContext.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                            bb.ajC().c((TbPageContext) i.ab(c.this.mContext.getPageActivity()), new String[]{c.this.top_code.agr()});
+                            bb.ajE().c((TbPageContext) i.ab(c.this.mContext.getPageActivity()), new String[]{c.this.top_code.agt()});
                         }
-                    } else if (view2 == c.this.fEu && c.this.news_info != null && !TextUtils.isEmpty(c.this.news_info.agy())) {
+                    } else if (view2 == c.this.fFi && c.this.news_info != null && !TextUtils.isEmpty(c.this.news_info.agA())) {
                         TiebaStatic.eventStat(c.this.mContext.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                        bb.ajC().c((TbPageContext) i.ab(c.this.mContext.getPageActivity()), new String[]{c.this.news_info.agy()});
+                        bb.ajE().c((TbPageContext) i.ab(c.this.mContext.getPageActivity()), new String[]{c.this.news_info.agA()});
                     }
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.fEt = (RelativeLayout) view.findViewById(R.id.u9_top_code);
-        this.fEu = (LinearLayout) view.findViewById(R.id.u9_news_info);
-        this.fEv = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.fEv.setPageId(bdUniqueId);
-        this.fEw = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.fEx = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
-        this.fEy = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
-        this.fEz = (TextView) view.findViewById(R.id.top_code_getnum_btn);
-        this.fEA = view.findViewById(R.id.u9_top_code_divider);
-        this.fEC = (ImageView) view.findViewById(R.id.news_info_img);
-        this.fEC.setBackgroundDrawable(am.getDrawable(R.drawable.icon_frs_news));
-        this.fEB = (TextView) view.findViewById(R.id.news_info_text);
-        this.fED = view.findViewById(R.id.frs_list_item_u9_top_line);
-        am.k(this.fEz, R.drawable.frs_star_btn_like);
-        am.j(this.fEz, R.drawable.frs_text_color_selector);
-        bpt();
+        this.fFh = (RelativeLayout) view.findViewById(R.id.u9_top_code);
+        this.fFi = (LinearLayout) view.findViewById(R.id.u9_news_info);
+        this.fFj = (TbImageView) view.findViewById(R.id.top_code_img);
+        this.fFj.setPageId(bdUniqueId);
+        this.fFk = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.fFl = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
+        this.fFm = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
+        this.fFn = (TextView) view.findViewById(R.id.top_code_getnum_btn);
+        this.fFo = view.findViewById(R.id.u9_top_code_divider);
+        this.fFq = (ImageView) view.findViewById(R.id.news_info_img);
+        this.fFq.setBackgroundDrawable(am.getDrawable(R.drawable.icon_frs_news));
+        this.fFp = (TextView) view.findViewById(R.id.news_info_text);
+        this.fFr = view.findViewById(R.id.frs_list_item_u9_top_line);
+        am.k(this.fFn, R.drawable.frs_star_btn_like);
+        am.j(this.fFn, R.drawable.frs_text_color_selector);
+        bpG();
     }
 
-    public void a(com.baidu.tieba.tbadkCore.v vVar) {
-        if (vVar != null) {
-            bi coK = vVar.coK();
-            bl coL = vVar.coL();
-            this.top_code = coK;
-            this.news_info = coL;
-            if (vVar.bvh()) {
-                this.fED.setVisibility(0);
+    public void a(x xVar) {
+        if (xVar != null) {
+            bj cpg = xVar.cpg();
+            bm cph = xVar.cph();
+            this.top_code = cpg;
+            this.news_info = cph;
+            if (xVar.bvu()) {
+                this.fFr.setVisibility(0);
             } else {
-                this.fED.setVisibility(8);
+                this.fFr.setVisibility(8);
             }
             if (this.top_code == null) {
-                this.fEt.setVisibility(8);
-                this.fEA.setVisibility(8);
+                this.fFh.setVisibility(8);
+                this.fFo.setVisibility(8);
             } else if (StringUtils.isNull(this.top_code.getSummary())) {
-                this.fEt.setVisibility(8);
-                this.fEA.setVisibility(8);
+                this.fFh.setVisibility(8);
+                this.fFo.setVisibility(8);
             } else {
-                this.fEt.setVisibility(0);
-                this.fEA.setVisibility(0);
-                this.fEv.startLoad(this.top_code.acU(), 10, false);
-                this.fEw.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(coK.agv())) {
-                    this.fEz.setVisibility(8);
+                this.fFh.setVisibility(0);
+                this.fFo.setVisibility(0);
+                this.fFj.startLoad(this.top_code.acV(), 10, false);
+                this.fFk.setText(this.top_code.getSummary());
+                if (StringUtils.isNull(cpg.agx())) {
+                    this.fFn.setVisibility(8);
                 } else {
-                    this.fEz.setText(coK.agv());
-                    this.fEz.setVisibility(0);
+                    this.fFn.setText(cpg.agx());
+                    this.fFn.setVisibility(0);
                 }
-                int ags = this.top_code.ags();
-                if (ags == 1 || ags == 2) {
-                    if (StringUtils.isNull(this.top_code.agt())) {
-                        this.fEx.setVisibility(8);
+                int agu = this.top_code.agu();
+                if (agu == 1 || agu == 2) {
+                    if (StringUtils.isNull(this.top_code.agv())) {
+                        this.fFl.setVisibility(8);
                     } else {
-                        String str = this.mContext.getResources().getString(R.string.u9_shengyu) + this.top_code.agt();
+                        String str = this.mContext.getResources().getString(R.string.u9_shengyu) + this.top_code.agv();
                         SpannableString spannableString = new SpannableString(str);
-                        UtilHelper.setSpan(spannableString, str, this.top_code.agt(), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)));
-                        this.fEx.setText(spannableString);
-                        this.fEx.setVisibility(0);
+                        UtilHelper.setSpan(spannableString, str, this.top_code.agv(), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)));
+                        this.fFl.setText(spannableString);
+                        this.fFl.setVisibility(0);
                     }
-                    if (coK.agu() <= 0) {
-                        this.fEy.setVisibility(8);
+                    if (cpg.agw() <= 0) {
+                        this.fFm.setVisibility(8);
                     } else {
-                        String str2 = this.mContext.getResources().getString(R.string.u9_worth) + this.top_code.agu();
+                        String str2 = this.mContext.getResources().getString(R.string.u9_worth) + this.top_code.agw();
                         SpannableString spannableString2 = new SpannableString(str2);
-                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.agu()), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)));
-                        this.fEy.setText(spannableString2);
-                        this.fEy.setVisibility(0);
+                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.agw()), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)));
+                        this.fFm.setText(spannableString2);
+                        this.fFm.setVisibility(0);
                     }
                 } else {
-                    this.fEy.setVisibility(8);
-                    this.fEx.setText(coK.getSubTitle());
-                    this.fEx.setVisibility(0);
+                    this.fFm.setVisibility(8);
+                    this.fFl.setText(cpg.getSubTitle());
+                    this.fFl.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(coL.getSummary())) {
-                this.fEu.setVisibility(8);
+            if (this.news_info == null || StringUtils.isNull(cph.getSummary())) {
+                this.fFi.setVisibility(8);
                 return;
             }
-            this.fEu.setVisibility(0);
-            this.fEB.setText(coL.getSummary());
+            this.fFi.setVisibility(0);
+            this.fFp.setText(cph.getSummary());
         }
     }
 
-    public void bpt() {
-        this.fEt.setOnClickListener(this.dWK);
-        this.fEu.setOnClickListener(this.dWK);
+    public void bpG() {
+        this.fFh.setOnClickListener(this.dWR);
+        this.fFi.setOnClickListener(this.dWR);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.k(this.fEC, R.drawable.icon_frs_news);
-            am.k(this.fEz, R.drawable.frs_star_btn_like);
-            am.j(this.fEz, R.drawable.frs_text_color_selector);
+            am.k(this.fFq, R.drawable.icon_frs_news);
+            am.k(this.fFn, R.drawable.frs_star_btn_like);
+            am.j(this.fFn, R.drawable.frs_text_color_selector);
             this.mContext.getLayoutMode().setNightMode(i == 1);
             this.mContext.getLayoutMode().onModeChanged(getView());
             this.mSkinType = i;

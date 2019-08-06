@@ -8,25 +8,25 @@ import java.lang.reflect.TypeVariable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class l<T> extends n<T> {
-    private final n<T> kmE;
-    private final com.google.gson.d kor;
-    private final Type kos;
+    private final n<T> knK;
+    private final com.google.gson.d kpx;
+    private final Type kpy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(com.google.gson.d dVar, n<T> nVar, Type type) {
-        this.kor = dVar;
-        this.kmE = nVar;
-        this.kos = type;
+        this.kpx = dVar;
+        this.knK = nVar;
+        this.kpy = type;
     }
 
     @Override // com.google.gson.n
     public void a(com.google.gson.stream.a aVar, T t) throws IOException {
-        n<T> nVar = this.kmE;
-        Type a = a(this.kos, t);
-        if (a != this.kos) {
-            nVar = this.kor.a(com.google.gson.b.a.l(a));
-            if ((nVar instanceof h.a) && !(this.kmE instanceof h.a)) {
-                nVar = this.kmE;
+        n<T> nVar = this.knK;
+        Type a = a(this.kpy, t);
+        if (a != this.kpy) {
+            nVar = this.kpx.a(com.google.gson.b.a.l(a));
+            if ((nVar instanceof h.a) && !(this.knK instanceof h.a)) {
+                nVar = this.knK;
             }
         }
         nVar.a(aVar, t);

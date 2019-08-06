@@ -322,7 +322,7 @@ public class b {
             aVar.d(str, null);
             return;
         }
-        com.facebook.drawee.a.a.c.cFw().e(ImageRequestBuilder.U(iw).cLC(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.a.b.2
+        com.facebook.drawee.a.a.c.cFR().e(ImageRequestBuilder.U(iw).cLX(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.a.b.2
             @Override // com.facebook.imagepipeline.e.b
             protected void f(Bitmap bitmap) {
                 Bitmap copy;
@@ -352,7 +352,7 @@ public class b {
                 super.b(bVar);
                 b.a(str, cVar, m.a.this, "download icon fail: onCancellation");
             }
-        }, com.facebook.common.b.f.cEB());
+        }, com.facebook.common.b.f.cEW());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

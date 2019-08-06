@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class e {
-    public static void zc(int i) {
+    public static void ze(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -20,7 +20,7 @@ public class e {
         TiebaStatic.log(new an("c12493").P("obj_type", i2));
     }
 
-    public static void zd(int i) {
+    public static void zf(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -42,11 +42,11 @@ public class e {
         TiebaStatic.log(new an("c12029").P("obj_type", i2).P("obj_param1", j.kd() ? 0 : 1).P("obj_param2", i3));
     }
 
-    public static void De(String str) {
+    public static void Df(String str) {
         TiebaStatic.log(new an("c12026").bT("tid", str));
     }
 
-    public static void ze(int i) {
+    public static void zg(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;

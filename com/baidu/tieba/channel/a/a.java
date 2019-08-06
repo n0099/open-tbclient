@@ -16,11 +16,11 @@ import com.baidu.tieba.channel.activity.ChannelAddVideoActivity;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends BaseAdapter {
-    private ChannelAddVideoActivity eHK;
+    private ChannelAddVideoActivity eHR;
     private List<com.baidu.tieba.channel.data.b> mData;
 
     public a(ChannelAddVideoActivity channelAddVideoActivity) {
-        this.eHK = channelAddVideoActivity;
+        this.eHR = channelAddVideoActivity;
     }
 
     public List<com.baidu.tieba.channel.data.b> getData() {
@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pL */
+    /* renamed from: pM */
     public com.baidu.tieba.channel.data.b getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);
@@ -60,59 +60,59 @@ public class a extends BaseAdapter {
         if (view != null) {
             c0297a = (C0297a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.eHK.getPageContext().getPageActivity()).inflate(R.layout.channel_add_video_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.eHR.getPageContext().getPageActivity()).inflate(R.layout.channel_add_video_item_layout, viewGroup, false);
             C0297a c0297a2 = new C0297a();
-            c0297a2.eHL = (TbCheckBox) view.findViewById(R.id.item_check_box);
-            c0297a2.eHM = (TbImageView) view.findViewById(R.id.video_cover);
-            c0297a2.eHN = (TextView) view.findViewById(R.id.video_length);
+            c0297a2.eHS = (TbCheckBox) view.findViewById(R.id.item_check_box);
+            c0297a2.eHT = (TbImageView) view.findViewById(R.id.video_cover);
+            c0297a2.eHU = (TextView) view.findViewById(R.id.video_length);
             c0297a2.title = (TextView) view.findViewById(R.id.title);
-            c0297a2.eHO = (TextView) view.findViewById(R.id.forum_from);
-            c0297a2.eHP = (TextView) view.findViewById(R.id.intro);
+            c0297a2.eHV = (TextView) view.findViewById(R.id.forum_from);
+            c0297a2.eHW = (TextView) view.findViewById(R.id.intro);
             view.setTag(c0297a2);
             c0297a = c0297a2;
         }
         com.baidu.tieba.channel.data.b item = getItem(i);
         if (item != null) {
-            c0297a.eHL.setTagData(item);
-            if (item.baI() == 1) {
-                c0297a.eHL.setEnabled(false);
-                am.c(c0297a.eHL, (int) R.drawable.icon_choose_channel_n);
+            c0297a.eHS.setTagData(item);
+            if (item.baK() == 1) {
+                c0297a.eHS.setEnabled(false);
+                am.c(c0297a.eHS, (int) R.drawable.icon_choose_channel_n);
             } else {
-                c0297a.eHL.setEnabled(true);
-                c0297a.eHL.akL();
+                c0297a.eHS.setEnabled(true);
+                c0297a.eHS.akN();
             }
             if (!TextUtils.isEmpty(item.getThumbnailUrl())) {
-                c0297a.eHM.setTag(null);
-                c0297a.eHM.startLoad(item.getThumbnailUrl(), 10, false);
-                c0297a.eHM.invalidate();
+                c0297a.eHT.setTag(null);
+                c0297a.eHT.startLoad(item.getThumbnailUrl(), 10, false);
+                c0297a.eHT.invalidate();
             }
-            c0297a.eHN.setText(aq.io(item.getVideoDuration() * 1000));
+            c0297a.eHU.setText(aq.io(item.getVideoDuration() * 1000));
             if (!TextUtils.isEmpty(item.getTitle())) {
                 c0297a.title.setText(item.getTitle());
             }
             if (!TextUtils.isEmpty(item.getForumName())) {
-                c0297a.eHO.setText(item.getForumName() + "吧");
+                c0297a.eHV.setText(item.getForumName() + "吧");
             }
-            c0297a.eHP.setText(aq.aH(item.baH()) + "次播放·" + com.baidu.tieba.channel.c.c.cG(item.getCreateTime()));
+            c0297a.eHW.setText(aq.aH(item.baJ()) + "次播放·" + com.baidu.tieba.channel.c.c.cG(item.getCreateTime()));
         }
-        this.eHK.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.eHK.getLayoutMode().onModeChanged(view);
+        this.eHR.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.eHR.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        return getItem(i).baI() != 1;
+        return getItem(i).baK() != 1;
     }
 
     /* renamed from: com.baidu.tieba.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public class C0297a {
-        public TbCheckBox eHL;
-        public TbImageView eHM;
-        public TextView eHN;
-        public TextView eHO;
-        public TextView eHP;
+        public TbCheckBox eHS;
+        public TbImageView eHT;
+        public TextView eHU;
+        public TextView eHV;
+        public TextView eHW;
         public TextView title;
 
         public C0297a() {

@@ -13,36 +13,36 @@ import java.io.IOException;
 public class a implements MediaController.MediaPlayerControl {
     private String alH;
     private MediaPlayer bAa;
-    private InterfaceC0270a cXo;
-    private MediaPlayer.OnPreparedListener cXp;
-    private MediaPlayer.OnErrorListener cXq;
-    private MediaPlayer.OnCompletionListener cXr;
+    private InterfaceC0270a cXv;
+    private MediaPlayer.OnPreparedListener cXw;
+    private MediaPlayer.OnErrorListener cXx;
+    private MediaPlayer.OnCompletionListener cXy;
     private int mLastPosition;
     private Surface mSurface;
     private int mCurrentState = 0;
-    private MediaPlayer.OnPreparedListener cXs = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.ad.play.a.1
+    private MediaPlayer.OnPreparedListener cXz = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.ad.play.a.1
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             a.this.mCurrentState = 2;
             a.this.start();
-            a.this.cXp.onPrepared(mediaPlayer);
+            a.this.cXw.onPrepared(mediaPlayer);
         }
     };
-    private MediaPlayer.OnCompletionListener cXt = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.ad.play.a.2
+    private MediaPlayer.OnCompletionListener cXA = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.ad.play.a.2
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             a.this.mCurrentState = 5;
-            if (a.this.cXr != null) {
-                a.this.cXr.onCompletion(mediaPlayer);
+            if (a.this.cXy != null) {
+                a.this.cXy.onCompletion(mediaPlayer);
             }
         }
     };
-    private MediaPlayer.OnErrorListener cXu = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.ad.play.a.3
+    private MediaPlayer.OnErrorListener cXB = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.ad.play.a.3
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
             a.this.mCurrentState = -1;
-            if (a.this.cXq != null) {
-                a.this.cXq.onError(mediaPlayer, i, i2);
+            if (a.this.cXx != null) {
+                a.this.cXx.onError(mediaPlayer, i, i2);
                 return true;
             }
             return true;
@@ -53,18 +53,18 @@ public class a implements MediaController.MediaPlayerControl {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (message.what == 200) {
-                a.this.aDd();
+                a.this.aDf();
             }
         }
     };
-    private Runnable cXv = new Runnable() { // from class: com.baidu.tieba.ad.play.a.5
+    private Runnable cXC = new Runnable() { // from class: com.baidu.tieba.ad.play.a.5
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.cXu != null) {
+            if (a.this.cXB != null) {
                 if (a.this.bAa != null) {
                     a.this.bAa.stop();
                 }
-                a.this.cXu.onError(a.this.bAa, 0, 0);
+                a.this.cXB.onError(a.this.bAa, 0, 0);
             }
         }
     };
@@ -85,9 +85,9 @@ public class a implements MediaController.MediaPlayerControl {
         this.alH = str;
         try {
             this.bAa = new MediaPlayer();
-            this.bAa.setOnPreparedListener(this.cXs);
-            this.bAa.setOnCompletionListener(this.cXt);
-            this.bAa.setOnErrorListener(this.cXu);
+            this.bAa.setOnPreparedListener(this.cXz);
+            this.bAa.setOnCompletionListener(this.cXA);
+            this.bAa.setOnErrorListener(this.cXB);
             this.bAa.setDataSource(this.alH);
             this.bAa.setSurface(this.mSurface);
             this.bAa.setAudioStreamType(3);
@@ -96,13 +96,13 @@ public class a implements MediaController.MediaPlayerControl {
             this.mCurrentState = 1;
         } catch (IOException e) {
             this.mCurrentState = -1;
-            this.cXu.onError(this.bAa, 1, 0);
+            this.cXB.onError(this.bAa, 1, 0);
         } catch (IllegalArgumentException e2) {
             this.mCurrentState = -1;
-            this.cXu.onError(this.bAa, 1, 0);
+            this.cXB.onError(this.bAa, 1, 0);
         } catch (IllegalStateException e3) {
             this.mCurrentState = -1;
-            this.cXu.onError(this.bAa, 1, 0);
+            this.cXB.onError(this.bAa, 1, 0);
         } catch (Exception e4) {
             e4.printStackTrace();
         }
@@ -126,7 +126,7 @@ public class a implements MediaController.MediaPlayerControl {
             try {
                 this.bAa.start();
                 this.mCurrentState = 3;
-                aDd();
+                aDf();
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -238,23 +238,23 @@ public class a implements MediaController.MediaPlayerControl {
             }
         }
         this.mHandler.removeMessages(200);
-        e.iK().removeCallbacks(this.cXv);
+        e.iK().removeCallbacks(this.cXC);
     }
 
     public void a(MediaPlayer.OnPreparedListener onPreparedListener) {
-        this.cXp = onPreparedListener;
+        this.cXw = onPreparedListener;
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.cXq = onErrorListener;
+        this.cXx = onErrorListener;
     }
 
     public void a(MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.cXr = onCompletionListener;
+        this.cXy = onCompletionListener;
     }
 
     public void a(InterfaceC0270a interfaceC0270a) {
-        this.cXo = interfaceC0270a;
+        this.cXv = interfaceC0270a;
     }
 
     private boolean isInPlaybackState() {
@@ -262,20 +262,20 @@ public class a implements MediaController.MediaPlayerControl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDd() {
+    public void aDf() {
         this.mHandler.removeMessages(200);
-        if (this.bAa != null && this.cXo != null) {
+        if (this.bAa != null && this.cXv != null) {
             int currentPosition = this.bAa.getCurrentPosition();
             if (currentPosition != this.mLastPosition) {
                 this.mLastPosition = currentPosition;
                 if (this.mCurrentState == 3) {
-                    this.cXo.onPlay();
-                    e.iK().removeCallbacks(this.cXv);
+                    this.cXv.onPlay();
+                    e.iK().removeCallbacks(this.cXC);
                 }
             } else if (this.mCurrentState == 3) {
-                this.cXo.onLoading();
-                e.iK().removeCallbacks(this.cXv);
-                e.iK().postDelayed(this.cXv, 6000L);
+                this.cXv.onLoading();
+                e.iK().removeCallbacks(this.cXC);
+                e.iK().postDelayed(this.cXC, 6000L);
             }
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(200), 1000L);
         }

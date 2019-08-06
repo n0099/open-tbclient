@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes5.dex */
 public class b implements i {
-    private String fpt;
-    private ArrayList<BawuRoleInfoPub> fpq = new ArrayList<>();
+    private String fpS;
+    private ArrayList<BawuRoleInfoPub> fpQ = new ArrayList<>();
     private boolean isLast = false;
-    private boolean fpr = false;
+    private boolean fpR = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int bkp() {
+    public int bkw() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> bkq() {
-        return this.fpq;
+    public ArrayList<BawuRoleInfoPub> bkx() {
+        return this.fpQ;
     }
 
     public void T(ArrayList<BawuRoleInfoPub> arrayList) {
-        this.fpq = arrayList;
+        this.fpQ = arrayList;
     }
 
     public boolean isLast() {
@@ -30,19 +30,19 @@ public class b implements i {
         this.isLast = z;
     }
 
-    public boolean bkr() {
-        return this.fpr;
+    public boolean bky() {
+        return this.fpR;
     }
 
     public void jE(boolean z) {
-        this.fpr = z;
+        this.fpR = z;
     }
 
-    public String bks() {
-        return this.fpt;
+    public String bkz() {
+        return this.fpS;
     }
 
-    public void wH(String str) {
-        this.fpt = str;
+    public void wI(String str) {
+        this.fpS = str;
     }
 }

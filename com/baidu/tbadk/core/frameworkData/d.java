@@ -17,8 +17,8 @@ public class d {
             @Override // com.baidu.adp.framework.a.f
             /* renamed from: d */
             public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.e.c.aqZ().kb(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.e.c.aqZ().ara());
+                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.e.c.arb().kc(socketMessage.getCmd())) {
+                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.e.c.arb().arc());
                     return null;
                 }
                 return socketMessage;
@@ -32,7 +32,7 @@ public class d {
             /* renamed from: d */
             public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage != null) {
-                    com.baidu.tbadk.coreExtra.e.c.aqZ().kd(socketResponsedMessage.getCmd());
+                    com.baidu.tbadk.coreExtra.e.c.arb().ke(socketResponsedMessage.getCmd());
                 }
                 return socketResponsedMessage;
             }
@@ -42,7 +42,7 @@ public class d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                    com.baidu.tbadk.coreExtra.e.c.aqZ().kc(((Integer) customResponsedMessage.getData()).intValue());
+                    com.baidu.tbadk.coreExtra.e.c.arb().kd(((Integer) customResponsedMessage.getData()).intValue());
                 }
             }
         };

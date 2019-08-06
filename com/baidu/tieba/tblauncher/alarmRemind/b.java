@@ -17,24 +17,24 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes4.dex */
 public class b {
-    private static b jlL;
-    private ClientConfigModel jlJ;
-    private a jlK;
-    private boolean jlM = false;
+    private static b jmT;
+    private ClientConfigModel jmR;
+    private a jmS;
+    private boolean jmU = false;
     private final com.baidu.tbadk.clientConfig.a bCK = new com.baidu.tbadk.clientConfig.a() { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.1
         @Override // com.baidu.tbadk.clientConfig.a
         public void aa(Object obj) {
-            b.this.jlM = false;
+            b.this.jmU = false;
             if (obj != null && (obj instanceof DataRes)) {
                 DataRes dataRes = (DataRes) obj;
                 if (dataRes.local_dialog != null) {
                     String c = com.baidu.tieba.tblauncher.alarmRemind.a.c(dataRes);
                     if (!TextUtils.isEmpty(c)) {
-                        TbadkSettings.getInst().saveString(b.this.Fm("remind_recommend_info"), c);
-                        TbadkSettings.getInst().saveInt(b.this.Fm("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                        TbadkSettings.getInst().saveString(b.this.Fm("remind_recommend_dialog_time"), dataRes.local_dialog.time);
-                        b.this.rr(true);
-                        TbadkSettings.getInst().saveLong(b.this.Fm("remind_recommend_data_time"), System.currentTimeMillis());
+                        TbadkSettings.getInst().saveString(b.this.Fn("remind_recommend_info"), c);
+                        TbadkSettings.getInst().saveInt(b.this.Fn("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                        TbadkSettings.getInst().saveString(b.this.Fn("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                        b.this.rs(true);
+                        TbadkSettings.getInst().saveLong(b.this.Fn("remind_recommend_data_time"), System.currentTimeMillis());
                     }
                 }
             }
@@ -42,15 +42,15 @@ public class b {
 
         @Override // com.baidu.tbadk.clientConfig.a
         public void onError(String str) {
-            b.this.jlM = false;
+            b.this.jmU = false;
         }
     };
     CustomMessageListener mNetworkChangedListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kc() && b.this.crH()) {
-                b.this.crG();
+            if (customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kc() && b.this.csd()) {
+                b.this.csc();
             }
         }
     };
@@ -58,80 +58,80 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.crH()) {
-                b.this.rr(true);
-                b.this.crG();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.csd()) {
+                b.this.rs(true);
+                b.this.csc();
             }
         }
     };
 
-    public static b crF() {
-        if (jlL == null) {
+    public static b csb() {
+        if (jmT == null) {
             synchronized (b.class) {
-                if (jlL == null) {
-                    jlL = new b();
+                if (jmT == null) {
+                    jmT = new b();
                 }
             }
         }
-        return jlL;
+        return jmT;
     }
 
     private b() {
     }
 
     public void e(BaseFragmentActivity baseFragmentActivity) {
-        this.jlK = new a();
-        baseFragmentActivity.registerListener(this.jlK);
+        this.jmS = new a();
+        baseFragmentActivity.registerListener(this.jmS);
         baseFragmentActivity.registerListener(this.mNetworkChangedListener);
         baseFragmentActivity.registerListener(this.mAccountChangedListener);
-        this.jlJ = new ClientConfigModel(baseFragmentActivity, this.bCK);
-        com.baidu.tbadk.core.sharedPref.b.ahO().putLong("tieba_last_active_time", System.currentTimeMillis());
-        if (crH()) {
-            rr(true);
-            crG();
+        this.jmR = new ClientConfigModel(baseFragmentActivity, this.bCK);
+        com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("tieba_last_active_time", System.currentTimeMillis());
+        if (csd()) {
+            rs(true);
+            csc();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crG() {
-        if (!com.baidu.tieba.tblauncher.alarmRemind.a.bc(TbadkSettings.getInst().loadLong(Fm("remind_recommend_data_time"), 0L)) && !TbadkCoreApplication.getInst().checkInterrupt()) {
-            crI();
+    public void csc() {
+        if (!com.baidu.tieba.tblauncher.alarmRemind.a.bc(TbadkSettings.getInst().loadLong(Fn("remind_recommend_data_time"), 0L)) && !TbadkCoreApplication.getInst().checkInterrupt()) {
+            cse();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean crH() {
+    public boolean csd() {
         if (!TbadkCoreApplication.isLogin()) {
-            rr(false);
+            rs(false);
             return false;
-        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.crE()) {
-            rr(false);
+        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.csa()) {
+            rs(false);
             return false;
-        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.cje()) {
-            rr(false);
+        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.cjw()) {
+            rs(false);
             return false;
         } else {
             return true;
         }
     }
 
-    public String Fm(String str) {
+    public String Fn(String str) {
         return TbadkCoreApplication.getCurrentAccount() + str;
     }
 
-    private void crI() {
-        if (this.jlJ != null && !this.jlM) {
-            this.jlM = true;
-            this.jlJ.mf("local_dialog");
+    private void cse() {
+        if (this.jmR != null && !this.jmU) {
+            this.jmU = true;
+            this.jmR.mf("local_dialog");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rr(boolean z) {
+    public void rs(boolean z) {
         AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 0, new Intent(TbadkCoreApplication.getInst().getApp(), AlarmReceiver.class), 134217728);
         if (z) {
-            alarmManager.setRepeating(0, com.baidu.tieba.tblauncher.alarmRemind.a.crD() + 86400000, 86400000L, broadcast);
+            alarmManager.setRepeating(0, com.baidu.tieba.tblauncher.alarmRemind.a.crZ() + 86400000, 86400000L, broadcast);
         } else {
             alarmManager.cancel(broadcast);
         }
@@ -148,10 +148,10 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean data;
             if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null && !data.booleanValue()) {
-                com.baidu.tbadk.core.sharedPref.b.ahO().putLong("tieba_last_active_time", System.currentTimeMillis());
-                if (b.this.crH()) {
-                    b.this.rr(true);
-                    b.this.crG();
+                com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("tieba_last_active_time", System.currentTimeMillis());
+                if (b.this.csd()) {
+                    b.this.rs(true);
+                    b.this.csc();
                 }
             }
         }

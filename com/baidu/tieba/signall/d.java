@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d implements ae {
     private String avatar;
-    private int dtQ;
-    private int eOD;
+    private int dtX;
+    private int eOK;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int iWC;
-    private int iWD;
-    private int iWE;
-    private boolean iWF;
-    private boolean iWG;
-    private boolean iWH;
-    private boolean iWI;
-    private int iWJ;
+    private int iXG;
+    private int iXH;
+    private int iXI;
+    private boolean iXJ;
+    private boolean iXK;
+    private boolean iXL;
+    private boolean iXM;
+    private int iXN;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cmT() {
-        return this.iWC;
+    public int cnl() {
+        return this.iXG;
     }
 
-    public int cmU() {
-        return this.dtQ;
+    public int cnm() {
+        return this.dtX;
     }
 
-    public int cmV() {
-        return this.eOD;
+    public int cnn() {
+        return this.eOK;
     }
 
-    public int cmW() {
-        return this.iWD;
+    public int cno() {
+        return this.iXH;
     }
 
-    public int cmX() {
-        return this.iWE;
-    }
-
-    public void AK(int i) {
-        this.iWC = i;
-    }
-
-    public void AL(int i) {
-        this.dtQ = i;
+    public int cnp() {
+        return this.iXI;
     }
 
     public void AM(int i) {
-        this.eOD = i;
-    }
-
-    public boolean aJX() {
-        return this.iWF;
-    }
-
-    public void qO(boolean z) {
-        this.iWF = z;
-        this.iWC = 1;
-    }
-
-    public boolean cmY() {
-        return this.iWH;
-    }
-
-    public void qP(boolean z) {
-        this.iWH = z;
-        this.iWC = 0;
-    }
-
-    public boolean cmZ() {
-        return this.iWI;
-    }
-
-    public void qQ(boolean z) {
-        this.iWI = z;
-    }
-
-    public int cna() {
-        return this.iWJ;
+        this.iXG = i;
     }
 
     public void AN(int i) {
-        this.iWJ = i;
+        this.dtX = i;
+    }
+
+    public void AO(int i) {
+        this.eOK = i;
+    }
+
+    public boolean aJZ() {
+        return this.iXJ;
+    }
+
+    public void qP(boolean z) {
+        this.iXJ = z;
+        this.iXG = 1;
+    }
+
+    public boolean cnq() {
+        return this.iXL;
+    }
+
+    public void qQ(boolean z) {
+        this.iXL = z;
+        this.iXG = 0;
+    }
+
+    public boolean cnr() {
+        return this.iXM;
+    }
+
+    public void qR(boolean z) {
+        this.iXM = z;
+    }
+
+    public int cns() {
+        return this.iXN;
+    }
+
+    public void AP(int i) {
+        this.iXN = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean cnb() {
-        return this.iWG;
+    public boolean cnt() {
+        return this.iXK;
     }
 
-    public void qR(boolean z) {
-        this.iWG = z;
+    public void qS(boolean z) {
+        this.iXK = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.iWC = jSONObject.optInt("is_sign_in");
-            this.dtQ = jSONObject.optInt("cont_sign_num");
-            this.eOD = jSONObject.optInt("user_level");
-            this.iWD = jSONObject.optInt("user_exp");
-            this.iWE = jSONObject.optInt("need_exp");
-            if (this.iWC != 0) {
-                this.iWF = true;
-                this.iWH = false;
+            this.iXG = jSONObject.optInt("is_sign_in");
+            this.dtX = jSONObject.optInt("cont_sign_num");
+            this.eOK = jSONObject.optInt("user_level");
+            this.iXH = jSONObject.optInt("user_exp");
+            this.iXI = jSONObject.optInt("need_exp");
+            if (this.iXG != 0) {
+                this.iXJ = true;
+                this.iXL = false;
             }
         }
     }

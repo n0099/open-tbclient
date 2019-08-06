@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,17 +12,17 @@ public interface aa {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bg> boV();
+    HashMap<Integer, bh> bpi();
 
-    int boW();
+    int bpj();
 
-    void boX();
+    void bpk();
 
-    int boY();
+    int bpl();
 
-    int boZ();
+    int bpm();
 
-    void bpa();
+    void bpn();
 
     List<com.baidu.adp.widget.ListView.m> getDatas();
 

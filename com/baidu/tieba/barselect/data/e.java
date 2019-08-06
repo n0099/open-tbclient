@@ -3,45 +3,45 @@ package com.baidu.tieba.barselect.data;
 import tbclient.ElectionInfo.Basic;
 /* loaded from: classes3.dex */
 public class e {
-    private long ewb;
-    private long ewc;
-    private long ewd;
-    private long ewe;
-    private int ewf;
-    private int ewg;
-    private boolean ewh;
+    private long ewi;
+    private long ewj;
+    private long ewk;
+    private long ewl;
+    private int ewm;
+    private int ewn;
+    private boolean ewo;
     private int status = 0;
 
-    public int aYG() {
-        return this.ewf;
+    public int aYI() {
+        return this.ewm;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int aYH() {
-        return this.ewg;
-    }
-
-    public long aYI() {
-        return this.ewb;
-    }
-
-    public long aYJ() {
-        return this.ewd;
+    public int aYJ() {
+        return this.ewn;
     }
 
     public long aYK() {
-        return this.ewe;
+        return this.ewi;
     }
 
     public long aYL() {
-        return this.ewc;
+        return this.ewk;
     }
 
-    public boolean aYM() {
-        return this.ewh;
+    public long aYM() {
+        return this.ewl;
+    }
+
+    public long aYN() {
+        return this.ewj;
+    }
+
+    public boolean aYO() {
+        return this.ewo;
     }
 
     public static e a(Basic basic) {
@@ -49,18 +49,18 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.cD(vs(basic.remind_time));
+        eVar.cD(vt(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
-        eVar.pt(basic.candidate_num.intValue());
-        eVar.pu(basic.total_vote_num.intValue());
-        eVar.cB(vs(basic.begin_apply_time));
-        eVar.cE(vs(basic.begin_vote_time));
-        eVar.cC(vs(basic.begin_public_time));
+        eVar.pu(basic.candidate_num.intValue());
+        eVar.pv(basic.total_vote_num.intValue());
+        eVar.cB(vt(basic.begin_apply_time));
+        eVar.cE(vt(basic.begin_vote_time));
+        eVar.cC(vt(basic.begin_public_time));
         eVar.iu(basic.is_voted.booleanValue());
         return eVar;
     }
 
-    private static long vs(String str) {
+    private static long vt(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {
@@ -69,35 +69,35 @@ public class e {
         }
     }
 
-    public void pt(int i) {
-        this.ewf = i;
+    public void pu(int i) {
+        this.ewm = i;
     }
 
     public void cB(long j) {
-        this.ewb = j;
+        this.ewi = j;
     }
 
     public void cC(long j) {
-        this.ewd = j;
+        this.ewk = j;
     }
 
     public void cD(long j) {
-        this.ewe = j;
+        this.ewl = j;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void pu(int i) {
-        this.ewg = i;
+    public void pv(int i) {
+        this.ewn = i;
     }
 
     public void cE(long j) {
-        this.ewc = j;
+        this.ewj = j;
     }
 
     public void iu(boolean z) {
-        this.ewh = z;
+        this.ewo = z;
     }
 }

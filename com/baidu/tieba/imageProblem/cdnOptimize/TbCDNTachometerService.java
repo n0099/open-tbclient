@@ -64,7 +64,7 @@ public class TbCDNTachometerService extends BdBaseService {
                         boolean z = customMsgData.isSuccess;
                         long j = customMsgData.Me;
                         String valueOf = String.valueOf(j);
-                        if (customMsgData.gZp != null && customMsgData.gZp.length() > 0) {
+                        if (customMsgData.hah != null && customMsgData.hah.length() > 0) {
                             TbCDNTachometerService.this.canBroadCast = true;
                             if (!z || j > TbCDNTachometerService.this.hiPhotosMaxTime) {
                                 TbCDNTachometerService.this.isNormal = false;
@@ -145,12 +145,12 @@ public class TbCDNTachometerService extends BdBaseService {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.ahO().getLong(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.ahQ().getLong(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 == lastTachometerTime || currentTimeMillis - lastTachometerTime >= 300000) {
                         lastTachometerTime = currentTimeMillis;
-                        com.baidu.tbadk.core.sharedPref.b.ahO().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.ahQ().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
                     } else {
                         return;
                     }
@@ -214,30 +214,30 @@ public class TbCDNTachometerService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void startTachometer(TbCdnIpListData tbCdnIpListData) {
         this.numOfThrowIp = 0;
-        if (tbCdnIpListData == null || tbCdnIpListData.gZq != 0) {
+        if (tbCdnIpListData == null || tbCdnIpListData.hai != 0) {
             broadCastAndStopSelf(null);
-        } else if (!tbCdnIpListData.gZt) {
+        } else if (!tbCdnIpListData.hal) {
             broadCastAndStopSelf(null);
-        } else if (tbCdnIpListData.gZs.size() == 0) {
+        } else if (tbCdnIpListData.hak.size() == 0) {
             broadCastAndStopSelf(null);
         } else {
-            breakUpIpList(tbCdnIpListData.gZs);
+            breakUpIpList(tbCdnIpListData.hak);
             String str = tbCdnIpListData.imageUrl;
-            String str2 = tbCdnIpListData.gZu;
-            String str3 = tbCdnIpListData.gZr;
+            String str2 = tbCdnIpListData.ham;
+            String str3 = tbCdnIpListData.haj;
             if (str != null && str2 != null && str3 != null) {
-                int size = tbCdnIpListData.gZs.size();
+                int size = tbCdnIpListData.hak.size();
                 if (size > 0) {
                     CustomMsgData customMsgData = new CustomMsgData(tbCdnIpListData, 0);
                     customMsgData.cdnTachometerModel = this.cdnTachometerModel;
                     customMsgData.isNormal = this.isNormal;
-                    customMsgData.gZp = "c.hiphotos.baidu.com";
+                    customMsgData.hah = "c.hiphotos.baidu.com";
                     CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = tbCdnIpListData.gZs.get(i);
+                    ArrayList<String> arrayList = tbCdnIpListData.hak.get(i);
                     String str4 = "";
                     if (arrayList.size() > 0) {
                         str4 = arrayList.get(0);
@@ -361,7 +361,7 @@ public class TbCDNTachometerService extends BdBaseService {
         public boolean isSuccess;
         public int pos;
         public boolean isNormal = false;
-        public String gZp = null;
+        public String hah = null;
 
         public CustomMsgData(TbCdnIpListData tbCdnIpListData, int i) {
             this.ipListData = tbCdnIpListData;

@@ -12,44 +12,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class d {
-    private static d cTc;
-    private IQuickMediaPlayerService cTe;
-    private Set<b> cTg;
-    private Set<b> cTh;
-    private Set<b> cTi;
-    private boolean cTj;
-    private a cTk;
+    private static d cTj;
+    private IQuickMediaPlayerService cTl;
+    private Set<b> cTn;
+    private Set<b> cTo;
+    private Set<b> cTp;
+    private boolean cTq;
+    private a cTr;
     private Context mContext = TbadkCoreApplication.getInst();
-    private boolean cTd = false;
-    private boolean cTf = false;
+    private boolean cTk = false;
+    private boolean cTm = false;
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.QuickPlayer.d.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            d.this.cTd = true;
-            com.baidu.adp.lib.g.e.iK().removeCallbacks(d.this.cTl);
-            d.this.cTe = IQuickMediaPlayerService.Stub.asInterface(iBinder);
-            if (d.this.cTf) {
-                d.this.cTf = false;
-                d.this.aBy();
+            d.this.cTk = true;
+            com.baidu.adp.lib.g.e.iK().removeCallbacks(d.this.cTs);
+            d.this.cTl = IQuickMediaPlayerService.Stub.asInterface(iBinder);
+            if (d.this.cTm) {
+                d.this.cTm = false;
+                d.this.aBA();
             }
-            if (d.this.cTk != null) {
-                d.this.cTk.a(d.this.cTe);
+            if (d.this.cTr != null) {
+                d.this.cTr.a(d.this.cTl);
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            d.this.cTd = false;
-            d.this.cTf = true;
-            com.baidu.adp.lib.g.e.iK().postDelayed(d.this.cTl, 1000L);
+            d.this.cTk = false;
+            d.this.cTm = true;
+            com.baidu.adp.lib.g.e.iK().postDelayed(d.this.cTs, 1000L);
         }
     };
-    private Runnable cTl = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
+    private Runnable cTs = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.this.cTd) {
-                d.this.aBx();
-                com.baidu.adp.lib.g.e.iK().postDelayed(d.this.cTl, 1000L);
+            if (!d.this.cTk) {
+                d.this.aBz();
+                com.baidu.adp.lib.g.e.iK().postDelayed(d.this.cTs, 1000L);
             }
         }
     };
@@ -61,30 +61,30 @@ public class d {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void aBz();
+        void aBB();
     }
 
     private d() {
-        aBx();
-        com.baidu.adp.lib.g.e.iK().postDelayed(this.cTl, 1000L);
-        this.cTg = new HashSet();
-        this.cTh = new HashSet();
-        this.cTi = new HashSet();
+        aBz();
+        com.baidu.adp.lib.g.e.iK().postDelayed(this.cTs, 1000L);
+        this.cTn = new HashSet();
+        this.cTo = new HashSet();
+        this.cTp = new HashSet();
     }
 
-    public static d aBw() {
-        if (cTc == null) {
+    public static d aBy() {
+        if (cTj == null) {
             synchronized (d.class) {
-                if (cTc == null) {
-                    cTc = new d();
+                if (cTj == null) {
+                    cTj = new d();
                 }
             }
         }
-        return cTc;
+        return cTj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBx() {
+    public void aBz() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -93,50 +93,50 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBy() {
-        this.cTj = true;
-        for (b bVar : this.cTg) {
+    public void aBA() {
+        this.cTq = true;
+        for (b bVar : this.cTn) {
             if (bVar != null) {
-                bVar.aBz();
+                bVar.aBB();
             }
         }
-        this.cTj = false;
-        this.cTg.addAll(this.cTi);
-        this.cTi.clear();
-        this.cTg.removeAll(this.cTh);
-        this.cTh.clear();
+        this.cTq = false;
+        this.cTn.addAll(this.cTp);
+        this.cTp.clear();
+        this.cTn.removeAll(this.cTo);
+        this.cTo.clear();
     }
 
     public IQuickMediaPlayer createPlayer() {
-        if (this.cTd && this.cTe != null) {
+        if (this.cTk && this.cTl != null) {
             try {
-                return this.cTe.createPlayer();
+                return this.cTl.createPlayer();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
         } else {
-            com.baidu.adp.lib.g.e.iK().postDelayed(this.cTl, 1000L);
+            com.baidu.adp.lib.g.e.iK().postDelayed(this.cTs, 1000L);
         }
         return null;
     }
 
     public void a(a aVar) {
-        this.cTk = aVar;
+        this.cTr = aVar;
     }
 
     public void a(b bVar) {
-        if (this.cTj) {
-            this.cTi.add(bVar);
+        if (this.cTq) {
+            this.cTp.add(bVar);
         } else {
-            this.cTg.add(bVar);
+            this.cTn.add(bVar);
         }
     }
 
     public void b(b bVar) {
-        if (this.cTj) {
-            this.cTi.remove(bVar);
+        if (this.cTq) {
+            this.cTp.remove(bVar);
         } else {
-            this.cTg.remove(bVar);
+            this.cTn.remove(bVar);
         }
     }
 }

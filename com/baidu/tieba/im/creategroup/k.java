@@ -12,63 +12,63 @@ import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     BdListView Ni;
-    TextView cCe;
-    private View cCf;
-    TbPageContext<GroupAddressEditActivity> ffp;
-    private boolean gDA;
-    private TextView gDC;
-    private String[] gDD;
-    l gDE;
+    TextView cCl;
+    private View cCm;
+    TbPageContext<GroupAddressEditActivity> ffP;
+    private boolean gEs;
+    private TextView gEu;
+    private String[] gEv;
+    l gEw;
     NavigationBar mNavigationBar;
     View mParent;
 
-    public View bCe() {
-        return this.cCe;
+    public View bCs() {
+        return this.cCl;
     }
 
     public View getBackButton() {
-        return this.cCf;
+        return this.cCm;
     }
 
     public k(TbPageContext<GroupAddressEditActivity> tbPageContext, String[] strArr, boolean z) {
         super(tbPageContext);
         this.mNavigationBar = null;
         this.mParent = null;
-        this.ffp = null;
-        this.cCe = null;
-        this.cCf = null;
+        this.ffP = null;
+        this.cCl = null;
+        this.cCm = null;
         this.Ni = null;
-        this.gDC = null;
-        this.gDD = null;
-        this.gDA = false;
-        this.gDE = null;
-        this.gDD = strArr;
-        this.gDA = z;
+        this.gEu = null;
+        this.gEv = null;
+        this.gEs = false;
+        this.gEw = null;
+        this.gEv = strArr;
+        this.gEs = z;
         b(tbPageContext.getOrignalPage());
         a(tbPageContext.getOrignalPage());
     }
 
     private void a(GroupAddressEditActivity groupAddressEditActivity) {
-        this.cCf.setOnClickListener(groupAddressEditActivity);
-        this.cCe.setOnClickListener(groupAddressEditActivity);
+        this.cCm.setOnClickListener(groupAddressEditActivity);
+        this.cCl.setOnClickListener(groupAddressEditActivity);
     }
 
     private void b(GroupAddressEditActivity groupAddressEditActivity) {
-        this.ffp = groupAddressEditActivity.getPageContext();
+        this.ffP = groupAddressEditActivity.getPageContext();
         groupAddressEditActivity.setContentView(R.layout.group_address_activity);
         this.mParent = groupAddressEditActivity.findViewById(R.id.parent);
         this.Ni = (BdListView) groupAddressEditActivity.findViewById(R.id.lv_address);
-        this.gDE = new l(groupAddressEditActivity, this.gDD);
-        this.Ni.setAdapter((ListAdapter) this.gDE);
+        this.gEw = new l(groupAddressEditActivity, this.gEv);
+        this.Ni.setAdapter((ListAdapter) this.gEw);
         this.Ni.setOnItemClickListener(groupAddressEditActivity);
-        this.gDC = (TextView) groupAddressEditActivity.findViewById(R.id.address_title_poslist);
-        if (this.gDD == null || this.gDD.length < 1) {
+        this.gEu = (TextView) groupAddressEditActivity.findViewById(R.id.address_title_poslist);
+        if (this.gEv == null || this.gEv.length < 1) {
             this.Ni.setVisibility(8);
-            this.gDC.setText(R.string.address_locate_noaddresslist);
+            this.gEu.setText(R.string.address_locate_noaddresslist);
         }
         SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) groupAddressEditActivity.findViewById(R.id.address_showorhidden);
         settingTextSwitchView.setSwitchStateChangeListener(groupAddressEditActivity);
-        if (this.gDA) {
+        if (this.gEs) {
             settingTextSwitchView.nm();
         } else {
             settingTextSwitchView.nn();
@@ -76,20 +76,20 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         this.mNavigationBar = (NavigationBar) groupAddressEditActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(groupAddressEditActivity.getResources().getString(R.string.group_address_edit));
         this.mNavigationBar.setSystemClickable(false);
-        this.cCf = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.cCe = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(R.string.save));
+        this.cCm = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.cCl = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(R.string.save));
     }
 
-    public void bCf() {
-        this.gDE.notifyDataSetChanged();
+    public void bCt() {
+        this.gEw.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
-        this.ffp.getLayoutMode().setNightMode(i == 1);
-        this.ffp.getLayoutMode().onModeChanged(this.mParent);
+        this.ffP.getLayoutMode().setNightMode(i == 1);
+        this.ffP.getLayoutMode().onModeChanged(this.mParent);
         am.h(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
         am.l(this.mParent, R.color.common_color_10041);
-        am.f(this.cCe, R.color.cp_cont_f, 1);
+        am.f(this.cCl, R.color.cp_cont_f, 1);
     }
 }

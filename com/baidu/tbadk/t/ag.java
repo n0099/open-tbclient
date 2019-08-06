@@ -29,9 +29,9 @@ public class ag extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void R(int i) {
         if (i == 1) {
-            com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean("switch_immersive_sticky_status", true);
+            com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("switch_immersive_sticky_status", true);
         } else {
-            com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean("switch_immersive_sticky_status", false);
+            com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("switch_immersive_sticky_status", false);
         }
     }
 }

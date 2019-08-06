@@ -31,12 +31,12 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ajS() {
+    public boolean ajU() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ajT() {
+    public boolean ajV() {
         return false;
     }
 
@@ -50,7 +50,7 @@ public class q extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a qH = com.baidu.tbadk.imageManager.c.atw().qH(str);
+        com.baidu.adp.widget.ImageView.a qH = com.baidu.tbadk.imageManager.c.aty().qH(str);
         if (qH != null) {
             qH.Mb.Md = "memory";
             qH.Mb.Me = 0L;
@@ -97,7 +97,7 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int ajU() {
+    public int ajW() {
         return this.procType;
     }
 }

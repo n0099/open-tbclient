@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.address.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface b {
-    void aEJ();
+    void aEL();
 
     void ai(String str, int i);
 

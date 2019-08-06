@@ -25,7 +25,7 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class b implements q {
     private static final String TAG = b.class.getSimpleName();
-    private BroadcastReceiver dfa = null;
+    private BroadcastReceiver dfh = null;
 
     @Override // com.baidu.swan.apps.u.b.q
     public void a(com.baidu.swan.apps.ae.b bVar, String str, final com.baidu.swan.apps.aa.a.b bVar2) {
@@ -44,7 +44,7 @@ public class b implements q {
     @Override // com.baidu.swan.apps.u.b.q
     public void a(com.baidu.swan.apps.ae.b bVar, String str, final com.baidu.swan.apps.aa.a.a aVar) {
         Log.d(TAG, "alipay start");
-        if (!com.baidu.tbadk.pay.c.avg().avh()) {
+        if (!com.baidu.tbadk.pay.c.avi().avj()) {
             l.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
         } else if (bVar.getActivity() instanceof Activity) {
             a aVar2 = new a();
@@ -75,10 +75,10 @@ public class b implements q {
             if (!createWXAPI.sendReq(s)) {
                 dVar.k(6, "wx_start_failed");
             }
-            if (this.dfa != null) {
-                TbadkCoreApplication.getInst().unregisterReceiver(this.dfa);
+            if (this.dfh != null) {
+                TbadkCoreApplication.getInst().unregisterReceiver(this.dfh);
             }
-            this.dfa = new BroadcastReceiver() { // from class: com.baidu.tieba.aiapps.apps.l.b.3
+            this.dfh = new BroadcastReceiver() { // from class: com.baidu.tieba.aiapps.apps.l.b.3
                 @Override // android.content.BroadcastReceiver
                 public void onReceive(Context context2, Intent intent) {
                     intent.getExtras();
@@ -87,7 +87,7 @@ public class b implements q {
             };
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("WXPayResult");
-            TbadkCoreApplication.getInst().registerReceiver(this.dfa, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(this.dfh, intentFilter);
         }
     }
 

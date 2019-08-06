@@ -1,7 +1,7 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class bj {
-    public static void avS() {
+    public static void avU() {
         com.baidu.adp.lib.b.d.hS().h(ab.class);
         com.baidu.adp.lib.b.d.hS().h(a.class);
         com.baidu.adp.lib.b.d.hS().h(b.class);

@@ -17,16 +17,16 @@ final class CoroutineContext$plus$1 extends Lambda implements kotlin.jvm.a.c<d, 
         a aVar;
         p.k(dVar, "acc");
         p.k(bVar, "element");
-        d b = dVar.b(bVar.cNG());
-        if (b == e.krF) {
+        d b = dVar.b(bVar.cOb());
+        if (b == e.ksL) {
             return bVar;
         }
-        c cVar = (c) b.a(c.krD);
+        c cVar = (c) b.a(c.ksJ);
         if (cVar == null) {
             aVar = new a(b, bVar);
         } else {
-            d b2 = b.b(c.krD);
-            aVar = b2 == e.krF ? new a(bVar, cVar) : new a(new a(b2, bVar), cVar);
+            d b2 = b.b(c.ksJ);
+            aVar = b2 == e.ksL ? new a(bVar, cVar) : new a(new a(b2, bVar), cVar);
         }
         return aVar;
     }

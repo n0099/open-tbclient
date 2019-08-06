@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private final ArrayList<MetaData> jOF = new ArrayList<>();
-    private HashMap<String, String> jOG = null;
+    private final ArrayList<MetaData> jPM = new ArrayList<>();
+    private HashMap<String, String> jPN = null;
 
     public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.jOG == null) {
-                        this.jOG = new HashMap<>();
+                    if (this.jPN == null) {
+                        this.jPN = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.jOF.add(metaData);
+                        this.jPM.add(metaData);
                         if (z) {
-                            this.jOG.put(metaData.getName_show(), metaData.getPortrait());
+                            this.jPN.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    public void GJ(String str) {
+    public void GK(String str) {
         try {
             d(new JSONObject(str), true);
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> cAx() {
-        return this.jOF;
+    public ArrayList<MetaData> cAS() {
+        return this.jPM;
     }
 }

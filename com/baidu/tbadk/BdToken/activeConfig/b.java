@@ -31,7 +31,7 @@ public class b {
                     aVar = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
                 }
                 n.ZF().b(aVar);
-                com.baidu.tbadk.core.g.a.ahL().c(aVar);
+                com.baidu.tbadk.core.g.a.ahN().c(aVar);
                 if (b.this.byO != null) {
                     b.this.byO.onSuccess(aVar);
                 }

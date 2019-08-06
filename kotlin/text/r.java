@@ -17,7 +17,7 @@ class r extends q {
         }
 
         @Override // kotlin.collections.m
-        public char cNs() {
+        public char cNN() {
             CharSequence charSequence = this.receiver$0;
             int i = this.index;
             this.index = i + 1;
@@ -48,7 +48,7 @@ class r extends q {
     public static final String a(CharSequence charSequence, kotlin.b.c cVar) {
         kotlin.jvm.internal.p.k(charSequence, "$receiver");
         kotlin.jvm.internal.p.k(cVar, "range");
-        return charSequence.subSequence(cVar.cNQ().intValue(), cVar.cNR().intValue() + 1).toString();
+        return charSequence.subSequence(cVar.cOl().intValue(), cVar.cOm().intValue() + 1).toString();
     }
 
     public static final boolean a(CharSequence charSequence, int i, CharSequence charSequence2, int i2, int i3, boolean z) {
@@ -91,8 +91,8 @@ class r extends q {
         kotlin.b.c cVar = !z2 ? new kotlin.b.c(kotlin.b.d.cW(i, 0), k.q(charSequence)) : kotlin.b.d.cU(kotlin.b.d.cX(i, k.q(charSequence)), 0);
         int first = cVar.getFirst();
         int last = cVar.getLast();
-        int cNO = cVar.cNO();
-        if (cNO <= 0) {
+        int cOj = cVar.cOj();
+        if (cOj <= 0) {
             if (first >= last) {
                 i2 = first;
                 while (true) {
@@ -106,7 +106,7 @@ class r extends q {
                     }
                     if (i3 >= 0) {
                     }
-                    i2 += cNO;
+                    i2 += cOj;
                 }
             }
             return null;
@@ -132,7 +132,7 @@ class r extends q {
                     if (i2 == last) {
                         break;
                     }
-                    i2 += cNO;
+                    i2 += cOj;
                 } else {
                     return kotlin.c.g(Integer.valueOf(i2), Character.valueOf(cArr[i3]));
                 }
@@ -155,11 +155,11 @@ class r extends q {
         if ((charSequence instanceof String) && (charSequence2 instanceof String)) {
             int first = cU.getFirst();
             int last = cU.getLast();
-            int cNO = cU.cNO();
-            if (cNO <= 0 ? first >= last : first <= last) {
+            int cOj = cU.cOj();
+            if (cOj <= 0 ? first >= last : first <= last) {
                 while (!k.a((String) charSequence2, 0, (String) charSequence, first, charSequence2.length(), z)) {
                     if (first != last) {
-                        first += cNO;
+                        first += cOj;
                     }
                 }
                 return first;
@@ -167,11 +167,11 @@ class r extends q {
         } else {
             int first2 = cU.getFirst();
             int last2 = cU.getLast();
-            int cNO2 = cU.cNO();
-            if (cNO2 <= 0 ? first2 >= last2 : first2 <= last2) {
+            int cOj2 = cU.cOj();
+            if (cOj2 <= 0 ? first2 >= last2 : first2 <= last2) {
                 while (!k.a(charSequence2, 0, charSequence, first2, charSequence2.length(), z)) {
                     if (first2 != last2) {
-                        first2 += cNO2;
+                        first2 += cOj2;
                     }
                 }
                 return first2;
@@ -196,8 +196,8 @@ class r extends q {
         if (charSequence instanceof String) {
             int first = cVar.getFirst();
             int last = cVar.getLast();
-            int cNO = cVar.cNO();
-            if (cNO <= 0 ? first >= last : first <= last) {
+            int cOj = cVar.cOj();
+            if (cOj <= 0 ? first >= last : first <= last) {
                 while (true) {
                     Iterator<T> it = collection.iterator();
                     while (true) {
@@ -218,7 +218,7 @@ class r extends q {
                         if (first == last) {
                             break;
                         }
-                        first += cNO;
+                        first += cOj;
                     } else {
                         return kotlin.c.g(Integer.valueOf(first), str3);
                     }
@@ -227,8 +227,8 @@ class r extends q {
         } else {
             int first2 = cVar.getFirst();
             int last2 = cVar.getLast();
-            int cNO2 = cVar.cNO();
-            if (cNO2 <= 0 ? first2 >= last2 : first2 <= last2) {
+            int cOj2 = cVar.cOj();
+            if (cOj2 <= 0 ? first2 >= last2 : first2 <= last2) {
                 while (true) {
                     Iterator<T> it2 = collection.iterator();
                     while (true) {
@@ -249,7 +249,7 @@ class r extends q {
                         if (first2 == last2) {
                             break;
                         }
-                        first2 += cNO2;
+                        first2 += cOj2;
                     } else {
                         return kotlin.c.g(Integer.valueOf(first2), str5);
                     }

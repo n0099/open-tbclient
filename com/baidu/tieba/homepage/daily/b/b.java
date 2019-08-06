@@ -8,22 +8,22 @@ import java.util.List;
 import tbclient.GodBanner;
 /* loaded from: classes4.dex */
 public class b {
-    private List<a> gdM;
+    private List<a> geD;
     private List<m> mDataList = new ArrayList();
 
-    public List<a> bvd() {
-        return this.gdM;
+    public List<a> bvq() {
+        return this.geD;
     }
 
     public List<m> getDataList() {
         return this.mDataList;
     }
 
-    public List<a> cB(List<GodBanner> list) {
-        if (this.gdM == null) {
-            this.gdM = new ArrayList();
+    public List<a> cA(List<GodBanner> list) {
+        if (this.geD == null) {
+            this.geD = new ArrayList();
         }
-        this.gdM.clear();
+        this.geD.clear();
         if (v.aa(list)) {
             return null;
         }
@@ -31,18 +31,18 @@ public class b {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
                 aVar.mv(godBanner.pic_url);
-                aVar.xY(godBanner.link_url);
+                aVar.xZ(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
-                this.gdM.add(aVar);
-                if (v.Z(this.gdM) == 5) {
+                this.geD.add(aVar);
+                if (v.Z(this.geD) == 5) {
                     break;
                 }
             }
         }
-        return this.gdM;
+        return this.geD;
     }
 
-    public boolean auR() {
-        return v.aa(this.gdM) && v.aa(this.mDataList);
+    public boolean auT() {
+        return v.aa(this.geD) && v.aa(this.mDataList);
     }
 }

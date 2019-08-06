@@ -20,8 +20,8 @@ import com.baidu.tieba.card.data.k;
 public class d extends com.baidu.adp.widget.ListView.a<k, z<k>> {
     private ab<k> VC;
     private r YY;
-    private int bWH;
-    private BdUniqueId cxx;
+    private int bWN;
+    private BdUniqueId cxE;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,7 +55,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, z<k>> {
         x a = aVar.a(false, viewGroup, this.YY);
         a.bq(18);
         z<k> zVar = new z<>(a);
-        zVar.setPageId(this.cxx);
+        zVar.setPageId(this.cxE);
         setOnAdapterItemClickListener(new s() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -82,7 +82,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, z<k>> {
         if (kVar == null || zVar == null || zVar.getView() == null || kVar.threadData == null) {
             return null;
         }
-        kVar.pI(kVar.position + 1);
+        kVar.pJ(kVar.position + 1);
         zVar.qP().setPosition(i);
         zVar.a(kVar);
         zVar.qP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -91,10 +91,10 @@ public class d extends com.baidu.adp.widget.ListView.a<k, z<k>> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.cxx = bdUniqueId;
+        this.cxE = bdUniqueId;
     }
 
-    public void tX(int i) {
-        this.bWH = i;
+    public void tZ(int i) {
+        this.bWN = i;
     }
 }

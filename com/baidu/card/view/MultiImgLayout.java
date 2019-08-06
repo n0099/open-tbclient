@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.data.a;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
@@ -104,33 +104,33 @@ public class MultiImgLayout extends LinearLayout implements i<a> {
         }
     }
 
-    private void setVoiceData(bg bgVar) {
-        ArrayList<VoiceData.VoiceModel> aeL = bgVar.aeL();
-        if (v.aa(aeL)) {
+    private void setVoiceData(bh bhVar) {
+        ArrayList<VoiceData.VoiceModel> aeM = bhVar.aeM();
+        if (v.aa(aeM)) {
             this.Ym.setVisibility(8);
             this.Yp = false;
             return;
         }
         this.Ym.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = aeL.get(0);
+        VoiceData.VoiceModel voiceModel = aeM.get(0);
         this.Ym.setVoiceModel(voiceModel);
         this.Ym.setTag(voiceModel);
-        this.Ym.bIl();
+        this.Ym.bIz();
         if (voiceModel != null) {
-            this.Ym.vY(voiceModel.voice_status.intValue());
+            this.Ym.wa(voiceModel.voice_status.intValue());
         }
-        this.Ym.cqz();
+        this.Ym.cqV();
         this.Yp = true;
     }
 
-    private void setImageData(bg bgVar) {
+    private void setImageData(bh bhVar) {
         this.Yn.setFromCDN(this.Yd);
         this.Yn.setSinglePicUseStyleV10(true);
-        ArrayList<MediaData> aeH = bgVar.aeH();
-        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeH) != 0) {
+        ArrayList<MediaData> aeI = bhVar.aeI();
+        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeI) != 0) {
             final LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aeH.size(); i++) {
-                MediaData mediaData = (MediaData) v.c(aeH, i);
+            for (int i = 0; i < aeI.size(); i++) {
+                MediaData mediaData = (MediaData) v.c(aeI, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -150,14 +150,14 @@ public class MultiImgLayout extends LinearLayout implements i<a> {
                                 subClickListener.a(view, MultiImgLayout.this.VJ);
                                 MultiImgLayout.this.VJ.objType = 1;
                             }
-                            if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().cfL) {
-                                av.a(view, MultiImgLayout.this.Yd, linkedList, i2, MultiImgLayout.this.VJ.acx(), MultiImgLayout.this.mFrom);
+                            if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().cfS) {
+                                av.a(view, MultiImgLayout.this.Yd, linkedList, i2, MultiImgLayout.this.VJ.acy(), MultiImgLayout.this.mFrom);
                             } else if ("frs".equals(MultiImgLayout.this.mFrom)) {
                                 av.a(MultiImgLayout.this.VJ, view.getContext(), 3, false);
                             } else if ("index".equals(MultiImgLayout.this.mFrom)) {
                                 av.a(MultiImgLayout.this.VJ, view.getContext(), 2, false);
                             } else {
-                                av.a(view, MultiImgLayout.this.Yd, linkedList, i2, MultiImgLayout.this.VJ.acx(), MultiImgLayout.this.mFrom);
+                                av.a(view, MultiImgLayout.this.Yd, linkedList, i2, MultiImgLayout.this.VJ.acy(), MultiImgLayout.this.mFrom);
                             }
                         }
                     }
@@ -188,11 +188,11 @@ public class MultiImgLayout extends LinearLayout implements i<a> {
     /* renamed from: a */
     public void C(a aVar) {
         this.VJ = aVar;
-        bg acx = aVar.acx();
-        av.a(this.mTitle, acx);
-        av.a(this.VW, this.mTitle, acx, VU);
-        setImageData(acx);
-        setVoiceData(acx);
+        bh acy = aVar.acy();
+        av.a(this.mTitle, acy);
+        av.a(this.VW, this.mTitle, acy, VU);
+        setImageData(acy);
+        setVoiceData(acy);
         qT();
     }
 

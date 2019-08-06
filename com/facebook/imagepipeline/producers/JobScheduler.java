@@ -8,31 +8,31 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class JobScheduler {
-    private final a kjS;
-    private final int kjV;
+    private final a kkY;
+    private final int klb;
     private final Executor mExecutor;
-    private final Runnable kjT = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final Runnable kkZ = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.cKU();
+            JobScheduler.this.cLp();
         }
     };
-    private final Runnable kjU = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    private final Runnable kla = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.cKT();
+            JobScheduler.this.cLo();
         }
     };
     @GuardedBy("this")
-    com.facebook.imagepipeline.f.d kjW = null;
+    com.facebook.imagepipeline.f.d klc = null;
     @GuardedBy("this")
-    boolean kjX = false;
+    boolean kld = false;
     @GuardedBy("this")
-    JobState kjY = JobState.IDLE;
+    JobState kle = JobState.IDLE;
     @GuardedBy("this")
-    long kjZ = 0;
+    long klf = 0;
     @GuardedBy("this")
-    long kka = 0;
+    long klg = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -51,28 +51,28 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b {
-        private static ScheduledExecutorService kkd;
+        private static ScheduledExecutorService klj;
 
-        static ScheduledExecutorService cKX() {
-            if (kkd == null) {
-                kkd = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService cLs() {
+            if (klj == null) {
+                klj = Executors.newSingleThreadScheduledExecutor();
             }
-            return kkd;
+            return klj;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.kjS = aVar;
-        this.kjV = i;
+        this.kkY = aVar;
+        this.klb = i;
     }
 
-    public void cKR() {
+    public void cLm() {
         com.facebook.imagepipeline.f.d dVar;
         synchronized (this) {
-            dVar = this.kjW;
-            this.kjW = null;
-            this.kjX = false;
+            dVar = this.klc;
+            this.klc = null;
+            this.kld = false;
         }
         com.facebook.imagepipeline.f.d.e(dVar);
     }
@@ -83,29 +83,29 @@ public class JobScheduler {
             return false;
         }
         synchronized (this) {
-            dVar2 = this.kjW;
-            this.kjW = com.facebook.imagepipeline.f.d.b(dVar);
-            this.kjX = z;
+            dVar2 = this.klc;
+            this.klc = com.facebook.imagepipeline.f.d.b(dVar);
+            this.kld = z;
         }
         com.facebook.imagepipeline.f.d.e(dVar2);
         return true;
     }
 
-    public boolean cKS() {
+    public boolean cLn() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
-            if (f(this.kjW, this.kjX)) {
-                switch (this.kjY) {
+            if (f(this.klc, this.kld)) {
+                switch (this.kle) {
                     case IDLE:
-                        j = Math.max(this.kka + this.kjV, uptimeMillis);
-                        this.kjZ = uptimeMillis;
-                        this.kjY = JobState.QUEUED;
+                        j = Math.max(this.klg + this.klb, uptimeMillis);
+                        this.klf = uptimeMillis;
+                        this.kle = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.kjY = JobState.RUNNING_AND_PENDING;
+                        this.kle = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
@@ -119,52 +119,52 @@ public class JobScheduler {
 
     private void eM(long j) {
         if (j > 0) {
-            b.cKX().schedule(this.kjU, j, TimeUnit.MILLISECONDS);
+            b.cLs().schedule(this.kla, j, TimeUnit.MILLISECONDS);
         } else {
-            this.kjU.run();
+            this.kla.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKT() {
-        this.mExecutor.execute(this.kjT);
+    public void cLo() {
+        this.mExecutor.execute(this.kkZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKU() {
+    public void cLp() {
         com.facebook.imagepipeline.f.d dVar;
         boolean z;
         long uptimeMillis = SystemClock.uptimeMillis();
         synchronized (this) {
-            dVar = this.kjW;
-            z = this.kjX;
-            this.kjW = null;
-            this.kjX = false;
-            this.kjY = JobState.RUNNING;
-            this.kka = uptimeMillis;
+            dVar = this.klc;
+            z = this.kld;
+            this.klc = null;
+            this.kld = false;
+            this.kle = JobState.RUNNING;
+            this.klg = uptimeMillis;
         }
         try {
             if (f(dVar, z)) {
-                this.kjS.d(dVar, z);
+                this.kkY.d(dVar, z);
             }
         } finally {
             com.facebook.imagepipeline.f.d.e(dVar);
-            cKV();
+            cLq();
         }
     }
 
-    private void cKV() {
+    private void cLq() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.kjY == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.kka + this.kjV, uptimeMillis);
+            if (this.kle == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.klg + this.klb, uptimeMillis);
                 z = true;
-                this.kjZ = uptimeMillis;
-                this.kjY = JobState.QUEUED;
+                this.klf = uptimeMillis;
+                this.kle = JobState.QUEUED;
             } else {
-                this.kjY = JobState.IDLE;
+                this.kle = JobState.IDLE;
             }
         }
         if (z) {
@@ -176,7 +176,7 @@ public class JobScheduler {
         return z || com.facebook.imagepipeline.f.d.f(dVar);
     }
 
-    public synchronized long cKW() {
-        return this.kka - this.kjZ;
+    public synchronized long cLr() {
+        return this.klg - this.klf;
     }
 }

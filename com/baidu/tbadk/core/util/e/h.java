@@ -6,39 +6,39 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private static h bWe;
-    private HashMap<String, f> bWf = new HashMap<>();
-    private LinkedList<String> bWg = new LinkedList<>();
+    private static h bWk;
+    private HashMap<String, f> bWl = new HashMap<>();
+    private LinkedList<String> bWm = new LinkedList<>();
 
     private h() {
     }
 
-    public static h akb() {
-        if (bWe == null) {
+    public static h akd() {
+        if (bWk == null) {
             synchronized (h.class) {
-                if (bWe == null) {
-                    bWe = new h();
+                if (bWk == null) {
+                    bWk = new h();
                 }
             }
         }
-        return bWe;
+        return bWk;
     }
 
     public void ac(List<String> list) {
-        if (this.bWg != null) {
-            this.bWg.clear();
+        if (this.bWm != null) {
+            this.bWm.clear();
         }
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
-                if (this.bWf.get(str) == null) {
-                    if (this.bWf.size() < e.ajZ().aka()) {
+                if (this.bWl.get(str) == null) {
+                    if (this.bWl.size() < e.akb().akc()) {
                         g.log("put loadingQueue  url: " + str);
                         f oK = oK(str);
-                        this.bWf.put(str, oK);
+                        this.bWl.put(str, oK);
                         oK.load();
                     } else {
                         g.log("put waitingQueue  url: " + str);
-                        this.bWg.push(str);
+                        this.bWm.push(str);
                     }
                 } else {
                     g.log("has loading  : " + str);
@@ -49,19 +49,19 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void oJ(String str) {
-        f remove = this.bWf.remove(str);
+        f remove = this.bWl.remove(str);
         g.log("processCallback remove loadingQueue  url: " + str);
         if (remove != null) {
             remove.release();
         }
-        if (this.bWg != null && this.bWg.size() > 0) {
-            String pop = this.bWg.pop();
+        if (this.bWm != null && this.bWm.size() > 0) {
+            String pop = this.bWm.pop();
             f oK = oK(pop);
-            this.bWf.put(pop, oK);
+            this.bWl.put(pop, oK);
             g.log("processCallback put loadingQueue  url: " + pop);
             oK.load();
         }
-        g.log("processCallback  mWaitingQueue.size() =  " + this.bWg.size() + " mLoadingQueue.size()  " + this.bWf.size());
+        g.log("processCallback  mWaitingQueue.size() =  " + this.bWm.size() + " mLoadingQueue.size()  " + this.bWl.size());
     }
 
     private f oK(String str) {

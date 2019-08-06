@@ -10,13 +10,13 @@ public class g extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public int Yw;
     public String bDN;
-    public int gkF;
+    public int glv;
     public String imgUrl;
 
     public void a(LiveAnswer liveAnswer) {
         if (liveAnswer != null) {
             this.imgUrl = liveAnswer.banner_url;
-            this.gkF = liveAnswer.banner_high.intValue();
+            this.glv = liveAnswer.banner_high.intValue();
             this.Yw = liveAnswer.banner_width.intValue();
             this.bDN = liveAnswer.jump_url;
         }
@@ -32,7 +32,7 @@ public class g extends com.baidu.tieba.card.data.b {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("img_width", this.Yw);
             jSONObject.put(BigdayActivityConfig.IMG_URL, this.imgUrl);
-            jSONObject.put("img_height", this.gkF);
+            jSONObject.put("img_height", this.glv);
             jSONObject.put(BigdayActivityConfig.JUMP_URL, this.bDN);
             return jSONObject.toString();
         } catch (JSONException e) {

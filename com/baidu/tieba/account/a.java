@@ -15,14 +15,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener bZH;
+    private View.OnClickListener bZN;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean cWs = false;
+    private boolean cWz = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.bZH = onClickListener;
+        this.bZN = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -77,30 +77,30 @@ public class a extends BaseAdapter {
                 } else if (getItemViewType(i) == 0) {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
                     c0269a = new C0269a();
-                    c0269a.cWt = (TextView) view5.findViewById(R.id.account);
-                    c0269a.cWv = (ImageView) view5.findViewById(R.id.active);
-                    c0269a.cWw = (TextView) view5.findViewById(R.id.delete);
+                    c0269a.cWA = (TextView) view5.findViewById(R.id.account);
+                    c0269a.cWC = (ImageView) view5.findViewById(R.id.active);
+                    c0269a.cWD = (TextView) view5.findViewById(R.id.delete);
                     c0269a.mLine = view5.findViewById(R.id.account_item_line);
-                    c0269a.cWw.setOnClickListener(this.bZH);
+                    c0269a.cWD.setOnClickListener(this.bZN);
                     view5.setTag(c0269a);
                 } else {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
                     c0269a = new C0269a();
-                    c0269a.cWu = (TextView) view5.findViewById(R.id.add_text);
+                    c0269a.cWB = (TextView) view5.findViewById(R.id.add_text);
                     view5.setTag(c0269a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0269a.cWv.setVisibility(8);
-                    c0269a.cWw.setVisibility(8);
-                    c0269a.cWw.setTag(accountData);
+                    c0269a.cWC.setVisibility(8);
+                    c0269a.cWD.setVisibility(8);
+                    c0269a.cWD.setTag(accountData);
                     if (accountData != null) {
-                        c0269a.cWt.setText(accountData.getAccountNameShow());
+                        c0269a.cWA.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0269a.cWv.setVisibility(0);
+                            c0269a.cWC.setVisibility(0);
                         }
-                        if (this.cWs) {
-                            c0269a.cWw.setVisibility(0);
+                        if (this.cWz) {
+                            c0269a.cWD.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
@@ -150,11 +150,11 @@ public class a extends BaseAdapter {
     }
 
     public void gk(boolean z) {
-        this.cWs = z;
+        this.cWz = z;
     }
 
-    public boolean aCN() {
-        return this.cWs;
+    public boolean aCP() {
+        return this.cWz;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -173,10 +173,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private class C0269a {
-        TextView cWt;
-        TextView cWu;
-        ImageView cWv;
-        TextView cWw;
+        TextView cWA;
+        TextView cWB;
+        ImageView cWC;
+        TextView cWD;
         View mLine;
 
         private C0269a() {

@@ -14,13 +14,13 @@ public class n {
             }
 
             @Override // com.facebook.imagepipeline.c.v
-            public void cHj() {
-                o.this.cHz();
+            public void cHE() {
+                o.this.cHU();
             }
 
             @Override // com.facebook.imagepipeline.c.v
-            public void cHk() {
-                o.this.cHy();
+            public void cHF() {
+                o.this.cHT();
             }
         });
     }

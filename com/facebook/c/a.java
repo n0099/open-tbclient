@@ -5,19 +5,19 @@ import com.facebook.common.internal.g;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a implements c.a {
-    private static final byte[] ked = {-1, -40, -1};
-    private static final int kee = ked.length;
-    private static final byte[] kef = {-119, 80, 78, 71, 13, 10, 26, 10};
-    private static final int keg = kef.length;
-    private static final byte[] keh = e.HK("GIF87a");
-    private static final byte[] kei = e.HK("GIF89a");
-    private static final byte[] kej = e.HK("BM");
-    private static final int kek = kej.length;
-    final int kec = com.facebook.common.internal.e.l(21, 20, kee, keg, 6, kek);
+    private static final byte[] kfk = {-1, -40, -1};
+    private static final int kfl = kfk.length;
+    private static final byte[] kfm = {-119, 80, 78, 71, 13, 10, 26, 10};
+    private static final int kfn = kfm.length;
+    private static final byte[] kfo = e.HL("GIF87a");
+    private static final byte[] kfp = e.HL("GIF89a");
+    private static final byte[] kfq = e.HL("BM");
+    private static final int kfr = kfq.length;
+    final int kfj = com.facebook.common.internal.e.l(21, 20, kfl, kfn, 6, kfr);
 
     @Override // com.facebook.c.c.a
     public int getHeaderSize() {
-        return this.kec;
+        return this.kfj;
     }
 
     @Override // com.facebook.c.c.a
@@ -28,59 +28,59 @@ public class a implements c.a {
             return m(bArr, i);
         }
         if (n(bArr, i)) {
-            return b.kel;
+            return b.kfs;
         }
         if (o(bArr, i)) {
-            return b.kem;
+            return b.kft;
         }
         if (p(bArr, i)) {
-            return b.ken;
+            return b.kfu;
         }
         if (q(bArr, i)) {
-            return b.keo;
+            return b.kfv;
         }
-        return c.keu;
+        return c.kfB;
     }
 
     private static c m(byte[] bArr, int i) {
         g.checkArgument(com.facebook.common.g.c.o(bArr, 0, i));
         if (com.facebook.common.g.c.i(bArr, 0)) {
-            return b.kep;
+            return b.kfw;
         }
         if (com.facebook.common.g.c.j(bArr, 0)) {
-            return b.keq;
+            return b.kfx;
         }
         if (com.facebook.common.g.c.n(bArr, 0, i)) {
             if (com.facebook.common.g.c.h(bArr, 0)) {
-                return b.ket;
+                return b.kfA;
             }
             if (com.facebook.common.g.c.k(bArr, 0)) {
-                return b.kes;
+                return b.kfz;
             }
-            return b.ker;
+            return b.kfy;
         }
-        return c.keu;
+        return c.kfB;
     }
 
     private static boolean n(byte[] bArr, int i) {
-        return i >= ked.length && e.c(bArr, ked);
+        return i >= kfk.length && e.c(bArr, kfk);
     }
 
     private static boolean o(byte[] bArr, int i) {
-        return i >= kef.length && e.c(bArr, kef);
+        return i >= kfm.length && e.c(bArr, kfm);
     }
 
     private static boolean p(byte[] bArr, int i) {
         if (i < 6) {
             return false;
         }
-        return e.c(bArr, keh) || e.c(bArr, kei);
+        return e.c(bArr, kfo) || e.c(bArr, kfp);
     }
 
     private static boolean q(byte[] bArr, int i) {
-        if (i < kej.length) {
+        if (i < kfq.length) {
             return false;
         }
-        return e.c(bArr, kej);
+        return e.c(bArr, kfq);
     }
 }

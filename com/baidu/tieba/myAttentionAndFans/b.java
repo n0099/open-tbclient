@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public abstract class b extends BaseAdapter {
     protected ArrayList<UserData> aIn = null;
-    boolean hxf = false;
+    boolean hxX = false;
     private boolean mHasMore = false;
 
     public abstract void a(as asVar);
@@ -18,10 +18,10 @@ public abstract class b extends BaseAdapter {
         this.aIn.clear();
     }
 
-    public void bPk() {
-        this.hxf = false;
+    public void bPy() {
+        this.hxX = false;
         if (this.aIn != null && this.aIn.size() == 0) {
-            this.hxf = true;
+            this.hxX = true;
         }
     }
 

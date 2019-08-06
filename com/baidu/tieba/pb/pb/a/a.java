@@ -24,5 +24,5 @@ public interface a {
 
     void v(View.OnClickListener onClickListener);
 
-    void xG(int i);
+    void xI(int i);
 }

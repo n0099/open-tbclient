@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private com.baidu.tbadk.coreExtra.view.c ceZ;
+    private com.baidu.tbadk.coreExtra.view.c cfg;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -28,7 +28,7 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    bb.ajC().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
+                    bb.ajE().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -53,23 +53,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    am.f(qVar.frf, R.color.cp_cont_d, 1);
-                    am.f(qVar.fre, R.color.cp_cont_b, 1);
-                    am.k(qVar.frg, R.drawable.frs_member_manito_bg);
+                    am.f(qVar.frF, R.color.cp_cont_d, 1);
+                    am.f(qVar.frE, R.color.cp_cont_b, 1);
+                    am.k(qVar.frG, R.drawable.frs_member_manito_bg);
                 }
-                int bkC = pVar.bkC();
-                if (bkC > 0) {
-                    qVar.frf.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(bkC)));
-                    qVar.frg.setTag(R.id.assist_apply_tip, pVar.bkD());
-                    qVar.frg.setOnClickListener(this.mClickListener);
-                    qVar.frg.setEnabled(true);
-                    qVar.frg.setClickable(true);
+                int bkJ = pVar.bkJ();
+                if (bkJ > 0) {
+                    qVar.frF.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(bkJ)));
+                    qVar.frG.setTag(R.id.assist_apply_tip, pVar.bkK());
+                    qVar.frG.setOnClickListener(this.mClickListener);
+                    qVar.frG.setEnabled(true);
+                    qVar.frG.setClickable(true);
                 } else {
-                    qVar.frf.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.frg.setEnabled(false);
-                    qVar.frg.setClickable(false);
+                    qVar.frF.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.frG.setEnabled(false);
+                    qVar.frG.setClickable(false);
                 }
-                qVar.frf.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.frF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -85,17 +85,17 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         } else {
             activity = ((TbPageContext) ab).getPageActivity();
         }
-        if (this.ceZ == null) {
-            this.ceZ = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.cfg == null) {
+            this.cfg = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.ceZ.aqr();
-        this.ceZ.setAccountData(accountData);
-        this.ceZ.jT(1);
+        this.cfg.aqt();
+        this.cfg.setAccountData(accountData);
+        this.cfg.jU(1);
     }
 
     public void onDestroy() {
-        if (this.ceZ != null) {
-            this.ceZ.onDestroy();
+        if (this.cfg != null) {
+            this.cfg.onDestroy();
         }
     }
 }

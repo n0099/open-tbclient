@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a jmR;
-    private InterfaceC0398a jmS = crW();
+    private static a jnY;
+    private InterfaceC0398a jnZ = css();
 
     /* renamed from: com.baidu.tieba.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -22,53 +22,53 @@ public class a {
         void onResume(Activity activity);
     }
 
-    private boolean crV() {
-        return com.baidu.tbadk.core.sharedPref.b.ahO().getInt("pref_key_crab_sdk_enable", 1) == 1;
+    private boolean csr() {
+        return com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0398a crW() {
+    private InterfaceC0398a css() {
         CustomResponsedMessage runTask;
-        if (!crV() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0398a.class)) == null) {
+        if (!csr() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0398a.class)) == null) {
             return null;
         }
         return (InterfaceC0398a) runTask.getData();
     }
 
-    public static a crX() {
-        if (jmR == null) {
+    public static a cst() {
+        if (jnY == null) {
             synchronized (a.class) {
-                if (jmR == null) {
-                    jmR = new a();
+                if (jnY == null) {
+                    jnY = new a();
                 }
             }
         }
-        return jmR;
+        return jnY;
     }
 
     public void f(Application application) {
-        if (this.jmS != null) {
-            this.jmS.f(application);
+        if (this.jnZ != null) {
+            this.jnZ.f(application);
         }
     }
 
     public void onPause(Activity activity) {
-        if (this.jmS != null) {
-            this.jmS.onPause(activity);
+        if (this.jnZ != null) {
+            this.jnZ.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        if (this.jmS != null) {
-            this.jmS.onResume(activity);
+        if (this.jnZ != null) {
+            this.jnZ.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.jmS != null) {
-            this.jmS.behaviorRecordEvent(motionEvent, activity);
+        if (this.jnZ != null) {
+            this.jnZ.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

@@ -1,44 +1,7 @@
 package com.baidu.tbadk.core.data;
-
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class bb {
-    private ai bIJ;
-    private List<h> bIK;
-    private String bIL;
-    private List<i> bIM;
-    private String bIN;
-    private List<ah> bIO;
-
-    public void a(SeniorLottery seniorLottery) {
-        if (seniorLottery != null) {
-            this.bIJ = new ai();
-            this.bIJ.a(seniorLottery.theme);
-            this.bIK = new ArrayList();
-            int size = seniorLottery.award_info.size();
-            for (int i = 0; i < size; i++) {
-                h hVar = new h();
-                hVar.a(seniorLottery.award_info.get(i));
-                this.bIK.add(hVar);
-            }
-            this.bIL = seniorLottery.myaward;
-            this.bIM = new ArrayList();
-            int size2 = seniorLottery.luck_users.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                i iVar = new i();
-                iVar.a(seniorLottery.luck_users.get(i2));
-                this.bIM.add(iVar);
-            }
-            this.bIN = seniorLottery.act_desc;
-            this.bIO = new ArrayList();
-            int size3 = seniorLottery.act_regular.size();
-            for (int i3 = 0; i3 < size3; i3++) {
-                ah ahVar = new ah();
-                ahVar.a(seniorLottery.act_regular.get(i3));
-                this.bIO.add(ahVar);
-            }
-        }
-    }
+    public String bIM;
+    public String bIN;
+    public String title;
 }

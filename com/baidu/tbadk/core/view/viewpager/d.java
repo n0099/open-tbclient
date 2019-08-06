@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int cdY;
-    private List<m> cef;
-    private List<m> ceg;
-    private boolean ceh;
-    private boolean cei;
-    private int cej = 2;
-    private int cek = 1;
+    private int cef;
+    private List<m> cem;
+    private List<m> cen;
+    private boolean ceo;
+    private boolean cep;
+    private int ceq = 2;
+    private int cer = 1;
 
     public d(List<m> list, boolean z, int i) {
-        this.cdY = 2;
-        this.cef = list;
-        this.cei = z;
-        this.cdY = i;
+        this.cef = 2;
+        this.cem = list;
+        this.cep = z;
+        this.cef = i;
         ad(list);
     }
 
     public void ad(List<m> list) {
-        if (list != null && list.size() >= this.cej && list.size() <= this.cdY) {
-            this.ceh = true;
-        } else if (list.size() > this.cdY && this.cei) {
-            this.ceh = true;
+        if (list != null && list.size() >= this.ceq && list.size() <= this.cef) {
+            this.ceo = true;
+        } else if (list.size() > this.cef && this.cep) {
+            this.ceo = true;
         } else {
-            this.ceh = false;
+            this.ceo = false;
         }
-        this.ceg = alp();
+        this.cen = alr();
     }
 
-    private List<m> alp() {
+    private List<m> alr() {
         ArrayList arrayList = new ArrayList();
-        if (this.cef != null) {
-            if (this.ceh) {
-                if (this.cef.size() > this.cdY && this.cef.size() >= this.cek) {
-                    arrayList.addAll(this.cef.subList(0, this.cdY));
-                    arrayList.addAll(0, this.cef.subList(this.cdY - this.cek, this.cdY));
-                    arrayList.addAll(this.cef.subList(0, this.cek));
+        if (this.cem != null) {
+            if (this.ceo) {
+                if (this.cem.size() > this.cef && this.cem.size() >= this.cer) {
+                    arrayList.addAll(this.cem.subList(0, this.cef));
+                    arrayList.addAll(0, this.cem.subList(this.cef - this.cer, this.cef));
+                    arrayList.addAll(this.cem.subList(0, this.cer));
                 } else {
-                    arrayList.addAll(this.cef);
-                    arrayList.addAll(0, this.cef.subList(this.cef.size() - this.cek, this.cef.size()));
-                    arrayList.addAll(this.cef.subList(0, this.cek));
+                    arrayList.addAll(this.cem);
+                    arrayList.addAll(0, this.cem.subList(this.cem.size() - this.cer, this.cem.size()));
+                    arrayList.addAll(this.cem.subList(0, this.cer));
                 }
-            } else if (this.cef != null && this.cef.size() > 0 && this.cef.size() >= this.cek) {
-                arrayList.addAll(this.cef.subList(0, this.cek));
+            } else if (this.cem != null && this.cem.size() > 0 && this.cem.size() >= this.cer) {
+                arrayList.addAll(this.cem.subList(0, this.cer));
             }
         }
         return arrayList;
     }
 
-    public int ji(int i) {
-        if (this.ceh) {
-            int size = this.ceg.size();
+    public int jj(int i) {
+        if (this.ceo) {
+            int size = this.cen.size();
             if (i == 0) {
-                return (size - 1) - this.cek;
+                return (size - 1) - this.cer;
             }
-            if (i == size - this.cek) {
-                return this.cek;
+            if (i == size - this.cer) {
+                return this.cer;
             }
             return i;
         }
         return i;
     }
 
-    public int jj(int i) {
-        if (this.ceh) {
-            return i - this.cek;
+    public int jk(int i) {
+        if (this.ceo) {
+            return i - this.cer;
         }
         return i;
     }
 
-    public int alq() {
-        if (this.cef == null) {
+    public int als() {
+        if (this.cem == null) {
             return 0;
         }
-        return this.cef.size();
+        return this.cem.size();
     }
 
-    public int alr() {
-        if (this.ceh) {
-            return this.cek;
+    public int alt() {
+        if (this.ceo) {
+            return this.cer;
         }
         return 0;
     }
 
-    public void jk(int i) {
-        this.cdY = i;
-        ad(this.cef);
-    }
-
     public void jl(int i) {
-        this.cej = i;
-        ad(this.cef);
-    }
-
-    public List<m> als() {
-        return this.ceg;
+        this.cef = i;
+        ad(this.cem);
     }
 
     public void jm(int i) {
-        this.cek = i;
-        ad(this.cef);
+        this.ceq = i;
+        ad(this.cem);
+    }
+
+    public List<m> alu() {
+        return this.cen;
+    }
+
+    public void jn(int i) {
+        this.cer = i;
+        ad(this.cem);
     }
 }

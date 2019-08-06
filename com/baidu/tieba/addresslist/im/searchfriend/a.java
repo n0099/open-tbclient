@@ -17,24 +17,24 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class a {
-    private EditText cZC;
-    private TextView cZD;
-    private ImageView cZE;
-    private InterfaceC0276a cZF;
-    private View.OnClickListener cZG = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
+    private EditText cZJ;
+    private TextView cZK;
+    private ImageView cZL;
+    private InterfaceC0276a cZM;
+    private View.OnClickListener cZN = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.cZD) {
-                String a = k.a(a.this.cZC.getText(), null);
+            if (view == a.this.cZK) {
+                String a = k.a(a.this.cZJ.getText(), null);
                 if (!StringUtils.isNULL(a)) {
                     if (a.trim().length() != 0) {
                         a.this.sH(a.trim());
-                        a.this.cZD.setClickable(false);
+                        a.this.cZK.setClickable(false);
                     } else if (a.length() > 0) {
                         a.this.mPageContext.showToast(R.string.input_content);
                     }
                 }
-            } else if (view == a.this.cZE) {
+            } else if (view == a.this.cZL) {
                 a.this.sG("");
             }
         }
@@ -50,21 +50,21 @@ public class a {
     }
 
     public void gm(boolean z) {
-        this.cZD.setClickable(z);
+        this.cZK.setClickable(z);
     }
 
     public void sG(String str) {
-        this.cZC.setText(str);
+        this.cZJ.setText(str);
     }
 
     public a(TbPageContext<?> tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.cZC = (EditText) view.findViewById(R.id.new_search_friend_input);
-        this.cZD = (TextView) view.findViewById(R.id.new_search_friend_search);
-        this.cZE = (ImageView) view.findViewById(R.id.new_search_friend_del);
-        this.cZD.setOnClickListener(this.cZG);
-        this.cZE.setOnClickListener(this.cZG);
+        this.cZJ = (EditText) view.findViewById(R.id.new_search_friend_input);
+        this.cZK = (TextView) view.findViewById(R.id.new_search_friend_search);
+        this.cZL = (ImageView) view.findViewById(R.id.new_search_friend_del);
+        this.cZK.setOnClickListener(this.cZN);
+        this.cZL.setOnClickListener(this.cZN);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -77,38 +77,38 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (TextUtils.isEmpty(editable)) {
-                    a.this.cZE.setVisibility(8);
+                    a.this.cZL.setVisibility(8);
                 } else {
-                    a.this.cZE.setVisibility(0);
+                    a.this.cZL.setVisibility(0);
                 }
             }
         };
-        this.cZC.addTextChangedListener(this.mTextWatcher);
+        this.cZJ.addTextChangedListener(this.mTextWatcher);
         iV(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void aDD() {
-        this.cZC.removeTextChangedListener(this.mTextWatcher);
+    public void aDF() {
+        this.cZJ.removeTextChangedListener(this.mTextWatcher);
     }
 
-    public void aDE() {
-        l.b(this.context, this.cZC);
+    public void aDG() {
+        l.b(this.context, this.cZJ);
     }
 
     public void a(InterfaceC0276a interfaceC0276a) {
-        this.cZF = interfaceC0276a;
+        this.cZM = interfaceC0276a;
     }
 
     public void iV(int i) {
-        am.f(this.cZD, R.color.cp_cont_g, 1);
-        this.cZC.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        am.c(this.cZE, (int) R.drawable.icon_search_close);
+        am.f(this.cZK, R.color.cp_cont_g, 1);
+        this.cZJ.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        am.c(this.cZL, (int) R.drawable.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sH(String str) {
-        if (this.cZF != null) {
-            this.cZF.sF(str);
+        if (this.cZM != null) {
+            this.cZM.sF(str);
         }
     }
 }

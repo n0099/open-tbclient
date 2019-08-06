@@ -36,7 +36,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     public void onDestroy() {
     }
 
-    public void aa(Intent intent) {
+    public void ac(Intent intent) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,20 +49,20 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return bdUniqueId;
     }
 
-    protected void Ei(String str) {
+    protected void Ej(String str) {
         bn(str, R.drawable.icon_toast_game_error);
     }
 
-    protected void Ej(String str) {
+    protected void Ek(String str) {
         bn(str, R.drawable.icon_toast_game_ok);
     }
 
     protected void bn(String str, int i) {
-        BdToast.c(getAppContext(), str, i).agQ();
+        BdToast.c(getAppContext(), str, i).agS();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void As(int i) {
+    public void Au(int i) {
         aE(i, null);
     }
 
@@ -72,24 +72,24 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_success, new Object[0]);
             }
-            Ej(str);
+            Ek(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_cancel, new Object[0]);
             }
-            Ei(str);
+            Ej(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_failed, new Object[0]);
             }
-            Ei(str);
+            Ej(str);
         }
         if (!TextUtils.isEmpty(this.tid)) {
-            At(i);
+            Av(i);
         }
     }
 
-    public void At(int i) {
+    public void Av(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("status", i);
         bundle.putString(IntentConfig.SHARE_THREAD_ID, this.tid);
@@ -106,17 +106,17 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap clP() {
+    public Bitmap cmh() {
         return BitmapHelper.getCashBitmap(R.drawable.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap Au(int i) {
+    public Bitmap Aw(int i) {
         return BitmapHelper.getCashBitmap(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap Ek(String str) {
+    public Bitmap El(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
@@ -158,10 +158,10 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     public com.baidu.adp.widget.ImageView.a a(ShareEntity shareEntity) {
-        if (shareEntity == null || shareEntity.ckF == null) {
+        if (shareEntity == null || shareEntity.ckM == null) {
             return null;
         }
-        Bundle bundle = shareEntity.ckF;
+        Bundle bundle = shareEntity.ckM;
         String string = bundle.getString("path");
         String string2 = bundle.getString("name");
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {

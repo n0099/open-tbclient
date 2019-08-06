@@ -3,19 +3,12 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.v;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class k extends c {
-    public static String eFC = "";
-    public static String eFD = "";
-    public static String eFE = "";
-    public static String eFF = "";
-    public static String eFG = "";
-    public static String eFH = "";
-    public static String eFI = "";
     public static String eFJ = "";
     public static String eFK = "";
     public static String eFL = "";
@@ -25,47 +18,54 @@ public class k extends c {
     public static String eFP = "";
     public static String eFQ = "";
     public static String eFR = "";
+    public static String eFS = "";
+    public static String eFT = "";
+    public static String eFU = "";
+    public static String eFV = "";
+    public static String eFW = "";
+    public static String eFX = "";
+    public static String eFY = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId eFS = BdUniqueId.gen();
-    public static final BdUniqueId bJv = BdUniqueId.gen();
-    public static final BdUniqueId bJB = BdUniqueId.gen();
-    public static final BdUniqueId eFT = BdUniqueId.gen();
-    public static final BdUniqueId eFU = BdUniqueId.gen();
-    public static final BdUniqueId eFV = BdUniqueId.gen();
-    public static final BdUniqueId eFW = BdUniqueId.gen();
-    public static final BdUniqueId eFX = BdUniqueId.gen();
-    public static final BdUniqueId eFY = BdUniqueId.gen();
     public static final BdUniqueId eFZ = BdUniqueId.gen();
+    public static final BdUniqueId bJA = BdUniqueId.gen();
+    public static final BdUniqueId bJG = BdUniqueId.gen();
     public static final BdUniqueId eGa = BdUniqueId.gen();
     public static final BdUniqueId eGb = BdUniqueId.gen();
-    public static final BdUniqueId bJF = BdUniqueId.gen();
-    public static final BdUniqueId bJG = BdUniqueId.gen();
-    public boolean eGc = false;
+    public static final BdUniqueId eGc = BdUniqueId.gen();
+    public static final BdUniqueId eGd = BdUniqueId.gen();
+    public static final BdUniqueId eGe = BdUniqueId.gen();
+    public static final BdUniqueId eGf = BdUniqueId.gen();
+    public static final BdUniqueId eGg = BdUniqueId.gen();
+    public static final BdUniqueId eGh = BdUniqueId.gen();
+    public static final BdUniqueId eGi = BdUniqueId.gen();
+    public static final BdUniqueId bJK = BdUniqueId.gen();
+    public static final BdUniqueId bJL = BdUniqueId.gen();
+    public boolean eGj = false;
     public boolean isLinkThread = false;
-    public boolean eGd = false;
-    public boolean bIW = false;
-    public boolean bIX = false;
-    public boolean eGe = false;
-    public boolean bJa = false;
+    public boolean eGk = false;
     public boolean bJb = false;
     public boolean bJc = false;
-    public boolean eGf = false;
+    public boolean eGl = false;
     public boolean bJf = false;
-    public boolean eGg = false;
-    public boolean ctn = true;
+    public boolean bJg = false;
+    public boolean bJh = false;
+    public boolean eGm = false;
+    public boolean bJk = false;
+    public boolean eGn = false;
+    public boolean ctu = true;
 
-    public static boolean V(bg bgVar) {
-        if (bgVar == null) {
+    public static boolean W(bh bhVar) {
+        if (bhVar == null) {
             return false;
         }
-        return bgVar.getType() == bg.bJj || bgVar.getType() == bg.bJw || bgVar.getType() == bg.bJv || bgVar.getType() == bg.bJB || bgVar.getType() == bg.bJD;
+        return bhVar.getType() == bh.bJo || bhVar.getType() == bh.bJB || bhVar.getType() == bh.bJA || bhVar.getType() == bh.bJG || bhVar.getType() == bh.bJI;
     }
 
-    public static boolean W(bg bgVar) {
-        if (bgVar == null) {
+    public static boolean X(bh bhVar) {
+        if (bhVar == null) {
             return false;
         }
-        return bgVar.getType() == bg.bJF || bgVar.getType() == bg.bJG;
+        return bhVar.getType() == bh.bJK || bhVar.getType() == bh.bJL;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
@@ -74,115 +74,115 @@ public class k extends c {
             return TYPE;
         }
         if (this.threadData.threadType == 63) {
-            return bJF;
+            return bJK;
         }
         if (this.threadData.threadType == 64) {
-            return bJG;
-        }
-        if (this.bIW) {
-            return eFU;
-        }
-        if (this.bIX) {
-            return eFV;
-        }
-        if (this.eGe) {
-            return eFX;
-        }
-        if (this.bJa) {
-            return eFY;
+            return bJL;
         }
         if (this.bJb) {
             return eGb;
         }
         if (this.bJc) {
-            return eGa;
+            return eGc;
         }
-        if (this.eGf) {
-            return eFZ;
+        if (this.eGl) {
+            return eGe;
+        }
+        if (this.bJf) {
+            return eGf;
+        }
+        if (this.bJg) {
+            return eGi;
+        }
+        if (this.bJh) {
+            return eGh;
+        }
+        if (this.eGm) {
+            return eGg;
         }
         if (this.threadData.isShareThread) {
-            return bJB;
+            return bJG;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bg acx() {
+    public bh acy() {
         if (this.threadData == null) {
             return this.threadData;
         }
-        if (this.threadData.ael() == 5) {
+        if (this.threadData.aem() == 5) {
             return this.threadData;
         }
         this.threadData.hh(1);
         return this.threadData;
     }
 
-    public boolean bah() {
-        return (this.threadData == null || v.Z(this.threadData.aeL()) == 0) ? false : true;
+    public boolean baj() {
+        return (this.threadData == null || v.Z(this.threadData.aeM()) == 0) ? false : true;
     }
 
-    public boolean bai() {
-        return this.threadData == null || this.threadData.afs();
+    public boolean bak() {
+        return this.threadData == null || this.threadData.aft();
     }
 
-    public boolean afr() {
-        return this.threadData != null && this.threadData.afr();
+    public boolean afs() {
+        return this.threadData != null && this.threadData.afs();
     }
 
-    public an baj() {
-        SmartApp afj;
-        if (bah()) {
-            an vB = vB(eFH);
-            if (vB != null) {
-                vB.setPosition(this.position);
-                if (acx() != null) {
-                    bg acx = acx();
-                    vB.P("obj_name", acx.afV() != null && (acx.afV().cpr() != null || acx.afV().ayU() != null) ? 1 : 0);
-                    if (acx.aex() != null) {
-                        vB.P("ab_type", acx.aex().hadConcerned() ? 1 : 0);
+    public an bal() {
+        SmartApp afk;
+        if (baj()) {
+            an vC = vC(eFO);
+            if (vC != null) {
+                vC.setPosition(this.position);
+                if (acy() != null) {
+                    bh acy = acy();
+                    vC.P("obj_name", acy.afW() != null && (acy.afW().cpN() != null || acy.afW().ayW() != null) ? 1 : 0);
+                    if (acy.aey() != null) {
+                        vC.P("ab_type", acy.aey().hadConcerned() ? 1 : 0);
                     }
-                    vB.P("is_full", acx.agm() ? 1 : 0);
+                    vC.P("is_full", acy.agn() ? 1 : 0);
                 }
             }
-            return vB;
-        } else if (bai()) {
-            an vB2 = vB(eFN);
-            if (vB2 != null) {
-                vB2.setPosition(this.position);
-                if (acx() != null && (afj = acx().afj()) != null) {
-                    vB2.bT("obj_type", afj.id);
-                    vB2.bT("obj_name", afj.name);
-                    return vB2;
+            return vC;
+        } else if (bak()) {
+            an vC2 = vC(eFU);
+            if (vC2 != null) {
+                vC2.setPosition(this.position);
+                if (acy() != null && (afk = acy().afk()) != null) {
+                    vC2.bT("obj_type", afk.id);
+                    vC2.bT("obj_name", afk.name);
+                    return vC2;
                 }
-                return vB2;
+                return vC2;
             }
-            return vB2;
-        } else if (afr()) {
+            return vC2;
+        } else if (afs()) {
             return null;
         } else {
-            an vB3 = vB(eFC);
-            if (vB3 != null) {
-                vB3.setPosition(this.position);
-                vB3.bT("ab_tag", aZY()).bT("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
-                if (acx() != null) {
-                    bg acx2 = acx();
-                    boolean z = (acx2.afV() == null || (acx2.afV().cpr() == null && acx2.afV().ayU() == null)) ? false : true;
-                    vB3.P("obj_name", z ? 1 : 0);
-                    if (z && acx2.afV().cpr() != null && acx2.afV().cpr().ayL() != null && acx2.afV().cpr().ayL().size() > 0) {
-                        vB3.P("obj_to", acx2.afV().jfE ? 2 : 1);
+            an vC3 = vC(eFJ);
+            if (vC3 != null) {
+                vC3.setPosition(this.position);
+                vC3.bT("ab_tag", baa()).bT("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
+                if (acy() != null) {
+                    bh acy2 = acy();
+                    boolean z = (acy2.afW() == null || (acy2.afW().cpN() == null && acy2.afW().ayW() == null)) ? false : true;
+                    vC3.P("obj_name", z ? 1 : 0);
+                    if (z && acy2.afW().cpN() != null && acy2.afW().cpN().ayN() != null && acy2.afW().cpN().ayN().size() > 0) {
+                        vC3.P("obj_to", acy2.afW().jgL ? 2 : 1);
                     }
-                    if (acx2.aex() != null) {
-                        vB3.P("ab_type", acx2.aex().hadConcerned() ? 1 : 0);
+                    if (acy2.aey() != null) {
+                        vC3.P("ab_type", acy2.aey().hadConcerned() ? 1 : 0);
                     }
-                    vB3.P("is_full", acx2.agm() ? 1 : 0);
+                    vC3.P("is_full", acy2.agn() ? 1 : 0);
                 }
             }
-            return vB3;
+            return vC3;
         }
     }
 
-    public an vD(String str) {
+    public an vE(String str) {
         int i;
         an anVar = new an(str);
         if (this.threadData != null) {
@@ -194,112 +194,112 @@ public class k extends c {
                 i = this.threadData.isShareThread ? 5 : 1;
             }
             anVar.P("obj_type", i);
-            anVar.bT(VideoPlayActivityConfig.OBJ_ID, this.threadData.aex().getUserId());
-            anVar.P("obj_param1", bad() ? 2 : 1);
+            anVar.bT(VideoPlayActivityConfig.OBJ_ID, this.threadData.aey().getUserId());
+            anVar.P("obj_param1", baf() ? 2 : 1);
         }
         return anVar;
     }
 
-    public an vE(String str) {
-        an vB = vB(str);
-        if (vB != null) {
-            vB.bT("ab_tag", aZY()).bT("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
-            if (acx() != null) {
-                bg acx = acx();
-                boolean z = (acx.afV() == null || (acx.afV().cpr() == null && acx.afV().ayU() == null)) ? false : true;
-                vB.P("obj_name", z ? 1 : 0);
-                if (z && acx.afV().cpr() != null && acx.afV().cpr().ayL() != null && acx.afV().cpr().ayL().size() > 0) {
-                    vB.P("obj_to", acx.afV().jfE ? 2 : 1);
+    public an vF(String str) {
+        an vC = vC(str);
+        if (vC != null) {
+            vC.bT("ab_tag", baa()).bT("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
+            if (acy() != null) {
+                bh acy = acy();
+                boolean z = (acy.afW() == null || (acy.afW().cpN() == null && acy.afW().ayW() == null)) ? false : true;
+                vC.P("obj_name", z ? 1 : 0);
+                if (z && acy.afW().cpN() != null && acy.afW().cpN().ayN() != null && acy.afW().cpN().ayN().size() > 0) {
+                    vC.P("obj_to", acy.afW().jgL ? 2 : 1);
                 }
             }
         }
-        return vB;
+        return vC;
     }
 
-    public an bak() {
-        an vB;
-        SmartApp afj;
-        if (bah()) {
-            vB = vB(eFI);
-        } else if (bai()) {
-            an vB2 = vB(eFO);
-            if (vB2 != null && acx() != null && (afj = acx().afj()) != null) {
-                vB2.bT("obj_type", afj.id);
-                vB2.bT("obj_name", afj.name);
-                return vB2;
+    public an bam() {
+        an vC;
+        SmartApp afk;
+        if (baj()) {
+            vC = vC(eFP);
+        } else if (bak()) {
+            an vC2 = vC(eFV);
+            if (vC2 != null && acy() != null && (afk = acy().afk()) != null) {
+                vC2.bT("obj_type", afk.id);
+                vC2.bT("obj_name", afk.name);
+                return vC2;
             }
-            return vB2;
+            return vC2;
         } else {
-            vB = vB(eFD);
-            if (vB != null) {
-                vB.bT("ab_tag", aZY()).bT("ab_action", "click");
+            vC = vC(eFK);
+            if (vC != null) {
+                vC.bT("ab_tag", baa()).bT("ab_action", "click");
             }
         }
-        if (vB != null && acx() != null) {
-            vB.P("is_full", acx().agm() ? 1 : 0);
+        if (vC != null && acy() != null) {
+            vC.P("is_full", acy().agn() ? 1 : 0);
         }
-        return vB;
+        return vC;
     }
 
-    public an bal() {
-        if (bah()) {
-            return vB(eFJ);
+    public an ban() {
+        if (baj()) {
+            return vC(eFQ);
         }
-        if (l.V(this.threadData)) {
-            return W(eFR, true);
+        if (l.W(this.threadData)) {
+            return W(eFY, true);
         }
-        an as = as(eFE, 0);
+        an as = as(eFL, 0);
         if (as != null) {
-            as.bT("ab_tag", aZY()).bT("ab_action", "click");
+            as.bT("ab_tag", baa()).bT("ab_action", "click");
             return as;
         }
         return as;
     }
 
-    public an bam() {
-        if (l.V(this.threadData)) {
-            return W(eFQ, true);
-        }
-        if (bah()) {
-            return vB(eFK);
-        }
-        an vB = vB(eFF);
-        if (vB != null) {
-            vB.bT("ab_tag", aZY()).bT("ab_action", "click");
-            return vB;
-        }
-        return vB;
-    }
-
-    public an ban() {
-        if (bah()) {
-            return vB(eFL);
-        }
-        an vB = vB(eFG);
-        if (vB != null) {
-            vB.bT("ab_tag", aZY()).bT("ab_action", "click");
-            return vB;
-        }
-        return vB;
-    }
-
     public an bao() {
-        return vB(eFM);
+        if (l.W(this.threadData)) {
+            return W(eFX, true);
+        }
+        if (baj()) {
+            return vC(eFR);
+        }
+        an vC = vC(eFM);
+        if (vC != null) {
+            vC.bT("ab_tag", baa()).bT("ab_action", "click");
+            return vC;
+        }
+        return vC;
     }
 
     public an bap() {
-        return W(eFP, true);
+        if (baj()) {
+            return vC(eFS);
+        }
+        an vC = vC(eFN);
+        if (vC != null) {
+            vC.bT("ab_tag", baa()).bT("ab_action", "click");
+            return vC;
+        }
+        return vC;
     }
 
-    public an vF(String str) {
-        an vB = vB(str);
-        if (this.threadData != null && this.threadData.aex() != null) {
-            vB.P("ab_type", this.threadData.aex().hadConcerned() ? 1 : 0);
-        }
-        return vB;
+    public an baq() {
+        return vC(eFT);
+    }
+
+    public an bar() {
+        return W(eFW, true);
     }
 
     public an vG(String str) {
-        return vB(str);
+        an vC = vC(str);
+        if (this.threadData != null && this.threadData.aey() != null) {
+            vC.P("ab_type", this.threadData.aey().hadConcerned() ? 1 : 0);
+        }
+        return vC;
+    }
+
+    public an vH(String str) {
+        return vC(str);
     }
 }

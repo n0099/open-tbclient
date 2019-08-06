@@ -1,32 +1,32 @@
 package com.baidu.tieba.homeExtra.a;
 
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.tbadkCore.q;
+import com.baidu.tieba.tbadkCore.s;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.homepage.a.a.a {
-    private com.baidu.tieba.lego.c.a gbv;
+    private com.baidu.tieba.lego.c.a gcl;
 
     public void a(com.baidu.tieba.lego.c.a aVar) {
-        this.gbv = aVar;
+        this.gcl = aVar;
         update();
-        buM();
+        buZ();
     }
 
     private void update() {
-        if (this.gbv != null && this.gbv.hasData()) {
-            List<ICardInfo> bLq = this.gbv.bLq();
+        if (this.gcl != null && this.gcl.hasData()) {
+            List<ICardInfo> bLE = this.gcl.bLE();
             this.mThreadList = new ArrayList();
-            this.mThreadList.addAll(bLq);
-            this.mHasMore = this.gbv.hasMore();
-            this.pn = this.gbv.getPn();
+            this.mThreadList.addAll(bLE);
+            this.mHasMore = this.gcl.hasMore();
+            this.pn = this.gcl.getPn();
         }
     }
 
-    private void buM() {
+    private void buZ() {
         if (this.mThreadList != null) {
-            q.q(this.mThreadList, 2);
+            s.q(this.mThreadList, 2);
         }
     }
 }

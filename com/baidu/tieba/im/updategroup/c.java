@@ -9,9 +9,9 @@ public class c extends d {
     public c(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
         setContentView(R.layout.update_group_name_activity);
-        vW(R.string.group_info_name);
-        this.gCN = (ImageButton) updateGroupActivity.findViewById(R.id.button_del);
-        this.gCN.setOnClickListener(updateGroupActivity);
+        vY(R.string.group_info_name);
+        this.gDF = (ImageButton) updateGroupActivity.findViewById(R.id.button_del);
+        this.gDF.setOnClickListener(updateGroupActivity);
         this.mEditText.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
     }
 
@@ -20,19 +20,19 @@ public class c extends d {
     public void z(int i, int i2, int i3, int i4) {
         super.z(i, i2, i3, i4);
         if (i < 1) {
-            this.gCN.setVisibility(8);
+            this.gDF.setVisibility(8);
         } else {
-            this.gCN.setVisibility(0);
+            this.gDF.setVisibility(0);
         }
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void bGC() {
+    public void bGQ() {
         z(this.mEditText.length(), f.h(this.mEditText) / 2, 2, 20);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int bGD() {
+    public int bGR() {
         return R.string.group_step_name_error;
     }
 }

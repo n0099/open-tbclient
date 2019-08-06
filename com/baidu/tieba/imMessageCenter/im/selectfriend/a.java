@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> cYl;
-    private int cYo = R.color.cp_cont_b;
-    private int cYp = R.color.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> cYs;
+    private int cYv = R.color.cp_cont_b;
+    private int cYw = R.color.cp_cont_c;
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.cYl = list;
+        this.cYs = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cYl == null) {
+        if (this.cYs == null) {
             return 0;
         }
-        return this.cYl.size();
+        return this.cYs.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mw */
+    /* renamed from: mx */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.cYl == null || i < 0 || i >= this.cYl.size()) {
+        if (this.cYs == null || i < 0 || i >= this.cYs.size()) {
             return null;
         }
-        return this.cYl.get(i);
+        return this.cYs.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class a extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.apT()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.apS())) {
+        if (!TextUtils.isEmpty(item.apV()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.apU())) {
             return 0;
         }
         return 1;
@@ -82,25 +82,25 @@ public class a extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.cYx = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                bVar2.cYE = (TextView) view.findViewById(R.id.addresslist_group_item_key);
                 bVar2.divider = view.findViewById(R.id.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.apT() != null) {
-                bVar.cYx.setText(item.apT());
+            if (item.apV() != null) {
+                bVar.cYE.setText(item.apV());
             }
-            am.f(bVar.cYx, this.cYp, 1);
+            am.f(bVar.cYE, this.cYw, 1);
             am.l(bVar.divider, R.color.cp_bg_line_b);
             return view;
         } else if (getItemViewType(i) == 1) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof C0347a)) {
                 C0347a c0347a2 = new C0347a();
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                c0347a2.cYm = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                c0347a2.cYn = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0347a2.cYt = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0347a2.cYu = (TextView) view.findViewById(R.id.addresslist_child_item_name);
                 c0347a2.divider = view.findViewById(R.id.addresslist_child_item_divider);
                 view.setTag(c0347a2);
                 c0347a = c0347a2;
@@ -108,10 +108,10 @@ public class a extends BaseAdapter {
                 c0347a = (C0347a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0347a.cYn.setText(item.getUserName());
-                c0347a.cYm.startLoad(item.apS(), 12, false);
+                c0347a.cYu.setText(item.getUserName());
+                c0347a.cYt.startLoad(item.apU(), 12, false);
             }
-            am.f(c0347a.cYn, this.cYo, 1);
+            am.f(c0347a.cYu, this.cYv, 1);
             am.k(c0347a.divider, R.color.cp_bg_line_b);
             am.k(view, R.drawable.select_friend_item_bg);
             return view;
@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class b {
-        TextView cYx;
+        TextView cYE;
         View divider;
 
         private b() {
@@ -132,8 +132,8 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private class C0347a {
-        HeadImageView cYm;
-        TextView cYn;
+        HeadImageView cYt;
+        TextView cYu;
         View divider;
 
         private C0347a() {

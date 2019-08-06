@@ -12,7 +12,7 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* JADX INFO: Access modifiers changed from: protected */
     public u(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.eGM);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.eGT);
         this.mPageContext = tbPageContext;
     }
 
@@ -31,9 +31,9 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.bar().a(oVar);
-        aVar.bar().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.t.aZN().c(new an("c10718").bT(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.eGN)));
+        aVar.bat().a(oVar);
+        aVar.bat().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.t.aZP().c(new an("c10718").bT(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.eGU)));
         return aVar.getView();
     }
 }

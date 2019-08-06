@@ -21,30 +21,30 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EditorTools extends LinearLayout {
-    public EditorBar csc;
-    private EditorDesk csd;
-    private View cse;
-    private List<k> csf;
-    private SparseArray<b> csg;
-    private SparseArray<HashSet<b>> csh;
-    private SparseArray<HashSet<Integer>> csi;
-    private int csj;
-    private int csk;
-    private boolean csl;
-    private int csm;
-    private int csn;
-    private boolean cso;
-    private LinkedList<g> csp;
-    private boolean csq;
-    private boolean csr;
-    private View.OnClickListener css;
-    private Runnable cst;
-    private List<Integer> csu;
+    private Runnable csA;
+    private List<Integer> csB;
+    public EditorBar csj;
+    private EditorDesk csk;
+    private View csl;
+    private List<k> csm;
+    private SparseArray<b> csn;
+    private SparseArray<HashSet<b>> cso;
+    private SparseArray<HashSet<Integer>> csp;
+    private int csq;
+    private int csr;
+    private boolean css;
+    private int cst;
+    private int csu;
+    private boolean csv;
+    private LinkedList<g> csw;
+    private boolean csx;
+    private boolean csy;
+    private View.OnClickListener csz;
 
-    public void asd() {
-        k kp = kp(3);
-        if (kp != null && (kp.crT instanceof View)) {
-            View view = (View) kp.crT;
+    public void asf() {
+        k kq = kq(3);
+        if (kq != null && (kq.csa instanceof View)) {
+            View view = (View) kq.csa;
             view.requestFocus();
             com.baidu.adp.lib.util.l.c(getContext(), view);
         }
@@ -52,54 +52,54 @@ public class EditorTools extends LinearLayout {
 
     public EditorTools(Context context) {
         super(context);
-        this.csj = 1;
-        this.csk = 0;
-        this.csl = false;
-        this.csm = R.color.common_color_10255;
-        this.csn = 0;
-        this.cso = true;
-        this.csq = false;
-        this.csr = false;
-        this.css = new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.EditorTools.1
+        this.csq = 1;
+        this.csr = 0;
+        this.css = false;
+        this.cst = R.color.common_color_10255;
+        this.csu = 0;
+        this.csv = true;
+        this.csx = false;
+        this.csy = false;
+        this.csz = new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.EditorTools.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EditorTools.this.bd(view);
             }
         };
-        this.cst = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorTools.2
+        this.csA = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorTools.2
             @Override // java.lang.Runnable
             public void run() {
-                EditorTools.this.asd();
+                EditorTools.this.asf();
             }
         };
-        this.csu = new ArrayList();
+        this.csB = new ArrayList();
         init(context);
     }
 
     public void setIsIM(boolean z) {
-        this.csq = z;
+        this.csx = z;
     }
 
-    public boolean ase() {
-        return this.csq;
+    public boolean asg() {
+        return this.csx;
     }
 
-    public boolean asf() {
-        return this.csr;
+    public boolean ash() {
+        return this.csy;
     }
 
     public void setIsFromPb(boolean z) {
-        this.csr = z;
+        this.csy = z;
     }
 
     private void init(Context context) {
-        this.csf = new LinkedList();
-        this.csg = new SparseArray<>();
-        this.csh = new SparseArray<>();
-        this.csi = new SparseArray<>();
-        this.csc = new EditorBar(context, this);
-        this.csd = new EditorDesk(context, this);
-        this.csp = new LinkedList<>();
+        this.csm = new LinkedList();
+        this.csn = new SparseArray<>();
+        this.cso = new SparseArray<>();
+        this.csp = new SparseArray<>();
+        this.csj = new EditorBar(context, this);
+        this.csk = new EditorDesk(context, this);
+        this.csw = new LinkedList<>();
         setOrientation(1);
     }
 
@@ -115,27 +115,27 @@ public class EditorTools extends LinearLayout {
         int i2 = 0;
         if (i == 0) {
             if (iArr != null && iArr.length != 0) {
-                HashSet<b> hashSet = this.csh.get(iArr[0]);
+                HashSet<b> hashSet = this.cso.get(iArr[0]);
                 if (hashSet == null) {
                     hashSet = new HashSet<>();
                     int length = iArr.length;
                     while (i2 < length) {
-                        this.csh.put(iArr[i2], hashSet);
+                        this.cso.put(iArr[i2], hashSet);
                         i2++;
                     }
                 }
                 hashSet.add(bVar);
             }
         } else if (i > 0) {
-            this.csg.put(i, bVar);
+            this.csn.put(i, bVar);
             if (iArr != null && iArr.length > 0) {
                 int length2 = iArr.length;
                 while (i2 < length2) {
                     int i3 = iArr[i2];
-                    HashSet<Integer> hashSet2 = this.csi.get(i3);
+                    HashSet<Integer> hashSet2 = this.csp.get(i3);
                     if (hashSet2 == null) {
                         hashSet2 = new HashSet<>();
-                        this.csi.put(i3, hashSet2);
+                        this.csp.put(i3, hashSet2);
                     }
                     hashSet2.add(Integer.valueOf(i));
                     i2++;
@@ -148,18 +148,18 @@ public class EditorTools extends LinearLayout {
         HashSet<Integer> hashSet;
         boolean z;
         g gVar;
-        k kp;
+        k kq;
         if (aVar != null) {
             if (aVar.code == 2) {
-                g km = this.csc.km(aVar.id);
-                if (km != null) {
+                g kn = this.csj.kn(aVar.id);
+                if (kn != null) {
                     z = false;
                 } else {
-                    km = this.csd.km(aVar.id);
+                    kn = this.csk.kn(aVar.id);
                     z = true;
                 }
-                if (km == null) {
-                    Iterator<g> it = this.csp.iterator();
+                if (kn == null) {
+                    Iterator<g> it = this.csw.iterator();
                     while (it.hasNext()) {
                         gVar = it.next();
                         if (gVar.getToolId() == aVar.id) {
@@ -167,42 +167,42 @@ public class EditorTools extends LinearLayout {
                         }
                     }
                 }
-                gVar = km;
+                gVar = kn;
                 if (gVar != null) {
                     gVar.a(aVar);
-                    if (z && (kp = kp(2)) != null && kp.crT != null) {
-                        kp.crT.a(aVar);
+                    if (z && (kq = kq(2)) != null && kq.csa != null) {
+                        kq.csa.a(aVar);
                     }
                 }
             } else if (aVar.code == 5) {
-                this.csc.a((k) null);
-                aqu();
+                this.csj.a((k) null);
+                aqw();
             } else if (aVar.id > 0) {
-                b bVar = this.csg.get(aVar.id);
+                b bVar = this.csn.get(aVar.id);
                 if (bVar != null) {
                     if (aVar.code != 19 && aVar.code != 20 && aVar.id != 27) {
-                        this.csc.kk(aVar.id);
+                        this.csj.kl(aVar.id);
                     }
-                    k kp2 = kp(aVar.id);
-                    if (kp2 != null && kp2.csK == 5) {
-                        aqu();
-                        asg();
+                    k kq2 = kq(aVar.id);
+                    if (kq2 != null && kq2.csR == 5) {
+                        aqw();
+                        asi();
                     } else {
-                        this.csd.kk(aVar.id);
+                        this.csk.kl(aVar.id);
                     }
                     bVar.a(aVar);
                 }
             } else if (aVar.id <= 0) {
-                if (aVar.id < 0 && (hashSet = this.csi.get(aVar.code)) != null && !hashSet.isEmpty()) {
+                if (aVar.id < 0 && (hashSet = this.csp.get(aVar.code)) != null && !hashSet.isEmpty()) {
                     Iterator<Integer> it2 = hashSet.iterator();
                     while (it2.hasNext()) {
-                        b bVar2 = this.csg.get(it2.next().intValue());
+                        b bVar2 = this.csn.get(it2.next().intValue());
                         if (bVar2 != null) {
                             bVar2.a(aVar);
                         }
                     }
                 }
-                HashSet<b> hashSet2 = this.csh.get(aVar.code);
+                HashSet<b> hashSet2 = this.cso.get(aVar.code);
                 if (hashSet2 != null && !hashSet2.isEmpty()) {
                     Iterator<b> it3 = hashSet2.iterator();
                     while (it3.hasNext()) {
@@ -213,9 +213,9 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void asg() {
+    public void asi() {
         boolean z;
-        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.cst);
+        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.csA);
         if (getContext() instanceof Activity) {
             View currentFocus = ((Activity) getContext()).getCurrentFocus();
             if (currentFocus != null) {
@@ -228,81 +228,81 @@ public class EditorTools extends LinearLayout {
             z = false;
         }
         if (!z) {
-            k kp = kp(3);
-            if (kp != null && (kp.crT instanceof View)) {
-                com.baidu.adp.lib.util.l.b(getContext(), (View) kp.crT);
+            k kq = kq(3);
+            if (kq != null && (kq.csa instanceof View)) {
+                com.baidu.adp.lib.util.l.b(getContext(), (View) kq.csa);
             }
-            k kp2 = kp(28);
-            if (kp2 != null && (kp2.crT instanceof View)) {
-                com.baidu.adp.lib.util.l.b(getContext(), (View) kp2.crT);
+            k kq2 = kq(28);
+            if (kq2 != null && (kq2.csa instanceof View)) {
+                com.baidu.adp.lib.util.l.b(getContext(), (View) kq2.csa);
             }
         }
     }
 
     public void b(k kVar) {
         if (kVar != null) {
-            this.csf.add(kVar);
+            this.csm.add(kVar);
         }
     }
 
     private void clear() {
-        this.csc.clear();
-        this.csd.clear();
+        this.csj.clear();
+        this.csk.clear();
     }
 
     public void setBarMaxLauCount(int i) {
         if (i < 0) {
             i = 0;
         }
-        this.csj = i;
+        this.csq = i;
     }
 
     public void setBarBackgroundColorId(int i) {
-        this.csc.setBackgroundColorId(i);
+        this.csj.setBackgroundColorId(i);
     }
 
     public void setDeskBackgroundColorId(int i) {
-        this.csd.setBackgroundColorId(i);
+        this.csk.setBackgroundColorId(i);
     }
 
     public void onChangeSkinType(int i) {
-        am.h(this, this.csm, i);
-        this.csc.onChangeSkinType(i);
-        this.csd.onChangeSkinType(i);
+        am.h(this, this.cst, i);
+        this.csj.onChangeSkinType(i);
+        this.csk.onChangeSkinType(i);
     }
 
     public List<Integer> getCollectTools() {
-        return this.csu;
+        return this.csB;
     }
 
     public void ai(List<Integer> list) {
-        this.csu.clear();
-        this.csu.addAll(list);
+        this.csB.clear();
+        this.csB.addAll(list);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010044, this));
     }
 
-    public void arZ() {
+    public void asb() {
         i iVar;
-        if (this.csf != null && this.csf.size() != 0) {
+        if (this.csm != null && this.csm.size() != 0) {
             clear();
             LinkedList linkedList = new LinkedList();
             boolean z = false;
-            for (k kVar : this.csf) {
-                if (kVar.csH > 0) {
+            for (k kVar : this.csm) {
+                if (kVar.csO > 0) {
                     linkedList.add(kVar);
                 }
-                if (kVar.crT != null) {
-                    kVar.crT.setToolId(kVar.id);
-                    kVar.crT.setEditorTools(this);
-                    if (kVar.csK == 6) {
-                        this.csd.a(kVar.crT);
-                    } else if (kVar.csK == 1 || kVar.csK == 2 || kVar.csK == 3 || kVar.csK == 4 || kVar.csK == 5) {
-                        this.csc.a(kVar.crT, kVar.csK, !kVar.csL);
-                        if (kVar.csK == 5 && kp(1) == null) {
+                if (kVar.csa != null) {
+                    kVar.csa.setToolId(kVar.id);
+                    kVar.csa.setEditorTools(this);
+                    if (kVar.csR == 6) {
+                        this.csk.a(kVar.csa);
+                    } else if (kVar.csR == 1 || kVar.csR == 2 || kVar.csR == 3 || kVar.csR == 4 || kVar.csR == 5) {
+                        this.csj.a(kVar.csa, kVar.csR, !kVar.csS);
+                        if (kVar.csR == 5 && kq(1) == null) {
                             z = true;
                         }
                     }
-                    a(kVar.csM, kVar.id, kVar.crT);
+                    a(kVar.csT, kVar.id, kVar.csa);
                 }
                 z = z;
             }
@@ -311,41 +311,41 @@ public class EditorTools extends LinearLayout {
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(k kVar2, k kVar3) {
-                    return kVar2.csJ - kVar3.csJ;
+                    return kVar2.csQ - kVar3.csQ;
                 }
             });
-            if (linkedList.size() > this.csj) {
-                if (this.csr) {
+            if (linkedList.size() > this.csq) {
+                if (this.csy) {
                     iVar = new i(getContext(), true);
                 } else {
                     iVar = new i(getContext());
                 }
-                if (this.csn > 0 && iVar.crT != null && (iVar.crT instanceof CommonTabHost)) {
-                    ((CommonTabHost) iVar.crT).setBackgroundColorId(this.csn);
+                if (this.csu > 0 && iVar.csa != null && (iVar.csa instanceof CommonTabHost)) {
+                    ((CommonTabHost) iVar.csa).setBackgroundColorId(this.csu);
                 }
-                if (this.csk > 0) {
-                    iVar.csH = this.csk;
+                if (this.csr > 0) {
+                    iVar.csO = this.csr;
                 }
                 b(iVar);
-                iVar.crT.setToolId(iVar.id);
-                iVar.crT.setEditorTools(this);
-                a(iVar.csM, iVar.id, iVar.crT);
-                this.csd.a(iVar.crT);
-                if (this.csl) {
-                    linkedList.add(this.csj, iVar);
+                iVar.csa.setToolId(iVar.id);
+                iVar.csa.setEditorTools(this);
+                a(iVar.csT, iVar.id, iVar.csa);
+                this.csk.a(iVar.csa);
+                if (this.css) {
+                    linkedList.add(this.csq, iVar);
                 } else {
                     linkedList.add(0, iVar);
                 }
             }
-            int i = this.csj + 1;
+            int i = this.csq + 1;
             Iterator it = linkedList.iterator();
             int i2 = 0;
             while (it.hasNext()) {
                 k kVar2 = (k) it.next();
                 if (i2 < i) {
-                    this.csc.a(a(kVar2, 1));
+                    this.csj.a(a(kVar2, 1));
                 } else {
-                    this.csd.a(a(kVar2, 2));
+                    this.csk.a(a(kVar2, 2));
                 }
                 i2++;
             }
@@ -354,35 +354,35 @@ public class EditorTools extends LinearLayout {
                 b(eVar);
                 g a = a(eVar, 1);
                 a.hide();
-                this.csc.a(0, a);
+                this.csj.a(0, a);
             }
-            this.csc.arZ();
-            this.csd.arZ();
+            this.csj.asb();
+            this.csk.asb();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            this.csc.setLayoutParams(layoutParams);
-            this.csd.setLayoutParams(layoutParams);
-            this.csd.hide();
-            if (this.csr) {
-                this.csc.setPadding(0, 0, 0, 0);
+            this.csj.setLayoutParams(layoutParams);
+            this.csk.setLayoutParams(layoutParams);
+            this.csk.hide();
+            if (this.csy) {
+                this.csj.setPadding(0, 0, 0, 0);
             }
-            aqu();
+            aqw();
             removeAllViews();
-            if (this.csc.getBarLauncherType() != 4) {
-                ash();
+            if (this.csj.getBarLauncherType() != 4) {
+                asj();
             }
-            addView(this.csc);
-            addView(this.csd);
+            addView(this.csj);
+            addView(this.csk);
             invalidate();
         }
     }
 
-    private void ash() {
-        if (this.cse == null || this.cse.getParent() != null) {
-            this.cse = new View(getContext());
-            this.cse.setBackgroundResource(R.drawable.bottom_shadow);
-            this.cse.setLayoutParams(new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds16)));
+    private void asj() {
+        if (this.csl == null || this.csl.getParent() != null) {
+            this.csl = new View(getContext());
+            this.csl.setBackgroundResource(R.drawable.bottom_shadow);
+            this.csl.setLayoutParams(new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds16)));
         }
-        addView(this.cse);
+        addView(this.csl);
     }
 
     public void c(k kVar) {
@@ -390,17 +390,17 @@ public class EditorTools extends LinearLayout {
             b(kVar);
             g a = a(kVar, 1);
             a.hide();
-            if (this.csc != null) {
-                this.csc.a(0, a);
-                this.csc.removeAllViews();
-                this.csc.arZ();
+            if (this.csj != null) {
+                this.csj.a(0, a);
+                this.csj.removeAllViews();
+                this.csj.asb();
             }
             invalidate();
         }
     }
 
-    public k kp(int i) {
-        for (k kVar : this.csf) {
+    public k kq(int i) {
+        for (k kVar : this.csm) {
             if (kVar.id == i) {
                 return kVar;
             }
@@ -409,19 +409,19 @@ public class EditorTools extends LinearLayout {
     }
 
     public List<k> getAllTools() {
-        return this.csf;
+        return this.csm;
     }
 
-    public g km(int i) {
-        g km = this.csc.km(i);
-        if (km == null) {
-            return this.csd.km(i);
+    public g kn(int i) {
+        g kn = this.csj.kn(i);
+        if (kn == null) {
+            return this.csk.kn(i);
         }
-        return km;
+        return kn;
     }
 
-    public void asi() {
-        this.csc.f(this.css);
+    public void ask() {
+        this.csj.f(this.csz);
     }
 
     private g a(k kVar, int i) {
@@ -430,23 +430,23 @@ public class EditorTools extends LinearLayout {
             ((View) a).setContentDescription(kVar.name);
         }
         if (a instanceof BLauncher) {
-            ((View) a).setOnClickListener(this.css);
+            ((View) a).setOnClickListener(this.csz);
         }
         return a;
     }
 
     public void fj(boolean z) {
-        for (k kVar : this.csf) {
-            if (kVar != null && (kVar.crT instanceof View) && ((View) kVar.crT).getVisibility() == 0 && !kVar.csL) {
-                kVar.crT.qk();
+        for (k kVar : this.csm) {
+            if (kVar != null && (kVar.csa instanceof View) && ((View) kVar.csa).getVisibility() == 0 && !kVar.csS) {
+                kVar.csa.qk();
             }
         }
-        if (this.cso) {
-            this.cso = false;
-            aqu();
+        if (this.csv) {
+            this.csv = false;
+            aqw();
         }
-        if (!asb() && z) {
-            com.baidu.adp.lib.g.e.iK().postDelayed(this.cst, 200L);
+        if (!asd() && z) {
+            com.baidu.adp.lib.g.e.iK().postDelayed(this.csA, 200L);
         }
         setVisibility(0);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, true));
@@ -457,61 +457,61 @@ public class EditorTools extends LinearLayout {
     }
 
     public void hide() {
-        aqu();
+        aqw();
         setVisibility(8);
-        asg();
+        asi();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, false));
     }
 
-    public void aqu() {
-        this.csd.hide();
-        this.csc.a((k) null);
+    public void aqw() {
+        this.csk.hide();
+        this.csj.a((k) null);
     }
 
     public void setBarLauncherEnabled(boolean z) {
-        this.csc.setBarLauncherEnabled(z);
+        this.csj.setBarLauncherEnabled(z);
     }
 
     public void setBarLauncherEnabled(boolean z, int i) {
-        this.csc.setBarLauncherEnabled(z, i);
+        this.csj.setBarLauncherEnabled(z, i);
     }
 
-    public boolean asb() {
-        return this.csd.asb();
+    public boolean asd() {
+        return this.csk.asd();
     }
 
     public void setFrom(int i) {
     }
 
     public void setMoreLauncherIcon(int i) {
-        this.csk = i;
+        this.csr = i;
     }
 
     public void setBarLauncherType(int i) {
-        this.csc.setBarLauncherType(i);
+        this.csj.setBarLauncherType(i);
     }
 
     public void fh(boolean z) {
-        this.csc.fh(z);
+        this.csj.fh(z);
     }
 
     public void fi(boolean z) {
-        this.csc.fi(z);
+        this.csj.fi(z);
     }
 
     public void setMoreButtonAtEnd(boolean z) {
-        this.csl = z;
+        this.css = z;
     }
 
     public void setBackgroundColorId(int i) {
-        this.csm = i;
+        this.cst = i;
         if (i != 0) {
             setBackgroundColor(getContext().getResources().getColor(i));
         }
     }
 
     public void setMoreDeskBgColorId(int i) {
-        this.csn = i;
+        this.csu = i;
     }
 
     @Override // android.view.View
@@ -523,17 +523,17 @@ public class EditorTools extends LinearLayout {
         if (view instanceof g) {
             g gVar = (g) view;
             int toolId = gVar.getToolId();
-            k kp = kp(toolId);
-            if (kp.qz()) {
+            k kq = kq(toolId);
+            if (kq.qz()) {
                 b(new a(31, 0, Integer.valueOf(gVar.getToolId())));
-                this.csc.a(kp);
+                this.csj.a(kq);
                 if (gVar.getToolId() == 1) {
                     gVar.hide();
                     qk();
                     b(new a(1, 3, null));
-                } else if (kp.crT == null) {
-                    if (kp.csM != null && kp.csM.length > 0) {
-                        b(new a(kp.csM[0], -1, null));
+                } else if (kq.csa == null) {
+                    if (kq.csT != null && kq.csT.length > 0) {
+                        b(new a(kq.csT[0], -1, null));
                     }
                 } else {
                     b(new a(1, toolId, null));
@@ -542,8 +542,8 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void asj() {
-        this.csc.a((k) null);
+    public void asl() {
+        this.csj.a((k) null);
     }
 
     public boolean isVisible() {

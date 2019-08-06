@@ -5,34 +5,34 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends a {
     private boolean Yd;
-    private boolean bVF;
-    private boolean bVG;
-    private int bVK;
+    private boolean bVL;
+    private boolean bVM;
+    private int bVQ;
     private int procType;
 
     public g(boolean z, boolean z2, boolean z3, int i) {
         this.Yd = true;
-        this.bVF = false;
-        this.bVG = false;
+        this.bVL = false;
+        this.bVM = false;
         this.procType = 0;
-        this.bVK = 0;
+        this.bVQ = 0;
         this.Yd = z;
-        this.bVF = z2;
-        this.bVG = z3;
+        this.bVL = z2;
+        this.bVM = z3;
         this.procType = i;
         int af = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst());
-        this.bVK = af <= 0 ? 200 : af;
-        if (this.bVK > 480) {
-            this.bVK = 480;
+        this.bVQ = af <= 0 ? 200 : af;
+        if (this.bVQ > 480) {
+            this.bVQ = 480;
         }
-        if (this.bVK > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
-            this.bVK = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
+        if (this.bVQ > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
+            this.bVQ = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
-        return this.bVK;
+        return this.bVQ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -42,7 +42,7 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
-        return this.bVK;
+        return this.bVQ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -51,17 +51,17 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ajS() {
-        return this.bVG;
+    public boolean ajU() {
+        return this.bVM;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ajT() {
-        return this.bVF;
+    public boolean ajV() {
+        return this.bVL;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int ajU() {
+    public int ajW() {
         return this.procType;
     }
 }

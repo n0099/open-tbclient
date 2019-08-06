@@ -1,27 +1,27 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.v;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    public int bFL;
-    public int fFg;
-    public List<m> fFh;
+    public int bFM;
+    public int fFU;
+    public List<m> fFV;
     public boolean hasMore;
     public String key;
     public int pn;
 
-    public int cd(List<m> list) {
+    public int cc(List<m> list) {
         boolean z;
         if (v.aa(list)) {
             return 0;
         }
-        if (v.aa(this.fFh)) {
-            this.fFh = new LinkedList();
-            this.fFh.addAll(list);
+        if (v.aa(this.fFV)) {
+            this.fFV = new LinkedList();
+            this.fFV.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             m mVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.fFh.size()) {
+                if (i2 >= this.fFV.size()) {
                     z = false;
                     break;
                 }
-                m mVar2 = this.fFh.get(i2);
+                m mVar2 = this.fFV.get(i2);
                 if (mVar != null && (mVar instanceof b) && mVar2 != null && (mVar2 instanceof b)) {
-                    bg acx = ((b) mVar).acx();
-                    bg acx2 = ((b) mVar2).acx();
-                    if (acx != null && acx2 != null && acx.getTid() != null && acx2.getTid() != null && acx.getTid().equals(acx2.getTid())) {
+                    bh acy = ((b) mVar).acy();
+                    bh acy2 = ((b) mVar2).acy();
+                    if (acy != null && acy2 != null && acy.getTid() != null && acy2.getTid() != null && acy.getTid().equals(acy2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.a((List) this.fFh, 0, (List) linkedList);
+            v.a((List) this.fFV, 0, (List) linkedList);
         }
         return linkedList.size();
     }

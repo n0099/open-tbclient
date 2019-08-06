@@ -8,10 +8,10 @@ import com.baidu.tieba.frs.entelechy.a.l;
 import com.baidu.tieba.frs.vc.d;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.tieba.frs.entelechy.b.a {
-    private com.baidu.tieba.frs.view.b fBD;
+    private com.baidu.tieba.frs.view.b fCr;
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b boD() {
+    public com.baidu.tieba.frs.entelechy.b.b boQ() {
         return new c();
     }
 
@@ -20,9 +20,9 @@ public class a implements com.baidu.tieba.frs.entelechy.b.a {
         if (frsFragment == null) {
             return null;
         }
-        this.fBD = new b(frsFragment, null, null, i);
-        this.fBD.b(frsFragment.blJ());
-        return this.fBD;
+        this.fCr = new b(frsFragment, null, null, i);
+        this.fCr.b(frsFragment.blQ());
+        return this.fCr;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
@@ -32,7 +32,7 @@ public class a implements com.baidu.tieba.frs.entelechy.b.a {
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
     public d a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (frsFragment.bmq()) {
+        if (frsFragment.bmA()) {
             return null;
         }
         return new d(frsFragment, noPressedRelativeLayout);

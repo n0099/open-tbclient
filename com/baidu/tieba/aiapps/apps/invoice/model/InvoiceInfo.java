@@ -16,16 +16,16 @@ public class InvoiceInfo implements Parcelable, c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mG */
+        /* renamed from: mH */
         public InvoiceInfo[] newArray(int i) {
             return new InvoiceInfo[i];
         }
     };
-    public String ddq;
-    public String ddr;
-    public String dds;
-    public String ddt;
-    public String ddv;
+    public String ddA;
+    public String ddB;
+    public String ddC;
+    public String ddy;
+    public String ddz;
     public long mId;
     public int mIsDefault;
     public String mTitle;
@@ -37,28 +37,28 @@ public class InvoiceInfo implements Parcelable, c {
     public InvoiceInfo(int i, String str, String str2, String str3, String str4, String str5, String str6) {
         this.mType = i;
         this.mTitle = str;
-        this.ddq = str2;
-        this.ddr = str3;
-        this.dds = str4;
-        this.ddt = str5;
-        this.ddv = str6;
+        this.ddy = str2;
+        this.ddz = str3;
+        this.ddA = str4;
+        this.ddB = str5;
+        this.ddC = str6;
     }
 
     public InvoiceInfo(int i, String str, String str2) {
         this.mType = i;
         this.mTitle = str;
-        this.dds = str2;
+        this.ddA = str2;
     }
 
     private InvoiceInfo(Parcel parcel) {
         this.mId = parcel.readLong();
         this.mType = parcel.readInt();
         this.mTitle = parcel.readString();
-        this.ddq = parcel.readString();
-        this.ddr = parcel.readString();
-        this.dds = parcel.readString();
-        this.ddt = parcel.readString();
-        this.ddv = parcel.readString();
+        this.ddy = parcel.readString();
+        this.ddz = parcel.readString();
+        this.ddA = parcel.readString();
+        this.ddB = parcel.readString();
+        this.ddC = parcel.readString();
         this.mIsDefault = parcel.readInt();
     }
 
@@ -72,11 +72,11 @@ public class InvoiceInfo implements Parcelable, c {
         parcel.writeLong(this.mId);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mTitle);
-        parcel.writeString(this.ddq);
-        parcel.writeString(this.ddr);
-        parcel.writeString(this.dds);
-        parcel.writeString(this.ddt);
-        parcel.writeString(this.ddv);
+        parcel.writeString(this.ddy);
+        parcel.writeString(this.ddz);
+        parcel.writeString(this.ddA);
+        parcel.writeString(this.ddB);
+        parcel.writeString(this.ddC);
         parcel.writeInt(this.mIsDefault);
     }
 
@@ -98,11 +98,11 @@ public class InvoiceInfo implements Parcelable, c {
             jSONObject.put("id", this.mId);
             jSONObject.put("type", this.mType);
             jSONObject.put("title", this.mTitle);
-            jSONObject.put("tax_number", this.ddq);
-            jSONObject.put("company_address", this.ddr);
-            jSONObject.put("telephone", this.dds);
-            jSONObject.put("bank_name", this.ddt);
-            jSONObject.put("bank_account", this.ddv);
+            jSONObject.put("tax_number", this.ddy);
+            jSONObject.put("company_address", this.ddz);
+            jSONObject.put("telephone", this.ddA);
+            jSONObject.put("bank_name", this.ddB);
+            jSONObject.put("bank_account", this.ddC);
             jSONObject.put("is_default", this.mIsDefault);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -116,11 +116,11 @@ public class InvoiceInfo implements Parcelable, c {
             this.mId = jSONObject.optLong("id");
             this.mType = jSONObject.optInt("type");
             this.mTitle = jSONObject.optString("title");
-            this.ddq = jSONObject.optString("tax_number");
-            this.ddr = jSONObject.optString("company_address");
-            this.dds = jSONObject.optString("telephone");
-            this.ddt = jSONObject.optString("bank_name");
-            this.ddv = jSONObject.optString("bank_account");
+            this.ddy = jSONObject.optString("tax_number");
+            this.ddz = jSONObject.optString("company_address");
+            this.ddA = jSONObject.optString("telephone");
+            this.ddB = jSONObject.optString("bank_name");
+            this.ddC = jSONObject.optString("bank_account");
             this.mIsDefault = jSONObject.optInt("is_default");
         }
     }

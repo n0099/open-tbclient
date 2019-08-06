@@ -3,64 +3,64 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private boolean cfl;
-    private String cfm;
-    private String cfn;
-    private String cfo;
-    private String cfp;
-    private boolean cfq;
-    private String cfr;
+    private String cfA;
     private boolean cfs;
     private String cft;
+    private String cfu;
+    private String cfv;
+    private String cfw;
+    private boolean cfx;
+    private String cfy;
+    private boolean cfz;
 
-    public boolean alQ() {
-        return this.cfl;
-    }
-
-    public void ez(boolean z) {
-        this.cfl = z;
-    }
-
-    public boolean alR() {
+    public boolean alS() {
         return this.cfs;
     }
 
-    public String alS() {
-        return this.cft;
+    public void ez(boolean z) {
+        this.cfs = z;
     }
 
-    public String alT() {
-        return this.cfr;
+    public boolean alT() {
+        return this.cfz;
     }
 
-    public boolean alU() {
-        return this.cfq;
+    public String alU() {
+        return this.cfA;
     }
 
     public String alV() {
-        return this.cfp;
+        return this.cfy;
     }
 
-    public String alW() {
-        return this.cfo;
+    public boolean alW() {
+        return this.cfx;
     }
 
     public String alX() {
-        return this.cfm;
+        return this.cfw;
+    }
+
+    public String alY() {
+        return this.cfv;
+    }
+
+    public String alZ() {
+        return this.cft;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             ez(jSONObject.optInt("switch") == 1);
-            this.cfm = jSONObject.optString("feed_text");
-            this.cfn = jSONObject.optString("enter_forum_text");
-            this.cfo = jSONObject.optString("my_tab_text");
+            this.cft = jSONObject.optString("feed_text");
+            this.cfu = jSONObject.optString("enter_forum_text");
+            this.cfv = jSONObject.optString("my_tab_text");
             long optLong = jSONObject.optLong("dot_timestamp");
-            this.cfp = optLong == 0 ? "" : optLong + "";
-            this.cfq = jSONObject.optInt("user_satisfy") == 1;
-            this.cfr = jSONObject.optString("h5_url");
-            this.cfs = jSONObject.optInt("person_item_switch") == 1;
-            this.cft = jSONObject.optString("person_item_text");
+            this.cfw = optLong == 0 ? "" : optLong + "";
+            this.cfx = jSONObject.optInt("user_satisfy") == 1;
+            this.cfy = jSONObject.optString("h5_url");
+            this.cfz = jSONObject.optInt("person_item_switch") == 1;
+            this.cfA = jSONObject.optString("person_item_text");
         }
     }
 }

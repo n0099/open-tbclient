@@ -43,10 +43,10 @@ public class a {
             /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.j.a$1$1] */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                long j = b.ahO().getLong("key_clear_resource", 0L);
+                long j = b.ahQ().getLong("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (j == 0) {
-                    b.ahO().putLong("key_clear_resource", currentTimeMillis);
+                    b.ahQ().putLong("key_clear_resource", currentTimeMillis);
                     j = currentTimeMillis;
                 }
                 if (currentTimeMillis - j > a.bCI) {
@@ -55,13 +55,13 @@ public class a {
                         public void run() {
                             super.run();
                             try {
-                                c.ahV();
+                                c.ahX();
                                 a.x(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }
                         }
                     }.start();
-                    b.ahO().putLong("key_clear_resource", currentTimeMillis);
+                    b.ahQ().putLong("key_clear_resource", currentTimeMillis);
                 }
             }
         });

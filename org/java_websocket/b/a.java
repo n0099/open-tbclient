@@ -14,34 +14,34 @@ public class a implements b {
     }
 
     @Override // org.java_websocket.b.b
-    public boolean Iq(String str) {
-        return true;
-    }
-
-    @Override // org.java_websocket.b.b
     public boolean Ir(String str) {
         return true;
     }
 
     @Override // org.java_websocket.b.b
+    public boolean Is(String str) {
+        return true;
+    }
+
+    @Override // org.java_websocket.b.b
     public void e(Framedata framedata) throws InvalidDataException {
-        if (framedata.cOC() || framedata.cOD() || framedata.cOE()) {
-            throw new InvalidFrameException("bad rsv RSV1: " + framedata.cOC() + " RSV2: " + framedata.cOD() + " RSV3: " + framedata.cOE());
+        if (framedata.cOX() || framedata.cOY() || framedata.cOZ()) {
+            throw new InvalidFrameException("bad rsv RSV1: " + framedata.cOX() + " RSV2: " + framedata.cOY() + " RSV3: " + framedata.cOZ());
         }
     }
 
     @Override // org.java_websocket.b.b
-    public String cOv() {
+    public String cOQ() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public String cOw() {
+    public String cOR() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public b cOx() {
+    public b cOS() {
         return new a();
     }
 

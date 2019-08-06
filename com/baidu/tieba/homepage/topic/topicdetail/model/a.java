@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.card.data.k;
@@ -20,8 +20,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class a {
-    private BdUniqueId cxx;
-    private final com.baidu.adp.framework.listener.a eMv = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId cxE;
+    private final com.baidu.adp.framework.listener.a eMC = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,18 +33,18 @@ public class a {
             }
         }
     };
-    private TopicDetailView glT;
+    private TopicDetailView gmL;
 
     public a(TopicDetailView topicDetailView) {
-        this.glT = topicDetailView;
+        this.gmL = topicDetailView;
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        this.cxx = bdUniqueId;
-        this.eMv.setTag(bdUniqueId);
-        this.eMv.getHttpMessageListener().setSelfListener(true);
-        this.eMv.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.eMv);
+        this.cxE = bdUniqueId;
+        this.eMC.setTag(bdUniqueId);
+        this.eMC.getHttpMessageListener().setSelfListener(true);
+        this.eMC.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.eMC);
     }
 
     public RunnableC0327a p(long j, long j2) {
@@ -68,11 +68,11 @@ public class a {
             int ah = l.ah(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (as.ajo().ajq()) {
+            if (as.ajq().ajs()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.cxx);
+            requestGetMyPostNetMessage.setTag(a.this.cxE);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, af, ah, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -87,11 +87,11 @@ public class a {
             builder2.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.author = builder2.build(true);
             ThreadInfo build = builder.build(true);
-            bg bgVar = new bg();
-            bgVar.a(build);
-            bgVar.aq(new Date().getTime());
-            if (k.V(bgVar)) {
-                this.glT.ar(bgVar);
+            bh bhVar = new bh();
+            bhVar.a(build);
+            bhVar.aq(new Date().getTime());
+            if (k.W(bhVar)) {
+                this.gmL.as(bhVar);
             }
         }
     }

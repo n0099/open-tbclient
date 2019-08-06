@@ -1,102 +1,79 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import tbclient.FrsPage.StarEnter;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.FrsPage.BusinessPromot;
 /* loaded from: classes3.dex */
-public class h implements com.baidu.adp.widget.ListView.m {
-    public static final String jdh = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
-    private int dyf;
-    private String icon;
-    private String jdi;
-    private int jdj;
-    private String obj_id;
-    private int time;
+public class h {
+    private long id;
+    private String img;
+    private String img_popup;
+    private int jdX;
+    private List<i> jdY;
+    private String thread_id;
     private String title;
     private int type;
     private String url;
-    private int weight;
 
-    public int cos() {
-        return this.jdj;
-    }
-
-    public void AS(int i) {
-        this.jdj = i;
-    }
-
-    public int cot() {
-        return this.dyf;
-    }
-
-    public void AT(int i) {
-        this.dyf = i;
-    }
-
-    public void setIcon(String str) {
-        this.icon = str;
-    }
-
-    public void AU(int i) {
-        this.weight = i;
+    public void a(BusinessPromot businessPromot) {
+        if (businessPromot != null) {
+            this.title = businessPromot.title;
+            this.img = businessPromot.img;
+            this.img_popup = businessPromot.img_popup;
+            this.type = businessPromot.type.intValue();
+            this.thread_id = businessPromot.thread_id;
+            this.url = businessPromot.url;
+            this.jdX = businessPromot.join_num.intValue();
+            this.id = businessPromot.id.longValue();
+            if (businessPromot.comment_list != null) {
+                this.jdY = new LinkedList();
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 < businessPromot.comment_list.size()) {
+                        if (businessPromot.comment_list.get(i2) != null) {
+                            i iVar = new i();
+                            iVar.a(businessPromot.comment_list.get(i2));
+                            this.jdY.add(iVar);
+                        }
+                        i = i2 + 1;
+                    } else {
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public void setTitle(String str) {
-        this.title = str;
+    public String Zy() {
+        return this.img;
     }
 
-    public int cou() {
+    public String coJ() {
+        return this.img_popup;
+    }
+
+    public int getType() {
         return this.type;
-    }
-
-    public void AV(int i) {
-        this.type = i;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public void setUrl(String str) {
-        this.url = str;
+    public int coK() {
+        return this.jdX;
     }
 
-    public void setTime(int i) {
-        this.time = i;
+    public long getId() {
+        return this.id;
     }
 
-    public String cov() {
-        return this.obj_id;
-    }
-
-    public String cow() {
-        return this.jdi;
-    }
-
-    public void a(StarEnter starEnter) {
-        setIcon(starEnter.icon);
-        setTime(starEnter.time.intValue());
-        setTitle(starEnter.title);
-        AV(starEnter.type.intValue());
-        setUrl(starEnter.url);
-        AU(starEnter.weight.intValue());
-        AT(starEnter.rank_num.intValue());
-        AS(starEnter.bazhu_mark.intValue());
-        if (StringUtils.isNull(this.title) && this.jdj == 1) {
-            this.title = jdh;
-        }
-        this.obj_id = starEnter.obj_id;
-        this.jdi = starEnter.text;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return BdUniqueId.gen();
+    public List<i> coL() {
+        return this.jdY;
     }
 }

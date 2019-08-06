@@ -29,7 +29,7 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String aDT() {
+    public static String aDV() {
         return Build.VERSION.RELEASE;
     }
 

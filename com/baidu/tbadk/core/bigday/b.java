@@ -82,7 +82,7 @@ public class b {
             public ArrayList<com.baidu.tbadk.core.bigday.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tbadk.core.bigday.a> arrayList = new ArrayList<>();
-                l<byte[]> mK = com.baidu.tbadk.core.d.a.agF().mK("tb.bigday_datas");
+                l<byte[]> mK = com.baidu.tbadk.core.d.a.agH().mK("tb.bigday_datas");
                 if (mK != null && (bArr = mK.get("tb.bigday_datas")) != null) {
                     try {
                         GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
@@ -123,7 +123,7 @@ public class b {
             this.bDS = b(arrayList, 3);
             this.bDU = arrayList;
             acr();
-            if (this.bDR != null && d.oF(this.bDR.imgUrl) && com.baidu.adp.lib.b.d.hS().az("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.ahO().getLong("key_bigday_next_showtime_home", 0L)) {
+            if (this.bDR != null && d.oF(this.bDR.imgUrl) && com.baidu.adp.lib.b.d.hS().az("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("key_bigday_next_showtime_home", 0L)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.bDR));
             }
         }
@@ -142,7 +142,7 @@ public class b {
             this.bDS = b2;
         }
         acr();
-        if (this.bDR != null && d.oF(this.bDR.imgUrl) && com.baidu.adp.lib.b.d.hS().az("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.ahO().getLong("key_bigday_next_showtime_home", 0L)) {
+        if (this.bDR != null && d.oF(this.bDR.imgUrl) && com.baidu.adp.lib.b.d.hS().az("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("key_bigday_next_showtime_home", 0L)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.bDR));
         }
     }

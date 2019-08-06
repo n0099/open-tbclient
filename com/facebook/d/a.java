@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> klw = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> kmC = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
     public static int ac(@Nullable Bitmap bitmap) {
@@ -35,7 +35,7 @@ public final class a {
     public static Pair<Integer, Integer> x(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = klw.acquire();
+        ByteBuffer acquire = kmC.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,7 +49,7 @@ public final class a {
             }
             return pair;
         } finally {
-            klw.release(acquire);
+            kmC.release(acquire);
         }
     }
 
@@ -57,30 +57,30 @@ public final class a {
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
     /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] klx = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] kmD = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                klx[Bitmap.Config.ARGB_8888.ordinal()] = 1;
+                kmD[Bitmap.Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                klx[Bitmap.Config.ALPHA_8.ordinal()] = 2;
+                kmD[Bitmap.Config.ALPHA_8.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                klx[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                kmD[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                klx[Bitmap.Config.RGB_565.ordinal()] = 4;
+                kmD[Bitmap.Config.RGB_565.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
         }
     }
 
     public static int b(Bitmap.Config config) {
-        switch (AnonymousClass1.klx[config.ordinal()]) {
+        switch (AnonymousClass1.kmD[config.ordinal()]) {
             case 1:
                 return 4;
             case 2:

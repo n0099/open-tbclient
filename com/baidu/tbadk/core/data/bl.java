@@ -1,46 +1,40 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
+import tbclient.Topic;
 /* loaded from: classes.dex */
-public class bl extends PostData {
-    public static final BdUniqueId bMF = BdUniqueId.gen();
-    private String bHW;
-    private int position = 0;
-    private String summary;
+public class bl {
+    private int bMG = 0;
+    private int bMH = 0;
+    private String link = "";
 
-    public String agy() {
-        return this.bHW;
+    public int agz() {
+        return this.bMG;
     }
 
-    public String getSummary() {
-        return this.summary;
+    public String getLink() {
+        return this.link;
     }
 
-    public void a(TopNews topNews) {
-        if (topNews != null) {
-            this.bHW = topNews.news_link;
-            this.summary = topNews.summary;
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bHW = jSONObject.optString("news_link");
-                this.summary = jSONObject.optString("summary");
-                this.position = jSONObject.optInt("position", 0);
+                this.bMG = jSONObject.optInt("is_lpost", 0);
+                this.bMH = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK, "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return bMF;
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.bMG = topic.is_lpost.intValue();
+            this.bMH = topic.topic_type.intValue();
+            this.link = topic.link;
+        }
     }
 }

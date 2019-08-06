@@ -2,8 +2,9 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import com.xiaomi.channel.commonutils.misc.h;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-final class p extends h.a {
+public final class p extends h.a {
     final /* synthetic */ com.xiaomi.xmpush.thrift.ai a;
     final /* synthetic */ Context b;
 

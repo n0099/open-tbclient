@@ -7,16 +7,16 @@ import java.lang.ref.WeakReference;
 public final class b {
     private int KY;
     private int KZ;
-    private WeakReference<View> dgb;
-    private int dgc;
-    private int dgd = 0;
+    private WeakReference<View> dgi;
+    private int dgj;
+    private int dgk = 0;
     private int mVideoHeight;
     private int mVideoSarDen;
     private int mVideoSarNum;
     private int mVideoWidth;
 
     public b(View view) {
-        this.dgb = new WeakReference<>(view);
+        this.dgi = new WeakReference<>(view);
     }
 
     public void setVideoSize(int i, int i2) {
@@ -30,7 +30,7 @@ public final class b {
     }
 
     public void setVideoRotation(int i) {
-        this.dgc = i;
+        this.dgj = i;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:68:0x0104, code lost:
@@ -45,13 +45,13 @@ public final class b {
         float f2;
         int i4;
         int i5;
-        if (this.dgc == 90 || this.dgc == 270) {
+        if (this.dgj == 90 || this.dgj == 270) {
             i = i2;
             i2 = i;
         }
         int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
         int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
-        if (this.dgd != 3) {
+        if (this.dgk != 3) {
             if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
                 int mode = View.MeasureSpec.getMode(i);
                 int size = View.MeasureSpec.getSize(i);
@@ -59,10 +59,10 @@ public final class b {
                 int size2 = View.MeasureSpec.getSize(i2);
                 if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
                     float f3 = size / size2;
-                    switch (this.dgd) {
+                    switch (this.dgk) {
                         case 4:
                             f = 1.7777778f;
-                            if (this.dgc == 90 || this.dgc == 270) {
+                            if (this.dgj == 90 || this.dgj == 270) {
                                 f2 = 1.0f / 1.7777778f;
                                 break;
                             }
@@ -70,7 +70,7 @@ public final class b {
                             break;
                         case 5:
                             f = 1.3333334f;
-                            if (this.dgc == 90 || this.dgc == 270) {
+                            if (this.dgj == 90 || this.dgj == 270) {
                                 f2 = 1.0f / 1.3333334f;
                                 break;
                             }
@@ -86,7 +86,7 @@ public final class b {
                             break;
                     }
                     boolean z = f2 > f3;
-                    switch (this.dgd) {
+                    switch (this.dgk) {
                         case 0:
                         case 4:
                         case 5:
@@ -166,15 +166,15 @@ public final class b {
         this.KZ = i2;
     }
 
-    public int aGJ() {
+    public int aGL() {
         return this.KY;
     }
 
-    public int aGK() {
+    public int aGM() {
         return this.KZ;
     }
 
     public void setAspectRatio(int i) {
-        this.dgd = i;
+        this.dgk = i;
     }
 }

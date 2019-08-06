@@ -11,11 +11,10 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.core.d.e;
 import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.aiapps.apps.o.d;
+import com.baidu.tieba.aiapps.apps.o.e;
 import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -35,7 +34,7 @@ public class b extends z {
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (aq.bV(optParamsAsJo.optString("appKey"), "flFqXclepWs7RdugAszy9eERL7G5dS0I") && optParamsAsJo.optJSONObject("extraData") != null && aq.bV(optParamsAsJo.optJSONObject("extraData").optString("from"), "阿婆娱乐")) {
-            d.au(context, unitedSchemeEntity.getParam("params"));
+            e.au(context, unitedSchemeEntity.getParam("params"));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -182,7 +181,7 @@ public class b extends z {
     }
 
     private String MR() {
-        e vJ = com.baidu.swan.apps.w.e.GF().vJ();
+        com.baidu.swan.apps.core.d.e vJ = com.baidu.swan.apps.w.e.GF().vJ();
         if (vJ == null || vJ.As() == null) {
             return "";
         }

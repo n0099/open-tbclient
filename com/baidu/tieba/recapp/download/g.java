@@ -17,15 +17,15 @@ import java.io.File;
 public class g {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.ami()) {
+        if (adAdSense != null && !adAdSense.amk()) {
             return s.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.bEU;
-        if (StringUtils.isNull(str) && advertAppInfo.bFd != null) {
-            str = advertAppInfo.bFd.userName;
+        String str = advertAppInfo.bEV;
+        if (StringUtils.isNull(str) && advertAppInfo.bFe != null) {
+            str = advertAppInfo.bFe.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -37,21 +37,21 @@ public class g {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.arL().b(advertAppInfo);
-        String str2 = advertAppInfo.bEU;
+        com.baidu.tbadk.distribute.a.arN().b(advertAppInfo);
+        String str2 = advertAppInfo.bEV;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        h.chQ().a(advertAppInfo.bEX, advertAppInfo.bEW, str2, i, h.DG(advertAppInfo.bEX).intValue(), null, true, false, true, advertAppInfo.bFd.userPortrait, downloadStaticsData, advertAppInfo.bFd.userName);
+        h.cii().a(advertAppInfo.bEY, advertAppInfo.bEX, str2, i, h.DH(advertAppInfo.bEY).intValue(), null, true, false, true, advertAppInfo.bFe.userPortrait, downloadStaticsData, advertAppInfo.bFe.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.ami()) {
+        if (adAdSense != null && !adAdSense.amk()) {
             s.f(advertAppInfo);
         } else {
-            h.chQ().x(advertAppInfo.bEW, advertAppInfo.bEX, true);
+            h.cii().x(advertAppInfo.bEX, advertAppInfo.bEY, true);
         }
     }
 

@@ -13,7 +13,7 @@ public interface b {
 
     void a(f fVar, FrsViewData frsViewData);
 
-    void bR(View view);
+    void bS(View view);
 
-    boolean rV(int i);
+    boolean rX(int i);
 }

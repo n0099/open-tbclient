@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class c {
-    private AdvertAppInfo gXt;
+    private AdvertAppInfo gYl;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -18,34 +18,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.gXt = advertAppInfo;
+        this.gYl = advertAppInfo;
     }
 
-    public void bIy() {
-        zL("click");
-        com.baidu.tieba.recapp.report.c.ciy().a(com.baidu.tieba.recapp.report.f.c(this.gXt, 2, 0));
+    public void bIM() {
+        zM("click");
+        com.baidu.tieba.recapp.report.c.ciQ().a(com.baidu.tieba.recapp.report.f.c(this.gYl, 2, 0));
     }
 
-    public void bIz() {
-        zL("click");
-        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.gXt, 2, 0);
-        c.Ec("title");
-        com.baidu.tieba.recapp.report.c.ciy().a(c);
+    public void bIN() {
+        zM("click");
+        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.gYl, 2, 0);
+        c.Ed("title");
+        com.baidu.tieba.recapp.report.c.ciQ().a(c);
     }
 
-    public void bIA() {
-        zL(SmsLoginView.StatEvent.LOGIN_SHOW);
-        com.baidu.tieba.recapp.report.c.ciy().a(com.baidu.tieba.recapp.report.f.c(this.gXt, 3, 0));
+    public void bIO() {
+        zM(SmsLoginView.StatEvent.LOGIN_SHOW);
+        com.baidu.tieba.recapp.report.c.ciQ().a(com.baidu.tieba.recapp.report.f.c(this.gYl, 3, 0));
     }
 
-    public void bIB() {
-    }
-
-    public void zK(String str) {
-        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
+    public void bIP() {
     }
 
     public void zL(String str) {
-        com.baidu.tbadk.distribute.a.arL().a(this.gXt, this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L), "PB", str, 1);
+        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
+    }
+
+    public void zM(String str) {
+        com.baidu.tbadk.distribute.a.arN().a(this.gYl, this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L), "PB", str, 1);
     }
 }

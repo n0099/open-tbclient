@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.f;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    Class<?> ahF();
+    Class<?> ahH();
 
-    String ahG();
+    String ahI();
 
     void b(Context context, int i, boolean z);
 

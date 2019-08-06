@@ -13,34 +13,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class d {
-    private static d jNm;
-    private ContentObserver jNn;
+    private static d jOt;
+    private ContentObserver jOu;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> mListeners = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable jNo = new Runnable() { // from class: com.baidu.tieba.write.album.d.1
+    private Runnable jOv = new Runnable() { // from class: com.baidu.tieba.write.album.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.sf(false);
+            d.this.sg(false);
         }
     };
 
     /* loaded from: classes3.dex */
     public interface a {
-        void sg(boolean z);
+        void sh(boolean z);
     }
 
-    public static d cAk() {
-        if (jNm == null) {
+    public static d cAF() {
+        if (jOt == null) {
             synchronized (d.class) {
-                if (jNm == null) {
-                    jNm = new d();
-                    jNm.init(TbadkCoreApplication.getInst());
+                if (jOt == null) {
+                    jOt = new d();
+                    jOt.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return jNm;
+        return jOt;
     }
 
     private d() {
@@ -50,14 +50,14 @@ public class d {
         this.mReceiver = new BroadcastReceiver() { // from class: com.baidu.tieba.write.album.d.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
-                d.this.aB(intent);
+                d.this.aD(intent);
             }
         };
-        this.jNn = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.d.3
+        this.jOu = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.d.3
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
-                d.this.handler.removeCallbacks(d.this.jNo);
-                d.this.handler.postDelayed(d.this.jNo, 2000L);
+                d.this.handler.removeCallbacks(d.this.jOv);
+                d.this.handler.postDelayed(d.this.jOv, 2000L);
             }
         };
         IntentFilter intentFilter = new IntentFilter();
@@ -68,23 +68,23 @@ public class d {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.jNn);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.jOu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aB(Intent intent) {
+    public void aD(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            sf(true);
+            sg(true);
             return;
         }
-        this.handler.removeCallbacks(this.jNo);
-        this.handler.postDelayed(this.jNo, 2000L);
+        this.handler.removeCallbacks(this.jOv);
+        this.handler.postDelayed(this.jOv, 2000L);
     }
 
-    public void sf(boolean z) {
+    public void sg(boolean z) {
         Iterator<a> it = this.mListeners.iterator();
         while (it.hasNext()) {
-            it.next().sg(z);
+            it.next().sh(z);
         }
     }
 
@@ -108,8 +108,8 @@ public class d {
         removeAllListeners();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.unregisterReceiver(this.mReceiver);
-        inst.getContentResolver().unregisterContentObserver(this.jNn);
-        this.handler.removeCallbacks(this.jNo);
-        jNm = null;
+        inst.getContentResolver().unregisterContentObserver(this.jOu);
+        this.handler.removeCallbacks(this.jOv);
+        jOt = null;
     }
 }

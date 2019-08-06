@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> cRg = new SparseArray<>();
-    private Object cRh;
-    private int cRi;
+    private static SparseArray<BdUniqueId> cRn = new SparseArray<>();
+    private Object cRo;
+    private int cRp;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cRg.get(this.cRi);
+        return cRn.get(this.cRp);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object aAx() {
-        return this.cRh;
+    public Object aAz() {
+        return this.cRo;
     }
 
     public void aj(Object obj) {
-        this.cRh = obj;
+        this.cRo = obj;
     }
 
-    public int aAy() {
-        return this.cRi;
+    public int aAA() {
+        return this.cRp;
     }
 
-    public void md(int i) {
-        this.cRi = i;
+    public void me(int i) {
+        this.cRp = i;
     }
 
     public static void ar(List<Integer> list) {
-        if (cRg.size() <= 0 && list != null) {
+        if (cRn.size() <= 0 && list != null) {
             for (Integer num : list) {
-                cRg.put(num.intValue(), BdUniqueId.gen());
+                cRn.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> aAz() {
+    public static List<BdUniqueId> aAB() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < cRg.size(); i++) {
-            arrayList.add(cRg.valueAt(i));
+        for (int i = 0; i < cRn.size(); i++) {
+            arrayList.add(cRn.valueAt(i));
         }
         return arrayList;
     }
 
     public static int k(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (cRg.size() == 0 || (indexOfValue = cRg.indexOfValue(bdUniqueId)) == -1 || cRg.size() <= indexOfValue) {
+        if (cRn.size() == 0 || (indexOfValue = cRn.indexOfValue(bdUniqueId)) == -1 || cRn.size() <= indexOfValue) {
             return -1;
         }
-        return cRg.keyAt(indexOfValue);
+        return cRn.keyAt(indexOfValue);
     }
 }

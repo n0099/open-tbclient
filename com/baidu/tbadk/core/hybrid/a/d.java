@@ -12,11 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends n {
-    private l bPM;
+    private l bPS;
 
     public d(l lVar) {
         super(lVar);
-        this.bPM = lVar;
+        this.bPS = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,7 +25,7 @@ public class d extends n {
         return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @o(ahA = false, value = "showShareDialog")
+    @o(ahC = false, value = "showShareDialog")
     protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");
@@ -41,7 +41,7 @@ public class d extends n {
                 eVar.imageUri = Uri.parse(optString3);
             }
             eVar.linkUrl = optString4;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.bPM.getContext(), eVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.bPS.getContext(), eVar, true);
             shareDialogConfig.setIsSupportNightMode(true);
             shareDialogConfig.setIsCopyLink(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));

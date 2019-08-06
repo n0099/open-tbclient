@@ -12,25 +12,25 @@ import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b cVN;
+    private static b cVU;
     private int mPort = 0;
 
     private b() {
-        a.aCp();
+        a.aCr();
     }
 
-    public static b aCr() {
-        if (cVN == null) {
+    public static b aCt() {
+        if (cVU == null) {
             synchronized (b.class) {
-                if (cVN == null) {
-                    cVN = new b();
+                if (cVU == null) {
+                    cVU = new b();
                 }
             }
         }
-        return cVN;
+        return cVU;
     }
 
-    private static long aCn() {
+    private static long aCp() {
         try {
             File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
             if (cacheDir != null && cacheDir.exists() && cacheDir.canRead() && cacheDir.canWrite()) {
@@ -44,24 +44,24 @@ public class b implements i {
         }
     }
 
-    private boolean aCs() {
-        d.am(TAG, "sdcard avalible size " + ((aCn() / 1024) / 1024) + "M");
-        return aCn() > 314572800 && getPort() > 0;
+    private boolean aCu() {
+        d.am(TAG, "sdcard avalible size " + ((aCp() / 1024) / 1024) + "M");
+        return aCp() > 314572800 && getPort() > 0;
     }
 
     public void cW(Context context) {
         if (context != null) {
-            e.cX(context).aBx();
+            e.cX(context).aBz();
         }
     }
 
     @Override // com.baidu.tieba.play.i
     public String sc(String str) {
-        if (aCs()) {
+        if (aCu()) {
             String sd = sd(str);
             if (sd == null) {
                 String sa = sa(str);
-                if (sa != null && new File(c.cVA + sa + "/header_downloaded").exists()) {
+                if (sa != null && new File(c.cVH + sa + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
@@ -73,7 +73,7 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public String V(String str, boolean z) {
-        if (aCs()) {
+        if (aCu()) {
             String sd = sd(str);
             if (sd == null) {
                 String sa = sa(str);
@@ -81,7 +81,7 @@ public class b implements i {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.cVA + sa + "/header_downloaded").exists()) {
+                    if (new File(c.cVH + sa + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
@@ -97,7 +97,7 @@ public class b implements i {
     public String sd(String str) {
         String sa;
         File file;
-        if (str == null || !str.contains("/") || (sa = sa(str)) == null || (file = new File(c.cVA + sa + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (sa = sa(str)) == null || (file = new File(c.cVH + sa + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -120,7 +120,7 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public void se(String str) {
-        a.aCp().sb(str);
+        a.aCr().sb(str);
     }
 
     @Override // com.baidu.tieba.play.i
@@ -151,7 +151,7 @@ public class b implements i {
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
         if (this.mPort == 0) {
-            File file = new File(c.cVB);
+            File file = new File(c.cVI);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -244,12 +244,12 @@ public class b implements i {
         return this.mPort;
     }
 
-    public void aCt() {
+    public void aCv() {
         this.mPort = 0;
     }
 
     @Override // com.baidu.tieba.play.i
     public String sf(String str) {
-        return com.baidu.tieba.VideoCache.i.cVA + sa(str);
+        return com.baidu.tieba.VideoCache.i.cVH + sa(str);
     }
 }

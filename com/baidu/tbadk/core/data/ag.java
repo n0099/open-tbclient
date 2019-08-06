@@ -7,19 +7,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag {
-    private ArrayList<String> bHE;
-    private int bHF = 0;
-    private UserData bHD = new UserData();
+    private ArrayList<String> bHF;
+    private int bHG = 0;
+    private UserData bHE = new UserData();
     private AntiData anti = new AntiData();
 
     public ag() {
-        this.bHE = null;
-        this.bHE = new ArrayList<>();
+        this.bHF = null;
+        this.bHF = new ArrayList<>();
         gV(0);
     }
 
     public UserData getUser() {
-        return this.bHD;
+        return this.bHE;
     }
 
     public AntiData getAnti() {
@@ -36,12 +36,12 @@ public class ag {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.bHD.parserJson(jSONObject.optJSONObject("user"));
+            this.bHE.parserJson(jSONObject.optJSONObject("user"));
             this.anti.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.bHE.add(optJSONArray.optString(i, null));
+                    this.bHF.add(optJSONArray.optString(i, null));
                 }
             }
             gV(jSONObject.optInt("retrytime"));
@@ -51,6 +51,6 @@ public class ag {
     }
 
     public void gV(int i) {
-        this.bHF = i;
+        this.bHG = i;
     }
 }

@@ -59,12 +59,12 @@ public class WhiteListData extends LinkedList<String> {
     }
 
     private void pj(String str) {
-        com.baidu.tbadk.core.sharedPref.b.ahO().putString("key_white_list", str);
+        com.baidu.tbadk.core.sharedPref.b.ahQ().putString("key_white_list", str);
     }
 
     public static WhiteListData createBySP() {
         WhiteListData whiteListData = new WhiteListData();
-        String string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_white_list", null);
+        String string = com.baidu.tbadk.core.sharedPref.b.ahQ().getString("key_white_list", null);
         if (!TextUtils.isEmpty(string)) {
             whiteListData.parserJson(string);
         }

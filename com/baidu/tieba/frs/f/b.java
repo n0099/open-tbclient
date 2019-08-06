@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b {
-    private Animation fQs;
+    private Animation fRg;
     private TbPageContext<BaseFragmentActivity> mContext;
 
     public b(TbPageContext<BaseFragmentActivity> tbPageContext) {
         this.mContext = tbPageContext;
-        this.fQs = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), R.anim.frs_like);
+        this.fRg = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), R.anim.frs_like);
     }
 }

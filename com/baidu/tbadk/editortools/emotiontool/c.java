@@ -4,13 +4,13 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
     private int cols;
-    private com.baidu.adp.widget.ImageView.a csR;
-    private com.baidu.adp.widget.ImageView.a csS;
+    private com.baidu.adp.widget.ImageView.a csY;
+    private com.baidu.adp.widget.ImageView.a csZ;
     private int rows;
 
-    public abstract boolean asn();
+    public abstract boolean asp();
 
-    public abstract EmotionGroupType aso();
+    public abstract EmotionGroupType asq();
 
     public abstract int getEmotionsCount();
 
@@ -22,7 +22,7 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String ks(int i);
+    public abstract String kt(int i);
 
     public abstract boolean qi(String str);
 
@@ -30,43 +30,43 @@ public abstract class c {
 
     public abstract com.baidu.adp.widget.ImageView.a qk(String str);
 
-    public com.baidu.adp.widget.ImageView.a asp() {
-        return this.csR;
+    public com.baidu.adp.widget.ImageView.a asr() {
+        return this.csY;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.nK();
         }
-        this.csR = aVar;
+        this.csY = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a asq() {
-        return this.csS;
+    public com.baidu.adp.widget.ImageView.a ass() {
+        return this.csZ;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.nK();
         }
-        this.csS = aVar;
+        this.csZ = aVar;
     }
 
-    public int asr() {
+    public int ast() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void kt(int i) {
+    public void ku(int i) {
         this.cols = i;
     }
 
-    public int ass() {
+    public int asu() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ku(int i) {
+    public void kv(int i) {
         this.rows = i;
     }
 }

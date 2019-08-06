@@ -3,17 +3,17 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.cache.l;
 /* loaded from: classes4.dex */
 public class g {
-    private static g hNl;
-    private com.baidu.adp.lib.cache.l<byte[]> hNm = null;
-    private com.baidu.adp.lib.cache.l<byte[]> hNn = null;
+    private static g hOf;
+    private com.baidu.adp.lib.cache.l<byte[]> hOg = null;
+    private com.baidu.adp.lib.cache.l<byte[]> hOh = null;
 
-    public static synchronized g bVf() {
+    public static synchronized g bVv() {
         g gVar;
         synchronized (g.class) {
-            if (hNl == null) {
-                hNl = new g();
+            if (hOf == null) {
+                hOf = new g();
             }
-            gVar = hNl;
+            gVar = hOf;
         }
         return gVar;
     }
@@ -23,34 +23,34 @@ public class g {
     }
 
     private void Xr() {
-        if (this.hNm == null) {
-            this.hNm = com.baidu.tbadk.core.d.a.agF().mK("tb.pb_mark");
+        if (this.hOg == null) {
+            this.hOg = com.baidu.tbadk.core.d.a.agH().mK("tb.pb_mark");
         }
-        if (this.hNn == null) {
-            this.hNn = com.baidu.tbadk.core.d.a.agF().mK("tb.pb_normal");
+        if (this.hOh == null) {
+            this.hOh = com.baidu.tbadk.core.d.a.agH().mK("tb.pb_normal");
         }
     }
 
     public void as(String str, boolean z) {
         if (z) {
-            if (this.hNm != null && str != null) {
-                this.hNm.b(str, new byte[0], 0L);
+            if (this.hOg != null && str != null) {
+                this.hOg.b(str, new byte[0], 0L);
             }
-        } else if (this.hNn != null && str != null) {
-            this.hNn.b(str, new byte[0], 0L);
+        } else if (this.hOh != null && str != null) {
+            this.hOh.b(str, new byte[0], 0L);
         }
     }
 
     public byte[] at(String str, boolean z) {
         l.b<byte[]> aq;
         if (z) {
-            if (this.hNm != null && str != null) {
-                aq = this.hNm.aq(str);
+            if (this.hOg != null && str != null) {
+                aq = this.hOg.aq(str);
             }
             aq = null;
         } else {
-            if (this.hNn != null && str != null) {
-                aq = this.hNn.aq(str);
+            if (this.hOh != null && str != null) {
+                aq = this.hOh.aq(str);
             }
             aq = null;
         }
@@ -64,9 +64,9 @@ public class g {
         if (str != null) {
             Xr();
             if (z) {
-                this.hNm.a(str, bArr, 604800000L);
+                this.hOg.a(str, bArr, 604800000L);
             } else {
-                this.hNn.a(str, bArr, 86400000L);
+                this.hOh.a(str, bArr, 86400000L);
             }
         }
     }
@@ -74,7 +74,7 @@ public class g {
     public void l(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             Xr();
-            this.hNm.a(str, bArr, 2592000000L);
+            this.hOg.a(str, bArr, 2592000000L);
         }
     }
 }

@@ -8,14 +8,14 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.f;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    private com.baidu.tieba.card.f fGZ;
+    private com.baidu.tieba.card.f fHN;
     private String mForumId;
     private TbPageContext<?> mPageContext;
     private ab sH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.d.eSj);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.d.eSq);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -25,8 +25,8 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aq */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> onCreateViewHolder(ViewGroup viewGroup) {
-        this.fGZ = new com.baidu.tieba.card.f(this.mPageContext, this.mForumId);
-        return new com.baidu.tieba.card.a.a<>(this.fGZ);
+        this.fHN = new com.baidu.tieba.card.f(this.mPageContext, this.mForumId);
+        return new com.baidu.tieba.card.a.a<>(this.fHN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,12 +34,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        if (aVar.bar() == null) {
+        if (aVar.bat() == null) {
             return null;
         }
-        aVar.bar().a(dVar);
-        aVar.bar().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.bar().a(new f.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
+        aVar.bat().a(dVar);
+        aVar.bat().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bat().a(new f.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
             @Override // com.baidu.tieba.card.f.a
             public void b(View view2, com.baidu.tieba.card.data.b bVar) {
                 if (e.this.sH != null) {
@@ -47,7 +47,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
                 }
             }
         });
-        return aVar.bar().getView();
+        return aVar.bat().getView();
     }
 
     public void e(ab abVar) {

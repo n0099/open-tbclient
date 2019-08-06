@@ -14,14 +14,14 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0243a bVA;
-    private ArrayList<String> bVy = new ArrayList<>();
-    private b bVz;
+    private ArrayList<String> bVE = new ArrayList<>();
+    private b bVF;
+    private InterfaceC0243a bVG;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0243a {
-        void ajR();
+        void ajT();
     }
 
     /* loaded from: classes.dex */
@@ -32,27 +32,27 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.bVz = bVar;
+        this.bVF = bVar;
     }
 
-    public void ajQ() {
-        if (this.bVy != null) {
-            this.bVy.clear();
+    public void ajS() {
+        if (this.bVE != null) {
+            this.bVE.clear();
         }
     }
 
     public void e(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !f(activity, str)) {
-            this.bVy.add(str);
+            this.bVE.add(str);
         }
     }
 
     public boolean ad(Activity activity) {
         if (!com.baidu.e.a.uD()) {
-            ajR();
+            ajT();
             return false;
-        } else if (v.aa(this.bVy)) {
-            ajR();
+        } else if (v.aa(this.bVE)) {
+            ajT();
             return false;
         } else {
             if (activity instanceof BaseFragmentActivity) {
@@ -89,27 +89,27 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.bVz != null) {
-                    a.this.bVz.oA(str);
+                if (a.this.bVF != null) {
+                    a.this.bVF.oA(str);
                 }
             }
         }).b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.bVz != null) {
-                    a.this.bVz.oz(str);
+                if (a.this.bVF != null) {
+                    a.this.bVF.oz(str);
                 }
             }
         }).b(i.ab(activity));
-        aVar.agI();
+        aVar.agK();
         return false;
     }
 
     private void ae(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bVy.toArray(new String[this.bVy.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bVE.toArray(new String[this.bVE.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -139,12 +139,12 @@ public class a {
     }
 
     public void a(InterfaceC0243a interfaceC0243a) {
-        this.bVA = interfaceC0243a;
+        this.bVG = interfaceC0243a;
     }
 
-    public void ajR() {
-        if (this.bVA != null) {
-            this.bVA.ajR();
+    public void ajT() {
+        if (this.bVG != null) {
+            this.bVG.ajT();
         }
     }
 }

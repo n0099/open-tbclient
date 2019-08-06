@@ -6,29 +6,29 @@ import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
     private int height;
-    private String jeK;
-    private String jeL;
-    private String jeM;
-    private String jeN;
+    private String jfR;
+    private String jfS;
+    private String jfT;
+    private String jfU;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.jeK = null;
+        this.jfR = null;
         this.urlFlag = 0;
-        this.jeL = null;
-        this.jeM = null;
-        this.jeN = null;
+        this.jfS = null;
+        this.jfT = null;
+        this.jfU = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.jeK = timgs.img_url;
+            this.jfR = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.jeL = timgs.url;
-            this.jeM = timgs.big_cdn_url;
-            this.jeN = timgs.des_main;
+            this.jfS = timgs.url;
+            this.jfT = timgs.big_cdn_url;
+            this.jfU = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -51,19 +51,19 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.jeK;
+        return this.jfR;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String acP() {
-        return this.jeL;
+    public String acQ() {
+        return this.jfS;
     }
 
-    public String coX() {
-        return this.jeK;
+    public String cpt() {
+        return this.jfR;
     }
 
-    public String coY() {
-        return this.jeM;
+    public String cpu() {
+        return this.jfT;
     }
 }

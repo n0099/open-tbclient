@@ -3,13 +3,13 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class c {
-    private static c cCy;
+    private static c cCF;
 
-    public static c awa() {
-        if (cCy == null) {
-            cCy = new c();
+    public static c awc() {
+        if (cCF == null) {
+            cCF = new c();
         }
-        return cCy;
+        return cCF;
     }
 
     public String rb(String str) {

@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
@@ -18,8 +18,8 @@ import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<com.baidu.tieba.card.w>> {
     private ab VC;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> fyU;
-    private com.baidu.adp.lib.e.b<TbImageView> fyV;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> fzt;
+    private com.baidu.adp.lib.e.b<TbImageView> fzu;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,15 +28,15 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.VC = new ab() { // from class: com.baidu.tieba.homepage.personalize.a.i.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.b bVar, Object obj) {
-                if ((bVar instanceof bg) && (obj instanceof com.baidu.tieba.card.u)) {
-                    TiebaStatic.log(i.this.a("c13024", (bg) bVar, (com.baidu.tieba.card.u) obj));
+                if ((bVar instanceof bh) && (obj instanceof com.baidu.tieba.card.u)) {
+                    TiebaStatic.log(i.this.a("c13024", (bh) bVar, (com.baidu.tieba.card.u) obj));
                 }
             }
         };
-        this.fyU = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.i.2
+        this.fzt = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: boc */
+            /* renamed from: bom */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(i.this.mPageContext.getPageActivity());
             }
@@ -62,10 +62,10 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.fyV = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.personalize.a.i.3
+        this.fzu = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.personalize.a.i.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: alc */
+            /* renamed from: ale */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(i.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -108,8 +108,8 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.w> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.card.w wVar = new com.baidu.tieba.card.w(this.mPageContext, viewGroup);
         com.baidu.tieba.card.a.a<com.baidu.tieba.card.w> aVar = new com.baidu.tieba.card.a.a<>(wVar);
-        wVar.setConstrainImagePool(this.fyV);
-        wVar.setConstrainLayoutPool(this.fyU);
+        wVar.setConstrainImagePool(this.fzu);
+        wVar.setConstrainLayoutPool(this.fzt);
         wVar.d(this.VC);
         return aVar;
     }
@@ -119,31 +119,31 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.w> aVar) {
-        if (aVar == null || aVar.bar() == null) {
+        if (aVar == null || aVar.bat() == null) {
             return null;
         }
-        if (kVar != null && kVar.acx() != null) {
+        if (kVar != null && kVar.acy() != null) {
             com.baidu.tieba.card.u uVar = new com.baidu.tieba.card.u();
             uVar.locate = kVar.position + 1;
             uVar.source = kVar.getSource();
             uVar.weight = kVar.getWeight();
-            uVar.czn = kVar.aZY();
-            com.baidu.tieba.card.t.aZN().c(a("c13023", kVar.acx(), uVar));
-            aVar.bar().a(uVar);
-            aVar.bar().d(this.VC);
-            aVar.bar().a(kVar.acx());
+            uVar.czu = kVar.baa();
+            com.baidu.tieba.card.t.aZP().c(a("c13023", kVar.acy(), uVar));
+            aVar.bat().a(uVar);
+            aVar.bat().d(this.VC);
+            aVar.bat().a(kVar.acy());
         }
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public an a(String str, bg bgVar, com.baidu.tieba.card.u uVar) {
-        if (StringUtils.isNull(str) || bgVar == null || uVar == null) {
+    public an a(String str, bh bhVar, com.baidu.tieba.card.u uVar) {
+        if (StringUtils.isNull(str) || bhVar == null || uVar == null) {
             return null;
         }
-        an bT = new an(str).bT("fid", String.valueOf(bgVar.getFid())).bT("tid", String.valueOf(bgVar.getTid())).P("obj_locate", uVar.locate).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, uVar.source).bT("obj_param1", uVar.weight).bT("ab_tag", uVar.czn).bT("obj_param3", com.baidu.tieba.card.n.aZE());
-        if (bgVar.aex() != null) {
-            bT.bT("obj_name", bgVar.aex().getName_show());
+        an bT = new an(str).bT("fid", String.valueOf(bhVar.getFid())).bT("tid", String.valueOf(bhVar.getTid())).P("obj_locate", uVar.locate).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, uVar.source).bT("obj_param1", uVar.weight).bT("ab_tag", uVar.czu).bT("obj_param3", com.baidu.tieba.card.n.aZG());
+        if (bhVar.aey() != null) {
+            bT.bT("obj_name", bhVar.aey().getName_show());
             return bT;
         }
         return bT;

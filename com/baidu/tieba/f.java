@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.tbadkCore.u;
+import com.baidu.tieba.tbadkCore.w;
 import com.tencent.connect.common.Constants;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -23,14 +23,14 @@ public class f {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.ahQ().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.ahO().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.ahQ().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.ahO().putString("version_name", versionName);
+                    com.baidu.tbadk.core.sharedPref.b.ahQ().putString("version_name", versionName);
                     String f = at.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.ahO().putString("apk_md5", f);
+                    com.baidu.tbadk.core.sharedPref.b.ahQ().putString("apk_md5", f);
                     str = f;
                 }
             }
@@ -53,7 +53,7 @@ public class f {
     }
 
     public static boolean a(Context context, CombineDownload combineDownload) {
-        return (combineDownload == null || u.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+        return (combineDownload == null || w.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
     }
 
     public static void a(Context context, VersionData versionData) {

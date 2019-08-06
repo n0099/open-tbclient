@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d kew;
-    private final c.a keA = new a();
-    private int kex;
+    private static d kfD;
+    private int kfE;
     @Nullable
-    private List<c.a> kez;
+    private List<c.a> kfF;
+    private final c.a kfG = new a();
 
     private d() {
-        cHf();
+        cHA();
     }
 
-    public void eG(@Nullable List<c.a> list) {
-        this.kez = list;
-        cHf();
+    public void eF(@Nullable List<c.a> list) {
+        this.kfF = list;
+        cHA();
     }
 
     public c s(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.kex];
-        int a = a(this.kex, inputStream, bArr);
-        if (this.kez != null) {
-            for (c.a aVar : this.kez) {
+        byte[] bArr = new byte[this.kfE];
+        int a = a(this.kfE, inputStream, bArr);
+        if (this.kfF != null) {
+            for (c.a aVar : this.kfF) {
                 c l = aVar.l(bArr, a);
-                if (l != null && l != c.keu) {
+                if (l != null && l != c.kfB) {
                     return l;
                 }
             }
         }
-        c l2 = this.keA.l(bArr, a);
+        c l2 = this.kfG.l(bArr, a);
         if (l2 == null) {
-            return c.keu;
+            return c.kfB;
         }
         return l2;
     }
 
-    private void cHf() {
-        this.kex = this.keA.getHeaderSize();
-        if (this.kez != null) {
-            for (c.a aVar : this.kez) {
-                this.kex = Math.max(this.kex, aVar.getHeaderSize());
+    private void cHA() {
+        this.kfE = this.kfG.getHeaderSize();
+        if (this.kfF != null) {
+            for (c.a aVar : this.kfF) {
+                this.kfE = Math.max(this.kfE, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d cHg() {
+    public static synchronized d cHB() {
         d dVar;
         synchronized (d.class) {
-            if (kew == null) {
-                kew = new d();
+            if (kfD == null) {
+                kfD = new d();
             }
-            dVar = kew;
+            dVar = kfD;
         }
         return dVar;
     }
 
     public static c t(InputStream inputStream) throws IOException {
-        return cHg().s(inputStream);
+        return cHB().s(inputStream);
     }
 
     public static c u(InputStream inputStream) {

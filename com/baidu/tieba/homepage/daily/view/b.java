@@ -19,23 +19,23 @@ import com.baidu.tieba.homepage.daily.b.e;
 import com.baidu.tieba.view.NoScrollGridView;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemClickListener {
-    private TextView gek;
-    private ImageView gel;
-    private NoScrollGridView gem;
-    private d gen;
+    private TextView gfb;
+    private ImageView gfc;
+    private NoScrollGridView gfd;
+    private d gfe;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.gek = (TextView) view.findViewById(R.id.topic_title_view);
-        this.gel = (ImageView) view.findViewById(R.id.topic_more);
-        this.gel.setOnClickListener(this);
-        this.gem = (NoScrollGridView) view.findViewById(R.id.topic_gridview);
-        this.gen = new d(tbPageContext.getPageActivity());
-        this.gem.setAdapter((ListAdapter) this.gen);
-        this.gem.setOnItemClickListener(this);
+        this.gfb = (TextView) view.findViewById(R.id.topic_title_view);
+        this.gfc = (ImageView) view.findViewById(R.id.topic_more);
+        this.gfc.setOnClickListener(this);
+        this.gfd = (NoScrollGridView) view.findViewById(R.id.topic_gridview);
+        this.gfe = new d(tbPageContext.getPageActivity());
+        this.gfd.setAdapter((ListAdapter) this.gfe);
+        this.gfd.setOnItemClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -46,8 +46,8 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(e eVar) {
-        if (eVar != null && eVar.gdU != null) {
-            this.gen.setData(eVar.gdU);
+        if (eVar != null && eVar.geL != null) {
+            this.gfe.setData(eVar.geL);
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -56,20 +56,20 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.j(this.gek, R.color.cp_cont_b);
-            am.c(this.gel, (int) R.drawable.icon_arrow_gray_right_n);
+            am.j(this.gfb, R.color.cp_cont_b);
+            am.c(this.gfc, (int) R.drawable.icon_arrow_gray_right_n);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gel) {
+        if (view == this.gfc) {
             if (com.baidu.tbadk.plugins.b.fI(true)) {
                 new HotRanklistActivityConfig(getContext()).createNormalConfig("hotforum", "all").start();
             } else {
-                String bvk = this.gen.bvk();
-                if (bvk != null) {
-                    bb.ajC().c(this.mTbPageContext, new String[]{bvk});
+                String bvx = this.gfe.bvx();
+                if (bvx != null) {
+                    bb.ajE().c(this.mTbPageContext, new String[]{bvx});
                 }
             }
             TiebaStatic.log(new an("c13177").P("obj_locate", 5));
@@ -78,12 +78,12 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        e.a item = this.gen.getItem(i);
+        e.a item = this.gfe.getItem(i);
         if (item != null) {
             if (com.baidu.tbadk.plugins.b.fI(true)) {
-                new HotTopicActivityConfig(getContext()).createNormalConfig("", item.adG(), "1").start();
-            } else if (item.agf() != null) {
-                bb.ajC().c(this.mTbPageContext, new String[]{item.agf()});
+                new HotTopicActivityConfig(getContext()).createNormalConfig("", item.adH(), "1").start();
+            } else if (item.agg() != null) {
+                bb.ajE().c(this.mTbPageContext, new String[]{item.agg()});
             }
         }
         TiebaStatic.log(new an("c13177").P("obj_locate", i + 1));

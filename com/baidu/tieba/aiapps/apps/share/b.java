@@ -21,25 +21,25 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        aHy();
+        aHA();
         av(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        aHz();
+        aHB();
     }
 
-    private void aHy() {
+    private void aHA() {
     }
 
-    private void aHz() {
+    private void aHB() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gD(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        aHz();
+        aHB();
         finish();
     }
 
@@ -51,7 +51,7 @@ public class b extends ActivityDelegation {
         a aVar = new a();
         try {
             aVar.bi(new JSONObject(str));
-            TiebaStatic.log(new an("c13530").bT(VideoPlayActivityConfig.OBJ_ID, aVar.clc).P("obj_type", aVar.cld).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aVar.cle));
+            TiebaStatic.log(new an("c13530").bT(VideoPlayActivityConfig.OBJ_ID, aVar.clj).P("obj_type", aVar.clk).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aVar.cll));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                 @Override // android.content.DialogInterface.OnCancelListener

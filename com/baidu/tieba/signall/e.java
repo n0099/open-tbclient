@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes6.dex */
 public class e {
-    private static final String iWR = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    private static final String iXV = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
     private String mAuthSid;
     private x mNetWork = null;
 
@@ -14,29 +14,29 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String cnd() {
-        this.mNetWork = new x(iWR);
+    public String cnv() {
+        this.mNetWork = new x(iXV);
         this.mNetWork.o("authsid", this.mAuthSid);
-        this.mNetWork.aiE().ajE().bUG = true;
-        this.mNetWork.aiE().ajE().mIsNeedTbs = true;
+        this.mNetWork.aiG().ajG().bUM = true;
+        this.mNetWork.aiG().ajG().mIsNeedTbs = true;
         this.mNetWork.eb(true);
-        return this.mNetWork.aig();
+        return this.mNetWork.aii();
     }
 
-    public String Eq(String str) {
+    public String Er(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.mNetWork = new x(iWR);
+        this.mNetWork = new x(iXV);
         this.mNetWork.o("user_id", str2);
         this.mNetWork.o("forum_ids", str);
         this.mNetWork.o("authsid", this.mAuthSid);
-        this.mNetWork.aiE().ajE().bUG = true;
-        this.mNetWork.aiE().ajE().mIsNeedTbs = true;
+        this.mNetWork.aiG().ajG().bUM = true;
+        this.mNetWork.aiG().ajG().mIsNeedTbs = true;
         this.mNetWork.eb(true);
-        return this.mNetWork.aig();
+        return this.mNetWork.aii();
     }
 
     public void cancel() {
@@ -47,7 +47,7 @@ public class e {
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.aiE().ajF().isRequestSuccess();
+            return this.mNetWork.aiG().ajH().isRequestSuccess();
         }
         return false;
     }

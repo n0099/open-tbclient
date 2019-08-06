@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class ag implements Iterator<Short> {
-    public abstract short cNF();
+    public abstract short cOa();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class ag implements Iterator<Short> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cNE */
+    /* renamed from: cNZ */
     public final Short next() {
-        return Short.valueOf(cNF());
+        return Short.valueOf(cOa());
     }
 }

@@ -49,7 +49,7 @@ public class e {
                 }
             });
             aVar.dR(true);
-            aVar.b(frsFragment.getPageContext()).agI();
+            aVar.b(frsFragment.getPageContext()).agK();
             if (!k.isEmpty(h.getImageUrl())) {
                 frsShareCardView.am(h.getImageUrl(), false);
             }

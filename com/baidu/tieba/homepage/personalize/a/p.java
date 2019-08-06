@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, z<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
     private String WN;
-    private NEGFeedBackView.a cSD;
-    public BdUniqueId cxx;
+    private NEGFeedBackView.a cSK;
+    public BdUniqueId cxE;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,7 +42,7 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         x qO = aVar.qO();
         qO.bq(2);
         z<com.baidu.tieba.homepage.topic.topictab.b.a> zVar = new z<>(qO);
-        zVar.setPageId(this.cxx);
+        zVar.setPageId(this.cxE);
         return zVar;
     }
 
@@ -56,7 +56,7 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         TiebaStatic.log(new an("c13448"));
         zVar.qP().setPage(this.WN);
-        zVar.qQ().a(this.cSD);
+        zVar.qQ().a(this.cSK);
         zVar.a(aVar);
         zVar.qP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return zVar.getView();
@@ -68,6 +68,6 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.cSD = aVar;
+        this.cSK = aVar;
     }
 }

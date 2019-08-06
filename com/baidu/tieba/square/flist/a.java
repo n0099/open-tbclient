@@ -12,17 +12,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.d;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private d iYs;
-    private int iYt = 0;
-    C0409a iYu;
+    private d iZw;
+    private int iZx = 0;
+    C0409a iZy;
     Context mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public class C0409a {
-        ImageView iYv;
-        TextView iYw;
+        TextView iZA;
+        ImageView iZz;
 
         C0409a() {
         }
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iYs == null || this.iYs.jaN == null) {
+        if (this.iZw == null || this.iZw.jbR == null) {
             return 0;
         }
-        return this.iYs.jaN.size();
+        return this.iZw.jbR.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.iYs == null || this.iYs.jaN == null) {
+        if (this.iZw == null || this.iZw.jbR == null) {
             return null;
         }
-        return this.iYs.jaN.get(i);
+        return this.iZw.jbR.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,55 +56,55 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = cnG();
+            view = cnY();
         }
-        if (this.iYs != null) {
-            d dVar = this.iYs.jaN.get(i);
-            this.iYu = (C0409a) view.getTag();
+        if (this.iZw != null) {
+            d dVar = this.iZw.jbR.get(i);
+            this.iZy = (C0409a) view.getTag();
             if (dVar != null) {
-                a(this.iYu, dVar, view, i);
+                a(this.iZy, dVar, view, i);
             }
         }
         return view;
     }
 
-    public void AP(int i) {
-        this.iYt = i;
+    public void AR(int i) {
+        this.iZx = i;
         notifyDataSetChanged();
     }
 
     public void a(d dVar) {
-        this.iYs = dVar;
+        this.iZw = dVar;
     }
 
-    public d cnF() {
-        return this.iYs;
+    public d cnX() {
+        return this.iZw;
     }
 
-    private View cnG() {
+    private View cnY() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.iYu = new C0409a();
-        this.iYu.iYv = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.iYu.iYw = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.iYu);
+        this.iZy = new C0409a();
+        this.iZy.iZz = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.iZy.iZA = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.iZy);
         return inflate;
     }
 
     private void a(C0409a c0409a, d dVar, View view, int i) {
         if (c0409a != null && dVar != null) {
-            c0409a.iYw.setText("");
+            c0409a.iZA.setText("");
             if (i == 0) {
-                c0409a.iYw.setText(this.mActivity.getString(R.string.all) + dVar.iYA);
+                c0409a.iZA.setText(this.mActivity.getString(R.string.all) + dVar.iZE);
             } else {
-                c0409a.iYw.setText(dVar.iYA);
+                c0409a.iZA.setText(dVar.iZE);
             }
-            if (i != this.iYt) {
-                c0409a.iYv.setVisibility(4);
-                am.f(c0409a.iYw, R.color.common_color_10200, 1);
+            if (i != this.iZx) {
+                c0409a.iZz.setVisibility(4);
+                am.f(c0409a.iZA, R.color.common_color_10200, 1);
                 return;
             }
-            c0409a.iYv.setVisibility(0);
-            am.f(c0409a.iYw, R.color.common_color_10013, 1);
+            c0409a.iZz.setVisibility(0);
+            am.f(c0409a.iZA, R.color.common_color_10013, 1);
         }
     }
 }

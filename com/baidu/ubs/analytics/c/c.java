@@ -17,14 +17,14 @@ public final class c implements a.InterfaceC0445a {
     @Override // com.baidu.ubs.analytics.c.a.InterfaceC0445a
     public final void onActivityDestroyed(Activity activity) {
         d dVar;
-        dVar = d.a.jWF;
+        dVar = d.a.jXL;
         dVar.b(activity);
     }
 
     @Override // com.baidu.ubs.analytics.c.a.InterfaceC0445a
     public final void a(Activity activity) {
         d dVar;
-        dVar = d.a.jWF;
+        dVar = d.a.jXL;
         dVar.a(new WeakReference<>(activity));
     }
 }

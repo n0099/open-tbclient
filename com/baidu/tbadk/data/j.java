@@ -1,9 +1,9 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes.dex */
 public class j {
-    public int cqQ;
-    public bg cqR;
+    public int cqX;
+    public bh cqY;
     public String forumId;
 }

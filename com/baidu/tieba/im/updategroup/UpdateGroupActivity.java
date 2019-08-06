@@ -15,28 +15,28 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.model.UpdateGroupModel;
 /* loaded from: classes5.dex */
 public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
-    private UpdateGroupModel gQo;
-    private a gQn = null;
-    private int gQp = 1;
-    a.b gDM = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
+    private UpdateGroupModel gRg;
+    private a gRf = null;
+    private int gRh = 1;
+    a.b gEE = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            UpdateGroupActivity.this.bGG();
+            UpdateGroupActivity.this.bGU();
         }
     };
-    a.b gDN = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
+    a.b gEF = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             UpdateGroupActivity.this.setResult(0);
             UpdateGroupActivity.this.finish();
         }
     };
-    private com.baidu.adp.framework.listener.c gxX = new com.baidu.adp.framework.listener.c(103102) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
+    private com.baidu.adp.framework.listener.c gyP = new com.baidu.adp.framework.listener.c(103102) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103102) {
-                UpdateGroupActivity.this.gQn.setIsLoading(false);
+                UpdateGroupActivity.this.gRf.setIsLoading(false);
                 if (!(socketResponsedMessage instanceof ResponseUpdateGroupMessage)) {
                     UpdateGroupActivity.this.showToast(R.string.group_update_fail);
                     return;
@@ -48,7 +48,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
                 }
                 UpdateGroupActivity.this.showToast(R.string.group_update_success);
                 Intent intent = UpdateGroupActivity.this.getIntent();
-                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.gQn.getText());
+                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.gRf.getText());
                 UpdateGroupActivity.this.setResult(-1, intent);
                 UpdateGroupActivity.this.finish();
             }
@@ -74,79 +74,79 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
         long longExtra = intent.getLongExtra("group_id", 0L);
         String stringExtra = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
         t(intExtra, longExtra);
-        this.gQo = new UpdateGroupModel(getPageContext());
-        this.gQo.setUniqueId(getUniqueId());
-        this.gQn.zw(stringExtra);
-        this.gQn.b(this.gDN);
-        this.gQn.c(this.gDM);
+        this.gRg = new UpdateGroupModel(getPageContext());
+        this.gRg.setUniqueId(getUniqueId());
+        this.gRf.zx(stringExtra);
+        this.gRf.b(this.gEF);
+        this.gRf.c(this.gEE);
         initListener();
     }
 
     private void initListener() {
-        registerListener(this.gxX);
+        registerListener(this.gyP);
     }
 
     private void t(int i, long j) {
         if (i == 1) {
-            this.gQn = new c(this);
+            this.gRf = new c(this);
         } else if (i == 2) {
-            this.gQn = new b(this);
+            this.gRf = new b(this);
         }
-        this.gQp = i;
-        this.gQn.setGroupId(j);
+        this.gRh = i;
+        this.gRf.setGroupId(j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gQn.onChangeSkinType(i);
+        this.gRf.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gQn.bCe()) {
-            if (((d) this.gQn).bGH()) {
+        if (view == this.gRf.bCs()) {
+            if (((d) this.gRf).bGV()) {
                 finish();
-            } else if (this.gQn.bGE() && this.gQn.bBU()) {
-                bGG();
+            } else if (this.gRf.bGS() && this.gRf.bCi()) {
+                bGU();
             } else {
-                showToast(this.gQn.bGD());
+                showToast(this.gRf.bGR());
             }
-        } else if (view == this.gQn.bBs()) {
-            this.gQn.clearText();
-        } else if (view == this.gQn.bGB() && !bGF()) {
+        } else if (view == this.gRf.bBG()) {
+            this.gRf.clearText();
+        } else if (view == this.gRf.bGP() && !bGT()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && bGF()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && bGT()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean bGF() {
-        if (TextUtils.isEmpty(this.gQn.getText()) || !this.gQn.bBU() || this.gQn.getText().equals(this.gQn.bGA())) {
+    private boolean bGT() {
+        if (TextUtils.isEmpty(this.gRf.getText()) || !this.gRf.bCi() || this.gRf.getText().equals(this.gRf.bGO())) {
             return false;
         }
-        this.gQn.showDialog();
+        this.gRf.showDialog();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGG() {
-        this.gQn.setIsLoading(true);
-        this.gQo.setGroupId(this.gQn.getGroupId());
-        if (this.gQp == 1) {
-            this.gQo.setName(this.gQn.getText());
-            this.gQo.sendMessage(2);
-        } else if (this.gQp == 2) {
-            this.gQo.setIntro(this.gQn.getText());
-            this.gQo.sendMessage(1);
+    public void bGU() {
+        this.gRf.setIsLoading(true);
+        this.gRg.setGroupId(this.gRf.getGroupId());
+        if (this.gRh == 1) {
+            this.gRg.setName(this.gRf.getText());
+            this.gRg.sendMessage(2);
+        } else if (this.gRh == 2) {
+            this.gRg.setIntro(this.gRf.getText());
+            this.gRg.sendMessage(1);
         }
     }
 
@@ -155,7 +155,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.gQo.cancelMessage();
-        this.gQn.release();
+        this.gRg.cancelMessage();
+        this.gRf.release();
     }
 }

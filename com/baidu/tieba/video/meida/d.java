@@ -3,13 +3,13 @@ package com.baidu.tieba.video.meida;
 public abstract class d {
     int aCx;
     int channelCount;
-    String jzj;
+    String jAq;
 
-    public abstract void FZ(String str);
+    public abstract void Ga(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.jzj = str;
+        this.jAq = str;
     }
 
     public void setSampleRate(int i) {
@@ -20,7 +20,7 @@ public abstract class d {
         this.channelCount = i;
     }
 
-    public static d Ga(String str) {
+    public static d Gb(String str) {
         return new a(str);
     }
 }

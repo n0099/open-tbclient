@@ -1,11 +1,11 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class k {
-    private long cfU;
-    private int cfV;
+    private long cgb;
+    private int cgc;
     private String mMd5;
 
-    public String amo() {
+    public String amq() {
         return this.mMd5;
     }
 
@@ -14,18 +14,18 @@ public class k {
     }
 
     public long getTotalLength() {
-        return this.cfU;
+        return this.cgb;
     }
 
     public void be(long j) {
-        this.cfU = j;
+        this.cgb = j;
     }
 
-    public int amp() {
-        return this.cfV;
+    public int amr() {
+        return this.cgc;
     }
 
-    public void jq(int i) {
-        this.cfV = i;
+    public void jr(int i) {
+        this.cgc = i;
     }
 }

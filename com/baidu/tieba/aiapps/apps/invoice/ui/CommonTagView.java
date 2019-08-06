@@ -16,7 +16,7 @@ public class CommonTagView extends TextView {
     private boolean GV;
     private int GW;
     private int Mn;
-    private boolean ddz;
+    private boolean ddG;
     private int mBorderWidth;
     private Context mContext;
     private Paint mPaint;
@@ -33,7 +33,7 @@ public class CommonTagView extends TextView {
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.GV = true;
-        this.ddz = true;
+        this.ddG = true;
         b(context, attributeSet, i);
     }
 
@@ -60,7 +60,7 @@ public class CommonTagView extends TextView {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.ddz && this.GW != getCurrentTextColor()) {
+            if (this.ddG && this.GW != getCurrentTextColor()) {
                 this.GW = getCurrentTextColor();
             }
             this.mPaint.setColor(this.GW);

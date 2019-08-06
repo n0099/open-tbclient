@@ -1,13 +1,13 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface f {
-    void AU(String str);
-
     void AV(String str);
 
-    boolean AW(String str);
+    void AW(String str);
 
     boolean AX(String str);
+
+    boolean AY(String str);
 
     void cY(String str);
 

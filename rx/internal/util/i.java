@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class i implements k {
-    private List<k> kAt;
-    private volatile boolean kuI;
+    private List<k> kBz;
+    private volatile boolean kvO;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.kAt = new LinkedList(Arrays.asList(kVarArr));
+        this.kBz = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.kAt = new LinkedList();
-        this.kAt.add(kVar);
+        this.kBz = new LinkedList();
+        this.kBz.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.kuI;
+        return this.kvO;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.kuI) {
+            if (!this.kvO) {
                 synchronized (this) {
-                    if (!this.kuI) {
-                        List list = this.kAt;
+                    if (!this.kvO) {
+                        List list = this.kBz;
                         if (list == null) {
                             list = new LinkedList();
-                            this.kAt = list;
+                            this.kBz = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.kuI) {
+        if (!this.kvO) {
             synchronized (this) {
-                List<k> list = this.kAt;
-                if (!this.kuI && list != null) {
+                List<k> list = this.kBz;
+                if (!this.kvO && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.kuI) {
+        if (!this.kvO) {
             synchronized (this) {
-                if (!this.kuI) {
-                    this.kuI = true;
-                    List<k> list = this.kAt;
-                    this.kAt = null;
+                if (!this.kvO) {
+                    this.kvO = true;
+                    List<k> list = this.kBz;
+                    this.kBz = null;
                     n(list);
                 }
             }
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.eN(arrayList);
+            rx.exceptions.a.eM(arrayList);
         }
     }
 }

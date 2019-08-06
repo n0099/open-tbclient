@@ -22,26 +22,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes.dex */
 public class aq extends com.baidu.adp.lib.util.k {
-    private static long bTz = 1000;
-    public static long bTA = bTz * 60;
-    public static long bTB = bTA * 60;
-    public static long bTC = bTB * 24;
-    private static float bTD = 1048576.0f;
-    private static float bTE = 1024.0f;
-    private static String bTF = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour_before);
-    private static String bTG = TbadkCoreApplication.getInst().getApp().getString(R.string.time_min_before);
-    private static String bTH = TbadkCoreApplication.getInst().getApp().getString(R.string.time_sec_before);
-    private static String bTI = TbadkCoreApplication.getInst().getApp().getString(R.string.day);
-    private static String bTJ = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
-    private static String bTK = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
-    private static String bTL = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-    private static final SimpleDateFormat bTM = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private static final SimpleDateFormat bTN = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static final SimpleDateFormat bTO = new SimpleDateFormat("dd日HH:mm");
-    private static final SimpleDateFormat bTP = new SimpleDateFormat("HH:mm");
-    private static final SimpleDateFormat bTQ = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat bTR = new SimpleDateFormat("MM-dd HH:mm");
-    private static final SimpleDateFormat bTS = new SimpleDateFormat("MM-dd");
+    private static long bTF = 1000;
+    public static long bTG = bTF * 60;
+    public static long bTH = bTG * 60;
+    public static long bTI = bTH * 24;
+    private static float bTJ = 1048576.0f;
+    private static float bTK = 1024.0f;
+    private static String bTL = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour_before);
+    private static String bTM = TbadkCoreApplication.getInst().getApp().getString(R.string.time_min_before);
+    private static String bTN = TbadkCoreApplication.getInst().getApp().getString(R.string.time_sec_before);
+    private static String bTO = TbadkCoreApplication.getInst().getApp().getString(R.string.day);
+    private static String bTP = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
+    private static String bTQ = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
+    private static String bTR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
+    private static final SimpleDateFormat bTS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final SimpleDateFormat bTT = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
+    private static final SimpleDateFormat bTU = new SimpleDateFormat("dd日HH:mm");
+    private static final SimpleDateFormat bTV = new SimpleDateFormat("HH:mm");
+    private static final SimpleDateFormat bTW = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat bTX = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat bTY = new SimpleDateFormat("MM-dd");
     private static Date date = new Date();
 
     static {
@@ -63,8 +63,8 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String aw(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (bTR) {
-            format = bTR.format(date2);
+        synchronized (bTX) {
+            format = bTX.format(date2);
         }
         return format;
     }
@@ -72,8 +72,8 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String ax(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (bTS) {
-            format = bTS.format(date2);
+        synchronized (bTY) {
+            format = bTY.format(date2);
         }
         return format;
     }
@@ -99,7 +99,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         return j4 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)).toString() : formatter.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)).toString();
     }
 
-    public static String ajl() {
+    public static String ajn() {
         String format;
         Date date2 = new Date();
         synchronized (Ef) {
@@ -111,13 +111,13 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String az(long j) {
         int i = (int) (j / 3600000);
         if (i >= 24) {
-            return ((i / 24) + 1) + bTI;
+            return ((i / 24) + 1) + bTO;
         }
-        return (i + 1) + bTJ;
+        return (i + 1) + bTP;
     }
 
     public static String aA(long j) {
-        return (((j / 3600000) / 24) + 1) + bTI;
+        return (((j / 3600000) / 24) + 1) + bTO;
     }
 
     public static String q(int i, int i2, int i3) {
@@ -145,7 +145,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static int ajm() {
+    public static int ajo() {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(5) + 0 + (calendar.get(1) * 10000) + ((calendar.get(2) + 1) * 100);
     }
@@ -257,15 +257,15 @@ public class aq extends com.baidu.adp.lib.util.k {
         if (abs >= Long.MAX_VALUE) {
             return "一个月前";
         }
-        if (abs / bTC != 0) {
-            if (abs / bTC > 30) {
+        if (abs / bTI != 0) {
+            if (abs / bTI > 30) {
                 return "一个月前";
             }
-            return (abs / bTC) + "天前";
-        } else if (abs / bTB != 0) {
-            return (abs / bTB) + "小时前";
+            return (abs / bTI) + "天前";
+        } else if (abs / bTH != 0) {
+            return (abs / bTH) + "小时前";
         } else {
-            return (abs / bTA) + "分钟前";
+            return (abs / bTG) + "分钟前";
         }
     }
 
@@ -274,13 +274,13 @@ public class aq extends com.baidu.adp.lib.util.k {
         if (abs <= 120000) {
             return "刚刚";
         }
-        if (abs >= Long.MAX_VALUE || abs / bTC != 0) {
+        if (abs >= Long.MAX_VALUE || abs / bTI != 0) {
             return "";
         }
-        if (abs / bTB != 0) {
-            return (abs / bTB) + "小时前";
+        if (abs / bTH != 0) {
+            return (abs / bTH) + "小时前";
         }
-        return (abs / bTA) + "分钟前";
+        return (abs / bTG) + "分钟前";
     }
 
     public static String bU(String str, String str2) {
@@ -340,18 +340,18 @@ public class aq extends com.baidu.adp.lib.util.k {
             return "";
         }
         long time = new Date().getTime() - date2.getTime();
-        if (time < bTC && time > 0) {
-            if (time < bTB) {
-                if (time < bTA) {
-                    long j = time / bTz;
+        if (time < bTI && time > 0) {
+            if (time < bTH) {
+                if (time < bTG) {
+                    long j = time / bTF;
                     if (j == 0) {
                         j = 1;
                     }
-                    return String.valueOf(j) + bTH;
+                    return String.valueOf(j) + bTN;
                 }
-                return String.valueOf(time / bTA) + bTG;
+                return String.valueOf(time / bTG) + bTM;
             }
-            return String.valueOf(time / bTB) + bTF;
+            return String.valueOf(time / bTH) + bTL;
         } else if (z) {
             return o(date2);
         } else {
@@ -364,14 +364,14 @@ public class aq extends com.baidu.adp.lib.util.k {
             return "";
         }
         long time = new Date().getTime() - date2.getTime();
-        if (time < bTC && time > 0) {
-            if (time < bTB) {
-                if (time < bTA) {
+        if (time < bTI && time > 0) {
+            if (time < bTH) {
+                if (time < bTG) {
                     return "刚刚";
                 }
-                return String.valueOf(time / bTA) + bTG;
+                return String.valueOf(time / bTG) + bTM;
             }
-            return String.valueOf(time / bTB) + bTF;
+            return String.valueOf(time / bTH) + bTL;
         } else if (z) {
             return o(date2);
         } else {
@@ -383,7 +383,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         if (str.length() != 10) {
             return false;
         }
-        return bTQ.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
+        return bTW.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
     }
 
     public static String o(Date date2) {
@@ -398,20 +398,20 @@ public class aq extends com.baidu.adp.lib.util.k {
         if (j <= 0) {
             return "1秒";
         }
-        if (j < bTC) {
-            if (j < bTB) {
-                if (j < bTA) {
-                    long j2 = j / bTz;
+        if (j < bTI) {
+            if (j < bTH) {
+                if (j < bTG) {
+                    long j2 = j / bTF;
                     if (j2 == 0) {
                         j2 = 1;
                     }
-                    return String.valueOf(j2) + bTL;
+                    return String.valueOf(j2) + bTR;
                 }
-                return String.valueOf(j / bTA) + bTK;
+                return String.valueOf(j / bTG) + bTQ;
             }
-            return String.valueOf(j / bTB) + bTJ;
+            return String.valueOf(j / bTH) + bTP;
         }
-        return String.valueOf(j / bTC) + bTI;
+        return String.valueOf(j / bTI) + bTO;
     }
 
     @Deprecated
@@ -843,7 +843,7 @@ public class aq extends com.baidu.adp.lib.util.k {
     }
 
     public static String aU(long j) {
-        return ((float) j) >= bTD ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / bTD)) : ((float) j) >= bTE / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / bTE)) : TbadkCoreApplication.getInst().getString(R.string.less_than_zero_dot_one_k);
+        return ((float) j) >= bTJ ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / bTJ)) : ((float) j) >= bTK / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / bTK)) : TbadkCoreApplication.getInst().getString(R.string.less_than_zero_dot_one_k);
     }
 
     public static int oc(String str) {
@@ -1025,8 +1025,8 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String aX(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (bTN) {
-            format = bTN.format(date2);
+        synchronized (bTT) {
+            format = bTT.format(date2);
         }
         return format;
     }

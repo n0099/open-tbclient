@@ -40,7 +40,7 @@ public class c {
                     } else if (index == a.C0454a.GenericDraweeHierarchy_progressBarImage) {
                         bVar.p(a(context, obtainStyledAttributes, index));
                     } else if (index == a.C0454a.GenericDraweeHierarchy_fadeDuration) {
-                        bVar.DK(obtainStyledAttributes.getInt(index, 0));
+                        bVar.DM(obtainStyledAttributes.getInt(index, 0));
                     } else if (index == a.C0454a.GenericDraweeHierarchy_viewAspectRatio) {
                         bVar.bb(obtainStyledAttributes.getFloat(index, 0.0f));
                     } else if (index == a.C0454a.GenericDraweeHierarchy_placeholderImageScaleType) {
@@ -62,7 +62,7 @@ public class c {
                     } else if (index == a.C0454a.GenericDraweeHierarchy_overlayImage) {
                         bVar.r(a(context, obtainStyledAttributes, index));
                     } else if (index == a.C0454a.GenericDraweeHierarchy_roundAsCircle) {
-                        a(bVar).sz(obtainStyledAttributes.getBoolean(index, false));
+                        a(bVar).sA(obtainStyledAttributes.getBoolean(index, false));
                     } else if (index == a.C0454a.GenericDraweeHierarchy_roundedCornerRadius) {
                         i2 = obtainStyledAttributes.getDimensionPixelSize(index, i2);
                     } else if (index == a.C0454a.GenericDraweeHierarchy_roundTopLeft) {
@@ -74,11 +74,11 @@ public class c {
                     } else if (index == a.C0454a.GenericDraweeHierarchy_roundBottomRight) {
                         z4 = obtainStyledAttributes.getBoolean(index, z4);
                     } else if (index == a.C0454a.GenericDraweeHierarchy_roundWithOverlayColor) {
-                        a(bVar).DL(obtainStyledAttributes.getColor(index, 0));
+                        a(bVar).DN(obtainStyledAttributes.getColor(index, 0));
                     } else if (index == a.C0454a.GenericDraweeHierarchy_roundingBorderWidth) {
                         a(bVar).bd(obtainStyledAttributes.getDimensionPixelSize(index, 0));
                     } else if (index == a.C0454a.GenericDraweeHierarchy_roundingBorderColor) {
-                        a(bVar).DM(obtainStyledAttributes.getColor(index, 0));
+                        a(bVar).DO(obtainStyledAttributes.getColor(index, 0));
                     } else if (index == a.C0454a.GenericDraweeHierarchy_roundingBorderPadding) {
                         a(bVar).be(obtainStyledAttributes.getDimensionPixelSize(index, 0));
                     }
@@ -92,8 +92,8 @@ public class c {
             z3 = true;
             i = 0;
         }
-        if (bVar.cGH() != null && i > 0) {
-            bVar.p(new com.facebook.drawee.drawable.b(bVar.cGH(), i));
+        if (bVar.cHc() != null && i > 0) {
+            bVar.p(new com.facebook.drawee.drawable.b(bVar.cHc(), i));
         }
         if (i2 > 0) {
             a(bVar).l(z3 ? i2 : 0.0f, z2 ? i2 : 0.0f, z4 ? i2 : 0.0f, z ? i2 : 0.0f);
@@ -103,10 +103,10 @@ public class c {
 
     @ReturnsOwnership
     private static RoundingParams a(b bVar) {
-        if (bVar.cGP() == null) {
+        if (bVar.cHk() == null) {
             bVar.b(new RoundingParams());
         }
-        return bVar.cGP();
+        return bVar.cHk();
     }
 
     @Nullable
@@ -124,21 +124,21 @@ public class c {
             case -1:
                 return null;
             case 0:
-                return n.b.kdc;
+                return n.b.kei;
             case 1:
-                return n.b.kdd;
+                return n.b.kej;
             case 2:
-                return n.b.kde;
+                return n.b.kek;
             case 3:
-                return n.b.kdf;
+                return n.b.kel;
             case 4:
-                return n.b.kdg;
+                return n.b.kem;
             case 5:
-                return n.b.kdh;
+                return n.b.ken;
             case 6:
-                return n.b.kdi;
+                return n.b.keo;
             case 7:
-                return n.b.kdj;
+                return n.b.kep;
             default:
                 throw new RuntimeException("XML attribute not specified!");
         }

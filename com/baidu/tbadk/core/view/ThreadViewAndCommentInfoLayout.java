@@ -7,127 +7,127 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    public int cbF;
-    private TextView cbc;
-    private TextView ccN;
-    private boolean ccO;
-    private boolean ccP;
-    private boolean ccQ;
-    private boolean ccR;
-    private boolean ccS;
+    public int cbM;
+    private TextView cbj;
+    private TextView ccU;
+    private boolean ccV;
+    private boolean ccW;
+    private boolean ccX;
+    private boolean ccY;
+    private boolean ccZ;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.ccO = false;
-        this.ccP = false;
-        this.ccQ = false;
-        this.ccR = false;
-        this.ccS = false;
+        this.ccV = false;
+        this.ccW = false;
+        this.ccX = false;
+        this.ccY = false;
+        this.ccZ = false;
         init(context);
     }
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ccO = false;
-        this.ccP = false;
-        this.ccQ = false;
-        this.ccR = false;
-        this.ccS = false;
+        this.ccV = false;
+        this.ccW = false;
+        this.ccX = false;
+        this.ccY = false;
+        this.ccZ = false;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.ccN = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.cbc = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.ccU = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.cbj = (TextView) inflate.findViewById(R.id.thread_comment_num);
         this.mContext = context;
     }
 
-    public void setData(bg bgVar) {
-        if (bgVar == null) {
+    public void setData(bh bhVar) {
+        if (bhVar == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        C(bgVar);
-        D(bgVar);
-        E(bgVar);
-        F(bgVar);
-        o(bgVar);
+        D(bhVar);
+        E(bhVar);
+        F(bhVar);
+        G(bhVar);
+        p(bhVar);
     }
 
-    private void C(bg bgVar) {
-        if (this.ccN != null && bgVar != null && this.ccQ && bgVar.aeQ() != null && bgVar.afL()) {
-            this.ccN.setVisibility(0);
-            this.ccN.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), aq.aH(bgVar.aeQ().audience_count)));
+    private void D(bh bhVar) {
+        if (this.ccU != null && bhVar != null && this.ccX && bhVar.aeR() != null && bhVar.afM()) {
+            this.ccU.setVisibility(0);
+            this.ccU.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), aq.aH(bhVar.aeR().audience_count)));
         }
     }
 
-    private void D(bg bgVar) {
-        if (this.ccN != null && bgVar != null && this.ccO) {
-            if (bgVar.aep() >= 0) {
-                this.ccN.setVisibility(0);
-                this.ccN.setText(String.format(this.mContext.getString(R.string.person_view_num), aq.aH(bgVar.aep())));
+    private void E(bh bhVar) {
+        if (this.ccU != null && bhVar != null && this.ccV) {
+            if (bhVar.aeq() >= 0) {
+                this.ccU.setVisibility(0);
+                this.ccU.setText(String.format(this.mContext.getString(R.string.person_view_num), aq.aH(bhVar.aeq())));
                 return;
             }
-            this.ccN.setVisibility(8);
+            this.ccU.setVisibility(8);
         }
     }
 
-    private void E(bg bgVar) {
-        if (this.cbc != null && bgVar != null && this.ccP) {
-            if (bgVar.aeo() >= 0) {
-                this.cbc.setVisibility(0);
-                this.cbc.setText(String.format(this.mContext.getString(R.string.comment_num_tip), aq.aH(bgVar.aeo())));
+    private void F(bh bhVar) {
+        if (this.cbj != null && bhVar != null && this.ccW) {
+            if (bhVar.aep() >= 0) {
+                this.cbj.setVisibility(0);
+                this.cbj.setText(String.format(this.mContext.getString(R.string.comment_num_tip), aq.aH(bhVar.aep())));
                 return;
             }
-            this.cbc.setVisibility(8);
+            this.cbj.setVisibility(8);
         }
     }
 
-    private void F(bg bgVar) {
-        if (this.cbc != null && bgVar != null && this.ccR && bgVar.afL()) {
-            this.cbc.setVisibility(0);
-            this.cbc.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), aq.aH(bgVar.afQ())));
+    private void G(bh bhVar) {
+        if (this.cbj != null && bhVar != null && this.ccY && bhVar.afM()) {
+            this.cbj.setVisibility(0);
+            this.cbj.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), aq.aH(bhVar.afR())));
         }
     }
 
-    private void o(bg bgVar) {
-        if (this.cbc != null && bgVar != null && this.ccS && bgVar.afL()) {
-            this.cbc.setVisibility(0);
-            this.cbc.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), aq.aH((bgVar.aeQ() == null || bgVar.aeQ().share_info == null) ? 0 : bgVar.aeQ().share_info.share_count)));
+    private void p(bh bhVar) {
+        if (this.cbj != null && bhVar != null && this.ccZ && bhVar.afM()) {
+            this.cbj.setVisibility(0);
+            this.cbj.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), aq.aH((bhVar.aeR() == null || bhVar.aeR().share_info == null) ? 0 : bhVar.aeR().share_info.share_count)));
         }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.ccO = z;
+        this.ccV = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.ccP = z;
+        this.ccW = z;
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.ccQ = z;
+        this.ccX = z;
     }
 
     public void setIsShowZanNum(boolean z) {
-        this.ccR = z;
+        this.ccY = z;
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.ccS = z;
+        this.ccZ = z;
     }
 
     public void onChangeSkinType() {
-        am.j(this.ccN, R.color.cp_cont_d);
-        am.j(this.cbc, R.color.cp_cont_d);
+        am.j(this.ccU, R.color.cp_cont_d);
+        am.j(this.cbj, R.color.cp_cont_d);
     }
 }

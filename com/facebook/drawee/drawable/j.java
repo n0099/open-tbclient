@@ -9,5 +9,5 @@ public interface j {
 
     void setRadius(float f);
 
-    void sx(boolean z);
+    void sy(boolean z);
 }

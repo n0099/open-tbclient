@@ -3,10 +3,10 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes3.dex */
 public final class a {
-    private static final String jXd = Environment.getExternalStorageDirectory().getPath();
-    static final String jXe = jXd + "/baidu/ab/crash/";
-    static final String jXf = jXd + "/baidu/ab/sdklog/";
-    public static final String jXg = jXd + "/baidu/ab/sdkupdata/" + cDH() + "/";
+    private static final String jYj = Environment.getExternalStorageDirectory().getPath();
+    static final String jYk = jYj + "/baidu/ab/crash/";
+    static final String jYl = jYj + "/baidu/ab/sdklog/";
+    public static final String jYm = jYj + "/baidu/ab/sdkupdata/" + cEc() + "/";
     private static int aU = EnumC0447a.aV;
 
     /* JADX WARN: $VALUES field not found */
@@ -16,11 +16,11 @@ public final class a {
     public static final class EnumC0447a {
         public static final int aV = 1;
         public static final int aW = 2;
-        private static final /* synthetic */ int[] jXh = {aV, aW};
+        private static final /* synthetic */ int[] jYn = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cDG() {
+    public static boolean cEb() {
         return aU == EnumC0447a.aV;
     }
 
@@ -28,7 +28,7 @@ public final class a {
         return "0.4.0";
     }
 
-    private static int cDH() {
+    private static int cEc() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

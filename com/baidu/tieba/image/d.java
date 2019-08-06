@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes3.dex */
 public class d {
-    public static String zM(String str) {
+    public static String zN(String str) {
         int lastIndexOf;
         int indexOf;
         String bj = aq.bj(str);
@@ -17,7 +17,7 @@ public class d {
         return bj;
     }
 
-    public static boolean zN(String str) {
+    public static boolean zO(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

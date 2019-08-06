@@ -52,7 +52,7 @@ public class ClientStartStatic {
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
                 x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
                 xVar.o("type", "1");
-                xVar.aig();
+                xVar.aii();
             }
             return null;
         }

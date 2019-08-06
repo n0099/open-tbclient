@@ -1,32 +1,27 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.List;
+import tbclient.FrsPage.BusinessPromotCommentList;
 /* loaded from: classes3.dex */
-public class i implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId jdk = BdUniqueId.gen();
-    private List<FeedForumData> fEL;
-    private String forumId;
+public class i {
+    private int jdZ;
+    private String title;
+    private long uid;
+    private String username;
 
-    @Override // com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return jdk;
+    public void a(BusinessPromotCommentList businessPromotCommentList) {
+        if (businessPromotCommentList != null) {
+            this.title = businessPromotCommentList.title;
+            this.username = businessPromotCommentList.username;
+            this.uid = businessPromotCommentList.uid.longValue();
+            this.jdZ = businessPromotCommentList.is_lz.intValue();
+        }
     }
 
-    public List<FeedForumData> cox() {
-        return this.fEL;
+    public String getTitle() {
+        return this.title;
     }
 
-    public void ed(List<FeedForumData> list) {
-        this.fEL = list;
-    }
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
+    public boolean coM() {
+        return this.jdZ == 1;
     }
 }

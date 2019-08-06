@@ -17,30 +17,30 @@ import com.baidu.tieba.c;
 /* loaded from: classes3.dex */
 public class SettingTextNormalImageView extends FrameLayout {
     private ImageView ahs;
-    private LinearLayout cob;
-    private TbImageView iTj;
+    private LinearLayout coi;
+    private TbImageView iUn;
     private Context mContext;
     private TextView textView;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aqv();
+        aqx();
         c(attributeSet);
-        jZ(TbadkCoreApplication.getInst().getSkinType());
+        ka(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextNormalImageView(Context context) {
         super(context);
         this.mContext = context;
-        aqv();
-        jZ(TbadkCoreApplication.getInst().getSkinType());
+        aqx();
+        ka(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void jZ(int i) {
+    public void ka(int i) {
         am.f(this.textView, R.color.common_color_10039, 1);
         am.b(this.ahs, (int) R.drawable.icon_arrow_gray_right_n, i);
-        this.iTj.invalidate();
+        this.iUn.invalidate();
     }
 
     public void setText(String str) {
@@ -48,16 +48,16 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.iTj.clearCornerFlag();
-        this.iTj.setConrers(0);
-        this.iTj.setImageResource(i);
+        this.iUn.clearCornerFlag();
+        this.iUn.setConrers(0);
+        this.iUn.setImageResource(i);
     }
 
-    private void aqv() {
+    private void aqx() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.cob = (LinearLayout) findViewById(R.id.container);
+        this.coi = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.iTj = (TbImageView) findViewById(R.id.icon);
+        this.iUn = (TbImageView) findViewById(R.id.icon);
         this.ahs = (ImageView) findViewById(R.id.arrow);
     }
 
@@ -72,7 +72,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         if (color > -1) {
             this.textView.setTextColor(color);
         }
-        this.cob.setClickable(false);
-        this.cob.setFocusable(false);
+        this.coi.setClickable(false);
+        this.coi.setFocusable(false);
     }
 }

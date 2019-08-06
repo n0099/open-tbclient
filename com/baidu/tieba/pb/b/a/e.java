@@ -10,19 +10,19 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class e implements ae, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> ibN;
-    public String ibO;
+    private ArrayList<PreLoadImageInfo> icK;
+    public String icL;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.ibN = new ArrayList<>(1);
+            this.icK = new ArrayList<>(1);
             this.src = excContent.src;
-            this.ibO = excContent.bsize;
-            if (this.ibO != null) {
+            this.icL = excContent.bsize;
+            if (this.icL != null) {
                 try {
-                    String[] split = this.ibO.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.icL.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.g.b.f(split[0], 0);
                     this.height = com.baidu.adp.lib.g.b.f(split[1], 0);
                 } catch (Exception e) {
@@ -45,7 +45,7 @@ public class e implements ae, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.ibN.add(preLoadImageInfo);
+            this.icK.add(preLoadImageInfo);
         }
     }
 
@@ -53,7 +53,7 @@ public class e implements ae, d {
         return this.src;
     }
 
-    public int yq(int i) {
+    public int ys(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -67,6 +67,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.ibN;
+        return this.icK;
     }
 }

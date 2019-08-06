@@ -8,18 +8,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.e> {
-    private TextView irL;
-    private TextView irN;
-    private TbImageView isa;
-    private com.baidu.tieba.personPolymeric.c.e isb;
+    private TextView isO;
+    private TextView isQ;
+    private TbImageView itd;
+    private com.baidu.tieba.personPolymeric.c.e ite;
     private View mRootView;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.isa = (TbImageView) this.mRootView.findViewById(R.id.card_person_auth_icon);
-        this.irN = (TextView) this.mRootView.findViewById(R.id.card_person_auth_bar_name);
-        this.irL = (TextView) this.mRootView.findViewById(R.id.card_person_auth_des);
+        this.itd = (TbImageView) this.mRootView.findViewById(R.id.card_person_auth_icon);
+        this.isQ = (TextView) this.mRootView.findViewById(R.id.card_person_auth_bar_name);
+        this.isO = (TextView) this.mRootView.findViewById(R.id.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -27,10 +27,10 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.k(this.mRootView, R.color.cp_bg_line_d);
-            am.f(this.irN, R.color.cp_cont_b, 1);
-            am.f(this.irL, R.color.cp_cont_d, 1);
-            if (this.isb.iconUrl == null) {
-                am.c(this.isa, (int) R.drawable.icon_shen_mine);
+            am.f(this.isQ, R.color.cp_cont_b, 1);
+            am.f(this.isO, R.color.cp_cont_d, 1);
+            if (this.ite.iconUrl == null) {
+                am.c(this.itd, (int) R.drawable.icon_shen_mine);
             }
         }
     }
@@ -44,12 +44,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.e eVar) {
         if (eVar != null) {
-            this.isb = eVar;
+            this.ite = eVar;
             if (eVar.iconUrl != null) {
-                this.isa.startLoad(eVar.iconUrl, 10, false);
+                this.itd.startLoad(eVar.iconUrl, 10, false);
             }
-            this.irN.setText(eVar.iqQ);
-            this.irL.setText(eVar.des);
+            this.isQ.setText(eVar.irU);
+            this.isO.setText(eVar.des);
         }
     }
 

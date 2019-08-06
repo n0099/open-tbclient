@@ -20,20 +20,20 @@ import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class HorizontalListView extends AdapterView<ListAdapter> {
-    private AdapterView.OnItemClickListener bYA;
-    private AdapterView.OnItemLongClickListener bYB;
-    private a bYC;
-    private int bYD;
-    private boolean bYE;
-    private DataSetObserver bYF;
-    private GestureDetector.OnGestureListener bYG;
-    private int bYt;
-    private int bYu;
-    private int bYv;
-    private int bYw;
-    private GestureDetector bYx;
-    private Queue<View> bYy;
-    private AdapterView.OnItemSelectedListener bYz;
+    private int bYA;
+    private int bYB;
+    private int bYC;
+    private GestureDetector bYD;
+    private Queue<View> bYE;
+    private AdapterView.OnItemSelectedListener bYF;
+    private AdapterView.OnItemClickListener bYG;
+    private AdapterView.OnItemLongClickListener bYH;
+    private a bYI;
+    private int bYJ;
+    private boolean bYK;
+    private DataSetObserver bYL;
+    private GestureDetector.OnGestureListener bYM;
+    private int bYz;
     private boolean isIntercept;
     private boolean isLongPress;
     private int mActivePointerId;
@@ -54,18 +54,18 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
     public HorizontalListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bYt = -1;
-        this.bYu = 0;
-        this.bYv = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.bYw = 0;
-        this.bYy = new LinkedList();
+        this.bYz = -1;
+        this.bYA = 0;
+        this.bYB = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.bYC = 0;
+        this.bYE = new LinkedList();
         this.mDataChanged = false;
-        this.bYD = 0;
-        this.bYE = true;
+        this.bYJ = 0;
+        this.bYK = true;
         this.mActivePointerId = -1;
         this.isIntercept = false;
         this.isLongPress = false;
-        this.bYF = new DataSetObserver() { // from class: com.baidu.tbadk.core.view.HorizontalListView.1
+        this.bYL = new DataSetObserver() { // from class: com.baidu.tbadk.core.view.HorizontalListView.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
                 synchronized (HorizontalListView.this) {
@@ -82,7 +82,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 HorizontalListView.this.requestLayout();
             }
         };
-        this.bYG = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tbadk.core.view.HorizontalListView.3
+        this.bYM = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tbadk.core.view.HorizontalListView.3
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
                 return HorizontalListView.this.onDown(motionEvent);
@@ -112,11 +112,11 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     if (i2 < HorizontalListView.this.getChildCount()) {
                         View childAt = HorizontalListView.this.getChildAt(i2);
                         if (a(motionEvent, childAt)) {
-                            if (HorizontalListView.this.bYA != null) {
-                                HorizontalListView.this.bYA.onItemClick(HorizontalListView.this, childAt, HorizontalListView.this.bYt + 1 + i2, HorizontalListView.this.mAdapter.getItemId(HorizontalListView.this.bYt + 1 + i2));
+                            if (HorizontalListView.this.bYG != null) {
+                                HorizontalListView.this.bYG.onItemClick(HorizontalListView.this, childAt, HorizontalListView.this.bYz + 1 + i2, HorizontalListView.this.mAdapter.getItemId(HorizontalListView.this.bYz + 1 + i2));
                             }
-                            if (HorizontalListView.this.bYz != null) {
-                                HorizontalListView.this.bYz.onItemSelected(HorizontalListView.this, childAt, HorizontalListView.this.bYt + 1 + i2, HorizontalListView.this.mAdapter.getItemId(HorizontalListView.this.bYt + 1 + i2));
+                            if (HorizontalListView.this.bYF != null) {
+                                HorizontalListView.this.bYF.onItemSelected(HorizontalListView.this, childAt, HorizontalListView.this.bYz + 1 + i2, HorizontalListView.this.mAdapter.getItemId(HorizontalListView.this.bYz + 1 + i2));
                                 return true;
                             }
                             return true;
@@ -134,9 +134,9 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 for (int i = 0; i < childCount; i++) {
                     View childAt = HorizontalListView.this.getChildAt(i);
                     if (a(motionEvent, childAt)) {
-                        if (HorizontalListView.this.bYB != null) {
+                        if (HorizontalListView.this.bYH != null) {
                             HorizontalListView.this.isLongPress = true;
-                            HorizontalListView.this.bYB.onItemLongClick(HorizontalListView.this, childAt, HorizontalListView.this.bYt + 1 + i, HorizontalListView.this.mAdapter.getItemId(i + HorizontalListView.this.bYt + 1));
+                            HorizontalListView.this.bYH.onItemLongClick(HorizontalListView.this, childAt, HorizontalListView.this.bYz + 1 + i, HorizontalListView.this.mAdapter.getItemId(i + HorizontalListView.this.bYz + 1));
                             return;
                         }
                         return;
@@ -158,15 +158,15 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     private synchronized void initView() {
-        this.bYt = -1;
-        this.bYu = 0;
-        this.bYw = 0;
+        this.bYz = -1;
+        this.bYA = 0;
+        this.bYC = 0;
         this.mCurrentX = 0;
         this.mNextX = 0;
-        this.bYv = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.bYB = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.mScroller = new Scroller(getContext());
-        this.bYx = new GestureDetector(getContext(), this.bYG);
-        this.bYD = com.baidu.adp.lib.util.l.af(getContext()) / 2;
+        this.bYD = new GestureDetector(getContext(), this.bYM);
+        this.bYJ = com.baidu.adp.lib.util.l.af(getContext()) / 2;
         this.mTouchSlop = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
     }
 
@@ -175,12 +175,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.bYE = z;
+        this.bYK = z;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bYE) {
+        if (this.bYK) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -232,7 +232,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bYE) {
+        if (this.bYK) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -303,21 +303,21 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
     @Override // android.widget.AdapterView
     public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
-        this.bYz = onItemSelectedListener;
+        this.bYF = onItemSelectedListener;
     }
 
     @Override // android.widget.AdapterView
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        this.bYA = onItemClickListener;
+        this.bYG = onItemClickListener;
     }
 
     @Override // android.widget.AdapterView
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
-        this.bYB = onItemLongClickListener;
+        this.bYH = onItemLongClickListener;
     }
 
     public void setOnScrollChangedListener(a aVar) {
-        this.bYC = aVar;
+        this.bYI = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -335,10 +335,10 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     @Override // android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
         if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(this.bYF);
+            this.mAdapter.unregisterDataSetObserver(this.bYL);
         }
         this.mAdapter = listAdapter;
-        this.mAdapter.registerDataSetObserver(this.bYF);
+        this.mAdapter.registerDataSetObserver(this.bYL);
         reset();
     }
 
@@ -392,7 +392,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         int count = this.mAdapter.getCount();
         int i3 = paddingLeft;
         for (int i4 = 0; i4 < count; i4++) {
-            View poll = this.bYy.poll();
+            View poll = this.bYE.poll();
             if (poll == null) {
                 view = this.mAdapter.getView(i4, null, this);
             } else {
@@ -400,7 +400,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             }
             view.measure(i, 0);
             i3 += view.getMeasuredWidth();
-            this.bYy.add(view);
+            this.bYE.add(view);
         }
         return Math.min(i3, i2);
     }
@@ -423,16 +423,16 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.mNextX = 0;
                 this.mScroller.forceFinished(true);
             }
-            if (this.mNextX >= this.bYv) {
-                this.mNextX = this.bYv;
+            if (this.mNextX >= this.bYB) {
+                this.mNextX = this.bYB;
                 this.mScroller.forceFinished(true);
             }
             int i6 = this.mCurrentX - this.mNextX;
             iD(i6);
             iC(i6);
             iE(i6);
-            if (this.bYC != null) {
-                this.bYC.iF(getMiddleViewPosition());
+            if (this.bYI != null) {
+                this.bYI.iF(getMiddleViewPosition());
             }
             this.mCurrentX = this.mNextX;
             if (!this.mScroller.isFinished()) {
@@ -454,52 +454,52 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     }
 
     private void ad(int i, int i2) {
-        while (i + i2 < getWidth() && this.bYu < this.mAdapter.getCount()) {
-            View view = this.mAdapter.getView(this.bYu, this.bYy.poll(), this);
+        while (i + i2 < getWidth() && this.bYA < this.mAdapter.getCount()) {
+            View view = this.mAdapter.getView(this.bYA, this.bYE.poll(), this);
             n(view, -1);
             i += view.getMeasuredWidth();
-            if (this.bYu == this.mAdapter.getCount() - 1) {
-                this.bYv = (this.mCurrentX + i) - getWidth();
+            if (this.bYA == this.mAdapter.getCount() - 1) {
+                this.bYB = (this.mCurrentX + i) - getWidth();
             }
-            if (this.bYv < 0) {
-                this.bYv = 0;
+            if (this.bYB < 0) {
+                this.bYB = 0;
             }
-            this.bYu++;
+            this.bYA++;
         }
     }
 
     private void ae(int i, int i2) {
-        while (i + i2 > 0 && this.bYt >= 0) {
-            View view = this.mAdapter.getView(this.bYt, this.bYy.poll(), this);
+        while (i + i2 > 0 && this.bYz >= 0) {
+            View view = this.mAdapter.getView(this.bYz, this.bYE.poll(), this);
             n(view, 0);
             i -= view.getMeasuredWidth();
-            this.bYt--;
-            this.bYw -= view.getMeasuredWidth();
+            this.bYz--;
+            this.bYC -= view.getMeasuredWidth();
         }
     }
 
     private void iD(int i) {
         View childAt = getChildAt(0);
         while (childAt != null && childAt.getRight() + i <= 0) {
-            this.bYw += childAt.getMeasuredWidth();
-            this.bYy.offer(childAt);
+            this.bYC += childAt.getMeasuredWidth();
+            this.bYE.offer(childAt);
             removeViewInLayout(childAt);
-            this.bYt++;
+            this.bYz++;
             childAt = getChildAt(0);
         }
         View childAt2 = getChildAt(getChildCount() - 1);
         while (childAt2 != null && childAt2.getLeft() + i >= getWidth()) {
-            this.bYy.offer(childAt2);
+            this.bYE.offer(childAt2);
             removeViewInLayout(childAt2);
-            this.bYu--;
+            this.bYA--;
             childAt2 = getChildAt(getChildCount() - 1);
         }
     }
 
     private void iE(int i) {
         if (getChildCount() > 0) {
-            this.bYw += i;
-            int i2 = this.bYw;
+            this.bYC += i;
+            int i2 = this.bYC;
             for (int i3 = 0; i3 < getChildCount(); i3++) {
                 View childAt = getChildAt(i3);
                 int measuredWidth = childAt.getMeasuredWidth();
@@ -523,12 +523,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.isLongPress = false;
                 break;
         }
-        return dispatchTouchEvent | this.bYx.onTouchEvent(motionEvent);
+        return dispatchTouchEvent | this.bYD.onTouchEvent(motionEvent);
     }
 
     protected boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         synchronized (this) {
-            this.mScroller.fling(this.mNextX, 0, (int) (-f), 0, 0, this.bYv, 0, 0);
+            this.mScroller.fling(this.mNextX, 0, (int) (-f), 0, 0, this.bYB, 0, 0);
         }
         requestLayout();
         return true;
@@ -544,8 +544,8 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         if (childCount > 0) {
             for (int i = 0; i < childCount; i++) {
                 View childAt = getChildAt(i);
-                if (childAt.getWidth() + childAt.getLeft() >= this.bYD) {
-                    return i + 1 + this.bYt;
+                if (childAt.getWidth() + childAt.getLeft() >= this.bYJ) {
+                    return i + 1 + this.bYz;
                 }
             }
             return 0;

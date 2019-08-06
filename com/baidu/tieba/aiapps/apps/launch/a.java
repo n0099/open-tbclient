@@ -15,7 +15,7 @@ public class a {
     }
 
     public static void ti(String str) {
-        if (!c.aEr()) {
+        if (!c.aEt()) {
             Log.w("SwanAppLaunchHelper", "entrance not open");
             d.a(AppRuntime.getAppContext(), "not support for this android version").LQ();
         } else if (TextUtils.isEmpty(str)) {

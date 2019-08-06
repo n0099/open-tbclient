@@ -6,9 +6,9 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(21)
 /* loaded from: classes2.dex */
 public class a extends f {
-    private final com.facebook.imagepipeline.memory.c keD;
+    private final com.facebook.imagepipeline.memory.c kfJ;
 
     public a(com.facebook.imagepipeline.memory.c cVar) {
-        this.keD = cVar;
+        this.kfJ = cVar;
     }
 }

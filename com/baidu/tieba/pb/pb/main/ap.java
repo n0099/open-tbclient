@@ -9,7 +9,7 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.Random;
 /* loaded from: classes4.dex */
 public class ap {
-    private static final int[] hTm = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
+    private static final int[] hUi = {R.string.i_have_a_bold_idea, R.string.give_you_a_god_comment_chance, R.string.wait_for_you_so_long_time_finally_you_come, R.string.hot_or_not_hot_up_to_you, R.string.let_us_talk_dont_shy};
 
     public static Intent aw(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -24,18 +24,18 @@ public class ap {
     }
 
     public static boolean m(PostData postData) {
-        if (postData == null || postData.cpy() == null) {
+        if (postData == null || postData.cpU() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.i cpy = postData.cpy();
-        if (cpy.jeE) {
-            int coW = cpy.coW();
-            return coW == 2 || coW == 1 || coW == 3;
+        com.baidu.tieba.tbadkCore.data.i cpU = postData.cpU();
+        if (cpU.jfL) {
+            int cps = cpU.cps();
+            return cps == 2 || cps == 1 || cps == 3;
         }
         return false;
     }
 
-    public static int bWO() {
-        return hTm[new Random().nextInt(hTm.length)];
+    public static int bXf() {
+        return hUi[new Random().nextInt(hUi.length)];
     }
 }

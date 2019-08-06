@@ -62,7 +62,7 @@ public class s {
                 }
                 builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.ahO().getInt("android_safe_sdk_open", 0) == 1) {
+                if (com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("android_safe_sdk_open", 0) == 1) {
                     builder.z_id = FH.gz(TbadkCoreApplication.getInst());
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());

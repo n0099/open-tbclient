@@ -7,7 +7,7 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes2.dex */
 public final class CompletableOnSubscribeConcat implements b.a {
-    final rx.d<rx.b> kuZ;
+    final rx.d<rx.b> kwf;
     final int prefetch;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
     public void call(rx.c cVar) {
         CompletableConcatSubscriber completableConcatSubscriber = new CompletableConcatSubscriber(cVar, this.prefetch);
         cVar.onSubscribe(completableConcatSubscriber);
-        this.kuZ.a((rx.j<? super rx.b>) completableConcatSubscriber);
+        this.kwf.a((rx.j<? super rx.b>) completableConcatSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,15 +25,15 @@ public final class CompletableOnSubscribeConcat implements b.a {
         volatile boolean active;
         final rx.c actual;
         volatile boolean done;
-        final rx.internal.util.a.q<rx.b> kvb;
-        final SequentialSubscription kva = new SequentialSubscription();
-        final ConcatInnerSubscriber kvc = new ConcatInnerSubscriber();
+        final rx.internal.util.a.q<rx.b> kwh;
+        final SequentialSubscription kwg = new SequentialSubscription();
+        final ConcatInnerSubscriber kwi = new ConcatInnerSubscriber();
         final AtomicBoolean once = new AtomicBoolean();
 
         public CompletableConcatSubscriber(rx.c cVar, int i) {
             this.actual = cVar;
-            this.kvb = new rx.internal.util.a.q<>(i);
-            add(this.kva);
+            this.kwh = new rx.internal.util.a.q<>(i);
+            add(this.kwg);
             request(i);
         }
 
@@ -41,7 +41,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
         @Override // rx.e
         /* renamed from: a */
         public void onNext(rx.b bVar) {
-            if (!this.kvb.offer(bVar)) {
+            if (!this.kwh.offer(bVar)) {
                 onError(new MissingBackpressureException());
             } else {
                 drain();
@@ -70,18 +70,18 @@ public final class CompletableOnSubscribeConcat implements b.a {
             onError(th);
         }
 
-        void cPm() {
+        void cPH() {
             this.active = false;
             drain();
         }
 
         void drain() {
-            ConcatInnerSubscriber concatInnerSubscriber = this.kvc;
+            ConcatInnerSubscriber concatInnerSubscriber = this.kwi;
             if (concatInnerSubscriber.getAndIncrement() == 0) {
                 while (!isUnsubscribed()) {
                     if (!this.active) {
                         boolean z = this.done;
-                        rx.b poll = this.kvb.poll();
+                        rx.b poll = this.kwh.poll();
                         boolean z2 = poll == null;
                         if (z && z2) {
                             this.actual.onCompleted();
@@ -109,7 +109,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
 
             @Override // rx.c
             public void onSubscribe(rx.k kVar) {
-                CompletableConcatSubscriber.this.kva.set(kVar);
+                CompletableConcatSubscriber.this.kwg.set(kVar);
             }
 
             @Override // rx.c
@@ -119,7 +119,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
 
             @Override // rx.c
             public void onCompleted() {
-                CompletableConcatSubscriber.this.cPm();
+                CompletableConcatSubscriber.this.cPH();
             }
         }
     }

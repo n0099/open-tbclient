@@ -12,20 +12,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
-    private LinearLayout bOb;
-    private EditText fVI;
-    private ShareFromPBMsgData gRr;
-    private TbImageView gvZ;
-    private TextView gwa;
+    private LinearLayout bOg;
+    private EditText fWy;
+    private ShareFromPBMsgData gSj;
+    private TbImageView gwR;
+    private TextView gwS;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.fVI;
+        return this.fWy;
     }
 
     public void am(String str, boolean z) {
-        if (this.gvZ != null) {
-            this.gvZ.startLoad(str, z ? 17 : 18, false);
+        if (this.gwR != null) {
+            this.gwR.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -42,28 +42,28 @@ public final class Thread2GroupShareView extends LinearLayout {
     private void ap(Context context) {
         LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
         setOrientation(1);
-        this.bOb = (LinearLayout) findViewById(R.id.share_content);
+        this.bOg = (LinearLayout) findViewById(R.id.share_content);
         this.title = (TextView) findViewById(R.id.share_title_view);
-        this.fVI = (EditText) findViewById(R.id.chat_msg);
-        this.gvZ = (TbImageView) findViewById(R.id.chat_group_img);
-        this.gwa = (TextView) findViewById(R.id.chat_group_desc);
+        this.fWy = (EditText) findViewById(R.id.chat_msg);
+        this.gwR = (TbImageView) findViewById(R.id.chat_group_img);
+        this.gwS = (TextView) findViewById(R.id.chat_group_desc);
         am.f(this.title, R.color.cp_cont_b, 1);
-        am.f(this.fVI, R.color.cp_cont_b, 2);
-        am.f(this.gwa, R.color.cp_cont_f, 1);
-        this.fVI.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        this.fVI.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        btD();
+        am.f(this.fWy, R.color.cp_cont_b, 2);
+        am.f(this.gwS, R.color.cp_cont_f, 1);
+        this.fWy.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        this.fWy.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        btQ();
     }
 
-    public void btD() {
-        this.bOb.setFocusable(true);
-        this.bOb.setFocusableInTouchMode(true);
-        this.bOb.requestFocus();
+    public void btQ() {
+        this.bOg.setFocusable(true);
+        this.bOg.setFocusableInTouchMode(true);
+        this.bOg.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.fVI != null) {
-            return com.baidu.adp.lib.util.k.a(this.fVI.getText(), null);
+        if (this.fWy != null) {
+            return com.baidu.adp.lib.util.k.a(this.fWy.getText(), null);
         }
         return null;
     }
@@ -76,13 +76,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.gRr = shareFromPBMsgData;
+        this.gSj = shareFromPBMsgData;
         JS();
     }
 
     private void JS() {
-        this.title.setText(this.gRr.getTitle());
-        this.gvZ.setTag(this.gRr.getImageUrl());
-        this.gwa.setText(this.gRr.getContent());
+        this.title.setText(this.gSj.getTitle());
+        this.gwR.setTag(this.gSj.getImageUrl());
+        this.gwS.setText(this.gSj.getContent());
     }
 }

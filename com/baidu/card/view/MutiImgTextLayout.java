@@ -14,7 +14,7 @@ import com.baidu.card.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.data.a;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
@@ -73,22 +73,22 @@ public class MutiImgTextLayout extends LinearLayout implements i<a> {
         });
     }
 
-    private void setVoiceData(bg bgVar) {
-        ArrayList<VoiceData.VoiceModel> aeL = bgVar.aeL();
-        if (v.aa(aeL)) {
+    private void setVoiceData(bh bhVar) {
+        ArrayList<VoiceData.VoiceModel> aeM = bhVar.aeM();
+        if (v.aa(aeM)) {
             this.Ym.setVisibility(8);
             this.Yp = false;
             return;
         }
         this.Ym.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = aeL.get(0);
+        VoiceData.VoiceModel voiceModel = aeM.get(0);
         this.Ym.setVoiceModel(voiceModel);
         this.Ym.setTag(voiceModel);
-        this.Ym.bIl();
+        this.Ym.bIz();
         if (voiceModel != null) {
-            this.Ym.vY(voiceModel.voice_status.intValue());
+            this.Ym.wa(voiceModel.voice_status.intValue());
         }
-        this.Ym.cqz();
+        this.Ym.cqV();
         this.Yp = true;
     }
 
@@ -104,10 +104,10 @@ public class MutiImgTextLayout extends LinearLayout implements i<a> {
     /* renamed from: a */
     public void C(a aVar) {
         this.VJ = aVar;
-        bg acx = aVar.acx();
-        av.a(this.mTitle, acx);
-        av.a(this.VW, this.mTitle, acx, VU);
-        setVoiceData(acx);
+        bh acy = aVar.acy();
+        av.a(this.mTitle, acy);
+        av.a(this.VW, this.mTitle, acy, VU);
+        setVoiceData(acy);
         qT();
     }
 

@@ -10,15 +10,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.data.h implements p {
-    private CardGod gkE;
+    private CardGod glu;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.gkE = cardGod;
-            this.mGroupTitle = this.gkE.card_title;
-            if (!v.aa(this.gkE.gods)) {
+            this.glu = cardGod;
+            this.mGroupTitle = this.glu.card_title;
+            if (!v.aa(this.glu.gods)) {
                 int i = 0;
-                Iterator<User> it = this.gkE.gods.iterator();
+                Iterator<User> it = this.glu.gods.iterator();
                 while (true) {
                     int i2 = i;
                     if (it.hasNext()) {
@@ -30,7 +30,7 @@ public class f extends com.baidu.tieba.card.data.h implements p {
                                 i = i2;
                             } else {
                                 i iVar = new i();
-                                iVar.bKb = metaData;
+                                iVar.bKg = metaData;
                                 a(iVar);
                                 i = i2 + 1;
                             }
@@ -45,20 +45,20 @@ public class f extends com.baidu.tieba.card.data.h implements p {
         }
     }
 
-    public boolean aDQ() {
+    public boolean aDS() {
         return v.Z(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.gkE == null || this.gkE.position == null) {
+        if (this.glu == null || this.glu.position == null) {
             return 0;
         }
-        return this.gkE.position.intValue();
+        return this.glu.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean bae() {
+    public boolean bag() {
         return true;
     }
 

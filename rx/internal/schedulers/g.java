@@ -16,48 +16,48 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes2.dex */
 public class g extends g.a implements k {
-    private static final boolean kzs;
-    private static volatile Object kzw;
+    private static volatile Object kAC;
+    private static final boolean kAy;
     private final ScheduledExecutorService executor;
     volatile boolean isUnsubscribed;
-    private static final Object kzx = new Object();
-    private static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> kzu = new ConcurrentHashMap<>();
-    private static final AtomicReference<ScheduledExecutorService> kzv = new AtomicReference<>();
-    public static final int kzt = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
+    private static final Object kAD = new Object();
+    private static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> kAA = new ConcurrentHashMap<>();
+    private static final AtomicReference<ScheduledExecutorService> kAB = new AtomicReference<>();
+    public static final int kAz = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
 
     static {
         boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int cPP = rx.internal.util.f.cPP();
-        kzs = !z && (cPP == 0 || cPP >= 21);
+        int cQk = rx.internal.util.f.cQk();
+        kAy = !z && (cQk == 0 || cQk >= 21);
     }
 
     public static void a(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
         while (true) {
-            if (kzv.get() != null) {
+            if (kAB.get() != null) {
                 break;
             }
             ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-            if (kzv.compareAndSet(null, newScheduledThreadPool)) {
+            if (kAB.compareAndSet(null, newScheduledThreadPool)) {
                 newScheduledThreadPool.scheduleAtFixedRate(new Runnable() { // from class: rx.internal.schedulers.g.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.cPJ();
+                        g.cQe();
                     }
-                }, kzt, kzt, TimeUnit.MILLISECONDS);
+                }, kAz, kAz, TimeUnit.MILLISECONDS);
                 break;
             }
             newScheduledThreadPool.shutdownNow();
         }
-        kzu.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
+        kAA.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
     }
 
     public static void a(ScheduledExecutorService scheduledExecutorService) {
-        kzu.remove(scheduledExecutorService);
+        kAA.remove(scheduledExecutorService);
     }
 
-    static void cPJ() {
+    static void cQe() {
         try {
-            Iterator<ScheduledThreadPoolExecutor> it = kzu.keySet().iterator();
+            Iterator<ScheduledThreadPoolExecutor> it = kAA.keySet().iterator();
             while (it.hasNext()) {
                 ScheduledThreadPoolExecutor next = it.next();
                 if (!next.isShutdown()) {
@@ -74,15 +74,15 @@ public class g extends g.a implements k {
 
     public static boolean b(ScheduledExecutorService scheduledExecutorService) {
         Method c;
-        if (kzs) {
+        if (kAy) {
             if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                Object obj = kzw;
-                if (obj == kzx) {
+                Object obj = kAC;
+                if (obj == kAD) {
                     return false;
                 }
                 if (obj == null) {
                     c = c(scheduledExecutorService);
-                    kzw = c != null ? c : kzx;
+                    kAC = c != null ? c : kAD;
                 } else {
                     c = (Method) obj;
                 }
@@ -133,7 +133,7 @@ public class g extends g.a implements k {
 
     @Override // rx.g.a
     public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-        return this.isUnsubscribed ? rx.subscriptions.e.cQT() : b(aVar, j, timeUnit);
+        return this.isUnsubscribed ? rx.subscriptions.e.cRo() : b(aVar, j, timeUnit);
     }
 
     public ScheduledAction b(rx.functions.a aVar, long j, TimeUnit timeUnit) {

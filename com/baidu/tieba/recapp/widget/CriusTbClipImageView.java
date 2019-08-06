@@ -15,11 +15,11 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.c;
 /* loaded from: classes3.dex */
 public class CriusTbClipImageView extends TbClipImageView {
-    protected b iNA;
-    private Path iNB;
-    private RectF iNC;
-    private float[] iND;
-    private int iNE;
+    protected b iOE;
+    private Path iOF;
+    private RectF iOG;
+    private float[] iOH;
+    private int iOI;
 
     public CriusTbClipImageView(Context context) {
         this(context, null, 0);
@@ -27,9 +27,9 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     public CriusTbClipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iNA = new b();
-        this.iNB = new Path();
-        this.iNE = getLayerType();
+        this.iOE = new b();
+        this.iOF = new Path();
+        this.iOI = getLayerType();
     }
 
     public CriusTbClipImageView(Context context, AttributeSet attributeSet) {
@@ -40,69 +40,69 @@ public class CriusTbClipImageView extends TbClipImageView {
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void init(AttributeSet attributeSet) {
         super.init(attributeSet);
-        this.iNA = new b();
+        this.iOE = new b();
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c.a.BDImageView);
-            this.iNA.iNw = obtainStyledAttributes.getDimensionPixelSize(1, l.dip2px(getContext(), 4.0f));
-            this.iNA.iNx = obtainStyledAttributes.getDimensionPixelSize(2, l.dip2px(getContext(), 4.0f));
-            this.iNA.iNy = obtainStyledAttributes.getDimensionPixelSize(3, l.dip2px(getContext(), 4.0f));
-            this.iNA.iNz = obtainStyledAttributes.getDimensionPixelSize(4, l.dip2px(getContext(), 4.0f));
-            this.iNA.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, l.dip2px(getContext(), 4.0f));
-            this.iNA.GU = obtainStyledAttributes.getBoolean(5, false);
-            this.iNA.GV = obtainStyledAttributes.getBoolean(6, false);
-            this.iNA.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(7, l.dip2px(getContext(), 1.0f));
-            this.iNA.GW = obtainStyledAttributes.getColor(8, 201326592);
-            this.iNA.GX = obtainStyledAttributes.getBoolean(9, false);
-            this.iNA.GZ = obtainStyledAttributes.getBoolean(10, true);
-            this.iNA.Hc = obtainStyledAttributes.getColor(16, 0);
+            this.iOE.iOA = obtainStyledAttributes.getDimensionPixelSize(1, l.dip2px(getContext(), 4.0f));
+            this.iOE.iOB = obtainStyledAttributes.getDimensionPixelSize(2, l.dip2px(getContext(), 4.0f));
+            this.iOE.iOC = obtainStyledAttributes.getDimensionPixelSize(3, l.dip2px(getContext(), 4.0f));
+            this.iOE.iOD = obtainStyledAttributes.getDimensionPixelSize(4, l.dip2px(getContext(), 4.0f));
+            this.iOE.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, l.dip2px(getContext(), 4.0f));
+            this.iOE.GU = obtainStyledAttributes.getBoolean(5, false);
+            this.iOE.GV = obtainStyledAttributes.getBoolean(6, false);
+            this.iOE.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(7, l.dip2px(getContext(), 1.0f));
+            this.iOE.GW = obtainStyledAttributes.getColor(8, 201326592);
+            this.iOE.GX = obtainStyledAttributes.getBoolean(9, false);
+            this.iOE.GZ = obtainStyledAttributes.getBoolean(10, true);
+            this.iOE.Hc = obtainStyledAttributes.getColor(16, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(12, 0);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(13, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(14, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mAdjustViewBounds = obtainStyledAttributes.getBoolean(15, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.iNA.iNw = l.dip2px(getContext(), 4.0f);
-            this.iNA.iNx = l.dip2px(getContext(), 4.0f);
-            this.iNA.iNy = l.dip2px(getContext(), 4.0f);
-            this.iNA.iNz = l.dip2px(getContext(), 4.0f);
-            this.iNA.mRadius = l.dip2px(getContext(), 4.0f);
-            this.iNA.mBorderWidth = l.dip2px(getContext(), 1.0f);
-            this.iNA.GW = 201326592;
+            this.iOE.iOA = l.dip2px(getContext(), 4.0f);
+            this.iOE.iOB = l.dip2px(getContext(), 4.0f);
+            this.iOE.iOC = l.dip2px(getContext(), 4.0f);
+            this.iOE.iOD = l.dip2px(getContext(), 4.0f);
+            this.iOE.mRadius = l.dip2px(getContext(), 4.0f);
+            this.iOE.mBorderWidth = l.dip2px(getContext(), 1.0f);
+            this.iOE.GW = 201326592;
         }
-        this.iNE = getLayerType();
-        if (Build.VERSION.SDK_INT < 18 && this.iNE != 1) {
+        this.iOI = getLayerType();
+        if (Build.VERSION.SDK_INT < 18 && this.iOI != 1) {
             setLayerType(1, null);
         }
-        if (!this.iNA.GU) {
-            this.iNA.mRadius = 0.0f;
+        if (!this.iOE.GU) {
+            this.iOE.mRadius = 0.0f;
         }
-        this.mArgs = this.iNA;
+        this.mArgs = this.iOE;
         setConrers(0);
         this.mDrawer = e.lz().aA(this.mDrawerType);
-        this.mDrawer.a(this.iNA);
+        this.mDrawer.a(this.iOE);
     }
 
     public void setRadius(int i, int i2, int i3, int i4) {
         boolean z = false;
-        if (this.iNA.iNw != i) {
-            this.iNA.iNw = i;
+        if (this.iOE.iOA != i) {
+            this.iOE.iOA = i;
             z = true;
         }
-        if (this.iNA.iNx != i2) {
-            this.iNA.iNx = i2;
+        if (this.iOE.iOB != i2) {
+            this.iOE.iOB = i2;
             z = true;
         }
-        if (this.iNA.iNy != i3) {
-            this.iNA.iNy = i3;
+        if (this.iOE.iOC != i3) {
+            this.iOE.iOC = i3;
             z = true;
         }
-        if (this.iNA.iNz != i4) {
-            this.iNA.iNz = i4;
+        if (this.iOE.iOD != i4) {
+            this.iOE.iOD = i4;
             z = true;
         }
         if (z) {
-            this.iNE = getLayerType();
-            if (Build.VERSION.SDK_INT < 18 && this.iNE != 1) {
+            this.iOI = getLayerType();
+            if (Build.VERSION.SDK_INT < 18 && this.iOI != 1) {
                 setLayerType(1, null);
             }
             invalidate();
@@ -111,7 +111,7 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void setRadius(int i) {
-        this.iNA.mRadius = i;
+        this.iOE.mRadius = i;
         setRadius(i, i, i, i);
     }
 
@@ -124,28 +124,28 @@ public class CriusTbClipImageView extends TbClipImageView {
     }
 
     private void Z(Canvas canvas) {
-        if (!this.iNA.GU) {
+        if (!this.iOE.GU) {
             setDrawerType(1);
-            this.iNB.reset();
-            this.iNC = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            this.iND = new float[]{this.iNA.iNw, this.iNA.iNw, this.iNA.iNy, this.iNA.iNy, this.iNA.iNz, this.iNA.iNz, this.iNA.iNx, this.iNA.iNx};
-            this.iNB.addRoundRect(this.iNC, this.iND, Path.Direction.CW);
+            this.iOF.reset();
+            this.iOG = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+            this.iOH = new float[]{this.iOE.iOA, this.iOE.iOA, this.iOE.iOC, this.iOE.iOC, this.iOE.iOD, this.iOE.iOD, this.iOE.iOB, this.iOE.iOB};
+            this.iOF.addRoundRect(this.iOG, this.iOH, Path.Direction.CW);
             try {
-                canvas.clipPath(this.iNB);
+                canvas.clipPath(this.iOF);
             } catch (Error e) {
             }
         }
     }
 
     private void aa(Canvas canvas) {
-        if (!this.iNA.GU && this.iNA.GV) {
+        if (!this.iOE.GU && this.iOE.GV) {
             setDrawerType(1);
-            this.iNB.reset();
-            this.iNC = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            this.iND = new float[]{this.iNA.iNw, this.iNA.iNw, this.iNA.iNy, this.iNA.iNy, this.iNA.iNz, this.iNA.iNz, this.iNA.iNx, this.iNA.iNx};
-            this.iNB.addRoundRect(this.iNC, this.iND, Path.Direction.CW);
+            this.iOF.reset();
+            this.iOG = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+            this.iOH = new float[]{this.iOE.iOA, this.iOE.iOA, this.iOE.iOC, this.iOE.iOC, this.iOE.iOD, this.iOE.iOD, this.iOE.iOB, this.iOE.iOB};
+            this.iOF.addRoundRect(this.iOG, this.iOH, Path.Direction.CW);
             try {
-                canvas.drawPath(this.iNB, this.mDrawer.GF);
+                canvas.drawPath(this.iOF, this.mDrawer.GF);
             } catch (Error e) {
             }
         }
@@ -154,16 +154,16 @@ public class CriusTbClipImageView extends TbClipImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView
     public void drawBackground(Canvas canvas, Drawable drawable) {
-        if (this.iNA.GU) {
+        if (this.iOE.GU) {
             super.drawBackground(canvas, drawable);
             return;
         }
-        this.iNB.reset();
-        this.iNC = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-        this.iND = new float[]{this.iNA.iNw, this.iNA.iNw, this.iNA.iNy, this.iNA.iNy, this.iNA.iNz, this.iNA.iNz, this.iNA.iNx, this.iNA.iNx};
-        this.iNB.addRoundRect(this.iNC, this.iND, Path.Direction.CW);
+        this.iOF.reset();
+        this.iOG = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+        this.iOH = new float[]{this.iOE.iOA, this.iOE.iOA, this.iOE.iOC, this.iOE.iOC, this.iOE.iOD, this.iOE.iOD, this.iOE.iOB, this.iOE.iOB};
+        this.iOF.addRoundRect(this.iOG, this.iOH, Path.Direction.CW);
         try {
-            canvas.clipPath(this.iNB);
+            canvas.clipPath(this.iOF);
         } catch (Error e) {
         }
         drawable.draw(canvas);

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import java.io.Serializable;
@@ -21,7 +21,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ca */
+        /* renamed from: Cc */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -81,41 +81,41 @@ public class VideoItemData implements Parcelable, b, Serializable {
         return this.thread_id;
     }
 
-    public VideoItemData buildWithThreadData(bg bgVar) {
-        if (bgVar != null) {
-            this.thread_id = bgVar.getTid();
-            this.post_id = bgVar.aei();
-            if (bgVar.aeO() != null) {
-                this.thumbnail_url = bgVar.aeO().thumbnail_url;
-                this.video_url = bgVar.aeO().video_url;
-                this.video_height = String.valueOf(bgVar.aeO().video_height);
-                this.video_width = String.valueOf(bgVar.aeO().video_width);
-                this.mMd5 = bgVar.aeO().video_md5;
-                this.video_duration = bgVar.aeO().video_duration.intValue();
-                this.play_count = bgVar.aeO().play_count.intValue();
-                this.isVerticalVideo = bgVar.aeO().is_vertical.intValue();
+    public VideoItemData buildWithThreadData(bh bhVar) {
+        if (bhVar != null) {
+            this.thread_id = bhVar.getTid();
+            this.post_id = bhVar.aej();
+            if (bhVar.aeP() != null) {
+                this.thumbnail_url = bhVar.aeP().thumbnail_url;
+                this.video_url = bhVar.aeP().video_url;
+                this.video_height = String.valueOf(bhVar.aeP().video_height);
+                this.video_width = String.valueOf(bhVar.aeP().video_width);
+                this.mMd5 = bhVar.aeP().video_md5;
+                this.video_duration = bhVar.aeP().video_duration.intValue();
+                this.play_count = bhVar.aeP().play_count.intValue();
+                this.isVerticalVideo = bhVar.aeP().is_vertical.intValue();
             }
-            this.comment_num = String.valueOf(bgVar.aeo());
-            this.agree_num = String.valueOf(bgVar.afQ());
-            this.share_num = String.valueOf(bgVar.afU());
-            this.title = bgVar.getTitle();
-            this.forum_id = String.valueOf(bgVar.getFid());
-            this.forum_name = bgVar.aeC();
-            this.is_agreed = String.valueOf(bgVar.afS());
-            if (bgVar.aex() != null) {
+            this.comment_num = String.valueOf(bhVar.aep());
+            this.agree_num = String.valueOf(bhVar.afR());
+            this.share_num = String.valueOf(bhVar.afV());
+            this.title = bhVar.getTitle();
+            this.forum_id = String.valueOf(bhVar.getFid());
+            this.forum_name = bhVar.aeD();
+            this.is_agreed = String.valueOf(bhVar.afT());
+            if (bhVar.aey() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bgVar.aex().getUserName();
-                userItemData.name_show = bgVar.aex().getName_show();
-                userItemData.portrait = bgVar.aex().getPortrait();
-                userItemData.user_id = bgVar.aex().getUserId();
-                userItemData.is_follow = bgVar.aex().hadConcerned() ? "1" : "0";
+                userItemData.user_name = bhVar.aey().getUserName();
+                userItemData.name_show = bhVar.aey().getName_show();
+                userItemData.portrait = bhVar.aey().getPortrait();
+                userItemData.user_id = bhVar.aey().getUserId();
+                userItemData.is_follow = bhVar.aey().hadConcerned() ? "1" : "0";
                 this.author_info = userItemData;
             }
-            this.act_info = bgVar.afm();
-            this.mRecomAbTag = bgVar.mRecomAbTag;
-            this.mRecomSource = bgVar.mRecomSource;
-            this.mRecomWeight = bgVar.mRecomWeight;
-            this.mRecomExtra = bgVar.mRecomExtra;
+            this.act_info = bhVar.afn();
+            this.mRecomAbTag = bhVar.mRecomAbTag;
+            this.mRecomSource = bhVar.mRecomSource;
+            this.mRecomWeight = bhVar.mRecomWeight;
+            this.mRecomExtra = bhVar.mRecomExtra;
         }
         return this;
     }

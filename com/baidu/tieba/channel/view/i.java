@@ -20,40 +20,40 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class i {
-    private NoNetworkView dnF;
-    private PbListView dnG;
-    private ChannelHomeActivity eKe;
-    private g eKf;
-    private f eKg;
-    private com.baidu.tieba.channel.a.c eKh = null;
-    private FrameLayout eKi = null;
+    private NoNetworkView dnM;
+    private PbListView dnN;
+    private ChannelHomeActivity eKl;
+    private g eKm;
+    private f eKn;
+    private com.baidu.tieba.channel.a.c eKo = null;
+    private FrameLayout eKp = null;
     private BdTypeListView mListView;
     private View mNoDataView;
     private View mRootView;
 
     public i(ChannelHomeActivity channelHomeActivity) {
-        this.eKe = channelHomeActivity;
-        this.eKe.setIsAddSwipeBackLayout(true);
-        this.eKe.setSwipeBackEnabled(true);
-        this.eKe.setUseStyleImmersiveSticky(true);
+        this.eKl = channelHomeActivity;
+        this.eKl.setIsAddSwipeBackLayout(true);
+        this.eKl.setSwipeBackEnabled(true);
+        this.eKl.setUseStyleImmersiveSticky(true);
         initViews();
     }
 
     public void initViews() {
-        this.eKe.setContentView(R.layout.channel_home_layout);
-        this.mRootView = this.eKe.findViewById(R.id.channel_home_rootview);
-        this.eKi = (FrameLayout) this.eKe.findViewById(R.id.channel_home_loading_view);
-        this.dnF = (NoNetworkView) this.mRootView.findViewById(R.id.channel_home_no_network_view);
-        this.eKf = new g(this.eKe.getPageContext().getPageActivity(), (NavigationBar) this.mRootView.findViewById(R.id.channel_home_navigation_bar), this.eKe);
-        aJM();
+        this.eKl.setContentView(R.layout.channel_home_layout);
+        this.mRootView = this.eKl.findViewById(R.id.channel_home_rootview);
+        this.eKp = (FrameLayout) this.eKl.findViewById(R.id.channel_home_loading_view);
+        this.dnM = (NoNetworkView) this.mRootView.findViewById(R.id.channel_home_no_network_view);
+        this.eKm = new g(this.eKl.getPageContext().getPageActivity(), (NavigationBar) this.mRootView.findViewById(R.id.channel_home_navigation_bar), this.eKl);
+        aJO();
     }
 
-    private void aJM() {
+    private void aJO() {
         this.mListView = (BdTypeListView) this.mRootView.findViewById(R.id.channel_home_listview);
-        this.eKg = new f(this.eKe.getPageContext().getPageActivity(), this.eKe);
-        this.mListView.addHeaderView(this.eKg.aWR());
-        this.eKh = new com.baidu.tieba.channel.a.c(this.eKe.getPageContext().getPageActivity(), this.mListView);
-        this.eKh.a(this.eKe);
+        this.eKn = new f(this.eKl.getPageContext().getPageActivity(), this.eKl);
+        this.mListView.addHeaderView(this.eKn.aWT());
+        this.eKo = new com.baidu.tieba.channel.a.c(this.eKl.getPageContext().getPageActivity(), this.mListView);
+        this.eKo.a(this.eKl);
         this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.channel.view.i.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -64,38 +64,38 @@ public class i {
                 i.this.a(absListView, i, i2, i3);
             }
         });
-        this.mListView.setOnSrollToBottomListener(this.eKe);
-        this.dnG = new PbListView(this.eKe.getPageContext().getPageActivity());
-        this.dnG.nZ();
-        this.dnG.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.mListView.setNextPage(this.dnG);
+        this.mListView.setOnSrollToBottomListener(this.eKl);
+        this.dnN = new PbListView(this.eKl.getPageContext().getPageActivity());
+        this.dnN.nZ();
+        this.dnN.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.mListView.setNextPage(this.dnN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AbsListView absListView, int i, int i2, int i3) {
-        if (Build.VERSION.SDK_INT >= 11 && this.eKg != null) {
-            int dimension = (int) this.eKe.getResources().getDimension(R.dimen.ds98);
+        if (Build.VERSION.SDK_INT >= 11 && this.eKn != null) {
+            int dimension = (int) this.eKl.getResources().getDimension(R.dimen.ds98);
             int i4 = 0;
-            if (UtilHelper.useNavigationBarStyleImmersiveSticky(this.eKe.getPageContext().getPageActivity())) {
+            if (UtilHelper.useNavigationBarStyleImmersiveSticky(this.eKl.getPageContext().getPageActivity())) {
                 i4 = UtilHelper.getStatusBarHeight();
             }
-            int baP = this.eKg.baP() - (i4 + (-this.eKg.aWR().getTop()));
-            if (this.eKf != null) {
-                this.eKf.H(baP, dimension, i);
+            int baR = this.eKn.baR() - (i4 + (-this.eKn.aWT().getTop()));
+            if (this.eKm != null) {
+                this.eKm.H(baR, dimension, i);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (baV() != null && baV().aWR() != null) {
-            this.eKe.getLayoutMode().setNightMode(i == 1);
-            this.eKe.getLayoutMode().onModeChanged(baV().aWR());
+        if (baX() != null && baX().aWT() != null) {
+            this.eKl.getLayoutMode().setNightMode(i == 1);
+            this.eKl.getLayoutMode().onModeChanged(baX().aWT());
         }
         VX();
-        this.eKg.onChangeSkinType(i);
-        this.eKf.onChangeSkinType(i);
-        this.dnG.iV(i);
-        this.dnF.onChangeSkinType(this.eKe.getPageContext(), i);
+        this.eKn.onChangeSkinType(i);
+        this.eKm.onChangeSkinType(i);
+        this.dnN.iV(i);
+        this.dnM.onChangeSkinType(this.eKl.getPageContext(), i);
     }
 
     public void onPause() {
@@ -108,35 +108,35 @@ public class i {
     }
 
     public void g(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.baB() != null) {
-            this.eKg.iN(dVar.isHost());
-            this.eKg.d(dVar);
-            this.eKh.setIsHost(dVar.isHost());
+        if (dVar != null && dVar.baD() != null) {
+            this.eKn.iN(dVar.isHost());
+            this.eKn.d(dVar);
+            this.eKo.setIsHost(dVar.isHost());
             h(dVar);
-            this.eKf.a(dVar.isHost(), this.eKe);
-            this.eKf.ao(dVar);
+            this.eKm.a(dVar.isHost(), this.eKl);
+            this.eKm.ao(dVar);
         }
     }
 
     public void h(com.baidu.tieba.channel.data.d dVar) {
         if (dVar != null) {
-            if (dVar.baC() == null || dVar.baC().size() == 0) {
-                aKk();
-                this.mNoDataView = LayoutInflater.from(this.eKe.getPageContext().getPageActivity()).inflate(R.layout.channel_home_no_data, (ViewGroup) null);
+            if (dVar.baE() == null || dVar.baE().size() == 0) {
+                aKm();
+                this.mNoDataView = LayoutInflater.from(this.eKl.getPageContext().getPageActivity()).inflate(R.layout.channel_home_no_data, (ViewGroup) null);
                 this.mListView.setNoData(this.mNoDataView);
             } else {
                 this.mListView.setNoData((View) null);
                 iO(true);
             }
             ArrayList arrayList = new ArrayList();
-            if (dVar.baC() != null) {
-                Iterator<E> it = dVar.baC().iterator();
+            if (dVar.baE() != null) {
+                Iterator<E> it = dVar.baE().iterator();
                 while (it.hasNext()) {
                     arrayList.add((m) it.next());
                 }
             }
             this.mListView.setData(arrayList);
-            if (!dVar.baD()) {
+            if (!dVar.baF()) {
                 iO(true);
             }
         }
@@ -149,56 +149,56 @@ public class i {
     }
 
     public void e(com.baidu.tieba.channel.data.d dVar) {
-        this.eKf.ao(dVar);
-        this.eKg.e(dVar);
+        this.eKm.ao(dVar);
+        this.eKn.e(dVar);
     }
 
     public void f(com.baidu.tieba.channel.data.d dVar) {
-        this.eKg.f(dVar);
+        this.eKn.f(dVar);
     }
 
     public void iO(boolean z) {
-        this.dnG.akE();
+        this.dnN.akG();
         if (z) {
-            this.dnG.setText(this.eKe.getPageContext().getPageActivity().getResources().getString(R.string.list_no_more));
+            this.dnN.setText(this.eKl.getPageContext().getPageActivity().getResources().getString(R.string.list_no_more));
         } else {
-            this.dnG.setText("");
+            this.dnN.setText("");
         }
     }
 
-    public void aKk() {
-        this.dnG.iX(0);
+    public void aKm() {
+        this.dnN.iX(0);
     }
 
-    public void baU() {
-        this.dnG.akD();
+    public void baW() {
+        this.dnN.akF();
     }
 
     public void showLoadingView() {
-        this.eKe.showLoadingView(this.eKi);
-        this.eKi.setVisibility(0);
+        this.eKl.showLoadingView(this.eKp);
+        this.eKp.setVisibility(0);
     }
 
     public void hideLoadingView() {
-        this.eKi.setVisibility(8);
-        this.eKe.hideLoadingView(this.eKi);
+        this.eKp.setVisibility(8);
+        this.eKl.hideLoadingView(this.eKp);
     }
 
     public void BN() {
-        this.eKi.setVisibility(0);
-        this.eKe.showNetRefreshView(this.eKi, this.eKe.getResources().getString(R.string.neterror));
+        this.eKp.setVisibility(0);
+        this.eKl.showNetRefreshView(this.eKp, this.eKl.getResources().getString(R.string.neterror));
     }
 
     public void BO() {
-        this.eKi.setVisibility(8);
-        this.eKe.hideNetRefreshView(this.eKi);
+        this.eKp.setVisibility(8);
+        this.eKl.hideNetRefreshView(this.eKp);
     }
 
-    public f baV() {
-        return this.eKg;
+    public f baX() {
+        return this.eKn;
     }
 
     public void f(ChannelInfo channelInfo) {
-        this.eKg.e(channelInfo);
+        this.eKn.e(channelInfo);
     }
 }

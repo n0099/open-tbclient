@@ -47,15 +47,15 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         if (ab.cB(this.context.getPageActivity())) {
             this.TZ = fVar;
             if (!m.gB()) {
-                String aib = m.aib();
-                if (aib == null) {
-                    aib = h.getString(R.string.voice_error_sdcard);
+                String aid = m.aid();
+                if (aid == null) {
+                    aid = h.getString(R.string.voice_error_sdcard);
                 }
-                this.TZ.onShowErr(0, aib);
+                this.TZ.onShowErr(0, aid);
                 return false;
             }
             stopPlay(true);
-            this.Ua = com.baidu.tbadk.core.voice.a.alv();
+            this.Ua = com.baidu.tbadk.core.voice.a.alx();
             String oV = com.baidu.tbadk.core.voice.a.oV(this.Ua);
             if (this.Ub == null) {
                 this.Ub = new a();

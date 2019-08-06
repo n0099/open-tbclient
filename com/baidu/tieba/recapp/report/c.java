@@ -15,43 +15,43 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class c {
-    private static c iLt;
-    private CustomMessageListener iLv = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c iMx;
+    private CustomMessageListener iMz = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kc() && c.this.iLu != null) {
-                c.this.iLu.ciA();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kc() && c.this.iMy != null) {
+                c.this.iMy.ciS();
             }
         }
     };
-    private d iLu = new g();
+    private d iMy = new g();
 
-    public static c ciy() {
-        if (iLt == null) {
+    public static c ciQ() {
+        if (iMx == null) {
             synchronized (c.class) {
-                if (iLt == null) {
-                    iLt = new c();
+                if (iMx == null) {
+                    iMx = new c();
                 }
             }
         }
-        return iLt;
+        return iMx;
     }
 
-    private boolean ciz() {
+    private boolean ciR() {
         return com.baidu.adp.lib.b.d.hS().az("ad_log_open") != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.iLv);
+        MessageManager.getInstance().registerListener(this.iMz);
     }
 
     public void a(b bVar) {
-        if (ciz() && bVar != null && this.iLu != null) {
+        if (ciR() && bVar != null && this.iMy != null) {
             if (j.kc()) {
-                this.iLu.b(bVar);
+                this.iMy.b(bVar);
             } else {
-                this.iLu.c(bVar);
+                this.iMy.c(bVar);
             }
         }
     }

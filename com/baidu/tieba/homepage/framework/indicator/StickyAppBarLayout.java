@@ -4,14 +4,15 @@ import android.content.Context;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.t.ao;
 @CoordinatorLayout.DefaultBehavior(b.class)
 /* loaded from: classes4.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    private b ggb;
-    private a ggc;
+    private b ggR;
+    private a ggS;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -30,61 +31,62 @@ public class StickyAppBarLayout extends AppBarLayout {
 
     private void init() {
         if (ao.iN()) {
-            bvP();
+            bwc();
         }
     }
 
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        bvN();
+        bwa();
     }
 
-    private void bvN() {
+    private void bwa() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof b) {
-                this.ggb = (b) behavior;
+                this.ggR = (b) behavior;
             }
         }
     }
 
-    public boolean bvO() {
-        if (this.ggb == null) {
-            bvN();
+    public boolean bwb() {
+        if (this.ggR == null) {
+            bwa();
         }
-        if (this.ggb != null) {
-            if (isSticky() && ao.iN()) {
-                bvP();
+        if (this.ggR != null) {
+            if (isSticky() && ao.iN() && this.ggR.bwe() != null && this.ggR.bwe().getVisibility() == 0) {
+                bwc();
             }
-            this.ggb.bvQ();
+            this.ggR.bwd();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.ggb == null) {
-            bvN();
+        if (this.ggR == null) {
+            bwa();
         }
-        if (this.ggb != null) {
-            return this.ggb.isSticky();
+        if (this.ggR != null) {
+            return this.ggR.isSticky();
         }
         return false;
     }
 
-    private void bvP() {
+    private void bwc() {
         an anVar = new an("c13422");
         anVar.P("obj_type", 1);
         anVar.P("obj_locate", 1);
+        anVar.P("ab_tag", TbSingleton.getInstance().getHomePageStyleAbTest());
         TiebaStatic.log(anVar);
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.ggc = aVar;
+        this.ggS = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.ggc;
+        return this.ggS;
     }
 }

@@ -26,14 +26,14 @@ import okio.Okio;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class b {
-    private static b dhd;
-    private OkHttpClient dhc = aGZ();
+    private static b dhk;
+    private OkHttpClient dhj = aHb();
 
-    public static b aGY() {
-        if (dhd == null) {
-            dhd = new b();
+    public static b aHa() {
+        if (dhk == null) {
+            dhk = new b();
         }
-        return dhd;
+        return dhk;
     }
 
     private b() {
@@ -42,11 +42,11 @@ public class b {
     public void a(@NonNull Map<String, String> map, @NonNull byte[] bArr, String str, c cVar) {
         if (cVar != null) {
             Request a2 = a(map, bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 10000.0d)));
-            if (this.dhc == null) {
-                this.dhc = aGZ();
+            if (this.dhj == null) {
+                this.dhj = aHb();
             }
             try {
-                Response execute = this.dhc.newCall(a2).execute();
+                Response execute = this.dhj.newCall(a2).execute();
                 try {
                     if (execute.body() != null) {
                         String[] J = J(execute.body().bytes());
@@ -67,7 +67,7 @@ public class b {
     }
 
     @NonNull
-    private OkHttpClient aGZ() {
+    private OkHttpClient aHb() {
         return new OkHttpClient.Builder().protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1)).pingInterval(1000L, TimeUnit.MILLISECONDS).addInterceptor(new a()).connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).connectionPool(new ConnectionPool()).build();
     }
 
@@ -101,9 +101,9 @@ public class b {
     private String[] J(@NonNull byte[] bArr) {
         try {
             BIMLogPb.LogResponse parseFrom = BIMLogPb.LogResponse.parseFrom(bArr);
-            if (this.dhc.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
-                this.dhc.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
-                this.dhc = this.dhc.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
+            if (this.dhj.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
+                this.dhj.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
+                this.dhj = this.dhj.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
         } catch (InvalidProtocolBufferException e) {

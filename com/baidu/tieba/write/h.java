@@ -12,15 +12,15 @@ import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class h extends PopupWindow {
     private int bpM;
-    private LinearLayout cob;
+    private LinearLayout coi;
     private Context context;
     private int count;
-    private a jMu;
+    private a jNB;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void AJ(int i);
+        void AL(int i);
     }
 
     public h(Context context) {
@@ -33,10 +33,10 @@ public class h extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.cob = new LinearLayout(context);
-        this.cob.setOrientation(1);
-        this.cob.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.cob);
+        this.coi = new LinearLayout(context);
+        this.coi.setOrientation(1);
+        this.coi.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.coi);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -67,8 +67,8 @@ public class h extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.jMu));
-        this.cob.addView(view);
+        view.setOnClickListener(new b(this.count, this.jNB));
+        this.coi.addView(view);
         this.count++;
     }
 
@@ -78,30 +78,30 @@ public class h extends PopupWindow {
 
     public void setCurrentIndex(int i) {
         if (this.bpM != -1) {
-            this.cob.getChildAt(this.bpM).setSelected(false);
+            this.coi.getChildAt(this.bpM).setSelected(false);
         }
         this.bpM = i;
-        this.cob.getChildAt(this.bpM).setSelected(true);
+        this.coi.getChildAt(this.bpM).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.jMu = aVar;
+        this.jNB = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a jMv;
+        private a jNC;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.jMv = aVar;
+            this.jNC = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.jMv != null) {
-                this.jMv.AJ(this.position);
+            if (this.jNC != null) {
+                this.jNC.AL(this.position);
             }
         }
     }

@@ -15,11 +15,11 @@ import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 public class d extends Dialog implements a {
     private TextView aIL;
     private View bmR;
-    private View jlT;
-    private LinearLayout jlW;
-    private InterestFrsData.Tag jme;
-    private c jmf;
-    private GridView jmg;
+    private View jnb;
+    private LinearLayout jne;
+    private InterestFrsData.Tag jnm;
+    private c jnn;
+    private GridView jno;
     private Context mContext;
     private TextView mTitle;
 
@@ -31,43 +31,43 @@ public class d extends Dialog implements a {
 
     private void init() {
         this.bmR = View.inflate(this.mContext, R.layout.new_user_img_box, null);
-        this.jmf = new c(this.mContext);
+        this.jnn = new c(this.mContext);
         setCanceledOnTouchOutside(true);
-        this.jlW = (LinearLayout) this.bmR.findViewById(R.id.box_close_layout);
-        this.jmg = (GridView) this.bmR.findViewById(R.id.layout_content);
-        this.jmg.setAdapter((ListAdapter) this.jmf);
-        this.jmg.setSelector(R.color.common_color_10022);
+        this.jne = (LinearLayout) this.bmR.findViewById(R.id.box_close_layout);
+        this.jno = (GridView) this.bmR.findViewById(R.id.layout_content);
+        this.jno.setAdapter((ListAdapter) this.jnn);
+        this.jno.setSelector(R.color.common_color_10022);
         setContentView(this.bmR);
         this.mTitle = (TextView) this.bmR.findViewById(R.id.prompt_title);
         this.aIL = (TextView) this.bmR.findViewById(R.id.prompt_sub_title);
-        this.jlT = this.bmR.findViewById(R.id.view_layout);
-        this.jlT.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
+        this.jnb = this.bmR.findViewById(R.id.view_layout);
+        this.jnb.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void a(InterestFrsData.Tag tag) {
-        this.jme = tag;
-        if (this.jme != null) {
+        this.jnm = tag;
+        if (this.jnm != null) {
             this.mTitle.setText(tag.getBname());
             this.aIL.setText(tag.getBdesc());
-            this.jmf.setData(tag.getCard_list());
+            this.jnn.setData(tag.getCard_list());
         }
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void Bx(int i) {
-        this.jmf.notifyDataSetChanged();
+    public void Bz(int i) {
+        this.jnn.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void By(int i) {
-        this.jmf.notifyDataSetChanged();
+    public void BA(int i) {
+        this.jnn.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.jlW.setOnClickListener(onClickListener);
-        this.jmf.setOnClickListener(onClickListener);
+        this.jne.setOnClickListener(onClickListener);
+        this.jnn.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a

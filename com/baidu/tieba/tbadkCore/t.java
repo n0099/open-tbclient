@@ -1,180 +1,180 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.data.FeedForumData;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
+    private String chL;
+    private int cur_score;
+    private int errorCode;
+    private String errorMsg;
+    private String fid;
+    private int is_like;
+    private String level_name;
+    private int levelup_score;
+    private BlockPopInfoData mBlockPopInfoData;
+    private List<FeedForumData> jeZ = new ArrayList();
+    private int jeY = 0;
+    private int like_num = 0;
+    private int user_level = 0;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(WriteData writeData);
+    public t() {
+        setLevelName("");
+        setLike(0);
+        setCurScore(0);
+        setLevelupScore(0);
     }
 
-    public static void a(String str, a aVar) {
-        if (aq.isEmpty(str)) {
-            if (aVar != null) {
-                aVar.a(null);
-                return;
-            }
-            return;
-        }
-        new b(EE(str), aVar).execute(new String[0]);
+    public String getFid() {
+        return this.fid;
     }
 
-    public static void b(String str, a aVar) {
-        if (aq.isEmpty(str)) {
-            if (aVar != null) {
-                aVar.a(null);
-                return;
-            }
-            return;
-        }
-        new b(ED(str), aVar).execute(new String[0]);
+    public void setFid(String str) {
+        this.fid = str;
     }
 
-    public static void c(String str, a aVar) {
-        if (aq.isEmpty(str)) {
-            if (aVar != null) {
-                aVar.a(null);
-                return;
-            }
-            return;
-        }
-        new b(EF(str), aVar).execute(new String[0]);
+    public int cnn() {
+        return this.user_level;
     }
 
-    public static void d(String str, a aVar) {
-        if (aq.isEmpty(str)) {
-            if (aVar != null) {
-                aVar.a(null);
-                return;
-            }
-            return;
-        }
-        new b(EG(str), aVar).execute(new String[0]);
-    }
-
-    public static void b(String str, WriteData writeData) {
-        if (!aq.isEmpty(str)) {
-            com.baidu.adp.lib.cache.l<String> mL = com.baidu.tbadk.core.d.a.agF().mL("tb.pb_editor");
-            if (writeData != null && writeData.hasContentToSave()) {
-                mL.b(EG(str), writeData.toDraftString(), 604800000L);
-            } else {
-                mL.ar(EG(str));
-            }
+    public void AO(int i) {
+        if (i >= 0) {
+            this.user_level = i;
         }
     }
 
-    public static void c(final String str, final WriteData writeData) {
-        if (!aq.isEmpty(str)) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> mL = com.baidu.tbadk.core.d.a.agF().mL("tb.pb_editor");
-                    if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        mL.a(t.EF(str), WriteData.this.toDraftString(), 604800000L);
-                        return null;
-                    }
-                    mL.remove(t.EF(str));
-                    return null;
-                }
-            }.execute(new Void[0]);
+    public void parserJson(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            parserJson(jSONObject.optJSONObject(Config.LAUNCH_INFO));
+            K(jSONObject.optJSONArray("feed_forum"));
+            this.errorCode = jSONObject.optInt("error_code");
+            this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
-    public static void d(final String str, final WriteData writeData) {
-        if (!aq.isEmpty(str)) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.2
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> mL = com.baidu.tbadk.core.d.a.agF().mL("tb.pb_editor");
-                    if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        mL.a(t.EE(str), WriteData.this.toDraftString(), 604800000L);
-                        return null;
-                    }
-                    mL.remove(t.EE(str));
-                    return null;
-                }
-            }.execute(new Void[0]);
-        }
-    }
-
-    public static void e(final String str, final WriteData writeData) {
-        if (!aq.isEmpty(str)) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.3
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> mL = com.baidu.tbadk.core.d.a.agF().mL("tb.pb_editor");
-                    if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        mL.a(t.ED(str), WriteData.this.toDraftString(), 604800000L);
-                        return null;
-                    }
-                    mL.remove(t.ED(str));
-                    return null;
-                }
-            }.execute(new Void[0]);
-        }
-    }
-
-    protected static String ED(String str) {
-        return TbadkCoreApplication.getCurrentAccount() + "@subpb" + str;
-    }
-
-    protected static String EE(String str) {
-        return TbadkCoreApplication.getCurrentAccount() + "@pb" + str;
-    }
-
-    protected static String EF(String str) {
-        return TbadkCoreApplication.getCurrentAccount() + "@frs";
-    }
-
-    protected static String EG(String str) {
-        return TbadkCoreApplication.getCurrentAccount() + "@topic" + str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class b extends BdAsyncTask<String, String, WriteData> {
-        private final String cacheKey;
-        private final a jea;
-
-        public b(String str, a aVar) {
-            setPriority(3);
-            this.jea = aVar;
-            this.cacheKey = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: F */
-        public WriteData doInBackground(String... strArr) {
-            String str;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                str = com.baidu.tbadk.core.d.a.agF().mL("tb.pb_editor").get(this.cacheKey);
+                this.jeY = jSONObject.optInt("is_black", 0);
+                this.like_num = jSONObject.optInt("like_num", 0);
+                this.user_level = jSONObject.optInt("level_id", 0);
+                setLike(jSONObject.optInt("is_like", 0));
+                setLevelName(jSONObject.optString("level_name", ""));
+                setLevelupScore(jSONObject.optInt("levelup_score", 0));
+                setCurScore(jSONObject.optInt("cur_score", 0));
+                ba(jSONObject);
             } catch (Exception e) {
-                str = null;
+                BdLog.detailException(e);
             }
-            return WriteData.fromDraftString(str);
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(WriteData writeData) {
-            super.onPostExecute(writeData);
-            if (this.jea != null) {
-                this.jea.a(writeData);
+    private void ba(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.chL = jSONObject.optString("block_dealurl");
+            String optString = jSONObject.optString("block_content");
+            if (!StringUtils.isNull(optString)) {
+                this.mBlockPopInfoData = new BlockPopInfoData();
+                this.mBlockPopInfoData.block_info = optString;
+                this.mBlockPopInfoData.ahead_url = this.chL;
+                this.mBlockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
+                this.mBlockPopInfoData.ok_info = jSONObject.optString("block_cancel");
             }
         }
+    }
+
+    public void K(JSONArray jSONArray) {
+        int i = 0;
+        while (true) {
+            try {
+                int i2 = i;
+                if (i2 < jSONArray.length()) {
+                    JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
+                    FeedForumData feedForumData = new FeedForumData();
+                    feedForumData.setForumId(jSONObject.optString("forum_id"));
+                    feedForumData.setForumName(jSONObject.optString("forum_name"));
+                    feedForumData.setMemberCount(jSONObject.optInt("member_count", 0));
+                    feedForumData.setPostNum(jSONObject.optInt("post_num", 0));
+                    feedForumData.setAvatar(jSONObject.optString("avatar"));
+                    feedForumData.setReason(jSONObject.optString("reason"));
+                    feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
+                    feedForumData.setPos(jSONObject.optInt("pos", 0));
+                    this.jeZ.add(feedForumData);
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
+            }
+        }
+    }
+
+    public void setLike(int i) {
+        this.is_like = i;
+    }
+
+    public int isLike() {
+        return this.is_like;
+    }
+
+    public void setLevelName(String str) {
+        this.level_name = str;
+    }
+
+    public String getLevelName() {
+        return this.level_name;
+    }
+
+    public void setCurScore(int i) {
+        this.cur_score = i;
+    }
+
+    public int getCurScore() {
+        return this.cur_score;
+    }
+
+    public void setLevelupScore(int i) {
+        this.levelup_score = i;
+    }
+
+    public int getLevelupScore() {
+        return this.levelup_score;
+    }
+
+    public List<FeedForumData> coT() {
+        return this.jeZ;
+    }
+
+    public BlockPopInfoData getBlockPopInfoData() {
+        return this.mBlockPopInfoData;
+    }
+
+    public void setBlockPopInfoData(BlockPopInfoData blockPopInfoData) {
+        this.mBlockPopInfoData = blockPopInfoData;
+    }
+
+    public String cpc() {
+        return this.chL;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public String getErrorMsg() {
+        return this.errorMsg;
     }
 }

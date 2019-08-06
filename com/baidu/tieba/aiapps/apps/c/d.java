@@ -15,47 +15,47 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class d {
-    public static String dcY = "https://mbd.baidu.com";
-
-    public static String aFm() {
-        return String.format("%s/ma/invoice/create", dcY);
-    }
-
-    public static String aFn() {
-        return String.format("%s/ma/invoice/list", dcY);
-    }
+    public static String ddf = "https://mbd.baidu.com";
 
     public static String aFo() {
-        return String.format("%s/ma/invoice/oa_list", dcY);
+        return String.format("%s/ma/invoice/create", ddf);
     }
 
     public static String aFp() {
-        return String.format("%s/ma/invoice/modify", dcY);
+        return String.format("%s/ma/invoice/list", ddf);
     }
 
     public static String aFq() {
-        return String.format("%s/ma/invoice/modify_default", dcY);
+        return String.format("%s/ma/invoice/oa_list", ddf);
     }
 
     public static String aFr() {
-        return String.format("%s/ma/invoice/del", dcY);
+        return String.format("%s/ma/invoice/modify", ddf);
     }
 
     public static String aFs() {
-        return String.format("%s/ma/address", dcY);
-    }
-
-    public static String sZ(String str) {
-        String ds = ds(aFw());
-        String ds2 = ds(getUid());
-        return B(B(B(B(B(B(B(B(str, "uid", ds2), "ua", ds(Wv())), "ut", ds), "osbranch", aFu()), "pkgname", nb()), "network", aFt()), "appname", getAppName()), "cfrom", aFA());
+        return String.format("%s/ma/invoice/modify_default", ddf);
     }
 
     public static String aFt() {
-        return aFC() + "_" + aFB();
+        return String.format("%s/ma/invoice/del", ddf);
     }
 
     public static String aFu() {
+        return String.format("%s/ma/address", ddf);
+    }
+
+    public static String sZ(String str) {
+        String ds = ds(aFy());
+        String ds2 = ds(getUid());
+        return B(B(B(B(B(B(B(B(str, "uid", ds2), "ua", ds(Wv())), "ut", ds), "osbranch", aFw()), "pkgname", nb()), "network", aFv()), "appname", getAppName()), "cfrom", aFC());
+    }
+
+    public static String aFv() {
+        return aFE() + "_" + aFD();
+    }
+
+    public static String aFw() {
         return "a0";
     }
 
@@ -68,13 +68,13 @@ public class d {
         int displayWidth = z.getDisplayWidth(appContext);
         int displayHeight = z.getDisplayHeight(appContext);
         int bU = z.bU(appContext);
-        String aFv = aFv();
+        String aFx = aFx();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append("_");
         stringBuffer.append(displayHeight);
         stringBuffer.append("_");
-        stringBuffer.append(aFv);
+        stringBuffer.append(aFx);
         stringBuffer.append("_");
         stringBuffer.append(ac.getVersionName());
         stringBuffer.append("_");
@@ -82,7 +82,7 @@ public class d {
         return stringBuffer.toString();
     }
 
-    public static String aFv() {
+    public static String aFx() {
         return "android";
     }
 
@@ -90,14 +90,14 @@ public class d {
         return AppRuntime.getApplication().getPackageName();
     }
 
-    public static String aFw() {
-        String aFz = aFz();
-        String aFy = aFy();
+    public static String aFy() {
+        String aFB = aFB();
+        String aFA = aFA();
         int i = Build.VERSION.SDK_INT;
-        return aFz + "_" + aFy + "_" + i + "_" + aFx();
+        return aFB + "_" + aFA + "_" + i + "_" + aFz();
     }
 
-    public static String aFx() {
+    public static String aFz() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -105,7 +105,7 @@ public class d {
         return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String aFy() {
+    public static String aFA() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -113,7 +113,7 @@ public class d {
         return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String aFz() {
+    public static String aFB() {
         String str = Build.MODEL;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -181,11 +181,11 @@ public class d {
         return com.baidu.swan.apps.u.a.Ew().getHostName();
     }
 
-    private static String aFA() {
+    private static String aFC() {
         return com.baidu.swan.c.c.YB();
     }
 
-    private static int aFB() {
+    private static int aFD() {
         NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.u.a.Ek());
         if (activeNetworkInfo == null) {
             return 0;
@@ -193,7 +193,7 @@ public class d {
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int aFC() {
+    private static int aFE() {
         NetworkInfo networkInfo;
         String str = null;
         try {

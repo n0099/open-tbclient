@@ -17,13 +17,13 @@ import java.util.regex.Pattern;
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern jeR = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern jfY = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String jeP = null;
-    private SpannableStringBuilder jeQ = null;
-    private boolean jeO = false;
+    private String jfW = null;
+    private SpannableStringBuilder jfX = null;
+    private boolean jfV = false;
 
     public static boolean cA(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -41,23 +41,23 @@ public class l {
         return this.text;
     }
 
-    public String coZ() {
+    public String cpv() {
         return this.c;
     }
 
-    public SpannableStringBuilder cpa() {
-        return this.jeQ;
+    public SpannableStringBuilder cpw() {
+        return this.jfX;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.jeQ == null) {
-            this.jeQ = new SpannableStringBuilder();
+        if (this.jfX == null) {
+            this.jfX = new SpannableStringBuilder();
         }
-        this.jeQ.append((CharSequence) spannableString);
-        return this.jeQ;
+        this.jfX.append((CharSequence) spannableString);
+        return this.jfX;
     }
 
-    public SpannableString ej(Context context) {
+    public SpannableString ek(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -80,7 +80,7 @@ public class l {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.jeR.matcher(l.this.link);
+                        Matcher matcher2 = l.jfY.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

@@ -92,7 +92,7 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.Xr = aVar;
-        this.Xq.setData(aVar.acx());
+        this.Xq.setData(aVar.acy());
         if ((this.Xo & 4) > 0) {
             this.Xq.post(this.Xt);
         }
@@ -145,7 +145,7 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
     }
 
     public void bw(int i) {
-        this.Xq.cbF = i;
+        this.Xq.cbM = i;
     }
 
     public void setFrom(int i) {

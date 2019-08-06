@@ -58,8 +58,8 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     public b.a getParallelCharge() {
         if (this.Sl == null) {
             this.Sl = new b.a();
-            this.Sl.hed = this.Sj;
-            this.Sl.hee = this.Sk;
+            this.Sl.heV = this.Sj;
+            this.Sl.heW = this.Sk;
         }
         return this.Sl;
     }

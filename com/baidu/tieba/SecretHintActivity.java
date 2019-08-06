@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
 public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
-    private TextView cTR;
-    private TextView cTS;
-    private TextView cTT;
-    private ClickableSpan cTU = new ClickableSpan() { // from class: com.baidu.tieba.SecretHintActivity.1
+    private TextView cTY;
+    private TextView cTZ;
+    private TextView cUa;
+    private ClickableSpan cUb = new ClickableSpan() { // from class: com.baidu.tieba.SecretHintActivity.1
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.SecretHintActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.text.style.ClickableSpan
@@ -32,7 +32,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             if (view != null) {
                 ((TextView) view).setHighlightColor(SecretHintActivity.this.getResources().getColor(17170445));
             }
-            bb.ajC().a(SecretHintActivity.this.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
+            bb.ajE().a(SecretHintActivity.this.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -40,7 +40,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             textPaint.setColor(SecretHintActivity.this.getResources().getColor(R.color.cp_link_tip_c));
         }
     };
-    private View.OnClickListener cTV = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.2
+    private View.OnClickListener cUc = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             SecretHintActivity.this.showDialog();
@@ -49,10 +49,10 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             TiebaStatic.log(anVar);
         }
     };
-    private View.OnClickListener cTW = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.3
+    private View.OnClickListener cUd = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean("key_secret_is_show", true);
+            com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("key_secret_is_show", true);
             if (MessageManager.getInstance().findTask(2015001) != null) {
                 SecretHintActivity.this.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(SecretHintActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, 1)));
             } else {
@@ -77,20 +77,20 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
     }
 
     private void initUI() {
-        this.cTR = (TextView) findViewById(R.id.secret_hint_footer);
-        this.cTS = (TextView) findViewById(R.id.unok_text);
-        this.cTT = (TextView) findViewById(R.id.ok_text);
+        this.cTY = (TextView) findViewById(R.id.secret_hint_footer);
+        this.cTZ = (TextView) findViewById(R.id.unok_text);
+        this.cUa = (TextView) findViewById(R.id.ok_text);
         SpannableString spannableString = new SpannableString(getString(R.string.secret_hint_footer));
-        spannableString.setSpan(this.cTU, 39, 45, 33);
+        spannableString.setSpan(this.cUb, 39, 45, 33);
         spannableString.setSpan(new ForegroundColorSpan(am.getColor(0, R.color.cp_link_tip_a)), 39, 45, 33);
-        this.cTR.setText(spannableString);
-        this.cTR.setMovementMethod(LinkMovementMethod.getInstance());
+        this.cTY.setText(spannableString);
+        this.cTY.setMovementMethod(LinkMovementMethod.getInstance());
         onChangeSkinType(0);
     }
 
     private void initListener() {
-        this.cTS.setOnClickListener(this.cTV);
-        this.cTT.setOnClickListener(this.cTW);
+        this.cTZ.setOnClickListener(this.cUc);
+        this.cUa.setOnClickListener(this.cUd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -109,7 +109,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
                 }
             });
             aVar.b(((com.baidu.adp.base.f) eU).getPageContext());
-            aVar.agI();
+            aVar.agK();
         }
     }
 

@@ -7,15 +7,15 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ap {
-    private static ap bTy;
+    private static ap bTE;
 
-    public static synchronized ap ajj() {
+    public static synchronized ap ajl() {
         ap apVar;
         synchronized (ap.class) {
-            if (bTy == null) {
-                bTy = new ap();
+            if (bTE == null) {
+                bTE = new ap();
             }
-            apVar = bTy;
+            apVar = bTE;
         }
         return apVar;
     }
@@ -87,7 +87,7 @@ public class ap {
         }
     }
 
-    public void ajk() {
+    public void ajm() {
         F(new File(m.Dz + "/" + TbConfig.getTempDirName() + "/" + m.hV(3)));
     }
 

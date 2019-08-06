@@ -21,11 +21,11 @@ public class FeedAdProgressButton extends View implements a {
     private Paint GG;
     private int Hc;
     private String amD;
-    private Paint bXw;
-    private float cLy;
-    private int gQv;
-    private RectF iNF;
-    private Shader iNG;
+    private Paint bXC;
+    private float cLF;
+    private int gRn;
+    private RectF iOJ;
+    private Shader iOK;
     private int mProgress;
     private int mRadius;
     private int mTextColor;
@@ -35,8 +35,8 @@ public class FeedAdProgressButton extends View implements a {
         super(context, attributeSet);
         this.mProgress = 0;
         this.mTextColor = -1;
-        this.cLy = 10.0f;
-        this.gQv = 100;
+        this.cLF = 10.0f;
+        this.gRn = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -46,8 +46,8 @@ public class FeedAdProgressButton extends View implements a {
         super(context, attributeSet, i);
         this.mProgress = 0;
         this.mTextColor = -1;
-        this.cLy = 10.0f;
-        this.gQv = 100;
+        this.cLF = 10.0f;
+        this.gRn = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -61,22 +61,22 @@ public class FeedAdProgressButton extends View implements a {
         this.strokeWidth = getResources().getDimensionPixelSize(R.dimen.ds1);
         this.Hc = obtainStyledAttributes.getInteger(0, color2);
         this.mTextColor = obtainStyledAttributes.getColor(1, color);
-        this.gQv = obtainStyledAttributes.getInteger(2, this.gQv);
+        this.gRn = obtainStyledAttributes.getInteger(2, this.gRn);
         this.mProgress = obtainStyledAttributes.getInteger(3, 0);
         this.amD = obtainStyledAttributes.getString(5);
-        this.cLy = obtainStyledAttributes.getDimension(4, (int) getResources().getDimension(R.dimen.fontsize24));
+        this.cLF = obtainStyledAttributes.getDimension(4, (int) getResources().getDimension(R.dimen.fontsize24));
         this.mRadius = obtainStyledAttributes.getDimensionPixelSize(6, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        this.iNF = new RectF();
+        this.iOJ = new RectF();
         qp();
     }
 
     private void qp() {
         this.GG = new Paint();
-        this.bXw = new Paint();
-        this.bXw.setAntiAlias(true);
-        this.bXw.setTextSize(this.cLy);
-        this.bXw.setColor(this.mTextColor);
+        this.bXC = new Paint();
+        this.bXC.setAntiAlias(true);
+        this.bXC.setTextSize(this.cLF);
+        this.bXC.setColor(this.mTextColor);
         this.GG.setAntiAlias(true);
         this.GG.setStyle(Paint.Style.FILL);
         this.GG.setColor(this.Hc);
@@ -89,27 +89,27 @@ public class FeedAdProgressButton extends View implements a {
             ab(canvas);
         }
         if (!TextUtils.isEmpty(this.amD)) {
-            Paint.FontMetrics fontMetrics = this.bXw.getFontMetrics();
-            canvas.drawText(this.amD, (getMeasuredWidth() - this.bXw.measureText(this.amD)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.bXw);
+            Paint.FontMetrics fontMetrics = this.bXC.getFontMetrics();
+            canvas.drawText(this.amD, (getMeasuredWidth() - this.bXC.measureText(this.amD)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.bXC);
         }
     }
 
     private void ab(Canvas canvas) {
-        if (this.iNF == null) {
-            this.iNF = new RectF();
+        if (this.iOJ == null) {
+            this.iOJ = new RectF();
         }
-        this.iNF.left = this.strokeWidth;
-        this.iNF.top = this.strokeWidth;
-        this.iNF.right = getMeasuredWidth() - this.strokeWidth;
-        this.iNF.bottom = getMeasuredHeight() - this.strokeWidth;
-        float f = this.mProgress / (this.gQv + 0.0f);
-        this.iNG = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.Hc, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-        this.GG.setShader(this.iNG);
-        canvas.drawRoundRect(this.iNF, this.mRadius, this.mRadius, this.GG);
+        this.iOJ.left = this.strokeWidth;
+        this.iOJ.top = this.strokeWidth;
+        this.iOJ.right = getMeasuredWidth() - this.strokeWidth;
+        this.iOJ.bottom = getMeasuredHeight() - this.strokeWidth;
+        float f = this.mProgress / (this.gRn + 0.0f);
+        this.iOK = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.Hc, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+        this.GG.setShader(this.iOK);
+        canvas.drawRoundRect(this.iOJ, this.mRadius, this.mRadius, this.GG);
     }
 
     public void setMax(int i) {
-        this.gQv = i;
+        this.gRn = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
@@ -133,7 +133,7 @@ public class FeedAdProgressButton extends View implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextSize(int i) {
-        this.cLy = l.dip2px(getContext(), i);
+        this.cLF = l.dip2px(getContext(), i);
         postInvalidate();
     }
 
@@ -149,7 +149,7 @@ public class FeedAdProgressButton extends View implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setProgress(int i) {
-        if (i <= this.gQv) {
+        if (i <= this.gRn) {
             this.mProgress = i;
             this.amD = this.mProgress + "%";
             postInvalidate();
@@ -157,7 +157,7 @@ public class FeedAdProgressButton extends View implements a {
     }
 
     public int getMax() {
-        return this.gQv;
+        return this.gRn;
     }
 
     public int getProgress() {
@@ -172,10 +172,10 @@ public class FeedAdProgressButton extends View implements a {
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
-    public void bIl() {
+    public void bIz() {
         am.k(this, R.drawable.tail_frame_action_btn_bg);
         this.mTextColor = am.getColor(R.color.cp_btn_a);
-        this.bXw.setColor(this.mTextColor);
+        this.bXC.setColor(this.mTextColor);
         postInvalidate();
     }
 }

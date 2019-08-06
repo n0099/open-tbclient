@@ -14,7 +14,8 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class RoundLinearLayout extends LinearLayout {
-    private Shape bOr;
+    private Shape bOw;
+    private int bOx;
     private Paint mPaint;
     private float mRadius;
 
@@ -29,6 +30,7 @@ public class RoundLinearLayout extends LinearLayout {
     public RoundLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mRadius = 0.0f;
+        this.bOx = 4;
         setLayerType(1, null);
         this.mRadius = getResources().getDimension(R.dimen.tbds32);
         this.mPaint = new Paint();
@@ -42,20 +44,24 @@ public class RoundLinearLayout extends LinearLayout {
         this.mRadius = f;
     }
 
+    public void setRoundCount(int i) {
+        this.bOx = i;
+    }
+
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.bOr == null) {
+            if (this.bOw == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                Arrays.fill(fArr2, 0, 4, this.mRadius);
-                this.bOr = new RoundRectShape(fArr, rectF, fArr2);
+                Arrays.fill(fArr2, 0, this.bOx, this.mRadius);
+                this.bOw = new RoundRectShape(fArr, rectF, fArr2);
             }
-            this.bOr.resize(getWidth(), getHeight());
+            this.bOw.resize(getWidth(), getHeight());
         }
     }
 
@@ -64,8 +70,8 @@ public class RoundLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.bOr != null) {
-            this.bOr.draw(canvas, this.mPaint);
+        if (this.bOw != null) {
+            this.bOw.draw(canvas, this.mPaint);
         }
         canvas.restoreToCount(saveCount);
     }

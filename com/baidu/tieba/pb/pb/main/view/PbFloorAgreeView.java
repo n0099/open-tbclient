@@ -13,63 +13,63 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PbFloorAgreeView extends FrameLayout {
-    private ImageView bXe;
-    private ScaleAnimation fzx;
-    private TextView hYJ;
-    private TextView hYK;
-    private boolean hYL;
+    private ImageView bXk;
+    private ScaleAnimation fAl;
+    private TextView hZF;
+    private TextView hZG;
+    private boolean hZH;
 
     public PbFloorAgreeView(Context context) {
         super(context);
-        this.hYL = false;
+        this.hZH = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hYL = false;
+        this.hZH = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hYL = false;
+        this.hZH = false;
         init();
     }
 
     public void init() {
         Context context = getContext();
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.hYJ = new TextView(getContext());
+        this.hZF = new TextView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.g(context, R.dimen.tbds48));
         layoutParams.leftMargin = l.g(context, R.dimen.tbds9);
         layoutParams.topMargin = l.g(context, R.dimen.tbds18);
-        this.hYJ.setLayoutParams(layoutParams);
-        this.hYJ.setTextSize(0, l.g(context, R.dimen.tbfontsize30));
-        this.hYJ.setGravity(17);
-        am.j(this.hYJ, R.color.cp_cont_j);
-        this.bXe = new ImageView(context);
-        am.c(this.bXe, (int) R.drawable.icon_floor_like_n);
+        this.hZF.setLayoutParams(layoutParams);
+        this.hZF.setTextSize(0, l.g(context, R.dimen.tbfontsize30));
+        this.hZF.setGravity(17);
+        am.j(this.hZF, R.color.cp_cont_j);
+        this.bXk = new ImageView(context);
+        am.c(this.bXk, (int) R.drawable.icon_floor_like_n);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.g(context, R.dimen.tbds48), l.g(context, R.dimen.tbds48));
         layoutParams2.leftMargin = l.g(context, R.dimen.tbds9);
         layoutParams2.topMargin = l.g(context, R.dimen.tbds18);
-        this.bXe.setLayoutParams(layoutParams2);
-        linearLayout.addView(this.bXe);
-        linearLayout.addView(this.hYJ);
+        this.bXk.setLayoutParams(layoutParams2);
+        linearLayout.addView(this.bXk);
+        linearLayout.addView(this.hZF);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 5;
         addView(linearLayout, layoutParams3);
-        this.hYK = new TextView(getContext());
-        this.hYK.setTextSize(0, l.g(getContext(), R.dimen.fontsize24));
-        addView(this.hYK);
-        this.hYK.setVisibility(8);
+        this.hZG = new TextView(getContext());
+        this.hZG.setTextSize(0, l.g(getContext(), R.dimen.fontsize24));
+        addView(this.hZG);
+        this.hZG.setVisibility(8);
     }
 
     private Animation getScaleAnimation() {
-        if (this.fzx == null) {
-            this.fzx = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
-            this.fzx.setDuration(200L);
+        if (this.fAl == null) {
+            this.fAl = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
+            this.fAl.setDuration(200L);
         }
-        return this.fzx;
+        return this.fAl;
     }
 }

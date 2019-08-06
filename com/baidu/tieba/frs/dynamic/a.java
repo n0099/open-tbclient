@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.mvc.b.c;
 import com.squareup.wire.Message;
@@ -57,13 +57,13 @@ public class a implements c {
             if (!v.aa(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
-                        bg bgVar = new bg();
-                        bgVar.setUserMap(this.userMap);
-                        bgVar.a(threadInfo);
-                        bgVar.setCurrentPage(3);
-                        bgVar.afn();
-                        if (bgVar.getType() == bg.bJj || bgVar.getType() == bg.bJw || bgVar.getType() == bg.bJB || bgVar.getType() == bg.bJx || bgVar.getType() == bg.bJC || bgVar.getType() == bg.bJD) {
-                            this.threadList.add(bgVar);
+                        bh bhVar = new bh();
+                        bhVar.setUserMap(this.userMap);
+                        bhVar.a(threadInfo);
+                        bhVar.setCurrentPage(3);
+                        bhVar.afo();
+                        if (bhVar.getType() == bh.bJo || bhVar.getType() == bh.bJB || bhVar.getType() == bh.bJG || bhVar.getType() == bh.bJC || bhVar.getType() == bh.bJH || bhVar.getType() == bh.bJI) {
+                            this.threadList.add(bhVar);
                         }
                     }
                 }

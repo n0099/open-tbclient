@@ -29,15 +29,15 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getResult() {
-        String aig = this.mNetWork.aig();
+        String aii = this.mNetWork.aii();
         this.bDp = new NewErrorData();
-        this.bDp.parserJson(aig);
-        return aig;
+        this.bDp.parserJson(aii);
+        return aii;
     }
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.aiE().ajF().isRequestSuccess();
+            return this.mNetWork.aiG().ajH().isRequestSuccess();
         }
         return false;
     }

@@ -15,188 +15,188 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 public class j {
-    private static j khm = null;
-    private g kaV;
-    private com.facebook.imagepipeline.c.e kfO;
-    private final ar kgA;
-    private com.facebook.imagepipeline.decoder.b kgL;
-    private com.facebook.imagepipeline.b.f kgP;
-    private m kgu;
-    private t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> kgx;
-    private t<com.facebook.cache.common.b, PooledByteBuffer> kgy;
-    private com.facebook.imagepipeline.c.e kgz;
-    private final h khn;
-    private com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> kho;
-    private com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, PooledByteBuffer> khp;
-    private com.facebook.cache.disk.h khq;
-    private l khr;
-    private com.facebook.cache.disk.h khs;
-    private r kht;
-    private com.facebook.imagepipeline.h.e khu;
-    private com.facebook.imagepipeline.a.a.b khv;
+    private static j kit = null;
+    private g kcb;
+    private com.facebook.imagepipeline.c.e kgU;
+    private m khA;
+    private t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> khD;
+    private t<com.facebook.cache.common.b, PooledByteBuffer> khE;
+    private com.facebook.imagepipeline.c.e khF;
+    private final ar khG;
+    private com.facebook.imagepipeline.decoder.b khR;
+    private com.facebook.imagepipeline.b.f khV;
+    private r kiA;
+    private com.facebook.imagepipeline.h.e kiB;
+    private com.facebook.imagepipeline.a.a.b kiC;
+    private final h kiu;
+    private com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> kiv;
+    private com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, PooledByteBuffer> kiw;
+    private com.facebook.cache.disk.h kix;
+    private l kiy;
+    private com.facebook.cache.disk.h kiz;
 
-    public static j cIM() {
-        return (j) com.facebook.common.internal.g.checkNotNull(khm, "ImagePipelineFactory was not initialized!");
+    public static j cJh() {
+        return (j) com.facebook.common.internal.g.checkNotNull(kit, "ImagePipelineFactory was not initialized!");
     }
 
     public static void initialize(Context context) {
-        a(h.eE(context).cIA());
+        a(h.eF(context).cIV());
     }
 
     public static void a(h hVar) {
-        khm = new j(hVar);
+        kit = new j(hVar);
     }
 
     public j(h hVar) {
-        this.khn = (h) com.facebook.common.internal.g.checkNotNull(hVar);
-        this.kgA = new ar(hVar.cIl().cIc());
+        this.kiu = (h) com.facebook.common.internal.g.checkNotNull(hVar);
+        this.khG = new ar(hVar.cIG().cIx());
     }
 
-    public com.facebook.imagepipeline.a.a.b cIN() {
-        if (this.khv == null) {
-            this.khv = com.facebook.imagepipeline.a.a.c.a(cIT(), this.khn.cIl());
+    public com.facebook.imagepipeline.a.a.b cJi() {
+        if (this.kiC == null) {
+            this.kiC = com.facebook.imagepipeline.a.a.c.a(cJo(), this.kiu.cIG());
         }
-        return this.khv;
+        return this.kiC;
     }
 
-    public com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> cIO() {
-        if (this.kho == null) {
-            this.kho = com.facebook.imagepipeline.c.a.a(this.khn.cIg(), this.khn.cIq(), cIT(), this.khn.cIy().cIC());
+    public com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> cJj() {
+        if (this.kiv == null) {
+            this.kiv = com.facebook.imagepipeline.c.a.a(this.kiu.cIB(), this.kiu.cIL(), cJo(), this.kiu.cIT().cIX());
         }
-        return this.kho;
+        return this.kiv;
     }
 
-    public t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> cIe() {
-        if (this.kgx == null) {
-            this.kgx = com.facebook.imagepipeline.c.b.a(cIO(), this.khn.cIm());
+    public t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> cIz() {
+        if (this.khD == null) {
+            this.khD = com.facebook.imagepipeline.c.b.a(cJj(), this.kiu.cIH());
         }
-        return this.kgx;
+        return this.khD;
     }
 
-    public com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, PooledByteBuffer> cIP() {
-        if (this.khp == null) {
-            this.khp = com.facebook.imagepipeline.c.m.a(this.khn.cIk(), this.khn.cIq(), cIT());
+    public com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, PooledByteBuffer> cJk() {
+        if (this.kiw == null) {
+            this.kiw = com.facebook.imagepipeline.c.m.a(this.kiu.cIF(), this.kiu.cIL(), cJo());
         }
-        return this.khp;
+        return this.kiw;
     }
 
-    public t<com.facebook.cache.common.b, PooledByteBuffer> cIQ() {
-        if (this.kgy == null) {
-            this.kgy = n.a(cIP(), this.khn.cIm());
+    public t<com.facebook.cache.common.b, PooledByteBuffer> cJl() {
+        if (this.khE == null) {
+            this.khE = n.a(cJk(), this.kiu.cIH());
         }
-        return this.kgy;
+        return this.khE;
     }
 
-    private com.facebook.imagepipeline.decoder.b cIn() {
+    private com.facebook.imagepipeline.decoder.b cII() {
         com.facebook.imagepipeline.a.a.d dVar;
-        if (this.kgL == null) {
-            if (this.khn.cIn() != null) {
-                this.kgL = this.khn.cIn();
+        if (this.khR == null) {
+            if (this.kiu.cII() != null) {
+                this.khR = this.kiu.cII();
             } else {
-                if (cIN() != null) {
-                    dVar = cIN().cHh();
+                if (cJi() != null) {
+                    dVar = cJi().cHC();
                 } else {
                     dVar = null;
                 }
-                if (this.khn.cIx() == null) {
-                    this.kgL = new com.facebook.imagepipeline.decoder.a(dVar, cIU(), this.khn.cHQ());
+                if (this.kiu.cIS() == null) {
+                    this.khR = new com.facebook.imagepipeline.decoder.a(dVar, cJp(), this.kiu.cIl());
                 } else {
-                    this.kgL = new com.facebook.imagepipeline.decoder.a(dVar, cIU(), this.khn.cHQ(), this.khn.cIx().cJx());
-                    com.facebook.c.d.cHg().eG(this.khn.cIx().cJy());
+                    this.khR = new com.facebook.imagepipeline.decoder.a(dVar, cJp(), this.kiu.cIl(), this.kiu.cIS().cJS());
+                    com.facebook.c.d.cHB().eF(this.kiu.cIS().cJT());
                 }
             }
         }
-        return this.kgL;
+        return this.khR;
     }
 
-    private com.facebook.imagepipeline.c.e cIR() {
-        if (this.kgz == null) {
-            this.kgz = new com.facebook.imagepipeline.c.e(cIS(), this.khn.cIs().cKw(), this.khn.cIs().cKx(), this.khn.cIl().cHY(), this.khn.cIl().cHZ(), this.khn.cIm());
+    private com.facebook.imagepipeline.c.e cJm() {
+        if (this.khF == null) {
+            this.khF = new com.facebook.imagepipeline.c.e(cJn(), this.kiu.cIN().cKR(), this.kiu.cIN().cKS(), this.kiu.cIG().cIt(), this.kiu.cIG().cIu(), this.kiu.cIH());
         }
-        return this.kgz;
+        return this.khF;
     }
 
-    public com.facebook.cache.disk.h cIS() {
-        if (this.khq == null) {
-            this.khq = this.khn.cIi().a(this.khn.cIp());
+    public com.facebook.cache.disk.h cJn() {
+        if (this.kix == null) {
+            this.kix = this.kiu.cID().a(this.kiu.cIK());
         }
-        return this.khq;
+        return this.kix;
     }
 
-    public g cFw() {
-        if (this.kaV == null) {
-            this.kaV = new g(cIW(), this.khn.cIu(), this.khn.cIo(), cIe(), cIQ(), cIR(), cIY(), this.khn.cIf(), this.kgA, com.facebook.common.internal.j.aD(false));
+    public g cFR() {
+        if (this.kcb == null) {
+            this.kcb = new g(cJr(), this.kiu.cIP(), this.kiu.cIJ(), cIz(), cJl(), cJm(), cJt(), this.kiu.cIA(), this.khG, com.facebook.common.internal.j.aD(false));
         }
-        return this.kaV;
+        return this.kcb;
     }
 
     public static com.facebook.imagepipeline.b.f a(q qVar, com.facebook.imagepipeline.h.e eVar) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return new com.facebook.imagepipeline.b.a(qVar.cKs());
+            return new com.facebook.imagepipeline.b.a(qVar.cKN());
         }
         if (Build.VERSION.SDK_INT >= 11) {
-            return new com.facebook.imagepipeline.b.e(new com.facebook.imagepipeline.b.b(qVar.cKw()), eVar);
+            return new com.facebook.imagepipeline.b.e(new com.facebook.imagepipeline.b.b(qVar.cKR()), eVar);
         }
         return new com.facebook.imagepipeline.b.c();
     }
 
-    public com.facebook.imagepipeline.b.f cIT() {
-        if (this.kgP == null) {
-            this.kgP = a(this.khn.cIs(), cIU());
+    public com.facebook.imagepipeline.b.f cJo() {
+        if (this.khV == null) {
+            this.khV = a(this.kiu.cIN(), cJp());
         }
-        return this.kgP;
+        return this.khV;
     }
 
     public static com.facebook.imagepipeline.h.e a(q qVar, boolean z) {
         if (Build.VERSION.SDK_INT >= 21) {
-            int cKu = qVar.cKu();
-            return new com.facebook.imagepipeline.h.a(qVar.cKs(), cKu, new Pools.SynchronizedPool(cKu));
+            int cKP = qVar.cKP();
+            return new com.facebook.imagepipeline.h.a(qVar.cKN(), cKP, new Pools.SynchronizedPool(cKP));
         } else if (z && Build.VERSION.SDK_INT < 19) {
             return new com.facebook.imagepipeline.h.c();
         } else {
-            return new com.facebook.imagepipeline.h.d(qVar.cKt());
+            return new com.facebook.imagepipeline.h.d(qVar.cKO());
         }
     }
 
-    public com.facebook.imagepipeline.h.e cIU() {
-        if (this.khu == null) {
-            this.khu = a(this.khn.cIs(), this.khn.cIy().cIH());
+    public com.facebook.imagepipeline.h.e cJp() {
+        if (this.kiB == null) {
+            this.kiB = a(this.kiu.cIN(), this.kiu.cIT().cJc());
         }
-        return this.khu;
+        return this.kiB;
     }
 
-    private l cIV() {
-        if (this.khr == null) {
-            this.khr = new l(this.khn.getContext(), this.khn.cIs().cKy(), cIn(), this.khn.cIt(), this.khn.cIj(), this.khn.cIv(), this.khn.cIy().cII(), this.khn.cIl(), this.khn.cIs().cKw(), cIe(), cIQ(), cIR(), cIY(), cIZ(), this.khn.cIy().cIF(), this.khn.cIf(), cIT(), this.khn.cIy().cID());
+    private l cJq() {
+        if (this.kiy == null) {
+            this.kiy = new l(this.kiu.getContext(), this.kiu.cIN().cKT(), cII(), this.kiu.cIO(), this.kiu.cIE(), this.kiu.cIQ(), this.kiu.cIT().cJd(), this.kiu.cIG(), this.kiu.cIN().cKR(), cIz(), cJl(), cJm(), cJt(), cJu(), this.kiu.cIT().cJa(), this.kiu.cIA(), cJo(), this.kiu.cIT().cIY());
         }
-        return this.khr;
+        return this.kiy;
     }
 
-    private m cIW() {
-        if (this.kgu == null) {
-            this.kgu = new m(cIV(), this.khn.cIr(), this.khn.cIv(), this.khn.cIy().cIH(), this.kgA, this.khn.cIy().cIG());
+    private m cJr() {
+        if (this.khA == null) {
+            this.khA = new m(cJq(), this.kiu.cIM(), this.kiu.cIQ(), this.kiu.cIT().cJc(), this.khG, this.kiu.cIT().cJb());
         }
-        return this.kgu;
+        return this.khA;
     }
 
-    public com.facebook.cache.disk.h cIX() {
-        if (this.khs == null) {
-            this.khs = this.khn.cIi().a(this.khn.cIw());
+    public com.facebook.cache.disk.h cJs() {
+        if (this.kiz == null) {
+            this.kiz = this.kiu.cID().a(this.kiu.cIR());
         }
-        return this.khs;
+        return this.kiz;
     }
 
-    private com.facebook.imagepipeline.c.e cIY() {
-        if (this.kfO == null) {
-            this.kfO = new com.facebook.imagepipeline.c.e(cIX(), this.khn.cIs().cKw(), this.khn.cIs().cKx(), this.khn.cIl().cHY(), this.khn.cIl().cHZ(), this.khn.cIm());
+    private com.facebook.imagepipeline.c.e cJt() {
+        if (this.kgU == null) {
+            this.kgU = new com.facebook.imagepipeline.c.e(cJs(), this.kiu.cIN().cKR(), this.kiu.cIN().cKS(), this.kiu.cIG().cIt(), this.kiu.cIG().cIu(), this.kiu.cIH());
         }
-        return this.kfO;
+        return this.kgU;
     }
 
-    public r cIZ() {
-        if (this.kht == null) {
-            this.kht = this.khn.cIy().cIE() ? new s(this.khn.getContext(), this.khn.cIl().cHY(), this.khn.cIl().cHZ()) : new y();
+    public r cJu() {
+        if (this.kiA == null) {
+            this.kiA = this.kiu.cIT().cIZ() ? new s(this.kiu.getContext(), this.kiu.cIG().cIt(), this.kiu.cIG().cIu()) : new y();
         }
-        return this.kht;
+        return this.kiA;
     }
 }

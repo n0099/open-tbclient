@@ -9,9 +9,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recommend.b.d> {
-    private TextView faX;
-    private TextView faY;
-    private com.baidu.tieba.enterForum.recommend.b.d faZ;
+    private TextView fbk;
+    private TextView fbl;
+    private com.baidu.tieba.enterForum.recommend.b.d fbm;
     private TbPageContext mContext;
     private int mSkinType;
 
@@ -24,15 +24,15 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     private void initUI() {
         View view = getView();
-        this.faX = (TextView) view.findViewById(R.id.recommend_title);
-        this.faY = (TextView) view.findViewById(R.id.recommend_update);
-        this.faY.setOnClickListener(this);
+        this.fbk = (TextView) view.findViewById(R.id.recommend_title);
+        this.fbl = (TextView) view.findViewById(R.id.recommend_update);
+        this.fbl.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         this.mSkinType = i;
-        am.j(this.faX, R.color.cp_cont_j);
+        am.j(this.fbk, R.color.cp_cont_j);
         am.l(getView(), R.color.cp_bg_line_c);
     }
 
@@ -40,10 +40,10 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.enterForum.recommend.b.d dVar) {
         if (dVar != null) {
-            this.faZ = dVar;
+            this.fbm = dVar;
             onChangeSkinType(this.mContext, this.mSkinType);
             if (!StringUtils.isNull(dVar.getTitle())) {
-                this.faX.setText(dVar.getTitle());
+                this.fbk.setText(dVar.getTitle());
             }
         }
     }
@@ -55,9 +55,9 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ab<com.baidu.tieba.enterForum.recommend.b.d> aZo;
-        if (view == this.faY && (aZo = aZo()) != null && this.faZ.bgw() < this.faZ.getForumList().size()) {
-            aZo.a(view, this.faZ);
+        ab<com.baidu.tieba.enterForum.recommend.b.d> aZq;
+        if (view == this.fbl && (aZq = aZq()) != null && this.fbm.bgz() < this.fbm.getForumList().size()) {
+            aZq.a(view, this.fbm);
         }
     }
 }

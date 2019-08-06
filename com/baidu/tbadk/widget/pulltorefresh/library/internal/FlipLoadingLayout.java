@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FlipLoadingLayout extends LoadingLayout {
     private final Animation aMB;
-    private final Animation cLh;
+    private final Animation cLo;
 
     public FlipLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
@@ -24,10 +24,10 @@ public class FlipLoadingLayout extends LoadingLayout {
         this.aMB.setInterpolator(aMA);
         this.aMB.setDuration(150L);
         this.aMB.setFillAfter(true);
-        this.cLh = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.cLh.setInterpolator(aMA);
-        this.cLh.setDuration(150L);
-        this.cLh.setFillAfter(true);
+        this.cLo = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.cLo.setInterpolator(aMA);
+        this.cLo.setDuration(150L);
+        this.cLo.setFillAfter(true);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -55,7 +55,7 @@ public class FlipLoadingLayout extends LoadingLayout {
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void pullToRefreshImpl() {
         if (this.aMB == this.mHeaderImage.getAnimation()) {
-            this.mHeaderImage.startAnimation(this.cLh);
+            this.mHeaderImage.startAnimation(this.cLo);
         }
     }
 
@@ -83,14 +83,14 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     private float getDrawableRotationAngle() {
-        switch (this.cKM) {
+        switch (this.cKT) {
             case PULL_FROM_END:
-                if (this.cLm == PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.cLt == PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 90.0f;
                 }
                 return 180.0f;
             case PULL_FROM_START:
-                if (this.cLm != PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.cLt != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;
                 }
                 return 270.0f;

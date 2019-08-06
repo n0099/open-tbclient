@@ -33,7 +33,7 @@ public class g implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String cDR() {
+    public String cEm() {
         return this.mKey;
     }
 }

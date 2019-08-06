@@ -29,7 +29,7 @@ public class r {
     public r() {
         MessageManager.getInstance().registerListener(this.bzL);
         ZM();
-        this.bzK = com.baidu.tbadk.core.sharedPref.b.ahO().getLong("key_redpacket_pop_last_time", 0L);
+        this.bzK = com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("key_redpacket_pop_last_time", 0L);
     }
 
     public void check() {
@@ -64,13 +64,13 @@ public class r {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ZM() {
-        this.bzJ.parseJson(com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_redpacket_pop", ""));
+        this.bzJ.parseJson(com.baidu.tbadk.core.sharedPref.b.ahQ().getString("key_redpacket_pop", ""));
     }
 
     private void showWindow() {
         if (!aq.isEmpty(this.bzJ.getUrl())) {
             this.bzK = System.currentTimeMillis();
-            com.baidu.tbadk.core.sharedPref.b.ahO().putLong("key_redpacket_pop_last_time", this.bzK);
+            com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("key_redpacket_pop_last_time", this.bzK);
             TiebaStatic.log(new an("c13083"));
             String str = this.bzJ.getUrl() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();

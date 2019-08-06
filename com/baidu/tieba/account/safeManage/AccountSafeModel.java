@@ -6,24 +6,24 @@ import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
 /* loaded from: classes4.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private boolean cBD;
-    private com.baidu.tieba.setting.im.more.a cWI;
-    private String cWJ;
-    private String cWK;
-    private String cWL;
+    private boolean cBK;
+    private com.baidu.tieba.setting.im.more.a cWP;
+    private String cWQ;
+    private String cWR;
+    private String cWS;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a aCS() {
-        return this.cWI;
+    public com.baidu.tieba.setting.im.more.a aCU() {
+        return this.cWP;
     }
 
-    public String aCT() {
-        return this.cWJ;
+    public String aCV() {
+        return this.cWQ;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.cBD = false;
+        this.cBK = false;
         this.mFinished = false;
     }
 
@@ -34,52 +34,52 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.cBD = false;
+        this.cBK = false;
         this.mFinished = false;
         return false;
     }
 
-    private PrivateInfoNetMessage aCU() {
+    private PrivateInfoNetMessage aCW() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean aCV() {
-        if (this.cBD) {
+    public boolean aCX() {
+        if (this.cBK) {
             return false;
         }
-        this.cBD = true;
+        this.cBK = true;
         this.mFinished = false;
-        sendMessage(aCU());
+        sendMessage(aCW());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.cWI = aVar;
-        aCW();
+        this.cWP = aVar;
+        aCY();
     }
 
-    private void aCW() {
-        SimpleUser aCX = aCX();
-        if (aCX != null) {
-            this.cWK = aCX.secureemail;
-            this.cWL = aCX.securemobil;
-            this.cWJ = aCX.ahead_url;
+    private void aCY() {
+        SimpleUser aCZ = aCZ();
+        if (aCZ != null) {
+            this.cWR = aCZ.secureemail;
+            this.cWS = aCZ.securemobil;
+            this.cWQ = aCZ.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser aCX() {
-        if (this.cWI == null || this.cWI.aCX() == null) {
+    private SimpleUser aCZ() {
+        if (this.cWP == null || this.cWP.aCZ() == null) {
             return null;
         }
-        return this.cWI.aCX();
+        return this.cWP.aCZ();
     }
 
     public boolean pP() {
-        return this.cBD;
+        return this.cBK;
     }
 
     public void setLoading(boolean z) {
-        this.cBD = z;
+        this.cBK = z;
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.adp.widget.ListView.m;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d implements m {
-    public static final BdUniqueId fIV = BdUniqueId.gen();
+    public static final BdUniqueId fJJ = BdUniqueId.gen();
     public String content;
     public String createTime;
-    public String fIQ;
-    public String fIW;
-    public String fIX;
-    public boolean fIY;
+    public String fJE;
+    public String fJK;
+    public String fJL;
+    public boolean fJM;
     public String forumId;
     public String id;
     public String userId;
@@ -20,21 +20,21 @@ public class d implements m {
     public d(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.id = jSONObject.optString("id");
-            this.fIW = jSONObject.optString("main_tower_id");
+            this.fJK = jSONObject.optString("main_tower_id");
             this.forumId = jSONObject.optString("forum_id");
             this.userId = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.createTime = jSONObject.optString("create_time");
             this.content = jSONObject.optString("content");
-            this.fIX = jSONObject.optString("reply_user_id");
-            this.fIQ = jSONObject.optString("time_passed");
-            this.fIY = jSONObject.optInt("is_main_tower_user", 0) == 1;
+            this.fJL = jSONObject.optString("reply_user_id");
+            this.fJE = jSONObject.optString("time_passed");
+            this.fJM = jSONObject.optInt("is_main_tower_user", 0) == 1;
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fIV;
+        return fJJ;
     }
 
     public boolean equals(Object obj) {

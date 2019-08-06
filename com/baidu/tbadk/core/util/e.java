@@ -16,9 +16,9 @@ public class e {
             }
         }
     };
-    private boolean bRk;
+    private boolean bRq;
 
-    public static e ahW() {
+    public static e ahY() {
         return new e();
     }
 
@@ -26,7 +26,7 @@ public class e {
     }
 
     public void l(String str, int i, int i2) {
-        if (!this.bRk && str != null) {
+        if (!this.bRq && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -71,12 +71,12 @@ public class e {
     }
 
     public void onPause() {
-        this.bRk = true;
+        this.bRq = true;
         cancel();
     }
 
     public void onResume() {
-        this.bRk = false;
+        this.bRq = false;
     }
 
     public static void cancel() {

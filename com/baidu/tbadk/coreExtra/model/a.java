@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0250a ciO;
+    private C0250a ciV;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -33,18 +33,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.ciO == null) {
-            this.ciO = new C0250a();
-            this.ciO.setPriority(2);
-            this.ciO.eO(z);
-            this.ciO.setPortrait(str);
-            this.ciO.setToUid(str2);
-            this.ciO.setIsGod(z2);
-            this.ciO.setFrom(str3);
-            this.ciO.setPageId(bdUniqueId);
-            this.ciO.setForumId(str4);
-            this.ciO.setInLive(str5);
-            this.ciO.execute(new Integer[0]);
+        if (this.ciV == null) {
+            this.ciV = new C0250a();
+            this.ciV.setPriority(2);
+            this.ciV.eO(z);
+            this.ciV.setPortrait(str);
+            this.ciV.setToUid(str2);
+            this.ciV.setIsGod(z2);
+            this.ciV.setFrom(str3);
+            this.ciV.setPageId(bdUniqueId);
+            this.ciV.setForumId(str4);
+            this.ciV.setInLive(str5);
+            this.ciV.execute(new Integer[0]);
         }
     }
 
@@ -131,10 +131,10 @@ public class a {
                     }
                     this.mNetwork.o("in_live", this.inLive);
                     this.mNetwork.o("authsid", this.authSid);
-                    this.mNetwork.aiE().ajE().mIsNeedTbs = true;
-                    String aig = this.mNetwork.aig();
-                    this.tokenData = AuthTokenData.parse(aig);
-                    return aig;
+                    this.mNetwork.aiG().ajG().mIsNeedTbs = true;
+                    String aii = this.mNetwork.aii();
+                    this.tokenData = AuthTokenData.parse(aii);
+                    return aii;
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -147,19 +147,19 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0250a) str);
-            a.this.ciO = null;
+            a.this.ciV = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Hs = this.mNetwork.aiE().ajF().isRequestSuccess();
+                aVar.Hs = this.mNetwork.aiG().ajH().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.R(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.aiE().ajF().isRequestSuccess()) {
-                    aVar.chF = null;
+                if (this.mNetwork.aiG().ajH().isRequestSuccess()) {
+                    aVar.chM = null;
                 }
-                if (!AntiHelper.d(a.this.getContext(), this.mNetwork.aiI(), aVar.chE)) {
+                if (!AntiHelper.d(a.this.getContext(), this.mNetwork.aiK(), aVar.chL)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -174,9 +174,9 @@ public class a {
                 this.mNetwork.ik();
                 this.mNetwork = null;
             }
-            if (a.this.ciO != null) {
-                a.this.ciO.cancel();
-                a.this.ciO = null;
+            if (a.this.ciV != null) {
+                a.this.ciV.cancel();
+                a.this.ciV = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.m(false);
@@ -192,8 +192,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.ciO != null) {
-            this.ciO.cancel();
+        if (this.ciV != null) {
+            this.ciV.cancel();
         }
     }
 }

@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private d ijE;
-    private com.baidu.tieba.personCenter.a.a ijF;
-    private com.baidu.tieba.personCenter.a.b ijG;
-    private f ijH;
-    private e ijI;
-    private com.baidu.tieba.personCenter.a.c ijo;
+    private d ikG;
+    private com.baidu.tieba.personCenter.a.a ikH;
+    private com.baidu.tieba.personCenter.a.b ikI;
+    private f ikJ;
+    private e ikK;
+    private com.baidu.tieba.personCenter.a.c ikq;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -29,18 +29,18 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.ijE = new d(tbPageContext, h.ikn);
-        this.ijF = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.d.ijV);
-        this.ijG = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.e.ijW);
-        this.ijH = new f(tbPageContext, m.ikx);
-        this.ijo = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.ikm);
-        this.ijI = new e(tbPageContext, j.ikr);
-        this.mAdapters.add(this.ijE);
-        this.mAdapters.add(this.ijF);
-        this.mAdapters.add(this.ijG);
-        this.mAdapters.add(this.ijH);
-        this.mAdapters.add(this.ijo);
-        this.mAdapters.add(this.ijI);
+        this.ikG = new d(tbPageContext, h.ilp);
+        this.ikH = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.d.ikX);
+        this.ikI = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.e.ikY);
+        this.ikJ = new f(tbPageContext, m.ilA);
+        this.ikq = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.ilo);
+        this.ikK = new e(tbPageContext, j.ilu);
+        this.mAdapters.add(this.ikG);
+        this.mAdapters.add(this.ikH);
+        this.mAdapters.add(this.ikI);
+        this.mAdapters.add(this.ikJ);
+        this.mAdapters.add(this.ikq);
+        this.mAdapters.add(this.ikK);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -50,11 +50,11 @@ public class a {
         }
     }
 
-    public void cbb() {
-        this.ijF.cbb();
+    public void cbt() {
+        this.ikH.cbt();
     }
 
-    public void cbc() {
-        this.ijF.destroy();
+    public void cbu() {
+        this.ikH.destroy();
     }
 }

@@ -9,27 +9,27 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends v.a {
-    public int cdL;
-    public RelativeLayout cdP;
-    public TextView cdQ;
-    public IndicatorView cdR;
-    public View cdS;
-    public BdBaseViewPager cdT;
+    public int cdS;
+    public RelativeLayout cdW;
+    public TextView cdX;
+    public IndicatorView cdY;
+    public View cdZ;
+    public BdBaseViewPager cea;
     public TextView title;
 
     public a(View view, Context context) {
         super(view);
-        this.cdL = 3;
+        this.cdS = 3;
         this.title = null;
-        this.cdQ = null;
-        this.cdR = null;
-        this.cdS = null;
-        this.cdT = null;
-        this.cdP = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.cdX = null;
+        this.cdY = null;
+        this.cdZ = null;
+        this.cea = null;
+        this.cdW = (RelativeLayout) view.findViewById(R.id.top_area);
         this.title = (TextView) view.findViewById(R.id.theme_title);
-        this.cdQ = (TextView) view.findViewById(R.id.more_textview);
-        this.cdR = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.cdS = view.findViewById(R.id.bottom_divider_line);
-        this.cdT = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.cdX = (TextView) view.findViewById(R.id.more_textview);
+        this.cdY = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.cdZ = view.findViewById(R.id.bottom_divider_line);
+        this.cea = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

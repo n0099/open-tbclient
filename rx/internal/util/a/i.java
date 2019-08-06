@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.krz;
-        long j = this.kAM;
-        long cQc = cQc();
-        long eZ = eZ(cQc);
+        E[] eArr = this.ksF;
+        long j = this.kBS;
+        long cQx = cQx();
+        long eZ = eZ(cQx);
         if (b(eArr, eZ) != null) {
-            if (cQc - cQb() > j) {
+            if (cQx - cQw() > j) {
                 return false;
             }
             do {
             } while (b(eArr, eZ) != null);
             a(eArr, eZ, e);
-            fb(1 + cQc);
+            fb(1 + cQx);
             return true;
         }
         a(eArr, eZ, e);
-        fb(1 + cQc);
+        fb(1 + cQx);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long cQb;
-        long cQf = cQf();
+        long cQw;
+        long cQA = cQA();
         do {
-            cQb = cQb();
-            if (cQb >= cQf) {
-                long cQc = cQc();
-                if (cQb >= cQc) {
+            cQw = cQw();
+            if (cQw >= cQA) {
+                long cQx = cQx();
+                if (cQw >= cQx) {
                     return null;
                 }
-                fc(cQc);
+                fc(cQx);
             }
-        } while (!A(cQb, 1 + cQb));
-        long eZ = eZ(cQb);
-        E[] eArr = this.krz;
+        } while (!A(cQw, 1 + cQw));
+        long eZ = eZ(cQw);
+        E[] eArr = this.ksF;
         E a = a(eArr, eZ);
         b(eArr, eZ, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E fa;
-        long cQf = cQf();
+        long cQA = cQA();
         do {
-            long cQb = cQb();
-            if (cQb >= cQf) {
-                long cQc = cQc();
-                if (cQb >= cQc) {
+            long cQw = cQw();
+            if (cQw >= cQA) {
+                long cQx = cQx();
+                if (cQw >= cQx) {
                     return null;
                 }
-                fc(cQc);
+                fc(cQx);
             }
-            fa = fa(eZ(cQb));
+            fa = fa(eZ(cQw));
         } while (fa == null);
         return fa;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cQb = cQb();
+        long cQw = cQw();
         while (true) {
-            long cQc = cQc();
-            long cQb2 = cQb();
-            if (cQb == cQb2) {
-                return (int) (cQc - cQb2);
+            long cQx = cQx();
+            long cQw2 = cQw();
+            if (cQw == cQw2) {
+                return (int) (cQx - cQw2);
             }
-            cQb = cQb2;
+            cQw = cQw2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cQb() == cQc();
+        return cQw() == cQx();
     }
 }

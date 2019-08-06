@@ -7,15 +7,15 @@ import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class b extends v.a {
     public View divider;
-    public TextView gFS;
-    public View gwX;
+    public TextView gGK;
+    public View gxP;
     public View rootView;
 
     public b(View view, View.OnClickListener onClickListener) {
         super(view);
         this.rootView = view;
-        this.gwX = view.findViewById(R.id.divider_top);
-        this.gFS = (TextView) view.findViewById(R.id.create_item_text);
+        this.gxP = view.findViewById(R.id.divider_top);
+        this.gGK = (TextView) view.findViewById(R.id.create_item_text);
         this.divider = view.findViewById(R.id.divider);
         this.rootView.setOnClickListener(onClickListener);
     }

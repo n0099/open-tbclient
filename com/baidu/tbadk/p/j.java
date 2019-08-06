@@ -4,104 +4,104 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 /* loaded from: classes.dex */
 public class j extends l {
-    public static int cAh = 100;
-    public static int cAi = 10;
+    public static int cAo = 100;
+    public static int cAp = 10;
 
-    public static void avr() {
-        if (m.avt().avu()) {
-            if (b.cAm > cAi) {
-                b.avn();
+    public static void avt() {
+        if (m.avv().avw()) {
+            if (b.cAt > cAp) {
+                b.avp();
             }
-            if (a.cAj > cAi) {
-                a.avn();
+            if (a.cAq > cAp) {
+                a.avp();
             }
         }
     }
 
     public static void d(boolean z, boolean z2, boolean z3) {
-        a.cAj++;
+        a.cAq++;
         if (z2) {
-            a.cAk++;
+            a.cAr++;
         } else if (z3) {
-            a.cAl++;
+            a.cAs++;
         }
-        if (a.cAj > cAh) {
-            a.avn();
+        if (a.cAq > cAo) {
+            a.avp();
         }
     }
 
     public void c(f fVar) {
-        if (m.avt().avu()) {
-            if (b.cAm < cAh) {
-                b.cAn += fVar.Ak;
-                b.cAo += fVar.czF;
-                b.cAp += fVar.czG;
-                b.cAq += fVar.czH;
-                b.cAs += fVar.Me;
-                b.cAr += fVar.czI;
-                b.cAm++;
+        if (m.avv().avw()) {
+            if (b.cAt < cAo) {
+                b.cAu += fVar.Ak;
+                b.cAv += fVar.czM;
+                b.cAw += fVar.czN;
+                b.cAx += fVar.czO;
+                b.cAz += fVar.Me;
+                b.cAy += fVar.czP;
+                b.cAt++;
                 return;
             }
-            b.avn();
+            b.avp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int cAj;
-        public static int cAk;
-        public static int cAl;
+        public static int cAq;
+        public static int cAr;
+        public static int cAs;
 
-        public static void avn() {
+        public static void avp() {
             com.baidu.adp.lib.stats.a iF = l.iF();
             iF.append("action", "imbusy");
-            iF.append("totalNum", String.valueOf(cAj));
-            iF.append("tfailNum", String.valueOf(cAk));
-            iF.append("qfailNum", String.valueOf(cAl));
+            iF.append("totalNum", String.valueOf(cAq));
+            iF.append("tfailNum", String.valueOf(cAr));
+            iF.append("qfailNum", String.valueOf(cAs));
             BdStatisticsManager.getInstance().performance(IXAdRequestInfo.IMSI, iF);
             resetData();
         }
 
         public static void resetData() {
-            cAj = 0;
-            cAk = 0;
-            cAl = 0;
+            cAq = 0;
+            cAr = 0;
+            cAs = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int cAm;
-        public static long cAn;
-        public static long cAo;
-        public static long cAp;
-        public static int cAq;
-        public static int cAr;
-        public static long cAs;
+        public static int cAt;
+        public static long cAu;
+        public static long cAv;
+        public static long cAw;
+        public static int cAx;
+        public static int cAy;
+        public static long cAz;
 
-        public static void avn() {
+        public static void avp() {
             com.baidu.adp.lib.stats.a iF = l.iF();
             iF.append("action", "imcost");
-            iF.append("dect", String.valueOf(cAn));
-            iF.append("dlsize", String.valueOf(cAo));
-            iF.append("dbt", String.valueOf(cAp));
-            iF.append("pnum", String.valueOf(cAq));
-            iF.append("reqcost", String.valueOf(cAs));
-            iF.append("cpu", String.valueOf(cAr));
-            iF.append("totalNum", String.valueOf(cAm));
+            iF.append("dect", String.valueOf(cAu));
+            iF.append("dlsize", String.valueOf(cAv));
+            iF.append("dbt", String.valueOf(cAw));
+            iF.append("pnum", String.valueOf(cAx));
+            iF.append("reqcost", String.valueOf(cAz));
+            iF.append("cpu", String.valueOf(cAy));
+            iF.append("totalNum", String.valueOf(cAt));
             BdStatisticsManager.getInstance().performance(IXAdRequestInfo.IMSI, iF);
-            avs();
+            avu();
         }
 
-        public static void avs() {
-            cAm = 0;
-            cAn = 0L;
-            cAo = 0L;
-            cAp = 0L;
-            cAq = 0;
-            cAr = 0;
+        public static void avu() {
+            cAt = 0;
+            cAu = 0L;
+            cAv = 0L;
+            cAw = 0L;
+            cAx = 0;
+            cAy = 0;
         }
     }
 }

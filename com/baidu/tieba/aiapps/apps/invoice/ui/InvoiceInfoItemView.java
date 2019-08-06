@@ -14,11 +14,11 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
     private String bsY;
-    private View cUw;
-    private TextView dea;
-    private EditText deb;
-    private String dec;
-    private boolean ded;
+    private View cUD;
+    private TextView deh;
+    private EditText dei;
+    private String dej;
+    private boolean dek;
     private Context mContext;
     private RelativeLayout mRootView;
 
@@ -40,61 +40,61 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, R.layout.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(R.id.item_root_view);
         this.mRootView.setBackground(getResources().getDrawable(R.color.invoice_edit_view_bg));
-        this.dea = (TextView) findViewById(R.id.invoice_info_desc);
-        this.deb = (EditText) findViewById(R.id.invoice_info_content);
-        this.cUw = findViewById(R.id.divider_line);
-        this.dea.setTextColor(getResources().getColor(R.color.invoice_info_desc));
-        this.deb.setTextColor(getResources().getColor(R.color.invoice_info_content));
-        this.deb.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
-        this.cUw.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
+        this.deh = (TextView) findViewById(R.id.invoice_info_desc);
+        this.dei = (EditText) findViewById(R.id.invoice_info_content);
+        this.cUD = findViewById(R.id.divider_line);
+        this.deh.setTextColor(getResources().getColor(R.color.invoice_info_desc));
+        this.dei.setTextColor(getResources().getColor(R.color.invoice_info_content));
+        this.dei.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
+        this.cUD.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.ded = aVar.ded;
-            this.dea.setText(aVar.aZt);
-            this.deb.setHint(aVar.def);
-            if (!aVar.deg) {
-                this.deb.setSingleLine();
+            this.dek = aVar.dek;
+            this.deh.setText(aVar.aZt);
+            this.dei.setHint(aVar.dem);
+            if (!aVar.den) {
+                this.dei.setSingleLine();
             } else {
-                aVar.dee |= 131072;
+                aVar.del |= 131072;
             }
-            this.deb.setInputType(aVar.dee);
-            if (!TextUtils.isEmpty(aVar.deh)) {
-                this.deb.setKeyListener(DigitsKeyListener.getInstance(aVar.deh));
+            this.dei.setInputType(aVar.del);
+            if (!TextUtils.isEmpty(aVar.deo)) {
+                this.dei.setKeyListener(DigitsKeyListener.getInstance(aVar.deo));
             }
-            this.dec = aVar.dec;
+            this.dej = aVar.dej;
             this.bsY = aVar.bsY;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.deb != null) {
-            return this.deb.getText().toString().trim();
+        if (this.dei != null) {
+            return this.dei.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.deb != null) {
-            this.deb.setText(charSequence);
+        if (this.dei != null) {
+            this.dei.setText(charSequence);
         }
     }
 
-    public boolean aFQ() {
-        return this.ded;
+    public boolean aFS() {
+        return this.dek;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.deb != null && textWatcher != null) {
-            this.deb.addTextChangedListener(textWatcher);
+        if (this.dei != null && textWatcher != null) {
+            this.dei.addTextChangedListener(textWatcher);
         }
     }
 
     public void e(TextWatcher textWatcher) {
-        if (this.deb != null) {
-            this.deb.removeTextChangedListener(textWatcher);
+        if (this.dei != null) {
+            this.dei.removeTextChangedListener(textWatcher);
         }
     }
 
@@ -102,15 +102,15 @@ public class InvoiceInfoItemView extends RelativeLayout {
     public static class a {
         private String aZt;
         private String bsY;
-        private String dec;
-        private boolean ded = false;
-        private int dee = 1;
-        private String def;
-        private boolean deg;
-        private String deh;
+        private String dej;
+        private boolean dek = false;
+        private int del = 1;
+        private String dem;
+        private boolean den;
+        private String deo;
 
         public a gu(boolean z) {
-            this.ded = z;
+            this.dek = z;
             return this;
         }
 
@@ -119,18 +119,18 @@ public class InvoiceInfoItemView extends RelativeLayout {
             return this;
         }
 
-        public a mH(int i) {
-            this.dee = i;
+        public a mI(int i) {
+            this.del = i;
             return this;
         }
 
         public a td(String str) {
-            this.def = str;
+            this.dem = str;
             return this;
         }
 
         public a te(String str) {
-            this.dec = str;
+            this.dej = str;
             return this;
         }
 
@@ -140,12 +140,12 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a gv(boolean z) {
-            this.deg = z;
+            this.den = z;
             return this;
         }
 
         public a tg(String str) {
-            this.deh = str;
+            this.deo = str;
             return this;
         }
     }

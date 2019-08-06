@@ -14,7 +14,7 @@ public class DialogUtil {
         aVar.a(TbadkApplication.getInst().getString(R.string.alert_yes_button), bVar);
         aVar.b(TbadkApplication.getInst().getString(R.string.cancel), bVar2);
         aVar.b(i.ab(activity));
-        aVar.agI();
+        aVar.agK();
         return aVar;
     }
 
@@ -24,7 +24,7 @@ public class DialogUtil {
         aVar.a(TbadkApplication.getInst().getString(R.string.alert_yes_button), bVar);
         aVar.b(TbadkApplication.getInst().getString(R.string.cancel), bVar2);
         aVar.b(i.ab(activity));
-        aVar.agI();
+        aVar.agK();
         return aVar;
     }
 
@@ -42,7 +42,7 @@ public class DialogUtil {
             }
         });
         aVar.b(i.ab(context));
-        aVar.agI();
+        aVar.agK();
         return aVar;
     }
 
@@ -61,7 +61,7 @@ public class DialogUtil {
         aVar.a(TbadkApplication.getInst().getString(R.string.confirm), bVar);
         aVar.b(TbadkApplication.getInst().getString(R.string.cancel), bVar2);
         aVar.b(i.ab(context));
-        aVar.agI();
+        aVar.agK();
         return aVar;
     }
 }

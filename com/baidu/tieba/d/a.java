@@ -32,15 +32,15 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a implements a.InterfaceC0398a {
-    private boolean eMx = false;
-    private boolean eMy = false;
-    private boolean eMz = false;
-    private CustomMessageListener cWE = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.d.a.1
+    private boolean eME = false;
+    private boolean eMF = false;
+    private boolean eMG = false;
+    private CustomMessageListener cWL = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                a.this.bbN();
+                a.this.bbP();
             }
         }
     };
@@ -58,7 +58,7 @@ public class a implements a.InterfaceC0398a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                a.this.bbO();
+                a.this.bbQ();
             }
         }
     };
@@ -66,9 +66,9 @@ public class a implements a.InterfaceC0398a {
     @Override // com.baidu.tieba.r.a.InterfaceC0398a
     public void f(Application application) {
         MessageManager.getInstance().registerListener(this.byN);
-        MessageManager.getInstance().registerListener(this.cWE);
+        MessageManager.getInstance().registerListener(this.cWL);
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-        if (!this.eMx) {
+        if (!this.eME) {
             g(application);
         }
     }
@@ -91,10 +91,10 @@ public class a implements a.InterfaceC0398a {
             } else {
                 CrabSDK.init(application, "b14ed41a92769403");
             }
-            this.eMx = true;
-            bbN();
+            this.eME = true;
+            bbP();
             n(null);
-            bbO();
+            bbQ();
             CrabSDK.setChannel(TbConfig.getCurrentFrom());
             CrabSDK.setEnableLog(isDebugMode);
             if (isDebugMode) {
@@ -107,9 +107,9 @@ public class a implements a.InterfaceC0398a {
                 CrabSDK.setUploadLimitOfAnrInOneday(-1);
                 CrabSDK.setUrlRecordLimit(10);
             } else {
-                if (bbI()) {
+                if (bbK()) {
                     CrabSDK.disableBlockCatch();
-                } else if (bbK()) {
+                } else if (bbM()) {
                     CrabSDK.disableBlockCatch();
                 } else {
                     CrabSDK.disableBlockCatch();
@@ -124,69 +124,69 @@ public class a implements a.InterfaceC0398a {
             CrabSDK.setOnAnrCrashListener(new OnAnrCrashListener() { // from class: com.baidu.tieba.d.a.5
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onAnrStarted(Map map) {
-                    a.this.bbN();
+                    a.this.bbP();
                     a.this.n(null);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onCrashStarted(Thread thread, Throwable th) {
-                    a.this.bbN();
+                    a.this.bbP();
                     a.this.n(th);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onNativeCrashStarted(Error error, String str, int i) {
-                    a.this.bbN();
+                    a.this.bbP();
                     a.this.n(error);
                 }
             });
-            bbL();
-            bbM();
+            bbN();
+            bbO();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            this.eMx = false;
+            this.eME = false;
             return false;
         }
     }
 
-    private boolean bbI() {
+    private boolean bbK() {
         return TbConfig.getVersionType() == 2;
     }
 
-    private boolean bbJ() {
+    private boolean bbL() {
         return TbConfig.getVersionType() == 1;
     }
 
-    private boolean bbK() {
+    private boolean bbM() {
         return TbConfig.getVersionType() == 3;
     }
 
-    private void bbL() {
-        if (this.eMx && this.eMy) {
+    private void bbN() {
+        if (this.eME && this.eMF) {
             CrabSDK.disableBlockCatch();
         }
     }
 
-    private void bbM() {
-        if (this.eMx && this.eMz) {
+    private void bbO() {
+        if (this.eME && this.eMG) {
             CrabSDK.closeAnrHandler();
         }
     }
 
-    public void bbN() {
+    public void bbP() {
         cJ(TbadkCoreApplication.getInst().getCuidGalaxy2(), TbadkCoreApplication.getCurrentAccount());
     }
 
     public void cJ(String str, String str2) {
-        if (this.eMx) {
+        if (this.eME) {
             CrabSDK.setUid(str);
             CrabSDK.setUserName(str2);
         }
     }
 
-    public void bbO() {
-        if (this.eMx) {
+    public void bbQ() {
+        if (this.eME) {
             if (j.kd()) {
                 CrabSDK.setCollectScreenshot(true);
             } else {
@@ -197,9 +197,9 @@ public class a implements a.InterfaceC0398a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(Throwable th) {
-        if (this.eMx) {
+        if (this.eME) {
             HashMap hashMap = new HashMap();
-            hashMap.put("version_type", bbP());
+            hashMap.put("version_type", bbR());
             hashMap.put("version", TbConfig.getVersion());
             hashMap.put("sub_version", TbConfig.getSubVersion());
             hashMap.put("plugin_info", o(th));
@@ -307,17 +307,17 @@ public class a implements a.InterfaceC0398a {
         }
     }
 
-    private String bbP() {
+    private String bbR() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             return "DebugBuild";
         }
-        if (bbK()) {
+        if (bbM()) {
             return "ReleasedBuild";
         }
-        if (bbI()) {
+        if (bbK()) {
             return "GrayBuild";
         }
-        if (!bbJ()) {
+        if (!bbL()) {
             return "DefaultBuild";
         }
         return "DailyBuild";
@@ -325,21 +325,21 @@ public class a implements a.InterfaceC0398a {
 
     @Override // com.baidu.tieba.r.a.InterfaceC0398a
     public void onPause(Activity activity) {
-        if (this.eMx && activity != null) {
+        if (this.eME && activity != null) {
             CrabSDK.onPause(activity);
         }
     }
 
     @Override // com.baidu.tieba.r.a.InterfaceC0398a
     public void onResume(Activity activity) {
-        if (this.eMx && activity != null) {
+        if (this.eME && activity != null) {
             CrabSDK.onResume(activity);
         }
     }
 
     @Override // com.baidu.tieba.r.a.InterfaceC0398a
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.eMx && activity != null && motionEvent != null) {
+        if (this.eME && activity != null && motionEvent != null) {
             CrabSDK.behaviorRecordEvent(motionEvent, activity);
         }
     }

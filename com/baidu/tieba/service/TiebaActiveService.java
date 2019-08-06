@@ -38,12 +38,12 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     private String getChannelByShare() {
-        return b.ahO().getString("channel_id", null);
+        return b.ahQ().getString("channel_id", null);
     }
 
     private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            b.ahO().putString("channel_id", str);
+            b.ahQ().putString("channel_id", str);
         }
     }
 
@@ -113,7 +113,7 @@ public class TiebaActiveService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && b.ahO().getInt("active", 2) != 1) {
+        if (isActived() && b.ahQ().getInt("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();
@@ -142,32 +142,32 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x iPh;
+        x iQl;
 
         private a() {
-            this.iPh = null;
+            this.iQl = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            String aig;
+            String aii;
             try {
-                this.iPh = new x("http://114.113.149.3:8086/partnersService");
-                this.iPh.o("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.iPh.o("imei", TbadkCoreApplication.getInst().getImei());
-                this.iPh.o("model", Build.MODEL);
-                this.iPh.o("edition", TbConfig.getVersion());
-                this.iPh.o("system", Build.VERSION.SDK);
-                this.iPh.aiE().ajE().ajH().mIsBaiduServer = false;
-                aig = this.iPh.aig();
+                this.iQl = new x("http://114.113.149.3:8086/partnersService");
+                this.iQl.o("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.iQl.o("imei", TbadkCoreApplication.getInst().getImei());
+                this.iQl.o("model", Build.MODEL);
+                this.iQl.o("edition", TbConfig.getVersion());
+                this.iQl.o("system", Build.VERSION.SDK);
+                this.iQl.aiG().ajG().ajJ().mIsBaiduServer = false;
+                aii = this.iQl.aii();
             } catch (Exception e) {
-                b.ahO().putInt("active", 1);
+                b.ahQ().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.iPh.aiH()) {
-                return aig;
+            if (this.iQl.aiJ()) {
+                return aii;
             }
             return null;
         }
@@ -175,8 +175,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.iPh != null) {
-                this.iPh.ik();
+            if (this.iQl != null) {
+                this.iQl.ik();
             }
             super.cancel(true);
         }
@@ -193,11 +193,11 @@ public class TiebaActiveService extends BdBaseService {
                     TiebaActiveService.this.mHandler.removeCallbacks(TiebaActiveService.this.mRunnable);
                     TiebaActiveService.this.mHandler.postDelayed(TiebaActiveService.this.mRunnable, 60000L);
                 } else {
-                    b.ahO().putInt("active", 1);
+                    b.ahQ().putInt("active", 1);
                     TiebaActiveService.this.stopSelf();
                 }
             }
-            b.ahO().putInt("active", 2);
+            b.ahQ().putInt("active", 2);
             TiebaActiveService.this.stopSelf();
         }
     }

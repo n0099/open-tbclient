@@ -11,8 +11,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class DLauncher extends RelativeLayout implements g {
     private String amD;
-    private TextView crE;
-    private int crF;
+    private TextView crL;
+    private int crM;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -24,20 +24,20 @@ public class DLauncher extends RelativeLayout implements g {
         if (i > 0 && i2 > 0) {
             setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds230)));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(R.dimen.ds144));
-            this.crE = new TextView(context);
+            this.crL = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.crE.setGravity(17);
-            this.crE.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-            this.crF = context.getResources().getDimensionPixelSize(R.dimen.ds12);
-            addView(this.crE, layoutParams);
+            this.crL.setGravity(17);
+            this.crL.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+            this.crM = context.getResources().getDimensionPixelSize(R.dimen.ds12);
+            addView(this.crL, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.crE.setText(str);
+        this.crL.setText(str);
     }
 
     public void setIcon(int i) {
@@ -59,8 +59,8 @@ public class DLauncher extends RelativeLayout implements g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.crE.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.crE.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.crL.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.crL.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -95,7 +95,7 @@ public class DLauncher extends RelativeLayout implements g {
         }
     }
 
-    public void arX() {
+    public void arZ() {
         this.amD = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
@@ -106,7 +106,7 @@ public class DLauncher extends RelativeLayout implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                arX();
+                arZ();
             } else if (aVar.data instanceof String) {
                 qd((String) aVar.data);
             }
@@ -126,14 +126,14 @@ public class DLauncher extends RelativeLayout implements g {
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         am.g(this, R.drawable.btn_editor_selector, i);
-        am.d(this.crE, R.color.cp_cont_f, 1, i);
-        if (TextUtils.isEmpty(this.crE.getText())) {
-            am.g(this.crE, this.mIcon, i);
+        am.d(this.crL, R.color.cp_cont_f, 1, i);
+        if (TextUtils.isEmpty(this.crL.getText())) {
+            am.g(this.crL, this.mIcon, i);
         } else {
             Drawable V = am.V(i, this.mIcon);
             if (V != null) {
                 V.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.ds70), getResources().getDimensionPixelSize(R.dimen.ds72));
-                this.crE.setCompoundDrawables(null, V, null, null);
+                this.crL.setCompoundDrawables(null, V, null, null);
             }
         }
         if (this.mTip != null) {

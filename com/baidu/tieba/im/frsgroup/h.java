@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes5.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gGB = BdUniqueId.gen();
+    public static final BdUniqueId gHt = BdUniqueId.gen();
     private Object XJ;
-    private NoDataViewFactory.ImgType gGC;
-    private String gGD;
-    private String gGE;
-    private String gGF;
-    private int gGG;
+    private NoDataViewFactory.ImgType gHu;
+    private String gHv;
+    private String gHw;
+    private String gHx;
+    private int gHy;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gGB;
+        return gHt;
     }
 
-    public String bDl() {
-        return this.gGD;
-    }
-
-    public void zb(String str) {
-        this.gGD = str;
-    }
-
-    public String bDm() {
-        return this.gGE;
+    public String bDz() {
+        return this.gHv;
     }
 
     public void zc(String str) {
-        this.gGE = str;
+        this.gHv = str;
     }
 
-    public String bDn() {
-        return this.gGF;
+    public String bDA() {
+        return this.gHw;
     }
 
     public void zd(String str) {
-        this.gGF = str;
+        this.gHw = str;
     }
 
-    public int bDo() {
-        return this.gGG;
+    public String bDB() {
+        return this.gHx;
     }
 
-    public void vu(int i) {
-        this.gGG = i;
+    public void ze(String str) {
+        this.gHx = str;
+    }
+
+    public int bDC() {
+        return this.gHy;
+    }
+
+    public void vw(int i) {
+        this.gHy = i;
     }
 
     public Object qV() {
@@ -57,11 +57,11 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.XJ = obj;
     }
 
-    public NoDataViewFactory.ImgType bDp() {
-        return this.gGC;
+    public NoDataViewFactory.ImgType bDD() {
+        return this.gHu;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.gGC = imgType;
+        this.gHu = imgType;
     }
 }

@@ -19,25 +19,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.PbFloorAgreeView;
 /* loaded from: classes4.dex */
 public class PbUserInfoLayout extends FrameLayout {
-    private static int fYC = 20;
-    public TextView enZ;
-    private com.baidu.tieba.pb.pb.main.b.a hKD;
-    public TextView hNB;
-    public TextView hNC;
-    public TextView hNF;
-    public HeadImageView hNH;
-    public TextView hNN;
-    public ImageView hNO;
-    public HeadPendantView hNP;
-    public UserIconBox hNQ;
-    public UserIconBox hNR;
-    private com.baidu.tieba.pb.pb.a hXS;
-    public View iet;
-    public View ieu;
-    public PbFloorAgreeView iev;
-    public ImageView iew;
-    public PostPraiseView iex;
-    public PostDisPraiseView iey;
+    private static int fZs = 20;
+    public TextView eog;
+    private com.baidu.tieba.pb.pb.main.b.a hLx;
+    public HeadImageView hOB;
+    public TextView hOH;
+    public ImageView hOI;
+    public HeadPendantView hOJ;
+    public UserIconBox hOK;
+    public UserIconBox hOL;
+    public TextView hOv;
+    public TextView hOw;
+    public TextView hOz;
+    private com.baidu.tieba.pb.pb.a hYO;
+    public PostDisPraiseView ifA;
+    public View ifv;
+    public View ifw;
+    public PbFloorAgreeView ifx;
+    public ImageView ify;
+    public PostPraiseView ifz;
     private int mSkinType;
 
     public PbUserInfoLayout(@NonNull Context context) {
@@ -52,34 +52,34 @@ public class PbUserInfoLayout extends FrameLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.pb_user_info_layout, (ViewGroup) this, true);
-        this.enZ = (TextView) findViewById(R.id.view_user_name);
-        this.hNB = (TextView) findViewById(R.id.view_author_tip);
-        this.hNC = (TextView) findViewById(R.id.view_post_time);
-        this.hNO = (ImageView) findViewById(R.id.icon_forum_level);
-        this.hNF = (TextView) findViewById(R.id.view_location);
-        this.iew = (ImageView) findViewById(R.id.image_more_tip);
-        this.iev = (PbFloorAgreeView) findViewById(R.id.view_floor_praise);
-        this.iex = (PostPraiseView) findViewById(R.id.view_floor_new_praise);
-        this.iey = (PostDisPraiseView) findViewById(R.id.view_floor_new_dispraise);
-        this.hNH = (HeadImageView) findViewById(R.id.normal_user_photo);
-        this.hNP = (HeadPendantView) findViewById(R.id.pendant_user_photo);
-        this.hNP.setHasPendantStyle();
-        if (this.hNP.getHeadView() != null) {
-            this.hNP.getHeadView().setIsRound(true);
-            this.hNP.getHeadView().setDrawBorder(false);
+        this.eog = (TextView) findViewById(R.id.view_user_name);
+        this.hOv = (TextView) findViewById(R.id.view_author_tip);
+        this.hOw = (TextView) findViewById(R.id.view_post_time);
+        this.hOI = (ImageView) findViewById(R.id.icon_forum_level);
+        this.hOz = (TextView) findViewById(R.id.view_location);
+        this.ify = (ImageView) findViewById(R.id.image_more_tip);
+        this.ifx = (PbFloorAgreeView) findViewById(R.id.view_floor_praise);
+        this.ifz = (PostPraiseView) findViewById(R.id.view_floor_new_praise);
+        this.ifA = (PostDisPraiseView) findViewById(R.id.view_floor_new_dispraise);
+        this.hOB = (HeadImageView) findViewById(R.id.normal_user_photo);
+        this.hOJ = (HeadPendantView) findViewById(R.id.pendant_user_photo);
+        this.hOJ.setHasPendantStyle();
+        if (this.hOJ.getHeadView() != null) {
+            this.hOJ.getHeadView().setIsRound(true);
+            this.hOJ.getHeadView().setDrawBorder(false);
         }
-        this.hNQ = (UserIconBox) findViewById(R.id.show_icon_vip);
-        this.hNR = (UserIconBox) findViewById(R.id.show_icon_yinji);
-        this.hNN = (TextView) findViewById(R.id.floor_num);
-        this.iet = findViewById(R.id.line_between_floor_and_time);
-        this.ieu = findViewById(R.id.line_between_time_and_locate);
-        this.hNH.setIsRound(true);
+        this.hOK = (UserIconBox) findViewById(R.id.show_icon_vip);
+        this.hOL = (UserIconBox) findViewById(R.id.show_icon_yinji);
+        this.hOH = (TextView) findViewById(R.id.floor_num);
+        this.ifv = findViewById(R.id.line_between_floor_and_time);
+        this.ifw = findViewById(R.id.line_between_time_and_locate);
+        this.hOB.setIsRound(true);
     }
 
     public void setPbEventController(com.baidu.tieba.pb.pb.a aVar) {
-        this.hXS = aVar;
-        if (this.hXS != null) {
-            this.hKD = this.hXS.bTs();
+        this.hYO = aVar;
+        if (this.hYO != null) {
+            this.hLx = this.hYO.bTG();
         }
     }
 }

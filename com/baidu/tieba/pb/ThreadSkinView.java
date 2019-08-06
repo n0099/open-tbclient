@@ -17,8 +17,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo hFx;
-    private a.C0414a hFy;
+    private SkinInfo hGp;
+    private a.C0414a hGq;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -46,16 +46,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.hFx != skinInfo && c0414a != null) {
-            this.hFy = c0414a;
-            this.hFy.nV("action_type");
-            this.hFy.en(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.hFy.en("obj_url", skinInfo.url);
-            this.hFy.en("obj_name", skinInfo.monitor_id);
-            this.hFy.en("action_type", "VIEW_TRUE");
-            this.hFy.save();
+        if (this.hGp != skinInfo && c0414a != null) {
+            this.hGq = c0414a;
+            this.hGq.nV("action_type");
+            this.hGq.en(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.hGq.en("obj_url", skinInfo.url);
+            this.hGq.en("obj_name", skinInfo.monitor_id);
+            this.hGq.en("action_type", "VIEW_TRUE");
+            this.hGq.save();
         }
-        this.hFx = skinInfo;
+        this.hGp = skinInfo;
         int af = l.af(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = af;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hFx != null && !StringUtils.isNull(this.hFx.url)) {
-            if (this.hFy != null) {
-                this.hFy.nV("action_type");
-                this.hFy.en("action_type", "CLICK");
-                this.hFy.save();
+        if (this.hGp != null && !StringUtils.isNull(this.hGp.url)) {
+            if (this.hGq != null) {
+                this.hGq.nV("action_type");
+                this.hGq.en("action_type", "CLICK");
+                this.hGq.save();
             }
-            bb.ajC().c(this.mTbPageContext, new String[]{this.hFx.url});
+            bb.ajE().c(this.mTbPageContext, new String[]{this.hGp.url});
         }
     }
 }

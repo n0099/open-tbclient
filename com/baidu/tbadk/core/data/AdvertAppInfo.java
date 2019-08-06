@@ -22,8 +22,7 @@ import tbclient.LogTogether.AdReq;
 import tbclient.ThreadPicList;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
-public class AdvertAppInfo extends bg {
-    public static final BdUniqueId bEC = BdUniqueId.gen();
+public class AdvertAppInfo extends bh {
     public static final BdUniqueId bED = BdUniqueId.gen();
     public static final BdUniqueId bEE = BdUniqueId.gen();
     public static final BdUniqueId bEF = BdUniqueId.gen();
@@ -38,38 +37,39 @@ public class AdvertAppInfo extends bg {
     public static final BdUniqueId bEO = BdUniqueId.gen();
     public static final BdUniqueId bEP = BdUniqueId.gen();
     public static final BdUniqueId bEQ = BdUniqueId.gen();
-    public static AtomicBoolean bER = new AtomicBoolean(false);
+    public static final BdUniqueId bER = BdUniqueId.gen();
+    public static AtomicBoolean bES = new AtomicBoolean(false);
     public int SB;
     public String abtest;
     public String adPosition;
     public c advertAppContext;
     public String aow;
-    public int bES;
-    public String bET;
+    public int bET;
     public String bEU;
     public String bEV;
     public String bEW;
     public String bEX;
-    public int bEY;
-    public String bEZ;
-    public int bFa;
-    public String bFb;
-    public long bFc;
-    public String bFg;
+    public String bEY;
+    public int bEZ;
+    public String bFa;
+    public int bFb;
+    public String bFc;
+    public long bFd;
     public String bFh;
     public String bFi;
-    private App bFj;
-    public AppData bFk;
+    public String bFj;
+    private App bFk;
+    public AppData bFl;
     public int cpid;
     public String deepUrl;
     public String extensionInfo;
     public String page;
     public String price;
     public String userId;
-    public a bFd = new a();
-    public boolean bFe = false;
+    public a bFe = new a();
+    public boolean bFf = false;
     public ILegoAdvert legoCard = null;
-    private int bFf = 32;
+    private int bFg = 32;
 
     /* loaded from: classes.dex */
     public interface ILegoAdvert extends ICardInfo {
@@ -91,34 +91,34 @@ public class AdvertAppInfo extends bg {
     }
 
     public int hashCode() {
-        return (this.bET != null ? this.bET.hashCode() : 0) + (this.extensionInfo != null ? this.extensionInfo.hashCode() : 0);
+        return (this.bEU != null ? this.bEU.hashCode() : 0) + (this.extensionInfo != null ? this.extensionInfo.hashCode() : 0);
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof AdvertAppInfo)) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
-            return TextUtils.equals(advertAppInfo.bET, this.bET) && TextUtils.equals(advertAppInfo.extensionInfo, this.extensionInfo);
+            return TextUtils.equals(advertAppInfo.bEU, this.bEU) && TextUtils.equals(advertAppInfo.extensionInfo, this.extensionInfo);
         }
         return false;
     }
 
-    public int acG() {
-        if (bg.bJJ.get() && bER.get()) {
+    public int acH() {
+        if (bh.bJO.get() && bES.get()) {
             if (!TextUtils.equals("PB_BANNER", this.page) && StringUtils.isNull(this.adPosition)) {
                 return 23;
             }
             if (com.baidu.adp.lib.b.d.hS().az("is_support_lego_ad_style") == 0) {
                 return 28;
             }
-            if (this.bFd == null || this.bFd.bFq != 1001) {
-                if (this.bFd == null || TextUtils.isEmpty(this.bFd.lego_card)) {
+            if (this.bFe == null || this.bFe.bFr != 1001) {
+                if (this.bFe == null || TextUtils.isEmpty(this.bFe.lego_card)) {
                     return 11;
                 }
-                if (TextUtils.isEmpty(this.bET) || TextUtils.isEmpty(this.bET.trim())) {
+                if (TextUtils.isEmpty(this.bEU) || TextUtils.isEmpty(this.bEU.trim())) {
                     return 24;
                 }
-                if (this.legoCard == null || !this.bFd.isValid()) {
-                    return this.bFf;
+                if (this.legoCard == null || !this.bFe.isValid()) {
+                    return this.bFg;
                 }
                 if ((this.legoCard instanceof ILegoAdvert) && !com.baidu.tbadk.core.i.aca().ace() && !this.legoCard.isNoPicAd()) {
                     return 34;
@@ -126,18 +126,18 @@ public class AdvertAppInfo extends bg {
                 if (this.legoCard.getCardType() == 12) {
                     return 12;
                 }
-                if (this.bFd == null || !this.bFd.isValid()) {
+                if (this.bFe == null || !this.bFe.isValid()) {
                     return 25;
                 }
                 if (this.legoCard.getGoodsStyle() == 11) {
                     return 12;
                 }
                 if (this.SB == 3) {
-                    if (!acH()) {
+                    if (!acI()) {
                         return 26;
                     }
                 } else if (this.SB == 1) {
-                    if (!acI()) {
+                    if (!acJ()) {
                         return 27;
                     }
                 } else {
@@ -150,27 +150,27 @@ public class AdvertAppInfo extends bg {
         return 31;
     }
 
-    public boolean acH() {
+    public boolean acI() {
         boolean z = true;
-        if (this.bFd == null || this.bFd.bFq != 1001) {
+        if (this.bFe == null || this.bFe.bFr != 1001) {
             if (this.legoCard != null && this.legoCard.getGoodsStyle() == 11) {
                 if (this.SB != 3 || this.legoCard.checkLegal(this.SB) != 0) {
                     z = false;
                 }
                 return z;
-            } else if (this.SB != 3 || TextUtils.isEmpty(this.bEX.trim()) || TextUtils.isEmpty(this.bEW.trim()) || this.bFd == null) {
+            } else if (this.SB != 3 || TextUtils.isEmpty(this.bEY.trim()) || TextUtils.isEmpty(this.bEX.trim()) || this.bFe == null) {
                 return false;
             } else {
-                return ((TextUtils.isEmpty(this.bFd.userName) || TextUtils.isEmpty(this.bFd.userName.trim())) && TextUtils.isEmpty(this.bFd.lego_card)) ? false : true;
+                return ((TextUtils.isEmpty(this.bFe.userName) || TextUtils.isEmpty(this.bFe.userName.trim())) && TextUtils.isEmpty(this.bFe.lego_card)) ? false : true;
             }
         }
         return false;
     }
 
-    public boolean acI() {
-        if (this.bFd == null || this.bFd.bFq != 1001) {
-            if (this.bFd == null || this.bFd.bFq != -1001) {
-                return (this.legoCard == null || this.legoCard.getGoodsStyle() != 11) ? this.SB == 1 && !((TextUtils.isEmpty(this.bEV) || TextUtils.isEmpty(this.bEV.trim())) && TextUtils.isEmpty(this.bFd.lego_card)) : this.SB == 1 && this.legoCard.checkLegal(this.SB) == 0;
+    public boolean acJ() {
+        if (this.bFe == null || this.bFe.bFr != 1001) {
+            if (this.bFe == null || this.bFe.bFr != -1001) {
+                return (this.legoCard == null || this.legoCard.getGoodsStyle() != 11) ? this.SB == 1 && !((TextUtils.isEmpty(this.bEW) || TextUtils.isEmpty(this.bEW.trim())) && TextUtils.isEmpty(this.bFe.lego_card)) : this.SB == 1 && this.legoCard.checkLegal(this.SB) == 0;
             }
             return true;
         }
@@ -179,31 +179,31 @@ public class AdvertAppInfo extends bg {
 
     public void a(App app) {
         if (app != null) {
-            this.bFj = app;
-            this.bFk = new AppData(app);
-            this.bET = app.id;
-            this.bEU = app.name;
+            this.bFk = app;
+            this.bFl = new AppData(app);
+            this.bEU = app.id;
+            this.bEV = app.name;
             this.SB = app.url_type.intValue();
-            this.bEV = app.url;
-            this.bEW = app.apk_url;
+            this.bEW = app.url;
+            this.bEX = app.apk_url;
             this.deepUrl = app.deep_url;
-            this.bEX = app.apk_name;
+            this.bEY = app.apk_name;
             if (TextUtils.isEmpty(app.pos_name) || TextUtils.isEmpty(app.pos_name.trim())) {
                 this.adPosition = "3";
             } else {
                 this.adPosition = app.pos_name.trim();
             }
-            this.bEY = app.pos.intValue();
+            this.bEZ = app.pos.intValue();
             this.aow = app.first_name;
-            this.bEZ = app.second_name;
+            this.bFa = app.second_name;
             this.cpid = app.cpid.intValue();
             this.abtest = app.abtest;
-            this.bFa = app.plan_id.intValue();
+            this.bFb = app.plan_id.intValue();
             this.userId = app.user_id;
-            this.bFb = app.verify;
+            this.bFc = app.verify;
             this.price = app.price;
             this.extensionInfo = app.ext_info;
-            this.bFc = app.app_time.intValue() * 1000;
+            this.bFd = app.app_time.intValue() * 1000;
             if (app.goods_info != null) {
                 Iterator<GoodsInfo> it = app.goods_info.iterator();
                 while (true) {
@@ -212,16 +212,16 @@ public class AdvertAppInfo extends bg {
                     }
                     GoodsInfo next = it.next();
                     if (next != null) {
-                        this.bFd.a(next);
+                        this.bFe.a(next);
                         break;
                     }
                 }
             }
-            if (com.baidu.adp.lib.b.d.hS().az("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.bFd.lego_card)) {
+            if (com.baidu.adp.lib.b.d.hS().az("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.bFe.lego_card)) {
                 try {
-                    ICardInfo zY = com.baidu.tieba.lego.card.b.zY(this.bFd.lego_card);
-                    if (zY != null) {
-                        ICardInfo viewItem = zY.getViewItem(0, 1);
+                    ICardInfo zZ = com.baidu.tieba.lego.card.b.zZ(this.bFe.lego_card);
+                    if (zZ != null) {
+                        ICardInfo viewItem = zZ.getViewItem(0, 1);
                         if (viewItem instanceof ILegoAdvert) {
                             this.legoCard = (ILegoAdvert) viewItem;
                             this.legoCard.setAdvertAppInfo(this);
@@ -232,12 +232,12 @@ public class AdvertAppInfo extends bg {
                     }
                 } catch (Exception e) {
                     if (e instanceof JSONException) {
-                        this.bFf = 38;
+                        this.bFg = 38;
                     } else if (e instanceof CardParseException) {
                         if (e.getCause() instanceof IllegalStateException) {
-                            this.bFf = 40;
+                            this.bFg = 40;
                         } else {
-                            this.bFf = 39;
+                            this.bFg = 39;
                         }
                     }
                     this.legoCard = null;
@@ -250,12 +250,12 @@ public class AdvertAppInfo extends bg {
         AppData appData;
         String str;
         JSONObject jSONObject = new JSONObject();
-        if (this.bFk != null) {
-            appData = this.bFk;
-        } else if (this.bFj == null) {
+        if (this.bFl != null) {
+            appData = this.bFl;
+        } else if (this.bFk == null) {
             return "";
         } else {
-            appData = new AppData(this.bFj);
+            appData = new AppData(this.bFk);
         }
         if (!appData.fillInJsonObject(jSONObject)) {
             str = "";
@@ -274,17 +274,17 @@ public class AdvertAppInfo extends bg {
         builder.da_cpid = String.valueOf(this.cpid);
         builder.da_ext_info = this.extensionInfo;
         builder.da_fid = Integer.valueOf(com.baidu.adp.lib.g.b.f(str, 0));
-        builder.da_good_id = String.valueOf(this.bFd.bFl);
+        builder.da_good_id = String.valueOf(this.bFe.bFm);
         builder.da_locate = String.valueOf(this.adPosition);
-        builder.da_obj_id = this.bET;
+        builder.da_obj_id = this.bEU;
         builder.da_page = str2;
         builder.da_threadid = Long.valueOf(j);
-        builder.da_plan_id = String.valueOf(this.bFa);
+        builder.da_plan_id = String.valueOf(this.bFb);
         builder.da_price = this.price;
         builder.da_task = "tbda";
         builder.da_type = str3;
         builder.da_user_id = this.userId;
-        builder.da_verify = this.bFb;
+        builder.da_verify = this.bFc;
         builder.da_utime = Long.valueOf(System.currentTimeMillis() / 1000);
         builder.da_pn = Integer.valueOf(i);
         return builder.build(false);
@@ -294,20 +294,20 @@ public class AdvertAppInfo extends bg {
     public static class a {
         public AdCloseInfo adCloseInfo;
         public String adSource;
-        public int bFl;
-        public String bFm;
+        public int bFm;
         public String bFn;
         public String bFo;
         public String bFp;
-        public int bFq;
-        public String bFr;
+        public String bFq;
+        public int bFr;
         public String bFs;
         public String bFt;
-        public List<String> bFu = new ArrayList(3);
-        public VideoInfo bFv;
-        public String bFw;
+        public String bFu;
+        public List<String> bFv = new ArrayList(3);
+        public VideoInfo bFw;
         public String bFx;
-        public float bFy;
+        public String bFy;
+        public float bFz;
         public String buttonText;
         public int height;
         public String lego_card;
@@ -321,35 +321,35 @@ public class AdvertAppInfo extends bg {
         public void a(GoodsInfo goodsInfo) {
             List<String> mo;
             if (goodsInfo != null) {
-                this.bFl = goodsInfo.id.intValue();
+                this.bFm = goodsInfo.id.intValue();
                 this.userName = goodsInfo.user_name;
                 this.userPortrait = goodsInfo.user_portrait;
-                this.bFm = com.baidu.tbadk.core.util.aq.i(goodsInfo.thread_title, 29, "...");
-                this.bFo = goodsInfo.thread_pic;
-                this.bFp = goodsInfo.pop_window_text;
-                this.bFq = goodsInfo.goods_style.intValue();
-                this.bFr = goodsInfo.card_desc;
-                this.bFs = goodsInfo.card_tag;
+                this.bFn = com.baidu.tbadk.core.util.aq.i(goodsInfo.thread_title, 29, "...");
+                this.bFp = goodsInfo.thread_pic;
+                this.bFq = goodsInfo.pop_window_text;
+                this.bFr = goodsInfo.goods_style.intValue();
+                this.bFs = goodsInfo.card_desc;
+                this.bFt = goodsInfo.card_tag;
                 this.buttonText = goodsInfo.button_text;
-                this.bFt = goodsInfo.button_url;
-                this.bFn = goodsInfo.thread_content;
+                this.bFu = goodsInfo.button_url;
+                this.bFo = goodsInfo.thread_content;
                 this.height = goodsInfo.height.intValue();
                 this.width = goodsInfo.width.intValue();
                 this.needResize = goodsInfo.label_measure.intValue() == 2;
                 if (goodsInfo.thread_pic_list != null) {
                     for (ThreadPicList threadPicList : goodsInfo.thread_pic_list) {
                         if (threadPicList != null && !StringUtils.isNull(threadPicList.pic)) {
-                            this.bFu.add(threadPicList.pic);
+                            this.bFv.add(threadPicList.pic);
                         }
                     }
-                    if (com.baidu.tbadk.core.util.v.aa(this.bFu) && (mo = mo(goodsInfo.lego_card)) != null && this.bFu != null) {
-                        this.bFu.addAll(mo);
+                    if (com.baidu.tbadk.core.util.v.aa(this.bFv) && (mo = mo(goodsInfo.lego_card)) != null && this.bFv != null) {
+                        this.bFv.addAll(mo);
                     }
                     this.lego_card = goodsInfo.lego_card;
-                    this.bFv = goodsInfo.video_info;
+                    this.bFw = goodsInfo.video_info;
                     this.tagName = goodsInfo.tag_name;
                     this.adSource = goodsInfo.ad_source;
-                    this.bFw = goodsInfo.tag_name_url;
+                    this.bFx = goodsInfo.tag_name_url;
                     String str = goodsInfo.tag_name_wh;
                     if (str != null) {
                         try {
@@ -363,7 +363,7 @@ public class AdvertAppInfo extends bg {
                             BdLog.e(e.getMessage());
                         }
                     }
-                    this.bFx = goodsInfo.brand_icon;
+                    this.bFy = goodsInfo.brand_icon;
                     String str2 = goodsInfo.brand_icon_wh;
                     if (!com.baidu.tbadk.core.util.aq.isEmpty(str2)) {
                         try {
@@ -371,7 +371,7 @@ public class AdvertAppInfo extends bg {
                             int f3 = com.baidu.adp.lib.g.b.f(split2[0], 1);
                             int f4 = com.baidu.adp.lib.g.b.f(split2[1], 1);
                             if (f4 != 0) {
-                                this.bFy = f3 / f4;
+                                this.bFz = f3 / f4;
                             }
                         } catch (Exception e2) {
                             BdLog.e(e2.getMessage());
@@ -409,33 +409,33 @@ public class AdvertAppInfo extends bg {
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (this.bFd.bFq == 1001 || this.bFd.bFq == -1001) {
-            return bEC;
+        if (this.bFe.bFr == 1001 || this.bFe.bFr == -1001) {
+            return bED;
         }
         if (!com.baidu.tbadk.core.i.aca().ace() && this.legoCard != null && !this.legoCard.isNoPicAd()) {
-            return bEC;
+            return bED;
         }
         if (this.legoCard != null) {
-            BdUniqueId bdUniqueId = bEL;
+            BdUniqueId bdUniqueId = bEM;
             switch (this.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return bEM;
+                    return bEN;
                 case 3:
                 case 4:
                 case 5:
                 default:
                     return bdUniqueId;
                 case 6:
-                    return bEN;
-                case 7:
                     return bEO;
-                case 9:
-                    return bEQ;
-                case 10:
+                case 7:
                     return bEP;
+                case 9:
+                    return bER;
+                case 10:
+                    return bEQ;
             }
         }
         return null;

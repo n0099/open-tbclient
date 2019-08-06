@@ -37,7 +37,7 @@ public class a {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003392 && (httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
                 a.this.bBv = false;
                 if (((CheckBaiduSimResponseMessage) httpResponsedMessage).isSuc) {
-                    b.ahO().putString("key_baidu_sim_card_writting_tip", ((CheckBaiduSimResponseMessage) httpResponsedMessage).isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free) : "");
+                    b.ahQ().putString("key_baidu_sim_card_writting_tip", ((CheckBaiduSimResponseMessage) httpResponsedMessage).isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free) : "");
                     MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
                 }
             }
@@ -59,8 +59,8 @@ public class a {
     public void aay() {
         if (TbadkCoreApplication.getInst().isMainProcess(false) && !this.bBv) {
             this.bBv = true;
-            if (System.currentTimeMillis() >= b.ahO().getLong("key_next_check_baidu_sim_time", 0L)) {
-                b.ahO().putLong("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
+            if (System.currentTimeMillis() >= b.ahQ().getLong("key_next_check_baidu_sim_time", 0L)) {
+                b.ahQ().putLong("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
                 tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);

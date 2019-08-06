@@ -14,67 +14,67 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.EmotionButton;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TbImageView cwW;
-    protected TextView cwX;
-    protected TextView cwY;
-    private LinearLayout cxa;
-    protected EmotionButton cxk;
-    private int cxl;
+    protected TbImageView cxd;
+    protected TextView cxe;
+    protected TextView cxf;
+    private LinearLayout cxh;
+    protected EmotionButton cxr;
+    private int cxs;
 
     public TextView getTitleView() {
-        return this.cwY;
+        return this.cxf;
     }
 
-    public EmotionButton atO() {
-        return this.cxk;
+    public EmotionButton atQ() {
+        return this.cxr;
     }
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null));
-        this.cwW = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
-        this.cwX = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.cwY = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.cxa = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.cxk = (EmotionButton) this.attachedView.findViewById(R.id.net_refresh_button);
-        this.cxl = R.drawable.new_pic_emotion_09;
-        this.cxk.setOnClickListener(onClickListener);
+        this.cxd = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.cxe = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.cxf = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.cxh = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.cxr = (EmotionButton) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.cxs = R.drawable.new_pic_emotion_09;
+        this.cxr.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
-        kL(0);
+        kM(0);
     }
 
     public void qN(String str) {
         if (str == null) {
-            this.cwX.setVisibility(8);
+            this.cxe.setVisibility(8);
             return;
         }
-        this.cwX.setVisibility(0);
-        this.cwX.setText(str);
+        this.cxe.setVisibility(0);
+        this.cxe.setText(str);
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.cwY.setText(str);
+            this.cxf.setText(str);
         }
     }
 
     public void qO(String str) {
         if (str != null) {
-            this.cwY.setText(str);
-            this.cwY.setVisibility(0);
+            this.cxf.setText(str);
+            this.cxf.setVisibility(0);
         }
     }
 
-    public void kI(int i) {
-        this.cxl = i;
+    public void kJ(int i) {
+        this.cxs = i;
     }
 
-    public void kJ(int i) {
-        this.cwW.setImageResource(i);
+    public void kK(int i) {
+        this.cxd.setImageResource(i);
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.cxk.setText(str);
+            this.cxr.setText(str);
         }
     }
 
@@ -89,19 +89,19 @@ public class h extends a {
     @Override // com.baidu.tbadk.m.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.cwW.setImageResource(0);
-    }
-
-    public void kK(int i) {
-        ViewGroup.LayoutParams layoutParams = this.cwW.getLayoutParams();
-        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.topMargin = i;
-            this.cwW.setLayoutParams(marginLayoutParams);
-        }
+        this.cxd.setImageResource(0);
     }
 
     public void kL(int i) {
+        ViewGroup.LayoutParams layoutParams = this.cxd.getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            marginLayoutParams.topMargin = i;
+            this.cxd.setLayoutParams(marginLayoutParams);
+        }
+    }
+
+    public void kM(int i) {
         int i2;
         if (i < 0) {
             i = 0;
@@ -112,35 +112,35 @@ public class h extends a {
         } else {
             i2 = (int) (ah * 0.11d);
         }
-        ViewGroup.LayoutParams layoutParams = this.cwW.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.cxd.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i2 + i;
-            this.cwW.setLayoutParams(marginLayoutParams);
+            this.cxd.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void atI() {
-        this.cxk.setVisibility(0);
-        this.cwY.setVisibility(0);
-        am.f(this.cwX, R.color.cp_cont_d, 1);
+    public void atK() {
+        this.cxr.setVisibility(0);
+        this.cxf.setVisibility(0);
+        am.f(this.cxe, R.color.cp_cont_d, 1);
     }
 
-    public void atP() {
-        this.cxk.setVisibility(8);
-        this.cwY.setVisibility(8);
-        am.f(this.cwX, R.color.cp_cont_b, 1);
+    public void atR() {
+        this.cxr.setVisibility(8);
+        this.cxf.setVisibility(8);
+        am.f(this.cxe, R.color.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        am.c(this.cwW, this.cxl);
-        am.d(this.cwX, R.color.cp_cont_d, 1, skinType);
-        am.d(this.cwY, R.color.cp_cont_j, 1, skinType);
+        am.c(this.cxd, this.cxs);
+        am.d(this.cxe, R.color.cp_cont_d, 1, skinType);
+        am.d(this.cxf, R.color.cp_cont_j, 1, skinType);
         am.l(this.attachedView, R.color.cp_bg_line_d);
     }
 
-    public View atJ() {
+    public View atL() {
         return this.attachedView;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
@@ -19,83 +19,83 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class c implements NetModel.b {
-    private FrsCommonTabFragment fAV;
-    private boolean fBb;
-    private d fBo;
-    private FrsCommonTabRequestData fBr;
-    private FrsCommonTabNetModel fBs;
-    private FrsDynamicRequestData fBt;
-    private FrsDynamicModel fBu;
-    private boolean fBv;
+    private FrsCommonTabFragment fBJ;
+    private boolean fBP;
+    private d fCc;
+    private FrsCommonTabRequestData fCf;
+    private FrsCommonTabNetModel fCg;
+    private FrsDynamicRequestData fCh;
+    private FrsDynamicModel fCi;
+    private boolean fCj;
     private int mErrorCode;
     private String mErrorString;
-    private HashSet<String> fBw = new HashSet<>();
+    private HashSet<String> fCk = new HashSet<>();
     private int mPn = 1;
-    private long fBx = -1;
+    private long fCl = -1;
 
     public c(FrsCommonTabFragment frsCommonTabFragment, int i, int i2) {
         if (frsCommonTabFragment != null) {
-            this.fAV = frsCommonTabFragment;
+            this.fBJ = frsCommonTabFragment;
             if (i2 == 89) {
-                this.fBb = true;
-                this.fBt = new FrsDynamicRequestData();
-                this.fBt.forumId = i;
-                this.fBt.scrH = l.ah(TbadkCoreApplication.getInst());
-                this.fBt.scrW = l.af(TbadkCoreApplication.getInst());
-                this.fBt.scrDip = l.ai(TbadkCoreApplication.getInst());
-                this.fBu = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.fBt);
-                this.fBu.a(this);
-                this.fBu.setUniqueId(frsCommonTabFragment.getUniqueId());
+                this.fBP = true;
+                this.fCh = new FrsDynamicRequestData();
+                this.fCh.forumId = i;
+                this.fCh.scrH = l.ah(TbadkCoreApplication.getInst());
+                this.fCh.scrW = l.af(TbadkCoreApplication.getInst());
+                this.fCh.scrDip = l.ai(TbadkCoreApplication.getInst());
+                this.fCi = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.fCh);
+                this.fCi.a(this);
+                this.fCi.setUniqueId(frsCommonTabFragment.getUniqueId());
                 return;
             }
-            this.fBb = false;
-            this.fBr = new FrsCommonTabRequestData();
-            this.fBr.fid = i;
-            this.fBr.tabId = i2;
-            this.fBs = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.fBr);
-            this.fBs.a(this);
-            this.fBs.setUniqueId(frsCommonTabFragment.getUniqueId());
+            this.fBP = false;
+            this.fCf = new FrsCommonTabRequestData();
+            this.fCf.fid = i;
+            this.fCf.tabId = i2;
+            this.fCg = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.fCf);
+            this.fCg.a(this);
+            this.fCg.setUniqueId(frsCommonTabFragment.getUniqueId());
         }
     }
 
-    public void box() {
-        this.fBv = true;
-        if (!this.fBb) {
-            if (!this.fBs.pP()) {
+    public void boK() {
+        this.fCj = true;
+        if (!this.fBP) {
+            if (!this.fCg.pP()) {
                 this.mPn = 1;
-                this.fBr.pn = this.mPn;
-                if (this.fBx >= 0) {
-                    this.fBr.lastThreadId = this.fBx;
+                this.fCf.pn = this.mPn;
+                if (this.fCl >= 0) {
+                    this.fCf.lastThreadId = this.fCl;
                 }
-                this.fBs.auD();
+                this.fCg.auF();
             }
-        } else if (!this.fBu.pP()) {
-            if (as.ajo().ajq()) {
-                this.fBt.qType = 2;
+        } else if (!this.fCi.pP()) {
+            if (as.ajq().ajs()) {
+                this.fCh.qType = 2;
             } else {
-                this.fBt.qType = 1;
+                this.fCh.qType = 1;
             }
-            this.fBt.lastThreadId = 0L;
-            this.fBu.auD();
+            this.fCh.lastThreadId = 0L;
+            this.fCi.auF();
         }
     }
 
-    public void aIQ() {
-        this.fBv = false;
-        if (!this.fBb) {
-            if (!this.fBs.pP()) {
+    public void aIS() {
+        this.fCj = false;
+        if (!this.fBP) {
+            if (!this.fCg.pP()) {
                 this.mPn++;
-                this.fBr.pn = this.mPn;
-                this.fBr.lastThreadId = -1L;
-                this.fBs.auD();
+                this.fCf.pn = this.mPn;
+                this.fCf.lastThreadId = -1L;
+                this.fCg.auF();
             }
-        } else if (!this.fBu.pP()) {
-            if (as.ajo().ajq()) {
-                this.fBt.qType = 2;
+        } else if (!this.fCi.pP()) {
+            if (as.ajq().ajs()) {
+                this.fCh.qType = 2;
             } else {
-                this.fBt.qType = 1;
+                this.fCh.qType = 1;
             }
-            this.fBu.auD();
+            this.fCi.auF();
         }
     }
 
@@ -103,47 +103,47 @@ public class c implements NetModel.b {
         if (dVar == null) {
             return false;
         }
-        if (this.fBv) {
-            this.fBo = dVar;
-            this.fBw.clear();
+        if (this.fCj) {
+            this.fCc = dVar;
+            this.fCk.clear();
             Iterator<m> it = dVar.threadList.iterator();
             while (it.hasNext()) {
                 m next = it.next();
-                if (next instanceof bg) {
-                    String tid = ((bg) next).getTid();
-                    if (!this.fBw.contains(tid)) {
-                        this.fBw.add(tid);
+                if (next instanceof bh) {
+                    String tid = ((bh) next).getTid();
+                    if (!this.fCk.contains(tid)) {
+                        this.fCk.add(tid);
                     }
                 }
             }
         } else {
-            this.fBo.hasMore = dVar.hasMore;
-            this.fBo.userMap.putAll(dVar.userMap);
+            this.fCc.hasMore = dVar.hasMore;
+            this.fCc.userMap.putAll(dVar.userMap);
             Iterator<m> it2 = dVar.threadList.iterator();
             while (it2.hasNext()) {
                 m next2 = it2.next();
-                if (next2 instanceof bg) {
-                    String tid2 = ((bg) next2).getTid();
-                    if (!this.fBw.contains(tid2)) {
-                        ((bg) next2).bMb = this.fAV.isBrandForum;
-                        this.fBo.threadList.add(next2);
-                        this.fBw.add(tid2);
+                if (next2 instanceof bh) {
+                    String tid2 = ((bh) next2).getTid();
+                    if (!this.fCk.contains(tid2)) {
+                        ((bh) next2).bMg = this.fBJ.isBrandForum;
+                        this.fCc.threadList.add(next2);
+                        this.fCk.add(tid2);
                     }
                 }
             }
         }
-        this.fAV.a(this.fBo);
+        this.fBJ.a(this.fCc);
         return true;
     }
 
-    public void ac(bg bgVar) {
-        if (bgVar != null && this.fBo != null && this.fBo.threadList != null) {
-            if (v.aa(this.fBo.threadList)) {
-                this.fBo.threadList.add(bgVar);
+    public void ad(bh bhVar) {
+        if (bhVar != null && this.fCc != null && this.fCc.threadList != null) {
+            if (v.aa(this.fCc.threadList)) {
+                this.fCc.threadList.add(bhVar);
             } else {
-                this.fBo.threadList.add(0, bgVar);
+                this.fCc.threadList.add(0, bhVar);
             }
-            this.fAV.a(this.fBo);
+            this.fBJ.a(this.fCc);
         }
     }
 
@@ -162,8 +162,8 @@ public class c implements NetModel.b {
                     dVar2.userMap = aVar.userMap;
                     if (!v.aa(dVar2.threadList)) {
                         m mVar = (m) v.c(dVar2.threadList, dVar2.threadList.size() - 1);
-                        if (mVar instanceof bg) {
-                            this.fBt.lastThreadId = com.baidu.adp.lib.g.b.c(((bg) mVar).getId(), 0L);
+                        if (mVar instanceof bh) {
+                            this.fCh.lastThreadId = com.baidu.adp.lib.g.b.c(((bh) mVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -176,7 +176,7 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.fAV.a(errorData);
+                    this.fBJ.a(errorData);
                 }
             }
         }
@@ -197,8 +197,8 @@ public class c implements NetModel.b {
                     dVar2.userMap = aVar.userMap;
                     if (!v.aa(dVar2.threadList)) {
                         m mVar = (m) v.c(dVar2.threadList, dVar2.threadList.size() - 1);
-                        if (mVar instanceof bg) {
-                            this.fBt.lastThreadId = com.baidu.adp.lib.g.b.c(((bg) mVar).getId(), 0L);
+                        if (mVar instanceof bh) {
+                            this.fCh.lastThreadId = com.baidu.adp.lib.g.b.c(((bh) mVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -211,21 +211,21 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.fAV.a(errorData);
+                    this.fBJ.a(errorData);
                 }
             }
         }
     }
 
     public boolean hasData() {
-        return (this.fBo == null || v.aa(this.fBo.threadList)) ? false : true;
+        return (this.fCc == null || v.aa(this.fCc.threadList)) ? false : true;
     }
 
     public void dj(long j) {
-        this.fBx = j;
+        this.fCl = j;
     }
 
-    public boolean boC() {
-        return this.fBv;
+    public boolean boP() {
+        return this.fCj;
     }
 }

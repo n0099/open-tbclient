@@ -19,17 +19,17 @@ import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> jaF;
-    View.OnClickListener jaG = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
+    private ArrayList<d> jbJ;
+    View.OnClickListener jbK = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Object tag = view.getTag();
-            if ((tag instanceof C0411a) && (dVar = ((C0411a) tag).jaK) != null) {
-                if (dVar.iYB == null) {
-                    BarFolderFirstDirActivity.h(a.this.cnY(), null);
+            if ((tag instanceof C0411a) && (dVar = ((C0411a) tag).jbO) != null) {
+                if (dVar.iZF == null) {
+                    BarFolderFirstDirActivity.h(a.this.coq(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.cnY(), dVar.iYA, dVar.iYB, dVar.iYC)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.coq(), dVar.iZE, dVar.iZF, dVar.iZG)));
                 }
             }
         }
@@ -38,11 +38,11 @@ public class a extends BaseAdapter {
 
     public a(Activity activity, b bVar, boolean z) {
         this.mContext = activity;
-        this.jaF = bVar.cnX();
+        this.jbJ = bVar.cop();
     }
 
-    public ArrayList<d> cnX() {
-        return this.jaF;
+    public ArrayList<d> cop() {
+        return this.jbJ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,24 +50,24 @@ public class a extends BaseAdapter {
     /* loaded from: classes5.dex */
     public static class C0411a {
         public TextView bmT;
-        public BarImageView jaI;
-        public BestStringsFitTextView jaJ;
-        public d jaK;
+        public BarImageView jbM;
+        public BestStringsFitTextView jbN;
+        public d jbO;
 
         protected C0411a() {
         }
     }
 
     public void aD(ArrayList<d> arrayList) {
-        this.jaF = arrayList;
+        this.jbJ = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jaF == null) {
+        if (this.jbJ == null) {
             return 0;
         }
-        return (this.jaF.size() * 2) + 1;
+        return (this.jbJ.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -101,33 +101,33 @@ public class a extends BaseAdapter {
             return LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.jaG);
+        inflate.setOnClickListener(this.jbK);
         C0411a c0411a = new C0411a();
-        c0411a.jaI = (BarImageView) inflate.findViewById(R.id.portrait);
+        c0411a.jbM = (BarImageView) inflate.findViewById(R.id.portrait);
         c0411a.bmT = (TextView) inflate.findViewById(R.id.name);
-        c0411a.jaJ = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        c0411a.jbN = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(c0411a);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, C0411a c0411a, int i) {
-        d dVar = this.jaF.get(i / 2);
-        c0411a.jaK = dVar;
-        c0411a.bmT.setText(dVar.iYA);
-        if (dVar.jaN != null) {
-            c0411a.jaJ.setVisibility(0);
-            String[] strArr = new String[dVar.jaN.size()];
-            for (int i2 = 0; i2 < dVar.jaN.size(); i2++) {
-                strArr[i2] = dVar.jaN.get(i2).iYA;
+        d dVar = this.jbJ.get(i / 2);
+        c0411a.jbO = dVar;
+        c0411a.bmT.setText(dVar.iZE);
+        if (dVar.jbR != null) {
+            c0411a.jbN.setVisibility(0);
+            String[] strArr = new String[dVar.jbR.size()];
+            for (int i2 = 0; i2 < dVar.jbR.size(); i2++) {
+                strArr[i2] = dVar.jbR.get(i2).iZE;
             }
-            c0411a.jaJ.setTextArray(strArr);
+            c0411a.jbN.setTextArray(strArr);
         } else {
-            c0411a.jaJ.setVisibility(8);
+            c0411a.jbN.setVisibility(8);
         }
         if (dVar.logoUrl != null) {
             int dip2px = l.dip2px(this.mContext, 45.0f);
-            c0411a.jaI.setTag(dVar.logoUrl);
-            c0411a.jaI.startLoad(dVar.logoUrl, 10, dip2px, dip2px, false);
+            c0411a.jbM.setTag(dVar.logoUrl);
+            c0411a.jbM.startLoad(dVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class a extends BaseAdapter {
         return 2;
     }
 
-    protected Activity cnY() {
+    protected Activity coq() {
         return this.mContext;
     }
 }

@@ -15,14 +15,14 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.view.VoteCountDownView;
 /* loaded from: classes3.dex */
 public class VoteCountDownCard extends LinearLayout {
-    private f euM;
-    private a evq;
-    private e ewi;
-    private VoteCountDownView.a ezA;
-    private VoteCountDownView ezw;
-    private TextView ezx;
-    private TextView ezy;
-    private TextView ezz;
+    private f euT;
+    private a evx;
+    private e ewp;
+    private VoteCountDownView ezD;
+    private TextView ezE;
+    private TextView ezF;
+    private TextView ezG;
+    private VoteCountDownView.a ezH;
     private Context mContext;
 
     /* loaded from: classes3.dex */
@@ -36,12 +36,12 @@ public class VoteCountDownCard extends LinearLayout {
 
     public VoteCountDownCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ezA = new VoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteCountDownCard.1
+        this.ezH = new VoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteCountDownCard.1
             @Override // com.baidu.tieba.view.VoteCountDownView.a
             public void onFinished() {
-                VoteCountDownCard.this.aZn();
-                if (VoteCountDownCard.this.evq != null) {
-                    VoteCountDownCard.this.evq.onRefresh();
+                VoteCountDownCard.this.aZp();
+                if (VoteCountDownCard.this.evx != null) {
+                    VoteCountDownCard.this.evx.onRefresh();
                 }
             }
         };
@@ -61,54 +61,54 @@ public class VoteCountDownCard extends LinearLayout {
     }
 
     private void qX() {
-        this.ezz = (TextView) findViewById(R.id.count_down_view_title);
-        this.ezw = (VoteCountDownView) findViewById(R.id.count_down_view);
-        this.ezx = (TextView) findViewById(R.id.candidate_num);
-        this.ezy = (TextView) findViewById(R.id.totel_vote_num);
+        this.ezG = (TextView) findViewById(R.id.count_down_view_title);
+        this.ezD = (VoteCountDownView) findViewById(R.id.count_down_view);
+        this.ezE = (TextView) findViewById(R.id.candidate_num);
+        this.ezF = (TextView) findViewById(R.id.totel_vote_num);
     }
 
     public void setData(f fVar) {
-        this.euM = fVar;
-        if (this.euM == null || this.euM.aYP() == null) {
+        this.euT = fVar;
+        if (this.euT == null || this.euT.aYR() == null) {
             setVisibility(8);
             return;
         }
-        this.ewi = this.euM.aYP();
-        if (this.ewi.getStatus() != d.eyW) {
+        this.ewp = this.euT.aYR();
+        if (this.ewp.getStatus() != d.ezd) {
             setVisibility(8);
             return;
         }
-        long aYK = this.ewi.aYK();
-        if (this.ezA != null) {
-            this.ezw.setOnCountDownFinished(this.ezA);
+        long aYM = this.ewp.aYM();
+        if (this.ezH != null) {
+            this.ezD.setOnCountDownFinished(this.ezH);
         }
-        this.ezw.setData(aYK * 1000);
-        this.ezx.setText("候选人" + this.ewi.aYG());
-        this.ezy.setText("投票数" + this.ewi.aYH() + "");
+        this.ezD.setData(aYM * 1000);
+        this.ezE.setText("候选人" + this.ewp.aYI());
+        this.ezF.setText("投票数" + this.ewp.aYJ() + "");
     }
 
-    public void nz(int i) {
-        am.d(this.ezz, R.color.cp_cont_b, 1, i);
-        am.d(this.ezx, R.color.cp_cont_b, 1, i);
-        am.d(this.ezy, R.color.cp_cont_b, 1, i);
+    public void nA(int i) {
+        am.d(this.ezG, R.color.cp_cont_b, 1, i);
+        am.d(this.ezE, R.color.cp_cont_b, 1, i);
+        am.d(this.ezF, R.color.cp_cont_b, 1, i);
         am.g(this, R.drawable.bar_select_bg_shadow_and_radius, i);
-        if (this.ezw != null) {
-            this.ezw.nz(i);
+        if (this.ezD != null) {
+            this.ezD.nA(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZn() {
-        this.ezz.setText(getResources().getString(R.string.vote_finished_tip));
+    public void aZp() {
+        this.ezG.setText(getResources().getString(R.string.vote_finished_tip));
     }
 
     public void setOnRefreshListener(a aVar) {
-        this.evq = aVar;
+        this.evx = aVar;
     }
 
     public void onDestroy() {
-        if (this.ezw != null) {
-            this.ezw.onDestroy();
+        if (this.ezD != null) {
+            this.ezD.onDestroy();
         }
     }
 }

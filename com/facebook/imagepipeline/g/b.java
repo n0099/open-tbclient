@@ -4,7 +4,7 @@ import com.facebook.imagepipeline.producers.al;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public interface b extends al {
-    void HO(String str);
+    void HP(String str);
 
     void a(ImageRequest imageRequest, Object obj, String str, boolean z);
 

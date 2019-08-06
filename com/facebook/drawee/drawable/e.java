@@ -40,7 +40,7 @@ public class e {
         return i;
     }
 
-    public static int DE(int i) {
+    public static int DG(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

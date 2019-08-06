@@ -5,10 +5,10 @@ import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
     private long aGT;
-    private String cWJ;
-    private String hDX;
-    private String jgg;
-    private List<String> jgh;
+    private String cWQ;
+    private String hEP;
+    private String jhn;
+    private List<String> jho;
     private long mStartTime;
     private int mType;
 
@@ -16,10 +16,10 @@ public class o {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.aGT = redpacketRain.end_time.longValue() * 1000;
-            this.cWJ = redpacketRain.jump_url;
-            this.jgg = redpacketRain.float_url;
-            this.jgh = redpacketRain.dynamic_img;
-            this.hDX = redpacketRain.activity_id;
+            this.cWQ = redpacketRain.jump_url;
+            this.jhn = redpacketRain.float_url;
+            this.jho = redpacketRain.dynamic_img;
+            this.hEP = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -32,20 +32,20 @@ public class o {
         return this.aGT;
     }
 
-    public String aCT() {
-        return this.cWJ;
+    public String aCV() {
+        return this.cWQ;
     }
 
-    public String cpD() {
-        return this.jgg;
+    public String cpZ() {
+        return this.jhn;
     }
 
-    public List<String> cpE() {
-        return this.jgh;
+    public List<String> cqa() {
+        return this.jho;
     }
 
-    public String cpF() {
-        return this.hDX;
+    public String cqb() {
+        return this.hEP;
     }
 
     public void setStartTime(long j) {
@@ -56,20 +56,20 @@ public class o {
         this.aGT = j;
     }
 
-    public void EK(String str) {
-        this.cWJ = str;
-    }
-
     public void EL(String str) {
-        this.jgg = str;
-    }
-
-    public void ee(List<String> list) {
-        this.jgh = list;
+        this.cWQ = str;
     }
 
     public void EM(String str) {
-        this.hDX = str;
+        this.jhn = str;
+    }
+
+    public void ed(List<String> list) {
+        this.jho = list;
+    }
+
+    public void EN(String str) {
+        this.hEP = str;
     }
 
     public int getType() {

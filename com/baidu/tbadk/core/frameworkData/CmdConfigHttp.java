@@ -69,6 +69,7 @@ public class CmdConfigHttp {
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
     public static final int CMD_FRS_AR_SHARE = 1003391;
+    public static final int CMD_FRS_BUSSINESS_PROMOT_CLICK = 1003445;
     public static final int CMD_FRS_COMMON_TAB = 1003418;
     public static final int CMD_FRS_DYNAMIC = 1003398;
     public static final int CMD_FRS_GAME_STRATEGY = 1003362;

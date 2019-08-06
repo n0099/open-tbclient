@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag extends Thread {
-    private String bTa;
-    private boolean bTb;
+    private String bTg;
+    private boolean bTh;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -16,19 +16,19 @@ public class ag extends Thread {
     public ag(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.bTa = null;
+        this.bTg = null;
         this.mObjTp = null;
-        this.bTb = false;
+        this.bTh = false;
         this.mType = str;
-        this.bTb = z;
+        this.bTh = z;
     }
 
     public ag(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.bTa = null;
+        this.bTg = null;
         this.mObjTp = null;
-        this.bTb = false;
+        this.bTh = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -38,7 +38,7 @@ public class ag extends Thread {
         String str;
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            if (this.bTb) {
+            if (this.bTh) {
                 str = TbConfig.IN_PV_ADDRESS;
             } else {
                 str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -48,18 +48,18 @@ public class ag extends Thread {
             if (this.mParam != null) {
                 xVar.o("st_param", this.mParam);
             }
-            if (this.bTa != null) {
-                xVar.o("obj", this.bTa);
+            if (this.bTg != null) {
+                xVar.o("obj", this.bTg);
             }
             if (this.mObjTp != null) {
                 xVar.o("obj_tp", this.mObjTp);
             }
-            String aig = xVar.aig();
+            String aii = xVar.aii();
             System.out.println("pv_test !!!");
-            if (aig != null) {
-                Log.i("USEINTERVAL", aig);
+            if (aii != null) {
+                Log.i("USEINTERVAL", aii);
                 try {
-                    JSONObject jSONObject = new JSONObject(aig);
+                    JSONObject jSONObject = new JSONObject(aii);
                     if (jSONObject.has("use_duration")) {
                         long optLong = jSONObject.optLong("use_duration");
                         Log.i("USEINTERVAL", "duration " + optLong);

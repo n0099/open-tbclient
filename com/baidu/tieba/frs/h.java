@@ -11,38 +11,38 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.v.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bf;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes3.dex */
 public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int ftp;
-    protected static final int ftq;
-    protected static final int ftr;
-    protected com.baidu.adp.widget.ListView.r eYZ;
-    protected FrsViewData fts;
-    protected d ftt;
-    protected int ftu;
-    protected f ftv;
-    private boolean ftw;
-    private boolean ftx;
-    protected com.baidu.tieba.card.ab fty;
+    protected static final int ftO;
+    protected static final int ftP;
+    protected static final int ftQ;
+    protected com.baidu.adp.widget.ListView.r eZn;
+    protected FrsViewData ftR;
+    protected d ftS;
+    protected int ftT;
+    protected f ftU;
+    private boolean ftV;
+    private boolean ftW;
+    protected com.baidu.tieba.card.ab ftX;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        ftp = resources.getDimensionPixelSize(R.dimen.ds8);
-        ftq = resources.getDimensionPixelSize(R.dimen.ds16);
-        ftr = resources.getDimensionPixelSize(R.dimen.ds1);
+        ftO = resources.getDimensionPixelSize(R.dimen.ds8);
+        ftP = resources.getDimensionPixelSize(R.dimen.ds16);
+        ftQ = resources.getDimensionPixelSize(R.dimen.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.ftx = false;
+        this.ftW = false;
         a(tbPageContext, bdUniqueId2);
     }
 
@@ -50,7 +50,7 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.ftx = false;
+        this.ftW = false;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
@@ -65,26 +65,26 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.ftt = null;
+        this.ftS = null;
         this.mAdapterItemClickListener = null;
         this.mAdapterItemLongClickListener = null;
-        if (this.ftv != null) {
-            this.ftv.destory();
-            this.ftv = null;
+        if (this.ftU != null) {
+            this.ftU.destory();
+            this.ftU = null;
         }
     }
 
     public void a(com.baidu.adp.widget.ListView.r rVar) {
-        this.eYZ = rVar;
+        this.eZn = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eYZ = (com.baidu.adp.widget.ListView.r) viewGroup;
-        if (t instanceof bf) {
-            ((bf) t).threadData.hh(2);
+        this.eZn = (com.baidu.adp.widget.ListView.r) viewGroup;
+        if (t instanceof bg) {
+            ((bg) t).threadData.hh(2);
             return null;
         }
         return null;
@@ -95,23 +95,23 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     }
 
     public void b(FrsViewData frsViewData) {
-        this.fts = frsViewData;
+        this.ftR = frsViewData;
     }
 
     public void a(d dVar) {
-        this.ftt = dVar;
+        this.ftS = dVar;
     }
 
-    public void rm(int i) {
-        this.ftu = i;
+    public void ro(int i) {
+        this.ftT = i;
     }
 
     public void a(f fVar) {
-        this.ftv = fVar;
+        this.ftU = fVar;
     }
 
-    public boolean blG() {
-        return this.ftw;
+    public boolean blN() {
+        return this.ftV;
     }
 
     public View s(ViewGroup viewGroup, int i) {

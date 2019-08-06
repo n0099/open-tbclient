@@ -18,25 +18,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    private static d dde;
+    private static d ddl;
 
-    public static d aFJ() {
-        if (dde == null) {
+    public static d aFL() {
+        if (ddl == null) {
             synchronized (d.class) {
-                if (dde == null) {
-                    dde = new d();
+                if (ddl == null) {
+                    ddl = new d();
                 }
             }
         }
-        return dde;
+        return ddl;
     }
 
     public void a(InvoiceInfo invoiceInfo, final c.a aVar) {
         if (invoiceInfo != null) {
-            String aFm = com.baidu.tieba.aiapps.apps.c.d.aFm();
+            String aFo = com.baidu.tieba.aiapps.apps.c.d.aFo();
             HashMap hashMap = new HashMap();
             hashMap.put("data", invoiceInfo.toJson().toString());
-            a(aFm, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.1
+            a(aFo, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: f */
@@ -53,10 +53,10 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo> dVar, int i) {
                     if (aVar != null) {
-                        if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
-                            d.this.a(dVar.ddw, dVar.ddx, aVar);
+                        if (!TextUtils.equals(dVar.ddD, "0") || dVar.ddF == null) {
+                            d.this.a(dVar.ddD, dVar.ddE, aVar);
                         } else {
-                            aVar.a(dVar.ddy);
+                            aVar.a(dVar.ddF);
                         }
                     }
                 }
@@ -98,7 +98,7 @@ public class d {
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
-                    d.this.a(com.baidu.tieba.aiapps.apps.c.d.aFo(), hashMap, interfaceC0285c);
+                    d.this.a(com.baidu.tieba.aiapps.apps.c.d.aFq(), hashMap, interfaceC0285c);
                 } else if (interfaceC0285c != null) {
                     interfaceC0285c.co(LivenessStat.TYPE_STRING_DEFAULT, "");
                 }
@@ -107,7 +107,7 @@ public class d {
     }
 
     public void a(c.InterfaceC0285c interfaceC0285c) {
-        a(com.baidu.tieba.aiapps.apps.c.d.aFn(), (Map<String, String>) null, interfaceC0285c);
+        a(com.baidu.tieba.aiapps.apps.c.d.aFp(), (Map<String, String>) null, interfaceC0285c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -129,10 +129,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.a> dVar, int i) {
                 if (interfaceC0285c != null) {
-                    if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
-                        d.this.a(dVar.ddw, dVar.ddx, interfaceC0285c);
+                    if (!TextUtils.equals(dVar.ddD, "0") || dVar.ddF == null) {
+                        d.this.a(dVar.ddD, dVar.ddE, interfaceC0285c);
                     } else {
-                        interfaceC0285c.aL(dVar.ddy.ddp);
+                        interfaceC0285c.aL(dVar.ddF.ddx);
                     }
                 }
             }
@@ -147,10 +147,10 @@ public class d {
     }
 
     public void a(InvoiceInfo invoiceInfo, final c.e eVar) {
-        String aFp = com.baidu.tieba.aiapps.apps.c.d.aFp();
+        String aFr = com.baidu.tieba.aiapps.apps.c.d.aFr();
         HashMap hashMap = new HashMap();
         hashMap.put("data", invoiceInfo.toJson().toString());
-        a(aFp, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.4
+        a(aFr, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: f */
@@ -167,10 +167,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo> dVar, int i) {
                 if (eVar != null) {
-                    if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
-                        d.this.a(dVar.ddw, dVar.ddx, eVar);
+                    if (!TextUtils.equals(dVar.ddD, "0") || dVar.ddF == null) {
+                        d.this.a(dVar.ddD, dVar.ddE, eVar);
                     } else {
-                        eVar.b(dVar.ddy);
+                        eVar.b(dVar.ddF);
                     }
                 }
             }
@@ -185,11 +185,11 @@ public class d {
     }
 
     public void a(final long j, final c.d dVar) {
-        String aFq = com.baidu.tieba.aiapps.apps.c.d.aFq();
+        String aFs = com.baidu.tieba.aiapps.apps.c.d.aFs();
         com.baidu.tieba.aiapps.apps.invoice.model.b bVar = new com.baidu.tieba.aiapps.apps.invoice.model.b(j);
         HashMap hashMap = new HashMap();
         hashMap.put("data", bVar.toJson().toString());
-        a(aFq, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.5
+        a(aFs, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: f */
@@ -206,8 +206,8 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d dVar2, int i) {
                 if (dVar != null) {
-                    if (!TextUtils.equals(dVar2.ddw, "0")) {
-                        d.this.a(dVar2.ddw, dVar2.ddx, dVar);
+                    if (!TextUtils.equals(dVar2.ddD, "0")) {
+                        d.this.a(dVar2.ddD, dVar2.ddE, dVar);
                     } else {
                         dVar.bW(j);
                     }
@@ -224,11 +224,11 @@ public class d {
     }
 
     public void a(long j, final c.b bVar) {
-        String aFr = com.baidu.tieba.aiapps.apps.c.d.aFr();
+        String aFt = com.baidu.tieba.aiapps.apps.c.d.aFt();
         com.baidu.tieba.aiapps.apps.invoice.model.b bVar2 = new com.baidu.tieba.aiapps.apps.invoice.model.b(j);
         HashMap hashMap = new HashMap();
         hashMap.put("data", bVar2.toJson().toString());
-        a(aFr, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.6
+        a(aFt, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: f */
@@ -245,10 +245,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.b> dVar, int i) {
                 if (bVar != null) {
-                    if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
-                        d.this.a(dVar.ddw, dVar.ddx, bVar);
+                    if (!TextUtils.equals(dVar.ddD, "0") || dVar.ddF == null) {
+                        d.this.a(dVar.ddD, dVar.ddE, bVar);
                     } else {
-                        bVar.bV(dVar.ddy.mId);
+                        bVar.bV(dVar.ddF.mId);
                     }
                 }
             }

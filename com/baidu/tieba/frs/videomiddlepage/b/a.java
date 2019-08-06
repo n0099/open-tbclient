@@ -25,7 +25,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.view.SpannableClickTextView;
 /* loaded from: classes4.dex */
 public class a {
-    private static final int fTP = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int fUF = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int g;
@@ -60,7 +60,7 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(fTP, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(fUF, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
@@ -85,12 +85,12 @@ public class a {
 
     /* loaded from: classes4.dex */
     private static class b extends ReplacementSpan {
-        private int fTS;
-        private int fTT;
+        private int fUI;
+        private int fUJ;
 
         public b(int i, int i2) {
-            this.fTS = i;
-            this.fTT = i2;
+            this.fUI = i;
+            this.fUJ = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -108,8 +108,8 @@ public class a {
 
         private TextPaint c(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.fTS);
-            textPaint.setColor(this.fTT);
+            textPaint.setTextSize(this.fUI);
+            textPaint.setColor(this.fUJ);
             return textPaint;
         }
     }

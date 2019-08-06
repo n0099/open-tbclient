@@ -11,8 +11,8 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class d {
-    private static BlockPopInfo jsX;
-    private static BlockPopInfo jsY;
+    private static BlockPopInfo jue;
+    private static BlockPopInfo juf;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -32,14 +32,14 @@ public class d {
 
     private boolean a(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null && blockPopInfo.appeal_status != null && blockPopInfo.appeal_status.intValue() == 1) {
-            BdToast.b(this.mContext.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.icon_toast_game_error, 3000).agQ();
+            BdToast.b(this.mContext.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.icon_toast_game_error, 3000).agS();
             return true;
         } else if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0 && ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1)) {
             if (blockPopInfo.ahead_type.intValue() == 1) {
                 String str = blockPopInfo.block_info;
                 String str2 = blockPopInfo.ok_info;
                 if (aq.isEmpty(str) || aq.isEmpty(str2)) {
-                    BdToast.b(this.mContext.getPageActivity(), this.mContext.getString(R.string.hanpen_error), R.drawable.icon_toast_game_error, 3000).agQ();
+                    BdToast.b(this.mContext.getPageActivity(), this.mContext.getString(R.string.hanpen_error), R.drawable.icon_toast_game_error, 3000).agS();
                     return true;
                 }
                 b(blockPopInfo);
@@ -55,12 +55,12 @@ public class d {
         }
     }
 
-    public boolean ctd() {
-        return a(jsX);
+    public boolean ctz() {
+        return a(jue);
     }
 
-    public boolean cte() {
-        return a(jsY);
+    public boolean ctA() {
+        return a(juf);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
@@ -79,7 +79,7 @@ public class d {
                     d.this.c(blockPopInfo);
                 }
             });
-            aVar.b(this.mContext).agI();
+            aVar.b(this.mContext).agK();
         }
     }
 
@@ -91,10 +91,10 @@ public class d {
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        jsX = blockPopInfo;
+        jue = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        jsY = blockPopInfo;
+        juf = blockPopInfo;
     }
 }

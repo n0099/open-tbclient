@@ -29,75 +29,75 @@ import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, c {
-    com.baidu.tbadk.m.h doz;
-    private d iAA;
-    private View iAr;
-    private BdListView iAs;
-    private g iAt;
-    private PbListView iAv;
-    private View iAw;
-    private int iAy;
+    com.baidu.tbadk.m.h doG;
+    private View iBA;
+    private int iBC;
+    private d iBE;
+    private View iBv;
+    private BdListView iBw;
+    private g iBx;
+    private PbListView iBz;
     private ProgressBar mProgressBar;
     private com.baidu.tbadk.core.view.i mPullView;
-    private boolean iAu = false;
+    private boolean iBy = false;
     NoDataView mNoDataView = null;
-    private boolean iAx = false;
+    private boolean iBB = false;
     private int bgColor = R.color.cp_bg_line_d;
-    private boolean iAz = true;
-    private View.OnClickListener gIj = new View.OnClickListener() { // from class: com.baidu.tieba.post.PersonReplyFragment.1
+    private boolean iBD = true;
+    private View.OnClickListener gJb = new View.OnClickListener() { // from class: com.baidu.tieba.post.PersonReplyFragment.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (com.baidu.adp.lib.util.j.jQ()) {
-                if (PersonReplyFragment.this.doz != null) {
-                    PersonReplyFragment.this.doz.dettachView(PersonReplyFragment.this.iAr);
-                    PersonReplyFragment.this.doz = null;
+                if (PersonReplyFragment.this.doG != null) {
+                    PersonReplyFragment.this.doG.dettachView(PersonReplyFragment.this.iBv);
+                    PersonReplyFragment.this.doG = null;
                 }
-                if (PersonReplyFragment.this.iAA != null) {
-                    PersonReplyFragment.this.iAA.cfr();
+                if (PersonReplyFragment.this.iBE != null) {
+                    PersonReplyFragment.this.iBE.cfJ();
                 }
             }
         }
     };
-    private PersonPostModel.a iAm = new PersonPostModel.a() { // from class: com.baidu.tieba.post.PersonReplyFragment.3
+    private PersonPostModel.a iBq = new PersonPostModel.a() { // from class: com.baidu.tieba.post.PersonReplyFragment.3
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
         public void b(PersonPostModel personPostModel, boolean z) {
             if (PersonReplyFragment.this.isAdded()) {
                 PersonReplyFragment.this.mProgressBar.setVisibility(8);
-                PersonReplyFragment.this.iAs.completePullRefreshPostDelayed(0L);
-                if (personPostModel == null || (PersonReplyFragment.dT(personPostModel.postList) == 0 && PersonReplyFragment.this.iAz && StringUtils.isNull(personPostModel.getErrorString()))) {
-                    PersonReplyFragment.this.iAs.setVisibility(0);
-                    PersonReplyFragment.this.pI(true);
+                PersonReplyFragment.this.iBw.completePullRefreshPostDelayed(0L);
+                if (personPostModel == null || (PersonReplyFragment.dS(personPostModel.postList) == 0 && PersonReplyFragment.this.iBD && StringUtils.isNull(personPostModel.getErrorString()))) {
+                    PersonReplyFragment.this.iBw.setVisibility(0);
+                    PersonReplyFragment.this.pJ(true);
                     return;
                 }
-                if (PersonReplyFragment.this.iAt.getCount() == 0) {
-                    PersonReplyFragment.this.iAs.setVisibility(8);
-                    PersonReplyFragment.this.pI(true);
+                if (PersonReplyFragment.this.iBx.getCount() == 0) {
+                    PersonReplyFragment.this.iBw.setVisibility(8);
+                    PersonReplyFragment.this.pJ(true);
                 } else {
-                    PersonReplyFragment.this.iAs.setVisibility(0);
-                    PersonReplyFragment.this.pI(false);
+                    PersonReplyFragment.this.iBw.setVisibility(0);
+                    PersonReplyFragment.this.pJ(false);
                 }
                 if (personPostModel.getErrorCode() != 0) {
                     com.baidu.adp.lib.util.l.showToast(PersonReplyFragment.this.getActivity(), personPostModel.getErrorString());
                 }
-                int dT = PersonReplyFragment.dT(personPostModel.postList);
-                if (dT <= 0) {
+                int dS = PersonReplyFragment.dS(personPostModel.postList);
+                if (dS <= 0) {
                     if (com.baidu.adp.lib.util.j.kc()) {
-                        PersonReplyFragment.this.iAx = false;
-                        PersonReplyFragment.this.iAv.setText(PersonReplyFragment.this.getResources().getString(R.string.list_no_more));
-                        PersonReplyFragment.this.iAw.setVisibility(0);
+                        PersonReplyFragment.this.iBB = false;
+                        PersonReplyFragment.this.iBz.setText(PersonReplyFragment.this.getResources().getString(R.string.list_no_more));
+                        PersonReplyFragment.this.iBA.setVisibility(0);
                     } else {
-                        PersonReplyFragment.this.iAw.setVisibility(8);
+                        PersonReplyFragment.this.iBA.setVisibility(8);
                     }
                 }
-                PersonReplyFragment.this.iAv.akE();
+                PersonReplyFragment.this.iBz.akG();
                 if (z) {
-                    if (dT <= 0) {
-                        PersonReplyFragment.this.iAx = false;
+                    if (dS <= 0) {
+                        PersonReplyFragment.this.iBB = false;
                     } else {
-                        PersonReplyFragment.this.iAx = true;
+                        PersonReplyFragment.this.iBB = true;
                     }
-                    PersonReplyFragment.this.iAy = 0;
-                    PersonReplyFragment.this.iAz = false;
+                    PersonReplyFragment.this.iBC = 0;
+                    PersonReplyFragment.this.iBD = false;
                 }
             }
         }
@@ -110,36 +110,36 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.iAr = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
-        this.iAs = (BdListView) this.iAr.findViewById(R.id.listview_reply);
+        this.iBv = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
+        this.iBw = (BdListView) this.iBv.findViewById(R.id.listview_reply);
         this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds102)), NoDataViewFactory.d.oP(getArguments().getString("key_empty_view_text")), null);
-        this.mProgressBar = (ProgressBar) this.iAr.findViewById(R.id.person_post_progress);
-        return this.iAr;
+        this.mProgressBar = (ProgressBar) this.iBv.findViewById(R.id.person_post_progress);
+        return this.iBv;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         this.mPullView = new com.baidu.tbadk.core.view.i(getPageContext());
-        this.iAs.setPullRefresh(this.mPullView);
+        this.iBw.setPullRefresh(this.mPullView);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.g(getActivity(), R.dimen.ds176)));
-        this.iAs.addHeaderView(textView, 0);
+        this.iBw.addHeaderView(textView, 0);
         this.mPullView.setListPullRefreshListener(new h.c() { // from class: com.baidu.tieba.post.PersonReplyFragment.2
             @Override // com.baidu.tbadk.core.view.h.c
             public void er(boolean z) {
-                PersonReplyFragment.this.iAt.qj(true);
+                PersonReplyFragment.this.iBx.qk(true);
             }
         });
-        this.iAs.setOnScrollListener(this);
-        this.iAv = new PbListView(getActivity());
-        this.iAv.iU(R.color.common_color_10022);
-        this.iAv.setTextColor(am.getColor(R.color.common_color_10039));
-        this.iAs.setNextPage(this.iAv);
-        this.iAw = this.iAv.getView().findViewById(R.id.pb_more_view);
-        this.iAw.setVisibility(8);
+        this.iBw.setOnScrollListener(this);
+        this.iBz = new PbListView(getActivity());
+        this.iBz.iU(R.color.common_color_10022);
+        this.iBz.setTextColor(am.getColor(R.color.common_color_10039));
+        this.iBw.setNextPage(this.iBz);
+        this.iBA = this.iBz.getView().findViewById(R.id.pb_more_view);
+        this.iBA.setVisibility(8);
     }
 
-    public static int dT(List<com.baidu.adp.widget.ListView.m> list) {
+    public static int dS(List<com.baidu.adp.widget.ListView.m> list) {
         int i = 0;
         if (list != null) {
             int size = list.size();
@@ -165,86 +165,86 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public void onStop() {
         super.onStop();
         if (this.mNoDataView != null) {
-            this.mNoDataView.aku();
+            this.mNoDataView.akw();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        cfv();
-        this.iAt.notifyDataSetChanged();
+        cfN();
+        this.iBx.notifyDataSetChanged();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iAt != null) {
-            this.iAt.bos();
+        if (this.iBx != null) {
+            this.iBx.boF();
         }
     }
 
-    private void cfu() {
-        this.iAt = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
-        this.iAt.a(this.iAm);
-        this.iAs.setAdapter((ListAdapter) this.iAt);
-        this.iAs.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.post.PersonReplyFragment.4
+    private void cfM() {
+        this.iBx = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
+        this.iBx.a(this.iBq);
+        this.iBw.setAdapter((ListAdapter) this.iBx);
+        this.iBw.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.post.PersonReplyFragment.4
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                PersonPostModel.PostInfoList zf;
-                if (i >= 0 && PersonReplyFragment.this.iAt != null && i < PersonReplyFragment.this.iAt.getCount() && (zf = PersonReplyFragment.this.iAt.zf(i)) != null) {
-                    PersonReplyFragment.this.sendMessage(new CustomMessage(2004001, new PbActivityConfig(PersonReplyFragment.this.getActivity()).createCfgForPersonCenter(String.valueOf(zf.thread_id), String.valueOf(zf.post_id), "person_page", 18005)));
+                PersonPostModel.PostInfoList zh;
+                if (i >= 0 && PersonReplyFragment.this.iBx != null && i < PersonReplyFragment.this.iBx.getCount() && (zh = PersonReplyFragment.this.iBx.zh(i)) != null) {
+                    PersonReplyFragment.this.sendMessage(new CustomMessage(2004001, new PbActivityConfig(PersonReplyFragment.this.getActivity()).createCfgForPersonCenter(String.valueOf(zh.thread_id), String.valueOf(zh.post_id), "person_page", 18005)));
                 }
             }
         });
     }
 
-    public void cfv() {
-        if (!this.iAu) {
-            cfu();
-            this.iAu = true;
-            ccx();
+    public void cfN() {
+        if (!this.iBy) {
+            cfM();
+            this.iBy = true;
+            ccP();
         }
     }
 
-    private void ccx() {
+    private void ccP() {
         if (com.baidu.adp.lib.util.j.jQ()) {
-            this.iAt.qj(true);
+            this.iBx.qk(true);
             return;
         }
         this.mProgressBar.setVisibility(8);
-        pI(false);
-        f.a(this.doz, this.gIj, getActivity(), this.iAr, getString(R.string.neterror), true);
-        this.iAs.setVisibility(8);
+        pJ(false);
+        f.a(this.doG, this.gJb, getActivity(), this.iBv, getString(R.string.neterror), true);
+        this.iBw.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.post.c
-    public void cfq() {
-        if (this.iAt != null) {
-            this.iAt.qj(true);
+    public void cfI() {
+        if (this.iBx != null) {
+            this.iBx.qk(true);
         }
     }
 
     public void a(d dVar) {
-        this.iAA = dVar;
+        this.iBE = dVar;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.iAw != null) {
-                am.f((TextView) this.iAw.findViewById(R.id.pb_more_text), R.color.common_color_10215, 1);
+            if (this.iBA != null) {
+                am.f((TextView) this.iBA.findViewById(R.id.pb_more_text), R.color.common_color_10215, 1);
             }
             if (this.mNoDataView != null) {
                 am.k(this.mNoDataView, R.color.cp_bg_line_d);
             }
-            if (this.iAv != null) {
-                this.iAv.iV(i);
+            if (this.iBz != null) {
+                this.iBz.iV(i);
             }
             this.mPullView.iV(i);
-            am.h(this.iAr, this.bgColor, i);
+            am.h(this.iBv, this.bgColor, i);
         }
     }
 
@@ -254,29 +254,29 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.iAx && i3 > 2 && this.iAy != i3 && i + i2 == i3) {
-            this.iAy = i3;
-            this.iAt.qj(false);
-            this.iAw.setVisibility(0);
-            this.iAv.akD();
+        if (this.iBB && i3 > 2 && this.iBC != i3 && i + i2 == i3) {
+            this.iBC = i3;
+            this.iBx.qk(false);
+            this.iBA.setVisibility(0);
+            this.iBz.akF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pI(boolean z) {
+    public void pJ(boolean z) {
         if (z) {
-            if (this.iAs != null) {
+            if (this.iBw != null) {
                 if (this.mNoDataView != null) {
                     this.mNoDataView.setVisibility(0);
                 }
-                this.iAs.removeHeaderView(this.mNoDataView);
-                this.iAs.addHeaderView(this.mNoDataView);
+                this.iBw.removeHeaderView(this.mNoDataView);
+                this.iBw.addHeaderView(this.mNoDataView);
             }
-        } else if (this.iAs != null) {
+        } else if (this.iBw != null) {
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(8);
             }
-            this.iAs.removeHeaderView(this.mNoDataView);
+            this.iBw.removeHeaderView(this.mNoDataView);
         }
     }
 }

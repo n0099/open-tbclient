@@ -39,32 +39,32 @@ import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 /* loaded from: classes4.dex */
 public class FrsPrivateShareDialogView extends LinearLayout {
-    private LinearLayout bOb;
+    private LinearLayout bOg;
     private Context context;
-    private TbImageView eVP;
-    private HeadImageView evE;
-    private BarImageView fEQ;
-    private LinearGradientView fQc;
-    private ImageOverlayView fRJ;
-    private FrsViewData fRO;
-    private TextView fVA;
-    private au fVB;
-    private Bitmap fVC;
-    private ForumActiveInfo fVD;
-    private TextView fVn;
-    private TextView fVo;
-    private TextView fVp;
-    private TextView fVq;
-    private TextView fVr;
-    private TextView fVs;
-    private TextView fVt;
-    private TextView fVu;
-    private TextView fVv;
-    private ImageView fVw;
-    private RelativeLayout fVx;
-    private HeadImageView fVy;
-    private TextView fVz;
-    private TextView fsH;
+    private TbImageView eVX;
+    private HeadImageView evL;
+    private BarImageView fFE;
+    private LinearGradientView fQQ;
+    private FrsViewData fSC;
+    private ImageOverlayView fSx;
+    private TextView fWd;
+    private TextView fWe;
+    private TextView fWf;
+    private TextView fWg;
+    private TextView fWh;
+    private TextView fWi;
+    private TextView fWj;
+    private TextView fWk;
+    private TextView fWl;
+    private ImageView fWm;
+    private RelativeLayout fWn;
+    private HeadImageView fWo;
+    private TextView fWp;
+    private TextView fWq;
+    private au fWr;
+    private Bitmap fWs;
+    private ForumActiveInfo fWt;
+    private TextView ftg;
     private String mForumName;
     private TbPageContext mPageContext;
     private com.baidu.tbadk.core.util.b.a mPermissionJudgement;
@@ -75,9 +75,9 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     }
 
     public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext) {
-        this.fRO = frsViewData;
+        this.fSC = frsViewData;
         this.mPageContext = tbPageContext;
-        this.fVD = frsViewData.getForumActiveInfo();
+        this.fWt = frsViewData.getForumActiveInfo();
         ap(this.context);
         n(frsViewData);
         return true;
@@ -86,48 +86,48 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     private void n(FrsViewData frsViewData) {
         if (frsViewData != null) {
             if (frsViewData.getForum() != null) {
-                this.fsH.setVisibility(0);
-                this.fsH.setText(frsViewData.getForum().getName() + this.context.getResources().getString(R.string.core_bar));
+                this.ftg.setVisibility(0);
+                this.ftg.setText(frsViewData.getForum().getName() + this.context.getResources().getString(R.string.core_bar));
                 this.mForumName = frsViewData.getForum().getName();
             } else {
-                this.fsH.setVisibility(8);
+                this.ftg.setVisibility(8);
             }
             if (frsViewData.getForum() != null && frsViewData.getForum().getImage_url() != null) {
-                this.fEQ.startLoad(frsViewData.getForum().getImage_url(), 10, false);
+                this.fFE.startLoad(frsViewData.getForum().getImage_url(), 10, false);
             }
             if (frsViewData.getUserData() != null && frsViewData.getUserData().getPortrait() != null) {
-                this.evE.startLoad(frsViewData.getUserData().getPortrait(), 12, false);
+                this.evL.startLoad(frsViewData.getUserData().getPortrait(), 12, false);
             } else {
-                this.evE.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100), 12, false);
+                this.evL.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100), 12, false);
             }
             if (frsViewData.getUserData() != null && !StringUtils.isNull(frsViewData.getUserData().getName_show()) && !"0".equals(frsViewData.getUserData().getName_show())) {
-                this.fVz.setText(frsViewData.getUserData().getName_show());
-                this.fVz.setVisibility(0);
+                this.fWp.setText(frsViewData.getUserData().getName_show());
+                this.fWp.setVisibility(0);
             } else {
-                this.fVz.setVisibility(8);
+                this.fWp.setVisibility(8);
             }
             if (frsViewData.getForumActiveInfo() != null && !StringUtils.isNull(frsViewData.getForumActiveInfo().forum_brief)) {
-                this.fVn.setText(frsViewData.getForumActiveInfo().forum_brief);
+                this.fWd.setText(frsViewData.getForumActiveInfo().forum_brief);
             } else if (!StringUtils.isNull(frsViewData.getForum().getSlogan())) {
-                this.fVn.setText(frsViewData.getForum().getSlogan());
+                this.fWd.setText(frsViewData.getForum().getSlogan());
             } else {
-                this.fVn.setText(getResources().getString(R.string.frs_private_share_hint));
+                this.fWd.setText(getResources().getString(R.string.frs_private_share_hint));
             }
             if (frsViewData.getUserData() != null && frsViewData.getUserData().getIs_manager() == 1) {
-                this.fVA.setVisibility(0);
-                this.fVA.setText(R.string.bawu_member_bazhu_tip);
+                this.fWq.setVisibility(0);
+                this.fWq.setText(R.string.bawu_member_bazhu_tip);
             } else {
-                this.fVA.setVisibility(8);
+                this.fWq.setVisibility(8);
             }
             if (frsViewData.getForumActiveInfo() != null && !StringUtils.isNull(frsViewData.getForumActiveInfo().forum_share_url)) {
-                xM(frsViewData.getForumActiveInfo().forum_share_url);
+                xN(frsViewData.getForumActiveInfo().forum_share_url);
             } else if (frsViewData.getForum() != null) {
-                xM("https://tieba.baidu.com/f?kw=" + frsViewData.getForum().getName() + "&fr=frsshare");
+                xN("https://tieba.baidu.com/f?kw=" + frsViewData.getForum().getName() + "&fr=frsshare");
             }
             if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
-                this.fVp.setText(frsViewData.getForum().getMember_num() + getResources().getString(R.string.bar_friends_join));
+                this.fWf.setText(frsViewData.getForum().getMember_num() + getResources().getString(R.string.bar_friends_join));
             } else {
-                this.fVp.setText(getResources().getString(R.string.wait_for_you_join));
+                this.fWf.setText(getResources().getString(R.string.wait_for_you_join));
             }
             ArrayList arrayList = new ArrayList();
             if (frsViewData.userList != null) {
@@ -139,120 +139,120 @@ public class FrsPrivateShareDialogView extends LinearLayout {
                 }
             }
             if (arrayList.size() > 0) {
-                this.fRJ.setData(arrayList);
-                this.fRJ.setVisibility(0);
-                this.fVy.setVisibility(8);
+                this.fSx.setData(arrayList);
+                this.fSx.setVisibility(0);
+                this.fWo.setVisibility(8);
                 return;
             }
-            this.fRJ.setVisibility(8);
-            this.fVy.setVisibility(0);
+            this.fSx.setVisibility(8);
+            this.fWo.setVisibility(0);
             if (frsViewData.getUserData() != null && !StringUtils.isNull(frsViewData.getUserData().getPortrait())) {
-                this.fVy.startLoad(frsViewData.getUserData().getPortrait(), 12, false);
+                this.fWo.startLoad(frsViewData.getUserData().getPortrait(), 12, false);
             } else {
-                this.fVy.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100), 12, false);
+                this.fWo.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100), 12, false);
             }
         }
     }
 
     private void ap(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_private_share, this);
-        this.bOb = (LinearLayout) findViewById(R.id.frs_private_share);
-        am.k(this.bOb, R.drawable.bg_frs_private_dialog);
-        this.fVx = (RelativeLayout) this.bOb.findViewById(R.id.frs_private_share_view);
-        am.k(this.fVx, R.drawable.bg_frs_private_dialog);
-        this.fQc = (LinearGradientView) this.bOb.findViewById(R.id.frs_private_top_gradient_bg);
-        this.fQc.setCornerRadius(l.g(context, R.dimen.tbds30));
-        this.fQc.setRoundMode(3);
-        this.eVP = (TbImageView) this.bOb.findViewById(R.id.frs_private_top_bg_mask);
-        this.eVP.setDefaultBgResource(R.color.transparent);
-        this.eVP.setDefaultResource(R.drawable.pic_frs_head_default);
-        this.eVP.setRadius(l.g(this.mPageContext.getPageActivity(), R.dimen.tbds30));
-        this.eVP.setConrers(3);
-        btB();
-        this.fsH = (TextView) this.bOb.findViewById(R.id.frs_private_share_name);
-        am.j(this.fsH, R.color.cp_btn_a);
-        this.fVn = (TextView) this.bOb.findViewById(R.id.frs_private_share_brief);
-        am.j(this.fVn, R.color.cp_cont_f);
-        this.fVw = (ImageView) this.bOb.findViewById(R.id.frs_private_share_qrcode);
-        this.fEQ = (BarImageView) this.bOb.findViewById(R.id.frs_private_share_portrait);
-        this.fEQ.setShowOval(true);
-        this.fEQ.setStrokeWith(l.g(this.mPageContext.getPageActivity(), R.dimen.tbds3));
-        this.fEQ.setStrokeColorResId(R.color.cp_bg_line_d);
-        this.evE = (HeadImageView) this.bOb.findViewById(R.id.photo);
-        this.fVo = (TextView) this.bOb.findViewById(R.id.frs_user_name_identify);
-        this.evE.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.evE.setIsRound(true);
-        this.evE.setTag(null);
-        am.k(this.fVo, R.drawable.username_text_bg);
-        this.fVp = (TextView) this.bOb.findViewById(R.id.frs_private_share_time);
-        am.j(this.fVp, R.color.cp_cont_f);
-        this.fVq = (TextView) this.bOb.findViewById(R.id.frs_private_share_download);
-        l(this.fVq, R.drawable.icon_share_photoalbum);
-        this.fVq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.1
+        this.bOg = (LinearLayout) findViewById(R.id.frs_private_share);
+        am.k(this.bOg, R.drawable.bg_frs_private_dialog);
+        this.fWn = (RelativeLayout) this.bOg.findViewById(R.id.frs_private_share_view);
+        am.k(this.fWn, R.drawable.bg_frs_private_dialog);
+        this.fQQ = (LinearGradientView) this.bOg.findViewById(R.id.frs_private_top_gradient_bg);
+        this.fQQ.setCornerRadius(l.g(context, R.dimen.tbds30));
+        this.fQQ.setRoundMode(3);
+        this.eVX = (TbImageView) this.bOg.findViewById(R.id.frs_private_top_bg_mask);
+        this.eVX.setDefaultBgResource(R.color.transparent);
+        this.eVX.setDefaultResource(R.drawable.pic_frs_head_default);
+        this.eVX.setRadius(l.g(this.mPageContext.getPageActivity(), R.dimen.tbds30));
+        this.eVX.setConrers(3);
+        btO();
+        this.ftg = (TextView) this.bOg.findViewById(R.id.frs_private_share_name);
+        am.j(this.ftg, R.color.cp_btn_a);
+        this.fWd = (TextView) this.bOg.findViewById(R.id.frs_private_share_brief);
+        am.j(this.fWd, R.color.cp_cont_f);
+        this.fWm = (ImageView) this.bOg.findViewById(R.id.frs_private_share_qrcode);
+        this.fFE = (BarImageView) this.bOg.findViewById(R.id.frs_private_share_portrait);
+        this.fFE.setShowOval(true);
+        this.fFE.setStrokeWith(l.g(this.mPageContext.getPageActivity(), R.dimen.tbds3));
+        this.fFE.setStrokeColorResId(R.color.cp_bg_line_d);
+        this.evL = (HeadImageView) this.bOg.findViewById(R.id.photo);
+        this.fWe = (TextView) this.bOg.findViewById(R.id.frs_user_name_identify);
+        this.evL.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.evL.setIsRound(true);
+        this.evL.setTag(null);
+        am.k(this.fWe, R.drawable.username_text_bg);
+        this.fWf = (TextView) this.bOg.findViewById(R.id.frs_private_share_time);
+        am.j(this.fWf, R.color.cp_cont_f);
+        this.fWg = (TextView) this.bOg.findViewById(R.id.frs_private_share_download);
+        l(this.fWg, R.drawable.icon_share_photoalbum);
+        this.fWg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.A(FrsPrivateShareDialogView.this.bpR());
+                FrsPrivateShareDialogView.this.A(FrsPrivateShareDialogView.this.bqe());
             }
         });
-        this.fVr = (TextView) this.bOb.findViewById(R.id.frs_private_share_wechat);
-        l(this.fVr, R.drawable.icon_share_wechat_n);
-        this.fVr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.2
+        this.fWh = (TextView) this.bOg.findViewById(R.id.frs_private_share_wechat);
+        l(this.fWh, R.drawable.icon_share_wechat_n);
+        this.fWh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bpR(), 3);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bqe(), 3);
             }
         });
-        this.fVs = (TextView) this.bOb.findViewById(R.id.frs_private_share_moment);
-        l(this.fVs, R.drawable.icon_share_circle_n);
-        this.fVs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.3
+        this.fWi = (TextView) this.bOg.findViewById(R.id.frs_private_share_moment);
+        l(this.fWi, R.drawable.icon_share_circle_n);
+        this.fWi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bpR(), 2);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bqe(), 2);
             }
         });
-        this.fVt = (TextView) this.bOb.findViewById(R.id.frs_private_share_qzone);
-        l(this.fVt, R.drawable.icon_share_qqzone_n);
-        this.fVt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.4
+        this.fWj = (TextView) this.bOg.findViewById(R.id.frs_private_share_qzone);
+        l(this.fWj, R.drawable.icon_share_qqzone_n);
+        this.fWj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bpR(), 4);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bqe(), 4);
             }
         });
-        this.fVu = (TextView) this.bOb.findViewById(R.id.frs_private_share_qq);
-        l(this.fVu, R.drawable.icon_share_qq_n);
-        this.fVu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.5
+        this.fWk = (TextView) this.bOg.findViewById(R.id.frs_private_share_qq);
+        l(this.fWk, R.drawable.icon_share_qq_n);
+        this.fWk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bpR(), 8);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bqe(), 8);
             }
         });
-        this.fVv = (TextView) this.bOb.findViewById(R.id.frs_private_share_weibo);
-        l(this.fVv, R.drawable.icon_share_weibo_n);
-        this.fVv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.6
+        this.fWl = (TextView) this.bOg.findViewById(R.id.frs_private_share_weibo);
+        l(this.fWl, R.drawable.icon_share_weibo_n);
+        this.fWl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bpR(), 6);
+                FrsPrivateShareDialogView.this.c(FrsPrivateShareDialogView.this.bqe(), 6);
             }
         });
-        this.fRJ = (ImageOverlayView) this.bOb.findViewById(R.id.frs_private_overlayview);
+        this.fSx = (ImageOverlayView) this.bOg.findViewById(R.id.frs_private_overlayview);
         int g = l.g(getContext(), R.dimen.tbds68);
-        this.fRJ.j(5, g, g, 0, 0, l.g(getContext(), R.dimen.tbds16));
-        this.fRJ.setOrientation(true);
-        this.fRJ.setLoadImageType(12);
-        this.fRJ.onChangeSkinType();
-        this.fVy = (HeadImageView) this.bOb.findViewById(R.id.bar_friend_icon);
-        this.fVy.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.fVy.setIsRound(true);
-        this.fVz = (TextView) this.bOb.findViewById(R.id.frs_user_name);
-        am.j(this.fVz, R.color.cp_cont_b);
-        this.fVA = (TextView) this.bOb.findViewById(R.id.frs_user_name_identify);
-        am.j(this.fVA, R.color.cp_btn_a);
+        this.fSx.j(5, g, g, 0, 0, l.g(getContext(), R.dimen.tbds16));
+        this.fSx.setOrientation(true);
+        this.fSx.setLoadImageType(12);
+        this.fSx.onChangeSkinType();
+        this.fWo = (HeadImageView) this.bOg.findViewById(R.id.bar_friend_icon);
+        this.fWo.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fWo.setIsRound(true);
+        this.fWp = (TextView) this.bOg.findViewById(R.id.frs_user_name);
+        am.j(this.fWp, R.color.cp_cont_b);
+        this.fWq = (TextView) this.bOg.findViewById(R.id.frs_user_name_identify);
+        am.j(this.fWq, R.color.cp_btn_a);
     }
 
-    private void xM(String str) {
+    private void xN(String str) {
         CustomResponsedMessage runTask;
         if (str != null && str.length() != 0 && (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) != null && runTask.getData() != null) {
-            this.fVw.setImageBitmap((Bitmap) runTask.getData());
+            this.fWm.setImageBitmap((Bitmap) runTask.getData());
         }
     }
 
@@ -267,25 +267,25 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         textView.setLayoutParams(layoutParams);
     }
 
-    private void btB() {
+    private void btO() {
         ThemeElement themeElement;
-        if (this.fRO != null && this.fRO.getForum() != null) {
-            ThemeColorInfo themeColorInfo = this.fRO.getForum().getThemeColorInfo();
+        if (this.fSC != null && this.fSC.getForum() != null) {
+            ThemeColorInfo themeColorInfo = this.fSC.getForum().getThemeColorInfo();
             if (themeColorInfo == null || themeColorInfo.night == null || themeColorInfo.day == null) {
-                this.eVP.setVisibility(8);
-                this.fQc.setDefaultGradientColor();
+                this.eVX.setVisibility(8);
+                this.fQQ.setDefaultGradientColor();
                 return;
             }
-            this.eVP.setVisibility(0);
+            this.eVX.setVisibility(0);
             ThemeElement themeElement2 = themeColorInfo.night;
             ThemeElement themeElement3 = themeColorInfo.day;
-            this.fQc.setGradientColor(themeElement3.light_color, themeElement3.dark_color, themeElement2.light_color, themeElement2.dark_color);
+            this.fQQ.setGradientColor(themeElement3.light_color, themeElement3.dark_color, themeElement2.light_color, themeElement2.dark_color);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 themeElement = themeColorInfo.night;
             } else {
                 themeElement = themeColorInfo.day;
             }
-            this.eVP.startLoad(themeElement.pattern_image, 10, false);
+            this.eVX.startLoad(themeElement.pattern_image, 10, false);
         }
     }
 
@@ -301,34 +301,34 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         return af / 6;
     }
 
-    public Bitmap bpR() {
-        if (this.fVC == null) {
-            this.fVx.buildDrawingCache();
-            this.fVC = this.fVx.getDrawingCache();
+    public Bitmap bqe() {
+        if (this.fWs == null) {
+            this.fWn.buildDrawingCache();
+            this.fWs = this.fWn.getDrawingCache();
         }
-        return this.fVC;
+        return this.fWs;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A(Bitmap bitmap) {
-        if (!btC()) {
-            tp(1);
-            if (this.fVB == null) {
-                this.fVB = new au(this.mPageContext);
+        if (!btP()) {
+            tr(1);
+            if (this.fWr == null) {
+                this.fWr = new au(this.mPageContext);
             }
-            if (this.fVD != null) {
-                this.fVB.h(aq.isEmpty(this.fVD.forum_share_url) ? "http://tieba.baidu.com" : this.fVD.forum_share_url, BitmapHelper.Bitmap2Bytes(bitmap, 100));
+            if (this.fWt != null) {
+                this.fWr.h(aq.isEmpty(this.fWt.forum_share_url) ? "http://tieba.baidu.com" : this.fWt.forum_share_url, BitmapHelper.Bitmap2Bytes(bitmap, 100));
             } else {
-                this.fVB.h("http://tieba.baidu.com", BitmapHelper.Bitmap2Bytes(bitmap, 100));
+                this.fWr.h("http://tieba.baidu.com", BitmapHelper.Bitmap2Bytes(bitmap, 100));
             }
         }
     }
 
-    private boolean btC() {
+    private boolean btP() {
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
         }
-        this.mPermissionJudgement.ajQ();
+        this.mPermissionJudgement.ajS();
         this.mPermissionJudgement.e(this.mPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
         return this.mPermissionJudgement.ad(this.mPageContext.getPageActivity());
     }
@@ -336,7 +336,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final Bitmap bitmap, final int i) {
         int i2 = 2;
-        if (bitmap != null && !btC()) {
+        if (bitmap != null && !btP()) {
             if (i != 3) {
                 if (i == 2) {
                     i2 = 3;
@@ -348,11 +348,11 @@ public class FrsPrivateShareDialogView extends LinearLayout {
                     i2 = i == 6 ? 6 : 1;
                 }
             }
-            tp(i2);
+            tr(i2);
             aa.a(new z<com.baidu.tbadk.coreExtra.c.e>() { // from class: com.baidu.tieba.frs.view.FrsPrivateShareDialogView.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.z
-                /* renamed from: bpQ */
+                /* renamed from: bqd */
                 public com.baidu.tbadk.coreExtra.c.e doInBackground() {
                     return FrsPrivateShareDialogView.this.d(bitmap, i);
                 }
@@ -367,15 +367,15 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
     }
 
-    private void tp(int i) {
-        TiebaStatic.log(new an("c13385").bT("fid", this.fRO.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()).P("obj_type", i));
+    private void tr(int i) {
+        TiebaStatic.log(new an("c13385").bT("fid", this.fSC.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()).P("obj_type", i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public com.baidu.tbadk.coreExtra.c.e d(Bitmap bitmap, int i) {
         com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e();
-        eVar.ckX = false;
-        eVar.ckW = false;
+        eVar.cle = false;
+        eVar.cld = false;
         eVar.shareType = 1;
         if (i == 6) {
             eVar.title = this.context.getString(R.string.come_on_look_forum) + "[" + this.mForumName + this.context.getString(R.string.core_bar) + "]@" + this.context.getString(R.string.tieba_text) + "https://tieba.baidu.com/f?kw=" + com.baidu.adp.lib.util.k.bi(this.mForumName) + "&fr=frsshare";
@@ -384,7 +384,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
         eVar.content = "";
         eVar.n(bitmap);
-        eVar.apZ();
+        eVar.aqb();
         return eVar;
     }
 }

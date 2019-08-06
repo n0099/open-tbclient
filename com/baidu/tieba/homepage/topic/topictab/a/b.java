@@ -8,35 +8,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private r eYZ;
-    private c glz;
-    private a gmY;
+    private r eZn;
+    private c gmr;
+    private a gnQ;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eYZ = rVar;
+        this.eZn = rVar;
         initAdapters();
-        this.eYZ.addAdapters(this.mAdapters);
+        this.eZn.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.gmY = new a(this.mPageContext);
-        this.glz = new c(this.mPageContext);
-        this.mAdapters.add(this.gmY);
-        this.mAdapters.add(this.glz);
+        this.gnQ = new a(this.mPageContext);
+        this.gmr = new c(this.mPageContext);
+        this.mAdapters.add(this.gnQ);
+        this.mAdapters.add(this.gmr);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eYZ != null) {
-            this.eYZ.getListAdapter().notifyDataSetChanged();
+        if (this.eZn != null) {
+            this.eZn.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eYZ.setData(list);
+        this.eZn.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

@@ -11,23 +11,23 @@ import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class x {
     private String aZt;
-    private int bGO;
-    private String bGP;
-    private int bGQ;
-    private String bGR;
-    public String bGS;
-    public float bGT;
-    public boolean bGU = true;
+    private int bGP;
+    private String bGQ;
+    private int bGR;
+    private String bGS;
+    public String bGT;
+    public float bGU;
+    public boolean bGV = true;
     private String mTagName;
     private int mType;
     private String mValue;
 
-    public int acV() {
-        return this.bGO;
+    public int acW() {
+        return this.bGP;
     }
 
-    public String acW() {
-        return this.bGP;
+    public String acX() {
+        return this.bGQ;
     }
 
     public String getValue() {
@@ -38,22 +38,22 @@ public class x {
         return this.mType;
     }
 
-    public String acM() {
-        return this.bGR;
+    public String acN() {
+        return this.bGS;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bGO = jSONObject.optInt("bannerType");
-                this.bGP = jSONObject.optString("bannerUrl");
+                this.bGP = jSONObject.optInt("bannerType");
+                this.bGQ = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
                 this.mType = jSONObject.optInt("type");
                 this.aZt = jSONObject.optString("desc");
-                this.bGQ = jSONObject.optInt("template_id");
-                this.bGR = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
+                this.bGR = jSONObject.optInt("template_id");
+                this.bGS = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
                 this.mTagName = jSONObject.optString("tag_name");
-                this.bGS = jSONObject.optString("tag_name_url");
+                this.bGT = jSONObject.optString("tag_name_url");
                 mp(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
@@ -63,15 +63,15 @@ public class x {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.bGO = banner.banner_type.intValue();
-            this.bGP = banner.banner_url;
+            this.bGP = banner.banner_type.intValue();
+            this.bGQ = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
             this.aZt = banner.desc;
-            this.bGQ = banner.template_id.intValue();
-            this.bGR = banner.obj_id;
+            this.bGR = banner.template_id.intValue();
+            this.bGS = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.bGS = banner.tag_name_url;
+            this.bGT = banner.tag_name_url;
             mp(banner.tag_name_wh);
         }
     }
@@ -84,7 +84,7 @@ public class x {
                     int f = com.baidu.adp.lib.g.b.f(split[0], 1);
                     int f2 = com.baidu.adp.lib.g.b.f(split[1], 1);
                     if (f2 != 0) {
-                        this.bGT = f / f2;
+                        this.bGU = f / f2;
                     }
                 }
             } catch (Exception e) {
@@ -97,6 +97,6 @@ public class x {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.bGO == 1 || this.bGO == 4 || this.bGO == 2 || this.bGO == 3 : this.mType == 2 && !StringUtils.isNull(this.aZt);
+        return this.mType == 1 ? this.bGP == 1 || this.bGP == 4 || this.bGP == 2 || this.bGP == 3 : this.mType == 2 && !StringUtils.isNull(this.aZt);
     }
 }

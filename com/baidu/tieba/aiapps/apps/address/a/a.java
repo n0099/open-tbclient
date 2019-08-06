@@ -14,17 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends RecyclerView.Adapter<C0281a> {
-    private List<com.baidu.tieba.aiapps.apps.address.c.b> dbJ = new ArrayList();
-    private b dbK;
+    private List<com.baidu.tieba.aiapps.apps.address.c.b> dbQ = new ArrayList();
+    private b dbR;
     private Context mContext;
 
     /* loaded from: classes4.dex */
     public interface b {
         void b(com.baidu.tieba.aiapps.apps.address.c.b bVar, String str);
 
-        void mB(int i);
-
         void mC(int i);
+
+        void mD(int i);
     }
 
     public a(Context context) {
@@ -32,16 +32,16 @@ public class a extends RecyclerView.Adapter<C0281a> {
     }
 
     public void setDeliveryChooseListener(b bVar) {
-        this.dbK = bVar;
+        this.dbR = bVar;
     }
 
     public void aF(List<com.baidu.tieba.aiapps.apps.address.c.b> list) {
-        this.dbJ = list;
+        this.dbQ = list;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.dbJ.size();
+        return this.dbQ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,20 +57,20 @@ public class a extends RecyclerView.Adapter<C0281a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(C0281a c0281a, final int i) {
-        final com.baidu.tieba.aiapps.apps.address.c.b bVar = this.dbJ.get(i);
-        c0281a.ccZ.setText(bVar.userName);
-        c0281a.dbM.setText(bVar.dcn);
-        c0281a.dbN.setText(bVar.aEZ());
-        c0281a.dbO.setVisibility(bVar.dct ? 0 : 8);
-        c0281a.dbP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.1
+        final com.baidu.tieba.aiapps.apps.address.c.b bVar = this.dbQ.get(i);
+        c0281a.cdg.setText(bVar.userName);
+        c0281a.dbT.setText(bVar.dcv);
+        c0281a.dbU.setText(bVar.aFb());
+        c0281a.dbV.setVisibility(bVar.dcB ? 0 : 8);
+        c0281a.dbW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.dbK != null) {
-                    a.this.dbK.b(bVar, "update");
+                if (a.this.dbR != null) {
+                    a.this.dbR.b(bVar, "update");
                 }
             }
         });
-        c0281a.dbP.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.2
+        c0281a.dbW.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int action = motionEvent.getAction();
@@ -88,16 +88,16 @@ public class a extends RecyclerView.Adapter<C0281a> {
         c0281a.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.dbK != null) {
-                    a.this.dbK.mB(i);
+                if (a.this.dbR != null) {
+                    a.this.dbR.mC(i);
                 }
             }
         });
         c0281a.itemView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.a.a.4
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (a.this.dbK != null) {
-                    a.this.dbK.mC(i);
+                if (a.this.dbR != null) {
+                    a.this.dbR.mD(i);
                     return false;
                 }
                 return false;
@@ -111,18 +111,18 @@ public class a extends RecyclerView.Adapter<C0281a> {
             int color2 = AppRuntime.getAppContext().getResources().getColor(R.color.delivery_txt_color_2);
             int color3 = AppRuntime.getAppContext().getResources().getColor(R.color.delivery_txt_color_3);
             c0281a.itemView.setBackgroundResource(R.drawable.delivery_list_item_background_selector);
-            c0281a.ccZ.setTextColor(color);
-            c0281a.dbM.setTextColor(color);
-            c0281a.dbN.setTextColor(color2);
-            c0281a.dbO.setTextColor(color);
+            c0281a.cdg.setTextColor(color);
+            c0281a.dbT.setTextColor(color);
+            c0281a.dbU.setTextColor(color2);
+            c0281a.dbV.setTextColor(color);
             Drawable drawable = AppRuntime.getAppContext().getResources().getDrawable(R.drawable.delivery_default_used);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            c0281a.dbO.setCompoundDrawables(drawable, null, null, null);
-            c0281a.dbP.setTextColor(color);
+            c0281a.dbV.setCompoundDrawables(drawable, null, null, null);
+            c0281a.dbW.setTextColor(color);
             Drawable drawable2 = AppRuntime.getAppContext().getResources().getDrawable(R.drawable.delivery_edit);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            c0281a.dbP.setCompoundDrawables(drawable2, null, null, null);
-            c0281a.dbQ.setBackgroundColor(color3);
+            c0281a.dbW.setCompoundDrawables(drawable2, null, null, null);
+            c0281a.dbX.setBackgroundColor(color3);
         }
     }
 
@@ -130,23 +130,23 @@ public class a extends RecyclerView.Adapter<C0281a> {
     /* renamed from: com.baidu.tieba.aiapps.apps.address.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0281a extends RecyclerView.ViewHolder {
-        private TextView ccZ;
-        private TextView dbM;
-        private TextView dbN;
-        private TextView dbO;
-        private TextView dbP;
-        private View dbQ;
-        private View dbR;
+        private TextView cdg;
+        private TextView dbT;
+        private TextView dbU;
+        private TextView dbV;
+        private TextView dbW;
+        private View dbX;
+        private View dbY;
 
         public C0281a(View view) {
             super(view);
-            this.dbR = view;
-            this.ccZ = (TextView) view.findViewById(R.id.addr_user_name);
-            this.dbM = (TextView) view.findViewById(R.id.addr_tel_number);
-            this.dbN = (TextView) view.findViewById(R.id.addr_detail_region);
-            this.dbQ = view.findViewById(R.id.addr_divided_line);
-            this.dbO = (TextView) view.findViewById(R.id.addr_current_used);
-            this.dbP = (TextView) view.findViewById(R.id.addr_edit);
+            this.dbY = view;
+            this.cdg = (TextView) view.findViewById(R.id.addr_user_name);
+            this.dbT = (TextView) view.findViewById(R.id.addr_tel_number);
+            this.dbU = (TextView) view.findViewById(R.id.addr_detail_region);
+            this.dbX = view.findViewById(R.id.addr_divided_line);
+            this.dbV = (TextView) view.findViewById(R.id.addr_current_used);
+            this.dbW = (TextView) view.findViewById(R.id.addr_edit);
         }
     }
 }

@@ -23,17 +23,17 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.tbadkCore.location.a;
 /* loaded from: classes5.dex */
 public class SelectLocationActivity extends NavigationBarActivity {
-    private BdListView eKC;
-    private ImageView hkk;
-    private b hkl;
-    private TextView hkm;
-    private AdapterView.OnItemClickListener gvX = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
+    private BdListView eKJ;
+    private ImageView hlc;
+    private b hld;
+    private TextView hle;
+    private AdapterView.OnItemClickListener gwP = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (SelectLocationActivity.this.hkl != null) {
+            if (SelectLocationActivity.this.hld != null) {
                 MessageManager messageManager = MessageManager.getInstance();
                 if (i != 0) {
-                    Object item = SelectLocationActivity.this.hkl.getItem(i);
+                    Object item = SelectLocationActivity.this.hld.getItem(i);
                     if (item instanceof a.C0415a) {
                         a.C0415a c0415a = (a.C0415a) item;
                         messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0415a.getName(), c0415a.getAddr(), c0415a.getSn()));
@@ -47,7 +47,7 @@ public class SelectLocationActivity extends NavigationBarActivity {
             }
         }
     };
-    private CustomMessageListener hkn = new CustomMessageListener(2002013) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.2
+    private CustomMessageListener hlf = new CustomMessageListener(2002013) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -62,24 +62,24 @@ public class SelectLocationActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.select_location_activity);
-        this.cZw.setCenterTextTitle(getPageContext().getString(R.string.select_position_title));
-        this.hkk = (ImageView) this.cZw.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hkk.getLayoutParams();
+        this.cZD.setCenterTextTitle(getPageContext().getString(R.string.select_position_title));
+        this.hlc = (ImageView) this.cZD.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hlc.getLayoutParams();
         layoutParams.setMargins(0, 0, l.g(getPageContext().getPageActivity(), R.dimen.ds10), 0);
-        this.hkk.setLayoutParams(layoutParams);
-        this.hkk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.3
+        this.hlc.setLayoutParams(layoutParams);
+        this.hlc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(SelectLocationActivity.this.getPageContext().getPageActivity(), 23009)));
             }
         });
-        this.eKC = (BdListView) findViewById(R.id.select_position_list);
-        this.hkl = new b(this);
-        this.eKC.setAdapter((ListAdapter) this.hkl);
-        this.eKC.setOnItemClickListener(this.gvX);
-        registerListener(this.hkn);
-        this.cZw.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
-        this.hkm = this.cZw.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.cancel), new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.4
+        this.eKJ = (BdListView) findViewById(R.id.select_position_list);
+        this.hld = new b(this);
+        this.eKJ.setAdapter((ListAdapter) this.hld);
+        this.eKJ.setOnItemClickListener(this.gwP);
+        registerListener(this.hlf);
+        this.cZD.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
+        this.hle = this.cZD.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.cancel), new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SelectLocationActivity.this.finish();
@@ -91,9 +91,9 @@ public class SelectLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.hkl.notifyDataSetChanged();
-        am.a(this.hkk, (int) R.drawable.icon_search_bg_s, (int) R.drawable.icon_search_bg);
-        am.j(this.hkm, R.color.navi_back_text_color);
+        this.hld.notifyDataSetChanged();
+        am.a(this.hlc, (int) R.drawable.icon_search_bg_s, (int) R.drawable.icon_search_bg);
+        am.j(this.hle, R.color.navi_back_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

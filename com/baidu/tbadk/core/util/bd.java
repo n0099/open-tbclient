@@ -16,10 +16,10 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bd {
-    private static int bUw = -1;
-    private static int bUx = -1;
-    private static boolean bUy = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> bUz = new com.baidu.adp.lib.e.a<>(500);
+    private static int bUC = -1;
+    private static int bUD = -1;
+    private static boolean bUE = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> bUF = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -29,13 +29,13 @@ public class bd {
 
     public static void cC(Context context) {
         mAppContext = context;
-        bUy = true;
+        bUE = true;
     }
 
-    private static void ajD() {
+    private static void ajF() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            bUx = mAppContext.getResources().getColor(R.color.common_color_10097);
-            bUw = mAppContext.getResources().getColor(R.color.common_color_10004);
+            bUD = mAppContext.getResources().getColor(R.color.common_color_10097);
+            bUC = mAppContext.getResources().getColor(R.color.common_color_10004);
         }
     }
 
@@ -45,11 +45,11 @@ public class bd {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int ef(boolean z) {
-        if (bUy) {
-            bUy = false;
-            ajD();
+        if (bUE) {
+            bUE = false;
+            ajF();
         }
-        return z ? bUw : bUx;
+        return z ? bUC : bUD;
     }
 
     public static void aK(View view) {
@@ -60,16 +60,16 @@ public class bd {
 
     public static void aL(View view) {
         if (view != null) {
-            bUz.remove(Integer.valueOf(System.identityHashCode(view)));
+            bUF.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void d(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = bUz.get(Integer.valueOf(identityHashCode));
+        Integer num = bUF.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             e(viewGroup, i);
-            bUz.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            bUF.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

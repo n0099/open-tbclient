@@ -18,21 +18,21 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private String fhT;
-    private int fhU;
-    private AlbumActivity jMV;
+    private String fiu;
+    private int fiv;
+    private AlbumActivity jOc;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.jMV = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jMV.getPageContext().getPageActivity());
-        this.fhU = l.af(this.jMV.getPageContext().getPageActivity()) / 2;
+        this.jOc = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jOc.getPageContext().getPageActivity());
+        this.fiv = l.af(this.jOc.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.fhT = str;
+        this.fiu = str;
     }
 
     @Override // android.widget.Adapter
@@ -42,7 +42,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qT */
+    /* renamed from: qV */
     public com.baidu.tbadk.album.a getItem(int i) {
         return (com.baidu.tbadk.album.a) v.c(this.mList, i);
     }
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.jNg = (TbImageView) view.findViewById(R.id.item_head);
-            aVar.fhX = (TextView) view.findViewById(R.id.item_name);
-            aVar.fhY = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.jNg.setGifIconSupport(false);
-            aVar.jNg.setLongIconSupport(false);
+            aVar.jOn = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.fiz = (TextView) view.findViewById(R.id.item_name);
+            aVar.fiA = (ImageView) view.findViewById(R.id.item_arrow);
+            aVar.jOn.setGifIconSupport(false);
+            aVar.jOn.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -73,24 +73,24 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.fhX.setText(l.a(aVar.fhX.getPaint(), item.getName(), this.fhU) + "(" + item.getCount() + ")");
+                aVar.fiz.setText(l.a(aVar.fiz.getPaint(), item.getName(), this.fiv) + "(" + item.getCount() + ")");
             } else {
-                aVar.fhX.setText("");
+                aVar.fiz.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.fhT)) {
-                am.c(aVar.fhY, (int) R.drawable.icon_list_select_ok_n);
-                aVar.fhY.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.fiu)) {
+                am.c(aVar.fiA, (int) R.drawable.icon_list_select_ok_n);
+                aVar.fiA.setVisibility(0);
             } else {
-                aVar.fhY.setVisibility(8);
+                aVar.fiA.setVisibility(8);
             }
             MediaFileInfo aao = item.aao();
             if (aao instanceof VideoFileInfo) {
-                aVar.jNg.startLoad(((VideoFileInfo) aao).videoPath, 37, false);
+                aVar.jOn.startLoad(((VideoFileInfo) aao).videoPath, 37, false);
             } else if (aao instanceof ImageFileInfo) {
-                aVar.jNg.startLoad(((ImageFileInfo) aao).getFilePath(), 35, false);
+                aVar.jOn.startLoad(((ImageFileInfo) aao).getFilePath(), 35, false);
             }
-            am.j(aVar.fhX, R.color.cp_cont_b);
+            am.j(aVar.fiz, R.color.cp_cont_b);
             am.k(view, R.drawable.addresslist_item_bg);
         }
         return view;
@@ -98,9 +98,9 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView fhX;
-        ImageView fhY;
-        TbImageView jNg;
+        ImageView fiA;
+        TextView fiz;
+        TbImageView jOn;
 
         private a() {
         }

@@ -8,15 +8,15 @@ import android.widget.RelativeLayout;
 public class ExpandViewRelativeLayout extends RelativeLayout {
     private float Ok;
     private float aJG;
-    private a juZ;
-    private boolean jva;
-    private boolean jvb;
+    private a jwg;
+    private boolean jwh;
+    private boolean jwi;
 
     /* loaded from: classes5.dex */
     public interface a {
         void aT(float f);
 
-        void ctX();
+        void cut();
 
         void d(float f, float f2, int i);
 
@@ -24,7 +24,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setScrollCallBack(a aVar) {
-        this.juZ = aVar;
+        this.jwg = aVar;
     }
 
     public ExpandViewRelativeLayout(Context context) {
@@ -43,7 +43,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.jvb = true;
+        this.jwi = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -52,8 +52,8 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
             case 0:
                 this.aJG = motionEvent.getY();
                 this.Ok = motionEvent.getY();
-                if (this.juZ != null) {
-                    this.juZ.aT(motionEvent.getY());
+                if (this.jwg != null) {
+                    this.jwg.aT(motionEvent.getY());
                     break;
                 }
                 break;
@@ -65,16 +65,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.juZ != null) {
-                    this.jva = this.juZ.e(0.0f, motionEvent.getY(), 0);
-                    return this.jva;
+                if (this.jwg != null) {
+                    this.jwh = this.jwg.e(0.0f, motionEvent.getY(), 0);
+                    return this.jwh;
                 }
                 break;
             case 2:
-                if (this.juZ != null) {
+                if (this.jwg != null) {
                     this.aJG = motionEvent.getY();
-                    this.jva = this.juZ.e(motionEvent.getY() - this.aJG, motionEvent.getY(), motionEvent.getY() - this.Ok > 0.0f ? 1 : 2);
-                    return this.jva;
+                    this.jwh = this.jwg.e(motionEvent.getY() - this.aJG, motionEvent.getY(), motionEvent.getY() - this.Ok > 0.0f ? 1 : 2);
+                    return this.jwh;
                 }
                 break;
         }
@@ -83,7 +83,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.jvb) {
+        if (this.jwi) {
             super.onLayout(z, i, i2, i3, i4);
         }
     }
@@ -92,17 +92,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                this.jva = false;
-                if (this.juZ != null) {
-                    this.juZ.ctX();
+                this.jwh = false;
+                if (this.jwg != null) {
+                    this.jwg.cut();
                     break;
                 }
                 break;
             case 2:
                 float y = motionEvent.getY() - this.aJG;
                 int i = motionEvent.getY() - this.Ok > 0.0f ? 1 : 2;
-                if (this.jva && this.juZ != null) {
-                    this.juZ.d(motionEvent.getY(), y, i);
+                if (this.jwh && this.jwg != null) {
+                    this.jwg.d(motionEvent.getY(), y, i);
                     return true;
                 }
                 break;
@@ -111,7 +111,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setIsCanLayout(boolean z) {
-        this.jvb = z;
+        this.jwi = z;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent

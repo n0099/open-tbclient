@@ -6,10 +6,10 @@ import com.baidu.adp.lib.Disk.d;
 import com.baidu.adp.lib.util.h;
 /* loaded from: classes4.dex */
 public class BdNativeCrash {
-    private static BdNativeCrash hzm;
-    private static a hzn;
-    public static boolean hzo;
-    private String hzl;
+    private static BdNativeCrash hAe;
+    private static a hAf;
+    public static boolean hAg;
+    private String hAd;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -18,35 +18,35 @@ public class BdNativeCrash {
     static native boolean initCrashPath(String str);
 
     public void a(a aVar) {
-        hzn = aVar;
+        hAf = aVar;
     }
 
     static {
-        hzo = false;
-        hzo = h.jN().h("nativecrashlog", 1);
+        hAg = false;
+        hAg = h.jN().h("nativecrashlog", 1);
     }
 
     private BdNativeCrash() {
     }
 
-    public static BdNativeCrash bPW() {
-        if (hzm == null) {
+    public static BdNativeCrash bQk() {
+        if (hAe == null) {
             synchronized (BdNativeCrash.class) {
-                if (hzm == null) {
-                    hzm = new BdNativeCrash();
+                if (hAe == null) {
+                    hAe = new BdNativeCrash();
                 }
             }
         }
-        return hzm;
+        return hAe;
     }
 
     public void dI(String str, String str2) {
-        this.hzl = str2;
+        this.hAd = str2;
         d.gC().aa(str);
-        if (!TextUtils.isEmpty(this.hzl)) {
+        if (!TextUtils.isEmpty(this.hAd)) {
             b bVar = new b();
             bVar.Z(str);
-            initCrashPath(bVar.a(this.hzl, true, false, false));
+            initCrashPath(bVar.a(this.hAd, true, false, false));
         }
     }
 }

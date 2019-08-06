@@ -22,7 +22,7 @@ import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private e jPN;
+    private e jQU;
     private BdUniqueId mPageId;
     private String wH = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
 
@@ -37,7 +37,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.jPN = eVar;
+        this.jQU = eVar;
     }
 
     /* loaded from: classes3.dex */
@@ -69,11 +69,11 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.jPv;
+                str = cVar.jQC;
             }
             x xVar = new x();
             xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
-            xVar.aiE().ajE().mIsNeedTbs = true;
+            xVar.aiG().ajG().mIsNeedTbs = true;
             xVar.o("anonymous", "1");
             xVar.o("can_no_forum", "0");
             xVar.o("is_feedback", "0");
@@ -83,7 +83,7 @@ public class f {
             xVar.o("new_vcode", "1");
             xVar.o("content", cVar.Hu);
             xVar.o("fid", cVar.forumId);
-            xVar.o("kw", cVar.jPu);
+            xVar.o("kw", cVar.jQB);
             xVar.o("is_hide", "0");
             xVar.o(IntentConfig.CALL_FROM, "2");
             xVar.o("title", cVar.Hu);
@@ -96,9 +96,9 @@ public class f {
                 xVar.o("lat", String.valueOf(X.getLatitude()));
                 xVar.o("lng", String.valueOf(X.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cpV().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cqr().getLocationData();
             if (locationData != null) {
-                xVar.o("name", locationData.cpT());
+                xVar.o("name", locationData.cqp());
                 xVar.o(IXAdRequestInfo.SN, locationData.getSn());
             }
             xVar.o("is_link_thread", "0");
@@ -106,18 +106,18 @@ public class f {
                 xVar.o("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             xVar.o("tbopen_app_key", cVar.appKey);
-            xVar.o("tbopen_app_icon", cVar.jPt);
+            xVar.o("tbopen_app_icon", cVar.jQA);
             xVar.o("tbopen_app_name", cVar.appName);
             xVar.o("share_abstract", cVar.content);
             xVar.o("share_image", str);
             xVar.o("share_h5_url", cVar.linkUrl);
-            xVar.o("share_swan_app_key", cVar.jPs);
-            xVar.o("share_swan_path", cVar.jPw);
-            String aig = xVar.aig();
+            xVar.o("share_swan_app_key", cVar.jQz);
+            xVar.o("share_swan_path", cVar.jQD);
+            String aii = xVar.aii();
             d dVar = new d();
             try {
-                JSONObject jSONObject = new JSONObject(aig);
-                dVar.jPy = jSONObject.optString("msg");
+                JSONObject jSONObject = new JSONObject(aii);
+                dVar.jQF = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -126,19 +126,19 @@ public class f {
             } catch (Exception e) {
             }
             ErrorData errorData = new ErrorData();
-            if (xVar.aiE().ajF().isRequestSuccess()) {
-                errorData.parserJson(aig);
+            if (xVar.aiG().ajH().isRequestSuccess()) {
+                errorData.parserJson(aii);
             } else {
-                errorData.setError_code(xVar.aiH() ? xVar.aiI() : xVar.aiJ());
+                errorData.setError_code(xVar.aiJ() ? xVar.aiK() : xVar.aiL());
                 errorData.setError_msg(xVar.getErrorString());
             }
             if (errorData.error_code != 0 && !j.kc()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
             }
-            dVar.jPx = errorData;
+            dVar.jQE = errorData;
             AntiData antiData = new AntiData();
             try {
-                antiData.parserJson(new JSONObject(aig).optJSONObject("anti_stat"));
+                antiData.parserJson(new JSONObject(aii).optJSONObject("anti_stat"));
             } catch (Exception e2) {
             }
             dVar.antiData = antiData;
@@ -158,8 +158,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.jPN != null) {
-                f.this.jPN.a(dVar);
+            if (f.this.jQU != null) {
+                f.this.jQU.a(dVar);
             }
         }
     }

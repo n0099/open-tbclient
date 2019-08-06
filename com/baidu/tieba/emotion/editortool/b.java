@@ -4,82 +4,82 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes2.dex */
 public class b {
     private int KX;
-    private int cuN;
-    private EmotionGroupType eUY;
-    private int eUZ;
-    private int eVa;
-    private com.baidu.tbadk.editortools.emotiontool.c eVb;
-    private int eVc;
-    private int eVd;
+    private int cuU;
+    private EmotionGroupType eVf;
+    private int eVg;
+    private int eVh;
+    private com.baidu.tbadk.editortools.emotiontool.c eVi;
+    private int eVj;
+    private int eVk;
     private int endIndex;
     private int index;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.eVb = cVar;
+        this.eVi = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c beO() {
-        return this.eVb;
+    public com.baidu.tbadk.editortools.emotiontool.c beQ() {
+        return this.eVi;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.eUY = emotionGroupType;
+        this.eVf = emotionGroupType;
     }
 
-    public EmotionGroupType beP() {
-        return this.eUY;
+    public EmotionGroupType beR() {
+        return this.eVf;
+    }
+
+    public void kA(int i) {
+        this.cuU = i;
+    }
+
+    public int atf() {
+        return this.cuU;
     }
 
     public void kz(int i) {
-        this.cuN = i;
-    }
-
-    public int atd() {
-        return this.cuN;
-    }
-
-    public void ky(int i) {
         this.KX = i;
     }
 
-    public int beQ() {
+    public int beS() {
         return this.KX;
     }
 
-    public void qn(int i) {
-        this.eVd = i;
-    }
-
-    public int beR() {
-        return this.eVd;
-    }
-
     public void qo(int i) {
-        this.eVc = i;
-    }
-
-    public int beS() {
-        return this.eVc;
-    }
-
-    public void qp(int i) {
-        this.eUZ = i;
+        this.eVk = i;
     }
 
     public int beT() {
-        return this.eUZ;
+        return this.eVk;
     }
 
-    public void qq(int i) {
-        this.startIndex = i;
+    public void qp(int i) {
+        this.eVj = i;
     }
 
     public int beU() {
-        return this.startIndex;
+        return this.eVj;
+    }
+
+    public void qq(int i) {
+        this.eVg = i;
+    }
+
+    public int beV() {
+        return this.eVg;
     }
 
     public void qr(int i) {
+        this.startIndex = i;
+    }
+
+    public int beW() {
+        return this.startIndex;
+    }
+
+    public void qs(int i) {
         this.endIndex = i;
     }
 
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void qs(int i) {
-        this.eVa = i;
+    public void qt(int i) {
+        this.eVh = i;
     }
 
-    public int beV() {
-        return this.eVa;
+    public int beX() {
+        return this.eVh;
     }
 }

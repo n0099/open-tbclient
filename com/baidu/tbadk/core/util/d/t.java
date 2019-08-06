@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class t extends a {
-    private static BdAsyncTaskParallel bVT = null;
-    private String bVS;
-    private boolean bVU;
-    private int bVV;
+    private static BdAsyncTaskParallel bVZ = null;
+    private String bVY;
+    private boolean bWa;
+    private int bWb;
     private int size;
 
     public t(boolean z, boolean z2, int i) {
-        this.bVS = null;
+        this.bVY = null;
         this.size = 0;
-        this.bVU = false;
-        this.bVV = 0;
+        this.bWa = false;
+        this.bWb = 0;
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        this.bVU = z;
-        this.bVV = i;
+        this.bWa = z;
+        this.bWb = i;
         if (f < 2.0f) {
-            this.bVS = TbConfig.getPhotoSmallAddress();
+            this.bVY = TbConfig.getPhotoSmallAddress();
             this.size = 80;
         } else {
-            this.bVS = TbConfig.getBigPhotoAdress();
+            this.bVY = TbConfig.getBigPhotoAdress();
             this.size = 110;
         }
         if (z2) {
-            this.bVS = TbConfig.getBigPhotoAdress();
+            this.bVY = TbConfig.getBigPhotoAdress();
             this.size = 110;
             return;
         }
-        this.bVS = TbConfig.getPhotoSmallAddress();
+        this.bVY = TbConfig.getPhotoSmallAddress();
         this.size = 80;
     }
 
@@ -47,7 +47,7 @@ public class t extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
         com.baidu.adp.widget.ImageView.a checkIsValidPhotoMemoryCache;
-        if (this.bVU || (checkIsValidPhotoMemoryCache = BitmapHelper.checkIsValidPhotoMemoryCache(str, com.baidu.tbadk.imageManager.c.atw().qG(str), i, i2)) == null || checkIsValidPhotoMemoryCache.nK() == null || checkIsValidPhotoMemoryCache.nK().isRecycled()) {
+        if (this.bWa || (checkIsValidPhotoMemoryCache = BitmapHelper.checkIsValidPhotoMemoryCache(str, com.baidu.tbadk.imageManager.c.aty().qG(str), i, i2)) == null || checkIsValidPhotoMemoryCache.nK() == null || checkIsValidPhotoMemoryCache.nK().isRecycled()) {
             return null;
         }
         checkIsValidPhotoMemoryCache.Mb.Md = "memory";
@@ -60,7 +60,7 @@ public class t extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        if (this.bVU) {
+        if (this.bWa) {
             return null;
         }
         return super.a(str, str2, i, i2, aVar, objArr);
@@ -68,7 +68,7 @@ public class t extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     protected String m(String str, int i, int i2) {
-        return this.bVS + str;
+        return this.bVY + str;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
@@ -77,7 +77,7 @@ public class t extends a {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aG(i);
             aVar.aH(i2);
-            com.baidu.tbadk.imageManager.c.atw().b(str, aVar);
+            com.baidu.tbadk.imageManager.c.aty().b(str, aVar);
         }
     }
 
@@ -97,25 +97,25 @@ public class t extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ajS() {
+    public boolean ajU() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ajT() {
+    public boolean ajV() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel iI() {
-        if (bVT == null) {
-            bVT = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
+        if (bVZ == null) {
+            bVZ = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
         }
-        return bVT;
+        return bVZ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int ajU() {
-        return this.bVV;
+    public int ajW() {
+        return this.bWb;
     }
 }

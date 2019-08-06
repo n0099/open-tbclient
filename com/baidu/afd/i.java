@@ -20,7 +20,7 @@ public interface i {
                     e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
                     a.this.Rt.a(eVar);
                     if (eVar.Rq && eVar.Rs != null) {
-                        com.baidu.tieba.recapp.report.c.ciy().a(com.baidu.tieba.recapp.report.f.a(a.this.Rt, eVar.Rs));
+                        com.baidu.tieba.recapp.report.c.ciQ().a(com.baidu.tieba.recapp.report.f.a(a.this.Rt, eVar.Rs));
                     }
                 }
             }

@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
@@ -16,38 +16,38 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(bg bgVar, int i, BdUniqueId bdUniqueId, b bVar) {
+    public static void a(bh bhVar, int i, BdUniqueId bdUniqueId, b bVar) {
         int i2;
         String str;
         String str2;
         an a;
         int i3 = 2;
-        if (bgVar != null) {
-            boolean z = (bgVar.aeQ() == null || bgVar.aeQ().user_info == null || bgVar.aeQ().user_info.is_official != 2) ? false : true;
-            boolean z2 = z && bgVar.aeQ().frsLiveStageType == 0;
+        if (bhVar != null) {
+            boolean z = (bhVar.aeR() == null || bhVar.aeR().user_info == null || bhVar.aeR().user_info.is_official != 2) ? false : true;
+            boolean z2 = z && bhVar.aeR().frsLiveStageType == 0;
             if (z2) {
-                str = String.valueOf(bgVar.aeQ().live_id);
+                str = String.valueOf(bhVar.aeR().live_id);
                 i2 = 4;
             } else {
                 i2 = 0;
                 str = null;
             }
             if (!z2) {
-                z2 = bgVar.getThreadType() == 41;
+                z2 = bhVar.getThreadType() == 41;
                 if (z2) {
-                    if (bgVar.aed() != null) {
-                        str = bgVar.aed().getTaskId();
+                    if (bhVar.aee() != null) {
+                        str = bhVar.aee().getTaskId();
                     }
                     str2 = str;
-                    a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_click", i, bgVar.bMn, z2, str2, (String) null, i3);
+                    a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_click", i, bhVar.bMs, z2, str2, (String) null, i3);
                     if (a == null) {
-                        a.P("list_order", c.brF().a(bVar));
+                        a.P("list_order", c.brS().a(bVar));
                         if (z) {
-                            a.P("obj_isofficial", bgVar.aeQ().user_info.is_official);
+                            a.P("obj_isofficial", bhVar.aeR().user_info.is_official);
                             a.nV("thread_type");
-                            a.P("thread_type", bgVar.getThreadType());
+                            a.P("thread_type", bhVar.getThreadType());
                         }
-                        com.baidu.tieba.q.c.coo().b(bdUniqueId, a);
+                        com.baidu.tieba.q.c.coG().b(bdUniqueId, a);
                         return;
                     }
                     return;
@@ -55,17 +55,17 @@ public class a {
             }
             i3 = i2;
             str2 = str;
-            a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_click", i, bgVar.bMn, z2, str2, (String) null, i3);
+            a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_click", i, bhVar.bMs, z2, str2, (String) null, i3);
             if (a == null) {
             }
         }
     }
 
-    public static void a(bg bgVar, BdUniqueId bdUniqueId, b bVar, int i) {
+    public static void a(bh bhVar, BdUniqueId bdUniqueId, b bVar, int i) {
         an a;
-        if (bgVar != null && (a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", i, false, null, null)) != null) {
-            a.P("list_order", c.brF().a(bVar));
-            com.baidu.tieba.q.c.coo().a(bdUniqueId, bgVar.getId(), a);
+        if (bhVar != null && (a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_exp", i, false, null, null)) != null) {
+            a.P("list_order", c.brS().a(bVar));
+            com.baidu.tieba.q.c.coG().a(bdUniqueId, bhVar.getId(), a);
         }
     }
 
@@ -74,38 +74,38 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(bg bgVar, BdUniqueId bdUniqueId, b bVar) {
+    public static void a(bh bhVar, BdUniqueId bdUniqueId, b bVar) {
         int i;
         String str;
         String str2;
         an a;
         int i2 = 2;
-        if (bgVar != null) {
-            boolean z = (bgVar.aeQ() == null || bgVar.aeQ().user_info == null || bgVar.aeQ().user_info.is_official != 2) ? false : true;
-            boolean z2 = z && bgVar.aeQ().frsLiveStageType == 0;
+        if (bhVar != null) {
+            boolean z = (bhVar.aeR() == null || bhVar.aeR().user_info == null || bhVar.aeR().user_info.is_official != 2) ? false : true;
+            boolean z2 = z && bhVar.aeR().frsLiveStageType == 0;
             if (z2) {
-                str = String.valueOf(bgVar.aeQ().live_id);
+                str = String.valueOf(bhVar.aeR().live_id);
                 i = 4;
             } else {
                 i = 0;
                 str = null;
             }
             if (!z2) {
-                z2 = bgVar.getThreadType() == 41;
+                z2 = bhVar.getThreadType() == 41;
                 if (z2) {
-                    if (bgVar.aed() != null) {
-                        str = bgVar.aed().getTaskId();
+                    if (bhVar.aee() != null) {
+                        str = bhVar.aee().getTaskId();
                     }
                     str2 = str;
-                    a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", bgVar.bMn, z2, str2, (String) null, i2);
+                    a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_exp", bhVar.bMs, z2, str2, (String) null, i2);
                     if (a == null) {
-                        a.P("list_order", c.brF().a(bVar));
+                        a.P("list_order", c.brS().a(bVar));
                         if (z) {
-                            a.P("obj_isofficial", bgVar.aeQ().user_info.is_official);
+                            a.P("obj_isofficial", bhVar.aeR().user_info.is_official);
                             a.nV("thread_type");
-                            a.P("thread_type", bgVar.getThreadType());
+                            a.P("thread_type", bhVar.getThreadType());
                         }
-                        com.baidu.tieba.q.c.coo().a(bdUniqueId, bgVar.getId(), a);
+                        com.baidu.tieba.q.c.coG().a(bdUniqueId, bhVar.getId(), a);
                         return;
                     }
                     return;
@@ -113,7 +113,7 @@ public class a {
             }
             i2 = i;
             str2 = str;
-            a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", bgVar.bMn, z2, str2, (String) null, i2);
+            a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_exp", bhVar.bMs, z2, str2, (String) null, i2);
             if (a == null) {
             }
         }
@@ -153,7 +153,7 @@ public class a {
                 }
             }
             b.P("list_order", i2);
-            com.baidu.tieba.q.c.coo().b(bdUniqueId, b);
+            com.baidu.tieba.q.c.coG().b(bdUniqueId, b);
         }
     }
 }

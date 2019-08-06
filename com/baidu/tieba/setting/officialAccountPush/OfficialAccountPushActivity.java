@@ -23,8 +23,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView fNU = null;
-    private a iTx = null;
+    private BdListView fOI = null;
+    private a iUB = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -36,33 +36,33 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.official_account_push_activity);
-        aLu();
-        aCH();
-        aCG();
+        aLw();
+        aCJ();
+        aCI();
     }
 
-    private void aCG() {
+    private void aCI() {
         if (!j.kc() && v.aa(this.list)) {
-            clH();
+            clZ();
         } else if (v.aa(this.list)) {
-            bqP();
-        } else if (this.iTx == null) {
-            this.iTx = new a(getPageContext());
-            this.iTx.setData(this.list);
-            this.fNU.setAdapter((ListAdapter) this.iTx);
-            this.iTx.setSwitchStateChangeListener(this);
+            brc();
+        } else if (this.iUB == null) {
+            this.iUB = new a(getPageContext());
+            this.iUB.setData(this.list);
+            this.fOI.setAdapter((ListAdapter) this.iUB);
+            this.iUB.setSwitchStateChangeListener(this);
         } else {
-            this.iTx.setData(this.list);
-            this.iTx.notifyDataSetChanged();
+            this.iUB.setData(this.list);
+            this.iUB.notifyDataSetChanged();
         }
     }
 
-    private void aCH() {
+    private void aCJ() {
         this.mRootView = (ViewGroup) findViewById(R.id.official_account_push_container);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
-        this.fNU = (BdListView) findViewById(R.id.list);
+        this.fOI = (BdListView) findViewById(R.id.list);
         this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.d.iN(R.string.no_data_text), null);
         this.mNoDataView.setVisibility(0);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
@@ -77,22 +77,22 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void aLu() {
+    private void aLw() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
         }
     }
 
-    public void bqP() {
-        this.fNU.setVisibility(8);
+    public void brc() {
+        this.fOI.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.iN(R.string.no_data_text));
         am.l(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void clH() {
-        this.fNU.setVisibility(8);
+    public void clZ() {
+        this.fOI.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.iN(R.string.refresh_view_title_text));
         am.l(this.mRootView, R.color.cp_bg_line_d);
@@ -122,21 +122,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void c(boolean z, long j) {
-        if (this.list != null && this.iTx != null) {
+        if (this.list != null && this.iUB != null) {
             if (!j.kc()) {
-                this.iTx.notifyDataSetChanged();
+                this.iUB.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).iTA = 1;
+                        this.list.get(i).iUE = 1;
                     } else {
-                        this.list.get(i).iTA = 0;
+                        this.list.get(i).iUE = 0;
                     }
                 }
             }
-            this.iTx.notifyDataSetChanged();
+            this.iUB.notifyDataSetChanged();
         }
     }
 

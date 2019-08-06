@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private com.baidu.tieba.enterForum.data.b eVt;
-    private LinearLayout fbN;
-    private TextView fbO;
-    private ImageView fbP;
+    private com.baidu.tieba.enterForum.data.b eVA;
+    private LinearLayout fcm;
+    private TextView fcn;
+    private ImageView fco;
 
     public ForumHeaderView(Context context) {
         super(context);
@@ -43,16 +43,17 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.fbN = (LinearLayout) findViewById(R.id.search_container);
-        this.fbO = (TextView) findViewById(R.id.search_text);
-        this.fbP = (ImageView) findViewById(R.id.search_icon);
+        this.fcm = (LinearLayout) findViewById(R.id.search_container);
+        this.fcn = (TextView) findViewById(R.id.search_text);
+        this.fco = (ImageView) findViewById(R.id.search_icon);
+        this.fco.setAlpha(0.5f);
         setDescendantFocusability(262144);
-        this.fbN.setOnClickListener(this);
+        this.fcm.setOnClickListener(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.af(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.g(getContext(), R.dimen.tbds140), 1073741824));
+        super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.af(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.g(getContext(), R.dimen.tbds114), 1073741824));
     }
 
     @Override // android.view.View.OnClickListener
@@ -65,25 +66,29 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     public void setSearchHint(String str) {
-        this.fbO.setText(UtilHelper.getFixedText(str, 20));
+        this.fcn.setText(UtilHelper.getFixedText(str, 20));
     }
 
     public void onChangeSkinType() {
-        am.c(this.fbP, (int) R.drawable.icon_ba_search_n);
-        am.j(this.fbO, R.color.cp_cont_d);
-        if (this.eVt != null && this.eVt.eVV) {
-            am.k(this.fbN, R.drawable.enter_forum_search_ad_bg);
-        } else {
-            am.k(this.fbN, R.drawable.enter_forum_search_bg);
+        if (this.eVA != null && this.eVA.eWf) {
+            if (this.eVA.eWh > 0) {
+                am.c(this.fco, (int) R.drawable.icon_home_search_white_n);
+                am.j(this.fcn, R.color.white_alpha50);
+                am.k(this.fcm, R.drawable.enter_forum_search_ad_bg);
+                return;
+            }
+            am.c(this.fco, (int) R.drawable.icon_home_search_black_n);
+            am.j(this.fcn, R.color.cp_cont_d);
+            am.k(this.fcm, R.drawable.enter_forum_search_bg);
+            return;
         }
+        am.c(this.fco, (int) R.drawable.icon_home_search_black_n);
+        am.j(this.fcn, R.color.cp_cont_d);
+        am.k(this.fcm, R.drawable.enter_forum_search_bg);
     }
 
     public void setAdState(com.baidu.tieba.enterForum.data.b bVar) {
-        this.eVt = bVar;
-        if (bVar != null && bVar.eVV) {
-            am.k(this.fbN, R.drawable.enter_forum_search_ad_bg);
-        } else {
-            am.k(this.fbN, R.drawable.enter_forum_search_bg);
-        }
+        this.eVA = bVar;
+        onChangeSkinType();
     }
 }

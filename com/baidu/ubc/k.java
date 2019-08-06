@@ -118,7 +118,7 @@ public class k {
     }
 
     public void XU() {
-        if (e.cDc().kO(this.mId)) {
+        if (e.cDx().kO(this.mId)) {
             this.bwu = UBC.getUBCContext().Ie();
         }
     }

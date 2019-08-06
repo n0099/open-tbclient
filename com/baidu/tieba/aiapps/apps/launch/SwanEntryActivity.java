@@ -12,14 +12,14 @@ public class SwanEntryActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!n.R(this)) {
-            aFZ();
+            aGb();
         }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        aFZ();
+        aGb();
     }
 
     @Override // android.app.Activity
@@ -33,7 +33,7 @@ public class SwanEntryActivity extends Activity {
         });
     }
 
-    private void aFZ() {
+    private void aGb() {
         String uri;
         Intent intent = getIntent();
         if (intent != null) {

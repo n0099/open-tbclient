@@ -5,12 +5,12 @@ import tbclient.Myrecord;
 /* loaded from: classes3.dex */
 public class d {
     private String apply_declaration;
-    private int evV;
-    private String evW;
-    private int evX;
-    private int evY;
-    private int evZ;
-    private boolean ewa = false;
+    private int ewc;
+    private String ewd;
+    private int ewe;
+    private int ewf;
+    private int ewg;
+    private boolean ewh = false;
     private String portrait;
     private int post_num;
     private int rank;
@@ -18,16 +18,16 @@ public class d {
     private long tid;
     private long uid;
 
-    public int aYz() {
-        return this.evZ;
-    }
-
-    public int aYA() {
-        return this.evV;
-    }
-
     public int aYB() {
-        return this.evX;
+        return this.ewg;
+    }
+
+    public int aYC() {
+        return this.ewc;
+    }
+
+    public int aYD() {
+        return this.ewe;
     }
 
     public int getPost_num() {
@@ -46,16 +46,16 @@ public class d {
         return this.uid;
     }
 
-    public int aYC() {
-        return this.evY;
+    public int aYE() {
+        return this.ewf;
     }
 
-    public String aYD() {
+    public String aYF() {
         return this.apply_declaration;
     }
 
-    public String aYE() {
-        return this.evW;
+    public String aYG() {
+        return this.ewd;
     }
 
     public String getPortrait() {
@@ -66,8 +66,8 @@ public class d {
         return this.tid;
     }
 
-    public boolean aYF() {
-        return this.ewa;
+    public boolean aYH() {
+        return this.ewh;
     }
 
     public static d a(ElectionList electionList) {
@@ -75,16 +75,16 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.ps(electionList.vote_num.intValue());
-        dVar.vr(electionList.name_show);
+        dVar.pt(electionList.vote_num.intValue());
+        dVar.vs(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
-        dVar.pq(electionList.forum_level.intValue());
-        dVar.vq(electionList.apply_declaration);
-        dVar.pr(electionList.rank.intValue());
-        dVar.pp(electionList.apply_id.intValue());
+        dVar.pr(electionList.forum_level.intValue());
+        dVar.vr(electionList.apply_declaration);
+        dVar.ps(electionList.rank.intValue());
+        dVar.pq(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
         dVar.setThread_num(electionList.thread_num.intValue());
-        dVar.po(electionList.agree_num.intValue());
+        dVar.pp(electionList.agree_num.intValue());
         dVar.setUid(electionList.uid.longValue());
         dVar.setTid(electionList.tid.longValue());
         dVar.it(electionList.is_cheat.intValue() == 1);
@@ -96,39 +96,39 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.ps(myrecord.vote_num.intValue());
-        dVar.vr(myrecord.name_show);
+        dVar.pt(myrecord.vote_num.intValue());
+        dVar.vs(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
-        dVar.pq(myrecord.forum_level.intValue());
-        dVar.vq(myrecord.apply_declaration);
-        dVar.pr(myrecord.rank.intValue());
-        dVar.pp(myrecord.apply_id.intValue());
+        dVar.pr(myrecord.forum_level.intValue());
+        dVar.vr(myrecord.apply_declaration);
+        dVar.ps(myrecord.rank.intValue());
+        dVar.pq(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
         dVar.setThread_num(myrecord.thread_num.intValue());
-        dVar.po(myrecord.agree_num.intValue());
+        dVar.pp(myrecord.agree_num.intValue());
         dVar.setUid(myrecord.uid.longValue());
         dVar.setTid(myrecord.tid.longValue());
         return dVar;
     }
 
-    public void po(int i) {
-        this.evZ = i;
-    }
-
     public void pp(int i) {
-        this.evV = i;
-    }
-
-    public void vq(String str) {
-        this.apply_declaration = str;
+        this.ewg = i;
     }
 
     public void pq(int i) {
-        this.evX = i;
+        this.ewc = i;
     }
 
     public void vr(String str) {
-        this.evW = str;
+        this.apply_declaration = str;
+    }
+
+    public void pr(int i) {
+        this.ewe = i;
+    }
+
+    public void vs(String str) {
+        this.ewd = str;
     }
 
     public void setPortrait(String str) {
@@ -139,7 +139,7 @@ public class d {
         this.post_num = i;
     }
 
-    public void pr(int i) {
+    public void ps(int i) {
         this.rank = i;
     }
 
@@ -151,12 +151,12 @@ public class d {
         this.uid = j;
     }
 
-    public void ps(int i) {
-        this.evY = i;
+    public void pt(int i) {
+        this.ewf = i;
     }
 
     public void it(boolean z) {
-        this.ewa = z;
+        this.ewh = z;
     }
 
     public void setTid(long j) {

@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int gcH;
-    private static int gcI;
+    private static int gdx;
+    private static int gdy;
 
     public j(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.gcS);
-        gcH = com.baidu.adp.lib.util.l.g(context, R.dimen.tbds102);
-        gcI = com.baidu.adp.lib.util.l.g(context, R.dimen.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.gdI);
+        gdx = com.baidu.adp.lib.util.l.g(context, R.dimen.tbds102);
+        gdy = com.baidu.adp.lib.util.l.g(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,37 +40,37 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.gcJ.setText(aVar.bXm);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.gcJ.getLayoutParams();
-        if (aVar.gcV) {
-            layoutParams.height = gcI;
-            aVar2.fDg.setVisibility(0);
-        } else if (aVar.gcW) {
-            layoutParams.height = gcH;
+        aVar2.gdz.setText(aVar.bXs);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.gdz.getLayoutParams();
+        if (aVar.gdL) {
+            layoutParams.height = gdy;
+            aVar2.fDU.setVisibility(0);
+        } else if (aVar.gdM) {
+            layoutParams.height = gdx;
         }
-        aVar2.gcJ.setLayoutParams(layoutParams);
+        aVar2.gdz.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private int cdL;
-        public View fDg;
-        public TextView gcJ;
+        private int cdS;
+        public View fDU;
+        public TextView gdz;
 
         public a(View view) {
             super(view);
-            this.cdL = 3;
-            this.gcJ = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.fDg = view.findViewById(R.id.concern_tip_top_line);
+            this.cdS = 3;
+            this.gdz = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.fDU = view.findViewById(R.id.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.cdL != i) {
+            if (this.cdS != i) {
                 am.l(getView(), R.color.cp_bg_line_e);
-                am.j(this.gcJ, R.color.cp_cont_d);
-                am.k(this.fDg, R.color.cp_bg_line_e);
+                am.j(this.gdz, R.color.cp_cont_d);
+                am.k(this.fDU, R.color.cp_bg_line_e);
             }
         }
     }

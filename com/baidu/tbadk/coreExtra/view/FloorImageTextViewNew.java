@@ -16,11 +16,11 @@ import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
-    private static final int cms = l.g(TbadkApplication.getInst(), R.dimen.tbds348);
-    private static final int cmt = l.g(TbadkApplication.getInst(), R.dimen.tbds308);
-    private TbRichTextView cml;
-    private EditorScrollView cmm;
-    private int cmn;
+    private TbRichTextView cms;
+    private EditorScrollView cmt;
+    private int cmu;
+    private static final int cmz = l.g(TbadkApplication.getInst(), R.dimen.tbds348);
+    private static final int cmA = l.g(TbadkApplication.getInst(), R.dimen.tbds308);
 
     public FloorImageTextViewNew(Context context) {
         super(context);
@@ -30,32 +30,32 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
         am.l(this, R.color.black_alpha50);
-        this.cml = (TbRichTextView) findViewById(R.id.textview);
-        this.cml.setVerticalScrollBarEnabled(true);
-        this.cml.setTextSize(clq);
-        this.cml.setTextColor(am.getColor(R.color.white_alpha83));
-        this.cmm = (EditorScrollView) findViewById(R.id.scrollview);
-        this.cmm.setPadding(0, cln, 0, clo);
-        this.cmm.setOnTouchListener(this.clt);
+        this.cms = (TbRichTextView) findViewById(R.id.textview);
+        this.cms.setVerticalScrollBarEnabled(true);
+        this.cms.setTextSize(clx);
+        this.cms.setTextColor(am.getColor(R.color.white_alpha83));
+        this.cmt = (EditorScrollView) findViewById(R.id.scrollview);
+        this.cmt.setPadding(0, clu, 0, clv);
+        this.cmt.setOnTouchListener(this.clA);
         setVisibility(8);
     }
 
     private void e(Pair<Integer, Integer> pair) {
         if (pair != null) {
             if (((Integer) pair.second).intValue() > 5) {
-                if (aqj()) {
-                    this.cmn = cmt + cln + clo;
+                if (aql()) {
+                    this.cmu = cmA + clu + clv;
                 } else {
-                    this.cmn = cms + cln + clo;
+                    this.cmu = cmz + clu + clv;
                 }
             } else {
-                this.cmn = -2;
+                this.cmu = -2;
             }
-            jP(this.cmn);
+            jQ(this.cmu);
         }
     }
 
-    private boolean aqj() {
+    private boolean aql() {
         float ai = l.ai(getContext());
         int ah = l.ah(getContext());
         int af = l.af(getContext());
@@ -71,7 +71,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void a(ImageUrlData imageUrlData) {
         JSONArray jSONArray;
-        this.clr = imageUrlData;
+        this.cly = imageUrlData;
         JSONArray jSONArray2 = null;
         if (imageUrlData != null) {
             try {
@@ -83,10 +83,10 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 jSONArray2 = jSONArray;
                 if (imageUrlData == null && jSONArray2 != null && jSONArray2.length() > 0) {
                     setVisibility(0);
-                    com.baidu.tieba.view.c.cxR().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    com.baidu.tieba.view.c.cyn().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
                     e(pF(a.toString()));
-                    this.cml.setText(a);
+                    this.cms.setText(a);
                     return;
                 }
                 setVisibility(8);

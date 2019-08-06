@@ -13,18 +13,18 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g extends a {
     private int currentIndex;
-    private ContinuousAnimationView cxe;
-    private String[] cxf;
-    private TextView cxg;
-    private final int cxh;
-    private Runnable cxi;
+    private ContinuousAnimationView cxl;
+    private String[] cxm;
+    private TextView cxn;
+    private final int cxo;
+    private Runnable cxp;
     private int mSkinType;
     private TextView textView;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int atK() {
+    public int atM() {
         this.currentIndex++;
-        if (this.currentIndex >= this.cxh) {
+        if (this.currentIndex >= this.cxo) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -38,41 +38,41 @@ public class g extends a {
         super(LayoutInflater.from(context).inflate(R.layout.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
         this.mSkinType = -1;
-        this.cxi = new Runnable() { // from class: com.baidu.tbadk.m.g.1
+        this.cxp = new Runnable() { // from class: com.baidu.tbadk.m.g.1
             @Override // java.lang.Runnable
             public void run() {
                 if (!g.this.isViewAttached()) {
-                    TbadkCoreApplication.getInst().handler.removeCallbacks(g.this.cxi);
+                    TbadkCoreApplication.getInst().handler.removeCallbacks(g.this.cxp);
                     return;
                 }
-                g.this.textView.setText(g.this.cxf[g.this.atK()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(g.this.cxi, 200L);
+                g.this.textView.setText(g.this.cxm[g.this.atM()]);
+                TbadkCoreApplication.getInst().handler.postDelayed(g.this.cxp, 200L);
             }
         };
-        this.cxe = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
+        this.cxl = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.cxe.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.cxl.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.cxe.setLayoutParams(marginLayoutParams);
+                this.cxl.setLayoutParams(marginLayoutParams);
             }
         }
         this.textView = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
-        this.cxg = (TextView) this.attachedView.findViewById(R.id.loading_text);
-        this.cxf = context.getResources().getStringArray(R.array.loading_anim_text_array);
-        this.cxh = this.cxf.length;
+        this.cxn = (TextView) this.attachedView.findViewById(R.id.loading_text);
+        this.cxm = context.getResources().getStringArray(R.array.loading_anim_text_array);
+        this.cxo = this.cxm.length;
     }
 
-    private void atL() {
-        if (this.cxe != null) {
-            this.cxe.br();
+    private void atN() {
+        if (this.cxl != null) {
+            this.cxl.br();
         }
     }
 
-    private void atM() {
-        if (this.cxe != null) {
-            this.cxe.bt();
+    private void atO() {
+        if (this.cxl != null) {
+            this.cxl.bt();
         }
     }
 
@@ -86,13 +86,13 @@ public class g extends a {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        atL();
+        atN();
         am.d(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
-        am.d(this.cxg, R.color.cp_cont_c, 1, this.mSkinType);
+        am.d(this.cxn, R.color.cp_cont_c, 1, this.mSkinType);
         am.h(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
-        this.textView.setText(this.cxf[0]);
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cxi);
-        TbadkCoreApplication.getInst().handler.postDelayed(this.cxi, 200L);
+        this.textView.setText(this.cxm[0]);
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cxp);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.cxp, 200L);
         this.attachedView.setClickable(true);
     }
 
@@ -103,8 +103,8 @@ public class g extends a {
     }
 
     public void release() {
-        atM();
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cxi);
+        atO();
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cxp);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -113,23 +113,23 @@ public class g extends a {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
         if (isViewAttached()) {
-            atL();
+            atN();
             am.d(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
-            am.d(this.cxg, R.color.cp_cont_c, 1, this.mSkinType);
+            am.d(this.cxn, R.color.cp_cont_c, 1, this.mSkinType);
             am.h(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
         }
     }
 
-    public View atJ() {
+    public View atL() {
         return this.attachedView;
     }
 
     @Override // com.baidu.tbadk.m.a
     public void dettachView(View view) {
-        if (this.cxe != null) {
-            this.cxe.cancelAnimation();
+        if (this.cxl != null) {
+            this.cxl.cancelAnimation();
         }
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cxi);
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cxp);
         super.dettachView(view);
     }
 
@@ -140,17 +140,17 @@ public class g extends a {
     }
 
     public void setTopMargin(int i) {
-        if (this.cxe != null) {
-            ViewGroup.LayoutParams layoutParams = this.cxe.getLayoutParams();
+        if (this.cxl != null) {
+            ViewGroup.LayoutParams layoutParams = this.cxl.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.cxe.setLayoutParams(marginLayoutParams);
+                this.cxl.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public TextView atN() {
-        return this.cxg;
+    public TextView atP() {
+        return this.cxn;
     }
 }

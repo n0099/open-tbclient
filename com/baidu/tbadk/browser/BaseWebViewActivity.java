@@ -394,12 +394,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        List<String> amj = com.baidu.tbadk.coreExtra.data.f.amj();
-        if (v.aa(amj)) {
+        List<String> aml = com.baidu.tbadk.coreExtra.data.f.aml();
+        if (v.aa(aml)) {
             return null;
         }
         String scheme = parse.getScheme();
-        Iterator<String> it = amj.iterator();
+        Iterator<String> it = aml.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -483,7 +483,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             eVar.imageUri = Uri.parse(str4);
         }
-        eVar.ckw = true;
+        eVar.ckD = true;
         eVar.extData = this.mUrl;
         Bundle bundle = new Bundle();
         bundle.putString("obj_url", eVar.linkUrl);
@@ -522,14 +522,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         eVar.topic = optString5;
                     }
                     if (!aq.isEmpty(optString6)) {
-                        eVar.ckQ = optString6;
+                        eVar.ckX = optString6;
                     }
                     if (!aq.isEmpty(optString7)) {
-                        eVar.ckR = optString7;
+                        eVar.ckY = optString7;
                     }
                     eVar.shareType = jSONObject.optInt("shareimg");
                     if (!aq.isEmpty(optString8) && "1".equals(optString8)) {
-                        eVar.ckA = true;
+                        eVar.ckH = true;
                         eVar.title = optString + " " + optString2;
                     }
                     String optString9 = jSONObject.optString("extdata");
@@ -541,7 +541,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                             if (!StringUtils.isNull(optString10) && !StringUtils.isNull(optString11)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString10, optString11);
-                                eVar.ckS = jSONObject3.toString();
+                                eVar.ckZ = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }

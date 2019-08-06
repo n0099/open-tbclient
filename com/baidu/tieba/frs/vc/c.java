@@ -11,24 +11,24 @@ import java.net.URLEncoder;
 import tbclient.PopInfo;
 /* loaded from: classes4.dex */
 public class c {
-    private a fQX;
-    private final FrsFragment fvH;
+    private a fRL;
+    private final FrsFragment fwg;
 
     public c(FrsFragment frsFragment) {
-        this.fvH = frsFragment;
+        this.fwg = frsFragment;
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.fvH != null && this.fvH.bmo() != null && this.fvH.bmo().getForum() != null && !StringUtils.isNull(this.fvH.bmo().getForum().getName()) && this.fvH.bmo().enterFrsDialogInfo != null && bsk() && this.fQX == null) {
-            this.fQX = new a();
-            this.fQX.execute(new Void[0]);
+        if (TbadkCoreApplication.isLogin() && this.fwg != null && this.fwg.bmy() != null && this.fwg.bmy().getForum() != null && !StringUtils.isNull(this.fwg.bmy().getForum().getName()) && this.fwg.bmy().enterFrsDialogInfo != null && bsx() && this.fRL == null) {
+            this.fRL = new a();
+            this.fRL.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bsk() {
-        PopInfo popInfo = this.fvH.bmo().enterFrsDialogInfo;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.fvH.bmo().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
+    public boolean bsx() {
+        PopInfo popInfo = this.fwg.bmy().enterFrsDialogInfo;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.fwg.bmy().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -41,8 +41,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
-            l<String> mL = com.baidu.tbadk.core.d.a.agF().mL("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(c.this.fvH.bmo().getForum().getName());
+            l<String> mL = com.baidu.tbadk.core.d.a.agH().mL("tb.enter_frs_dialog_list");
+            String encode = URLEncoder.encode(c.this.fwg.bmy().getForum().getName());
             if (mL.get(encode) == null) {
                 mL.f(encode, "1");
                 return true;
@@ -54,12 +54,12 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && c.this.bsk() && c.this.fvH.isAdded()) {
-                final PopInfo popInfo = c.this.fvH.bmo().enterFrsDialogInfo;
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.fvH.getActivity());
+            if (bool.booleanValue() && c.this.bsx() && c.this.fwg.isAdded()) {
+                final PopInfo popInfo = c.this.fwg.bmy().enterFrsDialogInfo;
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.fwg.getActivity());
                 aVar.mN(popInfo.title);
                 aVar.mO(popInfo.v_title);
-                aVar.agG();
+                aVar.agI();
                 aVar.b(popInfo.ok_info, new a.b() { // from class: com.baidu.tieba.frs.vc.c.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -73,13 +73,13 @@ public class c {
                     /* JADX WARN: Multi-variable type inference failed */
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        bb.ajC().c(c.this.fvH.getPageContext(), new String[]{popInfo.ahead_url});
+                        bb.ajE().c(c.this.fwg.getPageContext(), new String[]{popInfo.ahead_url});
                         if (aVar2 != null) {
                             aVar2.dismiss();
                         }
                     }
                 });
-                aVar.b(c.this.fvH.getPageContext()).agI();
+                aVar.b(c.this.fwg.getPageContext()).agK();
             }
         }
     }

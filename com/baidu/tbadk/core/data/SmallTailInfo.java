@@ -34,11 +34,11 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     }
 
     public void updateShowInfo() {
-        adN();
         adO();
+        adP();
     }
 
-    private void adN() {
+    private void adO() {
         if (this.content != null) {
             StringBuilder sb = new StringBuilder();
             for (SmallTailInfoContent smallTailInfoContent : this.content) {
@@ -47,17 +47,17 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String qh = TbFaceManager.atv().qh(smallTailInfoContent.text);
+                    String qh = TbFaceManager.atx().qh(smallTailInfoContent.text);
                     if (!StringUtils.isNull(qh)) {
                         sb.append("#(" + qh + ")");
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.atv().a(TbadkCoreApplication.getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.atx().a(TbadkCoreApplication.getInst(), sb.toString(), null);
         }
     }
 
-    private void adO() {
+    private void adP() {
         try {
             this.showColorId = Color.parseColor(mu(this.color));
         } catch (Exception e) {

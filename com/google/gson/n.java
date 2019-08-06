@@ -5,12 +5,12 @@ import java.io.IOException;
 public abstract class n<T> {
     public abstract void a(com.google.gson.stream.a aVar, T t) throws IOException;
 
-    public final n<T> cLZ() {
+    public final n<T> cMu() {
         return new n<T>() { // from class: com.google.gson.n.1
             @Override // com.google.gson.n
             public void a(com.google.gson.stream.a aVar, T t) throws IOException {
                 if (t == null) {
-                    aVar.cMx();
+                    aVar.cMS();
                 } else {
                     n.this.a(aVar, t);
                 }
@@ -22,7 +22,7 @@ public abstract class n<T> {
         try {
             com.google.gson.internal.a.e eVar = new com.google.gson.internal.a.e();
             a(eVar, t);
-            return eVar.cMr();
+            return eVar.cMM();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }
