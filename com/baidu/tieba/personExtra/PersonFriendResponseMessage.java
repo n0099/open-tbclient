@@ -67,7 +67,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (mL = com.baidu.tbadk.core.d.a.agF().mL("tb.my_pages")) != null) {
+                    if (parseToString != null && (mL = com.baidu.tbadk.core.d.a.agH().mL("tb.my_pages")) != null) {
                         mL.a("personal_myfollow_" + str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {

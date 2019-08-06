@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float eTA;
-    private float eTB;
-    private float eTy;
-    private float eTz;
-    private InterfaceC0305a eac;
+    private float eTF;
+    private float eTG;
+    private float eTH;
+    private float eTI;
+    private InterfaceC0305a eaj;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.eac.aY(i, i2);
+                    a.this.eaj.aY(i, i2);
                     return true;
                 case 1:
-                    a.this.eac.aZ(i, i2);
+                    a.this.eaj.aZ(i, i2);
                     return true;
                 case 2:
-                    a.this.eac.ba(i, i2);
+                    a.this.eaj.ba(i, i2);
                     return true;
                 default:
                     return false;
@@ -43,42 +43,42 @@ public class a {
     }
 
     public void a(InterfaceC0305a interfaceC0305a) {
-        this.eac = interfaceC0305a;
+        this.eaj = interfaceC0305a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.eTA = motionEvent.getRawX();
-                this.eTB = motionEvent.getRawY();
-                this.eTy = this.eTA;
-                this.eTz = this.eTB;
+                this.eTH = motionEvent.getRawX();
+                this.eTI = motionEvent.getRawY();
+                this.eTF = this.eTH;
+                this.eTG = this.eTI;
                 return true;
             case 1:
             case 3:
-                if (this.eac != null) {
-                    int i = (int) (this.eTy - this.eTA);
-                    if (Math.abs(i) >= Math.abs((int) (this.eTz - this.eTB))) {
-                        bo(i, (int) this.eTA);
+                if (this.eaj != null) {
+                    int i = (int) (this.eTF - this.eTH);
+                    if (Math.abs(i) >= Math.abs((int) (this.eTG - this.eTI))) {
+                        bo(i, (int) this.eTH);
                     }
                 }
-                this.eTA = 0.0f;
-                this.eTB = 0.0f;
+                this.eTH = 0.0f;
+                this.eTI = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i2 = (int) (rawX - this.eTy);
-                int i3 = (int) (rawY - this.eTz);
-                if (this.eac != null) {
+                int i2 = (int) (rawX - this.eTF);
+                int i3 = (int) (rawY - this.eTG);
+                if (this.eaj != null) {
                     if (i3 > 0) {
                         bm(i2, i3);
                     } else {
                         bn(i2, i3);
                     }
                 }
-                this.eTy = rawX;
-                this.eTz = rawY;
+                this.eTF = rawX;
+                this.eTG = rawY;
                 return true;
             default:
                 return true;

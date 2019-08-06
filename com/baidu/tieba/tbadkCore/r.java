@@ -1,180 +1,28 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class r {
-    private String chE;
-    private int cur_score;
-    private int errorCode;
-    private String errorMsg;
-    private String fid;
-    private int is_like;
-    private String level_name;
-    private int levelup_score;
-    private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> jdS = new ArrayList();
-    private int jdR = 0;
-    private int like_num = 0;
-    private int user_level = 0;
-
-    public r() {
-        setLevelName("");
-        setLike(0);
-        setCurScore(0);
-        setLevelupScore(0);
-    }
-
-    public String getFid() {
-        return this.fid;
-    }
-
-    public void setFid(String str) {
-        this.fid = str;
-    }
-
-    public int cmV() {
-        return this.user_level;
-    }
-
-    public void AM(int i) {
-        if (i >= 0) {
-            this.user_level = i;
-        }
-    }
-
-    public void parserJson(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            parserJson(jSONObject.optJSONObject(Config.LAUNCH_INFO));
-            K(jSONObject.optJSONArray("feed_forum"));
-            this.errorCode = jSONObject.optInt("error_code");
-            this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.jdR = jSONObject.optInt("is_black", 0);
-                this.like_num = jSONObject.optInt("like_num", 0);
-                this.user_level = jSONObject.optInt("level_id", 0);
-                setLike(jSONObject.optInt("is_like", 0));
-                setLevelName(jSONObject.optString("level_name", ""));
-                setLevelupScore(jSONObject.optInt("levelup_score", 0));
-                setCurScore(jSONObject.optInt("cur_score", 0));
-                ba(jSONObject);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    private static boolean EB(String str) {
+        String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
+        String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.forum);
+        int length = stringArray.length;
+        for (int i = 0; i < length; i++) {
+            if (stringArray[i].equals(str) || str.equals(stringArray[i] + string)) {
+                return true;
             }
         }
+        return false;
     }
 
-    private void ba(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.chE = jSONObject.optString("block_dealurl");
-            String optString = jSONObject.optString("block_content");
-            if (!StringUtils.isNull(optString)) {
-                this.mBlockPopInfoData = new BlockPopInfoData();
-                this.mBlockPopInfoData.block_info = optString;
-                this.mBlockPopInfoData.ahead_url = this.chE;
-                this.mBlockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
-                this.mBlockPopInfoData.ok_info = jSONObject.optString("block_cancel");
+    public static boolean b(String str, Boolean bool) {
+        if (com.baidu.adp.lib.b.d.hS().az("voice") == 0) {
+            if ((str == null || !EB(str)) && bool != null) {
+                return bool.booleanValue();
             }
+            return false;
         }
-    }
-
-    public void K(JSONArray jSONArray) {
-        int i = 0;
-        while (true) {
-            try {
-                int i2 = i;
-                if (i2 < jSONArray.length()) {
-                    JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
-                    FeedForumData feedForumData = new FeedForumData();
-                    feedForumData.setForumId(jSONObject.optString("forum_id"));
-                    feedForumData.setForumName(jSONObject.optString("forum_name"));
-                    feedForumData.setMemberCount(jSONObject.optInt("member_count", 0));
-                    feedForumData.setPostNum(jSONObject.optInt("post_num", 0));
-                    feedForumData.setAvatar(jSONObject.optString("avatar"));
-                    feedForumData.setReason(jSONObject.optString("reason"));
-                    feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
-                    feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.jdS.add(feedForumData);
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                return;
-            }
-        }
-    }
-
-    public void setLike(int i) {
-        this.is_like = i;
-    }
-
-    public int isLike() {
-        return this.is_like;
-    }
-
-    public void setLevelName(String str) {
-        this.level_name = str;
-    }
-
-    public String getLevelName() {
-        return this.level_name;
-    }
-
-    public void setCurScore(int i) {
-        this.cur_score = i;
-    }
-
-    public int getCurScore() {
-        return this.cur_score;
-    }
-
-    public void setLevelupScore(int i) {
-        this.levelup_score = i;
-    }
-
-    public int getLevelupScore() {
-        return this.levelup_score;
-    }
-
-    public List<FeedForumData> cox() {
-        return this.jdS;
-    }
-
-    public BlockPopInfoData getBlockPopInfoData() {
-        return this.mBlockPopInfoData;
-    }
-
-    public void setBlockPopInfoData(BlockPopInfoData blockPopInfoData) {
-        this.mBlockPopInfoData = blockPopInfoData;
-    }
-
-    public String coG() {
-        return this.chE;
-    }
-
-    public int getErrorCode() {
-        return this.errorCode;
-    }
-
-    public String getErrorMsg() {
-        return this.errorMsg;
+        return false;
     }
 }

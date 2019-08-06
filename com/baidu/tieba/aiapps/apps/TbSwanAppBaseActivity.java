@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar;
 /* loaded from: classes4.dex */
 public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
-    private com.baidu.tbadk.core.view.b cCo;
-    private SwanAppBdActionBar daP;
+    private com.baidu.tbadk.core.view.b cCv;
+    private SwanAppBdActionBar daW;
     private RelativeLayout mRootView;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -24,14 +24,14 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         View inflate = getLayoutInflater().inflate(R.layout.tb_swan_app_base_layout, (ViewGroup) null);
-        this.daP = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
+        this.daW = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
         this.mRootView = (RelativeLayout) inflate.findViewById(R.id.delivery_root);
         this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             UtilHelper.useNavigationBarStyleImmersiveSticky(this);
             ((LinearLayout) inflate.findViewById(R.id.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
         }
-        aEs();
+        aEu();
         super.setContentView(inflate);
     }
 
@@ -47,25 +47,25 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cCo = new com.baidu.tbadk.core.view.b(getPageContext());
-        this.cCo.oM("加载中...");
-        this.cCo.setCancelable(true);
+        this.cCv = new com.baidu.tbadk.core.view.b(getPageContext());
+        this.cCv.oM("加载中...");
+        this.cCv.setCancelable(true);
     }
 
-    private void aEs() {
-        if (this.daP != null) {
-            this.daP.setLeftTitleInvalidate(true);
-            this.daP.setRightTxtZone1Visibility(8);
-            this.daP.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
+    private void aEu() {
+        if (this.daW != null) {
+            this.daW.setLeftTitleInvalidate(true);
+            this.daW.setRightTxtZone1Visibility(8);
+            this.daW.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbSwanAppBaseActivity.this.zE();
                 }
             });
-            this.daP.setRightExitViewVisibility(false);
-            this.daP.setRightMenuVisibility(false);
-            this.daP.setLeftZoneImageSrcMinWidth(z.dip2px(this, 38.0f));
-            this.daP.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
+            this.daW.setRightExitViewVisibility(false);
+            this.daW.setRightMenuVisibility(false);
+            this.daW.setLeftZoneImageSrcMinWidth(z.dip2px(this, 38.0f));
+            this.daW.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbSwanAppBaseActivity.this.zE();
@@ -79,17 +79,17 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public SwanAppBdActionBar aEt() {
-        return this.daP;
+    public SwanAppBdActionBar aEv() {
+        return this.daW;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showLoading() {
-        this.cCo.ej(true);
+        this.cCv.ej(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dismissLoading() {
-        this.cCo.ej(false);
+        this.cCv.ej(false);
     }
 }

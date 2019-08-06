@@ -31,19 +31,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FormCardView extends BaseLegoCardView<FormCard> {
-    private int cIw;
-    private TitleView iJQ;
-    private CommitView iJR;
-    private LinearLayout iJS;
-    private LinearLayout iJT;
-    private ImageView iJU;
-    private TextView iJV;
-    private TextView iJW;
-    private FormCard iJX;
-    private List<a> iJY;
-    private String iJZ;
-    private float iKa;
-    private int iKb;
+    private int cID;
+    private TitleView iKU;
+    private CommitView iKV;
+    private LinearLayout iKW;
+    private LinearLayout iKX;
+    private ImageView iKY;
+    private TextView iKZ;
+    private TextView iLa;
+    private FormCard iLb;
+    private List<a> iLc;
+    private String iLd;
+    private float iLe;
+    private int iLf;
     private Activity mActivity;
     private View mRootView;
     private int mScreenWidth;
@@ -51,7 +51,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean cie();
+        boolean ciw();
 
         FormItemBaseView getFormView();
 
@@ -60,37 +60,37 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
 
     public FormCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.iJZ = "";
+        this.iLd = "";
         this.mScreenWidth = 0;
-        this.cIw = 0;
-        this.iKa = 1.0f;
-        this.iKb = -1;
+        this.cID = 0;
+        this.iLe = 1.0f;
+        this.iLf = -1;
         this.mTbPageContext = tbPageContext;
         this.mActivity = tbPageContext.getPageActivity();
         this.mScreenWidth = l.af(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View bKv() {
+    protected View bKJ() {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.card_form, (ViewGroup) null);
-        this.iJQ = (TitleView) this.mRootView.findViewById(R.id.form_title_view);
-        this.iJU = (ImageView) this.mRootView.findViewById(R.id.tb_img_background);
-        this.iJU.setEnabled(false);
-        this.iJR = (CommitView) this.mRootView.findViewById(R.id.form_commit_view);
-        this.iJT = (LinearLayout) this.mRootView.findViewById(R.id.item_content_view);
-        this.iJS = (LinearLayout) this.mRootView.findViewById(R.id.form_commit_success_view);
-        this.iJV = (TextView) this.mRootView.findViewById(R.id.form_success_title);
-        this.iJW = (TextView) this.mRootView.findViewById(R.id.form_success_desc);
+        this.iKU = (TitleView) this.mRootView.findViewById(R.id.form_title_view);
+        this.iKY = (ImageView) this.mRootView.findViewById(R.id.tb_img_background);
+        this.iKY.setEnabled(false);
+        this.iKV = (CommitView) this.mRootView.findViewById(R.id.form_commit_view);
+        this.iKX = (LinearLayout) this.mRootView.findViewById(R.id.item_content_view);
+        this.iKW = (LinearLayout) this.mRootView.findViewById(R.id.form_commit_success_view);
+        this.iKZ = (TextView) this.mRootView.findViewById(R.id.form_success_title);
+        this.iLa = (TextView) this.mRootView.findViewById(R.id.form_success_desc);
         initListener();
         return this.mRootView;
     }
 
     private void initListener() {
-        if (this.iJR != null) {
-            this.iJR.getCommitButton().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.FormCardView.1
+        if (this.iKV != null) {
+            this.iKV.getCommitButton().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.FormCardView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    FormCardView.this.c(FormCardView.this.iJY, FormCardView.this.iJR.getPostUrl(), FormCardView.this.iJZ);
+                    FormCardView.this.c(FormCardView.this.iLc, FormCardView.this.iKV.getPostUrl(), FormCardView.this.iLd);
                 }
             });
         }
@@ -106,52 +106,52 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: a */
     public void e(FormCard formCard) {
-        if (formCard != null && formCard.mIsLegal && this.iJX != formCard) {
-            cil();
-            this.iJX = formCard;
-            this.iJZ = formCard.getItemId();
+        if (formCard != null && formCard.mIsLegal && this.iLb != formCard) {
+            ciD();
+            this.iLb = formCard;
+            this.iLd = formCard.getItemId();
             cq(formCard.mWidth, formCard.mHeight);
-            this.iJQ.aQ(this.iKa);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iJQ.getLayoutParams();
+            this.iKU.aQ(this.iLe);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iKU.getLayoutParams();
             if (marginLayoutParams != null) {
-                marginLayoutParams.topMargin = (int) (((int) this.mActivity.getApplicationContext().getResources().getDimension(R.dimen.form_size90)) * this.iKa);
+                marginLayoutParams.topMargin = (int) (((int) this.mActivity.getApplicationContext().getResources().getDimension(R.dimen.form_size90)) * this.iLe);
             }
-            this.iJR.aQ(this.iKa);
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.iJR.getLayoutParams();
+            this.iKV.aQ(this.iLe);
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.iKV.getLayoutParams();
             if (marginLayoutParams2 != null) {
-                marginLayoutParams2.bottomMargin = (int) (((int) this.mActivity.getApplicationContext().getResources().getDimension(R.dimen.form_size90)) * this.iKa);
+                marginLayoutParams2.bottomMargin = (int) (((int) this.mActivity.getApplicationContext().getResources().getDimension(R.dimen.form_size90)) * this.iLe);
             }
-            this.iJQ.a(formCard.titleInfo);
-            this.iJR.a(formCard.commitInfo);
-            b.chE().a(new com.baidu.tieba.recapp.a.a(this.iJR.getPostUrl()));
-            cii();
-            cik();
-            cij();
-            a(this.iJQ);
-            a(this.iJR);
+            this.iKU.a(formCard.titleInfo);
+            this.iKV.a(formCard.commitInfo);
+            b.chW().a(new com.baidu.tieba.recapp.a.a(this.iKV.getPostUrl()));
+            ciA();
+            ciC();
+            ciB();
+            a(this.iKU);
+            a(this.iKV);
             if (formCard.isCommitSuccess()) {
-                cim();
+                ciE();
             }
             if (!formCard.mHasShown) {
-                r.chD().chz().cl(formCard.getShowExtra(), this.mFrom);
+                r.chV().chR().cl(formCard.getShowExtra(), this.mFrom);
                 formCard.mHasShown = true;
             }
         }
     }
 
     private void cq(int i, int i2) {
-        this.cIw = (this.mScreenWidth * i2) / i;
-        this.mRootView.getLayoutParams().height = this.cIw;
+        this.cID = (this.mScreenWidth * i2) / i;
+        this.mRootView.getLayoutParams().height = this.cID;
         this.mRootView.getLayoutParams().width = this.mScreenWidth;
-        this.iKa = (float) (this.mScreenWidth / 750.0d);
+        this.iLe = (float) (this.mScreenWidth / 750.0d);
     }
 
-    private void cii() {
+    private void ciA() {
         this.mRootView.setBackgroundResource(R.drawable.form_defalut_bg_image);
-        if (this.iJX.backgroundInfo != null) {
-            this.iJU.setVisibility(0);
-            if (!TextUtils.isEmpty(this.iJX.backgroundInfo.img)) {
-                c.iE().a(this.iJX.backgroundInfo.img, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.lego.view.form.FormCardView.2
+        if (this.iLb.backgroundInfo != null) {
+            this.iKY.setVisibility(0);
+            if (!TextUtils.isEmpty(this.iLb.backgroundInfo.img)) {
+                c.iE().a(this.iLb.backgroundInfo.img, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.lego.view.form.FormCardView.2
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.f.b
@@ -164,64 +164,64 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                                     int width = aVar.nK().getWidth();
                                     if (width != 0) {
                                         int i2 = (height * FormCardView.this.mScreenWidth) / width;
-                                        switch (FormCardView.this.iJX.backgroundInfo.mode) {
+                                        switch (FormCardView.this.iLb.backgroundInfo.mode) {
                                             case 1:
-                                                FormCardView.this.iJU.getLayoutParams().width = FormCardView.this.mScreenWidth;
-                                                FormCardView.this.iJU.getLayoutParams().height = i2;
+                                                FormCardView.this.iKY.getLayoutParams().width = FormCardView.this.mScreenWidth;
+                                                FormCardView.this.iKY.getLayoutParams().height = i2;
                                                 break;
                                             case 2:
-                                                FormCardView.this.iJU.getLayoutParams().width = FormCardView.this.mScreenWidth;
-                                                FormCardView.this.iJU.getLayoutParams().height = FormCardView.this.cIw;
+                                                FormCardView.this.iKY.getLayoutParams().width = FormCardView.this.mScreenWidth;
+                                                FormCardView.this.iKY.getLayoutParams().height = FormCardView.this.cID;
                                                 break;
                                         }
-                                        int cE = com.baidu.tieba.lego.card.d.a.cE(FormCardView.this.iJX.backgroundInfo.color);
-                                        if (!com.baidu.tieba.lego.card.d.a.wu(cE)) {
+                                        int cE = com.baidu.tieba.lego.card.d.a.cE(FormCardView.this.iLb.backgroundInfo.color);
+                                        if (!com.baidu.tieba.lego.card.d.a.ww(cE)) {
                                             FormCardView.this.mRootView.setBackgroundColor(cE);
                                         }
-                                        aVar.a(FormCardView.this.iJU);
+                                        aVar.a(FormCardView.this.iKY);
                                         return;
                                     }
                                     return;
                                 }
                             } catch (Exception e) {
-                                FormCardView.this.iJU.setImageBitmap(null);
-                                FormCardView.this.iJU.setVisibility(8);
+                                FormCardView.this.iKY.setImageBitmap(null);
+                                FormCardView.this.iKY.setVisibility(8);
                                 return;
                             } catch (OutOfMemoryError e2) {
-                                FormCardView.this.iJU.setImageBitmap(null);
-                                FormCardView.this.iJU.setVisibility(8);
+                                FormCardView.this.iKY.setImageBitmap(null);
+                                FormCardView.this.iKY.setVisibility(8);
                                 return;
                             }
                         }
-                        FormCardView.this.iJU.setVisibility(8);
+                        FormCardView.this.iKY.setVisibility(8);
                     }
                 }, this.mTbPageContext.getUniqueId());
                 return;
             }
         }
-        this.iJU.setVisibility(8);
+        this.iKY.setVisibility(8);
     }
 
-    private void cij() {
-        FormCard.f fVar = this.iJX.resultInfo;
+    private void ciB() {
+        FormCard.f fVar = this.iLb.resultInfo;
         float dimension = this.mContext.getResources().getDimension(R.dimen.fontsize48);
         float dimension2 = this.mContext.getResources().getDimension(R.dimen.fontsize28);
         int color = this.mContext.getResources().getColor(R.color.form_font_color);
         if (fVar != null) {
-            this.iJV.setText(fVar.title);
-            this.iJV.setTextColor(-1);
-            this.iJV.setTextSize(0, dimension);
-            this.iJW.setText(fVar.desc);
-            this.iJW.setTextColor(color);
-            this.iJW.setTextSize(0, dimension2);
+            this.iKZ.setText(fVar.title);
+            this.iKZ.setTextColor(-1);
+            this.iKZ.setTextSize(0, dimension);
+            this.iLa.setText(fVar.desc);
+            this.iLa.setTextColor(color);
+            this.iLa.setTextSize(0, dimension2);
         }
     }
 
-    private void cik() {
-        if (this.iJX.itemList != null && this.iJX.itemList.size() > 0) {
-            int size = this.iJX.itemList.size();
+    private void ciC() {
+        if (this.iLb.itemList != null && this.iLb.itemList.size() > 0) {
+            int size = this.iLb.itemList.size();
             for (int i = 0; i < size; i++) {
-                FormCard.b bVar = this.iJX.itemList.get(i);
+                FormCard.b bVar = this.iLb.itemList.get(i);
                 if (bVar != null) {
                     switch (bVar.type) {
                         case 1:
@@ -246,45 +246,45 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
     }
 
-    private void cil() {
-        this.iJT.removeAllViews();
-        if (this.iJY != null) {
-            this.iJY.clear();
+    private void ciD() {
+        this.iKX.removeAllViews();
+        if (this.iLc != null) {
+            this.iLc.clear();
         } else {
-            this.iJY = new ArrayList();
+            this.iLc = new ArrayList();
         }
-        this.iJR.setVisibility(0);
-        this.iJT.setVisibility(0);
-        this.iJS.setVisibility(8);
-        this.iJR.setClickable(true);
-        this.iJU.setImageBitmap(null);
+        this.iKV.setVisibility(0);
+        this.iKX.setVisibility(0);
+        this.iKW.setVisibility(8);
+        this.iKV.setClickable(true);
+        this.iKY.setImageBitmap(null);
     }
 
     private void a(FormCard.b bVar, FormItemBaseView formItemBaseView, int i, int i2) {
-        formItemBaseView.aQ(this.iKa);
+        formItemBaseView.aQ(this.iLe);
         formItemBaseView.a(bVar);
         a(formItemBaseView, i, i2);
         a(formItemBaseView);
-        this.iJT.addView(formItemBaseView);
+        this.iKX.addView(formItemBaseView);
     }
 
     private void a(FormItemBaseView formItemBaseView, int i, int i2) {
         if (formItemBaseView != null) {
             if (i != i2 - 1) {
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, formItemBaseView.cin());
-                layoutParams.bottomMargin = (int) (((int) this.mActivity.getApplicationContext().getResources().getDimension(R.dimen.form_size40)) * this.iKa);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, formItemBaseView.ciF());
+                layoutParams.bottomMargin = (int) (((int) this.mActivity.getApplicationContext().getResources().getDimension(R.dimen.form_size40)) * this.iLe);
                 formItemBaseView.setLayoutParams(layoutParams);
                 return;
             }
-            formItemBaseView.setLayoutParams(new LinearLayout.LayoutParams(-1, formItemBaseView.cin()));
+            formItemBaseView.setLayoutParams(new LinearLayout.LayoutParams(-1, formItemBaseView.ciF()));
         }
     }
 
     public void a(a aVar) {
-        if (this.iJY == null) {
-            this.iJY = new ArrayList();
+        if (this.iLc == null) {
+            this.iLc = new ArrayList();
         }
-        this.iJY.add(aVar);
+        this.iLc.add(aVar);
     }
 
     public void c(List<a> list, String str, String str2) {
@@ -295,7 +295,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             for (a aVar : list) {
                 FormItemBaseView formView = aVar.getFormView();
                 if (formView != null) {
-                    if (!aVar.cie()) {
+                    if (!aVar.ciw()) {
                         View frameView = formView.getFrameView();
                         if (frameView != null) {
                             formView.a(frameView, FormItemBaseView.DrawableType.ERROR_FRAME);
@@ -325,19 +325,19 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                 hashMap.put(LegoListActivityConfig.ITEM_ID, str2);
                 hashMap.put("url", str);
                 e(str, hashMap);
-                this.iJR.setClickable(false);
+                this.iKV.setClickable(false);
                 return;
             }
             new e().showToast(R.drawable.icon_toast_game_error, R.string.form_commit_error_string);
-            this.iJR.setClickable(true);
+            this.iKV.setClickable(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cim() {
-        this.iJR.setVisibility(4);
-        this.iJT.setVisibility(4);
-        this.iJS.setVisibility(0);
+    public void ciE() {
+        this.iKV.setVisibility(4);
+        this.iKX.setVisibility(4);
+        this.iKW.setVisibility(0);
     }
 
     private JSONObject dZ(String str, String str2) {
@@ -357,25 +357,25 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
 
     private void e(String str, HashMap<String, String> hashMap) {
         if (TextUtils.isEmpty(str)) {
-            this.iJR.setClickable(true);
+            this.iKV.setClickable(true);
         } else {
-            b.chE().a(null, str, hashMap, new d() { // from class: com.baidu.tieba.recapp.lego.view.form.FormCardView.3
+            b.chW().a(null, str, hashMap, new d() { // from class: com.baidu.tieba.recapp.lego.view.form.FormCardView.3
                 @Override // com.baidu.adp.base.d
                 public void m(Object obj) {
                     if (obj instanceof h) {
                         h hVar = (h) obj;
                         if (hVar.result) {
-                            FormCardView.this.iJX.setCommitState(true);
-                            FormCardView.this.cim();
+                            FormCardView.this.iLb.setCommitState(true);
+                            FormCardView.this.ciE();
                         } else if (!TextUtils.isEmpty(hVar.errorString)) {
                             new e().j(hVar.errorString);
-                            FormCardView.this.iJX.setCommitState(false);
+                            FormCardView.this.iLb.setCommitState(false);
                         } else {
                             new e().showToast(R.drawable.icon_toast_game_error, R.string.form_commit_fail_string);
-                            FormCardView.this.iJX.setCommitState(false);
+                            FormCardView.this.iLb.setCommitState(false);
                         }
                     }
-                    FormCardView.this.iJR.setClickable(true);
+                    FormCardView.this.iKV.setClickable(true);
                 }
             });
         }

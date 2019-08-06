@@ -15,8 +15,8 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String bWO;
-        public int eFr;
+        public String bWU;
+        public int eFy;
         public String mPid;
     }
 
@@ -57,37 +57,37 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0414a {
-        private final boolean bHv;
-        private final an hcz;
-        private final String jgr;
-        private final String jgs;
-        private final String jgt;
+        private final boolean bHw;
+        private final an hdr;
+        private final String jhA;
+        private final String jhy;
+        private final String jhz;
         private final String key;
         private final String page;
 
         private C0414a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.jgr = str2;
+            this.jhy = str2;
             this.page = str3;
-            this.jgs = str4;
-            this.jgt = str5;
-            this.bHv = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.hcz = cpH();
+            this.jhz = str4;
+            this.jhA = str5;
+            this.bHw = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.hdr = cqd();
         }
 
-        private an cpH() {
+        private an cqd() {
             an anVar = new an(this.key);
-            if (!StringUtils.isNull(this.jgr)) {
-                anVar = anVar.bT("line", this.jgr);
+            if (!StringUtils.isNull(this.jhy)) {
+                anVar = anVar.bT("line", this.jhy);
             }
             if (!StringUtils.isNull(this.page)) {
                 anVar = anVar.bT("page", this.page);
             }
-            if (!StringUtils.isNull(this.jgs)) {
-                anVar = anVar.bT("locate", this.jgs);
+            if (!StringUtils.isNull(this.jhz)) {
+                anVar = anVar.bT("locate", this.jhz);
             }
-            if (!StringUtils.isNull(this.jgt)) {
-                return anVar.bT("task", this.jgt);
+            if (!StringUtils.isNull(this.jhA)) {
+                return anVar.bT("task", this.jhA);
             }
             return anVar;
         }
@@ -95,34 +95,34 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public an j(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.hcz.bT("action_type", str);
+                this.hdr.bT("action_type", str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.hcz.bT(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.hdr.bT(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.hcz.bT("fid", str3);
+                this.hdr.bT("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.hcz.bT(ImageViewerConfig.FORUM_NAME, str4);
+                this.hdr.bT(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.hcz.bT("tid", str5);
+                this.hdr.bT("tid", str5);
             }
-            this.hcz.P("obj_cpid", 0).P("obj_good_id", 0).bT("obj_throw_type", "BY_POST").bT("client_type", "MOBILE_APP").bT("user_timestamp", String.valueOf(System.currentTimeMillis())).bT(IXAdRequestInfo.OS, "android").bT("os_version", Build.VERSION.RELEASE).bT("log_ver", "1.1");
-            return this.hcz;
+            this.hdr.P("obj_cpid", 0).P("obj_good_id", 0).bT("obj_throw_type", "BY_POST").bT("client_type", "MOBILE_APP").bT("user_timestamp", String.valueOf(System.currentTimeMillis())).bT(IXAdRequestInfo.OS, "android").bT("os_version", Build.VERSION.RELEASE).bT("log_ver", "1.1");
+            return this.hdr;
         }
 
         public C0414a en(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.hcz.bT(str, str2);
+                this.hdr.bT(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.hcz);
-            if (!this.bHv) {
+            TiebaStatic.log(this.hdr);
+            if (!this.bHw) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -131,7 +131,7 @@ public class a {
         }
 
         public void nV(String str) {
-            this.hcz.nV(str);
+            this.hdr.nV(str);
         }
     }
 }

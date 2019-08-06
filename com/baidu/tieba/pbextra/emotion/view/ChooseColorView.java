@@ -13,9 +13,9 @@ import com.baidu.tieba.R;
 public class ChooseColorView extends View {
     private Paint GF;
     private int GW;
-    private int ihn;
-    private boolean iho;
-    private Bitmap ihp;
+    private int iip;
+    private boolean iiq;
+    private Bitmap iir;
     private float mBorderWidth;
     private Paint mPaint;
     private int mRadius;
@@ -30,7 +30,7 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ihn = ViewCompat.MEASURED_STATE_MASK;
+        this.iip = ViewCompat.MEASURED_STATE_MASK;
         this.GW = -1;
         this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
         init();
@@ -39,18 +39,18 @@ public class ChooseColorView extends View {
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.ihn);
+        this.mPaint.setColor(this.iip);
         this.GF = new Paint();
         this.GF.setColor(this.GW);
         this.GF.setAntiAlias(true);
         this.GF.setStyle(Paint.Style.STROKE);
         this.GF.setStrokeWidth(this.mBorderWidth);
-        this.ihp = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
+        this.iir = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.ihn = i;
-        this.mPaint.setColor(this.ihn);
+        this.iip = i;
+        this.mPaint.setColor(this.iip);
     }
 
     public void setRadius(int i) {
@@ -58,11 +58,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.ihn;
+        return this.iip;
     }
 
     public void setIsChooseView(boolean z) {
-        this.iho = z;
+        this.iiq = z;
         invalidate();
     }
 
@@ -71,8 +71,8 @@ public class ChooseColorView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.GF);
-        if (this.iho) {
-            canvas.drawBitmap(this.ihp, getWidth() - this.ihp.getWidth(), 0.0f, (Paint) null);
+        if (this.iiq) {
+            canvas.drawBitmap(this.iir, getWidth() - this.iir.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

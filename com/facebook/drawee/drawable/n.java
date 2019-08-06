@@ -9,14 +9,14 @@ public class n {
 
     /* loaded from: classes2.dex */
     public interface b {
-        public static final b kdc = i.kdk;
-        public static final b kdd = h.kdk;
-        public static final b kde = f.kdk;
-        public static final b kdf = g.kdk;
-        public static final b kdg = c.kdk;
-        public static final b kdh = e.kdk;
-        public static final b kdi = d.kdk;
-        public static final b kdj = j.kdk;
+        public static final b kei = i.keq;
+        public static final b kej = h.keq;
+        public static final b kek = f.keq;
+        public static final b kel = g.keq;
+        public static final b kem = c.keq;
+        public static final b ken = e.keq;
+        public static final b keo = d.keq;
+        public static final b kep = j.keq;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -39,8 +39,8 @@ public class n {
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int cGh = aVar.cGh();
-            for (int i2 = 0; i2 < cGh; i2++) {
+            int cGC = aVar.cGC();
+            for (int i2 = 0; i2 < cGC; i2++) {
                 m l = l(aVar.getDrawable(i2));
                 if (l != null) {
                     return l;
@@ -63,7 +63,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class i extends a {
-        public static final b kdk = new i();
+        public static final b keq = new i();
 
         private i() {
         }
@@ -81,7 +81,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class h extends a {
-        public static final b kdk = new h();
+        public static final b keq = new h();
 
         private h() {
         }
@@ -100,7 +100,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class f extends a {
-        public static final b kdk = new f();
+        public static final b keq = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class g extends a {
-        public static final b kdk = new g();
+        public static final b keq = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class c extends a {
-        public static final b kdk = new c();
+        public static final b keq = new c();
 
         private c() {
         }
@@ -157,7 +157,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class e extends a {
-        public static final b kdk = new e();
+        public static final b keq = new e();
 
         private e() {
         }
@@ -177,7 +177,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class d extends a {
-        public static final b kdk = new d();
+        public static final b keq = new d();
 
         private d() {
         }
@@ -205,7 +205,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class j extends a {
-        public static final b kdk = new j();
+        public static final b keq = new j();
 
         private j() {
         }

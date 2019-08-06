@@ -10,7 +10,7 @@ public class d {
         return str.getBytes(charset);
     }
 
-    public static byte[] Hy(String str) {
+    public static byte[] Hz(String str) {
         return a(str, c.UTF_8);
     }
 

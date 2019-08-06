@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class d {
     private long duration;
     private boolean hasLoaded = false;
-    private String jzd;
+    private String jAk;
     private long lastModified;
     private String mimeType;
     private Bitmap thumbnailBitmap;
@@ -38,7 +38,7 @@ public class d {
         return this.mimeType;
     }
 
-    public void FU(String str) {
+    public void FV(String str) {
         this.mimeType = str;
     }
 
@@ -58,11 +58,11 @@ public class d {
         this.videoHeight = i;
     }
 
-    public void FV(String str) {
-        this.jzd = str;
+    public void FW(String str) {
+        this.jAk = str;
     }
 
-    public long cvs() {
+    public long cvO() {
         return this.lastModified;
     }
 
@@ -70,7 +70,7 @@ public class d {
         this.lastModified = j;
     }
 
-    public synchronized Bitmap cvt() {
+    public synchronized Bitmap cvP() {
         return this.thumbnailBitmap;
     }
 
@@ -78,11 +78,11 @@ public class d {
         this.thumbnailBitmap = bitmap;
     }
 
-    public void rH(boolean z) {
+    public void rI(boolean z) {
         this.hasLoaded = z;
     }
 
-    public boolean cvu() {
+    public boolean cvQ() {
         return this.hasLoaded;
     }
 }

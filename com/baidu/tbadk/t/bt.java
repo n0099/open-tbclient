@@ -17,7 +17,7 @@ public class bt extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int hJ() {
-        return com.baidu.tbadk.core.sharedPref.b.ahO().getInt("key_video_player_reuse_switch", 0);
+        return com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("key_video_player_reuse_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.b.a

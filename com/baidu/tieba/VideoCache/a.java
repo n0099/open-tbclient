@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<d> cUN = new ArrayList();
-    private long cUO = 0;
+    private List<d> cUU = new ArrayList();
+    private long cUV = 0;
 
-    public List<d> aBR() {
-        return this.cUN;
+    public List<d> aBT() {
+        return this.cUU;
     }
 
-    public long aBS() {
-        return this.cUO;
+    public long aBU() {
+        return this.cUV;
     }
 
     public void a(d dVar) {
-        if (this.cUN != null) {
-            this.cUN.add(dVar);
+        if (this.cUU != null) {
+            this.cUU.add(dVar);
             if (dVar != null) {
-                this.cUO += dVar.aCb();
+                this.cUV += dVar.aCd();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.cUN != null) {
-            this.cUN.remove(dVar);
+        if (this.cUU != null) {
+            this.cUU.remove(dVar);
             if (dVar != null) {
-                this.cUO -= dVar.aCb();
+                this.cUV -= dVar.aCd();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.cUN != null) {
-            d dVar = this.cUN.get(i);
+        if (this.cUU != null) {
+            d dVar = this.cUU.get(i);
             if (dVar != null) {
-                this.cUO -= dVar.aCb();
+                this.cUV -= dVar.aCd();
             }
-            this.cUN.remove(i);
+            this.cUU.remove(i);
         }
     }
 
-    public int aBT() {
-        if (this.cUN != null) {
-            return this.cUN.size();
+    public int aBV() {
+        if (this.cUU != null) {
+            return this.cUU.size();
         }
         return 0;
     }
 
-    public d mj(int i) {
-        if (this.cUN != null) {
-            return this.cUN.get(i);
+    public d mk(int i) {
+        if (this.cUU != null) {
+            return this.cUU.get(i);
         }
         return null;
     }

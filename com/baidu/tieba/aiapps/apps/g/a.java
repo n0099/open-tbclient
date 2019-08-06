@@ -44,21 +44,21 @@ public class a implements i {
         if (DEBUG) {
             Log.e("DefaultSwanAppLifecycle", "onAppBackground");
         }
-        long j = com.baidu.tbadk.core.sharedPref.b.ahO().getLong("smart_app_tid", 0L);
-        String string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("smart_app_id", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.ahO().getString("smart_app_name", "");
+        long j = com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("smart_app_tid", 0L);
+        String string = com.baidu.tbadk.core.sharedPref.b.ahQ().getString("smart_app_id", "");
+        String string2 = com.baidu.tbadk.core.sharedPref.b.ahQ().getString("smart_app_name", "");
         if (this.lastResumeTime != 0 && j != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d dVar = new d();
             dVar.bi(currentTimeMillis);
             dVar.qT(getCurrentPageKey());
             dVar.setTid(j);
-            dVar.czk = string;
-            dVar.czl = string2;
+            dVar.czr = string;
+            dVar.czs = string2;
             dVar.ao(getCurrentPageSourceKeyList());
-            e.auZ().fC(true);
-            e.auZ().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
-            com.baidu.tbadk.core.sharedPref.b.ahO().putLong("smart_app_tid", 0L);
+            e.avb().fC(true);
+            e.avb().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("smart_app_tid", 0L);
         }
     }
 
@@ -67,8 +67,8 @@ public class a implements i {
         if (DEBUG) {
             Log.e("DefaultSwanAppLifecycle", "onAppExit");
         }
-        if (com.baidu.tbadk.core.sharedPref.b.ahO().getBoolean("key_ai_app_guide_display", true)) {
-            com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean("key_ai_app_guide_display", false);
+        if (com.baidu.tbadk.core.sharedPref.b.ahQ().getBoolean("key_ai_app_guide_display", true)) {
+            com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("key_ai_app_guide_display", false);
             Intent intent = new Intent(swanAppActivity, DealIntentService.class);
             intent.putExtra(DealIntentService.KEY_CLASS, 38);
             swanAppActivity.startService(intent);

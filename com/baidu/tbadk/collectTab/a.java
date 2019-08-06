@@ -14,11 +14,11 @@ public class a {
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.atS() != null) {
+        if (bVar != null && bVar.atU() != null) {
             Iterator<b> it = this.bCN.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.atS() != null && next.atS().type == bVar.atS().type) {
+                if (next != null && next.atU() != null && next.atU().type == bVar.atU().type) {
                     return;
                 }
             }

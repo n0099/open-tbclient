@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
@@ -34,21 +34,21 @@ public class l extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.acx() == null) {
+        if (aVar == null || aVar.acy() == null) {
             getView().setVisibility(8);
             return;
         }
         this.VJ = aVar;
-        bg acx = aVar.acx();
-        com.baidu.tieba.card.n.a(acx, this.VY);
-        this.VX.setData(acx);
+        bh acy = aVar.acy();
+        com.baidu.tieba.card.n.a(acy, this.VY);
+        this.VX.setData(acy);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         this.VX.onChangeSkinType();
-        if (this.VJ != null && this.VJ.acx() != null) {
-            com.baidu.tieba.card.n.a(this.VY, this.VJ.acx().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        if (this.VJ != null && this.VJ.acy() != null) {
+            com.baidu.tieba.card.n.a(this.VY, this.VJ.acy().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
     }
 

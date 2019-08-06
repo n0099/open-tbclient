@@ -3,93 +3,93 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class as {
-    private static as bTW = null;
-    private boolean bTX = false;
-    private boolean bTY = false;
-    private int bTZ = TbConfig.POST_IMAGE_SMALL;
-    private String bUa = String.valueOf(45);
+    private static as bUc = null;
+    private boolean bUd = false;
+    private boolean bUe = false;
+    private int bUf = TbConfig.POST_IMAGE_SMALL;
+    private String bUg = String.valueOf(45);
 
-    public static as ajo() {
-        if (bTW == null) {
+    public static as ajq() {
+        if (bUc == null) {
             synchronized (as.class) {
-                if (bTW == null) {
-                    bTW = new as();
+                if (bUc == null) {
+                    bUc = new as();
                 }
             }
         }
-        return bTW;
+        return bUc;
     }
 
     public as() {
+        ajt();
         ajr();
-        ajp();
-    }
-
-    private void ajp() {
-        ajw();
-        ajx();
-        ajy();
-    }
-
-    public void ed(boolean z) {
-        this.bTY = z;
-    }
-
-    public boolean ajq() {
-        return this.bTY;
-    }
-
-    public void ee(boolean z) {
-        this.bTX = z;
-        ajp();
     }
 
     private void ajr() {
-        this.bTX = com.baidu.adp.lib.util.j.kd();
+        ajy();
+        ajz();
+        ajA();
+    }
+
+    public void ed(boolean z) {
+        this.bUe = z;
     }
 
     public boolean ajs() {
-        return this.bTX;
+        return this.bUe;
     }
 
-    public String ajt() {
-        return this.bUa;
+    public void ee(boolean z) {
+        this.bUd = z;
+        ajr();
     }
 
-    public int aju() {
-        ajy();
-        return this.bTZ;
+    private void ajt() {
+        this.bUd = com.baidu.adp.lib.util.j.kd();
     }
 
-    public int ajv() {
+    public boolean aju() {
+        return this.bUd;
+    }
+
+    public String ajv() {
+        return this.bUg;
+    }
+
+    public int ajw() {
+        ajA();
+        return this.bUf;
+    }
+
+    public int ajx() {
         return TbConfig.POST_IMAGE_HIGHT_LIMIT;
     }
 
-    public void ajw() {
+    public void ajy() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.aca().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.aca().getViewImageQuality() != 1 : !this.bTX) {
+        if (com.baidu.tbadk.core.i.aca().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.aca().getViewImageQuality() != 1 : !this.bUd) {
             z = false;
         }
         ed(z);
     }
 
-    public void ajx() {
+    public void ajz() {
         String valueOf = String.valueOf(45);
         if (com.baidu.tbadk.core.i.aca().getViewImageQuality() == 0) {
-            if (ajs()) {
+            if (aju()) {
                 valueOf = String.valueOf(80);
             }
         } else if (com.baidu.tbadk.core.i.aca().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.bUa = valueOf;
+        this.bUg = valueOf;
     }
 
-    public void ajy() {
+    public void ajA() {
         int i = 2000;
         switch (com.baidu.tbadk.core.i.aca().acb()) {
             case 0:
-                if (!ajs()) {
+                if (!aju()) {
                     i = 1500;
                     break;
                 }
@@ -106,10 +106,10 @@ public class as {
                 i = 1800;
                 break;
         }
-        this.bTZ = i;
+        this.bUf = i;
     }
 
-    public static boolean ajz() {
+    public static boolean ajB() {
         return m.gB() && com.baidu.adp.gif.c.gA();
     }
 }

@@ -12,18 +12,18 @@ import com.baidu.tieba.R;
 public class SendView extends TextView implements l {
     private EditorTools TU;
     private int TV;
-    private int cdL;
-    private boolean[] cud;
-    private int[] cue;
+    private int cdS;
+    private boolean[] cuk;
+    private int[] cul;
     private int mType;
-    public static int cuf = 1;
+    public static int cum = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.cud = new boolean[]{false, false, false, false, false};
-        this.cue = new int[]{0, 0};
-        this.cdL = 0;
+        this.cuk = new boolean[]{false, false, false, false, false};
+        this.cul = new int[]{0, 0};
+        this.cdS = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
@@ -46,67 +46,67 @@ public class SendView extends TextView implements l {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.cud[0] = false;
+                        this.cuk[0] = false;
                         break;
                     } else {
-                        this.cud[0] = true;
+                        this.cuk[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.cud[0] = false;
-                    this.cud[1] = false;
-                    this.cud[2] = false;
-                    this.cud[3] = false;
-                    this.cud[4] = false;
-                    this.cue[0] = 0;
-                    this.cue[1] = 0;
+                    this.cuk[0] = false;
+                    this.cuk[1] = false;
+                    this.cuk[2] = false;
+                    this.cuk[3] = false;
+                    this.cuk[4] = false;
+                    this.cul[0] = 0;
+                    this.cul[1] = 0;
                     break;
                 case 10:
-                    this.cud[2] = true;
+                    this.cuk[2] = true;
                     break;
                 case 11:
-                    this.cud[2] = false;
+                    this.cuk[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.csT != null) {
-                            if (aVar2.csT.getChosedFiles() != null) {
-                                this.cue[0] = aVar2.csT.getChosedFiles().size();
+                        if (aVar2.cta != null) {
+                            if (aVar2.cta.getChosedFiles() != null) {
+                                this.cul[0] = aVar2.cta.getChosedFiles().size();
                             } else {
-                                this.cue[0] = 0;
+                                this.cul[0] = 0;
                             }
                         }
-                        if (this.cue[0] > 0) {
-                            this.cud[1] = true;
+                        if (this.cul[0] > 0) {
+                            this.cuk[1] = true;
                             break;
                         } else {
-                            this.cud[1] = false;
+                            this.cuk[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.cue;
+                    int[] iArr = this.cul;
                     iArr[0] = iArr[0] - 1;
-                    if (this.cue[0] > 0) {
-                        this.cud[1] = true;
+                    if (this.cul[0] > 0) {
+                        this.cuk[1] = true;
                         break;
                     } else {
-                        this.cud[1] = false;
+                        this.cuk[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.cud[3] = true;
+                    this.cuk[3] = true;
                     break;
                 case 29:
-                    this.cud[3] = false;
+                    this.cuk[3] = false;
                     break;
             }
-            kx(this.mType);
+            ky(this.mType);
         }
     }
 
@@ -149,7 +149,7 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.cdL = i;
+        this.cdS = i;
         if (isEnabled()) {
             am.d(this, R.color.cp_link_tip_a, 1, i);
         } else {
@@ -161,19 +161,19 @@ public class SendView extends TextView implements l {
         this.mType = i;
     }
 
-    public void kx(int i) {
+    public void ky(int i) {
         if (i == ALL) {
-            if (this.cud[0] || this.cud[1] || this.cud[2] || this.cud[3] || this.cud[4]) {
+            if (this.cuk[0] || this.cuk[1] || this.cuk[2] || this.cuk[3] || this.cuk[4]) {
                 setEnabled(true);
-                am.d(this, R.color.cp_link_tip_a, 1, this.cdL);
+                am.d(this, R.color.cp_link_tip_a, 1, this.cdS);
                 return;
             }
             setEnabled(false);
             am.f(this, R.color.cp_cont_e, 1);
-        } else if (i == cuf) {
-            if (this.cud[1]) {
+        } else if (i == cum) {
+            if (this.cuk[1]) {
                 setEnabled(true);
-                am.d(this, R.color.cp_link_tip_a, 1, this.cdL);
+                am.d(this, R.color.cp_link_tip_a, 1, this.cdS);
                 return;
             }
             setEnabled(false);

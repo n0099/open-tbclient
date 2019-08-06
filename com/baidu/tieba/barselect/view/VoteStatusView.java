@@ -14,15 +14,15 @@ import com.baidu.tieba.barselect.a.d;
 /* loaded from: classes3.dex */
 public class VoteStatusView extends View {
     private Shader ams;
-    private boolean ezK;
-    public int ezL;
-    public int ezM;
-    public int ezN;
-    private Path ezO;
-    private Path ezP;
-    private Path ezQ;
-    private Path ezR;
-    private Path ezS;
+    private boolean ezR;
+    public int ezS;
+    public int ezT;
+    public int ezU;
+    private Path ezV;
+    private Path ezW;
+    private Path ezX;
+    private Path ezY;
+    private Path ezZ;
     private Paint mPaint;
     private int status;
 
@@ -33,23 +33,23 @@ public class VoteStatusView extends View {
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.status = -1;
-        this.ezK = true;
+        this.ezR = true;
         initUI();
     }
 
     private void initUI() {
-        this.ezN = am.getColor(R.color.cp_bg_line_b);
-        this.ezL = am.getColor(R.color.cp_link_tip_b);
-        this.ezM = am.getColor(R.color.cp_link_tip_a);
+        this.ezU = am.getColor(R.color.cp_bg_line_b);
+        this.ezS = am.getColor(R.color.cp_link_tip_b);
+        this.ezT = am.getColor(R.color.cp_link_tip_a);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(this.ezN);
-        this.ezO = new Path();
-        this.ezP = new Path();
-        this.ezQ = new Path();
-        this.ezR = new Path();
-        this.ezS = new Path();
+        this.mPaint.setColor(this.ezU);
+        this.ezV = new Path();
+        this.ezW = new Path();
+        this.ezX = new Path();
+        this.ezY = new Path();
+        this.ezZ = new Path();
     }
 
     public void setStatus(int i) {
@@ -62,38 +62,38 @@ public class VoteStatusView extends View {
         int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
         int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
         int i = height * 6 >= width ? width / 6 : height;
-        this.ezO.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
-        this.ezP.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
-        this.ezQ.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
-        this.ezR.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
-        this.ezS.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
-        this.mPaint.setColor(this.ezN);
+        this.ezV.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
+        this.ezW.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
+        this.ezX.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
+        this.ezY.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
+        this.ezZ.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
+        this.mPaint.setColor(this.ezU);
         this.mPaint.setShader(null);
-        if (this.ams == null || this.ezK) {
-            this.ams = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.ezL, this.ezM, Shader.TileMode.CLAMP);
-            this.ezK = false;
+        if (this.ams == null || this.ezR) {
+            this.ams = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.ezS, this.ezT, Shader.TileMode.CLAMP);
+            this.ezR = false;
         }
-        if (this.status == d.eyX) {
+        if (this.status == d.eze) {
             this.mPaint.setShader(this.ams);
         }
-        canvas.drawPath(this.ezS, this.mPaint);
-        canvas.drawPath(this.ezQ, this.mPaint);
-        if (this.status == d.eyW) {
+        canvas.drawPath(this.ezZ, this.mPaint);
+        canvas.drawPath(this.ezX, this.mPaint);
+        if (this.status == d.ezd) {
             this.mPaint.setShader(this.ams);
         }
-        canvas.drawPath(this.ezR, this.mPaint);
-        canvas.drawPath(this.ezP, this.mPaint);
-        if (this.status == d.eyV) {
+        canvas.drawPath(this.ezY, this.mPaint);
+        canvas.drawPath(this.ezW, this.mPaint);
+        if (this.status == d.ezc) {
             this.mPaint.setShader(this.ams);
         }
-        canvas.drawPath(this.ezO, this.mPaint);
+        canvas.drawPath(this.ezV, this.mPaint);
     }
 
-    public void nz(int i) {
-        this.ezL = am.getColor(i, R.color.cp_link_tip_b);
-        this.ezM = am.getColor(i, R.color.cp_link_tip_a);
-        this.ezN = am.getColor(i, R.color.cp_bg_line_b);
-        this.ezK = true;
+    public void nA(int i) {
+        this.ezS = am.getColor(i, R.color.cp_link_tip_b);
+        this.ezT = am.getColor(i, R.color.cp_link_tip_a);
+        this.ezU = am.getColor(i, R.color.cp_bg_line_b);
+        this.ezR = true;
         invalidate();
     }
 }

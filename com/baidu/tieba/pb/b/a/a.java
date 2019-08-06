@@ -9,11 +9,11 @@ import com.baidu.tbadk.imageManager.a;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class a implements c {
-    private ExcContent ibJ;
-    private SpannableString ibK;
+    private ExcContent icG;
+    private SpannableString icH;
 
     public a(ExcContent excContent) {
-        this.ibJ = excContent;
+        this.icG = excContent;
     }
 
     @Override // com.baidu.tieba.pb.b.a.d
@@ -22,31 +22,31 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bZD() {
-        return b(this.ibJ);
+    public CharSequence bZU() {
+        return b(this.icG);
     }
 
     private SpannableString b(ExcContent excContent) {
         String str;
         int qf;
         a.C0255a qC;
-        if (this.ibK == null && (qf = TbFaceManager.atv().qf((str = excContent.text))) != 0) {
-            String str2 = "#(" + TbFaceManager.atv().qh(str) + ")";
-            this.ibK = new SpannableString(str2 + " ");
+        if (this.icH == null && (qf = TbFaceManager.atx().qf((str = excContent.text))) != 0) {
+            String str2 = "#(" + TbFaceManager.atx().qh(str) + ")";
+            this.icH = new SpannableString(str2 + " ");
             com.baidu.tbadk.widget.richText.b bVar = new com.baidu.tbadk.widget.richText.b(TbadkCoreApplication.getInst().getContext(), qf);
-            if (TbFaceManager.atv().qC(str) != null) {
+            if (TbFaceManager.atx().qC(str) != null) {
                 int width = (int) (qC.getWidth() * 0.6d);
                 bVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 bVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            this.ibK.setSpan(new ImageSpan(bVar, 0), 0, str2.length(), 33);
+            this.icH.setSpan(new ImageSpan(bVar, 0), 0, str2.length(), 33);
         }
-        return this.ibK;
+        return this.icH;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean bZE() {
+    public boolean bZV() {
         return false;
     }
 }

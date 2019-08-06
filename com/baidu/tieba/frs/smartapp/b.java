@@ -5,8 +5,8 @@ import tbclient.SmartApp;
 public class b {
     public String avatar;
     public Integer bzy;
-    public String fNO;
-    public Long fNP;
+    public String fOC;
+    public Long fOD;
     public String h5_url;
     public String id;
     public String link;
@@ -16,14 +16,14 @@ public class b {
     public void a(SmartApp smartApp) {
         if (smartApp != null) {
             this.name = smartApp.name;
-            this.fNO = smartApp._abstract;
+            this.fOC = smartApp._abstract;
             this.avatar = smartApp.avatar;
             this.h5_url = smartApp.h5_url;
             this.pic = smartApp.pic;
             this.id = smartApp.id;
             this.link = smartApp.link;
             this.bzy = smartApp.is_game;
-            this.fNP = smartApp.swan_app_id;
+            this.fOD = smartApp.swan_app_id;
         }
     }
 }

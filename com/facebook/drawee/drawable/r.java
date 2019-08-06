@@ -1,7 +1,7 @@
 package com.facebook.drawee.drawable;
 /* loaded from: classes2.dex */
 public interface r {
-    void cGv();
+    void cGQ();
 
-    void sy(boolean z);
+    void sz(boolean z);
 }

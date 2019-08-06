@@ -16,9 +16,9 @@ public final class u {
             return false;
         }
         try {
-            a aws = a.aws();
+            a awu = a.awu();
             for (String str : strArr) {
-                if (aws.rl(str) != null) {
+                if (awu.rl(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class u {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a cDe;
-        private final Properties cDf = new Properties();
+        private static a cDl;
+        private final Properties cDm = new Properties();
 
         private a() throws IOException {
-            this.cDf.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.cDm.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a aws() throws IOException {
-            if (cDe == null) {
+        public static a awu() throws IOException {
+            if (cDl == null) {
                 synchronized (a.class) {
-                    if (cDe == null) {
-                        cDe = new a();
+                    if (cDl == null) {
+                        cDl = new a();
                     }
                 }
             }
-            return cDe;
+            return cDl;
         }
 
         public String rl(String str) {
-            return this.cDf.getProperty(str);
+            return this.cDm.getProperty(str);
         }
     }
 }

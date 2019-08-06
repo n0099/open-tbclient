@@ -8,51 +8,51 @@ import com.baidu.tbadk.editortools.k;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends k {
-    private EditText ctU;
+    private EditText cub;
 
     public e(Context context) {
         super(context, (String) null, 27);
-        this.csL = false;
-        this.csK = 3;
-        this.crT = new PbNewInputContainer(context);
-        this.ctU = ((PbNewInputContainer) this.crT).getInputView();
-        ((PbNewInputContainer) this.crT).setHint(context.getString(R.string.say_your_point));
-        this.csM = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+        this.csS = false;
+        this.csR = 3;
+        this.csa = new PbNewInputContainer(context);
+        this.cub = ((PbNewInputContainer) this.csa).getInputView();
+        ((PbNewInputContainer) this.csa).setHint(context.getString(R.string.say_your_point));
+        this.csT = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
     }
 
     public void c(TextWatcher textWatcher) {
-        this.ctU.addTextChangedListener(textWatcher);
+        this.cub.addTextChangedListener(textWatcher);
     }
 
     public void d(TextWatcher textWatcher) {
-        this.ctU.removeTextChangedListener(textWatcher);
+        this.cub.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.crT != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.crT).setHint(str);
+        if (this.csa != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.csa).setHint(str);
         }
     }
 
     public void setDefaultHint(String str) {
-        if (this.crT != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.crT).setDefaultHint(str);
+        if (this.csa != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.csa).setDefaultHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.ctU;
+        return this.cub;
     }
 
     public void setType(int i) {
-        if (this.crT != null) {
-            ((PbNewInputContainer) this.crT).setType(i);
+        if (this.csa != null) {
+            ((PbNewInputContainer) this.csa).setType(i);
         }
     }
 
-    public void kx(int i) {
-        if (this.crT != null) {
-            ((PbNewInputContainer) this.crT).kx(i);
+    public void ky(int i) {
+        if (this.csa != null) {
+            ((PbNewInputContainer) this.csa).ky(i);
         }
     }
 }

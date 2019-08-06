@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.c;
 /* loaded from: classes4.dex */
 public class a {
-    public static String aFh() {
+    public static String aFj() {
         return "https://mbd.baidu.com";
     }
 
-    public static String aFi() {
-        return String.format("%s/searchbox?action=userx&type=attribute", aFh());
+    public static String aFk() {
+        return String.format("%s/searchbox?action=userx&type=attribute", aFj());
     }
 
-    public static String aFj() {
+    public static String aFl() {
         return "https://gamecenter.baidu.com";
     }
 }

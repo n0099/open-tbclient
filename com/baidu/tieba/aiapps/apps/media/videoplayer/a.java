@@ -20,7 +20,7 @@ public interface a {
     public interface b {
         void a(g gVar);
 
-        a aGI();
+        a aGK();
     }
 
     void a(InterfaceC0289a interfaceC0289a);

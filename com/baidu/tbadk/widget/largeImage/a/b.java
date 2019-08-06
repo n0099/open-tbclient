@@ -10,63 +10,63 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private final Rect cIA;
-    private final int cIq;
-    private final RectF cIu;
-    private final int cIv;
-    private final int cIw;
-    private a cIz;
-    private final RectF cIs = new RectF();
-    private final Rect cIt = new Rect();
-    private float cIx = 1.0f;
-    private final List<a> cIy = new ArrayList();
+    private final RectF cIB;
+    private final int cIC;
+    private final int cID;
+    private a cIG;
+    private final Rect cIH;
+    private final int cIx;
+    private final RectF cIz = new RectF();
+    private final Rect cIA = new Rect();
+    private float cIE = 1.0f;
+    private final List<a> cIF = new ArrayList();
     private final Matrix mMatrix = new Matrix();
 
     public b(int i, int i2, int[] iArr) {
-        this.cIw = i2;
-        this.cIv = i;
-        this.cIu = new RectF(0.0f, 0.0f, i, i2);
-        this.cIA = new Rect(0, 0, iArr[0], iArr[1]);
-        this.cIq = i / 2;
+        this.cID = i2;
+        this.cIC = i;
+        this.cIB = new RectF(0.0f, 0.0f, i, i2);
+        this.cIH = new Rect(0, 0, iArr[0], iArr[1]);
+        this.cIx = i / 2;
     }
 
     public int qe() {
-        return this.cIq;
+        return this.cIx;
     }
 
-    public Rect axQ() {
-        return this.cIA;
+    public Rect axS() {
+        return this.cIH;
     }
 
     public Rect a(a aVar) {
         if (aVar == null) {
             return null;
         }
-        return aVar.axO();
+        return aVar.axQ();
     }
 
-    public Point[] axR() {
-        axT();
-        int axP = axP();
-        int i = (this.cIt.top / axP) / this.cIq;
-        int i2 = (this.cIt.left / axP) / this.cIq;
+    public Point[] axT() {
+        axV();
+        int axR = axR();
+        int i = (this.cIA.top / axR) / this.cIx;
+        int i2 = (this.cIA.left / axR) / this.cIx;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.cIt.bottom / axP) / this.cIq) * axP) + 1;
-        point2.x = (axP * ((this.cIt.right / axP) / this.cIq)) + 1;
+        point2.y = (((this.cIA.bottom / axR) / this.cIx) * axR) + 1;
+        point2.x = (axR * ((this.cIA.right / axR) / this.cIx)) + 1;
         return new Point[]{point, point2};
     }
 
-    public a axS() {
-        return new a(this.cIq);
+    public a axU() {
+        return new a(this.cIx);
     }
 
-    public Rect axT() {
-        this.mMatrix.mapRect(this.cIs, this.cIu);
-        a(this.cIt, this.cIs);
-        return this.cIt;
+    public Rect axV() {
+        this.mMatrix.mapRect(this.cIz, this.cIB);
+        a(this.cIA, this.cIz);
+        return this.cIA;
     }
 
     private void a(Rect rect, RectF rectF) {
@@ -74,28 +74,28 @@ public class b {
     }
 
     public int getRealWidth() {
-        return this.cIv;
+        return this.cIC;
     }
 
-    public int axU() {
-        return this.cIw;
+    public int axW() {
+        return this.cID;
     }
 
-    public List<a> axV() {
-        return this.cIy;
+    public List<a> axX() {
+        return this.cIF;
     }
 
     public void ar(float f) {
-        this.cIx = f;
+        this.cIE = f;
     }
 
-    public float axW() {
-        return this.cIx;
+    public float axY() {
+        return this.cIE;
     }
 
-    public int axP() {
+    public int axR() {
         int i = 1;
-        while (i < Math.round(this.cIx)) {
+        while (i < Math.round(this.cIE)) {
             i *= 2;
         }
         return i;
@@ -103,13 +103,13 @@ public class b {
 
     public void r(Bitmap bitmap) {
         if (bitmap != null) {
-            this.cIz = new a(bitmap);
-            this.cIz.n(0, 0, this.cIv, this.cIw);
+            this.cIG = new a(bitmap);
+            this.cIG.n(0, 0, this.cIC, this.cID);
         }
     }
 
-    public a axX() {
-        return this.cIz;
+    public a axZ() {
+        return this.cIG;
     }
 
     public void u(float f, float f2) {
@@ -125,16 +125,16 @@ public class b {
     }
 
     public boolean v(int i, int i2, int i3) {
-        if (i3 == axP()) {
-            return w(i, i2, i3).intersect(this.cIt);
+        if (i3 == axR()) {
+            return w(i, i2, i3).intersect(this.cIA);
         }
         return false;
     }
 
     public Rect w(int i, int i2, int i3) {
-        int i4 = this.cIq * i3 * i2;
-        int i5 = this.cIq * i3 * i;
-        return new Rect(i4, i5, (this.cIq * i3) + i4, (this.cIq * i3) + i5);
+        int i4 = this.cIx * i3 * i2;
+        int i5 = this.cIx * i3 * i;
+        return new Rect(i4, i5, (this.cIx * i3) + i4, (this.cIx * i3) + i5);
     }
 
     public void h(Rect rect) {
@@ -144,11 +144,11 @@ public class b {
         if (rect.top < 0) {
             rect.top = 0;
         }
-        if (rect.right > this.cIA.right) {
-            rect.right = this.cIA.right;
+        if (rect.right > this.cIH.right) {
+            rect.right = this.cIH.right;
         }
-        if (rect.bottom > this.cIA.bottom) {
-            rect.bottom = this.cIA.bottom;
+        if (rect.bottom > this.cIH.bottom) {
+            rect.bottom = this.cIH.bottom;
         }
     }
 }

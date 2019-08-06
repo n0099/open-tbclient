@@ -10,11 +10,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
-public class w extends c implements i<bg> {
+public class w extends c implements i<bh> {
     private TbImageView Wy;
     private TbPageContext mPageContext;
     private int mType = 0;
@@ -35,14 +35,14 @@ public class w extends c implements i<bg> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
-    public void C(bg bgVar) {
-        b(bgVar);
+    public void C(bh bhVar) {
+        b(bhVar);
     }
 
-    public void b(bg bgVar) {
-        MetaData aex;
-        if (bgVar != null && this.Wy != null && (aex = bgVar.aex()) != null) {
-            final ThemeCardInUserData themeCard = aex.getThemeCard();
+    public void b(bh bhVar) {
+        MetaData aey;
+        if (bhVar != null && this.Wy != null && (aey = bhVar.aey()) != null) {
+            final ThemeCardInUserData themeCard = aey.getThemeCard();
             if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
                 this.Wy.setVisibility(8);
                 return;

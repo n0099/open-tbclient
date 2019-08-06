@@ -20,41 +20,41 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a bPW;
+    private static a bQc;
     private int activityId;
-    private int bPX;
-    private int bPY;
-    private int bPZ;
-    private CustomMessageListener bQa = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.g.a.1
+    private int bQd;
+    private int bQe;
+    private int bQf;
+    private CustomMessageListener bQg = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.g.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 1) {
-                a.this.ahN();
+                a.this.ahP();
             }
         }
     };
     private int missionId;
 
-    public static a ahL() {
-        if (bPW == null) {
+    public static a ahN() {
+        if (bQc == null) {
             synchronized (a.class) {
-                if (bPW == null) {
-                    bPW = new a();
+                if (bQc == null) {
+                    bQc = new a();
                 }
             }
         }
-        return bPW;
+        return bQc;
     }
 
     public void c(com.baidu.tbadk.BdToken.activeConfig.a aVar) {
         Activity currentActivity;
         TbPageContext Y;
         if (aVar != null) {
-            boolean z = b.ahO().getBoolean("key_task_system_new_user_popup_show_number", false);
+            boolean z = b.ahQ().getBoolean("key_task_system_new_user_popup_show_number", false);
             if (aVar.isNewUser && !StringUtils.isNull(aVar.bAe) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (Y = Y(currentActivity)) != null) {
                 Y.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", aVar.bAe + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
-                b.ahO().putBoolean("key_task_system_new_user_popup_show_number", true);
+                b.ahQ().putBoolean("key_task_system_new_user_popup_show_number", true);
             }
         }
     }
@@ -73,38 +73,38 @@ public class a {
         if (missionInfo != null && missionInfo.activityid.intValue() != 0 && missionInfo.missionid.intValue() != 0) {
             this.activityId = missionInfo.activityid.intValue();
             this.missionId = missionInfo.missionid.intValue();
-            this.bPX = missionInfo.total_limit.intValue();
-            this.bPZ = missionInfo.cleartype.intValue();
-            this.bPY = missionInfo.cleartime.intValue();
+            this.bQd = missionInfo.total_limit.intValue();
+            this.bQf = missionInfo.cleartype.intValue();
+            this.bQe = missionInfo.cleartime.intValue();
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
-            bVar.al(this.bPY);
-            bVar.gk(this.bPZ);
-            b.ahO().putInt("task_share_thread_success_data_total_limit", this.bPX);
-            b.ahO().putInt("task_share_thread_success_data_mission_id", this.missionId);
-            b.ahO().putInt("task_share_thread_success_data_action_id", this.activityId);
-            b.ahO().putLong("task_share_thread_success_data_specific_clear_time", bVar.YO());
+            bVar.al(this.bQe);
+            bVar.gk(this.bQf);
+            b.ahQ().putInt("task_share_thread_success_data_total_limit", this.bQd);
+            b.ahQ().putInt("task_share_thread_success_data_mission_id", this.missionId);
+            b.ahQ().putInt("task_share_thread_success_data_action_id", this.activityId);
+            b.ahQ().putLong("task_share_thread_success_data_specific_clear_time", bVar.YO());
         }
     }
 
-    private void ahM() {
-        b.ahO().remove("task_share_thread_success_data_total_limit");
-        b.ahO().remove("task_share_thread_success_data_mission_id");
-        b.ahO().remove("task_share_thread_success_data_action_id");
-        b.ahO().remove("task_share_thread_success_data_specific_clear_time");
+    private void ahO() {
+        b.ahQ().remove("task_share_thread_success_data_total_limit");
+        b.ahQ().remove("task_share_thread_success_data_mission_id");
+        b.ahQ().remove("task_share_thread_success_data_action_id");
+        b.ahQ().remove("task_share_thread_success_data_specific_clear_time");
     }
 
-    public void ahN() {
+    public void ahP() {
         int i;
         if (TbadkCoreApplication.isLogin()) {
-            int i2 = b.ahO().getInt("task_share_thread_success_data_mission_id", 0);
-            int i3 = b.ahO().getInt("task_share_thread_success_data_action_id", 0);
-            long j = b.ahO().getLong("task_share_thread_success_data_specific_clear_time", 0L);
+            int i2 = b.ahQ().getInt("task_share_thread_success_data_mission_id", 0);
+            int i3 = b.ahQ().getInt("task_share_thread_success_data_action_id", 0);
+            long j = b.ahQ().getLong("task_share_thread_success_data_specific_clear_time", 0L);
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
             bVar.am(j);
             if (bVar.YN()) {
-                ahM();
-            } else if (i3 != 0 && i2 != 0 && (i = b.ahO().getInt("task_share_thread_success_data_total_limit", 0)) > 0) {
-                b.ahO().putInt("task_share_thread_success_data_total_limit", i - 1);
+                ahO();
+            } else if (i3 != 0 && i2 != 0 && (i = b.ahQ().getInt("task_share_thread_success_data_total_limit", 0)) > 0) {
+                b.ahQ().putInt("task_share_thread_success_data_total_limit", i - 1);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(String.valueOf(i3), String.valueOf(i2));
@@ -125,6 +125,6 @@ public class a {
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.bQa);
+        MessageManager.getInstance().registerListener(this.bQg);
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.card.view.InterviewLiveLayout;
 import com.baidu.card.view.RoundCornerFrameLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.R;
@@ -33,7 +33,7 @@ public class k extends ac {
         this.XC = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.VV = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
         this.XD = qG();
-        this.XD.cdO().setBackgroundResource(R.color.transparent);
+        this.XD.ceg().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -57,9 +57,9 @@ public class k extends ac {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.VJ = aVar;
-        if (this.VJ != null && this.VJ.acx() != null) {
-            bg acx = aVar.acx();
-            if (acx.aeO() != null) {
+        if (this.VJ != null && this.VJ.acy() != null) {
+            bh acy = aVar.acy();
+            if (acy.aeP() != null) {
                 this.VV.setVisibility(8);
                 this.XC.setVisibility(0);
                 this.VW.setVisibility(8);
@@ -70,8 +70,8 @@ public class k extends ac {
             this.VV.setVisibility(0);
             this.VW.setVisibility(0);
             this.VV.C(aVar);
-            av.a(this.mTitle, acx);
-            av.a(this.VW, this.mTitle, acx, VU);
+            av.a(this.mTitle, acy);
+            av.a(this.VW, this.mTitle, acy, VU);
         }
     }
 

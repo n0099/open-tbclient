@@ -9,14 +9,14 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes3.dex */
-public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<j, FrsPageResIdl> {
+public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<l, FrsPageResIdl> {
     private boolean hasNetworkError;
     private int mCategoryId;
     private int mIsGood;
     private int mLoadType;
     private int mSortType;
     private boolean needCache;
-    private j responseData;
+    private l responseData;
     private int updateType;
 
     public boolean hasNetworkError() {
@@ -56,7 +56,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.responseData = new j();
+        this.responseData = new l();
         FrsPageResIdl parserProtobuf = this.responseData.parserProtobuf(bArr);
         if (parserProtobuf != null && parserProtobuf.error != null) {
             if (parserProtobuf.error.errorno != null) {
@@ -74,7 +74,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int f;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().acN(), true) && !this.responseData.getBookInfo().acN().equals("0") && this.responseData.getBookInfo().acO() == 3 && (f = com.baidu.adp.lib.g.b.f(this.responseData.getBookInfo().acN(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(f))) != null) {
+        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().acO(), true) && !this.responseData.getBookInfo().acO().equals("0") && this.responseData.getBookInfo().acP() == 3 && (f = com.baidu.adp.lib.g.b.f(this.responseData.getBookInfo().acO(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(f))) != null) {
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -84,11 +84,11 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            String c = d.cop().c("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+            String c = d.coH().c("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                d.cop().n(c, bArr);
+                d.coH().n(c, bArr);
             } else {
-                d.cop().c(c, bArr, true);
+                d.coH().c(c, bArr, true);
             }
         }
     }
@@ -106,11 +106,11 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         this.updateType = i;
     }
 
-    public j getResponseData() {
+    public l getResponseData() {
         return this.responseData;
     }
 
-    public void setResponseData(j jVar) {
-        this.responseData = jVar;
+    public void setResponseData(l lVar) {
+        this.responseData = lVar;
     }
 }

@@ -14,31 +14,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class b extends k {
-    private d eTU;
-    private HashMap<String, String> eTV;
-    private com.google.gson.d eTW;
-    private SparseArray<String> eTX;
+    private d eUb;
+    private HashMap<String, String> eUc;
+    private com.google.gson.d eUd;
+    private SparseArray<String> eUe;
 
     public b(int i) {
         super(i);
-        this.eTW = new com.google.gson.d();
-        beI();
+        this.eUd = new com.google.gson.d();
+        beK();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.eTX.get(socketMessage.getCmd());
-        if (str != null && this.eTV != null && this.eTV.get(str) != null && this.eTU != null) {
-            this.eTU.S(str, this.eTW.toJson(this.eTV.get(str)), this.eTW.toJson(this.eTW.toJson(socketMessage.getData())));
+        String str = this.eUe.get(socketMessage.getCmd());
+        if (str != null && this.eUc != null && this.eUc.get(str) != null && this.eUb != null) {
+            this.eUb.S(str, this.eUd.toJson(this.eUc.get(str)), this.eUd.toJson(this.eUd.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void beI() {
+    private void beK() {
         int f;
-        this.eTX = new SparseArray<>();
+        this.eUe = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!v.aa(findHttpTasks)) {
             for (int i = 0; i < findHttpTasks.size(); i++) {
@@ -48,7 +48,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!aq.isEmpty(str) && str.contains("=") && (f = com.baidu.adp.lib.g.b.f(str.split("[=]")[1], 0)) != 0) {
-                        this.eTX.put(f, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.eUe.put(f, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -56,10 +56,10 @@ public class b extends k {
     }
 
     public void r(HashMap<String, String> hashMap) {
-        this.eTV = hashMap;
+        this.eUc = hashMap;
     }
 
     public void a(d dVar) {
-        this.eTU = dVar;
+        this.eUb = dVar;
     }
 }

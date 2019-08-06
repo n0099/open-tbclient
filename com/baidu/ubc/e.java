@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static volatile e jWe;
+    private static volatile e jXk;
     private HashSet<String> bvZ = new HashSet<>();
     private HashSet<String> bwa = new HashSet<>();
     private HashSet<String> bwb = new HashSet<>();
@@ -26,25 +26,25 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static e cDc() {
-        if (jWe == null) {
+    public static e cDx() {
+        if (jXk == null) {
             synchronized (e.class) {
-                if (jWe == null) {
-                    jWe = new e();
+                if (jXk == null) {
+                    jXk = new e();
                 }
             }
         }
-        return jWe;
+        return jXk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
         this.bwh = 360000;
-        r cDd = r.cDd();
-        this.bwi = cDd.getInt("ubc_data_expire_time", 259200000);
-        this.bwj = cDd.getInt("ubc_database_limit", UIMsg.m_AppUI.MSG_APP_SAVESCREEN);
-        cVar.cDa().a(this.bvZ, this.bwc, this.bwa, this.bwb, this.bwd, this.bwe, this.bwf, this.bwg);
+        r cDy = r.cDy();
+        this.bwi = cDy.getInt("ubc_data_expire_time", 259200000);
+        this.bwj = cDy.getInt("ubc_database_limit", UIMsg.m_AppUI.MSG_APP_SAVESCREEN);
+        cVar.cDv().a(this.bvZ, this.bwc, this.bwa, this.bwb, this.bwd, this.bwe, this.bwf, this.bwg);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -134,7 +134,7 @@ public class e {
     public void fW(int i) {
         if (i >= this.bwi) {
             this.bwi = i;
-            r.cDd().putInt("ubc_data_expire_time", i);
+            r.cDy().putInt("ubc_data_expire_time", i);
         }
     }
 
@@ -147,7 +147,7 @@ public class e {
     public void fX(int i) {
         if (i >= this.bwj) {
             this.bwj = i;
-            r.cDd().putInt("ubc_database_limit", i);
+            r.cDy().putInt("ubc_database_limit", i);
         }
     }
 

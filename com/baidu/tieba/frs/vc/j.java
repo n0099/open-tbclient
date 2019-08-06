@@ -12,55 +12,55 @@ import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes4.dex */
 public class j {
-    private TextView bOn;
-    private FrsFragment fMb;
-    private NavigationBarCoverTip fSs;
-    private int fSt;
+    private TextView bOs;
+    private FrsFragment fMP;
+    private NavigationBarCoverTip fTi;
+    private int fTj;
 
     public j(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
-        this.fMb = frsFragment;
-        this.fSs = navigationBarCoverTip;
+        this.fMP = frsFragment;
+        this.fTi = navigationBarCoverTip;
         init();
     }
 
     private void init() {
-        this.fSt = 0;
-        this.bOn = new TextView(this.fMb.getActivity());
-        this.bOn.setLayoutParams(new LinearLayout.LayoutParams(-1, this.fMb.getResources().getDimensionPixelSize(R.dimen.tbds112)));
+        this.fTj = 0;
+        this.bOs = new TextView(this.fMP.getActivity());
+        this.bOs.setLayoutParams(new LinearLayout.LayoutParams(-1, this.fMP.getResources().getDimensionPixelSize(R.dimen.tbds112)));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bOn.setPadding(this.fMb.getResources().getDimensionPixelSize(R.dimen.ds34), this.fMb.getResources().getDimensionPixelSize(R.dimen.ds1), this.fMb.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-            this.bOn.setGravity(3);
+            this.bOs.setPadding(this.fMP.getResources().getDimensionPixelSize(R.dimen.ds34), this.fMP.getResources().getDimensionPixelSize(R.dimen.ds1), this.fMP.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.bOs.setGravity(3);
         } else {
-            this.bOn.setPadding(this.fMb.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.fMb.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-            this.bOn.setGravity(19);
+            this.bOs.setPadding(this.fMP.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.fMP.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.bOs.setGravity(19);
         }
-        this.bOn.setTextSize(0, this.fMb.getResources().getDimensionPixelSize(R.dimen.ds28));
-        this.bOn.setLineSpacing(this.fMb.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
-        this.bOn.setMaxLines(2);
-        this.bOn.setEllipsize(TextUtils.TruncateAt.END);
+        this.bOs.setTextSize(0, this.fMP.getResources().getDimensionPixelSize(R.dimen.ds28));
+        this.bOs.setLineSpacing(this.fMP.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+        this.bOs.setMaxLines(2);
+        this.bOs.setEllipsize(TextUtils.TruncateAt.END);
     }
 
-    public void wV(String str) {
+    public void wW(String str) {
         String str2;
-        if (!aq.isEmpty(str) && this.fSs != null && this.fMb.isPrimary() && this.fSt <= 0) {
-            this.fSt++;
+        if (!aq.isEmpty(str) && this.fTi != null && this.fMP.isPrimary() && this.fTj <= 0) {
+            this.fTj++;
             if (str.length() < 20) {
-                str2 = this.fMb.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
+                str2 = this.fMP.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
             } else if (str.length() < 34) {
-                str2 = this.fMb.getResources().getString(R.string.forum_ueg_tip) + str;
+                str2 = this.fMP.getResources().getString(R.string.forum_ueg_tip) + str;
             } else {
-                str2 = this.fMb.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
+                str2 = this.fMP.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
             }
-            this.bOn.setText(str2);
-            am.j(this.bOn, R.color.cp_btn_a);
-            am.l(this.fSs, R.color.cp_link_tip_a_alpha95);
-            this.fSs.a(this.fMb.getActivity(), this.bOn, UIMsg.m_AppUI.MSG_APP_GPS);
+            this.bOs.setText(str2);
+            am.j(this.bOs, R.color.cp_btn_a);
+            am.l(this.fTi, R.color.cp_link_tip_a_alpha95);
+            this.fTi.a(this.fMP.getActivity(), this.bOs, UIMsg.m_AppUI.MSG_APP_GPS);
         }
     }
 
     public void onDestory() {
-        if (this.fSs != null) {
-            this.fSs.onDestroy();
+        if (this.fTi != null) {
+            this.fTi.onDestroy();
         }
     }
 }

@@ -13,13 +13,13 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object jyB = new Object();
-    private static long jyC = 3600000;
+    public static final Object jzI = new Object();
+    private static long jzJ = 3600000;
     private ImageView ahs;
-    private TextView jyA;
-    private SimpleDateFormat jyD;
-    private SimpleDateFormat jyE;
-    private boolean jyF;
+    private TextView jzH;
+    private SimpleDateFormat jzK;
+    private SimpleDateFormat jzL;
+    private boolean jzM;
     private Context mContext;
     private View mRootView;
     private TextView textView;
@@ -27,19 +27,19 @@ public class LocalVideoInfoView extends RelativeLayout {
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.jyF = false;
+        this.jzM = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jyF = false;
+        this.jzM = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jyF = false;
+        this.jzM = false;
         init(context);
     }
 
@@ -49,21 +49,21 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.ahs = (ImageView) this.mRootView.findViewById(R.id.local_video_selet_thumb);
         this.ahs.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.textView = (TextView) this.mRootView.findViewById(R.id.local_video_select_duration);
-        this.jyA = (TextView) this.mRootView.findViewById(R.id.no_video_title);
+        this.jzH = (TextView) this.mRootView.findViewById(R.id.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.jyE = new SimpleDateFormat("mm:ss");
-        this.jyD = new SimpleDateFormat("HH:mm:ss");
+        this.jzL = new SimpleDateFormat("mm:ss");
+        this.jzK = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.jyE.setTimeZone(timeZone);
-        this.jyD.setTimeZone(timeZone);
+        this.jzL.setTimeZone(timeZone);
+        this.jzK.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.jyF) {
+        if (!this.jzM) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
                     this.ahs.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    this.ahs.setImageBitmap(dVar.cvt());
+                    this.ahs.setImageBitmap(dVar.cvP());
                     this.textView.setText(eC(dVar.getDuration()));
                     return;
                 }
@@ -77,14 +77,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         }
     }
 
-    public void rG(boolean z) {
-        this.jyF = true;
+    public void rH(boolean z) {
+        this.jzM = true;
         if (z) {
             this.ahs.setScaleType(ImageView.ScaleType.CENTER);
             this.ahs.setImageBitmap(null);
             this.ahs.setImageResource(0);
             this.ahs.setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d));
-            this.jyA.setVisibility(0);
+            this.jzH.setVisibility(0);
             return;
         }
         this.ahs.setScaleType(ImageView.ScaleType.CENTER);
@@ -92,14 +92,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.ahs.setImageBitmap(null);
         this.ahs.setBackgroundColor(getResources().getColor(R.color.white_alpha50));
         this.textView.setText("");
-        this.jyA.setVisibility(8);
+        this.jzH.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.jyF = false;
-        this.jyA.setVisibility(8);
+        this.jzM = false;
+        this.jzH.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.cvu()) {
+        if (dVar != null && dVar.cvQ()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
@@ -107,6 +107,6 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     private String eC(long j) {
-        return j > jyC ? this.jyD.format(Long.valueOf(j)) : this.jyE.format(Long.valueOf(j));
+        return j > jzJ ? this.jzK.format(Long.valueOf(j)) : this.jzL.format(Long.valueOf(j));
     }
 }

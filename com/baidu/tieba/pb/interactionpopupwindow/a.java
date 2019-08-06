@@ -18,22 +18,22 @@ import com.baidu.tieba.pb.interactionpopupwindow.g;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class a<V extends g, D extends IBaseDialogData> implements f {
-    private DialogInterface.OnCancelListener bNa;
-    protected V hIM;
-    protected D hIN;
+    private DialogInterface.OnCancelListener bNf;
+    protected V hJF;
+    protected D hJG;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
-    private int bMO = -1;
-    private boolean hIK = true;
-    private boolean hIL = false;
+    private int bMT = -1;
+    private boolean hJD = true;
+    private boolean hJE = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.hIM = v;
-        this.hIN = d;
+        this.hJF = v;
+        this.hJG = d;
         a(d);
     }
 
@@ -43,42 +43,42 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             com.baidu.adp.lib.g.g.a(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.hIL) {
+        if (this.hJE) {
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.search_dialog).create();
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(aOv());
-        this.mDialog.setCancelable(aOw());
+        this.mDialog.setCanceledOnTouchOutside(aOx());
+        this.mDialog.setCancelable(aOy());
         this.mDialog.setOnKeyListener(this.mOnKeyListener);
-        if (this.bNa != null) {
-            this.mDialog.setOnCancelListener(this.bNa);
+        if (this.bNf != null) {
+            this.mDialog.setOnCancelListener(this.bNf);
         }
         com.baidu.adp.lib.g.g.a(this.mDialog, this.mPageContext.getPageActivity());
         if (this.mDialog.getWindow().getDecorView().getParent() != null) {
             Window window = this.mDialog.getWindow();
-            if (this.bMO == -1) {
-                this.bMO = 17;
+            if (this.bMT == -1) {
+                this.bMT = 17;
             }
-            window.setGravity(this.bMO);
+            window.setGravity(this.bMT);
             window.setBackgroundDrawableResource(R.drawable.transparent_bg);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
             DisplayMetrics v = l.v(this.mPageContext.getPageActivity());
             if (v != null) {
-                int agH = agH();
+                int agJ = agJ();
                 if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                    attributes.width = v.heightPixels - (agH * 2);
+                    attributes.width = v.heightPixels - (agJ * 2);
                 } else {
-                    attributes.width = v.widthPixels - (agH * 2);
+                    attributes.width = v.widthPixels - (agJ * 2);
                 }
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.hIM.getViewGroup());
+            window.setContentView(this.hJF.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bd.a(this.hIM.getViewGroup(), false, new bd.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+            bd.a(this.hJF.getViewGroup(), false, new bd.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
                 @Override // com.baidu.tbadk.core.util.bd.a
                 public boolean aI(View view) {
                     if (view instanceof EditText) {
@@ -109,19 +109,19 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
         return false;
     }
 
-    public a xF(int i) {
-        this.bMO = i;
+    public a xH(int i) {
+        this.bMT = i;
         return this;
     }
 
     public a of(boolean z) {
-        this.hIL = z;
+        this.hJE = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.hIM != null) {
-            this.hIM.a(d);
+        if (this.hJF != null) {
+            this.hJF.a(d);
         }
     }
 }

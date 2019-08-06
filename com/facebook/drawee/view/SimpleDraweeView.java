@@ -13,11 +13,11 @@ import com.facebook.drawee.d.d;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class SimpleDraweeView extends GenericDraweeView {
-    private static i<? extends d> kea;
-    private d keb;
+    private static i<? extends d> kfh;
+    private d kfi;
 
     public static void b(i<? extends d> iVar) {
-        kea = iVar;
+        kfh = iVar;
     }
 
     public SimpleDraweeView(Context context, com.facebook.drawee.generic.a aVar) {
@@ -49,8 +49,8 @@ public class SimpleDraweeView extends GenericDraweeView {
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         if (!isInEditMode()) {
-            g.checkNotNull(kea, "SimpleDraweeView was not initialized!");
-            this.keb = kea.get();
+            g.checkNotNull(kfh, "SimpleDraweeView was not initialized!");
+            this.kfi = kfh.get();
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0454a.SimpleDraweeView);
                 try {
@@ -67,7 +67,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     protected d getControllerBuilder() {
-        return this.keb;
+        return this.kfi;
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -80,7 +80,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURI(Uri uri, @Nullable Object obj) {
-        setController(this.keb.aQ(obj).I(uri).b(getController()).cGe());
+        setController(this.kfi.aQ(obj).I(uri).b(getController()).cGz());
     }
 
     public void setImageURI(@Nullable String str, @Nullable Object obj) {
@@ -92,7 +92,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setActualImageResource(@DrawableRes int i, @Nullable Object obj) {
-        setImageURI(com.facebook.common.util.d.Dy(i), obj);
+        setImageURI(com.facebook.common.util.d.DA(i), obj);
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView

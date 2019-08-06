@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.at;
 /* loaded from: classes.dex */
 public class w extends a {
     private boolean Yd;
-    private boolean bVW;
+    private boolean bWc;
     private int procType;
 
     public w(boolean z, int i) {
@@ -19,10 +19,10 @@ public class w extends a {
     public w(boolean z, int i, boolean z2) {
         this.Yd = true;
         this.procType = 0;
-        this.bVW = true;
+        this.bWc = true;
         this.Yd = z;
         this.procType = i;
-        this.bVW = z2;
+        this.bWc = z2;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -41,17 +41,17 @@ public class w extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ajS() {
+    public boolean ajU() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean ajT() {
+    public boolean ajV() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int ajU() {
+    public int ajW() {
         return this.procType;
     }
 
@@ -60,7 +60,7 @@ public class w extends a {
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
         if (m(bitmap)) {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
-            if (!iVar.bVv) {
+            if (!iVar.bVB) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, at.oj(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.J(true);
@@ -68,7 +68,7 @@ public class w extends a {
                 cVar.L(false);
                 cVar.M(true);
                 cVar.O(z);
-                cVar.N(this.bVW);
+                cVar.N(this.bWc);
                 com.baidu.adp.lib.Disk.d.gC().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();

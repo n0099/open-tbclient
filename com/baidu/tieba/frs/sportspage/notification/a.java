@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private CustomMessageListener fOB = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
+    private CustomMessageListener fPp = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -26,11 +26,11 @@ public class a {
                     String optString2 = jSONObject.optString("gameName");
                     String optString3 = jSONObject.optString("gameTime");
                     String optString4 = jSONObject.optString("gameType");
-                    String string = b.ahO().getString("key_match_id_list_" + optString4, "");
+                    String string = b.ahQ().getString("key_match_id_list_" + optString4, "");
                     String str = "match_id_" + optString4 + "_" + optString;
                     String str2 = TextUtils.isEmpty(string) ? str : Constants.ACCEPT_TIME_SEPARATOR_SP + str;
                     if (TextUtils.isEmpty(string) || !string.contains(str)) {
-                        b.ahO().putString("key_match_id_list_" + optString4, string + str2);
+                        b.ahQ().putString("key_match_id_list_" + optString4, string + str2);
                     }
                     Intent intent = new Intent(a.this.mContext.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);
@@ -55,6 +55,6 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.mContext.registerListener(this.fOB);
+        this.mContext.registerListener(this.fPp);
     }
 }

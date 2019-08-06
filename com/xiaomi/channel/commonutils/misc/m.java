@@ -1,9 +1,8 @@
 package com.xiaomi.channel.commonutils.misc;
 
 import com.xiaomi.channel.commonutils.misc.k;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class m implements Runnable {
+class m implements Runnable {
     final /* synthetic */ k.b a;
     final /* synthetic */ k b;
 

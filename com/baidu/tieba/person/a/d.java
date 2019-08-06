@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
-    private View.OnClickListener iiA;
+    private View.OnClickListener ijC;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -22,7 +22,7 @@ public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
     /* renamed from: bR */
     public com.baidu.tieba.person.b.d onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.person.b.d dVar = new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
-        dVar.ijc.setItemOnclickListener(this.iiA);
+        dVar.ike.setItemOnclickListener(this.ijC);
         return dVar;
     }
 
@@ -32,13 +32,13 @@ public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, f fVar, com.baidu.tieba.person.b.d dVar) {
         if (fVar != null && dVar != null) {
-            dVar.atu();
+            dVar.atw();
             dVar.a(fVar);
         }
         return view;
     }
 
     public void S(View.OnClickListener onClickListener) {
-        this.iiA = onClickListener;
+        this.ijC = onClickListener;
     }
 }

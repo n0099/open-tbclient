@@ -45,7 +45,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void dH(List<com.baidu.tieba.pb.b.a.d> list) {
+    public void dG(List<com.baidu.tieba.pb.b.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: xB */
+    /* renamed from: xD */
     public com.baidu.tieba.pb.b.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -122,17 +122,17 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.ibO) || "1".equals(eVar.ibO)) {
+            if (StringUtils.isNull(eVar.icL) || "1".equals(eVar.icL)) {
                 c0376a.SD.setVisibility(8);
             } else {
                 c0376a.SD.setVisibility(0);
                 ViewGroup.LayoutParams layoutParams = c0376a.SD.getLayoutParams();
                 int i2 = this.maxWidth;
-                int yq = eVar.yq(i2);
+                int ys = eVar.ys(i2);
                 if (layoutParams == null) {
-                    layoutParams = new AbsListView.LayoutParams(i2, yq);
+                    layoutParams = new AbsListView.LayoutParams(i2, ys);
                 } else {
-                    layoutParams.height = yq;
+                    layoutParams.height = ys;
                     layoutParams.width = i2;
                 }
                 c0376a.SD.setLayoutParams(layoutParams);
@@ -156,8 +156,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof g) {
             g gVar = (g) item;
-            textView.setText(gVar.bZD());
-            switch (gVar.bZF()) {
+            textView.setText(gVar.bZU());
+            switch (gVar.bZW()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -168,8 +168,8 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.bZG())) {
-                if (!am.e(textView, gVar.bZG())) {
+            if (!StringUtils.isNull(gVar.bZX())) {
+                if (!am.e(textView, gVar.bZX())) {
                     am.f(textView, R.color.cp_cont_b, 1);
                 }
             } else {

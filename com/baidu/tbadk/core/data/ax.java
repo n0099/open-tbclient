@@ -2,38 +2,17 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class ax extends bg {
-    public static final BdUniqueId bIz = BdUniqueId.gen();
-    private String title = "";
-    private ArrayList<az> bIA = new ArrayList<>();
+public class ax extends bh {
+    public static final BdUniqueId bIC = BdUniqueId.gen();
+    private ArrayList<RecommendForumData> bID = new ArrayList<>();
 
-    public void a(RecommendInfo recommendInfo) {
-        if (recommendInfo != null) {
-            this.title = recommendInfo.title;
-            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                if (schoolRecomUserInfo != null) {
-                    az azVar = new az();
-                    azVar.a(schoolRecomUserInfo);
-                    this.bIA.add(azVar);
-                }
-            }
-        }
+    public ArrayList<RecommendForumData> adF() {
+        return this.bID;
     }
 
-    @Override // com.baidu.tbadk.core.data.bg
-    public String getTitle() {
-        return this.title;
-    }
-
-    public ArrayList<az> adF() {
-        return this.bIA;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return bIz;
+        return bIC;
     }
 }

@@ -4,20 +4,20 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class k {
     private Context context;
-    public l crT;
-    public int csH;
-    public int csJ;
-    public int csK;
-    public int[] csM;
+    public int csO;
+    public int csQ;
+    public int csR;
+    public int[] csT;
+    public l csa;
     public int id;
     public String name;
-    public boolean csI = true;
-    public boolean csL = false;
+    public boolean csP = true;
+    public boolean csS = false;
 
     public k(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.csJ = i2;
+        this.csQ = i2;
     }
 
     public k(Context context, String str, int i) {
@@ -30,7 +30,7 @@ public class k {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.csJ = i2;
+        this.csQ = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

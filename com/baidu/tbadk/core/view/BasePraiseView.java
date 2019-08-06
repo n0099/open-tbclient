@@ -22,7 +22,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
@@ -31,18 +31,18 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public abstract class BasePraiseView<T> extends LinearLayout {
     protected int agreeType;
-    protected long bLE;
-    protected long bLF;
-    protected ScaleAnimation bWC;
-    protected int bWX;
-    public int bWY;
-    public int bWZ;
-    protected View.OnClickListener bWk;
-    public int bXa;
-    public int bXb;
-    public int bXc;
-    protected TextView bXd;
-    protected ImageView bXe;
+    protected long bLJ;
+    protected long bLK;
+    protected ScaleAnimation bWI;
+    protected View.OnClickListener bWq;
+    protected int bXd;
+    public int bXe;
+    public int bXf;
+    public int bXg;
+    public int bXh;
+    public int bXi;
+    protected TextView bXj;
+    protected ImageView bXk;
     protected T mData;
     protected String mForumId;
     protected int mFrom;
@@ -65,38 +65,38 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         this.mSkinType = 3;
         this.agreeType = 2;
         this.objType = 3;
-        this.bWX = 1;
+        this.bXd = 1;
         this.mFrom = 2;
-        this.bWY = R.string.action_praise_default;
-        this.bWZ = R.drawable.icon_card_like_n;
-        this.bXa = R.drawable.icon_card_like_s;
-        this.bXb = R.color.cp_cont_j;
-        this.bXc = R.color.cp_cont_h;
+        this.bXe = R.string.action_praise_default;
+        this.bXf = R.drawable.icon_card_like_n;
+        this.bXg = R.drawable.icon_card_like_s;
+        this.bXh = R.color.cp_cont_j;
+        this.bXi = R.color.cp_cont_h;
         this.mThreadId = "";
         this.mForumId = "";
         this.mPostId = "";
         setOrientation(0);
         setGravity(17);
         initView(context);
-        akg();
+        aki();
     }
 
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, R.layout.praise_view, this);
-            this.bXd = (TextView) inflate.findViewById(R.id.thread_info_praise_num);
-            this.bXe = (ImageView) inflate.findViewById(R.id.thread_info_praise_img);
+            this.bXj = (TextView) inflate.findViewById(R.id.thread_info_praise_num);
+            this.bXk = (ImageView) inflate.findViewById(R.id.thread_info_praise_img);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void akg() {
+    public void aki() {
         this.agreeType = 2;
-        this.bWY = R.string.action_praise_default;
-        this.bXb = R.color.cp_cont_j;
-        this.bXc = R.color.cp_cont_h;
-        this.bWZ = R.drawable.icon_card_like_n;
-        this.bXa = R.drawable.icon_card_like_s;
+        this.bXe = R.string.action_praise_default;
+        this.bXh = R.color.cp_cont_j;
+        this.bXi = R.color.cp_cont_h;
+        this.bXf = R.drawable.icon_card_like_n;
+        this.bXg = R.drawable.icon_card_like_s;
     }
 
     public StateListDrawable Z(int i, int i2) {
@@ -115,17 +115,17 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{color2, color2, color});
     }
 
-    public void a(int i, bg bgVar) {
+    public void a(int i, bh bhVar) {
         com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
-        jVar.cqQ = i;
-        jVar.cqR = bgVar;
+        jVar.cqX = i;
+        jVar.cqY = bhVar;
         jVar.forumId = this.mForumId;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, jVar));
     }
 
     public void ix(int i) {
-        if (this.bXe != null && i == 0) {
-            this.bXe.startAnimation(getScaleAnimation());
+        if (this.bXk != null && i == 0) {
+            this.bXk.startAnimation(getScaleAnimation());
         }
     }
 
@@ -149,11 +149,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public Animation getScaleAnimation() {
-        if (this.bWC == null) {
-            this.bWC = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.bWC.setDuration(200L);
+        if (this.bWI == null) {
+            this.bWI = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.bWI.setDuration(200L);
         }
-        return this.bWC;
+        return this.bWI;
     }
 
     public void onChangeSkinType(int i) {
@@ -164,7 +164,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setDisPraiseFrom(int i) {
-        this.bWX = i;
+        this.bXd = i;
     }
 
     public void setFrom(int i) {
@@ -189,12 +189,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void setViewEnabled(boolean z) {
         setClickable(z);
-        this.bXe.setEnabled(z);
-        this.bXd.setEnabled(z);
+        this.bXk.setEnabled(z);
+        this.bXj.setEnabled(z);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bWk = onClickListener;
+        this.bWq = onClickListener;
     }
 
     public TbPageContext<?> getTbPageContext() {
@@ -218,11 +218,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ImageView getImageView() {
-        return this.bXe;
+        return this.bXk;
     }
 
     public TextView getTextView() {
-        return this.bXd;
+        return this.bXj;
     }
 
     public void ei(boolean z) {
@@ -234,12 +234,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         anVar.P("obj_type", getObjType());
         anVar.P("obj_locate", getObjLocate());
         anVar.P(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
-        anVar.P("obj_param1", com.baidu.tbadk.util.a.avW().alO() ? 1 : 0);
+        anVar.P("obj_param1", com.baidu.tbadk.util.a.avY().alQ() ? 1 : 0);
         TiebaStatic.log(anVar);
     }
 
     private int getObjLocate() {
-        return this.bWX;
+        return this.bXd;
     }
 
     private int getObjType() {

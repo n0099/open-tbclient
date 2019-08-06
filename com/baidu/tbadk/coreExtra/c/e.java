@@ -15,86 +15,86 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e {
-    public static final String clf = m.Dz + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int bMt;
-    public String ckC;
-    public Bundle ckF;
-    public String ckI;
+    public static final String clm = m.Dz + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int bMy;
     public String ckJ;
-    public int ckP;
+    public Bundle ckM;
+    public String ckP;
     public String ckQ;
-    public String ckR;
-    public String ckS;
-    private Bundle ckU;
+    public int ckW;
+    public String ckX;
+    public String ckY;
     public String ckZ;
-    public String clc;
-    public int cld;
-    public String cle;
+    private Bundle clb;
+    public String clg;
+    public String clj;
+    public int clk;
+    public String cll;
     public String fid;
     public String imageUrl;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String topic;
     public String uid;
-    public boolean ckq = false;
-    public boolean ckr = false;
-    public boolean cks = false;
-    public boolean ckt = false;
-    public boolean cku = false;
-    public boolean ckv = false;
-    public boolean ckw = false;
     public boolean ckx = false;
     public boolean cky = false;
     public boolean ckz = false;
     public boolean ckA = false;
-    public String ckB = "";
-    public int ckK = 0;
-    public int ckL = 3;
-    public int ckM = 0;
-    public int ckN = 0;
-    public int ckO = 0;
+    public boolean ckB = false;
+    public boolean ckC = false;
+    public boolean ckD = false;
+    public boolean ckE = false;
+    public boolean ckF = false;
+    public boolean ckG = false;
+    public boolean ckH = false;
+    public String ckI = "";
+    public int ckR = 0;
+    public int ckS = 3;
+    public int ckT = 0;
+    public int ckU = 0;
+    public int ckV = 0;
     public int shareType = 0;
-    public boolean ckV = true;
-    public boolean ckW = true;
-    public boolean ckX = true;
-    public int ckY = 0;
-    public boolean cla = true;
-    public boolean clb = false;
+    public boolean clc = true;
+    public boolean cld = true;
+    public boolean cle = true;
+    public int clf = 0;
+    public boolean clh = true;
+    public boolean cli = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String ckD = null;
+    public String ckK = null;
     public Uri imageUri = null;
-    public Location ckG = null;
-    private WeakReference<Bitmap> ckT = null;
-    public String ckH = null;
+    public Location ckN = null;
+    private WeakReference<Bitmap> cla = null;
+    public String ckO = null;
     public String extData = null;
-    public String ckE = null;
+    public String ckL = null;
 
-    public Bundle apW() {
-        return this.ckU;
+    public Bundle apY() {
+        return this.clb;
     }
 
     public void E(Bundle bundle) {
-        this.ckU = bundle;
+        this.clb = bundle;
     }
 
-    public Bitmap apX() {
+    public Bitmap apZ() {
         Bitmap bitmap;
-        if (this.ckT == null || (bitmap = this.ckT.get()) == null || bitmap.isRecycled()) {
+        if (this.cla == null || (bitmap = this.cla.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void n(Bitmap bitmap) {
-        this.ckT = new WeakReference<>(bitmap);
+        this.cla = new WeakReference<>(bitmap);
     }
 
-    public byte[] apY() {
+    public byte[] aqa() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.ckT == null || (bitmap = this.ckT.get()) == null || bitmap.isRecycled()) {
+        if (this.cla == null || (bitmap = this.cla.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -112,16 +112,16 @@ public class e {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [249=4, 250=4, 252=4, 253=4] */
-    public void apZ() {
+    public void aqb() {
         FileOutputStream fileOutputStream = null;
-        if (this.ckT == null) {
+        if (this.cla == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (m.gB()) {
-                    File file = new File(clf);
+                    File file = new File(clm);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -129,14 +129,14 @@ public class e {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] apY = apY();
-                    if (apY != null) {
+                    byte[] aqa = aqa();
+                    if (aqa != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(apY);
+                            fileOutputStream3.write(aqa);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.ckT = null;
+                            this.cla = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

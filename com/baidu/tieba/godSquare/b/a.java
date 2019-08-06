@@ -19,15 +19,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.f;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.a<f> {
-    private c eBX;
-    public ClickableHeaderImageView fWj;
-    public CommonUserLikeButton gat;
-    private TextView gau;
-    private TextView gav;
-    private TextView gaw;
-    private Drawable gax;
-    private MetaData gay;
-    private f gaz;
+    private c eCe;
+    public ClickableHeaderImageView fWZ;
+    public CommonUserLikeButton gbj;
+    private TextView gbk;
+    private TextView gbl;
+    private TextView gbm;
+    private Drawable gbn;
+    private MetaData gbo;
+    private f gbp;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,17 +35,17 @@ public class a extends com.baidu.tieba.card.a<f> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.fWj = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
-        this.fWj.setGodIconMargin(R.dimen.ds4);
-        this.fWj.setAfterClickListener(this);
-        this.gav = (TextView) getView().findViewById(R.id.god_name);
-        this.gaw = (TextView) getView().findViewById(R.id.god_describe);
-        this.gat = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
-        this.eBX = new c(tbPageContext, this.gat);
-        this.gat.setAfterOnClickListener(this);
+        this.fWZ = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
+        this.fWZ.setGodIconMargin(R.dimen.ds4);
+        this.fWZ.setAfterClickListener(this);
+        this.gbl = (TextView) getView().findViewById(R.id.god_name);
+        this.gbm = (TextView) getView().findViewById(R.id.god_describe);
+        this.gbj = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
+        this.eCe = new c(tbPageContext, this.gbj);
+        this.gbj.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(R.id.bottom_line);
-        this.gau = (TextView) getView().findViewById(R.id.god_rank);
-        this.gax = this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg);
+        this.gbk = (TextView) getView().findViewById(R.id.god_rank);
+        this.gbn = this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg);
     }
 
     public void j(BdUniqueId bdUniqueId) {
@@ -57,10 +57,10 @@ public class a extends com.baidu.tieba.card.a<f> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             am.k(getView(), R.drawable.home_thread_card_item_bg);
-            am.j(this.gav, R.color.cp_cont_b);
-            am.j(this.gaw, R.color.cp_cont_d);
+            am.j(this.gbl, R.color.cp_cont_b);
+            am.j(this.gbm, R.color.cp_cont_d);
             am.l(this.mBottomLine, R.color.cp_bg_line_b);
-            am.j(this.gau, R.color.cp_cont_d);
+            am.j(this.gbk, R.color.cp_cont_d);
         }
         this.mSkinType = i;
     }
@@ -73,52 +73,52 @@ public class a extends com.baidu.tieba.card.a<f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
-        if (fVar != null && fVar.bKb != null && fVar.bKb.getGodUserData() != null) {
-            this.gaz = fVar;
-            this.gay = fVar.bKb;
-            tD(fVar.rank);
-            this.fWj.setData(fVar.bKb);
-            this.gav.setText(fVar.bKb.getName_show());
-            this.gaw.setText(fVar.bKb.getGodUserData().getIntro());
-            this.eBX.a(fVar.bKb);
+        if (fVar != null && fVar.bKg != null && fVar.bKg.getGodUserData() != null) {
+            this.gbp = fVar;
+            this.gbo = fVar.bKg;
+            tF(fVar.rank);
+            this.fWZ.setData(fVar.bKg);
+            this.gbl.setText(fVar.bKg.getName_show());
+            this.gbm.setText(fVar.bKg.getGodUserData().getIntro());
+            this.eCe.a(fVar.bKg);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void tD(int i) {
+    private void tF(int i) {
         String str;
         switch (i) {
             case 1:
-                this.gau.setText("");
-                am.k(this.gau, R.drawable.icon_grade_round_no1);
+                this.gbk.setText("");
+                am.k(this.gbk, R.drawable.icon_grade_round_no1);
                 return;
             case 2:
-                this.gau.setText("");
-                am.k(this.gau, R.drawable.icon_grade_round_no2);
+                this.gbk.setText("");
+                am.k(this.gbk, R.drawable.icon_grade_round_no2);
                 return;
             case 3:
-                this.gau.setText("");
-                am.k(this.gau, R.drawable.icon_grade_round_no3);
+                this.gbk.setText("");
+                am.k(this.gbk, R.drawable.icon_grade_round_no3);
                 return;
             default:
-                this.gau.setBackgroundDrawable(this.gax);
+                this.gbk.setBackgroundDrawable(this.gbn);
                 if (i < 100) {
                     str = String.format("%02d", Integer.valueOf(i));
                 } else {
                     str = i + "";
                 }
-                this.gau.setText(str);
+                this.gbk.setText(str);
                 return;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (aZo() != null) {
-            aZo().a(view, this.gaz);
+        if (aZq() != null) {
+            aZq().a(view, this.gbp);
         }
-        if (view == getView() && this.gay != null && !StringUtils.isNull(this.gay.getName_show()) && !StringUtils.isNull(this.gay.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(this.gay.getUserId(), 0L), false, this.gay.isBigV())));
+        if (view == getView() && this.gbo != null && !StringUtils.isNull(this.gbo.getName_show()) && !StringUtils.isNull(this.gbo.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(this.gbo.getUserId(), 0L), false, this.gbo.isBigV())));
         }
     }
 }

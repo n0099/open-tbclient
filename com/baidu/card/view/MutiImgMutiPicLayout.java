@@ -19,7 +19,7 @@ import com.baidu.card.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.av;
@@ -90,7 +90,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a qH = c.atw().qH(com.baidu.adp.lib.f.c.iE().e(tbImageView.getUrl(), MutiImgMutiPicLayout.this.Yd ? 13 : 14));
+                    com.baidu.adp.widget.ImageView.a qH = c.aty().qH(com.baidu.adp.lib.f.c.iE().e(tbImageView.getUrl(), MutiImgMutiPicLayout.this.Yd ? 13 : 14));
                     if (qH != null) {
                         int width = qH.getWidth();
                         i = qH.getHeight();
@@ -214,45 +214,45 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
                     subClickListener.XJ = Boolean.valueOf(z);
                     subClickListener.a(view, MutiImgMutiPicLayout.this.VJ);
                 }
-                if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().cfL) {
-                    av.a(view, MutiImgMutiPicLayout.this.Yd, MutiImgMutiPicLayout.this.Yq, i, MutiImgMutiPicLayout.this.VJ.acx(), MutiImgMutiPicLayout.this.mFrom);
+                if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().cfS) {
+                    av.a(view, MutiImgMutiPicLayout.this.Yd, MutiImgMutiPicLayout.this.Yq, i, MutiImgMutiPicLayout.this.VJ.acy(), MutiImgMutiPicLayout.this.mFrom);
                 } else if ("index".equals(MutiImgMutiPicLayout.this.mFrom)) {
                     av.a(MutiImgMutiPicLayout.this.VJ, view.getContext(), 2, false);
                 } else if ("frs".equals(MutiImgMutiPicLayout.this.mFrom)) {
                     av.a(MutiImgMutiPicLayout.this.VJ, view.getContext(), 3, false);
                 } else {
-                    av.a(view, MutiImgMutiPicLayout.this.Yd, MutiImgMutiPicLayout.this.Yq, i, MutiImgMutiPicLayout.this.VJ.acx(), MutiImgMutiPicLayout.this.mFrom);
+                    av.a(view, MutiImgMutiPicLayout.this.Yd, MutiImgMutiPicLayout.this.Yq, i, MutiImgMutiPicLayout.this.VJ.acy(), MutiImgMutiPicLayout.this.mFrom);
                 }
             }
         };
     }
 
-    private void setVoiceData(bg bgVar) {
-        ArrayList<VoiceData.VoiceModel> aeL = bgVar.aeL();
-        if (v.aa(aeL)) {
+    private void setVoiceData(bh bhVar) {
+        ArrayList<VoiceData.VoiceModel> aeM = bhVar.aeM();
+        if (v.aa(aeM)) {
             this.Ym.setVisibility(8);
             this.Yp = false;
             return;
         }
         this.Ym.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = aeL.get(0);
+        VoiceData.VoiceModel voiceModel = aeM.get(0);
         this.Ym.setVoiceModel(voiceModel);
         this.Ym.setTag(voiceModel);
-        this.Ym.bIl();
+        this.Ym.bIz();
         if (voiceModel != null) {
-            this.Ym.vY(voiceModel.voice_status.intValue());
+            this.Ym.wa(voiceModel.voice_status.intValue());
         }
-        this.Ym.cqz();
+        this.Ym.cqV();
         this.Yp = true;
     }
 
-    private void setImageData(bg bgVar) {
+    private void setImageData(bh bhVar) {
         boolean z;
-        ArrayList<MediaData> aeH = bgVar.aeH();
-        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeH) != 0) {
+        ArrayList<MediaData> aeI = bhVar.aeI();
+        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeI) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aeH.size(); i++) {
-                MediaData mediaData = (MediaData) v.c(aeH, i);
+            for (int i = 0; i < aeI.size(); i++) {
+                MediaData mediaData = (MediaData) v.c(aeI, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -270,16 +270,16 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
             this.YA.setVisibility(8);
             if (v.Z(linkedList) == 2) {
                 this.YA.setVisibility(0);
-                a((MediaData) v.c(aeH, 0), this.YB, z, false, 0);
+                a((MediaData) v.c(aeI, 0), this.YB, z, false, 0);
                 this.YC.setVisibility(8);
-                a((MediaData) v.c(aeH, 1), this.YD, z, false, 1);
+                a((MediaData) v.c(aeI, 1), this.YD, z, false, 1);
                 return;
             } else if (v.Z(linkedList) >= 3) {
                 this.YA.setVisibility(0);
                 this.YC.setVisibility(0);
-                a((MediaData) v.c(aeH, 0), this.YB, z, false, 0);
-                a((MediaData) v.c(aeH, 1), this.YC, z, false, 1);
-                a((MediaData) v.c(aeH, 2), this.YD, z, true, 2);
+                a((MediaData) v.c(aeI, 0), this.YB, z, false, 0);
+                a((MediaData) v.c(aeI, 1), this.YC, z, false, 1);
+                a((MediaData) v.c(aeI, 2), this.YD, z, true, 2);
                 return;
             } else {
                 this.YA.setVisibility(8);
@@ -303,11 +303,11 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.VJ = aVar;
-        bg acx = aVar.acx();
-        av.a(this.mTitle, acx);
-        av.a(this.VW, this.mTitle, acx, VU);
-        setImageData(acx);
-        setVoiceData(acx);
+        bh acy = aVar.acy();
+        av.a(this.mTitle, acy);
+        av.a(this.VW, this.mTitle, acy, VU);
+        setImageData(acy);
+        setVoiceData(acy);
         qT();
     }
 

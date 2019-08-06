@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes6.dex */
 public class b {
-    private BaseActivity cWM;
-    private final a iVd;
+    private BaseActivity cWT;
+    private final a iWh;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -23,39 +23,39 @@ public class b {
     }
 
     public b(BaseActivity baseActivity, a aVar) {
-        this.cWM = baseActivity;
-        this.iVd = aVar;
-        cma();
+        this.cWT = baseActivity;
+        this.iWh = aVar;
+        cms();
     }
 
-    public void Ep(String str) {
-        if (this.cWM != null) {
+    public void Eq(String str) {
+        if (this.cWT != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD);
             httpMessage.addParam(ImageViewerConfig.FORUM_NAME, str);
-            this.cWM.sendMessage(httpMessage);
+            this.cWT.sendMessage(httpMessage);
         }
     }
 
-    public void cma() {
-        if (this.cWM != null) {
+    public void cms() {
+        if (this.cWT != null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/f/forum/getprefix");
             tbHttpMessageTask.setResponsedClass(ForumPrefixResponsedMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            this.cWM.registerListener(new HttpMessageListener(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD) { // from class: com.baidu.tieba.sharewrite.b.1
+            this.cWT.registerListener(new HttpMessageListener(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD) { // from class: com.baidu.tieba.sharewrite.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (b.this.iVd != null) {
+                    if (b.this.iWh != null) {
                         if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
-                            b.this.iVd.onFailure();
+                            b.this.iWh.onFailure();
                             return;
                         }
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ForumPrefixResponsedMessage)) {
                             ForumPrefixResponsedMessage forumPrefixResponsedMessage = (ForumPrefixResponsedMessage) httpResponsedMessage;
-                            b.this.iVd.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
+                            b.this.iWh.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
                         }
                     }
                 }

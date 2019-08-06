@@ -15,10 +15,10 @@ import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class b {
-    private static b ixJ = null;
-    private com.baidu.tieba.play.a.a ixI;
-    private InterfaceC0390b ixK = null;
-    private int ixL = 0;
+    private static b iyM = null;
+    private com.baidu.tieba.play.a.a iyL;
+    private InterfaceC0390b iyN = null;
+    private int iyO = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -29,41 +29,41 @@ public class b {
     private b() {
     }
 
-    public static b ceP() {
-        if (ixJ == null) {
+    public static b cfh() {
+        if (iyM == null) {
             synchronized (b.class) {
-                if (ixJ == null) {
-                    ixJ = new b();
+                if (iyM == null) {
+                    iyM = new b();
                 }
             }
         }
-        return ixJ;
+        return iyM;
     }
 
     public void a(InterfaceC0390b interfaceC0390b) {
-        this.ixK = interfaceC0390b;
+        this.iyN = interfaceC0390b;
     }
 
-    public boolean Db(String str) {
+    public boolean Dc(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (Dc(str) && this.ixI.ceO().size() > this.ixL) {
-            if (this.ixK != null) {
-                InterfaceC0390b interfaceC0390b = this.ixK;
-                List<String> ceO = this.ixI.ceO();
-                int i = this.ixL;
-                this.ixL = i + 1;
-                interfaceC0390b.dT(ceO.get(i), str);
+        if (Dd(str) && this.iyL.cfg().size() > this.iyO) {
+            if (this.iyN != null) {
+                InterfaceC0390b interfaceC0390b = this.iyN;
+                List<String> cfg = this.iyL.cfg();
+                int i = this.iyO;
+                this.iyO = i + 1;
+                interfaceC0390b.dT(cfg.get(i), str);
             }
             return true;
-        } else if (this.ixI != null && this.ixI.ceO() != null && this.ixI.ceO().size() <= this.ixL) {
-            this.ixL = 0;
-            this.ixI = null;
+        } else if (this.iyL != null && this.iyL.cfg() != null && this.iyL.cfg().size() <= this.iyO) {
+            this.iyO = 0;
+            this.iyL = null;
             return false;
         } else {
-            this.ixL = 0;
-            this.ixI = null;
+            this.iyO = 0;
+            this.iyL = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -71,8 +71,8 @@ public class b {
         }
     }
 
-    private boolean Dc(String str) {
-        return (this.ixI == null || TextUtils.isEmpty(str) || !str.equals(this.ixI.getHost()) || v.aa(this.ixI.ceO()) || this.ixI.es(System.currentTimeMillis()) || this.ixI.ceO().size() <= this.ixL) ? false : true;
+    private boolean Dd(String str) {
+        return (this.iyL == null || TextUtils.isEmpty(str) || !str.equals(this.iyL.getHost()) || v.aa(this.iyL.cfg()) || this.iyL.es(System.currentTimeMillis()) || this.iyL.cfg().size() <= this.iyO) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -190,7 +190,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.Da(stringBuffer.toString()));
+                            publishProgress(aVar.Db(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -261,14 +261,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.FI)) {
-                b.this.ixI = aVarArr[0];
-                if (!v.aa(aVarArr[0].ceO()) && b.this.ixK != null) {
-                    b.this.ixK.dT(aVarArr[0].ceO().get(0), aVarArr[0].getHost());
+                b.this.iyL = aVarArr[0];
+                if (!v.aa(aVarArr[0].cfg()) && b.this.iyN != null) {
+                    b.this.iyN.dT(aVarArr[0].cfg().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.ixK != null) {
-                b.this.ixK.dT(null, null);
+            if (b.this.iyN != null) {
+                b.this.iyN.dT(null, null);
             }
         }
 

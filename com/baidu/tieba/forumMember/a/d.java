@@ -52,20 +52,20 @@ public class d extends h<e, f> {
             if (fVar.mSkinType != this.mSkinType) {
                 am.k(fVar.getView(), R.drawable.frs_member_manito_bg);
                 am.f(fVar.bmT, R.color.cp_cont_f, 1);
-                am.f(fVar.eHP, R.color.cp_cont_d, 1);
+                am.f(fVar.eHW, R.color.cp_cont_d, 1);
                 am.l(fVar.dividerLine, R.color.cp_bg_line_c);
-                am.f(fVar.fqf, R.color.cp_cont_d, 1);
+                am.f(fVar.fqE, R.color.cp_cont_d, 1);
             }
-            fVar.fqe.startLoad(eVar.bkx(), 12, false);
+            fVar.fqD.startLoad(eVar.bkE(), 12, false);
             fVar.bmT.setText(ab.ac(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.eHP.setText(R.string.god_intro_default);
+                fVar.eHW.setText(R.string.god_intro_default);
             } else {
-                fVar.eHP.setText(ab.ac(eVar.getIntro(), 30));
+                fVar.eHW.setText(ab.ac(eVar.getIntro(), 30));
             }
             int color = am.getColor(R.color.cp_cont_h);
             String aH = aq.aH(eVar.getFansNum());
-            fVar.fqf.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), aH), new String[]{aH}, new int[]{color}));
+            fVar.fqE.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), aH), new String[]{aH}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

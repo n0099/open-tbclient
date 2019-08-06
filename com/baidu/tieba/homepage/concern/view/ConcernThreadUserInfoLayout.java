@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
 /* loaded from: classes4.dex */
 public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
@@ -21,8 +21,8 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout, com.baidu.tbadk.core.view.d
-    public boolean setData(bg bgVar) {
-        if (super.setData(bgVar)) {
+    public boolean setData(bh bhVar) {
+        if (super.setData(bhVar)) {
             this.XN.setVisibility(8);
             return true;
         }
@@ -30,8 +30,8 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    protected void g(bg bgVar) {
-        if (bgVar == null || StringUtils.isNull(bgVar.acy())) {
+    protected void g(bh bhVar) {
+        if (bhVar == null || StringUtils.isNull(bhVar.acz())) {
             this.XQ.setVisibility(8);
             return;
         }
@@ -40,7 +40,7 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
             layoutParams.bottomMargin = 0;
             this.XQ.setLayoutParams(layoutParams);
         }
-        this.XQ.setText(bgVar.acy());
+        this.XQ.setText(bhVar.acz());
         this.XQ.setVisibility(0);
     }
 }

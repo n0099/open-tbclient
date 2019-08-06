@@ -7,19 +7,19 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes4.dex */
 public class FrsBaseViewPager extends BdBaseViewPager {
-    private int ftj;
-    private boolean ftk;
-    private a ftl;
-    private boolean ftm;
-    private boolean ftn;
+    private int ftI;
+    private boolean ftJ;
+    private a ftK;
+    private boolean ftL;
+    private boolean ftM;
     private Activity mActivity;
     private float x;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void blB();
+        void blI();
 
-        boolean blC();
+        boolean blJ();
     }
 
     public FrsBaseViewPager(Context context) {
@@ -28,12 +28,12 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     public FrsBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ftj = 16;
-        this.ftn = true;
+        this.ftI = 16;
+        this.ftM = true;
         this.mActivity = (Activity) context;
-        this.ftj = com.baidu.adp.lib.util.l.dip2px(this.mActivity, this.ftj);
+        this.ftI = com.baidu.adp.lib.util.l.dip2px(this.mActivity, this.ftI);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this.mActivity);
-        aVar.jg(1000);
+        aVar.jh(1000);
         aVar.b(this);
     }
 
@@ -43,30 +43,30 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.x = motionEvent.getRawX();
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.ftl != null) {
-                    this.ftl.blB();
+                if (this.ftK != null) {
+                    this.ftK.blI();
                 }
-                if (this.x >= getMeasuredWidth() - this.ftj && this.x <= getMeasuredWidth()) {
+                if (this.x >= getMeasuredWidth() - this.ftI && this.x <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
-                    this.ftk = true;
-                    this.ftn = true;
+                    this.ftJ = true;
+                    this.ftM = true;
                     break;
                 } else {
-                    this.ftn = false;
+                    this.ftM = false;
                     break;
                 }
                 break;
             case 1:
-                this.ftn = true;
+                this.ftM = true;
                 break;
             case 2:
-                if (this.ftn) {
-                    boolean blC = this.ftl != null ? this.ftl.blC() : true;
-                    if (this.ftk && blC) {
+                if (this.ftM) {
+                    boolean blJ = this.ftK != null ? this.ftK.blJ() : true;
+                    if (this.ftJ && blJ) {
                         z = false;
                     }
                     setmDisallowSlip(z);
-                    this.ftn = blC;
+                    this.ftM = blJ;
                     break;
                 }
                 break;
@@ -76,7 +76,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.ftm || this.ftk) {
+        if (this.ftL || this.ftJ) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -87,11 +87,11 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.x = motionEvent.getRawX();
         switch (motionEvent.getAction()) {
             case 1:
-                if (this.ftk) {
-                    this.ftk = false;
+                if (this.ftJ) {
+                    this.ftJ = false;
                 }
-                if (this.ftm) {
-                    this.ftm = false;
+                if (this.ftL) {
+                    this.ftL = false;
                 }
                 setmDisallowSlip(false);
                 break;
@@ -100,10 +100,10 @@ public class FrsBaseViewPager extends BdBaseViewPager {
     }
 
     public void setForceIntercept(boolean z) {
-        this.ftm = z;
+        this.ftL = z;
     }
 
     public void setOnTouchEventListener(a aVar) {
-        this.ftl = aVar;
+        this.ftK = aVar;
     }
 }

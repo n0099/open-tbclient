@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes2.dex */
 public @interface c {
-    String[] cMd() default {};
+    String[] cMy() default {};
 
     String value();
 }

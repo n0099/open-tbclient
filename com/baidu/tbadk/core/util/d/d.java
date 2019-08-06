@@ -19,7 +19,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.atw().qH(str);
+        return com.baidu.tbadk.imageManager.c.aty().qH(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 aVar.Bk = iVar;
             }
             byte[] O = iVar.O(str, false);
-            if ((O != null || iVar.iv().AQ) && !iVar.bVv) {
+            if ((O != null || iVar.iv().AQ) && !iVar.bVB) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, at.oj(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(O);
@@ -99,13 +99,13 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
-            com.baidu.tbadk.imageManager.c.atw().c(str, (com.baidu.adp.widget.ImageView.a) obj);
+            com.baidu.tbadk.imageManager.c.aty().c(str, (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
     @Override // com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel iI() {
-        return j.ajW().iI();
+        return j.ajY().iI();
     }
 
     @Override // com.baidu.adp.lib.f.e

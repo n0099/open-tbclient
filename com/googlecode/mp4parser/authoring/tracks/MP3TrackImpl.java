@@ -145,18 +145,18 @@ public class MP3TrackImpl extends AbstractTrack {
         int aCx;
         int aCy;
         int channelCount;
-        int kqb;
-        int kqc;
-        int kqd;
-        int kqt;
-        int kqu;
+        int krA;
+        int krh;
+        int kri;
+        int krj;
+        int krz;
         int layer;
         int padding;
 
         a() {
         }
 
-        int cMQ() {
+        int cNl() {
             return ((this.aCy * 144) / this.aCx) + this.padding;
         }
     }
@@ -171,7 +171,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     aVar = readMP3Header;
                 }
                 dataSource.position(position);
-                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.cMQ());
+                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.cNl());
                 dataSource.read(allocate);
                 allocate.rewind();
                 this.samples.add(new SampleImpl(allocate));
@@ -193,29 +193,29 @@ public class MP3TrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(11) != 2047) {
             throw new IOException("Expected Start Word 0x7ff");
         }
-        aVar.kqc = bitReaderBuffer.readBits(2);
-        if (aVar.kqc != 3) {
+        aVar.kri = bitReaderBuffer.readBits(2);
+        if (aVar.kri != 3) {
             throw new IOException("Expected MPEG Version 1 (ISO/IEC 11172-3)");
         }
         aVar.layer = bitReaderBuffer.readBits(2);
         if (aVar.layer != 1) {
             throw new IOException("Expected Layer III");
         }
-        aVar.kqd = bitReaderBuffer.readBits(1);
-        aVar.kqt = bitReaderBuffer.readBits(4);
-        aVar.aCy = BIT_RATE[aVar.kqt];
+        aVar.krj = bitReaderBuffer.readBits(1);
+        aVar.krz = bitReaderBuffer.readBits(4);
+        aVar.aCy = BIT_RATE[aVar.krz];
         if (aVar.aCy == 0) {
             throw new IOException("Unexpected (free/bad) bit rate");
         }
-        aVar.kqb = bitReaderBuffer.readBits(2);
-        aVar.aCx = SAMPLE_RATE[aVar.kqb];
+        aVar.krh = bitReaderBuffer.readBits(2);
+        aVar.aCx = SAMPLE_RATE[aVar.krh];
         if (aVar.aCx == 0) {
             throw new IOException("Unexpected (reserved) sample rate frequency");
         }
         aVar.padding = bitReaderBuffer.readBits(1);
         bitReaderBuffer.readBits(1);
-        aVar.kqu = bitReaderBuffer.readBits(2);
-        aVar.channelCount = aVar.kqu == 3 ? 1 : 2;
+        aVar.krA = bitReaderBuffer.readBits(2);
+        aVar.channelCount = aVar.krA == 3 ? 1 : 2;
         return aVar;
     }
 

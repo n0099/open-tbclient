@@ -92,7 +92,7 @@ public class SendVoiceView extends LinearLayout implements l, ISendVoiceView, co
         this.Uw = new FloatRecordView(getContext());
         this.Ux = (WindowManager) TbadkCoreApplication.getInst().getContext().getSystemService("window");
         this.Uy = new WindowManager.LayoutParams();
-        this.Uy.type = com.baidu.tieba.t.c.BV(2002);
+        this.Uy.type = com.baidu.tieba.t.c.BX(2002);
         this.Uy.format = 1;
         this.Uy.flags = 56;
         this.Uy.gravity = 17;

@@ -60,7 +60,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
         }
-        this.customToast = com.baidu.tbadk.core.util.e.ahW();
+        this.customToast = com.baidu.tbadk.core.util.e.ahY();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -160,7 +160,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             this.mRefreshView.qN(str2);
             this.mRefreshView.setButtonText(str3);
             this.mRefreshView.attachView(view, z);
-            this.mRefreshView.atI();
+            this.mRefreshView.atK();
         }
     }
 
@@ -178,14 +178,14 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         }
         this.mRefreshView.qN(str);
         this.mRefreshView.attachView(view, z);
-        this.mRefreshView.atP();
+        this.mRefreshView.atR();
     }
 
     public void setNetRefreshViewTopMargin(int i) {
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.m.h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.kK(i);
+        this.mRefreshView.kL(i);
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -198,7 +198,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNetRefreshViewEmotionMarginTop(int i) {
         if (this.mRefreshView != null && this.mRefreshView.isViewAttached()) {
-            this.mRefreshView.kK(i);
+            this.mRefreshView.kL(i);
         }
     }
 
@@ -269,7 +269,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.o.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.bi(currentTimeMillis);
-            com.baidu.tbadk.o.e.auZ().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.o.e.avb().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
         com.baidu.adp.lib.f.c.iE().e(this.mId);
@@ -502,7 +502,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.o.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.bi(currentTimeMillis);
-            com.baidu.tbadk.o.e.auZ().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.o.e.avb().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
         boolean isLogin = TbadkCoreApplication.isLogin();
@@ -546,7 +546,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             com.baidu.tbadk.o.a aVar = (com.baidu.tbadk.o.a) getActivity();
             ArrayList arrayList = (ArrayList) aVar.getCurrentPageSourceKeyList();
             if (!StringUtils.isNull(aVar.getCurrentPageKey())) {
-                if (aVar.getPageStayFilter() == null || aVar.getPageStayFilter().auT()) {
+                if (aVar.getPageStayFilter() == null || aVar.getPageStayFilter().auV()) {
                     if (v.aa(arrayList)) {
                         arrayList = new ArrayList();
                     }
@@ -572,7 +572,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             arrayList3.addAll(arrayList2);
             arrayList = arrayList3;
         }
-        if ((getPageStayFilter() == null || getPageStayFilter().auT()) && !StringUtils.isNull(currentPageKey)) {
+        if ((getPageStayFilter() == null || getPageStayFilter().auV()) && !StringUtils.isNull(currentPageKey)) {
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }

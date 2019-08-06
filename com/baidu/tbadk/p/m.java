@@ -8,32 +8,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String cAv = "tb_perfor_samllflow_time";
-    private static volatile m cAy;
-    private long cAx;
-    private boolean cAt = false;
-    private long cAw = 86400;
-    private long cAu = com.baidu.tbadk.core.sharedPref.b.ahO().getLong(cAv, 0);
+    private static String cAC = "tb_perfor_samllflow_time";
+    private static volatile m cAF;
+    private long cAE;
+    private boolean cAA = false;
+    private long cAD = 86400;
+    private long cAB = com.baidu.tbadk.core.sharedPref.b.ahQ().getLong(cAC, 0);
 
-    public static m avt() {
-        if (cAy == null) {
+    public static m avv() {
+        if (cAF == null) {
             synchronized (m.class) {
-                if (cAy == null) {
-                    cAy = new m();
+                if (cAF == null) {
+                    cAF = new m();
                 }
             }
         }
-        return cAy;
+        return cAF;
     }
 
     private m() {
-        this.cAx = 0L;
-        this.cAx = this.cAw;
+        this.cAE = 0L;
+        this.cAE = this.cAD;
     }
 
-    public boolean avu() {
-        if (!this.cAt || (System.currentTimeMillis() - this.cAu) / 1000 <= this.cAx) {
-            return this.cAt;
+    public boolean avw() {
+        if (!this.cAA || (System.currentTimeMillis() - this.cAB) / 1000 <= this.cAE) {
+            return this.cAA;
         }
         return false;
     }
@@ -41,17 +41,17 @@ public class m {
     public void fF(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.cAu || currentTimeMillis - this.cAu >= this.cAx) {
-                this.cAu = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.ahO().putLong(cAv, this.cAu);
+            if (0 == this.cAB || currentTimeMillis - this.cAB >= this.cAE) {
+                this.cAB = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.ahQ().putLong(cAC, this.cAB);
             }
         } else {
-            this.cAu = 0L;
-            com.baidu.tbadk.core.sharedPref.b.ahO().putLong(cAv, this.cAu);
+            this.cAB = 0L;
+            com.baidu.tbadk.core.sharedPref.b.ahQ().putLong(cAC, this.cAB);
         }
-        this.cAt = z;
+        this.cAA = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.avz().avA();
+            n.avB().avC();
         }
     }
 
@@ -74,7 +74,7 @@ public class m {
         return "2G";
     }
 
-    public static String kS(int i) {
+    public static String kT(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -87,7 +87,7 @@ public class m {
         return "WIFI";
     }
 
-    public long avv() {
+    public long avx() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -97,8 +97,8 @@ public class m {
         }
     }
 
-    public l kT(int i) {
-        if (avu()) {
+    public l kU(int i) {
+        if (avw()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -130,7 +130,7 @@ public class m {
 
     public void bk(long j) {
         if (j > 0) {
-            this.cAx = j;
+            this.cAE = j;
         }
     }
 
@@ -143,7 +143,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int avw() {
+    public int avy() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

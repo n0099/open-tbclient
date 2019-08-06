@@ -20,11 +20,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static final HashMap<Integer, Integer[]> bNv = new HashMap<>(2);
+    private static final HashMap<Integer, Integer[]> bNA = new HashMap<>(2);
     private List<CharSequence> aPr;
-    private a bNo;
-    private final View bNp;
-    private LinearLayout.LayoutParams bNu;
+    private a bNt;
+    private final View bNu;
+    private LinearLayout.LayoutParams bNz;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -32,12 +32,12 @@ public class b {
     private final ViewGroup mRootView;
     private String mTitle;
     private final TextView mTitleView;
-    private int bNr = -1;
-    private int bMO = -1;
-    private int bNs = -1;
-    private boolean bNd = false;
-    private int bNt = -1;
-    private int bNq = R.layout.dialog_bdlist_item;
+    private int bNw = -1;
+    private int bMT = -1;
+    private int bNx = -1;
+    private boolean bNi = false;
+    private int bNy = -1;
+    private int bNv = R.layout.dialog_bdlist_item;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -45,8 +45,8 @@ public class b {
     }
 
     static {
-        bNv.put(0, new Integer[]{Integer.valueOf((int) R.drawable.dialg_alert_btn_bg), Integer.valueOf((int) R.drawable.dialog_bdalert_button_textcolor_pressed)});
-        bNv.put(1, new Integer[]{Integer.valueOf((int) R.drawable.btn_blue_square), Integer.valueOf((int) R.color.cp_bg_line_d)});
+        bNA.put(0, new Integer[]{Integer.valueOf((int) R.drawable.dialg_alert_btn_bg), Integer.valueOf((int) R.drawable.dialog_bdalert_button_textcolor_pressed)});
+        bNA.put(1, new Integer[]{Integer.valueOf((int) R.drawable.btn_blue_square), Integer.valueOf((int) R.color.cp_bg_line_d)});
     }
 
     public b(Activity activity) {
@@ -54,7 +54,7 @@ public class b {
         this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.dialog_bdlist, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.dialog_title_list);
         this.mContentView = (ViewGroup) this.mRootView.findViewById(R.id.dialog_content);
-        this.bNp = this.mRootView.findViewById(R.id.line_bg);
+        this.bNu = this.mRootView.findViewById(R.id.line_bg);
     }
 
     public b mP(String str) {
@@ -77,33 +77,33 @@ public class b {
         if (list != null && list.size() > 0) {
             this.aPr = list;
             if (aVar != null) {
-                this.bNo = aVar;
+                this.bNt = aVar;
             }
         }
         return this;
     }
 
     public b hz(int i) {
-        this.bNr = i;
+        this.bNw = i;
         return this;
     }
 
     public b hA(int i) {
-        this.bMO = i;
+        this.bMT = i;
         return this;
     }
 
     public b d(com.baidu.adp.base.e<?> eVar) {
-        if (!this.bNd) {
+        if (!this.bNi) {
             this.mContext = eVar;
-            this.bNd = true;
+            this.bNi = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
                 this.mTitleView.setVisibility(0);
-                this.bNp.setVisibility(0);
+                this.bNu.setVisibility(0);
             } else {
                 this.mTitleView.setVisibility(8);
-                this.bNp.setVisibility(8);
+                this.bNu.setVisibility(8);
             }
             if (this.aPr != null && this.aPr.size() > 0) {
                 int size = this.aPr.size();
@@ -116,8 +116,8 @@ public class b {
         return this;
     }
 
-    public b agL() {
-        if (!this.bNd) {
+    public b agN() {
+        if (!this.bNi) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
@@ -127,16 +127,16 @@ public class b {
             this.mDialog.setCanceledOnTouchOutside(true);
             if (com.baidu.adp.lib.g.g.a(this.mDialog, this.mActivity)) {
                 Window window = this.mDialog.getWindow();
-                if (this.bNr == -1) {
-                    this.bNr = R.style.dialog_ani_b2t;
+                if (this.bNw == -1) {
+                    this.bNw = R.style.dialog_ani_b2t;
                 }
-                if (this.bMO == -1) {
-                    this.bMO = 17;
+                if (this.bMT == -1) {
+                    this.bMT = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.bMO);
+                window.setGravity(this.bMT);
                 window.setContentView(this.mRootView);
             }
         }
@@ -159,18 +159,18 @@ public class b {
     }
 
     private View hB(final int i) {
-        View inflate = LayoutInflater.from(this.mActivity).inflate(this.bNq, this.mContentView, false);
+        View inflate = LayoutInflater.from(this.mActivity).inflate(this.bNv, this.mContentView, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
         final TextView textView = (TextView) inflate.findViewById(R.id.dialog_item_btn);
-        if (this.bNu != null) {
-            textView.setLayoutParams(this.bNu);
+        if (this.bNz != null) {
+            textView.setLayoutParams(this.bNz);
         }
-        if (this.bNs != -1) {
-            textView.setTextSize(0, this.bNs);
+        if (this.bNx != -1) {
+            textView.setTextSize(0, this.bNx);
         }
-        if (this.bNt != -1) {
+        if (this.bNy != -1) {
             textView.setPadding(0, 0, 0, 0);
-            textView.setGravity(this.bNt);
+            textView.setGravity(this.bNy);
         }
         View findViewById = inflate.findViewById(R.id.line);
         CharSequence charSequence = this.aPr.get(i);
@@ -189,11 +189,11 @@ public class b {
         } else {
             am.k(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.bNo != null) {
+        if (this.bNt != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.bNo.a(b.this, i, textView);
+                    b.this.bNt.a(b.this, i, textView);
                 }
             });
         }

@@ -3,18 +3,18 @@ package com.baidu.tieba.group;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes5.dex */
 public class a {
-    private static a gaJ;
-    private boolean gaI = false;
+    private static a gbz;
+    private boolean gby = false;
 
-    public static a buC() {
-        if (gaJ == null) {
+    public static a buP() {
+        if (gbz == null) {
             synchronized (a.class) {
-                if (gaJ == null) {
-                    gaJ = new a();
+                if (gbz == null) {
+                    gbz = new a();
                 }
             }
         }
-        return gaJ;
+        return gbz;
     }
 
     private a() {
@@ -22,15 +22,15 @@ public class a {
     }
 
     private void initConfig() {
-        this.gaI = TbadkSettings.getInst().loadBoolean("has_showed_del_ga_tip", false);
+        this.gby = TbadkSettings.getInst().loadBoolean("has_showed_del_ga_tip", false);
     }
 
-    public boolean buD() {
-        return this.gaI;
+    public boolean buQ() {
+        return this.gby;
     }
 
     public void le(boolean z) {
-        this.gaI = z;
+        this.gby = z;
         TbadkSettings.getInst().saveBoolean("has_showed_del_ga_tip", z);
     }
 }

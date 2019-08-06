@@ -5,14 +5,14 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
 public class StringU {
-    private static boolean cTY;
+    private static boolean cUf;
 
     private static native String toUpper(String str);
 
     static {
         try {
-            cTY = h.jN().h("stringu", 2);
-            if (cTY) {
+            cUf = h.jN().h("stringu", 2);
+            if (cUf) {
                 am("stringu_so_load_success", null);
             } else {
                 am("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
@@ -30,7 +30,7 @@ public class StringU {
     public static String rK(String str) {
         String str2;
         String str3 = "";
-        if (cTY && !TextUtils.isEmpty(str)) {
+        if (cUf && !TextUtils.isEmpty(str)) {
             try {
                 str3 = toUpper(str);
                 if (TextUtils.isEmpty(str3)) {

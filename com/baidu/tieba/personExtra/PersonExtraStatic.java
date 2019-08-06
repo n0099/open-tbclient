@@ -72,7 +72,7 @@ public class PersonExtraStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        bb.ajC().a(new bb.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.2
+        bb.ajE().a(new bb.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.2
             @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -90,27 +90,27 @@ public class PersonExtraStatic {
                 }
             }
         });
-        ccr();
+        ccJ();
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(107129);
         bVar.setResponsedClass(ResponseGetLivableForumList.class);
         bVar.E(false);
         bVar.setParallel(TiebaIMConfig.getParallel());
         MessageManager.getInstance().registerTask(bVar);
-        aIo();
-        ccj();
-        cck();
-        ccl();
-        ccm();
-        ccn();
-        cco();
-        blt();
-        ccp();
+        aIq();
+        ccB();
+        ccC();
+        ccD();
+        ccE();
+        ccF();
+        ccG();
+        blA();
+        ccH();
         m.init();
-        ccq();
+        ccI();
     }
 
-    private static void aIo() {
-        bb.ajC().a(new bb.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.3
+    private static void aIq() {
+        bb.ajE().a(new bb.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.3
             @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {
@@ -125,7 +125,7 @@ public class PersonExtraStatic {
         });
     }
 
-    private static void ccj() {
+    private static void ccB() {
         com.baidu.tieba.tbadkCore.a.a.a(309408, PersonPolymericSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, com.baidu.tieba.tbadkCore.a.a.bo("c/u/user/personal", 309408));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -137,13 +137,13 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cck() {
+    private static void ccC() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void ccl() {
-        bb.ajC().a(new bb.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.4
+    private static void ccD() {
+        bb.ajE().a(new bb.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.4
             @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -162,7 +162,7 @@ public class PersonExtraStatic {
         });
     }
 
-    private static void ccm() {
+    private static void ccE() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_USER_PICS, TbConfig.SET_USER_PICS);
         tbHttpMessageTask.setResponsedClass(SetUserPicsResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -171,7 +171,7 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public static void ccn() {
+    public static void ccF() {
         com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.bo("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -182,14 +182,14 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cco() {
+    private static void ccG() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void blt() {
+    private static void blA() {
         com.baidu.tbadk.ala.b.aak().a(7, new com.baidu.tbadk.ala.e() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.5
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
@@ -206,7 +206,7 @@ public class PersonExtraStatic {
         });
     }
 
-    private static void ccp() {
+    private static void ccH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_USER_REPORT, TbConfig.SERVER_ADDRESS + TbConfig.URL_USER_REPORT);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -215,8 +215,8 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ccq() {
-        bb.ajC().a(new bb.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.6
+    private static void ccI() {
+        bb.ajE().a(new bb.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.6
             @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 AccountData currentAccountObj;
@@ -232,7 +232,7 @@ public class PersonExtraStatic {
         });
     }
 
-    private static void ccr() {
+    private static void ccJ() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }

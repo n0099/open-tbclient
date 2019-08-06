@@ -14,7 +14,7 @@ import java.io.IOException;
 /* loaded from: classes5.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
     protected MediaPlayer bAa;
-    protected ScalableType daG;
+    protected ScalableType daN;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -27,15 +27,15 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.daG = ScalableType.NONE;
+        this.daN = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.scaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.daG = ScalableType.values()[i2];
+            this.daN = ScalableType.values()[i2];
         }
     }
 
-    private void aEe() {
+    private void aEg() {
         if (this.bAa == null) {
             this.bAa = new MediaPlayer();
             this.bAa.setOnVideoSizeChangedListener(this);
@@ -52,12 +52,12 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        aEe();
+        aEg();
         this.bAa.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri) throws Exception {
-        aEe();
+        aEg();
         this.bAa.setDataSource(context, uri);
     }
 
@@ -87,7 +87,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.daG = scalableType;
+        this.daN = scalableType;
         aD(getVideoWidth(), getVideoHeight());
     }
 
@@ -132,7 +132,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void aD(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.daG)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.daN)) != null) {
             setTransform(a);
         }
     }

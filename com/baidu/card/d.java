@@ -77,7 +77,7 @@ public class d extends b<com.baidu.tbadk.core.data.a> {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.VJ = aVar;
-        this.VH.setData(aVar.acx());
+        this.VH.setData(aVar.acy());
     }
 
     public void ay(boolean z) {

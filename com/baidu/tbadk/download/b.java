@@ -21,22 +21,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b crq = null;
-    private static DownloadData crt = null;
+    private final int cry = 5;
+    private a crz = null;
+    private static b crx = null;
+    private static DownloadData crA = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private final int crr = 5;
-    private a crs = null;
 
     private b() {
     }
 
-    public static b arQ() {
+    public static b arS() {
         synchronized (b.class) {
-            if (crq == null) {
-                crq = new b();
+            if (crx == null) {
+                crx = new b();
             }
         }
-        return crq;
+        return crx;
     }
 
     public void a(String str, String str2, String str3, String[] strArr) {
@@ -64,7 +64,7 @@ public class b {
 
     public void a(DownloadData downloadData) {
         if (downloadData != null) {
-            List<DownloadData> mN = d.arS().mN();
+            List<DownloadData> mN = d.arU().mN();
             if (mN != null && mN.size() >= 5) {
                 downloadData.setStatus(2);
                 downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
@@ -73,18 +73,18 @@ public class b {
                 return;
             }
             mTaskList.add(downloadData);
-            arR();
+            arT();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arR() {
-        if (crt == null) {
-            crt = (DownloadData) v.c(mTaskList, 0);
-            if (crt != null) {
-                this.crs = new a();
-                this.crs.setPriority(3);
-                this.crs.execute(crt);
+    public void arT() {
+        if (crA == null) {
+            crA = (DownloadData) v.c(mTaskList, 0);
+            if (crA != null) {
+                this.crz = new a();
+                this.crz.setPriority(3);
+                this.crz.execute(crA);
             }
         }
     }
@@ -120,10 +120,10 @@ public class b {
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0252b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> crv;
+        ArrayList<AdvertAppInfo> crC;
 
         private C0252b() {
-            this.crv = null;
+            this.crC = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -136,12 +136,12 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.crv = arrayList;
+            this.crC = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                String str = next.bEX;
-                if (m.nk(b.this.getFileOfUrl(next.bEW)) != null) {
+                String str = next.bEY;
+                if (m.nk(b.this.getFileOfUrl(next.bEX)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -159,23 +159,23 @@ public class b {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            for (DownloadData downloadData : d.arS().mN()) {
-                Iterator<AdvertAppInfo> it = this.crv.iterator();
+            for (DownloadData downloadData : d.arU().mN()) {
+                Iterator<AdvertAppInfo> it = this.crC.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().bEX, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().bEY, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
             }
             b.this.ah(list);
-            this.crv = null;
+            this.crC = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String aV(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(m.aid());
+        sb.append(m.aif());
         File file = new File(sb.toString());
         if (!file.exists()) {
             file.mkdirs();
@@ -229,7 +229,7 @@ public class b {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.crs = null;
+            b.this.crz = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.b(downloadData);
@@ -237,7 +237,7 @@ public class b {
                         UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
                     }
                 } else {
-                    d.arS().a(downloadData, 5);
+                    d.arU().a(downloadData, 5);
                     int cd = b.this.cd(downloadData.getId(), downloadData.getName());
                     if (downloadData.isNeedNotify() && cd <= 0) {
                         String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
@@ -246,10 +246,10 @@ public class b {
                         b.this.c(downloadData);
                     }
                 }
-                DownloadData unused = b.crt = null;
+                DownloadData unused = b.crA = null;
                 if (!b.mTaskList.isEmpty()) {
                     b.mTaskList.remove(0);
-                    b.this.arR();
+                    b.this.arT();
                 }
             }
         }
@@ -274,7 +274,7 @@ public class b {
     }
 
     public boolean pZ(String str) {
-        for (DownloadData downloadData : d.arS().mN()) {
+        for (DownloadData downloadData : d.arU().mN()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
             }
@@ -296,7 +296,7 @@ public class b {
 
     public void qa(String str) {
         if (!StringUtils.isNull(str)) {
-            d.arS().qc(str);
+            d.arU().qc(str);
         }
     }
 

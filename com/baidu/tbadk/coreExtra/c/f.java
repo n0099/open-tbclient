@@ -21,36 +21,36 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class f {
-    private b clg;
-    private c clh;
-    private a clk;
+    private b cln;
+    private c clo;
+    private a clr;
     private final Context mContext;
-    private String cli = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
-    private String clj = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.cli;
-    private a.InterfaceC0246a cll = new a.InterfaceC0246a() { // from class: com.baidu.tbadk.coreExtra.c.f.1
+    private String clp = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
+    private String clq = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.clp;
+    private a.InterfaceC0246a cls = new a.InterfaceC0246a() { // from class: com.baidu.tbadk.coreExtra.c.f.1
         @Override // com.baidu.tbadk.coreExtra.c.a.InterfaceC0246a
         public void d(e eVar) {
-            f.this.clh.a(f.this.a(eVar, "weixin"), 3, false);
+            f.this.clo.a(f.this.a(eVar, "weixin"), 3, false);
         }
     };
 
     public f(Context context, b bVar) {
         d dVar;
-        this.clg = null;
-        this.clh = null;
+        this.cln = null;
+        this.clo = null;
         this.mContext = context;
-        this.clg = bVar;
+        this.cln = bVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, d.class);
         if (runTask.getData() != null && (dVar = (d) runTask.getData()) != null) {
-            this.clh = dVar.a(this.mContext, this.clg);
+            this.clo = dVar.a(this.mContext, this.cln);
         }
     }
 
     public static boolean cJ(Context context) {
-        return aqa();
+        return aqc();
     }
 
-    public static boolean aqa() {
+    public static boolean aqc() {
         return TbadkCoreApplication.getInst().appResponseToCmd(2001445);
     }
 
@@ -59,64 +59,64 @@ public class f {
     }
 
     public void e(e eVar) {
-        if (this.clh != null && eVar != null) {
+        if (this.clo != null && eVar != null) {
             if (StringUtils.isNull(eVar.tid)) {
-                eVar.content = b(eVar.content, 80, 20, eVar.ckW ? this.cli : "");
+                eVar.content = b(eVar.content, 80, 20, eVar.cld ? this.clp : "");
             }
-            if (eVar.cla && !aq.isEmpty(eVar.ckZ)) {
-                eVar.imageUri = Uri.parse(eVar.ckZ);
-                this.clh.a(a(eVar, "weixin"), 3, false);
-            } else if (eVar.cla && aq.isEmpty(eVar.ckZ) && !aq.isEmpty(eVar.tid) && !"0".equals(eVar.tid)) {
-                if (this.clk == null) {
-                    this.clk = new a();
-                    this.clk.a(this.cll);
+            if (eVar.clh && !aq.isEmpty(eVar.clg)) {
+                eVar.imageUri = Uri.parse(eVar.clg);
+                this.clo.a(a(eVar, "weixin"), 3, false);
+            } else if (eVar.clh && aq.isEmpty(eVar.clg) && !aq.isEmpty(eVar.tid) && !"0".equals(eVar.tid)) {
+                if (this.clr == null) {
+                    this.clr = new a();
+                    this.clr.a(this.cls);
                 }
-                this.clk.b(eVar);
+                this.clr.b(eVar);
             } else {
-                this.clh.a(a(eVar, "weixin"), 3, false);
+                this.clo.a(a(eVar, "weixin"), 3, false);
             }
         }
     }
 
     public void f(e eVar) {
-        if (this.clh != null && eVar != null) {
-            eVar.content = b(eVar.content, 80, 20, eVar.ckW ? this.cli : "");
-            this.clh.a(a(eVar, "weixin_timeline"), 2, false);
+        if (this.clo != null && eVar != null) {
+            eVar.content = b(eVar.content, 80, 20, eVar.cld ? this.clp : "");
+            this.clo.a(a(eVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void g(e eVar) {
-        if (this.clh != null && eVar != null) {
-            eVar.content = b(eVar.content, 80, 32, eVar.ckW ? this.cli : "");
-            this.clh.a(a(eVar, "qqfriend"), 8, true);
+        if (this.clo != null && eVar != null) {
+            eVar.content = b(eVar.content, 80, 32, eVar.cld ? this.clp : "");
+            this.clo.a(a(eVar, "qqfriend"), 8, true);
         }
     }
 
     public void h(e eVar) {
-        if (this.clh != null) {
-            eVar.content = b(eVar.content, 80, 32, eVar.ckW ? this.cli : "");
-            this.clh.a(a(eVar, Constants.SOURCE_QZONE), 4, true);
+        if (this.clo != null) {
+            eVar.content = b(eVar.content, 80, 32, eVar.cld ? this.clp : "");
+            this.clo.a(a(eVar, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void i(e eVar) {
-        if (this.clh != null) {
-            eVar.content = b(eVar.content, 140, 20, eVar.ckW ? this.cli : "");
-            this.clh.a(a(eVar, "tencent_weibo"), 5, true);
+        if (this.clo != null) {
+            eVar.content = b(eVar.content, 140, 20, eVar.cld ? this.clp : "");
+            this.clo.a(a(eVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void j(e eVar) {
-        if (this.clh != null) {
-            eVar.content = b(eVar.content, 140, 20, eVar.ckW ? this.clj : "");
-            this.clh.a(a(eVar, "sina_weibo"), 6, true);
+        if (this.clo != null) {
+            eVar.content = b(eVar.content, 140, 20, eVar.cld ? this.clq : "");
+            this.clo.a(a(eVar, "sina_weibo"), 6, true);
         }
     }
 
     public void k(e eVar) {
-        if (this.clh != null) {
-            eVar.content = b(eVar.content, 140, 20, eVar.ckW ? this.cli : "");
-            this.clh.a(a(eVar, "renren"), 7, true);
+        if (this.clo != null) {
+            eVar.content = b(eVar.content, 140, 20, eVar.cld ? this.clp : "");
+            this.clo.a(a(eVar, "renren"), 7, true);
         }
     }
 
@@ -136,7 +136,7 @@ public class f {
         if (eVar == null) {
             return null;
         }
-        if ((eVar.imageUri == null || eVar.imageUri.equals("")) && eVar.apX() == null) {
+        if ((eVar.imageUri == null || eVar.imageUri.equals("")) && eVar.apZ() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith("weixin")) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
@@ -152,7 +152,7 @@ public class f {
                 cc(uri, "sfc=" + str);
             }
         }
-        if (eVar.ckX) {
+        if (eVar.cle) {
             eVar.linkUrl = G(eVar.linkUrl, str, eVar.tid);
             return eVar;
         }
@@ -199,7 +199,7 @@ public class f {
 
     private boolean pE(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (bb.ajC().ot(str)) {
+        if (bb.ajE().ot(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

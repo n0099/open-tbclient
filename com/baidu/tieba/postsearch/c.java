@@ -21,86 +21,86 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class c {
-    private PostSearchActivity iAZ;
-    private View iBi;
-    private BdListView iBj;
-    private com.baidu.tbadk.core.dialog.a iBl;
+    private PostSearchActivity iCd;
+    private View iCm;
+    private BdListView iCn;
+    private com.baidu.tbadk.core.dialog.a iCp;
     private NoDataView mNoDataView;
     private View mRootView;
-    private com.baidu.tieba.mainentrance.d iBk = null;
-    private View euX = null;
-    private boolean iBm = false;
+    private com.baidu.tieba.mainentrance.d iCo = null;
+    private View eve = null;
+    private boolean iCq = false;
 
     public c(PostSearchActivity postSearchActivity, View view) {
-        this.iAZ = postSearchActivity;
+        this.iCd = postSearchActivity;
         this.mRootView = view;
         initView();
     }
 
     private void initView() {
-        this.iBi = this.iAZ.findViewById(R.id.history_frame);
-        this.iBj = (BdListView) this.mRootView.findViewById(R.id.history_list);
-        BdListViewHelper.a(this.iAZ.getActivity(), this.iBj, BdListViewHelper.HeadType.DEFAULT);
-        this.iBk = new com.baidu.tieba.mainentrance.d(this.iAZ.getPageContext().getPageActivity(), null);
-        this.iBk.nj(false);
-        this.iBj.setAdapter((ListAdapter) this.iBk);
-        this.euX = LayoutInflater.from(this.iAZ.getPageContext().getPageActivity()).inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
-        this.iBj.addFooterView(this.euX);
-        this.euX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.c.1
+        this.iCm = this.iCd.findViewById(R.id.history_frame);
+        this.iCn = (BdListView) this.mRootView.findViewById(R.id.history_list);
+        BdListViewHelper.a(this.iCd.getActivity(), this.iCn, BdListViewHelper.HeadType.DEFAULT);
+        this.iCo = new com.baidu.tieba.mainentrance.d(this.iCd.getPageContext().getPageActivity(), null);
+        this.iCo.nj(false);
+        this.iCn.setAdapter((ListAdapter) this.iCo);
+        this.eve = LayoutInflater.from(this.iCd.getPageContext().getPageActivity()).inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
+        this.iCn.addFooterView(this.eve);
+        this.eve.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.bDj();
+                c.this.bDx();
             }
         });
-        this.iBj.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.postsearch.c.2
+        this.iCn.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.postsearch.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                TiebaStatic.log(new an("c12403").bT("fid", c.this.iAZ.mForumId).bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(ImageViewerConfig.FORUM_NAME, c.this.iAZ.mForumName));
-                String str = (String) c.this.iBj.getItemAtPosition(i + 1);
-                c.this.iAZ.Dj(str);
-                c.this.iAZ.km(str);
-                PostSearchActivity unused = c.this.iAZ;
-                TiebaStatic.log(new an("c12842").bT("obj_name", str).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "3").bT("obj_type", "2").bT("fid", c.this.iAZ.mForumId));
+                TiebaStatic.log(new an("c12403").bT("fid", c.this.iCd.mForumId).bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(ImageViewerConfig.FORUM_NAME, c.this.iCd.mForumName));
+                String str = (String) c.this.iCn.getItemAtPosition(i + 1);
+                c.this.iCd.Dk(str);
+                c.this.iCd.km(str);
+                PostSearchActivity unused = c.this.iCd;
+                TiebaStatic.log(new an("c12842").bT("obj_name", str).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "3").bT("obj_type", "2").bT("fid", c.this.iCd.mForumId));
             }
         });
-        this.iBj.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.3
+        this.iCn.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                c.this.iAZ.cfS();
+                c.this.iCd.cgk();
                 return false;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDj() {
-        if (this.iBl == null) {
-            this.iBl = new com.baidu.tbadk.core.dialog.a(this.iAZ.getPageContext().getPageActivity()).mO(this.iAZ.getPageContext().getString(R.string.alert_clean_history)).a(this.iAZ.getPageContext().getString(R.string.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
+    public void bDx() {
+        if (this.iCp == null) {
+            this.iCp = new com.baidu.tbadk.core.dialog.a(this.iCd.getPageContext().getPageActivity()).mO(this.iCd.getPageContext().getString(R.string.alert_clean_history)).a(this.iCd.getPageContext().getString(R.string.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    c.this.iAZ.cfY().cgl();
-                    c.this.iBj.setVisibility(8);
+                    c.this.iCd.cgq().cgD();
+                    c.this.iCn.setVisibility(8);
                     c.this.showNoDataView();
                 }
-            }).b(this.iAZ.getPageContext().getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.postsearch.c.4
+            }).b(this.iCd.getPageContext().getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.postsearch.c.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
-            }).b(this.iAZ.getPageContext());
+            }).b(this.iCd.getPageContext());
         }
-        this.iBl.agI();
+        this.iCp.agK();
     }
 
-    private void oW(int i) {
+    private void oX(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.iAZ.getPageContext().getPageActivity(), this.iBi, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(this.iAZ.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.iN(R.string.text_no_search_record), null);
-            this.mNoDataView.onChangeSkinType(this.iAZ.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.mNoDataView = NoDataViewFactory.a(this.iCd.getPageContext().getPageActivity(), this.iCm, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(this.iCd.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.iN(R.string.text_no_search_record), null);
+            this.mNoDataView.onChangeSkinType(this.iCd.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.mNoDataView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.6
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    c.this.iAZ.cfS();
+                    c.this.iCd.cgk();
                     return false;
                 }
             });
@@ -111,12 +111,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
-        oW(R.string.text_no_search_record);
+        oX(R.string.text_no_search_record);
     }
 
-    public void cgd() {
-        this.iBj.setVisibility(8);
-        oW(R.string.text_no_search_result);
+    public void cgv() {
+        this.iCn.setVisibility(8);
+        oX(R.string.text_no_search_result);
     }
 
     private void hideNoDataView() {
@@ -126,42 +126,42 @@ public class c {
     }
 
     public void showLoadingView() {
-        this.iBm = true;
-        this.iAZ.showLoadingView(this.iBi, false, this.iAZ.getResources().getDimensionPixelSize(R.dimen.ds386));
+        this.iCq = true;
+        this.iCd.showLoadingView(this.iCm, false, this.iCd.getResources().getDimensionPixelSize(R.dimen.ds386));
     }
 
     public void hideLoadingView() {
-        this.iBm = false;
-        this.iAZ.hideLoadingView(this.iBi);
+        this.iCq = false;
+        this.iCd.hideLoadingView(this.iCm);
     }
 
     public void aB(ArrayList<String> arrayList) {
-        this.iBi.setVisibility(0);
+        this.iCm.setVisibility(0);
         hideLoadingView();
         if (arrayList == null || arrayList.size() == 0) {
-            this.iBj.setVisibility(8);
+            this.iCn.setVisibility(8);
             showNoDataView();
             return;
         }
         hideNoDataView();
-        this.iBj.setVisibility(0);
-        this.iBk.setData(arrayList);
-        this.iBk.notifyDataSetChanged();
+        this.iCn.setVisibility(0);
+        this.iCo.setData(arrayList);
+        this.iCo.notifyDataSetChanged();
     }
 
-    public void cge() {
-        this.iBi.setVisibility(8);
+    public void cgw() {
+        this.iCm.setVisibility(8);
     }
 
-    public boolean cgf() {
-        return this.iBi.getVisibility() == 0 && !this.iBm && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
+    public boolean cgx() {
+        return this.iCm.getVisibility() == 0 && !this.iCq && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.s.a.a(this.iAZ.getPageContext(), this.euX);
-        this.iBk.notifyDataSetChanged();
+        com.baidu.tbadk.s.a.a(this.iCd.getPageContext(), this.eve);
+        this.iCo.notifyDataSetChanged();
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.iAZ.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.iCd.getPageContext(), i);
         }
     }
 }

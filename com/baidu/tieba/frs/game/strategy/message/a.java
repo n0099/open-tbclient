@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.game.strategy.message;
 import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.ad;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.data.b;
@@ -15,7 +15,7 @@ import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    public static List<e> ce(List<GameForumSubTab> list) {
+    public static List<e> cd(List<GameForumSubTab> list) {
         if (v.aa(list)) {
             return null;
         }
@@ -34,7 +34,7 @@ public class a {
         return arrayList;
     }
 
-    public static List<m> cf(List<ThreadInfo> list) {
+    public static List<m> ce(List<ThreadInfo> list) {
         if (v.aa(list)) {
             return null;
         }
@@ -46,14 +46,14 @@ public class a {
                 return linkedList;
             }
             b bVar = new b();
-            bg bgVar = new bg();
-            bVar.ai(bgVar);
-            bgVar.a(list.get(i2));
-            bgVar.setCurrentPage(3);
-            bgVar.afn();
-            if (!TextUtils.isEmpty(bgVar.afz())) {
+            bh bhVar = new bh();
+            bVar.aj(bhVar);
+            bhVar.a(list.get(i2));
+            bhVar.setCurrentPage(3);
+            bhVar.afo();
+            if (!TextUtils.isEmpty(bhVar.afA())) {
                 ad adVar = new ad();
-                adVar.mq(bgVar.afz());
+                adVar.mq(bhVar.afA());
                 linkedList.add(adVar);
             } else {
                 linkedList.add(bVar);

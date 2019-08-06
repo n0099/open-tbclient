@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import java.util.Calendar;
 /* loaded from: classes4.dex */
-public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.l, y> {
+public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.n, y> {
     private String mForumId;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,12 +27,12 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     public y onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         y yVar = new y(inflate);
-        am.j(yVar.dvh, R.color.cp_cont_b);
-        am.j(yVar.fDe, R.color.cp_cont_h);
-        am.c(yVar.fDd, (int) R.drawable.icon_news_list_prompt);
-        am.c(yVar.fDf, (int) R.drawable.icon_index_category_arrow_r);
-        am.l(yVar.fDg, R.color.cp_bg_line_b);
-        am.l(yVar.fDh, R.color.cp_bg_line_b);
+        am.j(yVar.dvo, R.color.cp_cont_b);
+        am.j(yVar.fDS, R.color.cp_cont_h);
+        am.c(yVar.fDR, (int) R.drawable.icon_news_list_prompt);
+        am.c(yVar.fDT, (int) R.drawable.icon_index_category_arrow_r);
+        am.l(yVar.fDU, R.color.cp_bg_line_b);
+        am.l(yVar.fDV, R.color.cp_bg_line_b);
         am.k(inflate, R.drawable.home_thread_card_item_bg);
         return yVar;
     }
@@ -41,7 +41,7 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.tbadkCore.l lVar, y yVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.tbadkCore.n nVar, y yVar) {
         if (view == null || yVar == null) {
             return null;
         }
@@ -49,17 +49,17 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TiebaStatic.log(new an("c12587").bT("fid", x.this.mForumId));
-                com.baidu.tbadk.core.sharedPref.b.ahO().putLong("frs_video_activity_tip" + x.this.mForumId, System.currentTimeMillis());
-                if (lVar != null && !StringUtils.isNull(lVar.url)) {
-                    com.baidu.tbadk.browser.a.af(x.this.mContext, lVar.url);
+                com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("frs_video_activity_tip" + x.this.mForumId, System.currentTimeMillis());
+                if (nVar != null && !StringUtils.isNull(nVar.url)) {
+                    com.baidu.tbadk.browser.a.af(x.this.mContext, nVar.url);
                 }
             }
         });
-        yVar.dvh.setText(lVar != null ? lVar.text : "");
-        if (dk(com.baidu.tbadk.core.sharedPref.b.ahO().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            yVar.fDd.setVisibility(0);
+        yVar.dvo.setText(nVar != null ? nVar.text : "");
+        if (dk(com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
+            yVar.fDR.setVisibility(0);
         } else {
-            yVar.fDd.setVisibility(8);
+            yVar.fDR.setVisibility(8);
         }
         return yVar.getView();
     }

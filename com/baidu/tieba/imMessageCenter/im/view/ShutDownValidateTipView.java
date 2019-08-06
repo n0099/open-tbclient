@@ -15,12 +15,12 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private ArrayList<a> bZS;
-    private boolean cbt;
-    private TextView gUv;
-    private ImageView gUw;
-    private TextView gUx;
-    private TextView gUy;
+    private ArrayList<a> bZY;
+    private boolean cbA;
+    private TextView gVn;
+    private ImageView gVo;
+    private TextView gVp;
+    private TextView gVq;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -29,39 +29,39 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bZS = new ArrayList<>();
+        this.bZY = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bZS = new ArrayList<>();
+        this.bZY = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.bZS = new ArrayList<>();
+        this.bZY = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.gUw = (ImageView) findViewById(R.id.no_network_icon);
-        this.gUx = (TextView) findViewById(R.id.no_network_guide1);
-        this.gUy = (TextView) findViewById(R.id.no_network_guide2);
-        this.gUv = (TextView) findViewById(R.id.no_network_showmore);
+        this.gVo = (ImageView) findViewById(R.id.no_network_icon);
+        this.gVp = (TextView) findViewById(R.id.no_network_guide1);
+        this.gVq = (TextView) findViewById(R.id.no_network_guide2);
+        this.gVn = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.gUv != null) {
-            this.gUv.setOnClickListener(onClickListener);
+        if (this.gVn != null) {
+            this.gVn.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.cbt) {
-            this.cbt = z;
+        if (z != this.cbA) {
+            this.cbA = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -81,8 +81,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 });
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.bZS.size(); i++) {
-                    this.bZS.get(i).ep(false);
+                for (int i = 0; i < this.bZY.size(); i++) {
+                    this.bZY.get(i).ep(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -103,8 +103,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                     }
                 });
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.bZS.size(); i2++) {
-                    this.bZS.get(i2).ep(true);
+                for (int i2 = 0; i2 < this.bZY.size(); i2++) {
+                    this.bZY.get(i2).ep(true);
                 }
             }
         }
@@ -118,20 +118,20 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.bZS.clear();
+        this.bZY.clear();
     }
 
     public void onChangeSkinType(int i) {
-        am.c(this.gUw, (int) R.drawable.icon_error);
+        am.c(this.gVo, (int) R.drawable.icon_error);
         am.k(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1) {
-            this.gUx.setTextColor(-10523526);
-            this.gUy.setTextColor(-8682095);
-            this.gUv.setTextColor(-10523526);
+            this.gVp.setTextColor(-10523526);
+            this.gVq.setTextColor(-8682095);
+            this.gVn.setTextColor(-10523526);
             return;
         }
-        this.gUx.setTextColor(-14277082);
-        this.gUy.setTextColor(-5065030);
-        this.gUv.setTextColor(-14277082);
+        this.gVp.setTextColor(-14277082);
+        this.gVq.setTextColor(-5065030);
+        this.gVn.setTextColor(-14277082);
     }
 }

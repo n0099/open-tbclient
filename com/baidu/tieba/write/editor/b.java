@@ -6,39 +6,39 @@ import com.baidu.tbadk.editortools.k;
 public class b extends k {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.csL = false;
-        this.csK = 3;
-        this.crT = new EditorInfoContainer(context, str);
-        this.csM = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
+        this.csS = false;
+        this.csR = 3;
+        this.csa = new EditorInfoContainer(context, str);
+        this.csT = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
     }
 
     public void setFrom(String str) {
-        if (this.crT instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.crT).setFrom(str);
+        if (this.csa instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.csa).setFrom(str);
         }
     }
 
     public void bt(String str, int i) {
-        if (this.crT instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.crT).bt(str, i);
+        if (this.csa instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.csa).bt(str, i);
         }
     }
 
-    public void bgg() {
-        if (this.crT instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.crT).bgg();
+    public void bgj() {
+        if (this.csa instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.csa).bgj();
         }
     }
 
-    public void cAy() {
-        if (this.crT instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.crT).cAy();
+    public void cAT() {
+        if (this.csa instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.csa).cAT();
         }
     }
 
-    public void cAC() {
-        if (this.crT instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.crT).hide();
+    public void cAX() {
+        if (this.csa instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.csa).hide();
         }
     }
 }

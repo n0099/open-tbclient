@@ -13,7 +13,7 @@ import com.baidu.tieba.personCenter.data.g;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class c {
-    private a ijs;
+    private a iku;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
@@ -25,12 +25,12 @@ public class c {
 
     public void Q(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        aJr();
+        aJt();
         this.mListView = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.ijs = new a(this.mPageContext, this.mListView, this.sH);
+        this.iku = new a(this.mPageContext, this.mListView, this.sH);
     }
 
-    private void aJr() {
+    private void aJt() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -47,7 +47,7 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.ijs.notifyDataSetChanged();
+        this.iku.notifyDataSetChanged();
         am.l(this.mListView, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

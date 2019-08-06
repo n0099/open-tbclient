@@ -25,14 +25,14 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     private String alH;
     private MediaPlayer bAa;
     MediaPlayer.OnPreparedListener bff;
-    MediaPlayer.OnVideoSizeChangedListener cEZ;
-    MediaPlayer.OnPreparedListener cXs;
-    private h jgo;
-    private int jxA;
-    public b jxB;
-    private b jxC;
-    private a jxy;
-    private final int jxz;
+    MediaPlayer.OnVideoSizeChangedListener cFg;
+    MediaPlayer.OnPreparedListener cXz;
+    private h jhv;
+    private a jyF;
+    private final int jyG;
+    private int jyH;
+    public b jyI;
+    private b jyJ;
     private int mSurfaceHeight;
     private int mSurfaceWidth;
     private int mVideoHeight;
@@ -44,20 +44,20 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     }
 
     static /* synthetic */ int f(MaskVideoView maskVideoView) {
-        int i = maskVideoView.jxA;
-        maskVideoView.jxA = i + 1;
+        int i = maskVideoView.jyH;
+        maskVideoView.jyH = i + 1;
         return i;
     }
 
     public void setPostMonitorManager(h hVar) {
-        this.jgo = hVar;
+        this.jhv = hVar;
     }
 
     public MaskVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jxy = null;
+        this.jyF = null;
         this.alH = null;
-        this.cEZ = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.1
+        this.cFg = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.1
             @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
             public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
                 MaskVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
@@ -68,7 +68,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                 }
             }
         };
-        this.cXs = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.2
+        this.cXz = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 if (MaskVideoView.this.bff != null) {
@@ -81,16 +81,16 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                 }
             }
         };
-        this.jxz = 10;
-        this.jxA = 0;
-        this.jxC = new b() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.4
+        this.jyG = 10;
+        this.jyH = 0;
+        this.jyJ = new b() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.4
             @Override // com.baidu.tieba.video.editvideo.view.MaskVideoView.b
             public void d(final Bitmap bitmap, final boolean z) {
-                if (MaskVideoView.this.jxB != null) {
+                if (MaskVideoView.this.jyI != null) {
                     e.iK().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.4.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            MaskVideoView.this.jxB.d(bitmap, z);
+                            MaskVideoView.this.jyI.d(bitmap, z);
                         }
                     });
                 }
@@ -98,38 +98,38 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         };
         setEGLContextClientVersion(2);
         this.bAa = new MediaPlayer();
-        this.bAa.setOnPreparedListener(this.cXs);
-        this.bAa.setOnVideoSizeChangedListener(this.cEZ);
-        this.jxy = new a(getContext(), this, this.bAa);
-        setRenderer(this.jxy);
+        this.bAa.setOnPreparedListener(this.cXz);
+        this.bAa.setOnVideoSizeChangedListener(this.cFg);
+        this.jyF = new a(getContext(), this, this.bAa);
+        setRenderer(this.jyF);
         setRenderMode(0);
     }
 
     public void setFilter(com.baidu.tieba.video.editvideo.data.a aVar) {
-        if (this.jxy != null) {
-            this.jxy.setFilter(aVar);
+        if (this.jyF != null) {
+            this.jyF.setFilter(aVar);
         }
     }
 
     public void releaseSource() {
-        if (this.jxy != null) {
-            this.jxy.releaseResource();
+        if (this.jyF != null) {
+            this.jyF.releaseResource();
         }
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onPause() {
-        if (this.jxy != null) {
+        if (this.jyF != null) {
             super.onPause();
-            this.jxy.jxK = false;
+            this.jyF.jyR = false;
         }
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
-        if (this.jxy != null) {
+        if (this.jyF != null) {
             super.onResume();
-            this.jxy.jxJ = false;
+            this.jyF.jyQ = false;
         }
     }
 
@@ -140,7 +140,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void pause() {
-        cuZ();
+        cvv();
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -158,19 +158,19 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         this.bAa.seekTo(i);
     }
 
-    public void Ch(int i) {
+    public void Cj(int i) {
         if (this.bAa != null) {
             this.bAa.seekTo(i);
-            Ci(i);
+            Ck(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ci(final int i) {
+    public void Ck(final int i) {
         e.iK().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.3
             @Override // java.lang.Runnable
             public void run() {
-                if ((MaskVideoView.this.jxy == null || !MaskVideoView.this.jxy.jxK) && MaskVideoView.this.jxA <= 10) {
+                if ((MaskVideoView.this.jyF == null || !MaskVideoView.this.jyF.jyR) && MaskVideoView.this.jyH <= 10) {
                     if (MaskVideoView.this.bAa != null) {
                         try {
                             MaskVideoView.this.bAa.seekTo(i);
@@ -179,10 +179,10 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     }
                     MaskVideoView.this.requestRender();
                     MaskVideoView.f(MaskVideoView.this);
-                    MaskVideoView.this.Ci(i);
+                    MaskVideoView.this.Ck(i);
                     return;
                 }
-                MaskVideoView.this.jxA = 0;
+                MaskVideoView.this.jyH = 0;
             }
         }, 500L);
     }
@@ -275,14 +275,14 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         this.bAa.setOnCompletionListener(onCompletionListener);
     }
 
-    public void ceg() {
+    public void cey() {
         if (this.bAa != null) {
             try {
                 this.bAa.stop();
                 this.bAa.release();
             } catch (Throwable th) {
-                if (this.jgo != null) {
-                    this.jgo.ax(205, com.baidu.tieba.j.a.p(th));
+                if (this.jhv != null) {
+                    this.jhv.ax(205, com.baidu.tieba.j.a.p(th));
                 }
             }
             this.bAa = null;
@@ -297,19 +297,19 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             this.bAa.prepare();
         } catch (Exception e) {
             e.printStackTrace();
-            if (this.jgo != null) {
-                this.jgo.ax(204, com.baidu.tieba.j.a.p(e));
+            if (this.jhv != null) {
+                this.jhv.ax(204, com.baidu.tieba.j.a.p(e));
             }
         }
     }
 
-    public void cuZ() {
+    public void cvv() {
         if (this.bAa.isPlaying()) {
             this.bAa.pause();
         }
     }
 
-    public void cva() {
+    public void cvw() {
         if (this.bAa != null) {
             this.bAa.start();
             this.bAa.seekTo(0);
@@ -317,19 +317,19 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     }
 
     public void L(Bitmap bitmap) {
-        if (this.jxy != null) {
-            this.jxy.L(bitmap);
+        if (this.jyF != null) {
+            this.jyF.L(bitmap);
         }
     }
 
     /* loaded from: classes5.dex */
     private class a implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
         private MediaPlayer bAa;
-        private com.faceunity.gles.c jvX;
-        private com.faceunity.gles.c jvY;
-        private GLSurfaceView jxI;
-        private volatile boolean jxJ;
-        private volatile boolean jxK;
+        private com.faceunity.gles.c jxe;
+        private com.faceunity.gles.c jxf;
+        private GLSurfaceView jyP;
+        private volatile boolean jyQ;
+        private volatile boolean jyR;
         private Context mContext;
         private int mFrameId;
         private Surface mSurface;
@@ -339,28 +339,28 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         private final float[] mSTMatrix = new float[16];
         private int mFacebeautyItem = 0;
         private int mEffectItem = 0;
-        private int jvW = 0;
-        private int[] itemsArray = {this.mFacebeautyItem, this.mEffectItem, this.jvW};
-        private String jvV = "normal";
+        private int jxd = 0;
+        private int[] itemsArray = {this.mFacebeautyItem, this.mEffectItem, this.jxd};
+        private String jxc = "normal";
 
         public a(Context context, GLSurfaceView gLSurfaceView, MediaPlayer mediaPlayer) {
             this.mContext = context;
-            this.jxI = gLSurfaceView;
+            this.jyP = gLSurfaceView;
             this.bAa = mediaPlayer;
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-            cvb();
+            cvx();
         }
 
-        private void cvb() {
-            this.jvX = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            this.jvY = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.mTextureId = this.jvY.createTextureObject();
+        private void cvx() {
+            this.jxe = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            this.jxf = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.mTextureId = this.jxf.createTextureObject();
             this.mSurfaceTexture = new SurfaceTexture(this.mTextureId);
             this.mSurface = new Surface(this.mSurfaceTexture);
-            this.mFacebeautyItem = com.faceunity.a.eF(this.mContext);
+            this.mFacebeautyItem = com.faceunity.a.eG(this.mContext);
             this.itemsArray[0] = this.mFacebeautyItem;
             this.mSurfaceTexture.setOnFrameAvailableListener(this);
         }
@@ -375,15 +375,15 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onDrawFrame(GL10 gl10) {
-            if (!this.jxJ) {
-                if (this.jvX == null) {
-                    cvb();
+            if (!this.jyQ) {
+                if (this.jxe == null) {
+                    cvx();
                     this.bAa.setSurface(this.mSurface);
                 }
                 this.mSurfaceTexture.updateTexImage();
                 this.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
-                if (!TextUtils.isEmpty(this.jvV) && !this.jvV.equals("normal")) {
-                    faceunity.fuItemSetParam(this.mFacebeautyItem, "filter_name", this.jvV);
+                if (!TextUtils.isEmpty(this.jxc) && !this.jxc.equals("normal")) {
+                    faceunity.fuItemSetParam(this.mFacebeautyItem, "filter_name", this.jxc);
                 }
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "color_level", 0.0d);
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "blur_level", 0.0d);
@@ -399,28 +399,28 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                 int i3 = MaskVideoView.this.mVideoHeight;
                 int i4 = this.mFrameId;
                 this.mFrameId = i4 + 1;
-                this.jvX.drawFrame(faceunity.fuBeautifyImage(i, 1, i2, i3, i4, this.itemsArray), this.mSTMatrix);
+                this.jxe.drawFrame(faceunity.fuBeautifyImage(i, 1, i2, i3, i4, this.itemsArray), this.mSTMatrix);
             }
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-            this.jxK = true;
-            this.jxI.requestRender();
+            this.jyR = true;
+            this.jyP.requestRender();
         }
 
         public void setFilter(com.baidu.tieba.video.editvideo.data.a aVar) {
             if (aVar != null) {
-                this.jvV = aVar.value;
-                this.jxI.requestRender();
+                this.jxc = aVar.value;
+                this.jyP.requestRender();
             }
         }
 
         public void L(final Bitmap bitmap) {
-            if ("normal".equals(this.jvV)) {
-                MaskVideoView.this.jxC.d(bitmap, true);
+            if ("normal".equals(this.jxc)) {
+                MaskVideoView.this.jyJ.d(bitmap, true);
             } else if (bitmap == null || bitmap.isRecycled()) {
-                MaskVideoView.this.jxC.d(bitmap, false);
+                MaskVideoView.this.jyJ.d(bitmap, false);
             } else {
                 MaskVideoView.this.queueEvent(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.a.1
                     @Override // java.lang.Runnable
@@ -431,7 +431,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                             byte[] bArr = new byte[J.length];
                             System.arraycopy(J, 0, bArr, 0, J.length);
                             if (bArr == null || bArr.length == 0) {
-                                MaskVideoView.this.jxC.d(bitmap, false);
+                                MaskVideoView.this.jyJ.d(bitmap, false);
                             }
                             int width = bitmap.getWidth();
                             int height = bitmap.getHeight();
@@ -439,7 +439,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                             Bitmap l = com.baidu.tieba.video.editvideo.b.c.l(bArr, width, height);
                             boolean a = com.baidu.tieba.video.editvideo.b.c.a(l, K);
                             if (a) {
-                                MaskVideoView.this.jxC.d(l, true);
+                                MaskVideoView.this.jyJ.d(l, true);
                                 bitmap.recycle();
                                 return;
                             }
@@ -448,7 +448,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                                     l.recycle();
                                 }
                             } else if (!a && i == 2) {
-                                MaskVideoView.this.jxC.d(bitmap, false);
+                                MaskVideoView.this.jyJ.d(bitmap, false);
                             }
                         }
                     }
@@ -457,13 +457,13 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         }
 
         public void releaseResource() {
-            this.jxJ = true;
-            this.jxI.queueEvent(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.a.2
+            this.jyQ = true;
+            this.jyP.queueEvent(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.MaskVideoView.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.jvX != null) {
-                        a.this.jvX.release(false);
-                        a.this.jvX = null;
+                    if (a.this.jxe != null) {
+                        a.this.jxe.release(false);
+                        a.this.jxe = null;
                     }
                     faceunity.fuDestroyItem(a.this.mEffectItem);
                     a.this.itemsArray[1] = a.this.mEffectItem = 0;
@@ -477,7 +477,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
 
     public void setGenMaskCoverListener(b bVar) {
         if (bVar != null) {
-            this.jxB = bVar;
+            this.jyI = bVar;
         }
     }
 }

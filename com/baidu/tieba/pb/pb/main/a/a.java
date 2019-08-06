@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.data.d;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.PbThreadCommentAndPraiseInfoLayout;
@@ -17,14 +17,14 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class a extends k<j, C0380a> {
-    private View.OnClickListener cat;
-    private final LinkedList<C0380a> hWA;
-    private b hWz;
+    private View.OnClickListener caz;
+    private b hXv;
+    private final LinkedList<C0380a> hXw;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.hWA = new LinkedList<>();
-        this.hWz = new b(this.hMD);
+        this.hXw = new LinkedList<>();
+        this.hXv = new b(this.hNx);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class a extends k<j, C0380a> {
     /* renamed from: bJ */
     public C0380a onCreateViewHolder(ViewGroup viewGroup) {
         C0380a c0380a = new C0380a(LayoutInflater.from(this.mContext).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
-        this.hWA.add(c0380a);
+        this.hXw.add(c0380a);
         return c0380a;
     }
 
@@ -42,94 +42,94 @@ public class a extends k<j, C0380a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, C0380a c0380a) {
         super.onFillViewHolder(i, view, viewGroup, jVar, c0380a);
         if (jVar != null && c0380a != null) {
-            c0380a.hWB.setOnClickOutListener(this.cat);
-            c0380a.hWB.setPostId(getPostId());
-            c0380a.hWB.setForumId(getForumId());
+            c0380a.hXx.setOnClickOutListener(this.caz);
+            c0380a.hXx.setPostId(getPostId());
+            c0380a.hXx.setForumId(getForumId());
             c0380a.a(jVar);
         }
         return view;
     }
 
     public void onDestroy() {
-        bYm();
-        if (this.hWz != null) {
-            this.hWz.onDestroy();
+        bYD();
+        if (this.hXv != null) {
+            this.hXv.onDestroy();
         }
     }
 
-    private void bYm() {
-        Iterator<C0380a> it = this.hWA.iterator();
+    private void bYD() {
+        Iterator<C0380a> it = this.hXw.iterator();
         while (it.hasNext()) {
             C0380a next = it.next();
-            if (next != null && next.hWB != null) {
-                next.hWB.onDestroy();
+            if (next != null && next.hXx != null) {
+                next.hXx.onDestroy();
             }
         }
     }
 
     public void oS(String str) {
-        Iterator<C0380a> it = this.hWA.iterator();
+        Iterator<C0380a> it = this.hXw.iterator();
         while (it.hasNext()) {
             C0380a next = it.next();
-            if (next != null && next.hWB != null) {
-                next.hWB.oS(str);
+            if (next != null && next.hXx != null) {
+                next.hXx.oS(str);
             }
         }
     }
 
     private String getPostId() {
-        bg bYn = bYn();
-        return bYn != null ? bYn.aeN() : "";
+        bh bYE = bYE();
+        return bYE != null ? bYE.aeO() : "";
     }
 
     private String getForumId() {
-        return this.hMD.bTD() != null ? this.hMD.bTD().getForumId() : "";
+        return this.hNx.bTR() != null ? this.hNx.bTR().getForumId() : "";
     }
 
-    private bg bYn() {
-        if (this.hMD.bTD() == null || this.hMD.bTD().getPbData() == null) {
+    private bh bYE() {
+        if (this.hNx.bTR() == null || this.hNx.bTR().getPbData() == null) {
             return null;
         }
-        return this.hMD.bTD().getPbData().bSx();
+        return this.hNx.bTR().getPbData().bSL();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cat = onClickListener;
+        this.caz = onClickListener;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0380a extends v.a {
-        public PbThreadCommentAndPraiseInfoLayout hWB;
-        public View hWC;
+        public PbThreadCommentAndPraiseInfoLayout hXx;
+        public View hXy;
 
         public C0380a(View view) {
             super(view);
             if (view != null) {
-                this.hWB = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
+                this.hXx = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
                 d dVar = new d();
-                dVar.bFz = 4;
-                dVar.bFE = 7;
-                this.hWB.setAgreeStatisticData(dVar);
-                this.hWC = view.findViewById(R.id.bottom_divider_line);
-                this.hWC.setVisibility(0);
+                dVar.bFA = 4;
+                dVar.bFF = 7;
+                this.hXx.setAgreeStatisticData(dVar);
+                this.hXy = view.findViewById(R.id.bottom_divider_line);
+                this.hXy.setVisibility(0);
             }
         }
 
         public void a(j jVar) {
-            if (jVar != null && jVar.ccj != null) {
-                if (jVar.ccj.agn() != null) {
-                    jVar.ccj.agn().postId = jVar.ccj.aeN();
+            if (jVar != null && jVar.ccq != null) {
+                if (jVar.ccq.ago() != null) {
+                    jVar.ccq.ago().postId = jVar.ccq.aeO();
                 }
-                this.hWB.setData(jVar.ccj);
-                this.hWC.setVisibility(jVar.bTe() ? 0 : 8);
+                this.hXx.setData(jVar.ccq);
+                this.hXy.setVisibility(jVar.bTs() ? 0 : 8);
             }
             onChangeSkinType();
         }
 
         public void onChangeSkinType() {
-            am.l(this.hWC, R.color.cp_bg_line_e);
-            this.hWB.onChangeSkinType();
+            am.l(this.hXy, R.color.cp_bg_line_e);
+            this.hXx.onChangeSkinType();
         }
     }
 }

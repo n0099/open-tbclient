@@ -10,10 +10,10 @@ import com.baidu.tieba.tbadkCore.a.a;
 public class PushThreadActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PushThreadActivityConfig.class, PushThreadActivity.class);
-        cae();
+        caw();
     }
 
-    private static void cae() {
+    private static void caw() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD, a.bo("c/b/commit/pushThread", 309325));
         tbHttpMessageTask.setResponsedClass(PbPushHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);

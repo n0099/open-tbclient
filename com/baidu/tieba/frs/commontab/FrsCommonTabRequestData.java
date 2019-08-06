@@ -17,12 +17,12 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public long lastThreadId = -1;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> aug() {
+    public HashMap<String, Object> aui() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> auh() {
+    public HashMap<String, String> auj() {
         return null;
     }
 

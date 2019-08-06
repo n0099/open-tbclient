@@ -10,38 +10,38 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes4.dex */
 public class b {
-    private BaseActivity cWM;
-    private LinearLayout cWR;
-    private TbSettingTextTipView cWS;
-    private TbSettingTextTipView cWT;
+    private BaseActivity cWT;
+    private LinearLayout cWY;
+    private TbSettingTextTipView cWZ;
+    private TbSettingTextTipView cXa;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
 
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.cWM = baseActivity;
+        this.cWT = baseActivity;
         this.mOnClickListener = onClickListener;
-        aqv();
+        aqx();
     }
 
-    private void aqv() {
-        this.mRootLayout = (LinearLayout) LayoutInflater.from(this.cWM).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.cWR = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.cWS = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.cWT = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.cWS.aqx();
-        this.cWT.aqx();
-        this.cWS.setOnClickListener(this.mOnClickListener);
-        this.cWT.setOnClickListener(this.mOnClickListener);
+    private void aqx() {
+        this.mRootLayout = (LinearLayout) LayoutInflater.from(this.cWT).inflate(R.layout.account_safe_activity, (ViewGroup) null);
+        this.cWY = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.cWZ = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.cXa = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.cWZ.aqz();
+        this.cXa.aqz();
+        this.cWZ.setOnClickListener(this.mOnClickListener);
+        this.cXa.setOnClickListener(this.mOnClickListener);
     }
 
-    public void jZ(int i) {
-        this.cWM.getLayoutMode().setNightMode(i == 1);
-        this.cWM.getLayoutMode().onModeChanged(this.mRootLayout);
+    public void ka(int i) {
+        this.cWT.getLayoutMode().setNightMode(i == 1);
+        this.cWT.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.cWT.setTip(simpleUser.block_msg);
+            this.cXa.setTip(simpleUser.block_msg);
         }
     }
 
@@ -51,6 +51,6 @@ public class b {
 
     public void release() {
         this.mRootLayout.removeAllViews();
-        this.cWM = null;
+        this.cWT = null;
     }
 }

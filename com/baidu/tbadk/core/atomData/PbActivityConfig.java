@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.av;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -312,16 +313,16 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bg bgVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (bgVar != null) {
+    public PbActivityConfig createFromThreadCfg(bh bhVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bhVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", bgVar.getTid());
-            if (bgVar.afV() != null && !StringUtils.isNull(bgVar.afV().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bgVar.afV().getId());
+            intent.putExtra("thread_id", bhVar.getTid());
+            if (bhVar.afW() != null && !StringUtils.isNull(bhVar.afW().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bhVar.afW().getId());
             }
-            intent.putExtra("is_good", bgVar.aet());
-            intent.putExtra("is_top", bgVar.aes());
-            intent.putExtra("thread_time", bgVar.aeq());
+            intent.putExtra("is_good", bhVar.aeu());
+            intent.putExtra("is_top", bhVar.aet());
+            intent.putExtra("thread_time", bhVar.aer());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -331,21 +332,21 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bgVar.aej() == null ? 0L : bgVar.aej().getNum()));
-            if (bgVar.aex() != null && bgVar.aex().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bgVar.aex().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bgVar.aex().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bhVar.aek() == null ? 0L : bhVar.aek().getNum()));
+            if (bhVar.aey() != null && bhVar.aey().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bhVar.aey().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bhVar.aey().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            String valueOf = String.valueOf(bgVar.getFid());
-            String aeC = bgVar.aeC();
-            if (bgVar.bMa != null) {
+            String valueOf = String.valueOf(bhVar.getFid());
+            String aeD = bhVar.aeD();
+            if (bhVar.bMf != null) {
                 setFromForumId(valueOf);
-                valueOf = bgVar.bMa.id;
-                aeC = bgVar.bMa.ori_fname;
+                valueOf = bhVar.bMf.id;
+                aeD = bhVar.bMf.ori_fname;
             }
             setForumId(String.valueOf(valueOf));
-            setForumName(aeC);
+            setForumName(aeD);
             addMoreIntentExtraParam();
         }
         return this;
@@ -578,6 +579,13 @@ public class PbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra("high_light_post_id", str);
+        }
+    }
+
+    public void setRecomData(av avVar) {
+        Intent intent = getIntent();
+        if (intent != null && avVar != null) {
+            avVar.P(intent);
         }
     }
 }

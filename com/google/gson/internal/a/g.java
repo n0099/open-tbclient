@@ -5,10 +5,10 @@ import com.google.gson.o;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public final class g extends n<Object> {
-    public static final o knK = new o() { // from class: com.google.gson.internal.a.g.1
+    public static final o koQ = new o() { // from class: com.google.gson.internal.a.g.1
         @Override // com.google.gson.o
         public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.cMy() == Object.class) {
+            if (aVar.cMT() == Object.class) {
                 return new g(dVar);
             }
             return null;
@@ -23,13 +23,13 @@ public final class g extends n<Object> {
     @Override // com.google.gson.n
     public void a(com.google.gson.stream.a aVar, Object obj) throws IOException {
         if (obj == null) {
-            aVar.cMx();
+            aVar.cMS();
             return;
         }
         n x = this.gson.x(obj.getClass());
         if (x instanceof g) {
-            aVar.cMv();
-            aVar.cMw();
+            aVar.cMQ();
+            aVar.cMR();
             return;
         }
         x.a(aVar, obj);

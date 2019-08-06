@@ -43,7 +43,7 @@ public class d {
                 }
             }
         });
-        bb.ajC().a(new bb.c() { // from class: com.baidu.tbadk.browser.d.2
+        bb.ajE().a(new bb.c() { // from class: com.baidu.tbadk.browser.d.2
             @Override // com.baidu.tbadk.core.util.bb.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bb.d dVar, boolean z2) {
                 if (z2) {
@@ -60,7 +60,7 @@ public class d {
     }
 
     private static void abm() {
-        bb.ajC().a(new bb.a() { // from class: com.baidu.tbadk.browser.d.3
+        bb.ajE().a(new bb.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 Bundle rr;
@@ -139,7 +139,7 @@ public class d {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                     return 0;
                 } else if (str.startsWith("tieba://accountsafe") && tbPageContext.getPageActivity() != null) {
-                    MessageManager.getInstance().runTask(com.baidu.tbadk.core.frameworkData.a.bOR, null, tbPageContext.getPageActivity());
+                    MessageManager.getInstance().runTask(com.baidu.tbadk.core.frameworkData.a.bOX, null, tbPageContext.getPageActivity());
                     return 0;
                 } else {
                     if (str.startsWith("opfeature:")) {
@@ -224,7 +224,7 @@ public class d {
     }
 
     private static void abn() {
-        bb.ajC().a(new bb.a() { // from class: com.baidu.tbadk.browser.d.6
+        bb.ajE().a(new bb.a() { // from class: com.baidu.tbadk.browser.d.6
             @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -285,7 +285,7 @@ public class d {
     }
 
     private static void abo() {
-        bb.ajC().a(new bb.a() { // from class: com.baidu.tbadk.browser.d.7
+        bb.ajE().a(new bb.a() { // from class: com.baidu.tbadk.browser.d.7
             @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

@@ -47,8 +47,8 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 20;
-        aVar.gNg = null;
-        aVar.gNh = null;
+        aVar.gNY = null;
+        aVar.gNZ = null;
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
         return true;
@@ -69,8 +69,8 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
             j = this.mDatas.getChatMessages().get(0).getMsgId();
             j2 = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.gNg = String.valueOf(j);
-        aVar.gNh = String.valueOf(j2);
+        aVar.gNY = String.valueOf(j);
+        aVar.gNZ = String.valueOf(j2);
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
         return true;
@@ -104,7 +104,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.z
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(l.bCQ().dj(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(l.bDe().dj(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }

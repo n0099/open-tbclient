@@ -11,26 +11,26 @@ import com.baidu.tieba.play.QuickVideoView;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long hwh;
-    private long hwi;
-    private boolean hwj;
+    private long hwZ;
+    private long hxa;
+    private boolean hxb;
 
-    public void bOU() {
-        this.hwj = true;
-        this.hwh = SystemClock.elapsedRealtime();
+    public void bPi() {
+        this.hxb = true;
+        this.hwZ = SystemClock.elapsedRealtime();
     }
 
-    public void bOV() {
-        this.hwi = SystemClock.elapsedRealtime();
+    public void bPj() {
+        this.hxa = SystemClock.elapsedRealtime();
     }
 
     public void a(String str, long j, long j2, String str2, QuickVideoView quickVideoView) {
-        if (this.hwj) {
-            this.hwj = false;
+        if (this.hxb) {
+            this.hxb = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.hwi - this.hwh;
-            long j4 = elapsedRealtime - this.hwi;
-            long j5 = elapsedRealtime - this.hwh;
+            long j3 = this.hxa - this.hwZ;
+            long j4 = elapsedRealtime - this.hxa;
+            long j5 = elapsedRealtime - this.hwZ;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 an anVar = new an("c13171");
                 anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);
@@ -42,17 +42,17 @@ public class k {
                 anVar.P("ptype", com.baidu.adp.lib.util.j.netType());
                 anVar.bT("tid", str);
                 anVar.bT("cuid", TbadkCoreApplication.getInst().getCuid());
-                anVar.P(VideoPlayActivityConfig.OBJ_ID, ad.kY(Bg(str2)) ? 1 : 0);
+                anVar.P(VideoPlayActivityConfig.OBJ_ID, ad.kZ(Bh(str2)) ? 1 : 0);
                 anVar.l("time_stamp", System.currentTimeMillis());
                 TiebaStatic.log(anVar);
                 if (quickVideoView != null) {
-                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, ad.kY(Bg(str2)) ? 1 : 0);
+                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, ad.kZ(Bh(str2)) ? 1 : 0);
                 }
             }
         }
     }
 
-    private int Bg(String str) {
+    private int Bh(String str) {
         if ("frs".equals(str)) {
             return 2;
         }

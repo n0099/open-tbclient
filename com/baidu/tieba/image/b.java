@@ -19,107 +19,107 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b {
-    private DragImageView.d coB;
-    private TbImageView ffP;
-    private RelativeLayout gXC;
-    private TextView gXD;
-    public LinearLayout gXE;
-    public TextView gXF;
-    public TextView gXG;
-    public TextView gXH;
-    public boolean gXI = false;
-    private UrlDragImageView gXJ;
+    private DragImageView.d coI;
+    private TbImageView fgp;
+    public boolean gYA = false;
+    private UrlDragImageView gYB;
+    private RelativeLayout gYu;
+    private TextView gYv;
+    public LinearLayout gYw;
+    public TextView gYx;
+    public TextView gYy;
+    public TextView gYz;
     private Context mContext;
 
     public b(ViewGroup viewGroup) {
-        this.gXC = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.big_image_ad, (ViewGroup) null);
-        this.ffP = (TbImageView) this.gXC.findViewById(R.id.big_image_ad_image);
-        this.gXD = (TextView) this.gXC.findViewById(R.id.big_image_ad_button);
-        this.gXE = (LinearLayout) this.gXC.findViewById(R.id.big_image_ad_source_container);
-        this.gXH = (TextView) this.gXC.findViewById(R.id.big_image_ad_source);
-        this.gXF = (TextView) this.gXC.findViewById(R.id.big_image_ad_title);
-        this.gXG = (TextView) this.gXC.findViewById(R.id.big_image_ad_brand);
+        this.gYu = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.big_image_ad, (ViewGroup) null);
+        this.fgp = (TbImageView) this.gYu.findViewById(R.id.big_image_ad_image);
+        this.gYv = (TextView) this.gYu.findViewById(R.id.big_image_ad_button);
+        this.gYw = (LinearLayout) this.gYu.findViewById(R.id.big_image_ad_source_container);
+        this.gYz = (TextView) this.gYu.findViewById(R.id.big_image_ad_source);
+        this.gYx = (TextView) this.gYu.findViewById(R.id.big_image_ad_title);
+        this.gYy = (TextView) this.gYu.findViewById(R.id.big_image_ad_brand);
         this.mContext = viewGroup.getContext();
-        bIr();
+        bIF();
     }
 
     public View getView() {
-        return this.gXC;
+        return this.gYu;
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.coB = dVar;
+        this.coI = dVar;
     }
 
-    public void bIr() {
-        this.ffP.setVisibility(4);
-        this.gXJ = new UrlDragImageView(this.mContext);
-        this.gXJ.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.gXJ.setIsCanDrag(true);
-        this.gXJ.setCanScale(false);
-        this.gXJ.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.1
-            @Override // com.baidu.tbadk.widget.DragImageView.d
-            public void axh() {
-                if (b.this.coB != null) {
-                    b.this.coB.axh();
-                }
-                b.this.A(b.this.gXF, 8);
-                b.this.A(b.this.gXG, 8);
-            }
-
-            @Override // com.baidu.tbadk.widget.DragImageView.d
-            public void axi() {
-                if (b.this.coB != null) {
-                    b.this.coB.axi();
-                }
-            }
-
+    public void bIF() {
+        this.fgp.setVisibility(4);
+        this.gYB = new UrlDragImageView(this.mContext);
+        this.gYB.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.gYB.setIsCanDrag(true);
+        this.gYB.setCanScale(false);
+        this.gYB.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.1
             @Override // com.baidu.tbadk.widget.DragImageView.d
             public void axj() {
-                b.this.A(b.this.gXF, 0);
-                b.this.A(b.this.gXG, 0);
+                if (b.this.coI != null) {
+                    b.this.coI.axj();
+                }
+                b.this.A(b.this.gYx, 8);
+                b.this.A(b.this.gYy, 8);
+            }
+
+            @Override // com.baidu.tbadk.widget.DragImageView.d
+            public void axk() {
+                if (b.this.coI != null) {
+                    b.this.coI.axk();
+                }
+            }
+
+            @Override // com.baidu.tbadk.widget.DragImageView.d
+            public void axl() {
+                b.this.A(b.this.gYx, 0);
+                b.this.A(b.this.gYy, 0);
             }
         });
-        this.gXC.addView(this.gXJ, 0);
+        this.gYu.addView(this.gYB, 0);
     }
 
-    public UrlDragImageView bIs() {
-        return this.gXJ;
+    public UrlDragImageView bIG() {
+        return this.gYB;
     }
 
-    public TbImageView bIt() {
-        return this.ffP;
+    public TbImageView bIH() {
+        return this.fgp;
     }
 
-    public TextView bIu() {
-        return this.gXD;
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void bIv() {
-        this.gXD.setText(R.string.pause_load);
-        this.gXD.setBackgroundResource(R.drawable.button_fenfa_xiazaizhong);
-        am.d(this.gXD, R.color.common_color_10049, 1, 0);
+    public TextView bII() {
+        return this.gYv;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void zJ(String str) {
-        this.gXD.setText(str);
-        this.gXD.setBackgroundResource(R.drawable.button_fenfa_download_selector);
-        am.d(this.gXD, R.drawable.button_fenfa_download_text_selector, 1, 0);
+    public void bIJ() {
+        this.gYv.setText(R.string.pause_load);
+        this.gYv.setBackgroundResource(R.drawable.button_fenfa_xiazaizhong);
+        am.d(this.gYv, R.color.common_color_10049, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void bIw() {
-        this.gXD.setText(R.string.setup_text);
-        this.gXD.setBackgroundResource(R.drawable.button_fenfa_download_selector);
-        am.d(this.gXD, R.drawable.button_fenfa_download_text_selector, 1, 0);
+    public void zK(String str) {
+        this.gYv.setText(str);
+        this.gYv.setBackgroundResource(R.drawable.button_fenfa_download_selector);
+        am.d(this.gYv, R.drawable.button_fenfa_download_text_selector, 1, 0);
     }
 
-    public void bIx() {
+    @SuppressLint({"ResourceAsColor"})
+    public void bIK() {
+        this.gYv.setText(R.string.setup_text);
+        this.gYv.setBackgroundResource(R.drawable.button_fenfa_download_selector);
+        am.d(this.gYv, R.drawable.button_fenfa_download_text_selector, 1, 0);
+    }
+
+    public void bIL() {
         int width = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getWidth();
-        ViewGroup.LayoutParams layoutParams = this.ffP.getLayoutParams();
-        double loadedHeight = this.ffP.getLoadedHeight() / this.ffP.getLoadedWidth();
+        ViewGroup.LayoutParams layoutParams = this.fgp.getLayoutParams();
+        double loadedHeight = this.fgp.getLoadedHeight() / this.fgp.getLoadedWidth();
         if (loadedHeight > 1.0d) {
             layoutParams.height = width;
             layoutParams.width = (int) (width / loadedHeight);
@@ -127,33 +127,33 @@ public class b {
             layoutParams.height = (int) (loadedHeight * width);
             layoutParams.width = width;
         }
-        this.ffP.setLayoutParams(layoutParams);
+        this.fgp.setLayoutParams(layoutParams);
     }
 
     public void A(final View.OnClickListener onClickListener) {
-        this.gXD.setOnClickListener(onClickListener);
-        this.ffP.setOnClickListener(onClickListener);
-        this.gXF.setOnClickListener(onClickListener);
-        this.gXG.setOnClickListener(onClickListener);
-        this.gXJ.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.2
-            private float gXL = 0.0f;
-            private float gXM = 0.0f;
-            private float gXN = 0.0f;
+        this.gYv.setOnClickListener(onClickListener);
+        this.fgp.setOnClickListener(onClickListener);
+        this.gYx.setOnClickListener(onClickListener);
+        this.gYy.setOnClickListener(onClickListener);
+        this.gYB.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.2
+            private float gYD = 0.0f;
+            private float gYE = 0.0f;
+            private float gYF = 0.0f;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        b.this.gXI = false;
-                        this.gXL = motionEvent.getX();
-                        this.gXM = motionEvent.getY();
-                        this.gXN = 0.0f;
+                        b.this.gYA = false;
+                        this.gYD = motionEvent.getX();
+                        this.gYE = motionEvent.getY();
+                        this.gYF = 0.0f;
                         break;
                     case 1:
-                        b.this.gXI = 10.0f < this.gXN;
-                        if (!b.this.gXI) {
-                            if (b.this.k(b.this.ffP, (int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                                onClickListener.onClick(b.this.ffP);
+                        b.this.gYA = 10.0f < this.gYF;
+                        if (!b.this.gYA) {
+                            if (b.this.j(b.this.fgp, (int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                                onClickListener.onClick(b.this.fgp);
                                 break;
                             } else if (b.this.mContext instanceof Activity) {
                                 ((Activity) b.this.mContext).finish();
@@ -162,11 +162,11 @@ public class b {
                         }
                         break;
                     case 2:
-                        float x = motionEvent.getX() - this.gXL;
-                        float y = motionEvent.getY() - this.gXM;
-                        this.gXN = (float) (Math.sqrt((x * x) + (y * y)) + this.gXN);
-                        this.gXL = motionEvent.getX();
-                        this.gXM = motionEvent.getY();
+                        float x = motionEvent.getX() - this.gYD;
+                        float y = motionEvent.getY() - this.gYE;
+                        this.gYF = (float) (Math.sqrt((x * x) + (y * y)) + this.gYF);
+                        this.gYD = motionEvent.getX();
+                        this.gYE = motionEvent.getY();
                         break;
                 }
                 return false;
@@ -175,7 +175,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean k(View view, int i, int i2) {
+    public boolean j(View view, int i, int i2) {
         if (view == null) {
             return false;
         }

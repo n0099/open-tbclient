@@ -14,12 +14,12 @@ public class d implements CustomMessageTask.CustomRunnable<Object> {
             if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
                 com.baidu.tbadk.coreExtra.relationship.a aVar = (com.baidu.tbadk.coreExtra.relationship.a) customMessage.getData();
                 if (cmd == 2001179) {
-                    bU = f.aDH().c(aVar);
+                    bU = f.aDJ().c(aVar);
                 } else {
-                    bU = f.aDH().bU(aVar.getUserId());
+                    bU = f.aDJ().bU(aVar.getUserId());
                 }
                 if (!bU) {
-                    com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                    com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }
         }

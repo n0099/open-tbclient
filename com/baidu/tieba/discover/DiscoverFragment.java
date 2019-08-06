@@ -18,30 +18,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class DiscoverFragment extends BaseFragment implements ae {
-    private a eSt;
-    private boolean eSu;
+    private a eSA;
+    private boolean eSB;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean dpI = true;
+    private boolean dpP = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(2921023) { // from class: com.baidu.tieba.discover.DiscoverFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && DiscoverFragment.this.eSt != null && DiscoverFragment.this.eSt.getWebView() != null && DiscoverFragment.this.eSt.getWebView().getUrl() != null) {
-                if (DiscoverFragment.this.eSt.getWebView().getUrl().contains((String) customResponsedMessage.getData())) {
-                    DiscoverFragment.this.eSt.hideLoadingView();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && DiscoverFragment.this.eSA != null && DiscoverFragment.this.eSA.getWebView() != null && DiscoverFragment.this.eSA.getWebView().getUrl() != null) {
+                if (DiscoverFragment.this.eSA.getWebView().getUrl().contains((String) customResponsedMessage.getData())) {
+                    DiscoverFragment.this.eSA.hideLoadingView();
                 }
             }
         }
     };
-    private CustomMessageListener eSv = new CustomMessageListener(2921041) { // from class: com.baidu.tieba.discover.DiscoverFragment.2
+    private CustomMessageListener eSC = new CustomMessageListener(2921041) { // from class: com.baidu.tieba.discover.DiscoverFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    DiscoverFragment.this.aJj();
+                    DiscoverFragment.this.aJl();
                 } else {
-                    DiscoverFragment.this.aJk();
+                    DiscoverFragment.this.aJm();
                 }
             }
         }
@@ -49,33 +49,33 @@ public class DiscoverFragment extends BaseFragment implements ae {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.eSt = new a();
-        return this.eSt.a(layoutInflater, viewGroup);
+        this.eSA = new a();
+        return this.eSA.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.eSt.l(getPageContext());
+        this.eSA.l(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.eSv);
-        com.baidu.tbadk.util.ae.a(this.eSt.getWebView(), getUniqueId());
+        registerListener(this.eSC);
+        com.baidu.tbadk.util.ae.a(this.eSA.getWebView(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.dpI || StringUtils.isNull(this.eSt.getWebView().getUrl())) {
+        if (this.dpP || StringUtils.isNull(this.eSA.getWebView().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.eSt.loadUrl(tO(this.mUrl));
+                this.eSA.loadUrl(tP(this.mUrl));
             } else {
-                this.eSt.loadUrl(this.mUrl);
+                this.eSA.loadUrl(this.mUrl);
             }
-            this.dpI = false;
+            this.dpP = false;
         }
     }
 
-    private String tO(String str) {
+    private String tP(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -95,8 +95,8 @@ public class DiscoverFragment extends BaseFragment implements ae {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.eSt != null) {
-            this.eSt.onDestroy();
+        if (this.eSA != null) {
+            this.eSA.onDestroy();
         }
     }
 
@@ -122,32 +122,32 @@ public class DiscoverFragment extends BaseFragment implements ae {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.dpI) {
+        if (!this.dpP) {
             if (i == 1) {
-                this.eSt.loadUrl(tO(this.mUrl));
+                this.eSA.loadUrl(tP(this.mUrl));
             } else {
-                this.eSt.loadUrl(this.mUrl);
+                this.eSA.loadUrl(this.mUrl);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJi() {
+    public void aJk() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJj() {
-        if (this.eSt != null && !this.eSu) {
-            this.eSu = true;
-            this.eSt.bed();
+    public void aJl() {
+        if (this.eSA != null && !this.eSB) {
+            this.eSB = true;
+            this.eSA.bef();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJk() {
-        if (this.eSt != null && this.eSu) {
-            this.eSu = false;
-            this.eSt.bee();
+    public void aJm() {
+        if (this.eSA != null && this.eSB) {
+            this.eSB = false;
+            this.eSA.beg();
         }
     }
 
@@ -160,7 +160,7 @@ public class DiscoverFragment extends BaseFragment implements ae {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void akL() {
+    public void akN() {
     }
 
     @Override // com.baidu.tieba.frs.ae

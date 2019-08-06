@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow eYi;
-    private boolean fQI;
+    private PopupWindow eYw;
+    private boolean fRw;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int fQH = R.string.attention_post_update_tip;
+    private int fRv = R.string.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable fQJ = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable fRx = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int g = l.g(pageActivity, R.dimen.ds64);
-                View g2 = a.this.g(pageActivity, a.this.fQH);
+                View g2 = a.this.g(pageActivity, a.this.fRv);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int g3 = l.g(pageActivity, R.dimen.ds32);
                 int g4 = l.g(pageActivity, R.dimen.ds16) + (iArr[1] - g);
-                a.this.eYi = new PopupWindow(g2, -2, g);
-                a.this.eYi.showAtLocation(a.this.mAnchor, 53, g3, g4);
+                a.this.eYw = new PopupWindow(g2, -2, g);
+                a.this.eYw.showAtLocation(a.this.mAnchor, 53, g3, g4);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.eYi != null) {
-                            a.this.bse();
+                        if (a.this.eYw != null) {
+                            a.this.bsr();
                         }
                     }
                 }, 3000L);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.fQI = z;
+        this.fRw = z;
     }
 
-    public void bX(View view) {
+    public void bY(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.fQI) {
-                this.fQH = R.string.attention_post_update_tip;
+            if (this.fRw) {
+                this.fRv = R.string.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
-                int i = com.baidu.tbadk.core.sharedPref.b.ahO().getInt(str, 0);
+                int i = com.baidu.tbadk.core.sharedPref.b.ahQ().getInt(str, 0);
                 if (i >= 3) {
-                    this.fQI = false;
+                    this.fRw = false;
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.ahO().putInt(str, i + 1);
-                this.fQI = false;
-                this.mHandler.postDelayed(this.fQJ, 500L);
+                com.baidu.tbadk.core.sharedPref.b.ahQ().putInt(str, i + 1);
+                this.fRw = false;
+                this.mHandler.postDelayed(this.fRx, 500L);
             }
         }
     }
@@ -86,18 +86,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bse();
+        bsr();
     }
 
-    public void bse() {
-        if (this.eYi != null) {
-            this.eYi.dismiss();
-            this.eYi = null;
+    public void bsr() {
+        if (this.eYw != null) {
+            this.eYw.dismiss();
+            this.eYw = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        bse();
+        bsr();
     }
 }

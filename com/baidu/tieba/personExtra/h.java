@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener iov;
+    private View.OnLongClickListener ipz;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -30,7 +30,7 @@ public class h extends RecyclerView.Adapter<a> {
         this.mDataList = list;
     }
 
-    public SmartApp CN(String str) {
+    public SmartApp CO(String str) {
         if (v.aa(this.mDataList)) {
             return null;
         }
@@ -50,17 +50,17 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.iov = onLongClickListener;
+        this.ipz = onLongClickListener;
     }
 
-    private SmartApp yN(int i) {
+    private SmartApp yP(int i) {
         return (SmartApp) v.c(this.mDataList, i);
     }
 
     public void b(SmartApp smartApp) {
-        SmartApp CN = CN(smartApp.id);
-        if (CN != null && this.mDataList != null) {
-            v.a(this.mDataList, 0, CN);
+        SmartApp CO = CO(smartApp.id);
+        if (CO != null && this.mDataList != null) {
+            v.a(this.mDataList, 0, CO);
         }
     }
 
@@ -75,11 +75,11 @@ public class h extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        SmartApp yN;
-        if (aVar != null && (yN = yN(i)) != null) {
-            aVar.c(yN);
+        SmartApp yP;
+        if (aVar != null && (yP = yP(i)) != null) {
+            aVar.c(yP);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.iov);
+            aVar.setOnLongClickListener(this.ipz);
             aVar.onChangeSkinType();
         }
     }
@@ -91,25 +91,25 @@ public class h extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes6.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView gXl;
-        private SmartApp iow;
+        private HeadImageView gYd;
+        private SmartApp ipA;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.gXl = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.gXl.setIsRound(true);
-            this.gXl.setBg(new ColorDrawable(am.getColor(R.color.cp_bg_line_c)));
+            this.gYd = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.gYd.setIsRound(true);
+            this.gYd.setBg(new ColorDrawable(am.getColor(R.color.cp_bg_line_c)));
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void c(SmartApp smartApp) {
-            this.iow = smartApp;
+            this.ipA = smartApp;
             this.mRootView.setTag(smartApp);
             if (!aq.isEmpty(smartApp.avatar)) {
-                this.gXl.startLoad(smartApp.avatar, 10, false, false);
+                this.gYd.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!aq.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

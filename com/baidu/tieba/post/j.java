@@ -5,123 +5,123 @@ import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes5.dex */
 public class j implements com.baidu.tieba.j.h {
-    private String hvC;
-    private String hvD;
-    private HashMap<String, com.baidu.tieba.j.f> iAQ;
+    private String hwu;
+    private String hwv;
+    private HashMap<String, com.baidu.tieba.j.f> iBU;
 
     /* loaded from: classes5.dex */
     private static class a {
-        private static final com.baidu.tieba.j.h iAR = new j();
+        private static final com.baidu.tieba.j.h iBV = new j();
     }
 
-    public static com.baidu.tieba.j.h cfF() {
-        return a.iAR;
+    public static com.baidu.tieba.j.h cfX() {
+        return a.iBV;
     }
 
     private j() {
-        this.iAQ = new HashMap<>();
+        this.iBU = new HashMap<>();
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bOA() {
-        this.hvC = UUID.randomUUID().toString();
+    public void bOO() {
+        this.hwu = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.j.h
     public void av(int i, String str) {
-        cfG().o(this.hvC, i, str);
+        cfY().o(this.hwu, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void aw(int i, String str) {
-        cfG().p(this.hvC, i, str);
+        cfY().p(this.hwu, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void ax(int i, String str) {
-        cfG().q(this.hvC, i, str);
+        cfY().q(this.hwu, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bOB() {
-        cfG().AU(this.hvC);
+    public void bOP() {
+        cfY().AV(this.hwu);
     }
 
     @Override // com.baidu.tieba.j.h
     public void h(int i, int i2, String str) {
-        cfG().e(this.hvC, i, i2, str);
+        cfY().e(this.hwu, i, i2, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bOC() {
-        cfG().AV(this.hvC);
-        cY(this.hvC);
+    public void bOQ() {
+        cfY().AW(this.hwu);
+        cY(this.hwu);
     }
 
     @Override // com.baidu.tieba.j.h
     public void ay(int i, String str) {
-        cfG().r(this.hvC, i, str);
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void AY(String str) {
-        if (!StringUtils.isNull(this.hvD)) {
-            if (AW(this.hvD) || AX(this.hvD)) {
-                cY(this.hvD);
-            } else {
-                com.baidu.tieba.j.d.AT(this.hvD);
-                this.iAQ.remove(this.hvC);
-            }
-            bOA();
-            cfG().dD(this.hvD, str);
-            this.hvD = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void bOD() {
-        this.hvD = this.hvC;
+        cfY().r(this.hwu, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
     public void AZ(String str) {
-        cfG().dE(this.hvC, str);
-        if (AW(this.hvC) || AX(this.hvC)) {
-            cY(this.hvC);
-        } else {
-            com.baidu.tieba.j.d.AT(this.hvC);
-            this.iAQ.remove(this.hvC);
+        if (!StringUtils.isNull(this.hwv)) {
+            if (AX(this.hwv) || AY(this.hwv)) {
+                cY(this.hwv);
+            } else {
+                com.baidu.tieba.j.d.AU(this.hwv);
+                this.iBU.remove(this.hwu);
+            }
+            bOO();
+            cfY().dD(this.hwv, str);
+            this.hwv = null;
         }
-        this.hvC = null;
     }
 
-    public boolean AW(String str) {
-        return cfG().AW(str);
+    @Override // com.baidu.tieba.j.h
+    public void bOR() {
+        this.hwv = this.hwu;
+    }
+
+    @Override // com.baidu.tieba.j.h
+    public void Ba(String str) {
+        cfY().dE(this.hwu, str);
+        if (AX(this.hwu) || AY(this.hwu)) {
+            cY(this.hwu);
+        } else {
+            com.baidu.tieba.j.d.AU(this.hwu);
+            this.iBU.remove(this.hwu);
+        }
+        this.hwu = null;
     }
 
     public boolean AX(String str) {
-        return cfG().AX(str);
+        return cfY().AX(str);
+    }
+
+    public boolean AY(String str) {
+        return cfY().AY(str);
     }
 
     public void cY(String str) {
-        com.baidu.tieba.j.f fVar = this.iAQ.get(str);
+        com.baidu.tieba.j.f fVar = this.iBU.get(str);
         if (fVar != null) {
             fVar.cY(str);
-            this.iAQ.remove(str);
+            this.iBU.remove(str);
         }
     }
 
-    private com.baidu.tieba.j.f cfG() {
-        com.baidu.tieba.j.f fVar = this.iAQ.get(this.hvC);
+    private com.baidu.tieba.j.f cfY() {
+        com.baidu.tieba.j.f fVar = this.iBU.get(this.hwu);
         if (fVar == null) {
-            return cfH();
+            return cfZ();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.j.f cfH() {
-        i iVar = new i(this.hvC);
-        this.iAQ.put(this.hvC, iVar);
+    private com.baidu.tieba.j.f cfZ() {
+        i iVar = new i(this.hwu);
+        this.iBU.put(this.hwu, iVar);
         return iVar;
     }
 }

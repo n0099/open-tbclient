@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ad;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.v;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -60,18 +60,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         for (int i3 = 0; i3 < list2.size(); i3++) {
-                            bg bgVar = new bg();
-                            bgVar.setUserMap(this.userMap);
-                            bgVar.a(list2.get(i3));
-                            bgVar.setCurrentPage(3);
-                            bgVar.afn();
-                            bgVar.bMb = isBrandForum;
-                            if (!TextUtils.isEmpty(bgVar.afz())) {
+                            bh bhVar = new bh();
+                            bhVar.setUserMap(this.userMap);
+                            bhVar.a(list2.get(i3));
+                            bhVar.setCurrentPage(3);
+                            bhVar.afo();
+                            bhVar.bMg = isBrandForum;
+                            if (!TextUtils.isEmpty(bhVar.afA())) {
                                 ad adVar = new ad();
-                                adVar.mq(bgVar.afz());
+                                adVar.mq(bhVar.afA());
                                 this.threadList.add(adVar);
                             } else {
-                                this.threadList.add(bgVar);
+                                this.threadList.add(bhVar);
                             }
                         }
                     }

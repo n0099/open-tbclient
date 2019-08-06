@@ -9,16 +9,16 @@ public class p {
     private p() {
     }
 
-    public static void cNK() {
+    public static void cOf() {
         throw ((KotlinNullPointerException) E(new KotlinNullPointerException()));
     }
 
-    public static void Ii(String str) {
+    public static void Ij(String str) {
         throw ((UninitializedPropertyAccessException) E(new UninitializedPropertyAccessException(str)));
     }
 
-    public static void Ij(String str) {
-        Ii("lateinit property " + str + " has not been initialized");
+    public static void Ik(String str) {
+        Ij("lateinit property " + str + " has not been initialized");
     }
 
     public static void j(Object obj, String str) {
@@ -29,11 +29,11 @@ public class p {
 
     public static void k(Object obj, String str) {
         if (obj == null) {
-            Ik(str);
+            Il(str);
         }
     }
 
-    private static void Ik(String str) {
+    private static void Il(String str) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         String className = stackTraceElement.getClassName();
         throw ((IllegalArgumentException) E(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
@@ -43,16 +43,16 @@ public class p {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void cNL() {
-        Il("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
+    public static void cOg() {
+        Im("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
-    public static void Il(String str) {
+    public static void Im(String str) {
         throw new UnsupportedOperationException(str);
     }
 
     public static void aO(int i, String str) {
-        cNL();
+        cOg();
     }
 
     private static <T extends Throwable> T E(T t) {

@@ -39,20 +39,20 @@ public final class k<T> implements d.b<T, T> {
         final boolean delayError;
         Throwable error;
         volatile boolean finished;
-        final g.a kxh;
-        long kxj;
+        final g.a kyn;
+        long kyp;
         final int limit;
         final Queue<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        final AtomicLong kxi = new AtomicLong();
+        final AtomicLong kyo = new AtomicLong();
 
         public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
             this.child = jVar;
-            this.kxh = gVar.createWorker();
+            this.kyn = gVar.createWorker();
             this.delayError = z;
             i = i <= 0 ? rx.internal.util.g.SIZE : i;
             this.limit = i - (i >> 2);
-            if (ae.cQg()) {
+            if (ae.cQB()) {
                 this.queue = new rx.internal.util.a.q(i);
             } else {
                 this.queue = new rx.internal.util.atomic.c(i);
@@ -67,11 +67,11 @@ public final class k<T> implements d.b<T, T> {
                 public void request(long j) {
                     if (j > 0) {
                         rx.internal.operators.a.a(a.this.requested, j);
-                        a.this.cPy();
+                        a.this.cPT();
                     }
                 }
             });
-            jVar.add(this.kxh);
+            jVar.add(this.kyn);
             jVar.add(this);
         }
 
@@ -81,7 +81,7 @@ public final class k<T> implements d.b<T, T> {
                 if (!this.queue.offer(NotificationLite.bq(t))) {
                     onError(new MissingBackpressureException());
                 } else {
-                    cPy();
+                    cPT();
                 }
             }
         }
@@ -90,7 +90,7 @@ public final class k<T> implements d.b<T, T> {
         public void onCompleted() {
             if (!isUnsubscribed() && !this.finished) {
                 this.finished = true;
-                cPy();
+                cPT();
             }
         }
 
@@ -102,19 +102,19 @@ public final class k<T> implements d.b<T, T> {
             }
             this.error = th;
             this.finished = true;
-            cPy();
+            cPT();
         }
 
-        protected void cPy() {
-            if (this.kxi.getAndIncrement() == 0) {
-                this.kxh.c(this);
+        protected void cPT() {
+            if (this.kyo.getAndIncrement() == 0) {
+                this.kyn.c(this);
             }
         }
 
         @Override // rx.functions.a
         public void call() {
             long j;
-            long j2 = this.kxj;
+            long j2 = this.kyp;
             Queue<Object> queue = this.queue;
             rx.j<? super T> jVar = this.child;
             long j3 = 1;
@@ -144,8 +144,8 @@ public final class k<T> implements d.b<T, T> {
                     }
                 }
                 if (j4 != j2 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
-                    this.kxj = j2;
-                    j3 = this.kxi.addAndGet(-j3);
+                    this.kyp = j2;
+                    j3 = this.kyo.addAndGet(-j3);
                 } else {
                     return;
                 }

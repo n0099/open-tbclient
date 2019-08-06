@@ -9,20 +9,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public final class j extends n<Time> {
-    public static final o knK = new o() { // from class: com.google.gson.internal.a.j.1
+    public static final o koQ = new o() { // from class: com.google.gson.internal.a.j.1
         @Override // com.google.gson.o
         public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.cMy() == Time.class) {
+            if (aVar.cMT() == Time.class) {
                 return new j();
             }
             return null;
         }
     };
-    private final DateFormat kok = new SimpleDateFormat("hh:mm:ss a");
+    private final DateFormat kpq = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.n
     public synchronized void a(com.google.gson.stream.a aVar, Time time) throws IOException {
-        aVar.HX(time == null ? null : this.kok.format((Date) time));
+        aVar.HY(time == null ? null : this.kpq.format((Date) time));
     }
 }

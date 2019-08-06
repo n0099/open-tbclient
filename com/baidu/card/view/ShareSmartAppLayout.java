@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.card.i;
 import com.baidu.tbadk.core.data.a;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
@@ -45,15 +45,15 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(a aVar) {
-        if (aVar == null || aVar.acx() == null || aVar.acx().afj() == null) {
+        if (aVar == null || aVar.acy() == null || aVar.acy().afk() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.VJ = aVar;
-        bg acx = aVar.acx();
-        this.YV.setData(acx.afj());
-        this.YV.setForumId(String.valueOf(acx.getFid()));
+        bh acy = aVar.acy();
+        this.YV.setData(acy.afk());
+        this.YV.setForumId(String.valueOf(acy.getFid()));
         AppletsCellView appletsCellView = this.YV;
         AppletsCellView appletsCellView2 = this.YV;
         appletsCellView.setFrom("frs_card");

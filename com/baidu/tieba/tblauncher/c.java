@@ -20,33 +20,33 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c {
-    private PopupWindow fSm;
-    private Runnable fSo = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.1
+    private PopupWindow fTc;
+    private Runnable fTe = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.mTabHost != null && c.this.fSm != null && c.this.fSm.getContentView() != null) {
+            if (c.this.mTabHost != null && c.this.fTc != null && c.this.fTc.getContentView() != null) {
                 FragmentTabWidget fragmentTabWidget = c.this.mTabHost.getFragmentTabWidget();
-                int af = l.af(c.this.jlp.getActivity());
-                int g = l.g(c.this.jlp.getActivity(), R.dimen.ds278);
-                c.this.fSm.getContentView().measure(0, 0);
-                g.showPopupWindowAsDropDown(c.this.fSm, fragmentTabWidget, (af - l.g(c.this.jlp.getActivity(), R.dimen.ds430)) / 2, -g);
-                com.baidu.tbadk.core.sharedPref.b.ahO().putLong("home_tip", c.this.gma);
-                e.iK().postDelayed(c.this.fSp, 5000L);
+                int af = l.af(c.this.jmx.getActivity());
+                int g = l.g(c.this.jmx.getActivity(), R.dimen.ds278);
+                c.this.fTc.getContentView().measure(0, 0);
+                g.showPopupWindowAsDropDown(c.this.fTc, fragmentTabWidget, (af - l.g(c.this.jmx.getActivity(), R.dimen.ds430)) / 2, -g);
+                com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("home_tip", c.this.gmS);
+                e.iK().postDelayed(c.this.fTf, 5000L);
                 TiebaStatic.log(new an("c13016").P("obj_locate", 1));
             }
         }
     };
-    private Runnable fSp = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
+    private Runnable fTf = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
         @Override // java.lang.Runnable
         public void run() {
-            c.this.bsY();
+            c.this.btl();
         }
     };
-    private View.OnClickListener fSq = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
+    private View.OnClickListener fTg = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.bsX();
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.jlp, 9, String.valueOf(0), "", null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
+            c.this.btk();
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.jmx, 9, String.valueOf(0), "", null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
             if (!StringUtils.isNull(c.this.mTopicName)) {
                 writeActivityConfig.setTitle(c.this.mTopicName, true);
             }
@@ -54,52 +54,52 @@ public class c {
             TiebaStatic.log(new an("c13017").P("obj_locate", 1));
         }
     };
-    private long gma;
-    private TextView gtL;
-    private MainTabActivity jlp;
-    private View jlq;
-    private TextView jlr;
+    private long gmS;
+    private TextView guD;
+    private MainTabActivity jmx;
+    private View jmy;
+    private TextView jmz;
     private FragmentTabHost mTabHost;
     private String mTopicName;
 
     public c(MainTabActivity mainTabActivity) {
-        this.jlp = mainTabActivity;
-        this.mTabHost = (FragmentTabHost) this.jlp.findViewById(R.id.tab_host);
+        this.jmx = mainTabActivity;
+        this.mTabHost = (FragmentTabHost) this.jmx.findViewById(R.id.tab_host);
     }
 
     public void j(String str, String str2, long j) {
-        if (com.baidu.tbadk.core.sharedPref.b.ahO().getLong("home_tip", 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+        if (com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("home_tip", 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             this.mTopicName = str2;
-            this.gma = j;
-            if (this.jlq == null) {
-                this.jlq = LayoutInflater.from(this.jlp.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
-                this.gtL = (TextView) this.jlq.findViewById(R.id.tips);
-                this.jlr = (TextView) this.jlq.findViewById(R.id.tips_content);
-                this.jlq.setOnClickListener(this.fSq);
+            this.gmS = j;
+            if (this.jmy == null) {
+                this.jmy = LayoutInflater.from(this.jmx.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+                this.guD = (TextView) this.jmy.findViewById(R.id.tips);
+                this.jmz = (TextView) this.jmy.findViewById(R.id.tips_content);
+                this.jmy.setOnClickListener(this.fTg);
             }
-            this.gtL.setText(aq.l(str, 24, "..."));
-            this.jlr.setText(R.string.topic_join);
-            if (this.fSm == null) {
-                this.fSm = new PopupWindow(this.jlq, -2, -2);
+            this.guD.setText(aq.l(str, 24, "..."));
+            this.jmz.setText(R.string.topic_join);
+            if (this.fTc == null) {
+                this.fTc = new PopupWindow(this.jmy, -2, -2);
             } else {
-                bsX();
+                btk();
             }
-            e.iK().removeCallbacks(this.fSo);
-            e.iK().postDelayed(this.fSo, 100L);
+            e.iK().removeCallbacks(this.fTe);
+            e.iK().postDelayed(this.fTe, 100L);
         }
     }
 
-    public void bsX() {
-        e.iK().removeCallbacks(this.fSo);
-        e.iK().removeCallbacks(this.fSp);
-        bsY();
+    public void btk() {
+        e.iK().removeCallbacks(this.fTe);
+        e.iK().removeCallbacks(this.fTf);
+        btl();
     }
 
-    public void bsY() {
-        g.a(this.fSm);
+    public void btl() {
+        g.a(this.fTc);
     }
 
     public void onDestroy() {
-        bsX();
+        btk();
     }
 }

@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class b extends FilterInputStream {
-    private final byte[] jZZ;
-    private int kaa;
-    private int kab;
+    private final byte[] kbf;
+    private int kbg;
+    private int kbh;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.jZZ = bArr;
+        this.kbf = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : cFb();
+        return read != -1 ? read : cFw();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int cFb = cFb();
-                if (cFb == -1) {
+                int cFw = cFw();
+                if (cFw == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) cFb;
+                bArr[i + i3] = (byte) cFw;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.kaa = this.kab;
+            this.kbg = this.kbh;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.kab = this.kaa;
+            this.kbh = this.kbg;
         }
     }
 
-    private int cFb() {
-        if (this.kaa >= this.jZZ.length) {
+    private int cFw() {
+        if (this.kbg >= this.kbf.length) {
             return -1;
         }
-        byte[] bArr = this.jZZ;
-        int i = this.kaa;
-        this.kaa = i + 1;
+        byte[] bArr = this.kbf;
+        int i = this.kbg;
+        this.kbg = i + 1;
         return bArr[i] & 255;
     }
 }

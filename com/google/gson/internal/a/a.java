@@ -9,23 +9,23 @@ import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 /* loaded from: classes2.dex */
 public final class a<E> extends n<Object> {
-    public static final o knK = new o() { // from class: com.google.gson.internal.a.a.1
+    public static final o koQ = new o() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.o
         public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            Type cMz = aVar.cMz();
-            if (!(cMz instanceof GenericArrayType) && (!(cMz instanceof Class) || !((Class) cMz).isArray())) {
+            Type cMU = aVar.cMU();
+            if (!(cMU instanceof GenericArrayType) && (!(cMU instanceof Class) || !((Class) cMU).isArray())) {
                 return null;
             }
-            Type i = C$Gson$Types.i(cMz);
+            Type i = C$Gson$Types.i(cMU);
             return new a(dVar, dVar.a(com.google.gson.b.a.l(i)), C$Gson$Types.g(i));
         }
     };
-    private final Class<E> knL;
-    private final n<E> knM;
+    private final Class<E> koR;
+    private final n<E> koS;
 
     public a(com.google.gson.d dVar, n<E> nVar, Class<E> cls) {
-        this.knM = new l(dVar, nVar, cls);
-        this.knL = cls;
+        this.koS = new l(dVar, nVar, cls);
+        this.koR = cls;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.google.gson.n<E> */
@@ -33,14 +33,14 @@ public final class a<E> extends n<Object> {
     @Override // com.google.gson.n
     public void a(com.google.gson.stream.a aVar, Object obj) throws IOException {
         if (obj == null) {
-            aVar.cMx();
+            aVar.cMS();
             return;
         }
-        aVar.cMt();
+        aVar.cMO();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.knM.a(aVar, Array.get(obj, i));
+            this.koS.a(aVar, Array.get(obj, i));
         }
-        aVar.cMu();
+        aVar.cMP();
     }
 }

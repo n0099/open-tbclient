@@ -1,23 +1,23 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String cdR();
+    String cej();
 
-    boolean cdS();
+    boolean cek();
 
-    boolean cdT();
+    boolean cel();
 
-    boolean cdU();
+    boolean cem();
 
-    boolean cdV();
+    boolean cen();
 
-    int cdW();
+    int ceo();
 
-    void cdX();
+    void cep();
 
-    j cdY();
+    j ceq();
 
-    void cdZ();
+    void cer();
 
     void eq(long j);
 
@@ -33,5 +33,5 @@ public interface d {
 
     String sc(String str);
 
-    void yV(int i);
+    void yX(int i);
 }

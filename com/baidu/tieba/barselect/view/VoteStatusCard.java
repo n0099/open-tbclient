@@ -15,16 +15,16 @@ import com.baidu.tieba.barselect.data.e;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes3.dex */
 public class VoteStatusCard extends LinearLayout {
-    private f euM;
-    private e ewi;
-    private TextView ezC;
-    private VoteStatusView ezD;
-    private TextView ezE;
-    private TextView ezF;
-    private TextView ezG;
-    private TextView ezH;
-    private TextView ezI;
+    private f euT;
+    private e ewp;
     private TextView ezJ;
+    private VoteStatusView ezK;
+    private TextView ezL;
+    private TextView ezM;
+    private TextView ezN;
+    private TextView ezO;
+    private TextView ezP;
+    private TextView ezQ;
     private Context mContext;
     private int status;
 
@@ -34,7 +34,7 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.status = d.eyW;
+        this.status = d.ezd;
         initUI();
     }
 
@@ -52,54 +52,54 @@ public class VoteStatusCard extends LinearLayout {
     }
 
     private void qX() {
-        this.ezC = (TextView) findViewById(R.id.bar_maneger_apply_title);
-        this.ezD = (VoteStatusView) findViewById(R.id.vote_status_view);
-        this.ezE = (TextView) findViewById(R.id.apply_title);
-        this.ezF = (TextView) findViewById(R.id.apply_start_time);
-        this.ezG = (TextView) findViewById(R.id.vote_title);
-        this.ezH = (TextView) findViewById(R.id.vote_start_time);
-        this.ezI = (TextView) findViewById(R.id.publicity_title);
-        this.ezJ = (TextView) findViewById(R.id.publicity_start_time);
+        this.ezJ = (TextView) findViewById(R.id.bar_maneger_apply_title);
+        this.ezK = (VoteStatusView) findViewById(R.id.vote_status_view);
+        this.ezL = (TextView) findViewById(R.id.apply_title);
+        this.ezM = (TextView) findViewById(R.id.apply_start_time);
+        this.ezN = (TextView) findViewById(R.id.vote_title);
+        this.ezO = (TextView) findViewById(R.id.vote_start_time);
+        this.ezP = (TextView) findViewById(R.id.publicity_title);
+        this.ezQ = (TextView) findViewById(R.id.publicity_start_time);
     }
 
     public void setData(f fVar) {
-        this.euM = fVar;
-        if (this.euM == null || this.euM.aYP() == null) {
+        this.euT = fVar;
+        if (this.euT == null || this.euT.aYR() == null) {
             setVisibility(8);
             return;
         }
-        this.ewi = this.euM.aYP();
-        this.status = this.ewi.getStatus();
-        this.ezD.setStatus(this.status);
-        long aYK = this.ewi.aYK() * 1000;
-        this.ezF.setText(aq.ax(this.ewi.aYI() * 1000));
-        this.ezH.setText(aq.aw(this.ewi.aYL() * 1000));
-        this.ezJ.setText(aq.aw(this.ewi.aYJ() * 1000));
+        this.ewp = this.euT.aYR();
+        this.status = this.ewp.getStatus();
+        this.ezK.setStatus(this.status);
+        long aYM = this.ewp.aYM() * 1000;
+        this.ezM.setText(aq.ax(this.ewp.aYK() * 1000));
+        this.ezO.setText(aq.aw(this.ewp.aYN() * 1000));
+        this.ezQ.setText(aq.aw(this.ewp.aYL() * 1000));
     }
 
-    public void nz(int i) {
+    public void nA(int i) {
         int color = am.getColor(i, R.color.cp_cont_b);
         int color2 = am.getColor(i, R.color.cp_cont_d);
-        if (this.ezE != null) {
-            this.ezE.setTextColor(color);
+        if (this.ezL != null) {
+            this.ezL.setTextColor(color);
         }
-        if (this.ezG != null) {
-            this.ezG.setTextColor(this.status > d.eyV ? color : color2);
+        if (this.ezN != null) {
+            this.ezN.setTextColor(this.status > d.ezc ? color : color2);
         }
-        if (this.ezI != null) {
-            TextView textView = this.ezI;
-            if (this.status <= d.eyW) {
+        if (this.ezP != null) {
+            TextView textView = this.ezP;
+            if (this.status <= d.ezd) {
                 color = color2;
             }
             textView.setTextColor(color);
         }
-        if (this.ezD != null) {
-            this.ezD.nz(i);
+        if (this.ezK != null) {
+            this.ezK.nA(i);
         }
-        am.d(this.ezC, R.color.cp_cont_b, 1, i);
-        am.d(this.ezF, R.color.cp_cont_d, 1, i);
-        am.d(this.ezH, R.color.cp_cont_d, 1, i);
-        am.d(this.ezJ, R.color.cp_cont_d, 1, i);
+        am.d(this.ezJ, R.color.cp_cont_b, 1, i);
+        am.d(this.ezM, R.color.cp_cont_d, 1, i);
+        am.d(this.ezO, R.color.cp_cont_d, 1, i);
+        am.d(this.ezQ, R.color.cp_cont_d, 1, i);
         am.g(this, R.drawable.bar_select_bg_shadow_and_radius, i);
     }
 }

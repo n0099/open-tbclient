@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.openstat;
 /* loaded from: classes2.dex */
 public class c {
-    private static volatile b dhb;
+    private static volatile b dhi;
 
-    public static synchronized b aGX() {
+    public static synchronized b aGZ() {
         b bVar;
         synchronized (c.class) {
-            if (dhb == null) {
-                dhb = new b();
+            if (dhi == null) {
+                dhi = new b();
             }
-            bVar = dhb;
+            bVar = dhi;
         }
         return bVar;
     }

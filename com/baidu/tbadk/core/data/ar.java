@@ -6,34 +6,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ar {
-    private ArrayList<UserData> bIg = new ArrayList<>();
     private ArrayList<UserData> bIh = new ArrayList<>();
-    private an bIi = new an();
-    private int bIj = 0;
+    private ArrayList<UserData> bIi = new ArrayList<>();
+    private an bIj = new an();
     private int bIk = 0;
+    private int bIl = 0;
 
     public void setPage(an anVar) {
-        this.bIi = anVar;
+        this.bIj = anVar;
     }
 
     public an getPage() {
-        return this.bIi;
-    }
-
-    public ArrayList<UserData> adu() {
-        return this.bIg;
+        return this.bIj;
     }
 
     public ArrayList<UserData> adv() {
         return this.bIh;
     }
 
-    public int adw() {
-        return this.bIj;
+    public ArrayList<UserData> adw() {
+        return this.bIi;
     }
 
     public int adx() {
         return this.bIk;
+    }
+
+    public int ady() {
+        return this.bIl;
     }
 
     public void parserJson(String str) {
@@ -54,7 +54,7 @@ public class ar {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.bIg.add(userData);
+                        this.bIh.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -62,12 +62,12 @@ public class ar {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.bIh.add(userData2);
+                        this.bIi.add(userData2);
                     }
                 }
-                this.bIi.parserJson(jSONObject.optJSONObject("page"));
-                this.bIj = jSONObject.optInt("tafriendnum", 0);
-                this.bIk = jSONObject.optInt("commonfriendnum", 0);
+                this.bIj.parserJson(jSONObject.optJSONObject("page"));
+                this.bIk = jSONObject.optInt("tafriendnum", 0);
+                this.bIl = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

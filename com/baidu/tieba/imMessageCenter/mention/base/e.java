@@ -11,12 +11,12 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
     private BdTypeRecyclerView Op;
-    private ArrayList<m> eUx;
-    private b gWZ;
-    private b gXa;
-    private b gXb;
-    private b gXc;
-    private b gXd;
+    private ArrayList<m> eUE;
+    private b gXR;
+    private b gXS;
+    private b gXT;
+    private b gXU;
+    private b gXV;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void r(TbPageContext tbPageContext) {
-        this.gWZ = new b(tbPageContext, a.gWI);
-        this.gXa = new b(tbPageContext, a.gWJ);
-        this.gXb = new b(tbPageContext, a.gWM);
-        this.gXc = new b(tbPageContext, a.gWL);
-        this.gXd = new b(tbPageContext, a.gWK);
-        this.mAdapters.add(this.gWZ);
-        this.mAdapters.add(this.gXa);
-        this.mAdapters.add(this.gXb);
-        this.mAdapters.add(this.gXc);
-        this.mAdapters.add(this.gXd);
+        this.gXR = new b(tbPageContext, a.gXA);
+        this.gXS = new b(tbPageContext, a.gXB);
+        this.gXT = new b(tbPageContext, a.gXE);
+        this.gXU = new b(tbPageContext, a.gXD);
+        this.gXV = new b(tbPageContext, a.gXC);
+        this.mAdapters.add(this.gXR);
+        this.mAdapters.add(this.gXS);
+        this.mAdapters.add(this.gXT);
+        this.mAdapters.add(this.gXU);
+        this.mAdapters.add(this.gXV);
         this.Op.addAdapters(this.mAdapters);
     }
 
@@ -47,7 +47,7 @@ public class e {
 
     public void setData(ArrayList<m> arrayList) {
         this.Op.setData(arrayList);
-        this.eUx = arrayList;
+        this.eUE = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void b(ab abVar) {
-        this.gXd.b(abVar);
-        this.gXc.b(abVar);
-        this.gXb.b(abVar);
+        this.gXV.b(abVar);
+        this.gXU.b(abVar);
+        this.gXT.b(abVar);
     }
 }

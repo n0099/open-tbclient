@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class h extends DiskFileOperate {
-    protected a bRl;
+    protected a bRr;
     protected Bitmap mBitmap;
     protected BitmapFactory.Options xi;
 
@@ -15,16 +15,16 @@ public class h extends DiskFileOperate {
         super(str, str2, action);
         this.mBitmap = null;
         this.xi = null;
-        this.bRl = null;
-        this.bRl = new a();
+        this.bRr = null;
+        this.bRr = new a();
     }
 
     public boolean isGif() {
-        return this.bRl.mIsGif;
+        return this.bRr.mIsGif;
     }
 
     public void O(boolean z) {
-        this.bRl.mIsGif = z;
+        this.bRr.mIsGif = z;
     }
 
     public Bitmap getBitmap() {
@@ -44,7 +44,7 @@ public class h extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.bRl.toByteArray();
+        return this.bRr.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -56,8 +56,8 @@ public class h extends DiskFileOperate {
             this.xi = new BitmapFactory.Options();
             this.xi.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean j = this.bRl.j(bArr);
-        if (this.bRl.xn == 0 || this.bRl.xn >= System.currentTimeMillis()) {
+        boolean j = this.bRr.j(bArr);
+        if (this.bRr.xn == 0 || this.bRr.xn >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
             if (!j) {
                 headerSize = 0;

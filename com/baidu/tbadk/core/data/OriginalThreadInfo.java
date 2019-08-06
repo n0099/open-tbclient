@@ -38,7 +38,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
 
     public void parser(OriginThreadInfo originThreadInfo) {
         if (originThreadInfo == null) {
-            adl();
+            adm();
             return;
         }
         this.forumName = originThreadInfo.fname;
@@ -82,7 +82,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
-            adl();
+            adm();
             return;
         }
         try {
@@ -130,46 +130,46 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         }
     }
 
-    public static OriginalThreadInfo parseFromThreadData(bg bgVar) {
-        if (bgVar == null) {
+    public static OriginalThreadInfo parseFromThreadData(bh bhVar) {
+        if (bhVar == null) {
             return null;
         }
-        if (bgVar.bLQ != null) {
-            return bgVar.bLQ;
+        if (bhVar.bLV != null) {
+            return bhVar.bLV;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        originalThreadInfo.forumName = bgVar.aeC();
-        originalThreadInfo.forumId = bgVar.getFid();
-        originalThreadInfo.threadId = bgVar.getTid();
-        originalThreadInfo.title = bgVar.getTitle();
-        originalThreadInfo.threadType = bgVar.getThreadType();
+        originalThreadInfo.forumName = bhVar.aeD();
+        originalThreadInfo.forumId = bhVar.getFid();
+        originalThreadInfo.threadId = bhVar.getTid();
+        originalThreadInfo.title = bhVar.getTitle();
+        originalThreadInfo.threadType = bhVar.getThreadType();
         ArrayList arrayList = new ArrayList();
         AbstractData abstractData = new AbstractData();
-        abstractData.text = bgVar.getAbstract();
+        abstractData.text = bhVar.getAbstract();
         arrayList.add(abstractData);
         originalThreadInfo.abstractList = arrayList;
         ArrayList arrayList2 = new ArrayList();
         MediaData mediaData = new MediaData();
         arrayList2.add(mediaData);
         originalThreadInfo.mediaList = arrayList2;
-        if (bgVar.isLinkThread() && bgVar.afW() != null) {
-            af afW = bgVar.afW();
-            originalThreadInfo.title = afW.adb();
-            abstractData.text = afW.adc();
-            mediaData.setPic(afW.add());
-        } else if (bgVar.afw() && bgVar.aed() != null) {
-            mediaData.setPic(bgVar.aed().getThreadImgUrl());
-        } else if (com.baidu.tbadk.core.util.v.Z(bgVar.aeH()) > 0) {
-            originalThreadInfo.mediaList = bgVar.aeH();
-        } else if (bgVar.aeO() != null && !StringUtils.isNull(bgVar.aeO().thumbnail_url)) {
-            mediaData.setPic(bgVar.aeO().thumbnail_url);
+        if (bhVar.isLinkThread() && bhVar.afX() != null) {
+            af afX = bhVar.afX();
+            originalThreadInfo.title = afX.adc();
+            abstractData.text = afX.add();
+            mediaData.setPic(afX.ade());
+        } else if (bhVar.afx() && bhVar.aee() != null) {
+            mediaData.setPic(bhVar.aee().getThreadImgUrl());
+        } else if (com.baidu.tbadk.core.util.v.Z(bhVar.aeI()) > 0) {
+            originalThreadInfo.mediaList = bhVar.aeI();
+        } else if (bhVar.aeP() != null && !StringUtils.isNull(bhVar.aeP().thumbnail_url)) {
+            mediaData.setPic(bhVar.aeP().thumbnail_url);
         }
-        originalThreadInfo.alaInfoData = bgVar.aeQ();
+        originalThreadInfo.alaInfoData = bhVar.aeR();
         originalThreadInfo.setShowData();
         return originalThreadInfo;
     }
 
-    private void adl() {
+    private void adm() {
         this.showType = 0;
         this.showText = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
         this.showPicUrl = null;

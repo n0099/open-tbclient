@@ -15,11 +15,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bb {
-    private static bb bUo = new bb() { // from class: com.baidu.tbadk.core.util.bb.1
+    private static bb bUu = new bb() { // from class: com.baidu.tbadk.core.util.bb.1
     };
-    private static final Pattern bUr = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final ConcurrentHashMap<String, b> bUp;
-    private c bUq;
+    private static final Pattern bUx = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final ConcurrentHashMap<String, b> bUv;
+    private c bUw;
     private final List<a> mListeners;
 
     /* loaded from: classes.dex */
@@ -43,13 +43,13 @@ public class bb {
 
     private bb() {
         this.mListeners = new LinkedList();
-        this.bUp = new ConcurrentHashMap<>();
-        this.bUq = null;
+        this.bUv = new ConcurrentHashMap<>();
+        this.bUw = null;
     }
 
     public static SpannableString ai(Context context, String str) {
         int start;
-        Matcher matcher = bUr.matcher(str);
+        Matcher matcher = bUx.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -63,8 +63,8 @@ public class bb {
         return spannableString;
     }
 
-    public static bb ajC() {
-        return bUo;
+    public static bb ajE() {
+        return bUu;
     }
 
     public void a(final a aVar) {
@@ -88,7 +88,7 @@ public class bb {
     }
 
     public void a(c cVar) {
-        this.bUq = cVar;
+        this.bUw = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,7 +101,7 @@ public class bb {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.bUp.get(os(str));
+        b bVar = this.bUv.get(os(str));
         if (bVar != null) {
             bVar.a(tbPageContext, or(oq(str)));
             return 0;
@@ -121,7 +121,7 @@ public class bb {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.bUp.get(os(str2));
+        b bVar = this.bUv.get(os(str2));
         if (bVar != null) {
             bVar.a(tbPageContext, or(oq(str2)));
             return true;
@@ -138,7 +138,7 @@ public class bb {
                 break;
             }
         }
-        if (!z3 && this.bUq != null) {
+        if (!z3 && this.bUw != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -243,8 +243,8 @@ public class bb {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (bUr.matcher(str2).find()) {
-            this.bUq.a(tbPageContext, str, str2, z, dVar, z2);
+        if (bUx.matcher(str2).find()) {
+            this.bUw.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -252,12 +252,12 @@ public class bb {
         if (!StringUtils.isNull(str) && bVar != null) {
             String os = os(str);
             if (!StringUtils.isNull(os)) {
-                this.bUp.put(os, bVar);
+                this.bUv.put(os, bVar);
             }
         }
     }
 
     public boolean ot(String str) {
-        return bUr.matcher(str).find();
+        return bUx.matcher(str).find();
     }
 }

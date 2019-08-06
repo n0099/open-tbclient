@@ -6,14 +6,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class j extends BasePool<byte[]> implements com.facebook.common.memory.a {
-    private final int[] kiG;
+    private final int[] kjM;
 
     public j(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
-        SparseIntArray sparseIntArray = rVar.kiX;
-        this.kiG = new int[sparseIntArray.size()];
+        SparseIntArray sparseIntArray = rVar.kkd;
+        this.kjM = new int[sparseIntArray.size()];
         for (int i = 0; i < sparseIntArray.size(); i++) {
-            this.kiG[i] = sparseIntArray.keyAt(i);
+            this.kjM[i] = sparseIntArray.keyAt(i);
         }
         initialize();
     }
@@ -21,8 +21,8 @@ public class j extends BasePool<byte[]> implements com.facebook.common.memory.a 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: Ee */
-    public byte[] DU(int i) {
+    /* renamed from: Eg */
+    public byte[] DW(int i) {
         return new byte[i];
     }
 
@@ -36,17 +36,17 @@ public class j extends BasePool<byte[]> implements com.facebook.common.memory.a 
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int DW(int i) {
+    public int DY(int i) {
         return i;
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int DV(int i) {
+    protected int DX(int i) {
         int[] iArr;
         if (i <= 0) {
             throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
-        for (int i2 : this.kiG) {
+        for (int i2 : this.kjM) {
             if (i2 >= i) {
                 return i2;
             }

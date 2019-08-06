@@ -141,7 +141,7 @@ public class FatalErrorService extends BdBaseService {
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.mNetwork.o(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.mNetwork.aij();
+                                    this.mNetwork.ail();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -177,7 +177,7 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.mNetwork.aiE().ajF().isRequestSuccess()) {
+                                        if (this.mNetwork.aiG().ajH().isRequestSuccess()) {
                                             if (z2) {
                                                 R(file);
                                             }
@@ -384,9 +384,9 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(m.nm(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(m.nm(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                cjm();
-                if (!TbConfig.getVersion().equals(b.ahO().getString("native_crash_dump_version", ""))) {
-                    b.ahO().putString("native_crash_dump_version", TbConfig.getVersion());
+                cjE();
+                if (!TbConfig.getVersion().equals(b.ahQ().getString("native_crash_dump_version", ""))) {
+                    b.ahQ().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
                 File nk = m.nk(TbConfig.FATAL_ERROR_NATIVE_DIR);
@@ -408,7 +408,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void cjm() {
+        private void cjE() {
             File nm = m.nm(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
             if (nm != null) {
                 try {
@@ -445,7 +445,7 @@ public class FatalErrorService extends BdBaseService {
                         fileWriter = new FileWriter(file, true);
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, aq.ajl(), null);
+                            a(fileWriter, aq.ajn(), null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);

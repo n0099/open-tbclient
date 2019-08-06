@@ -19,9 +19,9 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes4.dex */
 public class PbTopTipView extends TextView {
     private boolean bmF;
-    private Animation eaa;
-    private com.baidu.tieba.f.b eab;
-    private a.InterfaceC0305a eac;
+    private Animation eah;
+    private com.baidu.tieba.f.b eai;
+    private a.InterfaceC0305a eaj;
     private int mDuration;
     private Runnable mHideTipRunnable;
     private Runnable mRunnable;
@@ -36,7 +36,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.eac = new a.InterfaceC0305a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.eaj = new a.InterfaceC0305a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.f.a.InterfaceC0305a
             public void aY(int i, int i2) {
             }
@@ -77,7 +77,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.eac = new a.InterfaceC0305a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.eaj = new a.InterfaceC0305a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.f.a.InterfaceC0305a
             public void aY(int i, int i2) {
             }
@@ -118,7 +118,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.eac = new a.InterfaceC0305a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.eaj = new a.InterfaceC0305a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.f.a.InterfaceC0305a
             public void aY(int i2, int i22) {
             }
@@ -151,16 +151,16 @@ public class PbTopTipView extends TextView {
     }
 
     private void init() {
-        this.eab = new com.baidu.tieba.f.b(getContext());
-        this.eab.a(this.eac);
+        this.eai = new com.baidu.tieba.f.b(getContext());
+        this.eai.a(this.eaj);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return PbTopTipView.this.eab.onTouchEvent(motionEvent);
+                return PbTopTipView.this.eai.onTouchEvent(motionEvent);
             }
         });
         setupPaddings();
-        this.eaa = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
+        this.eah = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
         this.mTipOutAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_out);
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.fontsize30));
         this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.4
@@ -179,8 +179,8 @@ public class PbTopTipView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.eaa.setDuration(400L);
-        this.eaa.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
+        this.eah.setDuration(400L);
+        this.eah.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -235,7 +235,7 @@ public class PbTopTipView extends TextView {
             layoutParams.addRule(10);
             relativeLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.eaa);
+            startAnimation(this.eah);
             this.bmF = true;
         }
     }

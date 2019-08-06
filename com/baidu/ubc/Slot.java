@@ -19,7 +19,7 @@ public class Slot implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Dr */
+        /* renamed from: Dt */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }

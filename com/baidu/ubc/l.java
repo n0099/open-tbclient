@@ -5,7 +5,7 @@ public interface l {
 
     boolean If();
 
-    m aHK();
+    m aHM();
 
     boolean fO(String str);
 }

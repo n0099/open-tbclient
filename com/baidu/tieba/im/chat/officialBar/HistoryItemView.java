@@ -13,10 +13,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout cal;
-    TbRichTextView gAn;
-    TextView gAo;
-    ChatImageWithTailView gAp;
+    LinearLayout car;
+    TbRichTextView gBf;
+    TextView gBg;
+    ChatImageWithTailView gBh;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -36,31 +36,31 @@ public class HistoryItemView extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.cal = (LinearLayout) findViewById(R.id.history_container);
-        this.gAo = (TextView) findViewById(R.id.history_send_time);
-        this.gAn = (TbRichTextView) findViewById(R.id.history_txt);
-        this.gAp = (ChatImageWithTailView) findViewById(R.id.history_pic);
-        am.k(this.cal, R.drawable.selector_history_multi_single_bg);
-        am.f(this.gAo, R.color.common_color_10067, 1);
-        this.gAn.setTextColor(am.getColor(R.color.cp_cont_c));
-        this.gAp.setIsSupportNight(true);
+        this.car = (LinearLayout) findViewById(R.id.history_container);
+        this.gBg = (TextView) findViewById(R.id.history_send_time);
+        this.gBf = (TbRichTextView) findViewById(R.id.history_txt);
+        this.gBh = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        am.k(this.car, R.drawable.selector_history_multi_single_bg);
+        am.f(this.gBg, R.color.common_color_10067, 1);
+        this.gBf.setTextColor(am.getColor(R.color.cp_cont_c));
+        this.gBh.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.gAo.setText(str);
+        this.gBg.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.gAn;
+        return this.gBf;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.gAp;
+        return this.gBh;
     }
 
-    public void ce(View view) {
-        this.cal.setBackgroundDrawable(null);
-        this.cal.removeAllViews();
-        this.cal.addView(view);
+    public void cf(View view) {
+        this.car.setBackgroundDrawable(null);
+        this.car.removeAllViews();
+        this.car.addView(view);
     }
 }

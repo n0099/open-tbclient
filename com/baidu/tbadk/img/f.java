@@ -20,14 +20,14 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private a cwL;
-    private Object cwM;
-    private e cwN;
+    private a cwS;
+    private Object cwT;
+    private e cwU;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int cwK = 512000;
+    private int cwR = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -48,10 +48,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.cwL = aVar;
-        this.cwM = obj;
+        this.cwS = aVar;
+        this.cwT = obj;
         if (aVar != null) {
-            this.cwK = 10240;
+            this.cwR = 10240;
         }
     }
 
@@ -121,10 +121,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.cwN == null) {
-            this.cwN = new e();
+        if (this.cwU == null) {
+            this.cwU = new e();
         }
-        return f(this.cwN.c(imageFileInfo, z), z, z2);
+        return f(this.cwU.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -278,8 +278,8 @@ public class f {
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = h + this.cwK;
-                        long j2 = length % ((long) this.cwK) == 0 ? length / this.cwK : (length / this.cwK) + 1;
+                        String str2 = h + this.cwR;
+                        long j2 = length % ((long) this.cwR) == 0 ? length / this.cwR : (length / this.cwR) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -313,14 +313,14 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i3 < j2) {
-                                                    i4 = this.cwK;
+                                                    i4 = this.cwR;
                                                 } else if (i3 == j2) {
-                                                    i4 = (int) (length - (this.cwK * (j2 - 1)));
+                                                    i4 = (int) (length - (this.cwR * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i4) {
                                                     bArr2 = new byte[i4];
                                                 }
-                                                randomAccessFile2.seek(this.cwK * (i3 - 1));
+                                                randomAccessFile2.seek(this.cwR * (i3 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i4);
                                                 bArr = bArr2;
                                             }
@@ -364,9 +364,9 @@ public class f {
                                                     this.mNetwork.o("forum_name", acd);
                                                 }
                                             }
-                                            String aij = this.mNetwork.aij();
-                                            imageUploadResult3 = ImageUploadResult.parser(aij);
-                                            if (aij == null || imageUploadResult3 == null) {
+                                            String ail = this.mNetwork.ail();
+                                            imageUploadResult3 = ImageUploadResult.parser(ail);
+                                            if (ail == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {
@@ -376,9 +376,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
-                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.cwK) : j4;
-                                                    if (this.cwL != null) {
-                                                        this.cwL.a(str, this.cwM, j5, length);
+                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.cwR) : j4;
+                                                    if (this.cwS != null) {
+                                                        this.cwS.a(str, this.cwT, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

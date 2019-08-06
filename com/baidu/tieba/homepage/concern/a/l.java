@@ -20,7 +20,7 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private ab<com.baidu.tieba.card.data.k> VC;
     private String WN;
     private r YY;
-    public BdUniqueId cxx;
+    public BdUniqueId cxE;
     private TbPageContext<?> mPageContext;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -30,7 +30,7 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (view != null && kVar != null && kVar.acx() != null && !StringUtils.isNull(kVar.acx().getTid())) {
+                if (view != null && kVar != null && kVar.acy() != null && !StringUtils.isNull(kVar.acy().getTid())) {
                     l.this.a(view, kVar);
                 }
             }
@@ -61,7 +61,7 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public z onCreateViewHolder(ViewGroup viewGroup) {
         x.a aVar = new x.a(this.mPageContext.getPageActivity());
         com.baidu.card.d dVar = new com.baidu.card.d(this.mPageContext.getPageActivity());
-        dVar.setPageUniqueId(this.cxx);
+        dVar.setPageUniqueId(this.cxE);
         dVar.bm(128);
         dVar.bn(1024);
         dVar.a(new d.a() { // from class: com.baidu.tieba.homepage.concern.a.l.2
@@ -83,7 +83,7 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         x a = aVar.a(false, viewGroup, this.YY);
         a.bq(1);
         z zVar = new z(a);
-        zVar.setPageId(this.cxx);
+        zVar.setPageId(this.cxE);
         setOnAdapterItemClickListener(new s() { // from class: com.baidu.tieba.homepage.concern.a.l.3
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -110,7 +110,7 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (kVar == null || zVar == null || zVar.getView() == null || kVar.threadData == null) {
             return null;
         }
-        kVar.pI(kVar.position + 1);
+        kVar.pJ(kVar.position + 1);
         zVar.qP().setPosition(i);
         if (zVar.qP() instanceof com.baidu.tieba.a.e) {
             zVar.qP().setPage(this.WN);

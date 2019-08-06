@@ -16,14 +16,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapter implements View.OnClickListener {
     private Context context;
-    private HashMap<BdUniqueId, c<T, V>> cdJ = new HashMap<>();
+    private HashMap<BdUniqueId, c<T, V>> cdQ = new HashMap<>();
     private List<m> mListData = new ArrayList();
-    private List<View> cdK = new ArrayList();
+    private List<View> cdR = new ArrayList();
     private int mChildCount = 0;
 
     public void a(Context context, c<T, V> cVar) {
         if (cVar != null && cVar.getType() != null) {
-            this.cdJ.put(cVar.getType(), cVar);
+            this.cdQ.put(cVar.getType(), cVar);
         }
     }
 
@@ -35,8 +35,8 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
     public void onClick(View view) {
         c<T, V> cVar;
         a ba = ba(view);
-        if (ba != null && ba.alk() != null && ba.alk().getType() != null && (cVar = this.cdJ.get(ba.alk().getType())) != null && cVar.alo() != null) {
-            cVar.alo().c(ba, ba.alk());
+        if (ba != null && ba.alm() != null && ba.alm().getType() != null && (cVar = this.cdQ.get(ba.alm().getType())) != null && cVar.alq() != null) {
+            cVar.alq().c(ba, ba.alm());
         }
     }
 
@@ -44,8 +44,8 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
         if (list != null && list.size() > 0) {
             destory();
             this.mListData = list;
-            if (this.cdK == null) {
-                this.cdK = new ArrayList();
+            if (this.cdR == null) {
+                this.cdR = new ArrayList();
             }
             int i = 0;
             while (true) {
@@ -55,7 +55,7 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
                     if (mVar != null) {
                         View a2 = a(mVar);
                         a2.setOnClickListener(this);
-                        this.cdK.add(a2);
+                        this.cdR.add(a2);
                     }
                     i = i2 + 1;
                 } else {
@@ -66,7 +66,7 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
     }
 
     private View a(m mVar) {
-        c<T, V> cVar = this.cdJ.get(mVar.getType());
+        c<T, V> cVar = this.cdQ.get(mVar.getType());
         if (cVar != null) {
             V m = cVar.m(null);
             if (BdBaseApplication.getInst().isDebugMode()) {
@@ -109,7 +109,7 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         View view;
-        if (this.cdK.size() > 0 && i >= 0 && i < this.cdK.size() && (view = this.cdK.get(i)) != null) {
+        if (this.cdR.size() > 0 && i >= 0 && i < this.cdR.size() && (view = this.cdR.get(i)) != null) {
             viewGroup.removeView(view);
         }
     }
@@ -119,21 +119,21 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
         if (i >= this.mListData.size()) {
             return null;
         }
-        View jh = jh(i);
-        if (jh != null && jh.getParent() != viewGroup) {
-            viewGroup.addView(jh);
-            return jh;
+        View ji = ji(i);
+        if (ji != null && ji.getParent() != viewGroup) {
+            viewGroup.addView(ji);
+            return ji;
         }
-        return jh;
+        return ji;
     }
 
-    public View jh(int i) {
-        if (i >= this.cdK.size() || i >= this.mListData.size()) {
+    public View ji(int i) {
+        if (i >= this.cdR.size() || i >= this.mListData.size()) {
             return null;
         }
-        View view = this.cdK.get(i);
+        View view = this.cdR.get(i);
         a ba = ba(view);
-        if (ba != null && ba.alk() == null) {
+        if (ba != null && ba.alm() == null) {
             a((a) view.getTag(), this.mListData.get(i));
             return view;
         }
@@ -142,7 +142,7 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
 
     private void a(a aVar, m mVar) {
         c<T, V> cVar;
-        if (aVar != null && mVar != null && (cVar = this.cdJ.get(mVar.getType())) != null) {
+        if (aVar != null && mVar != null && (cVar = this.cdQ.get(mVar.getType())) != null) {
             aVar.b(mVar);
             cVar.a(null, aVar, mVar);
         }
@@ -162,15 +162,15 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
 
     public void destory() {
         c<T, V> cVar;
-        if (this.cdK != null) {
-            for (View view : this.cdK) {
+        if (this.cdR != null) {
+            for (View view : this.cdR) {
                 a ba = ba(view);
-                if (ba != null && ba.alk() != null && (cVar = this.cdJ.get(ba.alk().getType())) != null) {
-                    cVar.b(ba, ba.alk());
+                if (ba != null && ba.alm() != null && (cVar = this.cdQ.get(ba.alm().getType())) != null) {
+                    cVar.b(ba, ba.alm());
                 }
             }
-            this.cdK.clear();
-            this.cdK = null;
+            this.cdR.clear();
+            this.cdR = null;
         }
         if (this.mListData != null) {
             this.mListData.clear();
@@ -179,8 +179,8 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
 
     /* loaded from: classes.dex */
     public static class a {
-        public int cdL = 3;
-        private m cdM = null;
+        public int cdS = 3;
+        private m cdT = null;
         private View view;
 
         public a(View view) {
@@ -196,12 +196,12 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
             return this.view;
         }
 
-        public m alk() {
-            return this.cdM;
+        public m alm() {
+            return this.cdT;
         }
 
         public void b(m mVar) {
-            this.cdM = mVar;
+            this.cdT = mVar;
         }
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.d.m;
 /* loaded from: classes.dex */
 public class a implements c {
-    public static final String cKw = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m cKx;
-    private boolean cKy = false;
+    public static final String cKD = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    private m cKE;
+    private boolean cKF = false;
     private String wX;
 
     @Override // com.airbnb.lottie.c
@@ -23,10 +23,10 @@ public class a implements c {
         String str = this.wX + gVar.bU().replace("/", "") + "/" + gVar.getFileName();
         com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.iE().b(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.cKx == null) {
-                this.cKx = new m();
+            if (this.cKE == null) {
+                this.cKE = new m();
             }
-            aVar = this.cKx.n(str, 0, 0);
+            aVar = this.cKE.n(str, 0, 0);
         }
         if (aVar != null && aVar.nK() != null) {
             Bitmap nK = aVar.nK();
@@ -46,14 +46,14 @@ public class a implements c {
     }
 
     public static String getAnimationPath() {
-        return cKw + "/" + TbConfig.getTempDirName() + "/animation/";
+        return cKD + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
     public void setFirstLoadInternal(boolean z) {
-        this.cKy = z;
+        this.cKF = z;
     }
 
     public boolean getFristLoadInternal() {
-        return this.cKy;
+        return this.cKF;
     }
 }

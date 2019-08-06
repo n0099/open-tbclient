@@ -33,7 +33,7 @@ public class a {
                 if (missionInfo != null) {
                     com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        com.baidu.tbadk.core.g.a.ahL().a(missionInfo);
+                        com.baidu.tbadk.core.g.a.ahN().a(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
                         p.ZI().q(bVar);
                     } else if (bVar.YJ()) {

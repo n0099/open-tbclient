@@ -12,41 +12,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private String fhT;
-    private final AlbumActivity jMV;
-    private VideoFileInfo jNi;
-    private ImageFileInfo jNj;
-    private List<ImageFileInfo> jNk;
+    private String fiu;
+    private final AlbumActivity jOc;
+    private VideoFileInfo jOp;
+    private ImageFileInfo jOq;
+    private List<ImageFileInfo> jOr;
     private WriteImagesInfo mWriteImagesInfo;
     private int maxImagesAllowed = 9;
-    private final List<com.baidu.tbadk.album.a> jNl = new ArrayList();
+    private final List<com.baidu.tbadk.album.a> jOs = new ArrayList();
 
     public c(AlbumActivity albumActivity) {
-        this.jMV = albumActivity;
+        this.jOc = albumActivity;
     }
 
     public void a(VideoFileInfo videoFileInfo) {
-        this.jNi = videoFileInfo;
+        this.jOp = videoFileInfo;
     }
 
-    public VideoFileInfo cAc() {
-        return this.jNi;
+    public VideoFileInfo cAx() {
+        return this.jOp;
     }
 
-    public boolean cAd() {
-        return !v.aa(cAg());
+    public boolean cAy() {
+        return !v.aa(cAB());
     }
 
-    public boolean cAe() {
-        return this.jNi != null;
+    public boolean cAz() {
+        return this.jOp != null;
     }
 
     public boolean b(VideoFileInfo videoFileInfo) {
-        return (this.jNi == null || videoFileInfo == null || this.jNi.videoId != videoFileInfo.videoId) ? false : true;
+        return (this.jOp == null || videoFileInfo == null || this.jOp.videoId != videoFileInfo.videoId) ? false : true;
     }
 
     public void h(ImageFileInfo imageFileInfo) {
-        this.jNj = imageFileInfo;
+        this.jOq = imageFileInfo;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
@@ -62,7 +62,7 @@ public class c {
         }
     }
 
-    public void cAf() {
+    public void cAA() {
         if (this.mWriteImagesInfo != null) {
             this.mWriteImagesInfo.clear();
         }
@@ -75,7 +75,7 @@ public class c {
         return this.mWriteImagesInfo.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> cAg() {
+    public List<ImageFileInfo> cAB() {
         if (this.mWriteImagesInfo != null) {
             return this.mWriteImagesInfo.getChosedFiles();
         }
@@ -111,18 +111,18 @@ public class c {
         return 0;
     }
 
-    public String cAh() {
-        return this.fhT;
+    public String cAC() {
+        return this.fiu;
     }
 
-    public void GF(String str) {
-        this.fhT = str;
-        GG(str);
+    public void GG(String str) {
+        this.fiu = str;
+        GH(str);
     }
 
-    private void GG(String str) {
-        if (this.jNl != null && !StringUtils.isNull(str)) {
-            for (com.baidu.tbadk.album.a aVar : this.jNl) {
+    private void GH(String str) {
+        if (this.jOs != null && !StringUtils.isNull(str)) {
+            for (com.baidu.tbadk.album.a aVar : this.jOs) {
                 if (aVar != null && TextUtils.equals(str, aVar.getAlbumId())) {
                     ArrayList arrayList = new ArrayList();
                     if (aVar.aap() != null) {
@@ -132,25 +132,25 @@ public class c {
                             }
                         }
                     }
-                    this.jNk = arrayList;
+                    this.jOr = arrayList;
                 }
             }
         }
     }
 
-    public List<ImageFileInfo> cAi() {
-        return this.jNk;
+    public List<ImageFileInfo> cAD() {
+        return this.jOr;
     }
 
-    public List<com.baidu.tbadk.album.a> cAj() {
-        return this.jNl;
+    public List<com.baidu.tbadk.album.a> cAE() {
+        return this.jOs;
     }
 
-    public List<MediaFileInfo> GH(String str) {
-        if (this.jNl == null || StringUtils.isNull(str)) {
+    public List<MediaFileInfo> GI(String str) {
+        if (this.jOs == null || StringUtils.isNull(str)) {
             return null;
         }
-        for (com.baidu.tbadk.album.a aVar : this.jNl) {
+        for (com.baidu.tbadk.album.a aVar : this.jOs) {
             if (aVar != null && TextUtils.equals(str, aVar.getAlbumId())) {
                 return aVar.aap();
             }
@@ -158,23 +158,23 @@ public class c {
         return null;
     }
 
-    public boolean auR() {
-        return v.aa(GH(com.baidu.tbadk.album.a.bAS));
+    public boolean auT() {
+        return v.aa(GI(com.baidu.tbadk.album.a.bAS));
     }
 
     public void c(com.baidu.tbadk.album.g gVar) {
         if (gVar != null) {
             List<MediaFileInfo> list = gVar.bBr;
             ArrayList arrayList = new ArrayList();
-            arrayList.add(ew(list));
+            arrayList.add(ev(list));
             if (!v.aa(gVar.bBs)) {
-                arrayList.add(ex(gVar.bBs));
+                arrayList.add(ew(gVar.bBs));
             }
             if (!v.aa(gVar.bBq)) {
                 arrayList.addAll(gVar.bBq);
             }
-            this.jNl.clear();
-            this.jNl.addAll(arrayList);
+            this.jOs.clear();
+            this.jOs.addAll(arrayList);
         }
     }
 
@@ -199,26 +199,26 @@ public class c {
     }
 
     public int getCurrentIndex() {
-        if (this.jNj == null || TextUtils.isEmpty(this.jNj.getFilePath())) {
+        if (this.jOq == null || TextUtils.isEmpty(this.jOq.getFilePath())) {
             return 0;
         }
-        if (this.jNk == null || this.jNk.size() == 0) {
+        if (this.jOr == null || this.jOr.size() == 0) {
             return 0;
         }
-        int size = this.jNk.size();
+        int size = this.jOr.size();
         for (int i = 0; i < size; i++) {
-            ImageFileInfo imageFileInfo = this.jNk.get(i);
-            if (imageFileInfo != null && this.jNj.getFilePath().equals(imageFileInfo.getFilePath())) {
+            ImageFileInfo imageFileInfo = this.jOr.get(i);
+            if (imageFileInfo != null && this.jOq.getFilePath().equals(imageFileInfo.getFilePath())) {
                 return i;
             }
         }
         return 0;
     }
 
-    public com.baidu.tbadk.album.a ew(List<MediaFileInfo> list) {
+    public com.baidu.tbadk.album.a ev(List<MediaFileInfo> list) {
         com.baidu.tbadk.album.a aVar = new com.baidu.tbadk.album.a();
         aVar.lx(com.baidu.tbadk.album.a.bAS);
-        aVar.setName(this.jMV.getPageContext().getString(R.string.album_all_media));
+        aVar.setName(this.jOc.getPageContext().getString(R.string.album_all_media));
         int Z = v.Z(list);
         aVar.O(list);
         aVar.ly(String.valueOf(Z));
@@ -231,10 +231,10 @@ public class c {
         return aVar;
     }
 
-    public com.baidu.tbadk.album.a ex(List<VideoFileInfo> list) {
+    public com.baidu.tbadk.album.a ew(List<VideoFileInfo> list) {
         com.baidu.tbadk.album.a aVar = new com.baidu.tbadk.album.a();
         aVar.lx(com.baidu.tbadk.album.a.bAT);
-        aVar.setName(this.jMV.getPageContext().getString(R.string.album_all_video));
+        aVar.setName(this.jOc.getPageContext().getString(R.string.album_all_video));
         int Z = v.Z(list);
         aVar.ly(String.valueOf(Z));
         ArrayList arrayList = new ArrayList();

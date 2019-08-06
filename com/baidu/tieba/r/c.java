@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class c {
-    private static c jmV;
-    private a jmW = csc();
+    private static c joc;
+    private a jod = csy();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,47 +19,47 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean csb() {
-        return com.baidu.tbadk.core.sharedPref.b.ahO().getInt("pref_key_stat_sdk_enable", 1) != 0;
+    private boolean csx() {
+        return com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a csc() {
+    private a csy() {
         CustomResponsedMessage runTask;
-        if (!csb() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!csx() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c csd() {
-        if (jmV == null) {
+    public static c csz() {
+        if (joc == null) {
             synchronized (c.class) {
-                if (jmV == null) {
-                    jmV = new c();
+                if (joc == null) {
+                    joc = new c();
                 }
             }
         }
-        return jmV;
+        return joc;
     }
 
     public void autoTrace(Context context) {
-        if (this.jmW != null) {
-            this.jmW.autoTrace(context);
+        if (this.jod != null) {
+            this.jod.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (this.jmW != null) {
-            this.jmW.setAppChannel(context, str, z);
+        if (this.jod != null) {
+            this.jod.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (this.jmW != null) {
-            this.jmW.trackWebView(context, webView, webChromeClient);
+        if (this.jod != null) {
+            this.jod.trackWebView(context, webView, webChromeClient);
         }
     }
 }

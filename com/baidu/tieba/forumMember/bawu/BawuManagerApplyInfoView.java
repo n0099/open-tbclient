@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
-    private TextView fpu;
-    private TextView fpv;
-    private TextView fpw;
+    private TextView fpT;
+    private TextView fpU;
+    private TextView fpV;
     private Context mContext;
     private View mRoot;
 
@@ -37,32 +37,32 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
 
     private void initView() {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_manager_apply_layout, this);
-        this.fpu = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
-        this.fpv = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
-        this.fpw = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
+        this.fpT = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
+        this.fpU = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
+        this.fpV = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
     }
 
     public void at(String str, int i) {
-        this.fpv.setText(str);
+        this.fpU.setText(str);
         if (i > 0) {
-            this.fpw.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(i)));
-            this.fpu.setEnabled(true);
-            this.fpu.setClickable(true);
-            am.f(this.fpv, R.color.cp_link_tip_a, 1);
-            am.f(this.fpw, R.color.cp_cont_d, 1);
-            am.k(this.fpu, R.drawable.bg_manager_apply);
+            this.fpV.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(i)));
+            this.fpT.setEnabled(true);
+            this.fpT.setClickable(true);
+            am.f(this.fpU, R.color.cp_link_tip_a, 1);
+            am.f(this.fpV, R.color.cp_cont_d, 1);
+            am.k(this.fpT, R.drawable.bg_manager_apply);
             return;
         }
-        this.fpw.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-        this.fpu.setEnabled(false);
-        this.fpu.setClickable(false);
-        am.f(this.fpv, R.color.cp_cont_d, 1);
-        am.f(this.fpw, R.color.cp_cont_d, 1);
-        am.k(this.fpu, R.drawable.icon_number_add_d);
+        this.fpV.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+        this.fpT.setEnabled(false);
+        this.fpT.setClickable(false);
+        am.f(this.fpU, R.color.cp_cont_d, 1);
+        am.f(this.fpV, R.color.cp_cont_d, 1);
+        am.k(this.fpT, R.drawable.icon_number_add_d);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.fpu.setOnClickListener(onClickListener);
+        this.fpT.setOnClickListener(onClickListener);
     }
 }

@@ -305,7 +305,7 @@ public final class ac {
         }
         if (iw != null) {
             if (aVar != null) {
-                com.facebook.drawee.a.a.c.cFw().e(ImageRequestBuilder.U(iw).cLC(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.an.ac.1
+                com.facebook.drawee.a.a.c.cFR().e(ImageRequestBuilder.U(iw).cLX(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.an.ac.1
                     @Override // com.facebook.imagepipeline.e.b
                     protected void f(Bitmap bitmap) {
                         Bitmap copy;
@@ -336,7 +336,7 @@ public final class ac {
                         super.b(bVar);
                         m.a.this.d(str, null);
                     }
-                }, com.facebook.common.b.f.cEB());
+                }, com.facebook.common.b.f.cEW());
             } else {
                 m.a(iw, str2);
             }

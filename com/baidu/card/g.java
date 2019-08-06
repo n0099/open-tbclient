@@ -35,7 +35,7 @@ public class g extends f {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.VJ = aVar;
-        this.VO.w(aVar.acx());
+        this.VO.x(aVar.acy());
     }
 
     @Override // com.baidu.card.j

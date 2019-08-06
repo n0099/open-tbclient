@@ -3,33 +3,33 @@ package com.baidu.tieba.recapp.report;
 import android.support.v4.util.ArrayMap;
 /* loaded from: classes.dex */
 public class e {
-    public static final ArrayMap<Integer, String> iLx = new ArrayMap<>();
+    public static final ArrayMap<Integer, String> iMB = new ArrayMap<>();
 
     static {
-        iLx.put(0, "未被抛弃");
-        iLx.put(1, "间隔楼层不足");
-        iLx.put(2, "当页楼层不足， 不足以插入广告");
-        iLx.put(3, "app 下载安装过， 被抛弃");
-        iLx.put(10, "内容校验错误");
-        iLx.put(11, "非lego广告， 8.6开始被抛弃");
-        iLx.put(12, "card_type=12广告， 8.6开始被抛弃");
-        iLx.put(21, "给Android返回IOS广告或者不识别的类型");
-        iLx.put(22, "给IOS返回了Android广告或者不识别的类型");
-        iLx.put(23, "数据格式错误_adposition为空");
-        iLx.put(24, "数据格式错误_广告id为空");
-        iLx.put(25, "数据格式错误_goodsInfo为空");
-        iLx.put(26, "返回APP广告数据有问题");
-        iLx.put(27, "返回URL广告数据有问题");
-        iLx.put(28, "lego的开关没打开");
-        iLx.put(29, "广告数据位置重复被丢弃");
-        iLx.put(30, "广告ID重复被丢弃");
-        iLx.put(31, "广告插件未加载成功被丢弃");
-        iLx.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
-        iLx.put(33, "客户端最后计算出的positon不合法");
-        iLx.put(34, "无图模式下需要丢弃有图广告");
-        iLx.put(35, "返回lego广告type有问题,客户端不识别");
-        iLx.put(36, "拉回了广告却没有拉回帖子");
-        iLx.put(37, "返回lego广告数据在该版本不支持");
-        iLx.put(100, "其他原因");
+        iMB.put(0, "未被抛弃");
+        iMB.put(1, "间隔楼层不足");
+        iMB.put(2, "当页楼层不足， 不足以插入广告");
+        iMB.put(3, "app 下载安装过， 被抛弃");
+        iMB.put(10, "内容校验错误");
+        iMB.put(11, "非lego广告， 8.6开始被抛弃");
+        iMB.put(12, "card_type=12广告， 8.6开始被抛弃");
+        iMB.put(21, "给Android返回IOS广告或者不识别的类型");
+        iMB.put(22, "给IOS返回了Android广告或者不识别的类型");
+        iMB.put(23, "数据格式错误_adposition为空");
+        iMB.put(24, "数据格式错误_广告id为空");
+        iMB.put(25, "数据格式错误_goodsInfo为空");
+        iMB.put(26, "返回APP广告数据有问题");
+        iMB.put(27, "返回URL广告数据有问题");
+        iMB.put(28, "lego的开关没打开");
+        iMB.put(29, "广告数据位置重复被丢弃");
+        iMB.put(30, "广告ID重复被丢弃");
+        iMB.put(31, "广告插件未加载成功被丢弃");
+        iMB.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
+        iMB.put(33, "客户端最后计算出的positon不合法");
+        iMB.put(34, "无图模式下需要丢弃有图广告");
+        iMB.put(35, "返回lego广告type有问题,客户端不识别");
+        iMB.put(36, "拉回了广告却没有拉回帖子");
+        iMB.put(37, "返回lego广告数据在该版本不支持");
+        iMB.put(100, "其他原因");
     }
 }

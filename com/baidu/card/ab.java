@@ -27,12 +27,12 @@ public class ab extends b<com.baidu.tbadk.core.data.a> {
         this.Xw = new OriginalThreadCardView.a() { // from class: com.baidu.card.ab.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ab.this.VJ != null && ab.this.VJ.acx() != null) {
+                if (ab.this.VJ != null && ab.this.VJ.acy() != null) {
                     if (ab.this.qB() != null) {
                         ab.this.qB().a(ab.this.Xv, ab.this.VJ);
                     }
-                    String id = ab.this.VJ.acx().getId();
-                    com.baidu.tieba.card.n.vw(id);
+                    String id = ab.this.VJ.acy().getId();
+                    com.baidu.tieba.card.n.vx(id);
                     ab.this.cg(id);
                     ab.this.VB.b(new a.C0038a(1));
                 }
@@ -55,23 +55,23 @@ public class ab extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.acx() != null) {
+        if (aVar != null && aVar.acy() != null) {
             this.VJ = aVar;
-            av.a(this.mTitle, aVar.acx());
-            av.a(this.VW, this.mTitle, aVar.acx(), VU);
-            this.Xv.b(aVar.acx().bLQ);
+            av.a(this.mTitle, aVar.acy());
+            av.a(this.VW, this.mTitle, aVar.acy(), VU);
+            this.Xv.b(aVar.acy().bLV);
         }
     }
 
     public void bx(int i) {
-        this.Xv.eEJ = i;
+        this.Xv.eEQ = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cg(String str) {
         com.baidu.tieba.card.n.a(this.mTitle, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         com.baidu.tieba.card.n.a(this.VW, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        this.Xv.setReadState(com.baidu.tieba.card.n.vx(str));
+        this.Xv.setReadState(com.baidu.tieba.card.n.vy(str));
     }
 
     @Override // com.baidu.card.j

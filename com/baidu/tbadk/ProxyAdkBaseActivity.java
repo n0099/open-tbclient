@@ -106,7 +106,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.ahW();
+        this.customToast = e.ahY();
         super.onCreate(bundle);
         this.mLayoutMode = new com.baidu.tbadk.core.c();
         this.mLayoutInflateFactory = new a();
@@ -244,7 +244,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.akk();
+            this.mGuidPage.akm();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -359,19 +359,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.c(getActivity(), str, i).agQ();
+        BdToast.c(getActivity(), str, i).agS();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.b(getActivity(), str, i, i2).agQ();
+        BdToast.b(getActivity(), str, i, i2).agS();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).agQ();
+        BdToast.a(getActivity(), str, defaultIcon).agS();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).agQ();
+        BdToast.a(getActivity(), str, defaultIcon, i).agS();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -820,8 +820,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
-        if (this.refreshView != null && this.refreshView.isViewAttached() && this.refreshView.atJ() != null && (this.refreshView.atJ().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.refreshView.atJ().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        if (this.refreshView != null && this.refreshView.isViewAttached() && this.refreshView.atL() != null && (this.refreshView.atL().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.refreshView.atL().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
     }
 

@@ -11,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0246a cko;
+    private InterfaceC0246a ckv;
 
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -36,16 +36,16 @@ public class a {
                 xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
                 xVar.o("thread_id", str2);
                 xVar.o("type", "3");
-                String aig = xVar.aig();
-                if (aq.isEmpty(aig)) {
+                String aii = xVar.aii();
+                if (aq.isEmpty(aii)) {
                     return eVar2;
                 }
                 try {
-                    str = new JSONObject(aig).optString(BigdayActivityConfig.IMG_URL);
+                    str = new JSONObject(aii).optString(BigdayActivityConfig.IMG_URL);
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
-                eVar2.ckZ = str;
+                eVar2.clg = str;
                 eVar2.imageUri = Uri.parse(str);
                 return eVar2;
             }
@@ -56,14 +56,14 @@ public class a {
             /* renamed from: c */
             public void onPostExecute(e eVar2) {
                 super.onPostExecute(eVar2);
-                if (a.this.cko != null) {
-                    a.this.cko.d(eVar2);
+                if (a.this.ckv != null) {
+                    a.this.ckv.d(eVar2);
                 }
             }
         }.execute(eVar);
     }
 
     public void a(InterfaceC0246a interfaceC0246a) {
-        this.cko = interfaceC0246a;
+        this.ckv = interfaceC0246a;
     }
 }

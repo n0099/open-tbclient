@@ -6,72 +6,72 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes5.dex */
 public class BestStringsFitTextView extends TextView {
-    private String[] cxf;
-    private String jbW;
-    private float jbX;
-    private String jbY;
-    private boolean jbZ;
+    private String[] cxm;
+    private String jda;
+    private float jdb;
+    private String jdc;
+    private boolean jdd;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.jbW = " ";
-        this.jbX = 0.0f;
-        this.jbY = "";
-        this.jbZ = false;
+        this.jda = " ";
+        this.jdb = 0.0f;
+        this.jdc = "";
+        this.jdd = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jbW = " ";
-        this.jbX = 0.0f;
-        this.jbY = "";
-        this.jbZ = false;
+        this.jda = " ";
+        this.jdb = 0.0f;
+        this.jdc = "";
+        this.jdd = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jbW = " ";
-        this.jbX = 0.0f;
-        this.jbY = "";
-        this.jbZ = false;
+        this.jda = " ";
+        this.jdb = 0.0f;
+        this.jdc = "";
+        this.jdd = false;
     }
 
-    protected void col() {
-        this.jbX = (getWidth() - getPaddingLeft()) - getPaddingRight();
+    protected void coD() {
+        this.jdb = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.cxf.length; i++) {
+        for (int i = 0; i < this.cxm.length; i++) {
             if (i > 0) {
-                sb.append(this.jbW);
+                sb.append(this.jda);
             }
-            sb.append(this.cxf[i]);
+            sb.append(this.cxm[i]);
             String sb2 = sb.toString();
-            if (this.jbX < getPaint().measureText(sb2)) {
+            if (this.jdb < getPaint().measureText(sb2)) {
                 break;
             }
-            this.jbZ = true;
-            this.jbY = sb2;
+            this.jdd = true;
+            this.jdc = sb2;
         }
-        setText(this.jbY);
+        setText(this.jdc);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.cxf != null && !this.jbZ) {
-            col();
+        if (this.cxm != null && !this.jdd) {
+            coD();
         }
     }
 
     public void setTextArray(String[] strArr) {
-        this.cxf = strArr;
-        col();
+        this.cxm = strArr;
+        coD();
     }
 
     public String getSeperator() {
-        return this.jbW;
+        return this.jda;
     }
 
     public void setSeperator(String str) {
-        this.jbW = str;
+        this.jda = str;
     }
 }

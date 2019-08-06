@@ -183,7 +183,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             arrayList4.addAll(arrayList3);
             arrayList = arrayList4;
         }
-        if (getPageStayFilter() == null || getPageStayFilter().auT()) {
+        if (getPageStayFilter() == null || getPageStayFilter().auV()) {
             if (StringUtils.isNull(currentPageKey)) {
                 arrayList2 = arrayList;
             } else {
@@ -317,7 +317,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        com.baidu.tieba.r.a.crX().onResume(this);
+        com.baidu.tieba.r.a.cst().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
@@ -434,13 +434,13 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        com.baidu.tieba.r.a.crX().onPause(this);
+        com.baidu.tieba.r.a.cst().onPause(this);
         super.onPause();
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.o.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.bi(currentTimeMillis);
-            com.baidu.tbadk.o.e.auZ().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.o.e.avb().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -570,19 +570,19 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.c(getPageContext().getContext(), str, i).agQ();
+        BdToast.c(getPageContext().getContext(), str, i).agS();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.b(getPageContext().getContext(), str, i, i2).agQ();
+        BdToast.b(getPageContext().getContext(), str, i, i2).agS();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).agQ();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).agS();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).agQ();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).agS();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityApi14, android.app.Activity, android.view.LayoutInflater.Factory
@@ -963,7 +963,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 }
             } else {
                 this.mPermissionCallback = eVar;
-                if (!com.baidu.tbadk.core.sharedPref.b.ahO().getBoolean("key_is_window_permission_dialog_shown", false)) {
+                if (!com.baidu.tbadk.core.sharedPref.b.ahQ().getBoolean("key_is_window_permission_dialog_shown", false)) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
                     aVar.dR(false);
                     aVar.ht(R.string.request_permission_default_title);
@@ -992,8 +992,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                             }
                         }
                     }).b(getPageContext());
-                    aVar.agI();
-                    com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean("key_is_window_permission_dialog_shown", true);
+                    aVar.agK();
+                    com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("key_is_window_permission_dialog_shown", true);
                     return false;
                 } else if (this.mPermissionCallback != null) {
                     this.mPermissionCallback.dE(false);
@@ -1021,7 +1021,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         q.a(motionEvent, getPageId(), getMissionTid());
-        com.baidu.tieba.r.a.crX().behaviorRecordEvent(motionEvent, this);
+        com.baidu.tieba.r.a.cst().behaviorRecordEvent(motionEvent, this);
         return super.dispatchTouchEvent(motionEvent);
     }
 
@@ -1049,7 +1049,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 }
             }
             if (z && this.mCurrentPermissionJudgePolicy != null) {
-                this.mCurrentPermissionJudgePolicy.ajR();
+                this.mCurrentPermissionJudgePolicy.ajT();
             }
         }
     }

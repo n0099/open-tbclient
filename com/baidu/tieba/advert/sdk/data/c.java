@@ -5,17 +5,17 @@ import android.content.SharedPreferences;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes5.dex */
 public class c {
-    private SharedPreferences dah = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
+    private SharedPreferences dao = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
 
     public c(Context context) {
     }
 
-    public String aDS() {
-        return this.dah.getString("splash", "");
+    public String aDU() {
+        return this.dao.getString("splash", "");
     }
 
     public void sO(String str) {
-        SharedPreferences.Editor edit = this.dah.edit();
+        SharedPreferences.Editor edit = this.dao.edit();
         edit.putString("splash", str);
         edit.commit();
     }

@@ -17,7 +17,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     private MemberGodInfo mMemberGodInfo;
     private List<MemberGroupInfo> mMemberGroupInfoList;
     private PriManagerApplyInfo mPrivateMgrApplyInfo;
-    private com.baidu.tieba.tbadkCore.r mUserInfo;
+    private com.baidu.tieba.tbadkCore.t mUserInfo;
 
     public ForumMemberSocketResponseMessage() {
         super(301004);
@@ -36,11 +36,11 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
             if (getError() == 0) {
                 if (getMemberInfoResIdl.data != null) {
                     if (getMemberInfoResIdl.data.forum_member_info != null) {
-                        this.mUserInfo = new com.baidu.tieba.tbadkCore.r();
+                        this.mUserInfo = new com.baidu.tieba.tbadkCore.t();
                         this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.AM(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.AO(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                         this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;
@@ -71,7 +71,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public com.baidu.tieba.tbadkCore.r getUserInfo() {
+    public com.baidu.tieba.tbadkCore.t getUserInfo() {
         return this.mUserInfo;
     }
 

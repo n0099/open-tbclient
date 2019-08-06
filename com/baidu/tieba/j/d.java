@@ -46,7 +46,7 @@ public class d {
         }
     }
 
-    public static void AR(String str) {
+    public static void AS(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -94,7 +94,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray AS(String str) {
+    public static JSONArray AT(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -129,9 +129,9 @@ public class d {
         }
     }
 
-    public static void AT(String str) {
+    public static void AU(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.A(new File(g.a.hvB + g.a.hvs + str));
+            com.baidu.tbadk.core.util.m.A(new File(g.a.hwt + g.a.hwk + str));
         }
     }
 }

@@ -11,7 +11,7 @@ import rx.k;
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
     protected abstract S a(S s, e<? super T> eVar);
 
-    protected abstract S cQh();
+    protected abstract S cQC();
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -20,7 +20,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
 
     public final void call(j<? super T> jVar) {
         try {
-            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, cQh());
+            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, cQC());
             jVar.add(subscriptionProducer);
             jVar.setProducer(subscriptionProducer);
         } catch (Throwable th) {
@@ -59,22 +59,22 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             do {
                 j = get();
                 if (compareAndSet(0L, -1L)) {
-                    cQj();
+                    cQE();
                     return;
                 }
             } while (!compareAndSet(j, -2L));
         }
 
-        private boolean cQi() {
+        private boolean cQD() {
             if (this.hasTerminated || get() < -1) {
                 set(-1L);
-                cQj();
+                cQE();
                 return true;
             }
             return false;
         }
 
-        private void cQj() {
+        private void cQE() {
             try {
                 this.parent.bD(this.state);
             } catch (Throwable th) {
@@ -105,7 +105,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                     a(jVar, th);
                     return;
                 }
-            } while (!cQi());
+            } while (!cQD());
         }
 
         private void a(j<? super T> jVar, Throwable th) {
@@ -127,7 +127,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                     try {
                         this.onNextCalled = false;
                         a(syncOnSubscribe);
-                        if (!cQi()) {
+                        if (!cQD()) {
                             if (this.onNextCalled) {
                                 j2--;
                             }
@@ -141,7 +141,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                 } while (j2 != 0);
                 j = addAndGet(-j);
             } while (j > 0);
-            cQi();
+            cQD();
         }
 
         private void a(SyncOnSubscribe<S, T> syncOnSubscribe) {

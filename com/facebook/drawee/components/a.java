@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private static a kba = null;
-    private final Runnable kbc = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a kcg = null;
+    private final Runnable kci = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.cFH();
-            for (InterfaceC0456a interfaceC0456a : a.this.kbb) {
+            a.cGc();
+            for (InterfaceC0456a interfaceC0456a : a.this.kch) {
                 interfaceC0456a.release();
             }
-            a.this.kbb.clear();
+            a.this.kch.clear();
         }
     };
-    private final Set<InterfaceC0456a> kbb = new HashSet();
+    private final Set<InterfaceC0456a> kch = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
@@ -27,31 +27,31 @@ public class a {
         void release();
     }
 
-    public static synchronized a cFG() {
+    public static synchronized a cGb() {
         a aVar;
         synchronized (a.class) {
-            if (kba == null) {
-                kba = new a();
+            if (kcg == null) {
+                kcg = new a();
             }
-            aVar = kba;
+            aVar = kcg;
         }
         return aVar;
     }
 
     public void a(InterfaceC0456a interfaceC0456a) {
-        cFH();
-        if (this.kbb.add(interfaceC0456a) && this.kbb.size() == 1) {
-            this.mUiHandler.post(this.kbc);
+        cGc();
+        if (this.kch.add(interfaceC0456a) && this.kch.size() == 1) {
+            this.mUiHandler.post(this.kci);
         }
     }
 
     public void b(InterfaceC0456a interfaceC0456a) {
-        cFH();
-        this.kbb.remove(interfaceC0456a);
+        cGc();
+        this.kch.remove(interfaceC0456a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cFH() {
+    public static void cGc() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

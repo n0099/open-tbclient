@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.f;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a bPN = null;
+    private static a bPT = null;
 
     public static void o(Context context, int i) {
-        if (bPN != null) {
-            bPN.o(context, i);
+        if (bPT != null) {
+            bPT.o(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (bPN != null) {
-            bPN.b(context, i, z);
+        if (bPT != null) {
+            bPT.b(context, i, z);
         }
     }
 
     public static void cs(Context context) {
-        if (bPN != null) {
-            bPN.cs(context);
+        if (bPT != null) {
+            bPT.cs(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (bPN != null) {
-            bPN.c(context, i, z);
+        if (bPT != null) {
+            bPT.c(context, i, z);
         }
     }
 
-    public static Class<?> ahF() {
-        if (bPN == null) {
+    public static Class<?> ahH() {
+        if (bPT == null) {
             return null;
         }
-        return bPN.ahF();
+        return bPT.ahH();
     }
 
-    public static String ahG() {
-        if (bPN == null) {
+    public static String ahI() {
+        if (bPT == null) {
             return null;
         }
-        return bPN.ahG();
+        return bPT.ahI();
     }
 
     public static void a(a aVar) {
-        bPN = aVar;
+        bPT = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (bPN == null) {
+        if (bPT == null) {
             return -1;
         }
-        return bPN.getCurrentTabType();
+        return bPT.getCurrentTabType();
     }
 }

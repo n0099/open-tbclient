@@ -25,7 +25,7 @@ public class ImageCoverView extends SimpleDraweeView implements a {
     public ImageCoverView(Context context) {
         super(context);
         this.bcO = new CoverViewHelper();
-        getHierarchy().b(n.b.kdc);
+        getHierarchy().b(n.b.kei);
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
@@ -81,7 +81,7 @@ public class ImageCoverView extends SimpleDraweeView implements a {
                     Log.d("CoverImage", "Image Uri:" + iF);
                 }
                 final boolean z = ((com.baidu.swan.apps.view.coverview.b.b) aVar).bcK;
-                e b = c.cFu().b(getController()).b(new com.facebook.drawee.controller.b<com.facebook.imagepipeline.f.e>() { // from class: com.baidu.swan.apps.view.coverview.subview.ImageCoverView.1
+                e b = c.cFP().b(getController()).b(new com.facebook.drawee.controller.b<com.facebook.imagepipeline.f.e>() { // from class: com.baidu.swan.apps.view.coverview.subview.ImageCoverView.1
                     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                     public void g(String str2, Throwable th) {
                         super.g(str2, th);
@@ -106,14 +106,14 @@ public class ImageCoverView extends SimpleDraweeView implements a {
                     }
                 });
                 b.I(iF);
-                com.facebook.drawee.controller.a cGa = b.cGe();
+                com.facebook.drawee.controller.a cGv = b.cGz();
                 RoundingParams roundingParams = new RoundingParams();
                 roundingParams.bc(this.bcO.ap(aVar.akZ));
-                com.facebook.drawee.generic.a cGQ = new com.facebook.drawee.generic.b(getResources()).cGQ();
-                cGQ.a(roundingParams);
-                cGQ.b(n.b.kdc);
-                setHierarchy(cGQ);
-                setController(cGa);
+                com.facebook.drawee.generic.a cHl = new com.facebook.drawee.generic.b(getResources()).cHl();
+                cHl.a(roundingParams);
+                cHl.b(n.b.kei);
+                setHierarchy(cHl);
+                setController(cGv);
             }
         }
     }

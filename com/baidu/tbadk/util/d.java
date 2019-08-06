@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public static String[] awb() {
-        String string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+    public static String[] awd() {
+        String string = com.baidu.tbadk.core.sharedPref.b.ahQ().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
         }

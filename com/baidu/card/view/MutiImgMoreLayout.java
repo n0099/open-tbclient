@@ -16,7 +16,7 @@ import com.baidu.card.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.av;
@@ -100,42 +100,42 @@ public class MutiImgMoreLayout extends LinearLayout implements i<com.baidu.tbadk
                     subClickListener.a(view, MutiImgMoreLayout.this.VJ);
                     MutiImgMoreLayout.this.VJ.objType = 1;
                 }
-                av.a(view, MutiImgMoreLayout.this.Yd, MutiImgMoreLayout.this.Yq, i, MutiImgMoreLayout.this.VJ.acx(), MutiImgMoreLayout.this.mFrom);
+                av.a(view, MutiImgMoreLayout.this.Yd, MutiImgMoreLayout.this.Yq, i, MutiImgMoreLayout.this.VJ.acy(), MutiImgMoreLayout.this.mFrom);
             }
         };
     }
 
-    private void setVoiceData(bg bgVar) {
-        ArrayList<VoiceData.VoiceModel> aeL = bgVar.aeL();
-        if (v.aa(aeL)) {
+    private void setVoiceData(bh bhVar) {
+        ArrayList<VoiceData.VoiceModel> aeM = bhVar.aeM();
+        if (v.aa(aeM)) {
             this.Ym.setVisibility(8);
             this.Yp = false;
             return;
         }
         this.Ym.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = aeL.get(0);
+        VoiceData.VoiceModel voiceModel = aeM.get(0);
         this.Ym.setVoiceModel(voiceModel);
         this.Ym.setTag(voiceModel);
-        this.Ym.bIl();
+        this.Ym.bIz();
         if (voiceModel != null) {
-            this.Ym.vY(voiceModel.voice_status.intValue());
+            this.Ym.wa(voiceModel.voice_status.intValue());
         }
-        this.Ym.cqz();
+        this.Ym.cqV();
         this.Yp = true;
     }
 
-    private void setImageData(bg bgVar) {
+    private void setImageData(bh bhVar) {
         boolean z;
-        ArrayList<MediaData> aeH = bgVar.aeH();
-        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeH) != 0) {
+        ArrayList<MediaData> aeI = bhVar.aeI();
+        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeI) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= aeH.size()) {
+                if (i2 >= aeI.size()) {
                     break;
                 }
-                MediaData mediaData = (MediaData) v.c(aeH, i2);
+                MediaData mediaData = (MediaData) v.c(aeI, i2);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -152,10 +152,10 @@ public class MutiImgMoreLayout extends LinearLayout implements i<com.baidu.tbadk
             if (v.Z(linkedList) >= 3) {
                 this.YA.setVisibility(0);
                 this.YB.setConrers(5);
-                a((MediaData) v.c(aeH, 0), this.YB, true, false, false, 0);
-                a((MediaData) v.c(aeH, 1), this.YC, false, false, false, 1);
+                a((MediaData) v.c(aeI, 0), this.YB, true, false, false, 0);
+                a((MediaData) v.c(aeI, 1), this.YC, false, false, false, 1);
                 this.YD.setConrers(10);
-                a((MediaData) v.c(aeH, 2), this.YD, true, z, true, 2);
+                a((MediaData) v.c(aeI, 2), this.YD, true, z, true, 2);
                 return;
             }
             this.YA.setVisibility(8);
@@ -178,11 +178,11 @@ public class MutiImgMoreLayout extends LinearLayout implements i<com.baidu.tbadk
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.VJ = aVar;
-        bg acx = aVar.acx();
-        av.a(this.mTitle, acx);
-        av.a(this.VW, this.mTitle, acx, VU);
-        setImageData(acx);
-        setVoiceData(acx);
+        bh acy = aVar.acy();
+        av.a(this.mTitle, acy);
+        av.a(this.VW, this.mTitle, acy, VU);
+        setImageData(acy);
+        setVoiceData(acy);
         qT();
     }
 

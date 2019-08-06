@@ -1,10 +1,10 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class av extends k {
-    private static av cCa = new av();
+    private static av cCh = new av();
 
-    public static boolean avQ() {
-        return cCa.iN();
+    public static boolean avS() {
+        return cCh.iN();
     }
 
     @Override // com.baidu.tbadk.t.k, com.baidu.adp.lib.b.a

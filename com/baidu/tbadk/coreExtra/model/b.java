@@ -68,21 +68,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoH() {
+    public void aoJ() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String aoI() {
+    public String aoK() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
     public void po(String str) {
-        String aoI = aoI();
-        if (!TextUtils.equals(aoI, str) || !isFileExist(aoI)) {
-            bZ(str, aoI);
+        String aoK = aoK();
+        if (!TextUtils.equals(aoK, str) || !isFileExist(aoK)) {
+            bZ(str, aoK);
         }
     }
 
@@ -100,15 +100,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String bQo;
-        private final String ciQ;
-        private final String ciR;
+        private final String bQu;
+        private final String ciX;
+        private final String ciY;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.ciQ = str;
-            this.bQo = str2;
-            this.ciR = str3;
+            this.ciX = str;
+            this.bQu = str2;
+            this.ciY = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.ciQ);
-                bool = Boolean.valueOf(this.mNetWork.a(this.bQo + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.mNetWork = new x(this.ciX);
+                bool = Boolean.valueOf(this.mNetWork.a(this.bQu + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(m.m(null, this.bQo + ".tmp", null, this.bQo)) && !TextUtils.isEmpty(this.ciQ) && !this.ciQ.equals(this.ciR)) {
-                        m.nD(at.oj(this.ciR));
+                    if (!StringUtils.isNull(m.m(null, this.bQu + ".tmp", null, this.bQu)) && !TextUtils.isEmpty(this.ciX) && !this.ciX.equals(this.ciY)) {
+                        m.nD(at.oj(this.ciY));
                     }
                 } else {
-                    m.nD(this.bQo + ".tmp");
+                    m.nD(this.bQu + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().aoH();
+                new b().aoJ();
             }
         }
     }

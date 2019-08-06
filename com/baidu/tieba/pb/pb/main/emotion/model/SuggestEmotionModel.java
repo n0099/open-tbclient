@@ -16,8 +16,8 @@ import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
 public class SuggestEmotionModel extends BdBaseModel {
     private String forumId;
     private String forumName;
-    private a hXq;
-    private final CustomMessageListener hXr = new CustomMessageListener(2921322) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
+    private a hYm;
+    private final CustomMessageListener hYn = new CustomMessageListener(2921322) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,16 +35,16 @@ public class SuggestEmotionModel extends BdBaseModel {
             }
         }
     };
-    private final HttpMessageListener cwz = new HttpMessageListener(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.2
+    private final HttpMessageListener cwG = new HttpMessageListener(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.hXq != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.hYm != null) {
                 SuggestEmotionResponseMessage suggestEmotionResponseMessage = (SuggestEmotionResponseMessage) httpResponsedMessage;
                 if (suggestEmotionResponseMessage.getData() != null) {
-                    SuggestEmotionModel.this.hXq.a(suggestEmotionResponseMessage.getData());
+                    SuggestEmotionModel.this.hYm.a(suggestEmotionResponseMessage.getData());
                 } else {
-                    SuggestEmotionModel.this.hXq.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
+                    SuggestEmotionModel.this.hYm.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
                 }
             }
         }
@@ -59,20 +59,20 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     public SuggestEmotionModel() {
         registerTask();
-        this.cwz.setTag(getUniqueId());
-        this.cwz.setSelfListener(true);
-        registerListener(this.cwz);
+        this.cwG.setTag(getUniqueId());
+        this.cwG.setSelfListener(true);
+        registerListener(this.cwG);
     }
 
     private void registerTask() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION, TbConfig.SERVER_ADDRESS + "c/e/meme/suggest");
         tbHttpMessageTask.setResponsedClass(SuggestEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.hXr);
+        MessageManager.getInstance().registerListener(this.hYn);
     }
 
     public void a(String str, String str2, a aVar) {
-        this.hXq = aVar;
+        this.hYm = aVar;
         this.forumId = str;
         this.forumName = str2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004612, new Integer(2921322)));
@@ -85,9 +85,9 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.cwz);
+        MessageManager.getInstance().unRegisterListener(this.cwG);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
-        MessageManager.getInstance().unRegisterListener(this.hXr);
+        MessageManager.getInstance().unRegisterListener(this.hYn);
         return true;
     }
 }

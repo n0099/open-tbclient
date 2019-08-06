@@ -10,21 +10,21 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    private b cwE;
-    private d cwF = new d() { // from class: com.baidu.tbadk.img.e.1
+    private b cwL;
+    private d cwM = new d() { // from class: com.baidu.tbadk.img.e.1
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             String b;
             if (imageFileInfo == null) {
                 return null;
             }
-            if (e.this.cwE == null) {
-                e.this.cwE = new b();
+            if (e.this.cwL == null) {
+                e.this.cwL = new b();
             }
             String filePath = imageFileInfo.getFilePath();
             LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
             imageFileInfo.setPageActionsList(null);
-            com.baidu.adp.widget.ImageView.a a = e.this.cwE.a(imageFileInfo, true);
+            com.baidu.adp.widget.ImageView.a a = e.this.cwL.a(imageFileInfo, true);
             if (a == null) {
                 Bitmap b2 = e.this.b(imageFileInfo);
                 if (b2 == null) {
@@ -42,7 +42,7 @@ public class e {
             return b;
         }
     };
-    private d cwG = new d() { // from class: com.baidu.tbadk.img.e.2
+    private d cwN = new d() { // from class: com.baidu.tbadk.img.e.2
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -51,8 +51,8 @@ public class e {
             return e.this.qJ(imageFileInfo.getFilePath());
         }
     };
-    private d cwH = this.cwG;
-    private d cwI = new d() { // from class: com.baidu.tbadk.img.e.3
+    private d cwO = this.cwN;
+    private d cwP = new d() { // from class: com.baidu.tbadk.img.e.3
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -72,14 +72,14 @@ public class e {
         boolean nw = m.nw(filePath);
         if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !nw)) {
             if (nv) {
-                dVar = this.cwH;
+                dVar = this.cwO;
             } else {
-                dVar = this.cwG;
+                dVar = this.cwN;
             }
         } else if (nv) {
-            dVar = this.cwI;
+            dVar = this.cwP;
         } else {
-            dVar = this.cwF;
+            dVar = this.cwM;
         }
         return dVar.a(imageFileInfo);
     }
@@ -90,11 +90,11 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.cwE == null) {
-            this.cwE = new b();
+        if (this.cwL == null) {
+            this.cwL = new b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.cwE.b(imageFileInfo, true);
+            return this.cwL.b(imageFileInfo, true);
         }
         if (imageFileInfo.getImageType() == 1 && (ak = com.baidu.adp.lib.f.c.iE().ak(20)) != null) {
             try {

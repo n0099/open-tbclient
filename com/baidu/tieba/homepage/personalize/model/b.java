@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.model;
 import android.util.LongSparseArray;
 import android.util.SparseArray;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.h;
 import com.baidu.tieba.card.data.p;
@@ -14,11 +14,11 @@ import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes4.dex */
 public class b {
     public static void a(DataRes.Builder builder, List<m> list) {
-        cI(list);
+        cH(list);
         b(builder, list);
     }
 
-    public static void cI(List<m> list) {
+    public static void cH(List<m> list) {
         if (list != null) {
             int Z = v.Z(list);
             for (int i = 0; i < Z; i++) {
@@ -30,7 +30,7 @@ public class b {
                 if ((mVar instanceof p) && (mVar2 instanceof p)) {
                     p pVar = (p) mVar;
                     p pVar2 = (p) mVar2;
-                    if (pVar.bae()) {
+                    if (pVar.bag()) {
                         pVar2.iH(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             pVar.iI(false);
@@ -50,7 +50,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<m> list) {
         com.baidu.tieba.card.data.c cVar;
-        bg acx;
+        bh acy;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -62,15 +62,15 @@ public class b {
             int Z = v.Z(list);
             for (int i = 0; i < Z; i++) {
                 m mVar = (m) v.c(list, i);
-                if ((mVar instanceof com.baidu.tieba.card.data.c) && (acx = (cVar = (com.baidu.tieba.card.data.c) mVar).acx()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(acx.getTid(), 0L))) != null) {
+                if ((mVar instanceof com.baidu.tieba.card.data.c) && (acy = (cVar = (com.baidu.tieba.card.data.c) mVar).acy()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(acy.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.vy(threadPersonalized.abtest_tag);
-                    acx.mRecomAbTag = threadPersonalized.abtest_tag;
-                    acx.mRecomSource = threadPersonalized.source;
-                    acx.mRecomWeight = threadPersonalized.weight;
-                    if (acx.aeO() != null) {
-                        cVar.d(acx.aeO().is_vertical);
+                    cVar.vz(threadPersonalized.abtest_tag);
+                    acy.mRecomAbTag = threadPersonalized.abtest_tag;
+                    acy.mRecomSource = threadPersonalized.source;
+                    acy.mRecomWeight = threadPersonalized.weight;
+                    if (acy.aeP() != null) {
+                        cVar.d(acy.aeP().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
@@ -78,8 +78,8 @@ public class b {
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason + "%" + dislikeReason.extra);
                         }
-                        cVar.bHL = sparseArray;
-                        cVar.vA(threadPersonalized.extra);
+                        cVar.bHM = sparseArray;
+                        cVar.vB(threadPersonalized.extra);
                     }
                 }
             }

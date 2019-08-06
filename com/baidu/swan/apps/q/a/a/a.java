@@ -143,7 +143,7 @@ public class a extends z {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(d.sZ(com.baidu.tieba.aiapps.apps.c.a.aFi()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.EH().Ff())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.apps.q.a.a.a.2
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(d.sZ(com.baidu.tieba.aiapps.apps.c.a.aFk()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.EH().Ff())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.apps.q.a.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: x */

@@ -262,7 +262,7 @@ public class f {
                 }
             });
             aVar.W(arrayList);
-            this.bCx = new com.baidu.tieba.person.e(this.bCc, aVar.ahb());
+            this.bCx = new com.baidu.tieba.person.e(this.bCc, aVar.ahd());
             this.bCx.an(0.7f);
         }
         this.bCx.show();
@@ -309,10 +309,10 @@ public class f {
             anVar.bT("obj_url", eVar.linkUrl);
             anVar.P("obj_type", 0);
             TiebaStatic.log(anVar);
-            if (eVar.ckA) {
+            if (eVar.ckH) {
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.bCc, eVar, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                com.baidu.tieba.c.e.bbB().a(shareDialogConfig);
+                com.baidu.tieba.c.e.bbD().a(shareDialogConfig);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.bCc, eVar, true, abx())));

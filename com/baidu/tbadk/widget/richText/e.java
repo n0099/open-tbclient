@@ -20,19 +20,19 @@ public interface e {
 
     void ap(Context context, String str);
 
-    int azs();
+    com.baidu.adp.lib.e.b<RelativeLayout> azA();
 
-    com.baidu.adp.lib.e.b<ImageView> azt();
+    int azu();
 
-    com.baidu.adp.lib.e.b<TextView> azu();
+    com.baidu.adp.lib.e.b<ImageView> azv();
 
-    com.baidu.adp.lib.e.b<GifView> azv();
+    com.baidu.adp.lib.e.b<TextView> azw();
 
-    com.baidu.adp.lib.e.b<View> azw();
+    com.baidu.adp.lib.e.b<GifView> azx();
 
-    com.baidu.adp.lib.e.b<LinearLayout> azx();
+    com.baidu.adp.lib.e.b<View> azy();
 
-    com.baidu.adp.lib.e.b<RelativeLayout> azy();
+    com.baidu.adp.lib.e.b<LinearLayout> azz();
 
     void d(Context context, String str, boolean z);
 

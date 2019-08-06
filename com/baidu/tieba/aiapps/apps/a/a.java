@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private b daW;
+    private b dbd;
     private List<com.baidu.swan.apps.a.c> mListeners;
     public static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
@@ -22,11 +22,11 @@ public class a {
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0278a {
-        private static final a daY = new a();
+        private static final a dbf = new a();
     }
 
-    public static a aEw() {
-        return C0278a.daY;
+    public static a aEy() {
+        return C0278a.dbf;
     }
 
     public void init(Context context) {
@@ -36,13 +36,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void di(Context context) {
-        if (this.daW == null) {
-            this.daW = new b();
-            this.daW.daZ = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_avatar_url", "");
-            this.daW.bduss = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_bduss", "");
-            this.daW.dba = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_ptoken", "");
-            this.daW.uid = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_uid", "");
-            this.daW.displayName = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_display_name", "");
+        if (this.dbd == null) {
+            this.dbd = new b();
+            this.dbd.dbg = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_avatar_url", "");
+            this.dbd.bduss = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_bduss", "");
+            this.dbd.dbh = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_ptoken", "");
+            this.dbd.uid = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_uid", "");
+            this.dbd.displayName = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_display_name", "");
         }
     }
 

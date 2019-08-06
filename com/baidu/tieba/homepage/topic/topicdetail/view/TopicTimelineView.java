@@ -19,7 +19,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topicdetail.b.f;
 /* loaded from: classes4.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
-    private com.baidu.tieba.homepage.topic.topicdetail.a.d gmU;
+    private com.baidu.tieba.homepage.topic.topicdetail.a.d gnM;
     private RecyclerView mRecyclerView;
     private int mSkinType;
     private TextView mTitleView;
@@ -47,8 +47,8 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.topic_timeline_view_layout, (ViewGroup) this, true);
         this.mTitleView = (TextView) findViewById(R.id.topic_timeline_title);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.topic_timeline_list);
-        this.gmU = new com.baidu.tieba.homepage.topic.topicdetail.a.d(context);
-        this.mRecyclerView.setAdapter(this.gmU);
+        this.gnM = new com.baidu.tieba.homepage.topic.topicdetail.a.d(context);
+        this.mRecyclerView.setAdapter(this.gnM);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         this.mRecyclerView.addItemDecoration(new a(l.g(context, R.dimen.tbds44), l.g(context, R.dimen.tbds20), l.g(context, R.dimen.tbds44)));
@@ -56,14 +56,14 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
     }
 
     public void setData(f fVar) {
-        if (fVar == null || v.aa(fVar.glR)) {
+        if (fVar == null || v.aa(fVar.gmJ)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.mTitleView.setText(fVar.title);
-        this.gmU.setData(fVar.glR);
-        this.gmU.notifyDataSetChanged();
+        this.gnM.setData(fVar.gmJ);
+        this.gnM.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -71,20 +71,20 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             am.j(this.mTitleView, R.color.cp_cont_b);
-            this.gmU.notifyDataSetChanged();
+            this.gnM.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public class a extends RecyclerView.ItemDecoration {
-        private int fcv;
-        private int fcw;
+        private int fcV;
+        private int fcW;
         private int mEnd;
 
         public a(int i, int i2, int i3) {
-            this.fcv = i;
-            this.fcw = i2;
+            this.fcV = i;
+            this.fcW = i2;
             this.mEnd = i3;
         }
 
@@ -93,9 +93,9 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
             LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
             if (linearLayoutManager.getOrientation() == 1) {
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
-                    rect.top = this.fcv;
+                    rect.top = this.fcV;
                 } else {
-                    rect.top = this.fcw;
+                    rect.top = this.fcW;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                     rect.bottom = this.mEnd;
@@ -104,9 +104,9 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.left = this.fcv;
+                rect.left = this.fcV;
             } else {
-                rect.left = this.fcw;
+                rect.left = this.fcW;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                 rect.right = this.mEnd;

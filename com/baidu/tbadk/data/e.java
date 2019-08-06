@@ -6,23 +6,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e cqx;
-    public String cqB;
-    public final String cqt = "2g";
-    public final String cqu = "3g";
-    public final String cqv = "4g";
-    public final String cqw = IXAdSystemUtils.NT_WIFI;
-    public HashMap<String, String> cqy = new HashMap<>();
-    public HashMap<String, String> cqz = new HashMap<>();
-    public HashMap<String, String> cqA = new HashMap<>();
+    private static e cqE;
+    public final String cqA = "2g";
+    public final String cqB = "3g";
+    public final String cqC = "4g";
+    public final String cqD = IXAdSystemUtils.NT_WIFI;
+    public HashMap<String, String> cqF = new HashMap<>();
+    public HashMap<String, String> cqG = new HashMap<>();
+    public HashMap<String, String> cqH = new HashMap<>();
+    public String cqI;
 
-    public static synchronized e art() {
+    public static synchronized e arv() {
         e eVar;
         synchronized (e.class) {
-            if (cqx == null) {
-                cqx = new e();
+            if (cqE == null) {
+                cqE = new e();
             }
-            eVar = cqx;
+            eVar = cqE;
         }
         return eVar;
     }
@@ -37,16 +37,16 @@ public class e {
                     String optString3 = optJSONObject.optString("4g");
                     String optString4 = optJSONObject.optString(IXAdSystemUtils.NT_WIFI);
                     if (optString != null) {
-                        this.cqy.put("2g", optString);
+                        this.cqF.put("2g", optString);
                     }
                     if (optString2 != null) {
-                        this.cqy.put("3g", optString2);
+                        this.cqF.put("3g", optString2);
                     }
                     if (optString3 != null) {
-                        this.cqy.put("4g", optString3);
+                        this.cqF.put("4g", optString3);
                     }
                     if (optString4 != null) {
-                        this.cqy.put(IXAdSystemUtils.NT_WIFI, optString4);
+                        this.cqF.put(IXAdSystemUtils.NT_WIFI, optString4);
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
@@ -56,16 +56,16 @@ public class e {
                     String optString7 = optJSONObject2.optString("4g");
                     String optString8 = optJSONObject2.optString(IXAdSystemUtils.NT_WIFI);
                     if (optString5 != null) {
-                        this.cqz.put("2g", optString5);
+                        this.cqG.put("2g", optString5);
                     }
                     if (optString6 != null) {
-                        this.cqz.put("3g", optString6);
+                        this.cqG.put("3g", optString6);
                     }
                     if (optString7 != null) {
-                        this.cqz.put("4g", optString7);
+                        this.cqG.put("4g", optString7);
                     }
                     if (optString8 != null) {
-                        this.cqz.put(IXAdSystemUtils.NT_WIFI, optString8);
+                        this.cqG.put(IXAdSystemUtils.NT_WIFI, optString8);
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
@@ -75,19 +75,19 @@ public class e {
                     String optString11 = optJSONObject3.optString("4g");
                     String optString12 = optJSONObject3.optString(IXAdSystemUtils.NT_WIFI);
                     if (optString9 != null) {
-                        this.cqA.put("2g", optString9);
+                        this.cqH.put("2g", optString9);
                     }
                     if (optString10 != null) {
-                        this.cqA.put("3g", optString10);
+                        this.cqH.put("3g", optString10);
                     }
                     if (optString11 != null) {
-                        this.cqA.put("4g", optString11);
+                        this.cqH.put("4g", optString11);
                     }
                     if (optString12 != null) {
-                        this.cqA.put(IXAdSystemUtils.NT_WIFI, optString12);
+                        this.cqH.put(IXAdSystemUtils.NT_WIFI, optString12);
                     }
                 }
-                this.cqB = jSONObject.optString("is_on");
+                this.cqI = jSONObject.optString("is_on");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

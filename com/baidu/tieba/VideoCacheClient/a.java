@@ -16,12 +16,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a cVL;
+    private static a cVS;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable cxi = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable cxp = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
             r3.printStackTrace();
          */
@@ -117,13 +117,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String aCq = a.this.aCq();
-                    if (aCq != null && !aCq.isEmpty()) {
-                        File file = new File(c.cVA + b.sa(aCq) + "/header_downloaded");
+                    String aCs = a.this.aCs();
+                    if (aCs != null && !aCs.isEmpty()) {
+                        File file = new File(c.cVH + b.sa(aCs) + "/header_downloaded");
                         if (file.exists()) {
-                            d.am(a.TAG, "header exists " + aCq);
+                            d.am(a.TAG, "header exists " + aCs);
                         } else {
-                            d.am(a.TAG, "client preload start: " + aCq);
+                            d.am(a.TAG, "client preload start: " + aCs);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -142,8 +142,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aCq);
-                                    int port = b.aCr().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aCs);
+                                    int port = b.aCt().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), UIMsg.m_AppUI.MSG_APP_GPS);
@@ -200,7 +200,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.am(a.TAG, "client preload check1: " + aCq);
+                                            d.am(a.TAG, "client preload check1: " + aCs);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -252,7 +252,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.am(a.TAG, "client preload end: " + aCq);
+                            d.am(a.TAG, "client preload end: " + aCs);
                         }
                     }
                 } else {
@@ -289,25 +289,25 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.cxi);
+    private Thread mThread = new Thread(this.cxp);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a aCp() {
-        if (cVL == null) {
+    public static a aCr() {
+        if (cVS == null) {
             synchronized (a.class) {
-                if (cVL == null) {
-                    cVL = new a();
+                if (cVS == null) {
+                    cVS = new a();
                 }
             }
         }
-        return cVL;
+        return cVS;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aCq() {
+    public synchronized String aCs() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 

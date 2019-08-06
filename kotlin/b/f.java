@@ -3,11 +3,11 @@ package kotlin.b;
 /* loaded from: classes2.dex */
 public class f extends e {
     public static final a cU(int i, int i2) {
-        return a.krZ.an(i, i2, -1);
+        return a.ktf.an(i, i2, -1);
     }
 
     public static final c cV(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? c.ksd.cNT() : new c(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? c.ktj.cOo() : new c(i, i2 - 1);
     }
 
     public static final int cW(int i, int i2) {

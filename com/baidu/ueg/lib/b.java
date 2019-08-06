@@ -4,10 +4,10 @@ import java.util.Arrays;
 /* loaded from: classes3.dex */
 public abstract class b {
     protected final int Dq;
-    protected final byte jXH = 61;
-    private final int jXI;
-    private final int jXJ;
-    private final int jXK;
+    protected final byte jYN = 61;
+    private final int jYO;
+    private final int jYP;
+    private final int jYQ;
 
     abstract void a(byte[] bArr, int i, int i2, a aVar);
 
@@ -19,11 +19,11 @@ public abstract class b {
     /* loaded from: classes3.dex */
     public static class a {
         byte[] buffer;
-        int jXL;
-        long jXM;
-        int jXN;
-        boolean jXO;
-        int jXP;
+        int jYR;
+        long jYS;
+        int jYT;
+        boolean jYU;
+        int jYV;
         int modulus;
         int pos;
 
@@ -31,34 +31,34 @@ public abstract class b {
         }
 
         public String toString() {
-            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.jXP), Boolean.valueOf(this.jXO), Integer.valueOf(this.jXL), Long.valueOf(this.jXM), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.jXN));
+            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.jYV), Boolean.valueOf(this.jYU), Integer.valueOf(this.jYR), Long.valueOf(this.jYS), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.jYT));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.jXI = i;
-        this.jXJ = i2;
+        this.jYO = i;
+        this.jYP = i2;
         this.Dq = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.jXK = i4;
+        this.jYQ = i4;
     }
 
     int a(a aVar) {
         if (aVar.buffer != null) {
-            return aVar.pos - aVar.jXN;
+            return aVar.pos - aVar.jYT;
         }
         return 0;
     }
 
-    protected int cDO() {
+    protected int cEj() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[cDO()];
+            aVar.buffer = new byte[cEj()];
             aVar.pos = 0;
-            aVar.jXN = 0;
+            aVar.jYT = 0;
         } else {
             byte[] bArr = new byte[aVar.buffer.length * 2];
             System.arraycopy(aVar.buffer, 0, bArr, 0, aVar.buffer.length);
@@ -74,12 +74,12 @@ public abstract class b {
 
     int c(byte[] bArr, int i, int i2, a aVar) {
         if (aVar.buffer == null) {
-            return aVar.jXO ? -1 : 0;
+            return aVar.jYU ? -1 : 0;
         }
         int min = Math.min(a(aVar), i2);
-        System.arraycopy(aVar.buffer, aVar.jXN, bArr, i, min);
-        aVar.jXN += min;
-        if (aVar.jXN >= aVar.pos) {
+        System.arraycopy(aVar.buffer, aVar.jYT, bArr, i, min);
+        aVar.jYT += min;
+        if (aVar.jYT >= aVar.pos) {
             aVar.buffer = null;
             return min;
         }
@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.Hy(str));
+        return decode(d.Hz(str));
     }
 
     public byte[] decode(byte[] bArr) {
@@ -107,7 +107,7 @@ public abstract class b {
             a aVar = new a();
             a(bArr, 0, bArr.length, aVar);
             a(bArr, 0, -1, aVar);
-            byte[] bArr2 = new byte[aVar.pos - aVar.jXN];
+            byte[] bArr2 = new byte[aVar.pos - aVar.jYT];
             c(bArr2, 0, bArr2.length, aVar);
             return bArr2;
         }
@@ -128,9 +128,9 @@ public abstract class b {
     }
 
     public long V(byte[] bArr) {
-        long length = (((bArr.length + this.jXI) - 1) / this.jXI) * this.jXJ;
+        long length = (((bArr.length + this.jYO) - 1) / this.jYO) * this.jYP;
         if (this.Dq > 0) {
-            return length + ((((this.Dq + length) - 1) / this.Dq) * this.jXK);
+            return length + ((((this.Dq + length) - 1) / this.Dq) * this.jYQ);
         }
         return length;
     }

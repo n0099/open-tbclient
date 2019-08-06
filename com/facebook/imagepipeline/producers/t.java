@@ -36,11 +36,11 @@ public class t extends c<s> {
                 t.this.b(sVar, aVar);
             }
         });
-        sVar.cKP().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
+        sVar.cLk().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cKI() {
+            public void cLd() {
                 if (submit.cancel(false)) {
-                    aVar.cEA();
+                    aVar.cEV();
                 }
             }
         });
@@ -128,8 +128,8 @@ public class t extends c<s> {
     private HttpURLConnection b(Uri uri, int i) throws IOException {
         HttpURLConnection P = P(uri);
         int responseCode = P.getResponseCode();
-        if (!En(responseCode)) {
-            if (Eo(responseCode)) {
+        if (!Ep(responseCode)) {
+            if (Eq(responseCode)) {
                 String headerField = P.getHeaderField("Location");
                 P.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
@@ -149,11 +149,11 @@ public class t extends c<s> {
         return (HttpURLConnection) new URL(uri.toString()).openConnection();
     }
 
-    private static boolean En(int i) {
+    private static boolean Ep(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean Eo(int i) {
+    private static boolean Eq(int i) {
         switch (i) {
             case 300:
             case 301:

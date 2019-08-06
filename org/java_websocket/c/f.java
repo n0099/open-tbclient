@@ -3,11 +3,11 @@ package org.java_websocket.c;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public interface f {
-    String Iu(String str);
+    String Iv(String str);
 
-    boolean Iv(String str);
+    boolean Iw(String str);
 
-    Iterator<String> cOH();
+    Iterator<String> cPc();
 
     byte[] getContent();
 }

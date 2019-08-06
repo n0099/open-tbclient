@@ -60,7 +60,7 @@ public class c {
                             }
                             TiebaStatic.log(new an("c12542"));
                             if (aVar.bAO && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.c(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_toast_game_error).agQ();
+                                BdToast.c(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_toast_game_error).agS();
                                 return;
                             }
                             break;

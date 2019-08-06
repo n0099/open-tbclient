@@ -9,7 +9,7 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.aHC().putBoolean(str, z);
+            a.aHE().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.e(1, str, String.valueOf(z)));
         }
@@ -17,7 +17,7 @@ public class b {
 
     public static boolean getBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            return a.aHC().getBoolean(str, z);
+            return a.aHE().getBoolean(str, z);
         }
         return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.e(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
     }
@@ -33,11 +33,11 @@ public class b {
         /* renamed from: com.baidu.tieba.aiapps.apps.p.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
         public static final class C0290a {
-            private static final a dhL = new a();
+            private static final a dhS = new a();
         }
 
-        public static a aHC() {
-            return C0290a.dhL;
+        public static a aHE() {
+            return C0290a.dhS;
         }
     }
 
@@ -102,7 +102,7 @@ public class b {
         protected Bundle a(e eVar) {
             switch (eVar.aWA) {
                 case 1:
-                    a.aHC().putBoolean(eVar.aWB, Boolean.parseBoolean(eVar.aWC));
+                    a.aHE().putBoolean(eVar.aWB, Boolean.parseBoolean(eVar.aWC));
                     break;
             }
             return Bundle.EMPTY;
@@ -121,7 +121,7 @@ public class b {
             Bundle bundle = new Bundle();
             switch (eVar.aWA) {
                 case 1:
-                    bundle.putBoolean("result_value", a.aHC().getBoolean(eVar.aWB, Boolean.parseBoolean(eVar.aWC)));
+                    bundle.putBoolean("result_value", a.aHE().getBoolean(eVar.aWB, Boolean.parseBoolean(eVar.aWC)));
                     break;
             }
             return bundle;

@@ -13,20 +13,20 @@ import java.text.ParseException;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class b extends a implements View.OnClickListener {
-    private c cPr;
+    private c cPy;
 
     public b(com.baidu.tbadk.widget.timepicker.a.c.a aVar) {
         super(aVar.context);
-        this.cNX = aVar;
+        this.cOe = aVar;
         initView(aVar.context);
     }
 
     private void initView(Context context) {
-        azO();
+        azQ();
         initViews();
         initAnim();
-        if (this.cNX.cOa == null) {
-            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.cPf);
+        if (this.cOe.cOh == null) {
+            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.cPm);
             TextView textView = (TextView) findViewById(R.id.tvTitle);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.rv_topbar);
             Button button = (Button) findViewById(R.id.btnSubmit);
@@ -35,96 +35,96 @@ public class b extends a implements View.OnClickListener {
             button2.setTag("cancel");
             button.setOnClickListener(this);
             button2.setOnClickListener(this);
-            button.setText(TextUtils.isEmpty(this.cNX.cOB) ? context.getResources().getString(R.string.pickerview_submit) : this.cNX.cOB);
-            button2.setText(TextUtils.isEmpty(this.cNX.cOC) ? context.getResources().getString(R.string.pickerview_cancel) : this.cNX.cOC);
-            textView.setText(TextUtils.isEmpty(this.cNX.cOD) ? "" : this.cNX.cOD);
-            button.setTextColor(this.cNX.cOE);
-            button2.setTextColor(this.cNX.cOF);
-            textView.setTextColor(this.cNX.cOG);
-            relativeLayout.setBackgroundColor(this.cNX.cOI);
-            button.setTextSize(this.cNX.cOJ);
-            button2.setTextSize(this.cNX.cOJ);
-            textView.setTextSize(this.cNX.cOK);
+            button.setText(TextUtils.isEmpty(this.cOe.cOI) ? context.getResources().getString(R.string.pickerview_submit) : this.cOe.cOI);
+            button2.setText(TextUtils.isEmpty(this.cOe.cOJ) ? context.getResources().getString(R.string.pickerview_cancel) : this.cOe.cOJ);
+            textView.setText(TextUtils.isEmpty(this.cOe.cOK) ? "" : this.cOe.cOK);
+            button.setTextColor(this.cOe.cOL);
+            button2.setTextColor(this.cOe.cOM);
+            textView.setTextColor(this.cOe.cON);
+            relativeLayout.setBackgroundColor(this.cOe.cOP);
+            button.setTextSize(this.cOe.cOQ);
+            button2.setTextSize(this.cOe.cOQ);
+            textView.setTextSize(this.cOe.cOR);
         } else {
-            this.cNX.cOa.bb(LayoutInflater.from(context).inflate(this.cNX.cOz, this.cPf));
+            this.cOe.cOh.bb(LayoutInflater.from(context).inflate(this.cOe.cOG, this.cPm));
         }
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.timepicker);
-        linearLayout.setBackgroundColor(this.cNX.cOH);
+        linearLayout.setBackgroundColor(this.cOe.cOO);
         b(linearLayout);
     }
 
     private void b(LinearLayout linearLayout) {
-        this.cPr = new c(linearLayout, this.cNX.cOf, this.cNX.cOA, this.cNX.cOL);
-        if (this.cNX.cNZ != null) {
-            this.cPr.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
+        this.cPy = new c(linearLayout, this.cOe.cOm, this.cOe.cOH, this.cOe.cOS);
+        if (this.cOe.cOg != null) {
+            this.cPy.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
-                public void azK() {
+                public void azM() {
                     try {
-                        b.this.cNX.cNZ.p(c.cPt.parse(b.this.cPr.getTime()));
+                        b.this.cOe.cOg.p(c.cPA.parse(b.this.cPy.getTime()));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
             });
         }
-        this.cPr.fZ(this.cNX.cOm);
-        if (this.cNX.cOj != 0 && this.cNX.cOk != 0 && this.cNX.cOj <= this.cNX.cOk) {
-            azR();
+        this.cPy.fZ(this.cOe.cOt);
+        if (this.cOe.cOq != 0 && this.cOe.cOr != 0 && this.cOe.cOq <= this.cOe.cOr) {
+            azT();
         }
-        if (this.cNX.cOh != null && this.cNX.cOi != null) {
-            if (this.cNX.cOh.getTimeInMillis() > this.cNX.cOi.getTimeInMillis()) {
+        if (this.cOe.cOo != null && this.cOe.cOp != null) {
+            if (this.cOe.cOo.getTimeInMillis() > this.cOe.cOp.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
-            azS();
-        } else if (this.cNX.cOh != null) {
-            if (this.cNX.cOh.get(1) < 1900) {
+            azU();
+        } else if (this.cOe.cOo != null) {
+            if (this.cOe.cOo.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
-            azS();
-        } else if (this.cNX.cOi != null) {
-            if (this.cNX.cOi.get(1) > 2100) {
+            azU();
+        } else if (this.cOe.cOp != null) {
+            if (this.cOe.cOp.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
-            azS();
+            azU();
         } else {
-            azS();
+            azU();
         }
-        azU();
-        this.cPr.c(this.cNX.cOn, this.cNX.cOo, this.cNX.cOp, this.cNX.cOq, this.cNX.cOr, this.cNX.cOs);
-        this.cPr.i(this.cNX.cOt, this.cNX.cOu, this.cNX.cOv, this.cNX.cOw, this.cNX.cOx, this.cNX.cOy);
-        fY(this.cNX.cOR);
-        this.cPr.setCyclic(this.cNX.cOl);
-        this.cPr.setDividerColor(this.cNX.cOO);
-        this.cPr.setDividerType(this.cNX.cOU);
-        this.cPr.setLineSpacingMultiplier(this.cNX.cOP);
-        this.cPr.setTextColorOut(this.cNX.cOM);
-        this.cPr.setTextColorCenter(this.cNX.cON);
-        this.cPr.ga(this.cNX.cOS);
-    }
-
-    private void azR() {
-        this.cPr.lW(this.cNX.cOj);
-        this.cPr.lX(this.cNX.cOk);
-    }
-
-    private void azS() {
-        this.cPr.a(this.cNX.cOh, this.cNX.cOi);
-        azT();
+        azW();
+        this.cPy.c(this.cOe.cOu, this.cOe.cOv, this.cOe.cOw, this.cOe.cOx, this.cOe.cOy, this.cOe.cOz);
+        this.cPy.i(this.cOe.cOA, this.cOe.cOB, this.cOe.cOC, this.cOe.cOD, this.cOe.cOE, this.cOe.cOF);
+        fY(this.cOe.cOY);
+        this.cPy.setCyclic(this.cOe.cOs);
+        this.cPy.setDividerColor(this.cOe.cOV);
+        this.cPy.setDividerType(this.cOe.cPb);
+        this.cPy.setLineSpacingMultiplier(this.cOe.cOW);
+        this.cPy.setTextColorOut(this.cOe.cOT);
+        this.cPy.setTextColorCenter(this.cOe.cOU);
+        this.cPy.ga(this.cOe.cOZ);
     }
 
     private void azT() {
-        if (this.cNX.cOh != null && this.cNX.cOi != null) {
-            if (this.cNX.cOg == null || this.cNX.cOg.getTimeInMillis() < this.cNX.cOh.getTimeInMillis() || this.cNX.cOg.getTimeInMillis() > this.cNX.cOi.getTimeInMillis()) {
-                this.cNX.cOg = this.cNX.cOh;
-            }
-        } else if (this.cNX.cOh != null) {
-            this.cNX.cOg = this.cNX.cOh;
-        } else if (this.cNX.cOi != null) {
-            this.cNX.cOg = this.cNX.cOi;
-        }
+        this.cPy.lX(this.cOe.cOq);
+        this.cPy.lY(this.cOe.cOr);
     }
 
     private void azU() {
+        this.cPy.a(this.cOe.cOo, this.cOe.cOp);
+        azV();
+    }
+
+    private void azV() {
+        if (this.cOe.cOo != null && this.cOe.cOp != null) {
+            if (this.cOe.cOn == null || this.cOe.cOn.getTimeInMillis() < this.cOe.cOo.getTimeInMillis() || this.cOe.cOn.getTimeInMillis() > this.cOe.cOp.getTimeInMillis()) {
+                this.cOe.cOn = this.cOe.cOo;
+            }
+        } else if (this.cOe.cOo != null) {
+            this.cOe.cOn = this.cOe.cOo;
+        } else if (this.cOe.cOp != null) {
+            this.cOe.cOn = this.cOe.cOp;
+        }
+    }
+
+    private void azW() {
         int i;
         int i2;
         int i3;
@@ -132,7 +132,7 @@ public class b extends a implements View.OnClickListener {
         int i5;
         int i6;
         Calendar calendar = Calendar.getInstance();
-        if (this.cNX.cOg == null) {
+        if (this.cOe.cOn == null) {
             calendar.setTimeInMillis(System.currentTimeMillis());
             i = calendar.get(1);
             i2 = calendar.get(2);
@@ -141,28 +141,28 @@ public class b extends a implements View.OnClickListener {
             i5 = calendar.get(12);
             i6 = calendar.get(13);
         } else {
-            i = this.cNX.cOg.get(1);
-            i2 = this.cNX.cOg.get(2);
-            i3 = this.cNX.cOg.get(5);
-            i4 = this.cNX.cOg.get(11);
-            i5 = this.cNX.cOg.get(12);
-            i6 = this.cNX.cOg.get(13);
+            i = this.cOe.cOn.get(1);
+            i2 = this.cOe.cOn.get(2);
+            i3 = this.cOe.cOn.get(5);
+            i4 = this.cOe.cOn.get(11);
+            i5 = this.cOe.cOn.get(12);
+            i6 = this.cOe.cOn.get(13);
         }
-        this.cPr.g(i, i2, i3, i4, i5, i6);
+        this.cPy.g(i, i2, i3, i4, i5, i6);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (((String) view.getTag()).equals("submit")) {
-            azV();
+            azX();
         }
         dismiss();
     }
 
-    public void azV() {
-        if (this.cNX.cNY != null) {
+    public void azX() {
+        if (this.cOe.cOf != null) {
             try {
-                this.cNX.cNY.a(c.cPt.parse(this.cPr.getTime()), this.cPm);
+                this.cOe.cOf.a(c.cPA.parse(this.cPy.getTime()), this.cPt);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -170,7 +170,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
-    public boolean azQ() {
-        return this.cNX.cOQ;
+    public boolean azS() {
+        return this.cOe.cOX;
     }
 }

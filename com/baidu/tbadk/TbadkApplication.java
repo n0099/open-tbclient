@@ -76,9 +76,9 @@ public class TbadkApplication extends TbadkCoreApplication {
             super.handleInitMessage(message);
             switch (message.what) {
                 case 6:
-                    boolean awo = q.awo();
+                    boolean awq = q.awq();
                     boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-                    boolean z2 = awo && isXiaomiPushSdkShouldOpen;
+                    boolean z2 = awq && isXiaomiPushSdkShouldOpen;
                     b.C("TbadkApplication_onCreate", z2 ? "plugin_load_delay" : "plugin_load_now");
                     if (Build.VERSION.SDK_INT >= 24) {
                         try {
@@ -90,18 +90,18 @@ public class TbadkApplication extends TbadkCoreApplication {
                     b.C("TbadkApplication_onCreate", "load_all_plugins");
                     String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
                     PluginPackageManager ms = PluginPackageManager.ms();
-                    a avH = a.avH();
+                    a avJ = a.avJ();
                     com.baidu.tbadk.q.b bVar = new com.baidu.tbadk.q.b();
-                    if (!awo || !isXiaomiPushSdkShouldOpen) {
+                    if (!awq || !isXiaomiPushSdkShouldOpen) {
                         z = false;
                     }
-                    ms.a(avH, bVar, z);
+                    ms.a(avJ, bVar, z);
                     PluginSettings mT = com.baidu.adp.plugin.packageManager.pluginSettings.c.mW().mT();
                     if (mT != null) {
                         String containerVersion = mT.getContainerVersion();
                         if (!TextUtils.isEmpty(containerVersion) && Util.J(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                            n.avz().fH(z2);
-                            n.avz().bq(System.currentTimeMillis() - currentTimeMillis);
+                            n.avB().fH(z2);
+                            n.avB().bq(System.currentTimeMillis() - currentTimeMillis);
                         }
                     }
                     this.mAppInitHandler.sendEmptyMessage(7);
@@ -123,17 +123,17 @@ public class TbadkApplication extends TbadkCoreApplication {
                         NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
                             @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                             public void callback(String str2, String str3) {
-                                bb.ajC().c(null, new String[]{str3});
+                                bb.ajE().c(null, new String[]{str3});
                             }
                         });
-                        n.avz().bz(System.currentTimeMillis() - currentTimeMillis2);
+                        n.avB().bz(System.currentTimeMillis() - currentTimeMillis2);
                     }
                     this.mAppInitHandler.sendEmptyMessage(9);
                     return;
                 case 9:
-                    j.aia();
+                    j.aic();
                     if (this.isRemoteProcess) {
-                        n.avz().bH(System.currentTimeMillis() - this.processCreateTime);
+                        n.avB().bH(System.currentTimeMillis() - this.processCreateTime);
                         return;
                     }
                     return;
@@ -245,7 +245,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        com.baidu.tbadk.core.sharedPref.b.ahO().remove("account_share");
+        com.baidu.tbadk.core.sharedPref.b.ahQ().remove("account_share");
     }
 
     public String loginShareRead() {
@@ -284,12 +284,12 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loadPatchs() {
         super.loadPatchs();
         PluginPackageManager.ms().a(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
-        int i = com.baidu.tbadk.core.sharedPref.b.ahO().getInt("plugin_patch_hook_failed_count", 0);
+        int i = com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("plugin_patch_hook_failed_count", 0);
         PluginPackageManager.ms().aB(i);
         if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.ma() && i == 0 && PluginPackageManager.ms().mw()) {
             long currentTimeMillis = System.currentTimeMillis();
             PluginPackageManager.ms().mx();
-            n.avz().bp(System.currentTimeMillis() - currentTimeMillis);
+            n.avB().bp(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

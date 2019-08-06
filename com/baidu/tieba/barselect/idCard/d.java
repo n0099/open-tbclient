@@ -20,20 +20,20 @@ public interface d {
 
     void a(e eVar);
 
-    void aYR();
+    void aYT();
 
     @ICameraControl.FlashMode
-    int aYS();
+    int aYU();
 
-    View aYT();
+    View aYV();
 
-    Rect aZb();
+    Rect aZd();
 
-    void aZc();
+    void aZe();
 
     void pause();
 
-    void pv(@ICameraControl.FlashMode int i);
+    void pw(@ICameraControl.FlashMode int i);
 
     void resume();
 

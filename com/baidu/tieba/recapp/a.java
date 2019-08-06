@@ -15,35 +15,35 @@ import com.baidu.tieba.recapp.view.IVrPlayView;
 public abstract class a {
     public String alH;
     public MediaPlayer.OnPreparedListener bff;
-    public MediaPlayer.OnErrorListener cTK;
-    public a.InterfaceC0270a cXo;
-    public IVrPlayView iFc;
-    public com.a.a.g iFd;
-    public com.baidu.tieba.ad.play.a iFe;
-    public MediaPlayer.OnCompletionListener iFf;
-    public a.b iFg;
+    public MediaPlayer.OnErrorListener cTR;
+    public a.InterfaceC0270a cXv;
+    public IVrPlayView iGg;
+    public com.a.a.g iGh;
+    public com.baidu.tieba.ad.play.a iGi;
+    public MediaPlayer.OnCompletionListener iGj;
+    public a.b iGk;
     public TbPageContext<?> mContext;
     public int mStatus = -1;
 
     public a(IVrPlayView iVrPlayView) {
-        this.iFc = iVrPlayView;
-        this.mContext = this.iFc.getPageContext();
-        chm();
+        this.iGg = iVrPlayView;
+        this.mContext = this.iGg.getPageContext();
+        chE();
         initListener();
     }
 
-    private void chm() {
+    private void chE() {
         if (this.mStatus == -1) {
-            this.iFd = com.a.a.g.k(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
+            this.iGh = com.a.a.g.k(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
                 public void b(Surface surface) {
-                    a.this.iFe = new com.baidu.tieba.ad.play.a(surface);
-                    a.this.iFc.setPlayer(a.this.iFe);
+                    a.this.iGi = new com.baidu.tieba.ad.play.a(surface);
+                    a.this.iGg.setPlayer(a.this.iGi);
                 }
             }).o(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
                 public void k(MotionEvent motionEvent) {
                 }
-            }).b(this.iFc.getGLView());
-            this.iFd.onResume(this.mContext.getPageActivity());
+            }).b(this.iGg.getGLView());
+            this.iGh.onResume(this.mContext.getPageActivity());
         }
     }
 
@@ -62,13 +62,13 @@ public abstract class a {
     }
 
     public void playVideo() {
-        if (this.iFe != null && !StringUtils.isNull(this.alH)) {
-            this.iFe.a(this.cXo);
-            this.iFe.setVideoPath(this.alH);
-            this.iFe.start();
-            this.iFe.a(this.bff);
-            this.iFe.setOnErrorListener(this.cTK);
-            this.iFe.a(this.iFf);
+        if (this.iGi != null && !StringUtils.isNull(this.alH)) {
+            this.iGi.a(this.cXv);
+            this.iGi.setVideoPath(this.alH);
+            this.iGi.start();
+            this.iGi.a(this.bff);
+            this.iGi.setOnErrorListener(this.cTR);
+            this.iGi.a(this.iGj);
             this.mStatus = 0;
         }
     }
@@ -80,10 +80,10 @@ public abstract class a {
     }
 
     public void stopPlay() {
-        if (this.mStatus != -1 && this.iFe != null) {
-            this.iFe.seekTo(0);
-            this.iFe.onDestroy();
-            this.iFc.onDestroy();
+        if (this.mStatus != -1 && this.iGi != null) {
+            this.iGi.seekTo(0);
+            this.iGi.onDestroy();
+            this.iGg.onDestroy();
             this.mStatus = -1;
             finishStopPlay();
         }
@@ -93,14 +93,14 @@ public abstract class a {
     }
 
     public void destroy() {
-        this.iFc.onDestroy();
-        if (this.iFe != null && this.mStatus != -1) {
-            this.iFe.onDestroy();
-            this.iFe = null;
+        this.iGg.onDestroy();
+        if (this.iGi != null && this.mStatus != -1) {
+            this.iGi.onDestroy();
+            this.iGi = null;
         }
-        if (this.iFd != null) {
-            this.iFd.onDestroy();
-            this.iFd = null;
+        if (this.iGh != null) {
+            this.iGh.onDestroy();
+            this.iGh = null;
         }
         this.mStatus = -1;
     }
@@ -114,9 +114,9 @@ public abstract class a {
     }
 
     public long getCurrentPos() {
-        if (this.iFe == null) {
+        if (this.iGi == null) {
             return 0L;
         }
-        return this.iFe.getCurrentPosition();
+        return this.iGi.getCurrentPosition();
     }
 }

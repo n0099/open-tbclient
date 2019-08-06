@@ -12,16 +12,16 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a {
     private ViewGroup bBG;
-    private View.OnClickListener clU;
-    private GodReplyLeaderboardTipView hJQ;
-    private int cdL = 3;
-    private final int[] hJP = new int[2];
-    private int hJR = Integer.MIN_VALUE;
-    private int hJS = Integer.MIN_VALUE;
-    private boolean hJT = false;
+    private View.OnClickListener cmb;
+    private GodReplyLeaderboardTipView hKJ;
+    private int cdS = 3;
+    private final int[] hKI = new int[2];
+    private int hKK = Integer.MIN_VALUE;
+    private int hKL = Integer.MIN_VALUE;
+    private boolean hKM = false;
 
     public void O(View.OnClickListener onClickListener) {
-        this.clU = onClickListener;
+        this.cmb = onClickListener;
     }
 
     public void showTip(View view) {
@@ -31,24 +31,24 @@ public class a {
                 this.bBG = (RelativeLayout) ((Activity) context).findViewById(R.id.pb_layout);
             }
             if (this.bBG != null) {
-                view.getLocationOnScreen(this.hJP);
+                view.getLocationOnScreen(this.hKI);
                 int dip2px = l.dip2px(context, 160.0f);
                 int dip2px2 = l.dip2px(context, 36.0f);
-                if (this.hJQ == null) {
-                    this.hJQ = new GodReplyLeaderboardTipView(context);
+                if (this.hKJ == null) {
+                    this.hKJ = new GodReplyLeaderboardTipView(context);
                 }
-                this.hJQ.animate().cancel();
-                this.hJQ.setAlpha(0.0f);
-                this.hJQ.animate().alpha(1.0f).setListener(null).start();
-                this.hJQ.setOnClickListener(this.clU);
-                this.hJQ.onChangeSkinType(this.cdL);
-                if (this.hJQ.getParent() != null && this.hJQ.getParent() != this.bBG) {
-                    ((ViewGroup) this.hJQ.getParent()).removeView(this.hJQ);
+                this.hKJ.animate().cancel();
+                this.hKJ.setAlpha(0.0f);
+                this.hKJ.animate().alpha(1.0f).setListener(null).start();
+                this.hKJ.setOnClickListener(this.cmb);
+                this.hKJ.onChangeSkinType(this.cdS);
+                if (this.hKJ.getParent() != null && this.hKJ.getParent() != this.bBG) {
+                    ((ViewGroup) this.hKJ.getParent()).removeView(this.hKJ);
                 }
-                if (this.hJQ.getParent() == null) {
+                if (this.hKJ.getParent() == null) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dip2px, dip2px2);
-                    layoutParams.rightMargin = ed(context);
-                    layoutParams.topMargin = this.hJP[1] + view.getHeight() + ec(context);
+                    layoutParams.rightMargin = ee(context);
+                    layoutParams.topMargin = this.hKI[1] + view.getHeight() + ed(context);
                     layoutParams.addRule(11);
                     int childCount = this.bBG.getChildCount();
                     int i = -1;
@@ -59,51 +59,51 @@ public class a {
                         }
                     }
                     if (i > -1 && i <= this.bBG.getChildCount()) {
-                        this.bBG.addView(this.hJQ, i, layoutParams);
+                        this.bBG.addView(this.hKJ, i, layoutParams);
                     }
                 }
-                this.hJQ.setVisibility(0);
+                this.hKJ.setVisibility(0);
             }
         }
     }
 
     public void hideTip() {
-        if (this.hJQ != null) {
-            this.hJQ.animate().cancel();
-            this.hJQ.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.1
+        if (this.hKJ != null) {
+            this.hKJ.animate().cancel();
+            this.hKJ.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    a.this.bTN();
+                    a.this.bUb();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    a.this.bTN();
+                    a.this.bUb();
                 }
             }).start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTN() {
-        if (this.hJQ != null && this.hJQ.getParent() != null && this.hJQ.getParent() == this.bBG) {
-            this.hJQ.setVisibility(4);
+    public void bUb() {
+        if (this.hKJ != null && this.hKJ.getParent() != null && this.hKJ.getParent() == this.bBG) {
+            this.hKJ.setVisibility(4);
         }
     }
 
-    public void cu(View view) {
-        if (bTO()) {
+    public void cv(View view) {
+        if (bUc()) {
             Context context = view.getContext();
-            view.getLocationOnScreen(this.hJP);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hJQ.getLayoutParams();
-            layoutParams.rightMargin = ed(context);
-            layoutParams.topMargin = this.hJP[1] + view.getHeight() + ec(context);
+            view.getLocationOnScreen(this.hKI);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hKJ.getLayoutParams();
+            layoutParams.rightMargin = ee(context);
+            layoutParams.topMargin = this.hKI[1] + view.getHeight() + ed(context);
             layoutParams.addRule(11);
-            this.hJQ.setLayoutParams(layoutParams);
-            if (layoutParams.topMargin + this.hJQ.getHeight() < l.aj(context)[1] && !this.hJT) {
+            this.hKJ.setLayoutParams(layoutParams);
+            if (layoutParams.topMargin + this.hKJ.getHeight() < l.aj(context)[1] && !this.hKM) {
                 b.j(context, true);
-                this.hJT = true;
-                this.hJQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.2
+                this.hKM = true;
+                this.hKJ.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.2
                     @Override // java.lang.Runnable
                     public void run() {
                         a.this.hideTip();
@@ -113,28 +113,28 @@ public class a {
         }
     }
 
-    public boolean bTO() {
-        return this.hJQ != null && this.hJQ.getParent() != null && this.hJQ.getParent() == this.bBG && this.hJQ.getVisibility() == 0;
+    public boolean bUc() {
+        return this.hKJ != null && this.hKJ.getParent() != null && this.hKJ.getParent() == this.bBG && this.hKJ.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
-        this.cdL = i;
-        if (this.hJQ != null) {
-            this.hJQ.onChangeSkinType(i);
+        this.cdS = i;
+        if (this.hKJ != null) {
+            this.hKJ.onChangeSkinType(i);
         }
-    }
-
-    private int ec(Context context) {
-        if (this.hJR == Integer.MIN_VALUE) {
-            this.hJR = -l.dip2px(context, 5.0f);
-        }
-        return this.hJR;
     }
 
     private int ed(Context context) {
-        if (this.hJS == Integer.MIN_VALUE) {
-            this.hJS = l.dip2px(context, 17.0f);
+        if (this.hKK == Integer.MIN_VALUE) {
+            this.hKK = -l.dip2px(context, 5.0f);
         }
-        return this.hJS;
+        return this.hKK;
+    }
+
+    private int ee(Context context) {
+        if (this.hKL == Integer.MIN_VALUE) {
+            this.hKL = l.dip2px(context, 17.0f);
+        }
+        return this.hKL;
     }
 }

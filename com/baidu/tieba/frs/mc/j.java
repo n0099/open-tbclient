@@ -4,24 +4,24 @@ import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.ak;
 /* loaded from: classes4.dex */
 public class j {
-    protected final FrsFragment fMb;
-    protected final com.baidu.tieba.frs.vc.k fNk;
-    protected final ak fNl;
-    protected final c fNm;
-    protected final com.baidu.tieba.frs.k ftP;
-    protected final FrsModelController fug;
-    protected final com.baidu.tieba.frs.vc.f fuh;
+    protected final FrsFragment fMP;
+    protected final com.baidu.tieba.frs.vc.k fNY;
+    protected final ak fNZ;
+    protected final c fOa;
+    protected final FrsModelController fuF;
+    protected final com.baidu.tieba.frs.vc.f fuG;
+    protected final com.baidu.tieba.frs.k fuo;
 
     public j(FrsFragment frsFragment) {
         if (frsFragment == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.fMb = frsFragment;
-        this.fuh = this.fMb.blO();
-        this.ftP = this.fMb.blR();
-        this.fNk = this.fMb.blP();
-        this.fug = this.fMb.blM();
-        this.fNl = this.fMb.blQ();
-        this.fNm = this.fMb.blN();
+        this.fMP = frsFragment;
+        this.fuG = this.fMP.blV();
+        this.fuo = this.fMP.blY();
+        this.fNY = this.fMP.blW();
+        this.fuF = this.fMP.blT();
+        this.fNZ = this.fMP.blX();
+        this.fOa = this.fMP.blU();
     }
 }

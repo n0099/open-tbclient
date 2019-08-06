@@ -50,7 +50,7 @@ public class AdStatic {
                 }
             }
         });
-        com.baidu.tieba.ad.a.aCZ().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
+        com.baidu.tieba.ad.a.aDb().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
             @Override // com.baidu.tieba.recapp.h.c
             public int b(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
                 if (z2) {
@@ -68,7 +68,7 @@ public class AdStatic {
     }
 
     private static void abm() {
-        com.baidu.tieba.ad.a.aCZ().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
+        com.baidu.tieba.ad.a.aDb().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 Bundle rr;
@@ -211,7 +211,7 @@ public class AdStatic {
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(context, "url_1", null);
         String ss = ss(str);
-        if (!st(ss) && aDa() && ko("com.baidu.searchbox") && su(ss) && bBP) {
+        if (!st(ss) && aDc() && ko("com.baidu.searchbox") && su(ss) && bBP) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, z, z2, z3, z4);
             return;
@@ -223,7 +223,7 @@ public class AdStatic {
         return str != null;
     }
 
-    private static boolean aDa() {
+    private static boolean aDc() {
         return com.baidu.adp.lib.b.d.hS().az("switch_mbaidu_startup") == 1;
     }
 
@@ -266,7 +266,7 @@ public class AdStatic {
     }
 
     private static void abn() {
-        com.baidu.tieba.ad.a.aCZ().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
+        com.baidu.tieba.ad.a.aDb().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -338,7 +338,7 @@ public class AdStatic {
     }
 
     private static void abo() {
-        com.baidu.tieba.ad.a.aCZ().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
+        com.baidu.tieba.ad.a.aDb().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

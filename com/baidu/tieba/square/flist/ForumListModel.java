@@ -12,7 +12,7 @@ import com.baidu.tieba.square.data.ForumInfoData;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
-    private static boolean eYD = false;
+    private static boolean eYR = false;
     private static String menu_name = null;
     private static final long serialVersionUID = -5006585496963439439L;
     public long ctime;
@@ -69,7 +69,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     }
 
     public boolean isOk() {
-        return eYD;
+        return eYR;
     }
 
     public static ForumListModel new_fetch(RequestParams requestParams) {
@@ -87,11 +87,11 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         xVar.o("recommend_type", String.valueOf(requestParams.recommend_type));
         xVar.o("menu_name", requestParams.menu_name);
         xVar.o(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i));
-        String aig = xVar.aig();
-        eYD = xVar.aiH();
-        ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(aig, ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (mL = com.baidu.tbadk.core.d.a.agF().mL("tb.my_posts")) != null)) {
-            mL.a(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + "_list", aig, 86400000L);
+        String aii = xVar.aii();
+        eYR = xVar.aiJ();
+        ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(aii, ForumListModel.class);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (mL = com.baidu.tbadk.core.d.a.agH().mL("tb.my_posts")) != null)) {
+            mL.a(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + "_list", aii, 86400000L);
         }
         return forumListModel;
     }

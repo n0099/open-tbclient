@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private String cgE;
-    private long cgF;
-    private long cgG;
-    private long cgH;
-    private String cgI;
-    private String cgJ;
+    private String cgL;
+    private long cgM;
+    private long cgN;
+    private long cgO;
+    private String cgP;
+    private String cgQ;
 
     public void parseJson(String str) {
         if (!aq.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.cgE = jSONObject.optString("splash_video_url");
-                this.cgF = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.cgG = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.cgH = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.cgI = jSONObject.optString("splash_video_h5_url");
-                this.cgJ = jSONObject.optString("splash_video_h5_text");
+                this.cgL = jSONObject.optString("splash_video_url");
+                this.cgM = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.cgN = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.cgO = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.cgP = jSONObject.optString("splash_video_h5_url");
+                this.cgQ = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String amH() {
-        return this.cgE;
-    }
-
-    public long amI() {
-        return this.cgF;
-    }
-
-    public long amJ() {
-        return this.cgG;
+    public String amJ() {
+        return this.cgL;
     }
 
     public long amK() {
-        return this.cgH;
+        return this.cgM;
     }
 
-    public String amL() {
-        return this.cgI;
+    public long amL() {
+        return this.cgN;
     }
 
-    public String amM() {
-        return this.cgJ;
+    public long amM() {
+        return this.cgO;
+    }
+
+    public String amN() {
+        return this.cgP;
+    }
+
+    public String amO() {
+        return this.cgQ;
     }
 }

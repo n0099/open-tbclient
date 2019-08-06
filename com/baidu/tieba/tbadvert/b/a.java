@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tieba.tbadvert.a.a jjh;
-    private InterfaceC0417a jji;
-    private InterfaceC0417a jjj = new InterfaceC0417a() { // from class: com.baidu.tieba.tbadvert.b.a.1
+    private com.baidu.tieba.tbadvert.a.a jko;
+    private InterfaceC0417a jkp;
+    private InterfaceC0417a jkq = new InterfaceC0417a() { // from class: com.baidu.tieba.tbadvert.b.a.1
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0417a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
-            a.this.jjh = aVar;
-            if (a.this.jji != null) {
-                a.this.jji.a(aVar);
+            a.this.jko = aVar;
+            if (a.this.jkp != null) {
+                a.this.jkp.a(aVar);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0417a
         public void ay(Object obj) {
-            if (a.this.jji != null) {
-                a.this.jji.ay(obj);
+            if (a.this.jkp != null) {
+                a.this.jkp.ay(obj);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0417a
-        public void cqI() {
-            a.this.jjh = null;
-            if (a.this.jji != null) {
-                a.this.jji.cqI();
+        public void cre() {
+            a.this.jko = null;
+            if (a.this.jkp != null) {
+                a.this.jkp.cre();
             }
         }
     };
-    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> jjk = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
+    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> jkr = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar == null || aVar.nK() == null) {
-                if (a.this.jji != null) {
-                    a.this.jji.cqI();
+                if (a.this.jkp != null) {
+                    a.this.jkp.cre();
                 }
-            } else if (a.this.jji != null) {
-                a.this.jji.ay(aVar);
+            } else if (a.this.jkp != null) {
+                a.this.jkp.ay(aVar);
             }
         }
 
@@ -55,8 +55,8 @@ public class a {
         @Override // com.baidu.adp.lib.f.b
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (a.this.jji != null) {
-                a.this.jji.cqI();
+            if (a.this.jkp != null) {
+                a.this.jkp.cre();
             }
         }
     };
@@ -68,42 +68,42 @@ public class a {
 
         void ay(Object obj);
 
-        void cqI();
+        void cre();
     }
 
-    public void cqM() {
-        b bVar = new b(this.jjj);
+    public void cri() {
+        b bVar = new b(this.jkq);
         bVar.setSelfExecute(true);
         bVar.execute(new String[0]);
     }
 
-    public com.baidu.tieba.tbadvert.a.b cqN() {
-        if (this.jjh == null || v.aa(this.jjh.jje)) {
+    public com.baidu.tieba.tbadvert.a.b crj() {
+        if (this.jko == null || v.aa(this.jko.jkl)) {
             return null;
         }
-        for (com.baidu.tieba.tbadvert.a.b bVar : this.jjh.jje) {
-            if (bVar != null && bVar.cqL() && bVar.bKB == 3) {
+        for (com.baidu.tieba.tbadvert.a.b bVar : this.jko.jkl) {
+            if (bVar != null && bVar.crh() && bVar.bKG == 3) {
                 return bVar;
             }
         }
         return null;
     }
 
-    public void cqO() {
-        com.baidu.tieba.tbadvert.a.b cqN = cqN();
-        if (cqN != null && !TextUtils.isEmpty(cqN.jjg)) {
-            j(cqN.showType, cqN.jjg, true);
-        } else if (this.jji != null) {
-            this.jji.cqI();
+    public void crk() {
+        com.baidu.tieba.tbadvert.a.b crj = crj();
+        if (crj != null && !TextUtils.isEmpty(crj.jkn)) {
+            j(crj.showType, crj.jkn, true);
+        } else if (this.jkp != null) {
+            this.jkp.cre();
         }
     }
 
-    public void cqP() {
-        if (this.jjh != null && !v.aa(this.jjh.jje)) {
-            com.baidu.tieba.tbadvert.a.b cqN = cqN();
-            for (com.baidu.tieba.tbadvert.a.b bVar : this.jjh.jje) {
-                if (bVar != null && bVar != cqN && bVar.cqL() && bVar.bKB != 4) {
-                    j(bVar.showType, bVar.jjg, false);
+    public void crl() {
+        if (this.jko != null && !v.aa(this.jko.jkl)) {
+            com.baidu.tieba.tbadvert.a.b crj = crj();
+            for (com.baidu.tieba.tbadvert.a.b bVar : this.jko.jkl) {
+                if (bVar != null && bVar != crj && bVar.crh() && bVar.bKG != 4) {
+                    j(bVar.showType, bVar.jkn, false);
                 }
             }
         }
@@ -112,7 +112,7 @@ public class a {
     private void j(int i, String str, boolean z) {
         if (i == 1 || i == 2) {
             if (z) {
-                c.iE().a(str, 10, this.jjk, null);
+                c.iE().a(str, 10, this.jkr, null);
             } else {
                 c.iE().a(str, 10, null, null);
             }
@@ -120,15 +120,15 @@ public class a {
     }
 
     public void a(InterfaceC0417a interfaceC0417a) {
-        this.jji = interfaceC0417a;
+        this.jkp = interfaceC0417a;
     }
 
     /* loaded from: classes3.dex */
     private class b extends BdAsyncTask<String, Void, Object> {
-        private InterfaceC0417a jji;
+        private InterfaceC0417a jkp;
 
         public b(InterfaceC0417a interfaceC0417a) {
-            this.jji = interfaceC0417a;
+            this.jkp = interfaceC0417a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,28 +137,28 @@ public class a {
         /* renamed from: h */
         public Object doInBackground(String... strArr) {
             x xVar = new x(TbConfig.SERVER_ADDRESS + "c/s/splashSchedule");
-            String aig = xVar.aig();
-            if (!xVar.aiE().ajF().isRequestSuccess() || Fg(aig)) {
+            String aii = xVar.aii();
+            if (!xVar.aiG().ajH().isRequestSuccess() || Fh(aii)) {
                 return null;
             }
             com.baidu.tieba.tbadvert.a.a aVar = new com.baidu.tieba.tbadvert.a.a();
-            aVar.Ff(aig);
+            aVar.Fg(aii);
             return aVar;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (this.jji != null) {
+            if (this.jkp != null) {
                 if (obj instanceof com.baidu.tieba.tbadvert.a.a) {
-                    this.jji.a((com.baidu.tieba.tbadvert.a.a) obj);
+                    this.jkp.a((com.baidu.tieba.tbadvert.a.a) obj);
                 } else {
-                    this.jji.cqI();
+                    this.jkp.cre();
                 }
             }
         }
 
-        private boolean Fg(String str) {
+        private boolean Fh(String str) {
             if (str != null) {
                 try {
                     ErrorData errorData = new ErrorData();

@@ -17,7 +17,7 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private int bQM;
+    private int bQS;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -25,7 +25,7 @@ public class a {
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.nL()) {
-                a.this.ahT();
+                a.this.ahV();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -46,9 +46,9 @@ public class a {
     private FragmentTabHost mTabHost;
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.bQM = 0;
+        this.bQS = 0;
         this.mTabHost = fragmentTabHost;
-        this.bQM = i;
+        this.bQS = i;
     }
 
     public void d(Pair<String, String> pair) {
@@ -60,7 +60,7 @@ public class a {
             } else if (!TextUtils.isEmpty(str)) {
                 nc(str);
             } else {
-                ahT();
+                ahV();
             }
         }
     }
@@ -78,11 +78,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahT() {
+    public void ahV() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
-            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bQM);
-            am.l(this.mTabHost.getFragmentTabWidget(), this.bQM);
-            am.l(this.mTabHost.getTabWrapper(), this.bQM);
+            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bQS);
+            am.l(this.mTabHost.getFragmentTabWidget(), this.bQS);
+            am.l(this.mTabHost.getTabWrapper(), this.bQS);
         }
     }
 }

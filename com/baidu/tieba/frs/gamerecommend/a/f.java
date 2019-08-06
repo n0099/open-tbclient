@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.baidu.tieba.card.a.a<com.baidu.tieba.card.g>> {
-    private com.baidu.tieba.card.g fHb;
+    private com.baidu.tieba.card.g fHP;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.eSl);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.eSs);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -22,9 +22,9 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aq */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.g> onCreateViewHolder(ViewGroup viewGroup) {
-        this.fHb = new com.baidu.tieba.card.g(this.mPageContext);
-        this.fHb.setForumId(this.mForumId);
-        return new com.baidu.tieba.card.a.a<>(this.fHb);
+        this.fHP = new com.baidu.tieba.card.g(this.mPageContext);
+        this.fHP.setForumId(this.mForumId);
+        return new com.baidu.tieba.card.a.a<>(this.fHP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,11 +32,11 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.g> aVar) {
-        if (aVar.bar() == null) {
+        if (aVar.bat() == null) {
             return null;
         }
-        aVar.bar().a(eVar);
-        aVar.bar().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return aVar.bar().getView();
+        aVar.bat().a(eVar);
+        aVar.bat().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return aVar.bat().getView();
     }
 }

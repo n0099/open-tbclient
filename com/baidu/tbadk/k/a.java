@@ -5,26 +5,26 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class a implements b {
-    private b cvL;
+    private b cvS;
 
     public a(TbPageContext<?> tbPageContext) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016469, b.class, tbPageContext);
         if (runTask != null && runTask.getData() != null) {
-            this.cvL = (b) runTask.getData();
+            this.cvS = (b) runTask.getData();
         }
     }
 
     @Override // com.baidu.tbadk.k.b
     public void qA(String str) {
-        if (this.cvL != null) {
-            this.cvL.qA(str);
+        if (this.cvS != null) {
+            this.cvS.qA(str);
         }
     }
 
     @Override // com.baidu.tbadk.k.b
     public void destory() {
-        if (this.cvL != null) {
-            this.cvL.destory();
+        if (this.cvS != null) {
+            this.cvS.destory();
         }
     }
 }

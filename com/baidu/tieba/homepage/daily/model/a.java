@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.daily.model;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.daily.b.b;
@@ -17,77 +17,77 @@ import tbclient.DailyPage.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0324a gdu;
-    private DailyNetModel gea;
-    private boolean gec;
+    private DailyNetModel geR;
+    private boolean geT;
+    private InterfaceC0324a gek;
     private boolean mHasMore;
     private TbPageContext mPageContext;
-    private b geb = new b();
-    private DailyNetModel.a ged = new DailyNetModel.a() { // from class: com.baidu.tieba.homepage.daily.model.a.1
+    private b geS = new b();
+    private DailyNetModel.a geU = new DailyNetModel.a() { // from class: com.baidu.tieba.homepage.daily.model.a.1
         @Override // com.baidu.tieba.homepage.daily.model.DailyNetModel.a
         public void a(DataRes dataRes, boolean z) {
             String str;
             String str2 = null;
             if (dataRes != null) {
-                List<m> dataList = a.this.geb.getDataList();
+                List<m> dataList = a.this.geS.getDataList();
                 DailyInfo dailyInfo = dataRes.daily_info;
                 if (z) {
-                    a.this.geb.cB(dataRes.banner);
+                    a.this.geS.cA(dataRes.banner);
                     dataList.clear();
-                    e cC = e.cC(dataRes.topic);
-                    if (cC != null) {
-                        dataList.add(cC);
+                    e cB = e.cB(dataRes.topic);
+                    if (cB != null) {
+                        dataList.add(cB);
                     }
-                    boolean z2 = (a.this.geb.bvd() == null && cC == null) ? false : true;
+                    boolean z2 = (a.this.geS.bvq() == null && cB == null) ? false : true;
                     if (dailyInfo != null) {
                         d dVar = new d();
-                        dVar.yb(dailyInfo.tab_name);
-                        dVar.ya(dailyInfo.update_time);
+                        dVar.yc(dailyInfo.tab_name);
+                        dVar.yb(dailyInfo.update_time);
                         dVar.lj(z2);
                         dataList.add(dVar);
                     }
-                    a.this.gec = false;
+                    a.this.geT = false;
                 }
                 List<ThreadInfo> list = dailyInfo != null ? dailyInfo.thread_list : null;
                 if (v.Z(list) > 0) {
-                    int Z = v.Z(a.this.geb.getDataList());
-                    if (Z <= 0 || !(dataList.get(Z - 1) instanceof bg)) {
+                    int Z = v.Z(a.this.geS.getDataList());
+                    if (Z <= 0 || !(dataList.get(Z - 1) instanceof bh)) {
                         str = null;
                     } else {
-                        str2 = ((bg) dataList.get(Z - 1)).agj();
+                        str2 = ((bh) dataList.get(Z - 1)).agk();
                         str = str2;
                     }
                     String str3 = str;
                     for (ThreadInfo threadInfo : list) {
                         if (threadInfo != null) {
-                            a.this.gec = true;
-                            bg bgVar = new bg();
-                            bgVar.a(threadInfo);
-                            bgVar.dN(true);
-                            if (!a.this.a(dataList, str2, bgVar)) {
-                                String agj = bgVar.agj();
-                                if (str3 == null || agj == null || str3.equals(agj)) {
-                                    dataList.add(bgVar);
+                            a.this.geT = true;
+                            bh bhVar = new bh();
+                            bhVar.a(threadInfo);
+                            bhVar.dN(true);
+                            if (!a.this.a(dataList, str2, bhVar)) {
+                                String agk = bhVar.agk();
+                                if (str3 == null || agk == null || str3.equals(agk)) {
+                                    dataList.add(bhVar);
                                 } else {
                                     c cVar = new c();
-                                    cVar.xZ(agj);
+                                    cVar.ya(agk);
                                     dataList.add(cVar);
-                                    dataList.add(bgVar);
+                                    dataList.add(bhVar);
                                 }
-                                str3 = agj;
+                                str3 = agk;
                             }
                         }
                     }
                 }
                 int size = dataList.size();
-                if (z && !a.this.gec && size > 0 && (dataList.get(size - 1) instanceof d)) {
+                if (z && !a.this.geT && size > 0 && (dataList.get(size - 1) instanceof d)) {
                     dataList.remove(size - 1);
                 }
                 if (dailyInfo != null) {
                     a.this.mHasMore = dailyInfo.has_more.intValue() == 1;
                 }
-                if (a.this.gdu != null) {
-                    a.this.gdu.a(a.this.geb, z, a.this.mHasMore);
+                if (a.this.gek != null) {
+                    a.this.gek.a(a.this.geS, z, a.this.mHasMore);
                     return;
                 }
                 return;
@@ -97,8 +97,8 @@ public class a {
 
         @Override // com.baidu.tieba.homepage.daily.model.DailyNetModel.a
         public void M(int i, String str) {
-            if (a.this.gdu != null) {
-                a.this.gdu.M(i, str);
+            if (a.this.gek != null) {
+                a.this.gek.M(i, str);
             }
         }
     };
@@ -113,29 +113,29 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.gea = new DailyNetModel(tbPageContext);
-        this.gea.a(this.ged);
+        this.geR = new DailyNetModel(tbPageContext);
+        this.geR.a(this.geU);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.gea.setUniqueId(bdUniqueId);
+        this.geR.setUniqueId(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(List<m> list, String str, bg bgVar) {
-        if (v.aa(list) || bgVar == null || str == null || !str.equals(bgVar.agj())) {
+    public boolean a(List<m> list, String str, bh bhVar) {
+        if (v.aa(list) || bhVar == null || str == null || !str.equals(bhVar.agk())) {
             return false;
         }
         for (int size = list.size() - 1; size >= 0; size--) {
             m mVar = list.get(size);
-            if (!(mVar instanceof bg)) {
+            if (!(mVar instanceof bh)) {
                 return false;
             }
-            bg bgVar2 = (bg) mVar;
-            if (bgVar2.agj() == null || !bgVar2.agj().equals(bgVar.agj())) {
+            bh bhVar2 = (bh) mVar;
+            if (bhVar2.agk() == null || !bhVar2.agk().equals(bhVar.agk())) {
                 return false;
             }
-            if (bgVar2.getId() != null && bgVar2.getId().equals(bgVar.getId())) {
+            if (bhVar2.getId() != null && bhVar2.getId().equals(bhVar.getId())) {
                 return true;
             }
         }
@@ -143,34 +143,34 @@ public class a {
     }
 
     public void refresh() {
-        this.gea.refresh();
+        this.geR.refresh();
     }
 
-    public void aIQ() {
-        this.gea.aIQ();
+    public void aIS() {
+        this.geR.aIS();
     }
 
     public void a(InterfaceC0324a interfaceC0324a) {
-        this.gdu = interfaceC0324a;
+        this.gek = interfaceC0324a;
     }
 
     public boolean hasMore() {
         return this.mHasMore;
     }
 
-    public boolean bvl() {
-        return this.gec;
+    public boolean bvy() {
+        return this.geT;
     }
 
     public boolean pP() {
-        return this.gea.pP();
+        return this.geR.pP();
     }
 
-    public boolean auR() {
-        return this.geb.auR();
+    public boolean auT() {
+        return this.geS.auT();
     }
 
     public void onDestroy() {
-        this.gea.onDestroy();
+        this.geR.onDestroy();
     }
 }

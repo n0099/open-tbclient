@@ -8,13 +8,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes4.dex */
 public class a extends PopupWindow {
-    private InterfaceC0326a ggM;
+    private InterfaceC0326a ghC;
     private TbPageContext mContext;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public interface InterfaceC0326a {
-        void bvY();
+        void bwm();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
@@ -44,18 +44,18 @@ public class a extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.ggM != null) {
-            this.ggM.bvY();
+        if (this.ghC != null) {
+            this.ghC.bwm();
         } else {
             super.dismiss();
         }
     }
 
-    public void bwh() {
+    public void bwv() {
         super.dismiss();
     }
 
     public void a(InterfaceC0326a interfaceC0326a) {
-        this.ggM = interfaceC0326a;
+        this.ghC = interfaceC0326a;
     }
 }

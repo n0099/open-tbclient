@@ -14,7 +14,7 @@ public class m {
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.cVA + str);
+            File file = new File(i.cVH + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -33,7 +33,7 @@ public class m {
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.cVA + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.cVH + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,7 +43,7 @@ public class m {
         return j;
     }
 
-    public static long aCn() {
+    public static long aCp() {
         StatFs statFs = new StatFs(TbadkCoreApplication.getInst().getCacheDir().getPath());
         return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }

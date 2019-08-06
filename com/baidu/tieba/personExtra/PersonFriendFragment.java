@@ -34,39 +34,39 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class PersonFriendFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
     public BdListView Ni = null;
-    private d inW = null;
-    private View imD = null;
+    private d ipa = null;
+    private View inI = null;
     private NoDataView mNoDataView = null;
     private com.baidu.tbadk.core.view.i mPullView = null;
-    private PersonFriendModel inV = null;
+    private PersonFriendModel ioZ = null;
     private int mPageType = 0;
-    int hxA = 0;
+    int hys = 0;
     private boolean mIsHost = true;
-    private ar inX = null;
-    private boolean inY = true;
-    private boolean ifU = false;
+    private ar ipb = null;
+    private boolean ipc = true;
+    private boolean igW = false;
     private int pageNum = 0;
-    private int inZ = 20;
-    private final CustomMessageListener ioa = new CustomMessageListener(2001182) { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.6
+    private int ipd = 20;
+    private final CustomMessageListener ipe = new CustomMessageListener(2001182) { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001182 && PersonFriendFragment.this.mIsHost) {
                 ar personFriendData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonFriendData();
-                if (PersonFriendFragment.this.cct() != null) {
-                    PersonFriendFragment.this.inX = personFriendData;
+                if (PersonFriendFragment.this.ccL() != null) {
+                    PersonFriendFragment.this.ipb = personFriendData;
                     PersonFriendFragment.this.a(personFriendData, true);
                 }
             }
         }
     };
-    private HttpMessageListener iob = new HttpMessageListener(CmdConfigHttp.PIC_FRIEND_CMD) { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.7
+    private HttpMessageListener ipf = new HttpMessageListener(CmdConfigHttp.PIC_FRIEND_CMD) { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
-                PersonFriendFragment.this.ifU = false;
-                if (PersonFriendFragment.this.cct() != null && httpResponsedMessage.getOrginalMessage().getTag() == PersonFriendFragment.this.cct().getUniqueId()) {
+                PersonFriendFragment.this.igW = false;
+                if (PersonFriendFragment.this.ccL() != null && httpResponsedMessage.getOrginalMessage().getTag() == PersonFriendFragment.this.ccL().getUniqueId()) {
                     PersonFriendFragment.this.Ni.completePullRefreshPostDelayed(0L);
                     if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
                         PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
@@ -89,7 +89,7 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PersonFriendActivity cct() {
+    public PersonFriendActivity ccL() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonFriendActivity) {
             return (PersonFriendActivity) baseFragmentActivity;
@@ -101,27 +101,27 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
     public void onResume() {
         super.onResume();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        if (cct() != null) {
-            this.inV = cct().ccs();
+        if (ccL() != null) {
+            this.ioZ = ccL().ccK();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        if (this.inW != null) {
-            this.inW.ccu();
-            this.inW = null;
+        if (this.ipa != null) {
+            this.ipa.ccM();
+            this.ipa = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.iob);
-        MessageManager.getInstance().unRegisterListener(this.ioa);
+        MessageManager.getInstance().unRegisterListener(this.ipf);
+        MessageManager.getInstance().unRegisterListener(this.ipe);
         super.onDestroyView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(this.iob);
-        registerListener(this.ioa);
+        registerListener(this.ipf);
+        registerListener(this.ipe);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -136,15 +136,15 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
     public void onStop() {
         super.onStop();
         if (this.mNoDataView != null) {
-            this.mNoDataView.aku();
+            this.mNoDataView.akw();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.inW != null) {
-            this.inW.ccu();
-            this.inW = null;
+        if (this.ipa != null) {
+            this.ipa.ccM();
+            this.ipa = null;
         }
         super.onDestroy();
     }
@@ -154,13 +154,13 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
         String str;
         this.mPageType = getArguments().getInt("page_type", 0);
         View inflate = layoutInflater.inflate(R.layout.friend_fragment, viewGroup, false);
-        this.inW = new d(cct(), cct().bFL(), this.mPageType, new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.1
+        this.ipa = new d(ccL(), ccL().bFZ(), this.mPageType, new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonFriendFragment.this.hxA = ((Integer) view.getTag()).intValue();
+                PersonFriendFragment.this.hys = ((Integer) view.getTag()).intValue();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
-                    PersonFriendFragment.this.bPn();
+                    PersonFriendFragment.this.bPB();
                 } else {
                     TbadkCoreApplication.getInst().login(PersonFriendFragment.this.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(PersonFriendFragment.this.getBaseFragmentActivity().getPageContext().getPageActivity(), true, 11028)));
                 }
@@ -168,10 +168,10 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
         }, new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!PersonFriendFragment.this.ifU) {
-                    PersonFriendFragment.this.pageNum = PersonFriendFragment.this.inV.ccv().getPage().adp() + 1;
-                    PersonFriendFragment.this.ifU = true;
-                    PersonFriendFragment.this.bPm();
+                if (!PersonFriendFragment.this.igW) {
+                    PersonFriendFragment.this.pageNum = PersonFriendFragment.this.ioZ.ccN().getPage().adq() + 1;
+                    PersonFriendFragment.this.igW = true;
+                    PersonFriendFragment.this.bPA();
                 }
             }
         });
@@ -180,82 +180,82 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 UserData userData;
-                if (PersonFriendFragment.this.inW != null && PersonFriendFragment.this.inW.getItemViewType(i) == 0 && (userData = (UserData) PersonFriendFragment.this.inW.getItem(i)) != null && userData.getUserId() != null) {
-                    PersonFriendFragment.this.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(PersonFriendFragment.this.cct().getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
+                if (PersonFriendFragment.this.ipa != null && PersonFriendFragment.this.ipa.getItemViewType(i) == 0 && (userData = (UserData) PersonFriendFragment.this.ipa.getItem(i)) != null && userData.getUserId() != null) {
+                    PersonFriendFragment.this.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(PersonFriendFragment.this.ccL().getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
                 }
             }
         });
-        this.Ni.setAdapter((ListAdapter) this.inW);
-        this.mPullView = new com.baidu.tbadk.core.view.i(cct().getPageContext());
+        this.Ni.setAdapter((ListAdapter) this.ipa);
+        this.mPullView = new com.baidu.tbadk.core.view.i(ccL().getPageContext());
         this.mPullView.setListPullRefreshListener(new h.c() { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.4
             @Override // com.baidu.tbadk.core.view.h.c
             public void er(boolean z) {
-                if (PersonFriendFragment.this.cct() != null) {
+                if (PersonFriendFragment.this.ccL() != null) {
                     PersonFriendFragment.this.pageNum = 0;
-                    PersonFriendFragment.this.inY = true;
-                    PersonFriendFragment.this.inV.a(PersonFriendFragment.this.mIsHost, PersonFriendFragment.this.cct().getUid(), PersonFriendFragment.this.pageNum, PersonFriendFragment.this.inZ);
+                    PersonFriendFragment.this.ipc = true;
+                    PersonFriendFragment.this.ioZ.a(PersonFriendFragment.this.mIsHost, PersonFriendFragment.this.ccL().getUid(), PersonFriendFragment.this.pageNum, PersonFriendFragment.this.ipd);
                 }
             }
         });
         this.Ni.setPullRefresh(this.mPullView);
-        this.mIsHost = cct().bFL();
-        if (cct() == null) {
+        this.mIsHost = ccL().bFZ();
+        if (ccL() == null) {
             str = null;
         } else if (this.mIsHost) {
             str = String.format(getString(R.string.person_friend_no_personal_info), getString(R.string.you));
         } else if (this.mPageType == 0) {
-            str = String.format(getString(R.string.person_friend_no_personal_info), cct().bFK());
+            str = String.format(getString(R.string.person_friend_no_personal_info), ccL().bFY());
         } else {
             str = getString(R.string.person_friend_no_common_info);
         }
         this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.oP(str), null);
-        this.imD = inflate.findViewById(R.id.friend_fragment_parent);
+        this.inI = inflate.findViewById(R.id.friend_fragment_parent);
         this.Ni.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.personExtra.PersonFriendFragment.5
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                if (!PersonFriendFragment.this.ifU) {
-                    PersonFriendFragment.this.inY = false;
-                    PersonFriendFragment.this.pageNum = PersonFriendFragment.this.inV.ccv().getPage().adp() + 1;
-                    PersonFriendFragment.this.ifU = true;
-                    PersonFriendFragment.this.bPm();
+                if (!PersonFriendFragment.this.igW) {
+                    PersonFriendFragment.this.ipc = false;
+                    PersonFriendFragment.this.pageNum = PersonFriendFragment.this.ioZ.ccN().getPage().adq() + 1;
+                    PersonFriendFragment.this.igW = true;
+                    PersonFriendFragment.this.bPA();
                 }
             }
         });
-        if (cct() != null) {
-            this.inV = cct().ccs();
+        if (ccL() != null) {
+            this.ioZ = ccL().ccK();
             if (this.mIsHost) {
-                cbV();
+                ccn();
             }
         }
-        if (this.mPageType == cct().bFJ()) {
+        if (this.mPageType == ccL().bFX()) {
             this.pageNum = 0;
             this.Ni.startPullRefresh();
         }
         return inflate;
     }
 
-    public void cbV() {
-        if (this.inV != null) {
-            this.inV.cbV();
+    public void ccn() {
+        if (this.ioZ != null) {
+            this.ioZ.ccn();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPm() {
-        if (this.inW != null) {
-            this.inW.pJ(true);
-            this.inW.notifyDataSetChanged();
+    public void bPA() {
+        if (this.ipa != null) {
+            this.ipa.pK(true);
+            this.ipa.notifyDataSetChanged();
         }
-        this.pageNum = this.inV.ccv().getPage().adp() + 1;
-        this.inV.a(this.mIsHost, this.inV.getId(), this.pageNum, this.inZ);
+        this.pageNum = this.ioZ.ccN().getPage().adq() + 1;
+        this.ioZ.a(this.mIsHost, this.ioZ.getId(), this.pageNum, this.ipd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPn() {
+    public void bPB() {
         UserData userData;
-        if (this.inW != null && this.inW.getItemViewType(this.hxA) == 0 && (userData = (UserData) this.inW.getItem(this.hxA)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-            TiebaStatic.eventStat(cct().getPageContext().getContext(), "enter_chat", "personlistclick", 1, new Object[0]);
-            sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(cct().getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(userData.getUserId(), 0L), userData.getUserName(), userData.getName_show(), userData.getPortrait(), userData.getSex())));
+        if (this.ipa != null && this.ipa.getItemViewType(this.hys) == 0 && (userData = (UserData) this.ipa.getItem(this.hys)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+            TiebaStatic.eventStat(ccL().getPageContext().getContext(), "enter_chat", "personlistclick", 1, new Object[0]);
+            sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(ccL().getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(userData.getUserId(), 0L), userData.getUserName(), userData.getName_show(), userData.getPortrait(), userData.getSex())));
         }
     }
 
@@ -263,8 +263,8 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.imD != null && getBaseFragmentActivity() != null) {
-                getBaseFragmentActivity().getPageContext().getLayoutMode().onModeChanged(this.imD);
+            if (this.inI != null && getBaseFragmentActivity() != null) {
+                getBaseFragmentActivity().getPageContext().getLayoutMode().onModeChanged(this.inI);
             }
             if (this.mNoDataView != null) {
                 am.k(this.mNoDataView, R.color.cp_bg_line_d);
@@ -279,26 +279,26 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
         ar arVar2;
         if (arVar != null) {
             this.Ni.completePullRefreshPostDelayed(0L);
-            if (this.inV != null && cct() != null) {
+            if (this.ioZ != null && ccL() != null) {
                 if (!z) {
-                    if (this.inY) {
-                        this.inY = false;
-                        if (this.mPageType == cct().bFJ()) {
-                            this.inV.d(arVar);
+                    if (this.ipc) {
+                        this.ipc = false;
+                        if (this.mPageType == ccL().bFX()) {
+                            this.ioZ.d(arVar);
                             arVar2 = arVar;
                         }
                     } else {
-                        if (this.mPageType == cct().bFJ()) {
+                        if (this.mPageType == ccL().bFX()) {
                             a(arVar);
                         }
-                        arVar2 = this.inV.ccv();
+                        arVar2 = this.ioZ.ccN();
                     }
-                    this.inX = arVar2;
+                    this.ipb = arVar2;
                     b(arVar2);
                     c(arVar);
                 }
                 arVar2 = arVar;
-                this.inX = arVar2;
+                this.ipb = arVar2;
                 b(arVar2);
                 c(arVar);
             }
@@ -306,51 +306,51 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
     }
 
     public void a(ar arVar) {
-        if (arVar != null && this.inV != null) {
-            this.inV.ccv().adu().addAll(arVar.adu());
-            this.inV.ccv().adv().addAll(arVar.adv());
-            this.inV.ccv().setPage(arVar.getPage());
+        if (arVar != null && this.ioZ != null) {
+            this.ioZ.ccN().adv().addAll(arVar.adv());
+            this.ioZ.ccN().adw().addAll(arVar.adw());
+            this.ioZ.ccN().setPage(arVar.getPage());
         }
     }
 
     private void b(ar arVar) {
         boolean z = true;
-        if (this.inW != null) {
+        if (this.ipa != null) {
             if (arVar != null) {
                 an page = arVar.getPage();
                 if (this.mPageType == 0) {
-                    d dVar = this.inW;
-                    if (page == null || page.adr() != 1) {
+                    d dVar = this.ipa;
+                    if (page == null || page.ads() != 1) {
                         z = false;
                     }
                     dVar.setHasMore(z);
-                    this.inW.setData(arVar.adu());
+                    this.ipa.setData(arVar.adv());
                 } else {
-                    if (arVar.adv().size() < this.inZ) {
-                        this.inW.setHasMore(false);
+                    if (arVar.adw().size() < this.ipd) {
+                        this.ipa.setHasMore(false);
                     } else {
-                        this.inW.setHasMore(true);
+                        this.ipa.setHasMore(true);
                     }
-                    this.inW.setData(arVar.adv());
+                    this.ipa.setData(arVar.adw());
                 }
-                this.inW.pJ(false);
-                this.inW.bPk();
-                this.inW.notifyDataSetChanged();
+                this.ipa.pK(false);
+                this.ipa.bPy();
+                this.ipa.notifyDataSetChanged();
                 return;
             }
-            this.inW.setHasMore(false);
-            this.inW.setData(new ArrayList<>());
-            this.inW.pJ(false);
-            this.inW.bPk();
-            this.inW.notifyDataSetChanged();
+            this.ipa.setHasMore(false);
+            this.ipa.setData(new ArrayList<>());
+            this.ipa.pK(false);
+            this.ipa.bPy();
+            this.ipa.notifyDataSetChanged();
         }
     }
 
     private void c(ar arVar) {
-        if (cct() != null && this.inV != null) {
+        if (ccL() != null && this.ioZ != null) {
             if (this.mPageType == 0) {
-                if (this.inV.ccv().adu().size() == 0) {
-                    if (this.inX != null && this.inX.adu().size() > 0) {
+                if (this.ioZ.ccN().adv().size() == 0) {
+                    if (this.ipb != null && this.ipb.adv().size() > 0) {
                         this.mNoDataView.setVisibility(8);
                         this.Ni.setVisibility(0);
                     } else {
@@ -361,8 +361,8 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
                     this.mNoDataView.setVisibility(8);
                     this.Ni.setVisibility(0);
                 }
-            } else if (this.inV.ccv().adv().size() == 0) {
-                if (this.inX != null && this.inX.adv().size() > 0) {
+            } else if (this.ioZ.ccN().adw().size() == 0) {
+                if (this.ipb != null && this.ipb.adw().size() > 0) {
                     this.mNoDataView.setVisibility(8);
                     this.Ni.setVisibility(0);
                 } else {
@@ -373,7 +373,7 @@ public class PersonFriendFragment extends BaseFragment implements View.OnClickLi
                 this.mNoDataView.setVisibility(8);
                 this.Ni.setVisibility(0);
             }
-            cct().bZ(this.inV.ccv().adw(), this.inV.ccv().adx());
+            ccL().bZ(this.ioZ.ccN().adx(), this.ioZ.ccN().ady());
         }
     }
 }

@@ -16,31 +16,31 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.f;
 /* loaded from: classes3.dex */
 public class g {
-    private WriteImageGridView jUo;
-    private f jUp;
+    private WriteImageGridView jVu;
+    private f jVv;
     private TbPageContext<WriteActivity> mContext;
     private WriteImagesInfo mWriteImagesInfo;
-    private com.baidu.tbadk.img.b ctb = new com.baidu.tbadk.img.b();
+    private com.baidu.tbadk.img.b cti = new com.baidu.tbadk.img.b();
     private String mFrom = AlbumActivityConfig.FROM_WRITE;
     private String mForumId = "";
-    private f.a jUq = new f.a() { // from class: com.baidu.tieba.write.write.g.1
+    private f.a jVw = new f.a() { // from class: com.baidu.tieba.write.write.g.1
         @Override // com.baidu.tieba.write.write.f.a
-        public void Dg(int i) {
+        public void Di(int i) {
             if (g.this.mWriteImagesInfo != null && g.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < g.this.mWriteImagesInfo.getChosedFiles().size()) {
                 ImageFileInfo remove = g.this.mWriteImagesInfo.getChosedFiles().remove(i);
                 if (remove.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.gC().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                g.this.jUp.a(g.this.mWriteImagesInfo);
-                g.this.jUp.notifyDataSetChanged();
+                g.this.jVv.a(g.this.mWriteImagesInfo);
+                g.this.jVv.notifyDataSetChanged();
                 if (v.aa(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.mContext.getOrignalPage() != 0) {
-                    ((WriteActivity) g.this.mContext.getOrignalPage()).cmo();
+                    ((WriteActivity) g.this.mContext.getOrignalPage()).cmG();
                 }
             }
         }
 
         @Override // com.baidu.tieba.write.write.f.a
-        public void Dn(int i) {
+        public void Dp(int i) {
             int Z;
             ImageFileInfo imageInfoAt;
             if (g.this.mWriteImagesInfo != null && (Z = v.Z(g.this.mWriteImagesInfo.getChosedFiles())) != 0 && i >= 0 && i < Z && (imageInfoAt = g.this.mWriteImagesInfo.getImageInfoAt(i)) != null && imageInfoAt.getImageType() != 1) {
@@ -49,7 +49,7 @@ public class g {
         }
 
         @Override // com.baidu.tieba.write.write.f.a
-        public void cCs() {
+        public void cCN() {
             if (g.this.mWriteImagesInfo != null) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) g.this.mContext.getPageActivity(), g.this.mWriteImagesInfo.toJsonString(), true, true);
                 albumActivityConfig.getIntent().putExtra("forum_id", g.this.mForumId);
@@ -63,24 +63,24 @@ public class g {
 
     public g(TbPageContext<WriteActivity> tbPageContext, View view) {
         this.mContext = tbPageContext;
-        this.jUo = (WriteImageGridView) view.findViewById(R.id.write_image_grid_view);
-        this.jUp = new f(view.getContext(), this.ctb, null, this.jUq);
-        this.jUo.setAdapter((ListAdapter) this.jUp);
+        this.jVu = (WriteImageGridView) view.findViewById(R.id.write_image_grid_view);
+        this.jVv = new f(view.getContext(), this.cti, null, this.jVw);
+        this.jVu.setAdapter((ListAdapter) this.jVv);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.jUp.a(this.mWriteImagesInfo);
-        this.jUp.notifyDataSetChanged();
+        this.jVv.a(this.mWriteImagesInfo);
+        this.jVv.notifyDataSetChanged();
     }
 
     public void destroy() {
-        this.ctb.atG();
+        this.cti.atI();
     }
 
-    public void sh(boolean z) {
-        this.jUp.sh(z);
+    public void si(boolean z) {
+        this.jVv.si(z);
     }
 }

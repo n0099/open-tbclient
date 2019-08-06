@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String jsV;
-    private a jsW;
+    private String juc;
+    private a jud;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bIW();
+        void bJk();
 
-        void bIX();
+        void bJl();
 
-        void bIY();
+        void bJm();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.jsV = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.jsW = aVar;
+        this.juc = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.jud = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,10 +33,10 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.jsV);
-            xVar.aiE().ajE().mIsNeedAddCommenParam = false;
-            xVar.aiE().ajE().mIsUseCurrentBDUSS = false;
-            JSONArray optJSONArray = new JSONObject(new String(xVar.aih())).optJSONArray("result");
+            x xVar = new x(this.juc);
+            xVar.aiG().ajG().mIsNeedAddCommenParam = false;
+            xVar.aiG().ajG().mIsUseCurrentBDUSS = false;
+            JSONArray optJSONArray = new JSONObject(new String(xVar.aij())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
             }
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.jsW != null && num != null) {
+        if (this.jud != null && num != null) {
             if (num.intValue() == -1) {
-                this.jsW.onError(null);
+                this.jud.onError(null);
             } else if (num.intValue() == 1) {
-                this.jsW.bIW();
+                this.jud.bJk();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.jsW.bIX();
+                this.jud.bJl();
             } else {
-                this.jsW.bIY();
+                this.jud.bJm();
             }
         }
     }

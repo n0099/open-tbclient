@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
 public class a {
     private static String bduss;
-    private static boolean cyb = false;
+    private static boolean cyi = false;
     private static String stoken;
     private static String tbs;
 
     public static void fv(boolean z) {
-        cyb = z;
+        cyi = z;
     }
 
     public static boolean isLogin() {
-        return cyb;
+        return cyi;
     }
 
     public static void qQ(String str) {
@@ -44,10 +44,10 @@ public class a {
     }
 
     public static boolean cF(Context context) {
-        if (!cyb) {
+        if (!cyi) {
             cE(context);
         }
-        return cyb;
+        return cyi;
     }
 
     public static void cE(Context context) {

@@ -90,7 +90,7 @@ public class ForumRankActivityStatic {
         tbHttpMessageTask.setResponsedClass(SquareForumListResHttpMsg.class);
         tbHttpMessageTask.setIsImm(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        bb.ajC().a(new bb.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
+        bb.ajE().a(new bb.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
             @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -111,7 +111,7 @@ public class ForumRankActivityStatic {
                 return 3;
             }
         });
-        bb.ajC().a("square:", new bb.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
+        bb.ajE().a("square:", new bb.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
             @Override // com.baidu.tbadk.core.util.bb.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {

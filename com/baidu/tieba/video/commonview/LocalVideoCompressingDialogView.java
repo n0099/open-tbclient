@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class LocalVideoCompressingDialogView extends FrameLayout {
-    private CompressProgressView jvc;
-    private TextView jvd;
+    private CompressProgressView jwj;
+    private TextView jwk;
 
     public LocalVideoCompressingDialogView(Context context) {
         super(context);
@@ -28,14 +28,14 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.local_video_compress_dialog, this);
-        this.jvc = (CompressProgressView) findViewById(R.id.compress_progress_view);
-        this.jvd = (TextView) findViewById(R.id.compress_progress_text);
+        this.jwj = (CompressProgressView) findViewById(R.id.compress_progress_view);
+        this.jwk = (TextView) findViewById(R.id.compress_progress_text);
     }
 
     public void setPercent(int i) {
         if (i >= 0 && i <= 100) {
-            this.jvc.setProgress(i);
-            this.jvd.setText(i + "%");
+            this.jwj.setProgress(i);
+            this.jwk.setText(i + "%");
         }
     }
 

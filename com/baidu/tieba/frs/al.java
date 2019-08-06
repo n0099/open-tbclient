@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes4.dex */
 public interface al {
-    void ab(bg bgVar);
+    void ac(bh bhVar);
 }

@@ -10,12 +10,12 @@ import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
 /* loaded from: classes4.dex */
 public class b extends AppBarLayout.Behavior {
     private AppBarLayout Qj;
-    private StickyAppBarLayout.a ggc;
-    private NestedScrollHeader ggd;
-    private HomeTabBarView gge;
+    private StickyAppBarLayout.a ggS;
+    private NestedScrollHeader ggT;
+    private HomeTabBarView ggU;
     private boolean Ql = false;
     private boolean Qm = false;
-    private float ggf = -1.0f;
+    private float ggV = -1.0f;
     AppBarLayout.OnOffsetChangedListener Qk = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.b.1
         @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
@@ -25,18 +25,18 @@ public class b extends AppBarLayout.Behavior {
             if (abs >= totalScrollRange) {
                 if (!b.this.Ql) {
                     b.this.Ql = true;
-                    if (b.this.ggc != null) {
-                        b.this.ggc.ll(b.this.Ql);
+                    if (b.this.ggS != null) {
+                        b.this.ggS.ll(b.this.Ql);
                     }
                 }
             } else if (b.this.Ql) {
                 b.this.Ql = false;
-                if (b.this.ggc != null) {
-                    b.this.ggc.ll(b.this.Ql);
+                if (b.this.ggS != null) {
+                    b.this.ggS.ll(b.this.Ql);
                 }
             }
-            if (b.this.ggf != abs) {
-                b.this.ggf = abs;
+            if (b.this.ggV != abs) {
+                b.this.ggV = abs;
                 if (totalScrollRange > 0.0f) {
                     if (abs != 0.0f) {
                         if (abs >= totalScrollRange) {
@@ -52,16 +52,16 @@ public class b extends AppBarLayout.Behavior {
     };
 
     public void setOnHeaderStickyListener(StickyAppBarLayout.a aVar) {
-        this.ggc = aVar;
+        this.ggS = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aG(float f) {
-        if (this.gge != null) {
-            this.gge.aF(f);
+        if (this.ggU != null) {
+            this.ggU.aF(f);
         }
-        if (this.ggd != null) {
-            this.ggd.aF(1.0f - f);
+        if (this.ggT != null) {
+            this.ggT.aF(1.0f - f);
         }
     }
 
@@ -78,7 +78,7 @@ public class b extends AppBarLayout.Behavior {
         });
     }
 
-    public void bvQ() {
+    public void bwd() {
         if (this.Qj != null) {
             this.Qj.setExpanded(true, true);
         }
@@ -86,6 +86,10 @@ public class b extends AppBarLayout.Behavior {
 
     public boolean isSticky() {
         return this.Ql;
+    }
+
+    public NestedScrollHeader bwe() {
+        return this.ggT;
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
@@ -113,13 +117,13 @@ public class b extends AppBarLayout.Behavior {
             this.Qj = appBarLayout;
             View findViewById = this.Qj.findViewById(R.id.home_nested_header);
             if (findViewById instanceof NestedScrollHeader) {
-                this.ggd = (NestedScrollHeader) findViewById;
+                this.ggT = (NestedScrollHeader) findViewById;
             }
             View findViewById2 = this.Qj.findViewById(R.id.home_tab_bar_view);
             if (findViewById2 instanceof HomeTabBarView) {
-                this.gge = (HomeTabBarView) findViewById2;
+                this.ggU = (HomeTabBarView) findViewById2;
             }
-            bvR();
+            bwf();
         }
         if (this.Qj != null && !this.Qm) {
             this.Qj.addOnOffsetChangedListener(this.Qk);
@@ -128,7 +132,7 @@ public class b extends AppBarLayout.Behavior {
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
 
-    public void bvR() {
+    public void bwf() {
         StickyAppBarLayout.a onHeaderStickyListener;
         if ((this.Qj instanceof StickyAppBarLayout) && (onHeaderStickyListener = ((StickyAppBarLayout) this.Qj).getOnHeaderStickyListener()) != null) {
             setOnHeaderStickyListener(onHeaderStickyListener);

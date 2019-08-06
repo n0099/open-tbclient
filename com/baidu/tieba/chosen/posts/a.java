@@ -11,7 +11,7 @@ public class a extends com.baidu.tbadk.mvc.f.b<tinfo, com.baidu.tbadk.mvc.d.b, c
     }
 
     @Override // com.baidu.tbadk.mvc.f.b
-    public int kM(int i) {
+    public int kN(int i) {
         tinfo item = getItem(i);
         if (item == null) {
             return -1;

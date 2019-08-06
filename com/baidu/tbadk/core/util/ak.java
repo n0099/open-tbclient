@@ -7,59 +7,59 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ak {
-    private static String bTr;
+    private static String bTx;
     private static String sVersion;
 
     public static boolean Pw() {
-        return ajg();
+        return aji();
     }
 
-    public static boolean ajg() {
+    public static boolean aji() {
         return check("EMUI") && Build.VERSION.SDK_INT >= 24;
     }
 
     public static boolean check(String str) {
-        if (bTr != null) {
-            return bTr.equals(str);
+        if (bTx != null) {
+            return bTx.equals(str);
         }
         String gE = gE("ro.miui.ui.version.name");
         sVersion = gE;
         if (!TextUtils.isEmpty(gE)) {
-            bTr = "MIUI";
+            bTx = "MIUI";
         } else {
             String gE2 = gE("ro.build.version.emui");
             sVersion = gE2;
             if (!TextUtils.isEmpty(gE2)) {
-                bTr = "EMUI";
+                bTx = "EMUI";
             } else {
                 String gE3 = gE("ro.build.version.opporom");
                 sVersion = gE3;
                 if (!TextUtils.isEmpty(gE3)) {
-                    bTr = "OPPO";
+                    bTx = "OPPO";
                 } else {
                     String gE4 = gE("ro.vivo.os.version");
                     sVersion = gE4;
                     if (!TextUtils.isEmpty(gE4)) {
-                        bTr = "VIVO";
+                        bTx = "VIVO";
                     } else {
                         String gE5 = gE("ro.smartisan.version");
                         sVersion = gE5;
                         if (!TextUtils.isEmpty(gE5)) {
-                            bTr = "SMARTISAN";
+                            bTx = "SMARTISAN";
                         } else {
                             sVersion = Build.DISPLAY;
                             if (sVersion.toUpperCase().contains("FLYME")) {
-                                bTr = "FLYME";
+                                bTx = "FLYME";
                             } else {
                                 sVersion = "unknown";
-                                bTr = Build.MANUFACTURER.toUpperCase();
+                                bTx = Build.MANUFACTURER.toUpperCase();
                             }
                         }
                     }
                 }
             }
         }
-        return bTr.equals(str);
+        return bTx.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */

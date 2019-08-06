@@ -14,11 +14,11 @@ import com.baidu.tieba.card.p;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes4.dex */
 public class a extends h<n, C0310a> {
-    private boolean fEq;
+    private boolean fFe;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.fEq = z;
+        this.fFe = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,11 +39,11 @@ public class a extends h<n, C0310a> {
         TiebaStatic.log(new an("c10835"));
         if (nVar != null) {
             nVar.locate = i + 1;
-            c0310a.fEr.pF(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0310a.fEr.showBottomLine(this.fEq);
-            c0310a.fEr.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            c0310a.fFf.pG(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0310a.fFf.showBottomLine(this.fFe);
+            c0310a.fFf.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0310a.fEr.a(nVar);
+        c0310a.fFf.a(nVar);
         return c0310a.getView();
     }
 
@@ -51,11 +51,11 @@ public class a extends h<n, C0310a> {
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0310a extends v.a {
-        public p fEr;
+        public p fFf;
 
         public C0310a(p pVar) {
             super(pVar.getView());
-            this.fEr = pVar;
+            this.fFf = pVar;
         }
     }
 }

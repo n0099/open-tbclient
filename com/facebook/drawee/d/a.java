@@ -4,7 +4,7 @@ import android.view.MotionEvent;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface a {
-    void cFQ();
+    void cGl();
 
     @Nullable
     b getHierarchy();

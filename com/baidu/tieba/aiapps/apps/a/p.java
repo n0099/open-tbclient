@@ -17,9 +17,9 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class p {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dbi = "cookieMap";
-    public static String dbj = "ptokenDomains";
-    public static String dbk = "bdussDomains";
+    public static String dbp = "cookieMap";
+    public static String dbq = "ptokenDomains";
+    public static String dbr = "bdussDomains";
 
     public static void dt(Context context) {
         if (ProcessUtils.isMainProcess()) {
@@ -48,10 +48,10 @@ public class p {
                 stringArrayList = null;
                 map = c.j(context, hashMap);
             } else {
-                Map<String, String> map2 = delegateResult.mResult.getSerializable(dbi) != null ? (Map) delegateResult.mResult.getSerializable(dbi) : null;
-                stringArrayList = delegateResult.mResult.containsKey(dbk) ? delegateResult.mResult.getStringArrayList(dbk) : null;
-                if (delegateResult.mResult.containsKey(dbj)) {
-                    arrayList = delegateResult.mResult.getStringArrayList(dbj);
+                Map<String, String> map2 = delegateResult.mResult.getSerializable(dbp) != null ? (Map) delegateResult.mResult.getSerializable(dbp) : null;
+                stringArrayList = delegateResult.mResult.containsKey(dbr) ? delegateResult.mResult.getStringArrayList(dbr) : null;
+                if (delegateResult.mResult.containsKey(dbq)) {
+                    arrayList = delegateResult.mResult.getStringArrayList(dbq);
                     map = map2;
                 } else {
                     map = map2;

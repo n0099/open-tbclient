@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public abstract class p {
-    public static p bRr = null;
+    public static p bRx = null;
 
     public abstract com.baidu.tbadk.core.data.m getmCdnLogData();
 
@@ -15,17 +15,17 @@ public abstract class p {
     public abstract void setmCdnLogData(com.baidu.tbadk.core.data.m mVar);
 
     public static p getInstance() {
-        if (bRr == null) {
+        if (bRx == null) {
             synchronized (p.class) {
-                if (bRr == null) {
+                if (bRx == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016101, p.class);
                     if (runTask != null && runTask.getData() != null) {
-                        bRr = (p) runTask.getData();
+                        bRx = (p) runTask.getData();
                     }
-                    return bRr;
+                    return bRx;
                 }
             }
         }
-        return bRr;
+        return bRx;
     }
 }

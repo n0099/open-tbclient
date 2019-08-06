@@ -16,31 +16,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static String hzp = "native_crash_log.log";
-    private static List<String> hzq = new ArrayList();
+    private static String hAh = "native_crash_log.log";
+    private static List<String> hAi = new ArrayList();
     private static BroadcastReceiver HZ = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
                 String stringExtra = intent.getStringExtra(Constants.PACKAGE_NAME);
                 if (!TextUtils.isEmpty(stringExtra) && "com.baidu.adp.plugin.installed".equals(intent.getAction())) {
-                    b.ahO().putInt("native_crash_count_" + stringExtra, 0);
+                    b.ahQ().putInt("native_crash_count_" + stringExtra, 0);
                 }
             }
         }
     };
-    private static BdNativeCrash.a hzr = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
+    private static BdNativeCrash.a hAj = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
-    public static void bPX() {
-        if (BdNativeCrash.hzo) {
-            BdNativeCrash.bPW().dI(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.bPW().a(hzr);
-            bPY();
+    public static void bQl() {
+        if (BdNativeCrash.hAg) {
+            BdNativeCrash.bQk().dI(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
+            BdNativeCrash.bQk().a(hAj);
+            bQm();
         }
     }
 
-    private static void bPY() {
+    private static void bQm() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();

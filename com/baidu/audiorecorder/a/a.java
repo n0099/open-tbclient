@@ -12,17 +12,17 @@ public class a extends k {
     public a(Context context) {
         super(context, (String) null, 6);
         this.name = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.csH = R.drawable.btn_pb_voice;
-        this.csL = true;
-        this.csK = 5;
-        this.crT = new SendVoiceView(context);
+        this.csO = R.drawable.btn_pb_voice;
+        this.csS = true;
+        this.csR = 5;
+        this.csa = new SendVoiceView(context);
         RawLayout.a aVar = new RawLayout.a(0, -2);
         aVar.leftMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         aVar.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         aVar.topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         aVar.bottomMargin = context.getResources().getDimensionPixelSize(R.dimen.ds20);
         aVar.weight = 1.0f;
-        ((View) this.crT).setLayoutParams(aVar);
-        this.csM = new int[0];
+        ((View) this.csa).setLayoutParams(aVar);
+        this.csT = new int[0];
     }
 }

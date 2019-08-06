@@ -23,8 +23,8 @@ import java.util.Calendar;
 public class BigdayActivity extends BaseActivity {
     private String bDN;
     private long bDP;
-    private TbImageView gkf;
-    private ImageView gkg;
+    private TbImageView gkV;
+    private ImageView gkW;
     private String imgUrl;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,11 +33,11 @@ public class BigdayActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.bigday_activity);
-        this.gkf = (TbImageView) findViewById(R.id.bigday_img);
-        this.gkf.setAutoChangeStyle(false);
-        this.gkg = (ImageView) findViewById(R.id.bigday_close);
+        this.gkV = (TbImageView) findViewById(R.id.bigday_img);
+        this.gkV.setAutoChangeStyle(false);
+        this.gkW = (ImageView) findViewById(R.id.bigday_close);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.gkg.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
+            ((FrameLayout.LayoutParams) this.gkW.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
         }
         Intent intent = getIntent();
         if (intent != null) {
@@ -45,28 +45,28 @@ public class BigdayActivity extends BaseActivity {
             this.bDN = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
             this.bDP = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
-        this.gkf.setTag(getPageContext().getUniqueId());
-        this.gkf.startLoad(this.imgUrl, 41, false);
-        this.gkf.setOnClickListener(this);
-        this.gkg.setOnClickListener(this);
+        this.gkV.setTag(getPageContext().getUniqueId());
+        this.gkV.startLoad(this.imgUrl, 41, false);
+        this.gkV.setOnClickListener(this);
+        this.gkW.setOnClickListener(this);
         TiebaStatic.log(new an("c13111").l(VideoPlayActivityConfig.OBJ_ID, this.bDP).bT("obj_to", this.bDN));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.gkf.getId()) {
+        if (view.getId() == this.gkV.getId()) {
             if (!StringUtils.isNULL(this.bDN)) {
-                bb.ajC().c(getPageContext(), new String[]{this.bDN});
+                bb.ajE().c(getPageContext(), new String[]{this.bDN});
                 TiebaStatic.log(new an("c13112").l(VideoPlayActivityConfig.OBJ_ID, this.bDP).bT("obj_to", this.bDN));
                 finish();
             }
-        } else if (view.getId() == this.gkg.getId()) {
+        } else if (view.getId() == this.gkW.getId()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 23);
             calendar.set(12, 59);
             calendar.set(13, 59);
             calendar.set(14, 0);
-            com.baidu.tbadk.core.sharedPref.b.ahO().putLong("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+            com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("key_bigday_next_showtime_home", calendar.getTimeInMillis());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
             finish();
         }

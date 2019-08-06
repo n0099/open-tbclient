@@ -9,8 +9,8 @@ public final class a {
     private static final boolean DEBUG = b.DEBUG;
     public int afh;
     public int afn;
-    public int dfA;
-    public int dfz;
+    public int dfG;
+    public int dfH;
     public int mVideoHeight;
     public int mVideoWidth;
 
@@ -20,8 +20,8 @@ public final class a {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("videoBitrate", this.afh);
             jSONObject2.put("audioBitrate", this.afn);
-            jSONObject2.put("videoFPS", this.dfz);
-            jSONObject2.put("netSpeed", this.dfA);
+            jSONObject2.put("videoFPS", this.dfG);
+            jSONObject2.put("netSpeed", this.dfH);
             jSONObject2.put("videoWidth", this.mVideoWidth);
             jSONObject2.put("videoHeight", this.mVideoHeight);
             jSONObject.putOpt("detail", jSONObject2);

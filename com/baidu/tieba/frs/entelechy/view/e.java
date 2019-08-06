@@ -9,26 +9,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.p;
 /* loaded from: classes4.dex */
 public class e extends v.a {
-    public TextView bOn;
+    public TextView bOs;
     public Context mContext;
     public View mRoot;
 
     public e(View view, Context context) {
         super(view);
         this.mRoot = view;
-        this.bOn = (TextView) view.findViewById(R.id.view_frs_read_progress);
+        this.bOs = (TextView) view.findViewById(R.id.view_frs_read_progress);
         this.mContext = context;
     }
 
     public void a(p pVar) {
         if (pVar != null) {
-            this.bOn.setText(R.string.read_here);
-            akL();
+            this.bOs.setText(R.string.read_here);
+            akN();
         }
     }
 
-    public void akL() {
-        am.j(this.bOn, R.color.cp_link_tip_a);
+    public void akN() {
+        am.j(this.bOs, R.color.cp_link_tip_a);
         am.k(this.mRoot, R.color.cp_bg_line_e);
     }
 }

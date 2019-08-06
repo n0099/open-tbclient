@@ -6,7 +6,7 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class o {
-    public static final <T> List<T> cNt() {
+    public static final <T> List<T> cNO() {
         return EmptyList.INSTANCE;
     }
 

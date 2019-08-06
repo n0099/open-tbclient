@@ -58,14 +58,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     private void a(View view) {
-        this.l = (RelativeLayout) view.findViewById(R.raw.icon_refresh2);
-        this.h = (ImageButton) view.findViewById(R.raw.rim_video_too_near);
-        this.j = (LinearLayout) view.findViewById(R.raw.scan_refresh);
-        this.k = (TextView) view.findViewById(R.raw.sweep);
-        this.i = (ImageButton) view.findViewById(R.raw.sapi_camera_special_recg);
-        this.o = (TextView) view.findViewById(R.raw.sapi_camera_blink);
-        this.p = view.findViewById(R.raw.rim_video_too_far);
-        this.q = (TextView) view.findViewById(R.raw.shake_tone);
+        this.l = (RelativeLayout) view.findViewById(R.raw.icon_refresh1_1);
+        this.h = (ImageButton) view.findViewById(R.raw.rim_video_too_far);
+        this.j = (LinearLayout) view.findViewById(R.raw.sapi_camera_too_near);
+        this.k = (TextView) view.findViewById(R.raw.shake_tone);
+        this.i = (ImageButton) view.findViewById(R.raw.sapi_camera_put_face_round);
+        this.o = (TextView) view.findViewById(R.raw.rim_video_too_near);
+        this.p = view.findViewById(R.raw.rim_video_put_face_round);
+        this.q = (TextView) view.findViewById(R.raw.scan_refresh);
         b(view);
         this.h.setOnClickListener(this);
         this.j.setOnClickListener(this);
@@ -106,23 +106,23 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     private void b(View view) {
-        this.n = (CustomScrollView) view.findViewById(R.raw.sapi_camera_photo_done);
+        this.n = (CustomScrollView) view.findViewById(R.raw.sapi_camera_open_mouth);
         view.post(new b(this));
         this.s = com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, R.layout.abc_action_bar_view_list_nav_layout, null);
         this.n.addContentView(this.s);
         this.n.updateStatus(com.baidu.platform.comapi.wnplatform.n.b.BOTTOM, false);
-        this.t = (ImageView) this.s.findViewById(R.raw.icon_refresh3_1);
-        this.u = (ImageView) this.s.findViewById(R.raw.imageviewer_drag);
-        this.v = (TextView) this.s.findViewById(R.raw.lottie_refresh_dark);
-        this.w = (TextView) this.s.findViewById(R.raw.lottie_refresh_light);
-        this.x = (TextView) this.s.findViewById(R.raw.lottie_video_guide);
-        this.y = (TextView) this.s.findViewById(R.raw.index);
-        this.z = (TextView) this.s.findViewById(R.raw.index_1);
-        this.A = (TextView) this.s.findViewById(R.raw.message);
-        this.B = (TextView) this.s.findViewById(R.raw.message_1);
-        this.C = (TextView) this.s.findViewById(R.raw.mime);
-        this.D = (TextView) this.s.findViewById(R.raw.lotti_video_loading);
-        this.r = this.s.findViewById(R.raw.icon_refresh2_1);
+        this.t = (ImageView) this.s.findViewById(R.raw.icon_refresh3);
+        this.u = (ImageView) this.s.findViewById(R.raw.icon_refresh3_1);
+        this.v = (TextView) this.s.findViewById(R.raw.lotti_video_loading);
+        this.w = (TextView) this.s.findViewById(R.raw.lottie_refresh_dark);
+        this.x = (TextView) this.s.findViewById(R.raw.lottie_refresh_light);
+        this.y = (TextView) this.s.findViewById(R.raw.imageviewer_drag);
+        this.z = (TextView) this.s.findViewById(R.raw.index);
+        this.A = (TextView) this.s.findViewById(R.raw.lottie_video_guide);
+        this.B = (TextView) this.s.findViewById(R.raw.message);
+        this.C = (TextView) this.s.findViewById(R.raw.message_1);
+        this.D = (TextView) this.s.findViewById(R.raw.index_1);
+        this.r = this.s.findViewById(R.raw.icon_refresh2);
         this.r.setOnClickListener(new c(this));
         this.n.setOnScrollChangeListener(new d(this));
     }
@@ -226,7 +226,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.raw.rim_video_too_near) {
+        if (id == R.raw.rim_video_too_far) {
             if (!this.f) {
                 com.baidu.platform.comapi.wnplatform.k.a.a().a("status", "overview");
             }
@@ -244,7 +244,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
                 default:
                     return;
             }
-        } else if (id == R.raw.scan_refresh) {
+        } else if (id == R.raw.sapi_camera_too_near) {
             this.f = this.f ? false : true;
             com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.overview");
             com.baidu.platform.comapi.walknavi.b.a().F().run("[查看全览]按钮点击");
@@ -256,7 +256,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
-        } else if (id == R.raw.sweep) {
+        } else if (id == R.raw.shake_tone) {
             this.f = this.f ? false : true;
             com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.continue");
             com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
@@ -269,7 +269,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
-        } else if (id == R.raw.sapi_camera_special_recg) {
+        } else if (id == R.raw.sapi_camera_put_face_round) {
             this.g.a(false, R.string.abc_action_bar_home_description_format);
         }
     }

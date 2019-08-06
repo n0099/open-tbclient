@@ -6,34 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class t {
-    private static t eEr;
-    private List<an> cWa;
+    private static t eEy;
+    private List<an> cWh;
 
-    public static t aZN() {
-        if (eEr == null) {
+    public static t aZP() {
+        if (eEy == null) {
             synchronized (t.class) {
-                if (eEr == null) {
-                    eEr = new t();
+                if (eEy == null) {
+                    eEy = new t();
                 }
             }
         }
-        return eEr;
+        return eEy;
     }
 
     public void c(an anVar) {
         if (anVar != null) {
-            if (this.cWa == null) {
-                this.cWa = new ArrayList();
+            if (this.cWh == null) {
+                this.cWh = new ArrayList();
             }
-            this.cWa.add(anVar);
+            this.cWh.add(anVar);
         }
     }
 
     public void gS(boolean z) {
         int i;
-        if (com.baidu.tbadk.core.util.v.Z(this.cWa) != 0) {
+        if (com.baidu.tbadk.core.util.v.Z(this.cWh) != 0) {
             int i2 = -1;
-            for (an anVar : this.cWa) {
+            for (an anVar : this.cWh) {
                 if (anVar != null) {
                     if (i2 != anVar.getPosition()) {
                         int position = anVar.getPosition();
@@ -46,30 +46,30 @@ public class t {
                     i2 = i;
                 }
             }
-            this.cWa.clear();
+            this.cWh.clear();
         }
     }
 
     public void iE(boolean z) {
-        if (com.baidu.tbadk.core.util.v.Z(this.cWa) != 0) {
-            for (an anVar : this.cWa) {
+        if (com.baidu.tbadk.core.util.v.Z(this.cWh) != 0) {
+            for (an anVar : this.cWh) {
                 if (anVar != null) {
                     anVar.P("obj_type", z ? 1 : 0);
                     TiebaStatic.log(anVar);
                 }
             }
-            this.cWa.clear();
+            this.cWh.clear();
         }
     }
 
-    public void aHX() {
-        if (com.baidu.tbadk.core.util.v.Z(this.cWa) != 0) {
-            for (an anVar : this.cWa) {
+    public void aHZ() {
+        if (com.baidu.tbadk.core.util.v.Z(this.cWh) != 0) {
+            for (an anVar : this.cWh) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.cWa.clear();
+            this.cWh.clear();
         }
     }
 }

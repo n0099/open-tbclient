@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.gamevideo.d;
 import android.util.LongSparseArray;
 import android.util.SparseArray;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.c;
 import java.util.List;
@@ -18,7 +18,7 @@ public class a {
 
     private static void b(DataRes dataRes, List<m> list) {
         c cVar;
-        bg acx;
+        bh acy;
         ThreadPersonalized threadPersonalized;
         if (dataRes != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -30,15 +30,15 @@ public class a {
             int Z = v.Z(list);
             for (int i = 0; i < Z; i++) {
                 m mVar = (m) v.c(list, i);
-                if ((mVar instanceof c) && (acx = (cVar = (c) mVar).acx()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(acx.getTid(), 0L))) != null) {
+                if ((mVar instanceof c) && (acy = (cVar = (c) mVar).acy()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(acy.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.vy(threadPersonalized.abtest_tag);
-                    acx.mRecomAbTag = threadPersonalized.abtest_tag;
-                    acx.mRecomSource = threadPersonalized.source;
-                    acx.mRecomWeight = threadPersonalized.weight;
-                    if (acx.aeO() != null) {
-                        cVar.d(acx.aeO().is_vertical);
+                    cVar.vz(threadPersonalized.abtest_tag);
+                    acy.mRecomAbTag = threadPersonalized.abtest_tag;
+                    acy.mRecomSource = threadPersonalized.source;
+                    acy.mRecomWeight = threadPersonalized.weight;
+                    if (acy.aeP() != null) {
+                        cVar.d(acy.aeP().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
@@ -46,8 +46,8 @@ public class a {
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason + "%" + dislikeReason.extra);
                         }
-                        cVar.bHL = sparseArray;
-                        cVar.vA(threadPersonalized.extra);
+                        cVar.bHM = sparseArray;
+                        cVar.vB(threadPersonalized.extra);
                     }
                 }
             }

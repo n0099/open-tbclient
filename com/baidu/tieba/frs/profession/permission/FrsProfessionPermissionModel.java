@@ -18,27 +18,27 @@ public class FrsProfessionPermissionModel<T> extends NetAutoModel<a, b, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int auz() {
+    protected int auB() {
         return CmdConfigHttp.CMD_PROFESSION_PERMISSION;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int auA() {
+    protected int auC() {
         return 309636;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String auB() {
+    protected String auD() {
         return TbConfig.URL_PROFESSION_PERMISSION;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> aux() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> auz() {
         return ProPermissionHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> auy() {
+    protected Class<? extends MvcSocketResponsedMessage> auA() {
         return ProPermissionSocketResponseMessage.class;
     }
 }

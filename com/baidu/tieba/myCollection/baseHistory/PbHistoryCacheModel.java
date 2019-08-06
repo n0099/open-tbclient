@@ -9,22 +9,22 @@ public class PbHistoryCacheModel extends CacheModel<a, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<a> auu() {
+    public Class<a> auw() {
         return a.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int auv() {
+    public int aux() {
         return 2001186;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int auw() {
+    public int auy() {
         return 2001187;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String aud() {
+    public String auf() {
         return "tb.pb_history";
     }
 }

@@ -17,31 +17,31 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends v.a {
     public TextView bCd;
-    public int cdL;
-    public View ija;
-    public HTypeListView ijb;
-    public e ijc;
+    public int cdS;
+    public View ikc;
+    public HTypeListView ikd;
+    public e ike;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.cdL = 3;
+        this.cdS = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.ija = view.findViewById(R.id.divider_view_under_photo_album);
+        this.ikc = view.findViewById(R.id.divider_view_under_photo_album);
         this.bCd = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.ijb = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.ijc = new e(this.mPageContext, this.ijb);
+        this.ikd = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.ike = new e(this.mPageContext, this.ikd);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.ijc.setDatas(dO(fVar.getPhotoAlbum()));
+            this.ike.setDatas(dN(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<m> dO(List<m> list) {
+    private List<m> dN(List<m> list) {
         if (com.baidu.tbadk.core.util.v.Z(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.g(this.mPageContext.getPageActivity(), R.dimen.ds32), l.g(this.mPageContext.getPageActivity(), R.dimen.ds120));
@@ -52,13 +52,13 @@ public class d extends v.a {
         return list;
     }
 
-    public void atu() {
-        if (this.cdL != TbadkCoreApplication.getInst().getSkinType()) {
-            this.cdL = TbadkCoreApplication.getInst().getSkinType();
+    public void atw() {
+        if (this.cdS != TbadkCoreApplication.getInst().getSkinType()) {
+            this.cdS = TbadkCoreApplication.getInst().getSkinType();
             am.l(this.rootView, R.color.cp_bg_line_d);
-            am.l(this.ija, R.color.cp_bg_line_c);
+            am.l(this.ikc, R.color.cp_bg_line_c);
             am.f(this.bCd, R.color.cp_cont_d, 1);
-            this.ijc.notifyDataSetChanged();
+            this.ike.notifyDataSetChanged();
         }
     }
 }

@@ -23,10 +23,10 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener bTf;
-    private a iUe;
-    private ContriInfo iUf;
-    private Runnable iUg;
+    private HttpMessageListener bTl;
+    private a iVi;
+    private ContriInfo iVj;
+    private Runnable iVk;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,26 +35,26 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.iUg = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.iVk = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.iUe != null) {
-                    AddExperiencedModel.this.iUe.a(AddExperiencedModel.this.iUf);
+                if (AddExperiencedModel.this.iVi != null) {
+                    AddExperiencedModel.this.iVi.a(AddExperiencedModel.this.iVj);
                 }
             }
         };
-        this.bTf = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.bTl = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.iUf = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.iK().postDelayed(AddExperiencedModel.this.iUg, 2000L);
+                    AddExperiencedModel.this.iVj = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.iK().postDelayed(AddExperiencedModel.this.iVk, 2000L);
                 }
             }
         };
         registerTask();
-        registerListener(this.bTf);
+        registerListener(this.bTl);
     }
 
     private void registerTask() {
@@ -70,14 +70,14 @@ public class AddExperiencedModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public static boolean Ef(String str) {
+    public static boolean Eg(String str) {
         return b.c(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean Eg(String str) {
+    public static boolean Eh(String str) {
         String str2;
         boolean z;
-        l<String> bE = com.baidu.tbadk.core.d.a.agF().bE("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        l<String> bE = com.baidu.tbadk.core.d.a.agH().bE("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
         if (bE != null) {
             String str3 = bE.get(str);
             String currentDay = UtilHelper.getCurrentDay();
@@ -124,10 +124,10 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.iUe = aVar;
+        this.iVi = aVar;
     }
 
     public void onDestroy() {
-        e.iK().removeCallbacks(this.iUg);
+        e.iK().removeCallbacks(this.iVk);
     }
 }

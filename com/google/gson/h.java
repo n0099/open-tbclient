@@ -4,56 +4,56 @@ import java.io.IOException;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public abstract class h {
-    public boolean cLO() {
+    public boolean cMj() {
         return this instanceof f;
     }
 
-    public boolean cLP() {
+    public boolean cMk() {
         return this instanceof j;
     }
 
-    public boolean cLQ() {
+    public boolean cMl() {
         return this instanceof k;
     }
 
-    public boolean cLR() {
+    public boolean cMm() {
         return this instanceof i;
     }
 
-    public j cLS() {
-        if (cLP()) {
+    public j cMn() {
+        if (cMk()) {
             return (j) this;
         }
         throw new IllegalStateException("Not a JSON Object: " + this);
     }
 
-    public f cLT() {
-        if (cLO()) {
+    public f cMo() {
+        if (cMj()) {
             return (f) this;
         }
         throw new IllegalStateException("This is not a JSON Array.");
     }
 
-    public k cLU() {
-        if (cLQ()) {
+    public k cMp() {
+        if (cMl()) {
             return (k) this;
         }
         throw new IllegalStateException("This is not a JSON Primitive.");
     }
 
-    public boolean cLN() {
+    public boolean cMi() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
-    Boolean cLV() {
+    Boolean cMq() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
-    public Number cLL() {
+    public Number cMg() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
-    public String cLM() {
+    public String cMh() {
         throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
@@ -61,7 +61,7 @@ public abstract class h {
         try {
             StringWriter stringWriter = new StringWriter();
             com.google.gson.stream.a aVar = new com.google.gson.stream.a(stringWriter);
-            aVar.sH(true);
+            aVar.sI(true);
             com.google.gson.internal.f.b(this, aVar);
             return stringWriter.toString();
         } catch (IOException e) {

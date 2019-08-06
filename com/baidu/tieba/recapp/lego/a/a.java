@@ -8,17 +8,17 @@ public class a {
     public static boolean ar(Activity activity) {
         Resources resources;
         int identifier;
-        if (!bKt() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", "android")) <= 0) {
+        if (!bKH() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", "android")) <= 0) {
             return false;
         }
         return resources.getBoolean(identifier);
     }
 
-    public static boolean bKt() {
-        return bKu() >= 14;
+    public static boolean bKH() {
+        return bKI() >= 14;
     }
 
-    public static int bKu() {
+    public static int bKI() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

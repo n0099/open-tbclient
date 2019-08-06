@@ -19,13 +19,13 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlbumImageBrowseFragment extends BaseFragment {
-    private c jMH;
-    private AlbumActivity jMV;
-    private AlbumImagePagerAdapter jMZ;
-    private ImageView jNa;
-    private View jNb;
-    private TextView jNc;
-    private TextView jNd;
+    private c jNO;
+    private AlbumActivity jOc;
+    private AlbumImagePagerAdapter jOg;
+    private ImageView jOh;
+    private View jOi;
+    private TextView jOj;
+    private TextView jOk;
     private ImageView mBackBtn;
     private View mNoDataView;
     private View mRoot;
@@ -34,21 +34,21 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.album.AlbumImageBrowseFragment.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != AlbumImageBrowseFragment.this.jNb && view == AlbumImageBrowseFragment.this.jNa && AlbumImageBrowseFragment.this.jMZ != null && AlbumImageBrowseFragment.this.jMH != null && AlbumImageBrowseFragment.this.jMV != null) {
-                if (AlbumImageBrowseFragment.this.jMH.cAe()) {
-                    AlbumImageBrowseFragment.this.jMV.showToast(R.string.album_choose_switch_tip);
-                } else if (AlbumImageBrowseFragment.this.jMZ.CT(AlbumImageBrowseFragment.this.bpM)) {
-                    ImageFileInfo xt = AlbumImageBrowseFragment.this.jMZ.xt(AlbumImageBrowseFragment.this.bpM);
-                    if (AlbumImageBrowseFragment.this.jMH.isAdded(xt)) {
-                        if (AlbumImageBrowseFragment.this.jMV.f(xt)) {
-                            AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.jNa, false);
-                            AlbumImageBrowseFragment.this.jMV.f(xt, false);
+            if (view != AlbumImageBrowseFragment.this.jOi && view == AlbumImageBrowseFragment.this.jOh && AlbumImageBrowseFragment.this.jOg != null && AlbumImageBrowseFragment.this.jNO != null && AlbumImageBrowseFragment.this.jOc != null) {
+                if (AlbumImageBrowseFragment.this.jNO.cAz()) {
+                    AlbumImageBrowseFragment.this.jOc.showToast(R.string.album_choose_switch_tip);
+                } else if (AlbumImageBrowseFragment.this.jOg.CV(AlbumImageBrowseFragment.this.bpM)) {
+                    ImageFileInfo xv = AlbumImageBrowseFragment.this.jOg.xv(AlbumImageBrowseFragment.this.bpM);
+                    if (AlbumImageBrowseFragment.this.jNO.isAdded(xv)) {
+                        if (AlbumImageBrowseFragment.this.jOc.f(xv)) {
+                            AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.jOh, false);
+                            AlbumImageBrowseFragment.this.jOc.f(xv, false);
                         }
-                    } else if (AlbumImageBrowseFragment.this.jMV.e(xt)) {
-                        AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.jNa, true);
-                        AlbumImageBrowseFragment.this.jMV.f(xt, true);
+                    } else if (AlbumImageBrowseFragment.this.jOc.e(xv)) {
+                        AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.jOh, true);
+                        AlbumImageBrowseFragment.this.jOc.f(xv, true);
                     }
-                    AlbumImageBrowseFragment.this.czZ();
+                    AlbumImageBrowseFragment.this.cAu();
                 }
             }
         }
@@ -58,24 +58,24 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         public void onPageSelected(int i) {
             boolean z = true;
             AlbumImageBrowseFragment.this.bpM = i;
-            if (AlbumImageBrowseFragment.this.jMZ != null && AlbumImageBrowseFragment.this.jMH != null) {
-                ImageFileInfo xt = AlbumImageBrowseFragment.this.jMZ.xt(AlbumImageBrowseFragment.this.bpM);
-                if (AlbumImageBrowseFragment.this.jMH.isAdded(xt)) {
-                    AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.jNa, true);
+            if (AlbumImageBrowseFragment.this.jOg != null && AlbumImageBrowseFragment.this.jNO != null) {
+                ImageFileInfo xv = AlbumImageBrowseFragment.this.jOg.xv(AlbumImageBrowseFragment.this.bpM);
+                if (AlbumImageBrowseFragment.this.jNO.isAdded(xv)) {
+                    AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.jOh, true);
                 } else {
-                    AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.jNa, false);
+                    AlbumImageBrowseFragment.this.c(AlbumImageBrowseFragment.this.jOh, false);
                 }
-                if (AlbumImageBrowseFragment.this.jMH != null && AlbumImageBrowseFragment.this.jMH.getWriteImagesInfo() != null) {
-                    z = AlbumImageBrowseFragment.this.jMH.getWriteImagesInfo().isEnableChooseOriginalImg();
+                if (AlbumImageBrowseFragment.this.jNO != null && AlbumImageBrowseFragment.this.jNO.getWriteImagesInfo() != null) {
+                    z = AlbumImageBrowseFragment.this.jNO.getWriteImagesInfo().isEnableChooseOriginalImg();
                 }
                 if (!z) {
-                    AlbumImageBrowseFragment.this.jNd.setVisibility(8);
-                } else if (xt == null || !xt.isGif()) {
-                    AlbumImageBrowseFragment.this.jNd.setVisibility(0);
+                    AlbumImageBrowseFragment.this.jOk.setVisibility(8);
+                } else if (xv == null || !xv.isGif()) {
+                    AlbumImageBrowseFragment.this.jOk.setVisibility(0);
                 } else {
-                    AlbumImageBrowseFragment.this.jNd.setVisibility(8);
+                    AlbumImageBrowseFragment.this.jOk.setVisibility(8);
                 }
-                AlbumImageBrowseFragment.this.se(AlbumImageBrowseFragment.this.jMH.isOriginalImg());
+                AlbumImageBrowseFragment.this.sf(AlbumImageBrowseFragment.this.jNO.isOriginalImg());
             }
         }
 
@@ -91,95 +91,95 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jMV = (AlbumActivity) getBaseFragmentActivity();
-        this.jMH = this.jMV.czP();
+        this.jOc = (AlbumActivity) getBaseFragmentActivity();
+        this.jNO = this.jOc.cAk();
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRoot = layoutInflater.inflate(R.layout.album_big_image_view, (ViewGroup) null);
         this.mBackBtn = (ImageView) this.mRoot.findViewById(R.id.img_back);
-        this.jNa = (ImageView) this.mRoot.findViewById(R.id.img_choose);
+        this.jOh = (ImageView) this.mRoot.findViewById(R.id.img_choose);
         this.mViewPager = (ViewPager) this.mRoot.findViewById(R.id.viewPager);
         this.mNoDataView = this.mRoot.findViewById(R.id.album_no_data);
-        this.jNc = (TextView) this.mRoot.findViewById(R.id.btn_next_step);
-        this.jNd = (TextView) this.mRoot.findViewById(R.id.original_select_btn);
-        this.jNb = this.mRoot.findViewById(R.id.layout_bottom);
-        this.mBackBtn.setOnClickListener(this.jMV);
-        this.jNc.setOnClickListener(this.jMV);
-        this.jNa.setOnClickListener(this.mOnClickListener);
-        this.jNd.setOnClickListener(this.jMV);
-        this.jNb.setOnClickListener(this.mOnClickListener);
+        this.jOj = (TextView) this.mRoot.findViewById(R.id.btn_next_step);
+        this.jOk = (TextView) this.mRoot.findViewById(R.id.original_select_btn);
+        this.jOi = this.mRoot.findViewById(R.id.layout_bottom);
+        this.mBackBtn.setOnClickListener(this.jOc);
+        this.jOj.setOnClickListener(this.jOc);
+        this.jOh.setOnClickListener(this.mOnClickListener);
+        this.jOk.setOnClickListener(this.jOc);
+        this.jOi.setOnClickListener(this.mOnClickListener);
         this.mViewPager.setOnPageChangeListener(this.mOnPageChangeListener);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        if (this.jMH != null && this.jMH.getWriteImagesInfo() != null) {
-            this.jNd.setVisibility(this.jMH.getWriteImagesInfo().isEnableChooseOriginalImg() ? 0 : 4);
+        if (this.jNO != null && this.jNO.getWriteImagesInfo() != null) {
+            this.jOk.setVisibility(this.jNO.getWriteImagesInfo().isEnableChooseOriginalImg() ? 0 : 4);
         }
         return this.mRoot;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void czZ() {
-        this.jMV.czN();
+    public void cAu() {
+        this.jOc.cAi();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (isShow()) {
-            aJi();
+            aJk();
         }
     }
 
-    private void cAa() {
-        List<ImageFileInfo> cAi;
+    private void cAv() {
+        List<ImageFileInfo> cAD;
         int currentIndex;
         boolean z = true;
-        if (this.jMH == null && this.jMV != null) {
-            this.jMH = this.jMV.czP();
+        if (this.jNO == null && this.jOc != null) {
+            this.jNO = this.jOc.cAk();
         }
-        if (this.jMH != null && (cAi = this.jMH.cAi()) != null && (currentIndex = this.jMH.getCurrentIndex()) >= 0) {
+        if (this.jNO != null && (cAD = this.jNO.cAD()) != null && (currentIndex = this.jNO.getCurrentIndex()) >= 0) {
             this.bpM = currentIndex;
-            this.jMZ = new AlbumImagePagerAdapter(this.jMV);
-            this.mViewPager.setAdapter(this.jMZ);
-            if (this.bpM == 0 && cAi != null) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) v.c(cAi, this.bpM);
-                if (this.jMH.isAdded(imageFileInfo)) {
-                    c(this.jNa, true);
+            this.jOg = new AlbumImagePagerAdapter(this.jOc);
+            this.mViewPager.setAdapter(this.jOg);
+            if (this.bpM == 0 && cAD != null) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) v.c(cAD, this.bpM);
+                if (this.jNO.isAdded(imageFileInfo)) {
+                    c(this.jOh, true);
                 } else {
-                    c(this.jNa, false);
+                    c(this.jOh, false);
                 }
-                if (this.jMH != null && this.jMH.getWriteImagesInfo() != null) {
-                    z = this.jMH.getWriteImagesInfo().isEnableChooseOriginalImg();
+                if (this.jNO != null && this.jNO.getWriteImagesInfo() != null) {
+                    z = this.jNO.getWriteImagesInfo().isEnableChooseOriginalImg();
                 }
                 if (!z) {
-                    this.jNd.setVisibility(8);
+                    this.jOk.setVisibility(8);
                 } else if (imageFileInfo.isGif()) {
-                    this.jNd.setVisibility(8);
+                    this.jOk.setVisibility(8);
                 } else {
-                    this.jNd.setVisibility(0);
+                    this.jOk.setVisibility(0);
                 }
             }
-            this.jMZ.setData(cAi);
+            this.jOg.setData(cAD);
             this.mViewPager.setCurrentItem(this.bpM, false);
-            se(this.jMH.isOriginalImg());
+            sf(this.jNO.isOriginalImg());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
-        if (z && this.jMZ != null) {
-            this.jMZ.setData(null);
+        if (z && this.jOg != null) {
+            this.jOg.setData(null);
         }
     }
 
-    public View ckO() {
+    public View clg() {
         return this.mBackBtn;
     }
 
-    public View cAb() {
-        return this.jNc;
+    public View cAw() {
+        return this.jOj;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -187,55 +187,55 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         super.onChangeSkinType(i);
         com.baidu.tbadk.s.a.a(getPageContext(), this.mRoot);
         am.a(this.mBackBtn, (int) R.drawable.icon_return_bg_s, (int) R.drawable.icon_return_bg, i);
-        if (this.jMH != null) {
-            se(this.jMH.isOriginalImg());
+        if (this.jNO != null) {
+            sf(this.jNO.isOriginalImg());
         }
-        if (this.jMZ != null) {
-            this.jMZ.notifyDataSetChanged();
+        if (this.jOg != null) {
+            this.jOg.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ImageView imageView, boolean z) {
-        if (imageView != null && this.jMV != null) {
+        if (imageView != null && this.jOc != null) {
             am.c(imageView, z ? R.drawable.ic_post_edit_select_s : R.drawable.icon_image_clear_select);
-            if (this.jNc != null) {
-                int Z = this.jMH != null ? v.Z(this.jMH.cAg()) : 0;
-                this.jNc.setText(this.jMV.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(Z), Integer.valueOf(this.jMH != null ? this.jMH.getMaxImagesAllowed() : 1)}));
-                this.jNc.setEnabled(Z > 0);
+            if (this.jOj != null) {
+                int Z = this.jNO != null ? v.Z(this.jNO.cAB()) : 0;
+                this.jOj.setText(this.jOc.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(Z), Integer.valueOf(this.jNO != null ? this.jNO.getMaxImagesAllowed() : 1)}));
+                this.jOj.setEnabled(Z > 0);
             }
         }
     }
 
     public void h(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo xt;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.jMZ != null && (xt = this.jMZ.xt(this.bpM)) != null && xt.getFilePath() != null && xt.getFilePath().equals(imageFileInfo.getFilePath())) {
-            c(this.jNa, z);
+        ImageFileInfo xv;
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.jOg != null && (xv = this.jOg.xv(this.bpM)) != null && xv.getFilePath() != null && xv.getFilePath().equals(imageFileInfo.getFilePath())) {
+            c(this.jOh, z);
         }
     }
 
-    private void aJi() {
+    private void aJk() {
         if (!isHidden()) {
             this.mNoDataView.setVisibility(8);
             this.mViewPager.setVisibility(0);
-            cAa();
+            cAv();
         }
     }
 
-    public View czX() {
-        return this.jNd;
+    public View cAs() {
+        return this.jOk;
     }
 
-    public void se(boolean z) {
+    public void sf(boolean z) {
         long j;
-        if (this.jMV != null && this.jNd != null) {
-            if (this.jMZ != null) {
-                ImageFileInfo xt = this.jMZ.xt(this.bpM);
-                j = xt != null ? m.ju(xt.getFilePath()) : 0L;
+        if (this.jOc != null && this.jOk != null) {
+            if (this.jOg != null) {
+                ImageFileInfo xv = this.jOg.xv(this.bpM);
+                j = xv != null ? m.ju(xv.getFilePath()) : 0L;
             } else {
                 j = 0;
             }
-            String string = this.jMV.getResources().getString(R.string.original_img);
+            String string = this.jOc.getResources().getString(R.string.original_img);
             if (z) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(string);
@@ -245,14 +245,14 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                     sb.append(")");
                 }
                 String sb2 = sb.toString();
-                am.j(this.jNd, R.color.cp_link_tip_a);
-                this.jNd.setText(sb2);
-                this.jNd.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                am.j(this.jOk, R.color.cp_link_tip_a);
+                this.jOk.setText(sb2);
+                this.jOk.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_image_select_ok_n), (Drawable) null, (Drawable) null, (Drawable) null);
                 return;
             }
-            am.j(this.jNd, R.color.cp_cont_f);
-            this.jNd.setText(string);
-            this.jNd.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.j(this.jOk, R.color.cp_cont_f);
+            this.jOk.setText(string);
+            this.jOk.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_image_select_n), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 }

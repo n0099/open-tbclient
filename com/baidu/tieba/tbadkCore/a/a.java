@@ -6,12 +6,11 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class a {
-    private static int jed = 1;
+    private static int jfk = 1;
 
     public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         try {
@@ -44,7 +43,7 @@ public class a {
         bVar.setResponsedClass(cls);
         bVar.E(z);
         bVar.a(dupLicateMode);
-        bVar.setRetry(jed);
+        bVar.setRetry(jfk);
         MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(bVar);
         bVar.setNeedEncrypt(z2);
@@ -65,18 +64,6 @@ public class a {
 
     public static TbHttpMessageTask a(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
-        tbHttpMessageTask.setIsNeedLogin(z);
-        tbHttpMessageTask.setIsNeedTbs(z2);
-        tbHttpMessageTask.setIsNeedAddCommenParam(z3);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
-        tbHttpMessageTask.setResponsedClass(cls);
-        MessageManager.getInstance().unRegisterTask(i);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        return tbHttpMessageTask;
-    }
-
-    public static TbHttpMessageTask b(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbDomainConfig.DOMAIN_HTTPS_TIEBAC + str);
         tbHttpMessageTask.setIsNeedLogin(z);
         tbHttpMessageTask.setIsNeedTbs(z2);
         tbHttpMessageTask.setIsNeedAddCommenParam(z3);

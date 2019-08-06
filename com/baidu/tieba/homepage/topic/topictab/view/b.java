@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.c;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.a<c> {
-    private View fba;
-    private c gou;
+    private View fbn;
+    private c gpm;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fba = getView().findViewById(R.id.card_topic_list_placeholder);
+        this.fbn = getView().findViewById(R.id.card_topic_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.l(getView(), this.gou.gno);
+        am.l(getView(), this.gpm.gog);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -31,10 +31,10 @@ public class b extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null) {
-            this.gou = cVar;
-            ViewGroup.LayoutParams layoutParams = this.fba.getLayoutParams();
-            layoutParams.height = l.g(this.mContext, cVar.eZz);
-            this.fba.setLayoutParams(layoutParams);
+            this.gpm = cVar;
+            ViewGroup.LayoutParams layoutParams = this.fbn.getLayoutParams();
+            layoutParams.height = l.g(this.mContext, cVar.eZN);
+            this.fbn.setLayoutParams(layoutParams);
         }
     }
 

@@ -30,45 +30,45 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
-    private ThreadUserInfoLayout dEA;
-    protected View eCK;
-    private View eCN;
-    protected View.OnClickListener eCR;
-    private AdCloseView iHD;
-    private AdThreadCommentAndPraiseInfoLayout iHL;
-    private ViewStub iHn;
-    private View iHo;
-    protected View iHp;
-    private TextView iJj;
-    private RelativeLayout iKH;
-    private AdPost iKI;
-    protected AdOperateBarHolder iKJ;
-    protected final AdOperateBarCreator iKK;
+    private ThreadUserInfoLayout dEH;
+    protected View eCR;
+    private View eCU;
+    protected View.OnClickListener eCY;
+    private AdCloseView iIH;
+    private AdThreadCommentAndPraiseInfoLayout iIP;
+    private ViewStub iIr;
+    private View iIs;
+    protected View iIt;
+    private TextView iKn;
+    private RelativeLayout iLL;
+    private AdPost iLM;
+    protected AdOperateBarHolder iLN;
+    protected final AdOperateBarCreator iLO;
     private TextView mTitle;
     protected View rootView;
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected abstract void a2(AdPost adPost);
 
-    protected abstract void cO(View view);
+    protected abstract void cQ(View view);
 
     protected abstract int getCustomLayout();
 
     public AdPostBaseView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eCR = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView.2
+        this.eCY = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AdPostBaseView.this.iKI != null) {
-                    if ((AdPostBaseView.this.dEA.getUserName() == view || AdPostBaseView.this.dEA.getHeaderImg() == view) && AdPostBaseView.this.iKI.feedData.portraitClick != null) {
-                        AdPostBaseView.this.n(3, "icon", AdPostBaseView.this.iKI.feedData.portraitClick.scheme);
+                if (AdPostBaseView.this.iLM != null) {
+                    if ((AdPostBaseView.this.dEH.getUserName() == view || AdPostBaseView.this.dEH.getHeaderImg() == view) && AdPostBaseView.this.iLM.feedData.portraitClick != null) {
+                        AdPostBaseView.this.n(3, "icon", AdPostBaseView.this.iLM.feedData.portraitClick.scheme);
                         return;
                     }
-                    AdPostBaseView.this.n(3, "hotarea", AdPostBaseView.this.iKI.feedData.scheme);
+                    AdPostBaseView.this.n(3, "hotarea", AdPostBaseView.this.iLM.feedData.scheme);
                 }
             }
         };
-        this.iKK = new AdOperateBarCreator(tbPageContext);
+        this.iLO = new AdOperateBarCreator(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,82 +76,82 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
     public void a(AdPost adPost, int i) {
         am.k(this.rootView, R.drawable.addresslist_item_bg);
-        this.iHL.onChangeSkinType();
-        this.dEA.onChangeSkinType();
-        if (this.iHD != null) {
-            this.iHD.onChangeSkinType();
+        this.iIP.onChangeSkinType();
+        this.dEH.onChangeSkinType();
+        if (this.iIH != null) {
+            this.iIH.onChangeSkinType();
         }
-        if (this.iKJ != null) {
-            this.iKJ.onChangeSkinType();
+        if (this.iLN != null) {
+            this.iLN.onChangeSkinType();
         }
-        am.l(this.eCN, R.color.cp_bg_line_e);
+        am.l(this.eCU, R.color.cp_bg_line_e);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
-    protected View bKv() {
+    protected View bKJ() {
         this.rootView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
-        this.rootView.setOnClickListener(this.eCR);
-        this.iHp = this.rootView.findViewById(R.id.thread_multi_del_ad_mask_view);
-        this.iHp.setClickable(true);
+        this.rootView.setOnClickListener(this.eCY);
+        this.iIt = this.rootView.findViewById(R.id.thread_multi_del_ad_mask_view);
+        this.iIt.setClickable(true);
         this.mTitle = (TextView) this.rootView.findViewById(R.id.card_home_page_normal_thread_title);
-        this.eCN = this.rootView.findViewById(R.id.divider_line);
-        this.eCK = this.rootView.findViewById(R.id.divider_line_above_praise);
-        this.iHL = (AdThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.card_home_page_normal_thread_info_layout);
-        this.iHL.setStyle(2);
-        this.dEA = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_home_page_normal_thread_user_info_layout);
+        this.eCU = this.rootView.findViewById(R.id.divider_line);
+        this.eCR = this.rootView.findViewById(R.id.divider_line_above_praise);
+        this.iIP = (AdThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.card_home_page_normal_thread_info_layout);
+        this.iIP.setStyle(2);
+        this.dEH = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_home_page_normal_thread_user_info_layout);
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ad_post_tag_close, (ViewGroup) null);
-        this.iJj = (TextView) inflate.findViewById(R.id.feed_tag);
-        this.iHD = (AdCloseView) inflate.findViewById(R.id.ad_close_view);
-        this.iHD.setPage(getBusinessType());
+        this.iKn = (TextView) inflate.findViewById(R.id.feed_tag);
+        this.iIH = (AdCloseView) inflate.findViewById(R.id.ad_close_view);
+        this.iIH.setPage(getBusinessType());
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AdPostBaseView.this.iHD != null && AdPostBaseView.this.iHD.getVisibility() == 0) {
-                    AdPostBaseView.this.iHD.performClick();
+                if (AdPostBaseView.this.iIH != null && AdPostBaseView.this.iIH.getVisibility() == 0) {
+                    AdPostBaseView.this.iIH.performClick();
                 }
             }
         });
-        this.dEA.addView(inflate);
+        this.dEH.addView(inflate);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) inflate.getLayoutParams();
         layoutParams.gravity = 53;
         int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.ds8);
         inflate.setPadding(dimensionPixelOffset, 0, 0, dimensionPixelOffset);
         inflate.setLayoutParams(layoutParams);
-        if (this.iHL.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iHL.getLayoutParams();
+        if (this.iIP.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iIP.getLayoutParams();
             layoutParams2.rightMargin = 0;
-            this.iHL.setLayoutParams(layoutParams2);
+            this.iIP.setLayoutParams(layoutParams2);
         }
-        this.iHL.setBarNameClickEnabled(false);
-        this.iHL.setReplyTimeVisible(false);
-        this.iHL.setShowPraiseNum(true);
-        this.iHL.setNeedAddPraiseIcon(true);
-        this.iHL.setNeedAddReplyIcon(true);
-        this.iHL.setShareVisible(true);
-        this.iKH = (RelativeLayout) this.rootView.findViewById(R.id.ad_operate_area);
-        this.iKH.setOnClickListener(this.eCR);
-        this.iHn = (ViewStub) this.rootView.findViewById(R.id.ad_custom_view_stub);
-        this.iHn.setLayoutResource(getCustomLayout());
-        this.iHo = this.iHn.inflate();
-        cO(this.iHo);
+        this.iIP.setBarNameClickEnabled(false);
+        this.iIP.setReplyTimeVisible(false);
+        this.iIP.setShowPraiseNum(true);
+        this.iIP.setNeedAddPraiseIcon(true);
+        this.iIP.setNeedAddReplyIcon(true);
+        this.iIP.setShareVisible(true);
+        this.iLL = (RelativeLayout) this.rootView.findViewById(R.id.ad_operate_area);
+        this.iLL.setOnClickListener(this.eCY);
+        this.iIr = (ViewStub) this.rootView.findViewById(R.id.ad_custom_view_stub);
+        this.iIr.setLayoutResource(getCustomLayout());
+        this.iIs = this.iIr.inflate();
+        cQ(this.iIs);
         return this.rootView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(int i, String str, String str2) {
-        if (!TextUtils.isEmpty(this.iKI.preloadLegoCardStr)) {
-            str2 = DL(str2);
+        if (!TextUtils.isEmpty(this.iLM.preloadLegoCardStr)) {
+            str2 = DM(str2);
         }
-        a.aCZ().c(this.mContext.getPageActivity(), new String[]{str2});
-        if (this.heW != null) {
+        a.aDb().c(this.mContext.getPageActivity(), new String[]{str2});
+        if (this.hfO != null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("da_area", str);
-            this.heW.b(i, hashMap);
+            this.hfO.b(i, hashMap);
         }
     }
 
-    private String DL(String str) {
-        return str + "&" + LegoListActivityConfig.PRE_LOAD + "=" + URLEncoder.encode(this.iKI.preloadLegoCardStr);
+    private String DM(String str) {
+        return str + "&" + LegoListActivityConfig.PRE_LOAD + "=" + URLEncoder.encode(this.iLM.preloadLegoCardStr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -159,68 +159,68 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
     /* renamed from: b */
     public void a(AdPost adPost) {
         super.a((AdPostBaseView) adPost);
-        this.iKI = adPost;
-        this.dEA.setData(adPost.getAdvertAppInfo());
-        this.iHL.setShareData(adPost);
-        this.iHL.setCommentClickable(true);
-        this.iHL.getCommentContainer().setOnClickListener(this.eCR);
-        this.iHL.setType(TbadkCoreApplication.getInst().getCardShowType());
+        this.iLM = adPost;
+        this.dEH.setData(adPost.getAdvertAppInfo());
+        this.iIP.setShareData(adPost);
+        this.iIP.setCommentClickable(true);
+        this.iIP.getCommentContainer().setOnClickListener(this.eCY);
+        this.iIP.setType(TbadkCoreApplication.getInst().getCardShowType());
         AdvertAppInfo advertAppInfo = adPost.getAdvertAppInfo();
         if (TextUtils.isEmpty(adPost.feedData.tag_name)) {
-            this.iJj.setVisibility(8);
+            this.iKn.setVisibility(8);
         } else {
-            this.iJj.setVisibility(0);
-            this.iJj.setText(adPost.feedData.tag_name);
-            this.iJj.setPadding(0, 0, 0, 0);
+            this.iKn.setVisibility(0);
+            this.iKn.setText(adPost.feedData.tag_name);
+            this.iKn.setPadding(0, 0, 0, 0);
             if ("广告".equals(adPost.feedData.tag_name)) {
-                this.iJj.setTextSize(0, l.g(this.mContext.getPageActivity(), R.dimen.fontsize24));
-                am.f(this.iJj, R.color.cp_cont_d, 1);
+                this.iKn.setTextSize(0, l.g(this.mContext.getPageActivity(), R.dimen.fontsize24));
+                am.f(this.iKn, R.color.cp_cont_d, 1);
             } else {
-                this.iJj.setTextSize(0, l.g(this.mContext.getPageActivity(), R.dimen.fontsize28));
-                am.f(this.iJj, R.color.cp_cont_f, 1);
+                this.iKn.setTextSize(0, l.g(this.mContext.getPageActivity(), R.dimen.fontsize28));
+                am.f(this.iKn, R.color.cp_cont_f, 1);
             }
         }
-        if (advertAppInfo != null && advertAppInfo.bFd != null && advertAppInfo.bFd.adCloseInfo != null && advertAppInfo.bFd.adCloseInfo.support_close.intValue() > 0) {
-            this.iHD.setVisibility(0);
-            this.iHD.setData(advertAppInfo);
+        if (advertAppInfo != null && advertAppInfo.bFe != null && advertAppInfo.bFe.adCloseInfo != null && advertAppInfo.bFe.adCloseInfo.support_close.intValue() > 0) {
+            this.iIH.setVisibility(0);
+            this.iIH.setData(advertAppInfo);
         } else {
-            this.iHD.setVisibility(8);
+            this.iIH.setVisibility(8);
         }
         c(adPost);
         AdvertAppInfo advertAppInfo2 = adPost.getAdvertAppInfo();
-        if (this.dEA.getHeaderImg() != null) {
-            if (advertAppInfo2.aex() == null || advertAppInfo2.aex().getPendantData() == null || StringUtils.isNull(advertAppInfo2.aex().getPendantData().acU())) {
-                this.dEA.getHeaderImg().setVisibility(0);
-                this.dEA.getHeaderImg().setData(advertAppInfo2);
-                this.dEA.getHeaderImg().setOnClickListener(this.eCR);
+        if (this.dEH.getHeaderImg() != null) {
+            if (advertAppInfo2.aey() == null || advertAppInfo2.aey().getPendantData() == null || StringUtils.isNull(advertAppInfo2.aey().getPendantData().acV())) {
+                this.dEH.getHeaderImg().setVisibility(0);
+                this.dEH.getHeaderImg().setData(advertAppInfo2);
+                this.dEH.getHeaderImg().setOnClickListener(this.eCY);
             } else {
-                this.dEA.getHeaderImg().setVisibility(4);
+                this.dEH.getHeaderImg().setVisibility(4);
             }
         }
-        if (this.dEA.getUserName() != null) {
-            this.dEA.getUserName().setOnClickListener(this.eCR);
+        if (this.dEH.getUserName() != null) {
+            this.dEH.getUserName().setOnClickListener(this.eCY);
         }
         n.a(this.mTitle, advertAppInfo2.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         n.a(advertAppInfo2, this.mTitle);
         this.mTitle.setVisibility(0);
         a2(adPost);
-        a(adPost, this.eCK);
-        am.l(this.eCK, R.color.cp_bg_line_e);
-        if (isInFrsAllThread() && com.baidu.tieba.frs.a.bkY().bkZ()) {
-            this.iHp.setVisibility(0);
-            am.l(this.iHp, R.color.cp_bg_line_d);
+        a(adPost, this.eCR);
+        am.l(this.eCR, R.color.cp_bg_line_e);
+        if (isInFrsAllThread() && com.baidu.tieba.frs.a.blf().blg()) {
+            this.iIt.setVisibility(0);
+            am.l(this.iIt, R.color.cp_bg_line_d);
             return;
         }
-        this.iHp.setVisibility(8);
+        this.iIt.setVisibility(8);
     }
 
     private boolean isInFrsAllThread() {
-        return this.hdX == 1;
+        return this.heP == 1;
     }
 
     private void a(AdPost adPost, View view) {
         if (adPost != null) {
-            if (!i.aca().ace() || adPost.feedData.chV().size() == 0) {
+            if (!i.aca().ace() || adPost.feedData.cin().size() == 0) {
             }
             if (adPost.adData.type == 1) {
             }
@@ -231,26 +231,26 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
     @Override // com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView, com.baidu.tieba.lego.card.view.e
     public void setDownloadAppCallback(c cVar) {
         super.setDownloadAppCallback(cVar);
-        if (this.iKJ != null) {
-            this.iKJ.setDownloadAppCallback(cVar);
+        if (this.iLN != null) {
+            this.iLN.setDownloadAppCallback(cVar);
         }
     }
 
     protected final void c(AdPost adPost) {
         if (!AdOperateBarHolder.isOperateValid(adPost.adData)) {
-            this.iKH.setVisibility(8);
+            this.iLL.setVisibility(8);
             return;
         }
-        this.iKJ = this.iKK.obtainHolder(adPost, this.iKH, this.iKJ, this.heX);
-        if (this.iKJ != null) {
-            this.iKH.setVisibility(0);
-            this.iKJ.setVisibility(0);
-            this.iKJ.update(adPost);
-            this.iKJ.setAfterClickSchemeListener(this.heW);
-            this.iKJ.setPageContext(this.mContext);
+        this.iLN = this.iLO.obtainHolder(adPost, this.iLL, this.iLN, this.hfP);
+        if (this.iLN != null) {
+            this.iLL.setVisibility(0);
+            this.iLN.setVisibility(0);
+            this.iLN.update(adPost);
+            this.iLN.setAfterClickSchemeListener(this.hfO);
+            this.iLN.setPageContext(this.mContext);
             return;
         }
-        this.iKH.setVisibility(8);
+        this.iLL.setVisibility(8);
     }
 
     public int getLayout() {

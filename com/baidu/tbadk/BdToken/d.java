@@ -99,8 +99,8 @@ public class d {
                         Uri parse = Uri.parse(decryptData.getUrl());
                         if (parse == null || parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) == null || parse.getQueryParameter("obj_type") == null || !parse.getQueryParameter("obj_type").equals("wise")) {
                             d.this.lq(decryptData.getUrl());
-                        } else if (com.baidu.tbadk.core.sharedPref.b.ahO().getInt("need_deal_diversion_jump", 0) == 1) {
-                            com.baidu.tbadk.core.sharedPref.b.ahO().putInt("need_deal_diversion_jump", 0);
+                        } else if (com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("need_deal_diversion_jump", 0) == 1) {
+                            com.baidu.tbadk.core.sharedPref.b.ahQ().putInt("need_deal_diversion_jump", 0);
                             if (MessageManager.getInstance().findTask(2921361) != null) {
                                 TiebaStatic.log(new an("c13390").bT("obj_type", parse.getQueryParameter("obj_type")).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
@@ -228,14 +228,14 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String Zu() {
-        return new String(Base64.decode(com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_baidu_password_re", "JTVDJTVFJTVCJTIzJTI0YS16QS1aMC05JTVEJTdCMTAlN0QlNUMlNUUlN0IwJTJDMSU3RCU1QiU1QyU1RSUyNCU1RCU3QjElN0Q="), 0));
+        return new String(Base64.decode(com.baidu.tbadk.core.sharedPref.b.ahQ().getString("key_baidu_password_re", "JTVDJTVFJTVCJTIzJTI0YS16QS1aMC05JTVEJTdCMTAlN0QlNUMlNUUlN0IwJTJDMSU3RCU1QiU1QyU1RSUyNCU1RCU3QjElN0Q="), 0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bw(String str, String str2) {
         TbPageContext<?> Y;
         if (!aq.isEmpty(str2) && (Y = Y(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            bb.ajC().a(Y, str, new String[]{str2});
+            bb.ajE().a(Y, str, new String[]{str2});
         }
     }
 

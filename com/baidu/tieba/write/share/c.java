@@ -7,11 +7,11 @@ public class c {
     public String content;
     public String forumId;
     public String imageUrl;
-    public String jPs;
-    public String jPt;
-    public String jPu;
-    public String jPv;
-    public String jPw;
+    public String jQA;
+    public String jQB;
+    public String jQC;
+    public String jQD;
+    public String jQz;
     public String linkUrl;
     public String title;
 }

@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.TriangleShapeView;
 /* loaded from: classes4.dex */
 public class GodReplyLeaderboardTipView extends LinearLayout {
-    private TriangleShapeView hJV;
+    private TriangleShapeView hKO;
     private TextView textView;
 
     public GodReplyLeaderboardTipView(Context context) {
@@ -32,9 +32,9 @@ public class GodReplyLeaderboardTipView extends LinearLayout {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.usertips_view, this);
-        this.hJV = (TriangleShapeView) findViewById(R.id.usertip_triangle);
-        this.hJV.setColorId(R.color.cp_link_tip_a);
-        this.hJV.setAlpha(0.95f);
+        this.hKO = (TriangleShapeView) findViewById(R.id.usertip_triangle);
+        this.hKO.setColorId(R.color.cp_link_tip_a);
+        this.hKO.setAlpha(0.95f);
         this.textView = (TextView) findViewById(R.id.usertip_text);
         this.textView.setAlpha(0.95f);
     }

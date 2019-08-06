@@ -2,22 +2,22 @@ package com.baidu.tieba.play.operableVideoView;
 
 import android.view.View;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tieba.play.QuickVideoView;
 import com.baidu.tieba.play.g;
 import com.baidu.tieba.play.v;
 import com.baidu.tieba.play.z;
 /* loaded from: classes.dex */
 public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e, g.f {
-    void b(z zVar);
+    void c(z zVar);
 
-    View cdO();
+    v ceI();
 
-    void ceQ();
+    View ceg();
 
-    void ceR();
+    void cfi();
 
-    v ceq();
+    void cfj();
 
     int getCurrentPosition();
 
@@ -31,7 +31,7 @@ public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e
 
     void setAfterClickListener(View.OnClickListener onClickListener);
 
-    void setData(bg bgVar);
+    void setData(bh bhVar);
 
     void setFrom(String str);
 

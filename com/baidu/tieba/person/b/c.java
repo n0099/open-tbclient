@@ -13,9 +13,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class c extends v.a {
     public TbImageView SD;
-    public View fhp;
-    private m iiY;
-    public TextView iiZ;
+    public View fhP;
+    private m ika;
+    public TextView ikb;
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
@@ -24,17 +24,17 @@ public class c extends v.a {
         this.mSkinType = 3;
         this.SD = (TbImageView) view.findViewById(R.id.photo_image_view);
         this.SD.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.fhp = view.findViewById(R.id.normal_pic_click_bg);
-        this.iiZ = (TextView) view.findViewById(R.id.tip_default_view);
+        this.fhP = view.findViewById(R.id.normal_pic_click_bg);
+        this.ikb = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
     public void i(m mVar) {
         if (mVar instanceof com.baidu.tbadk.data.m) {
-            this.iiY = mVar;
+            this.ika = mVar;
             com.baidu.tbadk.data.m mVar2 = (com.baidu.tbadk.data.m) mVar;
-            if (mVar2.arE()) {
+            if (mVar2.arG()) {
                 String nM = o.nM(mVar2.getSmallUrl());
-                this.iiZ.setVisibility(0);
+                this.ikb.setVisibility(0);
                 if (StringUtils.isNull(nM)) {
                     this.SD.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
@@ -42,7 +42,7 @@ public class c extends v.a {
                 }
             } else {
                 this.SD.setDefaultResource(R.drawable.img_default_100);
-                this.iiZ.setVisibility(8);
+                this.ikb.setVisibility(8);
                 this.SD.startLoad(mVar2.getSmallUrl(), 10, false);
             }
             getView().setOnClickListener(this.mClickListener);
@@ -52,14 +52,14 @@ public class c extends v.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.f(this.iiZ, R.color.cp_cont_g, 1);
-            am.l(this.iiZ, R.color.black_alpha50);
+            am.f(this.ikb, R.color.cp_cont_g, 1);
+            am.l(this.ikb, R.color.black_alpha50);
             this.mSkinType = i;
         }
     }
 
-    public m alk() {
-        return this.iiY;
+    public m alm() {
+        return this.ika;
     }
 
     public void B(View.OnClickListener onClickListener) {

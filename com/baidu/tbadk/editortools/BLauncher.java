@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean crD;
+    private boolean crK;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.crD = false;
+        this.crK = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -48,7 +48,7 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        arX();
+        arZ();
         setVisibility(8);
     }
 
@@ -83,7 +83,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void arX() {
+    public void arZ() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,7 +98,7 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                arX();
+                arZ();
             } else if (aVar.data instanceof String) {
                 qd((String) aVar.data);
             }
@@ -120,11 +120,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.crD;
+        return this.crK;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.crD = z;
+        this.crK = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

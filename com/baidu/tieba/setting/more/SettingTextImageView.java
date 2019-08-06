@@ -17,41 +17,41 @@ import com.baidu.tieba.c;
 /* loaded from: classes3.dex */
 public class SettingTextImageView extends FrameLayout {
     private ImageView ahs;
-    private LinearLayout cob;
-    private HeadImageView iTi;
+    private LinearLayout coi;
+    private HeadImageView iUm;
     private Context mContext;
     private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aqv();
+        aqx();
         c(attributeSet);
-        jZ(TbadkCoreApplication.getInst().getSkinType());
+        ka(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        aqv();
-        jZ(TbadkCoreApplication.getInst().getSkinType());
+        aqx();
+        ka(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void jZ(int i) {
+    public void ka(int i) {
         am.f(this.textView, R.color.common_color_10039, 1);
         am.b(this.ahs, (int) R.drawable.icon_arrow_gray_right_n, i);
-        this.iTi.invalidate();
+        this.iUm.invalidate();
     }
 
-    public void clA() {
-        if (this.iTi != null) {
-            this.iTi.setVisibility(8);
+    public void clS() {
+        if (this.iUm != null) {
+            this.iUm.setVisibility(8);
         }
     }
 
-    public void clB() {
-        if (this.iTi != null) {
-            this.iTi.setVisibility(0);
+    public void clT() {
+        if (this.iUm != null) {
+            this.iUm.setVisibility(0);
         }
     }
 
@@ -61,20 +61,20 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.iTi.startLoad(str, 26, false);
+            this.iUm.startLoad(str, 26, false);
         } else {
-            this.iTi.startLoad(str, 12, false);
+            this.iUm.startLoad(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void aqv() {
+    private void aqx() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-        this.cob = (LinearLayout) findViewById(R.id.container);
+        this.coi = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.iTi = (HeadImageView) findViewById(R.id.icon);
+        this.iUm = (HeadImageView) findViewById(R.id.icon);
         this.ahs = (ImageView) findViewById(R.id.arrow);
     }
 
@@ -89,7 +89,7 @@ public class SettingTextImageView extends FrameLayout {
         if (color > -1) {
             this.textView.setTextColor(color);
         }
-        this.cob.setClickable(false);
-        this.cob.setFocusable(false);
+        this.coi.setClickable(false);
+        this.coi.setFocusable(false);
     }
 }

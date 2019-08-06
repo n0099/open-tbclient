@@ -5,7 +5,7 @@ import android.content.Context;
 public interface a {
     C0255a aj(Context context, String str);
 
-    int asm();
+    int aso();
 
     int qf(String str);
 

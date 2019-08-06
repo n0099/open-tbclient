@@ -3,12 +3,12 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class o implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.l kjG;
-    private final ai<com.facebook.imagepipeline.f.d> kjj;
+    private final com.facebook.imagepipeline.c.l kkM;
+    private final ai<com.facebook.imagepipeline.f.d> kkp;
 
     public o(ai<com.facebook.imagepipeline.f.d> aiVar, com.facebook.imagepipeline.c.l lVar) {
-        this.kjj = aiVar;
-        this.kjG = lVar;
+        this.kkp = aiVar;
+        this.kkM = lVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
@@ -17,26 +17,26 @@ public class o implements ai<com.facebook.imagepipeline.f.d> {
     }
 
     private void c(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        if (ajVar.cKD().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+        if (ajVar.cKY().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
             jVar.e(null, true);
             return;
         }
-        if (ajVar.cKB().cLw()) {
-            jVar = new a(jVar, ajVar, this.kjG);
+        if (ajVar.cKW().cLR()) {
+            jVar = new a(jVar, ajVar, this.kkM);
         }
-        this.kjj.a(jVar, ajVar);
+        this.kkp.a(jVar, ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final com.facebook.imagepipeline.c.l kjG;
-        private final aj kju;
+        private final aj kkA;
+        private final com.facebook.imagepipeline.c.l kkM;
 
         private a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, com.facebook.imagepipeline.c.l lVar) {
             super(jVar);
-            this.kju = ajVar;
-            this.kjG = lVar;
+            this.kkA = ajVar;
+            this.kkM = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,9 +44,9 @@ public class o implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar != null && z) {
-                this.kjG.a(dVar, this.kju.cKB(), this.kju.cFU());
+                this.kkM.a(dVar, this.kkA.cKW(), this.kkA.cGp());
             }
-            cKO().e(dVar, z);
+            cLj().e(dVar, z);
         }
     }
 }

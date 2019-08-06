@@ -15,7 +15,7 @@ public class UserItemData implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BZ */
+        /* renamed from: Cb */
         public UserItemData[] newArray(int i) {
             return new UserItemData[i];
         }
@@ -24,17 +24,17 @@ public class UserItemData implements Parcelable {
     public String fans_num;
     public String intro;
     public String is_follow;
-    public String jtN;
-    public String jtO;
-    public String jtP;
-    public String jtQ;
+    public String juU;
+    public String juV;
+    public String juW;
+    public String juX;
     public String name_show;
     public String portrait;
     public String user_id;
     public String user_name;
     public String video_num;
 
-    public String ctA() {
+    public String ctW() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 
@@ -49,14 +49,14 @@ public class UserItemData implements Parcelable {
         parcel.writeString(this.user_name);
         parcel.writeString(this.name_show);
         parcel.writeString(this.portrait);
-        parcel.writeString(this.jtN);
-        parcel.writeString(this.jtO);
+        parcel.writeString(this.juU);
+        parcel.writeString(this.juV);
         parcel.writeString(this.fans_num);
         parcel.writeString(this.video_num);
         parcel.writeString(this.agree_num);
         parcel.writeString(this.intro);
-        parcel.writeString(this.jtP);
-        parcel.writeString(this.jtQ);
+        parcel.writeString(this.juW);
+        parcel.writeString(this.juX);
         parcel.writeString(this.is_follow);
     }
 
@@ -68,14 +68,14 @@ public class UserItemData implements Parcelable {
         this.user_name = parcel.readString();
         this.name_show = parcel.readString();
         this.portrait = parcel.readString();
-        this.jtN = parcel.readString();
-        this.jtO = parcel.readString();
+        this.juU = parcel.readString();
+        this.juV = parcel.readString();
         this.fans_num = parcel.readString();
         this.video_num = parcel.readString();
         this.agree_num = parcel.readString();
         this.intro = parcel.readString();
-        this.jtP = parcel.readString();
-        this.jtQ = parcel.readString();
+        this.juW = parcel.readString();
+        this.juX = parcel.readString();
         this.is_follow = parcel.readString();
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.videoEasterEgg;
 public interface b {
     void BN();
 
-    void Gi(String str);
-
     void Gj(String str);
+
+    void Gk(String str);
 
     void ev(String str, String str2);
 

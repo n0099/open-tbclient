@@ -11,7 +11,7 @@ public interface f {
 
     void c(float f, boolean z);
 
-    void ccy();
+    void ccQ();
 
     void onChangeSkinType(int i);
 

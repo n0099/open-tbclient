@@ -5,20 +5,20 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d {
     private String labelName = "";
-    private int cnG = 0;
-    private boolean cnH = false;
+    private int cnN = 0;
+    private boolean cnO = false;
     private String labelId = "";
-    private int cnI = 0;
-    private boolean cnJ = false;
-    private int cnK = am.getColor(R.color.cp_btn_a);
-    private int cnL = am.getColor(R.color.cp_link_tip_d);
+    private int cnP = 0;
+    private boolean cnQ = false;
+    private int cnR = am.getColor(R.color.cp_btn_a);
+    private int cnS = am.getColor(R.color.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
     }
 
-    public void jU(int i) {
-        this.cnG = i;
+    public void jV(int i) {
+        this.cnN = i;
     }
 
     public void pJ(String str) {

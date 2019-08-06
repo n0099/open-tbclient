@@ -17,39 +17,39 @@ import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class j extends b<com.baidu.tieba.card.data.h> {
-    private View.OnClickListener bWk;
+    private View.OnClickListener bWq;
     private List<com.baidu.tieba.horizonalList.widget.c> brG;
-    private com.baidu.tieba.horizonalList.widget.b eBI;
-    private HListView eBR;
-    public k eBS;
+    private com.baidu.tieba.horizonalList.widget.b eBP;
+    private HListView eBY;
+    public k eBZ;
     private TbPageContext<?> mContext;
 
     public j(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.bWk = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.1
+        this.bWq = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (j.this.aZo() != null) {
-                    j.this.aZo().a(view, null);
+                if (j.this.aZq() != null) {
+                    j.this.aZq().a(view, null);
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.eBR = new HListView(getContext());
-        this.eBR.setHeaderDividersEnabled(false);
-        this.eBR.setFooterDividersEnabled(false);
-        this.eBR.setSelector(R.drawable.list_selector_transparent);
-        this.eBR.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
-        this.eBS = new k(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
-        this.eBI = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.card_homepage_rec_god_item, this.eBS);
-        this.eBI.setOnClickListener(this.bWk);
-        this.eBR.setAdapter((ListAdapter) this.eBI);
-        this.eAc.addView(this.eBR);
-        this.eAb.setVisibility(8);
-        this.ezV.setTextSize(0, com.baidu.adp.lib.util.l.g(this.mContext.getPageActivity(), R.dimen.ds28));
-        this.ezW.setVisibility(0);
-        this.ezW.setText(this.mContext.getResources().getString(R.string.recommend_frs_hot_thread_more));
-        this.ezU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.j.2
+        this.eBY = new HListView(getContext());
+        this.eBY.setHeaderDividersEnabled(false);
+        this.eBY.setFooterDividersEnabled(false);
+        this.eBY.setSelector(R.drawable.list_selector_transparent);
+        this.eBY.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
+        this.eBZ = new k(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
+        this.eBP = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.card_homepage_rec_god_item, this.eBZ);
+        this.eBP.setOnClickListener(this.bWq);
+        this.eBY.setAdapter((ListAdapter) this.eBP);
+        this.eAj.addView(this.eBY);
+        this.eAi.setVisibility(8);
+        this.eAc.setTextSize(0, com.baidu.adp.lib.util.l.g(this.mContext.getPageActivity(), R.dimen.ds28));
+        this.eAd.setVisibility(0);
+        this.eAd.setText(this.mContext.getResources().getString(R.string.recommend_frs_hot_thread_more));
+        this.eAb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.j.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
@@ -59,16 +59,16 @@ public class j extends b<com.baidu.tieba.card.data.h> {
                 }
             }
         });
-        this.eBS.setUniqueId(bdUniqueId);
+        this.eBZ.setUniqueId(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        if (this.eBR != null && this.eBI != null) {
-            am.j(this.ezW, R.color.cp_cont_d);
-            am.j(this.ezV, R.color.cp_cont_d);
-            this.eBI.iG(i);
+        if (this.eBY != null && this.eBP != null) {
+            am.j(this.eAd, R.color.cp_cont_d);
+            am.j(this.eAc, R.color.cp_cont_d);
+            this.eBP.iG(i);
         }
     }
 
@@ -78,12 +78,12 @@ public class j extends b<com.baidu.tieba.card.data.h> {
         super.a((j) hVar);
         if (hVar != null && !com.baidu.tbadk.core.util.v.aa(hVar.getDataList())) {
             if (StringUtils.isNull(hVar.mGroupTitle)) {
-                this.ezV.setText(this.mContext.getPageActivity().getResources().getString(R.string.the_gods_you_may_interest_in));
+                this.eAc.setText(this.mContext.getPageActivity().getResources().getString(R.string.the_gods_you_may_interest_in));
             }
             if (bx(hVar.getDataList())) {
                 this.brG = hVar.getDataList();
-                this.eBI.setData(this.brG);
-                this.eBI.notifyDataSetChanged();
+                this.eBP.setData(this.brG);
+                this.eBP.notifyDataSetChanged();
             }
         }
     }
@@ -99,7 +99,7 @@ public class j extends b<com.baidu.tieba.card.data.h> {
                 if ((cVar instanceof com.baidu.tieba.card.data.i) && (cVar2 instanceof com.baidu.tieba.card.data.i)) {
                     com.baidu.tieba.card.data.i iVar = (com.baidu.tieba.card.data.i) cVar;
                     com.baidu.tieba.card.data.i iVar2 = (com.baidu.tieba.card.data.i) cVar2;
-                    if (iVar.bKb != null && !StringUtils.isNull(iVar.bKb.getUserId()) && iVar2.bKb != null && !StringUtils.isNull(iVar2.bKb.getUserId()) && !iVar.bKb.getUserId().equals(iVar2.bKb.getUserId())) {
+                    if (iVar.bKg != null && !StringUtils.isNull(iVar.bKg.getUserId()) && iVar2.bKg != null && !StringUtils.isNull(iVar2.bKg.getUserId()) && !iVar.bKg.getUserId().equals(iVar2.bKg.getUserId())) {
                         return true;
                     }
                 }

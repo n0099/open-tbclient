@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView haG;
-    private List<com.baidu.tieba.interestlabel.b.a> haI;
-    private List<Integer> haJ = new ArrayList();
+    private List<com.baidu.tieba.interestlabel.b.a> hbA;
+    private List<Integer> hbB = new ArrayList();
+    private LabelSettingView hby;
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.haG = labelSettingView;
+        this.hby = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.aa(bVar.bJn())) {
+        if (bVar != null && !v.aa(bVar.bJB())) {
             this.mLabelDataSet = bVar;
-            this.haI = bVar.bJn();
-            if (!v.aa(bVar.bJo())) {
-                this.haJ = new ArrayList(bVar.bJo());
+            this.hbA = bVar.bJB();
+            if (!v.aa(bVar.bJC())) {
+                this.hbB = new ArrayList(bVar.bJC());
             }
         }
     }
 
-    public List<Integer> bJk() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.bJo();
+    public List<Integer> bJy() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.bJC();
     }
 
-    public List<Integer> bJl() {
-        return this.haJ;
+    public List<Integer> bJz() {
+        return this.hbB;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.Z(this.haI);
+        return v.Z(this.hbA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wn */
+    /* renamed from: wp */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.c(this.haI, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.c(this.hbA, i);
     }
 
     @Override // android.widget.Adapter
@@ -60,7 +60,7 @@ public class b extends BaseAdapter {
         if (item == null) {
             return 0L;
         }
-        return item.bFL;
+        return item.bFM;
     }
 
     @Override // android.widget.Adapter
@@ -68,17 +68,17 @@ public class b extends BaseAdapter {
         C0351b c0351b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.haG.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            view2 = LayoutInflater.from(this.hby.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
             C0351b c0351b2 = new C0351b();
-            c0351b2.haL = (TextView) view2;
+            c0351b2.hbD = (TextView) view2;
             view2.setTag(c0351b2);
             c0351b = c0351b2;
         } else {
             c0351b = (C0351b) view.getTag();
             view2 = view;
         }
-        c0351b.haL.setOnClickListener(new a(i));
-        a(c0351b.haL, getItem(i));
+        c0351b.hbD.setOnClickListener(new a(i));
+        a(c0351b.hbD, getItem(i));
         return view2;
     }
 
@@ -105,7 +105,7 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     class C0351b {
-        TextView haL;
+        TextView hbD;
 
         C0351b() {
         }
@@ -128,12 +128,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.haJ.add(Integer.valueOf(item.bFL));
+                    b.this.hbB.add(Integer.valueOf(item.bFM));
                 } else {
-                    b.this.haJ.remove(Integer.valueOf(item.bFL));
+                    b.this.hbB.remove(Integer.valueOf(item.bFM));
                 }
-                if (b.this.haG != null) {
-                    b.this.haG.mW(v.Z(b.this.haJ) > 0);
+                if (b.this.hby != null) {
+                    b.this.hby.mW(v.Z(b.this.hbB) > 0);
                 }
             }
         }

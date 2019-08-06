@@ -5,88 +5,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes4.dex */
 class b {
-    private int igA;
-    private int igB;
-    private byte[] igC;
-    private int igD;
-    private int igE;
-    private int igF;
-    int igG;
-    int igI;
-    int igP;
-    int igQ;
-    int igR;
-    int igV;
-    int igH = 12;
-    int igJ = 4096;
-    int[] igK = new int[5003];
-    int[] igL = new int[5003];
-    int igM = 5003;
-    int igN = 0;
-    boolean igO = false;
-    int igS = 0;
-    int igT = 0;
-    int[] igU = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] igW = new byte[256];
+    private int ihC;
+    private int ihD;
+    private byte[] ihE;
+    private int ihF;
+    private int ihG;
+    private int ihH;
+    int ihI;
+    int ihK;
+    int ihR;
+    int ihS;
+    int ihT;
+    int ihX;
+    int ihJ = 12;
+    int ihL = 4096;
+    int[] ihM = new int[5003];
+    int[] ihN = new int[5003];
+    int ihO = 5003;
+    int ihP = 0;
+    boolean ihQ = false;
+    int ihU = 0;
+    int ihV = 0;
+    int[] ihW = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] ihY = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.igA = i;
-        this.igB = i2;
-        this.igC = bArr;
-        this.igD = Math.max(2, i3);
+        this.ihC = i;
+        this.ihD = i2;
+        this.ihE = bArr;
+        this.ihF = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.igW;
-        int i = this.igV;
-        this.igV = i + 1;
+        byte[] bArr = this.ihY;
+        int i = this.ihX;
+        this.ihX = i + 1;
         bArr[i] = b;
-        if (this.igV >= 254) {
+        if (this.ihX >= 254) {
             h(outputStream);
         }
     }
 
     void f(OutputStream outputStream) throws IOException {
-        yz(this.igM);
-        this.igN = this.igQ + 2;
-        this.igO = true;
-        b(this.igQ, outputStream);
+        yB(this.ihO);
+        this.ihP = this.ihS + 2;
+        this.ihQ = true;
+        b(this.ihS, outputStream);
     }
 
-    void yz(int i) {
+    void yB(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.igK[i2] = -1;
+            this.ihM[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.igP = i;
-        this.igO = false;
-        this.igG = this.igP;
-        this.igI = yA(this.igG);
-        this.igQ = 1 << (i - 1);
-        this.igR = this.igQ + 1;
-        this.igN = this.igQ + 2;
-        this.igV = 0;
-        int caz = caz();
-        for (int i3 = this.igM; i3 < 65536; i3 *= 2) {
+        this.ihR = i;
+        this.ihQ = false;
+        this.ihI = this.ihR;
+        this.ihK = yC(this.ihI);
+        this.ihS = 1 << (i - 1);
+        this.ihT = this.ihS + 1;
+        this.ihP = this.ihS + 2;
+        this.ihX = 0;
+        int caR = caR();
+        for (int i3 = this.ihO; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.igM;
-        yz(i5);
-        b(this.igQ, outputStream);
+        int i5 = this.ihO;
+        yB(i5);
+        b(this.ihS, outputStream);
         while (true) {
-            int caz2 = caz();
-            if (caz2 != -1) {
-                int i6 = (caz2 << this.igH) + caz;
-                int i7 = (caz2 << i4) ^ caz;
-                if (this.igK[i7] == i6) {
-                    caz = this.igL[i7];
+            int caR2 = caR();
+            if (caR2 != -1) {
+                int i6 = (caR2 << this.ihJ) + caR;
+                int i7 = (caR2 << i4) ^ caR;
+                if (this.ihM[i7] == i6) {
+                    caR = this.ihN[i7];
                 } else {
-                    if (this.igK[i7] >= 0) {
+                    if (this.ihM[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -96,28 +96,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.igK[i7] == i6) {
-                                caz = this.igL[i7];
+                            if (this.ihM[i7] == i6) {
+                                caR = this.ihN[i7];
                                 break;
                             }
-                        } while (this.igK[i7] >= 0);
+                        } while (this.ihM[i7] >= 0);
                     }
-                    b(caz, outputStream);
-                    if (this.igN < this.igJ) {
-                        int[] iArr = this.igL;
-                        int i9 = this.igN;
-                        this.igN = i9 + 1;
+                    b(caR, outputStream);
+                    if (this.ihP < this.ihL) {
+                        int[] iArr = this.ihN;
+                        int i9 = this.ihP;
+                        this.ihP = i9 + 1;
                         iArr[i7] = i9;
-                        this.igK[i7] = i6;
-                        caz = caz2;
+                        this.ihM[i7] = i6;
+                        caR = caR2;
                     } else {
                         f(outputStream);
-                        caz = caz2;
+                        caR = caR2;
                     }
                 }
             } else {
-                b(caz, outputStream);
-                b(this.igR, outputStream);
+                b(caR, outputStream);
+                b(this.ihT, outputStream);
                 return;
             }
         }
@@ -125,69 +125,69 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g(OutputStream outputStream) throws IOException {
-        outputStream.write(this.igD);
-        this.igE = this.igA * this.igB;
-        this.igF = 0;
-        a(this.igD + 1, outputStream);
+        outputStream.write(this.ihF);
+        this.ihG = this.ihC * this.ihD;
+        this.ihH = 0;
+        a(this.ihF + 1, outputStream);
         outputStream.write(0);
     }
 
     void h(OutputStream outputStream) throws IOException {
-        if (this.igV > 0) {
-            outputStream.write(this.igV);
-            outputStream.write(this.igW, 0, this.igV);
-            this.igV = 0;
+        if (this.ihX > 0) {
+            outputStream.write(this.ihX);
+            outputStream.write(this.ihY, 0, this.ihX);
+            this.ihX = 0;
         }
     }
 
-    final int yA(int i) {
+    final int yC(int i) {
         return (1 << i) - 1;
     }
 
-    private int caz() {
-        if (this.igE == 0) {
+    private int caR() {
+        if (this.ihG == 0) {
             return -1;
         }
-        this.igE--;
-        byte[] bArr = this.igC;
-        int i = this.igF;
-        this.igF = i + 1;
+        this.ihG--;
+        byte[] bArr = this.ihE;
+        int i = this.ihH;
+        this.ihH = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.igS &= this.igU[this.igT];
-        if (this.igT > 0) {
-            this.igS |= i << this.igT;
+        this.ihU &= this.ihW[this.ihV];
+        if (this.ihV > 0) {
+            this.ihU |= i << this.ihV;
         } else {
-            this.igS = i;
+            this.ihU = i;
         }
-        this.igT += this.igG;
-        while (this.igT >= 8) {
-            a((byte) (this.igS & 255), outputStream);
-            this.igS >>= 8;
-            this.igT -= 8;
+        this.ihV += this.ihI;
+        while (this.ihV >= 8) {
+            a((byte) (this.ihU & 255), outputStream);
+            this.ihU >>= 8;
+            this.ihV -= 8;
         }
-        if (this.igN > this.igI || this.igO) {
-            if (this.igO) {
-                int i2 = this.igP;
-                this.igG = i2;
-                this.igI = yA(i2);
-                this.igO = false;
+        if (this.ihP > this.ihK || this.ihQ) {
+            if (this.ihQ) {
+                int i2 = this.ihR;
+                this.ihI = i2;
+                this.ihK = yC(i2);
+                this.ihQ = false;
             } else {
-                this.igG++;
-                if (this.igG == this.igH) {
-                    this.igI = this.igJ;
+                this.ihI++;
+                if (this.ihI == this.ihJ) {
+                    this.ihK = this.ihL;
                 } else {
-                    this.igI = yA(this.igG);
+                    this.ihK = yC(this.ihI);
                 }
             }
         }
-        if (i == this.igR) {
-            while (this.igT > 0) {
-                a((byte) (this.igS & 255), outputStream);
-                this.igS >>= 8;
-                this.igT -= 8;
+        if (i == this.ihT) {
+            while (this.ihV > 0) {
+                a((byte) (this.ihU & 255), outputStream);
+                this.ihU >>= 8;
+                this.ihV -= 8;
             }
             h(outputStream);
         }

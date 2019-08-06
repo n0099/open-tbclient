@@ -15,13 +15,13 @@ import java.util.List;
 public class k {
     private List<? extends j> aPr;
     private TextView bCd;
-    private Context bOf;
-    private ViewGroup bOg;
-    private LinearLayout bOh;
-    private View bOi;
-    private TextView bOj;
-    private c bOk;
-    private a bOl;
+    private Context bOk;
+    private ViewGroup bOl;
+    private LinearLayout bOm;
+    private View bOn;
+    private TextView bOo;
+    private c bOp;
+    private a bOq;
     private String titleText;
 
     /* loaded from: classes.dex */
@@ -41,27 +41,27 @@ public class k {
 
     public k(Context context) {
         if (context != null) {
-            this.bOf = context;
-            this.bOg = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-            this.bOh = (LinearLayout) this.bOg.findViewById(R.id.content_view);
-            this.bCd = (TextView) this.bOg.findViewById(R.id.title);
-            this.bOi = this.bOg.findViewById(R.id.title_divide_line);
-            this.bOi.setVisibility(8);
+            this.bOk = context;
+            this.bOl = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+            this.bOm = (LinearLayout) this.bOl.findViewById(R.id.content_view);
+            this.bCd = (TextView) this.bOl.findViewById(R.id.title);
+            this.bOn = this.bOl.findViewById(R.id.title_divide_line);
+            this.bOn.setVisibility(8);
             this.aPr = new ArrayList();
-            this.bOj = (TextView) this.bOg.findViewById(R.id.dialog_bottom_cancel_button);
+            this.bOo = (TextView) this.bOl.findViewById(R.id.dialog_bottom_cancel_button);
         }
     }
 
     public Context getContext() {
-        return this.bOf;
+        return this.bOk;
     }
 
-    public ViewGroup agZ() {
-        return this.bOh;
+    public ViewGroup ahb() {
+        return this.bOm;
     }
 
     public View getRootView() {
-        return this.bOg;
+        return this.bOl;
     }
 
     public void setTitleText(String str) {
@@ -69,24 +69,24 @@ public class k {
     }
 
     public void a(c cVar) {
-        this.bOk = cVar;
+        this.bOp = cVar;
     }
 
-    public c aha() {
-        return this.bOk;
+    public c ahc() {
+        return this.bOp;
     }
 
     public void W(List<? extends j> list) {
         if (list != null) {
             this.aPr = list;
-            this.bOh.removeAllViews();
+            this.bOm.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     j jVar = list.get(i2);
                     if (jVar != null) {
-                        this.bOh.addView(jVar.getView());
+                        this.bOm.addView(jVar.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -97,15 +97,15 @@ public class k {
     }
 
     public void a(a aVar) {
-        this.bOl = aVar;
+        this.bOq = aVar;
     }
 
     public void onChangeSkinType() {
         am.k(this.bCd, R.color.cp_bg_line_d);
         am.j(this.bCd, R.color.cp_cont_c);
-        am.l(this.bOi, R.color.cp_bg_line_c);
-        am.k(this.bOj, R.color.cp_bg_line_d);
-        am.j(this.bOj, R.color.cp_cont_j);
+        am.l(this.bOn, R.color.cp_bg_line_c);
+        am.k(this.bOo, R.color.cp_bg_line_d);
+        am.j(this.bOo, R.color.cp_cont_j);
         if (this.aPr != null) {
             for (j jVar : this.aPr) {
                 jVar.onChangeSkinType();
@@ -113,21 +113,21 @@ public class k {
         }
     }
 
-    public View ahb() {
+    public View ahd() {
         if (!StringUtils.isNull(this.titleText)) {
             this.bCd.setText(this.titleText);
         } else {
             this.bCd.setVisibility(8);
         }
-        if (this.bOl != null) {
-            this.bOj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
+        if (this.bOq != null) {
+            this.bOo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    k.this.bOl.onClick();
+                    k.this.bOq.onClick();
                 }
             });
         }
         onChangeSkinType();
-        return this.bOg;
+        return this.bOl;
     }
 }

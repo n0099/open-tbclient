@@ -52,23 +52,23 @@ public class l extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.bOn = (TextView) view.findViewById(R.id.text_tip);
-            aVar2.bOo = (TextView) view.findViewById(R.id.text_desc);
-            aVar2.bOp = (CheckBox) view.findViewById(R.id.checked_icon);
+            aVar2.bOs = (TextView) view.findViewById(R.id.text_tip);
+            aVar2.bOt = (TextView) view.findViewById(R.id.text_desc);
+            aVar2.bOu = (CheckBox) view.findViewById(R.id.checked_icon);
             aVar2.divider = view.findViewById(R.id.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.bOn.setText(mVar.ahc());
+        aVar.bOs.setText(mVar.ahe());
         if (StringUtils.isNull(mVar.getDesc())) {
-            aVar.bOo.setVisibility(8);
+            aVar.bOt.setVisibility(8);
         } else {
-            aVar.bOo.setText(mVar.getDesc());
-            aVar.bOo.setVisibility(0);
+            aVar.bOt.setText(mVar.getDesc());
+            aVar.bOt.setVisibility(0);
         }
-        aVar.bOp.setChecked(mVar.isChecked());
-        aVar.bOp.setButtonDrawable(mVar.isChecked() ? am.getDrawable(R.drawable.icon_set_list_ok_s) : new ColorDrawable(R.color.common_color_10022));
+        aVar.bOu.setChecked(mVar.isChecked());
+        aVar.bOu.setButtonDrawable(mVar.isChecked() ? am.getDrawable(R.drawable.icon_set_list_ok_s) : new ColorDrawable(R.color.common_color_10022));
         if (hL(i)) {
             aVar.divider.setVisibility(8);
             am.k(view, R.drawable.dialog_single_button_bg_selector);
@@ -88,9 +88,9 @@ public class l extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        TextView bOn;
-        TextView bOo;
-        CheckBox bOp;
+        TextView bOs;
+        TextView bOt;
+        CheckBox bOu;
         View divider;
 
         private a() {

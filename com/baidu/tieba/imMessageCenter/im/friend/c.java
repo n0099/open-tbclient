@@ -12,11 +12,11 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 class c extends BaseAdapter {
-    private final TbPageContextSupport czd;
-    private TbCheckBox.a gTp;
-    private boolean gTr;
+    private final TbPageContextSupport czk;
+    private TbCheckBox.a gUh;
+    private boolean gUj;
     private List<com.baidu.tbadk.coreExtra.relationship.a> mData;
-    private b gTq = null;
+    private b gUi = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes4.dex */
@@ -25,12 +25,12 @@ class c extends BaseAdapter {
     }
 
     public c(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.czd = tbPageContextSupport;
-        this.gTr = z;
+        this.czk = tbPageContextSupport;
+        this.gUj = z;
     }
 
     public void a(b bVar) {
-        this.gTq = bVar;
+        this.gUi = bVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
@@ -38,7 +38,7 @@ class c extends BaseAdapter {
     }
 
     public void a(TbCheckBox.a aVar) {
-        this.gTp = aVar;
+        this.gUh = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -83,42 +83,42 @@ class c extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = bHn();
+            aVar2 = bHB();
         } else {
             aVar2 = (a) obj;
         }
-        if (this.gTq != null) {
-            this.gTq.a(aVar2.rootView, aVar);
+        if (this.gUi != null) {
+            this.gUi.a(aVar2.rootView, aVar);
         }
-        a(aVar, aVar2, aVar.apS());
-        aVar2.euc.setText(aVar.apU());
-        if (this.gTr) {
-            aVar2.gTs.setVisibility(8);
+        a(aVar, aVar2, aVar.apU());
+        aVar2.euj.setText(aVar.apW());
+        if (this.gUj) {
+            aVar2.gUk.setVisibility(8);
         } else {
-            aVar2.gTs.setTagData(aVar);
+            aVar2.gUk.setTagData(aVar);
         }
-        if (this.czd instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.czd).getLayoutMode().onModeChanged(aVar2.rootView);
+        if (this.czk instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.czk).getLayoutMode().onModeChanged(aVar2.rootView);
         }
         return aVar2;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, a aVar2, String str) {
         if (aVar != null) {
-            aVar2.gSX.setTag(str);
-            aVar2.gSX.startLoad(str, 12, false);
+            aVar2.gTP.setTag(str);
+            aVar2.gTP.startLoad(str, 12, false);
         }
     }
 
-    private a bHn() {
+    private a bHB() {
         a aVar = new a();
-        aVar.rootView = LayoutInflater.from(this.czd.getPageContext().getContext()).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        aVar.gSX = (HeadImageView) aVar.rootView.findViewById(R.id.photo);
-        aVar.gSX.setIsRound(false);
-        aVar.euc = (TextView) aVar.rootView.findViewById(R.id.txt_user_name);
-        aVar.gTs = (TbCheckBox) aVar.rootView.findViewById(R.id.ckb_select);
-        if (this.gTp != null) {
-            aVar.gTs.setStatedChangedListener(this.gTp);
+        aVar.rootView = LayoutInflater.from(this.czk.getPageContext().getContext()).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+        aVar.gTP = (HeadImageView) aVar.rootView.findViewById(R.id.photo);
+        aVar.gTP.setIsRound(false);
+        aVar.euj = (TextView) aVar.rootView.findViewById(R.id.txt_user_name);
+        aVar.gUk = (TbCheckBox) aVar.rootView.findViewById(R.id.ckb_select);
+        if (this.gUh != null) {
+            aVar.gUk.setStatedChangedListener(this.gUh);
         }
         aVar.rootView.setTag(aVar);
         return aVar;
@@ -126,9 +126,9 @@ class c extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public class a {
-        public TextView euc;
-        public HeadImageView gSX;
-        public TbCheckBox gTs;
+        public TextView euj;
+        public HeadImageView gTP;
+        public TbCheckBox gUk;
         public View rootView;
 
         public a() {

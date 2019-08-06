@@ -8,38 +8,38 @@ import com.baidu.tbadk.b.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> hcO;
+    private final HashMap<String, f> hdG;
 
     private b() {
-        this.hcO = new HashMap<>();
+        this.hdG = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0400b {
-        private static b iFR = new b();
+        private static b iGV = new b();
     }
 
-    public static b chE() {
-        return C0400b.iFR;
+    public static b chW() {
+        return C0400b.iGV;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
-            a DE = a.DE(str);
-            f fVar = this.hcO.get(DE.getKey());
-            if (fVar != null && DE.isValid()) {
+            a DF = a.DF(str);
+            f fVar = this.hdG.get(DF.getKey());
+            if (fVar != null && DF.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    DE.getParams().putAll(hashMap);
+                    DF.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, DE.getParams(), str, dVar);
+                fVar.a(obj, DF.getParams(), str, dVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.hcO.put(str, fVar);
+        this.hdG.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
@@ -48,12 +48,12 @@ public class b implements e {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean bHv;
-        HashMap<String, String> hcP;
+        private boolean bHw;
+        HashMap<String, String> hdH;
         String key;
 
         public boolean isValid() {
-            return this.bHv;
+            return this.bHw;
         }
 
         public String getKey() {
@@ -61,26 +61,26 @@ public class b implements e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.hcP;
+            return this.hdH;
         }
 
         private a(String str) {
-            this.bHv = false;
+            this.bHw = false;
             Uri parse = Uri.parse(str);
-            this.bHv = TextUtils.isEmpty(parse.getScheme()) ? false : true;
-            if (this.bHv) {
+            this.bHw = TextUtils.isEmpty(parse.getScheme()) ? false : true;
+            if (this.bHw) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.hcP = new HashMap<>();
+                this.hdH = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.hcP.put(str2, parse.getQueryParameter(str2));
+                    this.hdH.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.hcP = new HashMap<>();
+            this.hdH = new HashMap<>();
         }
 
-        public static a DE(String str) {
+        public static a DF(String str) {
             return new a(str);
         }
     }

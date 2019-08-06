@@ -1,11 +1,22 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.tieba.tbadkCore.e;
-/* loaded from: classes3.dex */
-public interface n {
-    void a(int i, boolean z, e.b bVar);
+import com.baidu.adp.BdUniqueId;
+import tbclient.ActBtn;
+/* loaded from: classes.dex */
+public class n implements com.baidu.adp.widget.ListView.m {
+    public static final BdUniqueId jeS = BdUniqueId.gen();
+    public String text;
+    public String url;
 
-    void b(j jVar);
+    public void a(ActBtn actBtn) {
+        if (actBtn != null) {
+            this.text = actBtn.text;
+            this.url = actBtn.url;
+        }
+    }
 
-    void rs(int i);
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return jeS;
+    }
 }

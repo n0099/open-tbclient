@@ -9,7 +9,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes4.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int gVR;
+    private int gWJ;
     private String ids;
     private int mPn = 1;
 
@@ -21,21 +21,21 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.gVR = 4;
+        this.gWJ = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.gVR = 1;
+        this.gWJ = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.gVR;
+        return this.gWJ;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> aug() {
+    public HashMap<String, Object> aui() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.mPn));
@@ -43,14 +43,14 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst().getApp())));
-        if (this.gVR == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.gWJ == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> auh() {
+    public HashMap<String, String> auj() {
         return null;
     }
 
@@ -81,12 +81,12 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String aud() {
+    public String auf() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean aue() {
+    public boolean aug() {
         return true;
     }
 

@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a hEh = null;
-    private final a.InterfaceC0239a hEi = new a.InterfaceC0239a() { // from class: com.baidu.tieba.passaccount.a.a.1
+    private static a hEZ = null;
+    private final a.InterfaceC0239a hFa = new a.InterfaceC0239a() { // from class: com.baidu.tieba.passaccount.a.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void mk(String str) {
         }
@@ -23,7 +23,7 @@ public class a extends com.baidu.tbadk.core.a.a {
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void h(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.ahH().e(null);
+                ReloginManager.ahJ().e(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tieba.passaccount.a.a.1.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -53,11 +53,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a bRy() {
-        if (hEh == null) {
-            hEh = new a();
+    public static a bRM() {
+        if (hEZ == null) {
+            hEZ = new a();
         }
-        return hEh;
+        return hEZ;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -95,7 +95,7 @@ public class a extends com.baidu.tbadk.core.a.a {
         AccountData currentAccountObj;
         a.b mj;
         if (j.kc() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (mj = mj(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), mj.BY, mj.bDI, currentAccountObj.getStoken(), this.hEi);
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), mj.BY, mj.bDI, currentAccountObj.getStoken(), this.hFa);
         }
     }
 

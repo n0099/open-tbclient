@@ -4,13 +4,13 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class i {
-    private final com.facebook.common.references.c<byte[]> jZs;
-    final a kiE;
+    private final com.facebook.common.references.c<byte[]> kay;
+    final a kjK;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.kja > 0);
-        this.kiE = new a(cVar, rVar, n.cKg());
-        this.jZs = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.kkg > 0);
+        this.kjK = new a(cVar, rVar, n.cKB());
+        this.kay = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             /* renamed from: Z */
@@ -20,12 +20,12 @@ public class i {
         };
     }
 
-    public com.facebook.common.references.a<byte[]> Ed(int i) {
-        return com.facebook.common.references.a.a(this.kiE.get(i), this.jZs);
+    public com.facebook.common.references.a<byte[]> Ef(int i) {
+        return com.facebook.common.references.a.a(this.kjK.get(i), this.kay);
     }
 
     public void Z(byte[] bArr) {
-        this.kiE.release(bArr);
+        this.kjK.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,8 +36,8 @@ public class i {
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        d<byte[]> DY(int i) {
-            return new o(DW(i), this.kio.kja, 0);
+        d<byte[]> Ea(int i) {
+            return new o(DY(i), this.kju.kkg, 0);
         }
     }
 }

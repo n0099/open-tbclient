@@ -7,27 +7,27 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class h extends g {
     private Matrix GH;
-    private int kcA;
-    private int kcz;
+    private int kdF;
+    private int kdG;
     private Matrix mMatrix;
 
     public h(Drawable drawable, Matrix matrix) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.kcz = 0;
-        this.kcA = 0;
+        this.kdF = 0;
+        this.kdG = 0;
         this.mMatrix = matrix;
     }
 
     @Override // com.facebook.drawee.drawable.g
     public Drawable j(Drawable drawable) {
         Drawable j = super.j(drawable);
-        cGq();
+        cGL();
         return j;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        cGp();
+        cGK();
         if (this.GH != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -43,22 +43,22 @@ public class h extends g {
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        cGq();
+        cGL();
     }
 
-    private void cGp() {
-        if (this.kcz != getCurrent().getIntrinsicWidth() || this.kcA != getCurrent().getIntrinsicHeight()) {
-            cGq();
+    private void cGK() {
+        if (this.kdF != getCurrent().getIntrinsicWidth() || this.kdG != getCurrent().getIntrinsicHeight()) {
+            cGL();
         }
     }
 
-    private void cGq() {
+    private void cGL() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.kcz = intrinsicWidth;
+        this.kdF = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.kcA = intrinsicHeight;
+        this.kdG = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.GH = null;

@@ -329,12 +329,12 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         this.U = (RelativeLayout) this.j.findViewById(2131165297);
         this.U.setVisibility(0);
         this.U.setOnClickListener(new r(this));
-        this.V = (RelativeLayout) this.j.findViewById(R.raw.aiapp_guide);
-        this.X = (TextView) this.j.findViewById(R.raw.bottom_bar_bg_1);
-        this.Y = (TextView) this.j.findViewById(R.raw.disagree);
-        this.W = (RelativeLayout) this.j.findViewById(R.raw.disagree_1);
-        this.Z = (ImageView) this.j.findViewById(R.raw.disagree_bigpic);
-        this.aa = (ImageView) this.j.findViewById(R.raw.enter_forum_1);
+        this.V = (RelativeLayout) this.j.findViewById(R.raw.ai_game_guid);
+        this.X = (TextView) this.j.findViewById(R.raw.bottom_bar_bg);
+        this.Y = (TextView) this.j.findViewById(R.raw.bottom_bar_bg_1);
+        this.W = (RelativeLayout) this.j.findViewById(R.raw.disagree);
+        this.Z = (ImageView) this.j.findViewById(R.raw.disagree_1);
+        this.aa = (ImageView) this.j.findViewById(R.raw.enter_forum);
     }
 
     public void m() {

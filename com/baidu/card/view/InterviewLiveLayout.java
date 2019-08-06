@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.a;
-import com.baidu.tbadk.core.data.be;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bf;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
@@ -110,7 +110,7 @@ public class InterviewLiveLayout extends FrameLayout implements i<a> {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a qH = c.atw().qH(com.baidu.adp.lib.f.c.iE().e(tbImageView.getUrl(), InterviewLiveLayout.this.Yd ? 13 : 14));
+                    com.baidu.adp.widget.ImageView.a qH = c.aty().qH(com.baidu.adp.lib.f.c.iE().e(tbImageView.getUrl(), InterviewLiveLayout.this.Yd ? 13 : 14));
                     if (qH != null) {
                         int width = qH.getWidth();
                         i = qH.getHeight();
@@ -188,22 +188,22 @@ public class InterviewLiveLayout extends FrameLayout implements i<a> {
             setVisibility(8);
             return;
         }
-        bg acx = aVar.acx();
-        be aed = acx.aed();
-        if (aed == null) {
+        bh acy = aVar.acy();
+        bf aee = acy.aee();
+        if (aee == null) {
             setVisibility(8);
             return;
         }
-        this.forumId = acx.getFid();
-        this.taskId = aed.getTaskId();
-        if (com.baidu.tbadk.core.i.aca().ace() && aed != null && !StringUtils.isNull(aed.getThreadImgUrl())) {
+        this.forumId = acy.getFid();
+        this.taskId = aee.getTaskId();
+        if (com.baidu.tbadk.core.i.aca().ace() && aee != null && !StringUtils.isNull(aee.getThreadImgUrl())) {
             this.Yg.clear();
-            this.Yg.add(aed.getThreadImgUrl());
+            this.Yg.add(aee.getThreadImgUrl());
             setVisibility(0);
             this.Ye.setSupportNoImage(true);
             this.Ye.setScaleType(ImageView.ScaleType.MATRIX);
             this.Ye.setOnDrawListener(this.mOnDrawListener);
-            this.Ye.startLoad(aed.getThreadImgUrl(), this.Yd ? 13 : 14, false);
+            this.Ye.startLoad(aee.getThreadImgUrl(), this.Yd ? 13 : 14, false);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
             layoutParams.width = l.af(getContext()) - l.g(getContext(), R.dimen.ds68);
             layoutParams.height = (int) ((layoutParams.width * 428.0f) / 760.0f);

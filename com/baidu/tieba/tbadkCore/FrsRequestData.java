@@ -26,8 +26,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int ctime;
     private int dataSize;
     private int isGood;
-    private String jds;
-    private String jdt;
+    private String jeA;
+    private String jez;
     private String kw;
     private String lastId;
     private int loadCount;
@@ -45,14 +45,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int jdr = 30;
-    private String cbH = "";
+    private int jey = 30;
+    private String cbO = "";
     private int mSortType = -1;
     private int mLoadType = 1;
-    private int jdu = 0;
+    private int jeB = 0;
     private int callFrom = 0;
     private HashMap<String, String> headers = null;
-    private long jdv = 0;
+    private long jeC = 0;
 
     public void setLastClickTid(long j) {
         this.mLastClickTid = j;
@@ -159,7 +159,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.cbH = str;
+        this.cbO = str;
     }
 
     public void setLastId(String str) {
@@ -186,16 +186,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void Ez(String str) {
-        this.jds = str;
+    public void EA(String str) {
+        this.jez = str;
     }
 
     public void setObjSource(String str) {
-        this.jdt = str;
+        this.jeA = str;
     }
 
-    public void AW(int i) {
-        this.jdu = i;
+    public void AY(int i) {
+        this.jeB = i;
     }
 
     public void setCallFrom(int i) {
@@ -203,12 +203,12 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> aug() {
+    public HashMap<String, Object> aui() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> auh() {
+    public HashMap<String, String> auj() {
         return this.headers;
     }
 
@@ -225,7 +225,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.jdr);
+        builder.rn_need = Integer.valueOf(this.jey);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -240,16 +240,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.cbH;
+        builder.yuelaou_locate = this.cbO;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cit().ciw();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.ciL().ciO();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.jds;
-        builder.obj_source = this.jdt;
-        builder.is_selection = Integer.valueOf(this.jdu);
+        builder.obj_locate = this.jez;
+        builder.obj_source = this.jeA;
+        builder.is_selection = Integer.valueOf(this.jeB);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.jdv);
+        builder.hot_thread_id = Long.valueOf(this.jeC);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
@@ -262,16 +262,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String aud() {
+    public String auf() {
         return null;
     }
 
     public void ex(long j) {
-        this.jdv = j;
+        this.jeC = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean aue() {
+    public boolean aug() {
         return false;
     }
 
@@ -285,7 +285,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         return null;
     }
 
-    public void AX(int i) {
-        this.jdr = i;
+    public void AZ(int i) {
+        this.jey = i;
     }
 }

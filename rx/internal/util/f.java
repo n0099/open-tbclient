@@ -4,34 +4,34 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final int kAg = cPQ();
-    private static final boolean kAh;
+    private static final int kBm = cQl();
+    private static final boolean kBn;
 
     static {
-        kAh = kAg != 0;
+        kBn = kBm != 0;
     }
 
-    public static boolean cPO() {
-        return kAh;
+    public static boolean cQj() {
+        return kBn;
     }
 
-    public static int cPP() {
-        return kAg;
+    public static int cQk() {
+        return kBm;
     }
 
-    private static int cPQ() {
+    private static int cQl() {
         try {
-            return ((Integer) Class.forName("android.os.Build$VERSION", true, cPR()).getField("SDK_INT").get(null)).intValue();
+            return ((Integer) Class.forName("android.os.Build$VERSION", true, cQm()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {
             return 0;
         }
     }
 
-    static ClassLoader cPR() {
+    static ClassLoader cQm() {
         return System.getSecurityManager() == null ? ClassLoader.getSystemClassLoader() : (ClassLoader) AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() { // from class: rx.internal.util.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.security.PrivilegedAction
-            /* renamed from: cPS */
+            /* renamed from: cQn */
             public ClassLoader run() {
                 return ClassLoader.getSystemClassLoader();
             }

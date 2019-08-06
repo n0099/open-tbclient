@@ -5,44 +5,44 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class b extends d {
-    protected TextView gQr;
+    protected TextView gRj;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.gQr = null;
+        this.gRj = null;
         setContentView(R.layout.update_group_info_activity);
-        vW(R.string.group_update_info);
-        this.gQr = (TextView) this.gQs.findViewById(R.id.edit_count);
+        vY(R.string.group_update_info);
+        this.gRj = (TextView) this.gRk.findViewById(R.id.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void bGC() {
+    public void bGQ() {
         String obj;
         if (this.mEditText.getText() != null && (obj = this.mEditText.getText().toString()) != null) {
             int length = obj.length();
             z(length, length, 15, 300);
             int i = 300 - length;
-            this.gQr.setText(String.valueOf(i));
+            this.gRj.setText(String.valueOf(i));
             if (i <= 50) {
-                this.gQr.setVisibility(0);
+                this.gRj.setVisibility(0);
             } else {
-                this.gQr.setVisibility(8);
+                this.gRj.setVisibility(8);
             }
             if (i == 0) {
-                this.gQr.setTextColor(this.gQs.getResources().getColor(R.color.common_color_10170));
+                this.gRj.setTextColor(this.gRk.getResources().getColor(R.color.common_color_10170));
             } else {
-                bBn();
+                bBB();
             }
         }
     }
 
-    private void bBn() {
-        this.gQs.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.gQs.getLayoutMode().onModeChanged(this.gQr);
+    private void bBB() {
+        this.gRk.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.gRk.getLayoutMode().onModeChanged(this.gRj);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int bGD() {
+    public int bGR() {
         return R.string.group_step_info_error;
     }
 }

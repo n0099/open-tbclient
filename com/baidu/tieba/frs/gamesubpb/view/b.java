@@ -11,26 +11,26 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes4.dex */
 public class b {
-    private a.InterfaceC0314a fIy;
-    private SpannableTextView fJp;
+    private a.InterfaceC0314a fJm;
+    private SpannableTextView fKd;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
-        this.fJp = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
-        am.j(this.fJp, R.color.cp_cont_f);
+        this.fKd = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
+        am.j(this.fKd, R.color.cp_cont_f);
     }
 
     public void f(final d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.fJp.f(dVar);
-            this.fJp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
+            this.fKd.f(dVar);
+            this.fKd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.fIy != null) {
-                        b.this.fIy.c(dVar);
+                    if (b.this.fJm != null) {
+                        b.this.fJm.c(dVar);
                     }
                 }
             });
@@ -42,21 +42,21 @@ public class b {
     }
 
     public void setClickListener(a.InterfaceC0314a interfaceC0314a) {
-        this.fIy = interfaceC0314a;
-        this.fJp.setClickListener(interfaceC0314a);
+        this.fJm = interfaceC0314a;
+        this.fKd.setClickListener(interfaceC0314a);
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private b fJr;
+        private b fKf;
 
         public a(b bVar) {
             super(bVar.getRootView());
-            this.fJr = bVar;
+            this.fKf = bVar;
         }
 
         public void f(d dVar) {
-            this.fJr.f(dVar);
+            this.fKf.f(dVar);
         }
     }
 }

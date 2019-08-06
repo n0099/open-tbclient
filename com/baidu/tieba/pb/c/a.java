@@ -23,7 +23,7 @@ public class a {
         if (bdUniqueId != null && dVar != null) {
             an anVar = new an("common_exp");
             a(anVar, dVar, postData, i, i2, false, str);
-            c.coo().a(bdUniqueId, str2, anVar);
+            c.coG().a(bdUniqueId, str2, anVar);
         }
     }
 
@@ -71,11 +71,11 @@ public class a {
         if (postData != null) {
             anVar.bT(Info.kBaiduPIDKey, postData.getId() + "");
         }
-        if (dVar.bSx() != null) {
-            anVar.P("thread_type", dVar.bSx().threadType);
+        if (dVar.bSL() != null) {
+            anVar.P("thread_type", dVar.bSL().threadType);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cfM);
+            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cfT);
         }
         return anVar;
     }

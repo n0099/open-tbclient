@@ -14,17 +14,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.card.a.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
-public class m extends c implements i<bg>, j {
+public class m extends c implements i<bh>, j {
     private static final int VZ = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
     private View Wa;
     private View Wb;
     private ImageView Wc;
     private TextView Wd;
-    private bg We;
+    private bh We;
     private View Wf;
     private View mRootView;
     private boolean Wg = false;
@@ -44,8 +44,8 @@ public class m extends c implements i<bg>, j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof bg) && ((bg) customResponsedMessage.getData()) == m.this.We && m.this.Wg) {
-                m.this.Wa.setVisibility(m.this.We.agg() ? 0 : 4);
+            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof bh) && ((bh) customResponsedMessage.getData()) == m.this.We && m.this.Wg) {
+                m.this.Wa.setVisibility(m.this.We.agh() ? 0 : 4);
                 m.this.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -66,17 +66,17 @@ public class m extends c implements i<bg>, j {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.m.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this.Wc != null && m.this.We != null && m.this.Wd != null && !m.this.We.agh()) {
-                    if (!m.this.We.agg()) {
-                        if (com.baidu.tieba.frs.a.bkY().Z(m.this.We)) {
+                if (m.this.Wc != null && m.this.We != null && m.this.Wd != null && !m.this.We.agi()) {
+                    if (!m.this.We.agh()) {
+                        if (com.baidu.tieba.frs.a.blf().aa(m.this.We)) {
                             m.this.We.dM(true);
                         }
                     } else {
-                        com.baidu.tieba.frs.a.bkY().aa(m.this.We);
+                        com.baidu.tieba.frs.a.blf().ab(m.this.We);
                         m.this.We.dM(false);
                     }
-                    m.this.Wa.setVisibility(m.this.We.agg() ? 0 : 4);
-                    m.this.Wb.setVisibility(m.this.We.agg() ? 0 : 4);
+                    m.this.Wa.setVisibility(m.this.We.agh() ? 0 : 4);
+                    m.this.Wb.setVisibility(m.this.We.agh() ? 0 : 4);
                     m.this.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, m.this.We));
                 }
@@ -89,8 +89,8 @@ public class m extends c implements i<bg>, j {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         am.l(this.Wa, R.color.cp_bg_line_d);
         am.l(this.Wb, R.color.cp_bg_line_d);
-        this.Wc.setImageDrawable(am.getDrawable(this.We.agg() ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
-        am.j(this.Wd, this.We.agg() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
+        this.Wc.setImageDrawable(am.getDrawable(this.We.agh() ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
+        am.j(this.Wd, this.We.agh() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -113,14 +113,14 @@ public class m extends c implements i<bg>, j {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
-    public void C(bg bgVar) {
+    public void C(bh bhVar) {
         int i = 4;
-        this.We = bgVar;
-        if (com.baidu.tieba.frs.a.bkY().bkZ()) {
+        this.We = bhVar;
+        if (com.baidu.tieba.frs.a.blf().blg()) {
             this.mRootView.setVisibility(0);
             this.VG.b(new a.C0038a(4, false));
             View view = this.Wa;
-            if (this.We.agg() || this.We.agh()) {
+            if (this.We.agh() || this.We.agi()) {
                 i = 0;
             }
             view.setVisibility(i);
@@ -128,8 +128,8 @@ public class m extends c implements i<bg>, j {
                 this.Wb.setVisibility(0);
                 this.Wc.setVisibility(0);
                 this.Wd.setVisibility(0);
-                this.Wc.setImageDrawable(am.getDrawable(this.We.agg() ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
-                am.j(this.Wd, this.We.agg() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
+                this.Wc.setImageDrawable(am.getDrawable(this.We.agh() ? R.drawable.icon_frs_select_h : R.drawable.btn_forum_select));
+                am.j(this.Wd, this.We.agh() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
                 return;
             }
             this.Wc.setVisibility(8);

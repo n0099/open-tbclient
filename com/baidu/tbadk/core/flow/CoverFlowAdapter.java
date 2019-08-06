@@ -16,20 +16,20 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
-    private View.OnClickListener bOu;
-    private a bOx;
+    private View.OnClickListener bOA;
+    private a bOD;
     private Context context;
-    private ArrayList<TbImageView> bOt = new ArrayList<>();
+    private ArrayList<TbImageView> bOz = new ArrayList<>();
     private ArrayList<T> dataList = new ArrayList<>();
-    private ArrayList<TbImageView> bOv = new ArrayList<>();
-    private ArrayList<RelativeLayout> bOw = new ArrayList<>();
+    private ArrayList<TbImageView> bOB = new ArrayList<>();
+    private ArrayList<RelativeLayout> bOC = new ArrayList<>();
 
     public CoverFlowAdapter(Context context) {
         this.context = context;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bOu = onClickListener;
+        this.bOA = onClickListener;
     }
 
     public T hM(int i) {
@@ -43,46 +43,46 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
         TbImageView tbImageView;
         TbImageView tbImageView2;
         if (list != null && !list.isEmpty()) {
-            this.bOx = aVar;
+            this.bOD = aVar;
             this.dataList.clear();
             this.dataList.addAll(list);
             t(this.dataList);
-            int size = this.bOt.size();
+            int size = this.bOz.size();
             int size2 = this.dataList.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
                     TbImageView cm = aVar.cm(this.context);
-                    this.bOt.add(cm);
+                    this.bOz.add(cm);
                     tbImageView = aVar.cm(this.context);
-                    this.bOv.add(tbImageView);
-                    this.bOw.add(new RelativeLayout(this.context));
+                    this.bOB.add(tbImageView);
+                    this.bOC.add(new RelativeLayout(this.context));
                     tbImageView2 = cm;
                 } else {
-                    tbImageView = this.bOv.get(i);
-                    this.bOw.get(i);
-                    tbImageView2 = this.bOt.get(i);
+                    tbImageView = this.bOB.get(i);
+                    this.bOC.get(i);
+                    tbImageView2 = this.bOz.get(i);
                 }
                 if (this.dataList.get(i) != null && tbImageView2 != null) {
                     tbImageView2.startLoad(this.dataList.get(i).getPicUrl(), 10, false);
-                    tbImageView2.setOnClickListener(this.bOu);
-                    if ((this.dataList.get(i) instanceof s) && !((s) this.dataList.get(i)).acT()) {
+                    tbImageView2.setOnClickListener(this.bOA);
+                    if ((this.dataList.get(i) instanceof s) && !((s) this.dataList.get(i)).acU()) {
                         s sVar = (s) this.dataList.get(i);
-                        com.baidu.tieba.recapp.s.b(sVar.acQ(), tbImageView, sVar.acR(), l.g(this.context, R.dimen.ds24));
+                        com.baidu.tieba.recapp.s.b(sVar.acR(), tbImageView, sVar.acS(), l.g(this.context, R.dimen.ds24));
                     }
                 }
             }
             int Z = v.Z(this.dataList);
-            int Z2 = v.Z(this.bOt);
+            int Z2 = v.Z(this.bOz);
             if (Z2 > Z) {
-                v.d(this.bOt, Z, Z2);
+                v.d(this.bOz, Z, Z2);
             }
-            int Z3 = v.Z(this.bOv);
+            int Z3 = v.Z(this.bOB);
             if (Z3 > Z) {
-                v.d(this.bOv, Z, Z3);
+                v.d(this.bOB, Z, Z3);
             }
-            int Z4 = v.Z(this.bOw);
+            int Z4 = v.Z(this.bOC);
             if (Z4 > Z) {
-                v.d(this.bOw, Z, Z4);
+                v.d(this.bOC, Z, Z4);
             }
             notifyDataSetChanged();
         }
@@ -98,31 +98,31 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.bOt != null && this.bOt.size() > 0) {
-            return this.bOt.size();
+        if (this.bOz != null && this.bOz.size() > 0) {
+            return this.bOz.size();
         }
         return 0;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.bOt == null) {
+        if (this.bOz == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        TbImageView tbImageView = (TbImageView) v.c(this.bOt, i);
+        TbImageView tbImageView = (TbImageView) v.c(this.bOz, i);
         if (tbImageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        if ((v.c(this.dataList, i) instanceof s) && !((s) v.c(this.dataList, i)).acT()) {
-            RelativeLayout relativeLayout = (RelativeLayout) v.c(this.bOw, i);
-            TbImageView tbImageView2 = (TbImageView) v.c(this.bOv, i);
+        if ((v.c(this.dataList, i) instanceof s) && !((s) v.c(this.dataList, i)).acU()) {
+            RelativeLayout relativeLayout = (RelativeLayout) v.c(this.bOC, i);
+            TbImageView tbImageView2 = (TbImageView) v.c(this.bOB, i);
             relativeLayout.removeView(tbImageView2);
             if (tbImageView.getParent() != null) {
                 ((ViewGroup) tbImageView.getParent()).removeView(tbImageView);
             }
             relativeLayout.addView(tbImageView, new RelativeLayout.LayoutParams(-1, -1));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            if (this.bOx.ahf() == null) {
+            if (this.bOD.ahh() == null) {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {
@@ -164,8 +164,8 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
     }
 
     public void onChangeSkinType() {
-        if (this.bOt != null && this.bOt.size() > 0) {
-            Iterator<TbImageView> it = this.bOt.iterator();
+        if (this.bOz != null && this.bOz.size() > 0) {
+            Iterator<TbImageView> it = this.bOz.iterator();
             while (it.hasNext()) {
                 it.next().refresh();
             }

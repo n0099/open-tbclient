@@ -9,14 +9,14 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes2.dex */
 public class l<T> implements d.b<T, T> {
-    private final Long kxl = null;
-    private final rx.functions.a kxm = null;
-    private final a.d kxn = rx.a.kuc;
+    private final Long kyr = null;
+    private final rx.functions.a kys = null;
+    private final a.d kyt = rx.a.kvi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b {
-        static final l<?> kxs = new l<>();
+        static final l<?> kyy = new l<>();
     }
 
     @Override // rx.functions.f
@@ -24,17 +24,17 @@ public class l<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> l<T> cPz() {
-        return (l<T>) b.kxs;
+    public static <T> l<T> cPU() {
+        return (l<T>) b.kyy;
     }
 
     l() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.kxl, this.kxm, this.kxn);
+        a aVar = new a(jVar, this.kyr, this.kys, this.kyt);
         jVar.add(aVar);
-        jVar.setProducer(aVar.cPB());
+        jVar.setProducer(aVar.cPW());
         return aVar;
     }
 
@@ -42,19 +42,19 @@ public class l<T> implements d.b<T, T> {
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a kxm;
-        private final a.d kxn;
-        private final AtomicLong kxp;
-        private final BackpressureDrainManager kxr;
-        private final ConcurrentLinkedQueue<Object> kxo = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean kxq = new AtomicBoolean(false);
+        private final rx.functions.a kys;
+        private final a.d kyt;
+        private final AtomicLong kyv;
+        private final BackpressureDrainManager kyx;
+        private final ConcurrentLinkedQueue<Object> kyu = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean kyw = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.kxp = l != null ? new AtomicLong(l.longValue()) : null;
-            this.kxm = aVar;
-            this.kxr = new BackpressureDrainManager(this);
-            this.kxn = dVar;
+            this.kyv = l != null ? new AtomicLong(l.longValue()) : null;
+            this.kys = aVar;
+            this.kyx = new BackpressureDrainManager(this);
+            this.kyt = dVar;
         }
 
         @Override // rx.j
@@ -64,23 +64,23 @@ public class l<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.kxq.get()) {
-                this.kxr.terminateAndDrain();
+            if (!this.kyw.get()) {
+                this.kyx.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.kxq.get()) {
-                this.kxr.terminateAndDrain(th);
+            if (!this.kyw.get()) {
+                this.kyx.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (cPA()) {
-                this.kxo.offer(NotificationLite.bq(t));
-                this.kxr.drain();
+            if (cPV()) {
+                this.kyu.offer(NotificationLite.bq(t));
+                this.kyx.drain();
             }
         }
 
@@ -100,42 +100,42 @@ public class l<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.kxo.peek();
+            return this.kyu.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.kxo.poll();
-            if (this.kxp != null && poll != null) {
-                this.kxp.incrementAndGet();
+            Object poll = this.kyu.poll();
+            if (this.kyv != null && poll != null) {
+                this.kyv.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean cPA() {
+        private boolean cPV() {
             long j;
             boolean z;
-            if (this.kxp == null) {
+            if (this.kyv == null) {
                 return true;
             }
             do {
-                j = this.kxp.get();
+                j = this.kyv.get();
                 if (j <= 0) {
                     try {
-                        z = this.kxn.cOL() && poll() != null;
+                        z = this.kyt.cPg() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.kxq.compareAndSet(false, true)) {
+                        if (this.kyw.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.kxm != null) {
+                    if (this.kys != null) {
                         try {
-                            this.kxm.call();
+                            this.kys.call();
                         } catch (Throwable th) {
                             rx.exceptions.a.K(th);
-                            this.kxr.terminateAndDrain(th);
+                            this.kyx.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -143,12 +143,12 @@ public class l<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.kxp.compareAndSet(j, j - 1));
+            } while (!this.kyv.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f cPB() {
-            return this.kxr;
+        protected rx.f cPW() {
+            return this.kyx;
         }
     }
 }

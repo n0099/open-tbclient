@@ -13,12 +13,12 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                a.this.cxI();
+                a.this.cye();
             }
         }
     };
-    private long jFS;
-    private y jFT;
+    private long jGZ;
+    private y jHa;
     private long mInterval;
     private long mStartTime;
 
@@ -27,12 +27,12 @@ public class a {
     }
 
     private void init() {
-        cxI();
-        this.jFS = com.baidu.tbadk.core.sharedPref.b.ahO().getLong("key_video_splash_last_show_time", 0L);
+        cye();
+        this.jGZ = com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("key_video_splash_last_show_time", 0L);
         MessageManager.getInstance().registerListener(this.bDy);
     }
 
-    public boolean cxH() {
+    public boolean cyd() {
         if (this.mStartTime == 0 || this.aGT == 0 || this.mInterval == 0) {
             return false;
         }
@@ -45,22 +45,22 @@ public class a {
     }
 
     private boolean r(Date date) {
-        return date != null && date.getTime() - this.jFS >= this.mInterval;
+        return date != null && date.getTime() - this.jGZ >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxI() {
-        if (this.jFT == null) {
-            this.jFT = new y();
+    public void cye() {
+        if (this.jHa == null) {
+            this.jHa = new y();
         }
-        this.jFT.parseJson(com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_video_splash_config", ""));
-        this.mStartTime = this.jFT.amI();
-        this.aGT = this.jFT.amJ();
-        this.mInterval = this.jFT.amK();
+        this.jHa.parseJson(com.baidu.tbadk.core.sharedPref.b.ahQ().getString("key_video_splash_config", ""));
+        this.mStartTime = this.jHa.amK();
+        this.aGT = this.jHa.amL();
+        this.mInterval = this.jHa.amM();
     }
 
     public void eE(long j) {
-        this.jFS = j;
-        com.baidu.tbadk.core.sharedPref.b.ahO().putLong("key_video_splash_last_show_time", j);
+        this.jGZ = j;
+        com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("key_video_splash_last_show_time", j);
     }
 }

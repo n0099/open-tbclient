@@ -16,7 +16,7 @@ import com.baidu.card.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.a;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.av;
@@ -62,12 +62,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
         this.YJ = (ImageView) findViewById(R.id.play_btn);
     }
 
-    private void setImageData(bg bgVar) {
-        ArrayList<MediaData> aeH = bgVar.aeH();
-        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeH) != 0) {
+    private void setImageData(bh bhVar) {
+        ArrayList<MediaData> aeI = bhVar.aeI();
+        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeI) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aeH.size(); i++) {
-                MediaData mediaData = (MediaData) v.c(aeH, i);
+            for (int i = 0; i < aeI.size(); i++) {
+                MediaData mediaData = (MediaData) v.c(aeI, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -80,7 +80,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
                 this.YI.setVisibility(0);
                 this.YJ.setVisibility(0);
                 this.YI.setConrers(15);
-                a((MediaData) v.c(aeH, 0), this.YI, true, false, true, 0);
+                a((MediaData) v.c(aeI, 0), this.YI, true, false, true, 0);
                 return;
             }
             this.YI.setVisibility(8);
@@ -105,9 +105,9 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
     /* renamed from: a */
     public void C(a aVar) {
         this.VJ = aVar;
-        bg acx = aVar.acx();
-        av.a(this.mTitle, acx);
-        setImageData(acx);
+        bh acy = aVar.acy();
+        av.a(this.mTitle, acy);
+        setImageData(acy);
     }
 
     public void setMarginsTop(View view, int i) {

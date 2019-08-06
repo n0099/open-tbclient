@@ -49,23 +49,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class a {
-    private static a iOx;
-    public int iOA;
-    public int iOB;
-    public int iOC;
-    public int iOD;
-    public int iOE;
-    public boolean iOF;
-    public final com.baidu.tieba.t.b iOz;
-    private List<d> izw = new LinkedList();
-    private d iOy = null;
-    public boolean iOG = false;
+    private static a iPB;
+    public final com.baidu.tieba.t.b iPD;
+    public int iPE;
+    public int iPF;
+    public int iPG;
+    public int iPH;
+    public int iPI;
+    public boolean iPJ;
+    private List<d> iAA = new LinkedList();
+    private d iPC = null;
+    public boolean iPK = false;
     public Handler mHandler = new Handler() { // from class: com.baidu.tieba.screenlocknotify.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
         }
     };
-    private CustomMessageListener gBv = new CustomMessageListener(0) { // from class: com.baidu.tieba.screenlocknotify.a.2
+    private CustomMessageListener gCn = new CustomMessageListener(0) { // from class: com.baidu.tieba.screenlocknotify.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -94,15 +94,15 @@ public class a {
             }
         }
     };
-    private CustomMessageListener iOH = new CustomMessageListener(2001355) { // from class: com.baidu.tieba.screenlocknotify.a.5
+    private CustomMessageListener iPL = new CustomMessageListener(2001355) { // from class: com.baidu.tieba.screenlocknotify.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage instanceof RemindRecommendMessage) && a.cje()) {
+            if (customResponsedMessage != null && (customResponsedMessage instanceof RemindRecommendMessage) && a.cjw()) {
                 int hours = new Date(System.currentTimeMillis()).getHours();
                 if ((hours < 0 || hours > 7) && hours < 23) {
                     RemindRecommendMessage remindRecommendMessage = (RemindRecommendMessage) customResponsedMessage;
-                    if (a.this.iOz.ctx()) {
+                    if (a.this.iPD.ctT()) {
                         a.this.b(remindRecommendMessage);
                     } else {
                         a.this.a(remindRecommendMessage);
@@ -118,35 +118,35 @@ public class a {
     };
     private final Context appContext = TbadkApplication.getInst().getApp();
 
-    public static a cjd() {
-        if (iOx == null) {
-            iOx = new a();
+    public static a cjv() {
+        if (iPB == null) {
+            iPB = new a();
         }
-        return iOx;
+        return iPB;
     }
 
     public void release() {
-        this.izw.clear();
-        this.iOy = null;
+        this.iAA.clear();
+        this.iPC = null;
     }
 
     private a() {
-        MessageManager.getInstance().registerListener(2016004, this.gBv);
+        MessageManager.getInstance().registerListener(2016004, this.gCn);
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
         MessageManager.getInstance().registerListener(2012125, this.mCustomMessageListener);
         MessageManager.getInstance().registerListener(2012121, this.mCustomMessageListener);
         MessageManager.getInstance().registerListener(2012123, this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(this.iOH);
-        this.iOA = 0;
-        this.iOB = 0;
-        this.iOC = 0;
-        this.iOD = 0;
-        this.iOE = 0;
-        this.iOF = true;
-        this.iOz = new com.baidu.tieba.t.b();
+        MessageManager.getInstance().registerListener(this.iPL);
+        this.iPE = 0;
+        this.iPF = 0;
+        this.iPG = 0;
+        this.iPH = 0;
+        this.iPI = 0;
+        this.iPJ = true;
+        this.iPD = new com.baidu.tieba.t.b();
     }
 
-    public static boolean cje() {
+    public static boolean cjw() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
@@ -154,7 +154,7 @@ public class a {
     public void a(RemindRecommendMessage remindRecommendMessage) {
         if (remindRecommendMessage != null) {
             d dVar = new d();
-            dVar.iOO = 0;
+            dVar.iPS = 0;
             dVar.msgType = 4;
             dVar.groupId = LivenessStat.TYPE_STRING_DEFAULT;
             dVar.customGroupType = 4;
@@ -165,7 +165,7 @@ public class a {
             dVar.url = remindRecommendMessage.url;
             dVar.lastTime = System.currentTimeMillis();
             dVar.isAcceptNotify = true;
-            dVar.iqr = true;
+            dVar.irv = true;
             dVar.followStatus = 1;
             dVar.taskId = 0L;
             if (remindRecommendMessage.isLocal) {
@@ -174,7 +174,7 @@ public class a {
                 dVar.stat = "1";
             }
             c(dVar);
-            cji();
+            cjA();
             TbadkSettings.getInst().saveString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", "");
         }
     }
@@ -241,7 +241,7 @@ public class a {
         }
         intent.putExtra("is_notify", true);
         intent.putExtra(SelectForumActivityConfig.KEY_SHARE_LINK, str);
-        intent.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, alVar.adk());
+        intent.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, alVar.adl());
         intent.putExtra("task_id", alVar.getTaskId());
         if (!TextUtils.isEmpty(alVar.getStat())) {
             intent.putExtra("stat", alVar.getStat());
@@ -249,14 +249,14 @@ public class a {
         return intent;
     }
 
-    public List<d> cjf() {
+    public List<d> cjx() {
         LinkedList linkedList = new LinkedList();
-        linkedList.addAll(this.izw);
+        linkedList.addAll(this.iAA);
         return linkedList;
     }
 
-    public d cjg() {
-        return this.iOy;
+    public d cjy() {
+        return this.iPC;
     }
 
     protected List<ChatMessage> processServerMsg(ResponsedMessage<?> responsedMessage) {
@@ -282,7 +282,7 @@ public class a {
                 if (chatMessage != null) {
                     if (F(chatMessage)) {
                         d b = b(chatMessage, i);
-                        if (b != null && b.iOO > 0) {
+                        if (b != null && b.iPS > 0) {
                             if (!b.isAcceptNotify) {
                                 d(b);
                             } else {
@@ -293,7 +293,7 @@ public class a {
                                         return;
                                     }
                                 } else {
-                                    this.iOy = b;
+                                    this.iPC = b;
                                 }
                                 z = true;
                             }
@@ -305,13 +305,13 @@ public class a {
                 }
             }
             if (z2) {
-                cji();
+                cjA();
             }
         }
     }
 
     private boolean a(ChatMessage chatMessage, d dVar) {
-        if (dVar == null || StringUtils.isNull(dVar.url) || !cjh()) {
+        if (dVar == null || StringUtils.isNull(dVar.url) || !cjz()) {
             return false;
         }
         Map<String, String> oo = bb.oo(bb.op(dVar.url));
@@ -319,31 +319,31 @@ public class a {
             return false;
         }
         long j = dVar.taskId;
-        String Ee = Ee(dVar.url);
-        if (j == 0 || StringUtils.isNull(Ee)) {
+        String Ef = Ef(dVar.url);
+        if (j == 0 || StringUtils.isNull(Ef)) {
             return false;
         }
         if (UtilHelper.getTodayZeroTime() < TbSingleton.getInstance().getLastResumeTime()) {
             return false;
         }
-        if (!this.iOz.ctx()) {
+        if (!this.iPD.ctT()) {
             Activity eU = com.baidu.adp.base.a.eT().eU();
             if (eU != null && eU.getClass() != null && eU.getClass().getName().equals(ScreenLockActivity.class.getName())) {
                 eU.finish();
             }
             chatMessage.setHasRead(true);
             NotificationHelper.cancelNotification(this.appContext, 19);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(this.appContext, j, Ee)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(this.appContext, j, Ef)));
         }
-        TiebaStatic.log(new an("c13196").P("obj_type", 1).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 2).bT("tid", Ee));
+        TiebaStatic.log(new an("c13196").P("obj_type", 1).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 2).bT("tid", Ef));
         return true;
     }
 
-    public boolean cjh() {
-        return com.baidu.tbadk.coreExtra.messageCenter.d.aok().aoC() && com.baidu.tbadk.coreExtra.messageCenter.d.aok().aom() && com.baidu.adp.lib.b.d.hS().az("android_im_window_open") == 1;
+    public boolean cjz() {
+        return com.baidu.tbadk.coreExtra.messageCenter.d.aom().aoE() && com.baidu.tbadk.coreExtra.messageCenter.d.aom().aoo() && com.baidu.adp.lib.b.d.hS().az("android_im_window_open") == 1;
     }
 
-    private String Ee(String str) {
+    private String Ef(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -355,8 +355,8 @@ public class a {
     }
 
     public void c(d dVar) {
-        if (this.izw != null) {
-            this.izw.add(dVar);
+        if (this.iAA != null) {
+            this.iAA.add(dVar);
         }
     }
 
@@ -384,65 +384,65 @@ public class a {
     public d b(ChatMessage chatMessage, int i) {
         c.a aVar;
         d dVar = new d();
-        dVar.iOO = 0;
+        dVar.iPS = 0;
         dVar.msgType = chatMessage.getMsgType();
         dVar.customGroupType = i;
         dVar.userName = chatMessage.getUserInfo().getUserName();
         dVar.nameShow = chatMessage.getUserInfo().getName_show();
-        dVar.iOQ = chatMessage.getRecordId();
+        dVar.iPU = chatMessage.getRecordId();
         dVar.msgId = chatMessage.getMsgId();
         dVar.isAcceptNotify = true;
-        dVar.iqr = true;
+        dVar.irv = true;
         dVar.followStatus = 1;
         dVar.taskId = chatMessage.getStatTaskId();
         if (dVar.customGroupType == 1) {
-            ImMessageCenterPojo aQ = com.baidu.tieba.im.memorycache.b.bEZ().aQ(chatMessage.getGroupId(), 1);
+            ImMessageCenterPojo aQ = com.baidu.tieba.im.memorycache.b.bFn().aQ(chatMessage.getGroupId(), 1);
             if (aQ != null) {
                 dVar.groupName = aQ.getGroup_name();
-                dVar.iOO = aQ.getUnread_count();
+                dVar.iPS = aQ.getUnread_count();
                 dVar.lastTime = aQ.getLast_content_time();
             }
             dVar.content = dVar.userName + ":" + e.aq(chatMessage.getMsgType(), chatMessage.getContent());
             dVar.groupId = chatMessage.getGroupId();
-            if (!com.baidu.tbadk.coreExtra.messageCenter.d.aok().aoA()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.d.aom().aoC()) {
                 dVar.isAcceptNotify = false;
             } else {
-                dVar.isAcceptNotify = com.baidu.tieba.im.settingcache.b.bGq().dp(TbadkCoreApplication.getCurrentAccount(), dVar.groupId);
+                dVar.isAcceptNotify = com.baidu.tieba.im.settingcache.b.bGE().dp(TbadkCoreApplication.getCurrentAccount(), dVar.groupId);
             }
         } else if (dVar.customGroupType == 2) {
             dVar.groupId = chatMessage.getUserInfo().getUserId();
-            ImMessageCenterPojo aQ2 = com.baidu.tieba.im.memorycache.b.bEZ().aQ(dVar.groupId, 2);
+            ImMessageCenterPojo aQ2 = com.baidu.tieba.im.memorycache.b.bFn().aQ(dVar.groupId, 2);
             if (aQ2 != null) {
-                dVar.iOO = aQ2.getUnread_count();
+                dVar.iPS = aQ2.getUnread_count();
                 dVar.lastTime = aQ2.getLast_content_time();
-                dVar.iqr = aQ2.getIsFriend() == 1;
+                dVar.irv = aQ2.getIsFriend() == 1;
                 dVar.followStatus = aQ2.getFollowStatus();
             }
             dVar.groupName = chatMessage.getUserInfo().getUserName();
             dVar.content = e.aq(chatMessage.getMsgType(), chatMessage.getContent());
-            if (dVar.iqr) {
-                if (!com.baidu.tbadk.coreExtra.messageCenter.d.aok().aos()) {
+            if (dVar.irv) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.d.aom().aou()) {
                     dVar.isAcceptNotify = false;
                 } else {
-                    dVar.isAcceptNotify = com.baidu.tieba.im.settingcache.e.bGt().dp(TbadkCoreApplication.getCurrentAccount(), dVar.groupId);
+                    dVar.isAcceptNotify = com.baidu.tieba.im.settingcache.e.bGH().dp(TbadkCoreApplication.getCurrentAccount(), dVar.groupId);
                 }
-            } else if (!com.baidu.tbadk.coreExtra.messageCenter.d.aok().aos()) {
+            } else if (!com.baidu.tbadk.coreExtra.messageCenter.d.aom().aou()) {
                 dVar.isAcceptNotify = false;
-            } else if (!com.baidu.tbadk.coreExtra.messageCenter.d.aok().aoo()) {
+            } else if (!com.baidu.tbadk.coreExtra.messageCenter.d.aom().aoq()) {
                 dVar.isAcceptNotify = false;
             } else {
-                dVar.isAcceptNotify = com.baidu.tieba.im.settingcache.e.bGt().dp(TbadkCoreApplication.getCurrentAccount(), dVar.groupId);
+                dVar.isAcceptNotify = com.baidu.tieba.im.settingcache.e.bGH().dp(TbadkCoreApplication.getCurrentAccount(), dVar.groupId);
             }
         } else if (dVar.customGroupType == 4) {
             dVar.groupId = chatMessage.getUserInfo().getUserId();
             if (!TbConfig.IM_USER_ID_TBJX.equals(dVar.groupId) && !"2807977073".equals(dVar.groupId)) {
                 return null;
             }
-            ImMessageCenterPojo aQ3 = com.baidu.tieba.im.memorycache.b.bEZ().aQ(dVar.groupId, 4);
+            ImMessageCenterPojo aQ3 = com.baidu.tieba.im.memorycache.b.bFn().aQ(dVar.groupId, 4);
             if (aQ3 != null) {
-                dVar.iOO = aQ3.getUnread_count();
+                dVar.iPS = aQ3.getUnread_count();
                 dVar.lastTime = aQ3.getLast_content_time();
-                dVar.iqr = aQ3.getIsFriend() == 1;
+                dVar.irv = aQ3.getIsFriend() == 1;
                 dVar.followStatus = aQ3.getFollowStatus();
             }
             dVar.groupName = chatMessage.getUserInfo().getUserName();
@@ -458,7 +458,7 @@ public class a {
             } else {
                 dVar.content = e.aq(chatMessage.getMsgType(), chatMessage.getContent());
             }
-            if (!com.baidu.tbadk.coreExtra.messageCenter.d.aok().aoE()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.d.aom().aoG()) {
                 dVar.isAcceptNotify = false;
             }
         }
@@ -474,14 +474,14 @@ public class a {
 
     public void d(d dVar) {
         if (dVar != null) {
-            this.izw.remove(dVar);
+            this.iAA.remove(dVar);
         }
     }
 
     public d v(ImMessageCenterPojo imMessageCenterPojo) {
         d dVar = new d();
         if (imMessageCenterPojo != null) {
-            dVar.iOO = imMessageCenterPojo.getUnread_count();
+            dVar.iPS = imMessageCenterPojo.getUnread_count();
             dVar.groupId = imMessageCenterPojo.getGid();
             dVar.customGroupType = imMessageCenterPojo.getCustomGroupType();
             dVar.groupName = imMessageCenterPojo.getGroup_name();
@@ -498,11 +498,11 @@ public class a {
         return dVar;
     }
 
-    public void cji() {
+    public void cjA() {
         d dVar;
-        if (cjh()) {
-            if ((this.izw != null && this.izw.size() != 0) || this.iOy != null) {
-                if (!this.iOz.ctx() || this.iOC == 1) {
+        if (cjz()) {
+            if ((this.iAA != null && this.iAA.size() != 0) || this.iPC != null) {
+                if (!this.iPD.ctT() || this.iPG == 1) {
                     Activity eU = com.baidu.adp.base.a.eT().eU();
                     if (eU != null && eU.getClass() != null && eU.getClass().getName().equals("com.baidu.tieba.pushdialog.PushDialogActivity")) {
                         eU.finish();
@@ -511,10 +511,10 @@ public class a {
                     this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.screenlocknotify.a.6
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.iOz.ctv();
+                            a.this.iPD.ctR();
                         }
                     }, 1000L);
-                    if (this.izw != null && this.izw.size() > 0 && (dVar = this.izw.get(0)) != null) {
+                    if (this.iAA != null && this.iAA.size() > 0 && (dVar = this.iAA.get(0)) != null) {
                         TiebaStatic.logPagePV(new an("c11702").l("msg_id", dVar.msgId / 100).l("task_id", dVar.taskId));
                     }
                 }

@@ -5,30 +5,30 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
-    private a jRW;
-    private ArrayList<bg> jRX;
+    private a jTc;
+    private ArrayList<bh> jTd;
     private TbPageContext mContext;
     private int mErrCode;
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jRW = null;
-        this.jRX = null;
+        this.jTc = null;
+        this.jTd = null;
         this.mErrCode = 0;
         this.mContext = tbPageContext;
-        this.jRX = new ArrayList<>();
+        this.jTd = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bg> cBn() {
-        return this.jRX;
+    public ArrayList<bh> cBI() {
+        return this.jTd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,11 +37,11 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void GV(String str) {
-        if (this.jRW == null) {
-            this.jRW = new a();
-            this.jRW.setPriority(3);
-            this.jRW.execute(str);
+    public void GW(String str) {
+        if (this.jTc == null) {
+            this.jTc = new a();
+            this.jTc.setPriority(3);
+            this.jTc.execute(str);
         }
     }
 
@@ -60,12 +60,12 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
             String obj = objArr[0].toString();
             this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/f/frs/toplist");
             this.mNetWork.o("kw", obj);
-            String aig = this.mNetWork.aig();
-            if (!this.mNetWork.aiE().ajF().isRequestSuccess()) {
+            String aii = this.mNetWork.aii();
+            if (!this.mNetWork.aiG().ajH().isRequestSuccess()) {
                 return null;
             }
             FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.mContext);
-            feedBackModel.parserJson(aig);
+            feedBackModel.parserJson(aii);
             return feedBackModel;
         }
 
@@ -75,14 +75,14 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.jRW = null;
+            FeedBackModel.this.jTc = null;
             FeedBackModel.this.mLoadDataCallBack.m(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.jRW = null;
+            FeedBackModel.this.jTc = null;
             if (this.mNetWork != null) {
                 this.mNetWork.ik();
             }
@@ -106,9 +106,9 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            bg bgVar = new bg();
-                            bgVar.parserJson(jSONObject2);
-                            this.jRX.add(bgVar);
+                            bh bhVar = new bh();
+                            bhVar.parserJson(jSONObject2);
+                            this.jTd.add(bhVar);
                         }
                     }
                 }
@@ -125,8 +125,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.jRW != null) {
-            this.jRW.cancel();
+        if (this.jTc != null) {
+            this.jTc.cancel();
             return true;
         }
         return true;

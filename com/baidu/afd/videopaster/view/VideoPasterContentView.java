@@ -198,7 +198,7 @@ public class VideoPasterContentView extends FrameLayout {
                 }
             } else if (this.pasterData.pK() == 1) {
                 this.SE.setVisibility(0);
-                this.RG.ceg();
+                this.RG.cey();
                 if (this.SF != null) {
                     this.SF.stop();
                 }
@@ -247,7 +247,7 @@ public class VideoPasterContentView extends FrameLayout {
                     this.SJ.resume();
                 }
                 if (this.SH) {
-                    this.mStartPosition = y.ceM().CZ(this.pasterData.videoUrl);
+                    this.mStartPosition = y.cfe().Da(this.pasterData.videoUrl);
                     if (this.mStartPosition > 100 && this.SR > this.mStartPosition) {
                         i = this.mStartPosition;
                     }
@@ -325,7 +325,7 @@ public class VideoPasterContentView extends FrameLayout {
 
     private void pS() {
         if (this.pasterData != null && this.pasterData.pK() == 1) {
-            y.ceM().remove(this.pasterData.videoUrl);
+            y.cfe().remove(this.pasterData.videoUrl);
             if (this.RG != null && this.RG.getPlayer() != null) {
                 this.RG.getPlayer().seekTo(0);
             }
@@ -362,7 +362,7 @@ public class VideoPasterContentView extends FrameLayout {
         if (this.pasterData == null || this.SJ == null) {
             return 0;
         }
-        return ((int) this.SJ.awd()) / 1000;
+        return ((int) this.SJ.awf()) / 1000;
     }
 
     public int getTotalDuration() {
@@ -385,7 +385,7 @@ public class VideoPasterContentView extends FrameLayout {
         }
         if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.SH && this.pasterData.pK() == 1) {
             this.SE.setVisibility(0);
-            this.mStartPosition = y.ceM().CZ(this.pasterData.videoUrl);
+            this.mStartPosition = y.cfe().Da(this.pasterData.videoUrl);
             if (this.mStartPosition > 100 && this.SR > this.mStartPosition) {
                 i = this.mStartPosition;
             }

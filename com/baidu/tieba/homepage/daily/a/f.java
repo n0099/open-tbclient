@@ -4,33 +4,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.n;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
-public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
-    private ab<bg> dEr;
-    private com.baidu.tieba.homepage.daily.view.c gdJ;
+public class f extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
+    private ab<bh> dEy;
+    private com.baidu.tieba.homepage.daily.view.c geA;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dEr = new ab<bg>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
+        this.dEy = new ab<bh>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
-            public void a(View view, bg bgVar) {
+            public void a(View view, bh bhVar) {
                 int i = 2;
-                if (view != null && bgVar != null && f.this.gdJ != null && f.this.gdJ.getView() != null) {
+                if (view != null && bhVar != null && f.this.geA != null && f.this.geA.getView() != null) {
                     an anVar = new an("c13175");
                     anVar.P("obj_type", 2);
-                    anVar.bT("tid", bgVar.getTid());
-                    anVar.l("fid", bgVar.getFid());
-                    if (view.getId() != f.this.gdJ.bvm() && view.getId() != f.this.gdJ.bvn()) {
-                        if (view.getId() == f.this.gdJ.bvo()) {
+                    anVar.bT("tid", bhVar.getTid());
+                    anVar.l("fid", bhVar.getFid());
+                    if (view.getId() != f.this.geA.bvz() && view.getId() != f.this.geA.bvA()) {
+                        if (view.getId() == f.this.geA.bvB()) {
                             i = 3;
                         }
                     } else {
@@ -49,30 +49,30 @@ public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aq */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> onCreateViewHolder(ViewGroup viewGroup) {
-        this.gdJ = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
-        this.gdJ.setTag(this.mPageId);
-        this.gdJ.setShareReportFrom(7);
-        this.gdJ.tF(11);
-        this.gdJ.setStType(n.aek());
-        this.gdJ.currentPageType = 16;
-        return new com.baidu.tieba.card.a.a<>(this.gdJ);
+        this.geA = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
+        this.geA.setTag(this.mPageId);
+        this.geA.setShareReportFrom(7);
+        this.geA.tH(11);
+        this.geA.setStType(n.ael());
+        this.geA.currentPageType = 16;
+        return new com.baidu.tieba.card.a.a<>(this.geA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bg bgVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> aVar) {
-        if (bgVar == null || aVar == null || aVar.bar() == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bh bhVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> aVar) {
+        if (bhVar == null || aVar == null || aVar.bat() == null) {
             return null;
         }
         an anVar = new an("c13176");
         anVar.P("obj_type", 2);
-        anVar.bT("tid", bgVar.getTid());
-        anVar.l("fid", bgVar.getFid());
-        t.aZN().c(anVar);
-        aVar.bar().d(this.dEr);
-        aVar.bar().a(bgVar);
+        anVar.bT("tid", bhVar.getTid());
+        anVar.l("fid", bhVar.getFid());
+        t.aZP().c(anVar);
+        aVar.bat().d(this.dEy);
+        aVar.bat().a(bhVar);
         return aVar.getView();
     }
 }

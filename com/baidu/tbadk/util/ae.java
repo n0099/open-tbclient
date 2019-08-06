@@ -18,7 +18,7 @@ import java.net.URLDecoder;
 public class ae {
     private static BaseWebView mBaseWebView;
 
-    public static void awI() {
+    public static void awK() {
         try {
             if (mBaseWebView == null) {
                 mBaseWebView = new BaseWebView(TbadkCoreApplication.getInst());
@@ -29,7 +29,7 @@ public class ae {
     }
 
     public static String getUserAgent() {
-        awI();
+        awK();
         if (mBaseWebView == null || mBaseWebView.getSettings() == null) {
             return null;
         }
@@ -117,17 +117,17 @@ public class ae {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String cDu;
+        public String cDB;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.cDu = "";
+            this.cDB = "";
             this.BDUSS = str;
-            this.cDu = str2;
+            this.cDB = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.cDu != null ? this.cDu.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.cDB != null ? this.cDB.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -143,7 +143,7 @@ public class ae {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.cDu == null ? aVar.cDu == null : this.cDu.equals(aVar.cDu);
+                return this.cDB == null ? aVar.cDB == null : this.cDB.equals(aVar.cDB);
             }
             return false;
         }

@@ -10,12 +10,12 @@ public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int auz() {
+    protected int auB() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String auB() {
+    protected String auD() {
         return "c/u/feed/atme";
     }
 
@@ -25,7 +25,7 @@ public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int auA() {
+    protected int auC() {
         return 0;
     }
 }

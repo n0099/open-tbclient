@@ -9,21 +9,21 @@ import com.baidu.tieba.forumMember.view.GodHeadImageView;
 public class f extends v.a {
     public TextView bmT;
     public View dividerLine;
-    public TextView eHP;
-    public GodHeadImageView fqe;
-    public TextView fqf;
+    public TextView eHW;
+    public GodHeadImageView fqD;
+    public TextView fqE;
     public int mSkinType;
 
     public f(View view) {
         super(view);
         this.mSkinType = 3;
-        this.fqe = (GodHeadImageView) view.findViewById(R.id.item_head);
-        this.fqe.setShapeType(0);
-        this.fqe.setShowType(1);
-        this.fqe.setRadius(14);
+        this.fqD = (GodHeadImageView) view.findViewById(R.id.item_head);
+        this.fqD.setShapeType(0);
+        this.fqD.setShowType(1);
+        this.fqD.setRadius(14);
         this.bmT = (TextView) view.findViewById(R.id.item_manito_name);
-        this.eHP = (TextView) view.findViewById(R.id.item_manito_intro);
-        this.fqf = (TextView) view.findViewById(R.id.item_manito_fans);
+        this.eHW = (TextView) view.findViewById(R.id.item_manito_intro);
+        this.fqE = (TextView) view.findViewById(R.id.item_manito_fans);
         this.dividerLine = view.findViewById(R.id.divider_line);
     }
 }

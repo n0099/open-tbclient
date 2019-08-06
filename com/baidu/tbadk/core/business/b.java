@@ -3,11 +3,13 @@ package com.baidu.tbadk.core.business;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -29,12 +31,15 @@ public class b extends PopupWindow {
     private TextView bEd;
     private TextView bEe;
     private Button bEf;
-    private CustomMessageListener bEg;
+    private RelativeLayout bEg;
+    private CustomMessageListener bEh;
     private com.baidu.tbadk.BdToken.completeTask.a mData;
+    private int mScreenHeight;
+    private int mScreenWidth;
 
     public b(Context context) {
         super(context);
-        this.bEg = new CustomMessageListener(2921419) { // from class: com.baidu.tbadk.core.business.b.4
+        this.bEh = new CustomMessageListener(2921419) { // from class: com.baidu.tbadk.core.business.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -42,7 +47,7 @@ public class b extends PopupWindow {
             }
         };
         init(context);
-        MessageManager.getInstance().registerListener(this.bEg);
+        MessageManager.getInstance().registerListener(this.bEh);
     }
 
     public void init(Context context) {
@@ -53,6 +58,7 @@ public class b extends PopupWindow {
         this.bEd = (TextView) inflate.findViewById(R.id.lower_hair_text_1);
         this.bEe = (TextView) inflate.findViewById(R.id.lower_hair_text_2);
         this.bEf = (Button) inflate.findViewById(R.id.btn_close);
+        this.bEg = (RelativeLayout) inflate.findViewById(R.id.lower_hair_content);
         this.bEe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -84,7 +90,7 @@ public class b extends PopupWindow {
         setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tbadk.core.business.b.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                MessageManager.getInstance().unRegisterListener(b.this.bEg);
+                MessageManager.getInstance().unRegisterListener(b.this.bEh);
             }
         });
     }
@@ -93,7 +99,7 @@ public class b extends PopupWindow {
     public void lt(String str) {
         TbPageContext<?> Y;
         if (!aq.isEmpty(str) && (Y = Y(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            bb.ajC().c(Y, new String[]{str});
+            bb.ajE().c(Y, new String[]{str});
         }
     }
 
@@ -142,6 +148,20 @@ public class b extends PopupWindow {
     }
 
     public void show() {
+        if (acu() && this.bEg != null && this.bEg.getLayoutParams() != null) {
+            this.bEg.getLayoutParams().width = (this.mScreenWidth * 2) / 3;
+        }
         showAtLocation(getContentView(), 17, 0, 0);
+    }
+
+    private boolean acu() {
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (currentActivity != null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            currentActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            this.mScreenWidth = displayMetrics.widthPixels;
+            this.mScreenHeight = displayMetrics.heightPixels;
+        }
+        return this.mScreenHeight > 2000 && this.mScreenWidth > 2000;
     }
 }

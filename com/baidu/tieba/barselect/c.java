@@ -23,12 +23,12 @@ import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class c extends RecyclerView.ViewHolder {
-    private HeadImageView evE;
-    private TextView evF;
-    private TextView evG;
-    private TextView evH;
-    private com.baidu.tieba.barselect.data.a evI;
-    private View evJ;
+    private HeadImageView evL;
+    private TextView evM;
+    private TextView evN;
+    private TextView evO;
+    private com.baidu.tieba.barselect.data.a evP;
+    private View evQ;
     private TextView mName;
     private View.OnClickListener mOnClickListener;
     private BdUniqueId mPageId;
@@ -41,14 +41,14 @@ public class c extends RecyclerView.ViewHolder {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (c.this.evI != null) {
-                    if (view2.getId() != c.this.evJ.getId() && view2.getId() != c.this.evE.getId()) {
-                        if (view2.getId() == c.this.evH.getId() && (c.this.itemView.getContext() instanceof Activity) && bd.cF(c.this.itemView.getContext())) {
-                            if (c.this.evI.evU) {
+                if (c.this.evP != null) {
+                    if (view2.getId() != c.this.evQ.getId() && view2.getId() != c.this.evL.getId()) {
+                        if (view2.getId() == c.this.evO.getId() && (c.this.itemView.getContext() instanceof Activity) && bd.cF(c.this.itemView.getContext())) {
+                            if (c.this.evP.ewb) {
                                 l.showToast(TbadkCoreApplication.getInst(), (int) R.string.has_not_other_ticket);
                                 return;
                             }
-                            CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(c.this.evI.uid, c.this.evI.forumId, c.this.evI.tid, 3);
+                            CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(c.this.evP.uid, c.this.evP.forumId, c.this.evP.tid, 3);
                             if (c.this.mPageId == null) {
                                 if (c.this.itemView.getContext() instanceof BaseActivity) {
                                     c.this.mPageId = ((BaseActivity) c.this.itemView.getContext()).getUniqueId();
@@ -62,34 +62,34 @@ public class c extends RecyclerView.ViewHolder {
                         }
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(c.this.itemView.getContext()).createNormalConfig(c.this.evI.uid, c.this.evI.uid == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(c.this.itemView.getContext()).createNormalConfig(c.this.evP.uid, c.this.evP.uid == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
                 }
             }
         };
-        this.evE = (HeadImageView) view.findViewById(R.id.img_head);
-        this.evE.setIsRound(true);
-        this.evE.setOnClickListener(this.mOnClickListener);
+        this.evL = (HeadImageView) view.findViewById(R.id.img_head);
+        this.evL.setIsRound(true);
+        this.evL.setOnClickListener(this.mOnClickListener);
         this.mName = (TextView) view.findViewById(R.id.name);
-        this.evF = (TextView) view.findViewById(R.id.num_and_vote_count);
-        this.evG = (TextView) view.findViewById(R.id.agree_publish_reply);
-        this.evH = (TextView) view.findViewById(R.id.btn_vote);
+        this.evM = (TextView) view.findViewById(R.id.num_and_vote_count);
+        this.evN = (TextView) view.findViewById(R.id.agree_publish_reply);
+        this.evO = (TextView) view.findViewById(R.id.btn_vote);
         this.itemView.setOnClickListener(this.mOnClickListener);
-        this.evH.setOnClickListener(this.mOnClickListener);
-        this.evJ = view.findViewById(R.id.candidate_info);
-        this.evJ.setOnClickListener(this.mOnClickListener);
+        this.evO.setOnClickListener(this.mOnClickListener);
+        this.evQ = view.findViewById(R.id.candidate_info);
+        this.evQ.setOnClickListener(this.mOnClickListener);
     }
 
     public void a(com.baidu.tieba.barselect.data.a aVar) {
-        this.evI = aVar;
+        this.evP = aVar;
         if (aVar != null) {
-            this.evE.startLoad(aVar.evN, 12, false);
+            this.evL.startLoad(aVar.evU, 12, false);
             this.mName.setText(aVar.name);
-            String valueOf = String.valueOf(aVar.evO);
+            String valueOf = String.valueOf(aVar.evV);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(aVar.evO));
+                valueOf = String.format("%04d", Long.valueOf(aVar.evV));
             }
-            a(this.evF, String.format(this.itemView.getContext().getString(R.string.num_and_vote_count), valueOf, Integer.valueOf(aVar.evP)), aVar.evT);
-            this.evG.setText(String.format(this.itemView.getContext().getString(R.string.agree_post_reply), aq.aP(aVar.evQ), aq.aP(aVar.evR), aq.aP(aVar.evS)));
+            a(this.evM, String.format(this.itemView.getContext().getString(R.string.num_and_vote_count), valueOf, Integer.valueOf(aVar.evW)), aVar.ewa);
+            this.evN.setText(String.format(this.itemView.getContext().getString(R.string.agree_post_reply), aq.aP(aVar.evX), aq.aP(aVar.evY), aq.aP(aVar.evZ)));
             onChangeSkinType();
         }
     }
@@ -97,10 +97,10 @@ public class c extends RecyclerView.ViewHolder {
     private void onChangeSkinType() {
         if (TbadkCoreApplication.getInst().getSkinType() != this.mSkinType) {
             am.j(this.mName, R.color.cp_cont_f);
-            am.j(this.evF, R.color.cp_cont_c);
-            am.j(this.evG, R.color.cp_cont_d);
-            am.j(this.evH, R.color.cp_link_tip_a);
-            am.k(this.evH, R.drawable.shape_vote_button);
+            am.j(this.evM, R.color.cp_cont_c);
+            am.j(this.evN, R.color.cp_cont_d);
+            am.j(this.evO, R.color.cp_link_tip_a);
+            am.k(this.evO, R.drawable.shape_vote_button);
         }
     }
 

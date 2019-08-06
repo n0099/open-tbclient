@@ -17,26 +17,26 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class af extends v.a {
-    View.OnClickListener dWK;
-    public LinearLayout hRV;
-    public View hRW;
-    public RelativeLayout hRX;
-    public TbImageView hRY;
-    public TextView hRZ;
-    public TextView hSa;
-    public TextView hSb;
-    public LinearLayout hSc;
-    public ImageView hSd;
-    public TextView hSe;
-    public LinearLayout hSf;
-    public ImageView hSg;
-    public TextView hSh;
-    public View hSi;
-    private com.baidu.tbadk.core.data.ap hSj;
-    private com.baidu.tbadk.core.data.ap hSk;
-    private com.baidu.tbadk.core.data.ap hSl;
-    private ad hSm;
-    private a hSn;
+    View.OnClickListener dWR;
+    public LinearLayout hSQ;
+    public View hSR;
+    public RelativeLayout hSS;
+    public TbImageView hST;
+    public TextView hSU;
+    public TextView hSV;
+    public TextView hSW;
+    public LinearLayout hSX;
+    public ImageView hSY;
+    public TextView hSZ;
+    public LinearLayout hTa;
+    public ImageView hTb;
+    public TextView hTc;
+    public View hTd;
+    private com.baidu.tbadk.core.data.ap hTe;
+    private com.baidu.tbadk.core.data.ap hTf;
+    private com.baidu.tbadk.core.data.ap hTg;
+    private ad hTh;
+    private a hTi;
     private TbPageContext mContext;
     private int mSkinType;
 
@@ -48,83 +48,83 @@ public class af extends v.a {
     public af(TbPageContext tbPageContext, View view, a aVar) {
         super(view);
         this.mSkinType = 3;
-        this.dWK = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.af.1
+        this.dWR = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.af.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (bd.cF(af.this.mContext.getPageActivity()) && com.baidu.adp.lib.util.l.kt()) {
-                    if (af.this.hSn != null) {
-                        af.this.hSn.b(af.this.hSm);
+                    if (af.this.hTi != null) {
+                        af.this.hTi.b(af.this.hTh);
                     }
-                    if (view2 == af.this.hRX) {
-                        if (af.this.hSj != null && !TextUtils.isEmpty(af.this.hSj.bHW)) {
-                            bb.ajC().c((TbPageContext) com.baidu.adp.base.i.ab(af.this.mContext.getPageActivity()), new String[]{af.this.hSj.bHW});
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11410").bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, af.this.hSj.bHW));
+                    if (view2 == af.this.hSS) {
+                        if (af.this.hTe != null && !TextUtils.isEmpty(af.this.hTe.bHX)) {
+                            bb.ajE().c((TbPageContext) com.baidu.adp.base.i.ab(af.this.mContext.getPageActivity()), new String[]{af.this.hTe.bHX});
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11410").bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, af.this.hTe.bHX));
                         }
-                    } else if (view2 == af.this.hSc) {
-                        BdLog.e("link: " + af.this.hSk.bHW);
-                        if (af.this.hSk != null && !TextUtils.isEmpty(af.this.hSk.bHW)) {
-                            bb.ajC().c((TbPageContext) com.baidu.adp.base.i.ab(af.this.mContext.getPageActivity()), new String[]{af.this.hSk.bHW});
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11409").bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, af.this.hSk.bHW));
+                    } else if (view2 == af.this.hSX) {
+                        BdLog.e("link: " + af.this.hTf.bHX);
+                        if (af.this.hTf != null && !TextUtils.isEmpty(af.this.hTf.bHX)) {
+                            bb.ajE().c((TbPageContext) com.baidu.adp.base.i.ab(af.this.mContext.getPageActivity()), new String[]{af.this.hTf.bHX});
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11409").bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, af.this.hTf.bHX));
                         }
-                    } else if (view2 == af.this.hSf && af.this.hSl != null && !TextUtils.isEmpty(af.this.hSl.bHW)) {
-                        bb.ajC().c((TbPageContext) com.baidu.adp.base.i.ab(af.this.mContext.getPageActivity()), new String[]{af.this.hSl.bHW});
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11408").bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, af.this.hSl.bHW));
+                    } else if (view2 == af.this.hTa && af.this.hTg != null && !TextUtils.isEmpty(af.this.hTg.bHX)) {
+                        bb.ajE().c((TbPageContext) com.baidu.adp.base.i.ab(af.this.mContext.getPageActivity()), new String[]{af.this.hTg.bHX});
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11408").bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, af.this.hTg.bHX));
                     }
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.hSn = aVar;
-        this.hRV = (LinearLayout) view.findViewById(R.id.pb_news_info_layout);
-        this.hRW = view.findViewById(R.id.pb_list_item_top_line);
-        this.hRX = (RelativeLayout) view.findViewById(R.id.pb_top_code);
-        this.hRY = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.hRZ = (TextView) view.findViewById(R.id.top_code_get_btn);
-        this.hSa = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.hSb = (TextView) view.findViewById(R.id.top_code_detail_subtitle_text);
-        this.hSc = (LinearLayout) view.findViewById(R.id.news_info);
-        this.hSd = (ImageView) view.findViewById(R.id.news_info_img);
-        this.hSe = (TextView) view.findViewById(R.id.news_info_text);
-        this.hSf = (LinearLayout) view.findViewById(R.id.game_info);
-        this.hSg = (ImageView) view.findViewById(R.id.game_info_img);
-        this.hSh = (TextView) view.findViewById(R.id.game_info_text);
-        this.hSi = view.findViewById(R.id.pb_news_info_divider);
-        setOnClickListener(this.dWK);
+        this.hTi = aVar;
+        this.hSQ = (LinearLayout) view.findViewById(R.id.pb_news_info_layout);
+        this.hSR = view.findViewById(R.id.pb_list_item_top_line);
+        this.hSS = (RelativeLayout) view.findViewById(R.id.pb_top_code);
+        this.hST = (TbImageView) view.findViewById(R.id.top_code_img);
+        this.hSU = (TextView) view.findViewById(R.id.top_code_get_btn);
+        this.hSV = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.hSW = (TextView) view.findViewById(R.id.top_code_detail_subtitle_text);
+        this.hSX = (LinearLayout) view.findViewById(R.id.news_info);
+        this.hSY = (ImageView) view.findViewById(R.id.news_info_img);
+        this.hSZ = (TextView) view.findViewById(R.id.news_info_text);
+        this.hTa = (LinearLayout) view.findViewById(R.id.game_info);
+        this.hTb = (ImageView) view.findViewById(R.id.game_info_img);
+        this.hTc = (TextView) view.findViewById(R.id.game_info_text);
+        this.hTd = view.findViewById(R.id.pb_news_info_divider);
+        setOnClickListener(this.dWR);
     }
 
     public void a(ad adVar) {
         if (adVar != null) {
-            this.hSm = adVar;
-            this.hSj = adVar.hRS;
-            this.hSk = adVar.hRT;
-            this.hSl = adVar.hRU;
-            if (this.hSj != null) {
-                this.hRY.startLoad(this.hSj.bHY, 10, false);
-                this.hSa.setText(this.hSj.summary);
-                this.hSb.setText(this.hSj.subtitle);
-                this.hRZ.setText(this.hSj.buttonText);
-                com.baidu.tbadk.core.util.am.k(this.hRZ, R.drawable.selector_star_btn_like);
-                com.baidu.tbadk.core.util.am.j(this.hRZ, R.drawable.news_text_color_selector);
+            this.hTh = adVar;
+            this.hTe = adVar.hSN;
+            this.hTf = adVar.hSO;
+            this.hTg = adVar.hSP;
+            if (this.hTe != null) {
+                this.hST.startLoad(this.hTe.bHZ, 10, false);
+                this.hSV.setText(this.hTe.summary);
+                this.hSW.setText(this.hTe.subtitle);
+                this.hSU.setText(this.hTe.buttonText);
+                com.baidu.tbadk.core.util.am.k(this.hSU, R.drawable.selector_star_btn_like);
+                com.baidu.tbadk.core.util.am.j(this.hSU, R.drawable.news_text_color_selector);
             } else {
-                this.hRX.setVisibility(8);
+                this.hSS.setVisibility(8);
             }
-            if (this.hSk != null) {
-                this.hSe.setText(this.hSk.summary);
-                com.baidu.tbadk.core.util.am.k(this.hSd, R.drawable.icon_frs_news);
+            if (this.hTf != null) {
+                this.hSZ.setText(this.hTf.summary);
+                com.baidu.tbadk.core.util.am.k(this.hSY, R.drawable.icon_frs_news);
             } else {
-                this.hSc.setVisibility(8);
-                this.hSe.setVisibility(8);
-                this.hSd.setVisibility(8);
+                this.hSX.setVisibility(8);
+                this.hSZ.setVisibility(8);
+                this.hSY.setVisibility(8);
             }
-            if (this.hSl != null) {
-                this.hSh.setText(this.hSl.summary);
-                com.baidu.tbadk.core.util.am.k(this.hSg, R.drawable.icon_frs_game);
+            if (this.hTg != null) {
+                this.hTc.setText(this.hTg.summary);
+                com.baidu.tbadk.core.util.am.k(this.hTb, R.drawable.icon_frs_game);
             } else {
-                this.hSf.setVisibility(8);
-                this.hSh.setVisibility(8);
-                this.hSh.setVisibility(8);
+                this.hTa.setVisibility(8);
+                this.hTc.setVisibility(8);
+                this.hTc.setVisibility(8);
             }
-            this.hRV.setTag(adVar);
+            this.hSQ.setTag(adVar);
         }
     }
 
@@ -137,8 +137,8 @@ public class af extends v.a {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.hRX.setOnClickListener(onClickListener);
-        this.hSc.setOnClickListener(onClickListener);
-        this.hSf.setOnClickListener(onClickListener);
+        this.hSS.setOnClickListener(onClickListener);
+        this.hSX.setOnClickListener(onClickListener);
+        this.hTa.setOnClickListener(onClickListener);
     }
 }
