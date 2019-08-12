@@ -37,9 +37,8 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     protected Resources mResources;
     protected String mTag;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes3.dex */
-    public enum DrawableType {
+    protected enum DrawableType {
         ERROR_FRAME,
         ORDINARY_FRAME
     }
