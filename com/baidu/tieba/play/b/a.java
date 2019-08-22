@@ -132,8 +132,9 @@ public class a {
         return z;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private static class b implements Runnable {
+    public static class b implements Runnable {
         private c iAs;
         private final g iAv;
         private final int iAw;

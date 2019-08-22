@@ -66,6 +66,7 @@ public class s {
                     builder.z_id = FH.gz(TbadkCoreApplication.getInst());
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
+                builder._os_version = Build.VERSION.RELEASE;
                 field.set(obj, builder.build(false));
             } catch (Throwable th) {
                 if (BdLog.isDebugMode()) {
