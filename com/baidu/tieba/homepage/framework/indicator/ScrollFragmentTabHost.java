@@ -475,14 +475,18 @@ public class ScrollFragmentTabHost extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.ggL.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.ggL);
+        if ((TbSingleton.getInstance().getHomePageStyleAbTest() & 1) == 0) {
+            this.ggL.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(this.ggL);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterTask(2921405);
+        if ((TbSingleton.getInstance().getHomePageStyleAbTest() & 1) == 0) {
+            MessageManager.getInstance().unRegisterTask(2921405);
+        }
     }
 
     public void a(TbPageContext tbPageContext, NoNetworkView.a aVar) {
