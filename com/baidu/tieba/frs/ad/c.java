@@ -8,67 +8,67 @@ import tbclient.AdInfo;
 import tbclient.Media;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fzn = BdUniqueId.gen();
-    private String bEV;
-    private String bEW;
-    private String fzo;
-    private String fzp;
-    private List<MediaData> fzq;
-    private int fzr;
+    public static final BdUniqueId fBa = BdUniqueId.gen();
+    private String bFt;
+    private String bFu;
+    private String fBb;
+    private String fBc;
+    private List<MediaData> fBd;
+    private int fBe;
     public boolean isLast = false;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.fzo = adInfo.portrait;
-            this.bEV = adInfo.ad_name;
-            this.fzp = adInfo.ad_desc;
-            this.bEW = adInfo.ad_url;
-            this.fzr = adInfo.show_rule.intValue();
+            this.fBb = adInfo.portrait;
+            this.bFt = adInfo.ad_name;
+            this.fBc = adInfo.ad_desc;
+            this.bFu = adInfo.ad_url;
+            this.fBe = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.fzq = new ArrayList();
+                this.fBd = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.fzq.add(mediaData);
+                    this.fBd.add(mediaData);
                 }
             }
         }
     }
 
-    public int bog() {
-        return this.fzr;
+    public int boR() {
+        return this.fBe;
     }
 
-    public String boh() {
-        return this.fzo;
+    public String boS() {
+        return this.fBb;
     }
 
-    public String boi() {
-        return this.bEV;
+    public String boT() {
+        return this.bFt;
     }
 
-    public String boj() {
-        return this.fzp;
+    public String boU() {
+        return this.fBc;
     }
 
-    public String awb() {
-        return this.bEW;
+    public String awn() {
+        return this.bFu;
     }
 
-    public List<MediaData> bok() {
-        return this.fzq;
+    public List<MediaData> boV() {
+        return this.fBd;
     }
 
-    public void ko(boolean z) {
+    public void kr(boolean z) {
         this.isLast = z;
     }
 
-    public boolean bol() {
+    public boolean boW() {
         return this.isLast;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fzn;
+        return fBa;
     }
 }

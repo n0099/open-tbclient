@@ -9,86 +9,86 @@ import java.io.OutputStream;
 public class a {
     protected Bitmap LN;
     protected int height;
-    protected int ihc;
-    protected OutputStream ihf;
-    protected byte[] ihg;
-    protected byte[] ihh;
-    protected int ihi;
-    protected byte[] ihj;
+    protected int ijb;
+    protected OutputStream ije;
+    protected byte[] ijf;
+    protected byte[] ijg;
+    protected int ijh;
+    protected byte[] iji;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int ihd = -1;
+    protected int ijc = -1;
     protected int delay = 0;
-    protected boolean ihe = false;
-    protected boolean[] ihk = new boolean[256];
-    protected int ihl = 7;
-    protected int ihm = -1;
-    protected boolean ihn = false;
-    protected boolean iho = true;
-    protected boolean ihp = false;
-    protected int ihq = 10;
+    protected boolean ijd = false;
+    protected boolean[] ijj = new boolean[256];
+    protected int ijk = 7;
+    protected int ijl = -1;
+    protected boolean ijm = false;
+    protected boolean ijn = true;
+    protected boolean ijo = false;
+    protected int ijp = 10;
 
-    public void yy(int i) {
+    public void yB(int i) {
         if (i >= 0) {
-            this.ihd = i;
+            this.ijc = i;
         }
     }
 
     public boolean C(Bitmap bitmap) {
-        if (bitmap == null || !this.ihe) {
+        if (bitmap == null || !this.ijd) {
             return false;
         }
         try {
-            if (!this.ihp) {
+            if (!this.ijo) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.LN = bitmap;
-            caJ();
-            caI();
-            if (this.iho) {
-                caM();
-                caO();
-                if (this.ihd >= 0) {
-                    caN();
+            cbx();
+            cbw();
+            if (this.ijn) {
+                cbA();
+                cbC();
+                if (this.ijc >= 0) {
+                    cbB();
                 }
             }
-            caK();
-            caL();
-            if (!this.iho) {
-                caO();
+            cby();
+            cbz();
+            if (!this.ijn) {
+                cbC();
             }
-            caP();
-            this.iho = false;
+            cbD();
+            this.ijn = false;
             return true;
         } catch (IOException e) {
             return false;
         }
     }
 
-    public boolean uE() {
+    public boolean uI() {
         boolean z;
-        if (this.ihe) {
-            this.ihe = false;
+        if (this.ijd) {
+            this.ijd = false;
             try {
-                this.ihf.write(59);
-                this.ihf.flush();
-                if (this.ihn) {
-                    this.ihf.close();
+                this.ije.write(59);
+                this.ije.flush();
+                if (this.ijm) {
+                    this.ije.close();
                 }
                 z = true;
             } catch (IOException e) {
                 z = false;
             }
-            this.ihc = 0;
-            this.ihf = null;
+            this.ijb = 0;
+            this.ije = null;
             this.LN = null;
-            this.ihg = null;
-            this.ihh = null;
-            this.ihj = null;
-            this.ihn = false;
-            this.iho = true;
+            this.ijf = null;
+            this.ijg = null;
+            this.iji = null;
+            this.ijm = false;
+            this.ijn = true;
             return z;
         }
         return false;
@@ -103,7 +103,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.ihp = true;
+        this.ijo = true;
     }
 
     public boolean e(OutputStream outputStream) {
@@ -111,67 +111,67 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.ihn = false;
-        this.ihf = outputStream;
+        this.ijm = false;
+        this.ije = outputStream;
         try {
-            Cy("GIF89a");
+            CX("GIF89a");
         } catch (IOException e) {
             z = false;
         }
-        this.ihe = z;
+        this.ijd = z;
         return z;
     }
 
-    protected void caI() {
-        int length = this.ihg.length;
+    protected void cbw() {
+        int length = this.ijf.length;
         int i = length / 3;
-        this.ihh = new byte[i];
-        c cVar = new c(this.ihg, length, this.ihq);
-        this.ihj = cVar.caV();
-        for (int i2 = 0; i2 < this.ihj.length; i2 += 3) {
-            byte b = this.ihj[i2];
-            this.ihj[i2] = this.ihj[i2 + 2];
-            this.ihj[i2 + 2] = b;
-            this.ihk[i2 / 3] = false;
+        this.ijg = new byte[i];
+        c cVar = new c(this.ijf, length, this.ijp);
+        this.iji = cVar.cbJ();
+        for (int i2 = 0; i2 < this.iji.length; i2 += 3) {
+            byte b = this.iji[i2];
+            this.iji[i2] = this.iji[i2 + 2];
+            this.iji[i2 + 2] = b;
+            this.ijj[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int Z = cVar.Z(this.ihg[i3] & 255, this.ihg[i5] & 255, this.ihg[i6] & 255);
-            this.ihk[Z] = true;
-            this.ihh[i4] = (byte) Z;
+            int aa = cVar.aa(this.ijf[i3] & 255, this.ijf[i5] & 255, this.ijf[i6] & 255);
+            this.ijj[aa] = true;
+            this.ijg[i4] = (byte) aa;
         }
-        this.ihg = null;
-        this.ihi = 8;
-        this.ihl = 7;
+        this.ijf = null;
+        this.ijh = 8;
+        this.ijk = 7;
         if (this.transparent != -1) {
-            this.ihc = yz(this.transparent);
+            this.ijb = yC(this.transparent);
         }
     }
 
-    protected int yz(int i) {
+    protected int yC(int i) {
         int i2;
         int i3 = 0;
-        if (this.ihj == null) {
+        if (this.iji == null) {
             return -1;
         }
         int i4 = (i >> 16) & 255;
         int i5 = (i >> 8) & 255;
         int i6 = (i >> 0) & 255;
         int i7 = 16777216;
-        int length = this.ihj.length;
+        int length = this.iji.length;
         int i8 = 0;
         while (i3 < length) {
             int i9 = i3 + 1;
-            int i10 = i4 - (this.ihj[i3] & 255);
+            int i10 = i4 - (this.iji[i3] & 255);
             int i11 = i9 + 1;
-            int i12 = i5 - (this.ihj[i9] & 255);
-            int i13 = i6 - (this.ihj[i11] & 255);
+            int i12 = i5 - (this.iji[i9] & 255);
+            int i13 = i6 - (this.iji[i11] & 255);
             int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
             int i15 = i11 / 3;
-            if (!this.ihk[i15] || i14 >= i7) {
+            if (!this.ijj[i15] || i14 >= i7) {
                 i14 = i7;
                 i2 = i8;
             } else {
@@ -184,7 +184,7 @@ public class a {
         return i8;
     }
 
-    protected void caJ() {
+    protected void cbx() {
         int width = this.LN.getWidth();
         int height = this.LN.getHeight();
         if (width != this.width || height != this.height) {
@@ -193,14 +193,14 @@ public class a {
             this.LN = createBitmap;
         }
         int[] D = D(this.LN);
-        this.ihg = new byte[D.length * 3];
+        this.ijf = new byte[D.length * 3];
         for (int i = 0; i < D.length; i++) {
             int i2 = D[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.ihg[i3] = (byte) ((i2 >> 0) & 255);
-            this.ihg[i4] = (byte) ((i2 >> 8) & 255);
-            this.ihg[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.ijf[i3] = (byte) ((i2 >> 0) & 255);
+            this.ijf[i4] = (byte) ((i2 >> 8) & 255);
+            this.ijf[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
@@ -212,12 +212,12 @@ public class a {
         return iArr;
     }
 
-    protected void caK() throws IOException {
+    protected void cby() throws IOException {
         int i;
         int i2;
-        this.ihf.write(33);
-        this.ihf.write(249);
-        this.ihf.write(4);
+        this.ije.write(33);
+        this.ije.write(249);
+        this.ije.write(4);
         if (this.transparent == -1) {
             i2 = 0;
             i = 0;
@@ -225,67 +225,67 @@ public class a {
             i = 1;
             i2 = 2;
         }
-        if (this.ihm >= 0) {
-            i2 = this.ihm & 7;
+        if (this.ijl >= 0) {
+            i2 = this.ijl & 7;
         }
-        this.ihf.write((i2 << 2) | 0 | 0 | i);
-        yA(this.delay);
-        this.ihf.write(this.ihc);
-        this.ihf.write(0);
+        this.ije.write((i2 << 2) | 0 | 0 | i);
+        yD(this.delay);
+        this.ije.write(this.ijb);
+        this.ije.write(0);
     }
 
-    protected void caL() throws IOException {
-        this.ihf.write(44);
-        yA(this.x);
-        yA(this.y);
-        yA(this.width);
-        yA(this.height);
-        if (this.iho) {
-            this.ihf.write(0);
+    protected void cbz() throws IOException {
+        this.ije.write(44);
+        yD(this.x);
+        yD(this.y);
+        yD(this.width);
+        yD(this.height);
+        if (this.ijn) {
+            this.ije.write(0);
         } else {
-            this.ihf.write(this.ihl | 128);
+            this.ije.write(this.ijk | 128);
         }
     }
 
-    protected void caM() throws IOException {
-        yA(this.width);
-        yA(this.height);
-        this.ihf.write(this.ihl | 240);
-        this.ihf.write(0);
-        this.ihf.write(0);
+    protected void cbA() throws IOException {
+        yD(this.width);
+        yD(this.height);
+        this.ije.write(this.ijk | 240);
+        this.ije.write(0);
+        this.ije.write(0);
     }
 
-    protected void caN() throws IOException {
-        this.ihf.write(33);
-        this.ihf.write(255);
-        this.ihf.write(11);
-        Cy("NETSCAPE2.0");
-        this.ihf.write(3);
-        this.ihf.write(1);
-        yA(this.ihd);
-        this.ihf.write(0);
+    protected void cbB() throws IOException {
+        this.ije.write(33);
+        this.ije.write(255);
+        this.ije.write(11);
+        CX("NETSCAPE2.0");
+        this.ije.write(3);
+        this.ije.write(1);
+        yD(this.ijc);
+        this.ije.write(0);
     }
 
-    protected void caO() throws IOException {
-        this.ihf.write(this.ihj, 0, this.ihj.length);
-        int length = 768 - this.ihj.length;
+    protected void cbC() throws IOException {
+        this.ije.write(this.iji, 0, this.iji.length);
+        int length = 768 - this.iji.length;
         for (int i = 0; i < length; i++) {
-            this.ihf.write(0);
+            this.ije.write(0);
         }
     }
 
-    protected void caP() throws IOException {
-        new b(this.width, this.height, this.ihh, this.ihi).g(this.ihf);
+    protected void cbD() throws IOException {
+        new b(this.width, this.height, this.ijg, this.ijh).g(this.ije);
     }
 
-    protected void yA(int i) throws IOException {
-        this.ihf.write(i & 255);
-        this.ihf.write((i >> 8) & 255);
+    protected void yD(int i) throws IOException {
+        this.ije.write(i & 255);
+        this.ije.write((i >> 8) & 255);
     }
 
-    protected void Cy(String str) throws IOException {
+    protected void CX(String str) throws IOException {
         for (int i = 0; i < str.length(); i++) {
-            this.ihf.write((byte) str.charAt(i));
+            this.ije.write((byte) str.charAt(i));
         }
     }
 }

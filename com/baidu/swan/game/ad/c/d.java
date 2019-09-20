@@ -2,6 +2,7 @@ package com.baidu.swan.game.ad.c;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.swan.apps.an.ac;
@@ -12,7 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class d {
     protected Context a;
-    public b bdS;
+    public b ber;
     private String d;
     private String e;
     private String f;
@@ -25,11 +26,11 @@ public abstract class d {
 
     public d(Context context, b bVar) {
         this.a = context;
-        this.bdS = bVar;
-        if (this.bdS != null) {
-            this.d = this.bdS.d();
-            this.e = this.bdS.c();
-            this.f = this.bdS.e();
+        this.ber = bVar;
+        if (this.ber != null) {
+            this.d = this.ber.d();
+            this.e = this.ber.c();
+            this.f = this.ber.e();
         }
     }
 
@@ -40,7 +41,7 @@ public abstract class d {
     }
 
     private HashMap<String, String> c() {
-        com.baidu.swan.apps.v.b.b vL;
+        com.baidu.swan.apps.v.b.b vP;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(z.getDisplayWidth(this.a) / z.bT(this.a))));
@@ -55,22 +56,22 @@ public abstract class d {
             hashMap.put(IXAdRequestInfo.OS, "android");
             hashMap.put("apid", "" + this.d);
             hashMap.put("chid", "0");
-            String PN = ac.PN();
-            if (PN.equals("0")) {
-                PN = "";
+            String PR = ac.PR();
+            if (PR.equals("0")) {
+                PR = "";
             }
-            hashMap.put("imei", PN);
-            hashMap.put("cuid", com.baidu.swan.apps.u.a.Ep().bd(com.baidu.swan.apps.u.a.Ek()));
+            hashMap.put("imei", PR);
+            hashMap.put(DpStatConstants.KEY_CUID, com.baidu.swan.apps.u.a.Et().bd(com.baidu.swan.apps.u.a.Eo()));
             hashMap.put(IXAdRequestInfo.P_VER, this.i);
             hashMap.put("rpt", this.h);
             hashMap.put("tab", "2");
             hashMap.put("req_id", "");
-            com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
-            if (Md != null && (vL = Md.vL()) != null) {
-                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vL.FG());
-                JSONObject Ft = vL.Ft();
-                if (Ft != null) {
-                    hashMap.put("eqid", Ft.optString("eqid", ""));
+            com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
+            if (Mh != null && (vP = Mh.vP()) != null) {
+                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vP.FK());
+                JSONObject Fx = vP.Fx();
+                if (Fx != null) {
+                    hashMap.put("eqid", Fx.optString("eqid", ""));
                 }
             }
         } catch (Exception e) {
@@ -79,7 +80,7 @@ public abstract class d {
     }
 
     private int d() {
-        switch (SwanAppNetworkUtils.HR()) {
+        switch (SwanAppNetworkUtils.HV()) {
             case NONE:
             default:
                 return 0;
@@ -98,8 +99,8 @@ public abstract class d {
 
     private String e() {
         try {
-            String PN = ac.PN();
-            return TextUtils.isEmpty(PN) ? ac.getWifiInfo(this.a) : PN;
+            String PR = ac.PR();
+            return TextUtils.isEmpty(PR) ? ac.getWifiInfo(this.a) : PR;
         } catch (Exception e) {
             return "";
         }

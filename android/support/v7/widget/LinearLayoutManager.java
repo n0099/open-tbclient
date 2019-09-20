@@ -5,7 +5,6 @@ import android.graphics.PointF;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
-import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.AttributeSet;
@@ -1351,7 +1350,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             View view2;
             int size = this.mScrapList.size();
             View view3 = null;
-            int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i2 = Integer.MAX_VALUE;
             int i3 = 0;
             while (i3 < size) {
                 View view4 = this.mScrapList.get(i3).itemView;

@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b bgA;
-    private HashMap<String, c> beY = new HashMap<>();
+    private static volatile b bgY;
+    private HashMap<String, c> bfx = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
-    private final Object bfc = new Object();
-    private com.baidu.swan.games.network.b bfa = com.baidu.swan.games.network.b.SB();
-    private String beZ = f.QX();
+    private final Object bfA = new Object();
+    private com.baidu.swan.games.network.b bfz = com.baidu.swan.games.network.b.SF();
+    private String bfy = f.Rb();
 
-    public static b RS() {
-        if (bgA == null) {
+    public static b RW() {
+        if (bgY == null) {
             synchronized (b.class) {
-                if (bgA == null) {
-                    bgA = new b();
+                if (bgY == null) {
+                    bgY = new b();
                 }
             }
         }
-        return bgA;
+        return bgY;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String iS = iS(str);
-            File file = new File(iS(str));
+            String iU = iU(str);
+            File file = new File(iU(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(iS);
+                    valueCallback.onReceiveValue(iU);
                     return;
                 }
                 return;
             }
-            synchronized (this.bfc) {
-                if (!iQ(str)) {
-                    iR(str);
+            synchronized (this.bfA) {
+                if (!iS(str)) {
+                    iT(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,13 +57,13 @@ public class b implements a {
         }
     }
 
-    private boolean iQ(String str) {
-        return this.beY.containsKey(str);
+    private boolean iS(String str) {
+        return this.bfx.containsKey(str);
     }
 
-    private void iR(String str) {
-        c cVar = new c(this.bfa, this.beZ, str, this);
-        this.beY.put(str, cVar);
+    private void iT(String str) {
+        c cVar = new c(this.bfz, this.bfy, str, this);
+        this.bfx.put(str, cVar);
         cVar.load();
     }
 
@@ -80,8 +80,8 @@ public class b implements a {
     @Override // com.baidu.swan.games.e.c.a
     public void aQ(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
-        synchronized (this.bfc) {
-            if (iQ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+        synchronized (this.bfA) {
+            if (iS(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -89,21 +89,21 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.beY.remove(str);
+                this.bfx.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.e.c.a
     public void t(int i, String str) {
-        synchronized (this.bfc) {
-            if (iQ(str) && this.mCallbackMap.get(str) != null) {
-                this.beY.remove(str);
+        synchronized (this.bfA) {
+            if (iS(str) && this.mCallbackMap.get(str) != null) {
+                this.bfx.remove(str);
             }
         }
     }
 
-    private String iS(String str) throws MalformedURLException {
-        return this.beZ + f.iO(str);
+    private String iU(String str) throws MalformedURLException {
+        return this.bfy + f.iQ(str);
     }
 }

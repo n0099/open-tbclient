@@ -5,7 +5,7 @@ import com.baidu.swan.ubc.l;
 /* loaded from: classes4.dex */
 public class b implements p {
     @Override // com.baidu.swan.apps.u.b.p
-    public l Fi() {
+    public l Fm() {
         return new a();
     }
 }

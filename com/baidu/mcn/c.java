@@ -17,7 +17,7 @@ public class c {
                 an anVar = new an("c13404");
                 anVar.bT("tid", aVar.tid);
                 anVar.bT("fid", aVar.fid);
-                anVar.l("uid", TbadkCoreApplication.getCurrentAccountId());
+                anVar.n("uid", TbadkCoreApplication.getCurrentAccountId());
                 anVar.P("obj_locate", aVar.afw);
                 TiebaStatic.log(anVar);
             }
@@ -29,7 +29,7 @@ public class c {
                 an anVar = new an("c13405");
                 anVar.bT("tid", aVar.tid);
                 anVar.bT("fid", aVar.fid);
-                anVar.l("uid", TbadkCoreApplication.getCurrentAccountId());
+                anVar.n("uid", TbadkCoreApplication.getCurrentAccountId());
                 anVar.P("obj_locate", aVar.afw);
                 TiebaStatic.log(anVar);
             }

@@ -37,10 +37,10 @@ public class g extends BdAsyncTask<Collection<String>, Void, HashMap<String, Lis
                 }
             } catch (UnknownHostException e) {
                 BdLog.detailException(e);
-                d.bek().co("sysdns_get", e.getMessage());
+                d.beO().cp("sysdns_get", e.getMessage());
             } catch (Throwable th) {
                 BdLog.detailException(th);
-                d.bek().co("sysdns_get", th.getMessage());
+                d.beO().cp("sysdns_get", th.getMessage());
             }
         }
         return hashMap;

@@ -34,8 +34,8 @@ public class d {
     }
 
     public static void a(final String str, final String str2, final boolean z, b bVar) {
-        final SwanAppNAViewContainer aGB = bVar.aGB();
-        aGB.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.d.1
+        final SwanAppNAViewContainer aHf = bVar.aHf();
+        aHf.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.d.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();

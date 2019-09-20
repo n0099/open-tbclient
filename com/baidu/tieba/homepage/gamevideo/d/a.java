@@ -18,7 +18,7 @@ public class a {
 
     private static void b(DataRes dataRes, List<m> list) {
         c cVar;
-        bh acy;
+        bh acC;
         ThreadPersonalized threadPersonalized;
         if (dataRes != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -30,15 +30,15 @@ public class a {
             int Z = v.Z(list);
             for (int i = 0; i < Z; i++) {
                 m mVar = (m) v.c(list, i);
-                if ((mVar instanceof c) && (acy = (cVar = (c) mVar).acy()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(acy.getTid(), 0L))) != null) {
+                if ((mVar instanceof c) && (acC = (cVar = (c) mVar).acC()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.e(acC.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.vz(threadPersonalized.abtest_tag);
-                    acy.mRecomAbTag = threadPersonalized.abtest_tag;
-                    acy.mRecomSource = threadPersonalized.source;
-                    acy.mRecomWeight = threadPersonalized.weight;
-                    if (acy.aeP() != null) {
-                        cVar.d(acy.aeP().is_vertical);
+                    cVar.vY(threadPersonalized.abtest_tag);
+                    acC.mRecomAbTag = threadPersonalized.abtest_tag;
+                    acC.mRecomSource = threadPersonalized.source;
+                    acC.mRecomWeight = threadPersonalized.weight;
+                    if (acC.aeT() != null) {
+                        cVar.d(acC.aeT().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
@@ -46,8 +46,8 @@ public class a {
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason + "%" + dislikeReason.extra);
                         }
-                        cVar.bHM = sparseArray;
-                        cVar.vB(threadPersonalized.extra);
+                        cVar.bIk = sparseArray;
+                        cVar.wa(threadPersonalized.extra);
                     }
                 }
             }

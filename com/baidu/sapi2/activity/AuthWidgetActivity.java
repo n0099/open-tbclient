@@ -102,6 +102,13 @@ public class AuthWidgetActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
         this.result.setResultCode(-301);
@@ -124,7 +131,7 @@ public class AuthWidgetActivity extends BaseActivity {
         if (PassportSDK.getInstance().getAuthWidgetCallback() != null) {
             PassportSDK.getInstance().getAuthWidgetCallback().onFailure(this.result);
         }
-        PassportSDK.getInstance().release();
         finish();
+        PassportSDK.getInstance().release();
     }
 }

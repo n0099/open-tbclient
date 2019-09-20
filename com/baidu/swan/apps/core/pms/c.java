@@ -10,11 +10,11 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class c extends d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.v.b.c aks;
+    private com.baidu.swan.apps.v.b.c akQ;
 
     public c(com.baidu.swan.apps.v.b.c cVar) {
         super(cVar.mAppId);
-        this.aks = cVar;
+        this.akQ = cVar;
     }
 
     @Override // com.baidu.swan.apps.core.pms.g, com.baidu.swan.pms.a.f, com.baidu.swan.pms.a.d
@@ -22,7 +22,7 @@ public class c extends d {
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle a = super.a(bundle, set);
         if (set.contains("get_launch_id")) {
-            a.putString("launch_id", this.aks.apD);
+            a.putString("launch_id", this.akQ.aqb);
         }
         return a;
     }
@@ -30,7 +30,7 @@ public class c extends d {
     @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.f
     public void a(com.baidu.swan.pms.e.e eVar) {
         super.a(eVar);
-        if (eVar != null && eVar.WV()) {
+        if (eVar != null && eVar.WZ()) {
             l("checkForUpdate", true);
         }
     }
@@ -42,24 +42,24 @@ public class c extends d {
             Log.e("SwanAppPkgAsyncDownloadCallback", "onFetchError: " + aVar.toString());
         }
         l("checkForUpdate", false);
-        cq(aVar.errorNo);
+        cr(aVar.errorNo);
     }
 
     @Override // com.baidu.swan.pms.a.f
-    public void Bj() {
-        super.Bj();
-        if (this.asX != null) {
-            Bv();
+    public void Bn() {
+        super.Bn();
+        if (this.atv != null) {
+            Bz();
             l("checkForUpdate", false);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.d
-    protected void Bk() {
-        this.apK.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ak.a Bu = Bu();
-        this.apK.add(new UbcFlowEvent("na_end_update_db"));
-        if (Bu == null) {
+    protected void Bo() {
+        this.aqi.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ak.a By = By();
+        this.aqi.add(new UbcFlowEvent("na_end_update_db"));
+        if (By == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "异步更新-> DB 存储成功");
             }
@@ -84,16 +84,16 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.core.pms.d
-    protected PMSDownloadType Bl() {
+    protected PMSDownloadType Bp() {
         return PMSDownloadType.ASYNC;
     }
 
-    public com.baidu.swan.apps.v.b.c Bm() {
-        return this.aks;
+    public com.baidu.swan.apps.v.b.c Bq() {
+        return this.akQ;
     }
 
     private void l(String str, boolean z) {
-        String str2 = this.aks != null ? this.aks.mAppId : null;
+        String str2 = this.akQ != null ? this.akQ.mAppId : null;
         if (!TextUtils.isEmpty(str2)) {
             i.d(str, str2, z);
         }

@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
@@ -108,7 +109,7 @@ public class SapiDeviceInfo {
         arrayList.add(diExceptIndex.contains(21) ? "" : SapiUtils.getInternalMemorySize() + "");
         arrayList.add(diExceptIndex.contains(22) ? "" : SapiUtils.getInternalAvailableMemorySize() + "");
         arrayList.add(diExceptIndex.contains(23) ? "" : SapiUtils.getTimeSinceBoot() + "");
-        arrayList.add(diExceptIndex.contains(24) ? "" : SapiUtils.getGPSInfo(context));
+        arrayList.add(diExceptIndex.contains(24) ? "" : "");
         arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
         if (diExceptIndex.contains(26)) {
             localIpAddress = "";
@@ -117,7 +118,7 @@ public class SapiDeviceInfo {
         }
         arrayList.add(localIpAddress);
         arrayList.add(diExceptIndex.contains(27) ? "" : SapiUtils.a(context));
-        arrayList.add(diExceptIndex.contains(28) ? "" : SapiUtils.getLocation(context));
+        arrayList.add(diExceptIndex.contains(28) ? "" : "");
         arrayList.add("");
         arrayList.add("");
         arrayList.add("");
@@ -200,7 +201,7 @@ public class SapiDeviceInfo {
             arrayList.add("PhoneModel");
             arrayList.add("SystemVersion");
             arrayList.add("SystemType");
-            arrayList.add("cuid");
+            arrayList.add(DpStatConstants.KEY_CUID);
             arrayList.add("tpl");
             arrayList.add("uid_count");
             arrayList.add("uid_list");

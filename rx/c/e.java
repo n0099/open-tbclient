@@ -1,12 +1,12 @@
 package rx.c;
 /* loaded from: classes2.dex */
 final class e extends d {
-    private static final e kCB = new e();
+    private static final e kET = new e();
 
     private e() {
     }
 
-    public static d cQJ() {
-        return kCB;
+    public static d cRv() {
+        return kET;
     }
 }

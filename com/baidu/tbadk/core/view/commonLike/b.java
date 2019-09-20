@@ -7,5 +7,5 @@ public interface b {
 
     void e(View.OnClickListener onClickListener);
 
-    void ev(boolean z);
+    void ey(boolean z);
 }

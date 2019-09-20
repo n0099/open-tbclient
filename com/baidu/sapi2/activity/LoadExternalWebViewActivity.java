@@ -11,6 +11,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
+import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.SapiResult;
@@ -67,6 +68,12 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             setResult(0);
             finish();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public SapiWebDTO getWebDTO() {
+        return PassportSDK.getInstance().getWebLoginDTO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -164,8 +171,11 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         setTitleText(this.title);
         if (PassportViewManager.getInstance().getTitleViewModule() != null) {
             configCustomTitle();
-        } else {
-            setBtnVisibility(4, 0, 4);
+            return;
+        }
+        setBtnVisibility(4, 0, 4);
+        if (this.configuration.showBottomBack) {
+            setLeftBtnDrawable(null, null, null, null);
         }
     }
 
@@ -176,6 +186,13 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         if (this.executeSubClassMethod) {
             goBack();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -205,7 +222,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
     }

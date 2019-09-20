@@ -58,7 +58,7 @@ public class d extends FileObserver {
                                 synchronized (d.class) {
                                     if (!com.baidu.sofire.b.e.c(d.this.a)) {
                                         b.a();
-                                        com.baidu.sofire.b.e.b(d.this.b, d.this.a);
+                                        com.baidu.sofire.b.e.a(d.this.b, d.this.a);
                                         com.baidu.sofire.b.e.a(d.this.a, true);
                                         c.a(new File(d.this.a));
                                         c.a(d.this.d, d.this.c, new File(d.this.a), new File(d.this.b));

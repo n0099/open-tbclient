@@ -34,7 +34,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
 
     @Override // com.baidu.swan.apps.scheme.actions.a
     @NonNull
-    public String MP() {
+    public String MT() {
         return "/swan/animView";
     }
 
@@ -46,32 +46,32 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             c.e("AbsSwanAppWidget", "params is null");
             return false;
         }
-        C0191a c0191a = new C0191a(j);
-        if (!c0191a.QA()) {
+        C0200a c0200a = new C0200a(j);
+        if (!c0200a.QE()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse insert params, but invalid");
             return false;
         }
-        JSONObject c = c(c0191a.path, bVar);
+        JSONObject c = c(c0200a.path, bVar);
         if (c == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse insert params, path file is invalid");
             return false;
         }
         LottieAnimationView lottieAnimationView = new LottieAnimationView(context);
-        lottieAnimationView.y(c0191a.loop);
+        lottieAnimationView.y(c0200a.loop);
         lottieAnimationView.setAnimation(c);
-        if (c0191a.bdd != null) {
-            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0191a.bdd.bde), PorterDuff.Mode.ADD));
-            lottieAnimationView.setAlpha(c0191a.bdd.bdf);
+        if (c0200a.bdB != null) {
+            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0200a.bdB.bdC), PorterDuff.Mode.ADD));
+            lottieAnimationView.setAlpha(c0200a.bdB.bdD);
         }
-        if (c0191a.autoPlay) {
+        if (c0200a.autoPlay) {
             lottieAnimationView.br();
         }
-        if (!c0191a.loop) {
-            a(lottieAnimationView, c0191a);
+        if (!c0200a.loop) {
+            a(lottieAnimationView, c0200a);
         }
-        boolean a = new SwanAppNAViewContainer(context).a(lottieAnimationView, c0191a);
+        boolean a = new SwanAppNAViewContainer(context).a(lottieAnimationView, c0200a);
         c.i("AbsSwanAppWidget", "insert anim view success = " + a);
         if (a) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -90,13 +90,13 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             c.e("AbsSwanAppWidget", "params is null");
             return false;
         }
-        C0191a c0191a = new C0191a(j);
-        if (!c0191a.isValid()) {
+        C0200a c0200a = new C0200a(j);
+        if (!c0200a.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse update params, but invalid");
             return false;
         }
-        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(c0191a, null);
+        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(c0200a, null);
         if (a == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             c.e("AbsSwanAppWidget", "get wrapper is null");
@@ -109,11 +109,11 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             return false;
         }
         LottieAnimationView lottieAnimationView = (LottieAnimationView) nAView;
-        if (c0191a.bdd != null) {
-            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0191a.bdd.bde), PorterDuff.Mode.ADD));
-            lottieAnimationView.setAlpha(c0191a.bdd.bdf);
+        if (c0200a.bdB != null) {
+            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0200a.bdB.bdC), PorterDuff.Mode.ADD));
+            lottieAnimationView.setAlpha(c0200a.bdB.bdD);
         }
-        String str2 = c0191a.action;
+        String str2 = c0200a.action;
         if (TextUtils.equals(str2, "play")) {
             lottieAnimationView.bs();
         } else if (TextUtils.equals(str2, "pause")) {
@@ -122,7 +122,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             lottieAnimationView.cancelAnimation();
             lottieAnimationView.setProgress(0.0f);
         }
-        boolean a2 = a.a(c0191a);
+        boolean a2 = a.a(c0200a);
         c.i("AbsSwanAppWidget", "update anim view success = " + a2);
         if (a2) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -141,14 +141,14 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             c.e("AbsSwanAppWidget", "params is null");
             return false;
         }
-        C0191a c0191a = new C0191a(j);
-        if (!c0191a.isValid()) {
+        C0200a c0200a = new C0200a(j);
+        if (!c0200a.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse remove params, but invalid");
             return false;
         }
-        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(c0191a, null);
-        boolean z = a != null && a.Qi();
+        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(c0200a, null);
+        boolean z = a != null && a.Qm();
         c.i("AbsSwanAppWidget", "remove anim view success = " + z);
         if (z) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -164,13 +164,13 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
         return false;
     }
 
-    private void a(@NonNull final LottieAnimationView lottieAnimationView, final C0191a c0191a) {
+    private void a(@NonNull final LottieAnimationView lottieAnimationView, final C0200a c0200a) {
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", c0191a.aDU);
+            jSONObject.put("wvID", c0200a.aEs);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", c0191a.id);
+            jSONObject2.putOpt("animationViewId", c0200a.id);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -185,7 +185,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (lottieAnimationView.getProgress() == 1.0f) {
-                    d.a(c0191a.aDU, c0191a.id, "animateview", "ended", jSONObject);
+                    d.a(c0200a.aEs, c0200a.id, "animateview", "ended", jSONObject);
                 }
                 c.d("AbsSwanAppWidget", "progress: " + lottieAnimationView.getProgress());
             }
@@ -204,14 +204,14 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0191a extends com.baidu.swan.apps.model.a.a.a {
+    public class C0200a extends com.baidu.swan.apps.model.a.a.a {
         String action;
         boolean autoPlay;
-        C0192a bdd;
+        C0201a bdB;
         boolean loop;
         String path;
 
-        C0191a(JSONObject jSONObject) {
+        C0200a(JSONObject jSONObject) {
             super("sanId", "animateview");
             this.loop = false;
             this.autoPlay = true;
@@ -233,30 +233,30 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
                 this.action = jSONObject.optString("action");
                 JSONObject optJSONObject = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
                 if (optJSONObject != null) {
-                    this.bdd = new C0192a();
-                    this.bdd.bde = optJSONObject.optString("bgColor");
-                    this.bdd.bdf = (float) optJSONObject.optDouble("opacity");
+                    this.bdB = new C0201a();
+                    this.bdB.bdC = optJSONObject.optString("bgColor");
+                    this.bdB.bdD = (float) optJSONObject.optDouble("opacity");
                 }
             }
         }
 
         @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
         public boolean isValid() {
-            return (TextUtils.isEmpty(this.aDU) || TextUtils.isEmpty(this.id)) ? false : true;
+            return (TextUtils.isEmpty(this.aEs) || TextUtils.isEmpty(this.id)) ? false : true;
         }
 
-        public boolean QA() {
+        public boolean QE() {
             return isValid() && !TextUtils.isEmpty(this.path);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.swan.apps.view.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0192a {
-            String bde;
-            float bdf;
+        public class C0201a {
+            String bdC;
+            float bdD;
 
-            C0192a() {
+            C0201a() {
             }
         }
     }

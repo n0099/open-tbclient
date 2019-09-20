@@ -6,11 +6,6 @@ public class SapiHost {
     public static final String ACTION_INTERCEPT_URL = "aHR0cHM6Ly93YXAuYmFpZHUuY29tL2FjdGlvbl9pbnRlcmNlcHRfYW5kcm9pZA==";
     public static final String DOMAIN_BAIDU_HTTPS_URL = "aHR0cHM6Ly93d3cuYmFpZHUuY29t";
     public static final String DOMAIN_BDIMG = "aHR0cDovL2hpbWcuYmRpbWcuY29t";
-    public static final String DOMAIN_NEW_QA_CONFIG_HTTPS_URL = "aHR0cDovL3dhcHBhc3NhbGx0ZXN0LmJhaWR1LmNvbQ==";
-    public static final String DOMAIN_NEW_QA_DEVICE_URL = "aHR0cDovL2RiLWluZmJrLW9ubGluZS0xNy5kYjAxLmJhaWR1LmNvbTo4MDgw";
-    public static final String DOMAIN_NEW_QA_PASSPORT_URL = "aHR0cDovL3Bhc3Nwb3J0YWxsdGVzdC5iYWlkdS5jb20=";
-    public static final String DOMAIN_NEW_QA_PORTRAIT_URL = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
-    public static final String DOMAIN_NEW_QA_WAPPASS_URL = "aHR0cDovL3dhcHBhc3NhbGx0ZXN0LmJhaWR1LmNvbQ==";
     public static final String DOMAIN_NSCLICK_URL = "aHR0cHM6Ly9uc2NsaWNrLmJhaWR1LmNvbS92LmdpZg==";
     public static final String DOMAIN_ONLINE_CONFIG_HTTPS_URL = "aHR0cHM6Ly9nc3MwLmJkc3RhdGljLmNvbQ==";
     public static final String DOMAIN_ONLINE_DEVICE_URL = "aHR0cHM6Ly9vcGVuYXBpLmJhaWR1LmNvbQ==";

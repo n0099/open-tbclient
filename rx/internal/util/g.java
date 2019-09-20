@@ -9,13 +9,13 @@ import rx.k;
 /* loaded from: classes2.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object kBo;
+    public volatile Object kDG;
     private Queue<Object> queue;
     private final int size;
 
     static {
         int i = 128;
-        if (f.cQj()) {
+        if (f.cQV()) {
             i = 16;
         }
         String property = System.getProperty("rx.ring-buffer.size");
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g cQo() {
-        return ae.cQB() ? new g(false, SIZE) : new g();
+    public static g cRa() {
+        return ae.cRn() ? new g(false, SIZE) : new g();
     }
 
-    public static g cQp() {
-        return ae.cQB() ? new g(true, SIZE) : new g();
+    public static g cRb() {
+        return ae.cRn() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -80,8 +80,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.kBo == null) {
-            this.kBo = NotificationLite.cPI();
+        if (this.kDG == null) {
+            this.kDG = NotificationLite.cQu();
         }
     }
 
@@ -96,9 +96,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.kBo;
+                obj = this.kDG;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.kBo = null;
+                    this.kDG = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.kBo;
+                obj = this.kDG;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }

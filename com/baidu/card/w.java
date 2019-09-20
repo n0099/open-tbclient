@@ -15,10 +15,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class w extends c implements i<bh> {
-    private TbImageView Wy;
+    private TbImageView Wx;
     private TbPageContext mPageContext;
     private int mType = 0;
-    private boolean Wz = true;
+    private boolean Wy = true;
 
     public w(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -28,8 +28,8 @@ public class w extends c implements i<bh> {
         layoutParams.topMargin = com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
         layoutParams.rightMargin = com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
         a(layoutParams);
-        this.Wy = new TbImageView(tbPageContext.getPageActivity());
-        K(this.Wy);
+        this.Wx = new TbImageView(tbPageContext.getPageActivity());
+        K(this.Wx);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,23 +40,23 @@ public class w extends c implements i<bh> {
     }
 
     public void b(bh bhVar) {
-        MetaData aey;
-        if (bhVar != null && this.Wy != null && (aey = bhVar.aey()) != null) {
-            final ThemeCardInUserData themeCard = aey.getThemeCard();
-            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
-                this.Wy.setVisibility(8);
+        MetaData aeC;
+        if (bhVar != null && this.Wx != null && (aeC = bhVar.aeC()) != null) {
+            final ThemeCardInUserData themeCard = aeC.getThemeCard();
+            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bhVar.bMT) {
+                this.Wx.setVisibility(8);
                 return;
             }
-            if (this.Wz && (this.Wy.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Wy.getLayoutParams();
+            if (this.Wy && (this.Wx.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Wx.getLayoutParams();
                 layoutParams.rightMargin = com.baidu.adp.lib.util.l.g(this.mPageContext.getPageActivity(), R.dimen.tbds106);
-                this.Wy.setLayoutParams(layoutParams);
+                this.Wx.setLayoutParams(layoutParams);
             }
-            this.Wy.setVisibility(0);
+            this.Wx.setVisibility(0);
             this.mType = 1;
-            this.Wy.setImageDrawable(null);
-            this.Wy.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
-            this.Wy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.w.1
+            this.Wx.setImageDrawable(null);
+            this.Wx.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.Wx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.w.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(w.this.mPageContext.getPageActivity(), themeCard.getCardId())));
@@ -66,10 +66,10 @@ public class w extends c implements i<bh> {
     }
 
     public void aC(boolean z) {
-        this.Wz = z;
+        this.Wy = z;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.Wy.setPageId(bdUniqueId);
+        this.Wx.setPageId(bdUniqueId);
     }
 }

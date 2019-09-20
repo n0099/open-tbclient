@@ -3,7 +3,7 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.util.aa;
+import com.baidu.tbadk.util.y;
 import com.baidu.tbadk.util.z;
 /* loaded from: classes.dex */
 public class Static {
@@ -13,20 +13,20 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
-                    aa.b(new z<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
+                    z.b(new y<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.z
-                        /* renamed from: aDt */
+                        @Override // com.baidu.tbadk.util.y
+                        /* renamed from: aDX */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.yW((String) customResponsedMessage.getData());
+                                g.zv((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;
                         }
-                    }, new com.baidu.tbadk.util.k<Void>() { // from class: com.baidu.tieba.im.db.Static.1.2
+                    }, new com.baidu.tbadk.util.j<Void>() { // from class: com.baidu.tieba.im.db.Static.1.2
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.k
+                        @Override // com.baidu.tbadk.util.j
                         /* renamed from: a */
                         public void onReturnDataInUI(Void r4) {
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008016));

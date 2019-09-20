@@ -3,40 +3,40 @@ package com.facebook.imagepipeline.producers;
 import android.net.Uri;
 /* loaded from: classes2.dex */
 public class s {
-    private final j<com.facebook.imagepipeline.f.d> kkL;
-    private final aj kkS;
-    private long kkT = 0;
+    private final j<com.facebook.imagepipeline.f.d> kni;
+    private final aj knp;
+    private long knq = 0;
 
     public s(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.kkL = jVar;
-        this.kkS = ajVar;
+        this.kni = jVar;
+        this.knp = ajVar;
     }
 
-    public j<com.facebook.imagepipeline.f.d> cLj() {
-        return this.kkL;
+    public j<com.facebook.imagepipeline.f.d> cLX() {
+        return this.kni;
     }
 
-    public aj cLk() {
-        return this.kkS;
+    public aj cLY() {
+        return this.knp;
     }
 
     public String getId() {
-        return this.kkS.getId();
+        return this.knp.getId();
     }
 
-    public al cKX() {
-        return this.kkS.cKX();
+    public al cLL() {
+        return this.knp.cLL();
     }
 
     public Uri getUri() {
-        return this.kkS.cKW().cLJ();
+        return this.knp.cLK().cMx();
     }
 
-    public long cLl() {
-        return this.kkT;
+    public long cLZ() {
+        return this.knq;
     }
 
-    public void eL(long j) {
-        this.kkT = j;
+    public void eO(long j) {
+        this.knq = j;
     }
 }

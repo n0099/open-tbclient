@@ -10,7 +10,7 @@ public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.Inje
 
     void a(List<c> list, List<c> list2, boolean z, int i);
 
-    List<Integer> aAC();
+    List<Integer> aAQ();
 
     void au(List<Object> list);
 

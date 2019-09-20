@@ -2,6 +2,7 @@ package com.baidu.adp.lib.stats.upload;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -24,7 +25,7 @@ class c {
         a(hashMap, "subapp_type", cVar.BV);
         a(hashMap, "from", cVar.mChannel);
         a(hashMap, "net_type", cVar.BZ);
-        a(hashMap, "cuid", cVar.mCuid);
+        a(hashMap, DpStatConstants.KEY_CUID, cVar.mCuid);
         a(hashMap, "model", cVar.BW);
         if (TextUtils.isEmpty(cVar.mUid)) {
             cVar.mUid = "0";
@@ -113,7 +114,7 @@ class c {
             }
             if (!TextUtils.isEmpty(cVar.mCuid)) {
                 sb.append("&");
-                sb.append("cuid");
+                sb.append(DpStatConstants.KEY_CUID);
                 sb.append("=");
                 sb.append(URLEncoder.encode(cVar.mCuid, "utf-8"));
             }
@@ -156,7 +157,7 @@ class c {
         a(sb, "from", cVar.mChannel, z);
         a(sb, "cfrom", cVar.BQ, z);
         a(sb, "net_type", cVar.BZ, z);
-        a(sb, "cuid", cVar.mCuid, z);
+        a(sb, DpStatConstants.KEY_CUID, cVar.mCuid, z);
         a(sb, "model", cVar.BW, z);
         if (TextUtils.isEmpty(cVar.mUid)) {
             a(sb, "uid", "0", z);

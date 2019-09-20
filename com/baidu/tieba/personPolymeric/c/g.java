@@ -9,12 +9,12 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes6.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId isc = BdUniqueId.gen();
+    public static final BdUniqueId iub = BdUniqueId.gen();
     public String BX;
     public int giftNum = 0;
-    public boolean isd;
-    public String ise;
-    public List<com.baidu.adp.widget.ListView.m> isf;
+    public boolean iuc;
+    public String iud;
+    public List<com.baidu.adp.widget.ListView.m> iue;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
@@ -23,7 +23,7 @@ public class g extends com.baidu.tieba.card.data.b {
         if (user != null && !v.aa(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.BX = user.name;
-            this.ise = user.name_show;
+            this.iud = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.isd = false;
+                this.iuc = false;
             } else {
-                this.isd = true;
+                this.iuc = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.isf = new ArrayList();
+            this.iue = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.isf.add(oVar);
+                    this.iue.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.aa(this.isf);
+        return !v.aa(this.iue);
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return isc;
+        return iub;
     }
 }

@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long jzJ = 3600000;
+    private static long jCf = 3600000;
     private Context context;
-    private a jzQ;
+    private a jCm;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat jzL = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat jzK = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat jCh = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat jCg = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -26,12 +26,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.jzL.setTimeZone(timeZone);
-        this.jzK.setTimeZone(timeZone);
+        this.jCh.setTimeZone(timeZone);
+        this.jCg.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.jzQ = aVar;
+        this.jCm = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,11 +39,11 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> er = e.er(this.context);
-        e.c("/sdcard", er, false);
-        e.c("/sdcard/DCIM", er, true);
-        e.es(er);
-        return er;
+        List<d> es = e.es(this.context);
+        e.c("/sdcard", es, false);
+        e.c("/sdcard/DCIM", es, true);
+        e.es(es);
+        return es;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,8 +52,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: P */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.jzQ != null) {
-            this.jzQ.eq(list);
+        if (this.jCm != null) {
+            this.jCm.eq(list);
         }
     }
 }

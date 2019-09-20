@@ -16,7 +16,7 @@ public class WXNontaxPay {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public final boolean checkArgs() {
-            if (d.a(this.url)) {
+            if (d.b(this.url)) {
                 Log.i(TAG, "url should not be empty");
                 return false;
             } else if (this.url.length() > URL_LENGTH_LIMIT) {

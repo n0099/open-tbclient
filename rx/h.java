@@ -11,7 +11,7 @@ import rx.internal.operators.t;
 import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public class h<T> {
-    final a<T> kvy;
+    final a<T> kxR;
 
     /* loaded from: classes2.dex */
     public interface a<T> extends rx.functions.b<i<? super T>> {
@@ -19,7 +19,7 @@ public class h<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(a<T> aVar) {
-        this.kvy = rx.c.c.b(aVar);
+        this.kxR = rx.c.c.b(aVar);
     }
 
     public static <T> h<T> a(a<T> aVar) {
@@ -27,7 +27,7 @@ public class h<T> {
     }
 
     private static <T> d<T> a(h<T> hVar) {
-        return d.a((d.a) new t(hVar.kvy));
+        return d.a((d.a) new t(hVar.kxR));
     }
 
     public static <T> h<T> bn(T t) {
@@ -41,11 +41,11 @@ public class h<T> {
         if (gVar == null) {
             throw new NullPointerException("scheduler is null");
         }
-        return a(new s(this.kvy, gVar));
+        return a(new s(this.kxR, gVar));
     }
 
-    public final k cPh() {
-        return a(Actions.cPD(), Actions.cPE());
+    public final k cPT() {
+        return a(Actions.cQp(), Actions.cQq());
     }
 
     public final k a(final rx.functions.b<? super T> bVar, final rx.functions.b<Throwable> bVar2) {
@@ -81,13 +81,13 @@ public class h<T> {
             throw new IllegalArgumentException("te is null");
         }
         try {
-            rx.c.c.a(this, this.kvy).call(iVar);
+            rx.c.c.a(this, this.kxR).call(iVar);
             return rx.c.c.c(iVar);
         } catch (Throwable th) {
             rx.exceptions.a.K(th);
             try {
                 iVar.onError(rx.c.c.V(th));
-                return rx.subscriptions.e.cRn();
+                return rx.subscriptions.e.cRZ();
             } catch (Throwable th2) {
                 rx.exceptions.a.K(th2);
                 RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
@@ -135,7 +135,7 @@ public class h<T> {
         });
     }
 
-    public final d<T> cPv() {
+    public final d<T> cQh() {
         return a(this);
     }
 
@@ -143,7 +143,7 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onError is null");
         }
-        return a(new p(this, Actions.cPD(), new rx.functions.b<Throwable>() { // from class: rx.h.3
+        return a(new p(this, Actions.cQp(), new rx.functions.b<Throwable>() { // from class: rx.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Throwable th) {
@@ -156,11 +156,11 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onSuccess is null");
         }
-        return a(new p(this, bVar, Actions.cPD()));
+        return a(new p(this, bVar, Actions.cQp()));
     }
 
     public final h<T> b(long j, TimeUnit timeUnit, g gVar) {
-        return a(new o(this.kvy, j, timeUnit, gVar));
+        return a(new o(this.kxR, j, timeUnit, gVar));
     }
 
     public final h<T> b(long j, TimeUnit timeUnit) {

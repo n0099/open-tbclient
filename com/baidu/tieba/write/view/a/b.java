@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView jSA;
-    private TextView jSx;
-    private TextView jSy;
-    private TextView jSz;
+    private TextView jUU;
+    private TextView jUV;
+    private TextView jUW;
+    private TextView jUX;
 
     public b(e eVar) {
         super(eVar);
@@ -26,37 +26,37 @@ public class b extends a {
     }
 
     public void B(View.OnClickListener onClickListener) {
-        this.jSx.setTag(0);
-        this.jSy.setTag(1);
-        this.jSz.setTag(2);
-        this.jSA.setTag(3);
-        this.jSx.setOnClickListener(onClickListener);
-        this.jSy.setOnClickListener(onClickListener);
-        this.jSz.setOnClickListener(onClickListener);
-        this.jSA.setOnClickListener(onClickListener);
+        this.jUU.setTag(0);
+        this.jUV.setTag(1);
+        this.jUW.setTag(2);
+        this.jUX.setTag(3);
+        this.jUU.setOnClickListener(onClickListener);
+        this.jUV.setOnClickListener(onClickListener);
+        this.jUW.setOnClickListener(onClickListener);
+        this.jUX.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_rorate_view, (ViewGroup) null);
-        this.jSx = (TextView) this.mRootView.findViewById(R.id.rotate_left);
-        this.jSy = (TextView) this.mRootView.findViewById(R.id.rotate_right);
-        this.jSz = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
-        this.jSA = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
+        this.jUU = (TextView) this.mRootView.findViewById(R.id.rotate_left);
+        this.jUV = (TextView) this.mRootView.findViewById(R.id.rotate_right);
+        this.jUW = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
+        this.jUX = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        am.j(this.jSx, R.color.cp_cont_j);
-        am.j(this.jSy, R.color.cp_cont_j);
-        am.j(this.jSz, R.color.cp_cont_j);
-        am.j(this.jSA, R.color.cp_cont_j);
-        this.jSx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.jSy.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.jSA.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.jSz.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.jSx.setCompoundDrawablePadding(mPadding);
-        this.jSy.setCompoundDrawablePadding(mPadding);
-        this.jSA.setCompoundDrawablePadding(mPadding);
-        this.jSz.setCompoundDrawablePadding(mPadding);
+        am.j(this.jUU, R.color.cp_cont_j);
+        am.j(this.jUV, R.color.cp_cont_j);
+        am.j(this.jUW, R.color.cp_cont_j);
+        am.j(this.jUX, R.color.cp_cont_j);
+        this.jUU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.jUV.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.jUX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.jUW.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, am.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.jUU.setCompoundDrawablePadding(mPadding);
+        this.jUV.setCompoundDrawablePadding(mPadding);
+        this.jUX.setCompoundDrawablePadding(mPadding);
+        this.jUW.setCompoundDrawablePadding(mPadding);
     }
 }

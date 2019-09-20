@@ -16,13 +16,13 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes2.dex */
 public class HeaderLoadingLayout extends LoadingLayout {
-    private RelativeLayout aKo;
-    private ImageView aKp;
-    private TextView aKq;
-    private TextView aKr;
-    private TextView aKs;
-    private Animation aKt;
-    private Animation aKu;
+    private RelativeLayout aKM;
+    private ImageView aKN;
+    private TextView aKO;
+    private TextView aKP;
+    private TextView aKQ;
+    private Animation aKR;
+    private Animation aKS;
     private ProgressBar mProgressBar;
 
     public HeaderLoadingLayout(Context context) {
@@ -36,29 +36,29 @@ public class HeaderLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.aKo = (RelativeLayout) findViewById(a.f.pull_to_refresh_header_content);
-        this.aKp = (ImageView) findViewById(a.f.pull_to_refresh_header_arrow);
-        this.aKq = (TextView) findViewById(a.f.pull_to_refresh_header_hint_textview);
+        this.aKM = (RelativeLayout) findViewById(a.f.pull_to_refresh_header_content);
+        this.aKN = (ImageView) findViewById(a.f.pull_to_refresh_header_arrow);
+        this.aKO = (TextView) findViewById(a.f.pull_to_refresh_header_hint_textview);
         this.mProgressBar = (ProgressBar) findViewById(a.f.pull_to_refresh_header_progressbar);
-        this.aKr = (TextView) findViewById(a.f.pull_to_refresh_header_time);
-        this.aKs = (TextView) findViewById(a.f.pull_to_refresh_last_update_time_text);
-        this.aKt = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
-        this.aKt.setDuration(120L);
-        this.aKt.setFillAfter(true);
-        this.aKu = new RotateAnimation(-180.0f, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.aKu.setDuration(120L);
-        this.aKu.setFillAfter(true);
+        this.aKP = (TextView) findViewById(a.f.pull_to_refresh_header_time);
+        this.aKQ = (TextView) findViewById(a.f.pull_to_refresh_last_update_time_text);
+        this.aKR = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
+        this.aKR.setDuration(120L);
+        this.aKR.setFillAfter(true);
+        this.aKS = new RotateAnimation(-180.0f, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.aKS.setDuration(120L);
+        this.aKS.setFillAfter(true);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        this.aKs.setVisibility(TextUtils.isEmpty(charSequence) ? 4 : 0);
-        this.aKr.setText(charSequence);
+        this.aKQ.setVisibility(TextUtils.isEmpty(charSequence) ? 4 : 0);
+        this.aKP.setText(charSequence);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        return this.aKo != null ? this.aKo.getHeight() : (int) getResources().getDimension(a.d.aiapps_picture_pull_to_refresh_height_height);
+        return this.aKM != null ? this.aKM.getHeight() : (int) getResources().getDimension(a.d.aiapps_picture_pull_to_refresh_height_height);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -69,38 +69,38 @@ public class HeaderLoadingLayout extends LoadingLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void a(ILoadingLayout.State state, ILoadingLayout.State state2) {
-        this.aKp.setVisibility(0);
+        this.aKN.setVisibility(0);
         this.mProgressBar.setVisibility(4);
         super.a(state, state2);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReset() {
-        this.aKp.clearAnimation();
-        this.aKq.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
+        this.aKN.clearAnimation();
+        this.aKO.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onPullToRefresh() {
         if (ILoadingLayout.State.RELEASE_TO_REFRESH == getPreState()) {
-            this.aKp.clearAnimation();
-            this.aKp.startAnimation(this.aKu);
+            this.aKN.clearAnimation();
+            this.aKN.startAnimation(this.aKS);
         }
-        this.aKq.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
+        this.aKO.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReleaseToRefresh() {
-        this.aKp.clearAnimation();
-        this.aKp.startAnimation(this.aKt);
-        this.aKq.setText(a.h.aiapps_pull_to_refresh_header_hint_ready);
+        this.aKN.clearAnimation();
+        this.aKN.startAnimation(this.aKR);
+        this.aKO.setText(a.h.aiapps_pull_to_refresh_header_hint_ready);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onRefreshing() {
-        this.aKp.clearAnimation();
-        this.aKp.setVisibility(4);
+        this.aKN.clearAnimation();
+        this.aKN.setVisibility(4);
         this.mProgressBar.setVisibility(0);
-        this.aKq.setText(a.h.aiapps_pull_to_refresh_header_hint_loading);
+        this.aKO.setText(a.h.aiapps_pull_to_refresh_header_hint_loading);
     }
 }

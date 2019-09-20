@@ -5,11 +5,11 @@ import tbclient.HistoryForumInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes.dex */
 public class VisitedForumData extends OrmObject {
-    private boolean crf;
-    private int crg;
-    private String crh;
-    private int cri;
-    private boolean crj;
+    private boolean crZ;
+    private int csa;
+    private String csb;
+    private int csc;
+    private boolean csd;
     private String mForumId;
     private String mForumImageUrl;
     private String mForumName;
@@ -17,25 +17,25 @@ public class VisitedForumData extends OrmObject {
 
     public VisitedForumData() {
         this.mForumImageUrl = "";
-        this.crf = false;
-        this.crg = 0;
+        this.crZ = false;
+        this.csa = 0;
         this.mForumName = "";
         this.mForumId = "";
-        this.crh = "";
+        this.csb = "";
         this.mThemeColorInfo = null;
-        this.cri = 0;
-        this.crj = false;
+        this.csc = 0;
+        this.csd = false;
     }
 
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i) {
         this.mForumImageUrl = str3;
-        this.crf = z;
+        this.crZ = z;
         this.mForumName = str2;
         this.mForumId = str;
-        this.crh = str4;
-        this.crg = 0;
+        this.csb = str4;
+        this.csa = 0;
         this.mThemeColorInfo = themeColorInfo;
-        this.cri = i;
+        this.csc = i;
     }
 
     public void a(HistoryForumInfo historyForumInfo) {
@@ -43,25 +43,25 @@ public class VisitedForumData extends OrmObject {
             this.mForumImageUrl = historyForumInfo.avatar;
             this.mForumId = String.valueOf(historyForumInfo.forum_id);
             this.mForumName = historyForumInfo.forum_name;
-            this.crf = historyForumInfo.is_liveforum.intValue() == 1;
-            this.crg = historyForumInfo.unread_num.intValue();
-            this.crh = historyForumInfo.visit_time;
+            this.crZ = historyForumInfo.is_liveforum.intValue() == 1;
+            this.csa = historyForumInfo.unread_num.intValue();
+            this.csb = historyForumInfo.visit_time;
             this.mThemeColorInfo = historyForumInfo.theme_color;
-            this.cri = historyForumInfo.follow_num.intValue();
-            this.crj = historyForumInfo.need_trans.booleanValue();
+            this.csc = historyForumInfo.follow_num.intValue();
+            this.csd = historyForumInfo.need_trans.booleanValue();
         }
     }
 
-    public String arH() {
+    public String arT() {
         return this.mForumImageUrl;
     }
 
-    public boolean arI() {
-        return this.crf;
+    public boolean arU() {
+        return this.crZ;
     }
 
-    public int arJ() {
-        return this.crg;
+    public int arV() {
+        return this.csa;
     }
 
     public String getForumName() {
@@ -72,19 +72,19 @@ public class VisitedForumData extends OrmObject {
         return this.mForumId;
     }
 
-    public String arK() {
-        return this.crh;
+    public String arW() {
+        return this.csb;
     }
 
-    public int arL() {
-        return this.cri;
+    public int arX() {
+        return this.csc;
     }
 
     public ThemeColorInfo getThemeColorInfo() {
         return this.mThemeColorInfo;
     }
 
-    public boolean arM() {
-        return this.crj;
+    public boolean arY() {
+        return this.csd;
     }
 }

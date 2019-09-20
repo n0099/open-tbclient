@@ -1,7 +1,9 @@
 package com.google.zxing.oned;
 
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.mapapi.UIMsg;
+import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
@@ -54,7 +56,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{477}, "LT");
             add(new int[]{478}, "UZ");
             add(new int[]{479}, "LK");
-            add(new int[]{480}, "PH");
+            add(new int[]{CameraInterface.DEFAULT_PREVIEW_HEIGHT}, "PH");
             add(new int[]{481}, "BY");
             add(new int[]{482}, "UA");
             add(new int[]{484}, "MD");
@@ -96,7 +98,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{629}, "AE");
             add(new int[]{640, 649}, "FI");
             add(new int[]{690, 695}, "CN");
-            add(new int[]{700, 709}, "NO");
+            add(new int[]{CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, 709}, "NO");
             add(new int[]{729}, "IL");
             add(new int[]{730, 739}, "SE");
             add(new int[]{740}, "GT");
@@ -120,7 +122,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{785}, "PE");
             add(new int[]{786}, "EC");
             add(new int[]{789, 790}, "BR");
-            add(new int[]{800, 839}, "IT");
+            add(new int[]{CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING, 839}, "IT");
             add(new int[]{840, 849}, "ES");
             add(new int[]{850}, "CU");
             add(new int[]{858}, "SK");
@@ -137,9 +139,9 @@ final class EANManufacturerOrgSupport {
             add(new int[]{893}, "VN");
             add(new int[]{896}, "PK");
             add(new int[]{899}, "ID");
-            add(new int[]{900, 919}, "AT");
-            add(new int[]{930, 939}, "AU");
-            add(new int[]{940, 949}, "AZ");
+            add(new int[]{CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR, CyberPlayerManager.MEDIA_INFO_CONNECT_BEGIN}, "AT");
+            add(new int[]{930, CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE}, "AU");
+            add(new int[]{CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE, 949}, "AZ");
             add(new int[]{955}, "MY");
             add(new int[]{958}, "MO");
         }

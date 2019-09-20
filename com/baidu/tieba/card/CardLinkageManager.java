@@ -29,9 +29,9 @@ public enum CardLinkageManager {
                         Object c2 = com.baidu.tbadk.core.util.v.c(data, i2 - headerViewsCount);
                         if ((c2 instanceof com.baidu.tieba.card.data.b) && bVar.position == ((com.baidu.tieba.card.data.b) c2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
                             if (z) {
-                                am.k(findViewByPosition, R.color.cp_bg_line_e);
+                                am.l(findViewByPosition, R.color.cp_bg_line_c);
                             } else {
-                                am.k(findViewByPosition, R.color.cp_bg_line_d);
+                                am.l(findViewByPosition, R.color.cp_bg_line_e);
                             }
                         }
                     }

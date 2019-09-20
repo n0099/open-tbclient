@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
-import com.baidu.sofire.b.r;
+import com.baidu.sofire.b.v;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.h;
 import com.baidu.sofire.rp.Report;
@@ -22,17 +22,27 @@ public class MyReceiver extends BroadcastReceiver {
     };
     private boolean b = false;
     private long c = 0;
+    private long d = 0;
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, final Intent intent) {
         if (intent != null) {
             try {
+                new StringBuilder().append(intent.toString()).append(", ins=").append(this);
+                b.a();
                 if (!this.b || System.currentTimeMillis() - this.c >= 2000) {
-                    new StringBuilder().append(intent.toString());
+                    if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
+                        if (System.currentTimeMillis() - this.d >= 100 && com.baidu.sofire.b.e.f(context)) {
+                            this.d = System.currentTimeMillis();
+                        } else {
+                            return;
+                        }
+                    }
+                    new StringBuilder("_2_").append(intent.toString());
                     b.a();
                     final Context applicationContext = context.getApplicationContext();
                     final boolean z = this.b;
-                    r.a().a(new Runnable() { // from class: com.baidu.sofire.MyReceiver.2
+                    v.a().a(new Runnable() { // from class: com.baidu.sofire.MyReceiver.2
                         @Override // java.lang.Runnable
                         public final void run() {
                             ApkInfo d;
@@ -83,18 +93,15 @@ public class MyReceiver extends BroadcastReceiver {
                                     });
                                     return;
                                 }
-                                if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.b.e.f(applicationContext) && U.sMonitorNetworkWhenUpgradeNoNet) {
+                                if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.b.e.f(applicationContext) && U.sMonitorNetworkWhenUpgradeNoNet) {
                                     new U(applicationContext.getApplicationContext(), 3, false).start();
                                 } else {
                                     z2 = false;
                                 }
-                                if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.b.e.a && !z2 && com.baidu.sofire.b.e.e(applicationContext)) {
+                                if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.b.e.a && !z2 && com.baidu.sofire.b.e.e(applicationContext)) {
                                     new U(applicationContext.getApplicationContext(), 3, false).start();
                                 }
                                 if (!z) {
-                                    if (!TextUtils.isEmpty(action) && action.equals("android.intent.action.PACKAGE_REMOVED")) {
-                                        com.baidu.sofire.b.e.a(applicationContext, intent);
-                                    }
                                     String stringExtra2 = intent.getStringExtra("from_plugin_package");
                                     if (TextUtils.isEmpty(stringExtra2)) {
                                         com.baidu.sofire.core.g a = com.baidu.sofire.core.g.a();

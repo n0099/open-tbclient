@@ -24,9 +24,9 @@ public class h {
     }
 
     public static void a(m mVar, BdUniqueId bdUniqueId) {
-        if (mVar != null && !StringUtils.isNull(mVar.arF()) && v.aa(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (mVar != null && !StringUtils.isNull(mVar.arR()) && v.aa(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", mVar.arF());
+            httpMessage.addParam("pic_url", mVar.arR());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class h {
 
     public static void a(m mVar, List<com.baidu.adp.widget.ListView.m> list) {
         m mVar2;
-        if (mVar != null && !v.aa(list) && !StringUtils.isNull(mVar.arF())) {
+        if (mVar != null && !v.aa(list) && !StringUtils.isNull(mVar.arR())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.m mVar3 = list.get(i);
-                if ((mVar3 instanceof m) && (mVar2 = (m) mVar3) != mVar && !mVar2.arG()) {
-                    jSONArray.put(mVar2.arF());
+                if ((mVar3 instanceof m) && (mVar2 = (m) mVar3) != mVar && !mVar2.arS()) {
+                    jSONArray.put(mVar2.arR());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -54,7 +54,7 @@ public class h {
         }
     }
 
-    public static void q(String str, List<com.baidu.adp.widget.ListView.m> list) {
+    public static void p(String str, List<com.baidu.adp.widget.ListView.m> list) {
         if (!StringUtils.isNull(str)) {
             if (list == null) {
                 list = new ArrayList<>();
@@ -65,8 +65,8 @@ public class h {
                 com.baidu.adp.widget.ListView.m mVar = list.get(i);
                 if (mVar instanceof m) {
                     m mVar2 = (m) mVar;
-                    if (!mVar2.arG()) {
-                        jSONArray.put(mVar2.arF());
+                    if (!mVar2.arS()) {
+                        jSONArray.put(mVar2.arR());
                     }
                 }
             }

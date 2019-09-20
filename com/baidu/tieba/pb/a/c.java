@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a hJB;
-    private View hJC;
+    private a hLy;
+    private View hLz;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.hJB = aVar;
+        this.hLy = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.hJC = view;
+        this.hLz = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -60,29 +60,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.hJB != null) {
-            return this.hJB.b(this.hJC, motionEvent);
+        if (this.hLy != null) {
+            return this.hLy.b(this.hLz, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.hJB != null) {
-            return this.hJB.c(this.hJC, motionEvent);
+        if (this.hLy != null) {
+            return this.hLy.c(this.hLz, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.hJB != null) {
-            return this.hJB.d(this.hJC, motionEvent);
+        if (this.hLy != null) {
+            return this.hLy.d(this.hLz, motionEvent);
         }
         return false;
     }
 
     public void cu(View view) {
-        this.hJC = view;
+        this.hLz = view;
     }
 }

@@ -16,23 +16,23 @@ public class RecAppDownloadReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         DownloadData downloadData = (DownloadData) intent.getSerializableExtra("download_data");
         if (downloadData != null) {
-            int status = h.getStatus(downloadData);
+            int status = i.getStatus(downloadData);
             if ("action_pause_download".equals(intent.getAction())) {
                 if (downloadData.getDownloadStaticsData() != null) {
                     downloadData.getDownloadStaticsData().setDa_range_nt("1");
                 }
                 if (status == 7) {
                     downloadData.setStatus(5);
-                    h.cii().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                    h.cii().i(downloadData);
+                    i.ciW().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                    i.ciW().i(downloadData);
                 } else if (status == 1 || status == 5) {
                     downloadData.setStatus(4);
-                    h.cii().x(downloadData.getUrl(), downloadData.getId(), true);
-                    h.cii().k(downloadData);
+                    i.ciW().z(downloadData.getUrl(), downloadData.getId(), true);
+                    i.ciW().k(downloadData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
             } else if ("action_cancel_download".equals(intent.getAction())) {
-                h.cii().m(downloadData);
+                i.ciW().m(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016483, downloadData));
             }
         }

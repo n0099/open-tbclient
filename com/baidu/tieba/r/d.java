@@ -1,12 +1,12 @@
 package com.baidu.tieba.r;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.util.ab;
 /* loaded from: classes.dex */
 public class d {
-    public static void csA() {
+    public static void cto() {
         try {
-            Thread.setDefaultUncaughtExceptionHandler(new ac());
+            Thread.setDefaultUncaughtExceptionHandler(new ab());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

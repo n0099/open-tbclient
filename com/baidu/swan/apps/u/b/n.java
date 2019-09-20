@@ -6,12 +6,12 @@ public interface n {
     public interface a {
         void a(com.baidu.swan.apps.scheme.actions.e.b bVar);
 
-        void cC(int i);
+        void cD(int i);
     }
 
-    com.baidu.swan.apps.scheme.actions.e.b Fg();
+    com.baidu.swan.apps.scheme.actions.e.b Fk();
 
-    void Fh();
+    void Fl();
 
     void a(String str, boolean z, boolean z2, a aVar);
 }

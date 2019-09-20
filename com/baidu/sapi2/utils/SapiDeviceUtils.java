@@ -3,8 +3,8 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import java.io.FileInputStream;
@@ -14,7 +14,7 @@ import java.util.Collections;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class SapiDeviceUtils {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [49=4, 50=4, 52=4, 53=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [50=4, 51=4, 53=4, 54=4] */
     public static boolean checkHosts(Context context) {
         FileInputStream fileInputStream;
         if (context == null) {
@@ -80,13 +80,15 @@ public class SapiDeviceUtils {
     }
 
     public static String getIMEI(Context context) {
-        String str = "";
         try {
-            str = DeviceId.getIMEI(context);
-        } catch (Throwable th) {
-            Log.e(th);
+            String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            if (deviceId == null) {
+                return "";
+            }
+            return deviceId;
+        } catch (Exception e) {
+            return "";
         }
-        return str != null ? str : "";
     }
 
     public static String getMac(Context context) {

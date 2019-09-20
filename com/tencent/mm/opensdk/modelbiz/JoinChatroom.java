@@ -15,7 +15,7 @@ public class JoinChatroom {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            return !d.a(this.groupId);
+            return !d.b(this.groupId);
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq

@@ -18,63 +18,63 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String ES() {
-        return com.baidu.swan.apps.u.a.Ew().wV();
-    }
-
-    @Override // com.baidu.swan.pms.b
-    public String ET() {
-        return com.baidu.swan.apps.u.a.Ep().bd(AppRuntime.getAppContext());
-    }
-
-    @Override // com.baidu.swan.pms.b
-    public String EU() {
-        return com.baidu.swan.apps.u.a.Ew().getHostName();
-    }
-
-    @Override // com.baidu.swan.pms.b
-    public String EV() {
-        return ac.getVersionName();
-    }
-
-    @Override // com.baidu.swan.pms.b
     public String EW() {
-        return c.getVersion();
+        return com.baidu.swan.apps.u.a.EA().wZ();
     }
 
     @Override // com.baidu.swan.pms.b
     public String EX() {
-        return com.baidu.swan.apps.swancore.b.dV(0);
+        return com.baidu.swan.apps.u.a.Et().bd(AppRuntime.getAppContext());
     }
 
     @Override // com.baidu.swan.pms.b
     public String EY() {
-        ExtensionCore Cj = com.baidu.swan.apps.extcore.a.CT().Cj();
-        if (Cj != null) {
-            String str = Cj.awS;
+        return com.baidu.swan.apps.u.a.EA().getHostName();
+    }
+
+    @Override // com.baidu.swan.pms.b
+    public String EZ() {
+        return ac.getVersionName();
+    }
+
+    @Override // com.baidu.swan.pms.b
+    public String Fa() {
+        return c.getVersion();
+    }
+
+    @Override // com.baidu.swan.pms.b
+    public String Fb() {
+        return com.baidu.swan.apps.swancore.b.dW(0);
+    }
+
+    @Override // com.baidu.swan.pms.b
+    public String Fc() {
+        ExtensionCore Cn = com.baidu.swan.apps.extcore.a.CX().Cn();
+        if (Cn != null) {
+            String str = Cn.axq;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";
     }
 
     @Override // com.baidu.swan.pms.b
-    public String EZ() {
-        return com.baidu.swan.apps.swancore.b.dV(1);
+    public String Fd() {
+        return com.baidu.swan.apps.swancore.b.dW(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String Fa() {
+    public String Fe() {
         return "";
     }
 
     @Override // com.baidu.swan.pms.b
-    public CookieManager Fb() {
-        return com.baidu.swan.apps.u.a.EH().Ff();
+    public CookieManager Ff() {
+        return com.baidu.swan.apps.u.a.EL().Fj();
     }
 
     @Override // com.baidu.swan.pms.b
     public boolean A(String str, int i) {
-        return com.baidu.swan.apps.u.a.EQ().h(str, i);
+        return com.baidu.swan.apps.u.a.EU().j(str, i);
     }
 
     @Override // com.baidu.swan.pms.b

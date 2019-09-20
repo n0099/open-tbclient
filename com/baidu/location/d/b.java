@@ -3,6 +3,7 @@ package com.baidu.location.d;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
@@ -58,7 +59,7 @@ public final class b {
 
     /* renamed from: com.baidu.location.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0047b extends Thread {
+    private class C0055b extends Thread {
         private String a;
         private Long c;
         private BDLocation d;
@@ -67,7 +68,7 @@ public final class b {
         private String g;
         private LinkedHashMap<String, Integer> h;
 
-        private C0047b(String str, Long l, BDLocation bDLocation, BDLocation bDLocation2, BDLocation bDLocation3, String str2, LinkedHashMap<String, Integer> linkedHashMap) {
+        private C0055b(String str, Long l, BDLocation bDLocation, BDLocation bDLocation2, BDLocation bDLocation3, String str2, LinkedHashMap<String, Integer> linkedHashMap) {
             this.a = str;
             this.c = l;
             this.d = bDLocation;
@@ -174,7 +175,7 @@ public final class b {
             try {
                 jSONObject = new JSONObject();
                 jSONObject.put("type", "0");
-                jSONObject.put("cuid", com.baidu.location.g.b.a().b);
+                jSONObject.put(DpStatConstants.KEY_CUID, com.baidu.location.g.b.a().b);
                 jSONObject.put("ver", "1");
                 jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
             } catch (Exception e) {
@@ -316,7 +317,7 @@ public final class b {
                         }
                     }
                     jSONObject.put("type", "1");
-                    jSONObject.put("cuid", com.baidu.location.g.b.a().b);
+                    jSONObject.put(DpStatConstants.KEY_CUID, com.baidu.location.g.b.a().b);
                     jSONObject.put("ver", "1");
                     jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                     if (i == 0 || i2 != 0) {
@@ -358,7 +359,7 @@ public final class b {
             if (cursor2 != null) {
             }
             jSONObject.put("type", "1");
-            jSONObject.put("cuid", com.baidu.location.g.b.a().b);
+            jSONObject.put(DpStatConstants.KEY_CUID, com.baidu.location.g.b.a().b);
             jSONObject.put("ver", "1");
             jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
             if (i == 0) {
@@ -383,7 +384,7 @@ public final class b {
                 try {
                     jSONObject.put("type", "2");
                     jSONObject.put("ver", "1");
-                    jSONObject.put("cuid", com.baidu.location.g.b.a().b);
+                    jSONObject.put(DpStatConstants.KEY_CUID, com.baidu.location.g.b.a().b);
                     jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                     this.t = System.currentTimeMillis();
                 } catch (Exception e) {
@@ -406,7 +407,7 @@ public final class b {
                     try {
                         jSONObject.put("type", "3");
                         jSONObject.put("ver", "1");
-                        jSONObject.put("cuid", com.baidu.location.g.b.a().b);
+                        jSONObject.put(DpStatConstants.KEY_CUID, com.baidu.location.g.b.a().b);
                         jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                         jSONObject.put("rgc", b);
                         this.t = System.currentTimeMillis();
@@ -1018,7 +1019,7 @@ public final class b {
                                 d = rawQuery.getDouble(rawQuery.getColumnIndex(Config.EVENT_HEAT_X));
                                 d2 = rawQuery.getDouble(rawQuery.getColumnIndex("y"));
                                 i = rawQuery.getInt(rawQuery.getColumnIndex("r"));
-                                if (rawQuery.getInt(rawQuery.getColumnIndex("timestamp")) + 604800 < System.currentTimeMillis() / 1000) {
+                                if (rawQuery.getInt(rawQuery.getColumnIndex(DpStatConstants.KEY_TIMESTAMP)) + 604800 < System.currentTimeMillis() / 1000) {
                                     this.p = true;
                                 }
                                 if (i < 300) {
@@ -1576,7 +1577,7 @@ public final class b {
                     stringBuffer.append(e.a(bDLocation, i));
                     str3 = stringBuffer.toString();
                 }
-                new C0047b(str2, j, bDLocation4, bDLocation5, bDLocation3, str3, linkedHashMap) { // from class: com.baidu.location.d.b.1
+                new C0055b(str2, j, bDLocation4, bDLocation5, bDLocation3, str3, linkedHashMap) { // from class: com.baidu.location.d.b.1
                 }.start();
             } else {
                 if (bDLocation5 != null) {
@@ -1623,7 +1624,7 @@ public final class b {
                 String str32 = null;
                 if (aVar.a != null) {
                 }
-                new C0047b(str2, j, bDLocation4, bDLocation5, bDLocation3, str32, linkedHashMap) { // from class: com.baidu.location.d.b.1
+                new C0055b(str2, j, bDLocation4, bDLocation5, bDLocation3, str32, linkedHashMap) { // from class: com.baidu.location.d.b.1
                 }.start();
             }
         } else {

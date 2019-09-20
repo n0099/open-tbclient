@@ -1,260 +1,83 @@
 package com.baidu.sofire.b;
 
-import android.content.Context;
-import android.os.Environment;
-import android.os.Process;
-import android.provider.Settings;
 import android.text.TextUtils;
-import java.io.CharArrayWriter;
+import com.baidu.mobstat.Config;
+import com.tencent.connect.common.Constants;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
 public final class p {
-    private static String a = "";
+    private static final String[] a = {"0", "1", "2", "3", "4", "5", Constants.VIA_SHARE_TYPE_INFO, "7", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", Config.APP_VERSION_CODE, "b", "c", "d", "e", "f"};
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    private static java.lang.String b(android.content.Context r7) {
-        /*
-            r1 = 1
-            r2 = 0
-            java.lang.String r0 = c(r7)
-            boolean r3 = android.text.TextUtils.isEmpty(r0)
-            if (r3 == 0) goto L134
-            java.lang.String r0 = d(r7)
-            boolean r3 = android.text.TextUtils.isEmpty(r0)
-            if (r3 == 0) goto L12d
-            java.lang.String r0 = e(r7)
-            boolean r3 = android.text.TextUtils.isEmpty(r0)
-            if (r3 == 0) goto L127
-            java.lang.String r0 = com.baidu.sofire.b.g.d(r7)
-            java.lang.String r2 = com.baidu.sofire.b.g.e(r7)
-            boolean r3 = android.text.TextUtils.isEmpty(r0)
-            if (r3 == 0) goto Lcf
-            boolean r3 = android.text.TextUtils.isEmpty(r2)
-            if (r3 == 0) goto Lcf
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder
-            java.lang.String r2 = "1|"
-            r0.<init>(r2)
-            java.util.UUID r2 = java.util.UUID.randomUUID()
-            java.lang.String r2 = r2.toString()
-            java.lang.String r2 = com.baidu.sofire.b.o.a(r2)
-            java.lang.StringBuilder r0 = r0.append(r2)
-            java.lang.String r0 = r0.toString()
-        L50:
-            r2 = r0
-            r3 = r1
-            r0 = r1
-        L53:
-            if (r3 != 0) goto L5f
-            java.lang.String r3 = c(r7)
-            boolean r3 = android.text.TextUtils.isEmpty(r3)
-            if (r3 == 0) goto L71
-        L5f:
-            com.baidu.sofire.e r3 = new com.baidu.sofire.e
-            r3.<init>(r7)
-            android.content.SharedPreferences$Editor r4 = r3.d
-            java.lang.String r5 = "rpnewuid"
-            r4.putString(r5, r2)
-            android.content.SharedPreferences$Editor r3 = r3.d
-            r3.commit()
-        L71:
-            if (r1 != 0) goto L7d
-            java.lang.String r1 = d(r7)
-            boolean r1 = android.text.TextUtils.isEmpty(r1)
-            if (r1 == 0) goto L83
-        L7d:
-            java.lang.String r1 = "com.q.zi.i"
-            a(r7, r1, r2)
-        L83:
-            java.lang.String r1 = "android.permission.WRITE_EXTERNAL_STORAGE"
-            boolean r1 = b(r7, r1)
-            if (r1 == 0) goto Lce
-            if (r0 != 0) goto L98
-            java.lang.String r0 = e(r7)
-            boolean r0 = android.text.TextUtils.isEmpty(r0)
-            if (r0 == 0) goto Lce
-        L98:
-            r0 = 0
-            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> Lfa
-            java.io.File r3 = android.os.Environment.getExternalStorageDirectory()     // Catch: java.lang.Throwable -> Lfa
-            java.lang.String r4 = ".zp"
-            r1.<init>(r3, r4)     // Catch: java.lang.Throwable -> Lfa
-            java.io.File r3 = new java.io.File     // Catch: java.lang.Throwable -> Lfa
-            java.lang.String r4 = ".icosc"
-            r3.<init>(r1, r4)     // Catch: java.lang.Throwable -> Lfa
-            boolean r4 = r1.exists()     // Catch: java.lang.Throwable -> Lfa
-            if (r4 == 0) goto Lf6
-            boolean r4 = r1.isDirectory()     // Catch: java.lang.Throwable -> Lfa
-            if (r4 != 0) goto Lbf
-            r1.delete()     // Catch: java.lang.Throwable -> Lfa
-            r1.mkdirs()     // Catch: java.lang.Throwable -> Lfa
-        Lbf:
-            java.io.FileWriter r1 = new java.io.FileWriter     // Catch: java.lang.Throwable -> Lfa
-            r4 = 0
-            r1.<init>(r3, r4)     // Catch: java.lang.Throwable -> Lfa
-            r1.write(r2)     // Catch: java.lang.Throwable -> L124
-            r1.flush()     // Catch: java.lang.Throwable -> L124
-            r1.close()     // Catch: java.lang.Throwable -> L109
-        Lce:
-            return r2
-        Lcf:
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder
-            java.lang.String r4 = "0|"
-            r3.<init>(r4)
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder
-            r4.<init>()
-            java.lang.StringBuilder r0 = r4.append(r0)
-            java.lang.StringBuilder r0 = r0.append(r2)
-            java.lang.String r0 = r0.toString()
-            java.lang.String r0 = com.baidu.sofire.b.o.a(r0)
-            java.lang.StringBuilder r0 = r3.append(r0)
-            java.lang.String r0 = r0.toString()
-            goto L50
-        Lf6:
-            r1.mkdirs()     // Catch: java.lang.Throwable -> Lfa
-            goto Lbf
-        Lfa:
-            r1 = move-exception
-        Lfb:
-            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L11f
-            if (r0 == 0) goto Lce
-            r0.close()     // Catch: java.lang.Throwable -> L104
-            goto Lce
-        L104:
-            r0 = move-exception
-            com.baidu.sofire.b.e.a()
-            goto Lce
-        L109:
-            r0 = move-exception
-            com.baidu.sofire.b.e.a()
-            goto Lce
-        L10e:
-            r1 = move-exception
-            r6 = r1
-            r1 = r0
-            r0 = r6
-        L112:
-            if (r1 == 0) goto L117
-            r1.close()     // Catch: java.lang.Throwable -> L118
-        L117:
-            throw r0
-        L118:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a()
-            goto L117
-        L11d:
-            r0 = move-exception
-            goto L112
-        L11f:
-            r1 = move-exception
-            r6 = r1
-            r1 = r0
-            r0 = r6
-            goto L112
-        L124:
-            r0 = move-exception
-            r0 = r1
-            goto Lfb
-        L127:
-            r3 = r1
-            r6 = r2
-            r2 = r0
-            r0 = r6
-            goto L53
-        L12d:
-            r3 = r1
-            r1 = r2
-            r6 = r2
-            r2 = r0
-            r0 = r6
-            goto L53
-        L134:
-            r1 = r2
-            r3 = r2
-            r6 = r0
-            r0 = r2
-            r2 = r6
-            goto L53
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.b.p.b(android.content.Context):java.lang.String");
-    }
-
-    public static String a(Context context) {
-        if (TextUtils.isEmpty(a)) {
-            new p();
-            a = b(context);
+    private static String d(byte[] bArr) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i : bArr) {
+            if (i < 0) {
+                i += 256;
+            }
+            stringBuffer.append(a[i / 16] + a[i % 16]);
         }
-        return a;
+        return stringBuffer.toString();
     }
 
-    private static String c(Context context) {
+    public static String a(String str) {
+        String str2;
+        String str3 = null;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
         try {
-            return new com.baidu.sofire.e(context).b.getString("rpnewuid", "");
+            str2 = new String(str);
         } catch (Throwable th) {
+        }
+        try {
+            return d(MessageDigest.getInstance("MD5").digest(str2.getBytes()));
+        } catch (Throwable th2) {
+            str3 = str2;
             e.a();
-            return "";
+            return str3;
         }
     }
 
-    private static String d(Context context) {
+    public static String a(byte[] bArr) {
+        if (bArr == null || bArr.length <= 0) {
+            return null;
+        }
         try {
-            return a(context, "com.q.zi.i");
-        } catch (Throwable th) {
-            e.a();
-            return "";
-        }
-    }
-
-    private static String e(Context context) {
-        try {
-        } catch (Throwable th) {
-            e.a();
-        }
-        if (!b(context, "android.permission.READ_EXTERNAL_STORAGE")) {
-            return "";
-        }
-        File file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");
-        if (file.exists()) {
-            return a(file);
-        }
-        return "";
-    }
-
-    private static String a(Context context, String str) {
-        try {
-            return Settings.System.getString(context.getContentResolver(), str);
+            return d(MessageDigest.getInstance("MD5").digest(bArr));
         } catch (Throwable th) {
             e.a();
             return null;
         }
     }
 
-    private static String a(File file) {
-        FileReader fileReader;
+    public static String a(File file) {
+        FileInputStream fileInputStream;
+        MessageDigest messageDigest;
         String str = null;
-        try {
-            fileReader = new FileReader(file);
+        if (file != null && file.exists()) {
             try {
-                char[] cArr = new char[8192];
-                CharArrayWriter charArrayWriter = new CharArrayWriter();
+                messageDigest = MessageDigest.getInstance("MD5");
+                fileInputStream = new FileInputStream(file);
+            } catch (Throwable th) {
+                fileInputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[8192];
                 while (true) {
-                    int read = fileReader.read(cArr);
-                    if (read <= 0) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1) {
                         break;
                     }
-                    charArrayWriter.write(cArr, 0, read);
+                    messageDigest.update(bArr, 0, read);
                 }
-                str = charArrayWriter.toString();
+                str = e(messageDigest.digest());
                 try {
-                    fileReader.close();
-                } catch (Throwable th) {
+                    fileInputStream.close();
+                } catch (IOException e) {
                     e.a();
                 }
             } catch (Throwable th2) {
@@ -262,36 +85,59 @@ public final class p {
                     e.a();
                     return str;
                 } finally {
-                    if (fileReader != null) {
+                    if (fileInputStream != null) {
                         try {
-                            fileReader.close();
-                        } catch (Throwable th3) {
+                            fileInputStream.close();
+                        } catch (IOException e2) {
                             e.a();
                         }
                     }
                 }
             }
-        } catch (Throwable th4) {
-            fileReader = null;
         }
         return str;
     }
 
-    private static boolean b(Context context, String str) {
+    private static String e(byte[] bArr) {
+        char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        char[] cArr2 = new char[bArr.length * 2];
+        for (int i = 0; i < bArr.length; i++) {
+            byte b = bArr[i];
+            cArr2[i * 2] = cArr[(b >>> 4) & 15];
+            cArr2[(i * 2) + 1] = cArr[b & 15];
+        }
+        return new String(cArr2);
+    }
+
+    public static String b(byte[] bArr) {
         try {
-            return context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
-        } catch (Throwable th) {
-            e.a();
-            return false;
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                String upperCase = Integer.toHexString(b & 255).toUpperCase();
+                if (upperCase.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(upperCase).append("");
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    private static boolean a(Context context, String str, String str2) {
+    public static byte[] c(byte[] bArr) {
+        if (bArr == null || bArr.length <= 0) {
+            return null;
+        }
         try {
-            return Settings.System.putString(context.getContentResolver(), str, str2);
+            return MessageDigest.getInstance("MD5").digest(bArr);
         } catch (Throwable th) {
             e.a();
-            return false;
+            return null;
         }
     }
 }

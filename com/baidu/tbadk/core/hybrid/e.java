@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b bPg = new a();
-    private static final b bPh = new c();
-    private static final boolean bPi;
+    private static final b bPH = new a();
+    private static final b bPI = new c();
+    private static final boolean bPJ;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -49,23 +49,23 @@ public class e {
     }
 
     public static void D(String str, String str2, String str3) {
-        if (bPi) {
-            bPg.D(str, str2, str3);
+        if (bPJ) {
+            bPH.D(str, str2, str3);
         }
-        bPh.D(str, str2, str3);
+        bPI.D(str, str2, str3);
     }
 
-    public static void mT(String str) {
-        if (bPi) {
-            bPg.D(null, null, str);
+    public static void mV(String str) {
+        if (bPJ) {
+            bPH.D(null, null, str);
         }
     }
 
     public static void E(String str, String str2, String str3) {
-        mT(str3);
+        mV(str3);
     }
 
     static {
-        bPi = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        bPJ = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mobads.utils.m;
 import java.io.File;
 import java.io.IOException;
@@ -171,7 +172,7 @@ public class FileProvider extends ContentProvider {
                         file = a(b, attributeValue2);
                     } else if ("files-path".equals(name)) {
                         file = a(context.getFilesDir(), attributeValue2);
-                    } else if ("cache-path".equals(name)) {
+                    } else if (CyberPlayerManager.OPT_CHCHE_PATH.equals(name)) {
                         file = a(context.getCacheDir(), attributeValue2);
                     } else if ("external-path".equals(name)) {
                         file = a(Environment.getExternalStorageDirectory(), attributeValue2);

@@ -14,7 +14,7 @@ public class a {
     private static final boolean DEBUG = b.DEBUG;
 
     @NonNull
-    public static Uri a(int i, @NonNull String str, @Nullable String str2, @NonNull String str3) {
+    public static Uri b(int i, @NonNull String str, @Nullable String str2, @NonNull String str3) {
         Uri build;
         Uri.Builder builder = new Uri.Builder();
         String str4 = "swan";
@@ -27,15 +27,15 @@ public class a {
                 break;
         }
         builder.scheme(SchemeConfig.getSchemeHead()).authority(str4).path(str);
-        String fc = fc(str2);
-        if (TextUtils.isEmpty(fc)) {
+        String fe = fe(str2);
+        if (TextUtils.isEmpty(fe)) {
             builder.appendQueryParameter("_baiduboxapp", str3);
             build = builder.build();
-        } else if (!fc.contains("?")) {
-            builder.appendEncodedPath(fc).appendQueryParameter("_baiduboxapp", str3);
+        } else if (!fe.contains("?")) {
+            builder.appendEncodedPath(fe).appendQueryParameter("_baiduboxapp", str3);
             build = builder.build();
         } else {
-            builder.appendEncodedPath(fc);
+            builder.appendEncodedPath(fe);
             Uri.Builder buildUpon = Uri.parse(builder.toString()).buildUpon();
             buildUpon.appendQueryParameter("_baiduboxapp", str3);
             build = buildUpon.build();
@@ -46,7 +46,7 @@ public class a {
         return build;
     }
 
-    public static String fc(String str) {
+    public static String fe(String str) {
         if (!TextUtils.isEmpty(str)) {
             String replaceAll = str.replaceAll("^//*|/*/$", "");
             if (DEBUG && !TextUtils.equals(str, replaceAll)) {
@@ -61,8 +61,8 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.core.pms.a.Bf()) {
-            return c.eH(str);
+        if (com.baidu.swan.apps.core.pms.a.Bj()) {
+            return c.eJ(str);
         }
         return com.baidu.swan.apps.core.a.c.R(context, str);
     }

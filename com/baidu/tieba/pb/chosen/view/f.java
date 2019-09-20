@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class f {
-    private RelativeLayout hHY;
-    private TextView hHZ;
-    private TextView hIa;
-    private ImageView hIb;
+    private RelativeLayout hJU;
+    private TextView hJV;
+    private TextView hJW;
+    private ImageView hJX;
     private View rootView;
 
     public f(View view) {
         this.rootView = view;
-        this.hHY = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
-        this.hHZ = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
-        this.hIa = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
-        this.hIb = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
+        this.hJU = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
+        this.hJV = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
+        this.hJW = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
+        this.hJX = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
     }
 
     public void L(View.OnClickListener onClickListener) {
-        this.hHY.setOnClickListener(onClickListener);
+        this.hJU.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
@@ -31,18 +31,18 @@ public class f {
     }
 
     public void M(View.OnClickListener onClickListener) {
-        this.hIb.setOnClickListener(onClickListener);
+        this.hJX.setOnClickListener(onClickListener);
     }
 
-    public void BJ(String str) {
-        this.hIa.setText(str);
+    public void Ci(String str) {
+        this.hJW.setText(str);
     }
 
     public void onChangeSkinType() {
         am.k(this.rootView, R.drawable.bg_rec_lick);
-        am.k(this.hHY, R.drawable.bg_rec_comment);
-        am.f(this.hHZ, R.color.cp_cont_c, 1);
-        am.f(this.hIa, R.color.cp_cont_e, 1);
-        am.c(this.hIb, (int) R.drawable.recommend_pb_share_selector);
+        am.k(this.hJU, R.drawable.bg_rec_comment);
+        am.f(this.hJV, R.color.cp_cont_c, 1);
+        am.f(this.hJW, R.color.cp_cont_e, 1);
+        am.c(this.hJX, (int) R.drawable.recommend_pb_share_selector);
     }
 }

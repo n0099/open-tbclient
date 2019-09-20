@@ -1,5 +1,7 @@
 package com.baidu.tbadk.util;
 
+import android.graphics.Color;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,19 +9,25 @@ import java.util.List;
 public class e {
     private static LinkedList<Integer> II;
 
-    public static int Qr() {
+    public static int Qv() {
         return ap(null);
     }
 
     public static int ap(List<Integer> list) {
         if (II == null) {
-            awe();
+            awq();
         }
         Integer aq = aq(list);
         return aq != null ? aq.intValue() : R.color.cp_atp_a;
     }
 
-    private static void awe() {
+    public static int lc(int i) {
+        Color.colorToHSV(am.getColor(i), r0);
+        float[] fArr = {0.0f, 0.83f, 0.66f};
+        return Color.HSVToColor(fArr);
+    }
+
+    private static void awq() {
         II = new LinkedList<>();
         II.offer(Integer.valueOf((int) R.color.cp_atp_a));
         II.offer(Integer.valueOf((int) R.color.cp_atp_b));

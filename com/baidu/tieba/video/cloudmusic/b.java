@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes5.dex */
 public class b implements c.a {
-    private final CloudMusicModel jvF;
-    private final c.b jvG;
+    private final CloudMusicModel jyb;
+    private final c.b jyc;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.jvF = cloudMusicModel;
-        this.jvG = bVar;
+        this.jyb = cloudMusicModel;
+        this.jyc = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void cul() {
-        this.jvG.rC(true);
-        this.jvF.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void cuZ() {
+        this.jyc.rF(true);
+        this.jyb.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void az(CloudMusicData cloudMusicData) {
-                b.this.jvG.rC(false);
+                b.this.jyc.rF(false);
                 if (cloudMusicData != null) {
-                    b.this.jvG.rD(false);
+                    b.this.jyc.rG(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.jvG.rD(true);
+                        b.this.jyc.rG(true);
                         return;
                     } else {
-                        b.this.jvG.a(cloudMusicData);
+                        b.this.jyc.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.jvG.rD(true);
+                b.this.jyc.rG(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void boF() {
-        this.jvF.cancelLoadData();
+    public void bpq() {
+        this.jyb.cancelLoadData();
     }
 }

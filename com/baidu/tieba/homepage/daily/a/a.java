@@ -9,44 +9,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private r eZn;
-    private e ges;
-    private d get;
-    private c geu;
-    private b gev;
-    private f gew;
+    private r faT;
+    private e ggj;
+    private d ggk;
+    private c ggl;
+    private b ggm;
+    private f ggn;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eZn = rVar;
+        this.faT = rVar;
         initAdapters();
-        this.eZn.addAdapters(this.mAdapters);
+        this.faT.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.ges = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.geK);
-        this.get = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.geG);
-        this.geu = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.geE);
-        this.gev = new b(this.mPageContext, bh.bJo);
-        this.gew = new f(this.mPageContext, bh.bJC);
-        this.mAdapters.add(this.ges);
-        this.mAdapters.add(this.get);
-        this.mAdapters.add(this.geu);
-        this.mAdapters.add(this.gev);
-        this.mAdapters.add(this.gew);
+        this.ggj = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.ggB);
+        this.ggk = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.ggx);
+        this.ggl = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.ggv);
+        this.ggm = new b(this.mPageContext, bh.bJM);
+        this.ggn = new f(this.mPageContext, bh.bKa);
+        this.mAdapters.add(this.ggj);
+        this.mAdapters.add(this.ggk);
+        this.mAdapters.add(this.ggl);
+        this.mAdapters.add(this.ggm);
+        this.mAdapters.add(this.ggn);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eZn != null) {
-            this.eZn.getListAdapter().notifyDataSetChanged();
+        if (this.faT != null) {
+            this.faT.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eZn.setData(list);
+        this.faT.setData(list);
     }
 
     public void onChangeSkinType(int i) {

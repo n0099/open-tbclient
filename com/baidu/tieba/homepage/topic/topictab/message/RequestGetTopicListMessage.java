@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.topic.topictab.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.CommonReq;
 import tbclient.NewTopicList.DataReq;
 import tbclient.NewTopicList.NewTopicListReqIdl;
@@ -29,7 +29,7 @@ public class RequestGetTopicListMessage extends NetMessage {
         builder.common = this.common;
         builder.call_from = this.callFrom;
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         NewTopicListReqIdl.Builder builder2 = new NewTopicListReqIdl.Builder();
         builder2.data = builder.build(false);

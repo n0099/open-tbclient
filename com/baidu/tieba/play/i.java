@@ -13,11 +13,11 @@ public interface i {
 
     void f(Context context, String str, int i);
 
-    String sc(String str);
+    String sn(String str);
 
-    String sd(String str);
+    String so(String str);
 
-    void se(String str);
+    void sp(String str);
 
-    String sf(String str);
+    String sq(String str);
 }

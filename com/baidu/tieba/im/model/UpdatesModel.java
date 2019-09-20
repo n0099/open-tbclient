@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.model;
 
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.util.aa;
-import com.baidu.tbadk.util.k;
+import com.baidu.tbadk.util.j;
+import com.baidu.tbadk.util.y;
 import com.baidu.tbadk.util.z;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.d;
@@ -19,45 +18,45 @@ import org.json.JSONObject;
 public class UpdatesModel {
     private List<UpdatesItemData> dataToDelete = new ArrayList();
 
-    public static void updateUpdatesData(k<Boolean> kVar, UpdatesItemData... updatesItemDataArr) {
+    public static void updateUpdatesData(j<Boolean> jVar, UpdatesItemData... updatesItemDataArr) {
         if (updatesItemDataArr != null) {
             final LinkedList linkedList = new LinkedList();
             for (UpdatesItemData updatesItemData : updatesItemDataArr) {
                 linkedList.add(updatesItemData.toGroupNewsPojo());
             }
-            aa.b(new z<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+            z.b(new y<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.z
+                @Override // com.baidu.tbadk.util.y
                 public Boolean doInBackground() {
-                    return d.bCO().q(linkedList);
+                    return d.bDC().q(linkedList);
                 }
-            }, kVar);
+            }, jVar);
         }
     }
 
-    public static void deleteUpdatesData(final UpdatesItemData updatesItemData, k<Boolean> kVar) {
+    public static void deleteUpdatesData(final UpdatesItemData updatesItemData, j<Boolean> jVar) {
         if (updatesItemData != null) {
-            aa.b(new z<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+            z.b(new y<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.z
+                @Override // com.baidu.tbadk.util.y
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.bCO().yS(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.bDC().zr(UpdatesItemData.this.getNotice_id()));
                 }
-            }, kVar);
+            }, jVar);
         }
     }
 
-    public void deleteDatas(k<Boolean> kVar) {
-        aa.b(new z<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+    public void deleteDatas(j<Boolean> jVar) {
+        z.b(new y<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.z
+            @Override // com.baidu.tbadk.util.y
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.bCO().cT(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.bDC().cT(UpdatesModel.this.dataToDelete));
             }
-        }, kVar);
+        }, jVar);
     }
 
     public String deleteDatasIds() {
@@ -108,14 +107,14 @@ public class UpdatesModel {
         }
     }
 
-    public static void requestUpdatesDataFromDB(k<LinkedList<GroupNewsPojo>> kVar) {
-        aa.b(new z<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+    public static void requestUpdatesDataFromDB(j<LinkedList<GroupNewsPojo>> jVar) {
+        z.b(new y<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.z
+            @Override // com.baidu.tbadk.util.y
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.bCO().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.bDC().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
-        }, kVar);
+        }, jVar);
     }
 
     public static List<UpdatesItemData> convertToUpdatesItemData(LinkedList<GroupNewsPojo> linkedList) {

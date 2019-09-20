@@ -5,20 +5,20 @@ import com.baidu.sapi2.views.SmsLoginView;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.m.a.b {
-    private String bfK;
-    private String bfL;
+    private String bgi;
+    private String bgj;
     private String data;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.bfK = str2;
-        this.bfL = str3;
+        this.bgi = str2;
+        this.bgj = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.m.a.b, com.baidu.swan.apps.m.a.a
-    public String ev(String str) {
-        String str2 = this.bfK;
+    public String ex(String str) {
+        String str2 = this.bgi;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:
@@ -42,9 +42,9 @@ public class c extends com.baidu.swan.apps.m.a.b {
         }
         switch (c) {
             case 0:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.bfL, JSONObject.quote(com.baidu.swan.apps.an.e.a(com.baidu.swan.apps.an.e.Pk(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.bgj, JSONObject.quote(com.baidu.swan.apps.an.e.a(com.baidu.swan.apps.an.e.Po(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
             case 1:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.bfL, JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.bgj, JSONObject.quote(this.data));
             case 2:
                 return String.format("%s.message = { type:'act',act:'%s' };", str, this.data);
             default:

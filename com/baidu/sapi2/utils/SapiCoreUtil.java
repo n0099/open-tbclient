@@ -2,13 +2,13 @@ package com.baidu.sapi2.utils;
 
 import android.annotation.TargetApi;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SmsService;
+import com.baidu.sapi2.callback.RequestSMSCallback;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -23,24 +23,20 @@ public class SapiCoreUtil {
     public static final String TAG = SapiCoreUtil.class.getSimpleName();
     private static final String a = "file:///android_asset/";
 
-    public static boolean sendSms(String str, String str2) {
-        return sendSms(str, str2, null, null);
-    }
-
     @TargetApi(4)
-    public static boolean sendSms(String str, String str2, PendingIntent pendingIntent, PendingIntent pendingIntent2) {
+    public static void sendSms(Context context, String str, String str2, PendingIntent pendingIntent, PendingIntent pendingIntent2, RequestSMSCallback requestSMSCallback) {
         try {
-            return SmsService.sendSms(str2, str, pendingIntent, pendingIntent2);
+            SmsService.sendSms(context, str2, str, pendingIntent, pendingIntent2, requestSMSCallback);
         } catch (Throwable th) {
-            return false;
+            requestSMSCallback.sendSmsResult(false);
         }
     }
 
-    public static BroadcastReceiver registerReceiver(Context context, Handler handler) {
+    public static void registerReceiver(Context context, Handler handler, RequestSMSCallback requestSMSCallback) {
         try {
-            return SmsService.registerReceiver(context, handler);
+            SmsService.registerReceiver(context, handler, requestSMSCallback);
         } catch (Throwable th) {
-            return null;
+            requestSMSCallback.receiverResult(null);
         }
     }
 
@@ -58,7 +54,7 @@ public class SapiCoreUtil {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [147=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [139=4] */
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c6  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0114  */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0118  */
@@ -126,7 +122,7 @@ public class SapiCoreUtil {
         return r0 != 0;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [170=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [162=4] */
     public static String getExecResult(String str) {
         Process process;
         Throwable th;

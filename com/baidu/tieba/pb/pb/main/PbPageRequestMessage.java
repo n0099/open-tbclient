@@ -318,7 +318,7 @@ public class PbPageRequestMessage extends NetMessage {
     }
 
     public void setForumId(String str) {
-        this.forumId = Long.valueOf(com.baidu.adp.lib.g.b.c(str, 0L));
+        this.forumId = Long.valueOf(com.baidu.adp.lib.g.b.e(str, 0L));
     }
 
     public void setNeedRepostRecommendForum(boolean z) {
@@ -375,7 +375,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.ciL().ciO();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.cjz().cjC();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -383,7 +383,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder2.load_count = Integer.valueOf(this.loadCount);
             builder2.is_req_ad = this.isReqAd;
             builder.ad_param = builder2.build(false);
-            com.baidu.tbadk.util.s.bindCommonParamsToProtobufData(builder, true, false, true);
+            com.baidu.tbadk.util.r.bindCommonParamsToProtobufData(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

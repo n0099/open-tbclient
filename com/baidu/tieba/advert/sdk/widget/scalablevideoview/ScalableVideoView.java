@@ -9,12 +9,12 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
-import com.baidu.tieba.c;
+import com.baidu.tieba.d;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected MediaPlayer bAa;
-    protected ScalableType daN;
+    protected MediaPlayer bAy;
+    protected ScalableType dcA;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -27,18 +27,18 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.daN = ScalableType.NONE;
-        if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.scaleStyle, 0, 0)) != null) {
+        this.dcA = ScalableType.NONE;
+        if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.a.scaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.daN = ScalableType.values()[i2];
+            this.dcA = ScalableType.values()[i2];
         }
     }
 
-    private void aEg() {
-        if (this.bAa == null) {
-            this.bAa = new MediaPlayer();
-            this.bAa.setOnVideoSizeChangedListener(this);
+    private void aEK() {
+        if (this.bAy == null) {
+            this.bAy = new MediaPlayer();
+            this.bAy.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
         }
@@ -46,25 +46,25 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void reset() {
-        if (this.bAa != null) {
-            this.bAa.reset();
+        if (this.bAy != null) {
+            this.bAy.reset();
         }
     }
 
     public void setDataSource(String str) throws IOException {
-        aEg();
-        this.bAa.setDataSource(str);
+        aEK();
+        this.bAy.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri) throws Exception {
-        aEg();
-        this.bAa.setDataSource(context, uri);
+        aEK();
+        this.bAy.setDataSource(context, uri);
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.bAa != null) {
+        if (this.bAy != null) {
             if (isPlaying()) {
                 stop();
             }
@@ -73,91 +73,91 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public int getVideoHeight() {
-        if (this.bAa == null) {
+        if (this.bAy == null) {
             return 0;
         }
-        return this.bAa.getVideoHeight();
+        return this.bAy.getVideoHeight();
     }
 
     public int getVideoWidth() {
-        if (this.bAa == null) {
+        if (this.bAy == null) {
             return 0;
         }
-        return this.bAa.getVideoWidth();
+        return this.bAy.getVideoWidth();
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.daN = scalableType;
+        this.dcA = scalableType;
         aD(getVideoWidth(), getVideoHeight());
     }
 
     public void b(MediaPlayer.OnPreparedListener onPreparedListener) throws IllegalStateException {
-        this.bAa.setOnPreparedListener(onPreparedListener);
-        this.bAa.prepareAsync();
+        this.bAy.setOnPreparedListener(onPreparedListener);
+        this.bAy.prepareAsync();
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.bAa.setOnErrorListener(onErrorListener);
+        this.bAy.setOnErrorListener(onErrorListener);
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.bAa.setOnCompletionListener(onCompletionListener);
+        this.bAy.setOnCompletionListener(onCompletionListener);
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        this.bAa.setOnInfoListener(onInfoListener);
+        this.bAy.setOnInfoListener(onInfoListener);
     }
 
     public int getCurrentPosition() {
-        return this.bAa.getCurrentPosition();
+        return this.bAy.getCurrentPosition();
     }
 
     public int getDuration() {
-        return this.bAa.getDuration();
+        return this.bAy.getDuration();
     }
 
     public boolean isPlaying() {
-        return this.bAa.isPlaying();
+        return this.bAy.isPlaying();
     }
 
     public void setLooping(boolean z) {
-        this.bAa.setLooping(z);
+        this.bAy.setLooping(z);
     }
 
     public void setVolume(float f, float f2) {
-        if (this.bAa != null) {
-            this.bAa.setVolume(f, f2);
+        if (this.bAy != null) {
+            this.bAy.setVolume(f, f2);
         }
     }
 
     private void aD(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.daN)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.dcA)) != null) {
             setTransform(a);
         }
     }
 
     public void start() {
-        this.bAa.start();
+        this.bAy.start();
     }
 
     public void stop() {
-        this.bAa.stop();
+        this.bAy.stop();
     }
 
     public void release() {
         reset();
-        if (this.bAa != null) {
-            this.bAa.release();
+        if (this.bAy != null) {
+            this.bAy.release();
         }
-        this.bAa = null;
+        this.bAy = null;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         Surface surface = new Surface(surfaceTexture);
-        if (this.bAa != null) {
-            this.bAa.setSurface(surface);
+        if (this.bAy != null) {
+            this.bAy.setSurface(surface);
         }
     }
 

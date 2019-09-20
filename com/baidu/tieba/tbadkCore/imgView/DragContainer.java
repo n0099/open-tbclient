@@ -9,9 +9,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap cEF;
+    private Bitmap cFw;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -41,13 +42,13 @@ public class DragContainer extends LinearLayout {
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.cEF = Bitmap.createBitmap(drawingCache);
+            this.cFw = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
         view.getDrawingRect(this.mTempRect);
         offsetDescendantRectToMyCoords(view, this.mTempRect);
-        this.mScroller.startScroll(this.mTempRect.top, 0, getHeight() - this.mTempRect.top, 0, 800);
+        this.mScroller.startScroll(this.mTempRect.top, 0, getHeight() - this.mTempRect.top, 0, CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING);
         invalidate();
     }
 
@@ -55,17 +56,17 @@ public class DragContainer extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.view != null) {
-            if (this.mScroller.computeScrollOffset() && this.cEF != null) {
+            if (this.mScroller.computeScrollOffset() && this.cFw != null) {
                 canvas.save();
-                canvas.drawBitmap(this.cEF, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.cFw, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.cEF != null) {
-                this.cEF.recycle();
+            if (this.cFw != null) {
+                this.cFw.recycle();
             }
-            this.cEF = null;
+            this.cFw = null;
             this.view = null;
         }
     }
@@ -74,10 +75,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.cEF != null) {
-            this.cEF.recycle();
+        if (this.cFw != null) {
+            this.cFw.recycle();
         }
-        this.cEF = null;
+        this.cFw = null;
         this.view = null;
     }
 }

@@ -8,14 +8,14 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.e;
 /* loaded from: classes2.dex */
 public class c {
-    private static boolean anE = false;
+    private static boolean aoc = false;
 
     public static void aW(boolean z) {
-        anE = z;
+        aoc = z;
     }
 
-    public static boolean yg() {
-        return anE;
+    public static boolean yk() {
+        return aoc;
     }
 
     public static void d(String str, String str2) {
@@ -54,12 +54,12 @@ public class c {
     }
 
     private static void j(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && anE) {
+        if (!TextUtils.isEmpty(str3) && aoc) {
             StringBuilder sb = new StringBuilder();
-            String a = e.a(e.Pk(), "yyyy-MM-dd HH:mm:ss");
+            String a = e.a(e.Po(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
-            sb.append(a).append("  ").append(fileName).append("  ").append("line:").append(yh()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            com.baidu.swan.apps.w.e.GF().Gl().R(str, sb.toString());
+            sb.append(a).append("  ").append(fileName).append("  ").append("line:").append(yl()).append("\n").append("module:").append(str2).append("\n").append(str3);
+            com.baidu.swan.apps.w.e.GJ().Gp().R(str, sb.toString());
         }
     }
 
@@ -68,7 +68,7 @@ public class c {
         return (stackTrace == null || stackTrace.length <= 5) ? AppRuntime.getAppContext().getString(a.h.aiapps_err_message_get_name_fail) : stackTrace[5].getFileName();
     }
 
-    private static int yh() {
+    private static int yl() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace == null || stackTrace.length <= 5) {
             return -1;

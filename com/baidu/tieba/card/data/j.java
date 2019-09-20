@@ -16,20 +16,20 @@ public class j extends k {
         this.threadData = bhVar;
     }
 
-    public static boolean W(bh bhVar) {
+    public static boolean X(bh bhVar) {
         return bhVar != null && bhVar.getThreadType() == 49;
     }
 
-    public an vD(String str) {
-        an vE = vE(str);
-        vE.nV("obj_type");
-        vE.nV("obj_type");
-        vE.P("obj_type", 3);
-        return vE;
+    public an wc(String str) {
+        an wd = wd(str);
+        wd.nX("obj_type");
+        wd.nX("obj_type");
+        wd.P("obj_type", 3);
+        return wd;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bh acy() {
+    public bh acC() {
         return this.threadData;
     }
 }

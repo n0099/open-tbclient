@@ -21,7 +21,7 @@ public class a {
     private static final String d = g.h() + "/gal.db";
     private SQLiteDatabase e = null;
     private boolean f = false;
-    C0045a a = null;
+    C0053a a = null;
     private String g = null;
     private double h = Double.MAX_VALUE;
     private double i = Double.MAX_VALUE;
@@ -29,14 +29,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0045a extends com.baidu.location.g.e {
+    public class C0053a extends com.baidu.location.g.e {
         int a;
         int b;
         int c;
         int d;
         double e;
 
-        C0045a() {
+        C0053a() {
             this.k = new HashMap();
         }
 
@@ -142,7 +142,7 @@ public class a {
 
     private void a(double d2, double d3, double d4) {
         if (this.a == null) {
-            this.a = new C0045a();
+            this.a = new C0053a();
         }
         this.a.a(d2, d3, d4);
     }

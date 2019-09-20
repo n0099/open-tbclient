@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
@@ -273,7 +274,7 @@ public class f extends d {
             }
             String d = d();
             if (!TextUtils.isEmpty(d)) {
-                jSONObject2.put("network", d);
+                jSONObject2.put(DpStatConstants.KEY_NETWORK, d);
             }
             String h = h();
             if (!TextUtils.isEmpty(h)) {
@@ -281,7 +282,7 @@ public class f extends d {
             }
             String cuid = DeviceId.getCUID(this.a);
             if (!TextUtils.isEmpty(cuid)) {
-                jSONObject2.put("cuid", cuid);
+                jSONObject2.put(DpStatConstants.KEY_CUID, cuid);
             }
             String g = g();
             if (!TextUtils.isEmpty(g)) {

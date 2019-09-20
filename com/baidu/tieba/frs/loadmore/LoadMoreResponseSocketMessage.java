@@ -49,7 +49,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.d.a.ciL().DS(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.d.a.cjz().Es(threadListResIdl.data.asp_shown_info);
             Message<?> orginalMessage2 = getOrginalMessage();
             boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
             this.threadList = new ArrayList<>();
@@ -60,11 +60,11 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     bhVar.setUserMap(this.userMap);
                     bhVar.a(list2.get(i3));
                     bhVar.setCurrentPage(3);
-                    bhVar.afo();
-                    bhVar.bMg = isBrandForum;
-                    if (!TextUtils.isEmpty(bhVar.afA())) {
+                    bhVar.afs();
+                    bhVar.bME = isBrandForum;
+                    if (!TextUtils.isEmpty(bhVar.afE())) {
                         ad adVar = new ad();
-                        adVar.mq(bhVar.afA());
+                        adVar.ms(bhVar.afE());
                         this.threadList.add(adVar);
                     } else {
                         this.threadList.add(bhVar);

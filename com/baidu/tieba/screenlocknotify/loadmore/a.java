@@ -7,15 +7,15 @@ import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes3.dex */
 public class a {
     private boolean mHasMore = true;
-    private ArrayList<d> iPV = null;
+    private ArrayList<d> iSr = null;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.mHasMore = dataRes.has_more.intValue() == 1;
             if (dataRes.msg_content != null && dataRes.msg_content.size() > 0) {
-                this.iPV = new ArrayList<>();
+                this.iSr = new ArrayList<>();
                 for (MsgContent msgContent : dataRes.msg_content) {
-                    this.iPV.add(new d(msgContent));
+                    this.iSr.add(new d(msgContent));
                 }
             }
         }
@@ -25,7 +25,7 @@ public class a {
         return this.mHasMore;
     }
 
-    public ArrayList<d> cjB() {
-        return this.iPV;
+    public ArrayList<d> ckn() {
+        return this.iSr;
     }
 }

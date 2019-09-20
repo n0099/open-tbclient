@@ -7,7 +7,7 @@ import java.net.URLEncoder;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class g {
-    public static void aA(Context context, String str) {
+    public static void aH(Context context, String str) {
         String format;
         if (!TextUtils.isEmpty(str)) {
             try {

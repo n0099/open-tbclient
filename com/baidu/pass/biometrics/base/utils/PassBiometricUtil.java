@@ -4,29 +4,20 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.Point;
-import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Build;
-import android.os.Environment;
-import android.support.v4.internal.view.SupportMenu;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
-import com.baidu.pass.biometrics.base.utils.PhoneUtils;
+import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.UUID;
@@ -183,7 +174,7 @@ public class PassBiometricUtil {
             if (str.equals(CPU_TYPE_X86) || str2.equals(CPU_TYPE_X86)) {
                 return CPU_TYPE_X86;
             }
-            if (strArr[0].toLowerCase().contains(PhoneUtils.CPUInfo.PROCESSOR_ARMV7)) {
+            if (strArr[0].toLowerCase().contains("armv7")) {
                 return CPU_TYPE_ARMEABI_V7A;
             }
             if (strArr[0].toLowerCase().contains("arm")) {
@@ -244,7 +235,7 @@ public class PassBiometricUtil {
             return false;
         }
         Rect currentFaceRect = getCurrentFaceRect(iArr);
-        return currentFaceRect.right - currentFaceRect.left > (iArr2[0] * 480) / 750;
+        return currentFaceRect.right - currentFaceRect.left > (iArr2[0] * CameraInterface.DEFAULT_PREVIEW_HEIGHT) / 750;
     }
 
     public static boolean isTooFarFromCamera(int[] iArr, int[] iArr2) {
@@ -253,35 +244,6 @@ public class PassBiometricUtil {
         }
         Rect currentFaceRect = getCurrentFaceRect(iArr);
         return currentFaceRect.right - currentFaceRect.left < (iArr2[0] * STANDARD_MIN_FACE_WIDTH) / 750;
-    }
-
-    public static void drawShape(int[] iArr, Bitmap bitmap) {
-        Point point;
-        Point point2;
-        Canvas canvas = new Canvas(bitmap);
-        canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-        Paint paint = new Paint();
-        paint.setStrokeWidth(4.0f);
-        paint.setColor(-16711936);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(3.0f);
-        paint.setColor(-16711936);
-        for (int i = 0; i < iArr.length / 2; i++) {
-            canvas.drawCircle(iArr[i << 1], iArr[(i << 1) + 1], 2.0f, paint);
-        }
-        Rect currentFaceRect = getCurrentFaceRect(iArr);
-        canvas.drawRect(currentFaceRect, paint);
-        new Point().set(currentFaceRect.centerX(), currentFaceRect.centerY());
-        paint.setColor(SupportMenu.CATEGORY_MASK);
-        canvas.drawCircle(point.x, point.y, 5.0f, paint);
-        canvas.drawRect(getFaceInsideRoundRect(new int[]{bitmap.getWidth(), bitmap.getHeight()}), paint);
-        new Point().set(bitmap.getWidth() / 2, (bitmap.getHeight() * STANDARD_FACE_MIDDLE_MARGIN_TOP) / STANDARD_BG_HEIGHT);
-        paint.setColor(SupportMenu.CATEGORY_MASK);
-        canvas.drawCircle(point2.x, point2.y, 5.0f, paint);
-        int width = ((bitmap.getWidth() * 480) / 750) / 2;
-        canvas.drawRect(point2.x - width, point2.y - width, point2.x + width, width + point2.y, paint);
-        int width2 = ((bitmap.getWidth() * STANDARD_MIN_FACE_WIDTH) / 750) / 2;
-        canvas.drawRect(point2.x - width2, point2.y - width2, point2.x + width2, width2 + point2.y, paint);
     }
 
     private static Rect getCurrentFaceRect(int[] iArr) {
@@ -325,7 +287,7 @@ public class PassBiometricUtil {
         if (iArr == null || iArr.length != 2) {
             return new Rect(0, 0, 0, 0);
         }
-        int i = ((iArr[0] * 480) / 750) / 2;
+        int i = ((iArr[0] * CameraInterface.DEFAULT_PREVIEW_HEIGHT) / 750) / 2;
         int i2 = ((iArr[1] * STANDARD_FACE_INSIDE_MAX_HEIGHT) / STANDARD_BG_HEIGHT) / 2;
         Point point = new Point();
         point.set(iArr[0] / 2, (iArr[1] * STANDARD_FACE_MIDDLE_MARGIN_TOP) / STANDARD_BG_HEIGHT);
@@ -347,45 +309,6 @@ public class PassBiometricUtil {
             return uuid.replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "");
         }
         return uuid;
-    }
-
-    public static int dip2px(Context context, float f) {
-        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
-    }
-
-    public static int px2dip(Context context, float f) {
-        return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
-    }
-
-    public static int px2sp(Context context, float f) {
-        return (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
-    }
-
-    public static int sp2px(Context context, float f) {
-        return (int) ((context.getResources().getDisplayMetrics().scaledDensity * f) + 0.5f);
-    }
-
-    public static void savePic(Bitmap bitmap) {
-        try {
-            if ("mounted".equals(Environment.getExternalStorageState())) {
-                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/awe");
-                file.mkdirs();
-                File file2 = new File(file, String.format("%d.jpg", Long.valueOf(System.currentTimeMillis())));
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                if (fileOutputStream != null) {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e2) {
-            e2.printStackTrace();
-        }
     }
 
     public static String getUA(Context context, String str) {

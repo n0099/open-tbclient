@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.xiaomi.push.mpcd.job.i;
 import com.xiaomi.push.mpcd.job.j;
 import com.xiaomi.push.mpcd.job.k;
@@ -70,7 +71,7 @@ public class g {
             a2.a(new com.xiaomi.push.mpcd.job.c(this.b, a15), a15, 30);
         }
         if (Build.VERSION.SDK_INT < 21 && a3.a(com.xiaomi.xmpush.thrift.g.AppActiveListCollectionSwitch.a(), true)) {
-            int a16 = a(a3.a(com.xiaomi.xmpush.thrift.g.AppActiveListCollectionFrequency.a(), 900));
+            int a16 = a(a3.a(com.xiaomi.xmpush.thrift.g.AppActiveListCollectionFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
             a2.a(new com.xiaomi.push.mpcd.job.b(this.b, a16), a16, 30);
         }
         if (a3.a(com.xiaomi.xmpush.thrift.g.StorageCollectionSwitch.a(), true)) {
@@ -86,7 +87,7 @@ public class g {
             a2.a(new com.xiaomi.push.mpcd.job.a(this.b, a19), a19, 30);
         }
         if (a3.a(com.xiaomi.xmpush.thrift.g.WifiCollectionSwitch.a(), true)) {
-            int a20 = a(a3.a(com.xiaomi.xmpush.thrift.g.WifiCollectionFrequency.a(), 900));
+            int a20 = a(a3.a(com.xiaomi.xmpush.thrift.g.WifiCollectionFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
             a2.a(new m(this.b, a20), a20, 30);
         }
         if (a3.a(com.xiaomi.xmpush.thrift.g.TopAppCollectionSwitch.a(), true)) {
@@ -94,11 +95,11 @@ public class g {
             a2.a(new k(this.b, a21), a21, 30);
         }
         if (a3.a(com.xiaomi.xmpush.thrift.g.BroadcastActionCollectionSwitch.a(), true)) {
-            int a22 = a(a3.a(com.xiaomi.xmpush.thrift.g.BroadcastActionCollectionFrequency.a(), 900));
+            int a22 = a(a3.a(com.xiaomi.xmpush.thrift.g.BroadcastActionCollectionFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
             a2.a(new com.xiaomi.push.mpcd.job.f(this.b, a22), a22, 30);
         }
         if (a3.a(com.xiaomi.xmpush.thrift.g.WifiDevicesMacCollectionSwitch.a(), false)) {
-            int a23 = a(a3.a(com.xiaomi.xmpush.thrift.g.WifiDevicesMacCollectionFrequency.a(), 900));
+            int a23 = a(a3.a(com.xiaomi.xmpush.thrift.g.WifiDevicesMacCollectionFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
             a2.a(new o(this.b, a23), a23, 30);
         }
         if (a3.a(com.xiaomi.xmpush.thrift.g.ActivityTSSwitch.a(), false)) {

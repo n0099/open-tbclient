@@ -4,6 +4,6 @@ import com.baidu.swan.apps.b.b.k;
 /* loaded from: classes2.dex */
 public class f implements k {
     @Override // com.baidu.swan.apps.b.b.k
-    public void wE() {
+    public void wI() {
     }
 }

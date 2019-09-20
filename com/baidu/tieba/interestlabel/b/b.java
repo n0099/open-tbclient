@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes5.dex */
 public class b {
-    private List<a> hbA;
-    private List<Integer> hbB;
-    private List<a> hbE;
+    private List<a> hdu;
+    private List<Integer> hdv;
+    private List<a> hdy;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.aa(dataRes.sex_taglist)) {
-                this.hbE = new ArrayList();
-                n(this.hbE, dataRes.sex_taglist);
+                this.hdy = new ArrayList();
+                n(this.hdy, dataRes.sex_taglist);
             }
             if (!v.aa(dataRes.taglist)) {
-                this.hbA = new ArrayList();
-                this.hbB = new ArrayList();
-                n(this.hbA, dataRes.taglist);
+                this.hdu = new ArrayList();
+                this.hdv = new ArrayList();
+                n(this.hdu, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.hbB != null && aVar.isFollow) {
-                        this.hbB.add(Integer.valueOf(aVar.bFM));
+                    if (this.hdv != null && aVar.isFollow) {
+                        this.hdv.add(Integer.valueOf(aVar.bGk));
                     }
                 }
             }
         }
     }
 
-    public List<a> bJA() {
-        return this.hbE;
+    public List<a> bKn() {
+        return this.hdy;
     }
 
-    public List<a> bJB() {
-        return this.hbA;
+    public List<a> bKo() {
+        return this.hdu;
     }
 
-    public List<Integer> bJC() {
-        return this.hbB;
+    public List<Integer> bKp() {
+        return this.hdv;
     }
 }

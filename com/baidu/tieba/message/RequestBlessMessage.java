@@ -2,7 +2,7 @@ package com.baidu.tieba.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.CommonReq;
 import tbclient.UserPk.DataReq;
 import tbclient.UserPk.UserPkReqIdl;
@@ -59,7 +59,7 @@ public class RequestBlessMessage extends NetMessage {
         builder.pk_type = Integer.valueOf(this.pk_type);
         builder.user_pk_id = Long.valueOf(this.user_pk_id);
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         UserPkReqIdl.Builder builder2 = new UserPkReqIdl.Builder();
         builder2.data = builder.build(false);

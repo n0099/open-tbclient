@@ -6,10 +6,10 @@ import android.graphics.RectF;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class c extends a {
-    private RectF amj;
-    private float amk;
-    private float aml;
-    private boolean amm;
+    private RectF amH;
+    private float amI;
+    private float amJ;
+    private boolean amK;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void e(JSONArray jSONArray) {
@@ -18,30 +18,30 @@ public class c extends a {
             int ad2 = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
             int ad3 = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(2));
             float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-            this.amj = new RectF(ad - ad3, ad2 - ad3, ad + ad3, ad2 + ad3);
-            this.amk = degrees;
-            this.aml = ((float) Math.toDegrees((float) jSONArray.optDouble(4))) - degrees;
+            this.amH = new RectF(ad - ad3, ad2 - ad3, ad + ad3, ad2 + ad3);
+            this.amI = degrees;
+            this.amJ = ((float) Math.toDegrees((float) jSONArray.optDouble(4))) - degrees;
         }
         if (jSONArray.length() > 5) {
-            this.amm = jSONArray.optBoolean(5);
+            this.amK = jSONArray.optBoolean(5);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.amj != null) {
-            if (!this.amm && Math.abs(this.aml) >= 360.0f) {
-                bVar.mPath.addCircle((this.amj.right + this.amj.left) / 2.0f, (this.amj.bottom + this.amj.top) / 2.0f, (this.amj.bottom - this.amj.top) / 2.0f, Path.Direction.CW);
-                bVar.mPath.arcTo(this.amj, 0.0f, this.amk);
+        if (this.amH != null) {
+            if (!this.amK && Math.abs(this.amJ) >= 360.0f) {
+                bVar.mPath.addCircle((this.amH.right + this.amH.left) / 2.0f, (this.amH.bottom + this.amH.top) / 2.0f, (this.amH.bottom - this.amH.top) / 2.0f, Path.Direction.CW);
+                bVar.mPath.arcTo(this.amH, 0.0f, this.amI);
                 return;
             }
-            float f = this.aml % 360.0f;
-            if (f < 0.0f && !this.amm) {
+            float f = this.amJ % 360.0f;
+            if (f < 0.0f && !this.amK) {
                 f += 360.0f;
-            } else if (f > 0.0f && this.amm) {
+            } else if (f > 0.0f && this.amK) {
                 f -= 360.0f;
             }
-            bVar.mPath.arcTo(this.amj, this.amk, f);
+            bVar.mPath.arcTo(this.amH, this.amI, f);
         }
     }
 }

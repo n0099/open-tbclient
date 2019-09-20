@@ -10,21 +10,21 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    private b cwL;
-    private d cwM = new d() { // from class: com.baidu.tbadk.img.e.1
+    private b cxH;
+    private d cxI = new d() { // from class: com.baidu.tbadk.img.e.1
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             String b;
             if (imageFileInfo == null) {
                 return null;
             }
-            if (e.this.cwL == null) {
-                e.this.cwL = new b();
+            if (e.this.cxH == null) {
+                e.this.cxH = new b();
             }
             String filePath = imageFileInfo.getFilePath();
             LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
             imageFileInfo.setPageActionsList(null);
-            com.baidu.adp.widget.ImageView.a a = e.this.cwL.a(imageFileInfo, true);
+            com.baidu.adp.widget.ImageView.a a = e.this.cxH.a(imageFileInfo, true);
             if (a == null) {
                 Bitmap b2 = e.this.b(imageFileInfo);
                 if (b2 == null) {
@@ -42,23 +42,23 @@ public class e {
             return b;
         }
     };
-    private d cwN = new d() { // from class: com.baidu.tbadk.img.e.2
+    private d cxJ = new d() { // from class: com.baidu.tbadk.img.e.2
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
                 return null;
             }
-            return e.this.qJ(imageFileInfo.getFilePath());
+            return e.this.qU(imageFileInfo.getFilePath());
         }
     };
-    private d cwO = this.cwN;
-    private d cwP = new d() { // from class: com.baidu.tbadk.img.e.3
+    private d cxK = this.cxJ;
+    private d cxL = new d() { // from class: com.baidu.tbadk.img.e.3
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
                 return null;
             }
-            return e.this.b(e.this.qK(imageFileInfo.getFilePath()), 85);
+            return e.this.b(e.this.qV(imageFileInfo.getFilePath()), 85);
         }
     };
 
@@ -68,18 +68,18 @@ public class e {
             return null;
         }
         String filePath = imageFileInfo.getFilePath();
-        boolean nv = m.nv(filePath);
-        boolean nw = m.nw(filePath);
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !nw)) {
-            if (nv) {
-                dVar = this.cwO;
+        boolean nx = m.nx(filePath);
+        boolean ny = m.ny(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !ny)) {
+            if (nx) {
+                dVar = this.cxK;
             } else {
-                dVar = this.cwN;
+                dVar = this.cxJ;
             }
-        } else if (nv) {
-            dVar = this.cwP;
+        } else if (nx) {
+            dVar = this.cxL;
         } else {
-            dVar = this.cwM;
+            dVar = this.cxI;
         }
         return dVar.a(imageFileInfo);
     }
@@ -90,11 +90,11 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.cwL == null) {
-            this.cwL = new b();
+        if (this.cxH == null) {
+            this.cxH = new b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.cwL.b(imageFileInfo, true);
+            return this.cxH.b(imageFileInfo, true);
         }
         if (imageFileInfo.getImageType() == 1 && (ak = com.baidu.adp.lib.f.c.iE().ak(20)) != null) {
             try {
@@ -110,26 +110,26 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String qJ(String str) {
+    public String qU(String str) {
         int i;
-        long ju = m.ju(str);
-        if (ju >= 20971520) {
+        long jw = m.jw(str);
+        if (jw >= 20971520) {
             i = 60;
-        } else if (ju >= Config.FULL_TRACE_LOG_LIMIT && ju < 20971520) {
+        } else if (jw >= Config.FULL_TRACE_LOG_LIMIT && jw < 20971520) {
             i = 75;
-        } else if (ju >= 7340032 && ju < Config.FULL_TRACE_LOG_LIMIT) {
+        } else if (jw >= 7340032 && jw < Config.FULL_TRACE_LOG_LIMIT) {
             i = 85;
         } else {
-            i = (ju < 5242880 || ju >= 7340032) ? 100 : 95;
+            i = (jw < 5242880 || jw >= 7340032) ? 100 : 95;
         }
         try {
             int readPictureDegree = BitmapHelper.readPictureDegree(str);
             if (readPictureDegree != 0 || i != 100) {
-                Bitmap qK = qK(str);
-                if (readPictureDegree != 0 && qK != null) {
-                    return b(BitmapHelper.rotateBitmapBydegree(qK, readPictureDegree), i);
+                Bitmap qV = qV(str);
+                if (readPictureDegree != 0 && qV != null) {
+                    return b(BitmapHelper.rotateBitmapBydegree(qV, readPictureDegree), i);
                 }
-                return b(qK, i);
+                return b(qV, i);
             }
             return str;
         } catch (Throwable th) {
@@ -138,10 +138,10 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap qK(String str) {
-        BitmapFactory.Options qL = qL(str);
-        int i = qL.outWidth;
-        int i2 = qL.outHeight;
+    public Bitmap qV(String str) {
+        BitmapFactory.Options qW = qW(str);
+        int i = qW.outWidth;
+        int i2 = qW.outHeight;
         if (i == 0 || i2 == 0) {
             return null;
         }
@@ -154,8 +154,8 @@ public class e {
                 if (i5 >= 3) {
                     return null;
                 }
-                qL.inSampleSize = i4 * 2;
-                Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, qL);
+                qW.inSampleSize = i4 * 2;
+                Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, qW);
                 if (loadBitmap2 == null || loadBitmap2.isRecycled()) {
                     i4++;
                     i3 = i5 + 1;
@@ -168,7 +168,7 @@ public class e {
         }
     }
 
-    private BitmapFactory.Options qL(String str) {
+    private BitmapFactory.Options qW(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);

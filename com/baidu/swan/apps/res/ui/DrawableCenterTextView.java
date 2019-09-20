@@ -18,18 +18,18 @@ import android.widget.TextView;
 import com.baidu.swan.apps.an.z;
 /* loaded from: classes2.dex */
 public class DrawableCenterTextView extends TextView {
-    private GradientDrawable aJe;
-    private Paint aJf;
-    private Pair<Object, Object> aJg;
-    private Object aJh;
-    private Object aJi;
-    private int aJj;
-    private boolean aJk;
-    private boolean aJl;
-    private boolean aJm;
-    private boolean aJn;
-    private float aJo;
-    private boolean aJp;
+    private GradientDrawable aJC;
+    private Paint aJD;
+    private Pair<Object, Object> aJE;
+    private Object aJF;
+    private Object aJG;
+    private int aJH;
+    private boolean aJI;
+    private boolean aJJ;
+    private boolean aJK;
+    private boolean aJL;
+    private float aJM;
+    private boolean aJN;
     private float mCornerRadius;
     private Path mRoundPath;
 
@@ -39,13 +39,13 @@ public class DrawableCenterTextView extends TextView {
 
     public DrawableCenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aJe = new GradientDrawable();
-        this.aJf = null;
+        this.aJC = new GradientDrawable();
+        this.aJD = null;
         this.mRoundPath = new Path();
-        this.aJg = null;
-        this.aJn = false;
+        this.aJE = null;
+        this.aJL = false;
         this.mCornerRadius = -1.0f;
-        this.aJo = 0.0f;
+        this.aJM = 0.0f;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -129,39 +129,39 @@ public class DrawableCenterTextView extends TextView {
     }
 
     private void h(Canvas canvas) {
-        if (JY()) {
+        if (Kc()) {
             if (this.mCornerRadius >= 0.0f) {
-                this.aJe.setCornerRadius(this.mCornerRadius);
+                this.aJC.setCornerRadius(this.mCornerRadius);
             } else {
-                this.aJe.setCornerRadius(4.0f);
+                this.aJC.setCornerRadius(4.0f);
             }
-            if (this.aJl) {
+            if (this.aJJ) {
                 int dip2px = z.dip2px(getContext(), 0.5f);
-                if (this.aJh instanceof String) {
-                    this.aJe.setStroke(dip2px, Color.parseColor(this.aJh.toString()));
-                } else if (this.aJh instanceof Integer) {
-                    this.aJe.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.aJh.toString()).intValue()));
+                if (this.aJF instanceof String) {
+                    this.aJC.setStroke(dip2px, Color.parseColor(this.aJF.toString()));
+                } else if (this.aJF instanceof Integer) {
+                    this.aJC.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.aJF.toString()).intValue()));
                 }
             }
-            if (this.aJn) {
-                if (this.aJg.second instanceof String) {
-                    this.aJe.setColor(Color.parseColor(this.aJg.second.toString()));
-                } else if (this.aJg.second instanceof Integer) {
-                    this.aJe.setColor(getResources().getColor(Integer.valueOf(this.aJg.second.toString()).intValue()));
+            if (this.aJL) {
+                if (this.aJE.second instanceof String) {
+                    this.aJC.setColor(Color.parseColor(this.aJE.second.toString()));
+                } else if (this.aJE.second instanceof Integer) {
+                    this.aJC.setColor(getResources().getColor(Integer.valueOf(this.aJE.second.toString()).intValue()));
                 }
-            } else if (this.aJg.first instanceof String) {
-                this.aJe.setColor(Color.parseColor(this.aJg.first.toString()));
-            } else if (this.aJg.first instanceof Integer) {
-                this.aJe.setColor(getResources().getColor(Integer.valueOf(this.aJg.first.toString()).intValue()));
+            } else if (this.aJE.first instanceof String) {
+                this.aJC.setColor(Color.parseColor(this.aJE.first.toString()));
+            } else if (this.aJE.first instanceof Integer) {
+                this.aJC.setColor(getResources().getColor(Integer.valueOf(this.aJE.first.toString()).intValue()));
             }
             canvas.save();
-            if (this.aJp) {
-                JW();
+            if (this.aJN) {
+                Ka();
             } else {
-                this.aJe.setBounds(0, 0, getWidth(), getHeight());
+                this.aJC.setBounds(0, 0, getWidth(), getHeight());
             }
-            this.aJe.draw(canvas);
-            if (this.aJm) {
+            this.aJC.draw(canvas);
+            if (this.aJK) {
                 i(canvas);
             }
             canvas.restore();
@@ -175,12 +175,12 @@ public class DrawableCenterTextView extends TextView {
         float height2 = getHeight();
         Paint paint = new Paint();
         paint.setStrokeWidth(z.dip2px(getContext(), 0.5f));
-        if (this.aJi instanceof String) {
-            paint.setColor(Color.parseColor(this.aJi.toString()));
-        } else if (this.aJi instanceof Integer) {
-            paint.setColor(getResources().getColor(Integer.valueOf(this.aJi.toString()).intValue()));
+        if (this.aJG instanceof String) {
+            paint.setColor(Color.parseColor(this.aJG.toString()));
+        } else if (this.aJG instanceof Integer) {
+            paint.setColor(getResources().getColor(Integer.valueOf(this.aJG.toString()).intValue()));
         }
-        switch (this.aJj) {
+        switch (this.aJH) {
             case 0:
                 width = 0.0f;
                 height = 0.0f;
@@ -208,44 +208,44 @@ public class DrawableCenterTextView extends TextView {
     }
 
     public void setAnimationPercent(float f) {
-        if (this.aJo != f) {
-            this.aJo = f;
+        if (this.aJM != f) {
+            this.aJM = f;
             postInvalidate();
         }
     }
 
     public void setAnimationModeActive(boolean z) {
-        this.aJp = z;
+        this.aJN = z;
     }
 
-    private void JW() {
-        if (this.aJe != null) {
+    private void Ka() {
+        if (this.aJC != null) {
             int[] iArr = {getWidth(), getHeight()};
-            if (this.aJp) {
-                iArr[0] = (int) (getWidth() * this.aJo);
+            if (this.aJN) {
+                iArr[0] = (int) (getWidth() * this.aJM);
                 iArr[1] = getHeight();
             }
             int width = getWidth() / 2;
-            this.aJe.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
+            this.aJC.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
         }
     }
 
     @Override // android.widget.TextView
     public void setShadowLayer(float f, float f2, float f3, int i) {
-        JX();
+        Kb();
         RectF rectF = new RectF(f, f, f, f);
         rectF.offset(f2, f3);
         setPadding(rectF.left < 0.0f ? 0 : (int) (rectF.left + 0.5f), rectF.top < 0.0f ? 0 : (int) (rectF.top + 0.5f), rectF.right < 0.0f ? 0 : (int) (rectF.right + 0.5f), rectF.bottom >= 0.0f ? (int) (rectF.bottom + 0.5f) : 0);
-        this.aJf.setShadowLayer(f, f2, f3, i);
+        this.aJD.setShadowLayer(f, f2, f3, i);
     }
 
-    private void JX() {
-        if (this.aJf == null) {
-            this.aJf = new Paint();
-            this.aJf.setColor(0);
-            this.aJf.setStyle(Paint.Style.STROKE);
-            this.aJf.setAntiAlias(true);
-            this.aJf.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+    private void Kb() {
+        if (this.aJD == null) {
+            this.aJD = new Paint();
+            this.aJD.setColor(0);
+            this.aJD.setStyle(Paint.Style.STROKE);
+            this.aJD.setAntiAlias(true);
+            this.aJD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         }
     }
 
@@ -275,34 +275,34 @@ public class DrawableCenterTextView extends TextView {
         }
     }
 
-    public void cT(int i) {
+    public void cU(int i) {
         this.mCornerRadius = i;
     }
 
-    private boolean JY() {
-        return this.aJk && this.aJg != null;
+    private boolean Kc() {
+        return this.aJI && this.aJE != null;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (JY()) {
-                    this.aJn = true;
+                if (Kc()) {
+                    this.aJL = true;
                     invalidate();
                     break;
                 }
                 break;
             case 1:
-                if (JY()) {
-                    this.aJn = false;
+                if (Kc()) {
+                    this.aJL = false;
                     invalidate();
                     break;
                 }
                 break;
             case 3:
-                if (JY()) {
-                    this.aJn = false;
+                if (Kc()) {
+                    this.aJL = false;
                     invalidate();
                     break;
                 }

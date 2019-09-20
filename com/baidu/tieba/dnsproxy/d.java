@@ -5,23 +5,23 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d eSO = null;
+    private static volatile d eUu = null;
 
-    public static final d bek() {
-        if (eSO == null) {
+    public static final d beO() {
+        if (eUu == null) {
             synchronized (d.class) {
-                if (eSO == null) {
-                    eSO = new d();
+                if (eUu == null) {
+                    eUu = new d();
                 }
             }
         }
-        return eSO;
+        return eUu;
     }
 
     private d() {
     }
 
-    public void co(String str, String str2) {
+    public void cp(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");
@@ -35,7 +35,7 @@ public class d {
         }
     }
 
-    public void R(String str, String str2, String str3) {
+    public void T(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2) || !TextUtils.isEmpty(str3)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_event");

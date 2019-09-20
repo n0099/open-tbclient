@@ -61,7 +61,7 @@ public final class b {
         }
     }
 
-    public static void a(Activity activity, Dialog dialog) {
+    public static void b(Activity activity, Dialog dialog) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null && dialog != null && dialog.getWindow() != null && dialog.getWindow().getDecorView() != null) {
             dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
         }
@@ -71,7 +71,7 @@ public final class b {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | Pj());
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | Pn());
         }
     }
 
@@ -79,15 +79,15 @@ public final class b {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (Pj() ^ (-1));
-            if (com.baidu.swan.apps.res.widget.a.aNC) {
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (Pn() ^ (-1));
+            if (com.baidu.swan.apps.res.widget.a.aOa) {
                 systemUiVisibility |= Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
             }
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }
     }
 
-    public static int Pj() {
+    public static int Pn() {
         return 5894;
     }
 }

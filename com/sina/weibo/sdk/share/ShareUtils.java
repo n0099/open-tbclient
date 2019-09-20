@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.sina.weibo.BuildConfig;
 import com.sina.weibo.sdk.WeiboAppManager;
+import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +17,7 @@ import java.io.OutputStream;
 import java.util.Calendar;
 /* loaded from: classes2.dex */
 public final class ShareUtils {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [65=4] */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Not initialized variable reg: 1, insn: 0x0184: MOVE  (r6 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:78:0x0184 */
     /* JADX WARN: Removed duplicated region for block: B:104:0x0161 A[EDGE_INSN: B:104:0x0161->B:58:0x0161 ?: BREAK  , SYNTHETIC] */
@@ -93,7 +94,7 @@ public final class ShareUtils {
                                         }
                                     } catch (Exception e2) {
                                         e = e2;
-                                        Log.v("weibo sdk copy", e.toString());
+                                        LogUtil.e("weibo sdk copy", e.toString());
                                         if (bufferedInputStream != null) {
                                             try {
                                                 bufferedInputStream.close();

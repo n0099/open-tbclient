@@ -13,7 +13,6 @@ import com.baidu.mapapi.search.route.BikingRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.ubc.UBC;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -61,7 +60,7 @@ public class a extends com.baidu.platform.base.d {
                 BikingRouteLine.BikingStep bikingStep = new BikingRouteLine.BikingStep();
                 bikingStep.setDirection(optJSONObject.optInt("direction") * 30);
                 bikingStep.setDistance(optJSONObject.optInt("distance"));
-                bikingStep.setDuration(optJSONObject.optInt(UBC.CONTENT_KEY_DURATION));
+                bikingStep.setDuration(optJSONObject.optInt("duration"));
                 bikingStep.setName(optJSONObject.optString("name"));
                 bikingStep.setTurnType(optJSONObject.optString("turn_type"));
                 bikingStep.setEntrance(RouteNode.location(a(optJSONObject.optJSONObject("stepOriginLocation"))));
@@ -118,7 +117,7 @@ public class a extends com.baidu.platform.base.d {
                                     bikingRouteLine.setStarting(a);
                                     bikingRouteLine.setTerminal(a2);
                                     bikingRouteLine.setDistance(optJSONObject.optInt("distance"));
-                                    bikingRouteLine.setDuration(optJSONObject.optInt(UBC.CONTENT_KEY_DURATION));
+                                    bikingRouteLine.setDuration(optJSONObject.optInt("duration"));
                                     bikingRouteLine.setSteps(a(optJSONObject.optJSONArray("steps")));
                                     arrayList.add(bikingRouteLine);
                                 }

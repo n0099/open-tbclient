@@ -10,8 +10,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class RecordingYearBox extends AbstractFullBox {
     public static final String TYPE = "yrrc";
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
     int recordingYear;
 
     static {
@@ -39,7 +39,7 @@ public class RecordingYearBox extends AbstractFullBox {
     }
 
     public void setRecordingYear(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.EO(i)));
         this.recordingYear = i;
     }
 

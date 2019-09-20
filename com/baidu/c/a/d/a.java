@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private ViewGroup RI;
+    private ViewGroup RH;
     private InterfaceC0037a acY;
     private com.baidu.c.a.c.a criusData;
     private Map<String, View> acW = new HashMap();
@@ -41,17 +41,17 @@ public class a {
         } else {
             this.acZ = a(aVar, this.criusData);
         }
-        if (this.RI == null || !this.acZ) {
-            this.RI = new RelativeLayout(context);
-            this.RI.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+        if (this.RH == null || !this.acZ) {
+            this.RH = new RelativeLayout(context);
+            this.RH.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         }
         this.criusData = aVar;
         try {
-            a(context, aVar, this.RI, z);
+            a(context, aVar, this.RH, z);
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return this.RI;
+        return this.RH;
     }
 
     private boolean a(com.baidu.c.a.c.a aVar, com.baidu.c.a.c.a aVar2) {
@@ -81,7 +81,7 @@ public class a {
     public void g(Context context, boolean z) {
         try {
             this.acZ = true;
-            a(context, this.criusData, this.RI, z);
+            a(context, this.criusData, this.RH, z);
         } catch (Throwable th) {
             th.printStackTrace();
         }

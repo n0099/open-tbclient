@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b {
-    public static String bTD() {
+    public static String bUq() {
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
             return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_xlarge);
@@ -21,7 +21,7 @@ public class b {
         return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_small);
     }
 
-    public static void bTE() {
+    public static void bUr() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize != 0) {
@@ -35,10 +35,10 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.b(TbadkCoreApplication.getInst(), bTD(), R.drawable.icon_word_t_size, 0).agS();
+        BdToast.a(TbadkCoreApplication.getInst(), bUq(), R.drawable.icon_word_t_size, 0, false).agW();
     }
 
-    public static void bTF() {
+    public static void bUs() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
@@ -52,10 +52,10 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.b(TbadkCoreApplication.getInst(), bTD(), R.drawable.icon_word_t_size, 0).agS();
+        BdToast.a(TbadkCoreApplication.getInst(), bUq(), R.drawable.icon_word_t_size, 0, false).agW();
     }
 
-    public static void xG(int i) {
+    public static void xJ(int i) {
         if (TbadkCoreApplication.getInst().getFontSize() != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));

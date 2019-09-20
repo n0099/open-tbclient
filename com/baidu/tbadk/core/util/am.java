@@ -38,12 +38,13 @@ import java.lang.reflect.InvocationTargetException;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class am {
-    private static Resources bTA;
-    private static String bTB;
-    private static AssetManager bTC;
-    private static SparseIntArray bTD;
-    private static String bTy;
-    public static Resources bTz;
+    private static String bUa;
+    public static Resources bUb;
+    private static Resources bUc;
+    private static String bUd;
+    private static AssetManager bUe;
+    private static SparseIntArray bUf;
+    private static SparseIntArray bUg;
     private static String sPackagename;
     private static int sPacknameLength;
 
@@ -52,28 +53,29 @@ public class am {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                am.bTz = null;
+                am.bUb = null;
             }
         });
-        bTy = "skinType not support";
+        bUa = "skinType not support";
         sPackagename = null;
         sPacknameLength = 0;
-        bTD = new SparseIntArray();
+        bUf = new SparseIntArray();
+        bUg = new SparseIntArray();
     }
 
-    public static void nU(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+    public static void nW(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         if (!StringUtils.isNull(str)) {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
-                    bTC = (AssetManager) AssetManager.class.newInstance();
-                    File nk = m.nk(str);
-                    if (nk == null || !nk.exists()) {
+                    bUe = (AssetManager) AssetManager.class.newInstance();
+                    File nm = m.nm(str);
+                    if (nm == null || !nm.exists()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), (int) R.string.theme_skin_apk_error);
                     } else {
-                        bTC.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(bTC, nk.getAbsolutePath());
-                        bTA = new Resources(bTC, resources.getDisplayMetrics(), resources.getConfiguration());
-                        bTB = m.nn(str);
+                        bUe.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(bUe, nm.getAbsolutePath());
+                        bUc = new Resources(bUe, resources.getDisplayMetrics(), resources.getConfiguration());
+                        bUd = m.np(str);
                     }
                 }
             } catch (Throwable th) {
@@ -86,7 +88,7 @@ public class am {
     public static void a(TextView textView, int i) {
         if (textView != null) {
             Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
+            if (i == 1 || i == 4) {
                 textView.setTextColor(app.getResources().getColor(R.color.common_color_10212));
             } else {
                 textView.setTextColor(app.getResources().getColor(R.color.cp_bg_line_d));
@@ -98,10 +100,10 @@ public class am {
     public static void b(TextView textView, int i) {
         if (textView != null) {
             Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
+            if (i == 1 || i == 4) {
                 textView.setTextColor(app.getResources().getColor(R.color.common_color_10004));
             } else {
-                textView.setTextColor(app.getResources().getColor(R.color.cp_bg_line_k));
+                textView.setTextColor(app.getResources().getColor(R.color.black_alpha100));
             }
         }
     }
@@ -109,7 +111,7 @@ public class am {
     public static void g(View view, int i) {
         if (view != null) {
             Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
+            if (i == 1 || i == 4) {
                 view.setBackgroundColor(app.getResources().getColor(R.color.common_color_10150));
             } else {
                 view.setBackgroundColor(app.getResources().getColor(R.color.common_color_10163));
@@ -126,7 +128,7 @@ public class am {
     public static void c(TextView textView, int i) {
         if (textView != null) {
             Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
+            if (i == 1 || i == 4) {
                 textView.setTextColor(app.getResources().getColor(R.color.common_color_10004));
             } else {
                 textView.setTextColor(app.getResources().getColor(R.color.cp_bg_line_d));
@@ -168,31 +170,31 @@ public class am {
     }
 
     public static int ig(int i) {
-        if (i == 1) {
+        if (i == 1 || i == 4) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(R.color.common_color_10004);
         }
-        throw new IllegalArgumentException(bTy);
+        throw new IllegalArgumentException(bUa);
     }
 
     public static int ih(int i) {
         Application app = BdBaseApplication.getInst().getApp();
-        return i == 1 ? app.getResources().getColor(R.color.common_color_10150) : app.getResources().getColor(R.color.common_color_10163);
+        return (i == 1 || i == 4) ? app.getResources().getColor(R.color.common_color_10150) : app.getResources().getColor(R.color.common_color_10163);
     }
 
     public static int b(Resources resources, int i) {
         String str;
         int i2;
-        if (bTz == null) {
-            bTz = resources;
+        if (bUb == null) {
+            bUb = resources;
         }
-        int i3 = bTD.get(i, -1);
+        int i3 = bUf.get(i, -1);
         if (i3 == -1) {
             try {
                 str = resources.getResourceName(i);
             } catch (Exception e) {
                 str = null;
             }
-            if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && bTz != null) {
+            if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && bUb != null) {
                 if (sPacknameLength == 0) {
                     sPackagename = BdBaseApplication.getInst().getPackageName();
                     sPacknameLength = sPackagename.length();
@@ -200,18 +202,62 @@ public class am {
                 if (str.length() > sPacknameLength && str.charAt(sPacknameLength) != ':' && str.startsWith(sPackagename)) {
                     str = sPackagename + str.substring(str.indexOf(":"));
                 }
-                i3 = bTz.getIdentifier(str + "_1", null, null);
+                i3 = bUb.getIdentifier(str + "_1", null, null);
                 if (i3 <= 0) {
-                    i2 = bTz.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_1", null, null);
-                    bTD.put(i, i2);
+                    i2 = bUb.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_1", null, null);
+                    bUf.put(i, i2);
                     return i2;
                 }
             }
             i2 = i3;
-            bTD.put(i, i2);
+            bUf.put(i, i2);
             return i2;
         }
         return i3;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00cf  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int c(Resources resources, int i) {
+        String str;
+        int i2;
+        if (bUb == null) {
+            bUb = resources;
+        }
+        int i3 = bUg.get(i, -1);
+        if (i3 != -1) {
+            return i3;
+        }
+        try {
+            str = resources.getResourceName(i);
+        } catch (Exception e) {
+            str = null;
+        }
+        if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && bUb != null) {
+            if (sPacknameLength == 0) {
+                sPackagename = BdBaseApplication.getInst().getPackageName();
+                sPacknameLength = sPackagename.length();
+            }
+            if (str.length() > sPacknameLength && str.charAt(sPacknameLength) != ':' && str.startsWith(sPackagename)) {
+                str = sPackagename + str.substring(str.indexOf(":"));
+            }
+            i3 = bUb.getIdentifier(str + "_2", null, null);
+            if (i3 <= 0) {
+                i2 = bUb.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_2", null, null);
+                if (i2 <= 0) {
+                    i2 = b(resources, i);
+                }
+                bUg.put(i, i2);
+                return i2;
+            }
+        }
+        i2 = i3;
+        if (i2 <= 0) {
+        }
+        bUg.put(i, i2);
+        return i2;
     }
 
     public static void a(ImageView imageView, int i, int i2) {
@@ -227,27 +273,10 @@ public class am {
                 } else {
                     imageView.setImageResource(i2);
                 }
-            } else if (i3 == 1) {
+            } else if (i3 == 1 || i3 == 4) {
                 b(imageView, i2, i3);
             } else {
                 b(imageView, i, i3);
-            }
-        }
-    }
-
-    public static void a(ImageView imageView, int i, int i2, int i3, int i4) {
-        if (i != 0 && i2 != 0 && imageView != null) {
-            boolean z = TbadkCoreApplication.getInst().getUsedThemeColor() == 1;
-            if (i4 == 2 && TbadkCoreApplication.getInst().getUsedThemeId() > 0) {
-                if (z) {
-                    imageView.setImageResource(i);
-                } else {
-                    imageView.setImageResource(i2);
-                }
-            } else if (i4 == 1) {
-                b(imageView, i3, i4);
-            } else {
-                b(imageView, i, i4);
             }
         }
     }
@@ -272,12 +301,12 @@ public class am {
         }
     }
 
-    private static int c(Resources resources, int i) {
+    private static int d(Resources resources, int i) {
         String str;
-        if (bTA == null) {
-            bTA = resources;
+        if (bUc == null) {
+            bUc = resources;
         }
-        if (bTA == null) {
+        if (bUc == null) {
             return 0;
         }
         try {
@@ -292,14 +321,14 @@ public class am {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return bTA.getIdentifier(bTB + str.substring(str.indexOf(":")), null, null);
+        return bUc.getIdentifier(bUd + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void j(View view, int i) {
         f(view, i, 1);
     }
 
-    public static Drawable d(Resources resources, int i) {
+    public static Drawable e(Resources resources, int i) {
         Resources resources2;
         if (i == 0) {
             return null;
@@ -310,24 +339,24 @@ public class am {
         if (resources == null) {
             resources = BdBaseApplication.getInst().getApp().getResources();
         }
-        int c = c(resources, i);
-        if (c == 0) {
+        int d = d(resources, i);
+        if (d == 0) {
             resources2 = resources;
-            c = i;
-        } else if (bTA != null) {
-            resources2 = bTA;
+            d = i;
+        } else if (bUc != null) {
+            resources2 = bUc;
         } else {
             resources2 = resources;
-            c = i;
+            d = i;
         }
         try {
-            return resources2.getDrawable(c);
+            return resources2.getDrawable(d);
         } catch (Throwable th) {
             return resources.getDrawable(i);
         }
     }
 
-    public static int e(Resources resources, int i) {
+    public static int f(Resources resources, int i) {
         Resources resources2;
         if (i == 0) {
             return 0;
@@ -338,18 +367,18 @@ public class am {
         if (resources == null) {
             resources = BdBaseApplication.getInst().getApp().getResources();
         }
-        int c = c(resources, i);
-        if (c == 0) {
+        int d = d(resources, i);
+        if (d == 0) {
             resources2 = resources;
-            c = i;
-        } else if (bTA != null) {
-            resources2 = bTA;
+            d = i;
+        } else if (bUc != null) {
+            resources2 = bUc;
         } else {
             resources2 = resources;
-            c = i;
+            d = i;
         }
         try {
-            return resources2.getColor(c);
+            return resources2.getColor(d);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
             return resources.getColor(i);
@@ -364,12 +393,12 @@ public class am {
         }
         Resources resources3 = resources != null ? resources : BdBaseApplication.getInst().getApp().getResources();
         if (i == 2) {
-            i3 = c(resources3, i2);
+            i3 = d(resources3, i2);
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (bTA != null) {
-                resources2 = bTA;
+            } else if (bUc != null) {
+                resources2 = bUc;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -379,8 +408,19 @@ public class am {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (bTz != null) {
-                resources2 = bTz;
+            } else if (bUb != null) {
+                resources2 = bUb;
+            } else {
+                resources2 = resources3;
+                i3 = i2;
+            }
+        } else if (i == 4) {
+            i3 = c(resources3, i2);
+            if (i3 == 0) {
+                resources2 = resources3;
+                i3 = i2;
+            } else if (bUb != null) {
+                resources2 = bUb;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -405,7 +445,7 @@ public class am {
     }
 
     public static ColorStateList b(int i, Resources resources, int i2) {
-        int b;
+        int c;
         if (i2 == 0) {
             return null;
         }
@@ -413,14 +453,20 @@ public class am {
             resources = BdBaseApplication.getInst().getApp().getResources();
         }
         if (i == 2) {
-            int c = c(resources, i2);
-            if (c != 0 && bTA != null) {
-                Resources resources2 = bTA;
-                i2 = c;
+            int d = d(resources, i2);
+            if (d != 0 && bUc != null) {
+                Resources resources2 = bUc;
+                i2 = d;
             }
-        } else if (i == 1 && (b = b(resources, i2)) != 0 && bTz != null) {
-            Resources resources3 = bTz;
-            i2 = b;
+        } else if (i == 1) {
+            int b = b(resources, i2);
+            if (b != 0 && bUb != null) {
+                Resources resources3 = bUb;
+                i2 = b;
+            }
+        } else if (i == 4 && (c = c(resources, i2)) != 0 && bUb != null) {
+            Resources resources4 = bUb;
+            i2 = c;
         }
         if (i2 != 0) {
             try {
@@ -432,7 +478,7 @@ public class am {
         return null;
     }
 
-    public static ColorStateList f(Resources resources, int i) {
+    public static ColorStateList g(Resources resources, int i) {
         return b(TbadkCoreApplication.getInst().getSkinType(), resources, i);
     }
 
@@ -448,12 +494,12 @@ public class am {
         }
         Resources resources3 = resources != null ? resources : BdBaseApplication.getInst().getApp().getResources();
         if (i == 2) {
-            i3 = c(resources3, i2);
+            i3 = d(resources3, i2);
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (bTA != null) {
-                resources2 = bTA;
+            } else if (bUc != null) {
+                resources2 = bUc;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -463,8 +509,19 @@ public class am {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (bTz != null) {
-                resources2 = bTz;
+            } else if (bUb != null) {
+                resources2 = bUb;
+            } else {
+                resources2 = resources3;
+                i3 = i2;
+            }
+        } else if (i == 4) {
+            i3 = c(resources3, i2);
+            if (i3 == 0) {
+                resources2 = resources3;
+                i3 = i2;
+            } else if (bUb != null) {
+                resources2 = bUb;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -484,12 +541,12 @@ public class am {
         }
     }
 
-    public static Drawable g(Resources resources, int i) {
+    public static Drawable h(Resources resources, int i) {
         return c(TbadkCoreApplication.getInst().getSkinType(), resources, i);
     }
 
     public static Drawable getDrawable(int i) {
-        return c(TbadkCoreApplication.getInst().getSkinType(), (Resources) null, i);
+        return c(TbadkCoreApplication.getInst().getSkinType(), null, i);
     }
 
     public static Drawable V(int i, int i2) {
@@ -500,16 +557,16 @@ public class am {
                 return null;
             }
         }
-        return c(i, (Resources) null, i2);
+        return c(i, null, i2);
     }
 
     public static Bitmap a(Resources resources, int i, BitmapFactory.Options options) {
         return a(resources, i, options, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public static int h(Resources resources, int i) {
-        if (bTz == null) {
-            bTz = resources;
+    public static int i(Resources resources, int i) {
+        if (bUb == null) {
+            bUb = resources;
         }
         com.baidu.tbadk.core.e.a.a(SocialConstants.PARAM_IMG_URL, -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, Constants.PHONE_BRAND, Build.BRAND);
         try {
@@ -518,7 +575,7 @@ public class am {
                 return 0;
             }
             String replace = resourceName.replace("_svg", "");
-            if (replace.indexOf(":") <= 0 || bTz == null) {
+            if (replace.indexOf(":") <= 0 || bUb == null) {
                 return 0;
             }
             if (sPacknameLength == 0) {
@@ -528,30 +585,32 @@ public class am {
             if (replace.length() > sPacknameLength && replace.charAt(sPacknameLength) != ':' && replace.startsWith(sPackagename)) {
                 replace = sPackagename + replace.substring(replace.indexOf(":"));
             }
-            return bTz.getIdentifier(replace + "_1", null, null);
+            return bUb.getIdentifier(replace + "_1", null, null);
         } catch (Exception e) {
             return 0;
         }
     }
 
     public static Bitmap a(Resources resources, int i, BitmapFactory.Options options, int i2) {
+        Resources resources2;
+        int i3;
         if (i == 0) {
             return null;
         }
-        if (resources == null) {
-            resources = BdBaseApplication.getInst().getApp().getResources();
+        Resources resources3 = resources != null ? resources : BdBaseApplication.getInst().getApp().getResources();
+        if (i2 == 1) {
         }
         if (i2 == 1) {
-            int b = b(resources, i);
+            int b = b(resources3, i);
             if (b == 0) {
                 b = i;
-            } else if (bTz != null) {
-                Resources resources2 = bTz;
+            } else if (bUb != null) {
+                Resources resources4 = bUb;
             } else {
                 b = i;
             }
             try {
-                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(bTz, b, i, options);
+                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(bUb, b, i, options);
                 if (nightCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }
@@ -559,18 +618,43 @@ public class am {
             } catch (Throwable th) {
                 return BitmapHelper.getCashBitmap(i, options);
             }
-        } else if (i2 == 2) {
-            int c = c(resources, i);
+        } else if (i2 == 4) {
+            int c = c(resources3, i);
             if (c == 0) {
+                resources2 = resources3;
+                i3 = i;
+            } else if (bUb != null) {
+                i3 = c;
+                resources2 = bUb;
+            } else {
+                resources2 = resources3;
+                i3 = i;
+            }
+            try {
+                Bitmap darkCashBitmap = BitmapHelper.getDarkCashBitmap(bUb, i3, i, options);
+                if (darkCashBitmap == null) {
+                    Bitmap nightCashBitmap2 = BitmapHelper.getNightCashBitmap(bUb, b(resources2, i), i, options);
+                    if (nightCashBitmap2 == null) {
+                        return BitmapHelper.getCashBitmap(i, options);
+                    }
+                    return nightCashBitmap2;
+                }
+                return darkCashBitmap;
+            } catch (Throwable th2) {
+                return BitmapHelper.getCashBitmap(i, options);
+            }
+        } else if (i2 == 2) {
+            int d = d(resources3, i);
+            if (d == 0) {
                 return BitmapHelper.getCashBitmap(i, options);
             }
             try {
-                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(bTA, c, i, options);
+                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(bUc, d, i, options);
                 if (themeCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }
                 return themeCashBitmap;
-            } catch (Throwable th2) {
+            } catch (Throwable th3) {
                 return BitmapHelper.getCashBitmap(i, options);
             }
         } else {
@@ -629,23 +713,17 @@ public class am {
     public static boolean e(View view, String str) {
         Resources resources;
         int identifier;
-        ColorStateList f;
-        if (view == null || StringUtils.isNull(str) || (resources = view.getResources()) == null || (identifier = resources.getIdentifier(str, "color", TbadkCoreApplication.getInst().getPackageName())) <= 0 || (f = f(resources, identifier)) == null || !(view instanceof TextView)) {
+        ColorStateList g;
+        if (view == null || StringUtils.isNull(str) || (resources = view.getResources()) == null || (identifier = resources.getIdentifier(str, "color", TbadkCoreApplication.getInst().getPackageName())) <= 0 || (g = g(resources, identifier)) == null || !(view instanceof TextView)) {
             return false;
         }
-        ((TextView) view).setTextColor(f);
+        ((TextView) view).setTextColor(g);
         return true;
     }
 
     public static void c(ImageView imageView, int i) {
         if (imageView != null && i != 0) {
-            imageView.setImageDrawable(g(imageView.getResources(), i));
-        }
-    }
-
-    public static void d(ImageView imageView, int i) {
-        if (imageView != null && i != 0) {
-            imageView.setImageDrawable(g((Resources) null, i));
+            imageView.setImageDrawable(h(imageView.getResources(), i));
         }
     }
 
@@ -741,19 +819,29 @@ public class am {
     }
 
     public static int im(int i) {
-        int b;
+        int c;
         if (i <= 0) {
             return 0;
         }
-        return (TbadkCoreApplication.getInst().getSkinType() != 1 || (b = b(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : b;
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType != 1) {
+            return (skinType != 4 || (c = c(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : c;
+        }
+        int b = b(TbadkCoreApplication.getInst().getResources(), i);
+        return b > 0 ? b : i;
     }
 
     public static int in(int i) {
-        int b;
+        int c;
         if (i <= 0) {
             return 0;
         }
-        return (TbadkCoreApplication.getInst().getSkinType() != 1 || (b = b(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : b;
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType != 1) {
+            return (skinType != 4 || (c = c(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : c;
+        }
+        int b = b(TbadkCoreApplication.getInst().getResources(), i);
+        return b > 0 ? b : i;
     }
 
     public static void e(View view, int i, int i2, int i3) {
@@ -769,17 +857,6 @@ public class am {
                 ((CheckBox) view).setTextColor(p);
             }
         }
-    }
-
-    public static void b(ImageView imageView, int i, int i2, int i3) {
-        StateListDrawable o;
-        if (i != 0 && i2 != 0 && imageView != null && (o = o(i, i2, i3)) != null) {
-            imageView.setImageDrawable(o);
-        }
-    }
-
-    public static void c(ImageView imageView, int i, int i2) {
-        b(imageView, i, i2, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public static void f(View view, int i, int i2, int i3) {
@@ -863,7 +940,7 @@ public class am {
         return gradientDrawable;
     }
 
-    public static GradientDrawable k(int i, int i2, int i3, int i4) {
+    public static GradientDrawable n(int i, int i2, int i3, int i4) {
         return b(i, i2, i3, i4, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -885,7 +962,28 @@ public class am {
         }
     }
 
+    public static void g(View view, int i, int i2, int i3) {
+        a(view, i, i2, i3, 0, 0, 0, TbadkCoreApplication.getInst().getSkinType());
+    }
+
     public static void b(View view, int i, int i2, int i3, int i4) {
         a(view, i, i2, i3, 0, 0, 0, i4);
+    }
+
+    public static Drawable io(int i) {
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        Drawable drawable = getDrawable(i);
+        drawable.mutate().setAlpha(127);
+        stateListDrawable.addState(new int[]{16842910, 16842919}, drawable);
+        stateListDrawable.addState(new int[0], getDrawable(i).mutate());
+        return stateListDrawable;
+    }
+
+    public static boolean ajn() {
+        return (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getResources() == null || TbadkCoreApplication.getInst().getResources().getConfiguration() == null || (TbadkCoreApplication.getInst().getResources().getConfiguration().uiMode & 48) != 32) ? false : true;
+    }
+
+    public static int ajo() {
+        return ajn() ? 4 : 0;
     }
 }

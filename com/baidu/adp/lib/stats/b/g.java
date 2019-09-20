@@ -272,7 +272,7 @@ public class g {
                 long aJ = this.mBdLogSetting.aJ(value.jk());
                 if (aJ <= 0) {
                     aJ = System.currentTimeMillis();
-                    this.mBdLogSetting.d(value.jk(), aJ);
+                    this.mBdLogSetting.f(value.jk(), aJ);
                 }
                 value.k(aJ);
             }

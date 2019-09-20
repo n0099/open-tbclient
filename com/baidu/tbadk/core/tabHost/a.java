@@ -17,7 +17,7 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private int bQS;
+    private int bRt;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -25,7 +25,7 @@ public class a {
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.nL()) {
-                a.this.ahV();
+                a.this.ahZ();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -46,9 +46,9 @@ public class a {
     private FragmentTabHost mTabHost;
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.bQS = 0;
+        this.bRt = 0;
         this.mTabHost = fragmentTabHost;
-        this.bQS = i;
+        this.bRt = i;
     }
 
     public void d(Pair<String, String> pair) {
@@ -56,16 +56,16 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                nc(str2);
+                ne(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                nc(str);
+                ne(str);
             } else {
-                ahV();
+                ahZ();
             }
         }
     }
 
-    private void nc(String str) {
+    private void ne(String str) {
         c.iE().a(str, 10, this.mCallback, getBdUniqueId());
     }
 
@@ -78,11 +78,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahV() {
+    public void ahZ() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
-            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bQS);
-            am.l(this.mTabHost.getFragmentTabWidget(), this.bQS);
-            am.l(this.mTabHost.getTabWrapper(), this.bQS);
+            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bRt);
+            am.l(this.mTabHost.getFragmentTabWidget(), this.bRt);
+            am.l(this.mTabHost.getTabWrapper(), this.bRt);
         }
     }
 }

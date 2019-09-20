@@ -15,7 +15,6 @@ import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.share.a.b;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
@@ -74,81 +73,77 @@ public final class ShareService extends Service {
         protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             Bundle readBundle;
             ShareModel shareModel;
-            if (!c.c(ShareService.this)) {
-                return false;
-            }
-            if (SapiAccountManager.getReceiveShareListener() != null) {
-                if (ShareService.this.e == null) {
-                    ShareService.this.e = new Handler(Looper.getMainLooper());
-                }
-                ShareService.this.e.post(new Runnable() { // from class: com.baidu.sapi2.share.ShareService.a.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        if (SapiAccountManager.getReceiveShareListener() != null) {
-                            SapiAccountManager.getReceiveShareListener().onReceiveShare();
+            if (c.c(ShareService.this)) {
+                if (SapiAccountManager.getReceiveShareListener() != null) {
+                    if (ShareService.this.e == null) {
+                        ShareService.this.e = new Handler(Looper.getMainLooper());
+                    }
+                    ShareService.this.e.post(new Runnable() { // from class: com.baidu.sapi2.share.ShareService.a.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (SapiAccountManager.getReceiveShareListener() != null) {
+                                SapiAccountManager.getReceiveShareListener().onReceiveShare();
+                            }
                         }
+                    });
+                }
+                if (!ShareService.this.d) {
+                    ShareService.this.a((Context) ShareService.this);
+                }
+                if (!ShareService.this.d || ShareService.this.b == LoginShareStrategy.DISABLED) {
+                    return true;
+                }
+                try {
+                    readBundle = parcel.readBundle(ShareModel.class.getClassLoader());
+                    shareModel = (ShareModel) readBundle.getParcelable("LOGIN_SHARE_MODEL");
+                } catch (Throwable th) {
+                    Log.e(th);
+                }
+                if (shareModel == null) {
+                    return true;
+                }
+                String string = readBundle.getString("IQIYI_TOKEN");
+                boolean z = readBundle.getBoolean("EXTRA_OTHER_INFO");
+                if (SapiContext.getInstance(ShareService.this.a).shareLivingunameEnable()) {
+                    ArrayList arrayList = new ArrayList();
+                    String string2 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
+                    if (!TextUtils.isEmpty(string2)) {
+                        arrayList.addAll(new com.baidu.sapi2.share.a.b().a(string2));
                     }
-                });
-            }
-            if (!ShareService.this.d) {
-                ShareService.this.a((Context) ShareService.this);
-            }
-            if (!ShareService.this.d || ShareService.this.b == LoginShareStrategy.DISABLED) {
+                    if (!arrayList.isEmpty()) {
+                        new com.baidu.sapi2.share.a.b().a(ShareService.this.a, arrayList);
+                    }
+                }
+                boolean z2 = readBundle.getBoolean("VEHICLE_SYSTEM", false);
+                if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") == null || !(readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
+                    int i3 = readBundle.getInt(ShareCallPacking.EXTRA_SDK_VERSION);
+                    String string3 = readBundle.getString("PKG");
+                    String loginShareDirection = SapiAccountManager.getInstance().getSapiConfiguration().loginShareDirection();
+                    switch (shareModel.b()) {
+                        case VALIDATE:
+                            if (!ShareDirectionType.EXPORT.equals(loginShareDirection)) {
+                                c.a(ShareService.this.a, ShareService.this.b, shareModel, i3, string, z, z2, string3);
+                                break;
+                            }
+                            break;
+                        case INVALIDATE:
+                            if (!ShareDirectionType.EXPORT.equals(loginShareDirection)) {
+                                c.a(ShareService.this.a, shareModel);
+                                break;
+                            }
+                            break;
+                        case SYNC_REQ:
+                            if (!ShareDirectionType.IMPORT.equals(loginShareDirection) || !SapiAccountManager.getInstance().getSession().isGuestAccount()) {
+                                ShareService.this.a(parcel2);
+                                break;
+                            }
+                            break;
+                    }
+                    return true;
+                }
                 return true;
             }
-            try {
-                readBundle = parcel.readBundle(ShareModel.class.getClassLoader());
-                shareModel = (ShareModel) readBundle.getParcelable("LOGIN_SHARE_MODEL");
-            } catch (Throwable th) {
-                Log.e(th);
-            }
-            if (shareModel == null) {
-                return true;
-            }
-            String string = readBundle.getString("IQIYI_TOKEN");
-            boolean z = readBundle.getBoolean("EXTRA_OTHER_INFO");
-            if (SapiContext.getInstance(ShareService.this.a).shareLivingunameEnable()) {
-                ArrayList arrayList = new ArrayList();
-                String string2 = readBundle.getString("FACE_LOGIN_UID");
-                if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(ShareService.this.a).getFaceLoginUid())) {
-                    arrayList.add(new b.a(string2, 1L));
-                }
-                String string3 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
-                if (!TextUtils.isEmpty(string3)) {
-                    arrayList.addAll(new com.baidu.sapi2.share.a.c().b(string3));
-                }
-                if (!arrayList.isEmpty()) {
-                    new com.baidu.sapi2.share.a.c().a((List<b.a>) arrayList, false);
-                }
-            }
-            boolean z2 = readBundle.getBoolean("VEHICLE_SYSTEM", false);
-            if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") != null && (readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) && ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) != SapiAccountManager.getInstance().getSapiConfiguration().environment) {
-                return true;
-            }
-            int i3 = readBundle.getInt(ShareCallPacking.EXTRA_SDK_VERSION);
-            String string4 = readBundle.getString("PKG");
-            String loginShareDirection = SapiAccountManager.getInstance().getSapiConfiguration().loginShareDirection();
-            switch (shareModel.b()) {
-                case VALIDATE:
-                    if (!ShareDirectionType.EXPORT.equals(loginShareDirection)) {
-                        c.a(ShareService.this.a, ShareService.this.b, shareModel, i3, string, z, z2, string4);
-                        break;
-                    }
-                    break;
-                case INVALIDATE:
-                    if (!ShareDirectionType.EXPORT.equals(loginShareDirection)) {
-                        c.a(ShareService.this.a, shareModel);
-                        break;
-                    }
-                    break;
-                case SYNC_REQ:
-                    if (!ShareDirectionType.IMPORT.equals(loginShareDirection) || !SapiAccountManager.getInstance().getSession().isGuestAccount()) {
-                        ShareService.this.a(parcel2);
-                        break;
-                    }
-                    break;
-            }
-            return true;
+            return false;
         }
     }
 
@@ -195,7 +190,6 @@ public final class ShareService extends Service {
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
         bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, SapiAccountManager.VERSION_CODE);
         if (SapiContext.getInstance(this.a).shareLivingunameEnable()) {
-            bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(this.a).getFaceLoginUid());
             bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(this.a).getV2FaceLivingUnames());
         }
         bundle.putString("PKG", getPackageName());

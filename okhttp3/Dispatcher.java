@@ -1,6 +1,5 @@
 package okhttp3;
 
-import android.support.v7.widget.ActivityChooserView;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,7 +34,7 @@ public final class Dispatcher {
 
     public synchronized ExecutorService executorService() {
         if (this.executorService == null) {
-            this.executorService = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp Dispatcher", false));
+            this.executorService = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp Dispatcher", false));
         }
         return this.executorService;
     }

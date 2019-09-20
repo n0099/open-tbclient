@@ -6,20 +6,20 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class g {
-    public boolean bVn;
+    public boolean bVS;
     public boolean mIsBaiduServer = true;
-    public String bVo = HTTP.UTF_8;
+    public String bVT = HTTP.UTF_8;
     public String mUrl = null;
-    public ArrayList<BasicNameValuePair> bVk = null;
-    public boolean bVm = true;
+    public ArrayList<BasicNameValuePair> bVP = null;
+    public boolean bVR = true;
     public boolean mIsBDImage = false;
-    public HashMap<String, byte[]> bVl = null;
-    public String bVp = null;
+    public HashMap<String, byte[]> bVQ = null;
+    public String bVU = null;
     public String mNetType = null;
     public String mFrom = null;
 
     public g() {
-        this.bVn = true;
-        this.bVn = true;
+        this.bVS = true;
+        this.bVS = true;
     }
 }

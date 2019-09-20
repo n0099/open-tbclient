@@ -1,5 +1,5 @@
 package com.baidu.tieba.enterForum.recommend.view;
 /* loaded from: classes4.dex */
 public interface a {
-    void qF(int i);
+    void qI(int i);
 }

@@ -5,7 +5,7 @@ import android.util.Log;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes3.dex */
 public class c {
-    public static int pA(int i) {
+    public static int pE(int i) {
         if (i == 6) {
             return 90;
         }

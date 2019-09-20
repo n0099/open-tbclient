@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView fWz;
-    private ShareFromPBMsgData gSj;
-    private TextView gwS;
+    private HeadImageView fYq;
+    private ShareFromPBMsgData gUc;
+    private TextView gyJ;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(R.id.chat_title);
-        this.fWz = (HeadImageView) findViewById(R.id.chat_group_img);
-        this.gwS = (TextView) findViewById(R.id.chat_group_desc);
+        this.fYq = (HeadImageView) findViewById(R.id.chat_group_img);
+        this.gyJ = (TextView) findViewById(R.id.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-            this.gwS.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.gyJ.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.gwS.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.gyJ.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.gSj = shareFromPBMsgData;
-        JS();
+        this.gUc = shareFromPBMsgData;
+        JW();
     }
 
-    private void JS() {
-        this.title.setText(this.gSj.getTitle());
-        this.fWz.setDefaultResource(R.drawable.icon_default_ba_120);
-        this.fWz.setAutoChangeStyle(false);
-        this.fWz.startLoad(this.gSj.getImageUrl(), 10, false);
-        this.gwS.setText(this.gSj.getContent());
+    private void JW() {
+        this.title.setText(this.gUc.getTitle());
+        this.fYq.setDefaultResource(R.drawable.icon_default_ba_120);
+        this.fYq.setAutoChangeStyle(false);
+        this.fYq.startLoad(this.gUc.getImageUrl(), 10, false);
+        this.gyJ.setText(this.gUc.getContent());
     }
 }

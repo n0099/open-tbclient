@@ -61,8 +61,8 @@ public class a implements c {
                         bhVar.setUserMap(this.userMap);
                         bhVar.a(threadInfo);
                         bhVar.setCurrentPage(3);
-                        bhVar.afo();
-                        if (bhVar.getType() == bh.bJo || bhVar.getType() == bh.bJB || bhVar.getType() == bh.bJG || bhVar.getType() == bh.bJC || bhVar.getType() == bh.bJH || bhVar.getType() == bh.bJI) {
+                        bhVar.afs();
+                        if (bhVar.getType() == bh.bJM || bhVar.getType() == bh.bJZ || bhVar.getType() == bh.bKe || bhVar.getType() == bh.bKa || bhVar.getType() == bh.bKf || bhVar.getType() == bh.bKg) {
                             this.threadList.add(bhVar);
                         }
                     }

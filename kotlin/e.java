@@ -1,7 +1,7 @@
 package kotlin;
 /* loaded from: classes2.dex */
 public final class e {
-    public static final e kst = new e();
+    public static final e kuM = new e();
 
     private e() {
     }

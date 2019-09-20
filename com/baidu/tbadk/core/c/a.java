@@ -9,26 +9,26 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class a {
-    private static a bEm;
-    private Runnable bEn = new Runnable() { // from class: com.baidu.tbadk.core.c.a.1
+    private static a bEK;
+    private Runnable bEL = new Runnable() { // from class: com.baidu.tbadk.core.c.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.gS(0);
+            a.this.gT(0);
         }
     };
 
-    public static a acv() {
-        if (bEm == null) {
+    public static a acz() {
+        if (bEK == null) {
             synchronized (a.class) {
-                if (bEm == null) {
-                    bEm = new a();
+                if (bEK == null) {
+                    bEK = new a();
                 }
             }
         }
-        return bEm;
+        return bEK;
     }
 
-    public void gS(int i) {
+    public void gT(int i) {
         try {
             Bundle bundle = new Bundle();
             bundle.putString("package", "com.baidu.tieba");
@@ -40,14 +40,14 @@ public class a {
         }
     }
 
-    public boolean acw() {
+    public boolean acA() {
         return ak.check("EMUI");
     }
 
-    public void acx() {
-        if (acw()) {
-            gS(1);
-            e.iK().postDelayed(this.bEn, 500L);
+    public void acB() {
+        if (acA()) {
+            gT(1);
+            e.iK().postDelayed(this.bEL, 500L);
         }
     }
 }

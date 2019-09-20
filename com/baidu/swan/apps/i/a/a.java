@@ -115,20 +115,20 @@ public class a extends z {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.i.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-        arrayList.add(aVar.yx());
-        arrayList.add(aVar.yy());
-        arrayList.add(aVar.yz());
-        arrayList.add(aVar.yA());
         arrayList.add(aVar.yB());
         arrayList.add(aVar.yC());
-        arrayList.add(aVar.yv());
         arrayList.add(aVar.yD());
-        arrayList.add(aVar.yF());
-        arrayList.add(aVar.yw());
         arrayList.add(aVar.yE());
+        arrayList.add(aVar.yF());
         arrayList.add(aVar.yG());
+        arrayList.add(aVar.yz());
         arrayList.add(aVar.yH());
+        arrayList.add(aVar.yJ());
+        arrayList.add(aVar.yA());
         arrayList.add(aVar.yI());
+        arrayList.add(aVar.yK());
+        arrayList.add(aVar.yL());
+        arrayList.add(aVar.yM());
         return arrayList;
     }
 }

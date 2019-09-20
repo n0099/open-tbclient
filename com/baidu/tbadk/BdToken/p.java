@@ -9,16 +9,16 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private static p bzH;
-    private b bzG;
+    private static p bAf;
+    private b bAe;
     private CustomMessageListener mLikeForumListener = new CustomMessageListener(2001437) { // from class: com.baidu.tbadk.BdToken.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (p.this.bzG != null && customResponsedMessage != null) {
+            if (p.this.bAe != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                    p.this.ZJ();
+                    p.this.ZN();
                 }
             }
         }
@@ -32,15 +32,15 @@ public class p {
         }
     };
 
-    public static p ZI() {
-        if (bzH == null) {
+    public static p ZM() {
+        if (bAf == null) {
             synchronized (p.class) {
-                if (bzH == null) {
-                    bzH = new p();
+                if (bAf == null) {
+                    bAf = new p();
                 }
             }
         }
-        return bzH;
+        return bAf;
     }
 
     public void h(BdUniqueId bdUniqueId) {
@@ -51,15 +51,15 @@ public class p {
     }
 
     public void q(b bVar) {
-        this.bzG = bVar;
+        this.bAe = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZJ() {
-        if (this.bzG != null && this.bzG.getActivityId() != 0 && this.bzG.YQ() != 0 && this.bzG.getTaskType() == 9) {
+    public void ZN() {
+        if (this.bAe != null && this.bAe.getActivityId() != 0 && this.bAe.YU() != 0 && this.bAe.getTaskType() == 9) {
             try {
-                String valueOf = String.valueOf(this.bzG.getActivityId());
-                String valueOf2 = String.valueOf(this.bzG.YQ());
+                String valueOf = String.valueOf(this.bAe.getActivityId());
+                String valueOf2 = String.valueOf(this.bAe.YU());
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(valueOf, valueOf2);
                 CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);

@@ -5,7 +5,6 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.v7.widget.ActivityChooserView;
 import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
@@ -44,7 +43,7 @@ public class d {
     private b r;
     private Address d = null;
     private a g = new a();
-    private C0044d o = null;
+    private C0052d o = null;
     private String s = null;
     c c = new c();
     private long t = 0;
@@ -65,8 +64,8 @@ public class d {
             this.b = -1;
             this.c = -1;
             this.d = -1;
-            this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-            this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            this.e = Integer.MAX_VALUE;
+            this.f = Integer.MAX_VALUE;
             this.g = (char) 0;
         }
 
@@ -170,11 +169,11 @@ public class d {
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0044d {
+    public class C0052d {
         public List<ScanResult> a;
         private long c;
 
-        public C0044d(List<ScanResult> list) {
+        public C0052d(List<ScanResult> list) {
             this.a = null;
             this.c = 0L;
             this.a = list;
@@ -359,7 +358,7 @@ public class d {
         }
         try {
             this.o = null;
-            this.o = new C0044d(this.n.getScanResults());
+            this.o = new C0052d(this.n.getScanResults());
             str2 = this.o.a(i2);
         } catch (Exception e) {
             str2 = null;

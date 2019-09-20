@@ -9,7 +9,6 @@ import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.smallgame.sdk.Log;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
-import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -343,7 +342,7 @@ public class WebGLImage extends EventTargetImpl {
             Bitmap readCanvas = readCanvas(j, 0, 0, i, i2);
             f = (f <= 0.0f || f > 1.0f) ? 0.92f : 0.92f;
             String validFileType = getValidFileType(str);
-            return "data:" + (FileUtils.IMAGE_FILE_START + validFileType) + ";base64," + Base64.encodeToString(compressCanvas(readCanvas, i, i2, validFileType, f), 0);
+            return "data:" + ("image/" + validFileType) + ";base64," + Base64.encodeToString(compressCanvas(readCanvas, i, i2, validFileType, f), 0);
         } catch (Throwable th) {
             Log.e("V8", th.getMessage(), th);
             return null;

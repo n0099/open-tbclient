@@ -1,9 +1,9 @@
 package com.sina.weibo.sdk.share;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -12,39 +12,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.sina.weibo.sdk.WbSdk;
+import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
+import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
+import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
 /* loaded from: classes2.dex */
-public class WbShareTransActivity extends Activity {
+public class WbShareTransActivity extends BaseActivity {
     private CopyResourceTask copyResourceTask;
-    private View progressBar;
-    private FrameLayout rootLayout;
     boolean flag = false;
-    private int progressColor = -1;
-    private int progressId = -1;
-    private Handler handler = new Handler() { // from class: com.sina.weibo.sdk.share.WbShareTransActivity.1
+    private Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.sina.weibo.sdk.share.WbShareTransActivity.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
             WbShareTransActivity.this.sendCallback(1);
         }
     };
+    private FrameLayout rootLayout;
 
-    @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.sina.weibo.sdk.share.BaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        LogUtil.d("Share", "startShareTransActivity");
         initView();
-        checkSource();
+        Intent intent = getIntent();
+        if (intent != null) {
+            if (intent.getIntExtra(WBConstants.SHARE_START_FLAG, -1) != 0) {
+                finish();
+            } else {
+                checkSource(intent);
+            }
+        }
     }
 
-    private void checkSource() {
+    private void checkSource(Intent intent) {
         try {
-            Bundle extras = getIntent().getExtras();
+            Bundle extras = intent.getExtras();
             if (extras == null) {
                 finish();
             } else {
@@ -57,33 +66,36 @@ public class WbShareTransActivity extends Activity {
         }
     }
 
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v12 */
     private void initView() {
-        try {
-            this.progressColor = getIntent().getIntExtra(WBConstants.TRANS_PROGRESS_COLOR, -1);
-            this.progressId = getIntent().getIntExtra(WBConstants.TRANS_PROGRESS_ID, -1);
-        } catch (Exception e) {
-        }
+        WbSdkProgressBar wbSdkProgressBar;
+        View wbSdkProgressBar2;
+        int intExtra = getIntent().getIntExtra(WBConstants.TRANS_PROGRESS_COLOR, -1);
+        int intExtra2 = getIntent().getIntExtra(WBConstants.TRANS_PROGRESS_ID, -1);
         this.rootLayout = new FrameLayout(this);
-        if (this.progressId != -1) {
+        if (intExtra2 != -1) {
             try {
-                this.progressBar = ((LayoutInflater) getSystemService("layout_inflater")).inflate(this.progressId, (ViewGroup) null);
-            } catch (Exception e2) {
-                this.progressBar = new WbSdkProgressBar(this);
+                wbSdkProgressBar2 = ((LayoutInflater) getSystemService("layout_inflater")).inflate(intExtra2, (ViewGroup) null);
+            } catch (Exception e) {
+                wbSdkProgressBar2 = new WbSdkProgressBar(this);
             }
+            wbSdkProgressBar = wbSdkProgressBar2;
         } else {
-            this.progressBar = new WbSdkProgressBar(this);
-            if (this.progressColor != -1) {
-                ((WbSdkProgressBar) this.progressBar).setProgressColor(this.progressColor);
+            wbSdkProgressBar = new WbSdkProgressBar(this);
+            if (intExtra != -1) {
+                wbSdkProgressBar.setProgressColor(intExtra);
             }
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        this.rootLayout.addView(this.progressBar, layoutParams);
+        this.rootLayout.addView(wbSdkProgressBar, layoutParams);
         this.rootLayout.setBackgroundColor(855638016);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gotoWeiboComposer(WeiboMultiMessage weiboMultiMessage) {
+        LogUtil.d("Share", "gotoWeiboComposer");
         Intent intent = getIntent();
         this.flag = true;
         try {
@@ -101,9 +113,15 @@ public class WbShareTransActivity extends Activity {
             String stringExtra = intent.getStringExtra(WBConstants.SHARE_START_GOTO_ACTIVITY);
             if (!TextUtils.isEmpty(stringExtra) && "com.sina.weibo.sdk.web.WeiboSdkWebActivity".equals(stringExtra)) {
                 intent2.setClassName(this, "com.sina.weibo.sdk.web.WeiboSdkWebActivity");
-                startActivity(intent2);
-            } else if (WbSdk.isWbInstall(this)) {
                 startActivityForResult(intent2, WBConstants.SDK_ACTIVITY_FOR_RESULT_CODE);
+            } else if (WbSdk.isWbInstall(this)) {
+                WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this).getWbAppInfo();
+                if (wbAppInfo != null) {
+                    intent2.setPackage(wbAppInfo.getPackageName());
+                    startActivityForResult(intent2, WBConstants.SDK_ACTIVITY_FOR_RESULT_CODE);
+                } else {
+                    startActivityForResult(intent2, WBConstants.SDK_ACTIVITY_FOR_RESULT_CODE);
+                }
             } else {
                 sendCallback(2);
             }
@@ -115,7 +133,6 @@ public class WbShareTransActivity extends Activity {
     private void transPicAndVideoResource(WeiboMultiMessage weiboMultiMessage) {
         setContentView(this.rootLayout);
         if (weiboMultiMessage.multiImageObject != null || weiboMultiMessage.videoSourceObject != null) {
-            setContentView(this.rootLayout);
             if (this.copyResourceTask != null) {
                 this.copyResourceTask.cancel(true);
             }
@@ -123,7 +140,7 @@ public class WbShareTransActivity extends Activity {
                 @Override // com.sina.weibo.sdk.share.TransResourceCallback
                 public void onTransFinish(TransResourceResult transResourceResult) {
                     WbShareTransActivity.this.rootLayout.setVisibility(4);
-                    if (!transResourceResult.transDone) {
+                    if (transResourceResult == null || !transResourceResult.transDone) {
                         WbShareTransActivity.this.sendCallback(2);
                     } else {
                         WbShareTransActivity.this.gotoWeiboComposer(transResourceResult.message);
@@ -159,6 +176,7 @@ public class WbShareTransActivity extends Activity {
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        LogUtil.i("Share", "startTransActivity.onNewIntent()");
         if (this.handler != null) {
             this.handler.removeMessages(0);
             this.handler = null;
@@ -183,6 +201,7 @@ public class WbShareTransActivity extends Activity {
             new Bundle().putInt(WBConstants.Response.ERRCODE, i);
             setResult(-1, intent);
         } catch (Exception e) {
+            e.printStackTrace();
         }
         if (this.handler != null) {
             this.handler.removeMessages(0);

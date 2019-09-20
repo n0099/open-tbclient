@@ -17,20 +17,20 @@ public class SwanAppCores extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ct */
+        /* renamed from: cu */
         public SwanAppCores[] newArray(int i) {
             return new SwanAppCores[i];
         }
     };
-    private SwanCoreVersion aun;
-    private ExtensionCore auo;
+    private SwanCoreVersion auL;
+    private ExtensionCore auM;
 
     public SwanAppCores() {
     }
 
     private SwanAppCores(Parcel parcel) {
-        this.aun = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
-        this.auo = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
+        this.auL = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
+        this.auM = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
     }
 
     @Override // android.os.Parcelable
@@ -40,27 +40,27 @@ public class SwanAppCores extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.aun, i);
-        parcel.writeParcelable(this.auo, i);
+        parcel.writeParcelable(this.auL, i);
+        parcel.writeParcelable(this.auM, i);
     }
 
     public String toString() {
-        return "SwanAppCores{mSwanCoreVersion=" + this.aun + ", mExtensionCore=" + this.auo + '}';
+        return "SwanAppCores{mSwanCoreVersion=" + this.auL + ", mExtensionCore=" + this.auM + '}';
     }
 
-    public SwanCoreVersion Ci() {
-        return this.aun;
+    public SwanCoreVersion Cm() {
+        return this.auL;
     }
 
     public void a(SwanCoreVersion swanCoreVersion) {
-        this.aun = swanCoreVersion;
+        this.auL = swanCoreVersion;
     }
 
-    public ExtensionCore Cj() {
-        return this.auo;
+    public ExtensionCore Cn() {
+        return this.auM;
     }
 
     public void a(ExtensionCore extensionCore) {
-        this.auo = extensionCore;
+        this.auM = extensionCore;
     }
 }

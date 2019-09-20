@@ -26,7 +26,6 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import com.baidu.ubc.UBC;
 import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
@@ -142,7 +141,7 @@ public class BaiduStatJSInterface {
                 } else if ("onEventDuration".equals(string)) {
                     String string10 = jSONObject5.getString("event_id");
                     String string11 = jSONObject5.getString("label");
-                    long j = jSONObject5.getLong(UBC.CONTENT_KEY_DURATION);
+                    long j = jSONObject5.getLong("duration");
                     if (!TextUtils.isEmpty(string10)) {
                         try {
                             jSONObject = (JSONObject) jSONObject5.get("attributes");

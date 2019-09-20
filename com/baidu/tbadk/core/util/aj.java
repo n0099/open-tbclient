@@ -14,40 +14,42 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class aj {
-    public static int bTn = 0;
-    public static int bTo = 1;
-    public static int bTp = 2;
-    public static int bTq = 2;
-    public static int bTr = 3;
-    private com.baidu.tbadk.core.dialog.a TX;
-    private com.baidu.tbadk.coreExtra.model.a bTs;
-    private AttentionHostData bTt;
-    private int bTu;
-    private a bTv;
+    public static int bTO = 0;
+    public static int bTP = 1;
+    public static int bTQ = 2;
+    public static int bTR = 2;
+    public static int bTS = 3;
+    private com.baidu.tbadk.core.dialog.a TW;
+    private com.baidu.tbadk.coreExtra.model.a bTT;
+    private AttentionHostData bTU;
+    private int bTV;
+    private a bTW;
     private TbPageContext mContext;
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tbadk.core.util.aj.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            boolean z;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                if (aj.this.bTt != null && !StringUtils.isNull(aj.this.bTt.uid) && data != null && aj.this.bTt.uid.equals(data.toUid)) {
-                    boolean z = false;
-                    if (updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag().equals(aj.this.mId)) {
+                if (aj.this.bTU != null && !StringUtils.isNull(aj.this.bTU.uid) && data != null && aj.this.bTU.uid.equals(data.toUid)) {
+                    if (updateAttentionMessage.getOrginalMessage() == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(aj.this.mId)) {
+                        z = false;
+                    } else {
                         z = true;
                         if (updateAttentionMessage.getError() == 3250013) {
-                            BdToast.b(aj.this.mContext.getPageActivity(), updateAttentionMessage.getErrorString(), R.drawable.icon_toast_game_error, 3000).agS();
+                            BdToast.a(aj.this.mContext.getPageActivity(), updateAttentionMessage.getErrorString(), R.drawable.icon_pure_toast_mistake_n_svg, 3000, false).agW();
                         } else {
-                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.chM);
+                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.ciI);
                         }
                     }
                     if (data.Hs) {
-                        aj.this.bTt.likeStatus = data.status;
-                        aj.this.bTt.isAttention = data.isAttention;
+                        aj.this.bTU.likeStatus = data.status;
+                        aj.this.bTU.isAttention = data.isAttention;
                     }
-                    if (z && aj.this.bTv != null) {
-                        aj.this.bTv.e(data.Hs, aj.this.bTu);
+                    if (z && aj.this.bTW != null) {
+                        aj.this.bTW.e(data.Hs, aj.this.bTV);
                     }
                 }
             }
@@ -68,7 +70,7 @@ public class aj {
 
     /* renamed from: if  reason: not valid java name */
     public boolean m19if(int i) {
-        if (i == bTr) {
+        if (i == bTS) {
             com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), (int) R.string.reason_cannot_reply_thread);
             return false;
         }
@@ -76,14 +78,14 @@ public class aj {
     }
 
     public boolean U(int i, int i2) {
-        this.bTu = i2;
-        if (i == bTq) {
-            if (this.bTt == null || this.bTt.isAttention) {
+        this.bTV = i2;
+        if (i == bTR) {
+            if (this.bTU == null || this.bTU.isAttention) {
                 return true;
             }
-            ajg();
+            ajk();
             return false;
-        } else if (i == bTr) {
+        } else if (i == bTS) {
             com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), (int) R.string.reason_cannot_reply_thread);
             return false;
         } else {
@@ -92,44 +94,44 @@ public class aj {
     }
 
     public void a(AttentionHostData attentionHostData) {
-        this.bTt = attentionHostData;
+        this.bTU = attentionHostData;
     }
 
-    private void ajg() {
-        if (this.TX == null) {
-            this.TX = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            this.TX.hu(R.string.message_privacy_fans_can_reply);
-            this.TX.a(R.string.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.aj.1
+    private void ajk() {
+        if (this.TW == null) {
+            this.TW = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
+            this.TW.hv(R.string.message_privacy_fans_can_reply);
+            this.TW.a(R.string.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.aj.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    aj.this.ajh();
-                    aj.this.TX.dismiss();
+                    aj.this.ajl();
+                    aj.this.TW.dismiss();
                 }
             });
-            this.TX.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.aj.2
+            this.TW.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.aj.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    aj.this.TX.dismiss();
+                    aj.this.TW.dismiss();
                 }
             });
-            this.TX.setAutoNight(true);
-            this.TX.b(this.mContext);
+            this.TW.setAutoNight(true);
+            this.TW.b(this.mContext);
         }
-        this.TX.agK();
+        this.TW.agO();
     }
 
     public void a(com.baidu.tbadk.core.data.bb bbVar) {
-        if (bbVar != null && !StringUtils.isNull(bbVar.title) && !StringUtils.isNull(bbVar.bIM) && !StringUtils.isNull(bbVar.bIN)) {
+        if (bbVar != null && !StringUtils.isNull(bbVar.title) && !StringUtils.isNull(bbVar.bJk) && !StringUtils.isNull(bbVar.bJl)) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            aVar.mO(bbVar.title);
-            aVar.a(bbVar.bIN, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
+            aVar.mQ(bbVar.title);
+            aVar.a(bbVar.bJl, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aj.this.ajh();
+                    aj.this.ajl();
                     aVar2.dismiss();
                 }
             });
-            aVar.b(bbVar.bIM, new a.b() { // from class: com.baidu.tbadk.core.util.aj.4
+            aVar.b(bbVar.bJk, new a.b() { // from class: com.baidu.tbadk.core.util.aj.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
@@ -137,35 +139,35 @@ public class aj {
             });
             aVar.setAutoNight(true);
             aVar.b(this.mContext);
-            aVar.agK();
+            aVar.agO();
             return;
         }
-        ajg();
+        ajk();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajh() {
+    public void ajl() {
         if (!com.baidu.adp.lib.util.j.jQ()) {
             this.mContext.showToast(R.string.network_ungeilivable);
-        } else if (this.bTt != null && bd.cF(this.mContext.getPageActivity())) {
-            if (this.bTs == null) {
-                this.bTs = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
+        } else if (this.bTU != null && bc.cF(this.mContext.getPageActivity())) {
+            if (this.bTT == null) {
+                this.bTT = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
             }
-            this.bTs.a(true, this.bTt.portrait, this.bTt.uid, this.bTt.isGod, "0", this.mId, null, "0");
+            this.bTT.a(true, this.bTU.portrait, this.bTU.uid, this.bTU.isGod, "0", this.mId, null, "0");
         }
     }
 
     public void a(a aVar) {
-        this.bTv = aVar;
+        this.bTW = aVar;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
-        if (this.TX != null) {
-            this.TX.dismiss();
+        if (this.TW != null) {
+            this.TW.dismiss();
         }
-        if (this.bTs != null) {
-            this.bTs.cancel();
+        if (this.bTT != null) {
+            this.bTT.cancel();
         }
     }
 }

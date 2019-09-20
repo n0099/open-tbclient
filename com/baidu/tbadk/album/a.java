@@ -1,15 +1,14 @@
 package com.baidu.tbadk.album;
 
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public static final String bAS = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-    public static final String bAT = String.valueOf(2147483646);
+    public static final String bBq = String.valueOf(Integer.MAX_VALUE);
+    public static final String bBr = String.valueOf(2147483646);
     private String albumId;
-    private MediaFileInfo bAU;
-    private List<MediaFileInfo> bAV;
+    private MediaFileInfo bBs;
+    private List<MediaFileInfo> bBt;
     private int count;
     private String name;
 
@@ -17,7 +16,7 @@ public class a {
         return this.albumId;
     }
 
-    public void lx(String str) {
+    public void lz(String str) {
         this.albumId = str;
     }
 
@@ -33,34 +32,34 @@ public class a {
         return this.count;
     }
 
-    public void ly(String str) {
+    public void lA(String str) {
         this.count = com.baidu.adp.lib.g.b.f(str, 0);
     }
 
-    public void aam() {
+    public void aaq() {
         this.count++;
     }
 
-    public ImageFileInfo aan() {
-        if (this.bAU instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.bAU;
+    public ImageFileInfo aar() {
+        if (this.bBs instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.bBs;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.bAU = mediaFileInfo;
+        this.bBs = mediaFileInfo;
     }
 
-    public MediaFileInfo aao() {
-        return this.bAU;
+    public MediaFileInfo aas() {
+        return this.bBs;
     }
 
-    public List<MediaFileInfo> aap() {
-        return this.bAV;
+    public List<MediaFileInfo> aat() {
+        return this.bBt;
     }
 
     public void O(List<MediaFileInfo> list) {
-        this.bAV = list;
+        this.bBt = list;
     }
 }

@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b kas = new b();
-    private String kat = "unknown";
-    private int kau = 5;
+    public static final b kcP = new b();
+    private String kcQ = "unknown";
+    private int kcR = 5;
 
-    public static b cFa() {
-        return kas;
+    public static b cFO() {
+        return kcP;
     }
 
     private b() {
@@ -18,27 +18,27 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.kau <= i;
+        return this.kcR <= i;
     }
 
     @Override // com.facebook.common.c.c
     public void v(String str, String str2) {
-        p(2, str, str2);
+        q(2, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void d(String str, String str2) {
-        p(3, str, str2);
+        q(3, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void i(String str, String str2) {
-        p(4, str, str2);
+        q(4, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void w(String str, String str2) {
-        p(5, str, str2);
+        q(5, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -48,7 +48,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public void e(String str, String str2) {
-        p(6, str, str2);
+        q(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -57,8 +57,8 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void ez(String str, String str2) {
-        p(6, str, str2);
+    public void eA(String str, String str2) {
+        q(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -66,17 +66,17 @@ public class b implements c {
         b(6, str, str2, th);
     }
 
-    private void p(int i, String str, String str2) {
-        Log.println(i, HG(str), str2);
+    private void q(int i, String str, String str2) {
+        Log.println(i, Ig(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, HG(str), h(str2, th));
+        Log.println(i, Ig(str), h(str2, th));
     }
 
-    private String HG(String str) {
-        if (this.kat != null) {
-            return this.kat + ":" + str;
+    private String Ig(String str) {
+        if (this.kcQ != null) {
+            return this.kcQ + ":" + str;
         }
         return str;
     }

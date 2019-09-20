@@ -11,7 +11,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.ubc.UBC;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,27 +20,27 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
-    private a bBi;
+    private a bBG;
     private final Context mContext;
-    private final String bAW = TbConfig.getTempDirName();
-    private int bBj = 0;
-    private String[] bBk = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-    private String[] bBl = {"_id", "_data", "title", "mime_type", "_display_name", UBC.CONTENT_KEY_DURATION, "datetaken", "date_modified", "date_added"};
-    private String[] bBm = {"video_id", "_data", "width", "height"};
-    private HashMap<String, com.baidu.tbadk.album.a> bBn = new HashMap<>();
+    private final String bBu = TbConfig.getTempDirName();
+    private int bBH = 0;
+    private String[] bBI = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+    private String[] bBJ = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+    private String[] bBK = {"video_id", "_data", "width", "height"};
+    private HashMap<String, com.baidu.tbadk.album.a> bBL = new HashMap<>();
 
     public f(Context context) {
         this.mContext = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g aat() {
-        this.bBn.clear();
+    public g aax() {
+        this.bBL.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
         List<VideoFileInfo> list = null;
-        if (this.bBj != 2) {
-            list = aau();
+        if (this.bBH != 2) {
+            list = aay();
         }
         ArrayList arrayList = new ArrayList();
         if (!v.aa(imageList)) {
@@ -64,20 +63,20 @@ public class f {
                 }
             });
         }
-        ArrayList arrayList2 = new ArrayList(this.bBn.values());
+        ArrayList arrayList2 = new ArrayList(this.bBL.values());
         if (!v.aa(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<com.baidu.tbadk.album.a>() { // from class: com.baidu.tbadk.album.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(com.baidu.tbadk.album.a aVar, com.baidu.tbadk.album.a aVar2) {
-                    if (f.this.bAW.equals(aVar.getName())) {
+                    if (f.this.bBu.equals(aVar.getName())) {
                         return -1;
                     }
-                    if (f.this.bAW.equals(aVar2.getName())) {
+                    if (f.this.bBu.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.aan().getSortTime() - aVar.aan().getSortTime();
+                    long sortTime = aVar2.aar().getSortTime() - aVar.aar().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -85,9 +84,9 @@ public class f {
                 }
             });
         }
-        gVar.bBq = arrayList2;
-        gVar.bBs = list;
-        gVar.bBr = arrayList;
+        gVar.bBO = arrayList2;
+        gVar.bBQ = list;
+        gVar.bBP = arrayList;
         return gVar;
     }
 
@@ -112,7 +111,7 @@ public class f {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.mContext.getContentResolver().query(uri, this.bBk, "mime_type like 'image/%'", null, "date_added DESC");
+            cursor = this.mContext.getContentResolver().query(uri, this.bBI, "mime_type like 'image/%'", null, "date_added DESC");
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
@@ -138,32 +137,32 @@ public class f {
                 imageFileInfo.setModifyTime(aq.aX(j2));
                 imageFileInfo.setSortTime(j);
                 arrayList.add(imageFileInfo);
-                com.baidu.tbadk.album.a aVar2 = this.bBn.get(string);
+                com.baidu.tbadk.album.a aVar2 = this.bBL.get(string);
                 if (aVar2 == null) {
                     com.baidu.tbadk.album.a aVar3 = new com.baidu.tbadk.album.a();
-                    this.bBn.put(string, aVar3);
+                    this.bBL.put(string, aVar3);
                     aVar = aVar3;
                 } else {
                     aVar = aVar2;
                 }
-                aVar.lx(string);
+                aVar.lz(string);
                 aVar.setName(string2);
-                aVar.aam();
-                if (aVar.aan() == null) {
+                aVar.aaq();
+                if (aVar.aar() == null) {
                     aVar.a(imageFileInfo);
                 }
-                List<MediaFileInfo> aap = aVar.aap();
-                if (aVar.aap() == null) {
-                    aap = new ArrayList<>();
-                    aVar.O(aap);
+                List<MediaFileInfo> aat = aVar.aat();
+                if (aVar.aat() == null) {
+                    aat = new ArrayList<>();
+                    aVar.O(aat);
                 }
-                aap.add(imageFileInfo);
+                aat.add(imageFileInfo);
             }
         } while (cursor.moveToNext());
         return arrayList;
     }
 
-    private List<VideoFileInfo> aau() {
+    private List<VideoFileInfo> aay() {
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
         if (this.mContext == null) {
@@ -173,7 +172,7 @@ public class f {
         HashSet hashSet = new HashSet();
         Cursor cursor2 = null;
         try {
-            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.bBl, null, null, "date_added DESC");
+            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.bBJ, null, null, "date_added DESC");
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
@@ -183,7 +182,7 @@ public class f {
                             String string2 = cursor.getString(cursor.getColumnIndexOrThrow("title"));
                             String string3 = cursor.getString(cursor.getColumnIndexOrThrow("_display_name"));
                             String string4 = cursor.getString(cursor.getColumnIndexOrThrow("mime_type"));
-                            int i2 = cursor.getInt(cursor.getColumnIndexOrThrow(UBC.CONTENT_KEY_DURATION));
+                            int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
                             long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_modified"));
                             long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                             if (!hashSet.contains(string)) {
@@ -227,21 +226,21 @@ public class f {
         if (eVar == null) {
             return false;
         }
-        aav();
-        this.bBj = i;
-        this.bBi = new a(eVar);
-        this.bBi.setPriority(3);
-        this.bBi.execute(new Object[0]);
+        aaz();
+        this.bBH = i;
+        this.bBG = new a(eVar);
+        this.bBG.setPriority(3);
+        this.bBG.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e bBp;
+        private final e bBN;
 
         public a(e eVar) {
-            this.bBp = eVar;
+            this.bBN = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -249,15 +248,15 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public g doInBackground(Object... objArr) {
-            return f.this.aat();
+            return f.this.aax();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.bBp != null) {
-                this.bBp.onPreLoad();
+            if (this.bBN != null) {
+                this.bBN.onPreLoad();
             }
         }
 
@@ -267,16 +266,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.bBp != null) {
-                this.bBp.a(gVar);
+            if (this.bBN != null) {
+                this.bBN.a(gVar);
             }
         }
     }
 
-    public void aav() {
-        if (this.bBi != null) {
-            this.bBi.cancel();
-            this.bBi = null;
+    public void aaz() {
+        if (this.bBG != null) {
+            this.bBG.cancel();
+            this.bBG = null;
         }
     }
 }

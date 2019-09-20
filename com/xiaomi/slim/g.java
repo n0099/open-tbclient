@@ -84,8 +84,8 @@ public class g extends com.xiaomi.smack.h {
                 c(13, null);
             }
         }
-        for (a.C0496a c0496a : this.f.values()) {
-            c0496a.a(bVar);
+        for (a.C0502a c0502a : this.f.values()) {
+            c0502a.a(bVar);
         }
     }
 
@@ -139,8 +139,8 @@ public class g extends com.xiaomi.smack.h {
             if (!TextUtils.isEmpty(i)) {
                 com.xiaomi.smack.util.g.a(this.m, i, a, false, System.currentTimeMillis());
             }
-            for (a.C0496a c0496a : this.g.values()) {
-                c0496a.a(bVar);
+            for (a.C0502a c0502a : this.g.values()) {
+                c0502a.a(bVar);
             }
         } catch (Exception e) {
             throw new l(e);
@@ -152,8 +152,8 @@ public class g extends com.xiaomi.smack.h {
         if (dVar == null) {
             return;
         }
-        for (a.C0496a c0496a : this.f.values()) {
-            c0496a.a(dVar);
+        for (a.C0502a c0502a : this.f.values()) {
+            c0502a.a(dVar);
         }
     }
 

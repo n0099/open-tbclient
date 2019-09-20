@@ -3,23 +3,19 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class i {
-    private float NT = 8.0f;
-    private float NU = 15.0f;
-    private float NV = 4.0f;
-    private float NW = 60.0f;
-    private int NX = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+    private float NU = 8.0f;
+    private float NV = 15.0f;
+    private float NW = 4.0f;
+    private float NX = 60.0f;
     private int NY = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-    private int NZ = 500;
-    private float Oa = 0.4f;
-    private float Ob = 1.0f;
-    private float Oc = 20.0f;
-    private float Od = 10.0f;
-    private int Oe = 360;
-    private float Of = 5.0f;
-
-    public float ok() {
-        return this.NT;
-    }
+    private int NZ = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+    private int Oa = 500;
+    private float Ob = 0.4f;
+    private float Oc = 1.0f;
+    private float Od = 20.0f;
+    private float Oe = 10.0f;
+    private int Of = 360;
+    private float Og = 5.0f;
 
     public float ol() {
         return this.NU;
@@ -33,7 +29,7 @@ public class i {
         return this.NW;
     }
 
-    public int oo() {
+    public float oo() {
         return this.NX;
     }
 
@@ -45,7 +41,7 @@ public class i {
         return this.NZ;
     }
 
-    public float or() {
+    public int or() {
         return this.Oa;
     }
 
@@ -61,7 +57,11 @@ public class i {
         return this.Od;
     }
 
-    public int ov() {
+    public float ov() {
         return this.Oe;
+    }
+
+    public int ow() {
+        return this.Of;
     }
 }

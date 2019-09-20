@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.g;
 
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,8 +21,8 @@ public class a extends j {
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("action_name", this.d);
-        jSONObject.put("timestamp", this.e);
-        jSONObject.put("network_status", this.f);
+        jSONObject.put(DpStatConstants.KEY_TIMESTAMP, this.e);
+        jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, this.f);
         jSONObject.put("msg_result", this.a);
         jSONObject.put("request_id", this.b);
         jSONObject.put("err_code", this.g);

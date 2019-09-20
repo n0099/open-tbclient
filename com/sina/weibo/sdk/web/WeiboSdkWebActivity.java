@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.sina.weibo.sdk.auth.BaseSsoHandler;
+import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import com.sina.weibo.sdk.utils.UIUtils;
 import com.sina.weibo.sdk.utils.WbUtils;
@@ -63,6 +65,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
+        LogUtil.i("Share", "startWebActivity");
         requestWindowFeature(1);
         super.onCreate(bundle);
         setContentView(initView());
@@ -70,6 +73,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     }
 
     private void initLoad() {
+        LogUtil.i("Share", "WebActivity.initLoad().start");
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
             finish();
@@ -101,17 +105,31 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             this.baseParam.doExtraTask(new BaseWebViewRequestParam.ExtraTaskCallback() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.1
                 @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam.ExtraTaskCallback
                 public void onComplete(String str) {
-                    WeiboSdkWebActivity.this.webView.loadUrl(WeiboSdkWebActivity.this.baseParam.getRequestUrl());
+                    LogUtil.i("Share", "WebActivity.sharePic.onComplete()");
+                    if (WeiboSdkWebActivity.this.checkRequestUrl(WeiboSdkWebActivity.this.baseParam.getRequestUrl())) {
+                        WeiboSdkWebActivity.this.webView.loadUrl(WeiboSdkWebActivity.this.baseParam.getRequestUrl());
+                    }
                 }
 
                 @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam.ExtraTaskCallback
                 public void onException(String str) {
+                    LogUtil.i("Share", "WebActivity.sharePic.onException()");
                     WeiboSdkWebActivity.this.webViewClient.errorBack(WeiboSdkWebActivity.this, "pic upload error");
+                    WeiboSdkWebActivity.this.finish();
                 }
             });
-            return;
+        } else {
+            String requestUrl = this.baseParam.getRequestUrl();
+            if (checkRequestUrl(requestUrl)) {
+                this.webView.loadUrl(requestUrl);
+            }
         }
-        this.webView.loadUrl(this.baseParam.getRequestUrl());
+        LogUtil.i("Share", "WebActivity.initLoad().end");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean checkRequestUrl(String str) {
+        return !TextUtils.isEmpty(str) && (str.startsWith(ShareWebViewRequestParam.SHARE_URL) || str.startsWith(BaseSsoHandler.OAUTH2_BASE_URL));
     }
 
     private View initView() {

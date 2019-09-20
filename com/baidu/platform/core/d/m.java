@@ -1,5 +1,6 @@
 package com.baidu.platform.core.d;
 
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -9,7 +10,6 @@ import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.ubc.UBC;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -37,7 +37,7 @@ public class m extends k {
             return null;
         }
         TaxiInfo taxiInfo = new TaxiInfo();
-        JSONArray optJSONArray = jSONObject.optJSONArray("detail");
+        JSONArray optJSONArray = jSONObject.optJSONArray(DpStatConstants.KEY_DETAIL);
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return null;
         }
@@ -60,7 +60,7 @@ public class m extends k {
         }
         taxiInfo.setDesc(jSONObject.optString("remark"));
         taxiInfo.setDistance(jSONObject.optInt("distance"));
-        taxiInfo.setDuration(jSONObject.optInt(UBC.CONTENT_KEY_DURATION));
+        taxiInfo.setDuration(jSONObject.optInt("duration"));
         taxiInfo.setTotalPrice(f);
         taxiInfo.setStartPrice(f3);
         taxiInfo.setPerKMPrice(f2);
@@ -128,7 +128,7 @@ public class m extends k {
                         if (jSONObject2 != null) {
                             TransitRouteLine transitRouteLine = new TransitRouteLine();
                             transitRouteLine.setDistance(jSONObject2.optInt("distance"));
-                            transitRouteLine.setDuration(jSONObject2.optInt(UBC.CONTENT_KEY_DURATION));
+                            transitRouteLine.setDuration(jSONObject2.optInt("duration"));
                             transitRouteLine.setStarting(a);
                             transitRouteLine.setTerminal(a2);
                             JSONArray optJSONArray2 = jSONObject2.optJSONArray("steps");
@@ -148,7 +148,7 @@ public class m extends k {
                                         }
                                         transitStep.setInstructions(b(optJSONObject5.optString("instructions")));
                                         transitStep.setDistance(optJSONObject5.optInt("distance"));
-                                        transitStep.setDuration(optJSONObject5.optInt(UBC.CONTENT_KEY_DURATION));
+                                        transitStep.setDuration(optJSONObject5.optInt("duration"));
                                         transitStep.setPathString(optJSONObject5.optString("path"));
                                         if (optJSONObject5.has("vehicle")) {
                                             transitStep.setVehicleInfo(c(optJSONObject5.optString("vehicle")));

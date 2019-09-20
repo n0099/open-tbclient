@@ -2,7 +2,7 @@ package com.baidu.tieba.quickWebView.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.GetWebviewCacheInfo.DataReq;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoReqIdl;
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class WebViewCacheReqMsg extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.webview_version = this.mWebViewVersion;
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         GetWebviewCacheInfoReqIdl.Builder builder2 = new GetWebviewCacheInfoReqIdl.Builder();
         builder2.data = builder.build(true);

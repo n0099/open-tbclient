@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
-    private long aGT;
-    private String cWQ;
-    private String hEP;
-    private String jhn;
-    private List<String> jho;
+    private long aHr;
+    private String cXJ;
+    private String hGL;
+    private String jjJ;
+    private List<String> jjK;
     private long mStartTime;
     private int mType;
 
     public void a(RedpacketRain redpacketRain) {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
-            this.aGT = redpacketRain.end_time.longValue() * 1000;
-            this.cWQ = redpacketRain.jump_url;
-            this.jhn = redpacketRain.float_url;
-            this.jho = redpacketRain.dynamic_img;
-            this.hEP = redpacketRain.activity_id;
+            this.aHr = redpacketRain.end_time.longValue() * 1000;
+            this.cXJ = redpacketRain.jump_url;
+            this.jjJ = redpacketRain.float_url;
+            this.jjK = redpacketRain.dynamic_img;
+            this.hGL = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -29,23 +29,23 @@ public class o {
     }
 
     public long getEndTime() {
-        return this.aGT;
+        return this.aHr;
     }
 
-    public String aCV() {
-        return this.cWQ;
+    public String aDj() {
+        return this.cXJ;
     }
 
-    public String cpZ() {
-        return this.jhn;
+    public String cqN() {
+        return this.jjJ;
     }
 
-    public List<String> cqa() {
-        return this.jho;
+    public List<String> cqO() {
+        return this.jjK;
     }
 
-    public String cqb() {
-        return this.hEP;
+    public String cqP() {
+        return this.hGL;
     }
 
     public void setStartTime(long j) {
@@ -53,23 +53,23 @@ public class o {
     }
 
     public void setEndTime(long j) {
-        this.aGT = j;
+        this.aHr = j;
     }
 
-    public void EL(String str) {
-        this.cWQ = str;
+    public void Fl(String str) {
+        this.cXJ = str;
     }
 
-    public void EM(String str) {
-        this.jhn = str;
+    public void Fm(String str) {
+        this.jjJ = str;
     }
 
     public void ed(List<String> list) {
-        this.jho = list;
+        this.jjK = list;
     }
 
-    public void EN(String str) {
-        this.hEP = str;
+    public void Fn(String str) {
+        this.hGL = str;
     }
 
     public int getType() {

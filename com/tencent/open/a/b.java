@@ -1,17 +1,16 @@
 package com.tencent.open.a;
 
-import android.support.v7.widget.ActivityChooserView;
 import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class b {
-    private static SimpleDateFormat a = d.C0478d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat a = d.C0484d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
-    private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private int d = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private int c = Integer.MAX_VALUE;
+    private int d = Integer.MAX_VALUE;
     private int e = 4096;
     private long f = 10000;
     private int h = 10;

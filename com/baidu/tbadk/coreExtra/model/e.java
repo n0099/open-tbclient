@@ -6,44 +6,44 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String cjJ;
-    private String cjK;
-    private String cjL;
-    private String cjM;
-    private String cjP;
-    private String cjQ;
-    private String cjR;
-    private String cjS;
-    private String cjT;
-    private String cjU;
-    private int cjr = 0;
-    private int cjs = 0;
-    private int cjt = 0;
-    private int cju = 0;
-    private int cjv = 0;
-    private int cjw = 0;
-    private int cjx = 0;
-    private int cjy = 0;
-    private int cjz = 0;
-    private int cjA = 0;
-    private int cjB = 0;
-    private int cjC = 0;
-    private int cjD = 0;
-    private int cjE = 0;
-    private int cjF = 0;
-    private int cjG = 0;
-    private boolean cjH = true;
-    private boolean cjI = true;
-    private HashMap<String, String> cjN = new HashMap<>();
-    private HashMap<String, String> cjO = new HashMap<>();
-    private List<a> cjV = new ArrayList();
+    private String ckE;
+    private String ckF;
+    private String ckG;
+    private String ckH;
+    private String ckK;
+    private String ckL;
+    private String ckM;
+    private String ckN;
+    private String ckO;
+    private String ckP;
+    private int ckm = 0;
+    private int ckn = 0;
+    private int cko = 0;
+    private int ckp = 0;
+    private int ckq = 0;
+    private int ckr = 0;
+    private int cks = 0;
+    private int ckt = 0;
+    private int cku = 0;
+    private int ckv = 0;
+    private int ckw = 0;
+    private int ckx = 0;
+    private int cky = 0;
+    private int ckz = 0;
+    private int ckA = 0;
+    private int ckB = 0;
+    private boolean ckC = true;
+    private boolean ckD = true;
+    private HashMap<String, String> ckI = new HashMap<>();
+    private HashMap<String, String> ckJ = new HashMap<>();
+    private List<a> ckQ = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public String cjW;
-        public String cjX;
-        public int cjY;
-        public String cjZ;
+        public String ckR;
+        public String ckS;
+        public int ckT;
+        public String ckU;
         public String content;
         public String gid;
         public String title;
@@ -51,219 +51,219 @@ public class e {
         public int userType;
     }
 
-    public void apb() {
-        HashMap<String, String> aps = aps();
-        Set<String> keySet = aps.keySet();
+    public void apo() {
+        HashMap<String, String> apE = apE();
+        Set<String> keySet = apE.keySet();
         if (keySet.size() != 1) {
-            pq(null);
+            pB(null);
         } else {
-            pq(aps.get(keySet.iterator().next()));
+            pB(apE.get(keySet.iterator().next()));
         }
     }
 
-    public void apc() {
-        HashMap<String, String> apy = apy();
-        Set<String> keySet = apy.keySet();
+    public void app() {
+        HashMap<String, String> apK = apK();
+        Set<String> keySet = apK.keySet();
         if (keySet.size() != 1) {
-            pw(null);
+            pH(null);
         } else {
-            pw(apy.get(keySet.iterator().next()));
+            pH(apK.get(keySet.iterator().next()));
         }
     }
 
-    public int apd() {
-        return this.cjr;
-    }
-
-    public void jA(int i) {
-        this.cjr = i;
-    }
-
-    public int ape() {
-        return this.cju;
-    }
-
-    public void jB(int i) {
-        this.cju = i;
-    }
-
-    public int apf() {
-        return this.cjv;
-    }
-
-    public int apg() {
-        return this.cjx;
-    }
-
-    public void jC(int i) {
-        this.cjx = i;
-    }
-
-    public int aph() {
-        return this.cjB;
+    public int apq() {
+        return this.ckm;
     }
 
     public void jD(int i) {
-        this.cjB = i;
+        this.ckm = i;
     }
 
-    public int apj() {
-        return this.cjA;
+    public int apr() {
+        return this.ckp;
     }
 
     public void jE(int i) {
-        this.cjA = i;
+        this.ckp = i;
     }
 
-    public int apk() {
-        return this.cjr;
-    }
-
-    public int apl() {
-        return this.cjt;
-    }
-
-    public void jF(int i) {
-        this.cjt = i;
-    }
-
-    public boolean apm() {
-        return this.cjH;
-    }
-
-    public void eP(boolean z) {
-        this.cjH = z;
-    }
-
-    public String apn() {
-        return this.cjJ;
-    }
-
-    public void pp(String str) {
-        this.cjJ = str;
-    }
-
-    public String apo() {
-        return this.cjP;
-    }
-
-    public void pq(String str) {
-        this.cjP = str;
-    }
-
-    public void pr(String str) {
-        this.cjQ = str;
-    }
-
-    public int app() {
-        return this.cjs;
-    }
-
-    public void jG(int i) {
-        this.cjs = i;
-    }
-
-    public void ps(String str) {
-        this.cjR = str;
-    }
-
-    public String apq() {
-        return this.cjT;
-    }
-
-    public String apr() {
-        return this.cjU;
-    }
-
-    public HashMap<String, String> aps() {
-        return this.cjN;
+    public int aps() {
+        return this.ckq;
     }
 
     public int apt() {
-        return this.cjw;
+        return this.cks;
     }
 
-    public void jH(int i) {
-        this.cjw = i;
+    public void jF(int i) {
+        this.cks = i;
     }
 
     public int apu() {
-        return this.cjy;
+        return this.ckw;
     }
 
-    public void jI(int i) {
-        this.cjy = i;
+    public void jG(int i) {
+        this.ckw = i;
     }
 
     public int apv() {
-        return this.cjC;
+        return this.ckv;
     }
 
-    public void jJ(int i) {
-        this.cjC = i;
-    }
-
-    public void pt(String str) {
-        this.cjK = str;
-    }
-
-    public void pu(String str) {
-        this.cjL = str;
+    public void jH(int i) {
+        this.ckv = i;
     }
 
     public int apw() {
-        return this.cjz;
+        return this.ckm;
     }
 
-    public void jK(int i) {
-        this.cjz = i;
+    public int apx() {
+        return this.cko;
     }
 
-    public String apx() {
-        return this.cjM;
+    public void jI(int i) {
+        this.cko = i;
     }
 
-    public void pv(String str) {
-        this.cjM = str;
+    public boolean apy() {
+        return this.ckC;
     }
 
-    public HashMap<String, String> apy() {
-        return this.cjO;
+    public void eS(boolean z) {
+        this.ckC = z;
     }
 
     public String apz() {
-        return this.cjS;
+        return this.ckE;
     }
 
-    public void pw(String str) {
-        this.cjS = str;
+    public void pA(String str) {
+        this.ckE = str;
     }
 
-    public int apA() {
-        return this.cjE;
+    public String apA() {
+        return this.ckK;
     }
 
-    public void jL(int i) {
-        this.cjE = i;
+    public void pB(String str) {
+        this.ckK = str;
+    }
+
+    public void pC(String str) {
+        this.ckL = str;
     }
 
     public int apB() {
-        return this.cjF;
+        return this.ckn;
+    }
+
+    public void jJ(int i) {
+        this.ckn = i;
+    }
+
+    public void pD(String str) {
+        this.ckM = str;
+    }
+
+    public String apC() {
+        return this.ckO;
+    }
+
+    public String apD() {
+        return this.ckP;
+    }
+
+    public HashMap<String, String> apE() {
+        return this.ckI;
+    }
+
+    public int apF() {
+        return this.ckr;
+    }
+
+    public void jK(int i) {
+        this.ckr = i;
+    }
+
+    public int apG() {
+        return this.ckt;
+    }
+
+    public void jL(int i) {
+        this.ckt = i;
+    }
+
+    public int apH() {
+        return this.ckx;
     }
 
     public void jM(int i) {
-        this.cjF = i;
+        this.ckx = i;
     }
 
-    public List<a> apC() {
-        return this.cjV;
+    public void pE(String str) {
+        this.ckF = str;
     }
 
-    public int apD() {
-        return this.cjG;
+    public void pF(String str) {
+        this.ckG = str;
+    }
+
+    public int apI() {
+        return this.cku;
     }
 
     public void jN(int i) {
-        this.cjG = i;
+        this.cku = i;
+    }
+
+    public String apJ() {
+        return this.ckH;
+    }
+
+    public void pG(String str) {
+        this.ckH = str;
+    }
+
+    public HashMap<String, String> apK() {
+        return this.ckJ;
+    }
+
+    public String apL() {
+        return this.ckN;
+    }
+
+    public void pH(String str) {
+        this.ckN = str;
+    }
+
+    public int apM() {
+        return this.ckz;
+    }
+
+    public void jO(int i) {
+        this.ckz = i;
+    }
+
+    public int apN() {
+        return this.ckA;
+    }
+
+    public void jP(int i) {
+        this.ckA = i;
+    }
+
+    public List<a> apO() {
+        return this.ckQ;
+    }
+
+    public int apP() {
+        return this.ckB;
+    }
+
+    public void jQ(int i) {
+        this.ckB = i;
     }
 }

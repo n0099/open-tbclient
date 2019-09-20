@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 public interface a {
     void N(View.OnClickListener onClickListener);
 
-    void og(boolean z);
+    void ok(boolean z);
 
-    void oh(boolean z);
+    void ol(boolean z);
 
-    void oi(boolean z);
+    void om(boolean z);
 
     void setData(com.baidu.tieba.pb.data.d dVar);
 
@@ -24,5 +24,5 @@ public interface a {
 
     void v(View.OnClickListener onClickListener);
 
-    void xI(int i);
+    void xL(int i);
 }

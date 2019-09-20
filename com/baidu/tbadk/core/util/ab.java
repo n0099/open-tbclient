@@ -10,7 +10,7 @@ public class ab {
     public static boolean cw(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.e.a.uD()) {
+        if (com.baidu.e.a.uH()) {
             if (context == null) {
                 return false;
             }
@@ -35,7 +35,7 @@ public class ab {
     }
 
     public static boolean cx(Context context) {
-        if (com.baidu.e.a.uD()) {
+        if (com.baidu.e.a.uH()) {
             if (context != null) {
                 try {
                     if (!com.baidu.e.a.a.N(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -55,7 +55,7 @@ public class ab {
     }
 
     public static boolean cy(Context context) {
-        if (!com.baidu.e.a.uD()) {
+        if (!com.baidu.e.a.uH()) {
             return true;
         }
         if (context != null) {
@@ -70,7 +70,7 @@ public class ab {
     }
 
     public static boolean cz(Context context) {
-        if (!com.baidu.e.a.uD()) {
+        if (!com.baidu.e.a.uH()) {
             return true;
         }
         if (context != null) {
@@ -85,7 +85,7 @@ public class ab {
     }
 
     public static boolean cA(Context context) {
-        if (!com.baidu.e.a.uD()) {
+        if (!com.baidu.e.a.uH()) {
             return true;
         }
         if (context != null) {
@@ -100,7 +100,7 @@ public class ab {
     }
 
     public static boolean cB(Context context) {
-        if (!com.baidu.e.a.uD()) {
+        if (!com.baidu.e.a.uH()) {
             return true;
         }
         if (context != null) {
@@ -122,6 +122,14 @@ public class ab {
         }
     }
 
+    public static void e(Activity activity, int i) {
+        try {
+            com.baidu.e.a.a.requestPermissions(activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, i);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
     public static ArrayMap<String, Boolean> b(String[] strArr, int[] iArr) {
         if (strArr == null || strArr.length == 0 || iArr == null || iArr.length == 0) {
             return null;
@@ -133,7 +141,7 @@ public class ab {
         return arrayMap;
     }
 
-    public static boolean e(Activity activity, int i) {
+    public static boolean f(Activity activity, int i) {
         ArrayList arrayList = new ArrayList(2);
         if (!cB(activity.getApplicationContext())) {
             arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
@@ -153,7 +161,7 @@ public class ab {
     }
 
     public static boolean ah(Context context, String str) {
-        if (!com.baidu.e.a.uD()) {
+        if (!com.baidu.e.a.uH()) {
             return true;
         }
         if (context != null) {

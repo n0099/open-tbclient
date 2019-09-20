@@ -52,32 +52,32 @@ public class a extends z {
             }
             return false;
         } else {
-            JSONObject fl = fl(unitedSchemeEntity.getParam("params"));
-            if (TextUtils.equals(str, "/swan/recorder/start") && fl == null) {
+            JSONObject fn = fn(unitedSchemeEntity.getParam("params"));
+            if (TextUtils.equals(str, "/swan/recorder/start") && fn == null) {
                 c.e("record", "none params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
                 return false;
             }
-            final com.baidu.swan.apps.media.c.a a = com.baidu.swan.apps.media.c.a.a(fl, com.baidu.swan.apps.media.c.c.a.Hi().Hk());
+            final com.baidu.swan.apps.media.c.a a = com.baidu.swan.apps.media.c.a.a(fn, com.baidu.swan.apps.media.c.c.a.Hm().Ho());
             if (a == null) {
                 c.e("record", "error params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
                 return false;
             }
-            JSONObject Hh = a.Hh();
-            if (Hh != null) {
+            JSONObject Hl = a.Hl();
+            if (Hl != null) {
                 c.e("record", "error params");
-                unitedSchemeEntity.result = Hh;
+                unitedSchemeEntity.result = Hl;
                 return false;
             }
-            final com.baidu.swan.apps.media.c.b a2 = com.baidu.swan.apps.media.c.b.a(callbackHandler, unitedSchemeEntity, a.aCz, com.baidu.swan.apps.media.c.c.a.Hi().Hl());
+            final com.baidu.swan.apps.media.c.b a2 = com.baidu.swan.apps.media.c.b.a(callbackHandler, unitedSchemeEntity, a.aCX, com.baidu.swan.apps.media.c.c.a.Hm().Hp());
             if (a2 == null) {
                 c.e("record", "error cb");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
                 return false;
             }
-            final String hE = com.baidu.swan.apps.storage.b.hE(bVar.id);
-            if (TextUtils.isEmpty(hE)) {
+            final String hG = com.baidu.swan.apps.storage.b.hG(bVar.id);
+            if (TextUtils.isEmpty(hG)) {
                 c.e("record", "none tmp path");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
@@ -86,13 +86,13 @@ public class a extends z {
                 c.e("record", "handle action, but context is not Activity");
                 return false;
             } else {
-                bVar.Mh().a((Activity) context, "mapp_record", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.c.a.a.1
+                bVar.Ml().a((Activity) context, "mapp_record", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.c.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
                     public void D(Boolean bool) {
                         if (bool.booleanValue()) {
-                            a.this.a(context, unitedSchemeEntity, callbackHandler, str, a, a2, hE, bVar.id);
+                            a.this.a(context, unitedSchemeEntity, callbackHandler, str, a, a2, hG, bVar.id);
                             return;
                         }
                         c.e("record", "record authorize failure");
@@ -112,15 +112,15 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, final com.baidu.swan.apps.media.c.a aVar, final com.baidu.swan.apps.media.c.b bVar, final String str2, final String str3) {
-        if (com.baidu.swan.apps.media.c.c.a.Hi().aN(context)) {
+        if (com.baidu.swan.apps.media.c.c.a.Hm().aN(context)) {
             if (DEBUG) {
                 Log.d("AudioRecordAction", "record --- had system permission");
             }
             a(callbackHandler, unitedSchemeEntity, str, context, aVar, bVar, str2, str3);
             return;
         }
-        e.GF().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0111a() { // from class: com.baidu.swan.apps.media.c.a.a.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0111a
+        e.GJ().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0120a() { // from class: com.baidu.swan.apps.media.c.a.a.2
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0120a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 if (i != 2 || iArr.length <= 0) {
                     if (a.DEBUG) {
@@ -218,25 +218,25 @@ public class a extends z {
 
     private void a(Context context, com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.b bVar, String str, String str2) {
         c.i("record", "init");
-        com.baidu.swan.apps.media.c.c.a.Hi().a(str, aVar, context, bVar, str2);
+        com.baidu.swan.apps.media.c.c.a.Hm().a(str, aVar, context, bVar, str2);
         c.i("record", IntentConfig.START);
-        com.baidu.swan.apps.media.c.c.a.Hi().aG(true);
+        com.baidu.swan.apps.media.c.c.a.Hm().aG(true);
     }
 
     private void pauseRecord() {
-        com.baidu.swan.apps.media.c.c.a.Hi().pauseRecord();
+        com.baidu.swan.apps.media.c.c.a.Hm().pauseRecord();
     }
 
     private void resumeRecord() {
-        com.baidu.swan.apps.media.c.c.a.Hi().resumeRecord();
+        com.baidu.swan.apps.media.c.c.a.Hm().resumeRecord();
     }
 
     private void stopRecord() {
-        com.baidu.swan.apps.media.c.c.a.Hi().stopRecord();
+        com.baidu.swan.apps.media.c.c.a.Hm().stopRecord();
         com.baidu.swan.apps.media.c.c.a.release();
     }
 
-    private JSONObject fl(String str) {
+    private JSONObject fn(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);

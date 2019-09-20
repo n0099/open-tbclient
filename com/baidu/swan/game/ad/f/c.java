@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes2.dex */
 public class c {
-    private static volatile c bef;
+    private static volatile c beF;
     private List<k> b = new CopyOnWriteArrayList();
 
-    public static c QL() {
-        if (bef == null) {
+    public static c QP() {
+        if (beF == null) {
             synchronized (c.class) {
-                if (bef == null) {
-                    bef = new c();
+                if (beF == null) {
+                    beF = new c();
                 }
             }
         }
-        return bef;
+        return beF;
     }
 
     public void a(k kVar) {

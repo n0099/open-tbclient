@@ -6,7 +6,7 @@ import com.baidu.tieba.R;
 public class RGStateSeg extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().Q().c(R.drawable.aiapps_follow_vip_golden);
+        b.a().Q().c(R.drawable.aiapps_favorite_guide_close);
         if (b.a().J() != 4) {
             b.a().Q().a(false);
         }

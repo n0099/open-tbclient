@@ -7,12 +7,12 @@ public class c extends com.baidu.swan.apps.u.b.b {
     }
 
     @Override // com.baidu.swan.apps.u.b.b
-    public boolean Fe() {
-        return a.Fe();
+    public boolean Fi() {
+        return a.Fi();
     }
 
     @Override // com.baidu.swan.apps.u.b.b
     public void bp(boolean z) {
-        a.gE(z);
+        a.gH(z);
     }
 }

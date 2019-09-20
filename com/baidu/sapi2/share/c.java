@@ -10,7 +10,6 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.widget.Toast;
 import com.baidu.sapi2.SapiAccount;
@@ -21,7 +20,6 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.share.a.b;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -32,6 +30,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -75,7 +74,7 @@ public final class c {
                     }
                     if (TextUtils.isEmpty(str2) || context.checkCallingOrSelfPermission(str2) == 0) {
                         if (a(context, intent.getComponent().getPackageName()) && !context.getPackageName().equals(intent.getComponent().getPackageName())) {
-                            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                            int i = Integer.MAX_VALUE;
                             for (String str3 : orderAuthorizedPackages.keySet()) {
                                 i = intent.getComponent().getPackageName().matches(str3) ? orderAuthorizedPackages.get(str3).intValue() : i;
                             }
@@ -254,7 +253,18 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<ShareStorage.StorageModel> e(Context context) {
-        return ShareStorage.StorageModel.a(SapiContext.getInstance(context).getShareStorage());
+        List<ShareStorage.StorageModel> a2 = ShareStorage.StorageModel.a(SapiContext.getInstance(context).getShareStorage());
+        String[] deleteShareLoginList = SapiContext.getInstance(context).getDeleteShareLoginList();
+        Iterator<ShareStorage.StorageModel> it = a2.iterator();
+        while (it.hasNext()) {
+            ShareStorage.StorageModel next = it.next();
+            for (String str : deleteShareLoginList) {
+                if (!TextUtils.isEmpty(next.url) && next.url.contains(str)) {
+                    it.remove();
+                }
+            }
+        }
+        return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -365,23 +375,19 @@ public final class c {
                     SapiContext.getInstance(context).setAccountActionType(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
                     if (SapiContext.getInstance(context).shareLivingunameEnable()) {
                         ArrayList arrayList = new ArrayList();
-                        String stringExtra = intent.getStringExtra("FACE_LOGIN_UID");
-                        if (!TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(SapiContext.getInstance(context).getFaceLoginUid())) {
-                            arrayList.add(new b.a(stringExtra, 1L));
-                        }
-                        String stringExtra2 = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
-                        if (!TextUtils.isEmpty(stringExtra2)) {
-                            arrayList.addAll(new com.baidu.sapi2.share.a.c().b(stringExtra2));
+                        String stringExtra = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
+                        if (!TextUtils.isEmpty(stringExtra)) {
+                            arrayList.addAll(new com.baidu.sapi2.share.a.b().a(stringExtra));
                         }
                         if (!arrayList.isEmpty()) {
-                            new com.baidu.sapi2.share.a.c().a((List<b.a>) arrayList, false);
+                            new com.baidu.sapi2.share.a.b().a(context, arrayList);
                         }
                     }
                     SapiContext.getInstance(context).put(SapiContext.KEY_PRE_LOGIN_TYPE, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
                     shareLoginCallBack.onSuccess();
+                    str3 = str4;
                     str2 = "";
                     i3 = 0;
-                    str3 = str4;
                     SapiStatUtil.statShareV2Result(ShareCallPacking.statModel, str2, i3, str3, list);
                 }
                 i3 = 1;

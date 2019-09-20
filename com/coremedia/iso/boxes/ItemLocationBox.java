@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeReaderVariable;
 import com.coremedia.iso.IsoTypeWriter;
@@ -15,18 +16,18 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class ItemLocationBox extends AbstractFullBox {
     public static final String TYPE = "iloc";
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_9 = null;
     public int baseOffsetSize;
     public int indexSize;
     public List<Item> items;
@@ -50,7 +51,7 @@ public class ItemLocationBox extends AbstractFullBox {
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 143);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "indexSize", "", "void"), 147);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getItems", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "java.util.List"), 151);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setItems", "com.coremedia.iso.boxes.ItemLocationBox", "java.util.List", "items", "", "void"), 155);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setItems", "com.coremedia.iso.boxes.ItemLocationBox", "java.util.List", DpStatConstants.KEY_ITEMS, "", "void"), 155);
     }
 
     public ItemLocationBox() {
@@ -114,7 +115,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.EO(i)));
         this.offsetSize = i;
     }
 
@@ -124,7 +125,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setLengthSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EO(i)));
         this.lengthSize = i;
     }
 
@@ -134,7 +135,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setBaseOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EO(i)));
         this.baseOffsetSize = i;
     }
 
@@ -144,7 +145,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setIndexSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.EO(i)));
         this.indexSize = i;
     }
 
@@ -159,7 +160,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Item createItem(int i, int i2, int i3, long j, List<Extent> list) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.EK(i), org.aspectj.a.a.a.EK(i2), org.aspectj.a.a.a.EK(i3), org.aspectj.a.a.a.eP(j), list}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.EO(i), org.aspectj.a.a.a.EO(i2), org.aspectj.a.a.a.EO(i3), org.aspectj.a.a.a.eS(j), list}));
         return new Item(i, i2, i3, j, list);
     }
 
@@ -269,7 +270,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Extent createExtent(long j, long j2, long j3) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.eP(j), org.aspectj.a.a.a.eP(j2), org.aspectj.a.a.a.eP(j3)}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.eS(j), org.aspectj.a.a.a.eS(j2), org.aspectj.a.a.a.eS(j3)}));
         return new Extent(j, j2, j3);
     }
 

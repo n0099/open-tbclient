@@ -16,31 +16,31 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class MaskView extends View {
-    private int cRy;
-    private int cat;
-    private Paint exT;
-    private Paint eyq;
-    private Rect eyr;
-    private Drawable eys;
+    private int cSr;
+    private int cbm;
+    private Rect eAa;
+    private Drawable eAb;
+    private Paint ezD;
+    private Paint ezZ;
     private Path lR;
     private int maskType;
 
     public void setLineColor(int i) {
-        this.cat = i;
+        this.cbm = i;
     }
 
     public void setMaskColor(int i) {
-        this.cRy = i;
+        this.cSr = i;
     }
 
     public Rect getFrameRect() {
-        return this.maskType == 0 ? new Rect(0, 0, getWidth(), getHeight()) : new Rect(this.eyr);
+        return this.maskType == 0 ? new Rect(0, 0, getWidth(), getHeight()) : new Rect(this.eAa);
     }
 
     public Rect getFrameRectExtend() {
-        Rect rect = new Rect(this.eyr);
-        int i = (int) ((this.eyr.right - this.eyr.left) * 0.02f);
-        int i2 = (int) ((this.eyr.bottom - this.eyr.top) * 0.02f);
+        Rect rect = new Rect(this.eAa);
+        int i = (int) ((this.eAa.right - this.eAa.left) * 0.02f);
+        int i2 = (int) ((this.eAa.bottom - this.eAa.top) * 0.02f);
         rect.left -= i;
         rect.right = i + rect.right;
         rect.top -= i2;
@@ -52,10 +52,10 @@ public class MaskView extends View {
         this.maskType = i;
         switch (i) {
             case 1:
-                this.eys = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+                this.eAb = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
                 break;
             case 2:
-                this.eys = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
+                this.eAb = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
                 break;
         }
         invalidate();
@@ -70,57 +70,57 @@ public class MaskView extends View {
 
     public MaskView(Context context) {
         super(context);
-        this.cat = -1;
+        this.cbm = -1;
         this.maskType = 1;
-        this.cRy = Color.argb(100, 0, 0, 0);
-        this.exT = new Paint(1);
-        this.eyq = new Paint(1);
-        this.eyr = new Rect();
+        this.cSr = Color.argb(100, 0, 0, 0);
+        this.ezD = new Paint(1);
+        this.ezZ = new Paint(1);
+        this.eAa = new Rect();
         this.lR = new Path();
         setLayerType(1, null);
-        this.eyq.setColor(-1);
-        this.eyq.setStyle(Paint.Style.STROKE);
-        this.eyq.setStrokeWidth(6.0f);
-        this.exT.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.ezZ.setColor(-1);
+        this.ezZ.setStyle(Paint.Style.STROKE);
+        this.ezZ.setStrokeWidth(6.0f);
+        this.ezD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
     public MaskView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cat = -1;
+        this.cbm = -1;
         this.maskType = 1;
-        this.cRy = Color.argb(100, 0, 0, 0);
-        this.exT = new Paint(1);
-        this.eyq = new Paint(1);
-        this.eyr = new Rect();
+        this.cSr = Color.argb(100, 0, 0, 0);
+        this.ezD = new Paint(1);
+        this.ezZ = new Paint(1);
+        this.eAa = new Rect();
         this.lR = new Path();
         setLayerType(1, null);
-        this.eyq.setColor(-1);
-        this.eyq.setStyle(Paint.Style.STROKE);
-        this.eyq.setStrokeWidth(6.0f);
-        this.exT.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.ezZ.setColor(-1);
+        this.ezZ.setStyle(Paint.Style.STROKE);
+        this.ezZ.setStrokeWidth(6.0f);
+        this.ezD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
     public MaskView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cat = -1;
+        this.cbm = -1;
         this.maskType = 1;
-        this.cRy = Color.argb(100, 0, 0, 0);
-        this.exT = new Paint(1);
-        this.eyq = new Paint(1);
-        this.eyr = new Rect();
+        this.cSr = Color.argb(100, 0, 0, 0);
+        this.ezD = new Paint(1);
+        this.ezZ = new Paint(1);
+        this.eAa = new Rect();
         this.lR = new Path();
         setLayerType(1, null);
-        this.eyq.setColor(-1);
-        this.eyq.setStyle(Paint.Style.STROKE);
-        this.eyq.setStrokeWidth(6.0f);
-        this.exT.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.ezZ.setColor(-1);
+        this.ezZ.setStyle(Paint.Style.STROKE);
+        this.ezZ.setStrokeWidth(6.0f);
+        this.ezD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
     private void init() {
-        this.eys = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+        this.eAb = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
     }
 
     @Override // android.view.View
@@ -131,10 +131,10 @@ public class MaskView extends View {
             int i6 = (i5 * 400) / 620;
             int i7 = (i - i5) / 2;
             int i8 = (i2 - i6) / 2;
-            this.eyr.left = i7;
-            this.eyr.top = i8;
-            this.eyr.right = i5 + i7;
-            this.eyr.bottom = i6 + i8;
+            this.eAa.left = i7;
+            this.eAa.top = i8;
+            this.eAa.right = i5 + i7;
+            this.eAa.bottom = i6 + i8;
         }
     }
 
@@ -142,24 +142,24 @@ public class MaskView extends View {
     @RequiresApi(api = 21)
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Rect rect = this.eyr;
+        Rect rect = this.eAa;
         int width = rect.width();
         int height = rect.height();
         int i = rect.left;
         int i2 = rect.top;
         int i3 = rect.right;
         int i4 = rect.bottom;
-        canvas.drawColor(this.cRy);
+        canvas.drawColor(this.cSr);
         a(i, i2, i3, i4, 30.0f, 30.0f, false);
-        canvas.drawPath(this.lR, this.eyq);
-        canvas.drawPath(this.lR, this.exT);
+        canvas.drawPath(this.lR, this.ezZ);
+        canvas.drawPath(this.lR, this.ezD);
         if (this.maskType == 1) {
-            this.eys.setBounds((int) (i + (0.5974155f * width)), (int) (i2 + (0.17405063f * height)), (int) (i + (0.95725644f * width)), (int) (i2 + (0.7531645f * height)));
+            this.eAb.setBounds((int) (i + (0.5974155f * width)), (int) (i2 + (0.17405063f * height)), (int) (i + (0.95725644f * width)), (int) (i2 + (0.7531645f * height)));
         } else if (this.maskType == 2) {
-            this.eys.setBounds((int) (i + (0.050695825f * width)), (int) (i2 + (0.07594936f * height)), (int) (i + (0.24850895f * width)), (int) (i2 + (0.41455695f * height)));
+            this.eAb.setBounds((int) (i + (0.050695825f * width)), (int) (i2 + (0.07594936f * height)), (int) (i + (0.24850895f * width)), (int) (i2 + (0.41455695f * height)));
         }
-        if (this.eys != null) {
-            this.eys.draw(canvas);
+        if (this.eAb != null) {
+            this.eAb.draw(canvas);
         }
     }
 

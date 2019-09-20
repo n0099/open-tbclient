@@ -8,70 +8,70 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes6.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private int amS;
-    private Paint inj;
-    private Paint ink;
-    private int inl;
-    private int inm;
-    private float inn;
-    private float ino;
+    private int anq;
+    private Paint ipj;
+    private Paint ipk;
+    private int ipl;
+    private int ipm;
+    private float ipn;
+    private float ipo;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.inj = null;
-        this.ink = null;
-        this.inl = 0;
-        this.inm = 0;
-        this.inn = 0.42857143f;
-        this.ino = 1.0f;
-        this.amS = 1;
+        this.ipj = null;
+        this.ipk = null;
+        this.ipl = 0;
+        this.ipm = 0;
+        this.ipn = 0.42857143f;
+        this.ipo = 1.0f;
+        this.anq = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.inj = null;
-        this.ink = null;
-        this.inl = 0;
-        this.inm = 0;
-        this.inn = 0.42857143f;
-        this.ino = 1.0f;
-        this.amS = 1;
+        this.ipj = null;
+        this.ipk = null;
+        this.ipl = 0;
+        this.ipm = 0;
+        this.ipn = 0.42857143f;
+        this.ipo = 1.0f;
+        this.anq = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.inj = null;
-        this.ink = null;
-        this.inl = 0;
-        this.inm = 0;
-        this.inn = 0.42857143f;
-        this.ino = 1.0f;
-        this.amS = 1;
+        this.ipj = null;
+        this.ipk = null;
+        this.ipl = 0;
+        this.ipm = 0;
+        this.ipn = 0.42857143f;
+        this.ipo = 1.0f;
+        this.anq = 1;
         init();
     }
 
     private void init() {
-        this.inj = new Paint();
-        this.inj.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.inj.setAlpha(153);
-        this.ink = new Paint();
-        this.ink.setStyle(Paint.Style.STROKE);
-        this.ink.setColor(-1);
+        this.ipj = new Paint();
+        this.ipj.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.ipj.setAlpha(153);
+        this.ipk = new Paint();
+        this.ipk.setStyle(Paint.Style.STROKE);
+        this.ipk.setColor(-1);
     }
 
     public void setLinePaintColor(int i) {
-        if (this.ink != null) {
-            this.ink.setColor(i);
+        if (this.ipk != null) {
+            this.ipk.setColor(i);
         }
         invalidate();
     }
 
     public void setLineWidth(int i) {
-        this.amS = i;
-        if (this.ink != null) {
-            this.ink.setStrokeWidth(i);
+        this.anq = i;
+        if (this.ipk != null) {
+            this.ipk.setStrokeWidth(i);
         }
         invalidate();
     }
@@ -81,19 +81,19 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.inl, this.inj);
-        canvas.drawRect(0.0f, getHeight() - this.inm, getWidth(), getHeight(), this.inj);
-        canvas.drawRect(1.0f, this.inl, getWidth() - 1, getHeight() - this.inm, this.ink);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.ipl, this.ipj);
+        canvas.drawRect(0.0f, getHeight() - this.ipm, getWidth(), getHeight(), this.ipj);
+        canvas.drawRect(1.0f, this.ipl, getWidth() - 1, getHeight() - this.ipm, this.ipk);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.ino * getWidth();
+        float width = this.ipo * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.inl = (int) (((i4 - i2) - width) * this.inn);
-        this.inm = (int) (((i4 - i2) - width) * (1.0f - this.inn));
+        this.ipl = (int) (((i4 - i2) - width) * this.ipn);
+        this.ipm = (int) (((i4 - i2) - width) * (1.0f - this.ipn));
     }
 }

@@ -10,10 +10,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.messageCenter.d;
-import com.baidu.tieba.f;
+import com.baidu.tieba.g;
 import com.baidu.tieba.model.c;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
@@ -88,7 +88,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.o("scr_w", String.valueOf(l.af(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("scr_h", String.valueOf(l.ah(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("scr_dip", String.valueOf(l.ai(TbadkCoreApplication.getInst().getApp())));
-                if (d.aom().aop() > 0) {
+                if (d.aoy().aoB() > 0) {
                     this.mNetWork.o("_msg_status", "0");
                 } else {
                     this.mNetWork.o("_msg_status", "1");
@@ -107,13 +107,13 @@ public class SyncLoginService extends BdBaseService {
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
                 this.mNetWork.o("package", packageName);
                 this.mNetWork.o("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.o("signmd5", at.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.mNetWork.o("md5", f.getTiebaApkMd5());
-                String aii = this.mNetWork.aii();
-                if (this.mNetWork.aiG().ajH().isRequestSuccess()) {
+                this.mNetWork.o("signmd5", as.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.o("md5", g.getTiebaApkMd5());
+                String aim = this.mNetWork.aim();
+                if (this.mNetWork.aiK().ajN().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(aii);
+                        cVar.parserJson(aim);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {

@@ -21,9 +21,9 @@ import android.view.animation.Transformation;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends Drawable implements Animatable {
-    private Animation Qq;
+    private Animation Qp;
+    private double Qq;
     private double Qr;
-    private double Qs;
     boolean mFinishing;
     private View mParent;
     private Resources mResources;
@@ -49,27 +49,27 @@ public class a extends Drawable implements Animatable {
             a.this.unscheduleSelf(runnable);
         }
     };
-    private final C0027a Qp = new C0027a(this.mCallback);
+    private final C0027a Qo = new C0027a(this.mCallback);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, View view) {
         this.mParent = view;
         this.mResources = context.getResources();
-        this.Qp.setColors(COLORS);
+        this.Qo.setColors(COLORS);
         aZ(1);
         setupAnimators();
     }
 
     private void a(double d, double d2, double d3, double d4, float f, float f2) {
-        C0027a c0027a = this.Qp;
+        C0027a c0027a = this.Qo;
         float f3 = this.mResources.getDisplayMetrics().density;
-        this.Qr = f3 * d;
-        this.Qs = f3 * d2;
+        this.Qq = f3 * d;
+        this.Qr = f3 * d2;
         c0027a.setStrokeWidth(((float) d4) * f3);
         c0027a.d(f3 * d3);
         c0027a.setColorIndex(0);
         c0027a.setArrowDimensions(f * f3, f3 * f2);
-        c0027a.x((int) this.Qr, (int) this.Qs);
+        c0027a.x((int) this.Qq, (int) this.Qr);
     }
 
     public void aZ(int i) {
@@ -81,39 +81,39 @@ public class a extends Drawable implements Animatable {
     }
 
     public void aw(boolean z) {
-        this.Qp.setShowArrow(z);
+        this.Qo.setShowArrow(z);
     }
 
     public void setArrowScale(float f) {
-        this.Qp.setArrowScale(f);
+        this.Qo.setArrowScale(f);
     }
 
     public void setStartEndTrim(float f, float f2) {
-        this.Qp.setStartTrim(f);
-        this.Qp.setEndTrim(f2);
+        this.Qo.setStartTrim(f);
+        this.Qo.setEndTrim(f2);
     }
 
     public void setProgressRotation(float f) {
-        this.Qp.setRotation(f);
+        this.Qo.setRotation(f);
     }
 
     public void setBackgroundColor(int i) {
-        this.Qp.setBackgroundColor(i);
+        this.Qo.setBackgroundColor(i);
     }
 
     public void setColorSchemeColors(int... iArr) {
-        this.Qp.setColors(iArr);
-        this.Qp.setColorIndex(0);
+        this.Qo.setColors(iArr);
+        this.Qo.setColorIndex(0);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return (int) this.Qs;
+        return (int) this.Qr;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return (int) this.Qr;
+        return (int) this.Qq;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -121,23 +121,23 @@ public class a extends Drawable implements Animatable {
         Rect bounds = getBounds();
         int save = canvas.save();
         canvas.rotate(this.mRotation, bounds.exactCenterX(), bounds.exactCenterY());
-        this.Qp.draw(canvas, bounds);
+        this.Qo.draw(canvas, bounds);
         canvas.restoreToCount(save);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.Qp.setAlpha(i);
+        this.Qo.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.Qp.getAlpha();
+        return this.Qo.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.Qp.setColorFilter(colorFilter);
+        this.Qo.setColorFilter(colorFilter);
     }
 
     void setRotation(float f) {
@@ -165,31 +165,31 @@ public class a extends Drawable implements Animatable {
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
-        this.Qq.reset();
-        this.Qp.storeOriginals();
-        if (this.Qp.getEndTrim() != this.Qp.getStartTrim()) {
+        this.Qp.reset();
+        this.Qo.storeOriginals();
+        if (this.Qo.getEndTrim() != this.Qo.getStartTrim()) {
             this.mFinishing = true;
-            this.Qq.setDuration(666L);
-            this.mParent.startAnimation(this.Qq);
+            this.Qp.setDuration(666L);
+            this.mParent.startAnimation(this.Qp);
             return;
         }
-        this.Qp.setColorIndex(0);
-        this.Qp.resetOriginals();
-        this.Qq.setDuration(1332L);
-        this.mParent.startAnimation(this.Qq);
+        this.Qo.setColorIndex(0);
+        this.Qo.resetOriginals();
+        this.Qp.setDuration(1332L);
+        this.mParent.startAnimation(this.Qp);
     }
 
     @Override // android.graphics.drawable.Animatable
     public void stop() {
         this.mParent.clearAnimation();
         setRotation(0.0f);
-        this.Qp.setShowArrow(false);
-        this.Qp.setColorIndex(0);
-        this.Qp.resetOriginals();
+        this.Qo.setShowArrow(false);
+        this.Qo.setColorIndex(0);
+        this.Qo.resetOriginals();
     }
 
     float a(C0027a c0027a) {
-        return (float) Math.toRadians(c0027a.getStrokeWidth() / (6.283185307179586d * c0027a.oR()));
+        return (float) Math.toRadians(c0027a.getStrokeWidth() / (6.283185307179586d * c0027a.oS()));
     }
 
     private int evaluateColorChange(float f, int i, int i2) {
@@ -217,7 +217,7 @@ public class a extends Drawable implements Animatable {
     }
 
     private void setupAnimators() {
-        final C0027a c0027a = this.Qp;
+        final C0027a c0027a = this.Qo;
         Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.a.1
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {
@@ -267,14 +267,14 @@ public class a extends Drawable implements Animatable {
                 a.this.mRotationCount = (a.this.mRotationCount + 1.0f) % 5.0f;
             }
         });
-        this.Qq = animation;
+        this.Qp = animation;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.adp.widget.refresh.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0027a {
-        private double Qw;
+        private double Qv;
         private int mAlpha;
         private Path mArrow;
         private int mArrowHeight;
@@ -296,7 +296,7 @@ public class a extends Drawable implements Animatable {
         private float mEndTrim = 0.0f;
         private float mRotation = 0.0f;
         private float mStrokeWidth = 5.0f;
-        private float Qv = 2.5f;
+        private float Qu = 2.5f;
         private final Paint mCirclePaint = new Paint(1);
 
         C0027a(Drawable.Callback callback) {
@@ -320,7 +320,7 @@ public class a extends Drawable implements Animatable {
         public void draw(Canvas canvas, Rect rect) {
             RectF rectF = this.mTempBounds;
             rectF.set(rect);
-            rectF.inset(this.Qv, this.Qv);
+            rectF.inset(this.Qu, this.Qu);
             float f = (this.mStartTrim + this.mRotation) * 360.0f;
             float f2 = ((this.mEndTrim + this.mRotation) * 360.0f) - f;
             this.mPaint.setColor(this.mCurrentColor);
@@ -341,12 +341,12 @@ public class a extends Drawable implements Animatable {
                 } else {
                     this.mArrow.reset();
                 }
-                float f3 = (((int) this.Qv) / 2) * this.mArrowScale;
-                float cos = (float) ((this.Qw * Math.cos(0.0d)) + rect.exactCenterX());
+                float f3 = (((int) this.Qu) / 2) * this.mArrowScale;
+                float cos = (float) ((this.Qv * Math.cos(0.0d)) + rect.exactCenterX());
                 this.mArrow.moveTo(0.0f, 0.0f);
                 this.mArrow.lineTo(this.mArrowWidth * this.mArrowScale, 0.0f);
                 this.mArrow.lineTo((this.mArrowWidth * this.mArrowScale) / 2.0f, this.mArrowHeight * this.mArrowScale);
-                this.mArrow.offset(cos - f3, (float) ((this.Qw * Math.sin(0.0d)) + rect.exactCenterY()));
+                this.mArrow.offset(cos - f3, (float) ((this.Qv * Math.sin(0.0d)) + rect.exactCenterY()));
                 this.mArrow.close();
                 this.mArrowPaint.setColor(this.mCurrentColor);
                 canvas.rotate((f + f2) - 5.0f, rect.exactCenterX(), rect.exactCenterY());
@@ -441,20 +441,20 @@ public class a extends Drawable implements Animatable {
         public void x(int i, int i2) {
             float ceil;
             float min = Math.min(i, i2);
-            if (this.Qw <= 0.0d || min < 0.0f) {
+            if (this.Qv <= 0.0d || min < 0.0f) {
                 ceil = (float) Math.ceil(this.mStrokeWidth / 2.0f);
             } else {
-                ceil = (float) ((min / 2.0f) - this.Qw);
+                ceil = (float) ((min / 2.0f) - this.Qv);
             }
-            this.Qv = ceil;
+            this.Qu = ceil;
         }
 
         public void d(double d) {
-            this.Qw = d;
+            this.Qv = d;
         }
 
-        public double oR() {
-            return this.Qw;
+        public double oS() {
+            return this.Qv;
         }
 
         public void setShowArrow(boolean z) {

@@ -16,28 +16,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends v.a {
-    public TextView bCd;
-    public int cdS;
-    public View ikc;
-    public HTypeListView ikd;
-    public e ike;
+    public TextView bCB;
+    public int ceL;
+    public View imb;
+    public HTypeListView imc;
+    public e imd;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.cdS = 3;
+        this.ceL = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.ikc = view.findViewById(R.id.divider_view_under_photo_album);
-        this.bCd = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.ikd = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.ike = new e(this.mPageContext, this.ikd);
+        this.imb = view.findViewById(R.id.divider_view_under_photo_album);
+        this.bCB = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.imc = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.imd = new e(this.mPageContext, this.imc);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.ike.setDatas(dN(fVar.getPhotoAlbum()));
+            this.imd.setDatas(dN(fVar.getPhotoAlbum()));
         }
     }
 
@@ -52,13 +52,13 @@ public class d extends v.a {
         return list;
     }
 
-    public void atw() {
-        if (this.cdS != TbadkCoreApplication.getInst().getSkinType()) {
-            this.cdS = TbadkCoreApplication.getInst().getSkinType();
+    public void atI() {
+        if (this.ceL != TbadkCoreApplication.getInst().getSkinType()) {
+            this.ceL = TbadkCoreApplication.getInst().getSkinType();
             am.l(this.rootView, R.color.cp_bg_line_d);
-            am.l(this.ikc, R.color.cp_bg_line_c);
-            am.f(this.bCd, R.color.cp_cont_d, 1);
-            this.ike.notifyDataSetChanged();
+            am.l(this.imb, R.color.cp_bg_line_c);
+            am.f(this.bCB, R.color.cp_cont_d, 1);
+            this.imd.notifyDataSetChanged();
         }
     }
 }

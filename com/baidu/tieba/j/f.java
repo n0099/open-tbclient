@@ -1,19 +1,19 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface f {
-    void AV(String str);
+    void Bu(String str);
 
-    void AW(String str);
+    void Bv(String str);
 
-    boolean AX(String str);
+    boolean Bw(String str);
 
-    boolean AY(String str);
+    boolean Bx(String str);
 
-    void cY(String str);
+    void dF(String str, String str2);
 
-    void dD(String str, String str2);
+    void dG(String str, String str2);
 
-    void dE(String str, String str2);
+    void da(String str);
 
     void e(String str, int i, int i2, String str2);
 

@@ -10,10 +10,10 @@ public class f {
             if (hVar == null) {
                 hVar = new com.baidu.tbadk.m.h(context, onClickListener);
             }
-            hVar.kL(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-            hVar.qN(str);
+            hVar.kO(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
+            hVar.qY(str);
             hVar.attachView(view, z);
-            hVar.atK();
+            hVar.atW();
             hVar.onChangeSkinType();
         }
     }

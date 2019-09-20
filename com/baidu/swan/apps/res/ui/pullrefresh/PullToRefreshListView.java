@@ -9,8 +9,8 @@ import android.widget.ListView;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes2.dex */
 public class PullToRefreshListView extends PullToRefreshBase<ListView> implements AbsListView.OnScrollListener {
-    private AbsListView.OnScrollListener aLr;
-    private LoadingLayout aMc;
+    private AbsListView.OnScrollListener aLP;
+    private LoadingLayout aMA;
     private ListView mListView;
 
     public PullToRefreshListView(Context context) {
@@ -38,8 +38,8 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public void setHasMoreData(boolean z) {
-        if (this.aMc != null) {
-            this.aMc.setState(z ? ILoadingLayout.State.RESET : ILoadingLayout.State.NO_MORE_DATA);
+        if (this.aMA != null) {
+            this.aMA.setState(z ? ILoadingLayout.State.RESET : ILoadingLayout.State.NO_MORE_DATA);
         }
         LoadingLayout footerLoadingLayout = getFooterLoadingLayout();
         if (footerLoadingLayout != null) {
@@ -48,24 +48,24 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.aLr = onScrollListener;
+        this.aLP = onScrollListener;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullUp() {
-        return KD();
+        return KH();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullDown() {
-        return KC();
+        return KG();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public void startLoading() {
         super.startLoading();
-        if (this.aMc != null) {
-            this.aMc.setState(ILoadingLayout.State.REFRESHING);
+        if (this.aMA != null) {
+            this.aMA.setState(ILoadingLayout.State.REFRESHING);
         }
     }
 
@@ -74,44 +74,44 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         if (isScrollLoadEnabled() != z) {
             super.setScrollLoadEnabled(z);
             if (z) {
-                if (this.aMc == null) {
-                    this.aMc = new FooterLoadingLayout(getContext());
-                    this.mListView.addFooterView(this.aMc, null, false);
+                if (this.aMA == null) {
+                    this.aMA = new FooterLoadingLayout(getContext());
+                    this.mListView.addFooterView(this.aMA, null, false);
                 }
-                this.aMc.show(true);
-            } else if (this.aMc != null) {
-                this.aMc.show(false);
+                this.aMA.show(true);
+            } else if (this.aMA != null) {
+                this.aMA.show(false);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public LoadingLayout getFooterLoadingLayout() {
-        return isScrollLoadEnabled() ? this.aMc : super.getFooterLoadingLayout();
+        return isScrollLoadEnabled() ? this.aMA : super.getFooterLoadingLayout();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (isScrollLoadEnabled() && KB() && ((i == 0 || i == 2) && isReadyForPullUp())) {
+        if (isScrollLoadEnabled() && KF() && ((i == 0 || i == 2) && isReadyForPullUp())) {
             startLoading();
         }
-        if (this.aLr != null) {
-            this.aLr.onScrollStateChanged(absListView, i);
+        if (this.aLP != null) {
+            this.aLP.onScrollStateChanged(absListView, i);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.aLr != null) {
-            this.aLr.onScroll(absListView, i, i2, i3);
+        if (this.aLP != null) {
+            this.aLP.onScroll(absListView, i, i2, i3);
         }
     }
 
-    private boolean KB() {
-        return this.aMc == null || this.aMc.getState() != ILoadingLayout.State.NO_MORE_DATA;
+    private boolean KF() {
+        return this.aMA == null || this.aMA.getState() != ILoadingLayout.State.NO_MORE_DATA;
     }
 
-    private boolean KC() {
+    private boolean KG() {
         ListAdapter adapter = this.mListView.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;
@@ -119,7 +119,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         return (this.mListView.getChildCount() > 0 ? this.mListView.getChildAt(0).getTop() : 0) >= 0 && this.mListView.getFirstVisiblePosition() == 0;
     }
 
-    private boolean KD() {
+    private boolean KH() {
         ListAdapter adapter = this.mListView.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;

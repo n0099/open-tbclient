@@ -192,7 +192,7 @@ public class b implements Observer {
             str4 = this.c.g.getMessage();
             i = 17301633;
         }
-        Intent intent = new Intent(this.d, AppActivity.us());
+        Intent intent = new Intent(this.d, AppActivity.uw());
         intent.putExtra("dealWithDownload", true);
         intent.putExtra("pausedManually", iOAdDownloader.isPausedManually());
         intent.putExtra("status", this.c.g.getCode());

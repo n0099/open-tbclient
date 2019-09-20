@@ -1,29 +1,12 @@
 package com.baidu.pass.biometrics.base.utils;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class PassBioFileUtils {
-    private static final String RECORD_VIDEO_ROOT_PATH = "BI0_VIDEO";
-    public static final String SAPI_BIO_LIVENESS_VIDEO_FILENAME = "liveness_video.mp4";
     public static final String TAG = "PassBioFileUtils";
-
-    private static String getRecordVideoRootPath(Context context) {
-        return context.getDir(RECORD_VIDEO_ROOT_PATH, 0).getAbsolutePath();
-    }
-
-    public static String getFolderPath(Context context) {
-        return context.getDir(RECORD_VIDEO_ROOT_PATH, 0).getAbsolutePath();
-    }
-
-    public static String createFileName(String str, String str2) {
-        if (!str2.startsWith(".")) {
-            str2 = "." + str2;
-        }
-        return str + str2;
-    }
 
     public static boolean isFileExist(String str) {
         if (str == null) {
@@ -33,7 +16,7 @@ public class PassBioFileUtils {
     }
 
     public static boolean deleteFile(String str) {
-        if (isNullOrEmptyWithoutTrim(str)) {
+        if (TextUtils.isEmpty(str)) {
             return false;
         }
         if (!isFileExist(str)) {
@@ -63,7 +46,7 @@ public class PassBioFileUtils {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [120=5, 121=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [88=5, 89=4] */
     public static boolean write(java.io.File r3, byte[] r4, boolean r5) throws java.io.IOException {
         /*
             r0 = 0
@@ -120,9 +103,5 @@ public class PassBioFileUtils {
         }
         file.getParentFile().mkdirs();
         return file.createNewFile();
-    }
-
-    public static boolean isNullOrEmptyWithoutTrim(String str) {
-        return str == null || "".equals(str);
     }
 }

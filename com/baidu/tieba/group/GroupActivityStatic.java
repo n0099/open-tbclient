@@ -27,7 +27,7 @@ import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.GroupSettingActivityConfig;
 import com.baidu.tbadk.core.atomData.UpdateGroupActivityConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.tieba.frs.y;
 import com.baidu.tieba.frs.z;
@@ -66,7 +66,7 @@ import com.baidu.tieba.im.message.ResponseRequestGroupLocMessage;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes5.dex */
 public class GroupActivityStatic {
-    public static final BdUniqueId gbx = BdUniqueId.gen();
+    public static final BdUniqueId gdo = BdUniqueId.gen();
 
     static {
         TbadkApplication.getInst().RegisterIntent(GroupSettingActivityConfig.class, GroupSettingActivity.class);
@@ -92,10 +92,10 @@ public class GroupActivityStatic {
         c.b(103004, ResponseGroupInfoMessage.class, false);
         c.b(2001102, h.class);
         c.b(2001123, d.class);
-        buL();
-        buM();
-        buN();
-        buO();
+        bvz();
+        bvA();
+        bvB();
+        bvC();
         MessageManager.getInstance().registerListener(103004, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.group.GroupActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -122,12 +122,12 @@ public class GroupActivityStatic {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (longValue != 0) {
                         RequestGroupInfoMessage requestGroupInfoMessage = new RequestGroupInfoMessage();
-                        LocalViewSize.ImageSize aiB = LocalViewSize.aiz().aiB();
-                        LocalViewSize.ImageSize aiC = LocalViewSize.aiz().aiC();
-                        requestGroupInfoMessage.setBigHeight(aiC.height);
-                        requestGroupInfoMessage.setBigWidth(aiC.width);
-                        requestGroupInfoMessage.setSmallHeight(aiB.height);
-                        requestGroupInfoMessage.setSmallWidth(aiB.width);
+                        LocalViewSize.ImageSize aiF = LocalViewSize.aiD().aiF();
+                        LocalViewSize.ImageSize aiG = LocalViewSize.aiD().aiG();
+                        requestGroupInfoMessage.setBigHeight(aiG.height);
+                        requestGroupInfoMessage.setBigWidth(aiG.width);
+                        requestGroupInfoMessage.setSmallHeight(aiF.height);
+                        requestGroupInfoMessage.setSmallWidth(aiF.width);
                         requestGroupInfoMessage.setGroupId(longValue);
                         MessageManager.getInstance().sendMessage(requestGroupInfoMessage);
                     }
@@ -136,7 +136,7 @@ public class GroupActivityStatic {
         });
     }
 
-    private static void buL() {
+    private static void bvz() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008014, new CustomMessageTask.CustomRunnable<ApplyJoinGroupActivityConfig>() { // from class: com.baidu.tieba.group.GroupActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ApplyJoinGroupActivityConfig> customMessage) {
@@ -150,8 +150,8 @@ public class GroupActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void buM() {
-        z.bnO().rO(4);
+    private static void bvA() {
+        z.boz().rR(4);
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.group.GroupActivityStatic.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -160,7 +160,7 @@ public class GroupActivityStatic {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                     absDelegateAdapterList.add(new e(null, GroupInfoData.TYPE_FRS_GROUP));
                     absDelegateAdapterList.add(new com.baidu.tieba.im.frsgroup.a(null, GroupPermData.TYPE_FRS_CREATE_GROUP));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.im.frsgroup.h.gHt));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.im.frsgroup.h.gJl));
                 }
             }
         });
@@ -170,14 +170,14 @@ public class GroupActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof y)) {
                     com.baidu.tieba.im.frsgroup.d dVar = new com.baidu.tieba.im.frsgroup.d();
-                    dVar.setTag(GroupActivityStatic.gbx);
+                    dVar.setTag(GroupActivityStatic.gdo);
                     ((y) customResponsedMessage.getData()).a(4, dVar);
                 }
             }
         });
     }
 
-    private static void buN() {
+    private static void bvB() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008011, new CustomMessageTask.CustomRunnable<GroupInfoActivityConfig>() { // from class: com.baidu.tieba.group.GroupActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<GroupInfoActivityConfig> customMessage) {
@@ -196,9 +196,9 @@ public class GroupActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void buO() {
-        bb.ajE().a(new bb.a() { // from class: com.baidu.tieba.group.GroupActivityStatic.7
-            @Override // com.baidu.tbadk.core.util.bb.a
+    private static void bvC() {
+        ba.ajK().a(new ba.a() { // from class: com.baidu.tieba.group.GroupActivityStatic.7
+            @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
@@ -210,11 +210,11 @@ public class GroupActivityStatic {
                     if (lastIndexOf == -1 || lastIndexOf < indexOf) {
                         lastIndexOf = str.length();
                     }
-                    long c = b.c(str.substring(indexOf, lastIndexOf), 0L);
-                    if (c <= 0) {
+                    long e = b.e(str.substring(indexOf, lastIndexOf), 0L);
+                    if (e <= 0) {
                         return 3;
                     }
-                    GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(tbPageContext.getPageActivity(), c, 0);
+                    GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(tbPageContext.getPageActivity(), e, 0);
                     if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                         tbPageContext.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
                         return 1;

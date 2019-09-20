@@ -1,66 +1,75 @@
 package com.baidu.tieba.recapp.download;
 
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.widget.RemoteViews;
-import com.baidu.adp.BdUniqueId;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
-public class j {
-    private final RemoteViews iHI = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
-
-    public j(DownloadData downloadData, int i) {
-        zA(i);
-        this.iHI.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-        this.iHI.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
-        this.iHI.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
-        this.iHI.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
-        com.baidu.adp.lib.f.c.iE().a(downloadData.getApp_icon(), 17, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.download.j.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.f.b
-            public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i2) {
-                if (j.this.iHI != null && aVar != null && aVar.nK() != null) {
-                    j.this.iHI.setImageViewBitmap(R.id.app_icon, aVar.nK());
-                }
+public class j implements com.baidu.tbadk.download.c {
+    @Override // com.baidu.tbadk.download.c
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        if (downloadData != null) {
+            SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
+            long j = sharedPreferences.getLong(downloadData.getId(), 0L);
+            if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.putLong(downloadData.getId(), downloadData.getSize());
+                edit.commit();
             }
-        }, BdUniqueId.gen());
-        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), RecAppDownloadReceiver.class);
-        intent.setAction("action_pause_download");
-        intent.putExtra("download_data", downloadData);
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.iHI.setOnClickPendingIntent(R.id.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
-        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), RecAppDownloadReceiver.class);
-        intent2.setAction("action_cancel_download");
-        intent2.putExtra("download_data", downloadData);
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.iHI.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
-    }
-
-    public RemoteViews cif() {
-        return this.iHI;
-    }
-
-    public void cig() {
-        this.iHI.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-        this.iHI.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
-    }
-
-    public void cih() {
-        this.iHI.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
-        this.iHI.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
-    }
-
-    public void zA(int i) {
-        String str;
-        if (i > 0) {
-            str = i + "%";
-        } else {
-            str = "0%";
+            i.ciW().c(downloadData);
+            i.ciW().b(downloadData);
         }
-        this.iHI.setProgressBar(R.id.download_progress, 100, i, false);
-        this.iHI.setTextViewText(R.id.download_progress_text, str);
+    }
+
+    @Override // com.baidu.tbadk.download.c
+    public boolean onPreDownload(DownloadData downloadData) {
+        if (downloadData == null) {
+            return false;
+        }
+        downloadData.setStatusMsg(null);
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.download.c
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        if (downloadData == null) {
+            return false;
+        }
+        downloadData.setStatusMsg(null);
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.download.c
+    public void onFileDownloadSucceed(DownloadData downloadData) {
+        if (downloadData != null) {
+            String[] tag = downloadData.getTag();
+            if (tag != null && tag.length == 3) {
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", tag[0], "is_detail", tag[2], "ref_type", tag[1]);
+            }
+            NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
+            i.ciW().b(downloadData);
+            String path = downloadData.getPath();
+            com.baidu.tieba.ad.download.b.a.cYZ.get().aDI().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.ciW().Eh(downloadData.getId()) : path);
+            if (downloadData.isNeedInvokeApk()) {
+                UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.download.c
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        i ciW = i.ciW();
+        if (i == 3) {
+            ciW.k(downloadData);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
+        } else {
+            ciW.l(downloadData);
+        }
+        i.ciW().b(downloadData);
     }
 }

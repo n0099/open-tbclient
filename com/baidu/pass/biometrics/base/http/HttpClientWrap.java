@@ -4,17 +4,13 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Looper;
-import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.pass.biometrics.base.PassBiometricConfiguration;
 import com.baidu.pass.biometrics.base.debug.Log;
-import com.baidu.pass.biometrics.base.dynamicupdate.ConfigUtils;
 import com.baidu.pass.biometrics.base.http.utils.HttpUtils;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
 import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
 import com.baidu.pass.biometrics.base.utils.Crypto;
-import com.baidu.pass.biometrics.base.utils.NetworkUtils;
 import com.baidu.pass.biometrics.base.utils.PassBioDataEncryptor;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.PhoneUtils;
@@ -23,7 +19,6 @@ import com.baidu.pass.http.HttpHashMap;
 import com.baidu.pass.http.HttpResponseHandler;
 import com.baidu.pass.http.PassHttpClient;
 import com.baidu.pass.http.PassHttpParamDTO;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpCookie;
 import java.net.URLEncoder;
@@ -39,25 +34,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class HttpClientWrap {
-    private static final boolean DEBUG = false;
     private static final String KEY_REQID = "reqid";
-    private static final String PARAM_APPID = "appid";
     private static final String PARAM_CUID_2 = "cuid_2";
     private static final String PARAM_ENCODE = "encode";
-    private static final String PARAM_FKWCP = "fk_wcp";
-    private static final String PARAM_IMEI_NEW = "wimei";
-    private static final String PARAM_IMSI_NEW = "wimsi";
-    private static final String PARAM_LOCATION = "wloc";
-    private static final String PARAM_MOBILE_IP = "wmip";
-    private static final String PARAM_NETTYPE = "nettype";
-    private static final String PARAM_SIM_PHONE_NUM = "wpn";
-    private static final String PARAM_SIM_SERIAL_NUM = "wssn";
     private static final String PARAM_UA = "ua";
-    private static final String PARAM_WIFI_SSID = "wssid";
     private static final String SING_SHA1 = "s1";
     private static final String SP_PARAMETER = "sp_params";
-    private static final String TAG = HttpClientWrap.class.getSimpleName();
-    private PassBiometricConfiguration configuration;
     private Context context;
     private PassHttpClient passHttpClient = new PassHttpClient();
 
@@ -175,6 +157,7 @@ public class HttpClientWrap {
     }
 
     public static String calculateSig(Map<String, String> map, String str) {
+        map.remove("sig");
         ArrayList arrayList = new ArrayList();
         for (String str2 : map.keySet()) {
             arrayList.add(str2);
@@ -184,17 +167,14 @@ public class HttpClientWrap {
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             String str3 = (String) it.next();
-            sb.append(str3);
-            sb.append("=");
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(URLEncoder.encode(str4, HTTP.UTF_8));
+                    sb.append(str3).append("=").append(URLEncoder.encode(str4, HTTP.UTF_8)).append("&");
                 }
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
             }
-            sb.append("&");
         }
         sb.append("sign_key=").append(str);
         return MD5Util.toMd5(sb.toString().getBytes(), false);
@@ -215,21 +195,12 @@ public class HttpClientWrap {
         HashMap hashMap = new HashMap();
         hashMap.put(PARAM_ENCODE, "utf-8");
         hashMap.put(PARAM_UA, PassBiometricUtil.getUA(context, BeanConstants.tpl));
-        hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, String.valueOf(System.currentTimeMillis() / 1000));
+        hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("appid", BeanConstants.appid);
         hashMap.put("tpl", BeanConstants.tpl);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(PARAM_CUID_2, PhoneUtils.getCUID2(context));
-            jSONObject.put(PARAM_FKWCP, ((("fp=&lastModify=" + ConfigUtils.getFPFileLastModified(context)) + "&cpuInfo=" + PhoneUtils.getSystemCPUInfo().getCpuPath() + "_" + PhoneUtils.getNumCores()) + "&diskCapacity=" + PhoneUtils.getTotalInternalMemorySize()) + "&upTime=" + (SystemClock.elapsedRealtime() / 1000));
-            jSONObject.put(PARAM_NETTYPE, NetworkUtils.getNetworkType(context) + "");
-            jSONObject.put(PARAM_IMEI_NEW, PhoneUtils.getImei(context));
-            jSONObject.put(PARAM_MOBILE_IP, PhoneUtils.getIpInfo());
-            jSONObject.put(PARAM_LOCATION, PhoneUtils.getGPSLocation(context));
-            jSONObject.put(PARAM_IMSI_NEW, PhoneUtils.getImsi(context));
-            jSONObject.put(PARAM_SIM_SERIAL_NUM, PhoneUtils.getSimSerialNum(context));
-            jSONObject.put(PARAM_SIM_PHONE_NUM, PhoneUtils.getLineNum(context));
-            jSONObject.put(PARAM_WIFI_SSID, getSsid(context));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -249,13 +220,5 @@ public class HttpClientWrap {
             e2.printStackTrace();
         }
         return "";
-    }
-
-    static String getSsid(Context context) {
-        JSONObject connectedWifi = NetworkUtils.getConnectedWifi(context);
-        if (connectedWifi != null) {
-            return connectedWifi.optString("ssid", null);
-        }
-        return null;
     }
 }

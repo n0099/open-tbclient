@@ -39,28 +39,28 @@ public class DiscoverDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c atT() {
+    public c auf() {
         c cVar = new c();
-        cVar.cxK = new DiscoverFragment();
+        cVar.cyG = new DiscoverFragment();
         cVar.type = 10;
-        cVar.bXe = R.string.home_discover;
-        cVar.bXf = R.drawable.s_icon_tabbar_discover;
+        cVar.bXX = R.string.home_discover;
+        cVar.bXY = R.drawable.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cP(Context context) {
-        this.cxw = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.cys = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.cyh = this.cxw;
+        aVar.czd = this.cys;
         aVar.zQ = l.dip2px(context, 3.0f);
-        aVar.cyf = R.drawable.icon_news_down_bar_one;
-        this.cxw.a("emotion", aVar);
-        return this.cxw;
+        aVar.czb = R.drawable.icon_news_down_bar_one;
+        this.cys.a("emotion", aVar);
+        return this.cys;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void atS() {
+    public void aue() {
         isAdded = true;
     }
 

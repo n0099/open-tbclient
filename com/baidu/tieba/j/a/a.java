@@ -4,13 +4,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tieba.j.c;
-import com.baidu.tieba.play.b.b;
+import com.baidu.tieba.play.c.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
+public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
     protected List<T> list = new ArrayList();
     protected final String uuid;
 
@@ -29,11 +29,11 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         return this.list.size();
     }
 
-    public String bPl() {
+    public String bPZ() {
         if (StringUtils.isNull(this.uuid) || !m.gB() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.hwq + bPm();
+        String str = c.a.hyk + bQa();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -47,13 +47,13 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         }
     }
 
-    protected String bPm() {
+    protected String bQa() {
         return "_" + this.uuid + "_" + getKey();
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public e bPn() {
-        return new e(getKey(), bPl());
+    public e bQb() {
+        return new e(getKey(), bPZ());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,9 +65,9 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
             /* renamed from: b */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String bPl = a.this.bPl();
-                    if (!StringUtils.isNull(bPl)) {
-                        a.this.l(bPl, listArr[0]);
+                    String bPZ = a.this.bPZ();
+                    if (!StringUtils.isNull(bPZ)) {
+                        a.this.k(bPZ, listArr[0]);
                     }
                 }
                 return null;
@@ -76,11 +76,11 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void l(String str, List<T> list) {
+    public synchronized void k(String str, List<T> list) {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).cfB());
+            jSONArray.put(list.get(i).cgp());
         }
         com.baidu.tieba.j.d.f(new File(str), jSONArray.toString() + "\n");
     }

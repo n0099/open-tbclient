@@ -1,44 +1,29 @@
 package com.baidu.sofire.b;
 
-import android.os.Build;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import android.os.Process;
 /* loaded from: classes2.dex */
-public class r {
-    private static final int b = Runtime.getRuntime().availableProcessors();
-    private static volatile r c;
-    private ThreadPoolExecutor a;
-
-    private r() {
-        this.a = null;
-        int i = b <= 0 ? 1 : b;
-        this.a = new ThreadPoolExecutor(i, i, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        if (Build.VERSION.SDK_INT >= 9) {
-            this.a.allowCoreThreadTimeOut(true);
-        }
-    }
-
-    public final void a(Runnable runnable) {
-        try {
-            this.a.execute(runnable);
-        } catch (Throwable th) {
-            e.a();
-        }
-    }
-
-    public static r a() {
-        if (c == null) {
+public final class r {
+    public static boolean a(Context context, String[] strArr) {
+        for (int i = 0; i <= 0; i++) {
             try {
-                synchronized (r.class) {
-                    if (c == null) {
-                        c = new r();
-                    }
+                if (context.checkPermission(strArr[0], Process.myPid(), Process.myUid()) == -1) {
+                    return false;
                 }
             } catch (Throwable th) {
                 e.a();
+                return false;
             }
         }
-        return c;
+        return true;
+    }
+
+    public static boolean a(Context context) {
+        try {
+            return context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) != -1;
+        } catch (Throwable th) {
+            e.a();
+            return false;
+        }
     }
 }

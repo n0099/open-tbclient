@@ -171,7 +171,7 @@ public class FileProvider extends ContentProvider {
                         file = DEVICE_ROOT;
                     } else if (TAG_FILES_PATH.equals(name)) {
                         file = context.getFilesDir();
-                    } else if (TAG_CACHE_PATH.equals(name)) {
+                    } else if ("cache-path".equals(name)) {
                         file = context.getCacheDir();
                     } else if (TAG_EXTERNAL.equals(name)) {
                         file = Environment.getExternalStorageDirectory();

@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> kwj;
+    final Iterable<? extends rx.d<? extends T>> kyC;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -16,18 +16,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> kwo;
-        private boolean kwp;
+        private final Selection<T> kyH;
+        private boolean kyI;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.kwo = selection;
+            this.kyH = selection;
             request(j);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void eR(long j) {
+        public void eU(long j) {
             request(j);
         }
 
@@ -53,18 +53,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.kwp) {
+            if (this.kyI) {
                 return true;
             }
-            if (this.kwo.get() == this) {
-                this.kwp = true;
+            if (this.kyH.get() == this) {
+                this.kyI = true;
                 return true;
-            } else if (this.kwo.compareAndSet(null, this)) {
-                this.kwo.unsubscribeOthers(this);
-                this.kwp = true;
+            } else if (this.kyH.compareAndSet(null, this)) {
+                this.kyH.unsubscribeOthers(this);
+                this.kyI = true;
                 return true;
             } else {
-                this.kwo.unsubscribeLosers();
+                this.kyH.unsubscribeLosers();
                 return false;
             }
         }
@@ -107,7 +107,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 OnSubscribeAmb.m(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.kwj) {
+        for (rx.d<? extends T> dVar : this.kyC) {
             if (jVar.isUnsubscribed()) {
                 break;
             }
@@ -128,16 +128,16 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
             public void request(long j) {
                 a<T> aVar3 = selection.get();
                 if (aVar3 != null) {
-                    aVar3.eR(j);
+                    aVar3.eU(j);
                     return;
                 }
                 for (a<T> aVar4 : selection.ambSubscribers) {
                     if (!aVar4.isUnsubscribed()) {
                         if (selection.get() == aVar4) {
-                            aVar4.eR(j);
+                            aVar4.eU(j);
                             return;
                         }
-                        aVar4.eR(j);
+                        aVar4.eU(j);
                     }
                 }
             }

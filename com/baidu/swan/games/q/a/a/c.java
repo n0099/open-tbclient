@@ -12,7 +12,7 @@ public class c extends a {
 
     @Override // com.baidu.swan.games.q.a.a.a
     boolean a(@NonNull com.baidu.swan.games.q.a.b.a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        aVar.Ta();
+        aVar.Te();
         b(unitedSchemeEntity, callbackHandler);
         return true;
     }

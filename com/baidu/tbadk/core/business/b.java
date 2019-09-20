@@ -22,24 +22,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends PopupWindow {
-    private TbImageView bEc;
-    private TextView bEd;
-    private TextView bEe;
-    private Button bEf;
-    private RelativeLayout bEg;
-    private CustomMessageListener bEh;
+    private TbImageView bEA;
+    private TextView bEB;
+    private TextView bEC;
+    private Button bED;
+    private RelativeLayout bEE;
+    private CustomMessageListener bEF;
     private com.baidu.tbadk.BdToken.completeTask.a mData;
     private int mScreenHeight;
     private int mScreenWidth;
 
     public b(Context context) {
         super(context);
-        this.bEh = new CustomMessageListener(2921419) { // from class: com.baidu.tbadk.core.business.b.4
+        this.bEF = new CustomMessageListener(2921419) { // from class: com.baidu.tbadk.core.business.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -47,34 +47,34 @@ public class b extends PopupWindow {
             }
         };
         init(context);
-        MessageManager.getInstance().registerListener(this.bEh);
+        MessageManager.getInstance().registerListener(this.bEF);
     }
 
     public void init(Context context) {
         View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.popupwindow_business, (ViewGroup) null);
-        this.bEc = (TbImageView) inflate.findViewById(R.id.lower_hair_img);
-        this.bEc.setRadius(l.g(context, R.dimen.tbds32));
-        this.bEc.setConrers(3);
-        this.bEd = (TextView) inflate.findViewById(R.id.lower_hair_text_1);
-        this.bEe = (TextView) inflate.findViewById(R.id.lower_hair_text_2);
-        this.bEf = (Button) inflate.findViewById(R.id.btn_close);
-        this.bEg = (RelativeLayout) inflate.findViewById(R.id.lower_hair_content);
-        this.bEe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.b.1
+        this.bEA = (TbImageView) inflate.findViewById(R.id.lower_hair_img);
+        this.bEA.setRadius(l.g(context, R.dimen.tbds32));
+        this.bEA.setConrers(3);
+        this.bEB = (TextView) inflate.findViewById(R.id.lower_hair_text_1);
+        this.bEC = (TextView) inflate.findViewById(R.id.lower_hair_text_2);
+        this.bED = (Button) inflate.findViewById(R.id.btn_close);
+        this.bEE = (RelativeLayout) inflate.findViewById(R.id.lower_hair_content);
+        this.bEC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (b.this.mData != null) {
-                    if (b.this.mData.bAo != com.baidu.tbadk.BdToken.completeTask.a.bAm) {
-                        if (b.this.mData.bAo == com.baidu.tbadk.BdToken.completeTask.a.bAn && !aq.isEmpty(b.this.mData.url)) {
-                            b.this.lt(b.this.mData.url);
+                    if (b.this.mData.bAM != com.baidu.tbadk.BdToken.completeTask.a.bAK) {
+                        if (b.this.mData.bAM == com.baidu.tbadk.BdToken.completeTask.a.bAL && !aq.isEmpty(b.this.mData.url)) {
+                            b.this.lv(b.this.mData.url);
                         }
                     } else if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), b.this.mData.schema) && !aq.isEmpty(b.this.mData.url)) {
-                        b.this.lt(b.this.mData.url);
+                        b.this.lv(b.this.mData.url);
                     }
                     b.this.dismiss();
                 }
             }
         });
-        this.bEf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.b.2
+        this.bED.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.dismiss();
@@ -90,16 +90,16 @@ public class b extends PopupWindow {
         setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tbadk.core.business.b.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                MessageManager.getInstance().unRegisterListener(b.this.bEh);
+                MessageManager.getInstance().unRegisterListener(b.this.bEF);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lt(String str) {
+    public void lv(String str) {
         TbPageContext<?> Y;
         if (!aq.isEmpty(str) && (Y = Y(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            bb.ajE().c(Y, new String[]{str});
+            ba.ajK().c(Y, new String[]{str});
         }
     }
 
@@ -117,44 +117,44 @@ public class b extends PopupWindow {
         if (aVar != null) {
             this.mData = aVar;
             if (aq.isEmpty(aVar.message)) {
-                this.bEd.setText(context.getResources().getString(R.string.task_already_finish));
+                this.bEB.setText(context.getResources().getString(R.string.task_already_finish));
             } else {
-                this.bEd.setText(aVar.message);
+                this.bEB.setText(aVar.message);
             }
             if (aq.isEmpty(aVar.message_color)) {
-                this.bEd.setTextColor(context.getResources().getColor(R.color.cp_cont_j));
+                this.bEB.setTextColor(context.getResources().getColor(R.color.cp_cont_j));
             } else {
-                this.bEd.setTextColor(com.baidu.tieba.lego.card.d.a.cE(aVar.message_color));
+                this.bEB.setTextColor(com.baidu.tieba.lego.card.d.a.cE(aVar.message_color));
             }
             if (aq.isEmpty(aVar.btnText)) {
-                this.bEe.setText(context.getResources().getString(R.string.back));
+                this.bEC.setText(context.getResources().getString(R.string.back));
             } else {
-                this.bEe.setText(aVar.btnText);
+                this.bEC.setText(aVar.btnText);
             }
             if (aq.isEmpty(aVar.btn_text_color)) {
-                this.bEe.setTextColor(context.getResources().getColor(R.color.cp_btn_a));
+                this.bEC.setTextColor(context.getResources().getColor(R.color.cp_cont_a));
             } else {
-                this.bEe.setTextColor(com.baidu.tieba.lego.card.d.a.cE(aVar.btn_text_color));
+                this.bEC.setTextColor(com.baidu.tieba.lego.card.d.a.cE(aVar.btn_text_color));
             }
             if (!aq.isEmpty(aVar.btn_color)) {
-                this.bEe.setBackgroundDrawable(am.X(l.g(context, R.dimen.tbds120), com.baidu.tieba.lego.card.d.a.cE(aVar.btn_color)));
+                this.bEC.setBackgroundDrawable(am.X(l.g(context, R.dimen.tbds120), com.baidu.tieba.lego.card.d.a.cE(aVar.btn_color)));
             }
             if (!aq.isEmpty(aVar.imgUrl)) {
-                this.bEc.startLoad(aVar.imgUrl, 10, false);
+                this.bEA.startLoad(aVar.imgUrl, 10, false);
             } else {
-                this.bEc.startLoad(String.valueOf((int) R.drawable.banner_size), 24, false);
+                this.bEA.startLoad(String.valueOf((int) R.drawable.banner_size), 24, false);
             }
         }
     }
 
     public void show() {
-        if (acu() && this.bEg != null && this.bEg.getLayoutParams() != null) {
-            this.bEg.getLayoutParams().width = (this.mScreenWidth * 2) / 3;
+        if (acy() && this.bEE != null && this.bEE.getLayoutParams() != null) {
+            this.bEE.getLayoutParams().width = (this.mScreenWidth * 2) / 3;
         }
         showAtLocation(getContentView(), 17, 0, 0);
     }
 
-    private boolean acu() {
+    private boolean acy() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();

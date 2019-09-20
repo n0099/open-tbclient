@@ -30,9 +30,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, b bVar) {
-        AdvertAppInfo bah = dVar.bah();
-        if (bah != null) {
-            com.baidu.tbadk.core.data.c.c(bah.advertAppContext, bah.bEZ, bah.bFe.bFr == -1001);
+        AdvertAppInfo baL = dVar.baL();
+        if (baL != null) {
+            com.baidu.tbadk.core.data.c.c(baL.advertAppContext, baL.bFx, baL.bFC.bFP == -1001);
         }
         return bVar.getView();
     }

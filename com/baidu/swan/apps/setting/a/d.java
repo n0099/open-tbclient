@@ -52,8 +52,8 @@ public class d extends z {
                     for (Map.Entry<String, com.baidu.swan.apps.setting.oauth.e> entry : map.entrySet()) {
                         String key = entry.getKey();
                         com.baidu.swan.apps.setting.oauth.e value = entry.getValue();
-                        if (!TextUtils.isEmpty(key) && value != null && value.Nv()) {
-                            jSONObject.put(key, value.Nu() ? "1" : "0");
+                        if (!TextUtils.isEmpty(key) && value != null && value.Nz()) {
+                            jSONObject.put(key, value.Ny() ? "1" : "0");
                         }
                     }
                     CallbackHandler.this.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());

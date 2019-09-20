@@ -43,7 +43,7 @@ public final class a {
         return U * 0.6f;
     }
 
-    public static a rb() {
+    public static a rc() {
         if (Zf == null) {
             synchronized (a.class) {
                 if (Zf == null) {

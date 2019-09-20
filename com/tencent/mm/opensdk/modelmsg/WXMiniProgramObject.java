@@ -18,10 +18,10 @@ public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if (d.a(this.webpageUrl)) {
+        if (d.b(this.webpageUrl)) {
             Log.e(TAG, "webPageUrl is null");
             return false;
-        } else if (d.a(this.userName)) {
+        } else if (d.b(this.userName)) {
             Log.e(TAG, "userName is null");
             return false;
         } else if (this.miniprogramType < 0 || this.miniprogramType > 2) {

@@ -432,7 +432,7 @@ public final class BDLocation implements Parcelable {
                 JSONObject jSONObject3 = jSONObject2.getJSONObject("result");
                 int parseInt = Integer.parseInt(jSONObject3.getString("error"));
                 setLocType(parseInt);
-                setTime(jSONObject3.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
+                setTime(jSONObject3.getString("time"));
                 if (parseInt == 61) {
                     JSONObject jSONObject4 = jSONObject2.getJSONObject("content");
                     JSONObject jSONObject5 = jSONObject4.getJSONObject(Config.EVENT_HEAT_POINT);

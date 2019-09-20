@@ -4,12 +4,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class j {
-    private String Tn;
-    private String aFY;
-    private int bws;
-    private JSONObject bwt;
-    private String bwu;
-    private boolean bwv;
+    private String Tm;
+    private String aGw;
+    private int bwQ;
+    private JSONObject bwR;
+    private String bwS;
+    private boolean bwT;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -18,11 +18,11 @@ public class j {
 
     public j(String str, String str2, int i) {
         this.mContent = "";
-        this.bwv = false;
-        this.Tn = "";
+        this.bwT = false;
+        this.Tm = "";
         this.mId = str;
-        this.aFY = str;
-        this.bws = -1;
+        this.aGw = str;
+        this.bwQ = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
@@ -32,12 +32,12 @@ public class j {
 
     public j(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.bwv = false;
-        this.Tn = "";
+        this.bwT = false;
+        this.Tm = "";
         this.mId = str;
-        this.aFY = str;
-        this.bws = -1;
-        this.bwt = jSONObject;
+        this.aGw = str;
+        this.bwQ = -1;
+        this.bwR = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -46,11 +46,11 @@ public class j {
 
     public j(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.bwv = false;
-        this.Tn = "";
+        this.bwT = false;
+        this.Tm = "";
         this.mId = str2;
-        this.aFY = str;
-        this.bws = i;
+        this.aGw = str;
+        this.bwQ = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -60,11 +60,11 @@ public class j {
 
     public j(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.bwv = false;
-        this.Tn = "";
+        this.bwT = false;
+        this.Tm = "";
         this.mId = str2;
-        this.aFY = str;
-        this.bws = i;
+        this.aGw = str;
+        this.bwQ = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -80,12 +80,12 @@ public class j {
         return this.mId;
     }
 
-    public String XP() {
-        return this.aFY;
+    public String XT() {
+        return this.aGw;
     }
 
-    public int XQ() {
-        return this.bws;
+    public int XU() {
+        return this.bwQ;
     }
 
     public String getContent() {
@@ -100,8 +100,8 @@ public class j {
         return this.mOption;
     }
 
-    public String XR() {
-        return this.bwu;
+    public String XV() {
+        return this.bwS;
     }
 
     public String getCategory() {
@@ -112,29 +112,29 @@ public class j {
         this.mCategory = str;
     }
 
-    public JSONObject XS() {
-        return this.bwt;
+    public JSONObject XW() {
+        return this.bwR;
     }
 
     public String getFileName() {
-        return this.Tn;
+        return this.Tm;
     }
 
-    public void rO(String str) {
-        this.Tn = str;
+    public void rZ(String str) {
+        this.Tm = str;
     }
 
-    public boolean XN() {
-        return this.bwv;
+    public boolean XR() {
+        return this.bwT;
     }
 
     public void dr(boolean z) {
-        this.bwv = z;
+        this.bwT = z;
     }
 
-    public void XU() {
-        if (this.mId != null && this.mId.equals(this.aFY) && e.cDx().kO(this.mId)) {
-            this.bwu = UBC.getUBCContext().Ie();
+    public void XY() {
+        if (this.mId != null && this.mId.equals(this.aGw) && e.cEl().kQ(this.mId)) {
+            this.bwS = UBC.getUBCContext().Ii();
         }
     }
 }

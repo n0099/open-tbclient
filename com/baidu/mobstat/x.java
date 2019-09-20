@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.bt;
 import dalvik.system.DexClassLoader;
 import java.io.File;
@@ -260,7 +261,7 @@ public class x {
             arrayList.add(new Pair("dynamicVersion", "" + str));
             arrayList.add(new Pair("packageName", bw.t(context)));
             arrayList.add(new Pair("appVersion", bw.g(context)));
-            arrayList.add(new Pair("cuid", bw.a(context)));
+            arrayList.add(new Pair(DpStatConstants.KEY_CUID, bw.a(context)));
             arrayList.add(new Pair("platform", "Android"));
             arrayList.add(new Pair(Config.MODEL, android.os.Build.MODEL));
             arrayList.add(new Pair("s", Build.VERSION.SDK_INT + ""));

@@ -7,25 +7,25 @@ import com.baidu.swan.apps.ak.e;
 import com.baidu.swan.games.s.a.d;
 /* loaded from: classes2.dex */
 public class c {
-    protected com.baidu.swan.games.e.b beU;
-    protected b bll = new b();
+    protected com.baidu.swan.games.e.b bft;
+    protected b blJ = new b();
 
     public c(com.baidu.swan.games.e.b bVar) {
-        this.beU = bVar;
+        this.bft = bVar;
     }
 
     @NonNull
-    public d jX(String str) {
+    public d jZ(String str) {
         Object obj = null;
         if (str == null) {
-            return d.ka("parameter error: the key cannot be null.");
+            return d.kc("parameter error: the key cannot be null.");
         }
-        String string = this.bll.getString(str, null);
+        String string = this.blJ.getString(str, null);
         if (string != null) {
-            obj = this.beU.c(Base64.decode(string, 2), true);
+            obj = this.bft.d(Base64.decode(string, 2), true);
         }
         if (obj == null) {
-            obj = d.To();
+            obj = d.Ts();
         }
         return d.Q(obj);
     }
@@ -33,52 +33,52 @@ public class c {
     @NonNull
     public d a(String str, JsSerializeValue jsSerializeValue) {
         if (str == null) {
-            return d.ka("parameter error: the key cannot be null.");
+            return d.kc("parameter error: the key cannot be null.");
         }
         if (jsSerializeValue == null) {
             return d.Q(null);
         }
-        byte[] a = this.beU.a(jsSerializeValue, true);
+        byte[] a = this.bft.a(jsSerializeValue, true);
         jsSerializeValue.release();
         if (a == null) {
-            return d.ka("parameter error: the data parse failed.");
+            return d.kc("parameter error: the data parse failed.");
         }
         String encodeToString = Base64.encodeToString(a, 2);
-        String string = this.bll.getString(str, null);
+        String string = this.blJ.getString(str, null);
         int length = str.getBytes().length;
-        if (this.bll.NU() - this.bll.NT() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
-            return d.ka("storage error: the storage space insufficient.");
+        if (this.blJ.NY() - this.blJ.NX() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
+            return d.kc("storage error: the storage space insufficient.");
         }
-        boolean bh = this.bll.bh(str, encodeToString);
-        e.aZD.update();
-        return bh ? d.Q(null) : d.ka("storage error: the storage is invalid.");
+        boolean bh = this.blJ.bh(str, encodeToString);
+        e.bab.update();
+        return bh ? d.Q(null) : d.kc("storage error: the storage is invalid.");
     }
 
     @NonNull
-    public d jY(String str) {
+    public d ka(String str) {
         if (str == null) {
-            return d.ka("parameter error: the key cannot be null.");
+            return d.kc("parameter error: the key cannot be null.");
         }
-        this.bll.remove(str);
-        e.aZD.update();
+        this.blJ.remove(str);
+        e.bab.update();
         return d.Q(null);
     }
 
     @NonNull
-    public d Tm() {
-        this.bll.Tk();
-        e.aZD.update();
+    public d Tq() {
+        this.blJ.To();
+        e.bab.update();
         return d.Q(null);
     }
 
     @NonNull
     public com.baidu.swan.games.s.a.c getStorageInfoSync() {
-        String[] Tj = this.bll.Tj();
+        String[] Tn = this.blJ.Tn();
         com.baidu.swan.games.s.a.c cVar = new com.baidu.swan.games.s.a.c();
-        cVar.keys = Tj;
-        cVar.currentSize = this.bll.NT() / 1024;
-        cVar.limitSize = this.bll.NU() / 1024;
-        cVar.errMsg = com.baidu.swan.games.s.a.a.jZ("getStorageInfoSync");
+        cVar.keys = Tn;
+        cVar.currentSize = this.blJ.NX() / 1024;
+        cVar.limitSize = this.blJ.NY() / 1024;
+        cVar.errMsg = com.baidu.swan.games.s.a.a.kb("getStorageInfoSync");
         return cVar;
     }
 }

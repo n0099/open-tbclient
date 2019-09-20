@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -19,29 +19,29 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class x {
-    public int hRQ;
+    public int hTN;
 
     public x(PbModel pbModel, BaseActivity baseActivity) {
     }
 
-    private void xH(String str) {
+    private void yg(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> oo = bb.oo(str);
-        if (oo != null) {
-            this.hRQ = 5;
+        Map<String, String> oq = ba.oq(str);
+        if (oq != null) {
+            this.hTN = 5;
             com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c10320");
-            anVar.bT("obj_locate", oo.get("obj_locate"));
+            anVar.bT("obj_locate", oq.get("obj_locate"));
             anVar.P("obj_type", 1);
-            anVar.bT("tid", oo.get("tid"));
-            anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, oo.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            anVar.bT("obj_param2", oo.get("obj_param2"));
+            anVar.bT("tid", oq.get("tid"));
+            anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, oq.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            anVar.bT("obj_param2", oq.get("obj_param2"));
             anVar.P("obj_to", 3);
-            anVar.bT(VideoPlayActivityConfig.OBJ_ID, oo.get("bdid"));
-            if (!com.baidu.tbadk.core.util.aq.isEmpty(oo.get("ext_log"))) {
+            anVar.bT(VideoPlayActivityConfig.OBJ_ID, oq.get("bdid"));
+            if (!com.baidu.tbadk.core.util.aq.isEmpty(oq.get("ext_log"))) {
                 try {
-                    JSONObject jSONObject = new JSONObject(oo.get("ext_log"));
+                    JSONObject jSONObject = new JSONObject(oq.get("ext_log"));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
@@ -68,11 +68,11 @@ public class x {
                         if ("mpush".equals(matcher.group(1))) {
                             TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").bT("tid", matcher.group(2)));
                         } else {
-                            xH(decode);
+                            yg(decode);
                         }
                         str = matcher.group(2);
                     } else {
-                        xH(decode);
+                        yg(decode);
                         int indexOf = decode.indexOf("tid=");
                         if (indexOf >= 0 && (length = indexOf + "tid=".length()) <= decode.length()) {
                             str = decode.substring(length);

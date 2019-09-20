@@ -6,36 +6,36 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> gMF = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> gOx = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0340a {
+    public interface InterfaceC0351a {
         void a(Iterator<ImMessageCenterPojo> it);
     }
 
-    public void a(InterfaceC0340a interfaceC0340a) {
-        interfaceC0340a.a(this.gMF.values().iterator());
+    public void a(InterfaceC0351a interfaceC0351a) {
+        interfaceC0351a.a(this.gOx.values().iterator());
     }
 
-    public void bFl() {
-        this.gMF.clear();
+    public void bFZ() {
+        this.gOx.clear();
     }
 
     public void g(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.gMF.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.gOx.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
-    public ImMessageCenterPojo zp(String str) {
+    public ImMessageCenterPojo zO(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.gMF.get(str);
+        return this.gOx.get(str);
     }
 
-    public boolean zq(String str) {
-        return (TextUtils.isEmpty(str) || this.gMF.remove(str) == null) ? false : true;
+    public boolean zP(String str) {
+        return (TextUtils.isEmpty(str) || this.gOx.remove(str) == null) ? false : true;
     }
 }

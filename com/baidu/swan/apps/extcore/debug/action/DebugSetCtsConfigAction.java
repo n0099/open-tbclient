@@ -19,15 +19,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class DebugSetCtsConfigAction extends z {
-    private static final String awD = c.class.getSimpleName();
-    private static final String awE = String.format("?swanjs_version=%s", com.baidu.swan.apps.swancore.b.dV(0));
-    private static final String awF = "http://sut.baidu-int.com/yts/sut/preload" + awE + "&type=1";
-    private static final String awG = "http://sut.baidu-int.com/yts/sut/preload" + awE + "&type=2";
-    private boolean awH;
-    private boolean awI;
-    private boolean awJ;
-    private String awK;
-    private String awL;
+    private static final String axb = c.class.getSimpleName();
+    private static final String axc = String.format("?swanjs_version=%s", com.baidu.swan.apps.swancore.b.dW(0));
+    private static final String axd = "http://sut.baidu-int.com/yts/sut/preload" + axc + "&type=1";
+    private static final String axe = "http://sut.baidu-int.com/yts/sut/preload" + axc + "&type=2";
+    private boolean axf;
+    private boolean axg;
+    private boolean axh;
+    private String axi;
+    private String axj;
 
     /* loaded from: classes2.dex */
     public enum FrameType {
@@ -37,9 +37,9 @@ public class DebugSetCtsConfigAction extends z {
 
     public DebugSetCtsConfigAction(j jVar) {
         super(jVar, "/swan/debug/setCtsConfig");
-        this.awH = false;
-        this.awI = false;
-        this.awJ = false;
+        this.axf = false;
+        this.axg = false;
+        this.axh = false;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.z
@@ -50,24 +50,24 @@ public class DebugSetCtsConfigAction extends z {
         }
         JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
-            com.baidu.swan.apps.console.c.e(awD, "params is null");
+            com.baidu.swan.apps.console.c.e(axb, "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         String optString = c.optString("cb");
         if (!c.has("loadCts")) {
-            com.baidu.swan.apps.console.c.e(awD, "loadCts is null");
+            com.baidu.swan.apps.console.c.e(axb, "loadCts is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         if (c.optInt("loadCts") == 1) {
             JSONObject jSONObject = new JSONObject();
             aY(context);
-            a(bVar, this.awK, callbackHandler, optString, jSONObject, FrameType.MASTER);
-            a(bVar, this.awL, callbackHandler, optString, jSONObject, FrameType.SLAVE);
-            this.awJ = true;
+            a(bVar, this.axi, callbackHandler, optString, jSONObject, FrameType.MASTER);
+            a(bVar, this.axj, callbackHandler, optString, jSONObject, FrameType.SLAVE);
+            this.axh = true;
         } else {
-            this.awJ = false;
+            this.axh = false;
             com.baidu.swan.apps.ac.a.a.bL(false);
             callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
@@ -79,29 +79,29 @@ public class DebugSetCtsConfigAction extends z {
         if (com.baidu.swan.apps.an.c.U(context, "aiapps/debug_cts_url.json")) {
             try {
                 JSONObject jSONObject = new JSONObject(com.baidu.swan.apps.an.c.V(context, "aiapps/debug_cts_url.json"));
-                this.awK = jSONObject.optString("master");
-                this.awL = jSONObject.optString("slave");
-                if (TextUtils.isEmpty(this.awK)) {
-                    this.awK = awF;
+                this.axi = jSONObject.optString("master");
+                this.axj = jSONObject.optString("slave");
+                if (TextUtils.isEmpty(this.axi)) {
+                    this.axi = axd;
                 }
-                if (TextUtils.isEmpty(this.awL)) {
-                    this.awL = awG;
+                if (TextUtils.isEmpty(this.axj)) {
+                    this.axj = axe;
                     return;
                 }
                 return;
             } catch (JSONException e) {
                 e.printStackTrace();
-                this.awK = awF;
-                this.awL = awG;
+                this.axi = axd;
+                this.axj = axe;
                 return;
             }
         }
-        this.awK = awF;
-        this.awL = awG;
+        this.axi = axd;
+        this.axj = axe;
     }
 
     private void a(com.baidu.swan.apps.ae.b bVar, String str, final CallbackHandler callbackHandler, final String str2, final JSONObject jSONObject, final FrameType frameType) {
-        bVar.Mj().a(new Request.Builder().url(str).get().build(), new Callback() { // from class: com.baidu.swan.apps.extcore.debug.action.DebugSetCtsConfigAction.1
+        bVar.Mn().a(new Request.Builder().url(str).get().build(), new Callback() { // from class: com.baidu.swan.apps.extcore.debug.action.DebugSetCtsConfigAction.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (DebugSetCtsConfigAction.DEBUG) {
@@ -117,19 +117,19 @@ public class DebugSetCtsConfigAction extends z {
                         JSONObject jSONObject2 = new JSONObject(response.body().string());
                         if (jSONObject2.has("code") && jSONObject2.optInt("code") == 0) {
                             JSONArray optJSONArray = jSONObject2.optJSONArray("data");
-                            switch (AnonymousClass2.awP[frameType.ordinal()]) {
+                            switch (AnonymousClass2.axn[frameType.ordinal()]) {
                                 case 1:
                                     jSONObject.put("master", optJSONArray);
-                                    DebugSetCtsConfigAction.this.awH = true;
+                                    DebugSetCtsConfigAction.this.axf = true;
                                     DebugSetCtsConfigAction.this.a(jSONObject, callbackHandler, str2);
                                     break;
                                 case 2:
                                     jSONObject.put("slave", optJSONArray);
-                                    DebugSetCtsConfigAction.this.awI = true;
+                                    DebugSetCtsConfigAction.this.axg = true;
                                     DebugSetCtsConfigAction.this.a(jSONObject, callbackHandler, str2);
                                     break;
                                 default:
-                                    com.baidu.swan.apps.console.c.e(DebugSetCtsConfigAction.awD, "error type, get cts url failed");
+                                    com.baidu.swan.apps.console.c.e(DebugSetCtsConfigAction.axb, "error type, get cts url failed");
                                     break;
                             }
                         } else {
@@ -150,15 +150,15 @@ public class DebugSetCtsConfigAction extends z {
     /* renamed from: com.baidu.swan.apps.extcore.debug.action.DebugSetCtsConfigAction$2  reason: invalid class name */
     /* loaded from: classes2.dex */
     static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] awP = new int[FrameType.values().length];
+        static final /* synthetic */ int[] axn = new int[FrameType.values().length];
 
         static {
             try {
-                awP[FrameType.MASTER.ordinal()] = 1;
+                axn[FrameType.MASTER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                awP[FrameType.SLAVE.ordinal()] = 2;
+                axn[FrameType.SLAVE.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
         }
@@ -166,12 +166,12 @@ public class DebugSetCtsConfigAction extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-        if (this.awH && this.awI && this.awJ) {
+        if (this.axf && this.axg && this.axh) {
             com.baidu.swan.apps.ac.a.a.bL(true);
-            f.NX().putString("ctsUrl", jSONObject.toString());
+            f.Ob().putString("ctsUrl", jSONObject.toString());
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            this.awI = false;
-            this.awH = false;
+            this.axg = false;
+            this.axf = false;
         }
     }
 }

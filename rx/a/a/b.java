@@ -3,13 +3,13 @@ package rx.a.a;
 import rx.g;
 /* loaded from: classes2.dex */
 public class b {
-    private static final b kvK = new b();
+    private static final b kyd = new b();
 
-    public static b cPy() {
-        return kvK;
+    public static b cQk() {
+        return kyd;
     }
 
-    public g cPz() {
+    public g cQl() {
         return null;
     }
 

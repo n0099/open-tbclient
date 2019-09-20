@@ -21,23 +21,23 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.e
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d DR() {
+    protected com.baidu.swan.apps.setting.oauth.d DV() {
         return new a();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.e, com.baidu.swan.apps.setting.oauth.b
-    protected boolean DO() {
+    protected boolean DS() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", Mu().id);
+            jSONObject.put("ma_id", My().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", Mu().getAppKey());
+            jSONObject2.put("app_key", My().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject2.put("stoken", this.mStoken);
-            String wS = com.baidu.swan.apps.u.a.Ew().wS();
-            if (!TextUtils.isEmpty(wS)) {
-                jSONObject2.put("host_api_key", wS);
+            String wW = com.baidu.swan.apps.u.a.EA().wW();
+            if (!TextUtils.isEmpty(wW)) {
+                jSONObject2.put("host_api_key", wW);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
@@ -53,13 +53,13 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean DQ() throws Exception {
-            boolean bb = com.baidu.swan.apps.u.a.Ep().bb(e.this.mActivity);
+        protected boolean DU() throws Exception {
+            boolean bb = com.baidu.swan.apps.u.a.Et().bb(e.this.mActivity);
             if (e.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + bb + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!bb) {
-                e.this.Mu().Mi().a(e.this.mActivity, e.this.aVh, this);
+                e.this.My().Mm().a(e.this.mActivity, e.this.aVF, this);
                 return false;
             }
             e.this.a(new b());
@@ -83,7 +83,7 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.a("Login Preparation ok, is already login", (Boolean) false);
                     e.this.a(new b());
-                    Nt();
+                    Nx();
                     return;
             }
         }
@@ -93,18 +93,18 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
     /* loaded from: classes4.dex */
     public class b extends com.baidu.swan.apps.setting.oauth.d {
         private b() {
-            if (e.this.aVg != null && e.this.aVf != null && e.this.aVf.aUy) {
-                long j = e.this.aVf.aUz;
+            if (e.this.aVE != null && e.this.aVD != null && e.this.aVD.aUW) {
+                long j = e.this.aVD.aUX;
                 if (e.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
                 Log.d("LoginRequest", "send timeout " + j + "ms msg");
-                e.this.aVg.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                e.this.aVE.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean DQ() throws Exception {
+        protected boolean DU() throws Exception {
             com.baidu.tieba.aiapps.apps.a.c.a(e.this.mActivity, new com.baidu.swan.apps.an.d.a<Bundle>() { // from class: com.baidu.swan.apps.q.a.b.a.e.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
@@ -117,7 +117,7 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         e.this.mStoken = string;
-                        b.this.Nt();
+                        b.this.Nx();
                         return;
                     }
                     b.this.m(new OAuthException("empty stoken", 10001));

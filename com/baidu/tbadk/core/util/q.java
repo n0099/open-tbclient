@@ -9,15 +9,15 @@ public interface q {
 
     boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    ArrayList<BasicNameValuePair> aih();
+    ArrayList<BasicNameValuePair> ail();
 
-    String aii();
+    String aim();
 
-    byte[] aij();
+    byte[] ain();
 
-    String aik();
+    String aio();
 
-    String ail();
+    String aip();
 
     void d(String str, byte[] bArr);
 

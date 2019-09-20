@@ -8,59 +8,59 @@ import com.baidu.tieba.lego.card.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.b.b {
+    public String RY;
     public String RZ;
-    public String Sa;
-    public int Sb;
+    public int Sa;
+    public String Sb;
     public String Sc;
     public String Sd;
     public String Se;
-    public String Sf;
-    public boolean Sg;
+    public boolean Sf;
+    public int Sg;
     public int Sh;
-    public int Si;
-    private b.a Sl;
+    private b.a Sk;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int RY = 3;
+    private int RX = 3;
+    public ArrayList<String> Si = new ArrayList<>();
     public ArrayList<String> Sj = new ArrayList<>();
-    public ArrayList<String> Sk = new ArrayList<>();
 
     public void bd(int i) {
-        this.RY = i;
+        this.RX = i;
     }
 
     public boolean isEmpty() {
-        return this.RY == 2;
+        return this.RX == 2;
     }
 
-    public int pK() {
-        return this.RY;
+    public int pL() {
+        return this.RX;
     }
 
     public boolean isValid() {
-        if (pK() == 0) {
+        if (pL() == 0) {
             return this.picUrl != null && (this.picUrl.startsWith("http://") || this.picUrl.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX));
-        } else if (pK() == 1) {
+        } else if (pL() == 1) {
             return this.videoUrl != null && (this.videoUrl.startsWith("http://") || this.videoUrl.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX));
         } else {
             return false;
         }
     }
 
-    public String pL() {
-        return StringUtils.isNull(this.Se) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.Se;
+    public String pM() {
+        return StringUtils.isNull(this.Sd) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.Sd;
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.Sl == null) {
-            this.Sl = new b.a();
-            this.Sl.heV = this.Sj;
-            this.Sl.heW = this.Sk;
+        if (this.Sk == null) {
+            this.Sk = new b.a();
+            this.Sk.hgP = this.Si;
+            this.Sk.hgQ = this.Sj;
         }
-        return this.Sl;
+        return this.Sk;
     }
 }

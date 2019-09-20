@@ -8,35 +8,35 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a fwb;
-    private FrsLinkHashMap<String, Long> fwc;
+    private static a fxO;
+    private FrsLinkHashMap<String, Long> fxP;
 
     private a() {
     }
 
-    public static a bmH() {
-        if (fwb == null) {
+    public static a bns() {
+        if (fxO == null) {
             synchronized (a.class) {
-                if (fwb == null) {
-                    fwb = new a();
+                if (fxO == null) {
+                    fxO = new a();
                 }
             }
         }
-        return fwb;
+        return fxO;
     }
 
-    private void r(String str, long j) {
+    private void t(String str, long j) {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 FrsHotTopicListData frsHotTopicListData;
-                l<String> bE = com.baidu.tbadk.core.d.a.agH().bE("tb.frs_hottopic", "");
+                l<String> bE = com.baidu.tbadk.core.d.a.agL().bE("tb.frs_hottopic", "");
                 if (bE != null) {
                     String str2 = bE.get("hot_topic_key");
                     if (!StringUtils.isNull(str2) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str2, FrsHotTopicListData.class)) != null) {
-                        a.this.fwc = frsHotTopicListData.mSceneMap;
+                        a.this.fxP = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -46,16 +46,16 @@ public class a {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    public boolean s(String str, long j) {
+    public boolean u(String str, long j) {
         boolean z;
-        if (this.fwc == null) {
-            this.fwc = new FrsLinkHashMap<>();
-            r(str, j);
+        if (this.fxP == null) {
+            this.fxP = new FrsLinkHashMap<>();
+            t(str, j);
         }
-        if (StringUtils.isNull(str) || this.fwc.isEmpty()) {
+        if (StringUtils.isNull(str) || this.fxP.isEmpty()) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = this.fwc.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = this.fxP.entrySet().iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -67,24 +67,24 @@ public class a {
                 break;
             }
         }
-        if (z && this.fwc.get(str).longValue() == j) {
+        if (z && this.fxP.get(str).longValue() == j) {
             return false;
         }
-        this.fwc.put(str, Long.valueOf(j));
-        bmI();
+        this.fxP.put(str, Long.valueOf(j));
+        bnt();
         return true;
     }
 
-    private void bmI() {
+    private void bnt() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                l<String> bE = com.baidu.tbadk.core.d.a.agH().bE("tb.frs_hottopic", "");
+                l<String> bE = com.baidu.tbadk.core.d.a.agL().bE("tb.frs_hottopic", "");
                 if (bE != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                    frsHotTopicListData.mSceneMap = a.this.fwc;
+                    frsHotTopicListData.mSceneMap = a.this.fxP;
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                     if (!StringUtils.isNull(jsonStrWithObject)) {
                         bE.f("hot_topic_key", jsonStrWithObject);

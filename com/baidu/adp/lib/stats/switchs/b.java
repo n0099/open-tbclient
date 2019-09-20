@@ -3,7 +3,6 @@ package com.baidu.adp.lib.stats.switchs;
 import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.Disk.ops.d;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +25,7 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.CK = jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            this.CK = jSONObject.getLong("time");
             this.CL = jSONObject.getString("data");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -39,7 +38,7 @@ public class b {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis);
+                jSONObject.put("time", currentTimeMillis);
                 jSONObject.put("data", str);
                 d dVar = new d("statisticConfig", "switchsConfig", DiskFileOperate.Action.WRITE_FORCE);
                 dVar.L(false);

@@ -27,7 +27,7 @@ public final class b {
         return Zg;
     }
 
-    public static b rc() {
+    public static b rd() {
         return Zg;
     }
 

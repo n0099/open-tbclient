@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter implements n {
-    private boolean Nf;
+    private boolean Ng;
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
     private ArrayList<b> mFooterViewInfos;
@@ -36,7 +36,7 @@ public class e extends BaseAdapter implements n {
         this.mContext = null;
         this.mHeaderViewInfos = null;
         this.mFooterViewInfos = null;
-        this.Nf = false;
+        this.Ng = false;
         this.mAdapterDataSetObserver = null;
         this.mContext = context;
         this.mHeaderViewInfos = new ArrayList<>();
@@ -44,7 +44,7 @@ public class e extends BaseAdapter implements n {
         if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
             z = true;
         }
-        this.Nf = z;
+        this.Ng = z;
         this.mAdapterDataSetObserver = new DataSetObserver() { // from class: com.baidu.adp.widget.ListView.e.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
@@ -118,11 +118,11 @@ public class e extends BaseAdapter implements n {
         }
     }
 
-    public int od() {
+    public int oe() {
         return this.mHeaderViewInfos.size();
     }
 
-    public int oe() {
+    public int og() {
         return this.mFooterViewInfos.size();
     }
 
@@ -130,7 +130,7 @@ public class e extends BaseAdapter implements n {
         if (arrayList != null) {
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
-                if (!it.next().Ne) {
+                if (!it.next().Nf) {
                     return false;
                 }
             }
@@ -149,7 +149,7 @@ public class e extends BaseAdapter implements n {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Nf = z;
+                this.Ng = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -168,7 +168,7 @@ public class e extends BaseAdapter implements n {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Nf = z;
+                this.Ng = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -185,7 +185,7 @@ public class e extends BaseAdapter implements n {
             b bVar = new b();
             bVar.view = view;
             bVar.data = obj;
-            bVar.Ne = z;
+            bVar.Nf = z;
             if (i < 0 || i > this.mHeaderViewInfos.size()) {
                 this.mHeaderViewInfos.add(bVar);
             } else {
@@ -212,7 +212,7 @@ public class e extends BaseAdapter implements n {
             b bVar = new b();
             bVar.view = view;
             bVar.data = obj;
-            bVar.Ne = z;
+            bVar.Nf = z;
             if (i < 0 || i > this.mFooterViewInfos.size()) {
                 this.mFooterViewInfos.add(bVar);
             } else {
@@ -224,16 +224,16 @@ public class e extends BaseAdapter implements n {
 
     @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
     public int getCount() {
-        return this.mAdapter != null ? oe() + od() + this.mAdapter.getCount() : oe() + od();
+        return this.mAdapter != null ? og() + oe() + this.mAdapter.getCount() : og() + oe();
     }
 
     @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
     public Object getItem(int i) {
-        int od = od();
-        if (i < od) {
+        int oe = oe();
+        if (i < oe) {
             return this.mHeaderViewInfos.get(i).data;
         }
-        int i2 = i - od;
+        int i2 = i - oe;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             return this.mAdapter.getItem(i2);
@@ -248,8 +248,8 @@ public class e extends BaseAdapter implements n {
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         int i2;
-        int od = od();
-        if (this.mAdapter == null || i < od || (i2 = i - od) >= this.mAdapter.getCount()) {
+        int oe = oe();
+        if (this.mAdapter == null || i < oe || (i2 = i - oe) >= this.mAdapter.getCount()) {
             return Long.MIN_VALUE;
         }
         return this.mAdapter.getItemId(i2);
@@ -263,7 +263,7 @@ public class e extends BaseAdapter implements n {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.Nf && this.mAdapter.areAllItemsEnabled();
+            return this.Ng && this.mAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }
@@ -271,11 +271,11 @@ public class e extends BaseAdapter implements n {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
         int i2;
-        int od = od();
-        if (i < od) {
-            return this.mHeaderViewInfos.get(i).Ne;
+        int oe = oe();
+        if (i < oe) {
+            return this.mHeaderViewInfos.get(i).Nf;
         }
-        int i3 = i - od;
+        int i3 = i - oe;
         if (this.mAdapter != null) {
             i2 = this.mAdapter.getCount();
             if (i3 < i2) {
@@ -288,14 +288,14 @@ public class e extends BaseAdapter implements n {
         if (i4 < 0 || i4 >= this.mFooterViewInfos.size()) {
             return false;
         }
-        return this.mFooterViewInfos.get(i4).Ne;
+        return this.mFooterViewInfos.get(i4).Nf;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int i2;
-        int od = od();
-        if (this.mAdapter == null || i < od || (i2 = i - od) >= this.mAdapter.getCount()) {
+        int oe = oe();
+        if (this.mAdapter == null || i < oe || (i2 = i - oe) >= this.mAdapter.getCount()) {
             return -2;
         }
         return this.mAdapter.getItemViewType(i2);
@@ -318,15 +318,15 @@ public class e extends BaseAdapter implements n {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2;
         View view3;
-        int od = od();
-        if (i < od) {
+        int oe = oe();
+        if (i < oe) {
             View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return og();
+                return oh();
             }
             return view4;
         }
-        int i2 = i - od;
+        int i2 = i - oe;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             try {
@@ -343,7 +343,7 @@ public class e extends BaseAdapter implements n {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return og();
+                return oh();
             }
             return view3;
         }
@@ -354,12 +354,12 @@ public class e extends BaseAdapter implements n {
             view2 = null;
         }
         if (view2 == null) {
-            return og();
+            return oh();
         }
         return view2;
     }
 
-    private View og() {
+    private View oh() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(this.mContext, 15.0f);
@@ -369,7 +369,7 @@ public class e extends BaseAdapter implements n {
 
     /* loaded from: classes.dex */
     public class b {
-        public boolean Ne;
+        public boolean Nf;
         public Object data;
         public View view;
 

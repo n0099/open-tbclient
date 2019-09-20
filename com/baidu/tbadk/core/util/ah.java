@@ -4,23 +4,23 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ah {
-    private static final ah bTi = new ah();
-    private final HashMap<Class<?>, Class<?>> bTj = new HashMap<>();
+    private static final ah bTJ = new ah();
+    private final HashMap<Class<?>, Class<?>> bTK = new HashMap<>();
 
-    public static final ah ajd() {
-        return bTi;
+    public static final ah ajh() {
+        return bTJ;
     }
 
     private ah() {
     }
 
     public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
-        this.bTj.put(cls, cls2);
+        this.bTK.put(cls, cls2);
     }
 
     public void RegisterIntent(Class<?> cls, Class<?> cls2) {
-        if (!this.bTj.containsKey(cls)) {
-            this.bTj.put(cls, cls2);
+        if (!this.bTK.containsKey(cls)) {
+            this.bTK.put(cls, cls2);
         } else {
             BdLog.e("register Intent failed, " + cls.getName() + " exist");
         }
@@ -30,13 +30,13 @@ public class ah {
         return getIntentClass(cls) != null;
     }
 
-    public int aje() {
-        return this.bTj.size();
+    public int aji() {
+        return this.bTK.size();
     }
 
     public Class<?> getIntentClass(Class<?> cls) {
-        if (this.bTj != null) {
-            return this.bTj.get(cls);
+        if (this.bTK != null) {
+            return this.bTK.get(cls);
         }
         return null;
     }

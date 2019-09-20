@@ -17,33 +17,33 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static WeakReference<a> jiY;
-    private static a jiZ;
-    private static AtomicBoolean jja;
-    private static int jjb;
-    private static boolean jjc;
-    private static int jjd;
-    private static List<Integer> jje;
+    private static WeakReference<a> jlt;
+    private static a jlu;
+    private static AtomicBoolean jlv;
+    private static int jlw;
+    private static boolean jlx;
+    private static int jly;
+    private static List<Integer> jlz;
 
     static {
-        cqM();
-        cqN();
-        jja = new AtomicBoolean(false);
-        jjb = 0;
-        jjc = true;
-        jjd = 0;
-        jje = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 2121002);
+        crA();
+        crB();
+        jlv = new AtomicBoolean(false);
+        jlw = 0;
+        jlx = true;
+        jly = 0;
+        jlz = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
     }
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!jje.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!jlz.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!jje.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!jlz.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
@@ -52,20 +52,20 @@ public class f {
     private static boolean b(int i, String str, a aVar) {
         AuthVerifyData createDataForAuthWidget;
         boolean z;
-        if (jja.compareAndSet(false, true)) {
-            if (jiY == null || jiY.get() == null) {
+        if (jlv.compareAndSet(false, true)) {
+            if (jlt == null || jlt.get() == null) {
                 String valueOf = String.valueOf(System.currentTimeMillis());
                 if (aVar != null) {
                     aVar.setFrom(valueOf);
-                    jiY = new WeakReference<>(aVar);
+                    jlt = new WeakReference<>(aVar);
                 }
                 if (i == 3250022) {
                     final AuthVerifyData createDataForModifyPwd = AuthVerifyData.createDataForModifyPwd(valueOf);
-                    if (jiY != null && jiY.get() != null) {
-                        jiY.get().onFail();
+                    if (jlt != null && jlt.get() != null) {
+                        jlt.get().onFail();
                     }
                     final com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(TbadkCoreApplication.getInst().getCurrentActivity());
-                    aVar2.hu(R.string.anti_account_modifypwd_tip);
+                    aVar2.hv(R.string.anti_account_modifypwd_tip);
                     aVar2.a(R.string.modify_pwd, new a.b() { // from class: com.baidu.tieba.tbadkCore.util.f.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
@@ -82,10 +82,10 @@ public class f {
                     });
                     if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof BdBaseActivity) {
                         aVar2.b(((BdBaseActivity) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                        aVar2.agK();
+                        aVar2.agO();
                     }
                 } else {
-                    if (i == 2121002) {
+                    if (i == 3250017) {
                         createDataForAuthWidget = AuthVerifyData.createDataForBindMobile(valueOf);
                     } else if (i == 3250023) {
                         createDataForAuthWidget = AuthVerifyData.createDataForFaceId(valueOf);
@@ -98,14 +98,14 @@ public class f {
                 }
                 z = true;
             } else {
-                jjb++;
-                if (jjc && jjd < 3 && jjb > 0 && jjb / 3 == 0) {
+                jlw++;
+                if (jlx && jly < 3 && jlw > 0 && jlw / 3 == 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921373));
-                    jjd++;
+                    jly++;
                 }
                 z = false;
             }
-            jja.set(false);
+            jlv.set(false);
             return z;
         }
         return false;
@@ -115,11 +115,11 @@ public class f {
     public static abstract class a {
         protected String from;
 
-        public abstract void bfg();
+        public abstract void bfK();
 
-        public abstract void vX(String str);
+        public abstract void ww(String str);
 
-        public abstract void vY(String str);
+        public abstract void wx(String str);
 
         protected void setFrom(String str) {
             this.from = str;
@@ -128,13 +128,13 @@ public class f {
         public void b(AuthVerifyData.c cVar) {
             if (cVar != null && cVar.isSuccess) {
                 if (cVar instanceof AuthVerifyData.a) {
-                    vX(((AuthVerifyData.a) cVar).authSid);
+                    ww(((AuthVerifyData.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof AuthVerifyData.b) {
-                    vY(((AuthVerifyData.b) cVar).bly);
+                    wx(((AuthVerifyData.b) cVar).blW);
                     return;
                 } else {
-                    bfg();
+                    bfK();
                     return;
                 }
             }
@@ -147,16 +147,16 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void reset() {
-        if (jiY != null) {
-            jiY.clear();
+        if (jlt != null) {
+            jlt.clear();
         }
-        jiY = null;
-        jiZ = null;
-        jjd = 0;
-        jjb = 0;
+        jlt = null;
+        jlu = null;
+        jly = 0;
+        jlw = 0;
     }
 
-    public static void cqM() {
+    public static void crA() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2921372) { // from class: com.baidu.tieba.tbadkCore.util.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -165,8 +165,8 @@ public class f {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof AuthVerifyData) {
                         AuthVerifyData authVerifyData = (AuthVerifyData) data;
-                        if (f.jiY != null && f.jiY.get() != null) {
-                            a aVar = (a) f.jiY.get();
+                        if (f.jlt != null && f.jlt.get() != null) {
+                            a aVar = (a) f.jlt.get();
                             if (TextUtils.equals(aVar.from, authVerifyData.getFrom())) {
                                 aVar.b(authVerifyData.getResult());
                             }
@@ -178,7 +178,7 @@ public class f {
         });
     }
 
-    public static void cqN() {
+    public static void crB() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2921373) { // from class: com.baidu.tieba.tbadkCore.util.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

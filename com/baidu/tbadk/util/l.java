@@ -1,35 +1,25 @@
 package com.baidu.tbadk.util;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 /* loaded from: classes.dex */
 public class l {
-    public static boolean awi() {
-        return awj();
-    }
-
-    public static boolean awj() {
-        return com.baidu.tbadk.core.util.m.gB() && com.baidu.adp.gif.c.gA();
-    }
-
-    public static boolean re(String str) {
-        if (str == null) {
-            return false;
+    public static void aww() {
+        if (!com.baidu.adp.lib.util.l.ks()) {
+            com.baidu.adp.lib.g.e.iK().post(new Runnable() { // from class: com.baidu.tbadk.util.l.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    l.awx();
+                }
+            });
+        } else {
+            awx();
         }
-        if (rf(str)) {
-            return true;
-        }
-        int indexOf = str.indexOf("imgsrc");
-        if (indexOf <= 0 || indexOf >= 20) {
-            return (com.baidu.adp.lib.b.d.hS().az("portrait_cdn_open") != 0) && rg(str);
-        }
-        return true;
     }
 
-    public static boolean rf(String str) {
-        int indexOf;
-        return str != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20;
-    }
-
-    public static boolean rg(String str) {
-        int indexOf;
-        return str != null && (indexOf = str.indexOf("tb.himg")) > 0 && indexOf < 20;
+    public static void awx() {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
     }
 }

@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.an.ac;
@@ -15,66 +16,66 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class d {
-    public static String ddf = "https://mbd.baidu.com";
+    public static String deS = "https://mbd.baidu.com";
 
-    public static String aFo() {
-        return String.format("%s/ma/invoice/create", ddf);
+    public static String aFS() {
+        return String.format("%s/ma/invoice/create", deS);
     }
 
-    public static String aFp() {
-        return String.format("%s/ma/invoice/list", ddf);
+    public static String aFT() {
+        return String.format("%s/ma/invoice/list", deS);
     }
 
-    public static String aFq() {
-        return String.format("%s/ma/invoice/oa_list", ddf);
+    public static String aFU() {
+        return String.format("%s/ma/invoice/oa_list", deS);
     }
 
-    public static String aFr() {
-        return String.format("%s/ma/invoice/modify", ddf);
+    public static String aFV() {
+        return String.format("%s/ma/invoice/modify", deS);
     }
 
-    public static String aFs() {
-        return String.format("%s/ma/invoice/modify_default", ddf);
+    public static String aFW() {
+        return String.format("%s/ma/invoice/modify_default", deS);
     }
 
-    public static String aFt() {
-        return String.format("%s/ma/invoice/del", ddf);
+    public static String aFX() {
+        return String.format("%s/ma/invoice/del", deS);
     }
 
-    public static String aFu() {
-        return String.format("%s/ma/address", ddf);
+    public static String aFY() {
+        return String.format("%s/ma/address", deS);
     }
 
-    public static String sZ(String str) {
-        String ds = ds(aFy());
-        String ds2 = ds(getUid());
-        return B(B(B(B(B(B(B(B(str, "uid", ds2), "ua", ds(Wv())), "ut", ds), "osbranch", aFw()), "pkgname", nb()), "network", aFv()), "appname", getAppName()), "cfrom", aFC());
+    public static String ty(String str) {
+        String du = du(aGc());
+        String du2 = du(getUid());
+        return B(B(B(B(B(B(B(B(str, "uid", du2), "ua", du(Wz())), "ut", du), "osbranch", aGa()), "pkgname", nb()), DpStatConstants.KEY_NETWORK, aFZ()), "appname", getAppName()), "cfrom", aGg());
     }
 
-    public static String aFv() {
-        return aFE() + "_" + aFD();
+    public static String aFZ() {
+        return aGi() + "_" + aGh();
     }
 
-    public static String aFw() {
+    public static String aGa() {
         return "a0";
     }
 
     public static String getUid() {
-        return com.baidu.swan.apps.u.a.Ep().bd(AppRuntime.getAppContext());
+        return com.baidu.swan.apps.u.a.Et().bd(AppRuntime.getAppContext());
     }
 
-    public static String Wv() {
+    public static String Wz() {
         Context appContext = AppRuntime.getAppContext();
         int displayWidth = z.getDisplayWidth(appContext);
         int displayHeight = z.getDisplayHeight(appContext);
         int bU = z.bU(appContext);
-        String aFx = aFx();
+        String aGb = aGb();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append("_");
         stringBuffer.append(displayHeight);
         stringBuffer.append("_");
-        stringBuffer.append(aFx);
+        stringBuffer.append(aGb);
         stringBuffer.append("_");
         stringBuffer.append(ac.getVersionName());
         stringBuffer.append("_");
@@ -82,7 +83,7 @@ public class d {
         return stringBuffer.toString();
     }
 
-    public static String aFx() {
+    public static String aGb() {
         return "android";
     }
 
@@ -90,14 +91,14 @@ public class d {
         return AppRuntime.getApplication().getPackageName();
     }
 
-    public static String aFy() {
-        String aFB = aFB();
-        String aFA = aFA();
+    public static String aGc() {
+        String aGf = aGf();
+        String aGe = aGe();
         int i = Build.VERSION.SDK_INT;
-        return aFB + "_" + aFA + "_" + i + "_" + aFz();
+        return aGf + "_" + aGe + "_" + i + "_" + aGd();
     }
 
-    public static String aFz() {
+    public static String aGd() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -105,7 +106,7 @@ public class d {
         return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String aFA() {
+    public static String aGe() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -113,7 +114,7 @@ public class d {
         return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String aFB() {
+    public static String aGf() {
         String str = Build.MODEL;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -165,7 +166,7 @@ public class d {
         return str;
     }
 
-    public static String ds(String str) {
+    public static String du(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -178,26 +179,26 @@ public class d {
     }
 
     private static String getAppName() {
-        return com.baidu.swan.apps.u.a.Ew().getHostName();
+        return com.baidu.swan.apps.u.a.EA().getHostName();
     }
 
-    private static String aFC() {
-        return com.baidu.swan.c.c.YB();
+    private static String aGg() {
+        return com.baidu.swan.c.c.YF();
     }
 
-    private static int aFD() {
-        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.u.a.Ek());
+    private static int aGh() {
+        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.u.a.Eo());
         if (activeNetworkInfo == null) {
             return 0;
         }
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int aFE() {
+    private static int aGi() {
         NetworkInfo networkInfo;
         String str = null;
         try {
-            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.u.a.Ek().getSystemService("connectivity")).getActiveNetworkInfo();
+            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.u.a.Eo().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (NullPointerException e) {
             networkInfo = null;
         }

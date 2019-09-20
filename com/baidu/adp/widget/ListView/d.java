@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.v;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public a Nb = null;
+    public a Nc = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -27,23 +27,23 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.Nb = aVar;
-    }
-
-    public int od() {
-        return this.mHeaderViewInfos.size();
+        this.Nc = aVar;
     }
 
     public int oe() {
+        return this.mHeaderViewInfos.size();
+    }
+
+    public int og() {
         return this.mFooterViewInfos.size();
     }
 
     public void addHeaderView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.Nd = new v.a(view);
+            cVar.Ne = new v.a(view);
             cVar.data = obj;
-            cVar.Ne = z;
+            cVar.Nf = z;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("HEADER");
@@ -58,9 +58,9 @@ public class d {
     public void addFooterView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.Nd = new v.a(view);
+            cVar.Ne = new v.a(view);
             cVar.data = obj;
-            cVar.Ne = z;
+            cVar.Nf = z;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("FOOTER");
@@ -78,7 +78,7 @@ public class d {
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.Nd != null && cVar.Nd.itemView == view) {
+            if (cVar != null && cVar.Ne != null && cVar.Ne.itemView == view) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -92,7 +92,7 @@ public class d {
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.Nd != null && cVar.Nd.itemView == view) {
+            if (cVar != null && cVar.Ne != null && cVar.Ne.itemView == view) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -108,7 +108,7 @@ public class d {
                 if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mHeaderViewInfos.get(i3).Nd;
+                    return this.mHeaderViewInfos.get(i3).Ne;
                 }
             } else {
                 return null;
@@ -124,7 +124,7 @@ public class d {
                 if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mFooterViewInfos.get(i3).Nd;
+                    return this.mFooterViewInfos.get(i3).Ne;
                 }
             } else {
                 return null;
@@ -150,8 +150,8 @@ public class d {
 
     /* loaded from: classes.dex */
     public class c {
-        public v.a Nd;
-        public boolean Ne;
+        public v.a Ne;
+        public boolean Nf;
         public Object data;
         public long id;
         public int type;

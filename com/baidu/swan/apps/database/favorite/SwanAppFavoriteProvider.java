@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    private volatile b avs;
+    private volatile b avQ;
 
-    private b CE() {
-        if (this.avs == null) {
+    private b CI() {
+        if (this.avQ == null) {
             synchronized (SwanAppFavoriteProvider.class) {
-                if (this.avs == null) {
-                    this.avs = new b();
+                if (this.avQ == null) {
+                    this.avQ = new b();
                 }
             }
         }
-        return this.avs;
+        return this.avQ;
     }
 
     @Override // android.content.ContentProvider
@@ -29,28 +29,28 @@ public class SwanAppFavoriteProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return CE().query(uri, strArr, str, strArr2, str2);
+        return CI().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return CE().getType(uri);
+        return CI().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return CE().insert(uri, contentValues);
+        return CI().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return CE().delete(uri, str, strArr);
+        return CI().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return CE().update(uri, contentValues, str, strArr);
+        return CI().update(uri, contentValues, str, strArr);
     }
 }

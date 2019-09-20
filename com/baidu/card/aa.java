@@ -13,36 +13,36 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class aa extends b<com.baidu.tbadk.core.data.a> {
     private static final int TBDS6 = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+    private int Xn;
     private int Xo;
-    private int Xp;
-    private NewThreadCommentAndPraiseInfoLayout Xq;
-    private com.baidu.tbadk.core.data.a Xr;
-    private a.C0038a Xs;
-    private Runnable Xt;
+    private NewThreadCommentAndPraiseInfoLayout Xp;
+    private com.baidu.tbadk.core.data.a Xq;
+    private a.C0038a Xr;
+    private Runnable Xs;
 
     public aa(Context context) {
         super(context);
-        this.Xo = 11;
-        this.Xp = this.Xo;
-        this.Xs = new a.C0038a(5);
-        this.Xt = new Runnable() { // from class: com.baidu.card.aa.1
+        this.Xn = 11;
+        this.Xo = this.Xn;
+        this.Xr = new a.C0038a(5);
+        this.Xs = new Runnable() { // from class: com.baidu.card.aa.1
             @Override // java.lang.Runnable
             public void run() {
-                aa.this.Xs.setExtraData(Integer.valueOf(aa.this.Xq.getCommentContainer().getRight() + aa.this.VB.qN().Xg));
-                aa.this.VB.b(aa.this.Xs);
+                aa.this.Xr.setExtraData(Integer.valueOf(aa.this.Xp.getCommentContainer().getRight() + aa.this.VA.qO().Xf));
+                aa.this.VA.b(aa.this.Xr);
             }
         };
-        this.Xq = new NewThreadCommentAndPraiseInfoLayout(context);
-        this.Xq.setReplyTimeVisible(false);
-        this.Xq.setShowPraiseNum(true);
-        this.Xq.setNeedAddPraiseIcon(true);
-        this.Xq.setNeedAddReplyIcon(true);
-        this.Xq.setShareVisible(true);
-        this.Xq.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.aa.2
+        this.Xp = new NewThreadCommentAndPraiseInfoLayout(context);
+        this.Xp.setReplyTimeVisible(false);
+        this.Xp.setShowPraiseNum(true);
+        this.Xp.setNeedAddPraiseIcon(true);
+        this.Xp.setNeedAddReplyIcon(true);
+        this.Xp.setShareVisible(true);
+        this.Xp.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.aa.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aa.this.qB() != null) {
-                    aa.this.qB().a(view, aa.this.Xr);
+                if (aa.this.qC() != null) {
+                    aa.this.qC().a(view, aa.this.Xq);
                 }
             }
         });
@@ -50,17 +50,17 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void qA() {
-        this.VB.a(4, new a.b() { // from class: com.baidu.card.aa.3
+    public void qB() {
+        this.VA.a(4, new a.b() { // from class: com.baidu.card.aa.3
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0038a c0038a) {
-                if (c0038a.qV() instanceof Boolean) {
-                    if (((Boolean) c0038a.qV()).booleanValue()) {
-                        aa.this.Xo = aa.this.Xp;
+                if (c0038a.qW() instanceof Boolean) {
+                    if (((Boolean) c0038a.qW()).booleanValue()) {
+                        aa.this.Xn = aa.this.Xo;
                     } else {
-                        aa.this.Xo &= -5;
+                        aa.this.Xn &= -5;
                     }
-                    aa.this.Xq.setShowFlag(aa.this.Xo);
+                    aa.this.Xp.setShowFlag(aa.this.Xn);
                 }
                 return false;
             }
@@ -69,45 +69,45 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
 
     @Override // com.baidu.card.b
     public void bm(int i) {
-        this.Xo |= i;
-        this.Xq.setShowFlag(this.Xo);
-        this.Xp = this.Xo;
+        this.Xn |= i;
+        this.Xp.setShowFlag(this.Xn);
+        this.Xo = this.Xn;
     }
 
     @Override // com.baidu.card.b
     public void bn(int i) {
-        this.Xo &= i ^ (-1);
-        this.Xq.setShowFlag(this.Xo);
-        this.Xp = this.Xo;
+        this.Xn &= i ^ (-1);
+        this.Xp.setShowFlag(this.Xn);
+        this.Xo = this.Xn;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.Xq;
+        return this.Xp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.Xr = aVar;
-        this.Xq.setData(aVar.acy());
-        if ((this.Xo & 4) > 0) {
-            this.Xq.post(this.Xt);
+        this.Xq = aVar;
+        this.Xp.setData(aVar.acC());
+        if ((this.Xn & 4) > 0) {
+            this.Xp.post(this.Xs);
         }
-        qT();
+        qU();
     }
 
-    private void qT() {
+    private void qU() {
         boolean z;
-        b qI = this.VB.qI();
-        if (qI == null) {
-            setMarginsTop(this.Xq, y.WZ - TBDS6);
+        b qJ = this.VA.qJ();
+        if (qJ == null) {
+            setMarginsTop(this.Xp, y.WY - TBDS6);
             return;
         }
         boolean z2 = true;
-        ViewGroup viewGroup = (ViewGroup) qI.getView();
+        ViewGroup viewGroup = (ViewGroup) qJ.getView();
         int childCount = viewGroup.getChildCount();
         int i = 0;
         while (true) {
@@ -121,9 +121,9 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
             i++;
         }
         if (z2) {
-            List<f> qK = this.VB.qK();
-            if (!com.baidu.tbadk.core.util.v.aa(qK)) {
-                for (f fVar : qK) {
+            List<f> qL = this.VA.qL();
+            if (!com.baidu.tbadk.core.util.v.aa(qL)) {
+                for (f fVar : qL) {
                     if (fVar != null && fVar.getView() != null && fVar.getView().getVisibility() == 0) {
                         z = false;
                         break;
@@ -133,34 +133,34 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
         }
         z = z2;
         if (z) {
-            setMarginsTop(this.Xq, y.WZ - TBDS6);
+            setMarginsTop(this.Xp, y.WY - TBDS6);
         } else {
-            setMarginsTop(this.Xq, y.WZ);
+            setMarginsTop(this.Xp, y.WY);
         }
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.Xq.onChangeSkinType();
+        this.Xp.onChangeSkinType();
     }
 
     public void bw(int i) {
-        this.Xq.cbM = i;
+        this.Xp.ccG = i;
     }
 
     public void setFrom(int i) {
-        this.Xq.setFrom(i);
+        this.Xp.setFrom(i);
     }
 
     public void setAgreeStatisticData(com.baidu.tbadk.core.data.d dVar) {
-        this.Xq.setAgreeStatisticData(dVar);
+        this.Xp.setAgreeStatisticData(dVar);
     }
 
     public void setShareReportFrom(int i) {
-        this.Xq.setShareReportFrom(i);
+        this.Xp.setShareReportFrom(i);
     }
 
     public void setGameId(int i) {
-        this.Xq.setGameId(i);
+        this.Xp.setGameId(i);
     }
 }

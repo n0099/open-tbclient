@@ -8,9 +8,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class e<K, V> {
-    e<K, V>.b bvn;
-    e<K, V>.c bvo;
-    e<K, V>.C0230e bvp;
+    e<K, V>.b bvL;
+    e<K, V>.c bvM;
+    e<K, V>.C0239e bvN;
 
     protected abstract void colClear();
 
@@ -360,8 +360,8 @@ public abstract class e<K, V> {
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    final class C0230e implements Collection<V> {
-        C0230e() {
+    final class C0239e implements Collection<V> {
+        C0239e() {
         }
 
         @Override // java.util.Collection
@@ -546,23 +546,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.bvn == null) {
-            this.bvn = new b();
+        if (this.bvL == null) {
+            this.bvL = new b();
         }
-        return this.bvn;
+        return this.bvL;
     }
 
     public Set<K> getKeySet() {
-        if (this.bvo == null) {
-            this.bvo = new c();
+        if (this.bvM == null) {
+            this.bvM = new c();
         }
-        return this.bvo;
+        return this.bvM;
     }
 
     public Collection<V> getValues() {
-        if (this.bvp == null) {
-            this.bvp = new C0230e();
+        if (this.bvN == null) {
+            this.bvN = new C0239e();
         }
-        return this.bvp;
+        return this.bvN;
     }
 }

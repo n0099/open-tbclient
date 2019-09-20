@@ -16,11 +16,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
-    private boolean cLP;
-    private LinearLayout fjs;
-    private com.baidu.tieba.tbadkCore.data.a ifB;
-    private TbImageView ifC;
-    private TextView ifD;
+    private boolean cMF;
+    private LinearLayout flf;
+    private com.baidu.tieba.tbadkCore.data.a ihA;
+    private TbImageView ihB;
+    private TextView ihC;
     private Context mContext;
     private ImageView mIcon;
     private View mRootView;
@@ -36,25 +36,25 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     public ShowPicCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cLP = false;
+        this.cMF = false;
         this.mContext = context;
         init();
     }
 
     public com.baidu.tieba.tbadkCore.data.a getData() {
-        return this.ifB;
+        return this.ihA;
     }
 
     public void setSupportNoImage() {
-        this.cLP = true;
+        this.cMF = true;
     }
 
     private void init() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.pic_show_cardview_layout, (ViewGroup) this, true);
-        this.ifC = (TbImageView) findViewById(R.id.pic_img);
-        this.fjs = (LinearLayout) findViewById(R.id.bottom_ll);
+        this.ihB = (TbImageView) findViewById(R.id.pic_img);
+        this.flf = (LinearLayout) findViewById(R.id.bottom_ll);
         this.mTitle = (TextView) findViewById(R.id.title_ll);
-        this.ifD = (TextView) findViewById(R.id.desc_ll);
+        this.ihC = (TextView) findViewById(R.id.desc_ll);
         this.mIcon = (ImageView) findViewById(R.id.show_pic_icon);
     }
 
@@ -64,8 +64,8 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     public void setData(com.baidu.tieba.tbadkCore.data.a aVar) {
         int i;
-        if (aVar != null && this.ifB != aVar) {
-            this.ifB = aVar;
+        if (aVar != null && this.ihA != aVar) {
+            this.ihA = aVar;
             if (!StringUtils.isNULL(aVar.getTitle())) {
                 this.mTitle.setVisibility(0);
                 this.mTitle.setText(aVar.getTitle());
@@ -73,22 +73,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
                 this.mTitle.setVisibility(8);
             }
             if (!StringUtils.isNULL(aVar.getDescription())) {
-                this.ifD.setVisibility(0);
-                this.ifD.setText(aVar.getDescription());
+                this.ihC.setVisibility(0);
+                this.ihC.setText(aVar.getDescription());
             } else {
-                this.ifD.setVisibility(8);
+                this.ihC.setVisibility(8);
             }
-            if (this.cLP) {
-                this.ifC.setSupportNoImage(true);
+            if (this.cMF) {
+                this.ihB.setSupportNoImage(true);
             }
             int imageWidth = aVar.getImageWidth();
             int imageHeight = aVar.getImageHeight();
             if (imageWidth > 0 && imageHeight > 0) {
-                this.ifC.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.ifC.setOnClickListener(this);
-                this.ifC.setInterceptOnClick(true);
-                this.ifC.setDefaultResource(R.drawable.icon_click);
-                this.ifC.startLoad(aVar.cpj(), 18, false);
+                this.ihB.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.ihB.setOnClickListener(this);
+                this.ihB.setInterceptOnClick(true);
+                this.ihB.setDefaultResource(R.drawable.icon_click);
+                this.ihB.startLoad(aVar.cpX(), 18, false);
                 int af = l.af(this.mContext) - (l.g(this.mContext, R.dimen.ds30) * 2);
                 float f = imageHeight / imageWidth;
                 if (f > 1.7777778f) {
@@ -98,22 +98,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
                 } else {
                     i = (int) (f * af);
                 }
-                this.ifC.setLayoutParams(new FrameLayout.LayoutParams(af, i));
-                removeView(this.ifC);
-                addView(this.ifC);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fjs.getLayoutParams();
+                this.ihB.setLayoutParams(new FrameLayout.LayoutParams(af, i));
+                removeView(this.ihB);
+                addView(this.ihB);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.flf.getLayoutParams();
                 layoutParams.width = af;
                 layoutParams.height = l.g(this.mContext, R.dimen.ds110);
-                removeView(this.fjs);
-                addView(this.fjs, layoutParams);
+                removeView(this.flf);
+                addView(this.flf, layoutParams);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ifB != null) {
-            com.baidu.tbadk.browser.a.ae(this.mContext, this.ifB.cpk());
+        if (this.ihA != null) {
+            com.baidu.tbadk.browser.a.ae(this.mContext, this.ihA.cpY());
         }
     }
 

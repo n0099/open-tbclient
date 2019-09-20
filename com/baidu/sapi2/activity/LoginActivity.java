@@ -38,7 +38,6 @@ public class LoginActivity extends BaseActivity {
     public static final String EXTRA_PARAM_USERNAME = "username";
     private static final int REQUEST_CALL_SYSTEM_SMS = 2004;
     private static final int REQUEST_CODE_LOAD_EXTERNAL_WEBVIEW = 2005;
-    private static final int REQUEST_FAST_REG = 2003;
     public static final int REQUEST_SOCIAL_LOGIN = 2001;
     public static boolean supportShareLogin = true;
     private int businessType;
@@ -118,8 +117,9 @@ public class LoginActivity extends BaseActivity {
         this.finishActivityAfterSuc = getIntent().getBooleanExtra(EXTRA_LOGIN_FINISH_AFTER_SUC, true);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
-    protected SapiWebDTO getWebDTO() {
+    public SapiWebDTO getWebDTO() {
         return PassportSDK.getInstance().getWebLoginDTO();
     }
 
@@ -137,16 +137,18 @@ public class LoginActivity extends BaseActivity {
     public void finish() {
         super.finish();
         SocialLoginBase.setWXLoginCallback(null);
-        WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
-        if (webLoginDTO != null && webLoginDTO.closeEnterAnimId != 0 && webLoginDTO.closeExitAnimId != 0) {
-            overridePendingTransition(webLoginDTO.closeEnterAnimId, webLoginDTO.closeExitAnimId);
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onRightBtnClick() {
         super.onRightBtnClick();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        this.sapiWebView.back();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -177,15 +179,7 @@ public class LoginActivity extends BaseActivity {
         });
         this.sapiWebView.setAuthorizationListener(this.authorizationListener);
         this.sapiWebView.setSocialLoginHandler(new AnonymousClass4());
-        this.sapiWebView.setFastRegHandler(new SapiWebView.FastRegHandler() { // from class: com.baidu.sapi2.activity.LoginActivity.5
-            @Override // com.baidu.sapi2.SapiWebView.FastRegHandler
-            public void handleFastReg() {
-                Intent intent = new Intent(LoginActivity.this, FastRegActivity.class);
-                intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, LoginActivity.this.businessType);
-                LoginActivity.this.startActivityForResult(intent, 2003);
-            }
-        });
-        this.sapiWebView.setLoadExternalWebViewCallback(new SapiWebView.LoadExternalWebViewCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.6
+        this.sapiWebView.setLoadExternalWebViewCallback(new SapiWebView.LoadExternalWebViewCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.5
             @Override // com.baidu.sapi2.SapiWebView.LoadExternalWebViewCallback
             public void loadExternalWebview(SapiWebView.LoadExternalWebViewResult loadExternalWebViewResult) {
                 Intent intent = new Intent(LoginActivity.this, LoadExternalWebViewActivity.class);
@@ -195,14 +189,14 @@ public class LoginActivity extends BaseActivity {
             }
         });
         if (supportShareLogin) {
-            this.sapiWebView.setShareAccountClickCallback(new SapiWebView.ShareAccountClickCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.7
+            this.sapiWebView.setShareAccountClickCallback(new SapiWebView.ShareAccountClickCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.6
                 @Override // com.baidu.sapi2.SapiWebView.ShareAccountClickCallback
                 public void onClick(String str, String str2, String str3, String str4) {
                     new ShareCallPacking().startLoginShareActivityForResult(LoginActivity.this, str, str2, str3, str4, LoginActivity.this.extraParams);
                 }
             });
         }
-        this.sapiWebView.setSystemUpwardSmsCallback(new SapiWebView.SystemUpwardSmsCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.8
+        this.sapiWebView.setSystemUpwardSmsCallback(new SapiWebView.SystemUpwardSmsCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.7
             @Override // com.baidu.sapi2.SapiWebView.SystemUpwardSmsCallback
             public void onResult(SapiWebView.SystemUpwardSmsCallback.Result result) {
                 LoginActivity.this.result = result;
@@ -345,7 +339,7 @@ public class LoginActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        new ShareCallPacking().onLoginActivityActivityResult(new ShareCallPacking.ShareLoginCallBack() { // from class: com.baidu.sapi2.activity.LoginActivity.9
+        new ShareCallPacking().onLoginActivityActivityResult(new ShareCallPacking.ShareLoginCallBack() { // from class: com.baidu.sapi2.activity.LoginActivity.8
             @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
             public void onSuccess() {
                 LoginActivity.this.loginSucces(AccountType.NORMAL, false);
@@ -354,13 +348,6 @@ public class LoginActivity extends BaseActivity {
         if (i == 2001) {
             if (i2 == 1001) {
                 loginSucces(null, true);
-            }
-        } else if (i == 2003) {
-            if (i2 == 1001) {
-                this.authorizationListener.onSuccess(SapiAccountManager.getInstance().getSession().getAccountType());
-            }
-            if (i2 == 1002) {
-                this.authorizationListener.onFailed(intent.getIntExtra("result_code", -100), intent.getStringExtra("result_msg"));
             }
         } else if (i == 2005) {
             if (i2 == -1) {

@@ -5,9 +5,9 @@ import java.util.NoSuchElementException;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a<T> implements c<T> {
-    private final c<T> ktk;
-    private final boolean ktl;
-    private final kotlin.jvm.a.b<T, Boolean> ktm;
+    private final c<T> kvD;
+    private final boolean kvE;
+    private final kotlin.jvm.a.b<T, Boolean> kvF;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.sequences.c<? extends T> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.a.b<? super T, java.lang.Boolean> */
@@ -15,17 +15,17 @@ public final class a<T> implements c<T> {
     public a(c<? extends T> cVar, boolean z, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         p.k(cVar, "sequence");
         p.k(bVar, "predicate");
-        this.ktk = cVar;
-        this.ktl = z;
-        this.ktm = bVar;
+        this.kvD = cVar;
+        this.kvE = z;
+        this.kvF = bVar;
     }
 
     /* renamed from: kotlin.sequences.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0499a implements Iterator<T> {
+    public static final class C0505a implements Iterator<T> {
         private T Eu;
         private final Iterator<T> iterator;
-        private int ktn = -1;
+        private int kvG = -1;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -33,47 +33,47 @@ public final class a<T> implements c<T> {
         }
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        C0499a() {
-            this.iterator = a.this.ktk.iterator();
+        C0505a() {
+            this.iterator = a.this.kvD.iterator();
         }
 
-        private final void cOp() {
+        private final void cPb() {
             while (this.iterator.hasNext()) {
                 T next = this.iterator.next();
-                if (((Boolean) a.this.ktm.invoke(next)).booleanValue() == a.this.ktl) {
+                if (((Boolean) a.this.kvF.invoke(next)).booleanValue() == a.this.kvE) {
                     this.Eu = next;
-                    this.ktn = 1;
+                    this.kvG = 1;
                     return;
                 }
             }
-            this.ktn = 0;
+            this.kvG = 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.ktn == -1) {
-                cOp();
+            if (this.kvG == -1) {
+                cPb();
             }
-            if (this.ktn == 0) {
+            if (this.kvG == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.Eu;
             this.Eu = null;
-            this.ktn = -1;
+            this.kvG = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.ktn == -1) {
-                cOp();
+            if (this.kvG == -1) {
+                cPb();
             }
-            return this.ktn == 1;
+            return this.kvG == 1;
         }
     }
 
     @Override // kotlin.sequences.c
     public Iterator<T> iterator() {
-        return new C0499a();
+        return new C0505a();
     }
 }

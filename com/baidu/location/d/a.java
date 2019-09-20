@@ -13,7 +13,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.a.j;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.List;
@@ -39,8 +39,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class AsyncTaskC0046a extends AsyncTask<Boolean, Void, Boolean> {
-        private AsyncTaskC0046a() {
+    public class AsyncTaskC0054a extends AsyncTask<Boolean, Void, Boolean> {
+        private AsyncTaskC0054a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -181,7 +181,7 @@ public final class a {
                         }
                         if (!z) {
                             contentValues.put("mktime", Double.valueOf(bDLocation.getLongitude() + 113.2349d));
-                            contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Double.valueOf(bDLocation.getLatitude() + 432.1238d));
+                            contentValues.put("time", Double.valueOf(bDLocation.getLatitude() + 432.1238d));
                             contentValues.put("bc", (Integer) 1);
                             contentValues.put("cc", (Integer) 1);
                             contentValues.put("ac", Integer.valueOf(currentTimeMillis));
@@ -198,14 +198,14 @@ public final class a {
                                     contentValues.put("cc", Integer.valueOf(i6));
                                 } else {
                                     contentValues.put("mktime", Double.valueOf(bDLocation.getLongitude() + 113.2349d));
-                                    contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Double.valueOf(bDLocation.getLatitude() + 432.1238d));
+                                    contentValues.put("time", Double.valueOf(bDLocation.getLatitude() + 432.1238d));
                                     contentValues.put("bc", (Integer) 1);
                                     contentValues.put("cc", (Integer) 1);
                                     contentValues.put("ac", Integer.valueOf(currentTimeMillis));
                                 }
                             } else {
                                 contentValues.put("mktime", Double.valueOf((((d * i2) + bDLocation.getLongitude()) / (i2 + 1)) + 113.2349d));
-                                contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Double.valueOf((((d2 * i2) + bDLocation.getLatitude()) / (i2 + 1)) + 432.1238d));
+                                contentValues.put("time", Double.valueOf((((d2 * i2) + bDLocation.getLatitude()) / (i2 + 1)) + 432.1238d));
                                 contentValues.put("bc", Integer.valueOf(i2 + 1));
                                 contentValues.put("ac", Integer.valueOf(currentTimeMillis));
                             }
@@ -312,8 +312,8 @@ public final class a {
                     if (z) {
                         float f2 = 4326.0f + f;
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Double.valueOf(d2 + 1235.4323d));
-                        contentValues.put("tag", Float.valueOf(f2));
+                        contentValues.put("time", Double.valueOf(d2 + 1235.4323d));
+                        contentValues.put(AddressManageResult.KEY_TAG, Float.valueOf(f2));
                         contentValues.put("type", Double.valueOf(d + 2367.3217d));
                         contentValues.put("ac", Integer.valueOf(currentTimeMillis));
                         try {
@@ -578,7 +578,7 @@ public final class a {
             boolean z2 = queryNumEntries2 > 10000;
             sQLiteDatabase.close();
             if (z || z2) {
-                new AsyncTaskC0046a().execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+                new AsyncTaskC0054a().execute(Boolean.valueOf(z), Boolean.valueOf(z2));
             }
         } catch (Exception e2) {
         }

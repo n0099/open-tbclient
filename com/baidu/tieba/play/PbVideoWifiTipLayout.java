@@ -12,12 +12,12 @@ import java.text.DecimalFormat;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class PbVideoWifiTipLayout extends LinearLayout {
-    private TextView iwl;
-    private TextView iwm;
-    private TextView iwn;
-    private TextView iwo;
-    private TextView iwp;
-    private View.OnClickListener iwq;
+    private TextView iym;
+    private TextView iyn;
+    private TextView iyo;
+    private TextView iyp;
+    private TextView iyq;
+    private View.OnClickListener iyr;
 
     public PbVideoWifiTipLayout(Context context) {
         super(context);
@@ -36,32 +36,32 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-        this.iwl = (TextView) findViewById(R.id.tv_video_duration);
-        this.iwm = (TextView) findViewById(R.id.tv_video_data);
-        this.iwn = (TextView) findViewById(R.id.tv_play);
-        this.iwo = (TextView) findViewById(R.id.tv_divider);
-        this.iwp = (TextView) findViewById(R.id.tv_open_free_data);
-        this.iwp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
+        this.iym = (TextView) findViewById(R.id.tv_video_duration);
+        this.iyn = (TextView) findViewById(R.id.tv_video_data);
+        this.iyo = (TextView) findViewById(R.id.tv_play);
+        this.iyp = (TextView) findViewById(R.id.tv_divider);
+        this.iyq = (TextView) findViewById(R.id.tv_open_free_data);
+        this.iyq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.browser.a.a(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-                if (PbVideoWifiTipLayout.this.iwq != null) {
-                    PbVideoWifiTipLayout.this.iwq.onClick(view);
+                if (PbVideoWifiTipLayout.this.iyr != null) {
+                    PbVideoWifiTipLayout.this.iyr.onClick(view);
                 }
             }
         });
     }
 
     public TextView getTvPlay() {
-        return this.iwn;
+        return this.iyo;
     }
 
     public TextView getTvOpenFreeData() {
-        return this.iwp;
+        return this.iyq;
     }
 
     public void setFreeClickListener(View.OnClickListener onClickListener) {
-        this.iwq = onClickListener;
+        this.iyr = onClickListener;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -72,21 +72,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public void setData(int i, int i2) {
         if (i > 0) {
-            this.iwl.setText(String.format(getResources().getString(R.string.pb_video_duration), aq.is(i * 1000)));
+            this.iym.setText(String.format(getResources().getString(R.string.pb_video_duration), aq.it(i * 1000)));
         } else {
-            this.iwl.setVisibility(8);
-            this.iwo.setVisibility(8);
+            this.iym.setVisibility(8);
+            this.iyp.setVisibility(8);
         }
         if (i2 > 0) {
-            this.iwm.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+            this.iyn.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
         } else {
-            this.iwm.setVisibility(8);
-            this.iwo.setVisibility(8);
+            this.iyn.setVisibility(8);
+            this.iyp.setVisibility(8);
         }
-        this.iwp.setVisibility(0);
+        this.iyq.setVisibility(0);
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.iwn.setOnClickListener(onClickListener);
+        this.iyo.setOnClickListener(onClickListener);
     }
 }

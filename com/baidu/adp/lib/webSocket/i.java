@@ -111,6 +111,9 @@ public class i implements g {
     }
 
     public void close(int i, String str) {
+        if (com.baidu.adp.lib.b.d.hS().az("need_more_logs") == 1) {
+            com.baidu.adp.framework.client.socket.i.a("more_log", 0, 0, "onClose", i, str);
+        }
         this.FB = false;
         this.FD = true;
         if (this.Fq != null) {

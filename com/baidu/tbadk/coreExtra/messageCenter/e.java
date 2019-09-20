@@ -30,8 +30,8 @@ import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class e implements a {
-    private static final long ciN = 1 * aq.bTG;
-    private com.baidu.tbadk.widget.timepicker.a.f.b ciO;
+    private static final long cjI = 1 * aq.bUj;
+    private com.baidu.tbadk.widget.timepicker.a.f.b cjJ;
 
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a
     public boolean isSignAlertOn() {
@@ -80,7 +80,7 @@ public class e implements a {
 
     private void prepareForDefaultAlertTime() {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis() + ciN);
+        calendar.setTimeInMillis(System.currentTimeMillis() + cjI);
         setSignAlertTime(calendar.get(11), calendar.get(12));
     }
 
@@ -114,18 +114,18 @@ public class e implements a {
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a
     public void a(TbPageContext tbPageContext, final RelativeLayout relativeLayout) {
         final Activity pageActivity;
-        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null && g.t(pageActivity) && !d.aom().isSignAlertOn() && com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("sign_time_set_dialog", 0) <= 0) {
+        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null && g.t(pageActivity) && !d.aoy().isSignAlertOn() && com.baidu.tbadk.core.sharedPref.b.ahU().getInt("sign_time_set_dialog", 0) <= 0) {
             a(tbPageContext, new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.e
                 public void a(Date date, View view) {
                     if (date != null) {
                         e.this.setSignAlertOn(true);
-                        d.aom().setSignAlertTime(date.getHours(), date.getMinutes());
+                        d.aoy().setSignAlertTime(date.getHours(), date.getMinutes());
                         e.this.b(pageActivity, relativeLayout);
                     }
                 }
             });
-            com.baidu.tbadk.core.sharedPref.b.ahQ().putInt("sign_time_set_dialog", 1);
+            com.baidu.tbadk.core.sharedPref.b.ahU().putInt("sign_time_set_dialog", 1);
         }
     }
 
@@ -136,14 +136,14 @@ public class e implements a {
             return null;
         }
         Calendar calendar = Calendar.getInstance();
-        int signAlertHours = d.aom().getSignAlertHours();
-        int signAlertMins = d.aom().getSignAlertMins();
+        int signAlertHours = d.aoy().getSignAlertHours();
+        int signAlertMins = d.aoy().getSignAlertMins();
         if (signAlertHours > 0 && signAlertMins > 0) {
             calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), signAlertHours, signAlertMins);
         } else {
-            calendar.setTimeInMillis(System.currentTimeMillis() + ciN);
+            calendar.setTimeInMillis(System.currentTimeMillis() + cjI);
         }
-        this.ciO = new com.baidu.tbadk.widget.timepicker.a.b.a(pageActivity, eVar).a(calendar).a(R.layout.dialog_sign_remind, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2
+        this.cjJ = new com.baidu.tbadk.widget.timepicker.a.b.a(pageActivity, eVar).a(calendar).a(R.layout.dialog_sign_remind, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2
             @Override // com.baidu.tbadk.widget.timepicker.a.d.a
             public void bb(View view) {
                 View findViewById = view.findViewById(R.id.layout_bottom_title);
@@ -151,16 +151,16 @@ public class e implements a {
                 View findViewById3 = view.findViewById(R.id.layout_bg_top);
                 TextView textView = (TextView) view.findViewById(R.id.dialog_yes);
                 ImageView imageView = (ImageView) view.findViewById(R.id.dialog_cancel);
-                am.k(findViewById2, R.color.cp_bg_line_d);
+                am.k(findViewById2, R.color.cp_bg_line_k);
                 am.k(findViewById3, R.drawable.pic_frs_popup_sign);
                 am.j(textView, R.color.select_topbar_icon_white_color_tint);
                 am.c(imageView, (int) R.drawable.selector_topbar_close_white);
-                am.j((TextView) view.findViewById(R.id.tv_title), R.color.cp_btn_a);
+                am.j((TextView) view.findViewById(R.id.tv_title), R.color.cp_cont_a);
                 View findViewById4 = view.findViewById(R.id.layout_content);
-                am.l(findViewById4, R.color.cp_bg_line_d);
+                am.l(findViewById4, R.color.cp_bg_line_k);
                 am.j((TextView) view.findViewById(R.id.tv_tip), R.color.cp_cont_b);
                 am.j((TextView) view.findViewById(R.id.sign_remind_timer), R.color.cp_cont_b);
-                am.l((LinearLayout) view.findViewById(R.id.timepicker), R.color.cp_bg_line_d);
+                am.l((LinearLayout) view.findViewById(R.id.timepicker), R.color.cp_bg_line_k);
                 View.OnTouchListener onTouchListener = new View.OnTouchListener() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2.1
                     @Override // android.view.View.OnTouchListener
                     public boolean onTouch(View view2, MotionEvent motionEvent) {
@@ -172,9 +172,9 @@ public class e implements a {
                 textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (e.this.ciO != null) {
-                            e.this.ciO.azX();
-                            e.this.ciO.dismiss();
+                        if (e.this.cjJ != null) {
+                            e.this.cjJ.aAj();
+                            e.this.cjJ.dismiss();
                         }
                         an anVar = new an("c13250");
                         anVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
@@ -184,8 +184,8 @@ public class e implements a {
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (e.this.ciO != null) {
-                            e.this.ciO.dismiss();
+                        if (e.this.cjJ != null) {
+                            e.this.cjJ.dismiss();
                         }
                         an anVar = new an("c13251");
                         anVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
@@ -193,12 +193,12 @@ public class e implements a {
                     }
                 });
             }
-        }).lM(18).b(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").av(2.0f).f(0, 0, 0, 0, 0, 0).fW(false).lN(am.getColor(R.color.cp_bg_line_b)).lP(am.getColor(R.color.cp_cont_b)).lQ(am.getColor(R.color.cp_cont_d)).lO(am.getColor(R.color.black_alpha30)).lL(am.getColor(R.color.cp_bg_line_d)).azL();
-        this.ciO.show();
+        }).lQ(18).b(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").av(2.0f).f(0, 0, 0, 0, 0, 0).fZ(false).lR(am.getColor(R.color.cp_bg_line_c)).lT(am.getColor(R.color.cp_cont_b)).lU(am.getColor(R.color.cp_cont_d)).lS(am.getColor(R.color.black_alpha30)).lP(am.getColor(R.color.cp_bg_line_k)).azX();
+        this.cjJ.show();
         an anVar = new an("c13249");
         anVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(anVar);
-        return this.ciO.getDialog();
+        return this.cjJ.getDialog();
     }
 
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a
@@ -222,7 +222,7 @@ public class e implements a {
         textView.setTextSize(0, getDimensionPixelSize(R.dimen.tbfontsize42));
         textView.setLineSpacing(getDimensionPixelSize(R.dimen.ds2), 1.0f);
         textView.setText(activity.getString(R.string.sign_remind_timer_succ));
-        am.j(textView, R.color.cp_btn_a);
+        am.j(textView, R.color.cp_cont_a);
         am.l(navigationBarCoverTip, R.color.cp_link_tip_a_alpha95);
         navigationBarCoverTip.h(activity, textView);
         return navigationBarCoverTip;

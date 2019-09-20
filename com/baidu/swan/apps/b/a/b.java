@@ -4,37 +4,37 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.swan.apps.b.b.c {
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean wd() {
+    public boolean wh() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public int we() {
+    public int wi() {
         return 10;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public int wf() {
+    public int wj() {
         return 6;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public int wg() {
+    public int wk() {
         return 3000;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public int wh() {
+    public int wl() {
         return 3000;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean wi() {
+    public boolean wm() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean wj() {
+    public boolean wn() {
         return false;
     }
 
@@ -54,28 +54,8 @@ public class b implements com.baidu.swan.apps.b.b.c {
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public JSONObject wk() {
+    public JSONObject wo() {
         return new JSONObject();
-    }
-
-    @Override // com.baidu.swan.apps.b.b.c
-    public boolean wl() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.c
-    public boolean wm() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.c
-    public boolean wn() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.c
-    public String wo() {
-        return "";
     }
 
     @Override // com.baidu.swan.apps.b.b.c
@@ -85,7 +65,7 @@ public class b implements com.baidu.swan.apps.b.b.c {
 
     @Override // com.baidu.swan.apps.b.b.c
     public boolean wq() {
-        return true;
+        return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
@@ -94,8 +74,8 @@ public class b implements com.baidu.swan.apps.b.b.c {
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean ws() {
-        return true;
+    public String ws() {
+        return "";
     }
 
     @Override // com.baidu.swan.apps.b.b.c
@@ -110,7 +90,7 @@ public class b implements com.baidu.swan.apps.b.b.c {
 
     @Override // com.baidu.swan.apps.b.b.c
     public boolean wv() {
-        return true;
+        return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
@@ -120,16 +100,36 @@ public class b implements com.baidu.swan.apps.b.b.c {
 
     @Override // com.baidu.swan.apps.b.b.c
     public boolean wx() {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean wy() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public String wy() {
+    public boolean wz() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean wA() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean wB() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public String wC() {
         return "https://2019.baidu.com/activity/shake2019/index.html?idfrom=aiappfb";
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean wz() {
+    public boolean wD() {
         return false;
     }
 }

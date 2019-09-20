@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.walknavi.g.a;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-public class d implements a.InterfaceC0080a {
+public class d implements a.InterfaceC0089a {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +12,14 @@ public class d implements a.InterfaceC0080a {
         this.a = aVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0080a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0089a
     public void a() {
-        a.CountDownTimerC0077a countDownTimerC0077a;
-        a.CountDownTimerC0077a countDownTimerC0077a2;
-        countDownTimerC0077a = this.a.q;
-        if (countDownTimerC0077a != null) {
-            countDownTimerC0077a2 = this.a.q;
-            countDownTimerC0077a2.cancel();
+        a.CountDownTimerC0086a countDownTimerC0086a;
+        a.CountDownTimerC0086a countDownTimerC0086a2;
+        countDownTimerC0086a = this.a.q;
+        if (countDownTimerC0086a != null) {
+            countDownTimerC0086a2 = this.a.q;
+            countDownTimerC0086a2.cancel();
         }
     }
 }

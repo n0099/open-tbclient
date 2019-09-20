@@ -17,7 +17,7 @@ public class d extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (context == null || callbackHandler == null || bVar == null || bVar.Mg() == null) {
+        if (context == null || callbackHandler == null || bVar == null || bVar.Mk() == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -28,7 +28,7 @@ public class d extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String aE = com.baidu.swan.apps.storage.b.aE(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.ae.b.Mo());
+        String aE = com.baidu.swan.apps.storage.b.aE(optParamsAsJo.optString("filePath"), com.baidu.swan.apps.ae.b.Ms());
         if (DEBUG) {
             Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
             Log.d("GetSavedFileInfoAction", "——> handle: filePath " + aE);
@@ -38,8 +38,8 @@ public class d extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.storage.a hK = bVar.Mg().hK(aE);
-        if (hK == null) {
+        com.baidu.swan.apps.storage.a hM = bVar.Mk().hM(aE);
+        if (hM == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "file info is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, com.baidu.swan.apps.scheme.f.getErrMessage(2001)));
             if (DEBUG) {
@@ -50,8 +50,8 @@ public class d extends z {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("createTime", Math.round((float) (hK.NP() / 1000)));
-            jSONObject.put("size", hK.getSize());
+            jSONObject.put("createTime", Math.round((float) (hM.NT() / 1000)));
+            jSONObject.put("size", hM.getSize());
             if (DEBUG) {
                 Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get("createTime") + " , " + jSONObject.get("size") + ")");
             }

@@ -2,7 +2,6 @@ package com.baidu.mobstat;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.ubc.UBC;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class as {
@@ -23,7 +22,7 @@ public class as {
                 if (jSONObject != null) {
                     int optInt = jSONObject.optInt("close");
                     String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-                    String optString2 = jSONObject.optString(UBC.CONTENT_KEY_DURATION);
+                    String optString2 = jSONObject.optString("duration");
                     this.a = optInt != 0;
                     if (!TextUtils.isEmpty(optString)) {
                         try {

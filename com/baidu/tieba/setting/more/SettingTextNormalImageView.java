@@ -10,69 +10,71 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c;
+import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SettingTextNormalImageView extends FrameLayout {
-    private ImageView ahs;
-    private LinearLayout coi;
-    private TbImageView iUn;
+    private ImageView ahO;
+    private TextView ajd;
+    private LinearLayout cpd;
+    private TbImageView iWI;
     private Context mContext;
-    private TextView textView;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aqx();
+        aqJ();
         c(attributeSet);
-        ka(TbadkCoreApplication.getInst().getSkinType());
+        kd(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextNormalImageView(Context context) {
         super(context);
         this.mContext = context;
-        aqx();
-        ka(TbadkCoreApplication.getInst().getSkinType());
+        aqJ();
+        kd(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void ka(int i) {
-        am.f(this.textView, R.color.common_color_10039, 1);
-        am.b(this.ahs, (int) R.drawable.icon_arrow_gray_right_n, i);
-        this.iUn.invalidate();
+    public void kd(int i) {
+        am.f(this.ajd, R.color.common_color_10039, 1);
+        SvgManager.ajv().a(this.ahO, R.drawable.icon_pure_list_arrow16_right_tint_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        setBackgroundDrawable(am.io(R.color.cp_bg_line_e));
+        this.iWI.invalidate();
     }
 
     public void setText(String str) {
-        this.textView.setText(str);
+        this.ajd.setText(str);
     }
 
     public void setLocalIcon(int i) {
-        this.iUn.clearCornerFlag();
-        this.iUn.setConrers(0);
-        this.iUn.setImageResource(i);
+        this.iWI.clearCornerFlag();
+        this.iWI.setConrers(0);
+        this.iWI.setImageResource(i);
     }
 
-    private void aqx() {
+    private void aqJ() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.coi = (LinearLayout) findViewById(R.id.container);
-        this.textView = (TextView) findViewById(R.id.text);
-        this.iUn = (TbImageView) findViewById(R.id.icon);
-        this.ahs = (ImageView) findViewById(R.id.arrow);
+        this.cpd = (LinearLayout) findViewById(R.id.container);
+        this.ajd = (TextView) findViewById(R.id.text);
+        this.iWI = (TbImageView) findViewById(R.id.icon);
+        this.ahO = (ImageView) findViewById(R.id.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, c.a.TbSettingView);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, d.a.TbSettingView);
         String string = obtainStyledAttributes.getString(5);
         int color = obtainStyledAttributes.getColor(3, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.textView.setText(string);
+            this.ajd.setText(string);
         }
         if (color > -1) {
-            this.textView.setTextColor(color);
+            this.ajd.setTextColor(color);
         }
-        this.coi.setClickable(false);
-        this.coi.setFocusable(false);
+        this.cpd.setClickable(false);
+        this.cpd.setFocusable(false);
     }
 }

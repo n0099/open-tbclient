@@ -1,7 +1,6 @@
 package okhttp3.internal.http2;
 
 import android.net.http.Headers;
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
@@ -272,7 +271,7 @@ public final class Hpack {
         }
 
         Writer(int i, boolean z, Buffer buffer) {
-            this.smallestHeaderTableSizeSetting = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            this.smallestHeaderTableSizeSetting = Integer.MAX_VALUE;
             this.dynamicTable = new Header[8];
             this.nextHeaderIndex = this.dynamicTable.length - 1;
             this.headerCount = 0;
@@ -340,7 +339,7 @@ public final class Hpack {
                     writeInt(this.smallestHeaderTableSizeSetting, 31, 32);
                 }
                 this.emitDynamicTableSizeUpdate = false;
-                this.smallestHeaderTableSizeSetting = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                this.smallestHeaderTableSizeSetting = Integer.MAX_VALUE;
                 writeInt(this.maxDynamicTableByteCount, 31, 32);
             }
             int size = list.size();

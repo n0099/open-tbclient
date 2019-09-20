@@ -6,15 +6,16 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 /* loaded from: classes2.dex */
 public class SmoothProgressBar extends RotateProgressBar {
-    private static final int aKn;
+    private static final int aKL;
 
     static {
         if (Build.VERSION.SDK_INT > 15) {
-            aKn = 36;
+            aKL = 36;
         } else {
-            aKn = 25;
+            aKL = 25;
         }
     }
 
@@ -34,22 +35,22 @@ public class SmoothProgressBar extends RotateProgressBar {
     }
 
     private void init() {
-        this.aJN = (int) ((((this.aJN * 12.0f) / aKn) / 2.0f) + 0.5f);
+        this.aKl = (int) ((((this.aKl * 12.0f) / aKL) / 2.0f) + 0.5f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.RotateProgressBar, android.widget.ProgressBar, android.view.View
     protected synchronized void onDraw(Canvas canvas) {
-        Drawable drawable = this.aJL;
+        Drawable drawable = this.aKj;
         if (drawable != null) {
             drawable.draw(canvas);
-            if (SystemClock.uptimeMillis() - this.aJM >= this.aJN) {
-                this.aJM = SystemClock.uptimeMillis();
-                this.mDegree += 10000 / aKn;
+            if (SystemClock.uptimeMillis() - this.aKk >= this.aKl) {
+                this.aKk = SystemClock.uptimeMillis();
+                this.mDegree += 10000 / aKL;
                 if (this.mDegree >= 10000) {
-                    this.mDegree -= 10000;
+                    this.mDegree += DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER;
                 }
                 drawable.setLevel(this.mDegree);
-                postInvalidateDelayed(this.aJN);
+                postInvalidateDelayed(this.aKl);
             }
         }
     }

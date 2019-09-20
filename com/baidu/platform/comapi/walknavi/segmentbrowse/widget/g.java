@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
+import com.baidu.sapi2.result.AddressManageResult;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class g extends ViewGroup {
@@ -185,7 +186,7 @@ public class g extends ViewGroup {
         }
         boolean z2 = this.d <= i;
         this.d = i;
-        com.baidu.platform.comapi.wnplatform.d.a.a("tag", "curscreen" + this.d);
+        com.baidu.platform.comapi.wnplatform.d.a.a(AddressManageResult.KEY_TAG, "curscreen" + this.d);
         com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(this.d);
         com.baidu.platform.comapi.walknavi.segmentbrowse.c.f(this.d);
         com.baidu.platform.comapi.walknavi.b.a().Q().l();

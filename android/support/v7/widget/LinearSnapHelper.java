@@ -3,7 +3,6 @@ package android.support.v7.widget;
 import android.graphics.PointF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes2.dex */
@@ -116,7 +115,7 @@ public class LinearSnapHelper extends SnapHelper {
             } else {
                 end = orientationHelper.getEnd() / 2;
             }
-            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i = Integer.MAX_VALUE;
             int i2 = 0;
             while (i2 < childCount) {
                 View childAt = layoutManager.getChildAt(i2);
@@ -140,7 +139,7 @@ public class LinearSnapHelper extends SnapHelper {
         View view;
         View view2;
         View view3 = null;
-        int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i2 = Integer.MAX_VALUE;
         int childCount = layoutManager.getChildCount();
         if (childCount == 0) {
             return INVALID_DISTANCE;

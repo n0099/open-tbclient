@@ -14,8 +14,6 @@ public interface IWXAPI {
 
     boolean isWXAppInstalled();
 
-    boolean isWXAppSupportAPI();
-
     boolean openWXApp();
 
     boolean registerApp(String str);

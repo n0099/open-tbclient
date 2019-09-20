@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes6.dex */
 public class e {
-    private static final String iXV = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    private static final String jaq = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
     private String mAuthSid;
     private x mNetWork = null;
 
@@ -14,29 +14,29 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String cnv() {
-        this.mNetWork = new x(iXV);
+    public String coi() {
+        this.mNetWork = new x(jaq);
         this.mNetWork.o("authsid", this.mAuthSid);
-        this.mNetWork.aiG().ajG().bUM = true;
-        this.mNetWork.aiG().ajG().mIsNeedTbs = true;
+        this.mNetWork.aiK().ajM().bVp = true;
+        this.mNetWork.aiK().ajM().mIsNeedTbs = true;
         this.mNetWork.eb(true);
-        return this.mNetWork.aii();
+        return this.mNetWork.aim();
     }
 
-    public String Er(String str) {
+    public String ER(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.mNetWork = new x(iXV);
+        this.mNetWork = new x(jaq);
         this.mNetWork.o("user_id", str2);
         this.mNetWork.o("forum_ids", str);
         this.mNetWork.o("authsid", this.mAuthSid);
-        this.mNetWork.aiG().ajG().bUM = true;
-        this.mNetWork.aiG().ajG().mIsNeedTbs = true;
+        this.mNetWork.aiK().ajM().bVp = true;
+        this.mNetWork.aiK().ajM().mIsNeedTbs = true;
         this.mNetWork.eb(true);
-        return this.mNetWork.aii();
+        return this.mNetWork.aim();
     }
 
     public void cancel() {
@@ -47,12 +47,12 @@ public class e {
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.aiG().ajH().isRequestSuccess();
+            return this.mNetWork.aiK().ajN().isRequestSuccess();
         }
         return false;
     }
 
-    public String abY() {
+    public String acc() {
         if (this.mNetWork != null) {
             return this.mNetWork.getErrorString();
         }

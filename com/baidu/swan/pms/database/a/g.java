@@ -35,7 +35,7 @@ public class g extends b<h> {
     /* renamed from: h */
     public ContentValues U(h hVar) {
         ContentValues g = super.g(hVar);
-        g.put("independent", Integer.valueOf(hVar.bsV ? 1 : 0));
+        g.put("independent", Integer.valueOf(hVar.btt ? 1 : 0));
         g.put("sub_pkg_name", hVar.Ht);
         g.put(Constants.APP_ID, hVar.appId);
         return g;
@@ -48,7 +48,7 @@ public class g extends b<h> {
             int columnIndex3 = cursor.getColumnIndex(Constants.APP_ID);
             h hVar = new h();
             if (a(cursor, hVar)) {
-                hVar.bsV = cursor.getInt(columnIndex) == 1;
+                hVar.btt = cursor.getInt(columnIndex) == 1;
                 hVar.Ht = cursor.getString(columnIndex2);
                 hVar.appId = cursor.getString(columnIndex3);
                 return hVar;

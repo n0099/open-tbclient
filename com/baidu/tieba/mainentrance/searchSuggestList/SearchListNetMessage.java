@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance.searchSuggestList;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.SearchSug.DataReq;
 import tbclient.SearchSug.SearchSugReqIdl;
 /* loaded from: classes6.dex */
@@ -22,7 +22,7 @@ public class SearchListNetMessage extends NetMessage {
         builder.word = this.mKey;
         builder.isforum = String.valueOf(this.isForum);
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         SearchSugReqIdl.Builder builder2 = new SearchSugReqIdl.Builder();
         builder2.data = builder.build(false);

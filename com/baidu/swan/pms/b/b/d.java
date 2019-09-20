@@ -22,17 +22,17 @@ public class d extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.d> {
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a V(com.baidu.swan.pms.b.c.d dVar) {
-        this.btb.Bn();
-        com.baidu.swan.pms.d.a.f(this.btc.Bx(), dVar.avg);
+        this.btz.Br();
+        com.baidu.swan.pms.d.a.f(this.btA.BB(), dVar.avE);
         com.baidu.swan.pms.e.e eVar = new com.baidu.swan.pms.e.e();
-        a(dVar.btF, eVar);
-        a(dVar.btH, eVar);
-        if (eVar.WU() == 0) {
-            this.btb.Bj();
+        a(dVar.bud, eVar);
+        a(dVar.bug, eVar);
+        if (eVar.WY() == 0) {
+            this.btz.Bn();
             return null;
         }
-        this.btb.a(eVar);
-        com.baidu.swan.pms.b.a.a.a(dVar, this.btb);
+        this.btz.a(eVar);
+        com.baidu.swan.pms.b.a.a.a(dVar, this.btz);
         return null;
     }
 
@@ -44,14 +44,14 @@ public class d extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.d> {
         if (dVar == null) {
             return false;
         }
-        if (dVar.btF == null || dVar.btF.Wo()) {
-            return dVar.btH == null || dVar.btH.Wo();
+        if (dVar.bud == null || dVar.bud.Ws()) {
+            return dVar.bug == null || dVar.bug.Ws();
         }
         return false;
     }
 
     @Override // com.baidu.swan.pms.b.d
-    protected String Wq() {
+    protected String Wu() {
         return "updatecore";
     }
 }

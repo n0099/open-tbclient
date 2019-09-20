@@ -1,16 +1,22 @@
 package com.baidu.sapi2;
 
+import android.app.Activity;
 import android.os.Handler;
 import android.webkit.JsPromptResult;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.permissions.AlertDialogInterface;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
-import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.shell.response.SocialResponse;
 import java.util.LinkedHashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SapiJsCallBacks {
+
+    /* loaded from: classes.dex */
+    public interface AddressManageCallback {
+        void onCallback(String str);
+    }
 
     /* loaded from: classes.dex */
     public interface BdOauthCallback {
@@ -25,55 +31,61 @@ public class SapiJsCallBacks {
         public String redirectUrl;
     }
 
+    /* loaded from: classes.dex */
+    public interface BuildCustomAlertDialog {
+        AlertDialogInterface buildDialog(Activity activity);
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class CallBacks {
-        WebviewPageFinishCallback A;
-        RealNameStatusCallback B;
-        LoginStatusChangeCallback C;
-        AuthorizationListener D;
-        PageStateCallback E;
-        Runnable F;
-        JsPromptResult G;
-        int H = 1;
-        boolean I = false;
-        boolean J;
-        String K;
-        SocialResponse L;
-        SapiAccountResponse M;
-        SapiWebView.FastRegAction N;
-        JoinLoginParams O;
-        String P;
-        DirectedLoginParams Q;
-        boolean R;
-        BdOauthLoginParams S;
-        ShareV2LoginParams T;
+        RealNameStatusCallback A;
+        LoginStatusChangeCallback B;
+        AuthorizationListener C;
+        PageStateCallback D;
+        BuildCustomAlertDialog E;
+        AddressManageCallback F;
+        InvoiceBuildCallback G;
+        FingerprintCallback H;
+        Runnable J;
+        JsPromptResult K;
+        boolean M;
+        String N;
+        SocialResponse O;
+        JoinLoginParams P;
+        String Q;
+        DirectedLoginParams R;
+        boolean S;
+        BdOauthLoginParams T;
+        ShareV2LoginParams U;
         Handler a;
-        SapiWebView.FastRegHandler b;
-        SapiWebView.SmsHandler c;
-        Handler d;
-        SapiWebView.WebViewTitleCallback e;
-        SapiWebView.BioScanFaceCallback f;
-        SapiWebView.BiometricsIdentifyCallback g;
-        SapiWebView.UniteVerifyCallback h;
-        SapiWebView.QuickLoginHandler i;
-        SapiWebView.BindWidgetCallback j;
-        SapiWebView.LoadExternalWebViewCallback k;
-        SapiWebView.PickPhotoCallback l;
-        SapiWebView.BdussChangeCallback m;
-        SapiWebView.SwitchAccountCallback n;
-        SapiWebView.LeftBtnVisibleCallback o;
-        SapiWebView.RealnameAuthenticateCallback p;
-        SapiWebView.CoverWebBdussCallback q;
-        SapiWebView.PreFillUserNameCallback r;
-        SapiWebView.AccountDestoryCallback s;
-        SapiWebView.AccountFreezeCallback t;
-        SapiWebView.ShareAccountClickCallback u;
-        SapiWebView.QrLoginCallback v;
-        SapiWebView.SystemUpwardSmsCallback w;
-        SapiWebView.InvokeScAppCallback x;
-        SapiWebView.LocalConfigCallback y;
-        NormalizeGuestAccountCallback z;
+        SapiWebView.SmsHandler b;
+        Handler c;
+        SapiWebView.WebViewTitleCallback d;
+        SapiWebView.BioScanFaceCallback e;
+        SapiWebView.BiometricsIdentifyCallback f;
+        SapiWebView.UniteVerifyCallback g;
+        SapiWebView.QuickLoginHandler h;
+        SapiWebView.BindWidgetCallback i;
+        SapiWebView.LoadExternalWebViewCallback j;
+        SapiWebView.PickPhotoCallback k;
+        SapiWebView.BdussChangeCallback l;
+        SapiWebView.SwitchAccountCallback m;
+        SapiWebView.LeftBtnVisibleCallback n;
+        SapiWebView.RealnameAuthenticateCallback o;
+        SapiWebView.CoverWebBdussCallback p;
+        SapiWebView.PreFillUserNameCallback q;
+        SapiWebView.AccountDestoryCallback r;
+        SapiWebView.AccountFreezeCallback s;
+        SapiWebView.ShareAccountClickCallback t;
+        SapiWebView.QrLoginCallback u;
+        SapiWebView.SystemUpwardSmsCallback v;
+        SapiWebView.InvokeScAppCallback w;
+        SapiWebView.LocalConfigCallback x;
+        NormalizeGuestAccountCallback y;
+        WebviewPageFinishCallback z;
+        String[] I = new String[2];
+        int L = 1;
     }
 
     /* loaded from: classes.dex */
@@ -81,6 +93,24 @@ public class SapiJsCallBacks {
         public String displayname;
         public String encryptedId;
         public String uid;
+    }
+
+    /* loaded from: classes.dex */
+    public static abstract class FingerprintCallback {
+        public abstract void onCallback(FingerprintResult fingerprintResult);
+    }
+
+    /* loaded from: classes.dex */
+    public static abstract class FingerprintResult {
+        public int authType;
+        public String portrait;
+
+        public abstract void setResult(int i);
+    }
+
+    /* loaded from: classes.dex */
+    public interface InvoiceBuildCallback {
+        void onCallback(String str);
     }
 
     /* loaded from: classes.dex */

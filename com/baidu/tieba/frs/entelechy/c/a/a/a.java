@@ -11,16 +11,16 @@ import java.util.List;
 public class a extends b {
     private List<v> mDatas;
 
-    public List<v> bpA() {
+    public List<v> bqm() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b agN() {
-        View hC;
-        super.agN();
-        if (this.mDatas != null && (hC = hC(this.mDatas.size())) != null && (hC.findViewById(R.id.dialog_item_btn) instanceof TextView)) {
-            am.j((TextView) hC.findViewById(R.id.dialog_item_btn), R.color.cp_link_tip_a);
+    public b agR() {
+        View hD;
+        super.agR();
+        if (this.mDatas != null && (hD = hD(this.mDatas.size())) != null && (hD.findViewById(R.id.dialog_item_btn) instanceof TextView)) {
+            am.j((TextView) hD.findViewById(R.id.dialog_item_btn), R.color.cp_link_tip_a);
         }
         return this;
     }

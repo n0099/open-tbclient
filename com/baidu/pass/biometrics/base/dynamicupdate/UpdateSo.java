@@ -1,7 +1,6 @@
 package com.baidu.pass.biometrics.base.dynamicupdate;
 
 import android.app.Application;
-import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -181,7 +180,7 @@ public class UpdateSo {
         loadFileFromExternal(sdkConfigOptions.distributedSdk, new LoadModuleEventListener() { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.3
             @Override // com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.LoadModuleEventListener
             public void onSuccess(SdkConfigOptions.DistributedFile distributedFile, byte[] bArr) {
-                boolean writeInternal = UpdateSo.this.writeInternal(UpdateSo.this.application, LocalConfigOptions.getInternalZipPath(UpdateSo.this.application, sdkConfigOptions.zipVersion), bArr);
+                boolean writeInternal = UpdateSo.this.writeInternal(LocalConfigOptions.getInternalZipPath(UpdateSo.this.application, sdkConfigOptions.zipVersion), bArr);
                 if (!writeInternal) {
                     UpdateSo.this.downloadFile(sdkConfigOptions);
                 } else {
@@ -231,7 +230,7 @@ public class UpdateSo {
             String md5 = MD5Util.toMd5(bArr, false);
             String decrypt = RSA.decrypt(this.newOptions.distributedSdk.hash);
             if (decrypt != null && decrypt.equals(md5)) {
-                if (writeInternal(this.application, LocalConfigOptions.getInternalZipPath(this.application, this.newOptions.zipVersion), bArr)) {
+                if (writeInternal(LocalConfigOptions.getInternalZipPath(this.application, this.newOptions.zipVersion), bArr)) {
                     unZipApkSoToLibDir(LocalConfigOptions.getInternalZipPath(this.application, this.newOptions.zipVersion), LocalConfigOptions.getInternalRootPath(this.application));
                     this.newOptions.updateFail = false;
                     LocalConfigOptions.getInstance(this.application).setBioOptions(this.newOptions);
@@ -341,7 +340,7 @@ public class UpdateSo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean writeInternal(Context context, String str, byte[] bArr) {
+    public boolean writeInternal(String str, byte[] bArr) {
         if (PassBioFileUtils.isFileExist(str)) {
             PassBioFileUtils.deleteFile(str);
         }
@@ -354,7 +353,7 @@ public class UpdateSo {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [489=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [488=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public void writeExternal(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
@@ -416,7 +415,7 @@ public class UpdateSo {
         return distributedFile2 == null || distributedFile == null || TextUtils.isEmpty(distributedFile2.hash) || !distributedFile.hash.equals(distributedFile2.hash);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [570=5, 571=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [569=5, 570=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public void unZipApkSoToLibDir(String str, String str2) {
         BufferedOutputStream bufferedOutputStream;

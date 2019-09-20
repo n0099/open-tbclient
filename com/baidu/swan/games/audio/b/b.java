@@ -12,26 +12,26 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b bfj;
+    private static volatile b bfH;
     private HandlerThread mAudioThread;
     private Handler mHandler;
-    private HashMap<String, Long> bfl = new HashMap<>();
-    private String bfm = f.QX();
-    private com.baidu.swan.games.audio.a.b bfk = new com.baidu.swan.games.audio.a.b(this.bfm);
+    private HashMap<String, Long> bfJ = new HashMap<>();
+    private String bfK = f.Rb();
+    private com.baidu.swan.games.audio.a.b bfI = new com.baidu.swan.games.audio.a.b(this.bfK);
 
     private b() {
         createAudioThread();
     }
 
-    public static b Rd() {
-        if (bfj == null) {
+    public static b Rh() {
+        if (bfH == null) {
             synchronized (AudioManager.class) {
-                if (bfj == null) {
-                    bfj = new b();
+                if (bfH == null) {
+                    bfH = new b();
                 }
             }
         }
-        return bfj;
+        return bfH;
     }
 
     private void createAudioThread() {
@@ -42,16 +42,16 @@ public class b {
         }
     }
 
-    public Handler Re() {
+    public Handler Ri() {
         return this.mHandler;
     }
 
     public void a(String str, com.baidu.swan.games.audio.a.a aVar) {
-        this.bfk.a(str, aVar);
+        this.bfI.a(str, aVar);
     }
 
-    public String iS(String str) throws MalformedURLException {
-        return this.bfm + f.iO(str);
+    public String iU(String str) throws MalformedURLException {
+        return this.bfK + f.iQ(str);
     }
 
     public synchronized c y(String str, boolean z) {
@@ -61,14 +61,14 @@ public class b {
         return new a();
     }
 
-    public static boolean Rf() {
-        ArrayList<com.baidu.swan.apps.media.a> GQ = com.baidu.swan.apps.media.b.GQ();
-        if (GQ != null && GQ.size() > 0) {
-            int size = GQ.size();
+    public static boolean Rj() {
+        ArrayList<com.baidu.swan.apps.media.a> GU = com.baidu.swan.apps.media.b.GU();
+        if (GU != null && GU.size() > 0) {
+            int size = GU.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    com.baidu.swan.apps.media.a aVar = GQ.get(i);
-                    if ((aVar instanceof AudioPlayer) && !((AudioPlayer) aVar).QR().isPaused()) {
+                    com.baidu.swan.apps.media.a aVar = GU.get(i);
+                    if ((aVar instanceof AudioPlayer) && !((AudioPlayer) aVar).QV().isPaused()) {
                         return true;
                     }
                 } catch (Exception e) {

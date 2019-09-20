@@ -13,18 +13,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
-    private RelativeLayout eBH;
-    private TbImageView eBI;
-    private TextView eBJ;
-    private TextView eBK;
-    private TextView eBL;
-    private View eBh;
-    private View eBi;
+    private View eCQ;
+    private View eCR;
+    private RelativeLayout eDq;
+    private TbImageView eDr;
+    private TextView eDs;
+    private TextView eDt;
+    private TextView eDu;
     private String mForumId;
     public int mSkinType;
 
@@ -48,18 +48,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.eBH = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.eBI = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.eBJ = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.eBK = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.eBL = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-        this.eBh = findViewById(R.id.divider_line_1);
-        this.eBi = findViewById(R.id.divider_line_2);
+        this.eDq = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+        this.eDr = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+        this.eDs = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+        this.eDt = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+        this.eDu = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+        this.eCQ = findViewById(R.id.divider_line_1);
+        this.eCR = findViewById(R.id.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eBH.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eDq.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.eBH.setLayoutParams(layoutParams);
+        this.eDq.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -69,7 +69,7 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
                     TiebaStatic.log(new an("c13047").P("obj_locate", 5).bT("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
-                    bb.ajE().a((TbPageContext) com.baidu.adp.base.i.ab(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    ba.ajK().a((TbPageContext) com.baidu.adp.base.i.ab(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });
@@ -80,29 +80,29 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.eBI;
+        return this.eDr;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.eBJ;
+        return this.eDs;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.eBL;
+        return this.eDu;
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.eBK;
+        return this.eDt;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.k(this.eBh, R.color.cp_bg_line_e);
-            am.k(this.eBi, R.color.cp_bg_line_e);
-            am.f(this.eBJ, R.color.cp_btn_a, 1);
-            am.f(this.eBK, R.color.cp_btn_a, 1);
-            am.f(this.eBL, R.color.cp_btn_a, 1);
+            am.k(this.eCQ, R.color.cp_bg_line_e);
+            am.k(this.eCR, R.color.cp_bg_line_e);
+            am.f(this.eDs, R.color.cp_cont_a, 1);
+            am.f(this.eDt, R.color.cp_cont_a, 1);
+            am.f(this.eDu, R.color.cp_cont_a, 1);
         }
     }
 }

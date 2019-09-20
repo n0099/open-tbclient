@@ -43,14 +43,14 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            bVar.Mh().a((Activity) context, "mapp_i_get_stoken", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1
+            bVar.Ml().a((Activity) context, "mapp_i_get_stoken", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
                 public void D(Boolean bool) {
                     if (!bool.booleanValue()) {
                         callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied").toString());
-                    } else if (TextUtils.isEmpty(com.baidu.tieba.aiapps.apps.a.c.dk(context))) {
+                    } else if (TextUtils.isEmpty(com.baidu.tieba.aiapps.apps.a.c.dl(context))) {
                         callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "bduss is invalid").toString());
                     } else {
                         com.baidu.tieba.aiapps.apps.a.c.a((Activity) context, new com.baidu.swan.apps.an.d.a<Bundle>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1.1

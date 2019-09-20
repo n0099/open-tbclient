@@ -13,9 +13,9 @@ import com.baidu.swan.apps.view.container.c.c;
 /* loaded from: classes2.dex */
 public class SwanAppNAViewContainer extends FrameLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.model.a.a.a bce;
-    private View bcf;
-    private ScrollView bcg;
+    private com.baidu.swan.apps.model.a.a.a bcC;
+    private View bcD;
+    private ScrollView bcE;
 
     public SwanAppNAViewContainer(@NonNull Context context) {
         super(context);
@@ -27,56 +27,56 @@ public class SwanAppNAViewContainer extends FrameLayout {
         }
         b(aVar);
         ao(view);
-        return Qj();
+        return Qn();
     }
 
     public boolean a(@NonNull com.baidu.swan.apps.model.a.a.a aVar) {
         return c.a(this, aVar);
     }
 
-    public boolean Qi() {
-        a ix;
+    public boolean Qm() {
+        a iz;
         boolean z = false;
-        if (this.bce != null && (ix = ac.ix(this.bce.aDU)) != null && (z = c.b(this, ix))) {
-            c.d(this, ix);
-            this.bcf = null;
+        if (this.bcC != null && (iz = ac.iz(this.bcC.aEs)) != null && (z = c.b(this, iz))) {
+            c.d(this, iz);
+            this.bcD = null;
         }
         return z;
     }
 
     public View getNAView() {
-        return this.bcf;
+        return this.bcD;
     }
 
     public void b(com.baidu.swan.apps.model.a.a.a aVar) {
         if (aVar == null) {
-            this.bce = null;
+            this.bcC = null;
             return;
         }
-        this.bce = aVar.Hs();
-        setHidden(this.bce.hidden);
-        setGesture(this.bce.aDX);
+        this.bcC = aVar.Hw();
+        setHidden(this.bcC.hidden);
+        setGesture(this.bcC.aEv);
     }
 
     public com.baidu.swan.apps.model.a.a.a getModel() {
-        return this.bce;
+        return this.bcC;
     }
 
     public void setHidden(boolean z) {
-        (this.bcg == null ? this : this.bcg).setVisibility(z ? 8 : 0);
-        if (this.bce != null) {
-            this.bce.hidden = z;
+        (this.bcE == null ? this : this.bcE).setVisibility(z ? 8 : 0);
+        if (this.bcC != null) {
+            this.bcC.hidden = z;
         }
     }
 
     public void setGesture(boolean z) {
-        if (this.bce != null) {
-            this.bce.aDX = z;
+        if (this.bcC != null) {
+            this.bcC.aEv = z;
             if (z) {
-                setOnTouchListener(new com.baidu.swan.apps.view.container.b.b(this.bce.aDU, this.bce.id, this.bce.aDT) { // from class: com.baidu.swan.apps.view.container.SwanAppNAViewContainer.1
+                setOnTouchListener(new com.baidu.swan.apps.view.container.b.b(this.bcC.aEs, this.bcC.id, this.bcC.aEr) { // from class: com.baidu.swan.apps.view.container.SwanAppNAViewContainer.1
                     @Override // com.baidu.swan.apps.view.container.b.b, android.view.View.OnTouchListener
                     public boolean onTouch(View view, MotionEvent motionEvent) {
-                        return SwanAppNAViewContainer.this.bce != null && SwanAppNAViewContainer.this.bce.aDX && super.onTouch(view, motionEvent);
+                        return SwanAppNAViewContainer.this.bcC != null && SwanAppNAViewContainer.this.bcC.aEv && super.onTouch(view, motionEvent);
                     }
                 });
             }
@@ -84,30 +84,30 @@ public class SwanAppNAViewContainer extends FrameLayout {
     }
 
     public String getSlaveId() {
-        return this.bce != null ? this.bce.aDU : "No_Id";
+        return this.bcC != null ? this.bcC.aEs : "No_Id";
     }
 
     public String getViewId() {
-        return this.bce != null ? this.bce.id : "No_Id";
+        return this.bcC != null ? this.bcC.id : "No_Id";
     }
 
     public String getParentId() {
-        return this.bce != null ? this.bce.aDV : "No_Id";
+        return this.bcC != null ? this.bcC.aEt : "No_Id";
     }
 
     public void a(ViewGroup.MarginLayoutParams marginLayoutParams) {
-        if (marginLayoutParams != null && this.bce != null && this.bce.aDW != null) {
-            this.bce.aDW.cM(marginLayoutParams.leftMargin);
-            this.bce.aDW.cN(marginLayoutParams.topMargin);
+        if (marginLayoutParams != null && this.bcC != null && this.bcC.aEu != null) {
+            this.bcC.aEu.cN(marginLayoutParams.leftMargin);
+            this.bcC.aEu.cO(marginLayoutParams.topMargin);
             setLayoutParams(marginLayoutParams);
         }
     }
 
-    public boolean Qj() {
-        a ix;
+    public boolean Qn() {
+        a iz;
         boolean z = false;
-        if (this.bce != null && (ix = ac.ix(this.bce.aDU)) != null && (z = c.a(this, ix))) {
-            c.c(this, ix);
+        if (this.bcC != null && (iz = ac.iz(this.bcC.aEs)) != null && (z = c.a(this, iz))) {
+            c.c(this, iz);
         }
         return z;
     }
@@ -115,25 +115,25 @@ public class SwanAppNAViewContainer extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        this.bcf = view;
+        this.bcD = view;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        this.bcf = view;
+        this.bcD = view;
     }
 
     private void ao(View view) {
         addView(view, generateDefaultLayoutParams());
-        this.bcf = view;
+        this.bcD = view;
     }
 
     public ScrollView getScrollView() {
-        return this.bcg;
+        return this.bcE;
     }
 
     public void setScrollView(ScrollView scrollView) {
-        this.bcg = scrollView;
+        this.bcE = scrollView;
     }
 }

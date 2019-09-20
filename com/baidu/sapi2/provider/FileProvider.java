@@ -166,7 +166,7 @@ public class FileProvider extends ContentProvider {
                         buildPath = buildPath(DEVICE_ROOT, attributeValue2);
                     } else if (TAG_FILES_PATH.equals(name)) {
                         buildPath = buildPath(context.getFilesDir(), attributeValue2);
-                    } else if (TAG_CACHE_PATH.equals(name)) {
+                    } else if ("cache-path".equals(name)) {
                         buildPath = buildPath(context.getCacheDir(), attributeValue2);
                     } else {
                         buildPath = TAG_EXTERNAL.equals(name) ? buildPath(Environment.getExternalStorageDirectory(), attributeValue2) : null;

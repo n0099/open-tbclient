@@ -1,6 +1,5 @@
 package com.baidu.tieba.VideoCacheClient;
 
-import com.baidu.mapapi.UIMsg;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,12 +15,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a cVS;
+    private static a cWL;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable cxp = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable cyl = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
             r3.printStackTrace();
          */
@@ -117,13 +116,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String aCs = a.this.aCs();
-                    if (aCs != null && !aCs.isEmpty()) {
-                        File file = new File(c.cVH + b.sa(aCs) + "/header_downloaded");
+                    String aCG = a.this.aCG();
+                    if (aCG != null && !aCG.isEmpty()) {
+                        File file = new File(c.cWA + b.sl(aCG) + "/header_downloaded");
                         if (file.exists()) {
-                            d.am(a.TAG, "header exists " + aCs);
+                            d.am(a.TAG, "header exists " + aCG);
                         } else {
-                            d.am(a.TAG, "client preload start: " + aCs);
+                            d.am(a.TAG, "client preload start: " + aCG);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -142,12 +141,12 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aCs);
-                                    int port = b.aCt().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aCG);
+                                    int port = b.aCH().getPort();
                                     socket = new Socket();
                                     try {
-                                        socket.connect(new InetSocketAddress("127.0.0.1", port), UIMsg.m_AppUI.MSG_APP_GPS);
-                                        socket.setSoTimeout(UIMsg.m_AppUI.MSG_APP_GPS);
+                                        socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
+                                        socket.setSoTimeout(5000);
                                         outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), "utf-8");
                                         try {
                                             outputStreamWriter.write("GET " + str + " HTTP/1.1\r\n");
@@ -200,7 +199,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.am(a.TAG, "client preload check1: " + aCs);
+                                            d.am(a.TAG, "client preload check1: " + aCG);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -252,7 +251,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.am(a.TAG, "client preload end: " + aCs);
+                            d.am(a.TAG, "client preload end: " + aCG);
                         }
                     }
                 } else {
@@ -289,29 +288,29 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.cxp);
+    private Thread mThread = new Thread(this.cyl);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a aCr() {
-        if (cVS == null) {
+    public static a aCF() {
+        if (cWL == null) {
             synchronized (a.class) {
-                if (cVS == null) {
-                    cVS = new a();
+                if (cWL == null) {
+                    cWL = new a();
                 }
             }
         }
-        return cVS;
+        return cWL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aCs() {
+    public synchronized String aCG() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void sb(String str) {
+    public synchronized void sm(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

@@ -6,16 +6,16 @@ import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public class g implements c {
     private byte[] content;
-    private TreeMap<String, String> kvd = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    private TreeMap<String, String> kxw = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
     @Override // org.java_websocket.c.f
-    public Iterator<String> cPc() {
-        return Collections.unmodifiableSet(this.kvd.keySet()).iterator();
+    public Iterator<String> cPO() {
+        return Collections.unmodifiableSet(this.kxw.keySet()).iterator();
     }
 
     @Override // org.java_websocket.c.f
-    public String Iv(String str) {
-        String str2 = this.kvd.get(str);
+    public String IT(String str) {
+        String str2 = this.kxw.get(str);
         if (str2 == null) {
             return "";
         }
@@ -29,11 +29,11 @@ public class g implements c {
 
     @Override // org.java_websocket.c.c
     public void put(String str, String str2) {
-        this.kvd.put(str, str2);
+        this.kxw.put(str, str2);
     }
 
     @Override // org.java_websocket.c.f
-    public boolean Iw(String str) {
-        return this.kvd.containsKey(str);
+    public boolean IU(String str) {
+        return this.kxw.containsKey(str);
     }
 }

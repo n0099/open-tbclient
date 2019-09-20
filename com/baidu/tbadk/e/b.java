@@ -9,39 +9,39 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> bBD = null;
-    protected static boolean bBF = false;
-    protected String bBB = "183322726";
-    protected boolean bBE = true;
-    protected transient List<String> bBC = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> bCb = null;
+    protected static boolean bCd = false;
+    protected String bBZ = "183322726";
+    protected boolean bCc = true;
+    protected transient List<String> bCa = new ArrayList(5);
 
     /* loaded from: classes6.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaH();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaM();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaN();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaO();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaP();
+    public abstract void aaL();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void aaQ();
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void aaR();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void aaS();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void aaT();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void aaU();
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void gq(int i);
+    public abstract void gr(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b c(BaseFragmentActivity baseFragmentActivity) {
@@ -54,29 +54,29 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (bBD == null) {
-            bBD = new WeakReference<>(tbPageContext);
+        if (bCb == null) {
+            bCb = new WeakReference<>(tbPageContext);
             return;
         }
-        bBD.clear();
-        bBD = null;
-        bBD = new WeakReference<>(tbPageContext);
+        bCb.clear();
+        bCb = null;
+        bCb = new WeakReference<>(tbPageContext);
     }
 
-    public boolean aaL() {
-        return bBF;
+    public boolean aaP() {
+        return bCd;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dy(boolean z) {
-        this.bBE = z;
+        this.bCc = z;
     }
 
-    public void aaI() {
-        if (bBD != null) {
-            bBD.get();
-            bBD.clear();
-            bBD = null;
+    public void aaM() {
+        if (bCb != null) {
+            bCb.get();
+            bCb.clear();
+            bCb = null;
         }
     }
 }

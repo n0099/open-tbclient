@@ -51,7 +51,7 @@ public final class m {
         com.baidu.crabsdk.c.a.ch("MobclickAgent init success!");
         if (System.currentTimeMillis() - aae.getLong("used_last_time", 0L) > aag) {
             B();
-            com.baidu.crabsdk.sender.k.aw(context);
+            com.baidu.crabsdk.sender.k.n(context);
         }
     }
 

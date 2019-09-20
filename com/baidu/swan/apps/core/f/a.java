@@ -8,17 +8,17 @@ import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> asA = new HashSet();
+    private static final Set<String> asY = new HashSet();
 
     static {
-        asA.add("https");
-        asA.add(HttpHost.DEFAULT_SCHEME_NAME);
-        asA.add("sms");
-        asA.add("tel");
+        asY.add("https");
+        asY.add(HttpHost.DEFAULT_SCHEME_NAME);
+        asY.add("sms");
+        asY.add("tel");
     }
 
     @Override // com.baidu.swan.apps.core.f.c
-    public void de(String str) {
+    public void dg(String str) {
     }
 
     @Override // com.baidu.swan.apps.core.f.c
@@ -26,12 +26,12 @@ public class a implements c {
     }
 
     @Override // com.baidu.swan.apps.core.f.c
-    public boolean dU(String str) {
+    public boolean dW(String str) {
         Uri parse;
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = asA.contains(parse.getScheme());
+        boolean contains = asY.contains(parse.getScheme());
         if (DEBUG) {
             Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
         }

@@ -3,5 +3,5 @@ package com.baidu.adp.lib.stats;
 public interface b {
     long aJ(String str);
 
-    void d(String str, long j);
+    void f(String str, long j);
 }

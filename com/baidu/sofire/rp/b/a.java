@@ -15,18 +15,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class a {
-    private static a a;
-    private C0107a b;
-    private e c;
-    private SQLiteDatabase d;
-    private Context e;
+    public static long a = 0;
+    private static a b;
+    private C0116a c;
+    private e d;
+    private SQLiteDatabase e;
+    private Context f;
 
     private a(Context context) {
-        this.e = context;
-        this.b = new C0107a(context);
-        this.c = new e(context);
+        this.f = context;
+        this.c = new C0116a(context);
+        this.d = new e(context);
         try {
-            this.d = this.b.getWritableDatabase();
+            this.e = this.c.getWritableDatabase();
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a();
         }
@@ -35,10 +36,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (a == null) {
-                a = new a(context);
+            if (b == null) {
+                b = new a(context);
             }
-            aVar = a;
+            aVar = b;
         }
         return aVar;
     }
@@ -61,7 +62,7 @@ public final class a {
         }
         contentValues.put("h", str);
         try {
-            return this.d.insert("r", null, contentValues);
+            return this.e.insert("r", null, contentValues);
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a();
             return -1L;
@@ -72,7 +73,7 @@ public final class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("b", str);
         try {
-            return this.d.insert("c", null, contentValues);
+            return this.e.insert("c", null, contentValues);
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a();
             return -1L;
@@ -87,7 +88,7 @@ public final class a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [156=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [158=4] */
     public final boolean b(java.lang.String r12) {
         /*
             r11 = this;
@@ -99,7 +100,7 @@ public final class a {
             java.lang.String[] r4 = new java.lang.String[r0]     // Catch: java.lang.Throwable -> L2d
             r0 = 0
             r4[r0] = r12     // Catch: java.lang.Throwable -> L2d
-            android.database.sqlite.SQLiteDatabase r0 = r11.d     // Catch: java.lang.Throwable -> L2d
+            android.database.sqlite.SQLiteDatabase r0 = r11.e     // Catch: java.lang.Throwable -> L2d
             java.lang.String r1 = "c"
             r2 = 0
             r5 = 0
@@ -169,46 +170,73 @@ public final class a {
 
     private int b(int i) {
         try {
-            return this.d.delete("r", "a=?", new String[]{String.valueOf(i)});
+            return this.e.delete("r", "a=?", new String[]{String.valueOf(i)});
         } catch (Throwable th) {
             com.baidu.sofire.b.e.a();
             return -1;
         }
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, SPUT, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, IGET, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, SPUT, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Incorrect finally slice size: {[INVOKE, INVOKE, MOVE, INVOKE, INVOKE, MOVE, INVOKE, MOVE_EXCEPTION, INVOKE, SPUT, INVOKE, INVOKE, MOVE, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, IGET, INVOKE, INVOKE, INVOKE, MOVE, INVOKE, INVOKE, MOVE, INVOKE, MOVE_EXCEPTION, INVOKE, SPUT, INVOKE, INVOKE, MOVE, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete}, expected: {[INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, SPUT, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, IGET, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, SPUT, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+    /* JADX WARN: Finally extract failed */
     public final int a(List<Integer> list) {
+        int i = -1;
         try {
-            this.d.beginTransaction();
+            this.e.beginTransaction();
             for (Integer num : list) {
-                b(num.intValue());
-            }
-            this.d.setTransactionSuccessful();
-            try {
-                this.d.endTransaction();
-                return -1;
-            } catch (Exception e) {
-                com.baidu.sofire.b.e.a();
-                return -1;
-            }
-        } catch (Throwable th) {
-            try {
-                com.baidu.sofire.b.e.a();
-                try {
-                    return -1;
-                } catch (Exception e2) {
-                    return -1;
+                i = b(num.intValue());
+                if (i <= 0) {
+                    a = System.currentTimeMillis();
                 }
-            } finally {
+            }
+            this.e.setTransactionSuccessful();
+            try {
+                this.e.endTransaction();
+                return i;
+            } catch (Throwable th) {
                 try {
-                    this.d.endTransaction();
-                } catch (Exception e3) {
+                    a = System.currentTimeMillis();
+                } catch (Throwable th2) {
                     com.baidu.sofire.b.e.a();
                 }
+                com.baidu.sofire.b.e.a();
+                return i;
+            }
+        } catch (Throwable th3) {
+            int i2 = i;
+            try {
+                a = System.currentTimeMillis();
+                com.baidu.sofire.b.e.a();
+                try {
+                    this.e.endTransaction();
+                    return i2;
+                } catch (Throwable th4) {
+                    try {
+                        a = System.currentTimeMillis();
+                    } catch (Throwable th5) {
+                        com.baidu.sofire.b.e.a();
+                    }
+                    com.baidu.sofire.b.e.a();
+                    return i2;
+                }
+            } catch (Throwable th6) {
+                try {
+                    this.e.endTransaction();
+                } catch (Throwable th7) {
+                    try {
+                        a = System.currentTimeMillis();
+                    } catch (Throwable th8) {
+                        com.baidu.sofire.b.e.a();
+                    }
+                    com.baidu.sofire.b.e.a();
+                }
+                throw th6;
             }
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [278=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [293=4] */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:49:0x0153 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v4 */
@@ -223,7 +251,7 @@ public final class a {
         Cursor cursor2 = null;
         ArrayList arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
-        e eVar = new e(this.e);
+        e eVar = new e(this.f);
         int i2 = eVar.e.getInt("re_net_wt", 3) * 3600000;
         if (i == 2) {
             append = new StringBuilder("(d <= (").append(currentTimeMillis).append("-e*3600000) or e=0 )");
@@ -235,9 +263,9 @@ public final class a {
         try {
             try {
                 if (i == 2) {
-                    cursor = this.d.query("r", null, sb, null, null, null, "d desc", Integer.toString(100));
+                    cursor = this.e.query("r", null, sb, null, null, null, "d desc", Integer.toString(100));
                 } else {
-                    cursor = this.d.query("r", null, sb, null, null, null, "d desc", Integer.toString(eVar.w()));
+                    cursor = this.e.query("r", null, sb, null, null, null, "d desc", Integer.toString(eVar.y()));
                 }
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
@@ -304,7 +332,7 @@ public final class a {
         return arrayList;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [333=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [348=4] */
     /* JADX WARN: Removed duplicated region for block: B:46:0x00e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -315,7 +343,7 @@ public final class a {
         Cursor cursor2 = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.d.query("r", null, "i=5", null, null, null, "d desc", "100");
+            cursor = this.e.query("r", null, "i=5", null, null, null, "d desc", "100");
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -382,7 +410,7 @@ public final class a {
         return arrayList;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [410=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [424=4] */
     /* JADX WARN: Removed duplicated region for block: B:51:0x0144 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -396,12 +424,12 @@ public final class a {
         String str2 = z ? "(d < (" + System.currentTimeMillis() + "-f*3600000) and f!= 0)" : "d<=" + (currentTimeMillis - 259200000);
         try {
             if (i == 2) {
-                cursor = this.d.query("r", null, str2, null, null, null, "d desc", "100");
+                cursor = this.e.query("r", null, str2, null, null, null, "d desc", "100");
             } else {
-                int w = new e(this.e).w();
-                new StringBuilder(" 3g limit").append(Integer.toString(w));
+                int y = new e(this.f).y();
+                new StringBuilder(" 3g limit").append(Integer.toString(y));
                 b.a();
-                cursor = this.d.query("r", null, str2, null, null, null, "d desc", Integer.toString(w));
+                cursor = this.e.query("r", null, str2, null, null, null, "d desc", Integer.toString(y));
             }
             if (cursor != null) {
                 while (cursor.moveToNext()) {
@@ -469,7 +497,7 @@ public final class a {
         return arrayList;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [433=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [447=4] */
     /* JADX WARN: Removed duplicated region for block: B:39:0x0038 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -479,7 +507,7 @@ public final class a {
         int count;
         Cursor cursor2 = null;
         try {
-            Cursor query = this.d.query("r", null, null, null, null, null, null, null);
+            Cursor query = this.e.query("r", null, null, null, null, null, null, null);
             if (query != null) {
                 try {
                     count = query.getCount();
@@ -537,10 +565,10 @@ public final class a {
     }
 
     public final int c() {
-        e eVar = new e(this.e);
+        e eVar = new e(this.f);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            return this.d.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.e.getInt("re_net_over", 7) * 86400000))});
+            return this.e.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.e.getInt("re_net_over", 7) * 86400000))});
         } catch (Exception e) {
             com.baidu.sofire.b.e.a();
             return -1;
@@ -549,8 +577,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    class C0107a extends SQLiteOpenHelper {
-        public C0107a(Context context) {
+    class C0116a extends SQLiteOpenHelper {
+        public C0116a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

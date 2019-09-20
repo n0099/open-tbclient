@@ -27,7 +27,7 @@ public class a extends d<com.baidu.tbadk.data.b, com.baidu.tbadk.l.b> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.b bVar, com.baidu.tbadk.l.b bVar2) {
         if (bVar != null && bVar2 != null) {
-            bVar2.atw();
+            bVar2.atI();
             bVar2.a(bVar);
         }
         return view;

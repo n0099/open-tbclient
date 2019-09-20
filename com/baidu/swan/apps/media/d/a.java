@@ -8,23 +8,23 @@ import com.baidu.swan.apps.u.b.v;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.swan.apps.media.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private v aCZ;
-    private String aDa;
-    private boolean aDc;
-    private b aDd;
+    private boolean aDA;
+    private b aDB;
+    private v aDx;
+    private String aDy;
+    private c aDz = new c();
+    private boolean asA = true;
     private Context mContext;
-    private c aDb = new c();
-    private boolean asc = true;
 
     public a(Context context, String str) {
         this.mContext = context;
-        this.aDa = str;
-        Ho();
-        Hm();
+        this.aDy = str;
+        Hs();
+        Hq();
     }
 
-    private void Hm() {
-        if (!TextUtils.isEmpty(this.aDa)) {
+    private void Hq() {
+        if (!TextUtils.isEmpty(this.aDy)) {
             com.baidu.swan.apps.media.b.a(this);
         }
     }
@@ -33,140 +33,140 @@ public class a implements com.baidu.swan.apps.media.a {
         if (DEBUG) {
             Log.e("SwanAppVideoPlayer", "update 接口");
         }
-        if (this.aCZ != null) {
-            this.aCZ.a(cVar, true);
+        if (this.aDx != null) {
+            this.aDx.a(cVar, true);
         }
-        this.aDb = cVar;
+        this.aDz = cVar;
     }
 
     public void a(b bVar) {
-        this.aDd = bVar;
+        this.aDB = bVar;
     }
 
-    public c Hn() {
-        return this.aDb;
+    public c Hr() {
+        return this.aDz;
     }
 
     public void d(c cVar) {
-        com.baidu.swan.apps.console.c.d("video", "Open Player " + cVar.aBc);
-        if (this.aCZ != null) {
-            this.aCZ.a(cVar);
+        com.baidu.swan.apps.console.c.d("video", "Open Player " + cVar.aBA);
+        if (this.aDx != null) {
+            this.aDx.a(cVar);
         }
-        this.aDb = cVar;
+        this.aDz = cVar;
     }
 
     public void bs(boolean z) {
-        if (this.aCZ != null) {
-            this.aCZ.bs(z);
+        if (this.aDx != null) {
+            this.aDx.bs(z);
         }
     }
 
     public void pause() {
-        if (Hp()) {
-            Ho().pause();
+        if (Ht()) {
+            Hs().pause();
         }
     }
 
     public void resume() {
-        if (Hp() && !isPlaying() && this.asc && this.aCZ != null) {
-            this.aCZ.resume();
+        if (Ht() && !isPlaying() && this.asA && this.aDx != null) {
+            this.aDx.resume();
         }
     }
 
     public void seekTo(int i) {
-        if (Hp() && this.aCZ != null) {
-            this.aCZ.seekTo(i);
+        if (Ht() && this.aDx != null) {
+            this.aDx.seekTo(i);
         }
     }
 
     public int getDuration() {
-        return Ho().getDuration();
+        return Hs().getDuration();
     }
 
     public int getCurrentPosition() {
-        return Ho().getCurrentPosition();
+        return Hs().getCurrentPosition();
     }
 
     public boolean isPlaying() {
-        return this.aCZ != null && this.aCZ.isPlaying();
+        return this.aDx != null && this.aDx.isPlaying();
     }
 
     public boolean isEnd() {
-        return this.aCZ != null && this.aCZ.isEnd();
+        return this.aDx != null && this.aDx.isEnd();
     }
 
     public void b(FrameLayout frameLayout) {
-        if (this.aCZ != null) {
-            this.aCZ.b(frameLayout);
+        if (this.aDx != null) {
+            this.aDx.b(frameLayout);
         }
     }
 
     public void setFullScreen(boolean z) {
-        if (this.aCZ != null) {
-            this.aCZ.setFullScreen(z);
+        if (this.aDx != null) {
+            this.aDx.setFullScreen(z);
         }
     }
 
-    public v Ho() {
-        if (this.aCZ == null) {
+    public v Hs() {
+        if (this.aDx == null) {
             com.baidu.swan.apps.console.c.i("video", "create player");
-            this.aCZ = com.baidu.swan.apps.u.a.Ex().bg(this.mContext);
-            this.aCZ.a(new v.a() { // from class: com.baidu.swan.apps.media.d.a.1
+            this.aDx = com.baidu.swan.apps.u.a.EB().bg(this.mContext);
+            this.aDx.a(new v.a() { // from class: com.baidu.swan.apps.media.d.a.1
                 @Override // com.baidu.swan.apps.u.b.v.a
                 public void a(v vVar) {
-                    if (a.this.aDd != null) {
-                        a.this.aDd.a(vVar);
+                    if (a.this.aDB != null) {
+                        a.this.aDB.a(vVar);
                     }
                 }
             });
-            this.aCZ.a(new v.b() { // from class: com.baidu.swan.apps.media.d.a.2
+            this.aDx.a(new v.b() { // from class: com.baidu.swan.apps.media.d.a.2
                 @Override // com.baidu.swan.apps.u.b.v.b
                 public boolean a(v vVar, int i, int i2) {
-                    return a.this.aDd != null && a.this.aDd.a(vVar, i, i2);
+                    return a.this.aDB != null && a.this.aDB.a(vVar, i, i2);
                 }
             });
-            this.aCZ.a(new v.c() { // from class: com.baidu.swan.apps.media.d.a.3
+            this.aDx.a(new v.c() { // from class: com.baidu.swan.apps.media.d.a.3
                 @Override // com.baidu.swan.apps.u.b.v.c
                 public void b(v vVar) {
-                    if (a.this.aDd != null) {
-                        a.this.aDd.b(vVar);
+                    if (a.this.aDB != null) {
+                        a.this.aDB.b(vVar);
                     }
                 }
             });
         }
-        return this.aCZ;
+        return this.aDx;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String GM() {
-        return this.aDa;
+    public String GQ() {
+        return this.aDy;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String GN() {
-        return this.aDb != null ? this.aDb.aDp : "";
+    public String GR() {
+        return this.aDz != null ? this.aDz.aDN : "";
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.aDb.aDU;
+        return this.aDz.aEs;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object GO() {
+    public Object GS() {
         return this;
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void bw(boolean z) {
-        this.asc = z;
+        this.asA = z;
         if (z) {
-            if (this.aDc) {
-                Ho().resume();
+            if (this.aDA) {
+                Hs().resume();
             }
-        } else if (this.aCZ != null) {
-            this.aDc = Ho().isPlaying();
-            Ho().pause();
+        } else if (this.aDx != null) {
+            this.aDA = Hs().isPlaying();
+            Hs().pause();
         }
     }
 
@@ -177,44 +177,44 @@ public class a implements com.baidu.swan.apps.media.a {
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         com.baidu.swan.apps.console.c.d("video", "onBackPressed");
-        return this.aCZ != null && this.aCZ.onBackPressed();
+        return this.aDx != null && this.aDx.onBackPressed();
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
         com.baidu.swan.apps.console.c.d("video", "onDestroy");
-        if (this.aCZ != null) {
-            this.aCZ.stop();
-            this.aCZ = null;
+        if (this.aDx != null) {
+            this.aDx.stop();
+            this.aDx = null;
         }
         com.baidu.swan.apps.media.b.b(this);
     }
 
-    public void eG(String str) {
-        if (this.aCZ != null) {
-            this.aCZ.eG(str);
+    public void eI(String str) {
+        if (this.aDx != null) {
+            this.aDx.eI(str);
         }
     }
 
     public void b(c cVar) {
-        if (this.aCZ != null) {
-            this.aCZ.b(cVar);
+        if (this.aDx != null) {
+            this.aDx.b(cVar);
         }
     }
 
-    public void Fl() {
-        if (this.aCZ != null) {
-            this.aCZ.Fl();
+    public void Fp() {
+        if (this.aDx != null) {
+            this.aDx.Fp();
         }
     }
 
-    private boolean Hp() {
-        return (this.aDb == null || TextUtils.isEmpty(this.aDb.mSrc) || TextUtils.isEmpty(this.aDa) || TextUtils.isEmpty(this.aDb.id)) ? false : true;
+    private boolean Ht() {
+        return (this.aDz == null || TextUtils.isEmpty(this.aDz.mSrc) || TextUtils.isEmpty(this.aDy) || TextUtils.isEmpty(this.aDz.id)) ? false : true;
     }
 
     public void br(boolean z) {
-        if (this.aCZ != null) {
-            this.aCZ.br(z);
+        if (this.aDx != null) {
+            this.aDx.br(z);
         }
     }
 }

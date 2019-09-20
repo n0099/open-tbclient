@@ -23,8 +23,6 @@ public class McnVideoAdView extends FrameLayout {
     private static final int afM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
     private static final int afN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds156);
     private static final int afO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112);
-    private float Oj;
-    private float Ok;
     private TbImageView afE;
     private TextView afF;
     private TextView afG;
@@ -37,6 +35,8 @@ public class McnVideoAdView extends FrameLayout {
     private boolean isShowing;
     private Context mContext;
     private final Handler mHandler;
+    private float mLastX;
+    private float mLastY;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -118,8 +118,8 @@ public class McnVideoAdView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.Oj = motionEvent.getX();
-                this.Ok = motionEvent.getY();
+                this.mLastX = motionEvent.getX();
+                this.mLastY = motionEvent.getY();
                 this.afP = getParent();
                 if (this.afP != null) {
                     this.afP.requestDisallowInterceptTouchEvent(true);
@@ -128,13 +128,13 @@ public class McnVideoAdView extends FrameLayout {
                 break;
             case 1:
                 ul();
-                if (Math.abs(motionEvent.getX() - this.Oj) < 5.0f && Math.abs(motionEvent.getY() - this.Ok) < 5.0f) {
+                if (Math.abs(motionEvent.getX() - this.mLastX) < 5.0f && Math.abs(motionEvent.getY() - this.mLastY) < 5.0f) {
                     um();
                     break;
                 }
                 break;
             case 2:
-                if (motionEvent.getX() - this.Oj > 10.0f && this.isShowing) {
+                if (motionEvent.getX() - this.mLastX > 10.0f && this.isShowing) {
                     this.afJ = true;
                     dismiss();
                     if (this.afL != null) {
@@ -164,7 +164,7 @@ public class McnVideoAdView extends FrameLayout {
 
     private void um() {
         if (this.mContext != null && this.afK != null && this.afK.afv != null) {
-            s.aH(this.mContext, this.afK.afv);
+            s.aO(this.mContext, this.afK.afv);
             if (this.afL != null) {
                 this.afL.b(this.afK);
             }

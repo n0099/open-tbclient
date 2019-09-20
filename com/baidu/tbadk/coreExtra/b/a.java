@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a cfp = null;
-    private boolean cfo;
-    private int cfq;
+    private static volatile a cgi = null;
+    private boolean cgh;
+    private int cgj;
 
     private a() {
-        this.cfo = false;
-        this.cfq = 0;
+        this.cgh = false;
+        this.cgj = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.L(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.gD()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.cfq = Integer.parseInt(content);
+                    this.cgj = Integer.parseInt(content);
                 }
-                if (this.cfq == 1 || this.cfq == 2) {
-                    this.cfo = true;
+                if (this.cgj == 1 || this.cgj == 2) {
+                    this.cgh = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a alM() {
-        if (cfp == null) {
+    public static a alY() {
+        if (cgi == null) {
             synchronized (a.class) {
-                if (cfp == null) {
-                    cfp = new a();
+                if (cgi == null) {
+                    cgi = new a();
                 }
             }
         }
-        return cfp;
+        return cgi;
     }
 
-    public boolean alN() {
-        return this.cfo;
+    public boolean alZ() {
+        return this.cgh;
     }
 
-    public int alO() {
-        return this.cfq;
+    public int ama() {
+        return this.cgj;
     }
 
-    public String alP() {
-        return this.cfo ? "pub_env=" + this.cfq + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String amb() {
+        return this.cgh ? "pub_env=" + this.cgj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

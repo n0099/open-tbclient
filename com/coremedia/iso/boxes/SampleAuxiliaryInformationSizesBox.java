@@ -15,17 +15,17 @@ import org.aspectj.lang.a;
 public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "saiz";
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_9 = null;
     private String auxInfoType;
     private String auxInfoTypeParameter;
     private int defaultSampleInfoSize;
@@ -127,7 +127,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     }
 
     public void setDefaultSampleInfoSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EO(i)));
         if (!$assertionsDisabled && i > 255) {
             throw new AssertionError();
         }
@@ -150,7 +150,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     }
 
     public void setSampleCount(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.EO(i)));
         this.sampleCount = i;
     }
 

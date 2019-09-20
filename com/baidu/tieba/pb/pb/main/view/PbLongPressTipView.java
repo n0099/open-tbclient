@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PbLongPressTipView extends LinearLayout {
-    private LinearLayout bOg;
-    private ImageView bYT;
+    private LinearLayout bOF;
+    private ImageView bZM;
     private Context context;
-    private TextView eVJ;
-    private TextView ffR;
+    private TextView eXp;
+    private TextView fhE;
 
     public PbLongPressTipView(Context context) {
         super(context);
@@ -37,12 +37,12 @@ public class PbLongPressTipView extends LinearLayout {
     private void ap(Context context) {
         LayoutInflater.from(context).inflate(R.layout.pb_long_press_tip_view, this);
         setOrientation(1);
-        this.bOg = (LinearLayout) findViewById(R.id.pb_long_tip_content);
-        this.bYT = (ImageView) findViewById(R.id.pb_long_tip_image);
-        this.ffR = (TextView) findViewById(R.id.long_hint_title);
-        this.eVJ = (TextView) findViewById(R.id.long_hint_text);
-        am.f(this.ffR, R.color.cp_cont_b, 1);
-        am.f(this.eVJ, R.color.common_color_10037, 1);
-        am.c(this.bYT, (int) R.drawable.pic_pb_popup_longpress);
+        this.bOF = (LinearLayout) findViewById(R.id.pb_long_tip_content);
+        this.bZM = (ImageView) findViewById(R.id.pb_long_tip_image);
+        this.fhE = (TextView) findViewById(R.id.long_hint_title);
+        this.eXp = (TextView) findViewById(R.id.long_hint_text);
+        am.f(this.fhE, R.color.cp_cont_b, 1);
+        am.f(this.eXp, R.color.common_color_10037, 1);
+        am.c(this.bZM, (int) R.drawable.pic_pb_popup_longpress);
     }
 }

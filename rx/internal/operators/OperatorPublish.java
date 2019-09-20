@@ -8,56 +8,56 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.a.ae;
 /* loaded from: classes2.dex */
 public final class OperatorPublish<T> extends rx.observables.a<T> {
-    final rx.d<? extends T> kvX;
-    final AtomicReference<a<T>> kyA;
+    final AtomicReference<a<T>> kAS;
+    final rx.d<? extends T> kyq;
 
     @Override // rx.observables.a
     public void f(rx.functions.b<? super rx.k> bVar) {
         a<T> aVar;
         while (true) {
-            aVar = this.kyA.get();
+            aVar = this.kAS.get();
             if (aVar != null && !aVar.isUnsubscribed()) {
                 break;
             }
-            a<T> aVar2 = new a<>(this.kyA);
+            a<T> aVar2 = new a<>(this.kAS);
             aVar2.init();
-            if (this.kyA.compareAndSet(aVar, aVar2)) {
+            if (this.kAS.compareAndSet(aVar, aVar2)) {
                 aVar = aVar2;
                 break;
             }
         }
-        boolean z = !aVar.kyF.get() && aVar.kyF.compareAndSet(false, true);
+        boolean z = !aVar.kAX.get() && aVar.kAX.compareAndSet(false, true);
         bVar.call(aVar);
         if (z) {
-            this.kvX.a((rx.j<? super Object>) aVar);
+            this.kyq.a((rx.j<? super Object>) aVar);
         }
     }
 
     /* loaded from: classes2.dex */
     static final class a<T> extends rx.j<T> implements rx.k {
-        static final InnerProducer[] kyC = new InnerProducer[0];
-        static final InnerProducer[] kyD = new InnerProducer[0];
+        static final InnerProducer[] kAU = new InnerProducer[0];
+        static final InnerProducer[] kAV = new InnerProducer[0];
         boolean emitting;
-        final AtomicReference<a<T>> kyA;
-        volatile Object kyB;
-        final AtomicReference<InnerProducer[]> kyE;
-        final AtomicBoolean kyF;
+        final AtomicReference<a<T>> kAS;
+        volatile Object kAT;
+        final AtomicReference<InnerProducer[]> kAW;
+        final AtomicBoolean kAX;
         boolean missed;
         final Queue<Object> queue;
 
         public a(AtomicReference<a<T>> atomicReference) {
-            this.queue = ae.cQB() ? new rx.internal.util.a.q<>(rx.internal.util.g.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.g.SIZE);
-            this.kyE = new AtomicReference<>(kyC);
-            this.kyA = atomicReference;
-            this.kyF = new AtomicBoolean();
+            this.queue = ae.cRn() ? new rx.internal.util.a.q<>(rx.internal.util.g.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.g.SIZE);
+            this.kAW = new AtomicReference<>(kAU);
+            this.kAS = atomicReference;
+            this.kAX = new AtomicBoolean();
         }
 
         void init() {
             add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.OperatorPublish.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.kyE.getAndSet(a.kyD);
-                    a.this.kyA.compareAndSet(a.this, null);
+                    a.this.kAW.getAndSet(a.kAV);
+                    a.this.kAS.compareAndSet(a.this, null);
                 }
             }));
         }
@@ -72,23 +72,23 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
             if (!this.queue.offer(NotificationLite.bq(t))) {
                 onError(new MissingBackpressureException());
             } else {
-                cPG();
+                cQs();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (this.kyB == null) {
-                this.kyB = NotificationLite.N(th);
-                cPG();
+            if (this.kAT == null) {
+                this.kAT = NotificationLite.N(th);
+                cQs();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (this.kyB == null) {
-                this.kyB = NotificationLite.cPI();
-                cPG();
+            if (this.kAT == null) {
+                this.kAT = NotificationLite.cQu();
+                cQs();
             }
         }
 
@@ -96,8 +96,8 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
             InnerProducer[] innerProducerArr;
             InnerProducer[] innerProducerArr2;
             do {
-                innerProducerArr = this.kyE.get();
-                if (innerProducerArr != kyC && innerProducerArr != kyD) {
+                innerProducerArr = this.kAW.get();
+                if (innerProducerArr != kAU && innerProducerArr != kAV) {
                     int i = -1;
                     int length = innerProducerArr.length;
                     int i2 = 0;
@@ -113,7 +113,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            innerProducerArr2 = kyC;
+                            innerProducerArr2 = kAU;
                         } else {
                             innerProducerArr2 = new InnerProducer[length - 1];
                             System.arraycopy(innerProducerArr, 0, innerProducerArr2, 0, i);
@@ -125,7 +125,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                 } else {
                     return;
                 }
-            } while (!this.kyE.compareAndSet(innerProducerArr, innerProducerArr2));
+            } while (!this.kAW.compareAndSet(innerProducerArr, innerProducerArr2));
         }
 
         boolean f(Object obj, boolean z) {
@@ -133,9 +133,9 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
             if (obj != null) {
                 if (NotificationLite.br(obj)) {
                     if (z) {
-                        this.kyA.compareAndSet(this, null);
+                        this.kAS.compareAndSet(this, null);
                         try {
-                            InnerProducer[] andSet = this.kyE.getAndSet(kyD);
+                            InnerProducer[] andSet = this.kAW.getAndSet(kAV);
                             int length = andSet.length;
                             while (i < length) {
                                 andSet[i].child.onCompleted();
@@ -147,9 +147,9 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                     }
                 } else {
                     Throwable bu = NotificationLite.bu(obj);
-                    this.kyA.compareAndSet(this, null);
+                    this.kAS.compareAndSet(this, null);
                     try {
-                        InnerProducer[] andSet2 = this.kyE.getAndSet(kyD);
+                        InnerProducer[] andSet2 = this.kAW.getAndSet(kAV);
                         int length2 = andSet2.length;
                         while (i < length2) {
                             andSet2[i].child.onError(bu);
@@ -167,7 +167,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Type inference failed for: r3v1, types: [java.util.Queue, java.util.Queue<java.lang.Object>] */
         /* JADX WARN: Type inference failed for: r3v13, types: [int] */
-        void cPG() {
+        void cQs() {
             int i;
             boolean z;
             synchronized (this) {
@@ -180,14 +180,14 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                 boolean z2 = false;
                 while (true) {
                     try {
-                        Object obj = this.kyB;
+                        Object obj = this.kAT;
                         ?? r3 = this.queue;
                         boolean isEmpty = r3.isEmpty();
                         boolean z3 = r3;
                         if (!f(obj, isEmpty)) {
                             try {
                                 if (!isEmpty) {
-                                    InnerProducer[] innerProducerArr = this.kyE.get();
+                                    InnerProducer[] innerProducerArr = this.kAW.get();
                                     int length = innerProducerArr.length;
                                     int i2 = 0;
                                     long j = Long.MAX_VALUE;
@@ -208,7 +208,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                                                 z = z4;
                                                 break;
                                             }
-                                            Object obj2 = this.kyB;
+                                            Object obj2 = this.kAT;
                                             Object poll = this.queue.poll();
                                             isEmpty = poll == null;
                                             if (!f(obj2, isEmpty)) {
@@ -236,7 +236,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                                         z3 = r32;
                                         if (r32 != 0 && !z) {
                                         }
-                                    } else if (!f(this.kyB, this.queue.poll() == null)) {
+                                    } else if (!f(this.kAT, this.queue.poll() == null)) {
                                         request(1L);
                                     } else {
                                         return;
@@ -318,7 +318,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                         return;
                     }
                 } while (!compareAndSet(j2, j3));
-                this.parent.cPG();
+                this.parent.cQs();
             }
         }
 
@@ -353,7 +353,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
         public void unsubscribe() {
             if (get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
                 this.parent.a(this);
-                this.parent.cPG();
+                this.parent.cQs();
             }
         }
     }

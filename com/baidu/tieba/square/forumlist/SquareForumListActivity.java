@@ -165,7 +165,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         this.mForumListView.addHeaderView(textView, 0);
         this.mPullView.setListPullRefreshListener(new h.c() { // from class: com.baidu.tieba.square.forumlist.SquareForumListActivity.6
             @Override // com.baidu.tbadk.core.view.h.c
-            public void er(boolean z) {
+            public void eu(boolean z) {
                 if (SquareForumListActivity.this.mIsLoading || !j.kc()) {
                     SquareForumListActivity.this.mForumListView.completePullRefreshPostDelayed(0L);
                     SquareForumListActivity.this.showToast(R.string.neterror);
@@ -196,7 +196,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         getLayoutMode().onModeChanged(this.mRootView);
         getLayoutMode().onModeChanged(this.mListFooter);
         am.l(this.mRootView, R.color.cp_bg_line_d);
-        am.l(this.mListFooter.findViewById(R.id.footer_divider), R.color.cp_bg_line_b);
+        am.l(this.mListFooter.findViewById(R.id.footer_divider), R.color.cp_bg_line_c);
         if (this.mHasMore) {
             am.k(this.mListFooter, R.drawable.square_list_item_bg_selector);
         } else {

@@ -12,7 +12,7 @@ public class RGStateCar3D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
         b.a().Q().l();
-        b.a().Q().c(R.drawable.aiapps_follow_vip_blue);
+        b.a().Q().c(R.drawable.aiapps_favorite_guide_checkbox_selector);
         if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
             if (b.a().J() != 4) {
                 b.a().Q().a(true);

@@ -14,8 +14,8 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     final int bufferSize;
     final rx.functions.h<? extends R> combiner;
     final boolean delayError;
-    final rx.d<? extends T>[] kwq;
-    final Iterable<? extends rx.d<? extends T>> kwr;
+    final rx.d<? extends T>[] kyJ;
+    final Iterable<? extends rx.d<? extends T>> kyK;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -26,17 +26,17 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         int length;
         rx.d<? extends T>[] dVarArr;
         rx.d<? extends T>[] dVarArr2;
-        rx.d<? extends T>[] dVarArr3 = this.kwq;
+        rx.d<? extends T>[] dVarArr3 = this.kyJ;
         if (dVarArr3 == null) {
-            if (this.kwr instanceof List) {
-                List list = (List) this.kwr;
+            if (this.kyK instanceof List) {
+                List list = (List) this.kyK;
                 rx.d<? extends T>[] dVarArr4 = (rx.d[]) list.toArray(new rx.d[list.size()]);
                 length = dVarArr4.length;
                 dVarArr = dVarArr4;
             } else {
                 int i = 0;
                 rx.d<? extends T>[] dVarArr5 = new rx.d[8];
-                for (rx.d<? extends T> dVar : this.kwr) {
+                for (rx.d<? extends T> dVar : this.kyK) {
                     if (i == dVarArr5.length) {
                         dVarArr2 = new rx.d[(i >> 2) + i];
                         System.arraycopy(dVarArr5, 0, dVarArr2, 0, i);
@@ -178,7 +178,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 }
             }
             if (!z && obj != null) {
-                aVar.eR(1L);
+                aVar.eU(1L);
             } else {
                 drain();
             }
@@ -220,7 +220,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                                 }
                                 try {
                                     jVar.onNext((R) this.combiner.call(objArr));
-                                    aVar.eR(1L);
+                                    aVar.eU(1L);
                                     j3 = 1 + j;
                                 } catch (Throwable th) {
                                     this.cancelled = true;
@@ -301,10 +301,10 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     public static final class a<T, R> extends rx.j<T> {
         boolean done;
         final int index;
-        final LatestCoordinator<T, R> kws;
+        final LatestCoordinator<T, R> kyL;
 
         public a(LatestCoordinator<T, R> latestCoordinator, int i) {
-            this.kws = latestCoordinator;
+            this.kyL = latestCoordinator;
             this.index = i;
             request(latestCoordinator.bufferSize);
         }
@@ -312,7 +312,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         @Override // rx.e
         public void onNext(T t) {
             if (!this.done) {
-                this.kws.combine(NotificationLite.bq(t), this.index);
+                this.kyL.combine(NotificationLite.bq(t), this.index);
             }
         }
 
@@ -322,20 +322,20 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 rx.c.c.onError(th);
                 return;
             }
-            this.kws.onError(th);
+            this.kyL.onError(th);
             this.done = true;
-            this.kws.combine(null, this.index);
+            this.kyL.combine(null, this.index);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.kws.combine(null, this.index);
+                this.kyL.combine(null, this.index);
             }
         }
 
-        public void eR(long j) {
+        public void eU(long j) {
             request(j);
         }
     }

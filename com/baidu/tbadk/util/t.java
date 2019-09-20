@@ -1,77 +1,56 @@
 package com.baidu.tbadk.util;
 
-import android.net.wifi.WifiManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import android.os.Environment;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 /* loaded from: classes.dex */
-public class t {
-    private static final byte[] cDi = new byte[1];
-    private static t cDj = null;
-    private CustomMessageListener mNetworkChangedListener;
+public final class t {
+    public static boolean isEMUI() {
+        return r("ro.build.version.emui", "ro.build.hw_emui_api_level");
+    }
 
-    public static t awr() {
-        if (cDj == null) {
-            synchronized (cDi) {
-                if (cDj == null) {
-                    cDj = new t();
-                }
-            }
+    private static boolean r(String... strArr) {
+        if (strArr == null || strArr.length == 0) {
+            return false;
         }
-        return cDj;
-    }
-
-    private t() {
-        com.baidu.adp.lib.util.j.init();
-    }
-
-    public void aax() {
         try {
-            if (this.mNetworkChangedListener == null) {
-                this.mNetworkChangedListener = aws();
-                MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-            }
-        } catch (Exception e) {
-            this.mNetworkChangedListener = null;
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    private CustomMessageListener aws() {
-        return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.t.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    t.this.awt();
+            a awG = a.awG();
+            for (String str : strArr) {
+                if (awG.rw(str) != null) {
+                    return true;
                 }
             }
-        };
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awt() {
-        try {
-            boolean kc = com.baidu.adp.lib.util.j.kc();
-            if (kc) {
-                if (com.baidu.adp.lib.util.j.kd()) {
-                    as.ajq().ee(true);
-                    com.baidu.tieba.recapp.d.a.ciL().DR(((WifiManager) TbadkCoreApplication.getInst().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getBSSID());
-                } else if (com.baidu.adp.lib.util.j.ke()) {
-                    as.ajq().ee(false);
+    /* loaded from: classes.dex */
+    public static final class a {
+        private static a cEc;
+        private final Properties cEd = new Properties();
+
+        private a() throws IOException {
+            this.cEd.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+        }
+
+        public static a awG() throws IOException {
+            if (cEc == null) {
+                synchronized (a.class) {
+                    if (cEc == null) {
+                        cEc = new a();
+                    }
                 }
             }
-            NoNetworkView.setIsHasNetwork(kc);
-            CompatibleUtile.dealWebView(null);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
+            return cEc;
+        }
+
+        public String rw(String str) {
+            return this.cEd.getProperty(str);
         }
     }
 }

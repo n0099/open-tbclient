@@ -5,6 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.s;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
@@ -24,43 +25,43 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] bOI;
+        String[] bPv;
         if (bVar == null) {
             return null;
         }
         try {
-            bOI = bOI();
+            bPv = bPv();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (bOI != null) {
+        if (bPv != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", bOI[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", bPv[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.BY);
-            jSONObject.put("ptoken", bVar.bDI);
-            jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
+            jSONObject.put("ptoken", bVar.bEg);
+            jSONObject.put(DpStatConstants.KEY_CUID, DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bOI[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bPv[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", d(arrayList, TbConfig.PassConfig.ENC_KEY)));
             x xVar = new x(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            xVar.aiG().ajG().mIsNeedAddCommenParam = false;
-            xVar.aiG().ajG().mIsUseCurrentBDUSS = false;
+            xVar.aiK().ajM().mIsNeedAddCommenParam = false;
+            xVar.aiK().ajM().mIsUseCurrentBDUSS = false;
             xVar.u(arrayList);
-            xVar.aiG().ajG().ajJ().bVm = true;
-            xVar.aiG().ajG().ajJ().mIsBaiduServer = false;
-            String aii = xVar.aii();
-            if (xVar.aiG().ajH().isRequestSuccess() && !aq.isEmpty(aii)) {
-                JSONObject jSONObject2 = new JSONObject(aii);
+            xVar.aiK().ajM().ajP().bVR = true;
+            xVar.aiK().ajM().ajP().mIsBaiduServer = false;
+            String aim = xVar.aim();
+            if (xVar.aiK().ajN().isRequestSuccess() && !aq.isEmpty(aim)) {
+                JSONObject jSONObject2 = new JSONObject(aim);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
                     bVar2.BY = jSONObject2.optString("bduss");
-                    bVar2.bDI = jSONObject2.optString("ptoken");
-                    bVar2.bDJ = jSONObject2.optString("uname");
+                    bVar2.bEg = jSONObject2.optString("ptoken");
+                    bVar2.bEh = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }
@@ -70,12 +71,12 @@ public class d {
         return null;
     }
 
-    private static String[] bOI() {
+    private static String[] bPv() {
         try {
             x xVar = new x(TbConfig.PassConfig.GET_CERT_URL);
-            xVar.aiG().ajG().mIsNeedAddCommenParam = false;
-            xVar.aiG().ajG().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(xVar.aij()));
+            xVar.aiK().ajM().mIsNeedAddCommenParam = false;
+            xVar.aiK().ajM().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(xVar.ain()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;

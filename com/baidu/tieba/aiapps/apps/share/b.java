@@ -21,42 +21,42 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        aHA();
-        av(getAgent(), this.mParams.getString("options"));
+        aIe();
+        aC(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        aHB();
+        aIf();
     }
 
-    private void aHA() {
+    private void aIe() {
     }
 
-    private void aHB() {
+    private void aIf() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gD(boolean z) {
+    public void gG(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        aHB();
+        aIf();
         finish();
     }
 
-    private void av(Context context, String str) {
+    private void aC(Context context, String str) {
         if (context == null) {
-            gD(false);
+            gG(false);
             return;
         }
         a aVar = new a();
         try {
             aVar.bi(new JSONObject(str));
-            TiebaStatic.log(new an("c13530").bT(VideoPlayActivityConfig.OBJ_ID, aVar.clj).P("obj_type", aVar.clk).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aVar.cll));
+            TiebaStatic.log(new an("c13530").bT(VideoPlayActivityConfig.OBJ_ID, aVar.cmf).P("obj_type", aVar.cmg).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aVar.cmh));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.this.gD(false);
+                    b.this.gG(false);
                 }
             };
             shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
@@ -66,7 +66,7 @@ public class b extends ActivityDelegation {
             };
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
         } catch (JSONException e) {
-            gD(false);
+            gG(false);
         }
     }
 }

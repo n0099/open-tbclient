@@ -14,6 +14,7 @@ import com.sina.weibo.sdk.network.exception.InterceptException;
 import com.sina.weibo.sdk.network.exception.SdkException;
 import com.sina.weibo.sdk.network.intercept.GlobalInterceptHelper;
 import com.sina.weibo.sdk.network.target.Target;
+import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,7 +34,8 @@ public class FixRequestTask<T, R> implements RequestCancelable, Runnable {
     public void run() {
         RequestResult requestResult = new RequestResult();
         if (!NetStateManager.isNetworkConnected(this.param.getContext())) {
-            requestResult.setE(new SdkException("网络连接错误，请检查网络状态"));
+            LogUtil.e("Task", "FixRequestTask:android.permission.ACCESS_NETWORK_STATE");
+            requestResult.setE(new SdkException("android.permission.ACCESS_NETWORK_STATE"));
         }
         if (this.param.needIntercept()) {
             try {
@@ -55,6 +57,7 @@ public class FixRequestTask<T, R> implements RequestCancelable, Runnable {
                 this.param.getGetBundle().putAll(bundle);
                 this.param.getPostBundle().putAll(bundle);
             } catch (InterceptException e) {
+                LogUtil.e("Task", "FixRequestTask:" + e.getMessage());
                 requestResult.setE(e);
                 Handler handler = new Handler(Looper.getMainLooper(), this.callback);
                 Message message = new Message();

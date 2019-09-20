@@ -18,19 +18,19 @@ public final class a {
         String n;
         if (aVar != null && aVar2 != null) {
             e.am("postMessage", "dispatchJSEvent start.");
-            if (aVar.zq()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.awl);
+            if (aVar.zu()) {
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.awJ);
                 n = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                n = n(NotificationCompat.CATEGORY_EVENT, "type", aVar2.awl);
+                n = n(NotificationCompat.CATEGORY_EVENT, "type", aVar2.awJ);
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, n + aVar2.ev(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
+            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, n + aVar2.ex(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
             e.am("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
             }
-            if (aVar.zq()) {
+            if (aVar.zu()) {
                 ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.m.a.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -54,7 +54,7 @@ public final class a {
     }
 
     private static String a(com.baidu.swan.apps.core.container.a aVar) {
-        if (aVar.zq()) {
+        if (aVar.zu()) {
             return "document";
         }
         return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;

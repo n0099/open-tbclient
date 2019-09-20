@@ -13,41 +13,41 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, Bundle> aGq = new HashMap();
-    private final c aGr = new c();
+    private final Map<String, Bundle> aGO = new HashMap();
+    private final c aGP = new c();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.performance.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0157b {
-        private static b aGD = new b();
+    public static class C0166b {
+        private static b aHb = new b();
     }
 
-    public static b IC() {
-        return C0157b.aGD;
+    public static b IG() {
+        return C0166b.aHb;
     }
 
-    public Bundle fX(String str) {
-        Bundle fZ = ID().fZ(str);
-        if (fZ == null) {
-            fZ = new Bundle();
+    public Bundle fZ(String str) {
+        Bundle gb = IH().gb(str);
+        if (gb == null) {
+            gb = new Bundle();
         }
         if (DEBUG) {
-            Log.i("UbcBundleHeloer", "xpass -> startTargetSwanApp: intent.bundle.ext.size=" + fZ.size());
+            Log.i("UbcBundleHeloer", "xpass -> startTargetSwanApp: intent.bundle.ext.size=" + gb.size());
         }
-        return fZ;
+        return gb;
     }
 
     public void a(final String str, final SwanAppProcessInfo swanAppProcessInfo) {
         if (DEBUG) {
-            Log.i("UbcBundleHeloer", "xpass -> sendToProcess: mActionCache.size=" + this.aGr.size());
+            Log.i("UbcBundleHeloer", "xpass -> sendToProcess: mActionCache.size=" + this.aGP.size());
         }
         j.a(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bundle fX = b.this.fX(str);
+                final Bundle fZ = b.this.fZ(str);
                 if (b.DEBUG) {
-                    Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: ext.size=" + fX.size());
+                    Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: ext.size=" + fZ.size());
                 }
                 if (!TextUtils.isEmpty(str) && swanAppProcessInfo.isSwanAppProcess()) {
                     ac.c(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1.1
@@ -56,7 +56,7 @@ public final class b {
                             if (b.DEBUG) {
                                 Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: action");
                             }
-                            com.baidu.swan.apps.process.messaging.service.b.JL().a(swanAppProcessInfo, 109, fX);
+                            com.baidu.swan.apps.process.messaging.service.b.JP().a(swanAppProcessInfo, 109, fZ);
                         }
                     }, 2500L);
                 }
@@ -121,43 +121,43 @@ public final class b {
     }
 
     private void b(String str, String str2, Object obj) {
-        com.baidu.swan.apps.v.c.a.eW(str).eX(String.format("%s: %s", str2, obj)).fa("[CheckPoint]");
+        com.baidu.swan.apps.v.c.a.eY(str).eZ(String.format("%s: %s", str2, obj)).fc("[CheckPoint]");
     }
 
     private b a(a aVar) {
-        this.aGr.f(aVar);
+        this.aGP.f(aVar);
         return this;
     }
 
-    public synchronized Bundle fY(String str) {
-        Bundle ga;
-        synchronized (this.aGq) {
-            ga = ga(str);
-            if (ga == null) {
-                ga = new Bundle();
-                this.aGq.put(str, ga);
+    public synchronized Bundle ga(String str) {
+        Bundle gc;
+        synchronized (this.aGO) {
+            gc = gc(str);
+            if (gc == null) {
+                gc = new Bundle();
+                this.aGO.put(str, gc);
             }
         }
-        return ga;
+        return gc;
     }
 
-    public b ID() {
-        this.aGr.II();
+    public b IH() {
+        this.aGP.IM();
         return this;
     }
 
-    public Bundle fZ(String str) {
+    public Bundle gb(String str) {
         Bundle remove;
-        synchronized (this.aGq) {
-            remove = this.aGq.remove(str);
+        synchronized (this.aGO) {
+            remove = this.aGO.remove(str);
         }
         return remove;
     }
 
-    public Bundle ga(String str) {
+    public Bundle gc(String str) {
         Bundle bundle;
-        synchronized (this.aGq) {
-            bundle = this.aGq.get(str);
+        synchronized (this.aGO) {
+            bundle = this.aGO.get(str);
         }
         return bundle;
     }
@@ -165,18 +165,18 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public abstract class a implements com.baidu.swan.apps.an.d.a<Bundle>, Runnable {
-        final String aGB;
-        final List<Object<Bundle, Boolean>> aGC = new ArrayList();
+        final String aGZ;
+        final List<Object<Bundle, Boolean>> aHa = new ArrayList();
 
         public a(String str) {
-            this.aGB = str;
+            this.aGZ = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(this.aGB)) {
-                synchronized (b.this.aGq) {
-                    D(b.this.fY(this.aGB));
+            if (!TextUtils.isEmpty(this.aGZ)) {
+                synchronized (b.this.aGO) {
+                    D(b.this.ga(this.aGZ));
                 }
             }
         }

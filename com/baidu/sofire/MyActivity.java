@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.b.r;
+import com.baidu.sofire.b.v;
 /* loaded from: classes2.dex */
 public class MyActivity extends Activity {
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
@@ -19,7 +19,7 @@ public class MyActivity extends Activity {
             final Intent intent = getIntent();
             if (Config.APP_VERSION_CODE.equals(intent.getStringExtra("t"))) {
                 final Context applicationContext = getApplicationContext();
-                r.a().a(new Runnable() { // from class: com.baidu.sofire.MyActivity.1
+                v.a().a(new Runnable() { // from class: com.baidu.sofire.MyActivity.1
                     @Override // java.lang.Runnable
                     public final void run() {
                         try {

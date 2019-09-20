@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class i extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.k> {
-    private TextView bCd;
+    private TextView bCB;
 
     public i(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.bCd = (TextView) getView();
+        this.bCB = (TextView) getView();
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.f(this.bCd, R.color.cp_cont_d, 1);
-            am.k(this.bCd, R.color.cp_bg_line_d);
+            am.f(this.bCB, R.color.cp_cont_d, 1);
+            am.k(this.bCB, R.color.cp_bg_line_d);
         }
     }
 
@@ -32,8 +32,8 @@ public class i extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.k kVar) {
         if (kVar != null) {
-            this.bCd.setPadding(kVar.paddingLeft, kVar.paddingTop, 0, kVar.paddingBottom);
-            this.bCd.setText(this.mContext.getString(kVar.titleId));
+            this.bCB.setPadding(kVar.paddingLeft, kVar.paddingTop, 0, kVar.paddingBottom);
+            this.bCB.setText(this.mContext.getString(kVar.titleId));
         }
     }
 

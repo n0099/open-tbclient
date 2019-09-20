@@ -108,7 +108,7 @@ public class a extends Handler {
     private boolean a(String str, HistoryTraceData historyTraceData, int i) {
         if (TextUtils.isEmpty(str) || historyTraceData == null) {
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Parameter error when parser");
-            a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_PARSER_FAILED, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_PARSER_FAILED, i, null);
+            a(10009, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_PARSER_FAILED, i, null);
             return false;
         }
         try {
@@ -149,7 +149,7 @@ public class a extends Handler {
 
     private boolean a(JSONObject jSONObject, int i) {
         if (jSONObject == null || !jSONObject.has("status")) {
-            a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_PARSER_FAILED, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_PARSER_FAILED, i, null);
+            a(10009, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_PARSER_FAILED, i, null);
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Request result no status");
             return false;
         }
@@ -198,7 +198,7 @@ public class a extends Handler {
                 int i = message.arg1;
                 String str = (String) message.obj;
                 if (str == null) {
-                    a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_NULL, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_NULL, i, null);
+                    a(10008, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_NULL, i, null);
                     return;
                 }
                 boolean a2 = a(str, this.c, i);

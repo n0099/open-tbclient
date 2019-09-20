@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.UserData;
 public interface e {
     void onChangeSkinType(int i);
 
-    void rU(boolean z);
+    void rX(boolean z);
 
     void setData(UserData userData);
 

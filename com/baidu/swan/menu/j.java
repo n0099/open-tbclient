@@ -5,18 +5,18 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class j {
     public boolean MX;
-    public int brI;
-    private int brJ = 0;
-    public e brK;
+    public int bsg;
+    private int bsh = 0;
+    public e bsi;
     public int mIconResId;
     public int mId;
 
     public j(int i, int i2, int i3, boolean z) {
-        this.brI = -1;
+        this.bsg = -1;
         this.mIconResId = -1;
         this.MX = true;
         this.mId = i;
-        this.brI = i2;
+        this.bsg = i2;
         this.mIconResId = i3;
         this.MX = z;
     }
@@ -27,7 +27,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setTitle(int i) {
-        this.brI = i;
+        this.bsg = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,7 +37,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(e eVar) {
-        this.brK = eVar;
+        this.bsi = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,16 +46,16 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e VK() {
-        return this.brK;
+    public e VO() {
+        return this.bsi;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String cb(Context context) {
-        if (this.brI <= 0) {
+        if (this.bsg <= 0) {
             return null;
         }
-        return context.getResources().getString(this.brI);
+        return context.getResources().getString(this.bsg);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,8 +67,8 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int VL() {
-        return this.brJ;
+    public int VP() {
+        return this.bsh;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,6 +76,6 @@ public class j {
         if (jVar == null) {
             return null;
         }
-        return new j(jVar.mId, jVar.brI, jVar.mIconResId, jVar.MX);
+        return new j(jVar.mId, jVar.bsg, jVar.mIconResId, jVar.MX);
     }
 }

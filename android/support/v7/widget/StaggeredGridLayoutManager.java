@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
@@ -913,7 +912,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
 
     private void fixStartGap(RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         int startAfterPadding;
-        int minStart = getMinStart(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        int minStart = getMinStart(Integer.MAX_VALUE);
         if (minStart != Integer.MAX_VALUE && (startAfterPadding = minStart - this.mPrimaryOrientation.getStartAfterPadding()) > 0) {
             int scrollBy = startAfterPadding - scrollBy(startAfterPadding, recycler, state);
             if (z && scrollBy > 0) {

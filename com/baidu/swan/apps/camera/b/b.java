@@ -3,5 +3,5 @@ package com.baidu.swan.apps.camera.b;
 public interface b {
     void cancel();
 
-    void xI();
+    void xM();
 }

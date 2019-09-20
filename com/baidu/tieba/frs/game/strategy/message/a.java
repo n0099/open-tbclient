@@ -47,13 +47,13 @@ public class a {
             }
             b bVar = new b();
             bh bhVar = new bh();
-            bVar.aj(bhVar);
+            bVar.ak(bhVar);
             bhVar.a(list.get(i2));
             bhVar.setCurrentPage(3);
-            bhVar.afo();
-            if (!TextUtils.isEmpty(bhVar.afA())) {
+            bhVar.afs();
+            if (!TextUtils.isEmpty(bhVar.afE())) {
                 ad adVar = new ad();
-                adVar.mq(bhVar.afA());
+                adVar.ms(bhVar.afE());
                 linkedList.add(adVar);
             } else {
                 linkedList.add(bVar);

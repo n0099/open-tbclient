@@ -3,6 +3,7 @@ package com.baidu.ubc;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.BufferedReader;
 import java.io.File;
@@ -44,23 +45,23 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", jVar.getId());
-            jSONObject.put("timestamp", jVar.getTime());
+            jSONObject.put(DpStatConstants.KEY_TIMESTAMP, jVar.getTime());
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(jVar.getContent())) {
                 jSONObject.put("content", jVar.getContent());
-            } else if (jVar.XS() != null) {
-                jSONObject.put("content", jVar.XS().toString());
+            } else if (jVar.XW() != null) {
+                jSONObject.put("content", jVar.XW().toString());
             }
-            if (!TextUtils.isEmpty(jVar.XR())) {
-                jSONObject.put(ImageViewerConfig.ABTEST, jVar.XR());
+            if (!TextUtils.isEmpty(jVar.XV())) {
+                jSONObject.put(ImageViewerConfig.ABTEST, jVar.XV());
             }
             if (!TextUtils.isEmpty(jVar.getCategory())) {
                 jSONObject.put("c", jVar.getCategory());
             }
-            if (jVar.XN()) {
+            if (jVar.XR()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", e.cDx().kT(jVar.getId()));
+            jSONObject.put("idtype", e.cEl().kV(jVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -135,9 +136,9 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                            sVar.lc("1");
+                            sVar.le("1");
                         }
-                        long j3 = jSONObject.getLong("timestamp");
+                        long j3 = jSONObject.getLong(DpStatConstants.KEY_TIMESTAMP);
                         if (j3 > 0) {
                             if (j3 < j) {
                                 j = j3;
@@ -207,9 +208,9 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                                sVar.lc("1");
+                                sVar.le("1");
                             }
-                            long j3 = jSONObject.getLong("timestamp");
+                            long j3 = jSONObject.getLong(DpStatConstants.KEY_TIMESTAMP);
                             if (j3 > 0) {
                                 if (j3 < j) {
                                     j = j3;

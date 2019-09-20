@@ -14,23 +14,23 @@ import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.a<c> {
-    private View aNH;
-    private RelativeLayout cWk;
-    protected ConstrainImageGroup eCT;
-    private TbImageView fzb;
-    private TextView fzc;
-    private TextView fzd;
-    private c fze;
+    private View aOf;
+    private RelativeLayout cXd;
+    protected ConstrainImageGroup eEC;
+    private TbImageView fAO;
+    private TextView fAP;
+    private TextView fAQ;
+    private c fAR;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
-        this.fzb = (TbImageView) view.findViewById(R.id.ad_portrait);
-        this.fzc = (TextView) view.findViewById(R.id.ad_title);
-        this.fzd = (TextView) view.findViewById(R.id.ad_desc);
-        this.eCT = (ConstrainImageGroup) view.findViewById(R.id.ad_img_layout);
-        this.aNH = view.findViewById(R.id.item_divider);
-        this.cWk = (RelativeLayout) view.findViewById(R.id.frs_ad_list_item_view);
+        this.fAO = (TbImageView) view.findViewById(R.id.ad_portrait);
+        this.fAP = (TextView) view.findViewById(R.id.ad_title);
+        this.fAQ = (TextView) view.findViewById(R.id.ad_desc);
+        this.eEC = (ConstrainImageGroup) view.findViewById(R.id.ad_img_layout);
+        this.aOf = view.findViewById(R.id.item_divider);
+        this.cXd = (RelativeLayout) view.findViewById(R.id.frs_ad_list_item_view);
         view.setOnClickListener(this);
     }
 
@@ -38,10 +38,10 @@ public class b extends com.baidu.tieba.card.a<c> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.j(this.fzc, R.color.cp_cont_b);
-            am.j(this.fzd, R.color.cp_cont_d);
-            am.k(this.cWk, R.drawable.ad_list_item_bg);
-            this.eCT.onChangeSkinType();
+            am.j(this.fAP, R.color.cp_cont_b);
+            am.j(this.fAQ, R.color.cp_cont_d);
+            am.k(this.cXd, R.drawable.ad_list_item_bg);
+            this.eEC.onChangeSkinType();
         }
     }
 
@@ -51,20 +51,20 @@ public class b extends com.baidu.tieba.card.a<c> {
     }
 
     public void setSingleImageRatio(double d) {
-        if (this.eCT != null) {
-            this.eCT.setSingleImageRatio(d);
+        if (this.eEC != null) {
+            this.eEC.setSingleImageRatio(d);
         }
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<ConstrainImageLayout> bVar) {
-        if (this.eCT != null) {
-            this.eCT.setConstrainLayoutPool(bVar);
+        if (this.eEC != null) {
+            this.eEC.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        if (this.eCT != null) {
-            this.eCT.setImageViewPool(bVar);
+        if (this.eEC != null) {
+            this.eEC.setImageViewPool(bVar);
         }
     }
 
@@ -72,49 +72,49 @@ public class b extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null) {
-            this.fze = cVar;
-            this.fzb.startLoad(cVar.boh(), 10, false);
-            this.fzb.setRadius(l.g(getContext(), R.dimen.tbds26));
-            this.fzb.setDrawerType(1);
-            this.fzb.setDrawBorder(true);
-            this.fzb.setBorderColor(am.getColor(R.color.black_alpha15));
-            this.fzb.setBorderWidth(l.g(getContext(), R.dimen.tbds1));
-            this.fzb.setDefaultResource(R.drawable.transparent_bg);
-            this.fzb.setDefaultBgResource(R.drawable.transparent_bg);
-            this.fzc.setText(cVar.boi());
-            this.fzd.setText(cVar.boj());
-            am.j(this.fzc, R.color.cp_cont_b);
-            am.j(this.fzd, R.color.cp_cont_d);
-            am.k(this.cWk, R.drawable.ad_list_item_bg);
-            if (v.Z(cVar.bok()) > 0) {
+            this.fAR = cVar;
+            this.fAO.startLoad(cVar.boS(), 10, false);
+            this.fAO.setRadius(l.g(getContext(), R.dimen.tbds26));
+            this.fAO.setDrawerType(1);
+            this.fAO.setDrawBorder(true);
+            this.fAO.setBorderColor(am.getColor(R.color.black_alpha15));
+            this.fAO.setBorderWidth(l.g(getContext(), R.dimen.tbds1));
+            this.fAO.setDefaultResource(R.drawable.transparent_bg);
+            this.fAO.setDefaultBgResource(R.drawable.transparent_bg);
+            this.fAP.setText(cVar.boT());
+            this.fAQ.setText(cVar.boU());
+            am.j(this.fAP, R.color.cp_cont_b);
+            am.j(this.fAQ, R.color.cp_cont_d);
+            am.k(this.cXd, R.drawable.ad_list_item_bg);
+            if (v.Z(cVar.boV()) > 0) {
                 com.baidu.tbadk.widget.layout.f fVar = new com.baidu.tbadk.widget.layout.f(3);
                 fVar.h(1.0d);
-                this.eCT.setVisibility(0);
-                this.eCT.setFromCDN(true);
-                this.eCT.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
-                this.eCT.setImageProcessor(fVar);
-                this.eCT.setImageMediaList(cVar.bok());
-                if (!cVar.bol()) {
+                this.eEC.setVisibility(0);
+                this.eEC.setFromCDN(true);
+                this.eEC.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
+                this.eEC.setImageProcessor(fVar);
+                this.eEC.setImageMediaList(cVar.boV());
+                if (!cVar.boW()) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.g(getContext(), R.dimen.tbds16));
                     layoutParams.addRule(12);
-                    this.aNH.setLayoutParams(layoutParams);
-                    am.l(this.aNH, R.color.cp_bg_line_c);
-                    this.aNH.setVisibility(0);
+                    this.aOf.setLayoutParams(layoutParams);
+                    am.l(this.aOf, R.color.cp_bg_line_c);
+                    this.aOf.setVisibility(0);
                     return;
                 }
-                this.aNH.setVisibility(8);
+                this.aOf.setVisibility(8);
                 return;
             }
-            this.eCT.setVisibility(8);
-            if (!cVar.bol()) {
+            this.eEC.setVisibility(8);
+            if (!cVar.boW()) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, l.g(getContext(), R.dimen.tbds1));
                 layoutParams2.addRule(12);
-                this.aNH.setLayoutParams(layoutParams2);
-                am.l(this.aNH, R.color.cp_bg_line_c);
-                this.aNH.setVisibility(0);
+                this.aOf.setLayoutParams(layoutParams2);
+                am.l(this.aOf, R.color.cp_bg_line_c);
+                this.aOf.setVisibility(0);
                 return;
             }
-            this.aNH.setVisibility(8);
+            this.aOf.setVisibility(8);
         }
     }
 

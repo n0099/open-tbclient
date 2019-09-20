@@ -10,11 +10,11 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.swan.apps.res.widget.a.a {
     private static final boolean DEBUG = b.DEBUG;
-    private BdContextMenuView dig;
+    private BdContextMenuView djR;
 
     public a(View view) {
         super(view);
-        dC(view.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_max_width));
+        dD(view.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_max_width));
         cl(true);
         cm(true);
     }
@@ -22,7 +22,7 @@ public class a extends com.baidu.swan.apps.res.widget.a.a {
     @Override // com.baidu.swan.apps.res.widget.a.a
     protected View getMenuView(Context context) {
         BdContextMenuView bdContextMenuView = new BdContextMenuView(context);
-        this.dig = bdContextMenuView;
+        this.djR = bdContextMenuView;
         return bdContextMenuView;
     }
 

@@ -6,7 +6,7 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes2.dex */
 public class c {
-    public static boolean jB(String str) {
+    public static boolean jD(String str) {
         return TextUtils.equals(PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("KEY_DEBUG_SWAN_GAME_CORE_MODE", IXAdSystemUtils.NT_NONE), str);
     }
 }

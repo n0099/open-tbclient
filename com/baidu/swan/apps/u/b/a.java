@@ -9,17 +9,17 @@ public abstract class a implements com.baidu.swan.apps.b.b.f {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wP() {
+    public String wT() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wQ() {
+    public String wU() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public void wR() {
+    public void wV() {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
@@ -28,12 +28,12 @@ public abstract class a implements com.baidu.swan.apps.b.b.f {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wT() {
+    public String wX() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wV() {
+    public String wZ() {
         return "https://ossapi.baidu.com/pms";
     }
 }

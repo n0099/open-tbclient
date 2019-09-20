@@ -12,64 +12,64 @@ import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
 import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
 /* loaded from: classes6.dex */
 public class a {
-    private static a hAb;
-    private long gWt = 0;
+    private static a hBX;
+    private long gYn = 0;
     @SuppressLint({"HandlerLeak"})
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.myCollection.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
-                a.this.gWt = System.currentTimeMillis();
+                a.this.gYn = System.currentTimeMillis();
                 MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
                 a.this.mHandler.sendMessageDelayed(a.this.mHandler.obtainMessage(1), 1800000L);
             }
         }
     };
-    private final c gyP = new c(303005) { // from class: com.baidu.tieba.myCollection.a.a.2
+    private final c gAG = new c(303005) { // from class: com.baidu.tieba.myCollection.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
-                b.anF().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
+                b.anR().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
             }
         }
     };
 
     static {
         com.baidu.tieba.tbadkCore.a.a.a(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        hAb = null;
+        hBX = null;
     }
 
-    public static synchronized a bQj() {
+    public static synchronized a bQX() {
         a aVar;
         synchronized (a.class) {
-            if (hAb == null) {
-                hAb = new a();
+            if (hBX == null) {
+                hBX = new a();
             }
-            aVar = hAb;
+            aVar = hBX;
         }
         return aVar;
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.gyP);
+        MessageManager.getInstance().registerListener(this.gAG);
     }
 
     public void restart() {
-        this.gWt = 0L;
+        this.gYn = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.gWt;
+        long currentTimeMillis = System.currentTimeMillis() - this.gYn;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 1800000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 1800000 - j);
         }
-        this.gWt = System.currentTimeMillis();
+        this.gYn = System.currentTimeMillis();
     }
 
     public void destroy() {

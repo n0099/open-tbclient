@@ -70,11 +70,11 @@ final class DecodedBitStreamParser {
         PDF417ResultMetadata pDF417ResultMetadata = new PDF417ResultMetadata();
         while (i < iArr[0]) {
             switch (i2) {
-                case TEXT_COMPACTION_MODE_LATCH /* 900 */:
+                case 900:
                     decodeMacroBlock = textCompaction(iArr, i, sb);
                     break;
                 case BYTE_COMPACTION_MODE_LATCH /* 901 */:
-                case BYTE_COMPACTION_MODE_LATCH_6 /* 924 */:
+                case 924:
                     decodeMacroBlock = byteCompaction(i2, iArr, charset, i, sb);
                     break;
                 case NUMERIC_COMPACTION_MODE_LATCH /* 902 */:
@@ -84,10 +84,10 @@ final class DecodedBitStreamParser {
                     decodeMacroBlock = i + 1;
                     sb.append((char) iArr[i]);
                     break;
-                case MACRO_PDF417_TERMINATOR /* 922 */:
-                case BEGIN_MACRO_PDF417_OPTIONAL_FIELD /* 923 */:
+                case 922:
+                case 923:
                     throw FormatException.getFormatInstance();
-                case ECI_USER_DEFINED /* 925 */:
+                case 925:
                     decodeMacroBlock = i + 1;
                     break;
                 case ECI_GENERAL_PURPOSE /* 926 */:
@@ -134,7 +134,7 @@ final class DecodedBitStreamParser {
         StringBuilder sb = new StringBuilder();
         int textCompaction = textCompaction(iArr, i, sb);
         pDF417ResultMetadata.setFileId(sb.toString());
-        if (iArr[textCompaction] == BEGIN_MACRO_PDF417_OPTIONAL_FIELD) {
+        if (iArr[textCompaction] == 923) {
             int i3 = textCompaction + 1;
             int[] iArr3 = new int[iArr[0] - i3];
             int i4 = 0;
@@ -143,13 +143,13 @@ final class DecodedBitStreamParser {
             while (i5 < iArr[0] && !z) {
                 int i6 = i5 + 1;
                 int i7 = iArr[i5];
-                if (i7 < TEXT_COMPACTION_MODE_LATCH) {
+                if (i7 < 900) {
                     iArr3[i4] = i7;
                     i4++;
                     i5 = i6;
                 } else {
                     switch (i7) {
-                        case MACRO_PDF417_TERMINATOR /* 922 */:
+                        case 922:
                             pDF417ResultMetadata.setLastSegment(true);
                             i5 = i6 + 1;
                             z = true;
@@ -161,7 +161,7 @@ final class DecodedBitStreamParser {
             }
             pDF417ResultMetadata.setOptionalData(Arrays.copyOf(iArr3, i4));
             return i5;
-        } else if (iArr[textCompaction] == MACRO_PDF417_TERMINATOR) {
+        } else if (iArr[textCompaction] == 922) {
             pDF417ResultMetadata.setLastSegment(true);
             return textCompaction + 1;
         } else {
@@ -177,23 +177,23 @@ final class DecodedBitStreamParser {
         while (i < iArr[0] && !z) {
             int i3 = i + 1;
             int i4 = iArr[i];
-            if (i4 < TEXT_COMPACTION_MODE_LATCH) {
+            if (i4 < 900) {
                 iArr2[i2] = i4 / 30;
                 iArr2[i2 + 1] = i4 % 30;
                 i2 += 2;
                 i = i3;
             } else {
                 switch (i4) {
-                    case TEXT_COMPACTION_MODE_LATCH /* 900 */:
-                        iArr2[i2] = TEXT_COMPACTION_MODE_LATCH;
+                    case 900:
+                        iArr2[i2] = 900;
                         i2++;
                         i = i3;
                         continue;
                     case BYTE_COMPACTION_MODE_LATCH /* 901 */:
                     case NUMERIC_COMPACTION_MODE_LATCH /* 902 */:
-                    case MACRO_PDF417_TERMINATOR /* 922 */:
-                    case BEGIN_MACRO_PDF417_OPTIONAL_FIELD /* 923 */:
-                    case BYTE_COMPACTION_MODE_LATCH_6 /* 924 */:
+                    case 922:
+                    case 923:
+                    case 924:
                     case 928:
                         i = i3 - 1;
                         z = true;
@@ -242,7 +242,7 @@ final class DecodedBitStreamParser {
                     } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
                         sb.append((char) iArr2[i2]);
                         break;
-                    } else if (i3 == TEXT_COMPACTION_MODE_LATCH) {
+                    } else if (i3 == 900) {
                         mode = Mode.ALPHA;
                         break;
                     }
@@ -270,7 +270,7 @@ final class DecodedBitStreamParser {
                     } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
                         sb.append((char) iArr2[i2]);
                         break;
-                    } else if (i3 == TEXT_COMPACTION_MODE_LATCH) {
+                    } else if (i3 == 900) {
                         mode = Mode.ALPHA;
                         break;
                     }
@@ -299,7 +299,7 @@ final class DecodedBitStreamParser {
                     } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
                         sb.append((char) iArr2[i2]);
                         break;
-                    } else if (i3 == TEXT_COMPACTION_MODE_LATCH) {
+                    } else if (i3 == 900) {
                         mode = Mode.ALPHA;
                         break;
                     }
@@ -314,7 +314,7 @@ final class DecodedBitStreamParser {
                     } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
                         sb.append((char) iArr2[i2]);
                         break;
-                    } else if (i3 == TEXT_COMPACTION_MODE_LATCH) {
+                    } else if (i3 == 900) {
                         mode = Mode.ALPHA;
                         break;
                     }
@@ -329,7 +329,7 @@ final class DecodedBitStreamParser {
                         mode = mode2;
                         break;
                     } else {
-                        if (i3 == TEXT_COMPACTION_MODE_LATCH) {
+                        if (i3 == 900) {
                             mode = Mode.ALPHA;
                             break;
                         }
@@ -349,7 +349,7 @@ final class DecodedBitStreamParser {
                         mode = mode2;
                         break;
                     } else {
-                        if (i3 == TEXT_COMPACTION_MODE_LATCH) {
+                        if (i3 == 900) {
                             mode = Mode.ALPHA;
                             break;
                         }
@@ -378,7 +378,7 @@ final class DecodedBitStreamParser {
                 j = (j * 900) + i4;
                 int i7 = i5 + 1;
                 i4 = iArr[i5];
-                if (i4 == TEXT_COMPACTION_MODE_LATCH || i4 == BYTE_COMPACTION_MODE_LATCH || i4 == NUMERIC_COMPACTION_MODE_LATCH || i4 == BYTE_COMPACTION_MODE_LATCH_6 || i4 == 928 || i4 == BEGIN_MACRO_PDF417_OPTIONAL_FIELD || i4 == MACRO_PDF417_TERMINATOR) {
+                if (i4 == 900 || i4 == BYTE_COMPACTION_MODE_LATCH || i4 == NUMERIC_COMPACTION_MODE_LATCH || i4 == 924 || i4 == 928 || i4 == 923 || i4 == 922) {
                     z = true;
                     i5 = i7 - 1;
                     i3 = i6;
@@ -394,7 +394,7 @@ final class DecodedBitStreamParser {
                     i5 = i7;
                 }
             }
-            if (i5 == iArr[0] && i4 < TEXT_COMPACTION_MODE_LATCH) {
+            if (i5 == iArr[0] && i4 < 900) {
                 iArr2[i3] = i4;
                 i3++;
             }
@@ -402,18 +402,18 @@ final class DecodedBitStreamParser {
                 byteArrayOutputStream.write((byte) iArr2[i9]);
             }
             i2 = i5;
-        } else if (i == BYTE_COMPACTION_MODE_LATCH_6) {
+        } else if (i == 924) {
             int i10 = 0;
             long j2 = 0;
             boolean z2 = false;
             while (i2 < iArr[0] && !z2) {
                 int i11 = i2 + 1;
                 int i12 = iArr[i2];
-                if (i12 < TEXT_COMPACTION_MODE_LATCH) {
+                if (i12 < 900) {
                     i10++;
                     j2 = (j2 * 900) + i12;
                     i2 = i11;
-                } else if (i12 == TEXT_COMPACTION_MODE_LATCH || i12 == BYTE_COMPACTION_MODE_LATCH || i12 == NUMERIC_COMPACTION_MODE_LATCH || i12 == BYTE_COMPACTION_MODE_LATCH_6 || i12 == 928 || i12 == BEGIN_MACRO_PDF417_OPTIONAL_FIELD || i12 == MACRO_PDF417_TERMINATOR) {
+                } else if (i12 == 900 || i12 == BYTE_COMPACTION_MODE_LATCH || i12 == NUMERIC_COMPACTION_MODE_LATCH || i12 == 924 || i12 == 928 || i12 == 923 || i12 == 922) {
                     i2 = i11 - 1;
                     z2 = true;
                 } else {
@@ -449,11 +449,11 @@ final class DecodedBitStreamParser {
             if (i3 == iArr[0]) {
                 z = true;
             }
-            if (i4 < TEXT_COMPACTION_MODE_LATCH) {
+            if (i4 < 900) {
                 iArr2[i2] = i4;
                 i2++;
                 i = i3;
-            } else if (i4 == TEXT_COMPACTION_MODE_LATCH || i4 == BYTE_COMPACTION_MODE_LATCH || i4 == BYTE_COMPACTION_MODE_LATCH_6 || i4 == 928 || i4 == BEGIN_MACRO_PDF417_OPTIONAL_FIELD || i4 == MACRO_PDF417_TERMINATOR) {
+            } else if (i4 == 900 || i4 == BYTE_COMPACTION_MODE_LATCH || i4 == 924 || i4 == 928 || i4 == 923 || i4 == 922) {
                 i = i3 - 1;
                 z = true;
             } else {

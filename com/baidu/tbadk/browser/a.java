@@ -29,7 +29,7 @@ import com.baidu.util.Base64Encoder;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String bBJ;
+    public static String bCh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String bA(String str, String str2) {
@@ -45,8 +45,8 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void lE(String str) {
-        bBJ = str;
+    public static void lG(String str) {
+        bCh = str;
     }
 
     public static void ae(Context context, String str) {
@@ -78,7 +78,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        aaW();
+        aba();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -93,7 +93,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        aaW();
+        aba();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -123,7 +123,7 @@ public class a {
         }
     }
 
-    public static String d(String str, List<Pair<String, String>> list) {
+    public static String c(String str, List<Pair<String, String>> list) {
         if (!aq.isEmpty(str) && list != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
@@ -181,7 +181,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.acf().mj(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.acj().ml(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -230,7 +230,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void aaW() {
+    private static void aba() {
         new ag("open_webview", true).start();
     }
 }

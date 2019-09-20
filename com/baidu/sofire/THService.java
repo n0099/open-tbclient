@@ -3,7 +3,7 @@ package com.baidu.sofire;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import com.baidu.sofire.b.r;
+import com.baidu.sofire.b.v;
 /* loaded from: classes2.dex */
 public class THService extends Service {
     @Override // android.app.Service
@@ -15,7 +15,7 @@ public class THService extends Service {
         if (intent == null) {
             return super.onStartCommand(intent, i, i2);
         }
-        r.a().a(new Runnable() { // from class: com.baidu.sofire.THService.1
+        v.a().a(new Runnable() { // from class: com.baidu.sofire.THService.1
             @Override // java.lang.Runnable
             public final void run() {
                 try {

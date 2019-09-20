@@ -1,28 +1,28 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class f extends e {
-    private String btL;
-    private String btN;
+    private String buk;
+    private String bum;
 
     public f(int i) {
         super(i);
     }
 
-    public f kD(String str) {
-        this.btL = str;
+    public f kF(String str) {
+        this.buk = str;
         return this;
     }
 
-    public f kE(String str) {
-        this.btN = str;
+    public f kG(String str) {
+        this.bum = str;
         return this;
     }
 
-    public String WM() {
-        return this.btL;
+    public String WQ() {
+        return this.buk;
     }
 
-    public String WN() {
-        return this.btN;
+    public String WR() {
+        return this.bum;
     }
 }

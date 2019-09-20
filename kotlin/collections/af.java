@@ -7,7 +7,7 @@ import kotlin.TypeCastException;
 /* loaded from: classes2.dex */
 final class af<T> extends d<T> implements RandomAccess {
     private final int capacity;
-    private final Object[] ksF;
+    private final Object[] kuY;
     private int size;
     private int startIndex;
 
@@ -16,7 +16,7 @@ final class af<T> extends d<T> implements RandomAccess {
         if (!(this.capacity >= 0)) {
             throw new IllegalArgumentException(("ring buffer capacity should not be negative but it is " + this.capacity).toString());
         }
-        this.ksF = new Object[this.capacity];
+        this.kuY = new Object[this.capacity];
     }
 
     public final int getCapacity() {
@@ -34,8 +34,8 @@ final class af<T> extends d<T> implements RandomAccess {
 
     @Override // kotlin.collections.d, java.util.List
     public T get(int i) {
-        d.ksx.cR(i, size());
-        return (T) this.ksF[(this.startIndex + i) % getCapacity()];
+        d.kuQ.cQ(i, size());
+        return (T) this.kuY[(this.startIndex + i) % getCapacity()];
     }
 
     public final boolean isFull() {
@@ -56,9 +56,9 @@ final class af<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.af$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void cNJ() {
+        protected void cOv() {
             if (this.count != 0) {
-                bh(af.this.ksF[this.index]);
+                bh(af.this.kuY[this.index]);
                 this.index = (this.index + 1) % af.this.getCapacity();
                 this.count--;
                 return;
@@ -87,12 +87,12 @@ final class af<T> extends d<T> implements RandomAccess {
         int i2 = this.startIndex;
         int i3 = 0;
         while (i3 < size && i2 < this.capacity) {
-            tArr[i3] = this.ksF[i2];
+            tArr[i3] = this.kuY[i2];
             i2++;
             i3++;
         }
         while (i3 < size) {
-            tArr[i3] = this.ksF[i];
+            tArr[i3] = this.kuY[i];
             i3++;
             i++;
         }
@@ -117,13 +117,13 @@ final class af<T> extends d<T> implements RandomAccess {
         if (isFull()) {
             throw new IllegalStateException("ring buffer is full");
         }
-        this.ksF[(this.startIndex + size()) % getCapacity()] = t;
+        this.kuY[(this.startIndex + size()) % getCapacity()] = t;
         setSize(size() + 1);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.collections.af<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void EF(int i) {
+    public final void EJ(int i) {
         if (!(i >= 0)) {
             throw new IllegalArgumentException(("n shouldn't be negative but it is " + i).toString());
         }
@@ -134,10 +134,10 @@ final class af<T> extends d<T> implements RandomAccess {
             int i2 = this.startIndex;
             int capacity = (i2 + i) % getCapacity();
             if (i2 > capacity) {
-                a(this.ksF, null, i2, this.capacity);
-                a(this.ksF, null, 0, capacity);
+                a(this.kuY, null, i2, this.capacity);
+                a(this.kuY, null, 0, capacity);
             } else {
-                a(this.ksF, null, i2, capacity);
+                a(this.kuY, null, i2, capacity);
             }
             this.startIndex = capacity;
             setSize(size() - i);

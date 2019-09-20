@@ -45,21 +45,21 @@ public final class SoLoader {
 
     public static void load(Context context, String str, boolean z) {
         if (!sLoadedLibraries.contains(str)) {
-            a Tw = a.Tw();
+            a TA = a.TA();
             if (!z) {
-                if (new SoLoader().loadInternalFromLocal(context, str, Tw)) {
+                if (new SoLoader().loadInternalFromLocal(context, str, TA)) {
                     sLoadedLibraries.add(str);
                     return;
                 }
                 return;
             }
-            load(context, str, Tw);
+            load(context, str, TA);
         }
     }
 
     public static void load(Context context, String str, b bVar) {
         if (bVar == null) {
-            bVar = a.Tw();
+            bVar = a.TA();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {

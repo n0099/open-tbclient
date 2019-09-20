@@ -1,10 +1,11 @@
 package com.baidu.tieba.m;
 
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tieba.VideoPlatformStatic;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface c {
-    JSONObject cfB();
+    JSONObject cgp();
 
     /* loaded from: classes5.dex */
     public static abstract class a implements c {
@@ -16,12 +17,12 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.m.c
-        public JSONObject cfB() {
+        public JSONObject cgp() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
-                jSONObject.put("timestamp", this.timestamp);
-                jSONObject.put("network_status", VideoPlatformStatic.aCC());
+                jSONObject.put(DpStatConstants.KEY_TIMESTAMP, this.timestamp);
+                jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.aCQ());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -41,12 +42,12 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.m.c
-        public JSONObject cfB() {
+        public JSONObject cgp() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
                 jSONObject.put("source", this.source);
-                jSONObject.put("timestamp", this.timestamp);
+                jSONObject.put(DpStatConstants.KEY_TIMESTAMP, this.timestamp);
             } catch (Exception e) {
                 e.printStackTrace();
             }

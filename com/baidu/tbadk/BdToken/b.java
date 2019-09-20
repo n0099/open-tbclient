@@ -11,108 +11,108 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int byb;
-    private int byc;
-    private long byd;
-    private String bye;
-    private int byf;
-    private long byg;
-    private String byh;
-    private String byi;
-    private String byj;
-    private String byk;
-    private long byl;
-    private int bym;
-    private long byn;
-    private int[] byo;
-    private long byp;
-    private int byq;
-    private volatile int byr;
-    private volatile int bys;
-    private boolean byt;
-    private int byu;
-    public boolean byv;
-    private final ArrayList<h> byw;
+    private int byA;
+    private long byB;
+    private String byC;
+    private int byD;
+    private long byE;
+    private String byF;
+    private String byG;
+    private String byH;
+    private String byI;
+    private long byJ;
+    private int byK;
+    private long byL;
+    private int[] byM;
+    private long byN;
+    private int byO;
+    private volatile int byP;
+    private volatile int byQ;
+    private boolean byR;
+    private int byS;
+    public boolean byT;
+    private final ArrayList<h> byU;
+    private int byz;
     private long mFid;
     private String mSource;
     private volatile int mTag;
     private int mTaskType;
     private int mThreadNum;
     public static String ACTIVITY_ID = "activityid";
-    public static String bxx = "missionid";
-    public static String bxy = "activitysource";
+    public static String bxV = "missionid";
+    public static String bxW = "activitysource";
     public static String SOURCE = "source";
-    public static String bxz = "tab";
-    public static String bxA = "calltype";
-    public static String bxB = "tasktype";
-    public static String bxC = "browsetimepage";
-    public static String bxD = "browsetime";
-    public static String bxE = "threadnum";
-    public static String bxF = "forumnum";
-    public static String bxG = "cleartype";
-    public static String bxH = "cleartime";
+    public static String bxX = "tab";
+    public static String bxY = "calltype";
+    public static String bxZ = "tasktype";
+    public static String bya = "browsetimepage";
+    public static String byb = "browsetime";
+    public static String byc = "threadnum";
+    public static String byd = "forumnum";
+    public static String bye = "cleartype";
+    public static String byf = "cleartime";
     public static String TID = "tid";
     public static String FID = "fid";
-    public static String bxI = "threadtext";
-    public static String bxJ = "threadimg";
-    public static String bxK = "threadforum";
-    public static String bxL = "total_limit";
-    public static int bxM = -1;
-    public static int bxN = 1;
-    public static int bxO = 2;
-    public static int bxP = 3;
-    public static int bxQ = 4;
-    public static int bxR = 5;
-    public static int bxS = 6;
-    public static int bxT = 7;
-    public static int bxU = 8;
-    public static int bxV = 9;
-    public static int bxW = -1;
-    public static int bxX = 0;
-    public static int bxY = 1;
-    public static int bxZ = 2;
-    public static int bya = 3;
+    public static String byg = "threadtext";
+    public static String byh = "threadimg";
+    public static String byi = "threadforum";
+    public static String byj = "total_limit";
+    public static int byk = -1;
+    public static int byl = 1;
+    public static int bym = 2;
+    public static int byn = 3;
+    public static int byo = 4;
+    public static int byp = 5;
+    public static int byq = 6;
+    public static int byr = 7;
+    public static int bys = 8;
+    public static int byt = 9;
+    public static int byu = -1;
+    public static int byv = 0;
+    public static int byw = 1;
+    public static int byx = 2;
+    public static int byy = 3;
 
     public void reset() {
-        this.byw.clear();
-        this.byr = 0;
-        this.bys = 0;
+        this.byU.clear();
+        this.byP = 0;
+        this.byQ = 0;
         this.mTag = 0;
     }
 
     public void a(h hVar) {
         if (this.mTaskType == 7 && (hVar instanceof k)) {
-            if (!this.byw.contains(hVar)) {
-                this.byw.add(hVar);
+            if (!this.byU.contains(hVar)) {
+                this.byU.add(hVar);
             }
         } else if (this.mTaskType == 1 && (hVar instanceof m)) {
-            if (!this.byw.contains(hVar)) {
-                this.byw.add(hVar);
+            if (!this.byU.contains(hVar)) {
+                this.byU.add(hVar);
             }
         } else if (this.mTaskType == 2 && (hVar instanceof j)) {
-            if (!this.byw.contains(hVar)) {
-                this.byw.add(hVar);
+            if (!this.byU.contains(hVar)) {
+                this.byU.add(hVar);
             }
         } else if (this.mTaskType == 4 && (hVar instanceof i)) {
-            if (!this.byw.contains(hVar)) {
-                this.byw.add(hVar);
+            if (!this.byU.contains(hVar)) {
+                this.byU.add(hVar);
             }
-        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.byw.contains(hVar)) {
-            this.byw.add(hVar);
+        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.byU.contains(hVar)) {
+            this.byU.add(hVar);
         }
     }
 
-    public ArrayList<h> YF() {
-        return this.byw;
+    public ArrayList<h> YJ() {
+        return this.byU;
     }
 
-    public int YG() {
+    public int YK() {
         int i;
-        int size = this.byw.size();
+        int size = this.byU.size();
         int i2 = 0;
         int i3 = 0;
         while (i2 < size) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.c(this.byw, i2);
+            h hVar = (h) com.baidu.tbadk.core.util.v.c(this.byU, i2);
             if (hVar instanceof k) {
                 i = ((k) hVar).getTag() == getTag() ? i3 + 1 : i3;
             } else {
@@ -140,10 +140,10 @@ public class b {
         return ((j) hVar).getFid();
     }
 
-    public void YH() {
-        int size = this.byw.size();
+    public void YL() {
+        int size = this.byU.size();
         for (int i = 0; i < size; i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.c(this.byw, i);
+            h hVar = (h) com.baidu.tbadk.core.util.v.c(this.byU, i);
             if (hVar != null) {
                 hVar.du(true);
             }
@@ -151,8 +151,8 @@ public class b {
     }
 
     public boolean aj(long j) {
-        for (int i = 0; i < this.byw.size(); i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.c(this.byw, i);
+        for (int i = 0; i < this.byU.size(); i++) {
+            h hVar = (h) com.baidu.tbadk.core.util.v.c(this.byU, i);
             if (hVar != null) {
                 long b = b(hVar);
                 if (b > 0 && b == j && hVar.bh()) {
@@ -177,7 +177,7 @@ public class b {
                         k kVar = new k(this, optLong);
                         kVar.du(optBoolean);
                         kVar.ao(optLong2);
-                        kVar.gm(optInt);
+                        kVar.gn(optInt);
                         a(kVar);
                     }
                 } else if (i == 1) {
@@ -185,7 +185,7 @@ public class b {
                         m mVar = new m(this, optLong);
                         mVar.du(optBoolean);
                         mVar.ao(optLong2);
-                        mVar.gm(optInt);
+                        mVar.gn(optInt);
                         a(mVar);
                     }
                 } else if (i == 2) {
@@ -193,20 +193,20 @@ public class b {
                         j jVar = new j(this, optLong);
                         jVar.du(optBoolean);
                         jVar.ao(optLong2);
-                        jVar.gm(optInt);
+                        jVar.gn(optInt);
                         a(jVar);
                     }
                 } else if (i == 4) {
                     i iVar = new i(this);
                     iVar.du(optBoolean);
                     iVar.ao(optLong2);
-                    iVar.gm(optInt);
+                    iVar.gn(optInt);
                     a(iVar);
                 } else if (i == 8) {
                     l lVar = new l(this);
                     lVar.du(optBoolean);
                     lVar.ao(optLong2);
-                    lVar.gm(optInt);
+                    lVar.gn(optInt);
                     a(lVar);
                 }
             }
@@ -215,15 +215,15 @@ public class b {
         }
     }
 
-    public String YI() {
+    public String YM() {
         try {
-            ArrayList<h> arrayList = this.byw;
+            ArrayList<h> arrayList = this.byU;
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < arrayList.size(); i++) {
                 h hVar = (h) com.baidu.tbadk.core.util.v.c(arrayList, i);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("i", b(hVar));
-                jSONObject.put("t", hVar.ZD());
+                jSONObject.put("t", hVar.ZH());
                 jSONObject.put("c", hVar.bh());
                 jSONObject.put(Config.APP_VERSION_CODE, hVar.getTag());
                 jSONArray.put(jSONObject);
@@ -236,58 +236,58 @@ public class b {
     }
 
     public b() {
-        this.bym = bxW;
-        this.byr = 0;
-        this.bys = 0;
-        this.byt = false;
-        this.byu = 1;
+        this.byK = byu;
+        this.byP = 0;
+        this.byQ = 0;
+        this.byR = false;
+        this.byS = 1;
         this.mTag = 0;
-        this.byv = false;
-        this.byw = new ArrayList<>();
+        this.byT = false;
+        this.byU = new ArrayList<>();
     }
 
     public b(String str) {
-        this.bym = bxW;
-        this.byr = 0;
-        this.bys = 0;
-        this.byt = false;
-        this.byu = 1;
+        this.byK = byu;
+        this.byP = 0;
+        this.byQ = 0;
+        this.byR = false;
+        this.byS = 1;
         this.mTag = 0;
-        this.byv = false;
-        this.byw = new ArrayList<>();
-        lj(str);
+        this.byT = false;
+        this.byU = new ArrayList<>();
+        ll(str);
     }
 
-    public boolean lj(String str) {
+    public boolean ll(String str) {
         if (aq.isEmpty(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.byb = jSONObject.optInt(ACTIVITY_ID);
-                this.byc = jSONObject.optInt(bxx);
-                this.byh = jSONObject.optString(bxy);
+                this.byz = jSONObject.optInt(ACTIVITY_ID);
+                this.byA = jSONObject.optInt(bxV);
+                this.byF = jSONObject.optString(bxW);
                 this.mSource = jSONObject.optString(SOURCE);
-                this.byi = jSONObject.optString(bxz);
-                this.byq = jSONObject.optInt(bxA);
-                this.mTaskType = jSONObject.optInt(bxB);
-                this.bye = jSONObject.optString(bxC);
-                this.byo = lk(this.bye);
-                this.byd = jSONObject.optLong(bxD);
-                this.mThreadNum = jSONObject.optInt(bxE);
-                this.byf = jSONObject.optInt(bxF);
-                this.bym = jSONObject.optInt(bxG);
-                this.byn = jSONObject.optLong(bxH);
-                this.byp = YO();
-                this.byg = jSONObject.optLong(TID);
+                this.byG = jSONObject.optString(bxX);
+                this.byO = jSONObject.optInt(bxY);
+                this.mTaskType = jSONObject.optInt(bxZ);
+                this.byC = jSONObject.optString(bya);
+                this.byM = lm(this.byC);
+                this.byB = jSONObject.optLong(byb);
+                this.mThreadNum = jSONObject.optInt(byc);
+                this.byD = jSONObject.optInt(byd);
+                this.byK = jSONObject.optInt(bye);
+                this.byL = jSONObject.optLong(byf);
+                this.byN = YS();
+                this.byE = jSONObject.optLong(TID);
                 this.mFid = jSONObject.optLong(FID);
-                this.byj = jSONObject.optString(bxI);
-                this.byk = jSONObject.optString(bxJ);
-                this.byl = jSONObject.optLong(bxK);
-                int optInt = jSONObject.optInt(bxL);
+                this.byH = jSONObject.optString(byg);
+                this.byI = jSONObject.optString(byh);
+                this.byJ = jSONObject.optLong(byi);
+                int optInt = jSONObject.optInt(byj);
                 if (optInt > 0) {
-                    this.byu = optInt;
+                    this.byS = optInt;
                 }
                 return true;
             }
@@ -299,66 +299,66 @@ public class b {
     }
 
     public b(MissionInfo missionInfo) {
-        this.bym = bxW;
-        this.byr = 0;
-        this.bys = 0;
-        this.byt = false;
-        this.byu = 1;
+        this.byK = byu;
+        this.byP = 0;
+        this.byQ = 0;
+        this.byR = false;
+        this.byS = 1;
         this.mTag = 0;
-        this.byv = false;
-        this.byw = new ArrayList<>();
+        this.byT = false;
+        this.byU = new ArrayList<>();
         if (missionInfo != null) {
-            this.byb = missionInfo.activityid.intValue();
-            this.byc = missionInfo.missionid.intValue();
+            this.byz = missionInfo.activityid.intValue();
+            this.byA = missionInfo.missionid.intValue();
             this.mTaskType = missionInfo.tasktype.intValue();
-            this.bym = missionInfo.cleartype.intValue();
-            this.byn = missionInfo.cleartime.intValue();
-            this.byp = YO();
-            this.bye = missionInfo.browsetimepage;
-            this.byo = lk(this.bye);
+            this.byK = missionInfo.cleartype.intValue();
+            this.byL = missionInfo.cleartime.intValue();
+            this.byN = YS();
+            this.byC = missionInfo.browsetimepage;
+            this.byM = lm(this.byC);
             if (missionInfo.threadnum.intValue() > 0) {
                 this.mThreadNum = missionInfo.threadnum.intValue();
             }
             if (missionInfo.browsetime.intValue() > 0) {
-                this.byd = missionInfo.browsetime.intValue();
+                this.byB = missionInfo.browsetime.intValue();
             }
             if (missionInfo.total_limit.intValue() > 0) {
-                this.byu = missionInfo.total_limit.intValue();
+                this.byS = missionInfo.total_limit.intValue();
             }
         }
     }
 
-    public boolean YJ() {
-        return this.byb > 0 && this.byc > 0 && this.mTaskType > 0 && this.byd > 0;
+    public boolean YN() {
+        return this.byz > 0 && this.byA > 0 && this.mTaskType > 0 && this.byB > 0;
     }
 
-    public synchronized int YK() {
+    public synchronized int YO() {
         int i;
-        i = this.bys + 1;
-        this.bys = i;
+        i = this.byQ + 1;
+        this.byQ = i;
         return i;
     }
 
-    public synchronized int YL() {
+    public synchronized int YP() {
         int i;
-        i = this.byr + 1;
-        this.byr = i;
+        i = this.byP + 1;
+        this.byP = i;
         return i;
     }
 
-    public synchronized int YM() {
+    public synchronized int YQ() {
         int i;
         i = this.mTag + 1;
         this.mTag = i;
         return i;
     }
 
-    private int[] lk(String str) {
+    private int[] lm(String str) {
         if (this.mTaskType == 8) {
-            return new int[]{bxM};
+            return new int[]{byk};
         }
         if (this.mTaskType == 7) {
-            return new int[]{bxN, bxU, bxV};
+            return new int[]{byl, bys, byt};
         }
         if (str == null) {
             return null;
@@ -374,34 +374,34 @@ public class b {
         return iArr;
     }
 
-    public boolean YN() {
-        return System.currentTimeMillis() > Za() * 1000;
+    public boolean YR() {
+        return System.currentTimeMillis() > Ze() * 1000;
     }
 
-    public long YO() {
-        if (this.bym == bxW) {
+    public long YS() {
+        if (this.byK == byu) {
             return 0L;
         }
-        if (this.bym == bxX) {
-            return (System.currentTimeMillis() / 1000) + this.byn;
+        if (this.byK == byv) {
+            return (System.currentTimeMillis() / 1000) + this.byL;
         }
-        if (this.bym == bxY) {
-            long YP = (YP() / 1000) + this.byn;
-            if (System.currentTimeMillis() > YP) {
-                return YP + 86400;
+        if (this.byK == byw) {
+            long YT = (YT() / 1000) + this.byL;
+            if (System.currentTimeMillis() > YT) {
+                return YT + 86400;
             }
-            return YP;
-        } else if (this.bym == bxZ) {
-            return h((int) this.byn, gf(4)) / 1000;
+            return YT;
+        } else if (this.byK == byx) {
+            return h((int) this.byL, gg(4)) / 1000;
         } else {
-            if (this.bym == bya) {
-                return this.byn / 1000;
+            if (this.byK == byy) {
+                return this.byL / 1000;
             }
             return 0L;
         }
     }
 
-    private long YP() {
+    private long YT() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 0);
         calendar.set(12, 0);
@@ -410,14 +410,14 @@ public class b {
         return calendar.getTimeInMillis();
     }
 
-    private long gf(int i) {
-        long YP = YP();
+    private long gg(int i) {
+        long YT = YT();
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, i);
         calendar.set(12, 0);
         calendar.set(13, 0);
         calendar.set(14, 0);
-        return calendar.getTimeInMillis() - YP;
+        return calendar.getTimeInMillis() - YT;
     }
 
     private long h(int i, long j) {
@@ -460,72 +460,72 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.byb;
+        return this.byz;
     }
 
     public void setActivityId(int i) {
-        this.byb = i;
+        this.byz = i;
     }
 
-    public int YQ() {
-        return this.byc;
+    public int YU() {
+        return this.byA;
     }
 
-    public void gg(int i) {
-        this.byc = i;
+    public void gh(int i) {
+        this.byA = i;
     }
 
-    public String YR() {
-        return this.byh;
+    public String YV() {
+        return this.byF;
     }
 
-    public void ll(String str) {
-        this.byh = str;
+    public void ln(String str) {
+        this.byF = str;
     }
 
-    public String YS() {
-        return this.byi;
+    public String YW() {
+        return this.byG;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public int YT() {
-        return this.byq;
+    public int YX() {
+        return this.byO;
     }
 
-    public void gh(int i) {
-        this.byq = i;
+    public void gi(int i) {
+        this.byO = i;
     }
 
     public int getTaskType() {
         return this.mTaskType;
     }
 
-    public void gi(int i) {
+    public void gj(int i) {
         this.mTaskType = i;
     }
 
-    public String YU() {
-        return this.bye;
+    public String YY() {
+        return this.byC;
     }
 
-    public void lm(String str) {
-        this.bye = str;
-        this.byo = lk(str);
+    public void lo(String str) {
+        this.byC = str;
+        this.byM = lm(str);
     }
 
-    public int[] YV() {
-        return this.byo;
+    public int[] YZ() {
+        return this.byM;
     }
 
-    public long YW() {
-        return this.byd;
+    public long Za() {
+        return this.byB;
     }
 
     public void ak(long j) {
-        this.byd = j;
+        this.byB = j;
     }
 
     public int getThreadNum() {
@@ -536,44 +536,44 @@ public class b {
         this.mThreadNum = i;
     }
 
-    public int YX() {
-        return this.byf;
-    }
-
-    public void gj(int i) {
-        this.byf = i;
-    }
-
-    public int YY() {
-        return this.bym;
+    public int Zb() {
+        return this.byD;
     }
 
     public void gk(int i) {
-        this.bym = i;
+        this.byD = i;
     }
 
-    public long YZ() {
-        return this.byn;
+    public int Zc() {
+        return this.byK;
+    }
+
+    public void gl(int i) {
+        this.byK = i;
+    }
+
+    public long Zd() {
+        return this.byL;
     }
 
     public void al(long j) {
-        this.byn = j;
+        this.byL = j;
     }
 
-    public long Za() {
-        return this.byp;
+    public long Ze() {
+        return this.byN;
     }
 
     public void am(long j) {
-        this.byp = j;
+        this.byN = j;
     }
 
     public long getTid() {
-        return this.byg;
+        return this.byE;
     }
 
     public void setTid(long j) {
-        this.byg = j;
+        this.byE = j;
     }
 
     public long getFid() {
@@ -584,39 +584,39 @@ public class b {
         this.mFid = j;
     }
 
-    public String Zb() {
-        return this.byj;
+    public String Zf() {
+        return this.byH;
     }
 
-    public void ln(String str) {
-        this.byj = str;
+    public void lp(String str) {
+        this.byH = str;
     }
 
-    public String Zc() {
-        return this.byk;
+    public String Zg() {
+        return this.byI;
     }
 
-    public void lo(String str) {
-        this.byk = str;
+    public void lq(String str) {
+        this.byI = str;
     }
 
-    public long Zd() {
-        return this.byl;
+    public long Zh() {
+        return this.byJ;
     }
 
     public void an(long j) {
-        this.byl = j;
+        this.byJ = j;
     }
 
-    public int Ze() {
-        return this.byu;
-    }
-
-    public void gl(int i) {
-        this.byu = i;
+    public int Zi() {
+        return this.byS;
     }
 
     public void gm(int i) {
+        this.byS = i;
+    }
+
+    public void gn(int i) {
         this.mTag = i;
     }
 
@@ -624,11 +624,11 @@ public class b {
         return this.mTag;
     }
 
-    public boolean Zf() {
-        return this.byt;
+    public boolean Zj() {
+        return this.byR;
     }
 
     public void dt(boolean z) {
-        this.byt = z;
+        this.byR = z;
     }
 }

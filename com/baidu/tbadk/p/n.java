@@ -5,196 +5,196 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends l {
-    private static n cBg = null;
-    private boolean cAG = false;
-    private boolean cAH = false;
-    private boolean cAI = false;
-    private boolean cAJ = false;
-    private long cAK = -1;
-    private long cAL = -1;
-    private long cAM = -1;
-    private long cAN = -1;
-    private long cAO = -1;
-    private long cAP = -1;
-    private long cAQ = -1;
-    private long cAR = -1;
-    private long cAS = -1;
-    private long cAT = -1;
-    private long cAU = -1;
-    private long cAV = -1;
-    private long cAW = -1;
-    private long cAX = -1;
-    private long cAY = -1;
-    private long cAZ = -1;
-    private long cBa = -1;
-    private long cBb = -1;
-    private long cBc = -1;
-    private long cBd = -1;
-    private long cBe = -1;
-    private long cBf = -1;
+    private static n cCc = null;
+    private boolean cBC = false;
+    private boolean cBD = false;
+    private boolean cBE = false;
+    private boolean cBF = false;
+    private long cBG = -1;
+    private long cBH = -1;
+    private long cBI = -1;
+    private long cBJ = -1;
+    private long cBK = -1;
+    private long cBL = -1;
+    private long cBM = -1;
+    private long cBN = -1;
+    private long cBO = -1;
+    private long cBP = -1;
+    private long cBQ = -1;
+    private long cBR = -1;
+    private long cBS = -1;
+    private long cBT = -1;
+    private long cBU = -1;
+    private long cBV = -1;
+    private long cBW = -1;
+    private long cBX = -1;
+    private long cBY = -1;
+    private long cBZ = -1;
+    private long cCa = -1;
+    private long cCb = -1;
 
-    public boolean avz() {
-        return this.cAH;
+    public boolean avL() {
+        return this.cBD;
     }
 
-    public void fG(boolean z) {
-        this.cAG = z;
-    }
-
-    public void bl(long j) {
-        this.cAK = j;
-    }
-
-    public long avA() {
-        return this.cAK;
-    }
-
-    public void fH(boolean z) {
-        this.cAJ = z;
-    }
-
-    public void bm(long j) {
-        this.cAL = j;
-    }
-
-    public void bn(long j) {
-        this.cAM = j;
+    public void fJ(boolean z) {
+        this.cBC = z;
     }
 
     public void bo(long j) {
-        this.cAN = j;
+        this.cBG = j;
+    }
+
+    public long avM() {
+        return this.cBG;
+    }
+
+    public void fK(boolean z) {
+        this.cBF = z;
     }
 
     public void bp(long j) {
-        this.cAR = j;
+        this.cBH = j;
     }
 
     public void bq(long j) {
-        this.cAQ = j;
+        this.cBI = j;
     }
 
     public void br(long j) {
-        this.cAO = j;
+        this.cBJ = j;
     }
 
     public void bs(long j) {
-        this.cAP = j;
+        this.cBN = j;
     }
 
     public void bt(long j) {
-        this.cBd = j;
+        this.cBM = j;
     }
 
     public void bu(long j) {
-        this.cBa = j;
+        this.cBK = j;
     }
 
     public void bv(long j) {
-        this.cBb = j;
+        this.cBL = j;
     }
 
     public void bw(long j) {
-        this.cBc = j;
+        this.cBZ = j;
     }
 
     public void bx(long j) {
-        this.cBe = j;
+        this.cBW = j;
     }
 
     public void by(long j) {
-        this.cBf = j;
-        this.cAH = true;
+        this.cBX = j;
     }
 
     public void bz(long j) {
-        this.cAS = j;
+        this.cBY = j;
     }
 
     public void bA(long j) {
-        this.cAT = j;
+        this.cCa = j;
     }
 
     public void bB(long j) {
-        this.cAV = j;
+        this.cCb = j;
+        this.cBD = true;
     }
 
     public void bC(long j) {
-        this.cAU = j;
+        this.cBO = j;
     }
 
     public void bD(long j) {
-        this.cAW = j;
+        this.cBP = j;
     }
 
     public void bE(long j) {
-        this.cAX = j;
+        this.cBR = j;
     }
 
     public void bF(long j) {
-        this.cAY = j;
+        this.cBQ = j;
     }
 
     public void bG(long j) {
-        this.cAZ = j;
+        this.cBS = j;
     }
 
-    public static n avB() {
-        if (cBg == null) {
+    public void bH(long j) {
+        this.cBT = j;
+    }
+
+    public void bI(long j) {
+        this.cBU = j;
+    }
+
+    public void bJ(long j) {
+        this.cBV = j;
+    }
+
+    public static n avN() {
+        if (cCc == null) {
             synchronized (n.class) {
-                if (cBg == null) {
-                    cBg = new n();
+                if (cCc == null) {
+                    cCc = new n();
                 }
             }
         }
-        return cBg;
+        return cCc;
     }
 
-    public void avC() {
+    public void avO() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016482, (Class) null);
-        if ((this.cBf - this.cAK) - ((runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue()) > 0 && !this.cAI && m.avv().avw()) {
-            this.cAI = true;
-            long j = this.cAL - this.cAK;
+        if ((this.cCb - this.cBG) - ((runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue()) > 0 && !this.cBE && m.avH().avI()) {
+            this.cBE = true;
+            long j = this.cBH - this.cBG;
             long j2 = -1;
-            if (this.cBb > 0) {
-                j2 = this.cBc - this.cBb;
+            if (this.cBX > 0) {
+                j2 = this.cBY - this.cBX;
             }
-            long j3 = this.cBf - this.cBe;
+            long j3 = this.cCb - this.cCa;
             com.baidu.adp.lib.stats.a iF = iF();
             iF.append("procname", "main");
             iF.append("appc", String.valueOf(j));
-            iF.append("loadclass", String.valueOf(this.cAM));
-            iF.append("sapiinit", String.valueOf(this.cAN));
-            iF.append("acctinit", String.valueOf(this.cAO));
-            iF.append("iminit", String.valueOf(this.cAP));
-            iF.append("plugininit", String.valueOf(this.cAQ));
-            iF.append("patchloaded", String.valueOf(this.cAR));
-            iF.append("naslibinit", String.valueOf(this.cAS));
-            iF.append("websocketinit", String.valueOf(this.cAT));
-            iF.append("settinginit", String.valueOf(this.cAU));
-            iF.append("toastinit", String.valueOf(this.cAV));
-            iF.append("tiebastaticinit", String.valueOf(this.cAW));
-            iF.append("locationinit", String.valueOf(this.cAX));
-            iF.append("cdninit", String.valueOf(this.cAY));
-            iF.append("messagesetinit", String.valueOf(this.cAZ));
-            iF.append("logores", String.valueOf(this.cBd));
-            if (this.cBa > 0 && this.cBb > 0 && j2 > 0) {
-                iF.append("adc", String.valueOf(this.cBa));
+            iF.append("loadclass", String.valueOf(this.cBI));
+            iF.append("sapiinit", String.valueOf(this.cBJ));
+            iF.append("acctinit", String.valueOf(this.cBK));
+            iF.append("iminit", String.valueOf(this.cBL));
+            iF.append("plugininit", String.valueOf(this.cBM));
+            iF.append("patchloaded", String.valueOf(this.cBN));
+            iF.append("naslibinit", String.valueOf(this.cBO));
+            iF.append("websocketinit", String.valueOf(this.cBP));
+            iF.append("settinginit", String.valueOf(this.cBQ));
+            iF.append("toastinit", String.valueOf(this.cBR));
+            iF.append("tiebastaticinit", String.valueOf(this.cBS));
+            iF.append("locationinit", String.valueOf(this.cBT));
+            iF.append("cdninit", String.valueOf(this.cBU));
+            iF.append("messagesetinit", String.valueOf(this.cBV));
+            iF.append("logores", String.valueOf(this.cBZ));
+            if (this.cBW > 0 && this.cBX > 0 && j2 > 0) {
+                iF.append("adc", String.valueOf(this.cBW));
                 iF.append("adshow", String.valueOf(j2));
                 iF.append("hasad", "1");
             } else {
                 iF.append("hasad", "0");
             }
             iF.append("tabc", String.valueOf(j3));
-            iF.append("costt", String.valueOf(this.cBd + j + j3));
-            iF.append("newinst", this.cAG ? "1" : "0");
-            iF.c("pluginloadsync", Boolean.valueOf(this.cAJ));
+            iF.append("costt", String.valueOf(this.cBZ + j + j3));
+            iF.append("newinst", this.cBC ? "1" : "0");
+            iF.c("pluginloadsync", Boolean.valueOf(this.cBF));
             BdStatisticsManager.getInstance().performance("startt", iF);
-            aaQ();
+            aaU();
         }
     }
 
-    public void bH(long j) {
-        if (m.avv().avw() && j > 0) {
+    public void bK(long j) {
+        if (m.avH().avI() && j > 0) {
             com.baidu.adp.lib.stats.a iF = iF();
             iF.append("procname", "remote");
             iF.append("costt", String.valueOf(j));
@@ -202,30 +202,30 @@ public class n extends l {
         }
     }
 
-    private void aaQ() {
-        this.cAG = false;
-        this.cAH = false;
-        this.cAK = -1L;
-        this.cAL = -1L;
-        this.cAM = -1L;
-        this.cAN = -1L;
-        this.cAO = -1L;
-        this.cAP = -1L;
-        this.cAQ = -1L;
-        this.cAR = -1L;
-        this.cBd = -1L;
-        this.cBb = -1L;
-        this.cBc = -1L;
-        this.cBa = -1L;
-        this.cBe = -1L;
-        this.cBf = -1L;
-        this.cAS = -1L;
-        this.cAT = -1L;
-        this.cAU = -1L;
-        this.cAV = -1L;
-        this.cAW = -1L;
-        this.cAX = -1L;
-        this.cAY = -1L;
-        this.cAZ = -1L;
+    private void aaU() {
+        this.cBC = false;
+        this.cBD = false;
+        this.cBG = -1L;
+        this.cBH = -1L;
+        this.cBI = -1L;
+        this.cBJ = -1L;
+        this.cBK = -1L;
+        this.cBL = -1L;
+        this.cBM = -1L;
+        this.cBN = -1L;
+        this.cBZ = -1L;
+        this.cBX = -1L;
+        this.cBY = -1L;
+        this.cBW = -1L;
+        this.cCa = -1L;
+        this.cCb = -1L;
+        this.cBO = -1L;
+        this.cBP = -1L;
+        this.cBQ = -1L;
+        this.cBR = -1L;
+        this.cBS = -1L;
+        this.cBT = -1L;
+        this.cBU = -1L;
+        this.cBV = -1L;
     }
 }

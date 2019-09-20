@@ -10,7 +10,6 @@ import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteResult;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.ubc.UBC;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -238,7 +237,7 @@ public class c extends k {
                                 JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i4);
                                 if (optJSONObject6 != null) {
                                     i3 += optJSONObject6.optInt("distance");
-                                    i2 += optJSONObject6.optInt(UBC.CONTENT_KEY_DURATION);
+                                    i2 += optJSONObject6.optInt("duration");
                                     List<DrivingRouteLine.DrivingStep> b = b(optJSONObject6.optJSONArray("stepis"), a3);
                                     if (b != null) {
                                         arrayList3.addAll(b);

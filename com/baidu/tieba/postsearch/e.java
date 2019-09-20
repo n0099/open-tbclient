@@ -25,9 +25,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e extends BaseAdapter {
-    private static final int iCK = TbadkCoreApplication.getInst().getListItemRule().amy();
+    private static final int iFc = TbadkCoreApplication.getInst().getListItemRule().amK();
     private TbPageContext<?> mContext;
-    private int egE = -1;
+    private int eio = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
@@ -39,12 +39,12 @@ public class e extends BaseAdapter {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= iCK) {
+        if (size <= iFc) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - iCK;
-        zn(i);
+        int i = size - iFc;
+        zq(i);
         this.mData.addAll(list);
         return i;
     }
@@ -53,7 +53,7 @@ public class e extends BaseAdapter {
         this.mData.clear();
     }
 
-    private void zn(int i) {
+    private void zq(int i) {
         if (this.mData.size() <= i) {
             this.mData.clear();
         }
@@ -95,11 +95,11 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.iCN = (TextView) view.findViewById(R.id.title_text);
-            aVar.iCO = (TextView) view.findViewById(R.id.content_text);
-            aVar.iCP = (TextView) view.findViewById(R.id.label_text);
-            aVar.ehf = (TextView) view.findViewById(R.id.user_name);
-            aVar.iCQ = (TextView) view.findViewById(R.id.time_text);
+            aVar.iFf = (TextView) view.findViewById(R.id.title_text);
+            aVar.iFg = (TextView) view.findViewById(R.id.content_text);
+            aVar.iFh = (TextView) view.findViewById(R.id.label_text);
+            aVar.eiP = (TextView) view.findViewById(R.id.user_name);
+            aVar.iFi = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -109,24 +109,24 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.iCN.setText(Html.fromHtml(aq.bU(aVar3.title, str)));
-            aVar2.iCO.setText(Html.fromHtml(aq.bU(aVar3.content, str)));
-            aVar2.ehf.setText(aVar3.name_show);
-            aVar2.iCQ.setText(aq.aD(aVar3.time));
-            aVar2.iCP.setVisibility(0);
-            if (aVar3.iCk == 1) {
-                aVar2.iCP.setText(R.string.floor_text);
-            } else if (aVar3.iCl == 1) {
-                aVar2.iCP.setText(R.string.reply_post);
+            aVar2.iFf.setText(Html.fromHtml(aq.bU(aVar3.title, str)));
+            aVar2.iFg.setText(Html.fromHtml(aq.bU(aVar3.content, str)));
+            aVar2.eiP.setText(aVar3.name_show);
+            aVar2.iFi.setText(aq.aD(aVar3.time));
+            aVar2.iFh.setVisibility(0);
+            if (aVar3.iEC == 1) {
+                aVar2.iFh.setText(R.string.floor_text);
+            } else if (aVar3.iED == 1) {
+                aVar2.iFh.setText(R.string.reply_post);
             } else {
-                aVar2.iCP.setVisibility(8);
+                aVar2.iFh.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (e.this.mContext != null) {
                         e.this.a(aVar3);
-                        if (aVar3.iCk == 1) {
+                        if (aVar3.iEC == 1) {
                             SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.mContext.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
                             e.this.mContext.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
@@ -146,20 +146,20 @@ public class e extends BaseAdapter {
     }
 
     public void setTabType(int i) {
-        this.egE = i;
+        this.eio = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
         an bT = new an("c12405").bT(ImageViewerConfig.FORUM_NAME, aVar.fname).bT("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.egE > 0) {
-            bT.P(MyBookrackActivityConfig.TAB_ID, this.egE);
+        if (this.eio > 0) {
+            bT.P(MyBookrackActivityConfig.TAB_ID, this.eio);
         }
         if (aVar != null) {
-            if (aVar.iCk == 1 || aVar.iCl == 1) {
-                bT.l(Info.kBaiduPIDKey, aVar.pid);
+            if (aVar.iEC == 1 || aVar.iED == 1) {
+                bT.n(Info.kBaiduPIDKey, aVar.pid);
             } else {
-                bT.l("tid", aVar.tid);
+                bT.n("tid", aVar.tid);
             }
         }
         TiebaStatic.log(bT);
@@ -167,11 +167,11 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private static class a {
-        TextView ehf;
-        TextView iCN;
-        TextView iCO;
-        TextView iCP;
-        TextView iCQ;
+        TextView eiP;
+        TextView iFf;
+        TextView iFg;
+        TextView iFh;
+        TextView iFi;
 
         private a() {
         }

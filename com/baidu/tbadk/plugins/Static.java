@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] cBS = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] cCO = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -28,7 +28,7 @@ public class Static {
                 }
             }
         });
-        avN();
+        avZ();
         MessageManager.getInstance().registerListener(new CustomMessageListener(2016301) { // from class: com.baidu.tbadk.plugins.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -38,7 +38,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.cBS;
+                    String[] strArr = Static.cCO;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -63,7 +63,7 @@ public class Static {
                                         for (StackTraceElement stackTraceElement : stackTrace) {
                                             try {
                                                 plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                                com.baidu.tbadk.core.sharedPref.b.ahQ().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("plugin_patch_hook_failed_count", 0) + 1);
+                                                com.baidu.tbadk.core.sharedPref.b.ahU().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.ahU().getInt("plugin_patch_hook_failed_count", 0) + 1);
                                                 break;
                                             } catch (ClassNotFoundException e) {
                                             }
@@ -80,7 +80,7 @@ public class Static {
         });
     }
 
-    private static void avN() {
+    private static void avZ() {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.a.b(0) { // from class: com.baidu.tbadk.plugins.Static.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.f

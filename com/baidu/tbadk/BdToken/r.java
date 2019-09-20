@@ -14,41 +14,41 @@ import java.util.Date;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class r {
-    private long bzK;
-    private CustomMessageListener bzL = new CustomMessageListener(2001371) { // from class: com.baidu.tbadk.BdToken.r.1
+    private long bAi;
+    private CustomMessageListener bAj = new CustomMessageListener(2001371) { // from class: com.baidu.tbadk.BdToken.r.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                r.this.ZM();
+                r.this.ZQ();
             }
         }
     };
-    private s bzJ = new s();
+    private s bAh = new s();
 
     public r() {
-        MessageManager.getInstance().registerListener(this.bzL);
-        ZM();
-        this.bzK = com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("key_redpacket_pop_last_time", 0L);
+        MessageManager.getInstance().registerListener(this.bAj);
+        ZQ();
+        this.bAi = com.baidu.tbadk.core.sharedPref.b.ahU().getLong("key_redpacket_pop_last_time", 0L);
     }
 
     public void check() {
-        if (ZL() && isShowTime()) {
+        if (ZP() && isShowTime()) {
             showWindow();
         }
     }
 
-    private boolean ZL() {
+    private boolean ZP() {
         Date date = new Date();
-        return date.getTime() >= this.bzJ.getStartDate() && date.getTime() <= this.bzJ.ZN();
+        return date.getTime() >= this.bAh.getStartDate() && date.getTime() <= this.bAh.ZR();
     }
 
     private boolean isShowTime() {
-        if (com.baidu.tbadk.core.util.v.aa(this.bzJ.ZO())) {
+        if (com.baidu.tbadk.core.util.v.aa(this.bAh.ZS())) {
             return false;
         }
         Date date = new Date();
-        Iterator<u> it = this.bzJ.ZO().iterator();
+        Iterator<u> it = this.bAh.ZS().iterator();
         while (it.hasNext()) {
             u next = it.next();
             if (date.getTime() >= next.getStartTime() && date.getTime() <= next.getEndTime() && !a(next)) {
@@ -59,20 +59,20 @@ public class r {
     }
 
     private boolean a(u uVar) {
-        return uVar != null && this.bzK >= uVar.getStartTime() && this.bzK <= uVar.getEndTime();
+        return uVar != null && this.bAi >= uVar.getStartTime() && this.bAi <= uVar.getEndTime();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZM() {
-        this.bzJ.parseJson(com.baidu.tbadk.core.sharedPref.b.ahQ().getString("key_redpacket_pop", ""));
+    public void ZQ() {
+        this.bAh.parseJson(com.baidu.tbadk.core.sharedPref.b.ahU().getString("key_redpacket_pop", ""));
     }
 
     private void showWindow() {
-        if (!aq.isEmpty(this.bzJ.getUrl())) {
-            this.bzK = System.currentTimeMillis();
-            com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("key_redpacket_pop_last_time", this.bzK);
+        if (!aq.isEmpty(this.bAh.getUrl())) {
+            this.bAi = System.currentTimeMillis();
+            com.baidu.tbadk.core.sharedPref.b.ahU().putLong("key_redpacket_pop_last_time", this.bAi);
             TiebaStatic.log(new an("c13083"));
-            String str = this.bzJ.getUrl() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
+            String str = this.bAh.getUrl() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));

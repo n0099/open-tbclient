@@ -16,6 +16,9 @@ public class a {
         if (hb == List.class || hb == ArrayList.class) {
             return new ArrayList(i);
         }
+        if (hb == LinkedList.class) {
+            return new LinkedList();
+        }
         Object b = com.baidu.adp.lib.OrmObject.a.a.b(hb, i);
         if (b == null) {
             b = com.baidu.adp.lib.OrmObject.a.a.f(hb);

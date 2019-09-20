@@ -4,12 +4,12 @@ import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes2.dex */
 public final class h<T> implements d.b<Boolean, T> {
-    final rx.functions.f<? super T, Boolean> kwE;
-    final boolean kxy;
+    final rx.functions.f<? super T, Boolean> kyW;
+    final boolean kzQ;
 
     public h(rx.functions.f<? super T, Boolean> fVar, boolean z) {
-        this.kwE = fVar;
-        this.kxy = z;
+        this.kyW = fVar;
+        this.kzQ = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,16 +18,16 @@ public final class h<T> implements d.b<Boolean, T> {
         final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
         rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.h.1
             boolean done;
-            boolean kxz;
+            boolean kzR;
 
             @Override // rx.e
             public void onNext(T t) {
                 if (!this.done) {
-                    this.kxz = true;
+                    this.kzR = true;
                     try {
-                        if (h.this.kwE.call(t).booleanValue()) {
+                        if (h.this.kyW.call(t).booleanValue()) {
                             this.done = true;
-                            singleDelayedProducer.setValue(Boolean.valueOf(!h.this.kxy));
+                            singleDelayedProducer.setValue(Boolean.valueOf(!h.this.kzQ));
                             unsubscribe();
                         }
                     } catch (Throwable th) {
@@ -50,10 +50,10 @@ public final class h<T> implements d.b<Boolean, T> {
             public void onCompleted() {
                 if (!this.done) {
                     this.done = true;
-                    if (this.kxz) {
+                    if (this.kzR) {
                         singleDelayedProducer.setValue(false);
                     } else {
-                        singleDelayedProducer.setValue(Boolean.valueOf(h.this.kxy));
+                        singleDelayedProducer.setValue(Boolean.valueOf(h.this.kzQ));
                     }
                 }
             }

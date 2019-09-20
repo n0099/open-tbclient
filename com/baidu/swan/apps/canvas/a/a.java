@@ -19,20 +19,20 @@ abstract class a extends z {
     }
 
     public AbsoluteLayout a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        com.baidu.swan.apps.b.c.e dY = com.baidu.swan.apps.w.e.GF().dY(str);
-        if (dY == null) {
-            unitedSchemeEntity.result = bP(1001);
+        com.baidu.swan.apps.b.c.e ea = com.baidu.swan.apps.w.e.GJ().ea(str);
+        if (ea == null) {
+            unitedSchemeEntity.result = bQ(1001);
             return null;
         }
-        com.baidu.swan.apps.b.c.d xt = dY.xt();
-        if (xt == null) {
-            unitedSchemeEntity.result = bP(1001);
+        com.baidu.swan.apps.b.c.d xx = ea.xx();
+        if (xx == null) {
+            unitedSchemeEntity.result = bQ(1001);
             return null;
         }
-        return xt.getCurrentWebView();
+        return xx.getCurrentWebView();
     }
 
-    public JSONObject bP(int i) {
+    public JSONObject bQ(int i) {
         return UnitedSchemeUtility.wrapCallbackParams(i);
     }
 

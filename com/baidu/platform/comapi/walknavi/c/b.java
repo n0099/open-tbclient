@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.platform.comjni.bikenavi.JNIEngineManager;
 import com.baidu.platform.comjni.jninative.EngineCommonConfig;
 /* loaded from: classes5.dex */
@@ -30,14 +31,14 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
             return;
         }
         EngineCommonConfig engineCommonConfig = new EngineCommonConfig();
-        int min = Math.min(com.baidu.platform.comapi.wnplatform.o.b.b.a().b(), 800);
+        int min = Math.min(com.baidu.platform.comapi.wnplatform.o.b.b.a().b(), (int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING);
         engineCommonConfig.mStreetPicWidth = min;
         engineCommonConfig.mStreetPicHeight = (min * 3) / 5;
         engineCommonConfig.mStreetPicQuality = 80;
         engineCommonConfig.mNoExistSensor = !com.baidu.platform.comapi.walknavi.b.a().e();
         this.a = new JNIEngineManager();
         new a(j, engineCommonConfig).start();
-        new C0073b(context).start();
+        new C0082b(context).start();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -118,10 +119,10 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0073b extends Thread {
+    public class C0082b extends Thread {
         private Context b;
 
-        public C0073b(Context context) {
+        public C0082b(Context context) {
             this.b = context;
         }
 

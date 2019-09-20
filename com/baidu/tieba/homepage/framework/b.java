@@ -1,9 +1,9 @@
 package com.baidu.tieba.homepage.framework;
 /* loaded from: classes4.dex */
 public interface b {
-    void L(int i, int i2, int i3);
+    void M(int i, int i2, int i3);
 
-    void bvD();
+    void bwr();
 
-    void v(int i, int i2, int i3, int i4);
+    void y(int i, int i2, int i3, int i4);
 }

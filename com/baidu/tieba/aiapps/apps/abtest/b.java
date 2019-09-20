@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.abtest;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile a dbc;
+    private static volatile a dcP;
 
-    public static synchronized a aEx() {
+    public static synchronized a aFb() {
         a aVar;
         synchronized (b.class) {
-            if (dbc == null) {
-                dbc = new a();
+            if (dcP == null) {
+                dcP = new a();
             }
-            aVar = dbc;
+            aVar = dcP;
         }
         return aVar;
     }

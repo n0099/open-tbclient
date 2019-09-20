@@ -228,6 +228,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             return;
         }
         init();
+        if (!this.livenessConfig.closeSkipLiving) {
+            this.guideLiveness = this.passFaceRecogDTO.guideLiveness;
+        }
         setupViews();
         this.sensorManager.registerSensorListener(new BioSensorManager.SensorCallback() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.2
             @Override // com.baidu.pass.biometrics.face.liveness.utils.BioSensorManager.SensorCallback
@@ -1470,6 +1473,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     public void activityFinish(int i) {
         Log.w(TAG, "activityFinish");
         this.livenessStat.timePointEnd = System.currentTimeMillis();
+        if (this.passFaceRecogDTO != null) {
+            this.livenessStat.guideLiveness = this.passFaceRecogDTO.guideLiveness ? 1 : 0;
+        }
         this.livenessStat.errCode = i;
         this.livenessStat.recogType = this.passFaceRecogDTO != null ? this.passFaceRecogDTO.livenessType.getRecogTypeName() : "unknown_type";
         this.livenessStat.onStat(this);

@@ -23,19 +23,19 @@ public class a extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.a> {
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a V(com.baidu.swan.pms.b.c.a aVar) {
-        this.btb.Bn();
+        this.btz.Br();
         com.baidu.swan.pms.e.e eVar = new com.baidu.swan.pms.e.e();
-        a(aVar.bsT, eVar);
-        a(aVar.btE, eVar);
-        a(aVar.btF, eVar);
-        a(aVar.btH, eVar);
-        i(aVar.btG);
-        if (eVar.WU() == 0) {
-            this.btb.Bj();
+        a(aVar.btr, eVar);
+        a(aVar.buc, eVar);
+        a(aVar.bud, eVar);
+        a(aVar.bug, eVar);
+        i(aVar.bue);
+        if (eVar.WY() == 0) {
+            this.btz.Bn();
             return null;
         }
-        this.btb.a(eVar);
-        com.baidu.swan.pms.b.a.a.a(aVar, this.btb);
+        this.btz.a(eVar);
+        com.baidu.swan.pms.b.a.a.a(aVar, this.btz);
         return null;
     }
 
@@ -47,20 +47,20 @@ public class a extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.a> {
         if (aVar == null) {
             return false;
         }
-        if (aVar.bsT == null && ((aVar.btE == null || aVar.btE.isEmpty()) && aVar.btF == null && aVar.btH == null && aVar.btG == null)) {
+        if (aVar.btr == null && ((aVar.buc == null || aVar.buc.isEmpty()) && aVar.bud == null && aVar.bug == null && aVar.bue == null)) {
             return false;
         }
-        if (aVar.bsT == null || aVar.bsT.Wo()) {
-            if (aVar.btE != null) {
-                for (h hVar : aVar.btE) {
-                    if (!hVar.Wo()) {
+        if (aVar.btr == null || aVar.btr.Ws()) {
+            if (aVar.buc != null) {
+                for (h hVar : aVar.buc) {
+                    if (!hVar.Ws()) {
                         return false;
                     }
                 }
             }
-            if (aVar.btF == null || aVar.btF.Wo()) {
-                if (aVar.btH == null || aVar.btH.Wo()) {
-                    return aVar.btG == null || aVar.btG.Wo();
+            if (aVar.bud == null || aVar.bud.Ws()) {
+                if (aVar.bug == null || aVar.bug.Ws()) {
+                    return aVar.bue == null || aVar.bue.Ws();
                 }
                 return false;
             }
@@ -70,7 +70,7 @@ public class a extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.a> {
     }
 
     @Override // com.baidu.swan.pms.b.d
-    protected String Wq() {
+    protected String Wu() {
         return "getpkg";
     }
 }

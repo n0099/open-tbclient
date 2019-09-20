@@ -25,7 +25,7 @@ public class b {
     private void a(e eVar, c cVar) {
         this.aeP = new HandlerThread("VideoRecorderThread");
         this.aeP.start();
-        this.aeQ = new HandlerC0061b(this.aeP.getLooper());
+        this.aeQ = new HandlerC0069b(this.aeP.getLooper());
         if (Build.VERSION.SDK_INT >= 18) {
             this.aeS = new g();
             this.aeS.a(cVar);
@@ -100,8 +100,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mario.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC0061b extends Handler {
-        public HandlerC0061b(Looper looper) {
+    public class HandlerC0069b extends Handler {
+        public HandlerC0069b(Looper looper) {
             super(looper);
         }
 

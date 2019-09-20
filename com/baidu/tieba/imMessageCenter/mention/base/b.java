@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a.a<c>> {
-    private ab WO;
+    private ab WN;
     private TbPageContext<?> mContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -17,7 +17,7 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     }
 
     public void b(ab abVar) {
-        this.WO = abVar;
+        this.WN = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,8 +26,8 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     /* renamed from: aq */
     public com.baidu.tieba.card.a.a<c> onCreateViewHolder(ViewGroup viewGroup) {
         c cVar = new c(this.mContext, viewGroup);
-        if (this.WO != null) {
-            cVar.d(this.WO);
+        if (this.WN != null) {
+            cVar.d(this.WN);
         }
         return new com.baidu.tieba.card.a.a<>(cVar);
     }
@@ -37,10 +37,10 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, a aVar, com.baidu.tieba.card.a.a<c> aVar2) {
-        if (aVar == null || aVar2 == null || aVar2.bat() == null) {
+        if (aVar == null || aVar2 == null || aVar2.baX() == null) {
             return null;
         }
-        aVar2.bat().a(aVar);
+        aVar2.baX().a(aVar);
         return aVar2.getView();
     }
 

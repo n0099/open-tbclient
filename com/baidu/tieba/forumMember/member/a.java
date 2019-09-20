@@ -15,13 +15,13 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.fqG, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.fsu, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
                     String str = (String) view.getTag();
-                    if (a.this.mSkinType == 1) {
+                    if (a.this.mSkinType == 1 || a.this.mSkinType == 4) {
                         str = str + "?isNightModel=1";
                     }
                     CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.mContext, a.this.mContext.getString(R.string.complaint_bar_lord), str, true));
@@ -56,16 +56,16 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
-            am.k(cVar.evb, R.drawable.frs_member_manito_bg);
-            am.l(cVar.bNu, R.color.cp_bg_line_b);
+            am.k(cVar.ewL, R.drawable.frs_member_manito_bg);
+            am.l(cVar.bNT, R.color.cp_bg_line_c);
             am.f(cVar.mTitleView, R.color.cp_cont_b, 1);
-            am.c(cVar.epJ, (int) R.drawable.icon_arrow12_gray66_right);
+            am.c(cVar.eru, (int) R.drawable.icon_arrow12_gray66_right);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.fqH);
-        cVar.evb.setTag(bVar.mUrl);
-        cVar.evb.setOnClickListener(this.mClickListener);
+        cVar.mTitleView.setText(bVar.fsv);
+        cVar.ewL.setTag(bVar.mUrl);
+        cVar.ewL.setOnClickListener(this.mClickListener);
     }
 }

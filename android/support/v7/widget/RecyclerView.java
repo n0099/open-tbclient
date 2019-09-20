@@ -33,7 +33,6 @@ import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.widget.EdgeEffectCompat;
 import android.support.v7.recyclerview.R;
-import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.AdapterHelper;
 import android.support.v7.widget.ChildHelper;
 import android.support.v7.widget.GapWorker;
@@ -2474,7 +2473,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             iArr[1] = -1;
             return;
         }
-        int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i = Integer.MAX_VALUE;
         int i2 = Integer.MIN_VALUE;
         int i3 = 0;
         while (i3 < childCount) {
@@ -3275,7 +3274,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             RecyclerView.this.setScrollState(2);
             this.mLastFlingY = 0;
             this.mLastFlingX = 0;
-            this.mScroller.fling(0, 0, i, i2, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            this.mScroller.fling(0, 0, i, i2, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
             postOnAnimation();
         }
 
@@ -4529,7 +4528,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
 
         void setMeasuredDimensionFromChildren(int i, int i2) {
-            int i3 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i3 = Integer.MAX_VALUE;
             int i4 = Integer.MIN_VALUE;
             int childCount = getChildCount();
             if (childCount == 0) {

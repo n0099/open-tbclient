@@ -7,7 +7,6 @@ import com.baidu.appsearchlib.Info;
 import com.baidu.location.Address;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
@@ -187,7 +186,7 @@ public final class g {
                 return arrayList;
             }
         },
-        POI("RGCPOI", "poi", "poiv", 1000, UIMsg.m_AppUI.MSG_APP_GPS) { // from class: com.baidu.location.d.g.b.4
+        POI("RGCPOI", "poi", "poiv", 1000, 5000) { // from class: com.baidu.location.d.g.b.4
             @Override // com.baidu.location.d.g.b
             List<String> a(JSONObject jSONObject, String str, int i) {
                 JSONArray jSONArray;

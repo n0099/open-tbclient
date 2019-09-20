@@ -7,47 +7,17 @@ import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import com.baidu.d.a.a;
-import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.views.SweepLightLoadingView;
 /* loaded from: classes2.dex */
 public class SapiWebViewUtil {
-    public static void addCustomView(Context context, SapiWebView sapiWebView) {
-        PassportViewManager passportViewManager = PassportViewManager.getInstance();
-        if (passportViewManager.getNoNetworkView() == null) {
-            setNoNetworkView(context, sapiWebView);
+    public static void addCustomView(Context context, SapiWebView sapiWebView, boolean z) {
+        setNoNetworkView(context, sapiWebView);
+        setTimeoutView(context, sapiWebView);
+        if (z) {
+            setSweepLightLoadingView(context, sapiWebView);
         } else {
-            SapiWebView sapiWebView2 = (SapiWebView) passportViewManager.getNoNetworkView().getParent();
-            if (sapiWebView2 != null) {
-                sapiWebView2.removeView(passportViewManager.getNoNetworkView());
-            }
-            sapiWebView.setNoNetworkView(passportViewManager.getNoNetworkView());
-        }
-        if (passportViewManager.getTimeoutView() == null) {
-            setTimeoutView(context, sapiWebView);
-        } else {
-            SapiWebView sapiWebView3 = (SapiWebView) passportViewManager.getTimeoutView().getParent();
-            if (sapiWebView3 != null) {
-                sapiWebView3.removeView(passportViewManager.getTimeoutView());
-            }
-            sapiWebView.setTimeoutView(passportViewManager.getTimeoutView());
-        }
-        if (passportViewManager.getWebviewLoadingView() != null) {
-            SapiWebView sapiWebView4 = (SapiWebView) passportViewManager.getWebviewLoadingView().getParent();
-            if (sapiWebView4 != null) {
-                sapiWebView4.removeView(passportViewManager.getWebviewLoadingView());
-            }
-            sapiWebView.setWebviewLoadingView(passportViewManager.getWebviewLoadingView());
-        } else if (passportViewManager.getProgressBar() == null) {
             setProgressBar(context, sapiWebView);
-        } else {
-            ProgressBar progressBar = passportViewManager.getProgressBar();
-            if (progressBar != null) {
-                ViewGroup viewGroup = (ViewGroup) progressBar.getParent();
-                if (viewGroup != null) {
-                    viewGroup.removeView(progressBar);
-                }
-                sapiWebView.setProgressBar(progressBar);
-            }
         }
     }
 
@@ -70,6 +40,10 @@ public class SapiWebViewUtil {
             }
         });
         sapiWebView.setTimeoutView(inflate);
+    }
+
+    private static void setSweepLightLoadingView(Context context, SapiWebView sapiWebView) {
+        sapiWebView.setWebviewLoadingView(new SweepLightLoadingView(context));
     }
 
     private static void setProgressBar(Context context, SapiWebView sapiWebView) {

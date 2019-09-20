@@ -11,7 +11,7 @@ public class WXAPIFactory {
     }
 
     public static IWXAPI createWXAPI(Context context, String str) {
-        return createWXAPI(context, str, false);
+        return createWXAPI(context, str, true);
     }
 
     public static IWXAPI createWXAPI(Context context, String str, boolean z) {

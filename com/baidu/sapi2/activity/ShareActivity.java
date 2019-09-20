@@ -10,6 +10,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareResult;
@@ -97,6 +98,13 @@ public class ShareActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        pressBack();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
@@ -169,7 +177,13 @@ public class ShareActivity extends BaseActivity {
             public void onSuccess(WebAuthResult webAuthResult) {
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
-                ShareActivity.this.sapiWebView.reload();
+                if (ShareActivity.this.sapiWebView != null) {
+                    ShareActivity.this.sapiWebView.reload();
+                }
+                LoginStatusChangeCallback loginStatusChangeCallback = PassportSDK.getLoginStatusChangeCallback();
+                if (loginStatusChangeCallback != null) {
+                    loginStatusChangeCallback.onChange();
+                }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -204,7 +218,6 @@ public class ShareActivity extends BaseActivity {
         bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, SapiAccountManager.VERSION_CODE);
         bundle.putString("PKG", getPackageName());
         if (SapiContext.getInstance(this).shareLivingunameEnable()) {
-            bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(this).getFaceLoginUid());
             bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(this).getV2FaceLivingUnames());
         }
         intent.putExtras(bundle);

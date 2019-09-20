@@ -15,14 +15,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener bZN;
+    private View.OnClickListener caG;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean cWz = false;
+    private boolean cXs = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.bZN = onClickListener;
+        this.caG = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -54,10 +54,9 @@ public class a extends BaseAdapter {
         return -1L;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [122=4, 124=4] */
-    /* JADX WARN: Not initialized variable reg: 3, insn: 0x00fe: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:30:0x00fd */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0152  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0154  */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [115=4, 117=5] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0114  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0135  */
     @Override // android.widget.Adapter
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -66,95 +65,87 @@ public class a extends BaseAdapter {
         View view2;
         Exception exc;
         View view3;
-        View view4;
-        C0269a c0269a;
-        View view5;
+        C0278a c0278a;
         try {
             try {
                 if (view != null) {
-                    c0269a = (C0269a) view.getTag();
-                    view5 = view;
+                    c0278a = (C0278a) view.getTag();
+                    view3 = view;
                 } else if (getItemViewType(i) == 0) {
-                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                    c0269a = new C0269a();
-                    c0269a.cWA = (TextView) view5.findViewById(R.id.account);
-                    c0269a.cWC = (ImageView) view5.findViewById(R.id.active);
-                    c0269a.cWD = (TextView) view5.findViewById(R.id.delete);
-                    c0269a.mLine = view5.findViewById(R.id.account_item_line);
-                    c0269a.cWD.setOnClickListener(this.bZN);
-                    view5.setTag(c0269a);
+                    view3 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                    c0278a = new C0278a();
+                    c0278a.cXt = (TextView) view3.findViewById(R.id.account);
+                    c0278a.cXv = (ImageView) view3.findViewById(R.id.active);
+                    c0278a.cXw = (TextView) view3.findViewById(R.id.delete);
+                    c0278a.cXw.setOnClickListener(this.caG);
+                    view3.setTag(c0278a);
                 } else {
-                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                    c0269a = new C0269a();
-                    c0269a.cWB = (TextView) view5.findViewById(R.id.add_text);
-                    view5.setTag(c0269a);
+                    view3 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                    c0278a = new C0278a();
+                    c0278a.cXu = (TextView) view3.findViewById(R.id.add_text);
+                    view3.setTag(c0278a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0269a.cWC.setVisibility(8);
-                    c0269a.cWD.setVisibility(8);
-                    c0269a.cWD.setTag(accountData);
+                    c0278a.cXv.setVisibility(8);
+                    c0278a.cXw.setVisibility(8);
+                    c0278a.cXw.setTag(accountData);
                     if (accountData != null) {
-                        c0269a.cWA.setText(accountData.getAccountNameShow());
+                        c0278a.cXt.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0269a.cWC.setVisibility(0);
+                            c0278a.cXv.setVisibility(0);
                         }
-                        if (this.cWz) {
-                            c0269a.cWD.setVisibility(0);
+                        if (this.cXs) {
+                            c0278a.cXw.setVisibility(0);
                         }
-                    }
-                    if (i == getCount() - 2) {
-                        c0269a.mLine.setVisibility(8);
-                    } else {
-                        c0269a.mLine.setVisibility(0);
                     }
                 }
                 this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.mContext.getLayoutMode().onModeChanged(view5);
-                return view5;
+                this.mContext.getLayoutMode().onModeChanged(view3);
+                return view3;
             } catch (Exception e) {
-                view3 = view4;
                 exc = e;
+                view2 = view;
                 try {
                     BdLog.detailException(exc);
                     this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.mContext.getLayoutMode().onModeChanged(view3);
-                    return view3;
+                    this.mContext.getLayoutMode().onModeChanged(view2);
+                    return view2;
                 } catch (Throwable th) {
-                    view2 = view3;
+                    view3 = view2;
                     th = th;
                     this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.mContext.getLayoutMode().onModeChanged(view2);
+                    this.mContext.getLayoutMode().onModeChanged(view3);
                     throw th;
                 }
             } catch (Throwable th2) {
                 th = th2;
+                view3 = view;
                 this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.mContext.getLayoutMode().onModeChanged(view2);
+                this.mContext.getLayoutMode().onModeChanged(view3);
                 throw th;
             }
         } catch (Exception e2) {
+            view2 = view3;
             exc = e2;
-            view3 = view;
             BdLog.detailException(exc);
             this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.mContext.getLayoutMode().onModeChanged(view3);
-            return view3;
+            this.mContext.getLayoutMode().onModeChanged(view2);
+            return view2;
         } catch (Throwable th3) {
             th = th3;
-            view2 = view;
             this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.mContext.getLayoutMode().onModeChanged(view2);
+            this.mContext.getLayoutMode().onModeChanged(view3);
             throw th;
         }
     }
 
-    public void gk(boolean z) {
-        this.cWz = z;
+    public void gn(boolean z) {
+        this.cXs = z;
     }
 
-    public boolean aCP() {
-        return this.cWz;
+    public boolean aDd() {
+        return this.cXs;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -172,14 +163,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0269a {
-        TextView cWA;
-        TextView cWB;
-        ImageView cWC;
-        TextView cWD;
-        View mLine;
+    private class C0278a {
+        TextView cXt;
+        TextView cXu;
+        ImageView cXv;
+        TextView cXw;
 
-        private C0269a() {
+        private C0278a() {
         }
     }
 }

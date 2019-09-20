@@ -2,7 +2,6 @@ package com.baidu.tieba.postsearch;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.an;
 import java.util.ArrayList;
@@ -11,15 +10,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    public List<a> iCj = new ArrayList();
-    public an fpE = new an();
+    public List<a> iEB = new ArrayList();
+    public an frr = new an();
 
     /* loaded from: classes6.dex */
     public static class a {
         public String content;
         public String fname;
-        public int iCk;
-        public int iCl;
+        public int iEC;
+        public int iED;
         public String name;
         public String name_show;
         public long pid;
@@ -29,21 +28,21 @@ public class b {
         public String title;
     }
 
-    public boolean bGs() {
-        return (this.iCj == null || this.iCj.size() == 0) ? false : true;
+    public boolean bHg() {
+        return (this.iEB == null || this.iEB.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.fpE != null && this.fpE.ads() == 1;
+        return this.frr != null && this.frr.adw() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.fpE.parserJson(jSONObject.getJSONObject("page"));
+                this.frr.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.iCj.clear();
+                    this.iEB.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -52,7 +51,7 @@ public class b {
                             String optString2 = jSONObject3.optString("name", "");
                             long optLong = jSONObject2.optLong(Info.kBaiduPIDKey, 0L);
                             String optString3 = jSONObject2.optString("title", "");
-                            long optLong2 = jSONObject2.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
+                            long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
                             String optString4 = jSONObject2.optString("content", "");
                             String optString5 = jSONObject2.optString(ImageViewerConfig.FORUM_NAME, "");
                             long optLong3 = jSONObject2.optLong("tid", 0L);
@@ -67,12 +66,12 @@ public class b {
                                 aVar.content = optString4;
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
-                                aVar.iCk = optInt;
-                                aVar.iCl = optInt2;
+                                aVar.iEC = optInt;
+                                aVar.iED = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.iCj.add(aVar);
+                                this.iEB.add(aVar);
                             }
                         }
                     }

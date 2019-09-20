@@ -25,7 +25,7 @@ public class a implements l {
         HashMap hashMap = new HashMap(2);
         hashMap.put("officialNo", "1");
         hashMap.put("containerNo", "2");
-        com.baidu.tieba.aiapps.apps.openstat.imupload.b.aHa().a(hashMap, jSONArray.toString().getBytes(), token, cVar);
+        com.baidu.tieba.aiapps.apps.openstat.imupload.b.aHE().a(hashMap, jSONArray.toString().getBytes(), token, cVar);
         if (DEBUG) {
             Log.d("OpenBehaviorUploader", "errorCode : " + cVar.errorCode);
             Log.d("OpenBehaviorUploader", "errorMsg : " + cVar.errMsg);
@@ -34,7 +34,7 @@ public class a implements l {
             case 1:
             case 2:
             case 4:
-                com.baidu.swan.b.c.Yz();
+                com.baidu.swan.b.c.YD();
                 return false;
             case 3:
             default:

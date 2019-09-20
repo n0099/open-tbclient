@@ -9,8 +9,13 @@ import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
@@ -23,8 +28,10 @@ public final class SapiContext {
     public static final String CHINA_TELECOM_EXPIRED_TIME = "china_telecom_expired_time";
     private static SapiContext D = null;
     public static final String KEY_CONFIG_FILE_ETAG = "config_file_etag";
+    public static final String KEY_CONTACTS_UID_VERSION = "contacts_uid_version";
     public static final String KEY_LAST_CHECK_PUSH_TIME = "push_last_check_time";
     public static final String KEY_LAST_LOGIN_PHONE = "last_login_phone";
+    public static final String KEY_LAST_LOGIN_UID = "last_login_uid";
     public static final String KEY_LAST_LOGIN_USER_PORTRAIT = "last_login_user_portrait";
     public static final String KEY_LOGIN_PAGE_IS_CACHED = "login_page_is_cached";
     public static final String KEY_MODIFIED_DIR_EXEC_PER = "modified_dir_exec_per";
@@ -52,16 +59,16 @@ public final class SapiContext {
     private static final String n = "en_login_accounts";
     private static final String o = "account_type";
     private static final String p = "iqiyi_token";
-    private static final String q = "face_login_uid";
-    private static final String r = "face_login_hash_json";
-    private static final String s = "face_livingunames";
-    private static final String t = "v2_face_login_check_result";
-    private static final String u = "v2_face_check_result_type";
-    private static final String v = "v2_last_check_suc_time";
-    private static final String w = "share_storage";
-    private static final String x = "bio_sdk_enable";
-    private static final String y = "cm_oauth_gray";
-    private static final String z = "ct_oauth_gray";
+    private static final String q = "face_livingunames";
+    private static final String r = "v2_face_login_check_result";
+    private static final String s = "share_storage";
+    private static final String t = "share_delete_list";
+    private static final String u = "face_login_delete_list";
+    private static final String v = "bio_sdk_enable";
+    private static final String w = "cm_oauth_gray";
+    private static final String x = "ct_oauth_gray";
+    private static final String y = "touchid_accounts";
+    private static final String z = "touchid_login_record";
     private SharedPreferences A;
     private Context B;
 
@@ -403,10 +410,6 @@ public final class SapiContext {
         return getSapiOptions().b();
     }
 
-    public String getFastRegChannel() {
-        return getSapiOptions().getFastRegSmsNum();
-    }
-
     public Map<String, Integer> getOrderAuthorizedPackages() {
         return getSapiOptions().a();
     }
@@ -472,66 +475,40 @@ public final class SapiContext {
         return (list == null || i2 < 0 || i2 >= list.size()) ? list : list.subList(list.size() - i2, list.size());
     }
 
-    public String getFaceLoginModel() {
-        return TextUtils.isEmpty(getString(r)) ? "" : SapiDataEncryptor.decryptAccountInfo(getString(r), c());
-    }
-
-    public void setFaceLoginModel(String str) {
-        if (TextUtils.isEmpty(str)) {
-            put(r, "");
-        } else {
-            put(r, SapiDataEncryptor.encryptAccountInfo(str, c()));
-        }
-    }
-
-    public void setUidSupFaceLoginType(String str) {
-        put(u, str);
-    }
-
-    public String geSupFaceLoginType() {
-        return getString(u);
-    }
-
     public void setV2FaceLoginCheckResults(String str) {
-        if (TextUtils.isEmpty(str)) {
-            put(t, "");
-        } else {
-            put(t, SapiDataEncryptor.encryptAccountInfo(str, c()));
+        putEncryptStr(r, str);
+    }
+
+    public JSONObject getV2FaceLoginCheckResults() {
+        String decryptStr = getDecryptStr(r);
+        if (TextUtils.isEmpty(decryptStr)) {
+            return new JSONObject();
         }
-    }
-
-    public String getV2FaceLoginCheckResults() {
-        String string = getString(t);
-        return TextUtils.isEmpty(string) ? "" : SapiDataEncryptor.decryptAccountInfo(string, c());
-    }
-
-    public String getFaceLoginUid() {
-        return TextUtils.isEmpty(getString(q)) ? "" : SapiDataEncryptor.decryptAccountInfo(getString(q), c());
-    }
-
-    public void setFaceLoginUid(String str) {
-        setFaceLoginModel("");
-        if (TextUtils.isEmpty(str)) {
-            put(q, "");
-        } else {
-            put(q, SapiDataEncryptor.encryptAccountInfo(str, c()));
+        try {
+            JSONObject jSONObject = new JSONObject(decryptStr);
+            JSONArray optJSONArray = jSONObject.optJSONArray(IntentConfig.LIST);
+            String[] deleteFaceLoginList = getDeleteFaceLoginList();
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                for (String str : deleteFaceLoginList) {
+                    if (str.equals(optJSONArray.getJSONObject(i2).optString("livinguname"))) {
+                        optJSONArray.remove(i2);
+                    }
+                }
+            }
+            jSONObject.put(IntentConfig.LIST, optJSONArray);
+            return jSONObject;
+        } catch (Exception e2) {
+            Log.e(e2);
+            return new JSONObject();
         }
-    }
-
-    public void setV2LastFaceLoginCheckTime(long j2) {
-        put(v, j2);
-    }
-
-    public long getLastFaceLoginCheckTime() {
-        return getLong(v, 0L);
     }
 
     public void setV2FaceLivingunames(String str) {
-        put(s, str);
+        put(q, str);
     }
 
     public String getV2FaceLivingUnames() {
-        return getString(s);
+        return getString(q);
     }
 
     public boolean shareLivingunameEnable() {
@@ -540,10 +517,6 @@ public final class SapiContext {
 
     public List<Integer> getDiExceptIndex() {
         return getSapiOptions().diExceptIndex;
-    }
-
-    public int getFaceLoginCheckFreq() {
-        return getSapiOptions().faceLoginCheckFreq;
     }
 
     public boolean getShareCommonStorageEnabel() {
@@ -564,18 +537,18 @@ public final class SapiContext {
 
     public void setShareStorage(JSONArray jSONArray) {
         if (jSONArray == null) {
-            put(w, "");
+            put(s, "");
         } else {
-            put(w, SapiDataEncryptor.encryptAccountInfo(jSONArray.toString(), c()));
+            put(s, SapiDataEncryptor.encryptAccountInfo(jSONArray.toString(), c()));
         }
     }
 
     public JSONArray getShareStorage() {
-        if (TextUtils.isEmpty(getString(w))) {
+        if (TextUtils.isEmpty(getString(s))) {
             return null;
         }
         try {
-            return new JSONArray(SapiDataEncryptor.decryptAccountInfo(getString(w), c()));
+            return new JSONArray(SapiDataEncryptor.decryptAccountInfo(getString(s), c()));
         } catch (Exception e2) {
             return null;
         }
@@ -606,19 +579,19 @@ public final class SapiContext {
     }
 
     public void setChinaMobileOauthGray(int i2) {
-        put(y, i2);
+        put(w, i2);
     }
 
     public int getChinaMobileOauthGray() {
-        return getInt(y, -1);
+        return getInt(w, -1);
     }
 
     public void setChinaTelecomGray(int i2) {
-        put(z, i2);
+        put(x, i2);
     }
 
     public int getChinaTelecomGray() {
-        return getInt(y, -1);
+        return getInt(w, -1);
     }
 
     public String getJoinQrLoginPrompt() {
@@ -647,5 +620,137 @@ public final class SapiContext {
 
     public long getLastPushCheckTime() {
         return getLong(KEY_LAST_CHECK_PUSH_TIME, 0L);
+    }
+
+    public List<SapiAccount> getTouchidAccounts() {
+        String str = null;
+        if (!TextUtils.isEmpty(getString(y))) {
+            str = SapiDataEncryptor.decryptAccountInfo(getString(y), c());
+        }
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                return SapiAccount.fromJSONArray(new JSONArray(str));
+            } catch (Throwable th) {
+                return new ArrayList();
+            }
+        }
+        return new ArrayList();
+    }
+
+    public void addTouchidAccounts(SapiAccount sapiAccount) {
+        if (sapiAccount != null) {
+            List<SapiAccount> touchidAccounts = getTouchidAccounts();
+            Iterator<SapiAccount> it = touchidAccounts.iterator();
+            while (it.hasNext()) {
+                if (sapiAccount.equals(it.next())) {
+                    it.remove();
+                }
+            }
+            touchidAccounts.add(sapiAccount);
+            put(y, SapiDataEncryptor.encryptAccountInfo(SapiAccount.toJSONArray(touchidAccounts).toString(), c()));
+        }
+    }
+
+    public void removeTouchidAccountByPortrait(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            List<SapiAccount> touchidAccounts = getTouchidAccounts();
+            Iterator<SapiAccount> it = touchidAccounts.iterator();
+            while (it.hasNext()) {
+                if (str.equals(it.next().email)) {
+                    it.remove();
+                }
+            }
+            put(y, SapiDataEncryptor.encryptAccountInfo(SapiAccount.toJSONArray(touchidAccounts).toString(), c()));
+        }
+    }
+
+    public void addTouchidLoginRecord(String str) {
+        String string = getString(z);
+        if (TextUtils.isEmpty(string)) {
+            put(z, str);
+        } else if (!string.contains(str)) {
+            put(z, string + Constants.ACCEPT_TIME_SEPARATOR_SP + str);
+        }
+    }
+
+    public List<String> getTouchidLoginRecord() {
+        String string = getString(z);
+        return TextUtils.isEmpty(string) ? new ArrayList(0) : Arrays.asList(string.split(Constants.ACCEPT_TIME_SEPARATOR_SP));
+    }
+
+    public void markAsDeleteFaceLogin(JSONArray jSONArray) {
+        String[] deleteFaceLoginList = getDeleteFaceLoginList();
+        StringBuilder sb = new StringBuilder();
+        for (int length = deleteFaceLoginList.length + jSONArray.length() > 10 ? (deleteFaceLoginList.length + jSONArray.length()) - 10 : 0; length < deleteFaceLoginList.length; length++) {
+            sb.append(deleteFaceLoginList[length]).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        }
+        int length2 = jSONArray.length();
+        for (int i2 = 0; i2 < length2; i2++) {
+            sb.append(URLDecoder.decode(jSONArray.optString(i2))).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        }
+        put(u, sb.toString().substring(0, sb.toString().length() - 1));
+    }
+
+    public void markAsDeleteShareLogin(String str) {
+        String[] deleteShareLoginList = getDeleteShareLoginList();
+        StringBuilder sb = new StringBuilder();
+        for (int length = deleteShareLoginList.length + 1 > 10 ? (deleteShareLoginList.length + 1) - 10 : 0; length < deleteShareLoginList.length; length++) {
+            sb.append(deleteShareLoginList[length]).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        }
+        sb.append(str);
+        put(t, sb.toString());
+    }
+
+    public String[] getDeleteFaceLoginList() {
+        String string = getString(u);
+        return TextUtils.isEmpty(string) ? new String[0] : string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    }
+
+    public String[] getDeleteShareLoginList() {
+        String string = getString(t);
+        return TextUtils.isEmpty(string) ? new String[0] : string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    }
+
+    public String getContactsVersionByUid() {
+        JSONObject jSONObject;
+        String decryptAccountInfo = SapiDataEncryptor.decryptAccountInfo(getString(KEY_CONTACTS_UID_VERSION), c());
+        String str = "";
+        SapiAccount session = ServiceManager.getInstance().getIsAccountManager().getSession();
+        if (session != null) {
+            str = session.uid;
+        }
+        JSONObject jSONObject2 = new JSONObject();
+        if (!TextUtils.isEmpty(decryptAccountInfo)) {
+            try {
+                jSONObject = new JSONObject(decryptAccountInfo);
+            } catch (JSONException e2) {
+                Log.e(e2);
+            }
+            return jSONObject.optString(str);
+        }
+        jSONObject = jSONObject2;
+        return jSONObject.optString(str);
+    }
+
+    public void updateContactsVersionWithUid(String str) {
+        JSONObject jSONObject;
+        JSONException e2;
+        String decryptAccountInfo = SapiDataEncryptor.decryptAccountInfo(getString(KEY_CONTACTS_UID_VERSION), c());
+        String str2 = ServiceManager.getInstance().getIsAccountManager().getSession().uid;
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject = !TextUtils.isEmpty(decryptAccountInfo) ? new JSONObject(decryptAccountInfo) : jSONObject2;
+        } catch (JSONException e3) {
+            jSONObject = jSONObject2;
+            e2 = e3;
+        }
+        try {
+            jSONObject.put(str2, str);
+        } catch (JSONException e4) {
+            e2 = e4;
+            Log.e(e2);
+            put(KEY_CONTACTS_UID_VERSION, SapiDataEncryptor.encryptAccountInfo(jSONObject.toString(), c()));
+        }
+        put(KEY_CONTACTS_UID_VERSION, SapiDataEncryptor.encryptAccountInfo(jSONObject.toString(), c()));
     }
 }

@@ -22,28 +22,28 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String auT;
-    private String auU;
-    private String auZ;
-    private String ava;
-    private String avb;
-    private int avm = 0;
-    private long azc;
-    private String azd;
-    private String aze;
-    private Bundle azf;
-    private String azg;
-    private boolean azh;
-    private String azi;
-    private SwanCoreVersion azj;
-    private ExtensionCore azk;
-    private boolean azl;
-    private int azm;
-    private long azn;
-    private long azo;
-    private String azp;
-    private PMSAppInfo azq;
-    private JSONObject azr;
+    private int avK = 0;
+    private String avr;
+    private String avs;
+    private String avx;
+    private String avy;
+    private String avz;
+    private long azA;
+    private String azB;
+    private String azC;
+    private Bundle azD;
+    private String azE;
+    private boolean azF;
+    private String azG;
+    private SwanCoreVersion azH;
+    private ExtensionCore azI;
+    private boolean azJ;
+    private int azK;
+    private long azL;
+    private long azM;
+    private String azN;
+    private PMSAppInfo azO;
+    private JSONObject azP;
     private String page;
 
     public static b F(Intent intent) {
@@ -54,13 +54,13 @@ public final class b {
         bVar.e((PMSAppInfo) n.d(intent, "swan_pms_db_info"));
         bVar.F(n.a(intent, "aiapps_navigatebar_color", (long) IjkMediaMeta.AV_CH_WIDE_LEFT));
         if (d.H(intent)) {
-            bVar.eM("1250000000000000");
+            bVar.eO("1250000000000000");
         } else {
-            bVar.eM(n.b(intent, "aiapps_launch_from"));
+            bVar.eO(n.b(intent, "aiapps_launch_from"));
         }
-        bVar.eN(n.b(intent, "aiapps_launch_scheme"));
-        if (bVar.FH() != null) {
-            String queryParameter = Uri.parse(bVar.FH()).getQueryParameter("_baiduboxapp");
+        bVar.eP(n.b(intent, "aiapps_launch_scheme"));
+        if (bVar.FL() != null) {
+            String queryParameter = Uri.parse(bVar.FL()).getQueryParameter("_baiduboxapp");
             if (!TextUtils.isEmpty(queryParameter)) {
                 try {
                     bVar.E(new JSONObject(queryParameter).optJSONObject("ext"));
@@ -73,72 +73,72 @@ public final class b {
         }
         bVar.setPage(n.b(intent, "aiapps_page"));
         bVar.setDebug(n.a(intent, "aiapps_is_debug", true));
-        bVar.eO(n.b(intent, "aiapps_max_swan_version"));
-        bVar.eP(n.b(intent, "aiapps_min_swan_version"));
+        bVar.eQ(n.b(intent, "aiapps_max_swan_version"));
+        bVar.eR(n.b(intent, "aiapps_min_swan_version"));
         bVar.p(n.c(intent, "aiapps_extra_data"));
-        bVar.eQ(n.b(intent, "aiapps_add_click_id"));
-        bVar.eR(n.b(intent, "aiapps_not_in_history"));
-        bVar.eS(n.b(intent, "aiapps_app_open_url"));
-        bVar.eT(n.b(intent, "aiapps_app_download_url"));
-        bVar.eU(n.b(intent, "aiapps_app_cur_swan_version"));
+        bVar.eS(n.b(intent, "aiapps_add_click_id"));
+        bVar.eT(n.b(intent, "aiapps_not_in_history"));
+        bVar.eU(n.b(intent, "aiapps_app_open_url"));
+        bVar.eV(n.b(intent, "aiapps_app_download_url"));
+        bVar.eW(n.b(intent, "aiapps_app_cur_swan_version"));
         bVar.a((SwanCoreVersion) n.d(intent, "aiapps_swan_core_version"));
         bVar.a((ExtensionCore) n.d(intent, "aiapps_extension_core"));
-        bVar.cr(n.a(intent, "aiapps_app_frame_type", 0));
+        bVar.cs(n.a(intent, "aiapps_app_frame_type", 0));
         bVar.aW(n.a(intent, "aiapps_app_console_switch", false));
-        bVar.cF(n.a(intent, "aiapps_app_launch_flags", 0));
+        bVar.cG(n.a(intent, "aiapps_app_launch_flags", 0));
         bVar.setOrientation(n.a(intent, "ai_launch_app_orientation", 0));
-        bVar.eV(n.b(intent, "remoteDebugUrl"));
+        bVar.eX(n.b(intent, "remoteDebugUrl"));
         return bVar;
     }
 
     public static Intent b(Context context, b bVar) {
-        if (context == null || bVar == null || !bVar.Fv()) {
+        if (context == null || bVar == null || !bVar.Fz()) {
             return null;
         }
         Intent intent = new Intent();
         intent.setAction("com.baidu.searchbox.action.aiapps.LAUNCH");
         intent.setComponent(new ComponentName(context, SwanAppLauncherActivity.class));
-        intent.putExtra("swan_pms_db_info", bVar.FW());
+        intent.putExtra("swan_pms_db_info", bVar.Ga());
         intent.putExtra("aiapps_is_debug", bVar.isDebug());
-        intent.putExtra("aiapps_max_swan_version", bVar.FI());
-        intent.putExtra("aiapps_min_swan_version", bVar.FJ());
-        intent.putExtra("aiapps_extra_data", bVar.FK());
-        intent.putExtra("aiapps_add_click_id", bVar.FL());
-        intent.putExtra("aiapps_app_frame_type", bVar.FQ());
+        intent.putExtra("aiapps_max_swan_version", bVar.FM());
+        intent.putExtra("aiapps_min_swan_version", bVar.FN());
+        intent.putExtra("aiapps_extra_data", bVar.FO());
+        intent.putExtra("aiapps_add_click_id", bVar.FP());
+        intent.putExtra("aiapps_app_frame_type", bVar.FU());
         intent.putExtra("ai_launch_app_orientation", bVar.getOrientation());
-        if (bVar.FF() != IjkMediaMeta.AV_CH_WIDE_LEFT) {
-            intent.putExtra("aiapps_navigatebar_color", bVar.FF());
+        if (bVar.FJ() != IjkMediaMeta.AV_CH_WIDE_LEFT) {
+            intent.putExtra("aiapps_navigatebar_color", bVar.FJ());
         }
-        if (!TextUtils.isEmpty(bVar.FG())) {
-            intent.putExtra("aiapps_launch_from", bVar.FG());
+        if (!TextUtils.isEmpty(bVar.FK())) {
+            intent.putExtra("aiapps_launch_from", bVar.FK());
         }
-        if (!TextUtils.isEmpty(bVar.FH())) {
-            intent.putExtra("aiapps_launch_scheme", bVar.FH());
+        if (!TextUtils.isEmpty(bVar.FL())) {
+            intent.putExtra("aiapps_launch_scheme", bVar.FL());
         }
         if (!TextUtils.isEmpty(bVar.getPage())) {
             intent.putExtra("aiapps_page", bVar.getPage());
         }
-        if (!TextUtils.isEmpty(bVar.FM())) {
-            intent.putExtra("aiapps_not_in_history", bVar.FM());
+        if (!TextUtils.isEmpty(bVar.FQ())) {
+            intent.putExtra("aiapps_not_in_history", bVar.FQ());
         }
-        if (!TextUtils.isEmpty(bVar.FN())) {
-            intent.putExtra("aiapps_app_open_url", bVar.FN());
+        if (!TextUtils.isEmpty(bVar.FR())) {
+            intent.putExtra("aiapps_app_open_url", bVar.FR());
         }
-        if (!TextUtils.isEmpty(bVar.FO())) {
-            intent.putExtra("aiapps_app_download_url", bVar.FO());
+        if (!TextUtils.isEmpty(bVar.FS())) {
+            intent.putExtra("aiapps_app_download_url", bVar.FS());
         }
-        if (bVar.Ci() != null) {
-            intent.putExtra("aiapps_swan_core_version", bVar.Ci());
+        if (bVar.Cm() != null) {
+            intent.putExtra("aiapps_swan_core_version", bVar.Cm());
         }
-        if (bVar.Cj() != null) {
-            intent.putExtra("aiapps_extension_core", bVar.Cj());
+        if (bVar.Cn() != null) {
+            intent.putExtra("aiapps_extension_core", bVar.Cn());
         }
-        if (bVar.FP() != null) {
-            intent.putExtra("aiapps_app_cur_swan_version", bVar.FP());
+        if (bVar.FT() != null) {
+            intent.putExtra("aiapps_app_cur_swan_version", bVar.FT());
         }
-        intent.putExtra("aiapps_app_console_switch", com.baidu.swan.apps.console.b.dp(bVar.getAppKey()));
-        intent.putExtra("remoteDebugUrl", bVar.FV());
-        intent.putExtra("aiapps_app_launch_flags", bVar.FS());
+        intent.putExtra("aiapps_app_console_switch", com.baidu.swan.apps.console.b.dr(bVar.getAppKey()));
+        intent.putExtra("remoteDebugUrl", bVar.FZ());
+        intent.putExtra("aiapps_app_launch_flags", bVar.FW());
         return intent;
     }
 
@@ -147,19 +147,19 @@ public final class b {
             return null;
         }
         Intent intent = new Intent();
-        intent.putExtra("swan_pms_db_info", bVar.FW());
+        intent.putExtra("swan_pms_db_info", bVar.Ga());
         return intent;
     }
 
-    public static b Fs() {
+    public static b Fw() {
         b bVar = new b();
-        bVar.ed("小程序测试");
+        bVar.ef("小程序测试");
         bVar.setAppId("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
         bVar.F(Color.parseColor("#FF308EF0"));
-        bVar.eM("1230000000000000");
-        bVar.eJ("小程序简介");
-        bVar.eK("测试服务类目");
-        bVar.eL("测试主体信息");
+        bVar.eO("1230000000000000");
+        bVar.eL("小程序简介");
+        bVar.eM("测试服务类目");
+        bVar.eN("测试主体信息");
         bVar.setAppKey("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
         bVar.setVersion("1.0");
         bVar.setIconUrl("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");
@@ -179,15 +179,15 @@ public final class b {
         if (TextUtils.isEmpty(str) || cVar == null) {
             return null;
         }
-        if (cVar.gO(aa.iq(str))) {
+        if (cVar.gQ(aa.is(str))) {
             return str;
         }
         return null;
     }
 
-    public JSONObject Ft() {
-        if (this.aze != null) {
-            String queryParameter = Uri.parse(this.aze).getQueryParameter("_swaninfo");
+    public JSONObject Fx() {
+        if (this.azC != null) {
+            String queryParameter = Uri.parse(this.azC).getQueryParameter("_swaninfo");
             if (!TextUtils.isEmpty(queryParameter)) {
                 try {
                     return new JSONObject(queryParameter).optJSONObject("baidusearch");
@@ -206,121 +206,121 @@ public final class b {
     }
 
     @NonNull
-    public Bundle Fu() {
-        if (this.azf == null) {
-            this.azf = new Bundle();
+    public Bundle Fy() {
+        if (this.azD == null) {
+            this.azD = new Bundle();
         }
-        return this.azf;
+        return this.azD;
     }
 
     public void aj(String str, String str2) {
         if (str != null && str2 != null) {
-            Fu().putString(str, str2);
+            Fy().putString(str, str2);
         }
     }
 
-    private boolean Fv() {
-        return (TextUtils.isEmpty(getAppId()) || TextUtils.isEmpty(Cv())) ? false : true;
+    private boolean Fz() {
+        return (TextUtils.isEmpty(getAppId()) || TextUtils.isEmpty(Cz())) ? false : true;
     }
 
-    public String Cu() {
-        return "SwanAppLaunchInfo{mAppId='" + getAppId() + "', mAppKey='" + getAppKey() + "', mAppTitle='" + Cv() + "', pmsAppInfo is null='" + (this.azq == null) + "', launchFrom='" + FG() + "', launchScheme='" + FH() + "', page='" + getPage() + "', mErrorCode=" + Fx() + ", mErrorDetail='" + Fy() + "', mErrorMsg='" + Fz() + "', mResumeDate='" + FA() + "', maxSwanVersion='" + FI() + "', minSwanVersion='" + FJ() + "', mVersion='" + getVersion() + "', mType=" + getType() + ", extraData=" + FK() + ", isDebug=" + isDebug() + ", targetSwanVersion='" + FP() + "', swanCoreVersion=" + Ci() + ", appFrameType=" + FQ() + ", consoleSwitch=" + FR() + ", orientation=" + getOrientation() + ", versionCode='" + getVersionCode() + "', launchFlags=" + FS() + ", swanAppStartTime=" + FT() + ", extStartTimestamp=" + FU() + ", remoteDebug='" + FV() + "', extJSonObject=" + FX() + '}';
+    public String Cy() {
+        return "SwanAppLaunchInfo{mAppId='" + getAppId() + "', mAppKey='" + getAppKey() + "', mAppTitle='" + Cz() + "', pmsAppInfo is null='" + (this.azO == null) + "', launchFrom='" + FK() + "', launchScheme='" + FL() + "', page='" + getPage() + "', mErrorCode=" + FB() + ", mErrorDetail='" + FC() + "', mErrorMsg='" + FD() + "', mResumeDate='" + FE() + "', maxSwanVersion='" + FM() + "', minSwanVersion='" + FN() + "', mVersion='" + getVersion() + "', mType=" + getType() + ", extraData=" + FO() + ", isDebug=" + isDebug() + ", targetSwanVersion='" + FT() + "', swanCoreVersion=" + Cm() + ", appFrameType=" + FU() + ", consoleSwitch=" + FV() + ", orientation=" + getOrientation() + ", versionCode='" + getVersionCode() + "', launchFlags=" + FW() + ", swanAppStartTime=" + FX() + ", extStartTimestamp=" + FY() + ", remoteDebug='" + FZ() + "', extJSonObject=" + Gb() + '}';
     }
 
-    public String Cv() {
-        return this.azq == null ? "" : this.azq.appName;
+    public String Cz() {
+        return this.azO == null ? "" : this.azO.appName;
     }
 
-    public void ed(String str) {
-        if (this.azq != null) {
-            this.azq.appName = str;
+    public void ef(String str) {
+        if (this.azO != null) {
+            this.azO.appName = str;
         }
     }
 
     public String getAppKey() {
-        return this.azq == null ? "" : this.azq.appKey;
+        return this.azO == null ? "" : this.azO.appKey;
     }
 
     public void setAppKey(String str) {
-        if (this.azq != null) {
-            this.azq.appKey = str;
+        if (this.azO != null) {
+            this.azO.appKey = str;
         }
     }
 
     public String getAppId() {
-        return this.azq == null ? "" : this.azq.appId;
+        return this.azO == null ? "" : this.azO.appId;
     }
 
     public void setAppId(String str) {
-        if (this.azq != null) {
-            this.azq.appId = str;
+        if (this.azO != null) {
+            this.azO.appId = str;
         }
     }
 
     public String getIconUrl() {
-        return this.azq == null ? "" : this.azq.iconUrl;
+        return this.azO == null ? "" : this.azO.iconUrl;
     }
 
     public void setIconUrl(String str) {
-        if (this.azq != null) {
-            this.azq.iconUrl = str;
+        if (this.azO != null) {
+            this.azO.iconUrl = str;
         }
-    }
-
-    public String Fw() {
-        return this.azq == null ? "" : this.azq.description;
-    }
-
-    public void eJ(String str) {
-        if (this.azq != null) {
-            this.azq.description = str;
-        }
-    }
-
-    public int Fx() {
-        if (this.azq == null) {
-            return 0;
-        }
-        return this.azq.appStatus;
-    }
-
-    public String Fy() {
-        return this.azq == null ? "" : this.azq.bsH;
-    }
-
-    public String Fz() {
-        return this.azq == null ? "" : this.azq.bsI;
     }
 
     public String FA() {
-        return this.azq == null ? "" : this.azq.auS;
-    }
-
-    public String FB() {
-        return this.azq == null ? "" : this.azq.auV;
-    }
-
-    public void eK(String str) {
-        if (this.azq != null) {
-            this.azq.auV = str;
-        }
-    }
-
-    public String FC() {
-        return this.azq == null ? "" : this.azq.auW;
+        return this.azO == null ? "" : this.azO.description;
     }
 
     public void eL(String str) {
-        if (this.azq != null) {
-            this.azq.auW = str;
+        if (this.azO != null) {
+            this.azO.description = str;
         }
     }
 
-    public SwanAppBearInfo FD() {
-        if (this.azq == null) {
+    public int FB() {
+        if (this.azO == null) {
+            return 0;
+        }
+        return this.azO.appStatus;
+    }
+
+    public String FC() {
+        return this.azO == null ? "" : this.azO.btf;
+    }
+
+    public String FD() {
+        return this.azO == null ? "" : this.azO.btg;
+    }
+
+    public String FE() {
+        return this.azO == null ? "" : this.azO.avq;
+    }
+
+    public String FF() {
+        return this.azO == null ? "" : this.azO.avt;
+    }
+
+    public void eM(String str) {
+        if (this.azO != null) {
+            this.azO.avt = str;
+        }
+    }
+
+    public String FG() {
+        return this.azO == null ? "" : this.azO.avu;
+    }
+
+    public void eN(String str) {
+        if (this.azO != null) {
+            this.azO.avu = str;
+        }
+    }
+
+    public SwanAppBearInfo FH() {
+        if (this.azO == null) {
             return null;
         }
-        String str = this.azq.auX;
+        String str = this.azO.avv;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -328,13 +328,13 @@ public final class b {
     }
 
     public String getVersion() {
-        return this.azq == null ? "" : String.valueOf(this.azq.versionCode);
+        return this.azO == null ? "" : String.valueOf(this.azO.versionCode);
     }
 
     public void setVersion(String str) {
-        if (!TextUtils.isEmpty(str) && this.azq != null) {
+        if (!TextUtils.isEmpty(str) && this.azO != null) {
             try {
-                this.azq.versionCode = Integer.parseInt(str);
+                this.azO.versionCode = Integer.parseInt(str);
             } catch (NumberFormatException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -344,58 +344,58 @@ public final class b {
     }
 
     public String getVersionCode() {
-        return this.azq == null ? "" : this.azq.versionName;
+        return this.azO == null ? "" : this.azO.versionName;
     }
 
     public int getType() {
-        if (this.azq == null) {
+        if (this.azO == null) {
             return 0;
         }
-        return this.azq.type;
+        return this.azO.type;
     }
 
-    public long FE() {
-        if (this.azq == null) {
+    public long FI() {
+        if (this.azO == null) {
             return 0L;
         }
-        return this.azq.bsJ;
+        return this.azO.bth;
     }
 
     public int getOrientation() {
-        if (this.azq == null) {
+        if (this.azO == null) {
             return 0;
         }
-        return this.azq.orientation;
+        return this.azO.orientation;
     }
 
     public void setOrientation(int i) {
-        if (this.azq != null) {
-            this.azq.orientation = i;
+        if (this.azO != null) {
+            this.azO.orientation = i;
         }
     }
 
-    public long FF() {
-        return this.azc;
+    public long FJ() {
+        return this.azA;
     }
 
     public void F(long j) {
-        this.azc = j;
+        this.azA = j;
     }
 
-    public String FG() {
-        return this.azd;
+    public String FK() {
+        return this.azB;
     }
 
-    public void eM(String str) {
-        this.azd = str;
+    public void eO(String str) {
+        this.azB = str;
     }
 
-    public String FH() {
-        return this.aze;
+    public String FL() {
+        return this.azC;
     }
 
-    public void eN(String str) {
-        this.aze = str;
+    public void eP(String str) {
+        this.azC = str;
     }
 
     public String getPage() {
@@ -406,164 +406,164 @@ public final class b {
         this.page = str;
     }
 
-    public String FI() {
-        return this.auT;
-    }
-
-    public void eO(String str) {
-        this.auT = str;
-    }
-
-    public String FJ() {
-        return this.auU;
-    }
-
-    public void eP(String str) {
-        this.auU = str;
-    }
-
-    public Bundle FK() {
-        return this.azf;
-    }
-
-    public void p(Bundle bundle) {
-        this.azf = bundle;
-    }
-
-    public String FL() {
-        return this.azg;
+    public String FM() {
+        return this.avr;
     }
 
     public void eQ(String str) {
-        this.azg = str;
-    }
-
-    public boolean isDebug() {
-        return this.azh;
-    }
-
-    public void setDebug(boolean z) {
-        this.azh = z;
-    }
-
-    public String FM() {
-        return this.azi;
-    }
-
-    public void eR(String str) {
-        this.azi = str;
+        this.avr = str;
     }
 
     public String FN() {
-        return this.auZ;
+        return this.avs;
     }
 
-    public void eS(String str) {
-        this.auZ = str;
+    public void eR(String str) {
+        this.avs = str;
     }
 
-    public String FO() {
-        return this.ava;
+    public Bundle FO() {
+        return this.azD;
     }
 
-    public void eT(String str) {
-        this.ava = str;
+    public void p(Bundle bundle) {
+        this.azD = bundle;
     }
 
     public String FP() {
-        return this.avb;
+        return this.azE;
+    }
+
+    public void eS(String str) {
+        this.azE = str;
+    }
+
+    public boolean isDebug() {
+        return this.azF;
+    }
+
+    public void setDebug(boolean z) {
+        this.azF = z;
+    }
+
+    public String FQ() {
+        return this.azG;
+    }
+
+    public void eT(String str) {
+        this.azG = str;
+    }
+
+    public String FR() {
+        return this.avx;
     }
 
     public void eU(String str) {
-        this.avb = str;
+        this.avx = str;
     }
 
-    public SwanCoreVersion Ci() {
-        return this.azj;
-    }
-
-    public void a(SwanCoreVersion swanCoreVersion) {
-        this.azj = swanCoreVersion;
-    }
-
-    public ExtensionCore Cj() {
-        return this.azk;
-    }
-
-    public void a(ExtensionCore extensionCore) {
-        this.azk = extensionCore;
-    }
-
-    public int FQ() {
-        return this.avm;
-    }
-
-    public void cr(int i) {
-        this.avm = i;
-    }
-
-    public boolean FR() {
-        return this.azl;
-    }
-
-    public void aW(boolean z) {
-        this.azl = z;
-    }
-
-    public int FS() {
-        return this.azm;
-    }
-
-    public void cF(int i) {
-        this.azm = i;
-    }
-
-    public long FT() {
-        return this.azn;
-    }
-
-    public void G(long j) {
-        this.azn = j;
-    }
-
-    public long FU() {
-        return this.azo;
-    }
-
-    public void H(long j) {
-        this.azo = j;
-    }
-
-    public String FV() {
-        return this.azp;
+    public String FS() {
+        return this.avy;
     }
 
     public void eV(String str) {
-        this.azp = str;
+        this.avy = str;
     }
 
-    public PMSAppInfo FW() {
-        return this.azq;
+    public String FT() {
+        return this.avz;
+    }
+
+    public void eW(String str) {
+        this.avz = str;
+    }
+
+    public SwanCoreVersion Cm() {
+        return this.azH;
+    }
+
+    public void a(SwanCoreVersion swanCoreVersion) {
+        this.azH = swanCoreVersion;
+    }
+
+    public ExtensionCore Cn() {
+        return this.azI;
+    }
+
+    public void a(ExtensionCore extensionCore) {
+        this.azI = extensionCore;
+    }
+
+    public int FU() {
+        return this.avK;
+    }
+
+    public void cs(int i) {
+        this.avK = i;
+    }
+
+    public boolean FV() {
+        return this.azJ;
+    }
+
+    public void aW(boolean z) {
+        this.azJ = z;
+    }
+
+    public int FW() {
+        return this.azK;
+    }
+
+    public void cG(int i) {
+        this.azK = i;
+    }
+
+    public long FX() {
+        return this.azL;
+    }
+
+    public void G(long j) {
+        this.azL = j;
+    }
+
+    public long FY() {
+        return this.azM;
+    }
+
+    public void H(long j) {
+        this.azM = j;
+    }
+
+    public String FZ() {
+        return this.azN;
+    }
+
+    public void eX(String str) {
+        this.azN = str;
+    }
+
+    public PMSAppInfo Ga() {
+        return this.azO;
     }
 
     public void e(PMSAppInfo pMSAppInfo) {
-        this.azq = pMSAppInfo;
+        this.azO = pMSAppInfo;
     }
 
-    public JSONObject FX() {
-        return this.azr;
+    public JSONObject Gb() {
+        return this.azP;
     }
 
     public void E(JSONObject jSONObject) {
-        this.azr = jSONObject;
+        this.azP = jSONObject;
     }
 
     public static b a(b bVar, b bVar2) {
-        if (bVar2 == null || bVar2.azq == null) {
+        if (bVar2 == null || bVar2.azO == null) {
             return bVar;
         }
-        if (bVar != null && bVar.azq != null && bVar.azq.versionCode < bVar2.azq.versionCode) {
-            bVar2.azq = bVar.azq;
+        if (bVar != null && bVar.azO != null && bVar.azO.versionCode < bVar2.azO.versionCode) {
+            bVar2.azO = bVar.azO;
             return bVar2;
         }
         return bVar2;

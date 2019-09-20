@@ -3,44 +3,44 @@ package com.baidu.tbadk.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean czm = com.baidu.tbadk.core.sharedPref.b.ahQ().getBoolean("page_stay_duration_switch", false);
+    private boolean cAi = com.baidu.tbadk.core.sharedPref.b.ahU().getBoolean("page_stay_duration_switch", false);
 
-    public abstract boolean auV();
+    public abstract boolean avh();
 
-    public abstract int auW();
+    public abstract int avi();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.ava()) {
+        if (dVar == null || dVar.avm()) {
             return false;
         }
-        if (dVar.czn) {
-            dVar.ao(c.e(dVar.auX(), 6));
+        if (dVar.cAj) {
+            dVar.ao(c.e(dVar.avj(), 6));
         } else {
-            int ave = auW() > e.avb().ave() ? e.avb().ave() : auW();
-            dVar.ao(c.e(dVar.auX(), ave <= 5 ? ave : 5));
+            int avq = avi() > e.avn().avq() ? e.avn().avq() : avi();
+            dVar.ao(c.e(dVar.avj(), avq <= 5 ? avq : 5));
         }
         return true;
     }
 
-    private void fB(boolean z) {
-        if (this.czm != z) {
-            com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("page_stay_duration_switch", true);
-            this.czm = z;
+    private void fE(boolean z) {
+        if (this.cAi != z) {
+            com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("page_stay_duration_switch", true);
+            this.cAi = z;
         }
     }
 
     public boolean isSwitchOpen() {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-            return this.czm;
+            return this.cAi;
         }
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-            fB(false);
+            fE(false);
             return false;
-        } else if (!e.avb().avd()) {
-            fB(false);
+        } else if (!e.avn().avp()) {
+            fE(false);
             return false;
         } else {
-            fB(true);
+            fE(true);
             return true;
         }
     }

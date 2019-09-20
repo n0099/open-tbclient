@@ -10,13 +10,13 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d extends g implements q {
     @Nullable
-    Drawable kcx;
+    Drawable keV;
     @Nullable
-    private r keP;
+    private r khm;
 
     public d(Drawable drawable) {
         super(drawable);
-        this.kcx = null;
+        this.keV = null;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -31,13 +31,13 @@ public class d extends g implements q {
 
     @Override // com.facebook.drawee.drawable.q
     public void a(@Nullable r rVar) {
-        this.keP = rVar;
+        this.khm = rVar;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        if (this.keP != null) {
-            this.keP.sz(z);
+        if (this.khm != null) {
+            this.khm.sC(z);
         }
         return super.setVisible(z, z2);
     }
@@ -46,19 +46,19 @@ public class d extends g implements q {
     @SuppressLint({"WrongCall"})
     public void draw(Canvas canvas) {
         if (isVisible()) {
-            if (this.keP != null) {
-                this.keP.cGQ();
+            if (this.khm != null) {
+                this.khm.cHE();
             }
             super.draw(canvas);
-            if (this.kcx != null) {
-                this.kcx.setBounds(getBounds());
-                this.kcx.draw(canvas);
+            if (this.keV != null) {
+                this.keV.setBounds(getBounds());
+                this.keV.draw(canvas);
             }
         }
     }
 
     public void g(@Nullable Drawable drawable) {
-        this.kcx = drawable;
+        this.keV = drawable;
         invalidateSelf();
     }
 }

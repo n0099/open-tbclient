@@ -1,6 +1,5 @@
 package okhttp3.internal.connection;
 
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import java.io.IOException;
 import java.lang.ref.Reference;
@@ -319,7 +318,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 contentLength = 0;
             }
             Source newFixedLengthSource = http1Codec.newFixedLengthSource(contentLength);
-            Util.skipAll(newFixedLengthSource, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.MILLISECONDS);
+            Util.skipAll(newFixedLengthSource, Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
             newFixedLengthSource.close();
             switch (build.code()) {
                 case 200:

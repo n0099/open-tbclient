@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
-    private TextView fpT;
-    private TextView fpU;
-    private TextView fpV;
+    private TextView frH;
+    private TextView frI;
+    private TextView frJ;
     private Context mContext;
     private View mRoot;
 
@@ -37,32 +37,32 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
 
     private void initView() {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_manager_apply_layout, this);
-        this.fpT = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
-        this.fpU = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
-        this.fpV = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
+        this.frH = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
+        this.frI = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
+        this.frJ = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
     }
 
-    public void at(String str, int i) {
-        this.fpU.setText(str);
+    public void av(String str, int i) {
+        this.frI.setText(str);
         if (i > 0) {
-            this.fpV.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(i)));
-            this.fpT.setEnabled(true);
-            this.fpT.setClickable(true);
-            am.f(this.fpU, R.color.cp_link_tip_a, 1);
-            am.f(this.fpV, R.color.cp_cont_d, 1);
-            am.k(this.fpT, R.drawable.bg_manager_apply);
+            this.frJ.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(i)));
+            this.frH.setEnabled(true);
+            this.frH.setClickable(true);
+            am.f(this.frI, R.color.cp_link_tip_a, 1);
+            am.f(this.frJ, R.color.cp_cont_d, 1);
+            am.k(this.frH, R.drawable.bg_manager_apply);
             return;
         }
-        this.fpV.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-        this.fpT.setEnabled(false);
-        this.fpT.setClickable(false);
-        am.f(this.fpU, R.color.cp_cont_d, 1);
-        am.f(this.fpV, R.color.cp_cont_d, 1);
-        am.k(this.fpT, R.drawable.icon_number_add_d);
+        this.frJ.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+        this.frH.setEnabled(false);
+        this.frH.setClickable(false);
+        am.f(this.frI, R.color.cp_cont_d, 1);
+        am.f(this.frJ, R.color.cp_cont_d, 1);
+        am.k(this.frH, R.drawable.icon_number_add_d);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.fpT.setOnClickListener(onClickListener);
+        this.frH.setOnClickListener(onClickListener);
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.ad.browser;
 
 import android.os.Build;
 import com.baidu.adp.lib.util.j;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.l;
@@ -19,18 +20,18 @@ class b extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String abl() {
+    public String abp() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(ahC = false, value = "showToast")
+    @o(ahG = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).agS();
+            BdToast.b(getContext(), jSONObject.optString("message")).agW();
         }
     }
 
-    @o(ahC = false, value = "showNetStatus")
+    @o(ahG = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -56,7 +57,7 @@ class b extends n {
         return jSONObject;
     }
 
-    @o(ahC = false, value = "showDeviceInfo")
+    @o(ahG = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
@@ -68,7 +69,7 @@ class b extends n {
             jSONObject.put("systemName", "android");
             jSONObject.put("systemVersion", str);
             jSONObject.put("model", str2);
-            jSONObject.put("cuid", cuid);
+            jSONObject.put(DpStatConstants.KEY_CUID, cuid);
             jSONObject.put("resolution", str3);
             jSONObject.put("appVersion", versionName);
         } catch (JSONException e) {

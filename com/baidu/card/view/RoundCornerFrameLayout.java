@@ -68,7 +68,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         this.YP = f;
         if (this.YS != null) {
             this.YS.recycle();
-            ra();
+            rb();
         }
     }
 
@@ -87,7 +87,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
             if (this.YS != null && !this.YS.isRecycled()) {
                 this.YS.recycle();
             }
-            ra();
+            rb();
         }
     }
 
@@ -97,7 +97,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         }
     }
 
-    private void ra() {
+    private void rb() {
         if (getMeasuredHeight() > 0 && getMeasuredWidth() > 0) {
             this.qe.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
             try {

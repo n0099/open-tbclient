@@ -1,67 +1,43 @@
 package com.baidu.sapi2.views;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.TextView;
-import android.widget.ViewSwitcher;
 import com.baidu.d.a.a;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.permissions.AlertDialogInterface;
 /* loaded from: classes2.dex */
-public class CustomAlertDialog extends Dialog {
+public class CustomAlertDialog extends Dialog implements AlertDialogInterface {
+    private Context context;
     private TextView msgText;
     private TextView negativeBtn;
-    private TextView neutralBtn;
     private TextView positiveBtn;
     private TextView titleText;
-    private ViewSwitcher viewSwitcher;
 
     public CustomAlertDialog(Context context) {
         super(context, a.h.SapiSdkBeautyDialog);
-        init();
+        init(context);
     }
 
-    public CustomAlertDialog(Context context, int i) {
-        super(context, i);
-        init();
-    }
-
-    public CustomAlertDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
-        super(context, z, onCancelListener);
-        init();
-    }
-
-    private void init() {
+    private void init(Context context) {
+        this.context = context;
         setContentView(a.f.layout_sapi_sdk_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.viewSwitcher = (ViewSwitcher) findViewById(a.e.view_switcher);
         this.titleText = (TextView) findViewById(a.e.title_text);
         this.msgText = (TextView) findViewById(a.e.msg_text);
         this.positiveBtn = (TextView) findViewById(a.e.positive_btn);
         this.negativeBtn = (TextView) findViewById(a.e.negative_btn);
-        this.neutralBtn = (TextView) findViewById(a.e.neutral_btn);
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
             ((ViewGroup) this.titleText.getRootView()).addView(((LayoutInflater) getContext().getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
         }
     }
 
-    public void setBtnCount(int i) {
-        if (i < 1) {
-            i = 1;
-        } else if (i > 2) {
-            i = 2;
-        }
-        if (i == 2) {
-            this.viewSwitcher.setDisplayedChild(0);
-        } else {
-            this.viewSwitcher.setDisplayedChild(1);
-        }
-    }
-
+    @Override // com.baidu.sapi2.permissions.AlertDialogInterface
     public void setTitleText(String str) {
         this.titleText.setText(str);
     }
@@ -70,6 +46,7 @@ public class CustomAlertDialog extends Dialog {
         this.titleText.setVisibility(i);
     }
 
+    @Override // com.baidu.sapi2.permissions.AlertDialogInterface
     public void setMessageText(String str) {
         this.msgText.setText(str);
     }
@@ -78,18 +55,44 @@ public class CustomAlertDialog extends Dialog {
         this.msgText.setVisibility(i);
     }
 
-    public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
+    @Override // com.baidu.sapi2.permissions.AlertDialogInterface
+    public void setPositiveBtn(String str, final View.OnClickListener onClickListener) {
         this.positiveBtn.setText(str);
-        this.positiveBtn.setOnClickListener(onClickListener);
+        this.positiveBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.views.CustomAlertDialog.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                try {
+                    ViewUtility.dismissDialog((Activity) CustomAlertDialog.this.context, CustomAlertDialog.this);
+                } catch (Exception e) {
+                }
+                onClickListener.onClick(view);
+            }
+        });
     }
 
-    public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
+    @Override // com.baidu.sapi2.permissions.AlertDialogInterface
+    public void setNegativeBtn(String str, final View.OnClickListener onClickListener) {
         this.negativeBtn.setText(str);
-        this.negativeBtn.setOnClickListener(onClickListener);
+        this.negativeBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.views.CustomAlertDialog.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                try {
+                    ViewUtility.dismissDialog((Activity) CustomAlertDialog.this.context, CustomAlertDialog.this);
+                } catch (Exception e) {
+                }
+                onClickListener.onClick(view);
+            }
+        });
     }
 
-    public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
-        this.neutralBtn.setText(str);
-        this.neutralBtn.setOnClickListener(onClickListener);
+    @Override // com.baidu.sapi2.permissions.AlertDialogInterface
+    public void setCancel(boolean z) {
+        setCancelable(z);
+        setCanceledOnTouchOutside(z);
+    }
+
+    @Override // com.baidu.sapi2.permissions.AlertDialogInterface
+    public void showDialog() {
+        show();
     }
 }

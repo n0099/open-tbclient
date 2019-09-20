@@ -6,48 +6,48 @@ import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes2.dex */
 public class a implements Closeable, Flushable {
-    private static final String[] kqM = new String[128];
-    private static final String[] kqN;
+    private static final String[] ktj = new String[128];
+    private static final String[] ktk;
     private String indent;
-    private boolean knC;
-    private boolean knD;
-    private boolean knG;
-    private final Writer kqO;
-    private int[] kqP = new int[32];
-    private int kqQ = 0;
-    private String kqR;
+    private boolean kpZ;
+    private boolean kqa;
+    private boolean kqd;
+    private final Writer ktl;
+    private int[] ktm = new int[32];
+    private int ktn = 0;
+    private String kto;
     private String separator;
 
     static {
         for (int i = 0; i <= 31; i++) {
-            kqM[i] = String.format("\\u%04x", Integer.valueOf(i));
+            ktj[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        kqM[34] = "\\\"";
-        kqM[92] = "\\\\";
-        kqM[9] = "\\t";
-        kqM[8] = "\\b";
-        kqM[10] = "\\n";
-        kqM[13] = "\\r";
-        kqM[12] = "\\f";
-        kqN = (String[]) kqM.clone();
-        kqN[60] = "\\u003c";
-        kqN[62] = "\\u003e";
-        kqN[38] = "\\u0026";
-        kqN[61] = "\\u003d";
-        kqN[39] = "\\u0027";
+        ktj[34] = "\\\"";
+        ktj[92] = "\\\\";
+        ktj[9] = "\\t";
+        ktj[8] = "\\b";
+        ktj[10] = "\\n";
+        ktj[13] = "\\r";
+        ktj[12] = "\\f";
+        ktk = (String[]) ktj.clone();
+        ktk[60] = "\\u003c";
+        ktk[62] = "\\u003e";
+        ktk[38] = "\\u0026";
+        ktk[61] = "\\u003d";
+        ktk[39] = "\\u0027";
     }
 
     public a(Writer writer) {
-        Ez(6);
+        ED(6);
         this.separator = ":";
-        this.knC = true;
+        this.kpZ = true;
         if (writer == null) {
             throw new NullPointerException("out == null");
         }
-        this.kqO = writer;
+        this.ktl = writer;
     }
 
-    public final void HZ(String str) {
+    public final void Iz(String str) {
         if (str.length() == 0) {
             this.indent = null;
             this.separator = ":";
@@ -57,193 +57,193 @@ public class a implements Closeable, Flushable {
         this.separator = ": ";
     }
 
-    public final void sI(boolean z) {
-        this.knG = z;
+    public final void sL(boolean z) {
+        this.kqd = z;
     }
 
-    public boolean cMV() {
-        return this.knG;
+    public boolean cNJ() {
+        return this.kqd;
     }
 
-    public final void sJ(boolean z) {
-        this.knD = z;
+    public final void sM(boolean z) {
+        this.kqa = z;
     }
 
-    public final boolean cMW() {
-        return this.knD;
+    public final boolean cNK() {
+        return this.kqa;
     }
 
-    public final void sK(boolean z) {
-        this.knC = z;
+    public final void sN(boolean z) {
+        this.kpZ = z;
     }
 
-    public final boolean cMX() {
-        return this.knC;
+    public final boolean cNL() {
+        return this.kpZ;
     }
 
-    public a cMO() throws IOException {
-        cMZ();
+    public a cNC() throws IOException {
+        cNN();
         return aN(1, "[");
     }
 
-    public a cMP() throws IOException {
+    public a cND() throws IOException {
         return m(1, 2, "]");
     }
 
-    public a cMQ() throws IOException {
-        cMZ();
+    public a cNE() throws IOException {
+        cNN();
         return aN(3, "{");
     }
 
-    public a cMR() throws IOException {
+    public a cNF() throws IOException {
         return m(3, 5, "}");
     }
 
     private a aN(int i, String str) throws IOException {
         beforeValue();
-        Ez(i);
-        this.kqO.write(str);
+        ED(i);
+        this.ktl.write(str);
         return this;
     }
 
     private a m(int i, int i2, String str) throws IOException {
-        int cMY = cMY();
-        if (cMY != i2 && cMY != i) {
+        int cNM = cNM();
+        if (cNM != i2 && cNM != i) {
             throw new IllegalStateException("Nesting problem.");
         }
-        if (this.kqR != null) {
-            throw new IllegalStateException("Dangling name: " + this.kqR);
+        if (this.kto != null) {
+            throw new IllegalStateException("Dangling name: " + this.kto);
         }
-        this.kqQ--;
-        if (cMY == i2) {
+        this.ktn--;
+        if (cNM == i2) {
             newline();
         }
-        this.kqO.write(str);
+        this.ktl.write(str);
         return this;
     }
 
-    private void Ez(int i) {
-        if (this.kqQ == this.kqP.length) {
-            int[] iArr = new int[this.kqQ * 2];
-            System.arraycopy(this.kqP, 0, iArr, 0, this.kqQ);
-            this.kqP = iArr;
+    private void ED(int i) {
+        if (this.ktn == this.ktm.length) {
+            int[] iArr = new int[this.ktn * 2];
+            System.arraycopy(this.ktm, 0, iArr, 0, this.ktn);
+            this.ktm = iArr;
         }
-        int[] iArr2 = this.kqP;
-        int i2 = this.kqQ;
-        this.kqQ = i2 + 1;
+        int[] iArr2 = this.ktm;
+        int i2 = this.ktn;
+        this.ktn = i2 + 1;
         iArr2[i2] = i;
     }
 
-    private int cMY() {
-        if (this.kqQ == 0) {
+    private int cNM() {
+        if (this.ktn == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return this.kqP[this.kqQ - 1];
+        return this.ktm[this.ktn - 1];
     }
 
-    private void EA(int i) {
-        this.kqP[this.kqQ - 1] = i;
+    private void EE(int i) {
+        this.ktm[this.ktn - 1] = i;
     }
 
-    public a HX(String str) throws IOException {
+    public a Ix(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        if (this.kqR != null) {
+        if (this.kto != null) {
             throw new IllegalStateException();
         }
-        if (this.kqQ == 0) {
+        if (this.ktn == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.kqR = str;
+        this.kto = str;
         return this;
     }
 
-    private void cMZ() throws IOException {
-        if (this.kqR != null) {
-            cNa();
-            string(this.kqR);
-            this.kqR = null;
+    private void cNN() throws IOException {
+        if (this.kto != null) {
+            cNO();
+            string(this.kto);
+            this.kto = null;
         }
     }
 
-    public a HY(String str) throws IOException {
+    public a Iy(String str) throws IOException {
         if (str == null) {
-            return cMS();
+            return cNG();
         }
-        cMZ();
+        cNN();
         beforeValue();
         string(str);
         return this;
     }
 
-    public a cMS() throws IOException {
-        if (this.kqR != null) {
-            if (this.knC) {
-                cMZ();
+    public a cNG() throws IOException {
+        if (this.kto != null) {
+            if (this.kpZ) {
+                cNN();
             } else {
-                this.kqR = null;
+                this.kto = null;
                 return this;
             }
         }
         beforeValue();
-        this.kqO.write("null");
+        this.ktl.write("null");
         return this;
     }
 
-    public a sH(boolean z) throws IOException {
-        cMZ();
+    public a sK(boolean z) throws IOException {
+        cNN();
         beforeValue();
-        this.kqO.write(z ? "true" : "false");
+        this.ktl.write(z ? "true" : "false");
         return this;
     }
 
     public a m(Boolean bool) throws IOException {
         if (bool == null) {
-            return cMS();
+            return cNG();
         }
-        cMZ();
+        cNN();
         beforeValue();
-        this.kqO.write(bool.booleanValue() ? "true" : "false");
+        this.ktl.write(bool.booleanValue() ? "true" : "false");
         return this;
     }
 
-    public a eN(long j) throws IOException {
-        cMZ();
+    public a eQ(long j) throws IOException {
+        cNN();
         beforeValue();
-        this.kqO.write(Long.toString(j));
+        this.ktl.write(Long.toString(j));
         return this;
     }
 
     public a a(Number number) throws IOException {
         if (number == null) {
-            return cMS();
+            return cNG();
         }
-        cMZ();
+        cNN();
         String obj = number.toString();
-        if (!this.knG && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
+        if (!this.kqd && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
         beforeValue();
-        this.kqO.append((CharSequence) obj);
+        this.ktl.append((CharSequence) obj);
         return this;
     }
 
     public void flush() throws IOException {
-        if (this.kqQ == 0) {
+        if (this.ktn == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.kqO.flush();
+        this.ktl.flush();
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.kqO.close();
-        int i = this.kqQ;
-        if (i > 1 || (i == 1 && this.kqP[i - 1] != 7)) {
+        this.ktl.close();
+        int i = this.ktn;
+        if (i > 1 || (i == 1 && this.ktm[i - 1] != 7)) {
             throw new IOException("Incomplete document");
         }
-        this.kqQ = 0;
+        this.ktn = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
@@ -254,8 +254,8 @@ public class a implements Closeable, Flushable {
         int i;
         String str2;
         int i2 = 0;
-        String[] strArr = this.knD ? kqN : kqM;
-        this.kqO.write("\"");
+        String[] strArr = this.kqa ? ktk : ktj;
+        this.ktl.write("\"");
         int length = str.length();
         for (i = 0; i < length; i = i + 1) {
             char charAt = str.charAt(i);
@@ -263,9 +263,9 @@ public class a implements Closeable, Flushable {
                 str2 = strArr[charAt];
                 i = str2 == null ? i + 1 : 0;
                 if (i2 < i) {
-                    this.kqO.write(str, i2, i - i2);
+                    this.ktl.write(str, i2, i - i2);
                 }
-                this.kqO.write(str2);
+                this.ktl.write(str2);
                 i2 = i + 1;
             } else {
                 if (charAt == 8232) {
@@ -275,46 +275,46 @@ public class a implements Closeable, Flushable {
                 }
                 if (i2 < i) {
                 }
-                this.kqO.write(str2);
+                this.ktl.write(str2);
                 i2 = i + 1;
             }
         }
         if (i2 < length) {
-            this.kqO.write(str, i2, length - i2);
+            this.ktl.write(str, i2, length - i2);
         }
-        this.kqO.write("\"");
+        this.ktl.write("\"");
     }
 
     private void newline() throws IOException {
         if (this.indent != null) {
-            this.kqO.write("\n");
-            int i = this.kqQ;
+            this.ktl.write("\n");
+            int i = this.ktn;
             for (int i2 = 1; i2 < i; i2++) {
-                this.kqO.write(this.indent);
+                this.ktl.write(this.indent);
             }
         }
     }
 
-    private void cNa() throws IOException {
-        int cMY = cMY();
-        if (cMY == 5) {
-            this.kqO.write(44);
-        } else if (cMY != 3) {
+    private void cNO() throws IOException {
+        int cNM = cNM();
+        if (cNM == 5) {
+            this.ktl.write(44);
+        } else if (cNM != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
         newline();
-        EA(4);
+        EE(4);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private void beforeValue() throws IOException {
-        switch (cMY()) {
+        switch (cNM()) {
             case 1:
-                EA(2);
+                EE(2);
                 newline();
                 return;
             case 2:
-                this.kqO.append(',');
+                this.ktl.append(',');
                 newline();
                 return;
             case 3:
@@ -322,17 +322,17 @@ public class a implements Closeable, Flushable {
             default:
                 throw new IllegalStateException("Nesting problem.");
             case 4:
-                this.kqO.append((CharSequence) this.separator);
-                EA(5);
+                this.ktl.append((CharSequence) this.separator);
+                EE(5);
                 return;
             case 6:
                 break;
             case 7:
-                if (!this.knG) {
+                if (!this.kqd) {
                     throw new IllegalStateException("JSON must have only one top-level value.");
                 }
                 break;
         }
-        EA(7);
+        EE(7);
     }
 }

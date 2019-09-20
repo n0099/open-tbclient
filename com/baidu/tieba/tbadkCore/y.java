@@ -13,14 +13,14 @@ import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private a jfo;
+    private a jhJ;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
     public interface a {
-        void u(String str, long j);
+        void w(String str, long j);
 
-        void v(String str, long j);
+        void x(String str, long j);
     }
 
     public void setFrom(String str) {
@@ -28,11 +28,11 @@ public class y {
     }
 
     public void a(a aVar) {
-        this.jfo = aVar;
+        this.jhJ = aVar;
     }
 
-    public void C(String str, long j) {
-        new b(str, j, this.mFrom, this.jfo, this, null).execute(new Integer[0]);
+    public void E(String str, long j) {
+        new b(str, j, this.mFrom, this.jhJ, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -41,8 +41,8 @@ public class y {
         private String authSid;
         private int errorCode;
         private String errorMsg;
-        private WeakReference<a> jfp;
-        private WeakReference<y> jfq;
+        private WeakReference<a> jhK;
+        private WeakReference<y> jhL;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -52,11 +52,11 @@ public class y {
         public b(String str, long j, String str2, a aVar, y yVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.jfp = null;
-            this.jfq = new WeakReference<>(yVar);
+            this.jhK = null;
+            this.jhL = new WeakReference<>(yVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.jfp = new WeakReference<>(aVar);
+            this.jhK = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -76,14 +76,14 @@ public class y {
                     this.mNetwork.o("favo_type", "1");
                     this.mNetwork.o("st_type", this.mFrom);
                     this.mNetwork.o("authsid", this.authSid);
-                    this.mNetwork.aiG().ajG().mIsNeedTbs = true;
-                    String aii = this.mNetwork.aii();
-                    if (!aq.isEmpty(aii) && (jSONObject = new JSONObject(aii)) != null) {
+                    this.mNetwork.aiK().ajM().mIsNeedTbs = true;
+                    String aim = this.mNetwork.aim();
+                    if (!aq.isEmpty(aim) && (jSONObject = new JSONObject(aim)) != null) {
                         this.errorCode = jSONObject.optInt("error_code");
                         this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                         this.tokenData = AuthTokenData.parse(jSONObject);
                     }
-                    if (this.mNetwork.aiG().ajH().isRequestSuccess()) {
+                    if (this.mNetwork.aiK().ajN().isRequestSuccess()) {
                         return 1;
                     }
                 }
@@ -99,23 +99,23 @@ public class y {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.jfp != null) {
+            if (this.jhK != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.jfp.get();
+                a aVar2 = this.jhK.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.aiG().ajH().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.aiK().ajN().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
-                        aVar2.u(this.mForumName, this.mForumId);
+                        aVar2.w(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.mForumId)));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.mForumName));
                         aVar.isSuccess = true;
                     } else {
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            String errorString = this.mNetwork.aiJ() ? this.mNetwork.getErrorString() : this.mNetwork.aiM();
+                            String errorString = this.mNetwork.aiN() ? this.mNetwork.getErrorString() : this.mNetwork.aiQ();
                             aVar.errorMessage = errorString;
-                            aVar2.v(errorString, this.errorCode);
+                            aVar2.x(errorString, this.errorCode);
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, aVar));

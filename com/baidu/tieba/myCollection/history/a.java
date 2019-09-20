@@ -14,20 +14,20 @@ import com.baidu.tieba.R;
 import java.util.Date;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, b> {
-    private TextView cbV;
-    private TextView eiR;
-    private TextView hAa;
+    private TextView ccP;
+    private TextView ekB;
+    private TextView hBW;
     private View mLine;
     private View mRootView;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.hAa = (TextView) view.findViewById(R.id.title);
-        this.cbV = (TextView) view.findViewById(R.id.content);
-        this.cbV.setSingleLine();
-        this.cbV.setEllipsize(TextUtils.TruncateAt.END);
-        this.eiR = (TextView) view.findViewById(R.id.time);
+        this.hBW = (TextView) view.findViewById(R.id.title);
+        this.ccP = (TextView) view.findViewById(R.id.content);
+        this.ccP.setSingleLine();
+        this.ccP.setEllipsize(TextUtils.TruncateAt.END);
+        this.ekB = (TextView) view.findViewById(R.id.time);
         this.mLine = view.findViewById(R.id.line);
     }
 
@@ -37,34 +37,34 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void af(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.af(aVar);
         if (aVar != null) {
-            if (this.hAa != null) {
+            if (this.hBW != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.hAa.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                        this.hBW.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.hAa.setText(aVar.getDescription());
+                        this.hBW.setText(aVar.getDescription());
                     }
-                } else if (aVar.bQg() != null) {
+                } else if (aVar.bQU() != null) {
                     if (aVar.isShareThread()) {
-                        this.hAa.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.bQg()));
+                        this.hBW.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.bQU()));
                     } else {
-                        this.hAa.setText(aVar.bQg());
+                        this.hBW.setText(aVar.bQU());
                     }
                 }
             }
-            if (this.cbV != null) {
+            if (this.ccP != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.cbV.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                    this.ccP.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.cbV.setText(aVar.getForumName());
+                    this.ccP.setText(aVar.getForumName());
                 }
             }
-            if (this.eiR != null) {
+            if (this.ekB != null) {
                 String m = aq.m(new Date(aVar.getTime()));
                 if (m == null) {
                     m = "";
                 }
-                this.eiR.setText(m);
+                this.ekB.setText(m);
             }
         }
     }
@@ -73,10 +73,10 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     @SuppressLint({"ResourceAsColor"})
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         am.k(this.mRootView, R.drawable.list_item_selector);
-        am.k(this.mLine, R.color.cp_bg_line_b);
-        am.f(this.hAa, R.color.cp_cont_b, 1);
-        am.f(this.cbV, R.color.cp_cont_d, 1);
-        am.f(this.eiR, R.color.cp_cont_d, 1);
+        am.k(this.mLine, R.color.cp_bg_line_c);
+        am.f(this.hBW, R.color.cp_cont_b, 1);
+        am.f(this.ccP, R.color.cp_cont_d, 1);
+        am.f(this.ekB, R.color.cp_cont_d, 1);
         return true;
     }
 }

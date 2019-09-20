@@ -7,53 +7,53 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String azH;
-    public com.baidu.swan.apps.an.d.a<b> azJ;
-    private final List<String> azI = new ArrayList();
-    private final List<a> azK = new ArrayList();
-    private String azL = b.class.getPackage().getName();
+    private String aAf;
+    public com.baidu.swan.apps.an.d.a<b> aAh;
+    private final List<String> aAg = new ArrayList();
+    private final List<a> aAi = new ArrayList();
+    private String aAj = b.class.getPackage().getName();
 
-    public b eY(String str) {
-        this.azH = str;
+    public b fa(String str) {
+        this.aAf = str;
         return this;
     }
 
-    public String Gc() {
-        return this.azH;
+    public String Gg() {
+        return this.aAf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> Gd() {
-        return new ArrayList(this.azK);
+    public synchronized List<a> Gh() {
+        return new ArrayList(this.aAi);
     }
 
-    public synchronized a FY() {
+    public synchronized a Gc() {
         a aVar;
         aVar = new a();
-        this.azK.add(aVar);
+        this.aAi.add(aVar);
         return aVar;
     }
 
-    public synchronized a eX(String str) {
-        return FY().fb(str);
+    public synchronized a eZ(String str) {
+        return Gc().fd(str);
     }
 
     public synchronized a ak(String str, String str2) {
-        return eX(str2).eZ(str);
+        return eZ(str2).fb(str);
     }
 
     public b c(com.baidu.swan.apps.an.d.a<b> aVar) {
-        this.azJ = aVar;
+        this.aAh = aVar;
         return this;
     }
 
-    public synchronized b Ge() {
-        return d(this.azJ);
+    public synchronized b Gi() {
+        return d(this.aAh);
     }
 
     public synchronized b d(com.baidu.swan.apps.an.d.a<b> aVar) {
         if (aVar == null) {
-            aVar = new C0188b();
+            aVar = new C0197b();
         }
         aVar.D(this);
         return this;
@@ -61,38 +61,38 @@ public final class b {
 
     /* loaded from: classes2.dex */
     public class a {
-        final List<String> azI;
-        private final List<StackTraceElement> azM;
-        final /* synthetic */ b azN;
+        final List<String> aAg;
+        private final List<StackTraceElement> aAk;
+        final /* synthetic */ b aAl;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.azN = bVar;
+            this.aAl = bVar;
             this.msgs = new ArrayList();
-            this.azI = new ArrayList();
-            this.azM = new ArrayList();
+            this.aAg = new ArrayList();
+            this.aAk = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.azL)) {
-                    this.azM.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.aAj)) {
+                    this.aAk.add(stackTraceElement);
                 }
             }
         }
 
-        public a eZ(String str) {
+        public a fb(String str) {
             this.tag = str;
             return this;
         }
 
-        public a fa(String str) {
-            this.azI.add(str);
+        public a fc(String str) {
+            this.aAg.add(str);
             return this;
         }
 
-        public synchronized a fb(String str) {
+        public synchronized a fd(String str) {
             List<String> list = this.msgs;
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -101,27 +101,27 @@ public final class b {
             return this;
         }
 
-        public synchronized a cH(int i) {
+        public synchronized a cI(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.azM.size() ? this.azM.size() : i2;
+                int size = i2 > this.aAk.size() ? this.aAk.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.azN.eX("[Trace]==> " + this.azM.get(i3).toString());
+                    this.aAl.eZ("[Trace]==> " + this.aAk.get(i3).toString());
                 }
             }
             return this;
         }
 
-        public synchronized a Gg() {
-            return cH(1);
+        public synchronized a Gk() {
+            return cI(1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.v.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0188b implements com.baidu.swan.apps.an.d.a<b> {
-        private C0188b() {
+    public class C0197b implements com.baidu.swan.apps.an.d.a<b> {
+        private C0197b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,10 +129,10 @@ public final class b {
         /* renamed from: a */
         public void D(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.azK) {
+                for (a aVar : bVar.aAi) {
                     for (String str : aVar.msgs) {
-                        String Gc = bVar.Gc();
-                        am(TextUtils.isEmpty(aVar.tag) ? Gc : aVar.tag, Gc + " >>> " + str);
+                        String Gg = bVar.Gg();
+                        am(TextUtils.isEmpty(aVar.tag) ? Gg : aVar.tag, Gg + " >>> " + str);
                     }
                 }
             }

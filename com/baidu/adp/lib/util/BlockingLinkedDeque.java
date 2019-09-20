@@ -1,6 +1,5 @@
 package com.baidu.adp.lib.util;
 
-import android.support.v7.widget.ActivityChooserView;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -37,7 +36,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
     }
 
     public BlockingLinkedDeque() {
-        this((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this(Integer.MAX_VALUE);
     }
 
     public BlockingLinkedDeque(int i) {
@@ -51,7 +50,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
     }
 
     public BlockingLinkedDeque(Collection<? extends E> collection) {
-        this((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this(Integer.MAX_VALUE);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -524,7 +523,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
 
     @Override // java.util.concurrent.BlockingQueue
     public int drainTo(Collection<? super E> collection) {
-        return drainTo(collection, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return drainTo(collection, Integer.MAX_VALUE);
     }
 
     /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: E, ? super E */

@@ -10,18 +10,18 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class q {
     private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.q.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TbPageContext<?> ZK;
+            TbPageContext<?> ZO;
             Object tag = view.getTag();
             if (tag instanceof CompleteTaskToastData) {
                 CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                if (!TextUtils.isEmpty(completeTaskToastData.url) && (ZK = q.ZK()) != null) {
-                    bb.ajE().c(ZK, new String[]{completeTaskToastData.url});
+                if (!TextUtils.isEmpty(completeTaskToastData.url) && (ZO = q.ZO()) != null) {
+                    ba.ajK().c(ZO, new String[]{completeTaskToastData.url});
                     com.baidu.tbadk.BdToken.completeTask.c.S(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
@@ -34,7 +34,7 @@ public class q {
 
     public static void i(int i, long j) {
         if (isMainProcess()) {
-            c.Zg().i(i, j);
+            c.Zk().i(i, j);
         } else {
             a(i, j, "onActivity");
         }
@@ -42,15 +42,15 @@ public class q {
 
     public static void a(int i, int i2, long j) {
         if (isMainProcess()) {
-            c.Zg().k(i, j);
+            c.Zk().k(i, j);
         } else {
-            a(i, i2, j, "onResume");
+            b(i, i2, j, "onResume");
         }
     }
 
     public static void m(int i, long j) {
         if (isMainProcess()) {
-            c.Zg().Zl();
+            c.Zk().Zp();
         } else {
             a(i, j, "onPause");
         }
@@ -58,7 +58,7 @@ public class q {
 
     public static void n(int i, long j) {
         if (isMainProcess()) {
-            c.Zg().Zn();
+            c.Zk().Zr();
         } else {
             a(i, j, "onTouch");
         }
@@ -72,7 +72,7 @@ public class q {
         com.baidu.tbadk.n.b.a("broadcast_type_mission_message", bundle);
     }
 
-    public static void a(int i, int i2, long j, String str) {
+    public static void b(int i, int i2, long j, String str) {
         Bundle bundle = new Bundle();
         bundle.putString("key_message_type", str);
         bundle.putInt("key_pageType", i);
@@ -81,7 +81,7 @@ public class q {
         com.baidu.tbadk.n.b.a("broadcast_type_mission_message", bundle);
     }
 
-    public static TbPageContext ZK() {
+    public static TbPageContext ZO() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof BaseActivity) {
             return ((BaseActivity) currentActivity).getPageContext();
@@ -93,15 +93,15 @@ public class q {
     }
 
     public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
-        TbPageContext ZK;
-        if (completeTaskToastData == null || (ZK = ZK()) == null || ZK.getUniqueId() == null || completeTaskToastData.pageId != ZK.getUniqueId().getId()) {
+        TbPageContext ZO;
+        if (completeTaskToastData == null || (ZO = ZO()) == null || ZO.getUniqueId() == null || completeTaskToastData.pageId != ZO.getUniqueId().getId()) {
             return null;
         }
-        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(ZK.getPageActivity(), completeTaskToastData.message);
+        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(ZO.getPageActivity(), completeTaskToastData.message);
         d.hK(completeTaskToastData.duration);
         d.setOnClickListener(mOnClickListener);
         d.setTag(completeTaskToastData);
-        d.agW();
+        d.aha();
         return d;
     }
 

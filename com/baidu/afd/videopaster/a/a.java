@@ -9,22 +9,22 @@ import com.baidu.afd.videopaster.data.VideoPasterResponseData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes3.dex */
 public class a {
-    private InterfaceC0028a Sp;
-    private VideoPasterResponseData Sq;
+    private InterfaceC0028a So;
+    private VideoPasterResponseData Sp;
     private boolean isLoading;
-    private final HttpMessageListener Rv = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST) { // from class: com.baidu.afd.videopaster.a.a.1
+    private final HttpMessageListener Ru = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST) { // from class: com.baidu.afd.videopaster.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             a.this.isLoading = false;
-            a.this.Sq = (VideoPasterResponseData) httpResponsedMessage;
+            a.this.Sp = (VideoPasterResponseData) httpResponsedMessage;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003431) {
                 if (httpResponsedMessage instanceof VideoPasterResponseData) {
-                    if (a.this.Sp != null) {
-                        a.this.Sp.b(((VideoPasterResponseData) httpResponsedMessage).getPasterData());
+                    if (a.this.So != null) {
+                        a.this.So.b(((VideoPasterResponseData) httpResponsedMessage).getPasterData());
                     }
-                } else if (a.this.Sp != null) {
-                    a.this.Sp.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (a.this.So != null) {
+                    a.this.So.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -40,9 +40,9 @@ public class a {
     }
 
     public a() {
-        this.Rv.setSelfListener(true);
-        this.Rv.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.Rv);
+        this.Ru.setSelfListener(true);
+        this.Ru.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.Ru);
     }
 
     public void a(VideoPasterRequestData videoPasterRequestData) {
@@ -62,24 +62,24 @@ public class a {
     public void reset() {
         cancelRequest();
         this.isLoading = false;
-        this.Sq = null;
+        this.Sp = null;
     }
 
-    public boolean pP() {
+    public boolean pQ() {
         return this.isLoading;
     }
 
-    public VideoPasterResponseData pQ() {
-        return this.Sq;
+    public VideoPasterResponseData pR() {
+        return this.Sp;
     }
 
     public void a(InterfaceC0028a interfaceC0028a) {
-        this.Sp = interfaceC0028a;
+        this.So = interfaceC0028a;
     }
 
     public void onDestroy() {
-        if (this.Rv != null) {
-            MessageManager.getInstance().unRegisterListener(this.Rv);
+        if (this.Ru != null) {
+            MessageManager.getInstance().unRegisterListener(this.Ru);
         }
     }
 }

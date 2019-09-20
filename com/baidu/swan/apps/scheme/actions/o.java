@@ -31,26 +31,26 @@ public class o extends z implements com.baidu.swan.apps.network.f {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
             return false;
         }
-        String Mo = com.baidu.swan.apps.ae.b.Mo();
-        if (TextUtils.isEmpty(Mo)) {
+        String Ms = com.baidu.swan.apps.ae.b.Ms();
+        if (TextUtils.isEmpty(Ms)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
             return false;
         }
-        String aE = com.baidu.swan.apps.storage.b.aE(optString, Mo);
+        String aE = com.baidu.swan.apps.storage.b.aE(optString, Ms);
         if (TextUtils.isEmpty(aE)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
             return false;
         }
         String optString2 = c.optString("fileType");
-        String lh = com.baidu.swan.c.a.lh(aE);
-        if (!TextUtils.isEmpty(lh)) {
-            optString2 = lh;
+        String lj = com.baidu.swan.c.a.lj(aE);
+        if (!TextUtils.isEmpty(lj)) {
+            optString2 = lj;
         } else if (TextUtils.isEmpty(optString2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
             return false;
         }
-        String ij = com.baidu.swan.apps.an.h.ij(optString2);
-        if (TextUtils.isEmpty(ij)) {
+        String il = com.baidu.swan.apps.an.h.il(optString2);
+        if (TextUtils.isEmpty(il)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
             return false;
         }
@@ -66,11 +66,11 @@ public class o extends z implements com.baidu.swan.apps.network.f {
         if (activity == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
             return false;
-        } else if (!com.baidu.swan.apps.an.h.ii(ij)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + ij);
+        } else if (!com.baidu.swan.apps.an.h.ik(il)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + il);
             return false;
-        } else if (!com.baidu.swan.apps.u.a.EC().a(activity, parse, ij)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + ij);
+        } else if (!com.baidu.swan.apps.u.a.EG().a(activity, parse, il)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + il);
             return false;
         } else {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

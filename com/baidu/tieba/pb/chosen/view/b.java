@@ -15,67 +15,67 @@ import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes5.dex */
 public class b {
-    private View enk;
-    private TextView euj;
-    private c.a hHc;
-    private HeadImageView hHt;
-    private TbRichTextView hHu;
-    private ViewStub hHv;
-    private ImageView hHw;
+    private View eoV;
+    private TextView evT;
+    private c.a hIY;
+    private HeadImageView hJp;
+    private TbRichTextView hJq;
+    private ViewStub hJr;
+    private ImageView hJs;
     private View rootView;
 
     public b(ViewStub viewStub, c.a aVar) {
-        this.hHv = viewStub;
-        this.hHc = aVar;
+        this.hJr = viewStub;
+        this.hIY = aVar;
     }
 
     private void initView() {
         if (this.rootView == null) {
-            this.rootView = this.hHv.inflate();
-            this.hHt = (HeadImageView) this.rootView.findViewById(R.id.chosen_pb_comment_head);
-            this.euj = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_name);
-            this.hHu = (TbRichTextView) this.rootView.findViewById(R.id.chosen_pb_comment_content);
-            this.hHw = (ImageView) this.rootView.findViewById(R.id.chosen_pb_comment_reply);
-            this.enk = this.rootView.findViewById(R.id.chosen_pb_comment_line);
-            this.hHu.setTextSize(TbConfig.getContentSize());
+            this.rootView = this.hJr.inflate();
+            this.hJp = (HeadImageView) this.rootView.findViewById(R.id.chosen_pb_comment_head);
+            this.evT = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_name);
+            this.hJq = (TbRichTextView) this.rootView.findViewById(R.id.chosen_pb_comment_content);
+            this.hJs = (ImageView) this.rootView.findViewById(R.id.chosen_pb_comment_reply);
+            this.eoV = this.rootView.findViewById(R.id.chosen_pb_comment_line);
+            this.hJq.setTextSize(TbConfig.getContentSize());
             onChangeSkinType();
         }
     }
 
-    public void nZ(boolean z) {
+    public void od(boolean z) {
         if (this.rootView != null) {
             this.rootView.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType() {
-        am.f(this.euj, R.color.cp_cont_f, 1);
-        am.c(this.hHw, (int) R.drawable.btn_comment_list);
-        am.l(this.enk, R.color.cp_bg_line_b);
-        if (this.hHu != null) {
-            this.hHu.setTextColor(am.getColor(R.color.cp_cont_b));
+        am.f(this.evT, R.color.cp_cont_f, 1);
+        am.c(this.hJs, (int) R.drawable.btn_comment_list);
+        am.l(this.eoV, R.color.cp_bg_line_c);
+        if (this.hJq != null) {
+            this.hJq.setTextColor(am.getColor(R.color.cp_cont_b));
         }
     }
 
     public boolean a(Context context, final Post post, User user) {
         if (post == null || user == null || post.content == null || post.content.isEmpty()) {
-            nZ(false);
+            od(false);
             return false;
         }
         initView();
-        nZ(true);
-        this.euj.setText(user.name_show);
-        this.hHw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.b.1
+        od(true);
+        this.evT.setText(user.name_show);
+        this.hJs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (post != null && post.id != null && b.this.hHc != null) {
-                    b.this.hHc.BH(String.valueOf(post.id));
+                if (post != null && post.id != null && b.this.hIY != null) {
+                    b.this.hIY.Cg(String.valueOf(post.id));
                 }
             }
         });
-        this.hHt.startLoad(user.portrait, 12, false);
-        this.hHu.setVisibility(0);
-        this.hHu.setText(TbRichTextView.a(context, post.content, false));
+        this.hJp.startLoad(user.portrait, 12, false);
+        this.hJq.setVisibility(0);
+        this.hJq.setText(TbRichTextView.a(context, post.content, false));
         return true;
     }
 }

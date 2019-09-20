@@ -175,12 +175,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
-        public View aMO;
+        public View aNm;
         public long id;
         public int position;
 
         public a(View view, int i, long j) {
-            this.aMO = view;
+            this.aNm = view;
             this.position = i;
             this.id = j;
         }
@@ -397,7 +397,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable aMP = null;
+        private Parcelable aNn = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -408,9 +408,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView.this.mDataChanged = true;
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = AdapterView.this.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && this.aMP != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
-                AdapterView.this.onRestoreInstanceState(this.aMP);
-                this.aMP = null;
+            if (AdapterView.this.getAdapter().hasStableIds() && this.aNn != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
+                AdapterView.this.onRestoreInstanceState(this.aNn);
+                this.aNn = null;
             } else {
                 AdapterView.this.rememberSyncState();
             }
@@ -422,7 +422,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             AdapterView.this.mDataChanged = true;
             if (AdapterView.this.getAdapter().hasStableIds()) {
-                this.aMP = AdapterView.this.onSaveInstanceState();
+                this.aNn = AdapterView.this.onSaveInstanceState();
             }
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = 0;

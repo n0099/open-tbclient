@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment fTS;
+    private VideoMiddlePageFragment fVJ;
     private String mFrom;
     private String mId;
 
@@ -32,7 +32,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Intent intent = getIntent();
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
-        btA();
+        buo();
         an anVar = new an("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
             anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom);
@@ -40,15 +40,15 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         TiebaStatic.log(anVar);
     }
 
-    private void btA() {
+    private void buo() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
             VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
             if (videoMiddlePageFragment == null) {
-                videoMiddlePageFragment = VideoMiddlePageFragment.de(this.mFrom, this.mId);
+                videoMiddlePageFragment = VideoMiddlePageFragment.dg(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.fTS = videoMiddlePageFragment;
+            this.fVJ = videoMiddlePageFragment;
         }
     }
 
@@ -57,7 +57,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onResume() {
         super.onResume();
         if (!aq.isEmpty(this.mId)) {
-            com.baidu.tbadk.BdToken.c.Zg().k(com.baidu.tbadk.BdToken.b.bxU, com.baidu.adp.lib.g.b.c(this.mId, 0L));
+            com.baidu.tbadk.BdToken.c.Zk().k(com.baidu.tbadk.BdToken.b.bys, com.baidu.adp.lib.g.b.e(this.mId, 0L));
         }
     }
 
@@ -65,7 +65,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.tbadk.BdToken.c.Zg().Zl();
+        com.baidu.tbadk.BdToken.c.Zk().Zp();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,10 +99,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.fTS == null) {
+        if (keyEvent == null || this.fVJ == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.fTS.rT(i)) {
+        if (this.fVJ.rW(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -128,7 +128,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 arrayList.add("a002");
             }
             pageStayDurationItem.ao(arrayList);
-            pageStayDurationItem.czt = "0";
+            pageStayDurationItem.cAp = "0";
         }
         return pageStayDurationItem;
     }
@@ -138,6 +138,6 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         if (aq.isEmpty(this.mId)) {
             return 0L;
         }
-        return com.baidu.adp.lib.g.b.c(this.mId, 0L);
+        return com.baidu.adp.lib.g.b.e(this.mId, 0L);
     }
 }

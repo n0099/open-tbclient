@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.d.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiAvailability;
@@ -20,6 +21,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     private static final int REQUEST_SIGN_IN_AUTH = 1003;
     private static final int REQUEST_SIGN_IN_CHECK_PASSWORD = 1005;
     private static final int REQUEST_SIGN_IN_UNLOGIN = 1002;
+    private static final int SIGN_IN_NETWORK_CONTROL = 2007;
     public static final String TAG = HuaweiSSOLoginActivity.class.getSimpleName();
     private HuaweiApiClient client;
     private boolean mResolvingError = false;
@@ -66,8 +68,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         this.client.connect(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void loadSSOLogin(String str) {
+    private void loadSSOLogin(String str) {
         if (TextUtils.isEmpty(str)) {
             onFail(-204, getString(a.b.sapi_sdk_third_error_hw));
         } else if (this.sapiWebView != null) {
@@ -85,26 +86,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         HuaweiId.HuaweiIdApi.signIn(this, this.client).setResultCallback(new ResultCallback<SignInResult>() { // from class: com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity.3
             /* JADX DEBUG: Method merged with bridge method */
             public void onResult(SignInResult signInResult) {
-                if (signInResult.isSuccess()) {
-                    SignInHuaweiId signInHuaweiId = signInResult.getSignInHuaweiId();
-                    Log.e(HuaweiSSOLoginActivity.TAG, "account", signInHuaweiId.toString());
-                    HuaweiSSOLoginActivity.this.loadSSOLogin(signInHuaweiId.getAccessToken());
-                    return;
-                }
-                Intent data = signInResult.getData();
-                if (data == null) {
-                    HuaweiSSOLoginActivity.this.onFail(signInResult.getStatus().getStatusCode(), HuaweiSSOLoginActivity.this.getString(a.b.sapi_sdk_third_error_hw));
-                } else if (signInResult.getStatus().getStatusCode() == 2001) {
-                    Log.i(HuaweiSSOLoginActivity.TAG, "帐号未登录");
-                    HuaweiSSOLoginActivity.this.startActivityForResult(data, 1002);
-                } else if (signInResult.getStatus().getStatusCode() == 2002) {
-                    Log.i(HuaweiSSOLoginActivity.TAG, "帐号已登录，需要用户授权");
-                    HuaweiSSOLoginActivity.this.startActivityForResult(data, 1003);
-                } else if (signInResult.getStatus().getStatusCode() != 2004) {
-                    HuaweiSSOLoginActivity.this.onFail(signInResult.getStatus().getStatusCode(), HuaweiSSOLoginActivity.this.getString(a.b.sapi_sdk_third_error_hw));
-                } else {
-                    HuaweiSSOLoginActivity.this.startActivityForResult(data, HuaweiSSOLoginActivity.REQUEST_SIGN_IN_CHECK_PASSWORD);
-                }
+                HuaweiSSOLoginActivity.this.handleSignInResult(signInResult);
             }
         });
     }
@@ -114,7 +96,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         if (this.businessFrom == 2001) {
             Intent intent = new Intent();
             intent.putExtra("result_code", i);
-            intent.putExtra("result_msg", str);
+            intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
             setResult(1002, intent);
         } else if (PassportSDK.getInstance().getWebAuthListener() != null) {
             this.webAuthResult.setResultCode(i);
@@ -154,6 +136,34 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
             onFail(signInResultFromIntent.getStatus().getStatusCode(), getString(a.b.sapi_sdk_third_error_hw));
         } else if (i == REQUEST_SIGN_IN_CHECK_PASSWORD) {
             signIn();
+        } else if (i == 2007) {
+            handleSignInResult(HuaweiId.HuaweiIdApi.getSignInResultFromIntent(intent));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleSignInResult(SignInResult signInResult) {
+        if (signInResult.isSuccess()) {
+            SignInHuaweiId signInHuaweiId = signInResult.getSignInHuaweiId();
+            Log.e(TAG, "account", signInHuaweiId.toString());
+            loadSSOLogin(signInHuaweiId.getAccessToken());
+            return;
+        }
+        Intent data = signInResult.getData();
+        if (data == null) {
+            onFail(signInResult.getStatus().getStatusCode(), getString(a.b.sapi_sdk_third_error_hw));
+        } else if (signInResult.getStatus().getStatusCode() == 2001) {
+            Log.i(TAG, "帐号未登录");
+            startActivityForResult(data, 1002);
+        } else if (signInResult.getStatus().getStatusCode() == 2002) {
+            Log.i(TAG, "帐号已登录，需要用户授权");
+            startActivityForResult(data, 1003);
+        } else if (signInResult.getStatus().getStatusCode() == 2004) {
+            startActivityForResult(data, REQUEST_SIGN_IN_CHECK_PASSWORD);
+        } else if (signInResult.getStatus().getStatusCode() == 2007) {
+            startActivityForResult(data, 2007);
+        } else {
+            onFail(signInResult.getStatus().getStatusCode(), getString(a.b.sapi_sdk_third_error_hw));
         }
     }
 }

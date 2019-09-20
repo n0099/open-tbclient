@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 /* loaded from: classes2.dex */
 class WXApiImplComm {
@@ -17,7 +18,7 @@ class WXApiImplComm {
 
     public static boolean isIntentFromWx(Intent intent, String str) {
         String stringExtra;
-        return (intent == null || (stringExtra = intent.getStringExtra("wx_token_key")) == null || !stringExtra.equals(str)) ? false : true;
+        return (intent == null || (stringExtra = intent.getStringExtra(ConstantsAPI.Token.WX_TOKEN_KEY)) == null || !stringExtra.equals(str)) ? false : true;
     }
 
     public static boolean validateAppSignature(Context context, Signature[] signatureArr, boolean z) {
@@ -37,14 +38,16 @@ class WXApiImplComm {
     }
 
     public static boolean validateAppSignatureForPackage(Context context, String str, boolean z) {
-        if (z) {
-            try {
-                return validateAppSignature(context, context.getPackageManager().getPackageInfo(str, 64).signatures, z);
-            } catch (PackageManager.NameNotFoundException e) {
-                return false;
-            }
+        if (!z) {
+            Log.d(TAG, "ignore wechat app signature validation");
+            return true;
         }
-        Log.d(TAG, "ignore wechat app signature validation");
-        return true;
+        try {
+            return validateAppSignature(context, context.getPackageManager().getPackageInfo(str, 64).signatures, z);
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        } catch (Exception e2) {
+            return false;
+        }
     }
 }

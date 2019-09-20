@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tieba.l.c;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -24,7 +25,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method hxz;
+    private static Method hzv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -38,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().bPr();
+                    ((c.a) context).getSplash().bQf();
                 }
                 g = g(file2, file);
                 b(context, M(file2), N, g.size() + 1);
@@ -46,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().bPr();
+                ((c.a) context).getSplash().bQf();
             }
             g = g(file2, file);
             b(context, M(file2), N, g.size() + 1);
@@ -76,7 +77,7 @@ final class b {
 
     private static boolean a(Context context, File file, long j) {
         SharedPreferences cp = cp(context);
-        return (cp.getLong("timestamp", -1L) == M(file) && cp.getLong("crc", -1L) == j) ? false : true;
+        return (cp.getLong(DpStatConstants.KEY_TIMESTAMP, -1L) == M(file) && cp.getLong("crc", -1L) == j) ? false : true;
     }
 
     private static long M(File file) {
@@ -144,7 +145,7 @@ final class b {
 
     private static void b(Context context, long j, long j2, int i) {
         SharedPreferences.Editor edit = cp(context).edit();
-        edit.putLong("timestamp", j);
+        edit.putLong(DpStatConstants.KEY_TIMESTAMP, j);
         edit.putLong("crc", j2);
         edit.putInt("dex.number", i);
         apply(edit);
@@ -241,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (hxz != null) {
+        if (hzv != null) {
             try {
-                hxz.invoke(editor, new Object[0]);
+                hzv.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -254,9 +255,9 @@ final class b {
 
     static {
         try {
-            hxz = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            hzv = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            hxz = null;
+            hzv = null;
         }
     }
 }

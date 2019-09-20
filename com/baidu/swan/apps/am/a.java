@@ -7,22 +7,22 @@ import com.baidu.swan.apps.database.SwanAppDbControl;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static int aZO = 0;
+    private static int bam = 0;
 
     public static void H(int i, int i2) {
-        com.baidu.swan.apps.extcore.cores.a.CY().C(i, i2);
+        com.baidu.swan.apps.extcore.cores.a.Dc().C(i, i2);
         if (i == 0) {
-            aZO = 2;
+            bam = 2;
         } else if (i2 > i) {
-            aZO = 1;
+            bam = 1;
         }
         if (i != i2) {
             cE(true);
         }
     }
 
-    public static int Pd() {
-        return aZO;
+    public static int Ph() {
+        return bam;
     }
 
     public static void cE(boolean z) {
@@ -32,7 +32,7 @@ public class a {
         j.c(new Runnable() { // from class: com.baidu.swan.apps.am.a.1
             @Override // java.lang.Runnable
             public void run() {
-                boolean f = SwanAppDbControl.aX(com.baidu.swan.apps.u.a.Ek()).f(true, true);
+                boolean f = SwanAppDbControl.aX(com.baidu.swan.apps.u.a.Eo()).f(true, true);
                 if (a.DEBUG) {
                     Log.d("SwanAppUpgradeManager", "updateLocalSwanApp firstStartFlag result: " + f);
                 }

@@ -17,17 +17,17 @@ public class c implements com.baidu.swan.apps.b.b.d {
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.b wA() {
+    public com.baidu.swan.apps.b.b.b wE() {
         return new a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.a wB() {
+    public com.baidu.swan.apps.b.b.a wF() {
         return new com.baidu.swan.apps.b.a.a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public OkHttpClient wC() {
+    public OkHttpClient wG() {
         return new OkHttpClient.Builder().build();
     }
 

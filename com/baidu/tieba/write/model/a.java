@@ -6,99 +6,98 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.g.e;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class a {
-    private String bGB;
-    private InterfaceC0433a jQb;
-    private com.baidu.tieba.write.a.a jQc;
+    private String bGZ;
+    private InterfaceC0444a jSy;
+    private com.baidu.tieba.write.a.a jSz;
     private BdUniqueId mBdUniqueId;
-    private HttpMessageListener jQd = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
+    private HttpMessageListener jSA = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AddLinkResponseMessage) {
                 AddLinkResponseMessage addLinkResponseMessage = (AddLinkResponseMessage) httpResponsedMessage;
-                e.iK().removeCallbacks(a.this.cXC);
-                if (a.this.jQb != null) {
+                e.iK().removeCallbacks(a.this.cZi);
+                if (a.this.jSy != null) {
                     if (addLinkResponseMessage.getAddLinkResponseData() == null) {
                         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-                        aVar.jPC = false;
-                        aVar.linkUrl = a.this.bGB;
-                        aVar.jPD = 1;
-                        a.this.jQc = aVar;
+                        aVar.jRX = false;
+                        aVar.linkUrl = a.this.bGZ;
+                        aVar.jRY = 1;
+                        a.this.jSz = aVar;
                     } else {
-                        a.this.jQc = addLinkResponseMessage.getAddLinkResponseData();
-                        if (!a.this.jQc.jPC) {
-                            a.this.jQc.linkUrl = a.this.bGB;
-                            a.this.jQc.jPD = 1;
+                        a.this.jSz = addLinkResponseMessage.getAddLinkResponseData();
+                        if (!a.this.jSz.jRX) {
+                            a.this.jSz.linkUrl = a.this.bGZ;
+                            a.this.jSz.jRY = 1;
                         }
                     }
-                    a.this.jQb.a(a.this.jQc);
+                    a.this.jSy.a(a.this.jSz);
                 }
             }
         }
     };
-    private Runnable cXC = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
+    private Runnable cZi = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.cAY();
+            a.this.cBM();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-            aVar.jPC = false;
-            aVar.linkUrl = a.this.bGB;
-            aVar.jPD = 1;
-            a.this.jQc = aVar;
-            if (a.this.jQb != null) {
-                a.this.jQb.a(a.this.jQc);
+            aVar.jRX = false;
+            aVar.linkUrl = a.this.bGZ;
+            aVar.jRY = 1;
+            a.this.jSz = aVar;
+            if (a.this.jSy != null) {
+                a.this.jSy.a(a.this.jSz);
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.write.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0433a {
+    public interface InterfaceC0444a {
         void a(com.baidu.tieba.write.a.a aVar);
     }
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.jQd.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.jQd);
+        this.jSA.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.jSA);
     }
 
-    public void GL(String str) {
-        this.bGB = str;
+    public void Hl(String str) {
+        this.bGZ = str;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
         httpMessage.addParam("link_url", str);
         httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_LINK, TbConfig.SERVER_ADDRESS + TbConfig.ADD_LINK);
         tbHttpMessageTask.setResponsedClass(AddLinkResponseMessage.class);
-        tbHttpMessageTask.setTimeOut(new com.baidu.adp.framework.c.e(UIMsg.m_AppUI.MSG_APP_GPS));
+        tbHttpMessageTask.setTimeOut(new com.baidu.adp.framework.c.e(5000));
         tbHttpMessageTask.setRetry(3);
         MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
-        e.iK().removeCallbacks(this.cXC);
-        e.iK().postDelayed(this.cXC, 15000L);
+        e.iK().removeCallbacks(this.cZi);
+        e.iK().postDelayed(this.cZi, 15000L);
     }
 
-    public void cAY() {
+    public void cBM() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
-        e.iK().removeCallbacks(this.cXC);
+        e.iK().removeCallbacks(this.cZi);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.jQd);
-        e.iK().removeCallbacks(this.cXC);
+        MessageManager.getInstance().unRegisterListener(this.jSA);
+        e.iK().removeCallbacks(this.cZi);
     }
 
-    public void a(InterfaceC0433a interfaceC0433a) {
-        this.jQb = interfaceC0433a;
+    public void a(InterfaceC0444a interfaceC0444a) {
+        this.jSy = interfaceC0444a;
     }
 
-    public com.baidu.tieba.write.a.a cAZ() {
-        return this.jQc;
+    public com.baidu.tieba.write.a.a cBN() {
+        return this.jSz;
     }
 }

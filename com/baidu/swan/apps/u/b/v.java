@@ -20,7 +20,7 @@ public interface v {
         void b(v vVar);
     }
 
-    void Fl();
+    void Fp();
 
     void a(com.baidu.swan.apps.media.d.c cVar);
 
@@ -42,7 +42,7 @@ public interface v {
 
     void bs(boolean z);
 
-    void eG(String str);
+    void eI(String str);
 
     int getCurrentPosition();
 

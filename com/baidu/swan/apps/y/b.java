@@ -22,7 +22,7 @@ class b extends a {
         int height = rect.height() - 2;
         int i2 = width / 3;
         int i3 = height / i2;
-        int ceil = (int) Math.ceil(i3 * 3 * this.aEb);
+        int ceil = (int) Math.ceil(i3 * 3 * this.aEz);
         int i4 = 0;
         int i5 = 0;
         while (true) {

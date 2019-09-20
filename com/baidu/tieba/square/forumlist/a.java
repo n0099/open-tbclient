@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -28,8 +28,8 @@ import java.util.Map;
 import tbclient.GetForumsFromForumClass.ForumSpaceForumInfo;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private LikeModel cdy;
-    private final Map<Long, Integer> jbn = new HashMap();
+    private LikeModel cer;
+    private final Map<Long, Integer> jdI = new HashMap();
     private View.OnClickListener mClickListener;
     private TbPageContext<SquareForumListActivity> mContext;
     private List<ForumSpaceForumInfo> mListData;
@@ -38,12 +38,12 @@ public class a extends BaseAdapter {
     public a(TbPageContext<SquareForumListActivity> tbPageContext, int i) {
         this.mContext = tbPageContext;
         this.mPageType = i;
-        this.cdy = new LikeModel(this.mContext);
-        this.cdy.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.square.forumlist.a.1
+        this.cer = new LikeModel(this.mContext);
+        this.cer.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.square.forumlist.a.1
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
-                if (AntiHelper.aG(a.this.cdy.getErrorCode(), a.this.cdy.getErrorString())) {
-                    AntiHelper.aJ(a.this.mContext.getPageActivity(), a.this.cdy.getErrorString());
+                if (AntiHelper.aG(a.this.cer.getErrorCode(), a.this.cer.getErrorString())) {
+                    AntiHelper.aQ(a.this.mContext.getPageActivity(), a.this.cer.getErrorString());
                 }
             }
         });
@@ -53,10 +53,10 @@ public class a extends BaseAdapter {
                 if (view.getId() == R.id.forum_like) {
                     if (!j.kc()) {
                         a.this.mContext.showToast(R.string.neterror);
-                    } else if (bd.cF(a.this.mContext.getPageActivity())) {
+                    } else if (bc.cF(a.this.mContext.getPageActivity())) {
                         String valueOf = view.getTag(R.id.forum_title) == null ? "" : String.valueOf(view.getTag(R.id.forum_title));
                         String valueOf2 = view.getTag(R.id.forum_desc) == null ? "" : String.valueOf(view.getTag(R.id.forum_desc));
-                        a.this.cdy.el(valueOf, valueOf2);
+                        a.this.cer.em(valueOf, valueOf2);
                         if (a.this.mPageType != 1) {
                             if (a.this.mPageType == 2) {
                                 TiebaStatic.log(new an("c10587").bT("fid", valueOf2));
@@ -90,16 +90,16 @@ public class a extends BaseAdapter {
 
     public void a(Long l, boolean z) {
         Integer valueOf;
-        if (this.jbn.containsKey(l)) {
-            Integer num = this.jbn.get(l);
+        if (this.jdI.containsKey(l)) {
+            Integer num = this.jdI.get(l);
             if (z) {
                 valueOf = Integer.valueOf(num.intValue() + 1);
             } else {
                 valueOf = Integer.valueOf(num.intValue() - 1);
             }
-            this.jbn.put(l, valueOf);
-        } else if (!this.jbn.containsKey(l)) {
-            this.jbn.put(l, z ? 1 : -1);
+            this.jdI.put(l, valueOf);
+        } else if (!this.jdI.containsKey(l)) {
+            this.jdI.put(l, z ? 1 : -1);
         }
         notifyDataSetChanged();
     }
@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: AS */
+    /* renamed from: AV */
     public ForumSpaceForumInfo getItem(int i) {
         if (getCount() > 1 && i != 0) {
             return (ForumSpaceForumInfo) v.c(this.mListData, i - 1);
@@ -137,58 +137,58 @@ public class a extends BaseAdapter {
         }
         ForumSpaceForumInfo item = getItem(i);
         if (item != null) {
-            if (view == null || !(view.getTag(R.id.forum_rank) instanceof C0410a)) {
+            if (view == null || !(view.getTag(R.id.forum_rank) instanceof C0421a)) {
                 view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.square_forum_list_item, (ViewGroup) null);
-                C0410a c0410a = new C0410a();
-                c0410a.jbp = (TextView) view.findViewById(R.id.forum_rank);
-                c0410a.jbq = (BarImageView) view.findViewById(R.id.forum_image);
-                c0410a.jbs = (TextView) view.findViewById(R.id.forum_like);
-                c0410a.mTitle = (TextView) view.findViewById(R.id.forum_title);
-                c0410a.dqa = (TextView) view.findViewById(R.id.forum_desc);
-                c0410a.jbr = (TextView) view.findViewById(R.id.forum_value);
-                l.b(this.mContext.getPageActivity(), c0410a.jbs, 20, 20, 20, 20);
-                c0410a.jbs.setOnClickListener(this.mClickListener);
+                C0421a c0421a = new C0421a();
+                c0421a.jdK = (TextView) view.findViewById(R.id.forum_rank);
+                c0421a.jdL = (BarImageView) view.findViewById(R.id.forum_image);
+                c0421a.jdN = (TextView) view.findViewById(R.id.forum_like);
+                c0421a.mTitle = (TextView) view.findViewById(R.id.forum_title);
+                c0421a.drL = (TextView) view.findViewById(R.id.forum_desc);
+                c0421a.jdM = (TextView) view.findViewById(R.id.forum_value);
+                l.b(this.mContext.getPageActivity(), c0421a.jdN, 20, 20, 20, 20);
+                c0421a.jdN.setOnClickListener(this.mClickListener);
                 view.setOnClickListener(this.mClickListener);
-                view.setTag(R.id.forum_rank, c0410a);
+                view.setTag(R.id.forum_rank, c0421a);
             }
             am.k(view, R.drawable.square_list_item_bg_selector);
-            C0410a c0410a2 = (C0410a) view.getTag(R.id.forum_rank);
+            C0421a c0421a2 = (C0421a) view.getTag(R.id.forum_rank);
             if (i == 1) {
-                c0410a2.jbp.setText("");
-                am.k(c0410a2.jbp, R.drawable.icon_grade_shaitu1);
+                c0421a2.jdK.setText("");
+                am.k(c0421a2.jdK, R.drawable.icon_grade_shaitu1);
             } else if (i == 2) {
-                c0410a2.jbp.setText("");
-                am.k(c0410a2.jbp, R.drawable.icon_grade_shaitu2);
+                c0421a2.jdK.setText("");
+                am.k(c0421a2.jdK, R.drawable.icon_grade_shaitu2);
             } else if (i == 3) {
-                c0410a2.jbp.setText("");
-                am.k(c0410a2.jbp, R.drawable.icon_grade_shaitu3);
+                c0421a2.jdK.setText("");
+                am.k(c0421a2.jdK, R.drawable.icon_grade_shaitu3);
             } else if (i < 10) {
-                c0410a2.jbp.setText("0" + i);
-                c0410a2.jbp.setBackgroundResource(0);
+                c0421a2.jdK.setText("0" + i);
+                c0421a2.jdK.setBackgroundResource(0);
             } else {
-                c0410a2.jbp.setText("" + i);
-                c0410a2.jbp.setBackgroundResource(0);
+                c0421a2.jdK.setText("" + i);
+                c0421a2.jdK.setBackgroundResource(0);
             }
-            am.j(c0410a2.jbp, R.color.cp_cont_c);
-            c0410a2.jbq.startLoad(item.avatar, 10, false);
-            c0410a2.mTitle.setText(item.forum_name + this.mContext.getString(R.string.forum));
-            am.j(c0410a2.mTitle, R.color.cp_cont_b);
-            Integer num = this.jbn.get(item.forum_id);
-            c0410a2.dqa.setText(this.mContext.getString(R.string.attention) + ":" + aq.aH((num == null ? 0 : num.intValue()) + item.like_num.intValue()) + "  " + this.mContext.getString(R.string.text_post) + ":" + aq.aH(item.post_num.intValue()));
-            am.j(c0410a2.dqa, R.color.cp_cont_d);
-            c0410a2.jbr.setText(item._abstract);
-            am.j(c0410a2.jbr, R.color.cp_cont_d);
-            c0410a2.jbs.setTag(R.id.forum_title, item.forum_name);
-            c0410a2.jbs.setTag(R.id.forum_desc, item.forum_id);
-            int intValue = this.jbn.get(item.forum_id) == null ? 0 : this.jbn.get(item.forum_id).intValue();
+            am.j(c0421a2.jdK, R.color.cp_cont_c);
+            c0421a2.jdL.startLoad(item.avatar, 10, false);
+            c0421a2.mTitle.setText(item.forum_name + this.mContext.getString(R.string.forum));
+            am.j(c0421a2.mTitle, R.color.cp_cont_b);
+            Integer num = this.jdI.get(item.forum_id);
+            c0421a2.drL.setText(this.mContext.getString(R.string.attention) + ":" + aq.aH((num == null ? 0 : num.intValue()) + item.like_num.intValue()) + "  " + this.mContext.getString(R.string.text_post) + ":" + aq.aH(item.post_num.intValue()));
+            am.j(c0421a2.drL, R.color.cp_cont_d);
+            c0421a2.jdM.setText(item._abstract);
+            am.j(c0421a2.jdM, R.color.cp_cont_d);
+            c0421a2.jdN.setTag(R.id.forum_title, item.forum_name);
+            c0421a2.jdN.setTag(R.id.forum_desc, item.forum_id);
+            int intValue = this.jdI.get(item.forum_id) == null ? 0 : this.jdI.get(item.forum_id).intValue();
             if ((item.is_like.intValue() == 0 && intValue > 0) || (item.is_like.intValue() == 1 && intValue >= 0)) {
-                c0410a2.jbs.setText(R.string.relate_forum_is_followed);
-                c0410a2.jbs.setBackgroundResource(0);
-                am.j(c0410a2.jbs, R.color.cp_cont_d);
+                c0421a2.jdN.setText(R.string.relate_forum_is_followed);
+                c0421a2.jdN.setBackgroundResource(0);
+                am.j(c0421a2.jdN, R.color.cp_cont_d);
             } else {
-                c0410a2.jbs.setText(R.string.attention);
-                c0410a2.jbs.setBackgroundResource(R.drawable.btn_blue_bg);
-                am.j(c0410a2.jbs, R.color.cp_btn_a);
+                c0421a2.jdN.setText(R.string.attention);
+                c0421a2.jdN.setBackgroundResource(R.drawable.btn_blue_bg);
+                am.j(c0421a2.jdN, R.color.cp_cont_a);
             }
             view.setTag(R.id.forum_title, item.forum_name);
             return view;
@@ -198,15 +198,15 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.square.forumlist.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private class C0410a {
-        public TextView dqa;
-        public TextView jbp;
-        public BarImageView jbq;
-        public TextView jbr;
-        public TextView jbs;
+    private class C0421a {
+        public TextView drL;
+        public TextView jdK;
+        public BarImageView jdL;
+        public TextView jdM;
+        public TextView jdN;
         public TextView mTitle;
 
-        private C0410a() {
+        private C0421a() {
         }
     }
 }

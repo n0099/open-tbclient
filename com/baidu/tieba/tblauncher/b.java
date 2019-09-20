@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.tbadk.core.f.a {
-    private a jmw;
+    private a joR;
 
     @Override // com.baidu.tbadk.core.f.a
     public void b(Context context, int i, boolean z) {
@@ -35,24 +35,24 @@ public class b implements com.baidu.tbadk.core.f.a {
     }
 
     @Override // com.baidu.tbadk.core.f.a
-    public Class<?> ahH() {
+    public Class<?> ahL() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.f.a
-    public String ahI() {
+    public String ahM() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.f.a
     public int getCurrentTabType() {
-        if (this.jmw != null) {
-            return this.jmw.getCurrentTabType();
+        if (this.joR != null) {
+            return this.joR.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.jmw = aVar;
+        this.joR = aVar;
     }
 }

@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel hzQ;
+    private MarkModel hBM;
 
     public b(BaseActivity baseActivity) {
-        this.hzQ = null;
-        this.hzQ = new MarkModel(baseActivity);
+        this.hBM = null;
+        this.hBM = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.hzQ = null;
-        this.hzQ = new MarkModel(baseFragmentActivity);
+        this.hBM = null;
+        this.hBM = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void dx(boolean z) {
-        this.hzQ.dx(z);
+        this.hBM.dx(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String aaA() {
-        return this.hzQ.aaA();
+    public String aaE() {
+        return this.hBM.aaE();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0238a interfaceC0238a) {
-        this.hzQ.a(interfaceC0238a);
+    public void a(a.InterfaceC0247a interfaceC0247a) {
+        this.hBM.a(interfaceC0247a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aaC() {
-        this.hzQ.aaC();
+    public void aaG() {
+        this.hBM.aaG();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aaD() {
-        this.hzQ.aaD();
+    public void aaH() {
+        this.hBM.aaH();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData aaE() {
-        return this.hzQ.aaE();
+    public MarkData aaI() {
+        return this.hBM.aaI();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.hzQ.a(markData);
+        this.hBM.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean aaB() {
-        return this.hzQ.aaB();
+    public boolean aaF() {
+        return this.hBM.aaF();
     }
 }

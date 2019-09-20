@@ -25,7 +25,7 @@ public class g<E> implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Xl */
+    /* renamed from: Xp */
     public g<E> clone() {
         try {
             g<E> gVar = (g) super.clone();

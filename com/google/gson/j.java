@@ -5,24 +5,24 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public final class j extends h {
-    private final LinkedTreeMap<String, h> knN = new LinkedTreeMap<>();
+    private final LinkedTreeMap<String, h> kqk = new LinkedTreeMap<>();
 
     public void a(String str, h hVar) {
         if (hVar == null) {
-            hVar = i.knM;
+            hVar = i.kqj;
         }
-        this.knN.put(str, hVar);
+        this.kqk.put(str, hVar);
     }
 
     public Set<Map.Entry<String, h>> entrySet() {
-        return this.knN.entrySet();
+        return this.kqk.entrySet();
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof j) && ((j) obj).knN.equals(this.knN));
+        return obj == this || ((obj instanceof j) && ((j) obj).kqk.equals(this.kqk));
     }
 
     public int hashCode() {
-        return this.knN.hashCode();
+        return this.kqk.hashCode();
     }
 }

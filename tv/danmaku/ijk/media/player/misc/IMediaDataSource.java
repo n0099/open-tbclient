@@ -1,11 +1,12 @@
 package tv.danmaku.ijk.media.player.misc;
 
-import java.io.IOException;
-/* loaded from: classes3.dex */
+import com.baidu.media.duplayer.Keep;
+@Keep
+/* loaded from: classes.dex */
 public interface IMediaDataSource {
-    void close() throws IOException;
+    void close();
 
-    long getSize() throws IOException;
+    long getSize();
 
-    int readAt(long j, byte[] bArr, int i, int i2) throws IOException;
+    int readAt(long j, byte[] bArr, int i, int i2);
 }

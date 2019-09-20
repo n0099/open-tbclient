@@ -4,6 +4,7 @@ import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.tencent.connect.common.Constants;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -23,7 +24,7 @@ public class d extends com.baidu.platform.base.e {
         this.a.a("extinfo", "32");
         this.a.a("mrs", "1");
         this.a.a("rp_format", "json");
-        this.a.a("rp_filter", "mobile");
+        this.a.a("rp_filter", AddressManageResult.KEY_MOBILE);
         this.a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
         this.a.a(IXAdRequestInfo.SN, a(drivingRoutePlanOption.mFrom));
         this.a.a("en", a(drivingRoutePlanOption.mTo));

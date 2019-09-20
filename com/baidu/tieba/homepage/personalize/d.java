@@ -1,5 +1,5 @@
 package com.baidu.tieba.homepage.personalize;
 /* loaded from: classes4.dex */
 public interface d {
-    void tN(int i);
+    void tR(int i);
 }

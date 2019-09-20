@@ -5,14 +5,14 @@ import tbclient.RecommendForumInfo;
 public class b {
     public String authen;
     public String avatar;
-    public boolean bIU;
-    public String eZA;
-    public boolean eZB;
-    public String eZC;
-    public String eZD;
-    public int eZE;
-    public int eZz;
+    public boolean bJs;
     public String extra;
+    public int fbf;
+    public String fbg;
+    public boolean fbh;
+    public String fbi;
+    public String fbj;
+    public int fbk;
     public long forumId;
     public String forumName;
     public int memberCount;
@@ -24,18 +24,18 @@ public class b {
         this.avatar = recommendForumInfo.avatar;
         this.forumId = recommendForumInfo.forum_id.longValue();
         this.forumName = recommendForumInfo.forum_name;
-        this.bIU = recommendForumInfo.is_like.intValue() == 1;
+        this.bJs = recommendForumInfo.is_like.intValue() == 1;
         this.memberCount = recommendForumInfo.member_count.intValue();
         this.threadCount = recommendForumInfo.thread_count.intValue();
         this.slogan = recommendForumInfo.slogan;
-        this.eZz = recommendForumInfo.forum_type.intValue();
+        this.fbf = recommendForumInfo.forum_type.intValue();
         this.authen = recommendForumInfo.authen;
-        this.eZA = recommendForumInfo.recom_reason;
-        this.eZB = recommendForumInfo.is_brand_forum.intValue() == 1;
-        this.eZC = recommendForumInfo.hot_text;
-        this.eZD = recommendForumInfo.abtest_tag;
+        this.fbg = recommendForumInfo.recom_reason;
+        this.fbh = recommendForumInfo.is_brand_forum.intValue() == 1;
+        this.fbi = recommendForumInfo.hot_text;
+        this.fbj = recommendForumInfo.abtest_tag;
         this.source = recommendForumInfo.source;
         this.extra = recommendForumInfo.extra;
-        this.eZE = 1;
+        this.fbk = 1;
     }
 }

@@ -1,23 +1,22 @@
 package com.baidu.swan.games.k;
 
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 /* loaded from: classes2.dex */
 public class c {
-    public int bjb;
-    public String bjc;
-    public String biY = "";
-    public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean biZ = false;
-    public boolean bja = false;
+    public String bjA;
+    public int bjz;
+    public String bjw = "";
+    public int maxLength = Integer.MAX_VALUE;
+    public boolean bjx = false;
+    public boolean bjy = false;
 
     public boolean g(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.biY = cVar.optString("defaultValue");
+            this.bjw = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.biZ = cVar.optBoolean("multiple");
-            this.bja = cVar.optBoolean("confirmHold");
+            this.bjx = cVar.optBoolean("multiple");
+            this.bjy = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -54,28 +53,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.bjb = 6;
-                    this.bjc = "done";
+                    this.bjz = 6;
+                    this.bjA = "done";
                     return true;
                 case 1:
-                    this.bjb = 5;
-                    this.bjc = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.bjz = 5;
+                    this.bjA = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.bjb = 3;
-                    this.bjc = "search";
+                    this.bjz = 3;
+                    this.bjA = "search";
                     return true;
                 case 3:
-                    this.bjb = 2;
-                    this.bjc = "go";
+                    this.bjz = 2;
+                    this.bjA = "go";
                     return true;
                 case 4:
-                    this.bjb = 4;
-                    this.bjc = "send";
+                    this.bjz = 4;
+                    this.bjA = "send";
                     return true;
                 default:
-                    this.bjb = 6;
-                    this.bjc = "done";
+                    this.bjz = 6;
+                    this.bjA = "done";
                     return true;
             }
         } catch (Exception e) {

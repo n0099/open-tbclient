@@ -2,7 +2,6 @@ package com.baidu.crabsdk.b;
 
 import android.os.Build;
 import android.os.Process;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,7 +15,7 @@ public final class j {
         ArrayList arrayList = new ArrayList();
         arrayList.add("logcat");
         ArrayList arrayList2 = new ArrayList();
-        arrayList2.addAll(Arrays.asList("-t", String.valueOf(com.baidu.crabsdk.a.h), "-v", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
+        arrayList2.addAll(Arrays.asList("-t", String.valueOf(com.baidu.crabsdk.a.h), "-v", "time"));
         int indexOf = arrayList2.indexOf("-t");
         if (indexOf >= 0 && indexOf < arrayList2.size() && Build.VERSION.SDK_INT < 8) {
             arrayList2.remove(indexOf + 1);

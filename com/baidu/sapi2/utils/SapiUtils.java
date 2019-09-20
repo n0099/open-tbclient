@@ -10,12 +10,9 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.location.Location;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -110,7 +107,6 @@ public class SapiUtils {
     static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     static final String d = Character.toString(2);
     static final String e = Character.toString(3);
-    private static final String f = "SapiUtils";
 
     public static boolean isValidAccount(SapiAccount sapiAccount) {
         return (sapiAccount == null || TextUtils.isEmpty(sapiAccount.bduss) || TextUtils.isEmpty(sapiAccount.uid) || TextUtils.isEmpty(sapiAccount.displayname)) ? false : true;
@@ -195,17 +191,6 @@ public class SapiUtils {
         return SystemClock.elapsedRealtime() / 1000;
     }
 
-    public static String getGPSInfo(Context context) {
-        Location lastKnownLocation;
-        LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
-        try {
-            return (checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) && locationManager.isProviderEnabled("gps") && (lastKnownLocation = locationManager.getLastKnownLocation("gps")) != null) ? lastKnownLocation.getLongitude() + Constants.ACCEPT_TIME_SEPARATOR_SP + lastKnownLocation.getLatitude() : "";
-        } catch (Exception e2) {
-            Log.e(e2);
-        }
-        return "";
-    }
-
     public static List<String> getPackageList(Context context) {
         ArrayList arrayList = new ArrayList();
         List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent("baidu.intent.action.account.SHARE_SERVICE"), 32);
@@ -288,18 +273,6 @@ public class SapiUtils {
         return Pattern.compile("^(1)\\d{10}$").matcher(str).matches();
     }
 
-    public static boolean isSimReady(Context context) {
-        if (context == null || context.checkCallingOrSelfPermission("android.permission.SEND_SMS") != 0) {
-            return false;
-        }
-        switch (((TelephonyManager) context.getSystemService("phone")).getSimState()) {
-            case 5:
-                return true;
-            default:
-                return false;
-        }
-    }
-
     public static boolean hasActiveNetwork(Context context) {
         if (context == null) {
             return false;
@@ -357,7 +330,7 @@ public class SapiUtils {
         return (new File("/system/bin/su").exists() && a("/system/bin/su")) || (new File("/system/xbin/su").exists() && a("/system/xbin/su"));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [578=5, 580=4, 581=4, 582=4, 586=4, 587=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [544=4, 548=4, 549=4, 540=5, 542=4, 543=4] */
     /* JADX WARN: Removed duplicated region for block: B:43:0x0085  */
     /* JADX WARN: Removed duplicated region for block: B:59:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -548,16 +521,6 @@ public class SapiUtils {
         return str + stringBuffer.toString();
     }
 
-    public static String getLocation(Context context) {
-        try {
-            SapiBDLocManager sapiBDLocManager = new SapiBDLocManager(context);
-            return sapiBDLocManager.getLocString(15) != null ? sapiBDLocManager.getLocString(15) : "";
-        } catch (Exception e2) {
-            Log.e(e2);
-            return "";
-        }
-    }
-
     public static String getCookieBduss() {
         return getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), "BDUSS");
     }
@@ -649,18 +612,18 @@ public class SapiUtils {
         return a(str, "PTOKEN", str2);
     }
 
-    public static String buildStokenCookie(String str, String str2) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        calendar.add(1, TextUtils.isEmpty(str2) ? -8 : 8);
-        return a(str, "STOKEN", str2, calendar.getTime(), true);
-    }
-
     static String a(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
         return a(str, str2, str3, calendar.getTime(), true);
+    }
+
+    public static String buildStokenCookie(String str, String str2) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(1, TextUtils.isEmpty(str2) ? -8 : 8);
+        return a(str, "STOKEN", str2, calendar.getTime(), true);
     }
 
     public static String buildBDUSSCookie(String str, String str2, String str3) {
@@ -775,15 +738,15 @@ public class SapiUtils {
         }
     }
 
-    public static int dip2px(Context context, float f2) {
+    public static int dip2px(Context context, float f) {
         if (context == null) {
             throw new IllegalArgumentException("Context can't be null");
         }
-        return (int) ((context.getResources().getDisplayMetrics().density * f2) + 0.5f);
+        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
     }
 
-    public static int px2sp(Context context, float f2) {
-        return (int) ((f2 / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
+    public static int px2sp(Context context, float f) {
+        return (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
     }
 
     public static boolean isQrLoginSchema(String str) {
@@ -860,16 +823,6 @@ public class SapiUtils {
         if (context != null && SapiContext.getInstance(context).getCurrentAccount() == null) {
             SapiContext.getInstance(context).resetSilentShareStatus();
         }
-    }
-
-    public static String getFastRegChannel(Context context) {
-        if (context != null) {
-            String fastRegChannel = SapiContext.getInstance(context).getFastRegChannel();
-            if (!TextUtils.isEmpty(fastRegChannel)) {
-                return fastRegChannel;
-            }
-        }
-        return SapiEnv.FAST_REG_SMS_NUMBER;
     }
 
     public static boolean getDefaultHttpsEnabled() {
@@ -960,24 +913,6 @@ public class SapiUtils {
         } catch (NoSuchMethodException e2) {
             return false;
         }
-    }
-
-    public static int compareVersion(String str, String str2) {
-        if (str.equals(str2)) {
-            return 0;
-        }
-        String[] split = str.split("\\.");
-        String[] split2 = str2.split("\\.");
-        String str3 = "";
-        for (int i = 0; i < split.length; i++) {
-            str3 = str3 + String.format("%2s", split[i]).replaceAll("\\s", "0");
-        }
-        String replaceAll = String.format("%-8s", str3).replaceAll("\\s", "0");
-        String str4 = "";
-        for (int i2 = 0; i2 < split2.length; i2++) {
-            str4 = str4 + String.format("%2s", split2[i2]).replaceAll("\\s", "0");
-        }
-        return replaceAll.compareTo(String.format("%-8s", str4).replaceAll("\\s", "0"));
     }
 
     @TargetApi(23)
@@ -1172,5 +1107,36 @@ public class SapiUtils {
             Log.e(e2);
         }
         return strArr;
+    }
+
+    public static int versionCompareTo(String str, String str2) {
+        String replaceAll = str == null ? "" : str.replaceAll("[^\\d\\.]+", "");
+        String replaceAll2 = str2 == null ? "" : str2.replaceAll("[^\\d\\.]+", "");
+        String[] split = replaceAll.split("\\.");
+        String[] split2 = replaceAll2.split("\\.");
+        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList2 = new ArrayList();
+        for (String str3 : split) {
+            arrayList.add(Integer.valueOf(Integer.parseInt(str3)));
+        }
+        for (String str4 : split2) {
+            arrayList2.add(Integer.valueOf(Integer.parseInt(str4)));
+        }
+        int size = arrayList.size() > arrayList2.size() ? arrayList.size() : arrayList2.size();
+        while (arrayList.size() < size) {
+            arrayList.add(0);
+        }
+        while (arrayList2.size() < size) {
+            arrayList2.add(0);
+        }
+        for (int i = 0; i < size; i++) {
+            if (((Integer) arrayList.get(i)).intValue() > ((Integer) arrayList2.get(i)).intValue()) {
+                return 1;
+            }
+            if (((Integer) arrayList.get(i)).intValue() < ((Integer) arrayList2.get(i)).intValue()) {
+                return -1;
+            }
+        }
+        return 0;
     }
 }

@@ -49,10 +49,10 @@ public class f extends z {
                     public void D(com.baidu.swan.apps.setting.b.a aVar) {
                         JSONObject wrapCallbackParams;
                         com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                        if (aVar.NB()) {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.aVt, 0);
+                        if (aVar.NF()) {
+                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.aVR, 0);
                         } else {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.aVu.toString(-200));
+                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.aVS.toString(-200));
                             com.baidu.swan.games.r.c.g(callbackHandler, wrapCallbackParams.toString());
                         }
                         callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());

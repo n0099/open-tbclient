@@ -2,7 +2,6 @@ package com.baidu.pass.biometrics.face.liveness.view;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
@@ -18,16 +17,6 @@ public class CustomAlertDialog extends Dialog {
 
     public CustomAlertDialog(Context context) {
         super(context, R.style.PassBioBeautyDialog);
-        init();
-    }
-
-    public CustomAlertDialog(Context context, int i) {
-        super(context, i);
-        init();
-    }
-
-    public CustomAlertDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
-        super(context, z, onCancelListener);
         init();
     }
 

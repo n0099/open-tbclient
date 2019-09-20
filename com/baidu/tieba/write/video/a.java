@@ -12,28 +12,28 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<VideoTitleData> jRI;
+    private List<VideoTitleData> jUf;
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0436a {
+    public static class C0447a {
         public View divider;
         public TextView title;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.aa(this.jRI)) {
+        if (v.aa(this.jUf)) {
             return 0;
         }
-        return this.jRI.size();
+        return this.jUf.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Dg */
+    /* renamed from: Dk */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.c(this.jRI, i);
+        return (VideoTitleData) v.c(this.jUf, i);
     }
 
     @Override // android.widget.Adapter
@@ -43,28 +43,28 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0436a c0436a;
+        C0447a c0447a;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.video_activity_title_item, (ViewGroup) null);
-            C0436a c0436a2 = new C0436a();
-            c0436a2.title = (TextView) view.findViewById(R.id.title);
-            c0436a2.divider = view.findViewById(R.id.divider_line);
-            am.j(c0436a2.title, R.color.cp_cont_b);
-            am.l(c0436a2.divider, R.color.cp_bg_line_c);
-            view.setTag(c0436a2);
-            c0436a = c0436a2;
+            C0447a c0447a2 = new C0447a();
+            c0447a2.title = (TextView) view.findViewById(R.id.title);
+            c0447a2.divider = view.findViewById(R.id.divider_line);
+            am.j(c0447a2.title, R.color.cp_cont_b);
+            am.l(c0447a2.divider, R.color.cp_bg_line_c);
+            view.setTag(c0447a2);
+            c0447a = c0447a2;
         } else {
-            c0436a = (C0436a) view.getTag();
+            c0447a = (C0447a) view.getTag();
         }
         am.k(view, R.drawable.addresslist_item_bg);
         if (getItem(i) != null) {
-            c0436a.title.setText("#" + getItem(i).name + "#");
+            c0447a.title.setText("#" + getItem(i).name + "#");
         }
         return view;
     }
 
     public void ey(List<VideoTitleData> list) {
-        this.jRI = list;
+        this.jUf = list;
         notifyDataSetChanged();
     }
 }

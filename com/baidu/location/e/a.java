@@ -1,6 +1,5 @@
 package com.baidu.location.e;
 
-import android.support.v7.widget.ActivityChooserView;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class a {
@@ -21,8 +20,8 @@ public class a {
         this.b = -1;
         this.c = -1;
         this.d = -1;
-        this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.e = Integer.MAX_VALUE;
+        this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
         this.i = '0';
@@ -36,8 +35,8 @@ public class a {
         this.b = -1;
         this.c = -1;
         this.d = -1;
-        this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.e = Integer.MAX_VALUE;
+        this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
         this.i = '0';

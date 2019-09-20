@@ -1,6 +1,5 @@
 package okhttp3.internal.http;
 
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -220,7 +219,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                 }
                 return null;
             case 503:
-                if ((response.priorResponse() == null || response.priorResponse().code() != 503) && retryAfter(response, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) == 0) {
+                if ((response.priorResponse() == null || response.priorResponse().code() != 503) && retryAfter(response, Integer.MAX_VALUE) == 0) {
                     return response.request();
                 }
                 return null;
@@ -259,7 +258,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             if (header.matches("\\d+")) {
                 return Integer.valueOf(header).intValue();
             }
-            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            return Integer.MAX_VALUE;
         }
         return i;
     }

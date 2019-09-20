@@ -1,6 +1,5 @@
 package okhttp3;
 
-import android.support.v7.widget.ActivityChooserView;
 import java.lang.ref.Reference;
 import java.net.Socket;
 import java.util.ArrayDeque;
@@ -31,7 +30,7 @@ public final class ConnectionPool {
 
     static {
         $assertionsDisabled = !ConnectionPool.class.desiredAssertionStatus();
-        executor = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));
+        executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));
     }
 
     public ConnectionPool() {

@@ -50,7 +50,7 @@ public class c {
     private String o;
     private boolean p;
     private com.baidu.location.e.a f = new com.baidu.location.e.a();
-    private C0043c h = null;
+    private C0051c h = null;
     private String m = null;
     b c = new b();
     private long q = 0;
@@ -113,11 +113,11 @@ public class c {
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0043c {
+    public class C0051c {
         public List<ScanResult> a;
         private long c;
 
-        public C0043c(List<ScanResult> list) {
+        public C0051c(List<ScanResult> list) {
             this.a = null;
             this.c = 0L;
             this.a = list;
@@ -634,7 +634,7 @@ public class c {
         }
         try {
             this.h = null;
-            this.h = new C0043c(this.g.getScanResults());
+            this.h = new C0051c(this.g.getScanResults());
             str2 = this.h.a(i2);
         } catch (Exception e) {
             str2 = null;

@@ -7,18 +7,20 @@ import android.text.TextUtils;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
+import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.utils.FileUtils;
 import com.sina.weibo.sdk.utils.ImageUtils;
 import java.io.File;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, TransResourceResult> {
     private TransResourceCallback mCallback;
-    private Context mContext;
+    private WeakReference<Context> mReference;
 
     public CopyResourceTask(Context context, TransResourceCallback transResourceCallback) {
-        this.mContext = context;
+        this.mReference = new WeakReference<>(context);
         this.mCallback = transResourceCallback;
     }
 
@@ -32,11 +34,16 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
     @Override // android.os.AsyncTask
     public TransResourceResult doInBackground(WeiboMultiMessage... weiboMultiMessageArr) {
         Uri uri;
+        Context context = this.mReference.get();
+        if (context == null) {
+            return null;
+        }
         WeiboMultiMessage weiboMultiMessage = weiboMultiMessageArr[0];
         TransResourceResult transResourceResult = new TransResourceResult();
         try {
-            if (WbSdk.isWbInstall(this.mContext)) {
-                if (WeiboAppManager.queryWbInfoInternal(this.mContext).getSupportVersion() >= 10772) {
+            if (WbSdk.isWbInstall(context)) {
+                WbAppInfo queryWbInfoInternal = WeiboAppManager.queryWbInfoInternal(context);
+                if (queryWbInfoInternal != null && queryWbInfoInternal.getSupportVersion() >= 10772) {
                     if (weiboMultiMessage.imageObject != null && weiboMultiMessage.multiImageObject != null) {
                         weiboMultiMessage.imageObject = null;
                     }
@@ -53,8 +60,8 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
                     Iterator<Uri> it = weiboMultiMessage.multiImageObject.getImageList().iterator();
                     while (it.hasNext()) {
                         Uri next = it.next();
-                        if (next != null && FileUtils.isImageFile(this.mContext, next)) {
-                            String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(this.mContext, next, 1);
+                        if (next != null && FileUtils.isImageFile(context, next)) {
+                            String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, next, 1);
                             if (!TextUtils.isEmpty(copyFileToWeiboTem)) {
                                 arrayList.add(Uri.fromFile(new File(copyFileToWeiboTem)));
                             }
@@ -62,8 +69,8 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
                     }
                     weiboMultiMessage.multiImageObject.setImageList(arrayList);
                 }
-                if (weiboMultiMessage.videoSourceObject != null && (uri = weiboMultiMessage.videoSourceObject.videoPath) != null && FileUtils.isVideoFile(this.mContext, uri)) {
-                    String copyFileToWeiboTem2 = ShareUtils.copyFileToWeiboTem(this.mContext, uri, 0);
+                if (weiboMultiMessage.videoSourceObject != null && (uri = weiboMultiMessage.videoSourceObject.videoPath) != null && FileUtils.isVideoFile(context, uri)) {
+                    String copyFileToWeiboTem2 = ShareUtils.copyFileToWeiboTem(context, uri, 0);
                     weiboMultiMessage.videoSourceObject.videoPath = Uri.fromFile(new File(copyFileToWeiboTem2));
                     weiboMultiMessage.videoSourceObject.during = ImageUtils.getVideoDuring(copyFileToWeiboTem2);
                 }

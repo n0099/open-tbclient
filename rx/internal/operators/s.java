@@ -4,11 +4,11 @@ import rx.g;
 import rx.h;
 /* loaded from: classes2.dex */
 public final class s<T> implements h.a<T> {
-    final h.a<T> kzv;
+    final h.a<T> kBN;
     final rx.g scheduler;
 
     public s(h.a<T> aVar, rx.g gVar) {
-        this.kzv = aVar;
+        this.kBN = aVar;
         this.scheduler = gVar;
     }
 
@@ -20,7 +20,7 @@ public final class s<T> implements h.a<T> {
         a aVar = new a(iVar, createWorker);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.kzv.call(aVar);
+        this.kBN.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,24 +28,24 @@ public final class s<T> implements h.a<T> {
     public static final class a<T> extends rx.i<T> implements rx.functions.a {
         final rx.i<? super T> actual;
         Throwable error;
-        final g.a kzx;
+        final g.a kBP;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar) {
             this.actual = iVar;
-            this.kzx = aVar;
+            this.kBP = aVar;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.kzx.c(this);
+            this.kBP.c(this);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.kzx.c(this);
+            this.kBP.c(this);
         }
 
         @Override // rx.functions.a
@@ -61,7 +61,7 @@ public final class s<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.kzx.unsubscribe();
+                this.kBP.unsubscribe();
             }
         }
     }

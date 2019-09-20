@@ -1,56 +1,35 @@
 package com.baidu.tbadk.util;
 
-import android.os.Environment;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public final class u {
-    public static boolean isEMUI() {
-        return r("ro.build.version.emui", "ro.build.hw_emui_api_level");
+public class u extends Thread {
+    private int cEe;
+    private int imageNum;
+    private String type = null;
+
+    public u(int i, int i2) {
+        this.imageNum = 0;
+        this.cEe = 0;
+        this.imageNum = i;
+        this.cEe = i2;
     }
 
-    private static boolean r(String... strArr) {
-        if (strArr == null || strArr.length == 0) {
-            return false;
-        }
-        try {
-            a awu = a.awu();
-            for (String str : strArr) {
-                if (awu.rl(str) != null) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (IOException e) {
-            return false;
-        }
+    public void setType(String str) {
+        this.type = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class a {
-        private static a cDl;
-        private final Properties cDm = new Properties();
-
-        private a() throws IOException {
-            this.cDm.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
-        }
-
-        public static a awu() throws IOException {
-            if (cDl == null) {
-                synchronized (a.class) {
-                    if (cDl == null) {
-                        cDl = new a();
-                    }
-                }
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+            com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            xVar.o("img_num", String.valueOf(this.imageNum));
+            xVar.o("img_total", String.valueOf(this.cEe));
+            if (this.type != null) {
+                xVar.o("img_type", this.type);
             }
-            return cDl;
-        }
-
-        public String rl(String str) {
-            return this.cDm.getProperty(str);
+            xVar.aim();
         }
     }
 }

@@ -12,7 +12,6 @@ import java.util.List;
 public class ShareCallPacking {
     public static final String EXTRA_APP_PKG = "PKG";
     public static final String EXTRA_FACE_LOGIN_MODEL = "FACE_LOGIN_MODEL";
-    public static final String EXTRA_FACE_LOGIN_UID = "FACE_LOGIN_UID";
     public static final String EXTRA_SDK_VERSION = "SDK_VERSION";
     public static final String EXTRA_SESSION_ID = "extra_session_id";
     public static final String EXTRA_TRACE_ID = "extra_trace_id";

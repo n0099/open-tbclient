@@ -8,16 +8,16 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes4.dex */
 public class m {
-    private BaseActivity cWT;
-    private PbModel hLs;
-    private a hML = null;
-    protected final HttpMessageListener hOX = new HttpMessageListener(CmdConfigHttp.CMD_APPLY_COPY_THREAD) { // from class: com.baidu.tieba.pb.pb.main.m.1
+    private BaseActivity cXM;
+    private PbModel hNp;
+    private a hOI = null;
+    protected final HttpMessageListener hQU = new HttpMessageListener(CmdConfigHttp.CMD_APPLY_COPY_THREAD) { // from class: com.baidu.tieba.pb.pb.main.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    m.this.hML.m(-1, null, null);
+                    m.this.hOI.n(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -27,30 +27,30 @@ public class m {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                m.this.hML.m(errorCode, errorMessage, tid);
+                m.this.hOI.n(errorCode, errorMessage, tid);
             }
         }
     };
 
     /* loaded from: classes4.dex */
     public interface a {
-        void m(int i, String str, String str2);
+        void n(int i, String str, String str2);
     }
 
     public m(PbModel pbModel, BaseActivity baseActivity) {
-        this.hLs = pbModel;
-        this.cWT = baseActivity;
-        this.cWT.registerListener(this.hOX);
+        this.hNp = pbModel;
+        this.cXM = baseActivity;
+        this.cXM.registerListener(this.hQU);
     }
 
     public void a(a aVar) {
-        this.hML = aVar;
+        this.hOI = aVar;
     }
 
-    public void xR(int i) {
-        if (this.hLs != null) {
+    public void xU(int i) {
+        if (this.hNp != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.hLs.bVL());
+            httpMessage.addParam("thread_id", this.hNp.bWy());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

@@ -134,7 +134,7 @@ public class ar {
                     }
                     return;
                 } else if ("CONF".equals(bVar.b())) {
-                    bh.a().a(b.C0492b.b(bVar.k()));
+                    bh.a().a(b.C0498b.b(bVar.k()));
                     return;
                 } else if (TextUtils.equals("U", bVar.b())) {
                     b.k b3 = b.k.b(bVar.k());

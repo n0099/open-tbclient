@@ -12,7 +12,7 @@ public class b {
         an anVar = new an("c13395");
         anVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
         anVar.bT(VideoPlayActivityConfig.OBJ_ID, TbadkCoreApplication.getInst().getCuidGalaxy2());
-        anVar.l("obj_duration", System.currentTimeMillis());
+        anVar.n("obj_duration", System.currentTimeMillis());
         anVar.bT("obj_type", Build.MODEL);
         anVar.bT("resource_id", Build.VERSION.RELEASE);
         anVar.P("aid", TbSingleton.getInstance().getCpuFlopsDuration());

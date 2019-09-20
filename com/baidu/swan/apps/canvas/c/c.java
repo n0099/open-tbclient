@@ -12,8 +12,8 @@ import java.io.IOException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends a {
-    private int amu;
-    private int amv;
+    private int amS;
+    private int amT;
     private int mHeight;
     private int mWidth;
 
@@ -21,8 +21,8 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.amu = z.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.amv = z.ad((float) jSONObject.optDouble("y"));
+            this.amS = z.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.amT = z.ad((float) jSONObject.optDouble("y"));
             this.mWidth = z.ad((float) jSONObject.optDouble("width"));
             this.mHeight = z.ad((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
@@ -37,18 +37,18 @@ public class c extends a {
         String str;
         int measuredWidth = view.getMeasuredWidth();
         int measuredHeight = view.getMeasuredHeight();
-        if (this.amu >= measuredWidth || this.amv >= measuredHeight) {
+        if (this.amS >= measuredWidth || this.amT >= measuredHeight) {
             com.baidu.swan.apps.console.c.d("canvasGetImageData", "x or y is out of canvas.");
             str = "";
         } else {
-            this.amu = this.amu < 0 ? 0 : this.amu;
-            this.amv = this.amv < 0 ? 0 : this.amv;
-            this.mWidth = (this.mWidth <= 0 || this.amu + this.mWidth > measuredWidth) ? measuredWidth - this.amu : this.mWidth;
-            this.mHeight = (this.mHeight <= 0 || this.amv + this.mHeight > measuredHeight) ? measuredHeight - this.amv : this.mHeight;
+            this.amS = this.amS < 0 ? 0 : this.amS;
+            this.amT = this.amT < 0 ? 0 : this.amT;
+            this.mWidth = (this.mWidth <= 0 || this.amS + this.mWidth > measuredWidth) ? measuredWidth - this.amS : this.mWidth;
+            this.mHeight = (this.mHeight <= 0 || this.amT + this.mHeight > measuredHeight) ? measuredHeight - this.amT : this.mHeight;
             Bitmap createBitmap = Bitmap.createBitmap(this.mWidth, this.mHeight, Bitmap.Config.ARGB_4444);
             Canvas canvas = new Canvas(createBitmap);
             canvas.drawARGB(0, 0, 0, 0);
-            canvas.translate(-this.amu, -this.amv);
+            canvas.translate(-this.amS, -this.amT);
             view.draw(canvas);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);

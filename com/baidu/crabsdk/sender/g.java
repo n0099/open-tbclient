@@ -153,7 +153,7 @@ public final class g {
         hashMap.put(IXAdRequestInfo.OS, "Android");
         hashMap.put("osVN", Build.VERSION.RELEASE);
         hashMap.put("osVC", Integer.valueOf(Build.VERSION.SDK_INT));
-        hashMap.put("startupTime", Long.valueOf(com.baidu.crabsdk.b.a.rh()));
+        hashMap.put("startupTime", Long.valueOf(com.baidu.crabsdk.b.a.o()));
         hashMap.put("curPage", com.baidu.crabsdk.b.a.q());
         hashMap.put("locale", com.baidu.crabsdk.b.i.x());
         hashMap.put("allThreadStacks", r.L());

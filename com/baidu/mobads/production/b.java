@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdContainerContext;
@@ -54,7 +53,7 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
     public IXAdInstanceInfo d = null;
     protected int g = 0;
     protected IXAdConstants4PDK.SlotState l = IXAdConstants4PDK.SlotState.IDEL;
-    protected int m = UIMsg.m_AppUI.MSG_APP_GPS;
+    protected int m = 5000;
     protected int n = 0;
     protected HashMap<String, String> p = new HashMap<>();
     protected AtomicBoolean q = new AtomicBoolean();

@@ -71,8 +71,8 @@ public class FillUProfileActivity extends BaseActivity {
                     FillUProfileActivity.this.result.setResultCode(0);
                     webFillUProfileCallback.onSuccess(FillUProfileActivity.this.result);
                 }
-                PassportSDK.getInstance().release();
                 FillUProfileActivity.this.finish();
+                PassportSDK.getInstance().release();
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -82,8 +82,8 @@ public class FillUProfileActivity extends BaseActivity {
                     FillUProfileActivity.this.result.setResultMsg(str);
                     webFillUProfileCallback.onSuccess(FillUProfileActivity.this.result);
                 }
-                PassportSDK.getInstance().release();
                 FillUProfileActivity.this.finish();
+                PassportSDK.getInstance().release();
             }
         });
         this.sapiWebView.loadFillUProfile(this.bduss, this.simplified);
@@ -96,6 +96,13 @@ public class FillUProfileActivity extends BaseActivity {
         if (this.executeSubClassMethod) {
             goBack();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -121,7 +128,7 @@ public class FillUProfileActivity extends BaseActivity {
         if (webFillUProfileCallback != null) {
             webFillUProfileCallback.onFailure(this.result);
         }
-        PassportSDK.getInstance().release();
         finish();
+        PassportSDK.getInstance().release();
     }
 }

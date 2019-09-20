@@ -6,12 +6,12 @@ import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import com.baidu.tieba.c;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BubbleLayout extends FrameLayout {
     public static float DEFAULT_STROKE_WIDTH = -1.0f;
-    private ArrowDirection jJg;
-    private a jJh;
+    private ArrowDirection jLB;
+    private a jLC;
     private float mArrowHeight;
     private float mArrowPosition;
     private float mArrowWidth;
@@ -30,7 +30,7 @@ public class BubbleLayout extends FrameLayout {
 
     public BubbleLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c.a.BubbleLayout);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d.a.BubbleLayout);
         this.mArrowWidth = obtainStyledAttributes.getDimension(1, convertDpToPixel(8.0f, context));
         this.mArrowHeight = obtainStyledAttributes.getDimension(2, convertDpToPixel(8.0f, context));
         this.mCornersRadius = obtainStyledAttributes.getDimension(7, 0.0f);
@@ -38,7 +38,7 @@ public class BubbleLayout extends FrameLayout {
         this.mBubbleColor = obtainStyledAttributes.getColor(3, -1);
         this.mStrokeWidth = obtainStyledAttributes.getDimension(4, DEFAULT_STROKE_WIDTH);
         this.mStrokeColor = obtainStyledAttributes.getColor(5, -7829368);
-        this.jJg = ArrowDirection.fromInt(obtainStyledAttributes.getInt(6, ArrowDirection.LEFT.getValue()));
+        this.jLB = ArrowDirection.fromInt(obtainStyledAttributes.getInt(6, ArrowDirection.LEFT.getValue()));
         obtainStyledAttributes.recycle();
         initPadding();
     }
@@ -51,15 +51,15 @@ public class BubbleLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.jJh != null) {
-            this.jJh.draw(canvas);
+        if (this.jLC != null) {
+            this.jLC.draw(canvas);
         }
         super.dispatchDraw(canvas);
     }
 
     private void initDrawable(int i, int i2, int i3, int i4) {
         if (i2 >= i && i4 >= i3) {
-            this.jJh = new a(new RectF(i, i3, i2, i4), this.mArrowWidth, this.mCornersRadius, this.mArrowHeight, this.mArrowPosition, this.mStrokeWidth, this.mStrokeColor, this.mBubbleColor, this.jJg);
+            this.jLC = new a(new RectF(i, i3, i2, i4), this.mArrowWidth, this.mCornersRadius, this.mArrowHeight, this.mArrowPosition, this.mStrokeWidth, this.mStrokeColor, this.mBubbleColor, this.jLB);
         }
     }
 
@@ -68,7 +68,7 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        switch (this.jJg) {
+        switch (this.jLB) {
             case LEFT:
                 paddingLeft = (int) (paddingLeft + this.mArrowWidth);
                 break;
@@ -96,7 +96,7 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        switch (this.jJg) {
+        switch (this.jLB) {
             case LEFT:
                 paddingLeft = (int) (paddingLeft - this.mArrowWidth);
                 break;
@@ -123,21 +123,21 @@ public class BubbleLayout extends FrameLayout {
         return (context.getResources().getDisplayMetrics().densityDpi / 160.0f) * f;
     }
 
-    public BubbleLayout aW(float f) {
+    public BubbleLayout aX(float f) {
         resetPadding();
         this.mArrowPosition = f;
         initPadding();
         return this;
     }
 
-    public BubbleLayout CG(int i) {
+    public BubbleLayout CK(int i) {
         this.mBubbleColor = i;
         requestLayout();
         return this;
     }
 
     public ArrowDirection getArrowDirection() {
-        return this.jJg;
+        return this.jLB;
     }
 
     public float getArrowWidth() {

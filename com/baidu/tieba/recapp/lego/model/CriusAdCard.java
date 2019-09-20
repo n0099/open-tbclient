@@ -7,7 +7,6 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -40,10 +39,10 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
         if (optJSONObject != null) {
             this.criusData = new a(TbadkCoreApplication.getInst(), optJSONObject, this.businessConverter, true);
             this.chargeInfo = new AdCard.a();
-            this.chargeInfo.iHZ = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_STYLE, "cpc");
-            this.chargeInfo.iIa = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_URL);
+            this.chargeInfo.iKv = jSONObject.optString("charge_style", "cpc");
+            this.chargeInfo.iKw = jSONObject.optString("charge_url");
             this.tailFrame = new AdCard.f();
-            this.tailFrame.parseFromJson(jSONObject.optJSONObject(WebVideoActivityConfig.KEY_TAIL_FRAME));
+            this.tailFrame.parseFromJson(jSONObject.optJSONObject("tail_frame"));
         }
     }
 
@@ -68,7 +67,7 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
         this.appInfo = advertAppInfo;
-        if ((this.appInfo == null || this.appInfo.bFe == null || this.appInfo.bFe.adCloseInfo == null || advertAppInfo.bFe.adCloseInfo.support_close.intValue() <= 0) && this.criusData != null) {
+        if ((this.appInfo == null || this.appInfo.bFC == null || this.appInfo.bFC.adCloseInfo == null || advertAppInfo.bFC.adCloseInfo.support_close.intValue() <= 0) && this.criusData != null) {
             this.criusData.cA("closead");
         }
     }
@@ -80,7 +79,7 @@ public class CriusAdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILego
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public boolean isNoPicAd() {
-        return this.appInfo == null || this.appInfo.bFe == null || v.aa(this.appInfo.bFe.bFv);
+        return this.appInfo == null || this.appInfo.bFC == null || v.aa(this.appInfo.bFC.bFT);
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert

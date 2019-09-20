@@ -23,7 +23,7 @@ public class a implements n {
                     }
                     CustomMessageTask customMessageTask = (CustomMessageTask) MessageManager.getInstance().findTask(2921363);
                     if (customMessageTask == null) {
-                        aVar.cC(-1);
+                        aVar.cD(-1);
                         return;
                     }
                     try {
@@ -33,12 +33,12 @@ public class a implements n {
                         bundle.putParcelable(Headers.LOCATION, address);
                         CustomResponsedMessage<?> run = runnable.run(new CustomMessage<>(2921363, bundle));
                         if (run == null) {
-                            aVar.cC(-1);
+                            aVar.cD(-1);
                         } else {
                             aVar.a(a.this.a(str, (Address) run.getData()));
                         }
                     } catch (Exception e) {
-                        aVar.cC(-1);
+                        aVar.cD(-1);
                     }
                 }
             });
@@ -46,12 +46,12 @@ public class a implements n {
     }
 
     @Override // com.baidu.swan.apps.u.b.n
-    public com.baidu.swan.apps.scheme.actions.e.b Fg() {
+    public com.baidu.swan.apps.scheme.actions.e.b Fk() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.u.b.n
-    public void Fh() {
+    public void Fl() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */

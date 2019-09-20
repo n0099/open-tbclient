@@ -71,46 +71,46 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
 public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewView.a, RecordLayout.a, RecordTabLayout.a, VideoControllerLayout.a, VideoEffectButtonLayout.a, VideoEffectLayout.a, h.c {
-    private int fLJ;
-    private final CustomMessageListener fNv;
-    private ImageView glR;
-    private i jAW;
-    private b jBO;
-    protected h jBe;
-    private RecordLayout jCG;
-    private VideoControllerLayout jCH;
-    private RelativeLayout jCI;
-    private ImageView jCJ;
-    private ImageView jCK;
-    private ImageView jCL;
-    private com.baidu.tbadk.core.dialog.a jCM;
-    private PreviewViewContainer jCN;
-    private TextView jCO;
-    private VideoEffectButtonLayout jCP;
-    private TextView jCQ;
-    private View jCR;
-    private RoundProgressBar jCS;
-    private TextView jCT;
-    private AnimatorSet jCU;
-    private AnimatorSet jCV;
-    private ScaleAnimation jCW;
-    private ObjectAnimator jCX;
-    private ObjectAnimator jCY;
-    private int jCZ;
-    private ForumWriteData jDa;
-    private boolean jDb;
-    private boolean jDc = true;
-    private l jDd;
-    private StickerItem jDe;
-    protected j jDf;
-    private RecordTabLayout jDg;
-    private ImageFileInfo jDh;
-    private HttpMessageListener jDi;
-    private boolean jDj;
-    private com.baidu.tieba.j.h jhv;
-    private String jwm;
-    private SelectMusicModel jwq;
-    private b.a jzC;
+    private int fNy;
+    private final CustomMessageListener fPk;
+    private ImageView gnI;
+    private b.a jBY;
+    protected h jDA;
+    private i jDs;
+    private b jEk;
+    private StickerItem jFA;
+    protected j jFB;
+    private RecordTabLayout jFC;
+    private ImageFileInfo jFD;
+    private HttpMessageListener jFE;
+    private boolean jFF;
+    private RecordLayout jFc;
+    private VideoControllerLayout jFd;
+    private RelativeLayout jFe;
+    private ImageView jFf;
+    private ImageView jFg;
+    private ImageView jFh;
+    private com.baidu.tbadk.core.dialog.a jFi;
+    private PreviewViewContainer jFj;
+    private TextView jFk;
+    private VideoEffectButtonLayout jFl;
+    private TextView jFm;
+    private View jFn;
+    private RoundProgressBar jFo;
+    private TextView jFp;
+    private AnimatorSet jFq;
+    private AnimatorSet jFr;
+    private ScaleAnimation jFs;
+    private ObjectAnimator jFt;
+    private ObjectAnimator jFu;
+    private int jFv;
+    private ForumWriteData jFw;
+    private boolean jFx;
+    private boolean jFy = true;
+    private l jFz;
+    private com.baidu.tieba.j.h jjR;
+    private String jyI;
+    private SelectMusicModel jyM;
     private Context mContext;
     private View mStatusBarView;
     private WriteImagesInfo mWriteImagesInfo;
@@ -119,25 +119,25 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, com.baidu.tieba.j.l.class);
         com.baidu.tieba.j.l lVar = runTask != null ? (com.baidu.tieba.j.l) runTask.getData() : null;
         if (lVar != null) {
-            this.jhv = lVar.bPk();
+            this.jjR = lVar.bPY();
         }
-        if (this.jhv != null) {
-            this.jhv.bOO();
+        if (this.jjR != null) {
+            this.jjR.bPB();
         }
-        this.jzC = new b.a() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.1
+        this.jBY = new b.a() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.1
             @Override // com.baidu.tieba.video.localvideo.b.a
             public void eq(List<com.baidu.tieba.video.localvideo.d> list) {
                 if (v.aa(list)) {
-                    if (RecordVideoActivity.this.jCH != null) {
-                        RecordVideoActivity.this.jCH.setHasLocalVideo(false);
+                    if (RecordVideoActivity.this.jFd != null) {
+                        RecordVideoActivity.this.jFd.setHasLocalVideo(false);
                     }
-                } else if (RecordVideoActivity.this.jCH != null) {
-                    RecordVideoActivity.this.jCH.setHasLocalVideo(true);
-                    RecordVideoActivity.this.jDc = false;
+                } else if (RecordVideoActivity.this.jFd != null) {
+                    RecordVideoActivity.this.jFd.setHasLocalVideo(true);
+                    RecordVideoActivity.this.jFy = false;
                 }
             }
         };
-        this.jDi = new HttpMessageListener(CmdConfigHttp.CMD_GET_STICKERS) { // from class: com.baidu.tieba.video.record.RecordVideoActivity.6
+        this.jFE = new HttpMessageListener(CmdConfigHttp.CMD_GET_STICKERS) { // from class: com.baidu.tieba.video.record.RecordVideoActivity.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -149,7 +149,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
                     } else {
                         list = responseGetStickersMessage.getStickerItems();
                     }
-                    if (RecordVideoActivity.this.jCH != null) {
+                    if (RecordVideoActivity.this.jFd != null) {
                         StickerItem stickerItem = new StickerItem();
                         stickerItem.id = -1;
                         stickerItem.isSelect = true;
@@ -158,12 +158,12 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
                             list = new ArrayList<>();
                         }
                         list.add(0, stickerItem);
-                        RecordVideoActivity.this.jCH.setStickerItems(list);
+                        RecordVideoActivity.this.jFd.setStickerItems(list);
                     }
                 }
             }
         };
-        this.fNv = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.video.record.RecordVideoActivity.5
+        this.fPk = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.video.record.RecordVideoActivity.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -181,31 +181,31 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwN() {
+    public void cxB() {
         VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.jBe.jws);
-        videoInfo.setVideoDuration(this.jAW.getVideoDuration() / 1000);
+        videoInfo.setVideoPath(this.jDA.jyO);
+        videoInfo.setVideoDuration(this.jDs.getVideoDuration() / 1000);
         videoInfo.setVideoWidth(720);
         videoInfo.setVideoHeight(TbConfig.HEAD_IMG_SIZE);
-        videoInfo.setVideoLength(new File(this.jBe.jws).length());
+        videoInfo.setVideoLength(new File(this.jDA.jyO).length());
         videoInfo.setVideoType(1);
         videoInfo.setIsCompressedVideo(false);
         videoInfo.setBeautifyListInfo(getChoosedBeautyList());
         videoInfo.setFilterListInfo(getChoosedFilterList());
         videoInfo.setStickListInfo(getChoosedStickerList());
-        String str = this.jDa == null ? "" : this.jDa.forumName;
-        String str2 = this.jDa == null ? "" : this.jDa.forumId;
-        int i = this.jDa == null ? -1 : this.jDa.defaultZone;
-        EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this, this.jDa.writeCallFrom, str, str2, this.jwm, videoInfo);
+        String str = this.jFw == null ? "" : this.jFw.forumName;
+        String str2 = this.jFw == null ? "" : this.jFw.forumId;
+        int i = this.jFw == null ? -1 : this.jFw.defaultZone;
+        EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this, this.jFw.writeCallFrom, str, str2, this.jyI, videoInfo);
         editVideoActivityConfig.addFromType(EditVideoActivityConfig.FROM_TYPE_RECORD_VIDEO_ACTIVITY);
         editVideoActivityConfig.addRequestForResult(25036);
         editVideoActivityConfig.setProZone(i);
-        if (this.jDf != null) {
-            this.jDf.a(editVideoActivityConfig);
+        if (this.jFB != null) {
+            this.jFB.a(editVideoActivityConfig);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editVideoActivityConfig));
-        if (this.jhv != null) {
-            this.jhv.bOR();
+        if (this.jjR != null) {
+            this.jjR.bPE();
         }
     }
 
@@ -225,16 +225,16 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jAW != null && this.jAW.alC()) {
-            this.jAW.stopRecord();
+        if (this.jDs != null && this.jDs.alO()) {
+            this.jDs.stopRecord();
         }
-        if (this.jwq != null) {
-            this.jwq.cancelLoadData();
+        if (this.jyM != null) {
+            this.jyM.cancelLoadData();
         }
-        if (this.jhv != null) {
-            this.jhv.Ba("record");
+        if (this.jjR != null) {
+            this.jjR.Bz("record");
         }
-        com.baidu.tbadk.core.util.m.A(new File(com.baidu.tieba.video.c.juG));
+        com.baidu.tbadk.core.util.m.A(new File(com.baidu.tieba.video.c.jxc));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -247,103 +247,103 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
         getWindow().setFlags(1024, 1024);
         super.onCreate(bundle);
         setContentView(R.layout.record_activity);
-        this.jCZ = getIntent().getIntExtra(RecordVideoActivityConfig.ENTRANCE_FLAG, 0);
+        this.jFv = getIntent().getIntExtra(RecordVideoActivityConfig.ENTRANCE_FLAG, 0);
         if (getIntent().getSerializableExtra(RecordVideoActivityConfig.FORUM_WRITE_DATA) instanceof ForumWriteData) {
-            this.jDa = (ForumWriteData) getIntent().getSerializableExtra(RecordVideoActivityConfig.FORUM_WRITE_DATA);
+            this.jFw = (ForumWriteData) getIntent().getSerializableExtra(RecordVideoActivityConfig.FORUM_WRITE_DATA);
         }
         if (getIntent().getSerializableExtra(RecordVideoActivityConfig.WRITE_IMAGE_INFO) instanceof WriteImagesInfo) {
             this.mWriteImagesInfo = (WriteImagesInfo) getIntent().getSerializableExtra(RecordVideoActivityConfig.WRITE_IMAGE_INFO);
         }
-        this.jwm = getIntent().getStringExtra("video_title");
+        this.jyI = getIntent().getStringExtra("video_title");
         initUI();
-        this.jwq = new SelectMusicModel(getPageContext(), this.jCH);
-        this.jwq.cvb();
-        this.jDf = new j(this);
-        this.jDf.b(this.jwq);
-        this.jAW.a(this.jDf);
-        registerListener(this.jDi);
-        registerListener(this.fNv);
-        cwO();
+        this.jyM = new SelectMusicModel(getPageContext(), this.jFd);
+        this.jyM.cvP();
+        this.jFB = new j(this);
+        this.jFB.b(this.jyM);
+        this.jDs.a(this.jFB);
+        registerListener(this.jFE);
+        registerListener(this.fPk);
+        cxC();
     }
 
-    private void cwO() {
+    private void cxC() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_STICKERS);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         httpMessage.addParam("rn", 999);
         sendMessage(httpMessage);
     }
 
-    private void cvE() {
+    private void cws() {
         com.baidu.tieba.video.localvideo.b bVar = new com.baidu.tieba.video.localvideo.b(this);
-        bVar.b(this.jzC);
+        bVar.b(this.jBY);
         bVar.execute(new Void[0]);
     }
 
     private void initUI() {
-        this.jCG = (RecordLayout) findViewById(R.id.root_layout);
-        this.jCG.setListener(this);
-        this.jAW = new i(this);
-        this.jCH = (VideoControllerLayout) findViewById(R.id.record_controller_layout);
-        this.jCH.setRecordController(this.jAW);
-        this.jCH.setRecordControlListener(this);
-        this.jCH.setEffectChoosedListener(this);
-        this.jCI = (RelativeLayout) findViewById(R.id.top_control_layout);
-        this.glR = (ImageView) findViewById(R.id.close_page);
-        this.glR.setOnClickListener(this);
-        this.jCJ = (ImageView) findViewById(R.id.flash_switch);
-        this.jCJ.setOnClickListener(this);
-        this.jCK = (ImageView) findViewById(R.id.camera_switch);
-        this.jCK.setOnClickListener(this);
-        this.jCL = (ImageView) findViewById(R.id.count_down);
-        this.jCL.setOnClickListener(this);
-        this.jCN = (PreviewViewContainer) findViewById(R.id.video_surface_container);
-        this.jBe = new h(this);
-        this.jBe.a(this);
-        this.jBe.setFaceIdentifyStateListener(this);
-        this.jBe.a(new h.b() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.7
+        this.jFc = (RecordLayout) findViewById(R.id.root_layout);
+        this.jFc.setListener(this);
+        this.jDs = new i(this);
+        this.jFd = (VideoControllerLayout) findViewById(R.id.record_controller_layout);
+        this.jFd.setRecordController(this.jDs);
+        this.jFd.setRecordControlListener(this);
+        this.jFd.setEffectChoosedListener(this);
+        this.jFe = (RelativeLayout) findViewById(R.id.top_control_layout);
+        this.gnI = (ImageView) findViewById(R.id.close_page);
+        this.gnI.setOnClickListener(this);
+        this.jFf = (ImageView) findViewById(R.id.flash_switch);
+        this.jFf.setOnClickListener(this);
+        this.jFg = (ImageView) findViewById(R.id.camera_switch);
+        this.jFg.setOnClickListener(this);
+        this.jFh = (ImageView) findViewById(R.id.count_down);
+        this.jFh.setOnClickListener(this);
+        this.jFj = (PreviewViewContainer) findViewById(R.id.video_surface_container);
+        this.jDA = new h(this);
+        this.jDA.a(this);
+        this.jDA.setFaceIdentifyStateListener(this);
+        this.jDA.a(new h.b() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.7
             @Override // com.baidu.tieba.video.record.h.b
-            public void cwB() {
-                if (RecordVideoActivity.this.jCH.cxn()) {
-                    RecordVideoActivity.this.jCH.a((m) null);
+            public void cxp() {
+                if (RecordVideoActivity.this.jFd.cyb()) {
+                    RecordVideoActivity.this.jFd.a((m) null);
                 }
             }
         });
-        this.jCP = (VideoEffectButtonLayout) findViewById(R.id.layout_effect_button);
-        this.jCP.setListener(this);
-        this.jAW.a(this.jCP);
-        this.jCP.setViewChoosed(2, true);
-        this.jCO = (TextView) findViewById(R.id.tv_count_down);
-        this.jCQ = (TextView) findViewById(R.id.gesture_guide_tv);
+        this.jFl = (VideoEffectButtonLayout) findViewById(R.id.layout_effect_button);
+        this.jFl.setListener(this);
+        this.jDs.a(this.jFl);
+        this.jFl.setViewChoosed(2, true);
+        this.jFk = (TextView) findViewById(R.id.tv_count_down);
+        this.jFm = (TextView) findViewById(R.id.gesture_guide_tv);
         int ah = ((com.baidu.adp.lib.util.l.ah(this.mContext) - com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.ds336)) / 2) - com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.ds150);
-        if (this.jCO.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.jCO.getLayoutParams()).topMargin = ah;
+        if (this.jFk.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.jFk.getLayoutParams()).topMargin = ah;
         }
         if (Build.VERSION.SDK_INT < 18) {
-            this.jCP.setVisibility(8);
+            this.jFl.setVisibility(8);
         }
-        this.jCR = findViewById(R.id.progress_layout);
-        this.jCS = (RoundProgressBar) this.jCR.findViewById(R.id.video_progress);
-        this.jCT = (TextView) findViewById(R.id.min_time_tips);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jCT.getLayoutParams();
+        this.jFn = findViewById(R.id.progress_layout);
+        this.jFo = (RoundProgressBar) this.jFn.findViewById(R.id.video_progress);
+        this.jFp = (TextView) findViewById(R.id.min_time_tips);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jFp.getLayoutParams();
         layoutParams.leftMargin = ((int) (com.baidu.adp.lib.util.l.af(this.mContext) * 0.2d)) - com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.ds38);
-        this.jCT.setLayoutParams(layoutParams);
-        this.jDg = (RecordTabLayout) findViewById(R.id.tab_layout);
-        this.jDg.aM(1, getString(R.string.tab_photo));
-        if (this.jCZ != 2 && this.jCZ != 3) {
-            this.jDg.aM(2, getString(R.string.tab_record));
-            this.jDg.setListener(this);
-            this.jDg.setCurrentTab(2, false);
-            T(2, false);
+        this.jFp.setLayoutParams(layoutParams);
+        this.jFC = (RecordTabLayout) findViewById(R.id.tab_layout);
+        this.jFC.aM(1, getString(R.string.tab_photo));
+        if (this.jFv != 2 && this.jFv != 3) {
+            this.jFC.aM(2, getString(R.string.tab_record));
+            this.jFC.setListener(this);
+            this.jFC.setCurrentTab(2, false);
+            U(2, false);
         } else {
-            this.jDg.setShowIndicator(false);
-            this.jDg.setCurrentTab(1, false);
-            T(1, false);
+            this.jFC.setShowIndicator(false);
+            this.jFC.setCurrentTab(1, false);
+            U(1, false);
         }
-        cwP();
+        cxD();
     }
 
-    private void cwP() {
-        if (com.baidu.tbadk.core.util.g.ahZ()) {
+    private void cxD() {
+        if (com.baidu.tbadk.core.util.g.aid()) {
             this.mStatusBarView = findViewById(R.id.statusbar_view);
             ViewGroup.LayoutParams layoutParams = this.mStatusBarView.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
@@ -356,36 +356,36 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.jBe.onResume();
-        this.jBO = this.jBe.cws();
-        if (this.jBO != null) {
-            this.jBO.setRecordController(this.jAW);
-            this.jCN.setZoomHelper(this.jBO);
+        this.jDA.onResume();
+        this.jEk = this.jDA.cxg();
+        if (this.jEk != null) {
+            this.jEk.setRecordController(this.jDs);
+            this.jFj.setZoomHelper(this.jEk);
         }
-        cwQ();
-        if (this.jDd == null) {
-            this.jDd = new l();
-            this.jDd.a(new l.a() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.8
+        cxE();
+        if (this.jFz == null) {
+            this.jFz = new l();
+            this.jFz.a(new l.a() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.8
                 @Override // com.baidu.tieba.video.record.l.a
-                public void es(String str, String str2) {
-                    RecordVideoActivity.this.a(RecordVideoActivity.this.jDe, str2);
-                    if (RecordVideoActivity.this.jCH != null) {
-                        RecordVideoActivity.this.jCH.setDownLoadSticker(null);
+                public void et(String str, String str2) {
+                    RecordVideoActivity.this.a(RecordVideoActivity.this.jFA, str2);
+                    if (RecordVideoActivity.this.jFd != null) {
+                        RecordVideoActivity.this.jFd.setDownLoadSticker(null);
                     }
                 }
 
                 @Override // com.baidu.tieba.video.record.l.a
-                public void FF(String str) {
-                    if (RecordVideoActivity.this.jCH != null) {
+                public void Gf(String str) {
+                    if (RecordVideoActivity.this.jFd != null) {
                         StickerItem stickerItem = new StickerItem();
                         stickerItem.id = -1;
-                        RecordVideoActivity.this.jCH.b(stickerItem);
-                        if (RecordVideoActivity.this.jBe != null) {
-                            RecordVideoActivity.this.jBe.setSticker(null);
+                        RecordVideoActivity.this.jFd.b(stickerItem);
+                        if (RecordVideoActivity.this.jDA != null) {
+                            RecordVideoActivity.this.jDA.setSticker(null);
                         }
                     }
-                    if (RecordVideoActivity.this.jCH != null) {
-                        RecordVideoActivity.this.jCH.setDownLoadSticker(null);
+                    if (RecordVideoActivity.this.jFd != null) {
+                        RecordVideoActivity.this.jFd.setDownLoadSticker(null);
                     }
                     if (StringUtils.isNull(str)) {
                         RecordVideoActivity.this.showToast(R.string.sticker_download_error);
@@ -400,19 +400,19 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
                 }
 
                 @Override // com.baidu.tieba.video.record.l.a
-                public void cuj() {
-                    if (RecordVideoActivity.this.jCH != null) {
-                        RecordVideoActivity.this.jCH.setDownLoadSticker(null);
+                public void cuX() {
+                    if (RecordVideoActivity.this.jFd != null) {
+                        RecordVideoActivity.this.jFd.setDownLoadSticker(null);
                     }
                 }
             });
         }
-        this.jDd.cxh();
-        if (this.jCH != null && this.jDc) {
-            cvE();
+        this.jFz.cxV();
+        if (this.jFd != null && this.jFy) {
+            cws();
         }
-        if (this.jhv != null) {
-            this.jhv.AZ("album");
+        if (this.jjR != null) {
+            this.jjR.By("album");
         }
     }
 
@@ -420,271 +420,271 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.jBe.onPause();
-        if (this.jCH != null) {
-            if (this.jAW != null && this.jAW.getStatus() == 6) {
-                this.jCH.stopRecord();
-                cwZ();
+        this.jDA.onPause();
+        if (this.jFd != null) {
+            if (this.jDs != null && this.jDs.getStatus() == 6) {
+                this.jFd.stopRecord();
+                cxN();
             }
-            if (this.jAW != null && this.jAW.alC()) {
-                this.jCH.stopRecord();
+            if (this.jDs != null && this.jDs.alO()) {
+                this.jFd.stopRecord();
             }
         }
-        if (this.jDf != null) {
-            this.jDf.onPause();
+        if (this.jFB != null) {
+            this.jFB.onPause();
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.jAW == null || this.jAW.getStatus() != 7) {
-            if (this.jAW != null && this.jAW.getStatus() == 6) {
-                if (this.jCH != null) {
-                    this.jCH.stopRecord();
+        if (this.jDs == null || this.jDs.getStatus() != 7) {
+            if (this.jDs != null && this.jDs.getStatus() == 6) {
+                if (this.jFd != null) {
+                    this.jFd.stopRecord();
                 }
-                cwZ();
-            } else if (this.jAW.onBackPressed()) {
+                cxN();
+            } else if (this.jDs.onBackPressed()) {
                 finish();
             } else {
-                if (this.jCM == null) {
-                    this.jCM = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                    this.jCM.hu(R.string.video_quit_confirm);
-                    this.jCM.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.9
+                if (this.jFi == null) {
+                    this.jFi = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+                    this.jFi.hv(R.string.video_quit_confirm);
+                    this.jFi.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.9
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                             aVar.dismiss();
                             RecordVideoActivity.this.finish();
                         }
                     });
-                    this.jCM.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.10
+                    this.jFi.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.10
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                             aVar.dismiss();
                         }
                     });
-                    this.jCM.dQ(true);
-                    this.jCM.b(getPageContext());
+                    this.jFi.dQ(true);
+                    this.jFi.b(getPageContext());
                 }
-                this.jCM.agK();
+                this.jFi.agO();
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        this.jCT.setVisibility(4);
-        if (view == this.glR) {
+        this.jFp.setVisibility(4);
+        if (view == this.gnI) {
             onBackPressed();
-        } else if (view == this.jCJ) {
-            if (this.jAW.getStatus() == 1) {
+        } else if (view == this.jFf) {
+            if (this.jDs.getStatus() == 1) {
                 TiebaStatic.log("c12294");
             } else {
                 TiebaStatic.log("c12301");
             }
-            this.jBe.cwv();
-            cwQ();
-        } else if (view == this.jCK) {
-            if (this.jAW.getStatus() == 1) {
+            this.jDA.cxj();
+            cxE();
+        } else if (view == this.jFg) {
+            if (this.jDs.getStatus() == 1) {
                 TiebaStatic.log("c12295");
             } else {
                 TiebaStatic.log("c12302");
             }
-            this.jCK.setOnClickListener(null);
-            this.jBe.cwx();
-            if (this.jBe.cwy() && this.jBe.cww()) {
-                this.jBe.cwv();
+            this.jFg.setOnClickListener(null);
+            this.jDA.cxl();
+            if (this.jDA.cxm() && this.jDA.cxk()) {
+                this.jDA.cxj();
             }
-            cwQ();
-            this.jCK.setOnClickListener(this);
-        } else if (view == this.jCL) {
-            cwS();
+            cxE();
+            this.jFg.setOnClickListener(this);
+        } else if (view == this.jFh) {
+            cxG();
         }
     }
 
-    private void cwQ() {
-        if (this.jBe.cwy()) {
-            this.jCJ.setVisibility(8);
+    private void cxE() {
+        if (this.jDA.cxm()) {
+            this.jFf.setVisibility(8);
         } else {
-            this.jCJ.setVisibility(0);
+            this.jFf.setVisibility(0);
         }
-        if (this.jBe.cww()) {
-            this.jCJ.setImageResource(R.drawable.icon_video_flashon_n);
+        if (this.jDA.cxk()) {
+            this.jFf.setImageResource(R.drawable.icon_video_flashon_n);
         } else {
-            this.jCJ.setImageResource(R.drawable.icon_video_flashoff_n);
+            this.jFf.setImageResource(R.drawable.icon_video_flashoff_n);
         }
     }
 
-    public FrameLayout cwR() {
-        return this.jCN;
+    public FrameLayout cxF() {
+        return this.jFj;
     }
 
-    public void cwS() {
-        this.jCT.setVisibility(4);
-        if (this.jAW.getStatus() != 6) {
-            this.jAW.setStatus(6);
-            cwX();
+    public void cxG() {
+        this.jFp.setVisibility(4);
+        if (this.jDs.getStatus() != 6) {
+            this.jDs.setStatus(6);
+            cxL();
             final AtomicInteger atomicInteger = new AtomicInteger();
-            if (this.jCW == null) {
-                this.jCW = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 1, 0.5f, 1, 0.5f);
-                this.jCW.setDuration(500L);
-                this.jCW.setRepeatCount(5);
-                this.jCW.setRepeatMode(2);
-                this.jCW.setInterpolator(new DecelerateInterpolator(2.0f));
+            if (this.jFs == null) {
+                this.jFs = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 1, 0.5f, 1, 0.5f);
+                this.jFs.setDuration(500L);
+                this.jFs.setRepeatCount(5);
+                this.jFs.setRepeatMode(2);
+                this.jFs.setInterpolator(new DecelerateInterpolator(2.0f));
             }
-            this.jCW.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.11
+            this.jFs.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.11
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
-                    if (RecordVideoActivity.this.jAW.getStatus() == 6) {
+                    if (RecordVideoActivity.this.jDs.getStatus() == 6) {
                         atomicInteger.set(7);
-                        RecordVideoActivity.this.jCO.setVisibility(0);
-                        RecordVideoActivity.this.jCO.setText(String.valueOf(atomicInteger.get() / 2));
+                        RecordVideoActivity.this.jFk.setVisibility(0);
+                        RecordVideoActivity.this.jFk.setText(String.valueOf(atomicInteger.get() / 2));
                     }
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    RecordVideoActivity.this.jCO.setVisibility(8);
-                    if (RecordVideoActivity.this.jAW.getStatus() == 6) {
-                        RecordVideoActivity.this.jCH.cxk();
+                    RecordVideoActivity.this.jFk.setVisibility(8);
+                    if (RecordVideoActivity.this.jDs.getStatus() == 6) {
+                        RecordVideoActivity.this.jFd.cxY();
                     }
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationRepeat(Animation animation) {
-                    if (RecordVideoActivity.this.jAW.getStatus() == 6) {
+                    if (RecordVideoActivity.this.jDs.getStatus() == 6) {
                         if (atomicInteger.decrementAndGet() > 1) {
-                            RecordVideoActivity.this.jCO.setText(String.valueOf(atomicInteger.get() / 2));
+                            RecordVideoActivity.this.jFk.setText(String.valueOf(atomicInteger.get() / 2));
                         } else {
-                            RecordVideoActivity.this.jCO.setText("");
+                            RecordVideoActivity.this.jFk.setText("");
                         }
                     }
                 }
             });
-            this.jCO.setAnimation(this.jCW);
-            this.jCW.startNow();
-            this.jCH.cwS();
-            if (this.jDf != null) {
-                this.jDf.cwM();
+            this.jFk.setAnimation(this.jFs);
+            this.jFs.startNow();
+            this.jFd.cxG();
+            if (this.jFB != null) {
+                this.jFB.cxA();
             }
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void cwT() {
-        if (this.jAW.getStatus() == 1) {
-            this.jCT.setVisibility(4);
-            if (this.jAW.getStatus() != 6) {
-                this.jCH.cwT();
+    public void cxH() {
+        if (this.jDs.getStatus() == 1) {
+            this.jFp.setVisibility(4);
+            if (this.jDs.getStatus() != 6) {
+                this.jFd.cxH();
             }
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void cwU() {
-        this.jCT.setVisibility(4);
-        if (this.jAW.getStatus() != 6) {
-            this.jCH.cwU();
-            if (this.jCH.cxo()) {
-                cwO();
+    public void cxI() {
+        this.jFp.setVisibility(4);
+        if (this.jDs.getStatus() != 6) {
+            this.jFd.cxI();
+            if (this.jFd.cyc()) {
+                cxC();
             }
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void cwV() {
-        this.jCT.setVisibility(4);
-        if (this.jAW.getStatus() != 6) {
-            this.jCH.cwV();
+    public void cxJ() {
+        this.jFp.setVisibility(4);
+        if (this.jDs.getStatus() != 6) {
+            this.jFd.cxJ();
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void cwW() {
-        this.jCT.setVisibility(4);
-        if (this.jAW.getStatus() != 6) {
-            this.jCH.cwW();
+    public void cxK() {
+        this.jFp.setVisibility(4);
+        if (this.jDs.getStatus() != 6) {
+            this.jFd.cxK();
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cwX() {
-        this.jDb = true;
-        if (this.jCV != null && this.jCV.isRunning()) {
-            this.jCV.cancel();
+    public void cxL() {
+        this.jFx = true;
+        if (this.jFr != null && this.jFr.isRunning()) {
+            this.jFr.cancel();
         }
-        if (this.jCU == null) {
-            this.jCU = new AnimatorSet();
-            this.jCU.playTogether(ObjectAnimator.ofFloat(this.jCI, "alpha", 1.0f, 0.0f), ObjectAnimator.ofFloat(this.jCP, "alpha", 1.0f, 0.0f), ObjectAnimator.ofFloat(this.jDg, "alpha", 1.0f, 0.0f));
-            this.jCU.addListener(new m() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.12
+        if (this.jFq == null) {
+            this.jFq = new AnimatorSet();
+            this.jFq.playTogether(ObjectAnimator.ofFloat(this.jFe, "alpha", 1.0f, 0.0f), ObjectAnimator.ofFloat(this.jFl, "alpha", 1.0f, 0.0f), ObjectAnimator.ofFloat(this.jFC, "alpha", 1.0f, 0.0f));
+            this.jFq.addListener(new m() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.12
                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (!this.jEH) {
-                        RecordVideoActivity.this.jCI.setVisibility(8);
-                        RecordVideoActivity.this.jCP.setVisibility(8);
-                        RecordVideoActivity.this.jDg.setVisibility(8);
+                    if (!this.jHd) {
+                        RecordVideoActivity.this.jFe.setVisibility(8);
+                        RecordVideoActivity.this.jFl.setVisibility(8);
+                        RecordVideoActivity.this.jFC.setVisibility(8);
                     }
                 }
             });
-            this.jCU.setDuration(300L);
+            this.jFq.setDuration(300L);
         }
-        this.jCU.start();
-        this.jCP.reset();
+        this.jFq.start();
+        this.jFl.reset();
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cwM() {
-        if (this.fLJ == 2) {
-            if (this.jDb) {
-                this.jDb = false;
-                if (this.jDf != null) {
-                    this.jDf.cwM();
+    public void cxA() {
+        if (this.fNy == 2) {
+            if (this.jFx) {
+                this.jFx = false;
+                if (this.jFB != null) {
+                    this.jFB.cxA();
                 }
             } else {
                 return;
             }
         }
-        if (this.jCU != null && this.jCU.isRunning()) {
-            this.jCU.cancel();
+        if (this.jFq != null && this.jFq.isRunning()) {
+            this.jFq.cancel();
         }
-        if (this.jCV == null) {
-            this.jCV = new AnimatorSet();
-            this.jCV.playTogether(ObjectAnimator.ofFloat(this.jCI, "alpha", 0.0f, 1.0f), ObjectAnimator.ofFloat(this.jCP, "alpha", 0.0f, 1.0f), ObjectAnimator.ofFloat(this.jDg, "alpha", 0.0f, 1.0f));
-            this.jCV.setDuration(300L);
+        if (this.jFr == null) {
+            this.jFr = new AnimatorSet();
+            this.jFr.playTogether(ObjectAnimator.ofFloat(this.jFe, "alpha", 0.0f, 1.0f), ObjectAnimator.ofFloat(this.jFl, "alpha", 0.0f, 1.0f), ObjectAnimator.ofFloat(this.jFC, "alpha", 0.0f, 1.0f));
+            this.jFr.setDuration(300L);
         }
-        this.jCI.setVisibility(0);
+        this.jFe.setVisibility(0);
         if (Build.VERSION.SDK_INT >= 18) {
-            this.jCP.setVisibility(0);
+            this.jFl.setVisibility(0);
         }
-        if (this.jAW.getStatus() == 1) {
-            this.jDg.setVisibility(0);
+        if (this.jDs.getStatus() == 1) {
+            this.jFC.setVisibility(0);
         }
-        this.jCV.start();
+        this.jFr.start();
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cwY() {
-        if (this.jBe != null) {
-            this.jBe.a(new g.a() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.13
+    public void cxM() {
+        if (this.jDA != null) {
+            this.jDA.a(new g.a() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.13
                 @Override // com.baidu.tieba.video.record.g.a
                 public void z(boolean z, String str) {
-                    RecordVideoActivity.this.jAW.setStatus(1);
-                    RecordVideoActivity.this.cwM();
+                    RecordVideoActivity.this.jDs.setStatus(1);
+                    RecordVideoActivity.this.cxA();
                     if (z) {
                         if (RecordVideoActivity.this.mWriteImagesInfo != null) {
-                            if (RecordVideoActivity.this.jDh != null && !v.aa(RecordVideoActivity.this.mWriteImagesInfo.getChosedFiles()) && RecordVideoActivity.this.mWriteImagesInfo.getChosedFiles().contains(RecordVideoActivity.this.jDh)) {
-                                RecordVideoActivity.this.mWriteImagesInfo.getChosedFiles().remove(RecordVideoActivity.this.jDh);
+                            if (RecordVideoActivity.this.jFD != null && !v.aa(RecordVideoActivity.this.mWriteImagesInfo.getChosedFiles()) && RecordVideoActivity.this.mWriteImagesInfo.getChosedFiles().contains(RecordVideoActivity.this.jFD)) {
+                                RecordVideoActivity.this.mWriteImagesInfo.getChosedFiles().remove(RecordVideoActivity.this.jFD);
                             }
                         } else {
                             RecordVideoActivity.this.mWriteImagesInfo = new WriteImagesInfo();
                         }
-                        RecordVideoActivity.this.jDh = new ImageFileInfo();
-                        RecordVideoActivity.this.jDh.setFilePath(str);
-                        RecordVideoActivity.this.jDh.setTempFile(true);
-                        RecordVideoActivity.this.jDh.setAlbumnId(null);
-                        RecordVideoActivity.this.jDh.setIsFromCamera(true);
-                        RecordVideoActivity.this.mWriteImagesInfo.addChooseFile(RecordVideoActivity.this.jDh);
+                        RecordVideoActivity.this.jFD = new ImageFileInfo();
+                        RecordVideoActivity.this.jFD.setFilePath(str);
+                        RecordVideoActivity.this.jFD.setTempFile(true);
+                        RecordVideoActivity.this.jFD.setAlbumnId(null);
+                        RecordVideoActivity.this.jFD.setIsFromCamera(true);
+                        RecordVideoActivity.this.mWriteImagesInfo.addChooseFile(RecordVideoActivity.this.jFD);
                         if (RecordVideoActivity.this.getIntent().getIntExtra("from_type", 0) != 2) {
-                            RecordVideoActivity.this.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(RecordVideoActivity.this.getPageContext().getPageActivity(), 12012, RecordVideoActivity.this.mWriteImagesInfo, RecordVideoActivity.this.mWriteImagesInfo.size() - 1, RecordVideoActivity.this.jDa, RecordVideoActivity.this.jCZ)));
+                            RecordVideoActivity.this.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(RecordVideoActivity.this.getPageContext().getPageActivity(), 12012, RecordVideoActivity.this.mWriteImagesInfo, RecordVideoActivity.this.mWriteImagesInfo.size() - 1, RecordVideoActivity.this.jFw, RecordVideoActivity.this.jFv)));
                             return;
                         }
                         Intent intent = new Intent();
@@ -699,68 +699,68 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cwZ() {
-        this.jCW.cancel();
-        this.jCW.setAnimationListener(null);
-        this.jCO.clearAnimation();
-        this.jCO.setVisibility(8);
-        if (this.jDf != null) {
-            this.jDf.onResume();
+    public void cxN() {
+        this.jFs.cancel();
+        this.jFs.setAnimationListener(null);
+        this.jFk.clearAnimation();
+        this.jFk.setVisibility(8);
+        if (this.jFB != null) {
+            this.jFB.onResume();
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cxa() {
-        coi();
+    public void cxO() {
+        coV();
     }
 
-    private void coi() {
-        if (this.jCX != null) {
-            this.jCX.cancel();
+    private void coV() {
+        if (this.jFt != null) {
+            this.jFt.cancel();
         }
-        if (this.jCY == null) {
-            this.jCY = ObjectAnimator.ofFloat(this.jDg, "alpha", 1.0f, 0.0f);
-            this.jCY.setDuration(500L);
-            this.jCY.addListener(new m() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.2
+        if (this.jFu == null) {
+            this.jFu = ObjectAnimator.ofFloat(this.jFC, "alpha", 1.0f, 0.0f);
+            this.jFu.setDuration(500L);
+            this.jFu.addListener(new m() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.2
                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (!this.jEH) {
-                        RecordVideoActivity.this.jDg.setVisibility(8);
+                    if (!this.jHd) {
+                        RecordVideoActivity.this.jFC.setVisibility(8);
                     }
                 }
             });
         }
-        this.jCY.start();
+        this.jFu.start();
     }
 
-    private void coh() {
-        if (this.jCY != null) {
-            this.jCY.cancel();
+    private void coU() {
+        if (this.jFu != null) {
+            this.jFu.cancel();
         }
-        if (this.jCX == null) {
-            this.jCX = ObjectAnimator.ofFloat(this.jDg, "alpha", 0.0f, 1.0f);
-            this.jCX.setDuration(500L);
+        if (this.jFt == null) {
+            this.jFt = ObjectAnimator.ofFloat(this.jFC, "alpha", 0.0f, 1.0f);
+            this.jFt.setDuration(500L);
         }
-        this.jDg.setVisibility(0);
-        this.jCX.start();
-    }
-
-    @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cxb() {
-        this.jCP.reset();
-        if (this.jAW.getStatus() == 1) {
-            coh();
-        }
+        this.jFC.setVisibility(0);
+        this.jFt.start();
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cxc() {
-        if (this.jCR.getVisibility() != 0) {
-            this.jCH.cxj();
-            this.jAW.setStatus(8);
-            cwM();
-            if (this.jBe.jBM != null && this.jBe.jBM.size() > 0) {
-                this.jCR.setVisibility(0);
+    public void cxP() {
+        this.jFl.reset();
+        if (this.jDs.getStatus() == 1) {
+            coU();
+        }
+    }
+
+    @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
+    public void cxQ() {
+        if (this.jFn.getVisibility() != 0) {
+            this.jFd.cxX();
+            this.jDs.setStatus(8);
+            cxA();
+            if (this.jDA.jEi != null && this.jDA.jEi.size() > 0) {
+                this.jFn.setVisibility(0);
                 new AnonymousClass3().execute(new Void[0]);
             }
         }
@@ -770,15 +770,15 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     /* renamed from: com.baidu.tieba.video.record.RecordVideoActivity$3  reason: invalid class name */
     /* loaded from: classes5.dex */
     public class AnonymousClass3 extends BdAsyncTask<Void, Void, com.baidu.tieba.video.meida.i> {
-        final int jDl = 50;
-        final int jDm = 1;
-        Handler jDn = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.video.record.RecordVideoActivity.3.1
+        final int jFH = 50;
+        final int jFI = 1;
+        Handler jFJ = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.video.record.RecordVideoActivity.3.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 1) {
                     AnonymousClass3.this.mProgress = (AnonymousClass3.this.mProgress + 5) % 100;
-                    RecordVideoActivity.this.jCS.aU(AnonymousClass3.this.mProgress);
-                    AnonymousClass3.this.cxg();
+                    RecordVideoActivity.this.jFo.aV(AnonymousClass3.this.mProgress);
+                    AnonymousClass3.this.cxU();
                 }
             }
         };
@@ -787,8 +787,8 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
         AnonymousClass3() {
         }
 
-        public void cxg() {
-            this.jDn.sendEmptyMessageDelayed(1, 50L);
+        public void cxU() {
+            this.jFJ.sendEmptyMessageDelayed(1, 50L);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -796,24 +796,24 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public com.baidu.tieba.video.meida.i doInBackground(Void... voidArr) {
-            cxg();
-            boolean z = RecordVideoActivity.this.jDf == null || TextUtils.isEmpty(RecordVideoActivity.this.jDf.cwL()) || !new File(RecordVideoActivity.this.jDf.cwL()).exists();
-            if (RecordVideoActivity.this.jBe.jBM.size() > 1) {
-                return com.baidu.tieba.video.meida.h.cvY().a(RecordVideoActivity.this.jBe.jBM, RecordVideoActivity.this.jBe.cwp(), z);
+            cxU();
+            boolean z = RecordVideoActivity.this.jFB == null || TextUtils.isEmpty(RecordVideoActivity.this.jFB.cxz()) || !new File(RecordVideoActivity.this.jFB.cxz()).exists();
+            if (RecordVideoActivity.this.jDA.jEi.size() > 1) {
+                return com.baidu.tieba.video.meida.h.cwM().a(RecordVideoActivity.this.jDA.jEi, RecordVideoActivity.this.jDA.cxd(), z);
             }
-            File file = new File(RecordVideoActivity.this.jBe.jBM.get(0));
+            File file = new File(RecordVideoActivity.this.jDA.jEi.get(0));
             if (!file.exists()) {
                 return null;
             }
             if (z) {
                 try {
-                    com.baidu.adp.lib.util.f.c(file, new File(RecordVideoActivity.this.jBe.cwp()));
+                    com.baidu.adp.lib.util.f.c(file, new File(RecordVideoActivity.this.jDA.cxd()));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 return new com.baidu.tieba.video.meida.i(0, "");
             }
-            return com.baidu.tieba.video.meida.h.cvY().a(RecordVideoActivity.this.jBe.jBM, RecordVideoActivity.this.jBe.cwp(), z);
+            return com.baidu.tieba.video.meida.h.cwM().a(RecordVideoActivity.this.jDA.jEi, RecordVideoActivity.this.jDA.cxd(), z);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -821,34 +821,34 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(com.baidu.tieba.video.meida.i iVar) {
-            RecordVideoActivity.this.jCH.cxp();
+            RecordVideoActivity.this.jFd.cyd();
             if (iVar != null && iVar.result == 0) {
                 if (!XiaoyingUtil.isXiaoyingInstalled() || XiaoyingUtil.isXiaoyingForbidden()) {
-                    RecordVideoActivity.this.cwN();
-                    RecordVideoActivity.this.Cu(102);
-                    RecordVideoActivity.this.jCR.setVisibility(8);
+                    RecordVideoActivity.this.cxB();
+                    RecordVideoActivity.this.Cy(102);
+                    RecordVideoActivity.this.jFn.setVisibility(8);
                     return;
                 }
-                RecordVideoActivity.this.cwN();
-                RecordVideoActivity.this.Cu(102);
-                RecordVideoActivity.this.jCR.setVisibility(8);
+                RecordVideoActivity.this.cxB();
+                RecordVideoActivity.this.Cy(102);
+                RecordVideoActivity.this.jFn.setVisibility(8);
             } else {
                 com.baidu.adp.lib.util.l.showToast(RecordVideoActivity.this, RecordVideoActivity.this.getString(R.string.mix_fail));
-                RecordVideoActivity.this.jCR.setVisibility(8);
+                RecordVideoActivity.this.jFn.setVisibility(8);
                 if (iVar != null) {
                     RecordVideoActivity.this.av(iVar.result, iVar.msg);
                 }
             }
-            RecordVideoActivity.this.jCS.aU(0.0f);
+            RecordVideoActivity.this.jFo.aV(0.0f);
         }
     }
 
     public List<String> getChoosedBeautyList() {
         ArrayList arrayList = new ArrayList();
-        if (this.jCH == null || v.aa(this.jCH.getChoosedBeautyList())) {
+        if (this.jFd == null || v.aa(this.jFd.getChoosedBeautyList())) {
             return arrayList;
         }
-        for (e eVar : this.jCH.getChoosedBeautyList()) {
+        for (e eVar : this.jFd.getChoosedBeautyList()) {
             if (eVar != null) {
                 String name = eVar.getName();
                 if (!TextUtils.isEmpty(name)) {
@@ -864,10 +864,10 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
 
     public List<String> getChoosedFilterList() {
         ArrayList arrayList = new ArrayList();
-        if (this.jCH == null || v.aa(this.jCH.getChoosedFilterList())) {
+        if (this.jFd == null || v.aa(this.jFd.getChoosedFilterList())) {
             return arrayList;
         }
-        for (e eVar : this.jCH.getChoosedFilterList()) {
+        for (e eVar : this.jFd.getChoosedFilterList()) {
             if (eVar != null) {
                 String str = (String) eVar.getValue();
                 if (!TextUtils.isEmpty(str)) {
@@ -880,10 +880,10 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
 
     public List<String> getChoosedStickerList() {
         ArrayList arrayList = new ArrayList();
-        if (this.jCH == null || v.aa(this.jCH.getChoosedStickerList())) {
+        if (this.jFd == null || v.aa(this.jFd.getChoosedStickerList())) {
             return arrayList;
         }
-        for (StickerItem stickerItem : this.jCH.getChoosedStickerList()) {
+        for (StickerItem stickerItem : this.jFd.getChoosedStickerList()) {
             if (stickerItem != null) {
                 arrayList.add(String.valueOf(stickerItem.id));
             }
@@ -892,66 +892,66 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cxd() {
-        this.jCT.setVisibility(0);
+    public void cxR() {
+        this.jFp.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cxe() {
-        this.jCT.setVisibility(4);
+    public void cxS() {
+        this.jFp.setVisibility(4);
     }
 
     @Override // com.baidu.tieba.video.record.VideoControllerLayout.a
-    public void cxf() {
-        if (this.jAW.getStatus() == 1) {
-            this.jDg.setVisibility(0);
+    public void cxT() {
+        if (this.jDs.getStatus() == 1) {
+            this.jFC.setVisibility(0);
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectLayout.a
     public void a(e eVar, Object obj) {
-        if (this.jBe != null && eVar != null) {
+        if (this.jDA != null && eVar != null) {
             switch (eVar.getType()) {
                 case 1:
                     if (eVar.getValue() instanceof com.baidu.tieba.video.a) {
-                        this.jBe.setBeautyLevel((com.baidu.tieba.video.a) eVar.getValue());
+                        this.jDA.setBeautyLevel((com.baidu.tieba.video.a) eVar.getValue());
                         TiebaStatic.log(new an("c12421").P(VideoPlayActivityConfig.OBJ_ID, ((com.baidu.tieba.video.a) eVar.getValue()).level));
                         if (((com.baidu.tieba.video.a) eVar.getValue()).level == 0) {
-                            this.jCP.setViewChoosed(2, false);
+                            this.jFl.setViewChoosed(2, false);
                             return;
                         } else {
-                            this.jCP.setViewChoosed(2, true);
+                            this.jFl.setViewChoosed(2, true);
                             return;
                         }
                     }
                     return;
                 case 2:
                     if (eVar.getValue() instanceof String) {
-                        this.jBe.setFilter((String) eVar.getValue());
+                        this.jDA.setFilter((String) eVar.getValue());
                         an anVar = new an("c12496");
                         anVar.bT(VideoPlayActivityConfig.OBJ_ID, (String) eVar.getValue());
-                        if (this.jAW.getStatus() == 1) {
+                        if (this.jDs.getStatus() == 1) {
                             anVar.P("obj_type", 1);
                         } else {
                             anVar.P("obj_type", 2);
                         }
                         if (eVar.getValue().equals("origin")) {
-                            this.jCP.setViewChoosed(3, false);
+                            this.jFl.setViewChoosed(3, false);
                             return;
                         } else {
-                            this.jCP.setViewChoosed(3, true);
+                            this.jFl.setViewChoosed(3, true);
                             return;
                         }
                     }
                     return;
                 case 3:
                     if (eVar.getValue() instanceof MusicData) {
-                        this.jDf.a((MusicData) eVar.getValue(), obj);
+                        this.jFB.a((MusicData) eVar.getValue(), obj);
                         if (((MusicData) eVar.getValue()).editMusicType == 1) {
-                            this.jCP.setViewChoosed(0, false);
+                            this.jFl.setViewChoosed(0, false);
                             return;
                         } else {
-                            this.jCP.setViewChoosed(0, true);
+                            this.jFl.setViewChoosed(0, true);
                             return;
                         }
                     }
@@ -965,33 +965,33 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     @Override // com.baidu.tieba.video.record.VideoEffectLayout.a
     public void a(StickerItem stickerItem) {
         if (stickerItem != null) {
-            this.jDe = stickerItem;
-            this.jDd.Gg(stickerItem.resource);
+            this.jFA = stickerItem;
+            this.jFz.GG(stickerItem.resource);
             if (stickerItem.id == -1) {
-                if (this.jBe != null) {
-                    this.jBe.setSticker(null);
-                    this.jDj = false;
+                if (this.jDA != null) {
+                    this.jDA.setSticker(null);
+                    this.jFF = false;
                 }
-                if (this.jCH != null) {
-                    this.jCH.setDownLoadSticker(null);
+                if (this.jFd != null) {
+                    this.jFd.setDownLoadSticker(null);
                 }
-                this.jCQ.setVisibility(8);
-                this.jCP.setViewChoosed(1, false);
+                this.jFm.setVisibility(8);
+                this.jFl.setViewChoosed(1, false);
                 return;
             }
-            String Gd = this.jDd.Gd(stickerItem.resource);
-            if (!StringUtils.isNull(Gd)) {
-                a(stickerItem, Gd);
-                if (this.jCH != null) {
-                    this.jCH.setDownLoadSticker(null);
+            String GD = this.jFz.GD(stickerItem.resource);
+            if (!StringUtils.isNull(GD)) {
+                a(stickerItem, GD);
+                if (this.jFd != null) {
+                    this.jFd.setDownLoadSticker(null);
                 }
             } else {
-                if (this.jCH != null) {
-                    this.jCH.setDownLoadSticker(stickerItem);
+                if (this.jFd != null) {
+                    this.jFd.setDownLoadSticker(stickerItem);
                 }
-                this.jDd.Ge(stickerItem.resource);
+                this.jFz.GE(stickerItem.resource);
             }
-            this.jCP.setViewChoosed(1, true);
+            this.jFl.setViewChoosed(1, true);
         }
     }
 
@@ -999,34 +999,34 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     public void a(StickerItem stickerItem, String str) {
         if (stickerItem != null && !StringUtils.isNull(str)) {
             stickerItem.localPath = str;
-            if (this.jBe != null) {
-                this.jBe.setSticker(stickerItem);
-                this.jDj = true;
+            if (this.jDA != null) {
+                this.jDA.setSticker(stickerItem);
+                this.jFF = true;
             }
             if (!StringUtils.isNull(stickerItem.desc)) {
-                this.jCQ.setText(stickerItem.desc);
-                this.jCQ.setVisibility(0);
-                this.jCQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.4
+                this.jFm.setText(stickerItem.desc);
+                this.jFm.setVisibility(0);
+                this.jFm.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.record.RecordVideoActivity.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        RecordVideoActivity.this.jCQ.setVisibility(8);
+                        RecordVideoActivity.this.jFm.setVisibility(8);
                     }
                 }, 3000L);
                 return;
             }
-            this.jCQ.setVisibility(8);
+            this.jFm.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.video.record.h.c
-    public void cI(int i, int i2) {
+    public void cH(int i, int i2) {
         int i3;
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.ds336);
         if (dimensionPixelOffset > 0 && i2 > 0 && (i3 = (com.baidu.adp.lib.util.l.v(this).heightPixels - i2) - dimensionPixelOffset) > 0) {
             int i4 = dimensionPixelOffset + i3;
-            ViewGroup.LayoutParams layoutParams = this.jCH.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.jFd.getLayoutParams();
             layoutParams.height = i4;
-            this.jCH.setLayoutParams(layoutParams);
+            this.jFd.setLayoutParams(layoutParams);
         }
     }
 
@@ -1037,10 +1037,10 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
             String stringExtra = intent.getStringExtra("music_resource");
             String stringExtra2 = intent.getStringExtra("music_id");
             if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                String FN = com.baidu.tieba.video.editvideo.model.a.cuV().FN(stringExtra);
-                if (this.jDf != null && !TextUtils.isEmpty(FN)) {
-                    this.jDf.et(FN, stringExtra2);
-                    this.jCH.cwd();
+                String Gn = com.baidu.tieba.video.editvideo.model.a.cvJ().Gn(stringExtra);
+                if (this.jFB != null && !TextUtils.isEmpty(Gn)) {
+                    this.jFB.eu(Gn, stringExtra2);
+                    this.jFd.cwR();
                 }
             }
         } else if (i == 12012 && i2 == -1) {
@@ -1060,49 +1060,49 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        if (this.jAW.getStatus() == 8) {
-            this.jCH.cxi();
+        if (this.jDs.getStatus() == 8) {
+            this.jFd.cxW();
         }
     }
 
     @Override // com.baidu.tieba.video.record.GLVideoPreviewView.a
-    public void rM(boolean z) {
-        if (this.jAW != null && (this.jAW.getStatus() == 1 || this.jAW.getStatus() == 3 || this.jAW.getStatus() == 4)) {
-            if (!z && this.jDj) {
-                this.jCN.aUY();
+    public void rP(boolean z) {
+        if (this.jDs != null && (this.jDs.getStatus() == 1 || this.jDs.getStatus() == 3 || this.jDs.getStatus() == 4)) {
+            if (!z && this.jFF) {
+                this.jFj.aVC();
                 return;
             } else {
-                this.jCN.aUZ();
+                this.jFj.aVD();
                 return;
             }
         }
-        this.jCN.aUZ();
+        this.jFj.aVD();
     }
 
     @Override // com.baidu.tieba.video.record.RecordTabLayout.a
-    public void T(int i, boolean z) {
+    public void U(int i, boolean z) {
         int i2 = 1;
-        if (this.fLJ != i) {
+        if (this.fNy != i) {
             switch (i) {
                 case 1:
-                    if (this.jDf != null) {
-                        this.jDf.aBC();
+                    if (this.jFB != null) {
+                        this.jFB.aBQ();
                     }
-                    this.jBe.setFilter("origin");
-                    this.jCP.setViewChoosed(0, false);
-                    this.jCP.setViewChoosed(3, false);
-                    this.jCH.Cw(1);
-                    this.jCP.setViewVisibility(0, 8);
-                    this.jCP.setViewVisibility(3, 8);
+                    this.jDA.setFilter("origin");
+                    this.jFl.setViewChoosed(0, false);
+                    this.jFl.setViewChoosed(3, false);
+                    this.jFd.CA(1);
+                    this.jFl.setViewVisibility(0, 8);
+                    this.jFl.setViewVisibility(3, 8);
                     break;
                 case 2:
-                    this.jCP.setViewVisibility(0, 0);
-                    this.jCP.setViewVisibility(3, 0);
+                    this.jFl.setViewVisibility(0, 0);
+                    this.jFl.setViewVisibility(3, 0);
                     i2 = 2;
                     break;
             }
-            this.fLJ = i;
-            this.jCH.setCurrentTab(i);
+            this.fNy = i;
+            this.jFd.setCurrentTab(i);
             if (z) {
                 TiebaStatic.log(new an().P("obj_type", i2));
             }
@@ -1110,35 +1110,35 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     }
 
     @Override // com.baidu.tieba.video.record.RecordLayout.a
-    public void cwK() {
-        if (this.jAW.getStatus() == 1 && !this.jCH.cxn()) {
-            T(1, true);
-            this.jDg.setCurrentTab(1, true);
+    public void cxy() {
+        if (this.jDs.getStatus() == 1 && !this.jFd.cyb()) {
+            U(1, true);
+            this.jFC.setCurrentTab(1, true);
         }
     }
 
     @Override // com.baidu.tieba.video.record.RecordLayout.a
-    public void cwJ() {
-        if (this.jAW.getStatus() == 1 && !this.jCH.cxn()) {
-            T(2, true);
-            this.jDg.setCurrentTab(2, true);
+    public void cxx() {
+        if (this.jDs.getStatus() == 1 && !this.jFd.cyb()) {
+            U(2, true);
+            this.jFC.setCurrentTab(2, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cu(int i) {
-        if (this.jhv != null) {
-            this.jhv.aw(i, "record");
+    public void Cy(int i) {
+        if (this.jjR != null) {
+            this.jjR.aw(i, "record");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void av(int i, String str) {
-        if (this.jhv != null) {
+        if (this.jjR != null) {
             if (StringUtils.isNull(str)) {
                 str = "";
             }
-            this.jhv.av(i, str);
+            this.jjR.av(i, str);
         }
     }
 }

@@ -6,7 +6,9 @@ import com.baidu.tieba.R;
 public class j extends k {
     public j(Context context) {
         super((String) null, 23, 0);
-        this.csO = R.drawable.selector_more_tool_btn;
-        this.csT = new int[]{32};
+        this.ctI = R.drawable.icon_pure_post_more_n_svg;
+        this.ctJ = R.drawable.icon_mask_post_more_h_svg;
+        this.ctK = true;
+        this.ctP = new int[]{32};
     }
 }

@@ -10,9 +10,9 @@ import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.a.ae;
 /* loaded from: classes2.dex */
 public final class b<T, R> implements d.a<R> {
-    final rx.d<? extends T> kvX;
-    final rx.functions.f<? super T, ? extends rx.d<? extends R>> kwt;
-    final int kwu;
+    final rx.functions.f<? super T, ? extends rx.d<? extends R>> kyM;
+    final int kyN;
+    final rx.d<? extends T> kyq;
     final int prefetch;
 
     @Override // rx.functions.b
@@ -21,24 +21,24 @@ public final class b<T, R> implements d.a<R> {
     }
 
     public b(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar, int i, int i2) {
-        this.kvX = dVar;
-        this.kwt = fVar;
+        this.kyq = dVar;
+        this.kyM = fVar;
         this.prefetch = i;
-        this.kwu = i2;
+        this.kyN = i2;
     }
 
     public void call(rx.j<? super R> jVar) {
-        final c cVar = new c(this.kwu == 0 ? new rx.b.e<>(jVar) : jVar, this.kwt, this.prefetch, this.kwu);
+        final c cVar = new c(this.kyN == 0 ? new rx.b.e<>(jVar) : jVar, this.kyM, this.prefetch, this.kyN);
         jVar.add(cVar);
-        jVar.add(cVar.kwA);
+        jVar.add(cVar.kyS);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.b.1
             @Override // rx.f
             public void request(long j) {
-                cVar.eR(j);
+                cVar.eU(j);
             }
         });
         if (!jVar.isUnsubscribed()) {
-            this.kvX.a((rx.j<? super Object>) cVar);
+            this.kyq.a((rx.j<? super Object>) cVar);
         }
     }
 
@@ -48,26 +48,26 @@ public final class b<T, R> implements d.a<R> {
         volatile boolean active;
         final rx.j<? super R> actual;
         volatile boolean done;
-        final rx.subscriptions.d kwA;
-        final rx.functions.f<? super T, ? extends rx.d<? extends R>> kwt;
-        final int kwu;
+        final rx.functions.f<? super T, ? extends rx.d<? extends R>> kyM;
+        final int kyN;
+        final rx.subscriptions.d kyS;
         final Queue<Object> queue;
-        final rx.internal.producers.a kwz = new rx.internal.producers.a();
+        final rx.internal.producers.a kyR = new rx.internal.producers.a();
         final AtomicInteger wip = new AtomicInteger();
         final AtomicReference<Throwable> error = new AtomicReference<>();
 
         public c(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar, int i, int i2) {
             Queue<Object> cVar;
             this.actual = jVar;
-            this.kwt = fVar;
-            this.kwu = i2;
-            if (ae.cQB()) {
+            this.kyM = fVar;
+            this.kyN = i2;
+            if (ae.cRn()) {
                 cVar = new rx.internal.util.a.q<>(i);
             } else {
                 cVar = new rx.internal.util.atomic.c<>(i);
             }
             this.queue = cVar;
-            this.kwA = new rx.subscriptions.d();
+            this.kyS = new rx.subscriptions.d();
             request(i);
         }
 
@@ -85,12 +85,12 @@ public final class b<T, R> implements d.a<R> {
         public void onError(Throwable th) {
             if (ExceptionsUtils.addThrowable(this.error, th)) {
                 this.done = true;
-                if (this.kwu == 0) {
+                if (this.kyN == 0) {
                     Throwable terminate = ExceptionsUtils.terminate(this.error);
                     if (!ExceptionsUtils.isTerminated(terminate)) {
                         this.actual.onError(terminate);
                     }
-                    this.kwA.unsubscribe();
+                    this.kyS.unsubscribe();
                     return;
                 }
                 drain();
@@ -105,9 +105,9 @@ public final class b<T, R> implements d.a<R> {
             drain();
         }
 
-        void eR(long j) {
+        void eU(long j) {
             if (j > 0) {
-                this.kwz.request(j);
+                this.kyR.request(j);
             } else if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
@@ -120,7 +120,7 @@ public final class b<T, R> implements d.a<R> {
         void a(Throwable th, long j) {
             if (!ExceptionsUtils.addThrowable(this.error, th)) {
                 O(th);
-            } else if (this.kwu == 0) {
+            } else if (this.kyN == 0) {
                 Throwable terminate = ExceptionsUtils.terminate(this.error);
                 if (!ExceptionsUtils.isTerminated(terminate)) {
                     this.actual.onError(terminate);
@@ -128,16 +128,16 @@ public final class b<T, R> implements d.a<R> {
                 unsubscribe();
             } else {
                 if (j != 0) {
-                    this.kwz.eU(j);
+                    this.kyR.eX(j);
                 }
                 this.active = false;
                 drain();
             }
         }
 
-        void eS(long j) {
+        void eV(long j) {
             if (j != 0) {
-                this.kwz.eU(j);
+                this.kyR.eX(j);
             }
             this.active = false;
             drain();
@@ -149,7 +149,7 @@ public final class b<T, R> implements d.a<R> {
 
         void drain() {
             if (this.wip.getAndIncrement() == 0) {
-                int i = this.kwu;
+                int i = this.kyN;
                 while (!this.actual.isUnsubscribed()) {
                     if (!this.active) {
                         if (i == 1 && this.error.get() != null) {
@@ -176,20 +176,20 @@ public final class b<T, R> implements d.a<R> {
                             }
                         } else if (!z2) {
                             try {
-                                rx.d<? extends R> call = this.kwt.call((Object) NotificationLite.bt(poll));
+                                rx.d<? extends R> call = this.kyM.call((Object) NotificationLite.bt(poll));
                                 if (call == null) {
                                     P(new NullPointerException("The source returned by the mapper was null"));
                                     return;
-                                } else if (call != rx.d.cPq()) {
+                                } else if (call != rx.d.cQc()) {
                                     if (call instanceof ScalarSynchronousObservable) {
                                         this.active = true;
-                                        this.kwz.setProducer(new a(((ScalarSynchronousObservable) call).get(), this));
+                                        this.kyR.setProducer(new a(((ScalarSynchronousObservable) call).get(), this));
                                     } else {
-                                        C0510b c0510b = new C0510b(this);
-                                        this.kwA.f(c0510b);
-                                        if (!c0510b.isUnsubscribed()) {
+                                        C0516b c0516b = new C0516b(this);
+                                        this.kyS.f(c0516b);
+                                        if (!c0516b.isUnsubscribed()) {
                                             this.active = true;
-                                            call.a((rx.j<? super Object>) c0510b);
+                                            call.a((rx.j<? super Object>) c0516b);
                                         } else {
                                             return;
                                         }
@@ -229,55 +229,55 @@ public final class b<T, R> implements d.a<R> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.operators.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0510b<T, R> extends rx.j<R> {
-        final c<T, R> kwx;
+    public static final class C0516b<T, R> extends rx.j<R> {
+        final c<T, R> kyQ;
         long produced;
 
-        public C0510b(c<T, R> cVar) {
-            this.kwx = cVar;
+        public C0516b(c<T, R> cVar) {
+            this.kyQ = cVar;
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.kwx.kwz.setProducer(fVar);
+            this.kyQ.kyR.setProducer(fVar);
         }
 
         @Override // rx.e
         public void onNext(R r) {
             this.produced++;
-            this.kwx.bv(r);
+            this.kyQ.bv(r);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.kwx.a(th, this.produced);
+            this.kyQ.a(th, this.produced);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.kwx.eS(this.produced);
+            this.kyQ.eV(this.produced);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T, R> implements rx.f {
-        final c<T, R> kwx;
-        boolean kwy;
+        final c<T, R> kyQ;
+        boolean once;
         final R value;
 
         public a(R r, c<T, R> cVar) {
             this.value = r;
-            this.kwx = cVar;
+            this.kyQ = cVar;
         }
 
         @Override // rx.f
         public void request(long j) {
-            if (!this.kwy && j > 0) {
-                this.kwy = true;
-                c<T, R> cVar = this.kwx;
+            if (!this.once && j > 0) {
+                this.once = true;
+                c<T, R> cVar = this.kyQ;
                 cVar.bv(this.value);
-                cVar.eS(1L);
+                cVar.eV(1L);
             }
         }
     }

@@ -15,21 +15,21 @@ import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class b implements View.OnTouchListener {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String aBd;
-    private String bcs;
-    private String bct;
-    private C0194b bcw;
-    private long bcx;
-    private boolean bcu = false;
-    private int[] bcv = new int[2];
-    private a bcy = new a();
+    private String aBB;
+    private String bcQ;
+    private String bcR;
+    private C0203b bcU;
+    private long bcV;
+    private boolean bcS = false;
+    private int[] bcT = new int[2];
+    private a bcW = new a();
 
     public b(String str, String str2, String str3) {
-        this.aBd = str;
-        this.bcs = str2;
-        this.bct = str3;
-        Qp();
-        Qq();
+        this.aBB = str;
+        this.bcQ = str2;
+        this.bcR = str3;
+        Qt();
+        Qu();
     }
 
     @Override // android.view.View.OnTouchListener
@@ -38,47 +38,47 @@ public class b implements View.OnTouchListener {
         return true;
     }
 
-    public static boolean Qo() {
-        SwanCoreVersion Ci = c.BQ().Ci();
-        long j = Ci != null ? Ci.aWG : 0L;
-        long hO = com.baidu.swan.apps.swancore.b.hO("1.12.0");
+    public static boolean Qs() {
+        SwanCoreVersion Cm = c.BU().Cm();
+        long j = Cm != null ? Cm.aXe : 0L;
+        long hQ = com.baidu.swan.apps.swancore.b.hQ("1.12.0");
         if (DEBUG) {
-            Log.d("SwanAppTouchListener", "targetSwanVersion =" + hO + ";curSwanVersion: " + j);
+            Log.d("SwanAppTouchListener", "targetSwanVersion =" + hQ + ";curSwanVersion: " + j);
         }
-        if (j < hO) {
+        if (j < hQ) {
             return false;
         }
         return true;
     }
 
-    private void Qp() {
-        this.bcu = !Qo() && TextUtils.equals("canvas", this.bct);
+    private void Qt() {
+        this.bcS = !Qs() && TextUtils.equals("canvas", this.bcR);
     }
 
-    private void Qq() {
-        AbsoluteLayout fe = ac.fe(this.aBd);
-        if (fe != null) {
-            fe.getLocationOnScreen(this.bcv);
+    private void Qu() {
+        AbsoluteLayout fg = ac.fg(this.aBB);
+        if (fg != null) {
+            fg.getLocationOnScreen(this.bcT);
         }
     }
 
     private void a(View view, MotionEvent motionEvent) {
-        if (view == null || motionEvent == null || TextUtils.isEmpty(this.aBd) || TextUtils.isEmpty(this.bcs)) {
-            com.baidu.swan.apps.console.c.e("SwanAppTouchListener", "params is null, slaveId = " + this.aBd + " ; viewId = " + this.bcs);
+        if (view == null || motionEvent == null || TextUtils.isEmpty(this.aBB) || TextUtils.isEmpty(this.bcQ)) {
+            com.baidu.swan.apps.console.c.e("SwanAppTouchListener", "params is null, slaveId = " + this.aBB + " ; viewId = " + this.bcQ);
             return;
         }
         int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
-            this.bcw = new C0194b(motionEvent.getX(), motionEvent.getY());
-            this.bcx = motionEvent.getEventTime();
-            this.bcy.s(motionEvent);
-            view.postDelayed(this.bcy, 350L);
-            Qq();
-        } else if (actionMasked == 1 || actionMasked == 3 || !a(new C0194b(motionEvent.getX(), motionEvent.getY()))) {
-            view.removeCallbacks(this.bcy);
+            this.bcU = new C0203b(motionEvent.getX(), motionEvent.getY());
+            this.bcV = motionEvent.getEventTime();
+            this.bcW.s(motionEvent);
+            view.postDelayed(this.bcW, 350L);
+            Qu();
+        } else if (actionMasked == 1 || actionMasked == 3 || !a(new C0203b(motionEvent.getX(), motionEvent.getY()))) {
+            view.removeCallbacks(this.bcW);
         }
         a(r(motionEvent));
-        if (actionMasked == 1 && a(new C0194b(motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.bcx < 350) {
+        if (actionMasked == 1 && a(new C0203b(motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.bcV < 350) {
             a(b(motionEvent, "tap"));
         }
     }
@@ -88,10 +88,10 @@ public class b implements View.OnTouchListener {
         if (DEBUG) {
             Log.d("SwanAppTouchListener", "sendEventToWebView = " + fVar.mData);
         }
-        if (!this.bcu) {
-            e.GF().a(this.aBd, fVar);
+        if (!this.bcS) {
+            e.GJ().a(this.aBB, fVar);
         } else {
-            e.GF().a(fVar);
+            e.GJ().a(fVar);
         }
     }
 
@@ -99,63 +99,63 @@ public class b implements View.OnTouchListener {
     /* JADX WARN: Type inference failed for: r0v2, types: [org.json.JSONObject, T] */
     public f b(MotionEvent motionEvent, String str) {
         com.baidu.swan.apps.view.container.b.a aVar = new com.baidu.swan.apps.view.container.b.a(motionEvent, str);
-        aVar.g(this.bcv);
+        aVar.g(this.bcT);
         f fVar = new f();
-        fVar.mData = d.c(this.aBd, this.bcs, this.bct, aVar.Ql(), aVar.Qm());
+        fVar.mData = d.c(this.aBB, this.bcQ, this.bcR, aVar.Qp(), aVar.Qq());
         return fVar;
     }
 
     /* JADX WARN: Type inference failed for: r0v2, types: [org.json.JSONObject, T] */
     private f r(MotionEvent motionEvent) {
         com.baidu.swan.apps.view.container.b.a aVar = new com.baidu.swan.apps.view.container.b.a(motionEvent);
-        aVar.g(this.bcv);
+        aVar.g(this.bcT);
         f fVar = new f();
-        fVar.mData = d.c(this.aBd, this.bcs, this.bct, aVar.Ql(), aVar.Qm());
+        fVar.mData = d.c(this.aBB, this.bcQ, this.bcR, aVar.Qp(), aVar.Qq());
         return fVar;
     }
 
-    private boolean a(C0194b c0194b) {
-        return this.bcw != null && this.bcw.b(c0194b) <= ((double) z.ad(10.0f));
+    private boolean a(C0203b c0203b) {
+        return this.bcU != null && this.bcU.b(c0203b) <= ((double) z.ad(10.0f));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a implements Runnable {
-        private f bcA;
-        private MotionEvent bcz;
+        private MotionEvent bcX;
+        private f bcY;
 
         private a() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void s(MotionEvent motionEvent) {
-            this.bcz = motionEvent;
-            this.bcA = b.this.b(this.bcz, "longtap");
+            this.bcX = motionEvent;
+            this.bcY = b.this.b(this.bcX, "longtap");
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.a(this.bcA);
+            b.this.a(this.bcY);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.container.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0194b {
+    public class C0203b {
         private double x;
         private double y;
 
-        public C0194b(double d, double d2) {
+        public C0203b(double d, double d2) {
             this.x = d;
             this.y = d2;
         }
 
-        public double b(C0194b c0194b) {
-            if (c0194b == null) {
+        public double b(C0203b c0203b) {
+            if (c0203b == null) {
                 return Double.MAX_VALUE;
             }
-            double pow = Math.pow(c0194b.x - this.x, 2.0d) + Math.pow(c0194b.y - this.y, 2.0d);
+            double pow = Math.pow(c0203b.x - this.x, 2.0d) + Math.pow(c0203b.y - this.y, 2.0d);
             if (pow > 0.0d) {
                 return Math.sqrt(pow);
             }

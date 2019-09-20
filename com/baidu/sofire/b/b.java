@@ -10,14 +10,15 @@ import com.baidu.sofire.ac.U;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public final class b {
     public static void a(Context context, boolean z) {
         long currentTimeMillis;
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            long r = 3600000 * eVar.r();
-            new StringBuilder("sjh-alarm gap ").append(eVar.r());
+            long t = 3600000 * eVar.t();
+            new StringBuilder("sjh-alarm gap ").append(eVar.t());
             com.baidu.sofire.b.a();
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
@@ -31,16 +32,16 @@ public final class b {
             intent.putExtra("from", 6);
             PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
             if (!z) {
-                currentTimeMillis = ((System.currentTimeMillis() + r) - KeepJobService.JOB_CHECK_PERIODIC) + ((long) (1200000.0d * Math.random()));
+                currentTimeMillis = ((System.currentTimeMillis() + t) - KeepJobService.JOB_CHECK_PERIODIC) + ((long) (1200000.0d * Math.random()));
                 eVar.a(currentTimeMillis);
             } else {
                 currentTimeMillis = eVar.a.getLong("npuct", 0L);
                 if (currentTimeMillis <= 0) {
-                    currentTimeMillis = System.currentTimeMillis() + r;
+                    currentTimeMillis = System.currentTimeMillis() + t;
                     eVar.a(currentTimeMillis);
                 }
             }
-            new StringBuilder("b=").append(z).append(", n=").append(currentTimeMillis).append(", t=").append(r).append(", c=").append(System.currentTimeMillis());
+            new StringBuilder("b=").append(z).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(currentTimeMillis).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(t).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(System.currentTimeMillis());
             com.baidu.sofire.b.a();
             alarmManager.cancel(service);
             alarmManager.set(0, currentTimeMillis, service);

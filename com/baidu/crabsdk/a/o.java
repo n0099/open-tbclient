@@ -16,9 +16,9 @@ public final class o implements Runnable {
         Runnable runnable;
         this.ZH.n();
         if (this.ZH.ZE.get()) {
-            Handler rf = j.rf();
+            Handler rg = j.rg();
             runnable = this.ZH.ZG;
-            rf.postDelayed(runnable, this.ZH.ZF);
+            rg.postDelayed(runnable, this.ZH.ZF);
         }
     }
 }

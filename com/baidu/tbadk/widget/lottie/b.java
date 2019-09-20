@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.x;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private a cKG;
+    private a cLw;
     private x mNetWork;
     private String mUrl;
     private String wX;
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         void h(boolean z, String str);
     }
 
-    public static boolean rx(String str) {
+    public static boolean rI(String str) {
         File file = new File(str);
         if (file.exists()) {
             return true;
@@ -37,29 +37,29 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.wX = str;
         this.mUrl = str2;
-        this.cKG = aVar;
+        this.cLw = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(Void... voidArr) {
-        if (aq.isEmpty(this.wX) || aq.isEmpty(this.mUrl) || !rx(this.wX)) {
+        if (aq.isEmpty(this.wX) || aq.isEmpty(this.mUrl) || !rI(this.wX)) {
             return null;
         }
         String bn = s.bn(this.mUrl);
         String str = this.wX + bn + "/";
-        if (rz(str)) {
+        if (rK(str)) {
             return bn;
         }
         this.mNetWork = new x();
         this.mNetWork.setUrl(this.mUrl);
         String str2 = this.wX + bn + ".zip";
         if (this.mNetWork.a(str2, null, 0, 3, 0, true) && ch(str2, str)) {
-            ry(str2);
+            rJ(str2);
             return bn;
         }
-        ry(str2);
+        rJ(str2);
         return null;
     }
 
@@ -67,11 +67,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.cKG != null) {
+        if (this.cLw != null) {
             if (!aq.isEmpty(str)) {
-                this.cKG.h(true, str);
+                this.cLw.h(true, str);
             } else {
-                this.cKG.h(false, null);
+                this.cLw.h(false, null);
             }
         }
     }
@@ -83,13 +83,13 @@ public class b extends BdAsyncTask<Void, Void, String> {
         return r.bK(str, str2);
     }
 
-    private void ry(String str) {
+    private void rJ(String str) {
         if (!aq.isEmpty(str)) {
             m.A(new File(str));
         }
     }
 
-    private boolean rz(String str) {
+    private boolean rK(String str) {
         return !aq.isEmpty(str) && new File(str).exists();
     }
 }

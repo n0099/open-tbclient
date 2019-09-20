@@ -3,7 +3,6 @@ package com.baidu.tieba.video.meida;
 import android.annotation.TargetApi;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,33 +12,33 @@ import java.nio.ByteOrder;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 /* loaded from: classes5.dex */
 public class g {
-    public static boolean jAs = false;
+    public static boolean jCO = false;
 
     /* loaded from: classes5.dex */
     public static class a {
-        public int aCx = 48000;
+        public int aCV = 48000;
         public int channelCount = 1;
-        public int jAp = 16;
-        public int jAt = 0;
+        public int jCL = 16;
+        public int jCP = 0;
 
-        public boolean cvT() {
-            return this.jAt == 1 || this.jAt == 4 || this.jAt == 6 || this.jAt == 9;
+        public boolean cwH() {
+            return this.jCP == 1 || this.jCP == 4 || this.jCP == 6 || this.jCP == 9;
         }
 
-        public boolean cvU() {
-            return this.jAt == 3 || this.jAt == 4 || this.jAt == 8 || this.jAt == 9;
+        public boolean cwI() {
+            return this.jCP == 3 || this.jCP == 4 || this.jCP == 8 || this.jCP == 9;
         }
 
-        public boolean cvV() {
-            return this.jAt == 5 || this.jAt == 6 || this.jAt == 8 || this.jAt == 9;
+        public boolean cwJ() {
+            return this.jCP == 5 || this.jCP == 6 || this.jCP == 8 || this.jCP == 9;
         }
     }
 
-    public static void cvS() {
+    public static void cwG() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            jAs = true;
+            jCO = true;
         } else {
-            jAs = false;
+            jCO = false;
         }
     }
 
@@ -50,16 +49,16 @@ public class g {
         }
         boolean z = true;
         for (int i = 1; i < aVarArr.length; i++) {
-            if (aVar.aCx != aVarArr[i].aCx) {
-                aVarArr[i].jAt++;
+            if (aVar.aCV != aVarArr[i].aCV) {
+                aVarArr[i].jCP++;
                 z = false;
             }
             if (aVar.channelCount != aVarArr[i].channelCount) {
-                aVarArr[i].jAt += 3;
+                aVarArr[i].jCP += 3;
                 z = false;
             }
-            if (aVar.jAp != aVarArr[i].jAp) {
-                aVarArr[i].jAt += 5;
+            if (aVar.jCL != aVarArr[i].jCL) {
+                aVarArr[i].jCP += 5;
                 z = false;
             }
         }
@@ -67,7 +66,7 @@ public class g {
     }
 
     @TargetApi(16)
-    public static a Gc(String str) {
+    public static a GC(String str) {
         MediaFormat mediaFormat;
         MediaExtractor mediaExtractor = new MediaExtractor();
         try {
@@ -91,9 +90,9 @@ public class g {
                 return null;
             }
             a aVar = new a();
-            aVar.aCx = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
+            aVar.aCV = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
             aVar.channelCount = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-            aVar.jAp = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+            aVar.jCL = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
             mediaExtractor.release();
             return aVar;
         } catch (IOException e) {
@@ -112,7 +111,7 @@ public class g {
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            new j(fileInputStream, fileOutputStream, i, i2, 2, 2, 1, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0.0d, 0, true);
+            new j(fileInputStream, fileOutputStream, i, i2, 2, 2, 1, Integer.MAX_VALUE, 0.0d, 0, true);
             fileInputStream.close();
             fileOutputStream.close();
             return true;
@@ -175,7 +174,7 @@ public class g {
                                             break;
                                         case 2:
                                             for (int i6 = 0; i6 < i5; i6 += 2) {
-                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], jAs);
+                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], jCO);
                                                 bArr3[i6] = a2[0];
                                                 bArr3[i6 + 1] = a2[1];
                                             }
@@ -205,7 +204,7 @@ public class g {
                         case 2:
                             byte[] bArr2 = new byte[length * 2];
                             for (int i3 = 0; i3 < length; i3++) {
-                                byte[] a2 = a((short) (bArr[i3] * 256), jAs);
+                                byte[] a2 = a((short) (bArr[i3] * 256), jCO);
                                 bArr2[i3 * 2] = a2[0];
                                 bArr2[(i3 * 2) + 1] = a2[1];
                             }
@@ -219,7 +218,7 @@ public class g {
                             int i4 = length / 2;
                             byte[] bArr3 = new byte[i4];
                             for (int i5 = 0; i5 < i4; i5++) {
-                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], jAs) / 256);
+                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], jCO) / 256);
                             }
                             return bArr3;
                         default:

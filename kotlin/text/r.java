@@ -17,7 +17,7 @@ class r extends q {
         }
 
         @Override // kotlin.collections.m
-        public char cNN() {
+        public char cOz() {
             CharSequence charSequence = this.receiver$0;
             int i = this.index;
             this.index = i + 1;
@@ -48,7 +48,7 @@ class r extends q {
     public static final String a(CharSequence charSequence, kotlin.b.c cVar) {
         kotlin.jvm.internal.p.k(charSequence, "$receiver");
         kotlin.jvm.internal.p.k(cVar, "range");
-        return charSequence.subSequence(cVar.cOl().intValue(), cVar.cOm().intValue() + 1).toString();
+        return charSequence.subSequence(cVar.cOX().intValue(), cVar.cOY().intValue() + 1).toString();
     }
 
     public static final boolean a(CharSequence charSequence, int i, CharSequence charSequence2, int i2, int i3, boolean z) {
@@ -88,11 +88,11 @@ class r extends q {
             }
             return kotlin.c.g(Integer.valueOf(indexOf), Character.valueOf(b));
         }
-        kotlin.b.c cVar = !z2 ? new kotlin.b.c(kotlin.b.d.cW(i, 0), k.q(charSequence)) : kotlin.b.d.cU(kotlin.b.d.cX(i, k.q(charSequence)), 0);
+        kotlin.b.c cVar = !z2 ? new kotlin.b.c(kotlin.b.d.cV(i, 0), k.q(charSequence)) : kotlin.b.d.cT(kotlin.b.d.cW(i, k.q(charSequence)), 0);
         int first = cVar.getFirst();
         int last = cVar.getLast();
-        int cOj = cVar.cOj();
-        if (cOj <= 0) {
+        int cOV = cVar.cOV();
+        if (cOV <= 0) {
             if (first >= last) {
                 i2 = first;
                 while (true) {
@@ -106,7 +106,7 @@ class r extends q {
                     }
                     if (i3 >= 0) {
                     }
-                    i2 += cOj;
+                    i2 += cOV;
                 }
             }
             return null;
@@ -132,7 +132,7 @@ class r extends q {
                     if (i2 == last) {
                         break;
                     }
-                    i2 += cOj;
+                    i2 += cOV;
                 } else {
                     return kotlin.c.g(Integer.valueOf(i2), Character.valueOf(cArr[i3]));
                 }
@@ -146,32 +146,32 @@ class r extends q {
     }
 
     private static final int a(CharSequence charSequence, CharSequence charSequence2, int i, int i2, boolean z, boolean z2) {
-        kotlin.b.c cU;
+        kotlin.b.c cT;
         if (!z2) {
-            cU = new kotlin.b.c(kotlin.b.d.cW(i, 0), kotlin.b.d.cX(i2, charSequence.length()));
+            cT = new kotlin.b.c(kotlin.b.d.cV(i, 0), kotlin.b.d.cW(i2, charSequence.length()));
         } else {
-            cU = kotlin.b.d.cU(kotlin.b.d.cX(i, k.q(charSequence)), kotlin.b.d.cW(i2, 0));
+            cT = kotlin.b.d.cT(kotlin.b.d.cW(i, k.q(charSequence)), kotlin.b.d.cV(i2, 0));
         }
         if ((charSequence instanceof String) && (charSequence2 instanceof String)) {
-            int first = cU.getFirst();
-            int last = cU.getLast();
-            int cOj = cU.cOj();
-            if (cOj <= 0 ? first >= last : first <= last) {
+            int first = cT.getFirst();
+            int last = cT.getLast();
+            int cOV = cT.cOV();
+            if (cOV <= 0 ? first >= last : first <= last) {
                 while (!k.a((String) charSequence2, 0, (String) charSequence, first, charSequence2.length(), z)) {
                     if (first != last) {
-                        first += cOj;
+                        first += cOV;
                     }
                 }
                 return first;
             }
         } else {
-            int first2 = cU.getFirst();
-            int last2 = cU.getLast();
-            int cOj2 = cU.cOj();
-            if (cOj2 <= 0 ? first2 >= last2 : first2 <= last2) {
+            int first2 = cT.getFirst();
+            int last2 = cT.getLast();
+            int cOV2 = cT.cOV();
+            if (cOV2 <= 0 ? first2 >= last2 : first2 <= last2) {
                 while (!k.a(charSequence2, 0, charSequence, first2, charSequence2.length(), z)) {
                     if (first2 != last2) {
-                        first2 += cOj2;
+                        first2 += cOV2;
                     }
                 }
                 return first2;
@@ -192,12 +192,12 @@ class r extends q {
             }
             return kotlin.c.g(Integer.valueOf(a2), str);
         }
-        kotlin.b.c cVar = !z2 ? new kotlin.b.c(kotlin.b.d.cW(i, 0), charSequence.length()) : kotlin.b.d.cU(kotlin.b.d.cX(i, k.q(charSequence)), 0);
+        kotlin.b.c cVar = !z2 ? new kotlin.b.c(kotlin.b.d.cV(i, 0), charSequence.length()) : kotlin.b.d.cT(kotlin.b.d.cW(i, k.q(charSequence)), 0);
         if (charSequence instanceof String) {
             int first = cVar.getFirst();
             int last = cVar.getLast();
-            int cOj = cVar.cOj();
-            if (cOj <= 0 ? first >= last : first <= last) {
+            int cOV = cVar.cOV();
+            if (cOV <= 0 ? first >= last : first <= last) {
                 while (true) {
                     Iterator<T> it = collection.iterator();
                     while (true) {
@@ -218,7 +218,7 @@ class r extends q {
                         if (first == last) {
                             break;
                         }
-                        first += cOj;
+                        first += cOV;
                     } else {
                         return kotlin.c.g(Integer.valueOf(first), str3);
                     }
@@ -227,8 +227,8 @@ class r extends q {
         } else {
             int first2 = cVar.getFirst();
             int last2 = cVar.getLast();
-            int cOj2 = cVar.cOj();
-            if (cOj2 <= 0 ? first2 >= last2 : first2 <= last2) {
+            int cOV2 = cVar.cOV();
+            if (cOV2 <= 0 ? first2 >= last2 : first2 <= last2) {
                 while (true) {
                     Iterator<T> it2 = collection.iterator();
                     while (true) {
@@ -249,7 +249,7 @@ class r extends q {
                         if (first2 == last2) {
                             break;
                         }
-                        first2 += cOj2;
+                        first2 += cOV2;
                     } else {
                         return kotlin.c.g(Integer.valueOf(first2), str5);
                     }

@@ -21,9 +21,10 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Xml;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.DownloadListener;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
@@ -44,16 +45,15 @@ import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiJsInterpreters;
 import com.baidu.sapi2.a.c;
 import com.baidu.sapi2.a.e;
-import com.baidu.sapi2.callback.GetDynamicPwdCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
+import com.baidu.sapi2.callback.RequestSMSCallback;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.sapi2.dto.PassNameValuePair;
-import com.baidu.sapi2.result.GetDynamicPwdResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.result.GetUserInfoResult;
 import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.shell.callback.SapiCallBack;
+import com.baidu.sapi2.share.a.b;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.shell.response.SocialResponse;
@@ -73,7 +73,6 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -86,7 +85,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
@@ -95,77 +93,75 @@ import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 /* loaded from: classes.dex */
 public final class SapiWebView extends WebView {
-    private static final String A = "取消";
+    private static final String A = "立即设置时间";
     public static final String ACCOUNT_CENTER = "account_center";
     public static final String ACCOUNT_CENTER_CHECK = "account_check";
     public static final String ACCOUNT_CENTER_REAL_NAME = "account_realname";
-    private static final String B = "立即设置时间";
     public static final long DEFAULT_TIMEOUT_MILLIS = 90000;
     public static final String DEFAULT_WEIXIN_NOT_INSTALL_ERROR = "微信未安装";
     public static final String EXTRA_STAT_EXTRA = "extrajson";
     public static final String PARAMS_LOGIN_WITH_USER_NAME = "loginUserName";
     public static final String QR_FACE_AUTH_PASS_PRODUCT_ID = "pp";
     static final int a = 1;
-    private static final String ag = "javascript:(function(){if(window.Pass&&Pass.client&&Pass.client.net){Pass.client.net()}}())";
-    private static final String ah = "function(){if(window.Pass&&Pass.client&&Pass.client.pageGoBack){Pass.client.pageGoBack()}else{history.go(-1)}}()";
+    private static final String af = "javascript:(function(){if(window.Pass&&Pass.client&&Pass.client.net){Pass.client.net()}}())";
+    private static final String ag = "javascript:(function(){if(window.Pass&&Pass.switchView){Pass.switchView('back')}else{window.history.go(-1)}}())";
     static final int b = 0;
     private static final String c = "prompt_on_cancel";
     private static final String d = "css/sapi_theme/style.css";
-    private static final String e = "__wp-action";
-    private static final String f = "forget-pwd";
-    private static final String g = "modify-pwd";
-    private static final String h = "text/html";
-    private static final String i = "UTF-8";
-    private static final String j = "#login";
-    private static final String k = "#canshareAi";
-    private static final String l = "#authPwd";
-    private static final String m = "#reg";
-    private static final String n = "#canshare_accounts";
-    private static final String o = "#sms_login";
-    private static final String p = "#fastReg";
-    private static final String q = "#fastRegSuccess";
-    private static final String r = "#fastRegVerify";
-    private static final String s = "#oneKeyLogin";
+    private static final String e = "renren-offline";
+    private static final String f = "__wp-action";
+    private static final String g = "forget-pwd";
+    private static final String h = "modify-pwd";
+    private static final String i = "text/html";
+    private static final String j = "UTF-8";
+    private static final String k = "#login";
+    private static final String l = "#canshareAi";
+    private static final String m = "#authPwd";
+    private static final String n = "#reg";
+    private static final String o = "#canshare_accounts";
+    private static final String p = "#sms_login";
+    private static final String q = "#fastReg";
+    private static final String r = "#oneKeyLogin";
+    private static final String s = "#share_auth";
     public static StatLoadLogin statLoadLogin = null;
-    private static final String t = "#share_auth";
-    private static final String u = "发送一条短信，即可完成注册。";
-    private static final String v = "服务错误，请稍后重试";
-    private static final String w = "系统时间错误";
-    private static final String x = "证书安全警告";
-    private static final String y = "当前设备时间为yyyy年MM月dd日,请设置正确的系统时间";
-    private static final String z = "网站安全证书已过期或不可信，系统时间错误可能导致此问题";
-    private SapiConfiguration C;
-    private WeixinHandler D;
-    private WebviewClientCallback E;
-    private WebChromeClientCallback F;
-    private FileChooserCallback G;
-    private ChangePwdCallback H;
-    private AccountChangeCallback I;
-    private String J;
-    private ReloadConfig K;
-    private SapiJsInterpreters L;
-    private SapiJsCallBacks.CallBacks M;
-    private List<String> N;
+    private static final String t = "#face_login";
+    private static final String u = "服务错误，请稍后重试";
+    private static final String v = "系统时间错误";
+    private static final String w = "证书安全警告";
+    private static final String x = "当前设备时间为yyyy年MM月dd日,请设置正确的系统时间";
+    private static final String y = "网站安全证书已过期或不可信，系统时间错误可能导致此问题";
+    private static final String z = "取消";
+    private SapiConfiguration B;
+    private WeixinHandler C;
+    private WebviewClientCallback D;
+    private WebChromeClientCallback E;
+    private FileChooserCallback F;
+    private ChangePwdCallback G;
+    private AccountChangeCallback H;
+    private boolean I;
+    private ReloadConfig J;
+    private SapiJsInterpreters K;
+    private SapiJsCallBacks.CallBacks L;
+    private List<String> M;
+    private View N;
     private View O;
     private View P;
-    private View Q;
-    private ProgressBar R;
-    private ProgressDialog S;
-    private Dialog T;
-    private SapiCache U;
-    private boolean V;
-    private long W;
-    private Handler aa;
-    private TimeoutTask ab;
-    private BroadcastReceiver ac;
-    private OnFinishCallback ad;
-    private OnBackCallback ae;
-    private OnNewBackCallback af;
-    private String ai;
-    private boolean aj;
-    private int ak;
-    private boolean al;
-    private boolean am;
+    private ProgressBar Q;
+    private ProgressDialog R;
+    private Dialog S;
+    private SapiCache T;
+    private boolean U;
+    private long V;
+    private Handler W;
+    private TimeoutTask aa;
+    private BroadcastReceiver ab;
+    private OnFinishCallback ac;
+    private OnBackCallback ad;
+    private OnNewBackCallback ae;
+    private String ah;
+    private boolean ai;
+    private int aj;
+    private boolean ak;
     public List<PassNameValuePair> extras;
     public boolean shareV2Disable;
     public static final PassNameValuePair EXTRA_SMS_LOGIN_SHOW_SOCIAL_LOGIN = new PassNameValuePair("smsfastlogin", "1");
@@ -277,11 +273,6 @@ public final class SapiWebView extends WebView {
     }
 
     /* loaded from: classes.dex */
-    public interface FastRegHandler {
-        void handleFastReg();
-    }
-
-    /* loaded from: classes.dex */
     public interface FileChooserCallback {
         void onFileChooser(ValueCallback<Uri> valueCallback);
 
@@ -343,7 +334,7 @@ public final class SapiWebView extends WebView {
         public static final int PICK_IMAGE_ALBUM = 2;
         public static final int PICK_IMAGE_PHOTO = 1;
 
-        void onPickImage(int i, PickPhotoResult pickPhotoResult);
+        void onPickImage(int i, int i2, int i3, PickPhotoResult pickPhotoResult);
     }
 
     /* loaded from: classes.dex */
@@ -449,8 +440,8 @@ public final class SapiWebView extends WebView {
                 Message message = new Message();
                 message.what = 1;
                 message.obj = this.b;
-                SapiWebView.this.aa.sendMessage(message);
-                SapiWebView.this.aa.removeCallbacks(this);
+                SapiWebView.this.W.sendMessage(message);
+                SapiWebView.this.W.removeCallbacks(this);
             }
         }
 
@@ -460,76 +451,81 @@ public final class SapiWebView extends WebView {
     }
 
     public void setOnFinishCallback(OnFinishCallback onFinishCallback) {
-        this.ad = onFinishCallback;
+        this.ac = onFinishCallback;
     }
 
     public void setOnBackCallback(OnBackCallback onBackCallback) {
-        this.ae = onBackCallback;
+        this.ad = onBackCallback;
     }
 
     public void setOnNewBackCallback(OnNewBackCallback onNewBackCallback) {
-        this.af = onNewBackCallback;
+        this.ae = onNewBackCallback;
     }
 
     public void setWebviewPageFinishCallback(SapiJsCallBacks.WebviewPageFinishCallback webviewPageFinishCallback) {
-        this.M.A = webviewPageFinishCallback;
+        this.L.z = webviewPageFinishCallback;
     }
 
     public SapiWebView(Context context) {
         super(context);
         this.shareV2Disable = false;
-        this.K = new ReloadConfig();
-        this.aa = new Handler() { // from class: com.baidu.sapi2.SapiWebView.1
+        this.J = new ReloadConfig();
+        this.W = new Handler() { // from class: com.baidu.sapi2.SapiWebView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 1) {
-                    SapiWebView.this.q();
+                    SapiWebView.this.r();
                 }
             }
         };
-        this.ab = new TimeoutTask();
-        this.ak = 1;
-        this.al = false;
-        l();
+        this.aa = new TimeoutTask();
+        this.aj = 1;
+        n();
     }
 
     public SapiWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.shareV2Disable = false;
-        this.K = new ReloadConfig();
-        this.aa = new Handler() { // from class: com.baidu.sapi2.SapiWebView.1
+        this.J = new ReloadConfig();
+        this.W = new Handler() { // from class: com.baidu.sapi2.SapiWebView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 1) {
-                    SapiWebView.this.q();
+                    SapiWebView.this.r();
                 }
             }
         };
-        this.ab = new TimeoutTask();
-        this.ak = 1;
-        this.al = false;
-        l();
+        this.aa = new TimeoutTask();
+        this.aj = 1;
+        n();
     }
 
     public SapiWebView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.shareV2Disable = false;
-        this.K = new ReloadConfig();
-        this.aa = new Handler() { // from class: com.baidu.sapi2.SapiWebView.1
+        this.J = new ReloadConfig();
+        this.W = new Handler() { // from class: com.baidu.sapi2.SapiWebView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 1) {
-                    SapiWebView.this.q();
+                    SapiWebView.this.r();
                 }
             }
         };
-        this.ab = new TimeoutTask();
-        this.ak = 1;
-        this.al = false;
-        l();
+        this.aa = new TimeoutTask();
+        this.aj = 1;
+        n();
     }
 
     public final void setNoNetworkView(View view) {
+        if (this.O == null) {
+            this.O = view;
+            this.O.setVisibility(4);
+            addView(this.O, new ViewGroup.LayoutParams(-1, -1));
+        }
+    }
+
+    public final void setTimeoutView(View view) {
         if (this.P == null) {
             this.P = view;
             this.P.setVisibility(4);
@@ -537,27 +533,19 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    public final void setTimeoutView(View view) {
-        if (this.Q == null) {
-            this.Q = view;
-            this.Q.setVisibility(4);
-            addView(this.Q, new ViewGroup.LayoutParams(-1, -1));
-        }
-    }
-
     public void setProgressBar(ProgressBar progressBar) {
-        if (this.R == null) {
-            this.R = progressBar;
-            if (this.R != null) {
+        if (this.Q == null) {
+            this.Q = progressBar;
+            if (this.Q != null) {
                 addView(progressBar);
             }
         }
     }
 
     public void setWebviewLoadingView(View view) {
-        if (this.O == null) {
-            this.O = view;
-            this.O.setVisibility(4);
+        if (this.N == null) {
+            this.N = view;
+            this.N.setVisibility(4);
             addView(view, new ViewGroup.LayoutParams(-1, -1));
         }
     }
@@ -569,14 +557,15 @@ public final class SapiWebView extends WebView {
 
     @SuppressLint({"AddJavascriptInterface"})
     @TargetApi(11)
-    private void l() {
-        this.M = new SapiJsCallBacks.CallBacks();
-        this.L = new SapiJsInterpreters(this, this.M);
-        this.W = DEFAULT_TIMEOUT_MILLIS;
-        this.C = SapiAccountManager.getInstance().getSapiConfiguration();
-        this.U = new SapiCache();
-        o();
-        n();
+    private void n() {
+        this.L = new SapiJsCallBacks.CallBacks();
+        this.K = new SapiJsInterpreters(this, this.L);
+        this.V = DEFAULT_TIMEOUT_MILLIS;
+        this.B = SapiAccountManager.getInstance().getSapiConfiguration();
+        this.T = new SapiCache();
+        this.I = new b().a();
+        q();
+        p();
         if (Build.VERSION.SDK_INT > 10 && Build.VERSION.SDK_INT < 19) {
             removeJavascriptInterface("searchBoxJavaBridge_");
             removeJavascriptInterface("accessibility");
@@ -601,21 +590,21 @@ public final class SapiWebView extends WebView {
             @Override // android.webkit.WebChromeClient
             public void onConsoleMessage(String str, int i2, String str2) {
                 Log.d(str + " -- From line " + i2 + " of " + str2, new Object[0]);
-                if (SapiWebView.this.F != null) {
-                    SapiWebView.this.F.onConsoleMessage(str, i2, str2);
+                if (SapiWebView.this.E != null) {
+                    SapiWebView.this.E.onConsoleMessage(str, i2, str2);
                 }
             }
 
             @Override // android.webkit.WebChromeClient
             public void onProgressChanged(WebView webView, int i2) {
-                if (SapiWebView.this.R != null) {
+                if (SapiWebView.this.Q != null) {
                     if (i2 == 100) {
-                        SapiWebView.this.R.setVisibility(8);
+                        SapiWebView.this.Q.setVisibility(8);
                     } else {
-                        if (SapiWebView.this.R.getVisibility() == 8) {
-                            SapiWebView.this.R.setVisibility(0);
+                        if (SapiWebView.this.Q.getVisibility() == 8) {
+                            SapiWebView.this.Q.setVisibility(0);
                         }
-                        SapiWebView.this.R.setProgress(i2);
+                        SapiWebView.this.Q.setProgress(i2);
                     }
                 }
                 super.onProgressChanged(webView, i2);
@@ -628,27 +617,27 @@ public final class SapiWebView extends WebView {
             }
 
             public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
-                if (SapiWebView.this.G != null) {
-                    SapiWebView.this.G.onFileChooser(valueCallback);
+                if (SapiWebView.this.F != null) {
+                    SapiWebView.this.F.onFileChooser(valueCallback);
                 }
             }
 
             public void openFileChooser(ValueCallback<Uri> valueCallback) {
-                if (SapiWebView.this.G != null) {
-                    SapiWebView.this.G.onFileChooser(valueCallback);
+                if (SapiWebView.this.F != null) {
+                    SapiWebView.this.F.onFileChooser(valueCallback);
                 }
             }
 
             public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
-                if (SapiWebView.this.G != null) {
-                    SapiWebView.this.G.onFileChooser(valueCallback);
+                if (SapiWebView.this.F != null) {
+                    SapiWebView.this.F.onFileChooser(valueCallback);
                 }
             }
 
             @Override // android.webkit.WebChromeClient
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-                if (SapiWebView.this.G != null) {
-                    SapiWebView.this.G.onFileChooserForOSVersion5(valueCallback);
+                if (SapiWebView.this.F != null) {
+                    SapiWebView.this.F.onFileChooserForOSVersion5(valueCallback);
                     return true;
                 }
                 return true;
@@ -656,22 +645,22 @@ public final class SapiWebView extends WebView {
 
             @Override // android.webkit.WebChromeClient
             public boolean onJsPrompt(WebView webView, String str, final String str2, String str3, final JsPromptResult jsPromptResult) {
-                if (SapiWebView.this.F != null && SapiWebView.this.F.isSubClassHandleMessage(str2)) {
-                    return SapiWebView.this.F.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+                if (SapiWebView.this.E != null && SapiWebView.this.E.isSubClassHandleMessage(str2)) {
+                    return SapiWebView.this.E.onJsPrompt(webView, str, str2, str3, jsPromptResult);
                 }
                 Log.e(Log.TAG, "webview", str2);
                 final String[] strArr = {""};
-                SapiWebView.this.M.G = jsPromptResult;
+                SapiWebView.this.L.K = jsPromptResult;
                 SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.3.2
                     @Override // java.lang.Runnable
                     public void run() {
                         Command parse = Command.parse(str2);
                         if (parse != null) {
                             String actionName = parse.getActionName();
-                            if (SapiWebView.this.N.contains(actionName)) {
-                                SapiWebView.this.M.G = jsPromptResult;
+                            if (SapiWebView.this.M.contains(actionName)) {
+                                SapiWebView.this.L.K = jsPromptResult;
                             }
-                            SapiJsInterpreters.AbstractInterpreter a2 = SapiWebView.this.L.a(actionName);
+                            SapiJsInterpreters.AbstractInterpreter a2 = SapiWebView.this.K.a(actionName);
                             if (a2 != null) {
                                 try {
                                     strArr[0] = a2.interpret(parse);
@@ -692,7 +681,7 @@ public final class SapiWebView extends WebView {
                                 }
                             }
                             if (parse.getActionParams().size() <= 2 || !SapiWebView.c.equals(parse.getActionParams().get(2))) {
-                                if (!SapiWebView.this.N.contains(actionName)) {
+                                if (!SapiWebView.this.M.contains(actionName)) {
                                     jsPromptResult.confirm(strArr[0]);
                                     return;
                                 }
@@ -707,17 +696,17 @@ public final class SapiWebView extends WebView {
                 return true;
             }
         });
-        if (this.M.D == null) {
-            this.M.D = new DefaultAuthorizationListener();
+        if (this.L.C == null) {
+            this.L.C = new DefaultAuthorizationListener();
         }
-        if (this.D == null) {
-            this.D = new DefaultWeixinHandler();
+        if (this.C == null) {
+            this.C = new DefaultWeixinHandler();
         }
-        this.M.c = new SmsHandler();
-        this.M.F = new Runnable() { // from class: com.baidu.sapi2.SapiWebView.4
+        this.L.b = new SmsHandler();
+        this.L.J = new Runnable() { // from class: com.baidu.sapi2.SapiWebView.4
             @Override // java.lang.Runnable
             public void run() {
-                SapiWebView.this.t();
+                SapiWebView.this.u();
             }
         };
         try {
@@ -788,14 +777,14 @@ public final class SapiWebView extends WebView {
                     if (SapiHost.getHost(SapiHost.ACTION_INTERCEPT_URL).equals(str)) {
                         SapiWebView.this.finish();
                     }
-                    if (SapiWebView.this.M.S != null && SapiWebView.this.M.S.redirectUrl != null && str.contains(SapiWebView.this.M.S.redirectUrl)) {
-                        SapiWebView.this.M.S.callback.onCallback(str);
+                    if (SapiWebView.this.L.T != null && SapiWebView.this.L.T.redirectUrl != null && str.contains(SapiWebView.this.L.T.redirectUrl)) {
+                        SapiWebView.this.L.T.callback.onCallback(str);
                         return true;
                     }
                 }
             }
-            if (SapiWebView.this.E != null) {
-                SapiWebView.this.E.shouldOverrideUrlLoading(webView, str);
+            if (SapiWebView.this.D != null) {
+                SapiWebView.this.D.shouldOverrideUrlLoading(webView, str);
             }
             return super.shouldOverrideUrlLoading(webView, str);
         }
@@ -803,101 +792,119 @@ public final class SapiWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (SapiWebView.this.M.E != null) {
-                Uri parse = Uri.parse(SapiWebView.this.k());
+            if (SapiWebView.this.L.D != null) {
+                Uri parse = Uri.parse(SapiWebView.this.l());
                 Uri parse2 = Uri.parse(str);
                 if (parse2 == null || !(parse2.getHost() + parse2.getPath()).equals(parse.getHost() + parse.getPath())) {
-                    SapiWebView.this.M.E.pageState(2);
+                    SapiWebView.this.L.D.pageState(2);
                 } else {
-                    SapiWebView.this.M.E.pageState(1);
+                    SapiWebView.this.L.D.pageState(1);
                 }
             }
             if (!SapiUtils.hasActiveNetwork(SapiWebView.this.getContext()) && !TextUtils.isEmpty(str) && !str.startsWith("javascript:") && !str.contains("loadDataWithBaseUrl")) {
-                SapiWebView.this.r();
+                SapiWebView.this.s();
             }
-            SapiWebView.this.ab.setUrl(str);
-            SapiWebView.this.aa.postDelayed(SapiWebView.this.ab, SapiWebView.this.W);
-            SapiWebView.this.s();
-            if (str != null && (str.contains(SapiWebView.f) || str.contains(SapiWebView.g))) {
-                String queryParameter = Uri.parse(str).getQueryParameter(SapiWebView.e);
-                if (SapiWebView.f.equals(queryParameter) && SapiWebView.this.H != null) {
-                    SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.2.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            SapiWebView.this.stopLoading();
-                            if (SapiWebView.this.H != null) {
-                                SapiWebView.this.H.onSuccess();
+            SapiWebView.this.aa.setUrl(str);
+            SapiWebView.this.W.postDelayed(SapiWebView.this.aa, SapiWebView.this.V);
+            SapiWebView.this.t();
+            if (str != null) {
+                if (str.contains(SapiWebView.g) || str.contains(SapiWebView.h)) {
+                    String queryParameter = Uri.parse(str).getQueryParameter(SapiWebView.f);
+                    if (SapiWebView.g.equals(queryParameter) && SapiWebView.this.G != null) {
+                        SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.2.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                SapiWebView.this.stopLoading();
+                                if (SapiWebView.this.G != null) {
+                                    SapiWebView.this.G.onSuccess();
+                                }
                             }
-                        }
-                    });
-                }
-                if (SapiWebView.g.equals(queryParameter) && SapiWebView.this.H != null) {
-                    SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.2.2
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            SapiWebView.this.stopLoading();
-                            final String cookieBduss = SapiUtils.getCookieBduss();
-                            final String cookiePtoken = SapiUtils.getCookiePtoken();
-                            if (TextUtils.isEmpty(cookieBduss)) {
-                                if (SapiWebView.this.H != null) {
-                                    SapiWebView.this.H.onSuccess();
+                        });
+                    }
+                    if (SapiWebView.h.equals(queryParameter) && SapiWebView.this.G != null) {
+                        SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.2.2
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                SapiWebView.this.stopLoading();
+                                final String cookieBduss = SapiUtils.getCookieBduss();
+                                final String cookiePtoken = SapiUtils.getCookiePtoken();
+                                if (TextUtils.isEmpty(cookieBduss)) {
+                                    if (SapiWebView.this.G != null) {
+                                        SapiWebView.this.G.onSuccess();
+                                        return;
+                                    }
                                     return;
                                 }
-                                return;
+                                SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.sapi2.SapiWebView.2.2.1
+                                    /* JADX DEBUG: Method merged with bridge method */
+                                    @Override // com.baidu.sapi2.callback.LoginStatusAware
+                                    public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+                                        if (SapiWebView.this.G != null) {
+                                            SapiWebView.this.G.onSuccess();
+                                        }
+                                    }
+
+                                    /* JADX DEBUG: Method merged with bridge method */
+                                    @Override // com.baidu.sapi2.callback.SapiCallback
+                                    public void onSuccess(GetUserInfoResult getUserInfoResult) {
+                                        SapiAccount session = SapiAccountManager.getInstance().getSession();
+                                        if (session != null) {
+                                            if (session.uid.equals(getUserInfoResult.uid)) {
+                                                session.bduss = cookieBduss;
+                                            }
+                                            if (!TextUtils.isEmpty(cookiePtoken)) {
+                                                session.ptoken = cookiePtoken;
+                                            }
+                                            session.deleteStokens();
+                                        }
+                                        SapiAccountManager.getInstance().validate(session);
+                                        SapiAccountManager.getInstance().preFetchStoken(session, true);
+                                        if (SapiWebView.this.G != null) {
+                                            SapiWebView.this.G.onSuccess();
+                                        }
+                                    }
+
+                                    /* JADX DEBUG: Method merged with bridge method */
+                                    @Override // com.baidu.sapi2.callback.SapiCallback
+                                    public void onFailure(GetUserInfoResult getUserInfoResult) {
+                                        if (SapiWebView.this.G != null) {
+                                            SapiWebView.this.G.onSuccess();
+                                        }
+                                    }
+
+                                    @Override // com.baidu.sapi2.callback.SapiCallback
+                                    public void onStart() {
+                                        SapiWebView.this.showProgress();
+                                    }
+
+                                    @Override // com.baidu.sapi2.callback.SapiCallback
+                                    public void onFinish() {
+                                        SapiWebView.this.dismissProgress();
+                                    }
+                                }, cookieBduss);
                             }
-                            SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.sapi2.SapiWebView.2.2.1
-                                /* JADX DEBUG: Method merged with bridge method */
-                                @Override // com.baidu.sapi2.callback.LoginStatusAware
-                                public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-                                    if (SapiWebView.this.H != null) {
-                                        SapiWebView.this.H.onSuccess();
+                        });
+                    }
+                }
+                if (str.contains("__wp-action=renren-offline") && SapiWebView.e.equals(Uri.parse(str).getQueryParameter(SapiWebView.f))) {
+                    if (SapiWebView.this.L.O == null) {
+                        if (SapiWebView.this.L.C != null) {
+                            SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.2.3
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    if (SapiWebView.this.L.C != null) {
+                                        SapiWebView.this.L.C.onFailed(-100, "登录失败");
                                     }
                                 }
-
-                                /* JADX DEBUG: Method merged with bridge method */
-                                @Override // com.baidu.sapi2.callback.SapiCallback
-                                public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                                    SapiAccount session = SapiAccountManager.getInstance().getSession();
-                                    if (session != null) {
-                                        if (session.uid.equals(getUserInfoResult.uid)) {
-                                            session.bduss = cookieBduss;
-                                        }
-                                        if (!TextUtils.isEmpty(cookiePtoken)) {
-                                            session.ptoken = cookiePtoken;
-                                        }
-                                        session.deleteStokens();
-                                    }
-                                    SapiAccountManager.getInstance().validate(session);
-                                    SapiAccountManager.getInstance().preFetchStoken(session, true);
-                                    if (SapiWebView.this.H != null) {
-                                        SapiWebView.this.H.onSuccess();
-                                    }
-                                }
-
-                                /* JADX DEBUG: Method merged with bridge method */
-                                @Override // com.baidu.sapi2.callback.SapiCallback
-                                public void onFailure(GetUserInfoResult getUserInfoResult) {
-                                    if (SapiWebView.this.H != null) {
-                                        SapiWebView.this.H.onSuccess();
-                                    }
-                                }
-
-                                @Override // com.baidu.sapi2.callback.SapiCallback
-                                public void onStart() {
-                                    SapiWebView.this.showProgress();
-                                }
-
-                                @Override // com.baidu.sapi2.callback.SapiCallback
-                                public void onFinish() {
-                                    SapiWebView.this.dismissProgress();
-                                }
-                            }, cookieBduss);
+                            });
                         }
-                    });
+                    } else {
+                        SapiWebView.this.a(SapiWebView.this.L.O);
+                    }
                 }
             }
-            if (SapiWebView.this.E != null) {
-                SapiWebView.this.E.onPageStarted(webView, str, bitmap);
+            if (SapiWebView.this.D != null) {
+                SapiWebView.this.D.onPageStarted(webView, str, bitmap);
             }
         }
 
@@ -907,21 +914,21 @@ public final class SapiWebView extends WebView {
             String str2;
             StatService.onEvent("sslerr_view", Collections.singletonMap("na_err_code", sslError.getPrimaryError() + ""));
             if (sslError.getPrimaryError() == 4 || sslError.getPrimaryError() == 3) {
-                if (!(!SapiWebView.this.C.forbidSslErrorDialog)) {
-                    if (SapiWebView.this.T == null) {
+                if (!(!SapiWebView.this.B.forbidSslErrorDialog)) {
+                    if (SapiWebView.this.S == null) {
                         if (Build.VERSION.SDK_INT > 17) {
-                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(SapiWebView.y);
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(SapiWebView.x);
                             Date date = new Date(System.currentTimeMillis());
-                            str = SapiWebView.w;
+                            str = SapiWebView.v;
                             str2 = simpleDateFormat.format(date);
                         } else {
-                            str = SapiWebView.x;
+                            str = SapiWebView.w;
                             str2 = "网站安全证书已过期或不可信，系统时间错误可能导致此问题";
                         }
                         AlertDialog.Builder builder = new AlertDialog.Builder(SapiWebView.this.getContext());
                         builder.setTitle(str);
                         builder.setMessage(str2);
-                        builder.setPositiveButton(SapiWebView.B, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.2.3
+                        builder.setPositiveButton(SapiWebView.A, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.2.4
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Intent intent = new Intent("android.settings.DATE_SETTINGS");
@@ -931,17 +938,17 @@ public final class SapiWebView extends WebView {
                                 StatService.onEvent("sslerr_date_setting", null);
                             }
                         });
-                        builder.setNegativeButton(SapiWebView.A, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.2.4
+                        builder.setNegativeButton(SapiWebView.z, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.2.5
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
                                 StatService.onEvent("sslerr_date_cancel", null);
                             }
                         });
-                        SapiWebView.this.T = builder.create();
+                        SapiWebView.this.S = builder.create();
                     }
-                    if (!((Activity) SapiWebView.this.getContext()).isFinishing() && !SapiWebView.this.T.isShowing()) {
-                        SapiWebView.this.T.show();
+                    if (!((Activity) SapiWebView.this.getContext()).isFinishing() && !SapiWebView.this.S.isShowing()) {
+                        SapiWebView.this.S.show();
                     }
                 }
             }
@@ -954,41 +961,41 @@ public final class SapiWebView extends WebView {
             if (Build.VERSION.SDK_INT > 7) {
                 SapiWebView.this.getSettings().setBlockNetworkLoads(false);
             }
-            if (SapiWebView.this.O != null) {
-                SapiWebView.this.O.setVisibility(8);
+            if (SapiWebView.this.N != null) {
+                SapiWebView.this.N.setVisibility(8);
             }
-            if (SapiUtils.hasActiveNetwork(SapiWebView.this.getContext()) && SapiWebView.this.P != null && SapiWebView.this.P.getVisibility() != 4) {
-                SapiWebView.this.P.setVisibility(4);
+            if (SapiUtils.hasActiveNetwork(SapiWebView.this.getContext()) && SapiWebView.this.O != null && SapiWebView.this.O.getVisibility() != 4) {
+                SapiWebView.this.O.setVisibility(4);
             }
-            SapiWebView.this.loadUrl(SapiWebView.ag);
-            if (SapiWebView.this.M.e != null) {
+            SapiWebView.this.loadUrl(SapiWebView.af);
+            if (SapiWebView.this.L.d != null) {
                 SapiWebView.this.loadUrl("javascript:prompt(JSON.stringify({action:{name:'action_set_title',params:[document.title, 'prompt_on_cancel', 'prompt_on_cancel']}}));");
             }
-            Uri parse = Uri.parse(SapiAccountManager.getInstance().getAccountService().l());
-            Uri parse2 = Uri.parse(SapiAccountManager.getInstance().getAccountService().m());
-            Uri parse3 = Uri.parse(SapiAccountManager.getInstance().getAccountService().k());
+            Uri parse = Uri.parse(SapiAccountManager.getInstance().getAccountService().n());
+            Uri parse2 = Uri.parse(SapiAccountManager.getInstance().getAccountService().o());
+            Uri parse3 = Uri.parse(SapiAccountManager.getInstance().getAccountService().m());
             Uri parse4 = Uri.parse(SapiAccountManager.getInstance().getAccountService().a(SapiWebView.ACCOUNT_CENTER));
             if (str.contains(SapiEnv.ACCOUNT_CENTER_EDITUSER) || str.contains(SapiEnv.ACCOUNT_CENTER_ACCOUNT_BIND)) {
-                SapiWebView.this.ai = Uri.parse(str).getQueryParameter("gotoUrl");
+                SapiWebView.this.ah = Uri.parse(str).getQueryParameter("gotoUrl");
             } else if (!str.contains(SapiEnv.ACCOUNT_CENTER_MODIFY_PWD_RESULT)) {
-                SapiWebView.this.ai = null;
+                SapiWebView.this.ah = null;
             } else {
-                SapiWebView.this.ai = Uri.parse(str).getQueryParameter("refer");
+                SapiWebView.this.ah = Uri.parse(str).getQueryParameter("refer");
             }
             if (str.contains(parse4.getHost() + parse4.getPath())) {
-                SapiWebView.this.aj = true;
+                SapiWebView.this.ai = true;
             } else {
-                SapiWebView.this.aj = false;
+                SapiWebView.this.ai = false;
             }
             if ((str.contains(parse.getHost() + parse.getPath()) || str.contains(parse2.getHost() + parse2.getPath()) || str.contains(parse3.getHost() + parse3.getPath())) && !"center".equals(Uri.parse(str).getQueryParameter("wapsec"))) {
                 SapiWebView.this.loadUrl("javascript:prompt(JSON.stringify({'action':{'name': 'authorized_response', 'params': [document.body.innerHTML, '1', 'prompt_on_cancel']}}));");
             }
-            if (str.contains(SapiAccountManager.getInstance().getAccountService().h())) {
+            if (str.contains(SapiAccountManager.getInstance().getAccountService().j())) {
                 SapiWebView.this.loadUrl("javascript:prompt(JSON.stringify({'action':{'name': 'authorized_response', 'params': [document.body.innerHTML, '0', 'prompt_on_cancel']}}));");
             }
-            SapiWebView.this.aa.removeCallbacks(SapiWebView.this.ab);
-            if (SapiWebView.this.E != null) {
-                SapiWebView.this.E.onPageFinished(webView, str);
+            SapiWebView.this.W.removeCallbacks(SapiWebView.this.aa);
+            if (SapiWebView.this.D != null) {
+                SapiWebView.this.D.onPageFinished(webView, str);
             }
         }
 
@@ -996,7 +1003,7 @@ public final class SapiWebView extends WebView {
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
             if (i == -8 || i == -6 || i == -2 || i == -5) {
-                SapiWebView.this.q();
+                SapiWebView.this.r();
             }
         }
     }
@@ -1004,21 +1011,26 @@ public final class SapiWebView extends WebView {
     @Override // android.webkit.WebView
     public void destroy() {
         super.destroy();
-        this.V = true;
-        this.aa.removeCallbacks(this.ab);
-        t();
+        this.U = true;
+        this.W.removeCallbacks(this.aa);
+        u();
+        if (Build.VERSION.SDK_INT < 21) {
+            CookieSyncManager.getInstance().sync();
+        } else {
+            CookieManager.getInstance().flush();
+        }
     }
 
     @Override // android.webkit.WebView
     public void reload() {
-        if (this.K.b) {
-            loadWeixinSSOLogin(this.K.c, this.K.d, this.K.e);
-        } else if (this.K.a != null) {
-            loadUrl(this.K.a);
+        if (this.J.b) {
+            loadWeixinSSOLogin(this.J.c, this.J.d, this.J.e);
+        } else if (this.J.a != null) {
+            loadUrl(this.J.a);
         } else {
             super.reload();
         }
-        this.K.a();
+        this.J.a();
     }
 
     /* loaded from: classes.dex */
@@ -1056,21 +1068,21 @@ public final class SapiWebView extends WebView {
                 if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
                     SapiWebView.this.loadUrl(String.format("javascript:%s('%s','%s');", this.a, str, this.b));
                 }
-                SapiWebView.this.t();
-                removeCallbacks(SapiWebView.this.M.F);
+                SapiWebView.this.u();
+                removeCallbacks(SapiWebView.this.L.J);
             }
         }
     }
 
     public String getUaInfo() {
-        String encode = URLEncoder.encode("Sapi_8.7.17_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + "_" + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
-        if (m() && !TextUtils.isEmpty(this.C.userAgent)) {
-            return encode + " " + this.C.userAgent;
+        String encode = URLEncoder.encode("Sapi_8.8.4_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + "_" + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
+        if (o() && !TextUtils.isEmpty(this.B.userAgent)) {
+            return encode + " " + this.B.userAgent;
         }
         return encode;
     }
 
-    private boolean m() {
+    private boolean o() {
         for (String str : SapiContext.getInstance(getContext()).getAuthorizedPackagesForUA()) {
             if (getContext().getPackageName().matches(str)) {
                 return true;
@@ -1079,23 +1091,27 @@ public final class SapiWebView extends WebView {
         return false;
     }
 
-    private void n() {
-        this.N = new ArrayList();
-        this.N.add("sapi_action_pick_image");
-        this.N.add("sapi_action_pick_date");
-        this.N.add("sapi_biometrics_identification");
-        this.N.add("sapi_biometrics_identification_no_bduss");
-        this.N.add("sapi_biometrics_identification_with_authtoken");
-        this.N.add("sapi_biometrics_identification_with_uid");
-        this.N.add("sapi_action_sc_app_invoke");
-        this.N.add("oauth_sso_hash");
-        this.N.add("sapi_action_china_mobile_oauth");
-        this.N.add("sapi_action_upsms");
+    private void p() {
+        this.M = new ArrayList();
+        this.M.add("sapi_action_pick_image");
+        this.M.add("sapi_action_pick_date");
+        this.M.add("sapi_biometrics_identification");
+        this.M.add("sapi_biometrics_identification_no_bduss");
+        this.M.add("sapi_biometrics_identification_with_authtoken");
+        this.M.add("sapi_biometrics_identification_with_uid");
+        this.M.add("sapi_action_sc_app_invoke");
+        this.M.add("oauth_sso_hash");
+        this.M.add("sapi_action_china_mobile_oauth");
+        this.M.add("sapi_action_upsms");
+        this.M.add("address_manage_get_contact");
+        this.M.add("touchid_open_guide");
+        this.M.add("touchid_change_status");
+        this.M.add("touchid_login");
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
     @TargetApi(7)
-    private void o() {
+    private void q() {
         WebSettings settings = getSettings();
         try {
             settings.setJavaScriptEnabled(true);
@@ -1129,7 +1145,7 @@ public final class SapiWebView extends WebView {
 
     @Override // android.view.View
     protected boolean overScrollBy(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, boolean z2) {
-        if ((this.P == null || this.P.getVisibility() != 0) && (this.Q == null || this.Q.getVisibility() != 0)) {
+        if ((this.O == null || this.O.getVisibility() != 0) && (this.P == null || this.P.getVisibility() != 0)) {
             return super.overScrollBy(i2, i3, i4, i5, i6, i7, i8, i9, z2);
         }
         return false;
@@ -1137,7 +1153,7 @@ public final class SapiWebView extends WebView {
 
     @Override // android.view.View
     public void scrollTo(int i2, int i3) {
-        if ((this.P != null && this.P.getVisibility() == 0) || (this.Q != null && this.Q.getVisibility() == 0)) {
+        if ((this.O != null && this.O.getVisibility() == 0) || (this.P != null && this.P.getVisibility() == 0)) {
             super.scrollTo(0, 0);
         }
         super.scrollTo(i2, i3);
@@ -1167,156 +1183,168 @@ public final class SapiWebView extends WebView {
     }
 
     public void setAuthorizationListener(AuthorizationListener authorizationListener) {
-        this.M.D = authorizationListener;
-    }
-
-    public void setFastRegHandler(FastRegHandler fastRegHandler) {
-        this.M.b = fastRegHandler;
+        this.L.C = authorizationListener;
     }
 
     public void setWeixinHandler(WeixinHandler weixinHandler) {
-        this.D = weixinHandler;
+        this.C = weixinHandler;
     }
 
     public void setLoadExternalWebViewCallback(LoadExternalWebViewCallback loadExternalWebViewCallback) {
-        this.M.k = loadExternalWebViewCallback;
+        this.L.j = loadExternalWebViewCallback;
     }
 
     public void setWebviewClientCallback(WebviewClientCallback webviewClientCallback) {
-        this.E = webviewClientCallback;
+        this.D = webviewClientCallback;
     }
 
     public void setWebChromeClientCallback(WebChromeClientCallback webChromeClientCallback) {
-        this.F = webChromeClientCallback;
+        this.E = webChromeClientCallback;
     }
 
     public void setFileChooserCallback(FileChooserCallback fileChooserCallback) {
-        this.G = fileChooserCallback;
+        this.F = fileChooserCallback;
     }
 
     public void setPickPhotoCallback(PickPhotoCallback pickPhotoCallback) {
-        this.M.l = pickPhotoCallback;
+        this.L.k = pickPhotoCallback;
     }
 
     public void setChangePwdCallback(ChangePwdCallback changePwdCallback) {
-        this.H = changePwdCallback;
+        this.G = changePwdCallback;
     }
 
     public void setBindWidgetCallback(BindWidgetCallback bindWidgetCallback) {
-        this.M.j = bindWidgetCallback;
+        this.L.i = bindWidgetCallback;
     }
 
     public void setUniteVerifyCallback(UniteVerifyCallback uniteVerifyCallback) {
-        this.M.h = uniteVerifyCallback;
+        this.L.g = uniteVerifyCallback;
     }
 
     public void setRealnameAuthenticateCallback(RealnameAuthenticateCallback realnameAuthenticateCallback) {
-        this.M.p = realnameAuthenticateCallback;
+        this.L.o = realnameAuthenticateCallback;
     }
 
     public void setSystemUpwardSmsCallback(SystemUpwardSmsCallback systemUpwardSmsCallback) {
-        this.M.w = systemUpwardSmsCallback;
+        this.L.v = systemUpwardSmsCallback;
+    }
+
+    public void setBuildCustomAlertDialog(SapiJsCallBacks.BuildCustomAlertDialog buildCustomAlertDialog) {
+        this.L.E = buildCustomAlertDialog;
+    }
+
+    public void setAddressManageCallback(SapiJsCallBacks.AddressManageCallback addressManageCallback) {
+        this.L.F = addressManageCallback;
+    }
+
+    public void setInvoiceBuildCallback(SapiJsCallBacks.InvoiceBuildCallback invoiceBuildCallback) {
+        this.L.G = invoiceBuildCallback;
     }
 
     public void setSocialBindHandler(Handler handler) {
-        this.M.d = handler;
+        this.L.c = handler;
     }
 
     public void setSocialLoginHandler(Handler handler) {
-        this.M.a = handler;
+        this.L.a = handler;
     }
 
     public void setWebViewTitleCallback(WebViewTitleCallback webViewTitleCallback) {
-        this.M.e = webViewTitleCallback;
+        this.L.d = webViewTitleCallback;
     }
 
     public void setBiometricsIdentifyCallback(BiometricsIdentifyCallback biometricsIdentifyCallback) {
-        this.M.g = biometricsIdentifyCallback;
+        this.L.f = biometricsIdentifyCallback;
     }
 
     public void setBioScanFaceCallback(BioScanFaceCallback bioScanFaceCallback) {
-        this.M.f = bioScanFaceCallback;
+        this.L.e = bioScanFaceCallback;
     }
 
     public void setInvokeScAppCallback(InvokeScAppCallback invokeScAppCallback) {
-        this.M.x = invokeScAppCallback;
+        this.L.w = invokeScAppCallback;
     }
 
     public void setCoverWebBdussCallback(CoverWebBdussCallback coverWebBdussCallback) {
-        this.M.q = coverWebBdussCallback;
+        this.L.p = coverWebBdussCallback;
     }
 
     public void setSwitchAccountCallback(SwitchAccountCallback switchAccountCallback) {
-        this.M.n = switchAccountCallback;
+        this.L.m = switchAccountCallback;
     }
 
     public void setPreFillUserNameCallback(PreFillUserNameCallback preFillUserNameCallback) {
-        this.M.r = preFillUserNameCallback;
+        this.L.q = preFillUserNameCallback;
     }
 
     public void setBdussChangeCallback(BdussChangeCallback bdussChangeCallback) {
-        this.M.m = bdussChangeCallback;
+        this.L.l = bdussChangeCallback;
     }
 
     public void setAccountChangeCallback(AccountChangeCallback accountChangeCallback) {
-        this.I = accountChangeCallback;
+        this.H = accountChangeCallback;
     }
 
     public void setAccountDestoryCallback(AccountDestoryCallback accountDestoryCallback) {
-        this.M.s = accountDestoryCallback;
+        this.L.r = accountDestoryCallback;
     }
 
     public void setLeftBtnVisibleCallback(LeftBtnVisibleCallback leftBtnVisibleCallback) {
-        this.M.o = leftBtnVisibleCallback;
+        this.L.n = leftBtnVisibleCallback;
     }
 
     public void setShareAccountClickCallback(ShareAccountClickCallback shareAccountClickCallback) {
-        this.M.u = shareAccountClickCallback;
+        this.L.t = shareAccountClickCallback;
     }
 
     public void setJoinLoingParams(SapiJsCallBacks.JoinLoginParams joinLoginParams) {
-        this.M.O = joinLoginParams;
+        this.L.P = joinLoginParams;
     }
 
     public void setDirectedLoginParams(SapiJsCallBacks.DirectedLoginParams directedLoginParams) {
-        this.M.Q = directedLoginParams;
+        this.L.R = directedLoginParams;
     }
 
     public void setHideSuccessTip(boolean z2) {
-        this.M.R = z2;
+        this.L.S = z2;
     }
 
     public void setLocalConfigCallback(LocalConfigCallback localConfigCallback) {
-        this.M.y = localConfigCallback;
+        this.L.x = localConfigCallback;
     }
 
     public void setPageStateCallback(SapiJsCallBacks.PageStateCallback pageStateCallback) {
-        this.M.E = pageStateCallback;
+        this.L.D = pageStateCallback;
+    }
+
+    public void setFingerprintCallback(SapiJsCallBacks.FingerprintCallback fingerprintCallback) {
+        this.L.H = fingerprintCallback;
     }
 
     public void setAccountFreezeCallback(AccountFreezeCallback accountFreezeCallback) {
-        this.M.t = accountFreezeCallback;
+        this.L.s = accountFreezeCallback;
     }
 
     public void setNormalizeGuestAccountCallback(SapiJsCallBacks.NormalizeGuestAccountCallback normalizeGuestAccountCallback, String str) {
-        this.M.z = normalizeGuestAccountCallback;
-        this.M.P = str;
+        this.L.y = normalizeGuestAccountCallback;
+        this.L.Q = str;
     }
 
     public void setRealNameStateCallback(SapiJsCallBacks.RealNameStatusCallback realNameStatusCallback) {
-        this.M.B = realNameStatusCallback;
+        this.L.A = realNameStatusCallback;
     }
 
     public void setLoginStatusChangeCallback(SapiJsCallBacks.LoginStatusChangeCallback loginStatusChangeCallback) {
-        this.M.C = loginStatusChangeCallback;
+        this.L.B = loginStatusChangeCallback;
     }
 
     public void setBdOauthLoginParams(SapiJsCallBacks.BdOauthLoginParams bdOauthLoginParams) {
-        this.M.S = bdOauthLoginParams;
+        this.L.T = bdOauthLoginParams;
     }
 
     public void setShareV2LoginParams(SapiJsCallBacks.ShareV2LoginParams shareV2LoginParams) {
-        this.M.T = shareV2LoginParams;
+        this.L.U = shareV2LoginParams;
     }
 
     public void loadLogin() {
@@ -1333,130 +1361,107 @@ public final class SapiWebView extends WebView {
 
     public void loadLogin(int i2, List<PassNameValuePair> list) {
         boolean z2 = true;
-        if (this.C.supportFaceLogin && this.M.g == null) {
+        if (this.B.supportFaceLogin && this.L.f == null) {
             throw new RuntimeException("face login is support, the biometricsIdentifyCallback can't be null");
         }
         if (statLoadLogin != null) {
             statLoadLogin.tBeforeLogin = System.currentTimeMillis();
         }
         this.extras = list;
-        this.am = true;
+        this.ak = true;
         if (list.contains(EXTRA_SUPPORT_DIRECT_LOGIN)) {
             b(i2, list);
         } else if (4 == i2) {
-            b(list);
+            c(list);
         } else {
-            if (this.C.supportSpecialLogin) {
-                String string = SapiContext.getInstance(this.C.context).getString(SapiContext.KEY_PRE_LOGIN_TYPE);
+            if (this.B.supportSpecialLogin) {
+                String string = SapiContext.getInstance(this.B.context).getString(SapiContext.KEY_PRE_LOGIN_TYPE);
                 if ("password".equals(string)) {
                     i2 = 0;
                 } else if ("sms".equals(string)) {
                     i2 = 1;
                 }
             }
-            List<ShareStorage.StorageModel> a2 = com.baidu.sapi2.share.a.a().a(this.C.context);
+            List<ShareStorage.StorageModel> a2 = com.baidu.sapi2.share.a.a().a(this.B.context);
             if (!com.baidu.sapi2.share.a.e() || !this.shareV2Disable) {
                 z2 = false;
             }
             this.shareV2Disable = z2;
-            if (this.M.u != null && a2 != null && a2.size() > 0 && !this.shareV2Disable) {
+            if (this.L.t != null && a2 != null && a2.size() > 0 && !this.shareV2Disable) {
                 list.add(new PassNameValuePair("share_version", "2"));
                 c(i2, list);
             } else if (SapiAccountManager.getInstance().getShareAccounts().size() > 0) {
                 c(i2, list);
+            } else if (this.I) {
+                b(list);
+            } else if (new c().b(getContext())) {
+                a(i2, list);
             } else {
-                this.J = p();
-                if (!TextUtils.isEmpty(this.J) && this.C.supportFaceLogin) {
-                    a(this.J, list);
-                } else if (new c().b(getContext())) {
-                    a(i2, list);
-                } else {
-                    b(i2, list);
-                }
+                b(i2, list);
             }
         }
         SapiStatUtil.statLoadLogin(null);
     }
 
-    private void a(String str, List<PassNameValuePair> list) {
-        String b2 = b(k(), list);
-        if (this.M.k != null) {
-            b2 = b2 + "&enableExternalWeb=1";
+    private void b(List<PassNameValuePair> list) {
+        String a2 = a(l(), list);
+        if (this.L.j != null) {
+            a2 = a2 + "&enableExternalWeb=1";
         }
-        if (this.C.supportFaceLogin) {
-            b2 = b2 + "&liveAbility=1";
-        }
-        loadUrl(b2 + "#" + str);
+        loadUrl((a2 + "&liveAbility=1") + t);
     }
 
     private void a(int i2, List<PassNameValuePair> list) {
-        String str = b(k(), list) + "&loginInitType=" + i2;
-        if (this.M.k != null) {
+        String str = a(l(), list) + "&loginInitType=" + i2;
+        if (this.L.j != null) {
             str = str + "&enableExternalWeb=1";
         }
-        if (this.C.supportFaceLogin) {
+        if (this.B.supportFaceLogin) {
             str = str + "&liveAbility=1";
         }
-        loadUrl(str + s);
+        loadUrl(str + r);
     }
 
     public void loadShareV2Login() {
-        loadUrl((SapiAccountManager.getInstance().getAccountService().a() + "&adapter=3") + t);
+        loadUrl((SapiAccountManager.getInstance().getAccountService().a() + "&adapter=3") + s);
     }
 
     private void b(int i2, List<PassNameValuePair> list) {
-        this.J = p();
-        String str = b(k(), list) + "&loginInitType=" + i2;
+        String str = a(l(), list) + "&loginInitType=" + i2;
         switch (i2) {
             case 0:
-                if (this.M.k != null) {
+                if (this.L.j != null) {
                     str = str + "&enableExternalWeb=1";
                 }
-                if (this.C.supportFaceLogin) {
+                if (this.B.supportFaceLogin) {
                     str = str + "&liveAbility=1";
                 }
-                loadUrl(str + j);
+                loadUrl(str + k);
                 return;
             case 1:
-                if (this.M.k != null) {
+                if (this.L.j != null) {
                     str = str + "&enableExternalWeb=1";
                 }
-                if (this.C.supportFaceLogin) {
+                if (this.B.supportFaceLogin) {
                     str = str + "&liveAbility=1";
                 }
-                loadUrl(str + o);
+                loadUrl(str + p);
                 return;
-            case 2:
-                this.am = false;
-                if (this.M.b != null) {
-                    post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.6
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (SapiWebView.this.M.b != null) {
-                                SapiWebView.this.M.b.handleFastReg();
-                            }
-                        }
-                    });
-                    return;
-                } else {
-                    loadFastReg();
-                    return;
-                }
             default:
-                loadUrl(str + j);
+                loadUrl(str + k);
                 return;
         }
     }
 
-    private void b(List<PassNameValuePair> list) {
-        String b2 = b(k(), list);
-        if (this.M.k != null) {
-            b2 = b2 + "&enableExternalWeb=1";
+    private void c(List<PassNameValuePair> list) {
+        String a2 = a(l(), list);
+        if (this.L.j != null) {
+            a2 = a2 + "&enableExternalWeb=1";
         }
-        if (this.C.supportFaceLogin) {
-            b2 = b2 + "&liveAbility=1";
+        if (this.B.supportFaceLogin) {
+            a2 = a2 + "&liveAbility=1";
         }
-        loadUrl(b2 + k);
+        loadUrl(a2 + l);
     }
 
     public void loadLoginWithUserName(String str) {
@@ -1471,7 +1476,7 @@ public final class SapiWebView extends WebView {
             Log.e(e2);
         }
         if (!TextUtils.isEmpty(str2)) {
-            loadUrl(k() + "&" + str2 + l);
+            loadUrl(l() + "&" + str2 + m);
         } else {
             loadLogin();
         }
@@ -1479,29 +1484,29 @@ public final class SapiWebView extends WebView {
 
     private void c(int i2, List<PassNameValuePair> list) {
         String str;
-        String k2 = k();
-        if (this.M.k != null) {
-            k2 = k2 + "&enableExternalWeb=1";
+        String l2 = l();
+        if (this.L.j != null) {
+            l2 = l2 + "&enableExternalWeb=1";
         }
-        if (this.C.supportFaceLogin) {
-            k2 = k2 + "&liveAbility=1";
+        if (this.B.supportFaceLogin) {
+            l2 = l2 + "&liveAbility=1";
         }
-        if (!TextUtils.isEmpty(p()) && this.M.g != null) {
-            str = k2 + "&loginInitType=4";
+        if (this.I && this.L.f != null) {
+            str = l2 + "&loginInitType=4";
         } else if (new c().b(getContext())) {
-            str = k2 + "&loginInitType=5";
+            str = l2 + "&loginInitType=5";
         } else {
-            str = k2 + "&loginInitType=" + i2;
+            str = l2 + "&loginInitType=" + i2;
         }
-        loadUrl(b(str, list) + n);
+        loadUrl(a(str, list) + o);
     }
 
     public void loadRegist(List<PassNameValuePair> list) {
-        loadUrl(b(k(), list) + m);
-        this.am = false;
+        loadUrl(a(l(), list) + n);
+        this.ak = false;
     }
 
-    private String b(String str, List<PassNameValuePair> list) {
+    private String a(String str, List<PassNameValuePair> list) {
         if (list != null) {
             ArrayList arrayList = new ArrayList();
             for (PassNameValuePair passNameValuePair : list) {
@@ -1537,7 +1542,7 @@ public final class SapiWebView extends WebView {
         a(getContext(), str);
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + e + "=" + g, "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + f + "=" + h, "UTF-8")));
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new PassNameValuePair("skin", str2));
             }
@@ -1550,7 +1555,7 @@ public final class SapiWebView extends WebView {
         }
         String b2 = b();
         ArrayList arrayList2 = new ArrayList();
-        arrayList2.add(new PassNameValuePair(this.C.environment.getWap(), b2));
+        arrayList2.add(new PassNameValuePair(this.B.environment.getWap(), b2));
         loadUrl(f2, arrayList2);
     }
 
@@ -1559,8 +1564,8 @@ public final class SapiWebView extends WebView {
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, boolean z2) {
-        this.M.v = qrLoginCallback;
-        this.M.J = z2;
+        this.L.u = qrLoginCallback;
+        this.L.M = z2;
         loadUrl(str + "&suppcheck=1");
     }
 
@@ -1579,10 +1584,10 @@ public final class SapiWebView extends WebView {
         list.add(new PassNameValuePair("clientfrom", "native"));
         list.add(new PassNameValuePair("client", "android"));
         list.add(new PassNameValuePair("deliverParams", "1"));
-        if (this.C.supportFaceLogin) {
+        if (this.B.supportFaceLogin) {
             list.add(new PassNameValuePair("scanface", "1"));
         }
-        if (this.M.l != null && this.C.supportPhoto) {
+        if (this.L.k != null && this.B.supportPhoto) {
             list.add(new PassNameValuePair("support_photo", "1"));
         }
         int indexOf = str.indexOf("?");
@@ -1597,7 +1602,7 @@ public final class SapiWebView extends WebView {
     public void loadForgetPwd(String str) {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + e + "=" + f, "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + f + "=" + g, "UTF-8")));
             if (!TextUtils.isEmpty(str)) {
                 arrayList.add(new PassNameValuePair("skin", str));
             }
@@ -1658,18 +1663,18 @@ public final class SapiWebView extends WebView {
         if (z2) {
             arrayList.add(new PassNameValuePair(FreeSpaceBox.TYPE, "1"));
         }
-        if (this.C.supportFaceLogin) {
+        if (this.B.supportFaceLogin) {
             arrayList.add(new PassNameValuePair("liveAbility", "1"));
         }
         String a2 = a(bindWidgetAction);
         if (arrayList.size() > 0) {
             a2 = a2 + "&" + SapiUtils.createRequestParams(arrayList);
         }
-        String b2 = b(a2, list);
-        String b3 = b();
+        String a3 = a(a2, list);
+        String b2 = b();
         ArrayList arrayList2 = new ArrayList();
-        arrayList2.add(new PassNameValuePair(this.C.environment.getWap(), b3));
-        loadUrl(b2, arrayList2);
+        arrayList2.add(new PassNameValuePair(this.B.environment.getWap(), b2));
+        loadUrl(a3, arrayList2);
     }
 
     public void loadFillUProfile(String str) {
@@ -1692,39 +1697,39 @@ public final class SapiWebView extends WebView {
         if (z2) {
             arrayList.add(new PassNameValuePair("simplify", "1"));
         }
-        String i2 = i();
+        String j2 = j();
         if (arrayList.size() > 0) {
-            i2 = i2 + "&" + SapiUtils.createRequestParams(arrayList);
+            j2 = j2 + "&" + SapiUtils.createRequestParams(arrayList);
         }
-        loadUrl(i2);
+        loadUrl(j2);
     }
 
     public void loadRealnameAuthenticate(final String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("bduss can't be empty");
         }
-        if (TextUtils.isEmpty(this.C.realnameAuthenticateStoken)) {
+        if (TextUtils.isEmpty(this.B.realnameAuthenticateStoken)) {
             throw new IllegalArgumentException("realnameAuthenticateStoken can't be empty");
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add("pp");
-        SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.SapiWebView.7
+        SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.SapiWebView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                String j2 = SapiWebView.this.j();
+                String k2 = SapiWebView.this.k();
                 ArrayList arrayList2 = new ArrayList();
                 arrayList2.add(new PassNameValuePair("bduss", str));
                 arrayList2.add(new PassNameValuePair("stoken", getTplStokenResult.tplStokenMap.get("pp")));
-                arrayList2.add(new PassNameValuePair("bdstoken", SapiWebView.this.C.realnameAuthenticateStoken));
-                SapiWebView.this.loadUrl(j2 + "&" + SapiUtils.createRequestParams(arrayList2) + "#idcardverify");
+                arrayList2.add(new PassNameValuePair("bdstoken", SapiWebView.this.B.realnameAuthenticateStoken));
+                SapiWebView.this.loadUrl(k2 + "&" + SapiUtils.createRequestParams(arrayList2) + "#idcardverify");
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(GetTplStokenResult getTplStokenResult) {
-                if (SapiWebView.this.M.p != null) {
-                    SapiWebView.this.M.p.onFailure();
+                if (SapiWebView.this.L.o != null) {
+                    SapiWebView.this.L.o.onFailure();
                 }
             }
 
@@ -1757,30 +1762,9 @@ public final class SapiWebView extends WebView {
         loadUrl(h() + "&" + SapiUtils.createRequestParams(arrayList));
     }
 
-    public void loadFastReg() {
-        loadFastReg(null);
-    }
-
-    public void loadFastReg(List<PassNameValuePair> list) {
-        if (!SapiUtils.isSimReady(getContext()) || !SapiUtils.hasActiveNetwork(getContext())) {
-            loadUrl(b(k() + "&regLink=0", list) + o);
-        } else {
-            loadUrl(b(k(), list) + p);
-            this.M.N = new FastRegAction();
-            this.M.N.b();
-        }
-        this.am = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(SapiAccountResponse sapiAccountResponse) {
-        this.M.M = sapiAccountResponse;
-        loadUrl(k() + "&authsid=" + sapiAccountResponse.authSid + "&bduss=" + sapiAccountResponse.bduss + "&ptoken=" + sapiAccountResponse.ptoken + "&stoken=" + sapiAccountResponse.stoken + q);
-    }
-
     public void loadNormalizeGuestAccount(List<PassNameValuePair> list, String str, SocialType socialType) {
         a(getContext(), str);
-        loadUrl(b(a(socialType), list));
+        loadUrl(a(a(socialType), list));
     }
 
     public void loadAccountCenter(String str) {
@@ -1797,13 +1781,21 @@ public final class SapiWebView extends WebView {
         if (list == null) {
             list = new ArrayList<>();
         }
-        if (this.M.l != null && this.C.supportPhoto) {
+        if (this.L.k != null && this.B.supportPhoto) {
             list.add(new PassNameValuePair("support_photo", "1"));
         }
-        if (this.M.g != null && this.C.supportFaceLogin) {
+        if (this.L.f != null && this.B.supportFaceLogin) {
             list.add(new PassNameValuePair("supFaceLogin", "1"));
         }
-        loadUrl(b(a2, list));
+        loadUrl(a(a2, list));
+    }
+
+    public void loadAddressManage(List<PassNameValuePair> list) {
+        loadUrl(a(i(), list));
+    }
+
+    public void loadInvoiceBuild(List<PassNameValuePair> list) {
+        loadUrl(a(m(), list));
     }
 
     public void loadAccountRealName(String str, String str2, boolean z2) {
@@ -1816,25 +1808,16 @@ public final class SapiWebView extends WebView {
         loadAccountCenter(arrayList, str, ACCOUNT_CENTER_REAL_NAME);
     }
 
-    public boolean notifyKefuBack() {
-        boolean z2 = this.M.I;
-        if (this.M.I) {
-            loadUrl(ah);
-            this.M.I = false;
-        }
-        return z2;
-    }
-
     public void preSetUserName(String str) {
         loadUrl("javascript:(function(){if(window.Pass&&Pass.client&&Pass.client.fillLoginNameFn){Pass.client.fillLoginNameFn('" + str + "')}}())");
     }
 
     public long getTimeoutMillis() {
-        return this.W;
+        return this.V;
     }
 
     public void setTimeoutMillis(long j2) {
-        this.W = j2;
+        this.V = j2;
     }
 
     @Override // android.webkit.WebView
@@ -1847,11 +1830,11 @@ public final class SapiWebView extends WebView {
         String str2 = null;
         if (!TextUtils.isEmpty(str) && !str.contains("javascript:")) {
             a(list);
-            str2 = this.U.a(getContext(), str);
+            str2 = this.T.a(getContext(), str);
         }
         if (!TextUtils.isEmpty(str2)) {
             String a2 = a(str2, str);
-            loadDataWithBaseURL(a2, str2, h, "UTF-8", a2);
+            loadDataWithBaseURL(a2, str2, i, "UTF-8", a2);
             return;
         }
         d(str);
@@ -1862,12 +1845,12 @@ public final class SapiWebView extends WebView {
         if (Build.VERSION.SDK_INT > 7) {
             getSettings().setBlockNetworkLoads(true);
         }
-        post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.8
+        post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.7
             @Override // java.lang.Runnable
             public void run() {
                 String[] split;
                 String str6;
-                if (!SapiWebView.this.V) {
+                if (!SapiWebView.this.U) {
                     if (str.split("#").length > 0) {
                         str6 = split[0] + "&loadDataWithBaseUrl=1#" + split[1];
                     } else {
@@ -1881,53 +1864,42 @@ public final class SapiWebView extends WebView {
     }
 
     public void back() {
-        if (this.ai != null) {
-            loadUrl(this.ai);
-        } else if (this.aj) {
+        if (this.ah != null) {
+            loadUrl(this.ah);
+        } else if (this.ai && this.Q != null && this.Q.getVisibility() == 0) {
             finish();
-        } else if (this.af != null && this.M.M == null && this.M.L == null) {
-            SapiUtils.hideSoftInput((Activity) getContext());
-            this.af.onBack();
+        } else if (this.ai && this.N != null && this.N.getVisibility() == 0) {
+            finish();
+        } else if (this.ae == null || this.L.O != null) {
+            super.loadUrl(ag);
+            a(this.L.O);
         } else {
-            c(this.M.M);
-            super.loadUrl("javascript:(function(){if(window.Pass&&Pass.switchView){Pass.switchView('back')}}())");
-            a(this.M.L);
+            SapiUtils.hideSoftInput((Activity) getContext());
+            this.ae.onBack();
         }
-        if ((this.P != null && this.P.getVisibility() == 0) || (this.Q != null && this.Q.getVisibility() == 0)) {
+        if ((this.O != null && this.O.getVisibility() == 0) || (this.P != null && this.P.getVisibility() == 0)) {
             finish();
         }
     }
 
     public void finish() {
-        t();
-        if (this.M.N != null) {
-            this.M.N.f = true;
-            this.M.N.k.removeCallbacks(this.M.N.l);
-        }
-        if (this.ad != null) {
-            post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.9
+        u();
+        if (this.ac != null) {
+            post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (SapiWebView.this.ad != null && !SapiWebView.this.V) {
+                    if (SapiWebView.this.ac != null && !SapiWebView.this.U) {
                         SapiUtils.hideSoftInput((Activity) SapiWebView.this.getContext());
-                        SapiWebView.this.ad.onFinish();
+                        SapiWebView.this.ac.onFinish();
                     }
                 }
             });
         }
     }
 
-    private String p() {
-        if (TextUtils.isEmpty(this.J)) {
-            this.J = SapiContext.getInstance(getContext()).geSupFaceLoginType();
-        }
-        return this.J;
-    }
-
     private void c(String str) {
         if (statLoadLogin != null) {
-            String p2 = p();
-            if (str.contains(j) || str.contains(n) || str.contains(k) || str.contains(p) || str.contains(o) || (!TextUtils.isEmpty(p2) && str.contains(p2))) {
+            if (str.contains(k) || str.contains(o) || str.contains(l) || str.contains(q) || str.contains(p) || (this.I && str.contains(t))) {
                 statLoadLogin.tStartLogin = System.currentTimeMillis();
             }
         }
@@ -1936,30 +1908,17 @@ public final class SapiWebView extends WebView {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, boolean z2) {
         if (statLoadLogin != null) {
-            String p2 = p();
-            if (str.contains(j) || str.contains(n) || str.contains(k) || str.contains(p) || str.contains(o) || (!TextUtils.isEmpty(p2) && str.contains(p2))) {
+            if (str.contains(k) || str.contains(o) || str.contains(l) || str.contains(q) || str.contains(p) || (this.I && str.contains(t))) {
                 statLoadLogin.tLoadLogin = System.currentTimeMillis();
                 statLoadLogin.isLoadCache = z2;
             }
         }
     }
 
-    @Override // android.webkit.WebView, android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
-        if (onKeyUp(i2)) {
-            return true;
-        }
-        return super.onKeyUp(i2, keyEvent);
-    }
-
     public boolean onKeyUp(int i2) {
-        if (i2 == 4 && this.ak == 1) {
-            if (this.al) {
-                notifyKefuBack();
-                return true;
-            }
-            if (this.ae != null && this.M.M == null && this.M.L == null) {
-                this.ae.onBack();
+        if (i2 == 4 && this.aj == 1) {
+            if (this.ad != null && this.L.O == null) {
+                this.ad.onBack();
             }
             back();
             return true;
@@ -2152,7 +2111,7 @@ public final class SapiWebView extends WebView {
         return sapiAccountResponse2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2603=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2576=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static SocialResponse b(String str, Context context) {
@@ -2322,36 +2281,18 @@ public final class SapiWebView extends WebView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q() {
-        stopLoading();
-        post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.10
-            @Override // java.lang.Runnable
-            public void run() {
-                if (SapiWebView.this.R != null) {
-                    SapiWebView.this.R.setVisibility(8);
-                }
-                if (SapiWebView.this.O != null) {
-                    SapiWebView.this.O.setVisibility(8);
-                }
-                SapiWebView.this.K.a = SapiWebView.this.ab.b;
-                if (SapiWebView.this.Q != null) {
-                    SapiWebView.this.Q.setVisibility(0);
-                }
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.11
+        stopLoading();
+        post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.9
             @Override // java.lang.Runnable
             public void run() {
-                if (SapiWebView.this.R != null) {
-                    SapiWebView.this.R.setVisibility(8);
+                if (SapiWebView.this.Q != null) {
+                    SapiWebView.this.Q.setVisibility(8);
                 }
-                if (SapiWebView.this.O != null) {
-                    SapiWebView.this.O.setVisibility(8);
+                if (SapiWebView.this.N != null) {
+                    SapiWebView.this.N.setVisibility(8);
                 }
+                SapiWebView.this.J.a = SapiWebView.this.aa.b;
                 if (SapiWebView.this.P != null) {
                     SapiWebView.this.P.setVisibility(0);
                 }
@@ -2361,15 +2302,33 @@ public final class SapiWebView extends WebView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        if (this.P == null || this.P.getVisibility() != 0) {
-            if (this.Q == null || this.Q.getVisibility() != 0) {
-                post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.12
+        post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.10
+            @Override // java.lang.Runnable
+            public void run() {
+                if (SapiWebView.this.Q != null) {
+                    SapiWebView.this.Q.setVisibility(8);
+                }
+                if (SapiWebView.this.N != null) {
+                    SapiWebView.this.N.setVisibility(8);
+                }
+                if (SapiWebView.this.O != null) {
+                    SapiWebView.this.O.setVisibility(0);
+                }
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void t() {
+        if (this.O == null || this.O.getVisibility() != 0) {
+            if (this.P == null || this.P.getVisibility() != 0) {
+                post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.11
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (SapiWebView.this.O != null) {
-                            SapiWebView.this.O.setVisibility(0);
-                            if (SapiWebView.this.R != null) {
-                                SapiWebView.this.R.setVisibility(8);
+                        if (SapiWebView.this.N != null) {
+                            SapiWebView.this.N.setVisibility(0);
+                            if (SapiWebView.this.Q != null) {
+                                SapiWebView.this.Q.setVisibility(8);
                             }
                         }
                     }
@@ -2406,7 +2365,7 @@ public final class SapiWebView extends WebView {
 
         @Override // com.baidu.sapi2.SapiWebView.WeixinHandler
         public void handleServerError(String str) {
-            Toast.makeText(SapiWebView.this.getContext(), SapiWebView.v, 1).show();
+            Toast.makeText(SapiWebView.this.getContext(), SapiWebView.u, 1).show();
         }
 
         @Override // com.baidu.sapi2.SapiWebView.WeixinHandler
@@ -2419,23 +2378,23 @@ public final class SapiWebView extends WebView {
 
     public void loadIqiyiBindServer(String str) {
         if (str != null) {
-            String buildIqiyiCookie = SapiUtils.buildIqiyiCookie(this.C.environment.getURL().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "mkey", Uri.parse(str).getQueryParameter("mkey"));
+            String buildIqiyiCookie = SapiUtils.buildIqiyiCookie(this.B.environment.getURL().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "mkey", Uri.parse(str).getQueryParameter("mkey"));
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair(this.C.environment.getURL(), buildIqiyiCookie));
+            arrayList.add(new PassNameValuePair(this.B.environment.getURL(), buildIqiyiCookie));
             loadUrl(str, arrayList);
         }
     }
 
     public void loadSinaSSOLogin(List<PassNameValuePair> list, String str, String str2) {
-        loadUrl(b(a(SocialType.SINA_WEIBO_SSO, str, str2, this.C.sinaAppId), list));
+        loadUrl(a(a(SocialType.SINA_WEIBO_SSO, str, str2, this.B.sinaAppId), list));
     }
 
     @TargetApi(9)
     public void loadWeixinSSOLogin(final boolean z2, final String str, final List<PassNameValuePair> list) {
-        if (this.D == null) {
-            this.D = new DefaultWeixinHandler();
+        if (this.C == null) {
+            this.C = new DefaultWeixinHandler();
         }
-        new e().a(getContext(), this.C, this.P, this.D, b(a(z2, str), list), getUaInfo(), new e.a() { // from class: com.baidu.sapi2.SapiWebView.13
+        new e().a(getContext(), this.B, this.O, this.C, a(a(z2, str), list), getUaInfo(), new e.a() { // from class: com.baidu.sapi2.SapiWebView.12
             @Override // com.baidu.sapi2.a.e.a
             public void onStart() {
                 SapiWebView.this.showProgress();
@@ -2448,11 +2407,11 @@ public final class SapiWebView extends WebView {
 
             @Override // com.baidu.sapi2.a.e.a
             public void onFailure() {
-                SapiWebView.this.K.b = true;
-                SapiWebView.this.K.c = z2;
-                SapiWebView.this.K.d = str;
-                SapiWebView.this.K.e = list;
-                SapiWebView.this.P.setVisibility(0);
+                SapiWebView.this.J.b = true;
+                SapiWebView.this.J.c = z2;
+                SapiWebView.this.J.d = str;
+                SapiWebView.this.J.e = list;
+                SapiWebView.this.O.setVisibility(0);
             }
         });
     }
@@ -2462,11 +2421,11 @@ public final class SapiWebView extends WebView {
     }
 
     public void loadQQSSOLogin(List<PassNameValuePair> list, String str, String str2, String str3) {
-        loadUrl(b(a(str, str2, str3), list));
+        loadUrl(a(a(str, str2, str3), list));
     }
 
     public void loadXiaomiSSOLogin(List<PassNameValuePair> list, String str, String str2, String str3) {
-        loadUrl(b(b(str, str2, str3), list));
+        loadUrl(a(b(str, str2, str3), list));
     }
 
     public void weixinSSOLogin(String str, String str2, boolean z2) {
@@ -2477,10 +2436,10 @@ public final class SapiWebView extends WebView {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             throw new IllegalArgumentException();
         }
-        String b2 = b(a(str, str2, z2), list);
+        String a2 = a(a(str, str2, z2), list);
         ArrayList arrayList = new ArrayList(1);
-        arrayList.add(new PassNameValuePair(this.C.environment.getURL(), "mkey=" + str2 + ";domain=." + this.C.environment.getURL().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "") + ";path=/;httponly"));
-        loadUrl(b2, arrayList);
+        arrayList.add(new PassNameValuePair(this.B.environment.getURL(), "mkey=" + str2 + ";domain=." + this.B.environment.getURL().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "") + ";path=/;httponly"));
+        loadUrl(a2, arrayList);
     }
 
     public void loadHuaWeiSSOLogin(String str, List<PassNameValuePair> list) {
@@ -2490,7 +2449,7 @@ public final class SapiWebView extends WebView {
         } catch (UnsupportedEncodingException e2) {
             Log.e(e2);
         }
-        loadUrl(b(str2, list));
+        loadUrl(a(str2, list));
     }
 
     public void loadMeizuSSOLogin(List<PassNameValuePair> list, String str, String str2) {
@@ -2500,7 +2459,7 @@ public final class SapiWebView extends WebView {
         } catch (UnsupportedEncodingException e2) {
             Log.e(e2);
         }
-        loadUrl(b(str3, list));
+        loadUrl(a(str3, list));
     }
 
     public void loadSocialLogin(SocialType socialType) {
@@ -2522,32 +2481,32 @@ public final class SapiWebView extends WebView {
         if (z2) {
             b2 = b2 + "&is_force_login=1";
         }
-        loadUrl(b(b2, list));
+        loadUrl(a(b2, list));
     }
 
     @Override // android.webkit.WebView, android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
-        if (this.R != null) {
-            AbsoluteLayout.LayoutParams layoutParams = (AbsoluteLayout.LayoutParams) this.R.getLayoutParams();
+        if (this.Q != null) {
+            AbsoluteLayout.LayoutParams layoutParams = (AbsoluteLayout.LayoutParams) this.Q.getLayoutParams();
             layoutParams.x = i2;
             layoutParams.y = i3;
-            this.R.setLayoutParams(layoutParams);
+            this.Q.setLayoutParams(layoutParams);
         }
         super.onScrollChanged(i2, i3, i4, i5);
     }
 
     private void d(final String str) {
-        post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.14
+        post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.13
             @Override // java.lang.Runnable
             public void run() {
-                if (!SapiWebView.this.V) {
+                if (!SapiWebView.this.U) {
                     SapiWebView.this.a(str, false);
                     SapiWebView.super.loadUrl(str);
                 }
             }
         });
         if (!SapiUtils.hasActiveNetwork(getContext()) && !str.startsWith("javascript:")) {
-            r();
+            s();
         }
     }
 
@@ -2613,7 +2572,7 @@ public final class SapiWebView extends WebView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SapiAccount b(SapiAccountResponse sapiAccountResponse) {
+    public SapiAccount a(SapiAccountResponse sapiAccountResponse) {
         SapiAccount sapiAccount = new SapiAccount();
         sapiAccount.uid = sapiAccountResponse.uid;
         sapiAccount.bduss = sapiAccountResponse.bduss;
@@ -2625,38 +2584,38 @@ public final class SapiWebView extends WebView {
         sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(getContext()) : sapiAccountResponse.app;
         sapiAccount.extra = sapiAccountResponse.extra;
         if (SocialType.UNKNOWN != sapiAccountResponse.socialType) {
-            SapiContext.getInstance(this.C.context).put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
+            SapiContext.getInstance(this.B.context).put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
             sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl);
             sapiAccount.putExtra(GiftTabActivityConfig.ACCOUNT_TYPE, Integer.valueOf(sapiAccountResponse.accountType.getType()));
         }
-        sapiAccount.putExtra("tpl", this.C.tpl);
+        sapiAccount.putExtra("tpl", this.B.tpl);
         if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
             sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
         }
-        SapiContext.getInstance(this.C.context).setAccountActionType(sapiAccountResponse.actionType);
+        SapiContext.getInstance(this.B.context).setAccountActionType(sapiAccountResponse.actionType);
         sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
         if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
-            new com.baidu.sapi2.share.a.c().a(getContext(), sapiAccountResponse.livingUname);
+            new b().a(getContext(), sapiAccountResponse.livingUname);
         }
         return sapiAccount;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(final SapiAccountResponse sapiAccountResponse) {
+    public void b(final SapiAccountResponse sapiAccountResponse) {
         if (sapiAccountResponse != null) {
-            final SapiAccount b2 = b(sapiAccountResponse);
-            if (this.M.D != null) {
-                post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.15
+            final SapiAccount a2 = a(sapiAccountResponse);
+            if (this.L.C != null) {
+                post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.14
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            SapiWebView.this.M.D.beforeSuccess(b2);
+                            SapiWebView.this.L.C.beforeSuccess(a2);
                         } catch (Throwable th) {
                             Log.e(th);
                         }
-                        com.baidu.sapi2.share.a.a().a(b2);
+                        com.baidu.sapi2.share.a.a().a(a2);
                         SapiWebView.this.a(sapiAccountResponse.accountType);
-                        SapiStatUtil.statShareV1Login(SapiWebView.this.getContext(), b2, SapiWebView.this.extras);
+                        SapiStatUtil.statShareV1Login(SapiWebView.this.getContext(), a2, SapiWebView.this.extras);
                     }
                 });
             }
@@ -2666,47 +2625,47 @@ public final class SapiWebView extends WebView {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final SocialResponse socialResponse) {
         if (socialResponse != null) {
-            final SapiAccount b2 = b(socialResponse);
-            if (SapiUtils.isValidAccount(b2)) {
+            final SapiAccount a2 = a((SapiAccountResponse) socialResponse);
+            if (SapiUtils.isValidAccount(a2)) {
                 socialResponse.errorCode = 0;
             }
             if (socialResponse.accountCenterFlag && (socialResponse.errorCode == 0 || socialResponse.errorCode == 110000)) {
-                post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.16
+                post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.15
                     @Override // java.lang.Runnable
                     public void run() {
                         SapiWebView.this.loadUrl(socialResponse.nextUrl);
                         SapiAccount session = SapiAccountManager.getInstance().getSession();
-                        com.baidu.sapi2.share.a.a().a(b2);
-                        if (SapiWebView.this.I != null && !session.uid.equals(b2.uid)) {
-                            SapiWebView.this.I.onAccountChange();
+                        com.baidu.sapi2.share.a.a().a(a2);
+                        if (SapiWebView.this.H != null && !session.uid.equals(a2.uid)) {
+                            SapiWebView.this.H.onAccountChange();
                         }
                     }
                 });
-            } else if (this.M.D != null) {
+            } else if (this.L.C != null) {
                 if (socialResponse.errorCode == 0 || socialResponse.errorCode == 110000) {
-                    post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.17
+                    post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.16
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
-                                if (SapiWebView.this.M.D != null) {
-                                    SapiWebView.this.M.D.beforeSuccess(b2);
+                                if (SapiWebView.this.L.C != null) {
+                                    SapiWebView.this.L.C.beforeSuccess(a2);
                                 }
                             } catch (Throwable th) {
                                 Log.e(th);
                             }
-                            com.baidu.sapi2.share.a.a().a(b2);
+                            com.baidu.sapi2.share.a.a().a(a2);
                             SapiWebView.this.a(AccountType.UNKNOWN);
-                            SapiWebView.this.M.L = null;
+                            SapiWebView.this.L.O = null;
                         }
                     });
                 } else {
-                    post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.18
+                    post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.17
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (SapiWebView.this.M.D != null) {
-                                SapiWebView.this.M.D.onFailed(socialResponse.errorCode, socialResponse.errorMsg);
+                            if (SapiWebView.this.L.C != null) {
+                                SapiWebView.this.L.C.onFailed(socialResponse.errorCode, socialResponse.errorMsg);
                             }
-                            SapiWebView.this.M.L = null;
+                            SapiWebView.this.L.O = null;
                         }
                     });
                 }
@@ -2716,246 +2675,23 @@ public final class SapiWebView extends WebView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountType accountType) {
-        SapiUtils.reportGid(this.am ? 10002 : 10003);
-        if (this.M.D != null) {
+        if (!TextUtils.isEmpty(this.L.I[0])) {
+            SapiAccount currentAccount = SapiContext.getInstance(this.B.context).getCurrentAccount();
+            currentAccount.phone = this.L.I[0];
+            currentAccount.email = this.L.I[1];
+            SapiContext.getInstance(this.B.context).addTouchidAccounts(currentAccount);
+        }
+        SapiUtils.reportGid(this.ak ? 10002 : 10003);
+        if (this.L.C != null) {
             try {
-                if (!AuthorizationListener.class.equals(this.M.D.getClass().getMethod("onSuccess", AccountType.class).getDeclaringClass())) {
-                    this.M.D.onSuccess(accountType);
+                if (!AuthorizationListener.class.equals(this.L.C.getClass().getMethod("onSuccess", AccountType.class).getDeclaringClass())) {
+                    this.L.C.onSuccess(accountType);
                     return;
                 }
             } catch (NoSuchMethodException e2) {
                 Log.e(e2);
             }
-            this.M.D.onSuccess();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class FastRegAction {
-        private static final int b = 0;
-        private static final int c = 1;
-        private String d;
-        private Handler g;
-        private Runnable h;
-        private Handler i;
-        private Runnable l;
-        private boolean e = true;
-        private boolean f = false;
-        private int j = 0;
-        private Handler k = new Handler();
-
-        public FastRegAction() {
-            this.g = new Handler() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.1
-                @Override // android.os.Handler
-                public void handleMessage(Message message) {
-                    FastRegAction.this.e = true;
-                }
-            };
-            this.h = new Runnable() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    FastRegAction.this.g.sendMessage(new Message());
-                }
-            };
-            this.i = new Handler() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.3
-                @Override // android.os.Handler
-                public void handleMessage(Message message) {
-                    if (message.obj != null) {
-                        String str = (String) message.obj;
-                        String a = SapiWebView.this.a();
-                        if (!TextUtils.isEmpty(a) && FastRegAction.this.j == 1) {
-                            FastRegAction.this.a(a, str);
-                        }
-                        SapiWebView.this.t();
-                        FastRegAction.this.k.removeCallbacks(FastRegAction.this.l);
-                    }
-                }
-            };
-            this.l = new Runnable() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.4
-                @Override // java.lang.Runnable
-                public void run() {
-                    SapiWebView.this.t();
-                    FastRegAction.this.a(SapiWebView.this.a());
-                }
-            };
-        }
-
-        private String a() {
-            return UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + Constants.ACCEPT_TIME_SEPARATOR_SP + "点击发送直接登录";
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void b() {
-            if (this.e) {
-                this.d = a();
-            }
-            if (SapiUtils.isSimReady(SapiWebView.this.getContext()) && SapiUtils.hasActiveNetwork(SapiWebView.this.getContext())) {
-                if (SapiWebView.this.C.fastRegConfirm) {
-                    AlertDialog create = new AlertDialog.Builder(SapiWebView.this.getContext()).setTitle("提示").setMessage(SapiWebView.u).setPositiveButton("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.6
-                        @Override // android.content.DialogInterface.OnClickListener
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                            if (SapiUtils.checkRequestPermission("android.permission.SEND_SMS", SapiWebView.this.getContext()) ? SapiCoreUtil.sendSms(FastRegAction.this.d, SapiUtils.getFastRegChannel(SapiWebView.this.getContext())) : false) {
-                                FastRegAction.this.g.postDelayed(FastRegAction.this.h, 15000L);
-                                FastRegAction.this.e = false;
-                                FastRegAction.this.d();
-                                return;
-                            }
-                            FastRegAction.this.e();
-                        }
-                    }).setNegativeButton(SapiWebView.A, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.5
-                        @Override // android.content.DialogInterface.OnClickListener
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                            SapiWebView.this.loadUrl(SapiWebView.this.k() + "&regLink=0" + SapiWebView.o);
-                        }
-                    }).create();
-                    if (!TextUtils.isEmpty(SapiWebView.this.C.fastRegConfirmMsg)) {
-                        create.setMessage(SapiWebView.this.C.fastRegConfirmMsg);
-                    }
-                    create.setCancelable(false);
-                    create.setCanceledOnTouchOutside(false);
-                    create.show();
-                    return;
-                }
-                if (SapiUtils.checkRequestPermission("android.permission.SEND_SMS", SapiWebView.this.getContext()) ? SapiCoreUtil.sendSms(this.d, SapiUtils.getFastRegChannel(SapiWebView.this.getContext())) : false) {
-                    this.g.postDelayed(this.h, 15000L);
-                    this.e = false;
-                    d();
-                    return;
-                }
-                e();
-                return;
-            }
-            e();
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void c() {
-            this.g.removeCallbacks(this.h);
-            this.e = true;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void d() {
-            if (this.f) {
-                c();
-            } else if (this.e) {
-                this.g.removeCallbacks(this.h);
-                e();
-            } else {
-                SapiAccountManager.getInstance().getAccountService().a(new SapiCallBack<SapiAccountResponse>() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.7
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.sapi2.shell.callback.SapiCallBack
-                    public void onSuccess(SapiAccountResponse sapiAccountResponse) {
-                        if (sapiAccountResponse.newReg) {
-                            SapiWebView.this.a(sapiAccountResponse);
-                        } else {
-                            SapiWebView.this.c(sapiAccountResponse);
-                        }
-                        FastRegAction.this.c();
-                    }
-
-                    @Override // com.baidu.sapi2.shell.callback.SapiCallBack
-                    public void onNetworkFailed() {
-                        FastRegAction.this.e();
-                        FastRegAction.this.c();
-                    }
-
-                    @Override // com.baidu.sapi2.shell.callback.SapiCallBack
-                    public void onSystemError(int i) {
-                        switch (i) {
-                            case 2:
-                                SapiWebView.this.postDelayed(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.7.1
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        FastRegAction.this.d();
-                                    }
-                                }, 400L);
-                                return;
-                            default:
-                                FastRegAction.this.e();
-                                FastRegAction.this.c();
-                                return;
-                        }
-                    }
-                }, this.d);
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void e() {
-            String a = SapiWebView.this.a();
-            if (!TextUtils.isEmpty(a)) {
-                this.j = 1;
-                SapiAccountManager.getInstance().getAccountService().getDynamicPwd(new GetDynamicPwdCallback() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.8
-                    /* JADX DEBUG: Method merged with bridge method */
-                    public void onCaptchaRequired(GetDynamicPwdResult getDynamicPwdResult) {
-                        SapiWebView.this.loadUrl(SapiWebView.this.k() + "&regLink=0" + SapiWebView.o);
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    public void onSuccess(GetDynamicPwdResult getDynamicPwdResult) {
-                        SapiWebView.this.a(FastRegAction.this.i);
-                        FastRegAction.this.k.postDelayed(FastRegAction.this.l, 15000L);
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    public void onFailure(GetDynamicPwdResult getDynamicPwdResult) {
-                        SapiWebView.this.loadUrl(SapiWebView.this.k() + "&regLink=0" + SapiWebView.o);
-                    }
-
-                    public void onStart() {
-                    }
-
-                    public void onFinish() {
-                    }
-                }, a, null, null);
-                return;
-            }
-            SapiWebView.this.loadUrl(SapiWebView.this.k() + "&regLink=0" + SapiWebView.o);
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void a(String str, String str2) {
-            SapiAccountManager.getInstance().getAccountService().a(new SapiCallBack<SapiAccountResponse>() { // from class: com.baidu.sapi2.SapiWebView.FastRegAction.9
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.shell.callback.SapiCallBack
-                public void onSuccess(SapiAccountResponse sapiAccountResponse) {
-                    SapiAccountResponse sapiAccountResponse2 = new SapiAccountResponse();
-                    sapiAccountResponse2.displayname = sapiAccountResponse.displayname;
-                    sapiAccountResponse2.username = sapiAccountResponse.username;
-                    sapiAccountResponse2.uid = sapiAccountResponse.uid;
-                    sapiAccountResponse2.bduss = sapiAccountResponse.bduss;
-                    sapiAccountResponse2.ptoken = sapiAccountResponse.ptoken;
-                    sapiAccountResponse2.stoken = sapiAccountResponse.stoken;
-                    sapiAccountResponse2.email = sapiAccountResponse.email;
-                    sapiAccountResponse2.newReg = !TextUtils.isEmpty(sapiAccountResponse.authSid);
-                    sapiAccountResponse2.authSid = sapiAccountResponse.authSid;
-                    if (sapiAccountResponse2.newReg) {
-                        SapiWebView.this.a(sapiAccountResponse2);
-                        return;
-                    }
-                    SapiWebView.this.c(sapiAccountResponse2);
-                    SapiWebView.this.finish();
-                }
-
-                @Override // com.baidu.sapi2.shell.callback.SapiCallBack
-                public void onNetworkFailed() {
-                    FastRegAction.this.a(SapiWebView.this.a());
-                }
-
-                @Override // com.baidu.sapi2.shell.callback.SapiCallBack
-                public void onSystemError(int i) {
-                    FastRegAction.this.a(SapiWebView.this.a());
-                }
-            }, str, str2);
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void a(String str) {
-            SapiWebView.this.loadUrl(SapiWebView.this.k() + "&username=" + str + SapiWebView.r);
+            this.L.C.onSuccess();
         }
     }
 
@@ -2970,20 +2706,25 @@ public final class SapiWebView extends WebView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Handler handler) {
-        if (this.ac == null) {
-            this.ac = SapiCoreUtil.registerReceiver(getContext(), handler);
+        if (this.ab == null) {
+            SapiCoreUtil.registerReceiver(getContext(), handler, new RequestSMSCallback() { // from class: com.baidu.sapi2.SapiWebView.18
+                @Override // com.baidu.sapi2.callback.RequestSMSCallback
+                public void receiverResult(BroadcastReceiver broadcastReceiver) {
+                    SapiWebView.this.ab = broadcastReceiver;
+                }
+            });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t() {
-        if (this.ac != null) {
+    public void u() {
+        if (this.ab != null) {
             try {
-                getContext().unregisterReceiver(this.ac);
+                getContext().unregisterReceiver(this.ab);
             } catch (Throwable th) {
             }
         }
-        this.ac = null;
+        this.ab = null;
     }
 
     String a(String str, String str2) {
@@ -2991,15 +2732,15 @@ public final class SapiWebView extends WebView {
         String str3;
         if (str2.split("#").length > 1) {
             SapiOptions sapiOptions = SapiContext.getInstance(getContext()).getSapiOptions();
-            String c2 = this.U.c(str2);
-            if (this.U.c(getContext(), c2) != null) {
-                String str4 = this.U.c(getContext(), c2).hash;
+            String c2 = this.T.c(str2);
+            if (this.T.c(getContext(), c2) != null) {
+                String str4 = this.T.c(getContext(), c2).hash;
                 String md5 = MD5Util.toMd5(str.getBytes(), false);
                 String version = sapiOptions.getCache().getVersion();
                 if (!str4.equals(md5)) {
                     str3 = "&passAppHash=" + MD5Util.toMd5(str.getBytes(), false);
                 } else {
-                    str3 = (TextUtils.isEmpty(version) ? "" : "&passAppVersion=" + version) + "&passAppHash=" + this.U.c(getContext(), c2).hash;
+                    str3 = (TextUtils.isEmpty(version) ? "" : "&passAppVersion=" + version) + "&passAppHash=" + this.T.c(getContext(), c2).hash;
                 }
             }
             return split[0] + str3 + "#" + split[1];
@@ -3008,7 +2749,7 @@ public final class SapiWebView extends WebView {
     }
 
     String b() {
-        return SapiUtils.buildBDUSSCookie(this.C.environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
+        return SapiUtils.buildBDUSSCookie(this.B.environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
     }
 
     void a(List<PassNameValuePair> list) {
@@ -3023,13 +2764,13 @@ public final class SapiWebView extends WebView {
         String diCookieInfo;
         List<String> loginCookieDiKeys = SapiContext.getInstance(getContext()).getSapiOptions().getLoginCookieDiKeys();
         ArrayList arrayList = new ArrayList();
-        String replaceAll = this.C.environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
+        String replaceAll = this.B.environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
         if (loginCookieDiKeys.size() == 1 && loginCookieDiKeys.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
             diCookieInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
         } else {
             diCookieInfo = SapiDeviceInfo.getDiCookieInfo(loginCookieDiKeys);
         }
-        String wap = this.C.environment.getWap();
+        String wap = this.B.environment.getWap();
         if (diCookieInfo == null) {
             diCookieInfo = "";
         }
@@ -3054,7 +2795,7 @@ public final class SapiWebView extends WebView {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    SapiWebView.this.S = ProgressDialog.show(SapiWebView.this.getContext(), null, "加载中...", true);
+                    SapiWebView.this.R = ProgressDialog.show(SapiWebView.this.getContext(), null, "加载中...", true);
                 } catch (Throwable th) {
                     Log.e(th);
                 }
@@ -3066,9 +2807,9 @@ public final class SapiWebView extends WebView {
         post(new Runnable() { // from class: com.baidu.sapi2.SapiWebView.20
             @Override // java.lang.Runnable
             public void run() {
-                if (SapiWebView.this.S != null && SapiWebView.this.S.isShowing()) {
+                if (SapiWebView.this.R != null && SapiWebView.this.R.isShowing()) {
                     try {
-                        SapiWebView.this.S.dismiss();
+                        SapiWebView.this.R.dismiss();
                     } catch (Throwable th) {
                         Log.e(th);
                     }
@@ -3087,7 +2828,7 @@ public final class SapiWebView extends WebView {
 
     List<PassNameValuePair> d() {
         ArrayList arrayList = new ArrayList();
-        if (this.C.supportFaceLogin && this.M.f != null && this.M.g != null) {
+        if (this.B.supportFaceLogin && this.L.e != null && this.L.f != null) {
             arrayList.add(new PassNameValuePair("liveAbility", "1"));
         }
         return arrayList;
@@ -3117,12 +2858,12 @@ public final class SapiWebView extends WebView {
         return SapiAccountManager.getInstance().getAccountService().a(socialType) + "&" + SapiUtils.createRequestParams(d());
     }
 
-    String a(String str) {
-        return SapiAccountManager.getInstance().getAccountService().a(str) + "&" + SapiUtils.createRequestParams(d());
-    }
-
     String i() {
         return SapiAccountManager.getInstance().getAccountService().g() + "&" + SapiUtils.createRequestParams(d());
+    }
+
+    String a(String str) {
+        return SapiAccountManager.getInstance().getAccountService().a(str) + "&" + SapiUtils.createRequestParams(d());
     }
 
     String j() {
@@ -3130,6 +2871,10 @@ public final class SapiWebView extends WebView {
     }
 
     String k() {
+        return SapiAccountManager.getInstance().getAccountService().k() + "&" + SapiUtils.createRequestParams(d());
+    }
+
+    String l() {
         return SapiAccountManager.getInstance().getAccountService().b();
     }
 
@@ -3155,5 +2900,9 @@ public final class SapiWebView extends WebView {
 
     String a(String str, String str2, boolean z2) {
         return SapiAccountManager.getInstance().getAccountService().a(str, str2, z2) + "&" + SapiUtils.createRequestParams(d());
+    }
+
+    String m() {
+        return SapiAccountManager.getInstance().getAccountService().h() + "&" + SapiUtils.createRequestParams(d());
     }
 }

@@ -5,22 +5,22 @@ import kotlin.collections.u;
 /* loaded from: classes2.dex */
 final class d extends u {
     private int index;
-    private final double[] ksS;
+    private final double[] kvl;
 
     public d(double[] dArr) {
         p.k(dArr, "array");
-        this.ksS = dArr;
+        this.kvl = dArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.ksS.length;
+        return this.index < this.kvl.length;
     }
 
     @Override // kotlin.collections.u
-    public double cNQ() {
+    public double cOC() {
         try {
-            double[] dArr = this.ksS;
+            double[] dArr = this.kvl;
             int i = this.index;
             this.index = i + 1;
             return dArr[i];

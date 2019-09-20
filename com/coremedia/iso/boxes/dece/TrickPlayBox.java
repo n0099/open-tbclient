@@ -12,9 +12,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class TrickPlayBox extends AbstractFullBox {
     public static final String TYPE = "trik";
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
     private List<Entry> entries;
 
     static {

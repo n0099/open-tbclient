@@ -7,6 +7,7 @@ import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.WebBindWidgetResult;
@@ -101,6 +102,13 @@ public class BindWidgetActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
         if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
@@ -108,6 +116,12 @@ public class BindWidgetActivity extends BaseActivity {
         } else {
             onClose();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public SapiWebDTO getWebDTO() {
+        return PassportSDK.getInstance().getWebBindWidgetDTO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -123,8 +137,8 @@ public class BindWidgetActivity extends BaseActivity {
         if (PassportSDK.getInstance().getWebBindWidgetCallback() != null) {
             PassportSDK.getInstance().getWebBindWidgetCallback().onFinish(this.result);
         }
-        PassportSDK.getInstance().release();
         finish();
+        PassportSDK.getInstance().release();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

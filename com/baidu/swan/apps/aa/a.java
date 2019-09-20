@@ -7,12 +7,14 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.poly.a;
 import com.baidu.poly.bean.PayChannel;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.statistic.e;
+import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.apache.http.protocol.HTTP;
@@ -23,78 +25,78 @@ import org.json.JSONObject;
 public class a implements com.baidu.swan.apps.aa.a.c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a aFH = null;
-    private UnitedSchemeEntity aAn;
-    private CallbackHandler aAo;
-    private com.baidu.swan.apps.ae.b aFI;
-    private String aFJ;
+    private static com.baidu.poly.a aGf = null;
+    private UnitedSchemeEntity aAL;
+    private CallbackHandler aAM;
+    private com.baidu.swan.apps.ae.b aGg;
+    private String aGh;
     private String mAppKey;
     private int mStatusCode;
     private String mVersion;
 
     public a(com.baidu.swan.apps.ae.b bVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, String str2) {
-        this.aFI = bVar;
-        this.aAn = unitedSchemeEntity;
-        this.aAo = callbackHandler;
+        this.aGg = bVar;
+        this.aAL = unitedSchemeEntity;
+        this.aAM = callbackHandler;
         this.mVersion = str;
         this.mAppKey = str2;
     }
 
-    public boolean fP(String str) {
+    public boolean fR(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.aAn.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.aAL.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.u.a.EA().a(this.aFI, str, new com.baidu.swan.apps.aa.a.b() { // from class: com.baidu.swan.apps.aa.a.1
+        com.baidu.swan.apps.u.a.EE().a(this.aGg, str, new com.baidu.swan.apps.aa.a.b() { // from class: com.baidu.swan.apps.aa.a.1
             @Override // com.baidu.swan.apps.aa.a.b
             public void j(int i, String str2) {
                 a.this.mStatusCode = i;
-                a.this.aFJ = str2;
+                a.this.aGh = str2;
                 if (a.DEBUG) {
                     Log.d(a.TAG, "statusCode: " + i + " ,result:" + str2);
                 }
-                a.this.c(i, "baiduqianbao", str2);
+                a.this.d(i, "baiduqianbao", str2);
                 if (i != 0 || !TextUtils.equals(a.this.mVersion, "2.0")) {
-                    a.this.fR(null);
+                    a.this.fT(null);
                 } else {
-                    com.baidu.swan.apps.u.a.EN().a(a.this.mAppKey, a.this);
+                    com.baidu.swan.apps.u.a.ER().a(a.this.mAppKey, a.this);
                 }
             }
         });
-        UnitedSchemeUtility.callCallback(this.aAo, this.aAn, UnitedSchemeUtility.wrapCallbackParams(0));
+        UnitedSchemeUtility.callCallback(this.aAM, this.aAL, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
-    public boolean fQ(String str) {
+    public boolean fS(String str) {
         com.baidu.swan.apps.console.c.d(TAG, "start UnitedSchemeWalletDispatcher ACTION_REQUEST_ALI_PAYMENT");
         if (TextUtils.isEmpty(str)) {
-            this.aAn.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.aAL.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.u.a.EA().a(this.aFI, str, new com.baidu.swan.apps.aa.a.a() { // from class: com.baidu.swan.apps.aa.a.2
+        com.baidu.swan.apps.u.a.EE().a(this.aGg, str, new com.baidu.swan.apps.aa.a.a() { // from class: com.baidu.swan.apps.aa.a.2
             @Override // com.baidu.swan.apps.aa.a.a
             public void i(int i, String str2) {
                 a.this.mStatusCode = i;
-                a.this.aFJ = str2;
+                a.this.aGh = str2;
                 if (a.DEBUG) {
-                    Log.d(a.TAG, "statusCode: " + a.this.mStatusCode + " ,result:" + a.this.aFJ);
+                    Log.d(a.TAG, "statusCode: " + a.this.mStatusCode + " ,result:" + a.this.aGh);
                 }
-                a.this.c(i, "alipay", str2);
+                a.this.d(i, "alipay", str2);
                 if (i != 0 || !TextUtils.equals(a.this.mVersion, "2.0")) {
-                    a.this.fR(null);
+                    a.this.fT(null);
                 } else {
-                    com.baidu.swan.apps.u.a.EN().a(a.this.mAppKey, a.this);
+                    com.baidu.swan.apps.u.a.ER().a(a.this.mAppKey, a.this);
                 }
             }
         });
-        UnitedSchemeUtility.callCallback(this.aAo, this.aAn, UnitedSchemeUtility.wrapCallbackParams(0));
+        UnitedSchemeUtility.callCallback(this.aAM, this.aAL, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
     public boolean g(final String str, JSONObject jSONObject) {
         final String[] strArr;
         if (TextUtils.isEmpty(str)) {
-            this.aAn.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.aAL.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("bannedChannels");
@@ -107,7 +109,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
         } else {
             strArr = null;
         }
-        this.aFI.Mi().a(this.aFI.getActivity(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.aa.a.3
+        this.aGg.Mm().a(this.aGg.getActivity(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.aa.a.3
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i2) {
                 if (i2 == 0) {
@@ -115,8 +117,8 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                     return;
                 }
                 a.this.mStatusCode = 5;
-                a.this.aFJ = null;
-                a.this.fR(null);
+                a.this.aGh = null;
+                a.this.fT(null);
             }
         });
         return true;
@@ -128,11 +130,11 @@ public class a implements com.baidu.swan.apps.aa.a.c {
         try {
             JSONObject jSONObject2 = new JSONObject(str);
             Bundle bundle = new Bundle();
-            String bd = com.baidu.swan.apps.u.a.Ep().bd(com.baidu.swan.apps.u.a.Ek());
-            if (com.baidu.swan.apps.u.a.Ep().bb(com.baidu.swan.apps.u.a.Ek())) {
-                bundle.putString("bduss", com.baidu.swan.apps.u.a.Ep().be(com.baidu.swan.apps.u.a.Ek()));
+            String bd = com.baidu.swan.apps.u.a.Et().bd(com.baidu.swan.apps.u.a.Eo());
+            if (com.baidu.swan.apps.u.a.Et().bb(com.baidu.swan.apps.u.a.Eo())) {
+                bundle.putString("bduss", com.baidu.swan.apps.u.a.Et().be(com.baidu.swan.apps.u.a.Eo()));
             }
-            bundle.putString("cuid", bd);
+            bundle.putString(DpStatConstants.KEY_CUID, bd);
             bundle.putString("appKey", jSONObject2.optString("appKey"));
             bundle.putString("dealId", jSONObject2.optString("dealId"));
             bundle.putString("dealTitle", jSONObject2.optString("dealTitle"));
@@ -145,14 +147,14 @@ public class a implements com.baidu.swan.apps.aa.a.c {
             } else {
                 jSONObject = new JSONObject(optString);
             }
-            if (this.aFI.vL() != null) {
-                jSONObject.put("swanFrom", this.aFI.vL().FG());
+            if (this.aGg.vP() != null) {
+                jSONObject.put("swanFrom", this.aGg.vP().FK());
             }
-            jSONObject.put("cuid", bd);
-            jSONObject.put("appId", com.baidu.swan.apps.ae.b.Mo());
+            jSONObject.put(DpStatConstants.KEY_CUID, bd);
+            jSONObject.put("appId", com.baidu.swan.apps.ae.b.Ms());
             bundle.putString("bizInfo", jSONObject.toString());
-            bundle.putString("platformId", "100003");
-            bundle.putString("nativeAppId", com.baidu.swan.apps.u.a.Ew().getHostName());
+            bundle.putString(ConstantsAPI.Token.WX_TOKEN_PLATFORMID_KEY, "100003");
+            bundle.putString("nativeAppId", com.baidu.swan.apps.u.a.EA().getHostName());
             bundle.putString("swanNativeVersion", com.baidu.swan.apps.c.getVersion());
             if (!TextUtils.isEmpty(jSONObject2.optString(Headers.LOCATION))) {
                 bundle.putString(Headers.LOCATION, jSONObject2.optString(Headers.LOCATION));
@@ -211,7 +213,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                 }
                 bundle.putStringArray("blockedPayChannels", strArr2);
             }
-            J(this.aFI.getActivity()).a(bundle, new a.c() { // from class: com.baidu.swan.apps.aa.a.4
+            J(this.aGg.getActivity()).a(bundle, new a.c() { // from class: com.baidu.swan.apps.aa.a.4
                 @Override // com.baidu.poly.a.c
                 public void onResult(int i2, String str3) {
                     if (a.DEBUG) {
@@ -220,22 +222,22 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                     if (i2 == 0) {
                         try {
                             if (TextUtils.isEmpty(str3)) {
-                                a.this.c(6, "nuomi", str3);
+                                a.this.d(6, "nuomi", str3);
                                 a.this.mStatusCode = 6;
-                                a.this.aFJ = null;
+                                a.this.aGh = null;
                             } else {
                                 int optInt = new JSONObject(str3).optInt("statusCode");
                                 a.this.mStatusCode = optInt;
-                                a.this.aFJ = str3;
-                                a.this.c(optInt, "nuomi", str3);
+                                a.this.aGh = str3;
+                                a.this.d(optInt, "nuomi", str3);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             a.this.mStatusCode = 6;
-                            a.this.aFJ = null;
-                            a.this.c(6, "nuomi", str3);
+                            a.this.aGh = null;
+                            a.this.d(6, "nuomi", str3);
                         }
-                        a.this.fR(null);
+                        a.this.fT(null);
                     }
                 }
 
@@ -246,21 +248,21 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                 @Override // com.baidu.poly.a.c
                 public void onCancel(String str3) {
                     a.this.mStatusCode = 2;
-                    a.this.aFJ = str3;
-                    a.this.c(2, "nuomi", str3);
-                    a.this.fR(null);
+                    a.this.aGh = str3;
+                    a.this.d(2, "nuomi", str3);
+                    a.this.fT(null);
                 }
             });
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        UnitedSchemeUtility.callCallback(this.aAo, this.aAn, UnitedSchemeUtility.wrapCallbackParams(0));
-        if (this.aFI.DA() != null && this.aFI.vL() != null) {
-            String valueOf = String.valueOf(this.aFI.vL().FQ());
-            String valueOf2 = String.valueOf(UnitedSchemeUtility.getParams(this.aFI.vL().FH()).get("_baiduboxapp"));
+        UnitedSchemeUtility.callCallback(this.aAM, this.aAL, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (this.aGg.DE() != null && this.aGg.vP() != null) {
+            String valueOf = String.valueOf(this.aGg.vP().FU());
+            String valueOf2 = String.valueOf(UnitedSchemeUtility.getParams(this.aGg.vP().FL()).get("_baiduboxapp"));
             Bundle bundle2 = new Bundle();
             bundle2.putString("frameType", valueOf);
-            bundle2.putString("appId", this.aFI.vL().getAppId());
+            bundle2.putString("appId", this.aGg.vP().getAppId());
             try {
                 bundle2.putString("params", URLEncoder.encode(valueOf2, HTTP.UTF_8));
             } catch (UnsupportedEncodingException e2) {
@@ -268,86 +270,86 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                     throw new RuntimeException("This method requires UTF-8 encoding support", e2);
                 }
             }
-            this.aFI.DA().e(7, bundle2);
+            this.aGg.DE().e(7, bundle2);
         }
     }
 
     private static com.baidu.poly.a J(Activity activity) {
-        if (aFH != null) {
-            return aFH;
+        if (aGf != null) {
+            return aGf;
         }
-        aFH = new a.C0085a().a(new com.baidu.poly.d.b.a(activity)).bD(getChannel()).az(activity);
-        return aFH;
+        aGf = new a.C0094a().a(new com.baidu.poly.d.b.a(activity)).bE(getChannel()).az(activity);
+        return aGf;
     }
 
     private static int getChannel() {
         if (DEBUG) {
-            return com.baidu.swan.apps.ac.a.a.Jg() ? a.b.agY : a.b.agX;
+            return com.baidu.swan.apps.ac.a.a.Jk() ? a.b.ahu : a.b.aht;
         }
-        return a.b.agX;
+        return a.b.aht;
     }
 
     @Nullable
-    private static com.baidu.poly.a Ih() {
-        return aFH;
+    private static com.baidu.poly.a Il() {
+        return aGf;
     }
 
-    public boolean Ii() {
+    public boolean Im() {
         com.baidu.swan.apps.console.c.d(TAG, "start UnitedSchemeWalletDispatcher ACTION_REQUEST_WECHAT_PAYMENT");
-        if (d.Il().a(this.aFI, this.aAo, this.aAn)) {
+        if (d.Ip().a(this.aGg, this.aAM, this.aAL)) {
             if (TextUtils.equals(this.mVersion, "2.0")) {
                 this.mStatusCode = 0;
-                this.aFJ = null;
-                com.baidu.swan.apps.u.a.EN().a(this.mAppKey, this);
+                this.aGh = null;
+                com.baidu.swan.apps.u.a.ER().a(this.mAppKey, this);
             }
-            UnitedSchemeUtility.callCallback(this.aAo, this.aAn, UnitedSchemeUtility.wrapCallbackParams(0));
+            UnitedSchemeUtility.callCallback(this.aAM, this.aAL, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
-        this.aAn.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-        e.hs("wechatH5Action");
+        this.aAL.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        e.hu("wechatH5Action");
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(int i, String str, String str2) {
-        com.baidu.swan.apps.v.b.b vL = this.aFI.vL();
-        e.a(i == 0, str, str2, vL != null ? vL.FQ() : 0);
+    public void d(int i, String str, String str2) {
+        com.baidu.swan.apps.v.b.b vP = this.aGg.vP();
+        e.a(i == 0, str, str2, vP != null ? vP.FU() : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fR(String str) {
+    public void fT(String str) {
         String str2;
-        com.baidu.swan.apps.console.c.d(TAG, "sendSecondCallback, statusCode: " + this.mStatusCode + ", params: " + this.aFJ);
-        String str3 = this.aAn.getParams().get("params");
+        com.baidu.swan.apps.console.c.d(TAG, "sendSecondCallback, statusCode: " + this.mStatusCode + ", params: " + this.aGh);
+        String str3 = this.aAL.getParams().get("params");
         if (!TextUtils.isEmpty(str3)) {
             try {
                 str2 = new JSONObject(str3).optString("cb");
                 try {
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(this.aFJ)) {
-                        String optString = new JSONObject(this.aFJ).optString("responseData");
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(this.aGh)) {
+                        String optString = new JSONObject(this.aGh).optString("responseData");
                         if (TextUtils.equals(this.mVersion, "2.0")) {
                             JSONObject jSONObject = new JSONObject();
                             if (!TextUtils.isEmpty(str)) {
                                 jSONObject.put("payId", str);
                             }
-                            if (!TextUtils.isEmpty(this.aFJ)) {
+                            if (!TextUtils.isEmpty(this.aGh)) {
                                 jSONObject.put("payResult", Base64.encodeToString(optString.getBytes(HTTP.UTF_8), 2));
                             }
-                            this.aAo.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.mStatusCode, cP(this.mStatusCode)).toString());
+                            this.aAM.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.mStatusCode, cQ(this.mStatusCode)).toString());
                             return;
                         }
-                        this.aAo.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(optString, this.mStatusCode, cP(this.mStatusCode)).toString());
+                        this.aAM.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(optString, this.mStatusCode, cQ(this.mStatusCode)).toString());
                         return;
                     }
-                    this.aAo.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cP(this.mStatusCode)).toString());
+                    this.aAM.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cQ(this.mStatusCode)).toString());
                 } catch (UnsupportedEncodingException e) {
                     e = e;
                     e.printStackTrace();
-                    this.aAo.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cP(this.mStatusCode)).toString());
+                    this.aAM.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cQ(this.mStatusCode)).toString());
                 } catch (JSONException e2) {
                     e = e2;
                     e.printStackTrace();
-                    this.aAo.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cP(this.mStatusCode)).toString());
+                    this.aAM.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cQ(this.mStatusCode)).toString());
                 }
             } catch (UnsupportedEncodingException e3) {
                 e = e3;
@@ -359,12 +361,12 @@ public class a implements com.baidu.swan.apps.aa.a.c {
         }
     }
 
-    public static boolean Ij() {
-        com.baidu.poly.a Ih = Ih();
-        return Ih != null && Ih.uE();
+    public static boolean In() {
+        com.baidu.poly.a Il = Il();
+        return Il != null && Il.uI();
     }
 
-    private static String cP(int i) {
+    private static String cQ(int i) {
         switch (i) {
             case 0:
                 return "支付成功";
@@ -380,6 +382,6 @@ public class a implements com.baidu.swan.apps.aa.a.c {
     public void onFail(String str) {
         com.baidu.swan.apps.console.c.e(TAG, "request payId failed");
         com.baidu.swan.apps.console.c.e(TAG, str);
-        fR(null);
+        fT(null);
     }
 }

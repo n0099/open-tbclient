@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void ng(String str) {
+    public static void ni(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -44,7 +44,7 @@ public class j {
         }
     }
 
-    public static void aic() {
+    public static void aig() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {

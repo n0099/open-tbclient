@@ -1,9 +1,9 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface h {
-    void AZ(String str);
+    void By(String str);
 
-    void Ba(String str);
+    void Bz(String str);
 
     void av(int i, String str);
 
@@ -13,13 +13,13 @@ public interface h {
 
     void ay(int i, String str);
 
-    void bOO();
+    void bPB();
 
-    void bOP();
+    void bPC();
 
-    void bOQ();
+    void bPD();
 
-    void bOR();
+    void bPE();
 
     void h(int i, int i2, String str);
 }

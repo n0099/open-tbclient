@@ -3,19 +3,19 @@ package org.java_websocket.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String kve;
+    private final String kxx;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.kve = str;
+        this.kxx = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Ix(String str) {
+    public boolean IV(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.kve.equals(str2)) {
+            if (this.kxx.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String cPd() {
-        return this.kve;
+    public String cPP() {
+        return this.kxx;
     }
 
     @Override // org.java_websocket.d.a
-    public a cPe() {
-        return new b(cPd());
+    public a cPQ() {
+        return new b(cPP());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return cPd();
+        return cPP();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.kve.equals(((b) obj).kve);
+        return this.kxx.equals(((b) obj).kxx);
     }
 
     public int hashCode() {
-        return this.kve.hashCode();
+        return this.kxx.hashCode();
     }
 }

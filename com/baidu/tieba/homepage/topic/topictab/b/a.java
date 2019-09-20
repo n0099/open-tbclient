@@ -9,44 +9,44 @@ import tbclient.NewTopicList.NewTopicList;
 import tbclient.TopicModule;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.c {
-    public static final BdUniqueId gnR = BdUniqueId.gen();
-    public static final BdUniqueId gnS = BdUniqueId.gen();
-    public String bII;
-    public long bIJ;
-    public String bIK;
-    private bh ccq;
+    public static final BdUniqueId gpI = BdUniqueId.gen();
+    public static final BdUniqueId gpJ = BdUniqueId.gen();
+    public String bJg;
+    public long bJh;
+    public String bJi;
+    private bh cdk;
     public int from = 0;
-    public String gmx;
-    public b gnT;
-    public PostData gnU;
+    public String goo;
+    public b gpK;
+    public PostData gpL;
     public int index;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.from == 0 ? gnR : gnS;
+        return this.from == 0 ? gpI : gpJ;
     }
 
-    public static boolean W(bh bhVar) {
-        return bhVar != null && bhVar.getType() == bh.bJz;
+    public static boolean X(bh bhVar) {
+        return bhVar != null && bhVar.getType() == bh.bJX;
     }
 
     public void a(NewTopicList newTopicList) {
         if (newTopicList != null) {
             this.topicId = newTopicList.topic_id.longValue();
-            this.bII = newTopicList.topic_name;
-            this.bIK = newTopicList.topic_desc;
-            this.bIJ = newTopicList.discuss_num.longValue();
-            this.gmx = newTopicList.topic_image;
+            this.bJg = newTopicList.topic_name;
+            this.bJi = newTopicList.topic_desc;
+            this.bJh = newTopicList.discuss_num.longValue();
+            this.goo = newTopicList.topic_image;
             if (newTopicList.pk_module != null && newTopicList.pk_module.agree != null && newTopicList.pk_module.disagree != null) {
-                this.gnT = new b();
-                this.gnT.topicId = this.topicId;
-                this.gnT.from = 1;
-                this.gnT.a(newTopicList.pk_module);
+                this.gpK = new b();
+                this.gpK.topicId = this.topicId;
+                this.gpK.from = 1;
+                this.gpK.a(newTopicList.pk_module);
             }
             if (newTopicList.top_agree_post != null) {
-                this.gnU = new PostData();
-                this.gnU.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
+                this.gpL = new PostData();
+                this.gpL.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
             }
         }
     }
@@ -54,33 +54,33 @@ public class a extends com.baidu.tieba.card.data.c {
     public void a(TopicModule topicModule) {
         if (topicModule != null) {
             this.topicId = topicModule.topic_id.longValue();
-            this.bII = topicModule.topic_name;
-            this.bIK = topicModule.topic_desc;
-            this.gmx = topicModule.topic_image;
+            this.bJg = topicModule.topic_name;
+            this.bJi = topicModule.topic_desc;
+            this.goo = topicModule.topic_image;
             if (topicModule.pk_module != null && topicModule.pk_module.agree != null && topicModule.pk_module.disagree != null) {
-                this.gnT = new b();
-                this.gnT.topicId = this.topicId;
-                this.gnT.from = 3;
-                this.gnT.a(topicModule.pk_module);
+                this.gpK = new b();
+                this.gpK.topicId = this.topicId;
+                this.gpK.from = 3;
+                this.gpK.a(topicModule.pk_module);
             }
         }
     }
 
-    public void aj(bh bhVar) {
-        this.ccq = bhVar;
+    public void ak(bh bhVar) {
+        this.cdk = bhVar;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bh acy() {
-        return this.ccq;
+    public bh acC() {
+        return this.cdk;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public aj acA() {
-        aj acA = super.acA();
-        if (acA != null) {
-            acA.ap(this.topicId);
+    public aj acE() {
+        aj acE = super.acE();
+        if (acE != null) {
+            acE.ap(this.topicId);
         }
-        return acA;
+        return acE;
     }
 }

@@ -13,11 +13,11 @@ public class o {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        private static final o bwK = new o();
+        private static final o bxi = new o();
     }
 
-    public static o Yb() {
-        return a.bwK;
+    public static o Yf() {
+        return a.bxi;
     }
 
     public final void onEvent(String str) {
@@ -36,61 +36,61 @@ public class o {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.vb()) {
-            if (s.Yn() != null || !TextUtils.isEmpty(str)) {
-                m.XY().f(str, str2, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.vf()) {
+            if (s.Yr() != null || !TextUtils.isEmpty(str)) {
+                m.Yc().f(str, str2, i);
                 return;
             }
             return;
         }
         try {
-            Yd().ubcOnEvent(str, r.kY(str2), i);
+            Yh().ubcOnEvent(str, r.la(str2), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.vb()) {
-            if (s.Yn() != null || !TextUtils.isEmpty(str)) {
-                m.XY().a(str, jSONObject, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.vf()) {
+            if (s.Yr() != null || !TextUtils.isEmpty(str)) {
+                m.Yc().a(str, jSONObject, i);
                 return;
             }
             return;
         }
         try {
-            Yd().ubcOnEvent(str, r.aT(jSONObject), i);
+            Yh().ubcOnEvent(str, r.aT(jSONObject), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public Flow g(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.vb()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.vf()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return m.XY().g(str, str2, i);
+            return m.Yc().g(str, str2, i);
         }
-        return h(str, r.kY(str2), i);
+        return h(str, r.la(str2), i);
     }
 
-    public void XZ() {
-        m.XY().XZ();
+    public void Yd() {
+        m.Yc().Yd();
     }
 
-    public void Yc() {
-        m.XY().XA();
+    public void Yg() {
+        m.Yc().XE();
     }
 
-    private IRemoteUBCService Yd() throws RemoteException {
-        return s.Yd();
+    private IRemoteUBCService Yh() throws RemoteException {
+        return s.Yh();
     }
 
     private Flow h(String str, String str2, int i) {
         Flow flow;
         try {
-            flow = Yd().ubcBeginFlow(str, str2, i);
+            flow = Yh().ubcBeginFlow(str, str2, i);
         } catch (RemoteException e) {
             e.printStackTrace();
             flow = null;

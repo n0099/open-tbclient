@@ -5,28 +5,28 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class a {
-    private static final ReentrantLock blD = new ReentrantLock();
-    private static volatile a blE;
-    private d bfy;
-    private List<c> bgo = new ArrayList(3);
+    private static final ReentrantLock bmb = new ReentrantLock();
+    private static volatile a bmc;
+    private d bfW;
+    private List<c> bgN = new ArrayList(3);
 
     private a() {
     }
 
-    public static a Ts() {
-        if (blE == null) {
+    public static a Tw() {
+        if (bmc == null) {
             synchronized (a.class) {
-                if (blE == null) {
-                    blE = new a();
+                if (bmc == null) {
+                    bmc = new a();
                 }
             }
         }
-        return blE;
+        return bmc;
     }
 
     public void a(d dVar) {
-        this.bfy = dVar;
-        Tt();
+        this.bfW = dVar;
+        Tx();
     }
 
     public void G(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.bfy = null;
-        this.bgo.clear();
+        this.bfW = null;
+        this.bgN.clear();
     }
 
     private void a(c cVar) {
-        blD.lock();
+        bmb.lock();
         try {
-            if (this.bfy != null) {
-                this.bfy.c(cVar);
+            if (this.bfW != null) {
+                this.bfW.c(cVar);
             } else {
-                this.bgo.add(cVar);
+                this.bgN.add(cVar);
             }
         } finally {
-            blD.unlock();
+            bmb.unlock();
         }
     }
 
-    private void Tt() {
-        if (!this.bgo.isEmpty() && this.bfy != null) {
-            blD.lock();
+    private void Tx() {
+        if (!this.bgN.isEmpty() && this.bfW != null) {
+            bmb.lock();
             try {
-                for (c cVar : this.bgo) {
-                    this.bfy.c(cVar);
+                for (c cVar : this.bgN) {
+                    this.bfW.c(cVar);
                 }
-                this.bgo.clear();
+                this.bgN.clear();
             } finally {
-                blD.unlock();
+                bmb.unlock();
             }
         }
     }

@@ -13,27 +13,27 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String amt;
-    private int amu;
-    private int amv;
+    private String amR;
+    private int amS;
+    private int amT;
     private Bitmap mBitmap;
     private int mHeight;
     private Matrix mMatrix;
     private int mWidth;
 
     public j(String str) {
-        this.amt = str;
+        this.amR = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void e(JSONArray jSONArray) {
     }
 
-    public boolean xW() {
+    public boolean ya() {
         try {
-            JSONObject jSONObject = new JSONObject(this.amt);
-            this.amu = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.amv = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble("y"));
+            JSONObject jSONObject = new JSONObject(this.amR);
+            this.amS = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.amT = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble("y"));
             this.mWidth = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble("width"));
             this.mHeight = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble("height"));
             String optString = jSONObject.optString("data");
@@ -44,13 +44,13 @@ public class j extends a {
                     this.mBitmap = BitmapFactory.decodeByteArray(decode, 0, decode.length);
                     int width = this.mBitmap.getWidth();
                     int height = this.mBitmap.getHeight();
-                    this.amu = this.amu < 0 ? 0 : this.amu;
-                    this.amv = this.amv >= 0 ? this.amv : 0;
+                    this.amS = this.amS < 0 ? 0 : this.amS;
+                    this.amT = this.amT >= 0 ? this.amT : 0;
                     this.mWidth = this.mWidth <= 0 ? width : this.mWidth;
                     this.mHeight = this.mHeight <= 0 ? height : this.mHeight;
                     this.mMatrix = new Matrix();
                     this.mMatrix.postScale(this.mWidth / this.mBitmap.getWidth(), this.mHeight / this.mBitmap.getHeight());
-                    this.mMatrix.postTranslate(this.amu, this.amv);
+                    this.mMatrix.postTranslate(this.amS, this.amT);
                     return z;
                 } catch (Exception e) {
                     if (DEBUG) {

@@ -2,6 +2,7 @@ package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -34,11 +35,11 @@ public class s extends z {
             if (optJSONObject != null) {
                 String optString = optJSONObject.optString("slaveId");
                 String optString2 = optJSONObject.optString("actionName");
-                long optLong = optJSONObject.optLong("timestamp", -1L);
+                long optLong = optJSONObject.optLong(DpStatConstants.KEY_TIMESTAMP, -1L);
                 if (DEBUG) {
                     Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
                 }
-                com.baidu.swan.apps.performance.c.d.IS().e(optString, optString2, optLong);
+                com.baidu.swan.apps.performance.c.d.IW().e(optString, optString2, optLong);
             }
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

@@ -9,15 +9,15 @@ import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.h.c clM;
-    private CoverFlowView<com.baidu.tieba.personCenter.data.a> fiS;
+    private com.baidu.tbadk.h.c cmI;
+    private CoverFlowView<com.baidu.tieba.personCenter.data.a> fkF;
     private List<com.baidu.tieba.personCenter.data.a> mData;
 
     public AutoBannerView(Context context) {
@@ -30,16 +30,16 @@ public class AutoBannerView extends RelativeLayout {
 
     public AutoBannerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fiS = null;
+        this.fkF = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.fiS = new CoverFlowView<>(getContext());
+        this.fkF = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public com.baidu.tbadk.core.flow.a.e ahg() {
+            public com.baidu.tbadk.core.flow.a.e ahk() {
                 com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
                 eVar.setHeight(l.g(AutoBannerView.this.getContext(), R.dimen.tbds260));
                 return eVar;
@@ -58,7 +58,7 @@ public class AutoBannerView extends RelativeLayout {
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public com.baidu.tbadk.core.flow.a.c ahf() {
+            public com.baidu.tbadk.core.flow.a.c ahj() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
                 cVar.hN(R.drawable.icon_banner_gray_n);
                 cVar.hO(R.drawable.icon_banner_s);
@@ -68,70 +68,70 @@ public class AutoBannerView extends RelativeLayout {
                 return cVar;
             }
         };
-        this.fiS.setIndicatorNoOffet(false);
-        this.fiS.setDisableParentEvent(false);
-        this.fiS.setCoverFlowFactory(bVar);
-        this.fiS.setIndicatorVisible(0);
-        this.fiS.setIsAutoPlayDragging(false);
-        addView(this.fiS);
+        this.fkF.setIndicatorNoOffet(false);
+        this.fkF.setDisableParentEvent(false);
+        this.fkF.setCoverFlowFactory(bVar);
+        this.fkF.setIndicatorVisible(0);
+        this.fkF.setIsAutoPlayDragging(false);
+        addView(this.fkF);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.fiS;
+        return this.fkF;
     }
 
     public boolean checkIndex(int i) {
         return i > 0 && i <= v.Z(this.mData);
     }
 
-    public void yd(String str) {
+    public void yC(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                bb.ajE().c((TbPageContext) i.ab(getContext()), new String[]{str});
+                ba.ajK().c((TbPageContext) i.ab(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void alp() {
-        if (this.fiS != null) {
-            this.fiS.ahj();
+    public void alB() {
+        if (this.fkF != null) {
+            this.fkF.ahn();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.fiS != null) {
-            this.fiS.setIndicatorVisible(i);
+        if (this.fkF != null) {
+            this.fkF.setIndicatorVisible(i);
         }
     }
 
     public void cC(List<com.baidu.tieba.personCenter.data.a> list) {
         this.mData = list;
-        this.fiS.setData(list);
+        this.fkF.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.c cVar) {
-        this.clM = cVar;
+        this.cmI = cVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fiS != null) {
-            this.fiS.onChangeSkinType();
+        if (this.fkF != null) {
+            this.fkF.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.fiS != null) {
-            this.fiS.setMarqueenTime(j);
+        if (this.fkF != null) {
+            this.fkF.setMarqueenTime(j);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.clM != null) {
-            this.clM.a(this, i == 0, null);
+        if (this.cmI != null) {
+            this.cmI.a(this, i == 0, null);
         }
     }
 }

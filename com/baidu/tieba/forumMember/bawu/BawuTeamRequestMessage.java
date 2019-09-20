@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.GetBawuInfo.DataReq;
 import tbclient.GetBawuInfo.GetBawuInfoReqIdl;
 /* loaded from: classes5.dex */
@@ -20,7 +20,7 @@ public class BawuTeamRequestMessage extends NetMessage {
         GetBawuInfoReqIdl.Builder builder2 = new GetBawuInfoReqIdl.Builder();
         builder2.data = builder.build(false);
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         return builder2.build(false);
     }

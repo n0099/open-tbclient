@@ -2,6 +2,7 @@ package com.baidu.sapi2.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +21,7 @@ import com.baidu.d.a.a;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -27,7 +30,9 @@ import com.baidu.sapi2.views.ViewUtility;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
+    protected View bottomBackView;
     protected View dividerLine;
+    protected ImageView mBottomBackBtnIv;
     protected ImageView mLeftBtnIv;
     protected LinearLayout mLeftBtnLayout;
     protected TextView mLeftBtnTv;
@@ -36,20 +41,20 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     protected TextView mTitle;
     protected RelativeLayout mTitleBgLayout;
     protected RelativeLayout mTitleLayout;
-    protected TitleBtnCallback titleBtnCallback;
-    private PassportViewManager viewManager;
     protected boolean useTitle = true;
     public boolean executeSubClassMethod = true;
+    private PassportViewManager viewManager = PassportViewManager.getInstance();
+    public TitleBtnCallback titleBtnCallback = this.viewManager.getTitleBtnCallback();
+    protected SapiConfiguration configuration = SapiAccountManager.getInstance().getConfignation();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
-        this.viewManager = PassportViewManager.getInstance();
-        this.titleBtnCallback = this.viewManager.getTitleBtnCallback();
-        openAnim();
+        setPageAnim(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setupViews() {
+        ViewStub viewStub;
         ViewUtility.enableStatusBarTint(this, -1);
         if (this.useTitle) {
             this.mTitle = (TextView) findViewById(a.e.title);
@@ -61,14 +66,21 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             this.mTitleBgLayout = (RelativeLayout) findViewById(a.e.sapi_title_bg_layout);
             this.dividerLine = findViewById(a.e.title_divider_line);
             this.mRightBtnClose = (ImageView) findViewById(a.e.title_right_close);
-            ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
-            ViewUtility.setViewClickAlpha(this.mLeftBtnIv, 0.2f);
-            this.mRightBtnClose.setOnClickListener(this);
+            if (this.configuration.showBottomBack && this.bottomBackView == null && (viewStub = (ViewStub) findViewById(a.e.stub_bottom_back)) != null) {
+                this.bottomBackView = viewStub.inflate();
+                this.mBottomBackBtnIv = (ImageView) findViewById(a.e.sapi_bottom_back);
+                this.mBottomBackBtnIv.setOnClickListener(this);
+                ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
+            }
+            if (this.mRightBtnClose != null) {
+                this.mRightBtnClose.setOnClickListener(this);
+                ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
+            }
             this.mLeftBtnIv.setOnClickListener(this);
             this.mLeftBtnTv.setOnClickListener(this);
             this.mRightBtn.setOnClickListener(this);
         }
-        if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
+        if (this.configuration.isNightMode) {
             ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
         }
     }
@@ -88,6 +100,10 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onBottomBackBtnClick() {
+    }
+
     protected void onTitleRightBtnClick() {
         onClose();
     }
@@ -98,7 +114,15 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void updateBottomBack(int i) {
-        if (SapiAccountManager.getInstance().getConfignation().showCloseBtn) {
+        if (this.configuration.showBottomBack) {
+            if (i == 1) {
+                this.bottomBackView.setVisibility(8);
+                this.mRightBtnClose.setVisibility(0);
+                return;
+            }
+            this.bottomBackView.setVisibility(0);
+            this.mRightBtnClose.setVisibility(8);
+        } else if (this.configuration.showCloseBtn) {
             if (i == 1) {
                 this.mRightBtnClose.setVisibility(0);
                 this.mLeftBtnLayout.setVisibility(8);
@@ -115,6 +139,8 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             onLeftBtnClick();
         } else if (view == this.mRightBtn) {
             onRightBtnClick();
+        } else if (view == this.mBottomBackBtnIv) {
+            onBottomBackBtnClick();
         } else if (view == this.mRightBtnClose) {
             onTitleRightBtnClick();
         }
@@ -180,8 +206,12 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         this.mTitle.setCompoundDrawables(drawable, drawable2, drawable3, drawable4);
     }
 
+    public void setTitleTextBold(boolean z) {
+        this.mTitle.setTypeface(z ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+    }
+
     public void setTitleText(String str) {
-        PassportViewManager.TitleViewModule titleViewModule = PassportViewManager.getInstance().getTitleViewModule();
+        PassportViewManager.TitleViewModule titleViewModule = this.viewManager.getTitleViewModule();
         if (titleViewModule != null) {
             if (titleViewModule.useWebviewTitle) {
                 if (!TextUtils.isEmpty(str)) {
@@ -234,42 +264,42 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         this.mRightBtn.setTextSize(f);
     }
 
-    protected SapiWebDTO getWebDTO() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public SapiWebDTO getWebDTO() {
         return null;
-    }
-
-    protected void openAnim() {
-        int i;
-        int i2;
-        SapiWebDTO webDTO = getWebDTO();
-        if (webDTO != null && webDTO.openEnterAnimId != 0) {
-            i = webDTO.openEnterAnimId;
-        } else if (SapiAccountManager.getInstance().getConfignation().activityOpenAnimId == 0) {
-            i = 0;
-        } else {
-            i = SapiAccountManager.getInstance().getConfignation().activityOpenAnimId;
-        }
-        if (webDTO != null && webDTO.openExitAnimId != 0) {
-            i2 = webDTO.openExitAnimId;
-        } else {
-            i2 = a.C0039a.sapi_sdk_hold;
-        }
-        if (i != 0) {
-            overridePendingTransition(i, i2);
-        }
     }
 
     @Override // android.app.Activity
     public void finish() {
         super.finish();
+        setPageAnim(false);
+    }
+
+    private void setPageAnim(boolean z) {
+        int i = this.configuration.activityOpenAnimId;
+        int i2 = this.configuration.activityExitAnimId;
         SapiWebDTO webDTO = getWebDTO();
-        int i = (webDTO == null || webDTO.closeExitAnimId == 0) ? 0 : webDTO.closeExitAnimId;
-        if (i == 0 && SapiAccountManager.getInstance().getConfignation().activityExitAnimId != 0) {
-            i = SapiAccountManager.getInstance().getSapiConfiguration().activityExitAnimId;
+        if (webDTO != null && webDTO.openEnterAnimId != 0) {
+            i = webDTO.openEnterAnimId;
         }
-        if (i != 0) {
-            overridePendingTransition(0, i);
+        if (webDTO != null && webDTO.closeExitAnimId != 0) {
+            i2 = webDTO.closeExitAnimId;
         }
+        int i3 = i == 0 ? a.C0047a.sapi_sdk_slide_right_in : i;
+        int i4 = i2 == 0 ? a.C0047a.sapi_sdk_slide_right_out : i2;
+        if (z) {
+            int i5 = a.C0047a.sapi_sdk_hold;
+            if (webDTO != null && webDTO.openExitAnimId != 0) {
+                i5 = webDTO.openExitAnimId;
+            }
+            overridePendingTransition(i3, i5);
+            return;
+        }
+        int i6 = 0;
+        if (webDTO != null && webDTO.closeEnterAnimId != 0) {
+            i6 = webDTO.closeEnterAnimId;
+        }
+        overridePendingTransition(i6, i4);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -282,7 +312,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     }
 
     public void configTitle() {
-        if (SapiAccountManager.getInstance().getSapiConfiguration().customActionBarEnabled) {
+        if (this.configuration.customActionBarEnabled) {
             configCustomTitle();
         } else {
             setTitleLayoutVisible(8);
@@ -290,7 +320,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     }
 
     public void configCustomTitle() {
-        PassportViewManager.TitleViewModule titleViewModule = PassportViewManager.getInstance().getTitleViewModule();
+        PassportViewManager.TitleViewModule titleViewModule = this.viewManager.getTitleViewModule();
         if (titleViewModule != null) {
             setTitleLayoutBg(titleViewModule.bgColor);
             setTitleLayoutHeight(titleViewModule.bgHeight);
@@ -306,11 +336,15 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             setTitleTextColor(titleViewModule.titleTextColor);
             setTitleTextSize(SapiUtils.px2sp(this, titleViewModule.titleTextSize));
             setTitleDrawable(titleViewModule.titleDrawableLeft, titleViewModule.titleDrawableTop, titleViewModule.titleDrawableRight, titleViewModule.titleDrawableBottom);
+            setTitleTextBold(titleViewModule.titleTextBold);
             setRightBtnVisible(titleViewModule.rightBtnVisible);
             setRightBtnText(titleViewModule.rightBtnText);
             setRightBtnTextSize(SapiUtils.px2sp(this, titleViewModule.rightBtnTextSize));
             setRightBtnColor(titleViewModule.rightBtnTextColor);
             this.dividerLine.setVisibility(titleViewModule.dividerLineVisible);
+        }
+        if (this.configuration.showBottomBack) {
+            setLeftBtnLayoutVisible(8);
         }
     }
 

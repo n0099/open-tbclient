@@ -11,7 +11,6 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.content.res.FontResourcesParserCompat;
 import android.support.v4.graphics.TypefaceCompat;
 import android.support.v4.provider.FontsContractCompat;
-import android.support.v7.widget.ActivityChooserView;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,7 +34,7 @@ class TypefaceCompatBaseImpl implements TypefaceCompat.TypefaceCompatImpl {
         int i2 = (i & 1) == 0 ? 400 : 700;
         boolean z = (i & 2) != 0;
         T t2 = null;
-        int i3 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i3 = Integer.MAX_VALUE;
         int length = tArr.length;
         int i4 = 0;
         while (i4 < length) {

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 import com.baidu.tieba.person.e;
 import com.baidu.tieba.view.j;
@@ -18,26 +18,26 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static a iFX;
-    private e iFY;
+    private static a iIo;
+    private e iIp;
     private int mScore = 0;
 
-    public static a chD() {
-        if (iFX == null) {
+    public static a cir() {
+        if (iIo == null) {
             synchronized (a.class) {
-                if (iFX == null) {
-                    iFX = new a();
+                if (iIo == null) {
+                    iIo = new a();
                 }
             }
         }
-        return iFX;
+        return iIo;
     }
 
     public void init() {
         String version = TbConfig.getVersion();
-        if (!version.equals(b.ahQ().getString("key_rate_version", ""))) {
-            b.ahQ().putString("key_rate_version", version);
-            b.ahQ().putLong("key_rate_version_time", new Date().getTime());
+        if (!version.equals(b.ahU().getString("key_rate_version", ""))) {
+            b.ahU().putString("key_rate_version", version);
+            b.ahU().putLong("key_rate_version_time", new Date().getTime());
         }
     }
 
@@ -50,22 +50,22 @@ public class a {
     public void z(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            int i = b.ahQ().getInt("key_rate_like_count" + currentAccount, 0) + 1;
+            int i = b.ahU().getInt("key_rate_like_count" + currentAccount, 0) + 1;
             if (i < 3) {
                 if (i == 1) {
-                    b.ahQ().putLong("key_rate_first_like_time" + currentAccount, Long.valueOf(new Date().getTime()).longValue());
-                    b.ahQ().putInt("key_rate_like_count" + currentAccount, i);
+                    b.ahU().putLong("key_rate_first_like_time" + currentAccount, Long.valueOf(new Date().getTime()).longValue());
+                    b.ahU().putInt("key_rate_like_count" + currentAccount, i);
                     return;
                 }
-                b.ahQ().putInt("key_rate_like_count" + currentAccount, i);
+                b.ahU().putInt("key_rate_like_count" + currentAccount, i);
                 return;
             }
-            if (Long.valueOf(new Date().getTime()).longValue() - b.ahQ().getLong("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
-                b.ahQ().putInt("key_rate_like_count" + currentAccount, 0);
+            if (Long.valueOf(new Date().getTime()).longValue() - b.ahU().getLong("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
+                b.ahU().putInt("key_rate_like_count" + currentAccount, 0);
                 C(tbPageContext);
                 return;
             }
-            b.ahQ().putInt("key_rate_like_count" + currentAccount, 0);
+            b.ahU().putInt("key_rate_like_count" + currentAccount, 0);
         }
     }
 
@@ -73,30 +73,30 @@ public class a {
         if (tbPageContext != null) {
             j jVar = new j(tbPageContext.getContext());
             jVar.setTitleText(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
-            jVar.CE(8);
-            jVar.CD(0);
+            jVar.CI(8);
+            jVar.CH(0);
             int g = l.g(tbPageContext.getContext(), R.dimen.ds86);
             int g2 = l.g(tbPageContext.getContext(), R.dimen.ds138);
             int g3 = l.g(tbPageContext.getContext(), R.dimen.ds27);
             jVar.setTitleSize(R.dimen.ds28);
             jVar.setTitlePadding(0, g, 0, g3);
-            jVar.D(0, 0, 0, g2);
-            jVar.rV(true);
+            jVar.G(0, 0, 0, g2);
+            jVar.rY(true);
             jVar.a(new j.e() { // from class: com.baidu.tieba.n.a.1
                 @Override // com.baidu.tieba.view.j.e
-                public void zy(int i) {
-                    if (a.this.iFY != null) {
-                        a.this.iFY.dismiss();
-                        a.this.iFY = null;
+                public void zB(int i) {
+                    if (a.this.iIp != null) {
+                        a.this.iIp.dismiss();
+                        a.this.iIp = null;
                         a.this.mScore = i;
                         TiebaStatic.log(new an("c13072").P("obj_type", a.this.mScore));
                         a.this.B(tbPageContext);
                     }
                 }
             });
-            this.iFY = new e(tbPageContext.getContext(), jVar.ahd());
-            this.iFY.an(0.7f);
-            g.a(this.iFY, tbPageContext);
+            this.iIp = new e(tbPageContext.getContext(), jVar.ahh());
+            this.iIp.an(0.7f);
+            g.a(this.iIp, tbPageContext);
             TiebaStatic.log(new an("c13071"));
         }
     }
@@ -114,21 +114,21 @@ public class a {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(aVar);
-            jVar.CC(this.mScore);
-            jVar.CD(0);
-            jVar.CE(0);
-            jVar.rV(false);
+            jVar.CG(this.mScore);
+            jVar.CH(0);
+            jVar.CI(0);
+            jVar.rY(false);
             l.g(tbPageContext.getContext(), R.dimen.ds42);
             int g = l.g(tbPageContext.getContext(), R.dimen.ds32);
             l.g(tbPageContext.getContext(), R.dimen.ds51);
             jVar.setTitlePadding(0, l.g(tbPageContext.getContext(), R.dimen.ds21), 0, 0);
-            jVar.D(0, g, 0, g);
+            jVar.G(0, g, 0, g);
             aVar.a(new j.c() { // from class: com.baidu.tieba.n.a.2
                 @Override // com.baidu.tieba.view.j.c
                 public void onClick() {
-                    if (a.this.iFY != null) {
-                        a.this.iFY.dismiss();
-                        a.this.iFY = null;
+                    if (a.this.iIp != null) {
+                        a.this.iIp.dismiss();
+                        a.this.iIp = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             a.this.D(tbPageContext);
                             TiebaStatic.log(new an("c13077"));
@@ -142,9 +142,9 @@ public class a {
             jVar.a(new j.b() { // from class: com.baidu.tieba.n.a.3
                 @Override // com.baidu.tieba.view.j.b
                 public void onClick() {
-                    if (a.this.iFY != null) {
-                        a.this.iFY.dismiss();
-                        a.this.iFY = null;
+                    if (a.this.iIp != null) {
+                        a.this.iIp.dismiss();
+                        a.this.iIp = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             TiebaStatic.log(new an("c13078"));
                         } else {
@@ -154,9 +154,9 @@ public class a {
                 }
             });
             jVar.W(arrayList);
-            this.iFY = new e(tbPageContext.getContext(), jVar.ahd());
-            this.iFY.an(0.7f);
-            g.a(this.iFY, tbPageContext);
+            this.iIp = new e(tbPageContext.getContext(), jVar.ahh());
+            this.iIp.an(0.7f);
+            g.a(this.iIp, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {
                 TiebaStatic.log(new an("c13076"));
             } else {
@@ -167,11 +167,11 @@ public class a {
 
     private void C(TbPageContext tbPageContext) {
         if (tbPageContext != null && TbConfig.getVersionType() != 2) {
-            if (Long.valueOf(new Date().getTime()).longValue() - b.ahQ().getLong("key_rate_version_time", 0L) >= 86400000) {
+            if (Long.valueOf(new Date().getTime()).longValue() - b.ahU().getLong("key_rate_version_time", 0L) >= 86400000) {
                 String version = TbConfig.getVersion();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (!b.ahQ().getBoolean("key_rate_same_version_is_score" + version + currentAccount, false)) {
-                    b.ahQ().putBoolean("key_rate_same_version_is_score" + version + currentAccount, true);
+                if (!b.ahU().getBoolean("key_rate_same_version_is_score" + version + currentAccount, false)) {
+                    b.ahU().putBoolean("key_rate_same_version_is_score" + version + currentAccount, true);
                     A(tbPageContext);
                 }
             }
@@ -181,7 +181,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void D(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
-            bb.ajE().a((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
+            ba.ajK().a((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
         }
     }
 

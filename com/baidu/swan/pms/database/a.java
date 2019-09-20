@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class a {
-    private static volatile a bsv;
+    private static volatile a bsT;
 
     public abstract boolean I(String str, int i);
 
-    public abstract Map<String, PMSAppInfo> Wf();
+    public abstract Map<String, PMSAppInfo> Wj();
 
     public abstract boolean a(f fVar, List<h> list, d dVar, com.baidu.swan.pms.model.b bVar, PMSAppInfo pMSAppInfo);
 
@@ -25,18 +25,18 @@ public abstract class a {
 
     public abstract boolean f(PMSAppInfo pMSAppInfo);
 
-    public abstract PMSAppInfo kp(String str);
+    public abstract PMSAppInfo kr(String str);
 
-    public abstract boolean kq(String str);
+    public abstract boolean ks(String str);
 
-    public static a We() {
-        if (bsv == null) {
+    public static a Wi() {
+        if (bsT == null) {
             synchronized (a.class) {
-                if (bsv == null) {
-                    bsv = new b();
+                if (bsT == null) {
+                    bsT = new b();
                 }
             }
         }
-        return bsv;
+        return bsT;
     }
 }

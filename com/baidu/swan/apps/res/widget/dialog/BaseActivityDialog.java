@@ -26,20 +26,20 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SwanAppScrollView aIZ;
-    private TextView aNT;
-    private LinearLayout aNU;
-    private TextView aNV;
-    private TextView aNW;
-    private TextView aNX;
-    private View aNY;
-    private View aNZ;
-    private View aOa;
-    private FrameLayout aOb;
-    private RelativeLayout aOc;
-    private a aOd;
-    private LinearLayout aOe;
-    private int aOf;
+    private SwanAppScrollView aJx;
+    private RelativeLayout aOA;
+    private a aOB;
+    private LinearLayout aOC;
+    private int aOD;
+    private TextView aOr;
+    private LinearLayout aOs;
+    private TextView aOt;
+    private TextView aOu;
+    private TextView aOv;
+    private View aOw;
+    private View aOx;
+    private View aOy;
+    private FrameLayout aOz;
     private ImageView mIcon;
     private TextView mTitle;
 
@@ -49,28 +49,28 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         super.onCreate(bundle);
         setContentView(a.g.aiapps_alert_dialog);
         getWindow().setLayout(-1, -1);
-        this.aOd = a.gA(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
-        if (this.aOd == null) {
+        this.aOB = a.gC(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
+        if (this.aOB == null) {
             if (DEBUG) {
                 Log.e("BaseActivityDialog", "The builder for dialog activity can NOT be null.");
             }
             finish();
             return;
         }
-        EventBusWrapper.register(this.aOd, a.b.class, new rx.functions.b<a.b>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.1
+        EventBusWrapper.register(this.aOB, a.b.class, new rx.functions.b<a.b>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(a.b bVar) {
-                BaseActivityDialog.this.aOd.onEvent(bVar);
+                BaseActivityDialog.this.aOB.onEvent(bVar);
             }
         });
-        EventBusWrapper.register(this.aOd, a.C0170a.class, new rx.functions.b<a.C0170a>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.2
+        EventBusWrapper.register(this.aOB, a.C0179a.class, new rx.functions.b<a.C0179a>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
-            public void call(a.C0170a c0170a) {
-                if (c0170a.tag == BaseActivityDialog.this.aOd.mTag) {
+            public void call(a.C0179a c0179a) {
+                if (c0179a.tag == BaseActivityDialog.this.aOB.mTag) {
                     BaseActivityDialog.this.dismiss();
                 }
             }
@@ -89,7 +89,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     @Override // android.content.DialogInterface
     public void cancel() {
         DialogInterface.OnCancelListener onCancelListener;
-        if (this.aOd != null && (onCancelListener = this.aOd.aOs) != null) {
+        if (this.aOB != null && (onCancelListener = this.aOB.aOQ) != null) {
             onCancelListener.onCancel(this);
         }
         finish();
@@ -109,71 +109,71 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     protected void onDismiss() {
         DialogInterface.OnDismissListener onDismissListener;
-        if (this.aOd != null && (onDismissListener = this.aOd.aOt) != null) {
+        if (this.aOB != null && (onDismissListener = this.aOB.aOR) != null) {
             onDismissListener.onDismiss(this);
         }
     }
 
-    protected void dp(int i) {
+    protected void dq(int i) {
     }
 
     protected void initViews() {
         this.mTitle = (TextView) findViewById(a.f.dialog_title);
-        this.aNT = (TextView) findViewById(a.f.dialog_message);
-        this.aNU = (LinearLayout) findViewById(a.f.dialog_message_content);
-        this.aNV = (TextView) findViewById(a.f.positive_button);
-        this.aNW = (TextView) findViewById(a.f.negative_button);
-        this.aNX = (TextView) findViewById(a.f.neutral_button);
-        this.aNZ = findViewById(a.f.divider3);
-        this.aOa = findViewById(a.f.divider4);
-        this.aOb = (FrameLayout) findViewById(a.f.dialog_custom_content);
+        this.aOr = (TextView) findViewById(a.f.dialog_message);
+        this.aOs = (LinearLayout) findViewById(a.f.dialog_message_content);
+        this.aOt = (TextView) findViewById(a.f.positive_button);
+        this.aOu = (TextView) findViewById(a.f.negative_button);
+        this.aOv = (TextView) findViewById(a.f.neutral_button);
+        this.aOx = findViewById(a.f.divider3);
+        this.aOy = findViewById(a.f.divider4);
+        this.aOz = (FrameLayout) findViewById(a.f.dialog_custom_content);
         this.mIcon = (ImageView) findViewById(a.f.dialog_icon);
-        this.aOc = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
-        this.aNY = findViewById(a.f.divider2);
-        this.aIZ = (SwanAppScrollView) findViewById(a.f.message_scrollview);
-        this.aOe = (LinearLayout) findViewById(a.f.btn_panel);
-        this.aOf = getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
-        if (this.aOd.aOv > 0) {
-            this.aIZ.getLayoutParams().height = this.aOd.aOv;
+        this.aOA = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
+        this.aOw = findViewById(a.f.divider2);
+        this.aJx = (SwanAppScrollView) findViewById(a.f.message_scrollview);
+        this.aOC = (LinearLayout) findViewById(a.f.btn_panel);
+        this.aOD = getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
+        if (this.aOB.aOT > 0) {
+            this.aJx.getLayoutParams().height = this.aOB.aOT;
         }
-        if (com.baidu.swan.apps.an.a.Pf() || com.baidu.swan.apps.an.a.Pe()) {
-            int dimensionPixelSize = this.aNT.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
-            this.aNT.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+        if (com.baidu.swan.apps.an.a.Pj() || com.baidu.swan.apps.an.a.Pi()) {
+            int dimensionPixelSize = this.aOr.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
+            this.aOr.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }
     }
 
     protected void setupViews() {
-        if (this.aOd != null) {
-            a aVar = this.aOd;
+        if (this.aOB != null) {
+            a aVar = this.aOB;
             setTitle(aVar.title);
-            setIcon(aVar.aOn);
+            setIcon(aVar.aOL);
             setMessage(aVar.message);
             setView(aVar.contentView);
-            bW(aVar.aOo);
-            dq(aVar.aOp);
-            gw(aVar.aOl);
-            gx(aVar.aOm);
-            bX(aVar.aOw);
+            bW(aVar.aOM);
+            dr(aVar.aON);
+            gy(aVar.aOJ);
+            gz(aVar.aOK);
+            bX(aVar.aOU);
         }
     }
 
-    public TextView Lo() {
+    public TextView Ls() {
         int i;
         TextView textView;
-        if (this.aNV == null || this.aNV.getVisibility() != 0) {
+        if (this.aOt == null || this.aOt.getVisibility() != 0) {
             i = 0;
             textView = null;
         } else {
-            textView = this.aNV;
+            textView = this.aOt;
             i = 1;
         }
-        if (this.aNW != null && this.aNW.getVisibility() == 0) {
+        if (this.aOu != null && this.aOu.getVisibility() == 0) {
             i++;
-            textView = this.aNW;
+            textView = this.aOu;
         }
-        if (this.aNX != null && this.aNX.getVisibility() == 0) {
+        if (this.aOv != null && this.aOv.getVisibility() == 0) {
             i++;
-            textView = this.aNX;
+            textView = this.aOv;
         }
         if (i != 1) {
             return null;
@@ -186,21 +186,21 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         int color = resources.getColor(a.c.aiapps_dialog_title_text_color);
         int color2 = resources.getColor(a.c.aiapps_box_dialog_message_text_color);
         int color3 = resources.getColor(a.c.aiapps_dialog_gray);
-        this.aOc.setBackground(resources.getDrawable(a.e.aiapps_dialog_bg_white));
+        this.aOA.setBackground(resources.getDrawable(a.e.aiapps_dialog_bg_white));
         this.mTitle.setTextColor(color);
-        this.aNT.setTextColor(color2);
-        this.aNV.setTextColor(color);
-        this.aNW.setTextColor(color);
-        this.aNX.setTextColor(color);
-        this.aNY.setBackgroundColor(color3);
-        this.aNZ.setBackgroundColor(color3);
-        this.aOa.setBackgroundColor(color3);
-        this.aNV.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
-        this.aNW.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
-        this.aNX.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_selector));
-        TextView Lo = Lo();
-        if (Lo != null) {
-            Lo.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
+        this.aOr.setTextColor(color2);
+        this.aOt.setTextColor(color);
+        this.aOu.setTextColor(color);
+        this.aOv.setTextColor(color);
+        this.aOw.setBackgroundColor(color3);
+        this.aOx.setBackgroundColor(color3);
+        this.aOy.setBackgroundColor(color3);
+        this.aOt.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
+        this.aOu.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
+        this.aOv.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_selector));
+        TextView Ls = Ls();
+        if (Ls != null) {
+            Ls.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
         }
     }
 
@@ -214,116 +214,116 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     protected void setMessage(CharSequence charSequence) {
-        this.aNT.setText(charSequence);
-        this.aNU.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.aOf);
+        this.aOr.setText(charSequence);
+        this.aOs.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.aOD);
         layoutParams.addRule(3, a.f.dialog_message_content);
-        this.aOe.setLayoutParams(layoutParams);
+        this.aOC.setLayoutParams(layoutParams);
     }
 
     protected void setView(View view) {
-        if (this.aOb != null) {
-            this.aOb.removeAllViews();
+        if (this.aOz != null) {
+            this.aOz.removeAllViews();
             if (view != null) {
-                this.aOb.addView(view);
-                this.aNU.setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.aOf);
+                this.aOz.addView(view);
+                this.aOs.setVisibility(8);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.aOD);
                 layoutParams.addRule(3, a.f.dialog_customPanel);
-                this.aOe.setLayoutParams(layoutParams);
+                this.aOC.setLayoutParams(layoutParams);
             }
         }
     }
 
     protected void bW(boolean z) {
-        this.aNV.setEnabled(z);
+        this.aOt.setEnabled(z);
     }
 
-    protected void dq(int i) {
-        this.aNV.setTextColor(i);
+    protected void dr(int i) {
+        this.aOt.setTextColor(i);
     }
 
-    protected void gw(String str) {
-        this.aNV.setText(str);
-        this.aNV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.3
+    protected void gy(String str) {
+        this.aOt.setText(str);
+        this.aOt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BaseActivityDialog.this.dp(-1);
+                BaseActivityDialog.this.dq(-1);
                 EventBusWrapper.post(new a.b(BaseActivityDialog.this, -1));
                 BaseActivityDialog.this.dismiss();
             }
         });
         if (TextUtils.isEmpty(str)) {
-            this.aNV.setVisibility(8);
-            if (this.aNW.getVisibility() == 0) {
-                this.aNZ.setVisibility(8);
+            this.aOt.setVisibility(8);
+            if (this.aOu.getVisibility() == 0) {
+                this.aOx.setVisibility(8);
                 return;
             }
             return;
         }
-        this.aNV.setVisibility(0);
-        if (this.aNW.getVisibility() == 0) {
-            this.aNZ.setVisibility(0);
+        this.aOt.setVisibility(0);
+        if (this.aOu.getVisibility() == 0) {
+            this.aOx.setVisibility(0);
         }
     }
 
-    protected void gx(String str) {
-        this.aNW.setText(str);
-        this.aNW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.4
+    protected void gz(String str) {
+        this.aOu.setText(str);
+        this.aOu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BaseActivityDialog.this.dp(-2);
+                BaseActivityDialog.this.dq(-2);
                 BaseActivityDialog.this.dismiss();
                 EventBusWrapper.post(new a.b(BaseActivityDialog.this, -2));
             }
         });
         if (TextUtils.isEmpty(str)) {
-            this.aNW.setVisibility(8);
-            if (this.aNV.getVisibility() == 0) {
-                this.aNZ.setVisibility(8);
+            this.aOu.setVisibility(8);
+            if (this.aOt.getVisibility() == 0) {
+                this.aOx.setVisibility(8);
                 return;
             }
             return;
         }
-        this.aNW.setVisibility(0);
-        if (this.aNV.getVisibility() == 0) {
-            this.aNZ.setVisibility(0);
+        this.aOu.setVisibility(0);
+        if (this.aOt.getVisibility() == 0) {
+            this.aOx.setVisibility(0);
         }
     }
 
     protected void bX(boolean z) {
         if (z) {
-            this.aOe.setVisibility(8);
-            this.aNY.setVisibility(8);
+            this.aOC.setVisibility(8);
+            this.aOw.setVisibility(8);
         }
     }
 
     private void release() {
-        if (this.aOd != null) {
-            EventBusWrapper.unregister(this.aOd);
-            this.aOd.release();
-            this.aOd = null;
+        if (this.aOB != null) {
+            EventBusWrapper.unregister(this.aOB);
+            this.aOB.release();
+            this.aOB = null;
         }
         setView(null);
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static final int aOh = a.h.aiapps_dialog_negative_title_cancel;
-        public static final int aOi = a.h.aiapps_dialog_positive_title_ok;
-        private static HashMap<String, a> aOj = new HashMap<>();
-        private static ArrayList aOk = new ArrayList();
-        private String aOl;
-        private String aOm;
-        private Drawable aOn;
-        private boolean aOo;
-        private int aOp;
-        private DialogInterface.OnClickListener aOq;
-        private DialogInterface.OnClickListener aOr;
-        private DialogInterface.OnCancelListener aOs;
-        private DialogInterface.OnDismissListener aOt;
-        private Class<? extends Activity> aOu;
-        private int aOv;
-        private boolean aOw;
+        public static final int aOF = a.h.aiapps_dialog_negative_title_cancel;
+        public static final int aOG = a.h.aiapps_dialog_positive_title_ok;
+        private static HashMap<String, a> aOH = new HashMap<>();
+        private static ArrayList aOI = new ArrayList();
+        private String aOJ;
+        private String aOK;
+        private Drawable aOL;
+        private boolean aOM;
+        private int aON;
+        private DialogInterface.OnClickListener aOO;
+        private DialogInterface.OnClickListener aOP;
+        private DialogInterface.OnCancelListener aOQ;
+        private DialogInterface.OnDismissListener aOR;
+        private Class<? extends Activity> aOS;
+        private int aOT;
+        private boolean aOU;
         private View contentView;
         private Bundle extras;
         private String from;
@@ -337,22 +337,22 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public a(Class<? extends Activity> cls) {
-            this.aOo = true;
-            this.aOv = -1;
+            this.aOM = true;
+            this.aOT = -1;
             this.mContext = AppRuntime.getAppContext();
-            this.aOu = cls;
+            this.aOS = cls;
         }
 
-        public a dr(int i) {
-            return gy(this.mContext.getString(i));
+        public a ds(int i) {
+            return gA(this.mContext.getString(i));
         }
 
-        public a gy(String str) {
+        public a gA(String str) {
             this.title = str;
             return this;
         }
 
-        public a gz(String str) {
+        public a gB(String str) {
             this.message = str;
             return this;
         }
@@ -362,24 +362,24 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public a a(String str, DialogInterface.OnClickListener onClickListener) {
-            this.aOl = str;
-            this.aOq = onClickListener;
+            this.aOJ = str;
+            this.aOO = onClickListener;
             return this;
         }
 
         public a a(DialogInterface.OnDismissListener onDismissListener) {
-            this.aOt = onDismissListener;
+            this.aOR = onDismissListener;
             return this;
         }
 
         void release() {
-            aOk.remove(this.mTag);
-            this.aOq = null;
-            this.aOr = null;
-            this.aOs = null;
-            this.aOt = null;
+            aOI.remove(this.mTag);
+            this.aOO = null;
+            this.aOP = null;
+            this.aOQ = null;
+            this.aOR = null;
             this.contentView = null;
-            this.aOn = null;
+            this.aOL = null;
         }
 
         public void show() {
@@ -391,10 +391,10 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 @Override // java.lang.Runnable
                 public void run() {
                     Context appContext = AppRuntime.getAppContext();
-                    if (a.this.aOu == null) {
-                        a.this.aOu = BaseActivityDialog.class;
+                    if (a.this.aOS == null) {
+                        a.this.aOS = BaseActivityDialog.class;
                     }
-                    Intent intent = new Intent(appContext, a.this.aOu);
+                    Intent intent = new Intent(appContext, a.this.aOS);
                     intent.putExtra("BOX_ACTIVITY_DIALOG_NIGHT_MODE", z);
                     String valueOf = String.valueOf(intent.hashCode());
                     intent.putExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER", valueOf);
@@ -411,11 +411,11 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             });
         }
 
-        static a gA(String str) {
+        static a gC(String str) {
             a remove;
             if (!TextUtils.isEmpty(str)) {
-                synchronized (aOj) {
-                    remove = aOj.remove(str);
+                synchronized (aOH) {
+                    remove = aOH.remove(str);
                 }
                 return remove;
             }
@@ -424,8 +424,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
         static void a(String str, a aVar) {
             if (!TextUtils.isEmpty(str) && aVar != null) {
-                synchronized (aOj) {
-                    aOj.put(str, aVar);
+                synchronized (aOH) {
+                    aOH.put(str, aVar);
                 }
             }
         }
@@ -433,44 +433,44 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public void onEvent(b bVar) {
             if (bVar != null) {
                 DialogInterface.OnClickListener onClickListener = null;
-                switch (bVar.aOA) {
+                switch (bVar.aOY) {
                     case -2:
-                        onClickListener = this.aOr;
+                        onClickListener = this.aOP;
                         break;
                     case -1:
-                        onClickListener = this.aOq;
+                        onClickListener = this.aOO;
                         break;
                 }
                 if (onClickListener == null) {
                     return;
                 }
-                onClickListener.onClick(bVar.aOz, bVar.aOA);
+                onClickListener.onClick(bVar.aOX, bVar.aOY);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes2.dex */
         public static class b {
-            private int aOA;
-            private DialogInterface aOz;
+            private DialogInterface aOX;
+            private int aOY;
 
             public b(DialogInterface dialogInterface, int i) {
-                this.aOz = dialogInterface;
-                this.aOA = i;
+                this.aOX = dialogInterface;
+                this.aOY = i;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0170a {
+        public static class C0179a {
             private Object tag;
         }
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources Fd = com.baidu.swan.apps.u.a.EF().Fd();
-        return Fd != null ? Fd : super.getResources();
+        Resources Fh = com.baidu.swan.apps.u.a.EJ().Fh();
+        return Fh != null ? Fh : super.getResources();
     }
 }

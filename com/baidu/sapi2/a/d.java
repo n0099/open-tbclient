@@ -16,8 +16,6 @@ public class d {
         if (biometric == null || ((PassFaceRecogManager) biometric).getConfiguration() == null) {
             if (sapiConfiguration.environment == Domain.DOMAIN_QA) {
                 str = PassBioEnv.PASSPORT_QA_DOMAIN;
-            } else if (sapiConfiguration.environment == Domain.DOMAIN_NEW_QA) {
-                str = PassBioEnv.PASSPORT_NEW_QA_DOMAIN;
             } else if (sapiConfiguration.environment != Domain.DOMAIN_RD) {
                 str = PassBioEnv.PASSPORT_DOMAIN;
             } else {

@@ -17,9 +17,12 @@ public interface ConstantsAPI {
     public static final int COMMAND_JUMP_BIZ_TEMPSESSION = 10;
     public static final int COMMAND_JUMP_BIZ_WEBVIEW = 8;
     public static final int COMMAND_JUMP_TO_BIZ_PROFILE = 7;
+    public static final int COMMAND_JUMP_TO_OFFLINE_PAY = 24;
     public static final int COMMAND_LAUNCH_BY_WX = 6;
     public static final int COMMAND_LAUNCH_WX_MINIPROGRAM = 19;
     public static final int COMMAND_NON_TAX_PAY = 21;
+    public static final int COMMAND_OPEN_BUSINESS_VIEW = 26;
+    public static final int COMMAND_OPEN_BUSINESS_WEBVIEW = 25;
     public static final int COMMAND_OPEN_BUSI_LUCKY_MONEY = 13;
     public static final int COMMAND_OPEN_RANK_LIST = 11;
     public static final int COMMAND_OPEN_WEBVIEW = 12;
@@ -29,9 +32,11 @@ public interface ConstantsAPI {
     public static final int COMMAND_SENDMESSAGE_TO_WX = 2;
     public static final int COMMAND_SHOWMESSAGE_FROM_WX = 4;
     public static final int COMMAND_SUBSCRIBE_MESSAGE = 18;
+    public static final int COMMAND_SUBSCRIBE_MINI_PROGRAM_MSG = 23;
     public static final int COMMAND_UNKNOWN = 0;
     public static final String CONTENT = "_mmessage_content";
     public static final String SDK_VERSION = "_mmessage_sdkVersion";
+    public static final String TOKEN = "_message_token";
 
     /* loaded from: classes2.dex */
     public static final class AppSupportContentFlag {
@@ -51,11 +56,12 @@ public interface ConstantsAPI {
     }
 
     /* loaded from: classes2.dex */
-    public static final class OpenWebviewType {
+    public interface OpenWebviewType {
         public static final int TYPE_INVOICE_AUTH_INSERT = 2;
         public static final int TYPE_NONTAX_PAY = 3;
         public static final int TYPE_PAYINSURANCE = 4;
         public static final int TYPE_SUBSCRIBE_MESSAGE = 1;
+        public static final int TYPE_SUBSCRIBE_MINI_PROGRAM_MSG = 5;
     }
 
     /* loaded from: classes2.dex */

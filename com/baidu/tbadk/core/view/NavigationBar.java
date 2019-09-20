@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.ColorRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,10 +23,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
     private View barBgView;
@@ -220,7 +222,7 @@ public class NavigationBar extends RelativeLayout {
         this.topCoverBgView.setBackgroundDrawable(am.V(0, R.drawable.navigation_cover_top_bg));
         this.barBgView = this.mRootView.findViewById(R.id.navigation_bar_view_bg);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.NavigationBar);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.a.NavigationBar);
             z = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();
         } else {
@@ -583,7 +585,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void showBottomLine() {
-        this.mBottomLine.setVisibility(0);
+        this.mBottomLine.setVisibility(8);
     }
 
     public void hideBottomLine() {
@@ -596,7 +598,7 @@ public class NavigationBar extends RelativeLayout {
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(com.baidu.adp.base.e<?> eVar, int i) {
-        am.h(this, R.color.cp_bg_line_d, i);
+        am.h(this, R.color.cp_bg_line_h, i);
         am.h(this.mBottomLine, this.mBottomLineColor, i);
         onBackBtnOnChangeSkin(i);
         am.e(this.mTextTitle, R.color.cp_cont_b, R.color.s_navbar_title_color);
@@ -625,7 +627,18 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else {
-            am.a(this.mBackImageView, (int) R.drawable.icon_return_bg_s, (int) R.drawable.icon_return_bg, i);
+            SvgManager.ajv().a(this.mBackImageView, R.drawable.icon_pure_topbar_return_n_svg, R.color.cp_cont_b, null);
+        }
+    }
+
+    public void onBackBtnOnChangeSkin(int i, @ColorRes int i2) {
+        if (i < 0) {
+            i = TbadkCoreApplication.getInst().getSkinType();
+        }
+        if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
+            am.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
+        } else {
+            SvgManager.ajv().a(this.mBackImageView, R.drawable.icon_pure_topbar_return_n_svg, i2, null);
         }
     }
 

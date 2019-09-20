@@ -14,20 +14,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject djp;
-    private HttpMessageListener djq;
-    private BdUniqueId djr = BdUniqueId.gen();
-    private BdUniqueId djs = BdUniqueId.gen();
-    private CustomMessageListener cSm = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
+    private JSONObject dla;
+    private HttpMessageListener dlb;
+    private BdUniqueId dlc = BdUniqueId.gen();
+    private BdUniqueId dld = BdUniqueId.gen();
+    private CustomMessageListener cTf = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.jQ() && a.this.djp != null) {
-                a.this.a(a.this.djp, a.this.djs);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.jQ() && a.this.dla != null) {
+                a.this.a(a.this.dla, a.this.dld);
             }
         }
     };
-    private CustomMessageListener djt = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener dle = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,38 +38,38 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.djq == null) {
-            this.djq = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
+        if (this.dlb == null) {
+            this.dlb = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.djp = null;
+                        a.this.dla = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.djq);
-        MessageManager.getInstance().registerListener(this.cSm);
-        this.djt.setTag(tbPageContext.getUniqueId());
-        this.djt.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.djt);
+        MessageManager.getInstance().registerListener(this.dlb);
+        MessageManager.getInstance().registerListener(this.cTf);
+        this.dle.setTag(tbPageContext.getUniqueId());
+        this.dle.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.dle);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.djq);
-        MessageManager.getInstance().unRegisterListener(this.cSm);
-        MessageManager.getInstance().unRegisterListener(this.djt);
-        this.djp = null;
+        MessageManager.getInstance().unRegisterListener(this.dlb);
+        MessageManager.getInstance().unRegisterListener(this.cTf);
+        MessageManager.getInstance().unRegisterListener(this.dle);
+        this.dla = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bl(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (j.jQ()) {
-                a(jSONObject, this.djr);
+                a(jSONObject, this.dlc);
             } else {
-                this.djp = jSONObject;
+                this.dla = jSONObject;
             }
         }
     }

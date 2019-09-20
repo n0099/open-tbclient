@@ -18,7 +18,7 @@ public class a extends z {
         if (DEBUG) {
             Log.d("LongVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.aj.h.b.a.OG().OJ();
+        com.baidu.swan.apps.aj.h.b.a.OK().ON();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

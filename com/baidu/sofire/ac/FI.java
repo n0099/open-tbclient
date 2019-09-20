@@ -20,6 +20,8 @@ public interface FI {
 
     String gs(String str);
 
+    String gta(Context context);
+
     String p(String str);
 
     void r(String str, IntentFilter intentFilter, String str2, String str3);

@@ -48,11 +48,11 @@ public class CrabSDK {
     }
 
     public static void disableBlockCatch() {
-        if (b.rc() == null) {
+        if (b.rd() == null) {
             com.baidu.crabsdk.c.a.w("Block Monitor has never been enabled!");
             return;
         }
-        b.rc().stop();
+        b.rd().stop();
         c.as(R);
         c.stop();
     }
@@ -355,7 +355,7 @@ public class CrabSDK {
     public static void uploadApplife(boolean z) {
         a.M = z;
         m.B();
-        k.aw(R);
+        k.n(R);
     }
 
     public static void uploadCrash(Throwable th) {

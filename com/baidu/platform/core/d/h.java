@@ -1,6 +1,7 @@
 package com.baidu.platform.core.d;
 
 import android.net.http.Headers;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -19,7 +20,6 @@ import com.baidu.mapapi.search.route.MassTransitRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.ubc.UBC;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class h extends com.baidu.platform.base.d {
         }
         MassTransitRouteLine.TransitStep transitStep = new MassTransitRouteLine.TransitStep();
         transitStep.setDistance((int) jSONObject.optDouble("distance"));
-        transitStep.setDuration((int) jSONObject.optDouble(UBC.CONTENT_KEY_DURATION));
+        transitStep.setDuration((int) jSONObject.optDouble("duration"));
         transitStep.setInstructions(jSONObject.optString("instructions"));
         transitStep.setPathString(jSONObject.optString("path"));
         transitStep.setTrafficConditions(b(jSONObject.optJSONArray("traffic_condition")));
@@ -75,7 +75,7 @@ public class h extends com.baidu.platform.base.d {
         JSONObject optJSONObject3 = jSONObject.optJSONObject("vehicle_info");
         if (optJSONObject3 != null) {
             int optInt = optJSONObject3.optInt("type");
-            JSONObject optJSONObject4 = optJSONObject3.optJSONObject("detail");
+            JSONObject optJSONObject4 = optJSONObject3.optJSONObject(DpStatConstants.KEY_DETAIL);
             switch (optInt) {
                 case 1:
                     transitStep.setVehileType(MassTransitRouteLine.TransitStep.StepVehicleInfoType.ESTEP_TRAIN);
@@ -119,7 +119,7 @@ public class h extends com.baidu.platform.base.d {
                         busInfo.setDepartureStation(optJSONObject4.optString("on_station"));
                         busInfo.setArriveStation(optJSONObject4.optString("off_station"));
                         busInfo.setDepartureTime(optJSONObject4.optString("first_time"));
-                        busInfo.setArriveTime(optJSONObject4.optString(com.baidu.sapi2.share.a.b.e));
+                        busInfo.setArriveTime(optJSONObject4.optString("last_time"));
                         transitStep.setBusInfo(busInfo);
                         break;
                     }
@@ -188,7 +188,7 @@ public class h extends com.baidu.platform.base.d {
             TaxiInfo taxiInfo = new TaxiInfo();
             taxiInfo.setDesc(jSONObject.optString("remark"));
             taxiInfo.setDistance(jSONObject.optInt("distance"));
-            taxiInfo.setDuration(jSONObject.optInt(UBC.CONTENT_KEY_DURATION));
+            taxiInfo.setDuration(jSONObject.optInt("duration"));
             taxiInfo.setTotalPrice((float) jSONObject.optDouble("total_price"));
             taxiInfo.setStartPrice((float) jSONObject.optDouble("start_price"));
             taxiInfo.setPerKMPrice((float) jSONObject.optDouble("km_price"));
@@ -346,7 +346,7 @@ public class h extends com.baidu.platform.base.d {
                                     if (optJSONObject2 != null) {
                                         MassTransitRouteLine massTransitRouteLine = new MassTransitRouteLine();
                                         massTransitRouteLine.setDistance(optJSONObject2.optInt("distance"));
-                                        massTransitRouteLine.setDuration(optJSONObject2.optInt(UBC.CONTENT_KEY_DURATION));
+                                        massTransitRouteLine.setDuration(optJSONObject2.optInt("duration"));
                                         massTransitRouteLine.setArriveTime(optJSONObject2.optString("arrive_time"));
                                         massTransitRouteLine.setPrice(optJSONObject2.optDouble("price"));
                                         massTransitRouteLine.setPriceInfo(c(optJSONObject2.optJSONArray("price_detail")));

@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.textarea.b;
 
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.console.c;
@@ -11,28 +10,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.swan.apps.model.a.a.a {
-    public boolean aEa;
-    public String aYI;
-    public int aYJ;
-    public String aYK;
-    public String aYL;
-    public boolean aYM;
-    public boolean aYN;
-    public boolean aYO;
-    public int aYP;
-    public int aYQ;
-    public int aYR;
-    public int aYS;
-    public int aYT;
-    public boolean aYU;
-    public String aYV;
-    public String aYW;
-    public int aYX;
-    public String aYY;
-    public boolean aYZ;
-    public JSONArray aZa;
-    public int aZb;
-    public int aZc;
+    public boolean aEy;
+    public int aZA;
+    public String aZg;
+    public int aZh;
+    public String aZi;
+    public String aZj;
+    public boolean aZk;
+    public boolean aZl;
+    public boolean aZm;
+    public int aZn;
+    public int aZo;
+    public int aZp;
+    public int aZq;
+    public int aZr;
+    public boolean aZs;
+    public String aZt;
+    public String aZu;
+    public int aZv;
+    public String aZw;
+    public boolean aZx;
+    public JSONArray aZy;
+    public int aZz;
     public int mFontSize;
     public int mHeight;
     public int mLeft;
@@ -58,94 +57,94 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
         a aVar2 = new a();
         if (aVar != null) {
             aVar2.a(jSONObject, aVar);
-            aVar2.aZc = aVar.aZc;
+            aVar2.aZA = aVar.aZA;
             aVar2.mValue = jSONObject.optString(UBC.CONTENT_KEY_VALUE, aVar.mValue);
-            aVar2.aYI = jSONObject.optString("placeholder", aVar.aYI);
+            aVar2.aZg = jSONObject.optString("placeholder", aVar.aZg);
             JSONObject optJSONObject = jSONObject.optJSONObject("placeholderStyle");
-            aVar2.aYJ = optJSONObject.optInt("fontSize", aVar.aYJ);
-            aVar2.aYK = optJSONObject.optString("fontWeight", aVar.aYK);
-            aVar2.aYL = optJSONObject.optString("color", aVar.aYL);
-            aVar2.aYM = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, aVar.aYM);
-            aVar2.aYN = jSONObject.optBoolean("autoHeight", aVar.aYN);
-            aVar2.aEa = jSONObject.optBoolean("fixed", aVar.aEa);
-            aVar2.aYO = jSONObject.optBoolean("showConfirmBar", aVar.aYO);
-            aVar2.aYP = jSONObject.optInt("maxLength", aVar.aYP);
-            aVar2.aYQ = jSONObject.optInt("cursorSpacing", aVar.aYQ);
-            aVar2.aYR = jSONObject.optInt("cursor", aVar.aYR);
-            aVar2.aYS = jSONObject.optInt("selectionStart", aVar.aYS);
-            aVar2.aYT = jSONObject.optInt("selectionEnd", aVar.aYT);
-            aVar2.aYU = jSONObject.optBoolean("adjustPosition", aVar.aYU);
+            aVar2.aZh = optJSONObject.optInt("fontSize", aVar.aZh);
+            aVar2.aZi = optJSONObject.optString("fontWeight", aVar.aZi);
+            aVar2.aZj = optJSONObject.optString("color", aVar.aZj);
+            aVar2.aZk = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, aVar.aZk);
+            aVar2.aZl = jSONObject.optBoolean("autoHeight", aVar.aZl);
+            aVar2.aEy = jSONObject.optBoolean("fixed", aVar.aEy);
+            aVar2.aZm = jSONObject.optBoolean("showConfirmBar", aVar.aZm);
+            aVar2.aZn = jSONObject.optInt("maxLength", aVar.aZn);
+            aVar2.aZo = jSONObject.optInt("cursorSpacing", aVar.aZo);
+            aVar2.aZp = jSONObject.optInt("cursor", aVar.aZp);
+            aVar2.aZq = jSONObject.optInt("selectionStart", aVar.aZq);
+            aVar2.aZr = jSONObject.optInt("selectionEnd", aVar.aZr);
+            aVar2.aZs = jSONObject.optBoolean("adjustPosition", aVar.aZs);
             JSONObject optJSONObject2 = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            aVar2.aZa = optJSONObject2.optJSONArray("padding");
+            aVar2.aZy = optJSONObject2.optJSONArray("padding");
             aVar2.mFontSize = optJSONObject2.optInt("fontSize", aVar.mFontSize);
-            aVar2.aYV = optJSONObject2.optString("fontWeight", aVar.aYV);
-            aVar2.aYW = optJSONObject2.optString("color", aVar.aYW);
-            aVar2.aYY = optJSONObject2.optString("textAlign", aVar.aYY);
-            int ad = z.ad(a(optJSONObject2, "minHeight", z.af(aVar.aZb)));
+            aVar2.aZt = optJSONObject2.optString("fontWeight", aVar.aZt);
+            aVar2.aZu = optJSONObject2.optString("color", aVar.aZu);
+            aVar2.aZw = optJSONObject2.optString("textAlign", aVar.aZw);
+            int ad = z.ad(a(optJSONObject2, "minHeight", z.af(aVar.aZz)));
             if (ad < 0) {
                 ad = 0;
             }
-            aVar2.aZb = ad;
+            aVar2.aZz = ad;
             int ad2 = z.ad(a(optJSONObject2, "maxHeight", z.af(aVar.mMaxHeight)));
             if (ad2 < 0) {
-                ad2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                ad2 = Integer.MAX_VALUE;
             }
             aVar2.mMaxHeight = ad2;
-            aVar2.aYX = z.ad((float) optJSONObject2.optDouble("lineSpace", z.af(aVar.aYX)));
-            aVar2.aYZ = jSONObject.optBoolean("disabled", aVar.aYZ);
-            aVar2.mLeft = aVar2.aDW.getLeft();
-            aVar2.mTop = aVar2.aDW.Hv();
-            aVar2.mWidth = aVar2.aDW.getWidth();
-            aVar2.mHeight = aVar2.aDW.getHeight();
+            aVar2.aZv = z.ad((float) optJSONObject2.optDouble("lineSpace", z.af(aVar.aZv)));
+            aVar2.aZx = jSONObject.optBoolean("disabled", aVar.aZx);
+            aVar2.mLeft = aVar2.aEu.getLeft();
+            aVar2.mTop = aVar2.aEu.Hz();
+            aVar2.mWidth = aVar2.aEu.getWidth();
+            aVar2.mHeight = aVar2.aEu.getHeight();
         }
         return aVar2;
     }
 
     private a() {
         super("inputId", "textArea");
-        this.aZc = 1;
+        this.aZA = 1;
     }
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.mValue = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
-        this.aYI = jSONObject.optString("placeholder");
+        this.aZg = jSONObject.optString("placeholder");
         JSONObject optJSONObject = jSONObject.optJSONObject("placeholderStyle");
-        this.aYJ = optJSONObject.optInt("fontSize");
-        this.aYK = optJSONObject.optString("fontWeight");
-        this.aYL = optJSONObject.optString("color");
-        this.aYM = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
-        this.aYN = jSONObject.optBoolean("autoHeight", false);
-        this.aEa = jSONObject.optBoolean("fixed");
-        this.aYO = jSONObject.optBoolean("showConfirmBar", true);
-        this.aYP = jSONObject.optInt("maxLength");
-        this.aYQ = jSONObject.optInt("cursorSpacing");
-        this.aYR = jSONObject.optInt("cursor");
-        this.aYS = jSONObject.optInt("selectionStart");
-        this.aYT = jSONObject.optInt("selectionEnd");
-        this.aYU = jSONObject.optBoolean("adjustPosition", true);
+        this.aZh = optJSONObject.optInt("fontSize");
+        this.aZi = optJSONObject.optString("fontWeight");
+        this.aZj = optJSONObject.optString("color");
+        this.aZk = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+        this.aZl = jSONObject.optBoolean("autoHeight", false);
+        this.aEy = jSONObject.optBoolean("fixed");
+        this.aZm = jSONObject.optBoolean("showConfirmBar", true);
+        this.aZn = jSONObject.optInt("maxLength");
+        this.aZo = jSONObject.optInt("cursorSpacing");
+        this.aZp = jSONObject.optInt("cursor");
+        this.aZq = jSONObject.optInt("selectionStart");
+        this.aZr = jSONObject.optInt("selectionEnd");
+        this.aZs = jSONObject.optBoolean("adjustPosition", true);
         JSONObject optJSONObject2 = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-        this.aZa = optJSONObject2.optJSONArray("padding");
+        this.aZy = optJSONObject2.optJSONArray("padding");
         this.mFontSize = optJSONObject2.optInt("fontSize");
-        this.aYV = optJSONObject2.optString("fontWeight");
-        this.aYW = optJSONObject2.optString("color");
-        this.aYY = optJSONObject2.optString("textAlign");
+        this.aZt = optJSONObject2.optString("fontWeight");
+        this.aZu = optJSONObject2.optString("color");
+        this.aZw = optJSONObject2.optString("textAlign");
         int ad = z.ad(a(optJSONObject2, "minHeight", 0.0f));
         if (ad < 0) {
             ad = 0;
         }
-        this.aZb = ad;
+        this.aZz = ad;
         int ad2 = z.ad(a(optJSONObject2, "maxHeight", 2.1474836E9f));
         if (ad2 < 0) {
-            ad2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            ad2 = Integer.MAX_VALUE;
         }
         this.mMaxHeight = ad2;
-        this.aYX = z.ad((float) optJSONObject2.optDouble("lineSpace"));
-        this.aYZ = jSONObject.optBoolean("disabled", false);
-        this.mLeft = this.aDW.getLeft();
-        this.mTop = this.aDW.Hv();
-        this.mWidth = this.aDW.getWidth();
-        this.mHeight = this.aDW.getHeight();
+        this.aZv = z.ad((float) optJSONObject2.optDouble("lineSpace"));
+        this.aZx = jSONObject.optBoolean("disabled", false);
+        this.mLeft = this.aEu.getLeft();
+        this.mTop = this.aEu.Hz();
+        this.mWidth = this.aEu.getWidth();
+        this.mHeight = this.aEu.getHeight();
     }
 }

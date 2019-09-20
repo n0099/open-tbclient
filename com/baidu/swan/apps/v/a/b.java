@@ -14,7 +14,7 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean a(@Nullable c cVar) {
-        if (!com.baidu.swan.apps.u.a.En().wx()) {
+        if (!com.baidu.swan.apps.u.a.Er().wB()) {
             if (DEBUG) {
                 Log.d("LaunchError", "isExecuteSwanNewYearH5Downgrade false => 新年小程序错误兜底h5降级ab开关为关闭 swan_new_year_h5_downgrade false");
             }
@@ -25,15 +25,15 @@ public class b {
             }
             return false;
         } else {
-            List<String> Fr = Fr();
-            if (Fr == null) {
+            List<String> Fv = Fv();
+            if (Fv == null) {
                 if (DEBUG) {
                     Log.w("LaunchError", "isExecuteSwanNewYearH5Downgrade false =》 illegal newYearAppIds");
                 }
                 return false;
             }
             String str = cVar.mAppId;
-            for (String str2 : Fr) {
+            for (String str2 : Fv) {
                 if (TextUtils.isEmpty(str2)) {
                     if (DEBUG) {
                         Log.w("LaunchError", "isExecuteSwanNewYearH5Downgrade =》 illegal newYearAppId");
@@ -55,21 +55,21 @@ public class b {
     }
 
     @NonNull
-    public static String Fq() {
-        String wy = wy();
+    public static String Fu() {
+        String wC = wC();
         if (DEBUG) {
-            Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => originUrl: " + wy);
+            Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => originUrl: " + wC);
         }
         String str = null;
         try {
-            str = URLEncoder.encode(wy, HTTP.UTF_8);
+            str = URLEncoder.encode(wC, HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);
             }
         }
         if (TextUtils.isEmpty(str)) {
-            str = wy;
+            str = wC;
         }
         if (DEBUG) {
             Log.d("LaunchError", "getSwanNewYearH5DowngradeScheme => encodedUrl: " + str);
@@ -82,15 +82,15 @@ public class b {
     }
 
     @NonNull
-    private static String wy() {
-        String wy = com.baidu.swan.apps.u.a.En().wy();
-        if (TextUtils.isEmpty(wy)) {
+    private static String wC() {
+        String wC = com.baidu.swan.apps.u.a.Er().wC();
+        if (TextUtils.isEmpty(wC)) {
             return "https://2019.baidu.com/activity/shake2019/index.html?idfrom=aiappfb";
         }
-        return wy;
+        return wC;
     }
 
-    private static List<String> Fr() {
+    private static List<String> Fv() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("i2UoL6iWVUjaSpHLA4ftCxO2SNCdkTf0");
         arrayList.add("uSTqbBp5u8egzErCpTiPrAOumDjAXWMU");

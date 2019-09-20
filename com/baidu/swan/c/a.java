@@ -23,11 +23,11 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes2.dex */
 public final class a {
-    private static String bxu = null;
+    private static String bxS = null;
     public static int INVALID_INDEX = -1;
-    public static int aWx = 1;
+    public static int aWV = 1;
 
-    public static boolean lf(String str) {
+    public static boolean lh(String str) {
         return !TextUtils.isEmpty(str) && new File(str).exists();
     }
 
@@ -403,7 +403,7 @@ public final class a {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !li(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !lk(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -547,7 +547,7 @@ public final class a {
                     c(inputStream);
                     c(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !li(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !lk(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -612,25 +612,25 @@ public final class a {
         return str;
     }
 
-    public static String lg(String str) {
+    public static String li(String str) {
         if (TextUtils.isEmpty(str) || str.endsWith(File.separator)) {
             return null;
         }
         int lastIndexOf = str.lastIndexOf(File.separator);
         int length = str.length();
         if (lastIndexOf != INVALID_INDEX && length > lastIndexOf) {
-            return str.substring(lastIndexOf + aWx, length);
+            return str.substring(lastIndexOf + aWV, length);
         }
         return str;
     }
 
-    public static String lh(String str) {
+    public static String lj(String str) {
         int lastIndexOf;
-        String lg = lg(str);
-        if (TextUtils.isEmpty(lg) || (lastIndexOf = lg.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == lg.length() - 1) {
+        String li = li(str);
+        if (TextUtils.isEmpty(li) || (lastIndexOf = li.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == li.length() - 1) {
             return "";
         }
-        return lg.substring(lastIndexOf + 1);
+        return li.substring(lastIndexOf + 1);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1207=4] */
@@ -725,7 +725,7 @@ public final class a {
         }
     }
 
-    public static boolean li(String str) {
+    public static boolean lk(String str) {
         return str.contains("../");
     }
 }

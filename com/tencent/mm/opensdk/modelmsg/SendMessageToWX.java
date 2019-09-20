@@ -14,9 +14,11 @@ public class SendMessageToWX {
         private static final String TAG = "MicroMsg.SDK.SendMessageToWX.Req";
         public static final int WXSceneFavorite = 2;
         public static final int WXSceneSession = 0;
+        public static final int WXSceneSpecifiedContact = 3;
         public static final int WXSceneTimeline = 1;
         public WXMediaMessage message;
         public int scene;
+        public String userOpenId;
 
         public Req() {
         }
@@ -34,7 +36,15 @@ public class SendMessageToWX {
             if (this.message.mediaObject.type() == 6 && this.scene == 2) {
                 ((WXFileObject) this.message.mediaObject).setContentLengthLimit(FAV_CONTENT_LENGTH_LIMIT);
             }
-            return this.message.checkArgs();
+            if (this.scene == 3 && this.userOpenId == null) {
+                Log.e(TAG, "Send specifiedContact userOpenId can not be null.");
+                return false;
+            } else if (this.scene == 3 && this.openId == null) {
+                Log.e(TAG, "Send specifiedContact openid can not be null.");
+                return false;
+            } else {
+                return this.message.checkArgs();
+            }
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -42,6 +52,7 @@ public class SendMessageToWX {
             super.fromBundle(bundle);
             this.message = WXMediaMessage.Builder.fromBundle(bundle);
             this.scene = bundle.getInt("_wxapi_sendmessagetowx_req_scene");
+            this.userOpenId = bundle.getString("_wxapi_sendmessagetowx_req_use_open_id");
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -55,6 +66,7 @@ public class SendMessageToWX {
             bundle.putAll(WXMediaMessage.Builder.toBundle(this.message));
             bundle.putInt("_wxapi_sendmessagetowx_req_scene", this.scene);
             bundle.putInt("_wxapi_sendmessagetowx_req_media_type", this.message.getType());
+            bundle.putString("_wxapi_sendmessagetowx_req_use_open_id", this.userOpenId);
         }
     }
 

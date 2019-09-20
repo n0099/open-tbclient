@@ -8,32 +8,32 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a implements b {
-    private final List<b> kjt;
+    private final List<b> klQ;
 
     public a(Set<b> set) {
-        this.kjt = new ArrayList(set.size());
+        this.klQ = new ArrayList(set.size());
         for (b bVar : set) {
             if (bVar != null) {
-                this.kjt.add(bVar);
+                this.klQ.add(bVar);
             }
         }
     }
 
     public a(b... bVarArr) {
-        this.kjt = new ArrayList(bVarArr.length);
+        this.klQ = new ArrayList(bVarArr.length);
         for (b bVar : bVarArr) {
             if (bVar != null) {
-                this.kjt.add(bVar);
+                this.klQ.add(bVar);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        int size = this.kjt.size();
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).a(imageRequest, obj, str, z);
+                this.klQ.get(i).a(imageRequest, obj, str, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestStart", e);
             }
@@ -41,11 +41,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void eA(String str, String str2) {
-        int size = this.kjt.size();
+    public void eB(String str, String str2) {
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).eA(str, str2);
+                this.klQ.get(i).eB(str, str2);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerStart", e);
             }
@@ -54,10 +54,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void a(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.kjt.size();
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).a(str, str2, map);
+                this.klQ.get(i).a(str, str2, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithSuccess", e);
             }
@@ -66,10 +66,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void a(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
-        int size = this.kjt.size();
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).a(str, str2, th, map);
+                this.klQ.get(i).a(str, str2, th, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithFailure", e);
             }
@@ -78,10 +78,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void b(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.kjt.size();
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).b(str, str2, map);
+                this.klQ.get(i).b(str, str2, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithCancellation", e);
             }
@@ -89,11 +89,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void ae(String str, String str2, String str3) {
-        int size = this.kjt.size();
+    public void ag(String str, String str2, String str3) {
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).ae(str, str2, str3);
+                this.klQ.get(i).ag(str, str2, str3);
             } catch (Exception e) {
                 l("InternalListener exception in onIntermediateChunkStart", e);
             }
@@ -102,10 +102,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        int size = this.kjt.size();
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).a(imageRequest, str, z);
+                this.klQ.get(i).a(imageRequest, str, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestSuccess", e);
             }
@@ -114,10 +114,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        int size = this.kjt.size();
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).a(imageRequest, str, th, z);
+                this.klQ.get(i).a(imageRequest, str, th, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestFailure", e);
             }
@@ -125,11 +125,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.g.b
-    public void HP(String str) {
-        int size = this.kjt.size();
+    public void Ip(String str) {
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kjt.get(i).HP(str);
+                this.klQ.get(i).Ip(str);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestCancellation", e);
             }
@@ -137,10 +137,10 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public boolean HQ(String str) {
-        int size = this.kjt.size();
+    public boolean Iq(String str) {
+        int size = this.klQ.size();
         for (int i = 0; i < size; i++) {
-            if (this.kjt.get(i).HQ(str)) {
+            if (this.klQ.get(i).Iq(str)) {
                 return true;
             }
         }

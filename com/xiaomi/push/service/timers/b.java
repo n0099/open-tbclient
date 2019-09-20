@@ -12,7 +12,7 @@ import com.xiaomi.push.service.timers.a;
 import com.xiaomi.smack.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class b implements a.InterfaceC0495a {
+public class b implements a.InterfaceC0501a {
     private Context b;
     private PendingIntent a = null;
     private volatile long c = 0;
@@ -30,7 +30,7 @@ public class b implements a.InterfaceC0495a {
         }
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0495a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0501a
     public void a() {
         if (this.a != null) {
             try {
@@ -64,7 +64,7 @@ public class b implements a.InterfaceC0495a {
         com.xiaomi.channel.commonutils.logger.b.c("register timer " + j);
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0495a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0501a
     public void a(boolean z) {
         long c = g.c();
         if (z || this.c != 0) {
@@ -85,7 +85,7 @@ public class b implements a.InterfaceC0495a {
         }
     }
 
-    @Override // com.xiaomi.push.service.timers.a.InterfaceC0495a
+    @Override // com.xiaomi.push.service.timers.a.InterfaceC0501a
     public boolean b() {
         return this.c != 0;
     }

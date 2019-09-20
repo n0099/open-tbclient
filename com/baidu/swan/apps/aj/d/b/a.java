@@ -12,15 +12,15 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.aj.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0116a {
-        public static final a aXM = new a();
+    private static class C0125a {
+        public static final a aYk = new a();
     }
 
     private a() {
     }
 
-    public static a Ov() {
-        return C0116a.aXM;
+    public static a Oz() {
+        return C0125a.aYk;
     }
 
     public void a(Activity activity, float f) {

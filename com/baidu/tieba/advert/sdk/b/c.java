@@ -45,7 +45,7 @@ public class c {
         }
     }
 
-    public static String dd(Context context) {
+    public static String de(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {

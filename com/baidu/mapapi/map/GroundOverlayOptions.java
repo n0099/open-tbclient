@@ -1,7 +1,6 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 /* loaded from: classes5.dex */
@@ -59,7 +58,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
 
     public GroundOverlayOptions dimensions(int i) {
         this.f = i;
-        this.g = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.g = Integer.MAX_VALUE;
         return this;
     }
 

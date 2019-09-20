@@ -2,6 +2,6 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.im.c.a.b {
     public c() {
-        super(com.baidu.tieba.im.settingcache.e.bGH(), 2001149);
+        super(com.baidu.tieba.im.settingcache.e.bHv(), 2001149);
     }
 }

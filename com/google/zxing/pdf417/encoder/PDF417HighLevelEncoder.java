@@ -368,13 +368,13 @@ final class PDF417HighLevelEncoder {
     }
 
     private static void encodingECI(int i, StringBuilder sb) throws WriterException {
-        if (i >= 0 && i < LATCH_TO_TEXT) {
+        if (i >= 0 && i < 900) {
             sb.append((char) 927);
             sb.append((char) i);
         } else if (i < 810900) {
             sb.append((char) 926);
-            sb.append((char) ((i / LATCH_TO_TEXT) - 1));
-            sb.append((char) (i % LATCH_TO_TEXT));
+            sb.append((char) ((i / 900) - 1));
+            sb.append((char) (i % 900));
         } else if (i < 811800) {
             sb.append((char) 925);
             sb.append((char) (810900 - i));

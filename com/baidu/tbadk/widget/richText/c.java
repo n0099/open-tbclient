@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String cMM;
-    private int cMN;
+    private String cNC;
+    private int cND;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,8 +43,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void lG(int i) {
-        this.cMN = i;
+    public void lK(int i) {
+        this.cND = i;
     }
 
     public void setColor(int i) {
@@ -55,12 +55,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void lH(int i) {
+    public void lL(int i) {
         this.urlType = i;
     }
 
-    public void rB(String str) {
-        this.cMM = str;
+    public void rM(String str) {
+        this.cNC = str;
     }
 
     public String getLink() {
@@ -79,13 +79,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.cMN == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.cND == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.cMN == 2) {
+        } else if (this.cND == 2) {
             textPaint.bgColor = am.getColor(R.color.transparent);
         }
     }
@@ -94,7 +94,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.cMM));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.cNC));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

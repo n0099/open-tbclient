@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.share;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +15,7 @@ import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
 /* loaded from: classes2.dex */
-public class WbShareToStoryActivity extends Activity {
+public class WbShareToStoryActivity extends BaseActivity {
     private String callbackActivity;
     private View progressBar;
     private int progressColor = -1;
@@ -24,34 +23,40 @@ public class WbShareToStoryActivity extends Activity {
     private FrameLayout rootLayout;
     private SaveFileTask saveFileTask;
 
-    @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.sina.weibo.sdk.share.BaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         StoryMessage storyMessage;
         super.onCreate(bundle);
-        try {
-            if (bundle != null) {
-                this.callbackActivity = bundle.getString(WBConstants.SHARE_START_ACTIVITY);
-            } else {
-                this.callbackActivity = getIntent().getStringExtra(WBConstants.SHARE_START_ACTIVITY);
+        Intent intent = getIntent();
+        if (intent != null) {
+            try {
+                if (bundle != null) {
+                    this.callbackActivity = bundle.getString(WBConstants.SHARE_START_ACTIVITY);
+                } else {
+                    this.callbackActivity = intent.getStringExtra(WBConstants.SHARE_START_ACTIVITY);
+                }
+            } catch (Exception e) {
             }
-        } catch (Exception e) {
-        }
-        if (TextUtils.isEmpty(this.callbackActivity)) {
-            finish();
-            return;
-        }
-        try {
-            storyMessage = (StoryMessage) getIntent().getParcelableExtra(WBConstants.Msg.STORY);
-        } catch (Exception e2) {
-            storyMessage = null;
-        }
-        if (storyMessage == null) {
-            setCallbackActivity(2);
-        } else if (checkInfo(storyMessage)) {
-            initView();
-            gotoSave(storyMessage);
-        } else {
-            setCallbackActivity(2);
+            if (intent.getIntExtra(WBConstants.SHARE_START_FLAG, -1) != 0) {
+                finish();
+            } else if (TextUtils.isEmpty(this.callbackActivity)) {
+                finish();
+            } else {
+                try {
+                    storyMessage = (StoryMessage) getIntent().getParcelableExtra(WBConstants.Msg.STORY);
+                } catch (Exception e2) {
+                    storyMessage = null;
+                }
+                if (storyMessage == null) {
+                    setCallbackActivity(2);
+                } else if (checkInfo(storyMessage)) {
+                    initView();
+                    gotoSave(storyMessage);
+                } else {
+                    setCallbackActivity(2);
+                }
+            }
         }
     }
 

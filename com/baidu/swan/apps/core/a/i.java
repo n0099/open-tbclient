@@ -40,10 +40,10 @@ public class i {
         }
         switch (c) {
             case 0:
-                dB(str2);
+                dD(str2);
                 return;
             case 1:
-                dC(str2);
+                dE(str2);
                 return;
             case 2:
                 m(str2, z);
@@ -53,14 +53,14 @@ public class i {
         }
     }
 
-    private static void dB(String str) {
+    private static void dD(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         c("updateReady", str, null);
     }
 
-    private static void dC(String str) {
+    private static void dE(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update failed msg");
         }
@@ -90,12 +90,12 @@ public class i {
         bundle.putString("eventType", str);
         SwanAppMessengerService serviceObject = SwanAppMessengerService.getServiceObject();
         if (serviceObject != null) {
-            a.b go = com.baidu.swan.apps.process.messaging.service.a.Jx().go(str2);
+            a.b gq = com.baidu.swan.apps.process.messaging.service.a.JB().gq(str2);
             if (DEBUG) {
-                Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + go);
+                Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + gq);
             }
-            if (go != null && go.aHJ && go.aHF.isSwanAppProcess()) {
-                serviceObject.sendMessageToClient(go, 107, bundle);
+            if (gq != null && gq.aIh && gq.aId.isSwanAppProcess()) {
+                serviceObject.sendMessageToClient(gq, 107, bundle);
                 return;
             }
         }
@@ -120,11 +120,11 @@ public class i {
             }
             hashMap.put("data", jSONObject.toString());
             com.baidu.swan.apps.m.a.b bVar = new com.baidu.swan.apps.m.a.b("updateStatusChange", hashMap);
-            SwanAppActivity Gr = com.baidu.swan.apps.w.e.GF().Gr();
-            if (Gr != null && Gr.vD() == 1) {
-                com.baidu.swan.games.u.a.Ts().G(string, bundle.getBoolean("hasUpdate"));
+            SwanAppActivity Gv = com.baidu.swan.apps.w.e.GJ().Gv();
+            if (Gv != null && Gv.vH() == 1) {
+                com.baidu.swan.games.u.a.Tw().G(string, bundle.getBoolean("hasUpdate"));
             } else {
-                com.baidu.swan.apps.w.e.GF().a(bVar);
+                com.baidu.swan.apps.w.e.GJ().a(bVar);
             }
         }
     }
@@ -142,10 +142,10 @@ public class i {
     public static boolean b(com.baidu.swan.apps.database.a aVar, boolean z) {
         boolean z2 = false;
         if (aVar != null && aVar.isValid()) {
-            SwanAppDbControl aX = SwanAppDbControl.aX(com.baidu.swan.apps.u.a.Ek());
-            if (z || aVar.Ct()) {
-                if (aVar.avg <= 0) {
-                    aVar.avg = 432000L;
+            SwanAppDbControl aX = SwanAppDbControl.aX(com.baidu.swan.apps.u.a.Eo());
+            if (z || aVar.Cx()) {
+                if (aVar.avE <= 0) {
+                    aVar.avE = 432000L;
                 }
                 aVar.createTime = System.currentTimeMillis();
                 z2 = aX.e(aVar, true);

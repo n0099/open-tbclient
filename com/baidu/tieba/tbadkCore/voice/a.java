@@ -12,9 +12,9 @@ public interface a {
 
     void cf(String str);
 
-    void qm();
+    void qn();
 
-    boolean qn();
+    boolean qo();
 
     void release();
 

@@ -13,9 +13,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class AppleDataReferenceBox extends AbstractFullBox {
     public static final String TYPE = "rdrf";
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
     private String dataReference;
     private int dataReferenceSize;
     private String dataReferenceType;

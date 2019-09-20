@@ -12,48 +12,48 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class EditorDesk extends FrameLayout {
-    private int crS;
-    private LinkedList<g> csb;
-    private LinkedList<l> csc;
-    private l csd;
-    private boolean cse;
-    private boolean csf;
-    private EditorTools csg;
-    private Runnable csh;
+    private int csN;
+    private LinkedList<g> csW;
+    private LinkedList<l> csX;
+    private l csY;
+    private boolean csZ;
+    private boolean cta;
+    private EditorTools ctb;
+    private Runnable ctc;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
-        this.crS = R.color.cp_bg_line_d;
-        this.csd = null;
-        this.cse = true;
-        this.csf = false;
-        this.csh = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
+        this.csN = R.color.cp_bg_line_h;
+        this.csY = null;
+        this.csZ = true;
+        this.cta = false;
+        this.ctc = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
             @Override // java.lang.Runnable
             public void run() {
-                if (EditorDesk.this.csd != null) {
-                    EditorDesk.this.csd.qk();
+                if (EditorDesk.this.csY != null) {
+                    EditorDesk.this.csY.ql();
                 }
             }
         };
-        this.csb = new LinkedList<>();
-        this.csc = new LinkedList<>();
-        this.csg = editorTools;
+        this.csW = new LinkedList<>();
+        this.csX = new LinkedList<>();
+        this.ctb = editorTools;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(g gVar) {
-        this.csb.add(gVar);
+        this.csW.add(gVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(l lVar) {
-        this.csc.add(lVar);
+        this.csX.add(lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void asb() {
-        Iterator<l> it = this.csc.iterator();
+    public void asn() {
+        Iterator<l> it = this.csX.iterator();
         while (it.hasNext()) {
             l next = it.next();
             if (next.getToolId() == 2) {
@@ -71,41 +71,41 @@ public class EditorDesk extends FrameLayout {
 
     private void b(l lVar) {
         if (lVar instanceof MoreDeskView) {
-            ((MoreDeskView) lVar).k(this.csb);
+            ((MoreDeskView) lVar).k(this.csW);
             lVar.init();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.csd = null;
-        this.csb.clear();
-        this.csc.clear();
+        this.csY = null;
+        this.csW.clear();
+        this.csX.clear();
     }
 
-    protected void qk() {
+    protected void ql() {
         setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hide() {
-        if (this.csd != null) {
-            this.csd.hide();
+        if (this.csY != null) {
+            this.csY.hide();
         }
-        this.csd = null;
+        this.csY = null;
         setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void kl(int i) {
-        if (kp(i)) {
-            if (ase()) {
-                this.cse = true;
+    public void ko(int i) {
+        if (ks(i)) {
+            if (asq()) {
+                this.csZ = true;
             } else {
-                this.cse = false;
+                this.csZ = false;
             }
-            boolean z = this.csf;
-            Iterator<l> it = this.csc.iterator();
+            boolean z = this.cta;
+            Iterator<l> it = this.csX.iterator();
             while (it.hasNext()) {
                 l next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -113,31 +113,31 @@ public class EditorDesk extends FrameLayout {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.csf = true;
+                    this.cta = true;
                 }
                 if (next.getToolId() == i) {
-                    this.csd = next;
-                    if (this.cse) {
-                        next.qk();
+                    this.csY = next;
+                    if (this.csZ) {
+                        next.ql();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.cse && (getContext() instanceof Activity)) {
-                if (this.csg != null) {
-                    this.csg.asi();
+            if (!this.csZ && (getContext() instanceof Activity)) {
+                if (this.ctb != null) {
+                    this.ctb.asu();
                 } else {
                     com.baidu.adp.lib.util.l.b(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.g.e.iK().postDelayed(this.csh, 250L);
+                com.baidu.adp.lib.g.e.iK().postDelayed(this.ctc, 250L);
             }
-            qk();
+            ql();
         }
     }
 
-    private boolean kp(int i) {
-        Iterator<l> it = this.csc.iterator();
+    private boolean ks(int i) {
+        Iterator<l> it = this.csX.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -146,8 +146,8 @@ public class EditorDesk extends FrameLayout {
         return false;
     }
 
-    public g kn(int i) {
-        Iterator<g> it = this.csb.iterator();
+    public g kq(int i) {
+        Iterator<g> it = this.csW.iterator();
         while (it.hasNext()) {
             g next = it.next();
             if (next.getToolId() == i) {
@@ -158,14 +158,14 @@ public class EditorDesk extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.crS > 0) {
-            am.h(this, this.crS, i);
+        if (this.csN > 0) {
+            am.h(this, this.csN, i);
         }
-        Iterator<g> it = this.csb.iterator();
+        Iterator<g> it = this.csW.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i);
         }
-        Iterator<l> it2 = this.csc.iterator();
+        Iterator<l> it2 = this.csX.iterator();
         while (it2.hasNext()) {
             l next = it2.next();
             if (next != null) {
@@ -174,12 +174,12 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    public boolean asd() {
-        return getVisibility() == 0 && ase();
+    public boolean asp() {
+        return getVisibility() == 0 && asq();
     }
 
-    private boolean ase() {
-        Iterator<l> it = this.csc.iterator();
+    private boolean asq() {
+        Iterator<l> it = this.csX.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;
@@ -190,20 +190,20 @@ public class EditorDesk extends FrameLayout {
 
     public void setBackgroundColorId(int i) {
         super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.crS = i;
+        this.csN = i;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         if (z) {
-            ex(true);
+            eA(true);
         }
         super.requestDisallowInterceptTouchEvent(false);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        ex(true);
+        eA(true);
         return super.onInterceptTouchEvent(motionEvent);
     }
 
@@ -212,7 +212,7 @@ public class EditorDesk extends FrameLayout {
         return true;
     }
 
-    private void ex(boolean z) {
+    private void eA(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

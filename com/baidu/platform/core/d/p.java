@@ -3,6 +3,7 @@ package com.baidu.platform.core.d;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
+import com.baidu.sapi2.result.AddressManageResult;
 /* loaded from: classes5.dex */
 public class p extends com.baidu.platform.base.e {
     public p(WalkingRoutePlanOption walkingRoutePlanOption) {
@@ -23,7 +24,7 @@ public class p extends com.baidu.platform.base.e {
         this.a.a("lrn", "20");
         this.a.a("version", "3");
         this.a.a("rp_format", "json");
-        this.a.a("rp_filter", "mobile");
+        this.a.a("rp_filter", AddressManageResult.KEY_MOBILE);
     }
 
     @Override // com.baidu.platform.base.e

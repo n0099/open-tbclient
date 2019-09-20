@@ -11,7 +11,6 @@ import android.hardware.SensorManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.mapapi.bikenavi.adapter.IBNaviStatusListener;
@@ -344,7 +343,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
             this.K = new ArrayList<>();
         }
         if (this.L == null) {
-            this.L = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_location_progress_bar_anim);
+            this.L = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_location_ding);
         }
         BaseNpcModel baseNpcModel = new BaseNpcModel();
         baseNpcModel.setDownLoadKey("");
@@ -353,7 +352,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         baseNpcModel.setLoadFromLocal(true);
         this.K.add(baseNpcModel);
         if (this.M == null) {
-            this.M = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_night_mode_toast_icon);
+            this.M = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_location_search_del);
         }
         BaseNpcModel baseNpcModel2 = new BaseNpcModel();
         baseNpcModel2.setDownLoadKey("10279765");
@@ -896,7 +895,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PHONE_STATE");
-            intentFilter.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            intentFilter.setPriority(Integer.MAX_VALUE);
             context.registerReceiver(this.Q, intentFilter);
         } catch (Exception e) {
         }

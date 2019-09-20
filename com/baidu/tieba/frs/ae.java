@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes3.dex */
 public interface ae {
-    void aJk();
+    void aJO();
 
-    void aJl();
+    void aJP();
 
-    void aJm();
+    void aJQ();
 
-    void akN();
+    void akZ();
 
-    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.x xVar);
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.w wVar);
 
     void setVideoThreadId(String str);
 

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class g {
-    private TextView hlJ;
-    private View hlK;
+    private TextView hnD;
+    private View hnE;
     private TbPageContext<?> mContext;
     private View mRoot;
     private TableLayout mTableLayout;
@@ -28,20 +28,20 @@ public class g {
 
     public View nZ() {
         this.mRoot = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.search_topic, (ViewGroup) null);
-        this.hlK = this.mRoot.findViewById(R.id.titleTopDivider);
-        this.hlK.setVisibility(0);
+        this.hnE = this.mRoot.findViewById(R.id.titleTopDivider);
+        this.hnE.setVisibility(0);
         this.mTableLayout = (TableLayout) this.mRoot.findViewById(R.id.search_topic_layout);
-        this.hlJ = (TextView) this.mRoot.findViewById(R.id.square_search_fourm_header_text);
-        this.hlJ.setText(this.mContext.getResources().getString(R.string.hot_topic_title));
+        this.hnD = (TextView) this.mRoot.findViewById(R.id.square_search_fourm_header_text);
+        this.hnD.setText(this.mContext.getResources().getString(R.string.hot_topic_title));
         return this.mRoot;
     }
 
     public void setTitleText(String str) {
-        if (this.hlJ != null) {
+        if (this.hnD != null) {
             if (!StringUtils.isNull(str)) {
-                this.hlJ.setText(str);
+                this.hnD.setText(str);
             } else {
-                this.hlJ.setText(this.mContext.getResources().getString(R.string.hot_topic_title));
+                this.hnD.setText(this.mContext.getResources().getString(R.string.hot_topic_title));
             }
         }
     }
@@ -50,7 +50,7 @@ public class g {
         this.mTableLayout.removeAllViews();
         this.mRoot.setVisibility(8);
         this.mTableLayout.setVisibility(8);
-        this.hlJ.setVisibility(8);
+        this.hnD.setVisibility(8);
     }
 
     public View a(c cVar, int i) {
@@ -61,8 +61,8 @@ public class g {
             int tag = cVar.getTag();
             imageView.setVisibility(0);
             imageView.setTag(Integer.valueOf(tag));
-            e(imageView, tag, TbadkCoreApplication.getInst().getSkinType());
-            textView.setText(aB(cVar.getName(), 8));
+            c(imageView, tag, TbadkCoreApplication.getInst().getSkinType());
+            textView.setText(aD(cVar.getName(), 8));
             linearLayout.setTag(cVar);
         } else {
             textView.setText(R.string.hot_forum_title_more);
@@ -73,7 +73,7 @@ public class g {
         return linearLayout;
     }
 
-    private void e(ImageView imageView, int i, int i2) {
+    private void c(ImageView imageView, int i, int i2) {
         if (imageView != null) {
             imageView.setImageDrawable(null);
             switch (i) {
@@ -93,7 +93,7 @@ public class g {
         }
     }
 
-    private String aB(String str, int i) {
+    private String aD(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -129,7 +129,7 @@ public class g {
                     if (i2 == childCount - 1 && i3 == childCount2 - 1) {
                         textView.setTextColor(am.getColor(R.color.cp_link_tip_a));
                     } else {
-                        e(imageView, imageView.getTag() != null ? ((Integer) imageView.getTag()).intValue() : 0, i);
+                        c(imageView, imageView.getTag() != null ? ((Integer) imageView.getTag()).intValue() : 0, i);
                         am.d(textView, R.color.cp_cont_b, 1, i);
                     }
                     am.g(textView, R.drawable.square_search_item_bg, i);
@@ -138,14 +138,14 @@ public class g {
         }
     }
 
-    public void nk(boolean z) {
-        this.hlK.setVisibility(z ? 0 : 8);
+    public void nn(boolean z) {
+        this.hnE.setVisibility(z ? 0 : 8);
     }
 
     public void show() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.mRoot.setVisibility(0);
         this.mTableLayout.setVisibility(0);
-        this.hlJ.setVisibility(0);
+        this.hnD.setVisibility(0);
     }
 }

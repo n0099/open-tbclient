@@ -1,9 +1,7 @@
 package org.apache.thrift.protocol;
-
-import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes3.dex */
 public class h {
-    private static int a = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private static int a = Integer.MAX_VALUE;
 
     public static void a(e eVar, byte b) {
         a(eVar, b, a);

@@ -3,22 +3,21 @@ package com.baidu.tbadk.coreExtra.e;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
-import com.baidu.mapapi.UIMsg;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean cpW = false;
-    private int cpX = 0;
+    private boolean cqQ = false;
+    private int cqR = 0;
 
-    public void pR(String str) {
+    public void qc(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.cpW = false;
-        this.cpX = 0;
+        this.cqQ = false;
+        this.cqR = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -49,7 +48,7 @@ public class f {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.cpW = true;
+                                this.cqQ = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -80,19 +79,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.cpW && i4 > 0) {
-                    this.cpX = i3 / i4;
+                if (this.cqQ && i4 > 0) {
+                    this.cqR = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.cpW;
+        return this.cqQ;
     }
 
-    public int arh() {
-        return this.cpX;
+    public int art() {
+        return this.cqR;
     }
 
     private int getTimeout() {
@@ -103,7 +102,7 @@ public class f {
                 return 10000;
             case 3:
             default:
-                return UIMsg.m_AppUI.MSG_APP_GPS;
+                return 5000;
         }
     }
 }

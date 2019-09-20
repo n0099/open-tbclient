@@ -7,14 +7,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.model.a.a.a {
-    public boolean axS;
-    public int axT;
-    public int axU;
-    public int axV;
-    public int axW;
-    public String axX;
-    public boolean axY;
-    public boolean axZ;
+    public boolean ayq;
+    public int ayr;
+    public int ays;
+    public int ayt;
+    public int ayu;
+    public String ayv;
+    public boolean ayw;
+    public boolean ayx;
     public String color;
     public int fontSize;
     public String fontWeight;
@@ -30,25 +30,25 @@ public class d extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        if (this.aDW == null) {
-            this.aDW = new com.baidu.swan.apps.model.a.a.b();
+        if (this.aEu == null) {
+            this.aEu = new com.baidu.swan.apps.model.a.a.b();
         }
         this.value = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
         this.type = jSONObject.optString("type");
         this.maxLength = jSONObject.optInt("maxLength");
-        this.axT = jSONObject.optInt("cursorSpacing");
-        this.axU = jSONObject.optInt("cursor");
-        this.axV = jSONObject.optInt("selectionStart");
-        this.axW = jSONObject.optInt("selectionEnd");
-        this.axX = jSONObject.optString("confirmType");
+        this.ayr = jSONObject.optInt("cursorSpacing");
+        this.ays = jSONObject.optInt("cursor");
+        this.ayt = jSONObject.optInt("selectionStart");
+        this.ayu = jSONObject.optInt("selectionEnd");
+        this.ayv = jSONObject.optString("confirmType");
         JSONObject optJSONObject = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
         this.fontSize = optJSONObject.optInt("fontSize");
         this.fontWeight = optJSONObject.optString("fontWeight");
         this.color = optJSONObject.optString("color");
         this.textAlign = optJSONObject.optString("textAlign");
-        this.axS = jSONObject.optInt("password") == 1;
-        this.axY = jSONObject.optInt("confirmHold") == 1;
-        this.axZ = jSONObject.optInt("adjustPosition", 1) == 1;
+        this.ayq = jSONObject.optInt("password") == 1;
+        this.ayw = jSONObject.optInt("confirmHold") == 1;
+        this.ayx = jSONObject.optInt("adjustPosition", 1) == 1;
     }
 
     public void D(JSONObject jSONObject) {

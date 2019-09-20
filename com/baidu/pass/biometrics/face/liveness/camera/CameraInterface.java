@@ -200,7 +200,7 @@ public class CameraInterface {
             return this.previewSize;
         }
         List<CameraSize> supportedPreviewSizes = getSupportedPreviewSizes(activity, parameters);
-        this.previewSize = new CameraSize(640, 480);
+        this.previewSize = new CameraSize(640, DEFAULT_PREVIEW_HEIGHT);
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
             return this.previewSize;
         }
@@ -269,7 +269,7 @@ public class CameraInterface {
 
     public CameraSize getPreviewSize() {
         if (this.previewSize == null) {
-            this.previewSize = new CameraSize(640, 480);
+            this.previewSize = new CameraSize(640, DEFAULT_PREVIEW_HEIGHT);
         }
         return this.previewSize;
     }

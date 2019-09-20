@@ -26,20 +26,20 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 /* loaded from: classes.dex */
 public class InputView extends EditText implements l {
-    private EditorTools TU;
-    private int TV;
-    private boolean ctA;
-    private boolean ctB;
-    private int ctC;
-    private boolean ctz;
+    private EditorTools TT;
+    private int TU;
+    private boolean cuw;
+    private boolean cux;
+    private boolean cuy;
+    private int cuz;
 
     public InputView(Context context, boolean z) {
         super(context);
-        this.TV = 0;
-        this.ctz = false;
-        this.ctA = true;
-        this.ctB = true;
-        this.ctC = -1;
+        this.TU = 0;
+        this.cuw = false;
+        this.cux = true;
+        this.cuy = true;
+        this.cuz = -1;
         setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds64));
         setMaxLines(4);
         if (z) {
@@ -60,11 +60,11 @@ public class InputView extends EditText implements l {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!InputView.this.ctB) {
-                    InputView.this.ctB = true;
-                    if (InputView.this.ctC != -1) {
-                        InputView.this.setSelection(InputView.this.ctC);
-                        InputView.this.ctC = -1;
+                if (!InputView.this.cuy) {
+                    InputView.this.cuy = true;
+                    if (InputView.this.cuz != -1) {
+                        InputView.this.setSelection(InputView.this.cuz);
+                        InputView.this.cuz = -1;
                     }
                 }
             }
@@ -95,7 +95,7 @@ public class InputView extends EditText implements l {
                 case 3:
                     if (getSelectionStart() > 0) {
                         String substring = getText().toString().substring(0, getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.fcZ.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.feM.matcher(substring);
                         if (matcher.find()) {
                             getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                             return;
@@ -144,7 +144,7 @@ public class InputView extends EditText implements l {
                     return;
                 case 44:
                     if (aVar.data != null && (aVar.data instanceof String)) {
-                        ql((String) aVar.data);
+                        qw((String) aVar.data);
                         return;
                     }
                     return;
@@ -157,7 +157,7 @@ public class InputView extends EditText implements l {
     private void d(com.baidu.tbadk.editortools.a aVar) {
         if (aVar != null && aVar.data != null && (aVar.data instanceof p)) {
             p pVar = (p) aVar.data;
-            if (pVar.amw() == EmotionGroupType.NET_SUG) {
+            if (pVar.amI() == EmotionGroupType.NET_SUG) {
                 a(pVar);
             } else {
                 b(pVar);
@@ -168,8 +168,8 @@ public class InputView extends EditText implements l {
     private void a(p pVar) {
         if (pVar != null && !TextUtils.isEmpty(pVar.getName()) && !TextUtils.isEmpty(pVar.getUrl())) {
             String obj = getText().toString();
-            if (this.ctA && com.baidu.tieba.face.a.wc(obj) >= 10 && getContext() != null) {
-                e.ahY().showToast(R.string.too_many_face);
+            if (this.cux && com.baidu.tieba.face.a.wB(obj) >= 10 && getContext() != null) {
+                e.aic().showToast(R.string.too_many_face);
             } else {
                 b.a(getContext(), pVar, this);
             }
@@ -177,10 +177,10 @@ public class InputView extends EditText implements l {
     }
 
     private void b(p pVar) {
-        if (!this.ctz || pVar.amw() == EmotionGroupType.LOCAL) {
+        if (!this.cuw || pVar.amI() == EmotionGroupType.LOCAL) {
             String obj = getText().toString();
-            if (this.ctA && com.baidu.tieba.face.a.wc(obj) >= 10 && getContext() != null) {
-                e.ahY().showToast(R.string.too_many_face);
+            if (this.cux && com.baidu.tieba.face.a.wB(obj) >= 10 && getContext() != null) {
+                e.aic().showToast(R.string.too_many_face);
             } else {
                 b.b(getContext(), pVar, this);
             }
@@ -207,36 +207,36 @@ public class InputView extends EditText implements l {
         }
     }
 
-    private void ql(String str) {
+    private void qw(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.ctz = z;
+        this.cuw = z;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.TU = editorTools;
+        this.TT = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.TU != null) {
-            this.TU.b(aVar);
+        if (this.TT != null) {
+            this.TT.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.TV = i;
+        this.TU = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.TV;
+        return this.TU;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -254,7 +254,7 @@ public class InputView extends EditText implements l {
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void qk() {
+    public void ql() {
         setVisibility(0);
     }
 
@@ -276,6 +276,6 @@ public class InputView extends EditText implements l {
     }
 
     public void setNeedFaceMaxCount(boolean z) {
-        this.ctA = z;
+        this.cux = z;
     }
 }

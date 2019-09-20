@@ -17,14 +17,14 @@ public class a {
             bVar2.av(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.rG(forumData.getFirst_class());
-                bVar2.rH(forumData.getSecond_class());
+                bVar2.rR(forumData.getFirst_class());
+                bVar2.rS(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.rI(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.rT(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
-            bVar2.gd(z);
+            bVar2.gg(z);
             bVar2.setPageNum(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
         }
@@ -40,10 +40,10 @@ public class a {
         int[] iArr;
         int indexOf;
         if (fVar != null && v.Z(list) > 0 && v.Z(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.jfF) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.jia) {
                 m mVar = (m) v.c(list, i);
                 if (mVar != null && (indexOf = list2.indexOf(mVar)) >= 0) {
-                    fVar.cz(i, indexOf);
+                    fVar.cy(i, indexOf);
                 }
             }
         }

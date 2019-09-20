@@ -7,7 +7,6 @@ import android.os.Process;
 import android.util.Base64;
 import com.baidu.crabsdk.b.r;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.HashMap;
@@ -52,7 +51,7 @@ public final class c extends a {
             hashMap.put("anrMsg", processErrorStateInfo.longMsg);
             hashMap.put("processId", Integer.valueOf(processErrorStateInfo.pid));
             hashMap.put("processName", processErrorStateInfo.processName);
-            hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Long.valueOf(System.currentTimeMillis()));
+            hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
             hashMap.put("threadList", r.L());
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("封装anr数据失败!", e);

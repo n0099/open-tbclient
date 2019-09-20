@@ -10,33 +10,33 @@ import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class d {
-    private b blI;
+    private b bmg;
 
     public d(JsObject jsObject) {
-        this.blI = b.i(com.baidu.swan.games.binding.model.c.c(jsObject));
-        a.Ts().a(this);
+        this.bmg = b.i(com.baidu.swan.games.binding.model.c.c(jsObject));
+        a.Tw().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity Gr = e.GF().Gr();
-        if (Gr == null) {
+        final SwanAppActivity Gv = e.GJ().Gv();
+        if (Gv == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (Gr.vL() == null) {
+        } else if (Gv.vP() == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate getLaunchInfo is null");
             return false;
         } else {
-            final String FH = Gr.vL().FH();
-            if (TextUtils.isEmpty(FH)) {
+            final String FL = Gv.vP().FL();
+            if (TextUtils.isEmpty(FL)) {
                 com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate launchScheme is empty");
                 return false;
             }
             ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.u.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Gr.vK();
-                    SchemeRouter.invoke(com.baidu.swan.apps.u.a.Ek(), FH);
+                    Gv.vO();
+                    SchemeRouter.invoke(com.baidu.swan.apps.u.a.Eo(), FL);
                 }
             });
             return true;
@@ -52,7 +52,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.blI != null && JSEvent.isValid(cVar)) {
+        if (this.bmg != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -78,13 +78,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.blI.b(cVar);
+                    this.bmg.b(cVar);
                     return;
                 case true:
-                    this.blI.Tu();
+                    this.bmg.Ty();
                     return;
                 case true:
-                    this.blI.Tv();
+                    this.bmg.Tz();
                     return;
                 default:
                     return;

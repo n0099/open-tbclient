@@ -11,7 +11,7 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 public class DeviceInfo {
     @SuppressLint({"MissingPermission"})
     public static String getDeviceId(Context context) {
-        String deviceId;
+        String str;
         if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
@@ -19,39 +19,46 @@ public class DeviceInfo {
                     return null;
                 }
                 if (Build.VERSION.SDK_INT >= 23) {
-                    deviceId = telephonyManager.getDeviceId(0);
+                    str = telephonyManager.getDeviceId(0);
                 } else {
-                    deviceId = telephonyManager.getDeviceId();
+                    str = telephonyManager.getDeviceId();
                 }
-                if (deviceId == null) {
-                    return null;
+                if (str == null) {
+                    str = "";
                 }
             } catch (Exception e) {
-                return null;
+                e.printStackTrace();
+                str = "";
             }
         } else {
-            deviceId = null;
+            str = null;
         }
-        return deviceId;
+        if (str == null) {
+            return "";
+        }
+        return str;
     }
 
     public static String getMacAddress(Context context) {
+        String str;
         WifiInfo connectionInfo;
-        String macAddress;
         if (isPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE")) {
             try {
                 WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI);
-                if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
-                    return null;
+                if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
+                    str = connectionInfo.getMacAddress();
                 }
-                macAddress = connectionInfo.getMacAddress();
-            } catch (Exception e) {
                 return null;
+            } catch (Exception e) {
+                str = "";
             }
         } else {
-            macAddress = null;
+            str = null;
         }
-        return macAddress;
+        if (str == null) {
+            return "";
+        }
+        return str;
     }
 
     public static String getImei(Context context) {

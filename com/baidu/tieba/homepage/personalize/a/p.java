@@ -10,12 +10,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, z<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
-    private String WN;
-    private NEGFeedBackView.a cSK;
-    public BdUniqueId cxE;
+    private String WM;
+    private NEGFeedBackView.a cTD;
+    public BdUniqueId cyA;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,16 +32,15 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         com.baidu.tieba.homepage.personalize.view.e eVar = new com.baidu.tieba.homepage.personalize.view.e(this.mContext, this.mPageContext);
         eVar.setTag(this.mPageId);
         aVar.b(eVar);
-        aVar.qN().setBackgroundResource(R.drawable.addresslist_item_bg);
-        aVar.qN().bt(0);
-        aVar.qN().bu(0);
-        aVar.qN().bv(0);
-        aVar.qN().bs(0);
-        aVar.qN().br(0);
-        x qO = aVar.qO();
-        qO.bq(2);
-        z<com.baidu.tieba.homepage.topic.topictab.b.a> zVar = new z<>(qO);
-        zVar.setPageId(this.cxE);
+        aVar.qO().bt(0);
+        aVar.qO().bu(0);
+        aVar.qO().bv(0);
+        aVar.qO().bs(0);
+        aVar.qO().br(0);
+        x qP = aVar.qP();
+        qP.bq(2);
+        z<com.baidu.tieba.homepage.topic.topictab.b.a> zVar = new z<>(qP);
+        zVar.setPageId(this.cyA);
         return zVar;
     }
 
@@ -55,19 +53,19 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         TiebaStatic.log(new an("c13448"));
-        zVar.qP().setPage(this.WN);
-        zVar.qQ().a(this.cSK);
+        zVar.qQ().setPage(this.WM);
+        zVar.qR().a(this.cTD);
         zVar.a(aVar);
-        zVar.qP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        zVar.qQ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return zVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void sm(String str) {
-        this.WN = str;
+    public void sy(String str) {
+        this.WM = str;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.cSK = aVar;
+        this.cTD = aVar;
     }
 }

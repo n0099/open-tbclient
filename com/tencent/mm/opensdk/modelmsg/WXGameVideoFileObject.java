@@ -3,10 +3,10 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-import java.io.File;
+import com.tencent.mm.opensdk.utils.d;
 /* loaded from: classes2.dex */
 public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
-    private static final int FILE_SIZE_LIMIT = 10485760;
+    private static final int FILE_SIZE_LIMIT = 31457280;
     private static final String TAG = "MicroMsg.SDK.WXGameVideoFileObject";
     private static final int URL_LENGTH_LIMIT = 10240;
     public String filePath;
@@ -26,14 +26,7 @@ public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
     }
 
     private int getFileSize(String str) {
-        if (str == null || str.length() == 0) {
-            return 0;
-        }
-        File file = new File(str);
-        if (file.exists()) {
-            return (int) file.length();
-        }
-        return 0;
+        return d.getFileSize(str);
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject

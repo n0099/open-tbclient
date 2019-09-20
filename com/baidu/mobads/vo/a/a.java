@@ -1,6 +1,7 @@
 package com.baidu.mobads.vo.a;
 
 import android.content.Context;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdProdInfo;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
@@ -29,20 +30,20 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0066a o;
+    private C0075a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0066a {
+    public static class C0075a {
         String a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0066a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0075a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.a = "";
             this.b = "";
             this.c = "";
@@ -60,9 +61,9 @@ public abstract class a {
         }
     }
 
-    public a(C0066a c0066a) {
-        this(c0066a.a, c0066a.b, c0066a.c);
-        this.o = c0066a;
+    public a(C0075a c0075a) {
+        this(c0075a.a, c0075a.b, c0075a.c);
+        this.o = c0075a;
     }
 
     @Deprecated
@@ -107,7 +108,7 @@ public abstract class a {
         hashMap.put("v", this.g);
         hashMap.put(IXAdRequestInfo.OS, this.i);
         hashMap.put("prod", this.j);
-        hashMap.put("cuid", this.k);
+        hashMap.put(DpStatConstants.KEY_CUID, this.k);
         hashMap.put(IXAdRequestInfo.P_VER, "8.8079");
         if (this.o != null) {
             hashMap.put("adt", this.o.d);

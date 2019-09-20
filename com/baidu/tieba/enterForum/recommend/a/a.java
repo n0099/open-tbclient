@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private r eZn;
-    private b eZo;
-    private c eZp;
-    private d eZq;
-    private ab<com.baidu.tieba.card.data.b> eZr = new ab<com.baidu.tieba.card.data.b>() { // from class: com.baidu.tieba.enterForum.recommend.a.a.1
+    private r faT;
+    private b faU;
+    private c faV;
+    private d faW;
+    private ab<com.baidu.tieba.card.data.b> faX = new ab<com.baidu.tieba.card.data.b>() { // from class: com.baidu.tieba.enterForum.recommend.a.a.1
         @Override // com.baidu.tieba.card.ab
         public void a(View view, com.baidu.tieba.card.data.b bVar) {
             if (bVar != null && (bVar instanceof com.baidu.tieba.enterForum.recommend.b.d)) {
@@ -25,21 +25,21 @@ public class a {
                 for (m mVar : a.this.forumList) {
                     if (mVar instanceof com.baidu.tieba.enterForum.recommend.b.d) {
                         if (title.equals(((com.baidu.tieba.enterForum.recommend.b.d) mVar).getTitle())) {
-                            List<com.baidu.tieba.enterForum.recommend.b.c> bgB = ((com.baidu.tieba.enterForum.recommend.b.d) mVar).bgB();
+                            List<com.baidu.tieba.enterForum.recommend.b.c> bhh = ((com.baidu.tieba.enterForum.recommend.b.d) mVar).bhh();
                             arrayList.add(mVar);
-                            arrayList.addAll(bgB);
+                            arrayList.addAll(bhh);
                         } else {
-                            List<com.baidu.tieba.enterForum.recommend.b.c> bgA = ((com.baidu.tieba.enterForum.recommend.b.d) mVar).bgA();
+                            List<com.baidu.tieba.enterForum.recommend.b.c> bhg = ((com.baidu.tieba.enterForum.recommend.b.d) mVar).bhg();
                             arrayList.add(mVar);
-                            arrayList.addAll(bgA);
+                            arrayList.addAll(bhg);
                         }
                     }
                 }
                 e eVar = new e();
-                eVar.eZN = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                eVar.fbt = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
                 arrayList.add(eVar);
                 if (arrayList.size() > 0) {
-                    a.this.eZn.setData(arrayList);
+                    a.this.faT.setData(arrayList);
                 }
             }
         }
@@ -50,30 +50,30 @@ public class a {
 
     public a(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eZn = rVar;
+        this.faT = rVar;
         initAdapters();
-        this.eZn.addAdapters(this.mAdapters);
+        this.faT.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.eZo = new b(this.mPageContext);
-        this.mAdapters.add(this.eZo);
-        this.eZp = new c(this.mPageContext, this.eZr);
-        this.mAdapters.add(this.eZp);
-        this.eZq = new d(this.mPageContext);
-        this.mAdapters.add(this.eZq);
+        this.faU = new b(this.mPageContext);
+        this.mAdapters.add(this.faU);
+        this.faV = new c(this.mPageContext, this.faX);
+        this.mAdapters.add(this.faV);
+        this.faW = new d(this.mPageContext);
+        this.mAdapters.add(this.faW);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eZn != null) {
-            this.eZn.getListAdapter().notifyDataSetChanged();
+        if (this.faT != null) {
+            this.faT.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
         this.forumList = list;
-        this.eZn.setData(list);
+        this.faT.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

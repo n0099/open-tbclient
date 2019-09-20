@@ -6,11 +6,11 @@ import java.util.Map;
 public interface g {
     void k(HashMap hashMap);
 
-    int pc();
-
     int pd();
 
     int pe();
 
-    Map<String, String> pf();
+    int pf();
+
+    Map<String, String> pg();
 }

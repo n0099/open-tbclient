@@ -12,8 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class a extends BdAsyncTask<Void, Void, Boolean> {
-    public static final String dap = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-    public static final String daq = File.separator;
+    public static final String dcb = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String dcc = File.separator;
     private final String TAG = a.class.getSimpleName();
     private AdInfo adInfo;
 
@@ -23,13 +23,13 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
     public Boolean doInBackground(Void... voidArr) {
         FileNotFoundException e;
         boolean z;
-        String str = dap + daq + "advideo.temp";
+        String str = dcb + dcc + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         try {
-            new File(dap).mkdirs();
+            new File(dcb).mkdirs();
             if (!file.createNewFile()) {
                 a(false, null);
                 return false;
@@ -71,7 +71,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     private void a(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(dap + daq + (s.bn(this.adInfo.adVideoUrl) + ".mp4"));
+            File file2 = new File(dcb + dcc + (s.bn(this.adInfo.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.sapi2.result.AddressManageResult;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class g {
@@ -44,7 +45,7 @@ public class g {
             NetworkInfo c = c(context);
             switch (c != null ? c.getType() : -1) {
                 case 0:
-                    return "mobile";
+                    return AddressManageResult.KEY_MOBILE;
                 case 1:
                     return IXAdSystemUtils.NT_WIFI;
                 case 2:

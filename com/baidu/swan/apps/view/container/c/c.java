@@ -19,14 +19,14 @@ public class c {
             return false;
         }
         com.baidu.swan.apps.model.a.a.a model = swanAppNAViewContainer.getModel();
-        if (TextUtils.isEmpty(model.aDV)) {
-            if (model.aDW == null) {
-                model.aDW = new com.baidu.swan.apps.model.a.a.b();
+        if (TextUtils.isEmpty(model.aEt)) {
+            if (model.aEu == null) {
+                model.aEu = new com.baidu.swan.apps.model.a.a.b();
             }
             if (c(model)) {
-                return aVar.a(b(swanAppNAViewContainer), model.aDW);
+                return aVar.a(b(swanAppNAViewContainer), model.aEu);
             }
-            return aVar.a(swanAppNAViewContainer, model.aDW);
+            return aVar.a(swanAppNAViewContainer, model.aEu);
         }
         return c(swanAppNAViewContainer);
     }
@@ -51,7 +51,7 @@ public class c {
         swanAppNAViewContainer.postDelayed(new Runnable() { // from class: com.baidu.swan.apps.view.container.c.c.2
             @Override // java.lang.Runnable
             public void run() {
-                scrollView.smoothScrollTo(0, model.aDQ);
+                scrollView.smoothScrollTo(0, model.aEo);
             }
         }, 100L);
         swanAppNAViewContainer.setScrollView(scrollView);
@@ -76,7 +76,7 @@ public class c {
             return false;
         }
         com.baidu.swan.apps.model.a.a.a model = swanAppNAViewContainer.getModel();
-        if (model == null || model.aDW == null || !model.aDW.isValid()) {
+        if (model == null || model.aEu == null || !model.aEu.isValid()) {
             com.baidu.swan.apps.console.c.e(TAG, "model is null or position is error");
             return false;
         }
@@ -86,15 +86,15 @@ public class c {
             return false;
         }
         if (c(model)) {
-            a.addView(b(swanAppNAViewContainer), model.Ht());
+            a.addView(b(swanAppNAViewContainer), model.Hx());
         } else {
-            a.addView(swanAppNAViewContainer, model.Ht());
+            a.addView(swanAppNAViewContainer, model.Hx());
         }
         return true;
     }
 
     private static boolean c(com.baidu.swan.apps.model.a.a.a aVar) {
-        return aVar != null && TextUtils.equals(aVar.aDR, "scroll") && TextUtils.equals(aVar.aDT, "coverView");
+        return aVar != null && TextUtils.equals(aVar.aEp, "scroll") && TextUtils.equals(aVar.aEr, "coverView");
     }
 
     public static boolean b(SwanAppNAViewContainer swanAppNAViewContainer, @NonNull com.baidu.swan.apps.view.container.a aVar) {
@@ -103,7 +103,7 @@ public class c {
             return false;
         }
         com.baidu.swan.apps.model.a.a.a model = swanAppNAViewContainer.getModel();
-        if (TextUtils.isEmpty(model.aDV)) {
+        if (TextUtils.isEmpty(model.aEt)) {
             if (c(model)) {
                 return aVar.an(swanAppNAViewContainer.getScrollView());
             }
@@ -142,16 +142,16 @@ public class c {
         if (swanAppNAViewContainer == null) {
             com.baidu.swan.apps.console.c.e(TAG, "view is null");
             return false;
-        } else if (aVar == null || aVar.aDW == null || !aVar.aDW.isValid()) {
+        } else if (aVar == null || aVar.aEu == null || !aVar.aEu.isValid()) {
             com.baidu.swan.apps.console.c.e(TAG, "update model has error");
             return false;
         } else {
             com.baidu.swan.apps.model.a.a.a model = swanAppNAViewContainer.getModel();
-            if (model == null || model.aDW == null || !model.aDW.isValid()) {
+            if (model == null || model.aEu == null || !model.aEu.isValid()) {
                 com.baidu.swan.apps.console.c.e(TAG, "current model has error");
                 return false;
             }
-            if ((a(model, aVar).Qr() & 1) == 1) {
+            if ((a(model, aVar).Qv() & 1) == 1) {
                 a(swanAppNAViewContainer, aVar, model);
             }
             swanAppNAViewContainer.b(aVar);
@@ -162,28 +162,28 @@ public class c {
     private static void a(@NonNull SwanAppNAViewContainer swanAppNAViewContainer, com.baidu.swan.apps.model.a.a.a aVar, com.baidu.swan.apps.model.a.a.a aVar2) {
         String parentId = swanAppNAViewContainer.getParentId();
         if (TextUtils.isEmpty(parentId)) {
-            com.baidu.swan.apps.view.container.a iD = iD(aVar.aDU);
-            if (iD == null) {
+            com.baidu.swan.apps.view.container.a iF = iF(aVar.aEs);
+            if (iF == null) {
                 com.baidu.swan.apps.console.c.e(TAG, "root view is null");
                 return;
             }
-            iD.b(swanAppNAViewContainer, aVar.aDW);
+            iF.b(swanAppNAViewContainer, aVar.aEu);
         } else {
-            SwanAppNAViewContainer a = b.a(aVar.aDU, parentId, null);
+            SwanAppNAViewContainer a = b.a(aVar.aEs, parentId, null);
             if (a == null) {
                 com.baidu.swan.apps.console.c.e(TAG, "parent view is null");
                 return;
             } else if (c(aVar)) {
                 ScrollView scrollView = swanAppNAViewContainer.getScrollView();
                 if (scrollView != null && scrollView.getParent() == a) {
-                    a.updateViewLayout(swanAppNAViewContainer.getScrollView(), aVar.Ht());
+                    a.updateViewLayout(swanAppNAViewContainer.getScrollView(), aVar.Hx());
                 }
             } else if (a == swanAppNAViewContainer.getParent()) {
-                a.updateViewLayout(swanAppNAViewContainer, aVar.Ht());
+                a.updateViewLayout(swanAppNAViewContainer, aVar.Hx());
             }
         }
         if (aVar2 != null) {
-            aVar2.a(aVar.aDW);
+            aVar2.a(aVar.aEu);
         }
     }
 
@@ -194,33 +194,33 @@ public class c {
             if (aVar != null && aVar2 != null) {
                 aVar.a(aVar2, aVar3);
             } else {
-                aVar3.eL(63);
+                aVar3.eM(63);
             }
         }
         return aVar3;
     }
 
     public static void c(SwanAppNAViewContainer swanAppNAViewContainer, @Nullable com.baidu.swan.apps.view.container.a aVar) {
-        com.baidu.swan.apps.view.container.a.a Qh;
+        com.baidu.swan.apps.view.container.a.a Ql;
         if (aVar == null) {
-            aVar = iD(swanAppNAViewContainer.getSlaveId());
+            aVar = iF(swanAppNAViewContainer.getSlaveId());
         }
-        if (aVar != null && (Qh = aVar.Qh()) != null) {
-            Qh.ap(swanAppNAViewContainer);
+        if (aVar != null && (Ql = aVar.Ql()) != null) {
+            Ql.ap(swanAppNAViewContainer);
         }
     }
 
     public static void d(SwanAppNAViewContainer swanAppNAViewContainer, com.baidu.swan.apps.view.container.a aVar) {
-        com.baidu.swan.apps.view.container.a.a Qh;
+        com.baidu.swan.apps.view.container.a.a Ql;
         if (aVar == null) {
-            aVar = iD(swanAppNAViewContainer.getSlaveId());
+            aVar = iF(swanAppNAViewContainer.getSlaveId());
         }
-        if (aVar != null && (Qh = aVar.Qh()) != null) {
-            Qh.aq(swanAppNAViewContainer);
+        if (aVar != null && (Ql = aVar.Ql()) != null) {
+            Ql.aq(swanAppNAViewContainer);
         }
     }
 
-    public static com.baidu.swan.apps.view.container.a iD(String str) {
-        return ac.ix(str);
+    public static com.baidu.swan.apps.view.container.a iF(String str) {
+        return ac.iz(str);
     }
 }

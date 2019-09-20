@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private String bsQ;
-    private ArrayList<String> jMo;
+    private String bto;
+    private ArrayList<String> jOJ;
 
     public void m(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.aa(this.jMo)) {
+        if (spannable != null && !v.aa(this.jOJ)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.jMo.iterator();
+                Iterator<String> it = this.jOJ.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -49,7 +49,7 @@ public class b {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = am.getColor(R.color.cp_btn_a);
+                int color = am.getColor(R.color.cp_cont_a);
                 int color2 = am.getColor(R.color.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.aa(czz())) {
+        if (v.aa(cAn())) {
             return false;
         }
         return n(editText) || n(editText2);
@@ -107,18 +107,18 @@ public class b {
     }
 
     public void aI(ArrayList<String> arrayList) {
-        this.jMo = arrayList;
+        this.jOJ = arrayList;
     }
 
-    public ArrayList<String> czz() {
-        return this.jMo;
+    public ArrayList<String> cAn() {
+        return this.jOJ;
     }
 
-    public void GB(String str) {
-        this.bsQ = str;
+    public void Hb(String str) {
+        this.bto = str;
     }
 
-    public String czD() {
-        return this.bsQ;
+    public String cAr() {
+        return this.bto;
     }
 }

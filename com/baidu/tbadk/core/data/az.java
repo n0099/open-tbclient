@@ -9,40 +9,40 @@ import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
 /* loaded from: classes3.dex */
 public class az {
-    private String bIG;
-    private List<a> bIH = new ArrayList();
+    private String bJe;
+    private List<a> bJf = new ArrayList();
 
-    public String adH() {
-        return StringUtils.isNull(this.bIG) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.bIG;
+    public String adL() {
+        return StringUtils.isNull(this.bJe) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.bJe;
     }
 
-    public com.baidu.tieba.card.data.n adI() {
+    public com.baidu.tieba.card.data.n adM() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.eGz = adH();
-        if (this.bIH != null) {
+        nVar.eIi = adL();
+        if (this.bJf != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.bIH) {
+            for (a aVar : this.bJf) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.adK());
+                    arrayList2.add(aVar.adO());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.eGA = arrayList;
+        nVar.eIj = arrayList;
         return nVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.bIG = recomTopicInfo.recom_title;
+            this.bJe = recomTopicInfo.recom_title;
             if (com.baidu.tbadk.core.util.v.Z(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.bIH.add(aVar);
+                            this.bJf.add(aVar);
                         }
                     }
                 }
@@ -51,45 +51,45 @@ public class az {
     }
 
     private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.adJ() <= 0;
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.adN() <= 0;
     }
 
     /* loaded from: classes3.dex */
     public static class a {
-        private String bII;
-        private long bIJ;
-        private String bIK;
-        private String bIL;
+        private String bJg;
+        private long bJh;
+        private String bJi;
+        private String bJj;
         private int tag;
         private long topicId;
         private int type;
 
-        public long adJ() {
+        public long adN() {
             return this.topicId;
         }
 
         public String getTopicName() {
-            return this.bII;
+            return this.bJg;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
                 this.topicId = recomTopicList.topic_id.longValue();
-                this.bII = recomTopicList.topic_name;
+                this.bJg = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.bIJ = recomTopicList.discuss_num.longValue();
+                this.bJh = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.bIK = recomTopicList.topic_desc;
-                this.bIL = recomTopicList.topic_pic;
+                this.bJi = recomTopicList.topic_desc;
+                this.bJj = recomTopicList.topic_pic;
             }
         }
 
-        public com.baidu.tieba.card.data.m adK() {
+        public com.baidu.tieba.card.data.m adO() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
-            mVar.desc = this.bIK;
+            mVar.desc = this.bJi;
             mVar.topicId = this.topicId;
-            mVar.bII = this.bII;
+            mVar.bJg = this.bJg;
             return mVar;
         }
     }

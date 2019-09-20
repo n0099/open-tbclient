@@ -9,11 +9,11 @@ public class a {
         b.putBoolean("PREFS_NIGHT_MODE", z);
     }
 
-    public static boolean Fe() {
+    public static boolean Fi() {
         return b.getBoolean("PREFS_NIGHT_MODE", false);
     }
 
-    public static void gE(boolean z) {
+    public static void gH(boolean z) {
         Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
         intent.putExtra("key_night_mode", z);
         LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);

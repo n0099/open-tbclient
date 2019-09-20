@@ -5,18 +5,18 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class g {
-    private static String aZS;
+    private static String baq;
 
-    public static String Pm() {
-        if (TextUtils.isEmpty(aZS)) {
+    public static String Pq() {
+        if (TextUtils.isEmpty(baq)) {
             synchronized (g.class) {
-                aZS = Pn();
+                baq = Pr();
             }
         }
-        return aZS;
+        return baq;
     }
 
-    private static String Pn() {
+    private static String Pr() {
         String replace;
         String replace2;
         String replace3;

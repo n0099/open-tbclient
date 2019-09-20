@@ -23,12 +23,10 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.sapi2.utils.enums.RegistMode;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
@@ -37,8 +35,8 @@ public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_BDUSS = "bduss";
     public static final String SESSION_DISPLAYNAME = "displayname";
     public static final String SESSION_UID = "uid";
-    public static final int VERSION_CODE = 215;
-    public static final String VERSION_NAME = "8.7.17";
+    public static final int VERSION_CODE = 220;
+    public static final String VERSION_NAME = "8.8.4";
     private static SapiAccountManager a;
     private static SapiConfiguration b;
     private static SapiAccountService c;
@@ -47,7 +45,6 @@ public final class SapiAccountManager implements ISAccountManager {
     private static ReceiveShareListener f;
     private static GlobalAuthorizationListener g;
     private static final List<String> h = new ArrayList();
-    private static HashSet<String> i;
 
     /* loaded from: classes.dex */
     public interface ReceiveShareListener {
@@ -63,9 +60,6 @@ public final class SapiAccountManager implements ISAccountManager {
         h.add("uid");
         h.add(SESSION_DISPLAYNAME);
         h.add("bduss");
-        i = new HashSet<>();
-        i.add("com.baidu.sapi2.httpwrap.HttpClientWrap");
-        i.add("com.baidu.pass.http.PassHttpClient");
     }
 
     public static synchronized SapiAccountManager getInstance() {
@@ -85,46 +79,20 @@ public final class SapiAccountManager implements ISAccountManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         try {
-            Iterator<String> it = i.iterator();
-            while (it.hasNext()) {
-                Class.forName(it.next());
-            }
-        } catch (Throwable th) {
-            Log.e(th);
-            b("proguard error. Please check groguard file in your project.");
-        }
-        try {
             Class.forName("com.baidu.sofire.ac.FH");
         } catch (ClassNotFoundException e2) {
             Log.e(e2);
             b("please import the package : sofire-sdk-*.jar");
         }
-        if (getConfignation().registMode == RegistMode.FAST) {
-            try {
-                Class.forName("com.baidu.sapi2.SmsService");
-            } catch (ClassNotFoundException e3) {
-                Log.e(e3);
-                b("please import the package : sapi-pass-sms-*.jar");
-            }
-        }
         if (TextUtils.isEmpty(getConfignation().sofireAppKey) || TextUtils.isEmpty(getConfignation().sofireSecKey) || getConfignation().sofireHostID == -1) {
             throw new IllegalArgumentException("sofireAppKey or sofireSecKey can't be empty and sofireHostID can't equal -1");
         }
         if (b.supportFaceLogin) {
-            if (b.rimSDKEnable) {
-                try {
-                    Class.forName("com.baidu.fsg.api.BaiduRIM");
-                } catch (Throwable th2) {
-                    Log.e(th2);
-                    b("please import the package :rim-sdk-api-*.aar and rim-sdk-face-*.aar and then call BaiduRIM.getInstance().initRIM method in Application class to initialize the RIM SDK");
-                }
-            } else {
-                try {
-                    Class.forName("com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager");
-                } catch (Throwable th3) {
-                    Log.e(th3);
-                    b("please import the package :pass-biometrics-face-*.aar and pass-biometrics-base-*.aar");
-                }
+            try {
+                Class.forName("com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager");
+            } catch (Throwable th) {
+                Log.e(th);
+                b("please import the package :pass-biometrics-face-*.aar and pass-biometrics-base-*.aar");
             }
         }
         if (b.loginShareStrategy() != LoginShareStrategy.DISABLED && getReceiveShareListener() == null) {
@@ -192,12 +160,15 @@ public final class SapiAccountManager implements ISAccountManager {
                             }
                         }
                         sapiContext.setHostsHijacked(SapiDeviceUtils.checkHosts(sapiConfiguration.context));
-                        if (sapiConfiguration.supportFaceLogin && !SapiAccountManager.b.rimSDKEnable) {
+                        if (sapiConfiguration.supportFaceLogin) {
                             new d().a(SapiAccountManager.b);
                         }
                         SafeService.getInstance().init(sapiConfiguration.context, sapiConfiguration.sofireAppKey, sapiConfiguration.sofireSecKey, 1);
                         if (SapiAccountManager.this.isLogin()) {
                             new com.baidu.sapi2.b.a().a(sapiConfiguration.context);
+                        }
+                        if (TextUtils.isEmpty(SapiUtils.getCookieBduss())) {
+                            SapiAccountManager.getInstance().getAccountService().webLogin(sapiConfiguration.context);
                         }
                         try {
                             SapiAccountManager.this.c();
@@ -247,13 +218,13 @@ public final class SapiAccountManager implements ISAccountManager {
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public String getZidAndCheckSafe(Context context, String str, int i2) {
-        return SapiSafeFacade.a().getZidAndCheckSafe(context, str, i2);
+    public String getZidAndCheckSafe(Context context, String str, int i) {
+        return SapiSafeFacade.a().getZidAndCheckSafe(context, str, i);
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public String getDeviceAuthToken(Context context, String str, int i2) {
-        return SapiSafeFacade.a().getDeviceAuthToken(context, str, i2);
+    public String getDeviceAuthToken(Context context, String str, int i) {
+        return SapiSafeFacade.a().getDeviceAuthToken(context, str, i);
     }
 
     public boolean isLogin() {
@@ -263,9 +234,13 @@ public final class SapiAccountManager implements ISAccountManager {
 
     public void logout() {
         StatService.onEvent("logout", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo("sdk_api_logout")));
-        removeLoginAccount(getSession());
+        SapiAccount session = getSession();
+        removeLoginAccount(session);
         new ShareCallPacking().markLoginState(false);
         SapiUtils.reportGid(10005);
+        if (session != null) {
+            SapiContext.getInstance(getConfignation().context).putEncryptStr(SapiContext.KEY_LAST_LOGIN_UID, session.uid);
+        }
     }
 
     public String getSession(String str, String str2) {
@@ -328,15 +303,12 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiAccount currentAccount = SapiContext.getInstance(b.context).getCurrentAccount();
         SapiContext.getInstance(b.context).removeLoginAccount(sapiAccount);
         new ShareCallPacking().markLoginState(false);
-        if (currentAccount != null && !TextUtils.isEmpty(sapiAccount.uid) && sapiAccount.uid.equals(currentAccount.uid)) {
-            if (getGlobalAuthorizationListener() != null) {
-                try {
-                    getGlobalAuthorizationListener().onLogoutSuccess(sapiAccount);
-                } catch (Throwable th) {
-                    Log.e(th);
-                }
+        if (currentAccount != null && !TextUtils.isEmpty(sapiAccount.uid) && sapiAccount.uid.equals(currentAccount.uid) && getGlobalAuthorizationListener() != null) {
+            try {
+                getGlobalAuthorizationListener().onLogoutSuccess(sapiAccount);
+            } catch (Throwable th) {
+                Log.e(th);
             }
-            getInstance().getAccountService().checkFaceLoginEnable(b.context, null);
         }
     }
 

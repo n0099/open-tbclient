@@ -24,32 +24,32 @@ import tbclient.MFollow.MFollowResult;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class d implements View.OnClickListener {
-    private com.baidu.tbadk.core.dialog.a TX;
-    private a gaA;
-    private ViewGroup gaF;
-    private com.baidu.tieba.godRecommends.a gaG;
-    private TextView gaH;
-    private View gaI;
-    private TextView gaJ;
-    private View gaK;
-    private TextView gaL;
+    private com.baidu.tbadk.core.dialog.a TW;
+    private TextView gcA;
+    private View gcB;
+    private TextView gcC;
+    private a gcr;
+    private ViewGroup gcw;
+    private com.baidu.tieba.godRecommends.a gcx;
+    private TextView gcy;
+    private View gcz;
     private Activity mActivity;
     private TbPageContext<?> mContext;
     private ListView mListView;
     private View.OnClickListener mOnClickListener;
     private AdapterView.OnItemClickListener mOnItemClickListener;
     private View mTopLine;
-    private List<MetaData> gaM = new ArrayList();
-    private List<MetaData> gaN = new ArrayList();
+    private List<MetaData> gcD = new ArrayList();
+    private List<MetaData> gcE = new ArrayList();
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.godRecommends.d.1
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.buD()) {
-                if (!d.this.cw(d.this.gaM)) {
-                    d.this.gaG.setData(d.this.gaM);
+            if (d.this.bvr()) {
+                if (!d.this.cw(d.this.gcD)) {
+                    d.this.gcx.setData(d.this.gcD);
                 } else {
-                    d.this.azR();
+                    d.this.aAd();
                 }
             }
         }
@@ -74,70 +74,70 @@ public class d implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.gaA = aVar;
+        this.gcr = aVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && !v.aa(cVar.buA())) {
-            azR();
-            this.gaM.clear();
-            this.gaN.clear();
-            List<MetaData> buA = cVar.buA();
-            int size = buA.size();
+        if (cVar != null && !v.aa(cVar.bvo())) {
+            aAd();
+            this.gcD.clear();
+            this.gcE.clear();
+            List<MetaData> bvo = cVar.bvo();
+            int size = bvo.size();
             if (size <= 3) {
-                this.gaM.addAll(buA);
+                this.gcD.addAll(bvo);
             } else {
-                this.gaM.addAll(buA.subList(0, 3));
-                this.gaN.addAll(buA.subList(3, size));
+                this.gcD.addAll(bvo.subList(0, 3));
+                this.gcE.addAll(bvo.subList(3, size));
             }
             initUI();
-            this.gaH.setText(R.string.god_recommend_title);
-            am.k(this.gaF, R.drawable.bg_god_recommend_layout);
-            am.j(this.gaH, R.color.cp_cont_d);
-            am.l(this.mTopLine, R.color.cp_bg_line_b);
-            am.l(this.gaI, R.color.cp_bg_line_a);
-            am.j(this.gaJ, R.color.cp_cont_f);
-            am.k(this.gaJ, R.drawable.god_recommend_left_button_selector);
-            am.l(this.gaK, R.color.cp_bg_line_a);
-            am.j(this.gaL, R.color.cp_link_tip_a);
-            am.k(this.gaL, R.drawable.god_recommend_right_button_selertor);
-            this.gaG.setData(this.gaM);
-            this.mListView.setAdapter((ListAdapter) this.gaG);
-            this.TX.reset();
-            this.TX.b(this.mContext).agK();
+            this.gcy.setText(R.string.god_recommend_title);
+            am.k(this.gcw, R.drawable.bg_god_recommend_layout);
+            am.j(this.gcy, R.color.cp_cont_d);
+            am.l(this.mTopLine, R.color.cp_bg_line_c);
+            am.l(this.gcz, R.color.cp_bg_line_c);
+            am.j(this.gcA, R.color.cp_cont_f);
+            am.k(this.gcA, R.drawable.god_recommend_left_button_selector);
+            am.l(this.gcB, R.color.cp_bg_line_c);
+            am.j(this.gcC, R.color.cp_link_tip_a);
+            am.k(this.gcC, R.drawable.god_recommend_right_button_selertor);
+            this.gcx.setData(this.gcD);
+            this.mListView.setAdapter((ListAdapter) this.gcx);
+            this.TW.reset();
+            this.TW.b(this.mContext).agO();
         }
     }
 
     private void initUI() {
-        if (this.gaF == null) {
-            this.gaF = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.god_recommend_content_layout, (ViewGroup) null);
-            this.gaH = (TextView) this.gaF.findViewById(R.id.god_title);
-            this.mTopLine = this.gaF.findViewById(R.id.top_line);
-            this.gaI = this.gaF.findViewById(R.id.content_button_divider);
-            this.gaJ = (TextView) this.gaF.findViewById(R.id.btn_to_do_leter);
-            this.gaJ.setOnClickListener(this);
-            this.gaK = this.gaF.findViewById(R.id.button_divider);
-            this.gaL = (TextView) this.gaF.findViewById(R.id.btn_attention_all);
-            this.gaL.setOnClickListener(this);
-            this.mListView = (ListView) this.gaF.findViewById(R.id.listview);
-            this.gaG = new com.baidu.tieba.godRecommends.a(this.mActivity);
+        if (this.gcw == null) {
+            this.gcw = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.god_recommend_content_layout, (ViewGroup) null);
+            this.gcy = (TextView) this.gcw.findViewById(R.id.god_title);
+            this.mTopLine = this.gcw.findViewById(R.id.top_line);
+            this.gcz = this.gcw.findViewById(R.id.content_button_divider);
+            this.gcA = (TextView) this.gcw.findViewById(R.id.btn_to_do_leter);
+            this.gcA.setOnClickListener(this);
+            this.gcB = this.gcw.findViewById(R.id.button_divider);
+            this.gcC = (TextView) this.gcw.findViewById(R.id.btn_attention_all);
+            this.gcC.setOnClickListener(this);
+            this.mListView = (ListView) this.gcw.findViewById(R.id.listview);
+            this.gcx = new com.baidu.tieba.godRecommends.a(this.mActivity);
             this.mListView.setOnItemClickListener(this.mOnItemClickListener);
-            this.gaG.setOnClickListener(this.mOnClickListener);
+            this.gcx.setOnClickListener(this.mOnClickListener);
         }
-        if (this.TX == null) {
-            this.TX = new com.baidu.tbadk.core.dialog.a(this.mActivity);
-            this.TX.aH(this.gaF);
-            this.TX.hx(1);
-            this.TX.dR(true);
+        if (this.TW == null) {
+            this.TW = new com.baidu.tbadk.core.dialog.a(this.mActivity);
+            this.TW.aH(this.gcw);
+            this.TW.hy(1);
+            this.TW.dR(true);
         }
     }
 
-    private List<MetaData> buB() {
-        if (v.aa(this.gaM)) {
+    private List<MetaData> bvp() {
+        if (v.aa(this.gcD)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (MetaData metaData : this.gaM) {
+        for (MetaData metaData : this.gcD) {
             if (metaData != null && !metaData.getGodUserData().getIsLike()) {
                 arrayList.add(metaData);
             }
@@ -145,24 +145,24 @@ public class d implements View.OnClickListener {
         return arrayList;
     }
 
-    public MetaData tC(int i) {
-        return this.gaG.getItem(i);
+    public MetaData tG(int i) {
+        return this.gcx.getItem(i);
     }
 
     public void n(List<MFollowResult> list, boolean z) {
-        if (!v.aa(list) && buD()) {
+        if (!v.aa(list) && bvr()) {
             boolean cv = cv(list);
             if (z) {
                 if (cv) {
                     l.showToast(this.mActivity, (int) R.string.attention_success);
-                    azR();
+                    aAd();
                     return;
                 }
-                this.gaG.setData(this.gaM);
+                this.gcx.setData(this.gcD);
                 l.showToast(this.mActivity, (int) R.string.attention_fail);
             } else if (cv) {
-                this.gaG.setData(this.gaM);
-                buC();
+                this.gcx.setData(this.gcD);
+                bvq();
             } else {
                 l.showToast(this.mActivity, cu(list));
             }
@@ -194,16 +194,16 @@ public class d implements View.OnClickListener {
         return (i2 != 1 || StringUtils.isNull(str)) ? this.mActivity.getString(R.string.attention_fail) : str;
     }
 
-    private void buC() {
-        if (!v.aa(this.gaN)) {
-            int size = this.gaM.size() - 1;
+    private void bvq() {
+        if (!v.aa(this.gcE)) {
+            int size = this.gcD.size() - 1;
             while (true) {
                 if (size >= 0) {
-                    if (this.gaM.get(size) == null || !this.gaM.get(size).getGodUserData().getIsLike()) {
+                    if (this.gcD.get(size) == null || !this.gcD.get(size).getGodUserData().getIsLike()) {
                         size--;
                     } else {
-                        this.gaM.remove(size);
-                        this.gaM.add(this.gaN.remove(0));
+                        this.gcD.remove(size);
+                        this.gcD.add(this.gcE.remove(0));
                         break;
                     }
                 } else {
@@ -224,7 +224,7 @@ public class d implements View.OnClickListener {
             if (!mFollowResult.is_success.booleanValue()) {
                 z = false;
             } else {
-                Iterator<MetaData> it = this.gaM.iterator();
+                Iterator<MetaData> it = this.gcD.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         MetaData next = it.next();
@@ -254,13 +254,13 @@ public class d implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean buD() {
-        return this.TX != null && this.TX.isShowing();
+    public boolean bvr() {
+        return this.TW != null && this.TW.isShowing();
     }
 
-    public void azR() {
-        if (buD()) {
-            this.TX.dismiss();
+    public void aAd() {
+        if (bvr()) {
+            this.TW.dismiss();
         }
         this.mHandler.removeCallbacksAndMessages(null);
     }
@@ -269,10 +269,10 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.btn_to_do_leter) {
-            this.TX.dismiss();
+            this.TW.dismiss();
         }
-        if (id == R.id.btn_attention_all && this.gaA != null) {
-            this.gaA.ct(buB());
+        if (id == R.id.btn_attention_all && this.gcr != null) {
+            this.gcr.ct(bvp());
         }
     }
 }

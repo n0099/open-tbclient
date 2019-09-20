@@ -82,6 +82,10 @@ public final class a {
         }
     }
 
+    public static long o() {
+        return ZO;
+    }
+
     public static String p() {
         StringBuilder sb = new StringBuilder();
         int size = ZL.size();
@@ -98,10 +102,6 @@ public final class a {
 
     public static String q() {
         return ZK == null ? "N/A" : ZK.getClass().getName();
-    }
-
-    public static long rh() {
-        return ZO;
     }
 
     public static byte[] ri() {

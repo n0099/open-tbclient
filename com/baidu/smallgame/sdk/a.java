@@ -17,15 +17,15 @@ import java.util.LinkedList;
 import java.util.TreeSet;
 /* loaded from: classes2.dex */
 public final class a implements AREngineDelegate {
-    private ArBridge aje;
-    private Object ajh;
-    private C0105a aji;
+    private ArBridge ajC;
+    private Object ajF;
+    private C0114a ajG;
     private boolean mDetached;
     private GLSurfaceView.Renderer mRenderer;
     private SurfaceHolder mSurfaceHolder;
     private long mCurrentGLThreadID = -1;
-    private boolean ajf = false;
-    private final c ajg = new c();
+    private boolean ajD = false;
+    private final c ajE = new c();
 
     static {
         V8SoLoader.load();
@@ -34,17 +34,17 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a() {
         Log.setMinLogLevel(6, false);
-        this.aje = new ArBridge();
+        this.ajC = new ArBridge();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public ArBridge getArBridge() {
-        return this.aje;
+        return this.ajC;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public Thread getGLThread() {
-        return this.aji;
+        return this.ajG;
     }
 
     public void setSurfaceHolder(SurfaceHolder surfaceHolder) {
@@ -54,86 +54,86 @@ public final class a implements AREngineDelegate {
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setRenderer(GLSurfaceView.Renderer renderer) {
         this.mRenderer = renderer;
-        this.aji = new C0105a(this);
-        this.aji.start();
+        this.ajG = new C0114a(this);
+        this.ajG.start();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setRenderMode(int i) {
-        if (this.aji != null) {
-            this.aji.setRenderMode(i);
+        if (this.ajG != null) {
+            this.ajG.setRenderMode(i);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public int getRenderMode() {
-        if (this.aji != null) {
-            return this.aji.getRenderMode();
+        if (this.ajG != null) {
+            return this.ajG.getRenderMode();
         }
         return 1;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void requestRender() {
-        if (this.aji != null) {
-            this.aji.requestRender();
+        if (this.ajG != null) {
+            this.ajG.requestRender();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void surfaceCreated() {
         Log.w("EngineLogger", "[V8Dispose][AREngine] surfaceCreated.");
-        this.aji.surfaceCreated();
+        this.ajG.surfaceCreated();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void surfaceDestroyed() {
         Log.w("EngineLogger", "[V8Dispose][AREngine] surfaceDestroyed.");
-        this.aji.surfaceDestroyed();
+        this.ajG.surfaceDestroyed();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void surfaceChanged(int i, int i2) {
         Log.w("EngineLogger", "[V8Dispose][AREngine] surfaceChanged. width=" + i + ", height=" + i2);
-        this.aji.y(i, i2);
-        this.aje.setEglContextToRecorder(getEGLContext(), i, i2);
+        this.ajG.y(i, i2);
+        this.ajC.setEglContextToRecorder(getEGLContext(), i, i2);
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void requestRenderAndWait() {
-        if (this.aji != null) {
-            this.aji.requestRenderAndWait();
+        if (this.ajG != null) {
+            this.ajG.requestRenderAndWait();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void smallGameOnPause() {
-        this.aje.smallGameOnPause();
+        this.ajC.smallGameOnPause();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void queueEvent(Runnable runnable) {
-        if (this.aji != null) {
-            this.aji.queueEvent(runnable);
+        if (this.ajG != null) {
+            this.ajG.queueEvent(runnable);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void queueEvent(Runnable runnable, long j) {
-        if (this.aji != null) {
-            this.aji.a(runnable, j);
+        if (this.ajG != null) {
+            this.ajG.a(runnable, j);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void onAttachedToWindow() {
         if (this.mDetached && this.mRenderer != null) {
-            int renderMode = this.aji != null ? this.aji.getRenderMode() : 1;
-            this.aji = new C0105a(this);
+            int renderMode = this.ajG != null ? this.ajG.getRenderMode() : 1;
+            this.ajG = new C0114a(this);
             if (renderMode != 1) {
-                this.aji.setRenderMode(renderMode);
+                this.ajG.setRenderMode(renderMode);
             }
-            this.aji.start();
+            this.ajG.start();
         }
         this.mDetached = false;
         Log.w("EngineLogger", "[V8Dispose][AREngine] onAttachedToWindow");
@@ -141,8 +141,8 @@ public final class a implements AREngineDelegate {
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void onDetachedFromWindow() {
-        if (!this.mDetached && this.aji != null) {
-            this.aji.vy();
+        if (!this.mDetached && this.ajG != null) {
+            this.ajG.vC();
         }
         this.mDetached = true;
         Log.w("EngineLogger", "[V8Dispose][AREngine] onDetachedFromWindow");
@@ -150,103 +150,103 @@ public final class a implements AREngineDelegate {
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void onPause() {
-        if (this.aji != null) {
-            this.aji.onPause();
+        if (this.ajG != null) {
+            this.ajG.onPause();
         }
-        if (this.aje.getGameRecorder() != null) {
-            this.aje.getGameRecorder().tg();
+        if (this.ajC.getGameRecorder() != null) {
+            this.ajC.getGameRecorder().tg();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void onResume() {
-        if (this.aji != null) {
-            this.aji.onResume();
+        if (this.ajG != null) {
+            this.ajG.onResume();
         }
-        if (this.aje.getGameRecorder() != null) {
-            this.aje.getGameRecorder().th();
+        if (this.ajC.getGameRecorder() != null) {
+            this.ajC.getGameRecorder().th();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void pauseRecord() {
-        if (this.aje.getGameRecorder() != null) {
-            this.aje.getGameRecorder().pauseRecord();
+        if (this.ajC.getGameRecorder() != null) {
+            this.ajC.getGameRecorder().pauseRecord();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void resumeRecord() {
-        if (this.aje.getGameRecorder() != null) {
-            this.aje.getGameRecorder().resumeRecord();
+        if (this.ajC.getGameRecorder() != null) {
+            this.ajC.getGameRecorder().resumeRecord();
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void stopRecord() {
-        if (this.aje.getGameRecorder() != null) {
-            this.aje.getGameRecorder().stopRecord();
-            this.aje.nativeUpdateRecordingStatus(false);
+        if (this.ajC.getGameRecorder() != null) {
+            this.ajC.getGameRecorder().stopRecord();
+            this.ajC.nativeUpdateRecordingStatus(false);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void startRecord(boolean z, int i, String str, boolean z2) {
-        if (this.aje.getGameRecorder() != null) {
-            this.aje.nativeUpdateRecordingStatus(true);
-            this.aje.getGameRecorder().startRecord(z, i, str, z2);
+        if (this.ajC.getGameRecorder() != null) {
+            this.ajC.nativeUpdateRecordingStatus(true);
+            this.ajC.getGameRecorder().startRecord(z, i, str, z2);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setGameRecordCallback(com.baidu.mario.b.b bVar) {
-        if (this.aje.getGameRecorder() != null) {
-            this.aje.getGameRecorder().setGameRecordCallback(bVar);
+        if (this.ajC.getGameRecorder() != null) {
+            this.ajC.getGameRecorder().setGameRecordCallback(bVar);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public long getCurrentRecordProcess() {
-        if (this.aje.getGameRecorder() != null) {
-            return this.aje.getGameRecorder().tf();
+        if (this.ajC.getGameRecorder() != null) {
+            return this.ajC.getGameRecorder().tf();
         }
         return 0L;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void smallGameDestroy() {
-        this.aje.smallGameDestroy();
+        this.ajC.smallGameDestroy();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void exitGLThread() {
-        if (this.aji != null) {
-            this.aji.vy();
+        if (this.ajG != null) {
+            this.ajG.vC();
         }
         Log.e("EngineLogger", "[V8Dispose][AREngine] exitGLThread.");
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void smallGameUpdate() {
-        this.aje.smallGameUpdate();
+        this.ajC.smallGameUpdate();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {
-        this.aje.setFirstFrameListener(firstFrameListener);
+        this.ajC.setFirstFrameListener(firstFrameListener);
     }
 
     public EGLContext getEGLContext() {
-        if (this.aji == null || this.aji.ajE == null) {
+        if (this.ajG == null || this.ajG.akc == null) {
             return null;
         }
-        return this.aji.ajE.mEglContext;
+        return this.ajG.akc.mEglContext;
     }
 
     protected void finalize() throws Throwable {
         try {
-            if (this.aji != null) {
-                this.aji.vy();
+            if (this.ajG != null) {
+                this.ajG.vC();
             }
         } finally {
             super.finalize();
@@ -256,39 +256,39 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.smallgame.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0105a extends Thread {
-        private boolean ajA;
-        private b ajE;
-        private a ajF;
-        private c ajg;
-        private boolean ajp;
-        private boolean ajq;
-        private boolean ajr;
-        private boolean ajs;
-        private boolean ajt;
-        private boolean aju;
-        private boolean ajv;
-        private boolean ajw;
+    public static class C0114a extends Thread {
+        private c ajE;
+        private boolean ajN;
+        private boolean ajO;
+        private boolean ajP;
+        private boolean ajQ;
+        private boolean ajR;
+        private boolean ajS;
+        private boolean ajT;
+        private boolean ajU;
+        private boolean ajY;
+        private b akc;
+        private a akd;
         private boolean mPaused;
-        private int ajj = 0;
-        private long ajk = 0;
-        private long ajl = 0;
-        private long ajm = 0;
-        private volatile boolean ajn = false;
-        private volatile boolean ajo = false;
-        private LinkedList<Runnable> ajB = new LinkedList<>();
-        private TreeSet<d> ajC = new TreeSet<>();
-        private boolean ajD = true;
+        private int ajH = 0;
+        private long ajI = 0;
+        private long ajJ = 0;
+        private long ajK = 0;
+        private volatile boolean ajL = false;
+        private volatile boolean ajM = false;
+        private LinkedList<Runnable> ajZ = new LinkedList<>();
+        private TreeSet<d> aka = new TreeSet<>();
+        private boolean akb = true;
         private V8Engine mV8Engine = null;
         private int mWidth = 0;
         private int mHeight = 0;
-        private boolean ajy = true;
-        private int ajx = 1;
-        private boolean ajz = false;
+        private boolean ajW = true;
+        private int ajV = 1;
+        private boolean ajX = false;
 
-        C0105a(a aVar) {
-            this.ajF = aVar;
-            this.ajg = aVar.ajg;
+        C0114a(a aVar) {
+            this.akd = aVar;
+            this.ajE = aVar.ajE;
         }
 
         /* JADX WARN: Type inference failed for: r4v0, types: [com.baidu.smallgame.sdk.a, com.baidu.searchbox.v8engine.V8Engine, com.baidu.smallgame.sdk.a$b] */
@@ -296,14 +296,14 @@ public final class a implements AREngineDelegate {
         public void run() {
             setName("ARGLThread " + getId());
             try {
-                vu();
+                vy();
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                this.ajg.b(this);
-                this.ajE.reset();
-                this.ajE = null;
-                this.ajF = null;
+                this.ajE.b(this);
+                this.akc.reset();
+                this.akc = null;
+                this.akd = null;
                 this.mV8Engine = null;
             }
         }
@@ -323,18 +323,18 @@ public final class a implements AREngineDelegate {
             return 0.0f;
         }
 
-        private void vs() {
-            if (this.aju) {
-                this.aju = false;
-                this.ajE.destroySurface();
+        private void vw() {
+            if (this.ajS) {
+                this.ajS = false;
+                this.akc.destroySurface();
             }
         }
 
-        private void vt() {
-            if (this.ajt) {
-                this.ajE.finish();
-                this.ajt = false;
-                this.ajg.c(this);
+        private void vx() {
+            if (this.ajR) {
+                this.akc.finish();
+                this.ajR = false;
+                this.ajE.c(this);
             }
         }
 
@@ -350,17 +350,17 @@ public final class a implements AREngineDelegate {
             if (r10 == false) goto L83;
          */
         /* JADX WARN: Code restructure failed: missing block: B:105:0x024e, code lost:
-            if (r23.ajE.vA() == false) goto L28;
+            if (r23.akc.vE() == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:106:0x0250, code lost:
-            r10 = r23.ajg;
+            r10 = r23.ajE;
          */
         /* JADX WARN: Code restructure failed: missing block: B:107:0x0254, code lost:
             monitor-enter(r10);
          */
         /* JADX WARN: Code restructure failed: missing block: B:109:0x0256, code lost:
-            r23.ajv = true;
-            r23.ajg.notifyAll();
+            r23.ajT = true;
+            r23.ajE.notifyAll();
          */
         /* JADX WARN: Code restructure failed: missing block: B:110:0x0261, code lost:
             monitor-exit(r10);
@@ -378,7 +378,7 @@ public final class a implements AREngineDelegate {
             if (r8 == false) goto L81;
          */
         /* JADX WARN: Code restructure failed: missing block: B:115:0x026a, code lost:
-            r8 = r23.ajF;
+            r8 = r23.akd;
          */
         /* JADX WARN: Code restructure failed: missing block: B:116:0x026e, code lost:
             if (r8 == null) goto L49;
@@ -393,7 +393,7 @@ public final class a implements AREngineDelegate {
             if (r7 == false) goto L80;
          */
         /* JADX WARN: Code restructure failed: missing block: B:120:0x0280, code lost:
-            r7 = r23.ajF;
+            r7 = r23.akd;
          */
         /* JADX WARN: Code restructure failed: missing block: B:121:0x0284, code lost:
             if (r7 == null) goto L54;
@@ -406,33 +406,33 @@ public final class a implements AREngineDelegate {
             r8 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:124:0x0293, code lost:
-            r7 = r23.ajF;
+            r7 = r23.akd;
             r16 = java.lang.System.currentTimeMillis();
-            r18 = r16 - r23.ajl;
+            r18 = r16 - r23.ajJ;
          */
         /* JADX WARN: Code restructure failed: missing block: B:125:0x02a7, code lost:
-            if (r7.ajf == false) goto L79;
+            if (r7.ajD == false) goto L79;
          */
         /* JADX WARN: Code restructure failed: missing block: B:127:0x02b4, code lost:
             if (((float) r18) < minFramesInterval()) goto L79;
          */
         /* JADX WARN: Code restructure failed: missing block: B:128:0x02b6, code lost:
-            r23.ajl = java.lang.System.currentTimeMillis();
+            r23.ajJ = java.lang.System.currentTimeMillis();
             r7.mRenderer.onDrawFrame(null);
-            vv();
+            vz();
          */
         /* JADX WARN: Code restructure failed: missing block: B:129:0x02d8, code lost:
-            if ((r16 - r23.ajm) <= 33) goto L62;
+            if ((r16 - r23.ajK) <= 33) goto L62;
          */
         /* JADX WARN: Code restructure failed: missing block: B:130:0x02da, code lost:
-            r7.aje.notifyFrameUpdated();
-            r23.ajm = r16;
+            r7.ajC.notifyFrameUpdated();
+            r23.ajK = r16;
          */
         /* JADX WARN: Code restructure failed: missing block: B:132:0x02ef, code lost:
-            if (r7.aje.shouldSwapBuffer() == false) goto L78;
+            if (r7.ajC.shouldSwapBuffer() == false) goto L78;
          */
         /* JADX WARN: Code restructure failed: missing block: B:133:0x02f1, code lost:
-            r7 = r23.ajE.vB();
+            r7 = r23.akc.vF();
          */
         /* JADX WARN: Code restructure failed: missing block: B:134:0x02f9, code lost:
             switch(r7) {
@@ -443,14 +443,14 @@ public final class a implements AREngineDelegate {
          */
         /* JADX WARN: Code restructure failed: missing block: B:135:0x02fc, code lost:
             com.baidu.smallgame.sdk.a.b.b("EngineLogger", "eglSwapBuffers", r7);
-            r7 = r23.ajg;
+            r7 = r23.ajE;
          */
         /* JADX WARN: Code restructure failed: missing block: B:136:0x030d, code lost:
             monitor-enter(r7);
          */
         /* JADX WARN: Code restructure failed: missing block: B:138:0x0310, code lost:
-            r23.ajr = true;
-            r23.ajg.notifyAll();
+            r23.ajP = true;
+            r23.ajE.notifyAll();
          */
         /* JADX WARN: Code restructure failed: missing block: B:139:0x031f, code lost:
             monitor-exit(r7);
@@ -480,15 +480,15 @@ public final class a implements AREngineDelegate {
             r4 = r22;
          */
         /* JADX WARN: Code restructure failed: missing block: B:147:0x0338, code lost:
-            r11 = r23.ajg;
+            r11 = r23.ajE;
          */
         /* JADX WARN: Code restructure failed: missing block: B:148:0x033c, code lost:
             monitor-enter(r11);
          */
         /* JADX WARN: Code restructure failed: missing block: B:150:0x033f, code lost:
-            r23.ajv = true;
-            r23.ajr = true;
-            r23.ajg.notifyAll();
+            r23.ajT = true;
+            r23.ajP = true;
+            r23.ajE.notifyAll();
          */
         /* JADX WARN: Code restructure failed: missing block: B:151:0x0356, code lost:
             monitor-exit(r11);
@@ -510,7 +510,7 @@ public final class a implements AREngineDelegate {
             r4 = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:160:0x036c, code lost:
-            r7.ajf = true;
+            r7.ajD = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:161:0x0373, code lost:
             r7 = r4;
@@ -542,7 +542,7 @@ public final class a implements AREngineDelegate {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void vu() throws InterruptedException {
+        private void vy() throws InterruptedException {
             boolean z;
             boolean z2;
             boolean z3;
@@ -555,10 +555,10 @@ public final class a implements AREngineDelegate {
             boolean z8;
             boolean z9;
             boolean z10;
-            this.ajE = new b(this.ajF);
-            this.ajt = false;
-            this.aju = false;
-            this.ajz = false;
+            this.akc = new b(this.akd);
+            this.ajR = false;
+            this.ajS = false;
+            this.ajX = false;
             boolean z11 = false;
             boolean z12 = false;
             boolean z13 = false;
@@ -572,7 +572,7 @@ public final class a implements AREngineDelegate {
             Runnable runnable = null;
             while (true) {
                 try {
-                    synchronized (this.ajg) {
+                    synchronized (this.ajE) {
                         z = z18;
                         z2 = z15;
                         boolean z19 = z13;
@@ -581,78 +581,78 @@ public final class a implements AREngineDelegate {
                         boolean z21 = z14;
                         boolean z22 = z12;
                         boolean z23 = z11;
-                        while (!this.ajn) {
-                            if (!vw() || (runnable2 = vz()) == null) {
+                        while (!this.ajL) {
+                            if (!vA() || (runnable2 = vD()) == null) {
                                 boolean z24 = false;
-                                if (this.mPaused != this.ajp) {
-                                    z24 = this.ajp;
-                                    this.mPaused = this.ajp;
-                                    this.ajg.notifyAll();
+                                if (this.mPaused != this.ajN) {
+                                    z24 = this.ajN;
+                                    this.mPaused = this.ajN;
+                                    this.ajE.notifyAll();
                                     Log.i("EngineLogger", "mPaused is now " + this.mPaused + " tid=" + getId());
                                 }
-                                if (this.ajw) {
-                                    vs();
-                                    vt();
-                                    this.ajw = false;
+                                if (this.ajU) {
+                                    vw();
+                                    vx();
+                                    this.ajU = false;
                                     z = true;
                                 }
                                 if (z21) {
-                                    vs();
-                                    vt();
+                                    vw();
+                                    vx();
                                     z21 = false;
                                 }
-                                if (z24 && this.aju) {
-                                    vs();
+                                if (z24 && this.ajS) {
+                                    vw();
                                 }
-                                if (!z24 || this.ajt) {
+                                if (!z24 || this.ajR) {
                                 }
-                                if (!this.ajq && !this.ajs) {
-                                    if (this.aju) {
-                                        vs();
+                                if (!this.ajO && !this.ajQ) {
+                                    if (this.ajS) {
+                                        vw();
                                     }
-                                    this.ajs = true;
-                                    this.ajr = false;
-                                    this.ajg.notifyAll();
+                                    this.ajQ = true;
+                                    this.ajP = false;
+                                    this.ajE.notifyAll();
                                 }
-                                if (this.ajq && this.ajs) {
-                                    this.ajs = false;
-                                    this.ajg.notifyAll();
+                                if (this.ajO && this.ajQ) {
+                                    this.ajQ = false;
+                                    this.ajE.notifyAll();
                                 }
                                 if (z20) {
-                                    this.ajz = false;
+                                    this.ajX = false;
                                     z20 = false;
-                                    this.ajA = true;
-                                    this.ajg.notifyAll();
+                                    this.ajY = true;
+                                    this.ajE.notifyAll();
                                 }
-                                if (vx()) {
-                                    if (!this.ajt) {
+                                if (vB()) {
+                                    if (!this.ajR) {
                                         if (z) {
                                             z = false;
                                             z3 = z23;
-                                            if (this.ajt && !this.aju) {
-                                                this.aju = true;
+                                            if (this.ajR && !this.ajS) {
+                                                this.ajS = true;
                                                 z22 = true;
                                                 z19 = true;
                                                 z2 = true;
                                             }
-                                            if (this.aju) {
+                                            if (this.ajS) {
                                                 z23 = z3;
                                             } else {
-                                                if (this.ajD) {
+                                                if (this.akb) {
                                                     z2 = true;
                                                     i2 = this.mWidth;
                                                     i = this.mHeight;
-                                                    this.ajz = true;
+                                                    this.ajX = true;
                                                     z4 = true;
-                                                    this.ajD = false;
+                                                    this.akb = false;
                                                 } else {
                                                     i = i4;
                                                     i2 = i3;
                                                     z4 = z22;
                                                 }
-                                                this.ajy = false;
-                                                this.ajg.notifyAll();
-                                                if (this.ajz) {
+                                                this.ajW = false;
+                                                this.ajE.notifyAll();
+                                                if (this.ajX) {
                                                     z5 = true;
                                                     z6 = z19;
                                                     z7 = z4;
@@ -670,28 +670,28 @@ public final class a implements AREngineDelegate {
                                             }
                                         } else {
                                             try {
-                                                this.ajE.start();
-                                                this.ajF.aje.setEglContextToRecorder(this.ajF.getEGLContext(), 0, 0);
-                                                this.ajt = true;
+                                                this.akc.start();
+                                                this.akd.ajC.setEglContextToRecorder(this.akd.getEGLContext(), 0, 0);
+                                                this.ajR = true;
                                                 z23 = true;
-                                                this.ajg.notifyAll();
+                                                this.ajE.notifyAll();
                                             } catch (RuntimeException e) {
-                                                this.ajg.c(this);
+                                                this.ajE.c(this);
                                                 throw e;
                                             }
                                         }
                                     }
                                     z3 = z23;
-                                    if (this.ajt) {
-                                        this.aju = true;
+                                    if (this.ajR) {
+                                        this.ajS = true;
                                         z22 = true;
                                         z19 = true;
                                         z2 = true;
                                     }
-                                    if (this.aju) {
+                                    if (this.ajS) {
                                     }
                                 }
-                                this.ajg.wait();
+                                this.ajE.wait();
                             } else {
                                 i2 = i3;
                                 z5 = z16;
@@ -705,21 +705,21 @@ public final class a implements AREngineDelegate {
                             }
                         }
                     }
-                    synchronized (this.ajg) {
-                        if (this.ajF != null) {
-                            this.ajF.aje.smallGameDestroy();
+                    synchronized (this.ajE) {
+                        if (this.akd != null) {
+                            this.akd.ajC.smallGameDestroy();
                         }
-                        vs();
-                        vt();
+                        vw();
+                        vx();
                     }
                     return;
                 } catch (Throwable th) {
-                    synchronized (this.ajg) {
-                        if (this.ajF != null) {
-                            this.ajF.aje.smallGameDestroy();
+                    synchronized (this.ajE) {
+                        if (this.akd != null) {
+                            this.akd.ajC.smallGameDestroy();
                         }
-                        vs();
-                        vt();
+                        vw();
+                        vx();
                         throw th;
                     }
                 }
@@ -738,69 +738,69 @@ public final class a implements AREngineDelegate {
             z14 = z26;
         }
 
-        private void vv() {
+        private void vz() {
             float currentTimeMillis;
-            this.ajj++;
-            if (this.ajk != 0) {
-                if (((float) (System.currentTimeMillis() - this.ajk)) / 1000.0f > 1.0f) {
-                    short s = (short) (this.ajj / currentTimeMillis);
+            this.ajH++;
+            if (this.ajI != 0) {
+                if (((float) (System.currentTimeMillis() - this.ajI)) / 1000.0f > 1.0f) {
+                    short s = (short) (this.ajH / currentTimeMillis);
                     V8Engine v8Engine = getV8Engine();
                     if (v8Engine != null) {
                         Log.d("EngineLogger", "fps: " + ((int) s));
                         v8Engine.nativeInitPreferredFramesPerSecond(s <= 60 ? s : (short) 60);
                     }
-                    this.ajj = 0;
-                    this.ajk = System.currentTimeMillis();
+                    this.ajH = 0;
+                    this.ajI = System.currentTimeMillis();
                     return;
                 }
                 return;
             }
-            this.ajk = System.currentTimeMillis();
+            this.ajI = System.currentTimeMillis();
         }
 
-        public boolean vw() {
-            return this.ajt && this.aju && vx();
+        public boolean vA() {
+            return this.ajR && this.ajS && vB();
         }
 
-        private boolean vx() {
-            return !this.mPaused && this.ajq && !this.ajr && this.mWidth > 0 && this.mHeight > 0 && (this.ajy || this.ajx == 1);
+        private boolean vB() {
+            return !this.mPaused && this.ajO && !this.ajP && this.mWidth > 0 && this.mHeight > 0 && (this.ajW || this.ajV == 1);
         }
 
         public void setRenderMode(int i) {
             if (i < 0 || i > 1) {
                 throw new IllegalArgumentException("renderMode");
             }
-            synchronized (this.ajg) {
-                this.ajx = i;
-                this.ajg.notifyAll();
+            synchronized (this.ajE) {
+                this.ajV = i;
+                this.ajE.notifyAll();
             }
         }
 
         public int getRenderMode() {
             int i;
-            synchronized (this.ajg) {
-                i = this.ajx;
+            synchronized (this.ajE) {
+                i = this.ajV;
             }
             return i;
         }
 
         public void requestRender() {
-            synchronized (this.ajg) {
-                this.ajy = true;
-                this.ajg.notifyAll();
+            synchronized (this.ajE) {
+                this.ajW = true;
+                this.ajE.notifyAll();
             }
         }
 
         public void requestRenderAndWait() {
-            synchronized (this.ajg) {
+            synchronized (this.ajE) {
                 if (Thread.currentThread() != this) {
-                    this.ajz = true;
-                    this.ajy = true;
-                    this.ajA = false;
-                    this.ajg.notifyAll();
-                    while (!this.ajo && !this.mPaused && !this.ajA && vw()) {
+                    this.ajX = true;
+                    this.ajW = true;
+                    this.ajY = false;
+                    this.ajE.notifyAll();
+                    while (!this.ajM && !this.mPaused && !this.ajY && vA()) {
                         try {
-                            this.ajg.wait();
+                            this.ajE.wait();
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
                         }
@@ -810,13 +810,13 @@ public final class a implements AREngineDelegate {
         }
 
         public void surfaceCreated() {
-            synchronized (this.ajg) {
-                this.ajq = true;
-                this.ajv = false;
-                this.ajg.notifyAll();
-                while (this.ajs && !this.ajv && !this.ajo) {
+            synchronized (this.ajE) {
+                this.ajO = true;
+                this.ajT = false;
+                this.ajE.notifyAll();
+                while (this.ajQ && !this.ajT && !this.ajM) {
                     try {
-                        this.ajg.wait();
+                        this.ajE.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -825,12 +825,12 @@ public final class a implements AREngineDelegate {
         }
 
         public void surfaceDestroyed() {
-            synchronized (this.ajg) {
-                this.ajq = false;
-                this.ajg.notifyAll();
-                while (!this.ajs && !this.ajo) {
+            synchronized (this.ajE) {
+                this.ajO = false;
+                this.ajE.notifyAll();
+                while (!this.ajQ && !this.ajM) {
                     try {
-                        this.ajg.wait();
+                        this.ajE.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -839,14 +839,14 @@ public final class a implements AREngineDelegate {
         }
 
         public void onPause() {
-            synchronized (this.ajg) {
+            synchronized (this.ajE) {
                 Log.i("EngineLogger", "onPause tid=" + getId());
-                this.ajp = true;
-                this.ajg.notifyAll();
-                while (!this.ajo && !this.mPaused) {
+                this.ajN = true;
+                this.ajE.notifyAll();
+                while (!this.ajM && !this.mPaused) {
                     Log.i("Main thread", "onPause waiting for mPaused.");
                     try {
-                        this.ajg.wait();
+                        this.ajE.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -855,16 +855,16 @@ public final class a implements AREngineDelegate {
         }
 
         public void onResume() {
-            synchronized (this.ajg) {
+            synchronized (this.ajE) {
                 Log.i("EngineLogger", "onResume tid=" + getId());
-                this.ajp = false;
-                this.ajy = true;
-                this.ajA = false;
-                this.ajg.notifyAll();
-                while (!this.ajo && this.mPaused && !this.ajA) {
+                this.ajN = false;
+                this.ajW = true;
+                this.ajY = false;
+                this.ajE.notifyAll();
+                while (!this.ajM && this.mPaused && !this.ajY) {
                     Log.i("Main thread", "onResume waiting for !mPaused.");
                     try {
-                        this.ajg.wait();
+                        this.ajE.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -873,17 +873,17 @@ public final class a implements AREngineDelegate {
         }
 
         public void y(int i, int i2) {
-            synchronized (this.ajg) {
+            synchronized (this.ajE) {
                 this.mWidth = i;
                 this.mHeight = i2;
-                this.ajD = true;
-                this.ajy = true;
-                this.ajA = false;
+                this.akb = true;
+                this.ajW = true;
+                this.ajY = false;
                 if (Thread.currentThread() != this) {
-                    this.ajg.notifyAll();
-                    while (!this.ajo && !this.mPaused && !this.ajA && vw()) {
+                    this.ajE.notifyAll();
+                    while (!this.ajM && !this.mPaused && !this.ajY && vA()) {
                         try {
-                            this.ajg.wait();
+                            this.ajE.wait();
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
                         }
@@ -892,13 +892,13 @@ public final class a implements AREngineDelegate {
             }
         }
 
-        public void vy() {
-            synchronized (this.ajg) {
-                this.ajn = true;
-                this.ajg.notifyAll();
-                while (!this.ajo) {
+        public void vC() {
+            synchronized (this.ajE) {
+                this.ajL = true;
+                this.ajE.notifyAll();
+                while (!this.ajM) {
                     try {
-                        this.ajg.wait();
+                        this.ajE.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -910,10 +910,10 @@ public final class a implements AREngineDelegate {
             if (runnable == null) {
                 throw new IllegalArgumentException("r must not be null");
             }
-            if (!this.ajn && !this.ajo) {
-                synchronized (this.ajg) {
-                    this.ajB.add(runnable);
-                    this.ajg.notifyAll();
+            if (!this.ajL && !this.ajM) {
+                synchronized (this.ajE) {
+                    this.ajZ.add(runnable);
+                    this.ajE.notifyAll();
                 }
             }
         }
@@ -922,22 +922,22 @@ public final class a implements AREngineDelegate {
             if (runnable == null) {
                 throw new IllegalArgumentException("r must not be null");
             }
-            if (!this.ajn && !this.ajo) {
-                synchronized (this.ajg) {
-                    TreeSet<d> treeSet = this.ajC;
+            if (!this.ajL && !this.ajM) {
+                synchronized (this.ajE) {
+                    TreeSet<d> treeSet = this.aka;
                     if (j <= 0) {
                         j = 0;
                     }
                     treeSet.add(new d(runnable, j));
-                    this.ajg.notifyAll();
+                    this.ajE.notifyAll();
                 }
             }
         }
 
-        private Runnable vz() {
+        private Runnable vD() {
             Runnable pollFirst;
-            synchronized (this.ajg) {
-                pollFirst = (this.ajC.isEmpty() || !this.ajC.first().isTimeout()) ? this.ajB.pollFirst() : this.ajC.pollFirst();
+            synchronized (this.ajE) {
+                pollFirst = (this.aka.isEmpty() || !this.aka.first().isTimeout()) ? this.ajZ.pollFirst() : this.aka.pollFirst();
             }
             return pollFirst;
         }
@@ -946,17 +946,17 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class d implements Comparable<d>, Runnable {
-        private final Runnable ajK;
+        private final Runnable aki;
         private final long mTimestamp;
 
         d(Runnable runnable, long j) {
-            this.ajK = runnable;
+            this.aki = runnable;
             this.mTimestamp = System.currentTimeMillis() + j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.ajK.run();
+            this.aki.run();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -975,22 +975,22 @@ public final class a implements AREngineDelegate {
     /* loaded from: classes2.dex */
     public static class c {
         private static String TAG = "GLThreadManager";
-        private C0105a ajJ;
+        private C0114a akh;
 
         private c() {
         }
 
-        public synchronized void b(C0105a c0105a) {
-            c0105a.ajo = true;
-            if (this.ajJ == c0105a) {
-                this.ajJ = null;
+        public synchronized void b(C0114a c0114a) {
+            c0114a.ajM = true;
+            if (this.akh == c0114a) {
+                this.akh = null;
             }
             notifyAll();
         }
 
-        public void c(C0105a c0105a) {
-            if (this.ajJ == c0105a) {
-                this.ajJ = null;
+        public void c(C0114a c0114a) {
+            if (this.akh == c0114a) {
+                this.akh = null;
             }
             synchronized (this) {
                 notifyAll();
@@ -1001,102 +1001,102 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b {
-        private a ajF;
-        EGLDisplay ajG;
-        EGLSurface ajH;
-        EGLConfig ajI;
+        private a akd;
+        EGLDisplay ake;
+        EGLSurface akf;
+        EGLConfig akg;
         EGLContext mEglContext;
 
         public b(a aVar) {
-            this.ajF = aVar;
+            this.akd = aVar;
         }
 
         public void reset() {
-            this.ajF = null;
+            this.akd = null;
         }
 
         public void start() {
-            this.ajG = EGL14.eglGetDisplay(0);
-            if (this.ajG == EGL14.EGL_NO_DISPLAY) {
+            this.ake = EGL14.eglGetDisplay(0);
+            if (this.ake == EGL14.EGL_NO_DISPLAY) {
                 throw new RuntimeException("unable to get EGL14 display");
             }
             int[] iArr = new int[2];
-            if (!EGL14.eglInitialize(this.ajG, iArr, 0, iArr, 1)) {
-                this.ajG = null;
+            if (!EGL14.eglInitialize(this.ake, iArr, 0, iArr, 1)) {
+                this.ake = null;
                 throw new RuntimeException("unable to initialize EGL14");
             }
-            a aVar = this.ajF;
-            this.ajI = e(0, 0, false);
-            this.mEglContext = EGL14.eglCreateContext(this.ajG, this.ajI, EGL14.EGL_NO_CONTEXT, new int[]{12440, 2, 12344}, 0);
-            this.ajF.mCurrentGLThreadID = Thread.currentThread().getId();
+            a aVar = this.akd;
+            this.akg = e(0, 0, false);
+            this.mEglContext = EGL14.eglCreateContext(this.ake, this.akg, EGL14.EGL_NO_CONTEXT, new int[]{12440, 2, 12344}, 0);
+            this.akd.mCurrentGLThreadID = Thread.currentThread().getId();
             if (this.mEglContext == null || this.mEglContext == EGL14.EGL_NO_CONTEXT) {
                 this.mEglContext = null;
-                da("createContext");
+                dc("createContext");
             }
-            this.ajH = null;
+            this.akf = null;
         }
 
         private EGLConfig e(int i, int i2, boolean z) {
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (EGL14.eglChooseConfig(this.ajG, new int[]{12324, 8, 12323, 8, 12322, 8, 12321, 8, 12325, z ? 16 : 0, 12326, 0, 12352, 4, 12344, 0, 12344}, 0, eGLConfigArr, 0, eGLConfigArr.length, new int[1], 0)) {
+            if (EGL14.eglChooseConfig(this.ake, new int[]{12324, 8, 12323, 8, 12322, 8, 12321, 8, 12325, z ? 16 : 0, 12326, 0, 12352, 4, 12344, 0, 12344}, 0, eGLConfigArr, 0, eGLConfigArr.length, new int[1], 0)) {
                 return eGLConfigArr[0];
             }
             Log.w("EngineLogger", "unable to find RGB8888 / " + i2 + " EGLConfig");
             return null;
         }
 
-        public boolean vA() {
-            if (this.ajG == null) {
+        public boolean vE() {
+            if (this.ake == null) {
                 throw new RuntimeException("eglDisplay not initialized");
             }
-            if (this.ajI == null) {
+            if (this.akg == null) {
                 throw new RuntimeException("mEglConfig not initialized");
             }
             destroySurface();
-            Object obj = this.ajF.mSurfaceHolder;
+            Object obj = this.akd.mSurfaceHolder;
             if (obj == null) {
-                obj = this.ajF.ajh;
+                obj = this.akd.ajF;
             }
             if (obj != null) {
-                this.ajH = EGL14.eglCreateWindowSurface(this.ajG, this.ajI, obj, new int[]{12344}, 0);
+                this.akf = EGL14.eglCreateWindowSurface(this.ake, this.akg, obj, new int[]{12344}, 0);
             } else {
-                this.ajH = null;
+                this.akf = null;
             }
-            if (this.ajH == null || this.ajH == EGL14.EGL_NO_SURFACE) {
+            if (this.akf == null || this.akf == EGL14.EGL_NO_SURFACE) {
                 if (EGL14.eglGetError() == 12299) {
                     Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
                     return false;
                 }
                 return false;
             }
-            return EGL14.eglMakeCurrent(this.ajG, this.ajH, this.ajH, this.mEglContext);
+            return EGL14.eglMakeCurrent(this.ake, this.akf, this.akf, this.mEglContext);
         }
 
-        public int vB() {
-            return !EGL14.eglSwapBuffers(this.ajG, this.ajH) ? EGL14.eglGetError() : CommandMessage.COMMAND_BASE;
+        public int vF() {
+            return !EGL14.eglSwapBuffers(this.ake, this.akf) ? EGL14.eglGetError() : CommandMessage.COMMAND_BASE;
         }
 
         public void destroySurface() {
-            if (this.ajH != null && this.ajH != EGL14.EGL_NO_SURFACE) {
-                EGL14.eglMakeCurrent(this.ajG, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT);
-                EGL14.eglDestroySurface(this.ajG, this.ajH);
-                this.ajH = null;
+            if (this.akf != null && this.akf != EGL14.EGL_NO_SURFACE) {
+                EGL14.eglMakeCurrent(this.ake, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT);
+                EGL14.eglDestroySurface(this.ake, this.akf);
+                this.akf = null;
             }
         }
 
         public void finish() {
             if (this.mEglContext != null) {
-                EGL14.eglDestroyContext(this.ajG, this.mEglContext);
+                EGL14.eglDestroyContext(this.ake, this.mEglContext);
                 this.mEglContext = null;
             }
-            if (this.ajG != null) {
-                EGL14.eglTerminate(this.ajG);
-                this.ajG = null;
+            if (this.ake != null) {
+                EGL14.eglTerminate(this.ake);
+                this.ake = null;
             }
-            this.ajF.mCurrentGLThreadID = -1L;
+            this.akd.mCurrentGLThreadID = -1L;
         }
 
-        private void da(String str) {
+        private void dc(String str) {
             q(str, EGL14.eglGetError());
         }
 

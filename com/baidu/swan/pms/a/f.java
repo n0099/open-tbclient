@@ -9,27 +9,27 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public abstract class f implements b {
-    public a<com.baidu.swan.pms.model.f> Bo() {
+    public a<com.baidu.swan.pms.model.f> Bs() {
         return null;
     }
 
-    public a<h> Bp() {
+    public a<h> Bt() {
         return null;
     }
 
-    public a<com.baidu.swan.pms.model.d> Bq() {
+    public a<com.baidu.swan.pms.model.d> Bu() {
         return null;
     }
 
-    public a<com.baidu.swan.pms.model.b> Br() {
+    public a<com.baidu.swan.pms.model.b> Bv() {
         return null;
     }
 
-    public a<i> Rz() {
+    public a<i> RD() {
         return null;
     }
 
-    public e Bs() {
+    public e Bw() {
         return null;
     }
 
@@ -44,34 +44,34 @@ public abstract class f implements b {
         return bundle2;
     }
 
-    public void zj() {
+    public void zn() {
     }
 
-    public void Bn() {
+    public void Br() {
     }
 
     public void a(com.baidu.swan.pms.model.a aVar) {
     }
 
-    public void Bj() {
+    public void Bn() {
     }
 
     public void a(com.baidu.swan.pms.e.e eVar) {
     }
 
     @Override // com.baidu.swan.pms.a.b
-    public void Wb() {
+    public void Wf() {
     }
 
     @Override // com.baidu.swan.pms.a.b
     public void X(@Nullable String str, @Nullable String str2) {
     }
 
-    public Map<String, String> Wc() {
+    public Map<String, String> Wg() {
         return null;
     }
 
-    public Map<String, String> Wd() {
+    public Map<String, String> Wh() {
         return null;
     }
 }

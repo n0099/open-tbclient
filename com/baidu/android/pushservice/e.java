@@ -16,6 +16,7 @@ import com.baidu.android.pushservice.i.j;
 import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mobstat.Config;
 import com.coloros.mcssdk.callback.PushCallback;
 import com.coloros.mcssdk.mode.SubscribeResult;
@@ -690,7 +691,7 @@ public class e {
             com.baidu.android.pushservice.f.a.b("PushManagerHandler", "errorCode:10011", context.getApplicationContext());
             Intent intent = new Intent();
             intent.putExtra("method", PushConstants.METHOD_BIND);
-            intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 10011);
+            intent.putExtra(PushConstants.EXTRA_ERROR_CODE, CyberPlayerManager.MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE);
             intent.putExtra("content", "errorCode:10011".getBytes());
             intent.putExtra("bind_status", 0);
             l.b(context, intent, PushConstants.ACTION_RECEIVE, context.getPackageName());

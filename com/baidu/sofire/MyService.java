@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
-import com.baidu.sofire.b.r;
+import com.baidu.sofire.b.v;
 import com.baidu.sofire.core.ApkInfo;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
@@ -37,7 +37,7 @@ public class MyService extends Service {
         final String stringExtra = intent.getStringExtra("from_plugin_package");
         new StringBuilder().append(intent.getAction()).append(" ").append(stringExtra);
         b.a();
-        r.a().a(new Runnable() { // from class: com.baidu.sofire.MyService.1
+        v.a().a(new Runnable() { // from class: com.baidu.sofire.MyService.1
             @Override // java.lang.Runnable
             public final void run() {
                 try {

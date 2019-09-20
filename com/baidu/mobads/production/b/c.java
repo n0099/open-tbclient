@@ -11,6 +11,7 @@ import android.net.wifi.WifiManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
@@ -100,7 +101,7 @@ public class c {
         a(IXAdRequestInfo.IMSI, this.e.getIMEI(this.g));
         a("aid", this.e.getAndroidId(this.g));
         a(Config.MODEL, a(this.e.getMacAddress(this.g)));
-        a("cuid", cuid);
+        a(DpStatConstants.KEY_CUID, cuid);
         a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(a.a(this.g)));
         a("oi", Integer.valueOf(j()));
         a("src", 1);

@@ -7,80 +7,80 @@ import java.util.Iterator;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class c {
-    private static final ReentrantLock blD = new ReentrantLock();
-    private static ArrayList<a> blN = new ArrayList<>();
+    private static final ReentrantLock bmb = new ReentrantLock();
+    private static ArrayList<a> bml = new ArrayList<>();
 
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        com.baidu.swan.games.view.b GH = e.GF().GH();
-        return GH != null && GH.a(view, bVar);
+        com.baidu.swan.games.view.b GL = e.GJ().GL();
+        return GL != null && GL.a(view, bVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        com.baidu.swan.games.view.b GH = e.GF().GH();
-        return GH != null && GH.b(view, bVar);
+        com.baidu.swan.games.view.b GL = e.GJ().GL();
+        return GL != null && GL.b(view, bVar);
     }
 
     public static boolean an(View view) {
-        com.baidu.swan.games.view.b GH = e.GF().GH();
-        return GH != null && GH.an(view);
+        com.baidu.swan.games.view.b GL = e.GJ().GL();
+        return GL != null && GL.an(view);
     }
 
     public static boolean at(View view) {
-        com.baidu.swan.games.view.b GH = e.GF().GH();
-        return GH != null && GH.as(view);
+        com.baidu.swan.games.view.b GL = e.GJ().GL();
+        return GL != null && GL.as(view);
     }
 
     public static boolean isLandScape() {
-        com.baidu.swan.games.view.b GH = e.GF().GH();
-        return GH != null && GH.isLandScape();
+        com.baidu.swan.games.view.b GL = e.GJ().GL();
+        return GL != null && GL.isLandScape();
     }
 
-    public static int TB() {
-        return ((Integer) e.GF().Gu().first).intValue();
+    public static int TF() {
+        return ((Integer) e.GJ().Gy().first).intValue();
     }
 
-    public static int TC() {
-        return ((Integer) e.GF().Gu().second).intValue();
+    public static int TG() {
+        return ((Integer) e.GJ().Gy().second).intValue();
     }
 
     public static void a(a aVar) {
-        blD.lock();
+        bmb.lock();
         if (aVar != null) {
             try {
-                if (!blN.contains(aVar)) {
-                    blN.add(aVar);
+                if (!bml.contains(aVar)) {
+                    bml.add(aVar);
                 }
             } finally {
-                blD.unlock();
+                bmb.unlock();
             }
         }
     }
 
     public static void b(a aVar) {
-        blD.lock();
+        bmb.lock();
         if (aVar != null) {
             try {
-                blN.remove(aVar);
+                bml.remove(aVar);
             } finally {
-                blD.unlock();
+                bmb.unlock();
             }
         }
     }
 
-    public static void TD() {
-        if (!blN.isEmpty()) {
-            Iterator<a> it = blN.iterator();
+    public static void TH() {
+        if (!bml.isEmpty()) {
+            Iterator<a> it = bml.iterator();
             while (it.hasNext()) {
-                it.next().QM();
+                it.next().QQ();
             }
         }
     }
 
-    public static void TE() {
-        if (!blN.isEmpty()) {
-            Iterator<a> it = blN.iterator();
+    public static void TI() {
+        if (!bml.isEmpty()) {
+            Iterator<a> it = bml.iterator();
             while (it.hasNext()) {
-                it.next().QN();
+                it.next().QR();
             }
         }
     }

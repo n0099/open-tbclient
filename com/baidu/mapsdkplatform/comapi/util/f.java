@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
@@ -95,7 +96,7 @@ public class f {
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
-        bundle.putString("cuid", o());
+        bundle.putString(DpStatConstants.KEY_CUID, o());
         bundle.putByteArray(SocialOperation.GAME_SIGNATURE, a(w));
         bundle.putString("pcn", w.getPackageName());
         bundle.putInt("screen_x", h());
@@ -145,14 +146,14 @@ public class f {
             try {
                 LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
                 D = locationManager.isProviderEnabled("gps") ? 1 : 0;
-                E = locationManager.isProviderEnabled("network") ? 1 : 0;
+                E = locationManager.isProviderEnabled(DpStatConstants.KEY_NETWORK) ? 1 : 0;
                 F.put("resid", AppMD5.encodeUrlParamsValue(a));
                 F.put(LogBuilder.KEY_CHANNEL, AppMD5.encodeUrlParamsValue(m()));
                 F.put("mb", AppMD5.encodeUrlParamsValue(g()));
                 F.put("sv", AppMD5.encodeUrlParamsValue(i()));
                 F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
                 F.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
-                F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
+                F.put(DpStatConstants.KEY_CUID, AppMD5.encodeUrlParamsValue(o()));
                 F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
                 Map<String, String> map = F;
                 Integer valueOf = Integer.valueOf(j());
@@ -168,7 +169,7 @@ public class f {
                 F.put("sv", AppMD5.encodeUrlParamsValue(i()));
                 F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
                 F.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
-                F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
+                F.put(DpStatConstants.KEY_CUID, AppMD5.encodeUrlParamsValue(o()));
                 F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
                 Map<String, String> map2 = F;
                 Integer valueOf2 = Integer.valueOf(j());
@@ -191,7 +192,7 @@ public class f {
             objArr[r2] = Integer.valueOf(l());
             objArr[r1] = Integer.valueOf(l());
             map3.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", objArr)));
-            F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
+            F.put(DpStatConstants.KEY_CUID, AppMD5.encodeUrlParamsValue(o()));
             F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
             Map<String, String> map4 = F;
             Object[] objArr2 = new Object[2];
@@ -285,7 +286,7 @@ public class f {
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
-        bundle.putString("cuid", o());
+        bundle.putString(DpStatConstants.KEY_CUID, o());
         bundle.putString("pcn", w.getPackageName());
         bundle.putInt("screen_x", h());
         bundle.putInt("screen_y", j());

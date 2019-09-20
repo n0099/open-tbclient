@@ -10,67 +10,67 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.ksF;
+        E[] eArr = this.kuY;
         long j = this.producerIndex;
-        long eZ = eZ(j);
-        if (b(eArr, eZ) != null) {
+        long fc = fc(j);
+        if (b(eArr, fc) != null) {
             return false;
         }
-        b(eArr, eZ, e);
-        eX(1 + j);
+        b(eArr, fc, e);
+        fa(1 + j);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long eZ = eZ(j);
-        E[] eArr = this.ksF;
-        E b = b(eArr, eZ);
+        long fc = fc(j);
+        E[] eArr = this.kuY;
+        E b = b(eArr, fc);
         if (b == null) {
             return null;
         }
-        b(eArr, eZ, null);
-        eY(j + 1);
+        b(eArr, fc, null);
+        fb(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return fa(eZ(this.consumerIndex));
+        return fd(fc(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cQw = cQw();
+        long cRi = cRi();
         while (true) {
-            long cQx = cQx();
-            long cQw2 = cQw();
-            if (cQw == cQw2) {
-                return (int) (cQx - cQw2);
+            long cRj = cRj();
+            long cRi2 = cRi();
+            if (cRi == cRi2) {
+                return (int) (cRj - cRi2);
             }
-            cQw = cQw2;
+            cRi = cRi2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cQx() == cQw();
+        return cRj() == cRi();
     }
 
-    private void eX(long j) {
-        ae.kCa.putOrderedLong(this, kBU, j);
+    private void fa(long j) {
+        ae.kEs.putOrderedLong(this, kEm, j);
     }
 
-    private void eY(long j) {
-        ae.kCa.putOrderedLong(this, kBT, j);
+    private void fb(long j) {
+        ae.kEs.putOrderedLong(this, kEl, j);
     }
 
-    private long cQx() {
-        return ae.kCa.getLongVolatile(this, kBU);
+    private long cRj() {
+        return ae.kEs.getLongVolatile(this, kEm);
     }
 
-    private long cQw() {
-        return ae.kCa.getLongVolatile(this, kBT);
+    private long cRi() {
+        return ae.kEs.getLongVolatile(this, kEl);
     }
 }

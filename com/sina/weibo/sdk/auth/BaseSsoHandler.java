@@ -10,7 +10,6 @@ import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.net.WeiboParameters;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
-import com.sina.weibo.sdk.statistic.WBAgent;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.NetworkHelper;
 import com.sina.weibo.sdk.utils.SecurityHelper;
@@ -25,7 +24,8 @@ import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 /* loaded from: classes2.dex */
 public class BaseSsoHandler {
-    protected static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
+    public static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
+    private static final String TAG = "BaseSsoHandler";
     protected WbAuthListener authListener;
     protected Context mAuthActivity;
     protected final int SSO_TYPE_INVALID = 3;
@@ -76,7 +76,8 @@ public class BaseSsoHandler {
         if (authType == AuthType.SsoOnly) {
             z = true;
         }
-        if (isWbAppInstalled()) {
+        WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
+        if (isWbAppInstalled() && wbAppInfo != null) {
             startClientAuth(i);
         } else if (z) {
             this.authListener.onFailure(new WbConnectErrorMessage());
@@ -94,7 +95,9 @@ public class BaseSsoHandler {
             intent.putExtra(WBConstants.COMMAND_TYPE_KEY, 3);
             intent.putExtra(WBConstants.TRAN, String.valueOf(System.currentTimeMillis()));
             intent.putExtra("aid", Utility.getAid(this.mAuthActivity, WbSdk.getAuthInfo().getAppKey()));
-            if (SecurityHelper.validateAppSignatureForIntent(this.mAuthActivity, intent)) {
+            if (!SecurityHelper.validateAppSignatureForIntent(this.mAuthActivity, intent)) {
+                this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
+            } else {
                 fillExtraIntent(intent, i);
                 try {
                     ((Activity) this.mAuthActivity).startActivityForResult(intent, this.ssoRequestCode);
@@ -102,7 +105,6 @@ public class BaseSsoHandler {
                     if (this.authListener != null) {
                         this.authListener.onFailure(new WbConnectErrorMessage());
                     }
-                    couldNotStartWbSsoActivity();
                 }
             }
         } catch (Exception e2) {
@@ -168,19 +170,19 @@ public class BaseSsoHandler {
                 String safeString = Utility.safeString(intent.getStringExtra("error"));
                 String safeString2 = Utility.safeString(intent.getStringExtra(PushMessageHelper.ERROR_TYPE));
                 String safeString3 = Utility.safeString(intent.getStringExtra("error_description"));
-                LogUtil.d(WBAgent.TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);
+                LogUtil.d(TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);
                 if (TextUtils.isEmpty(safeString) && TextUtils.isEmpty(safeString2) && TextUtils.isEmpty(safeString3)) {
                     Oauth2AccessToken parseAccessToken = Oauth2AccessToken.parseAccessToken(intent.getExtras());
                     if (parseAccessToken != null && parseAccessToken.isSessionValid()) {
-                        LogUtil.d(WBAgent.TAG, "Login Success! " + parseAccessToken.toString());
+                        LogUtil.d(TAG, "Login Success! " + parseAccessToken.toString());
                         AccessTokenKeeper.writeAccessToken(this.mAuthActivity, parseAccessToken);
                         this.authListener.onSuccess(parseAccessToken);
                     }
                 } else if ("access_denied".equals(safeString) || "OAuthAccessDeniedException".equals(safeString)) {
-                    LogUtil.d(WBAgent.TAG, "Login canceled by user.");
+                    LogUtil.d(TAG, "Login canceled by user.");
                     this.authListener.cancel();
                 } else {
-                    LogUtil.d(WBAgent.TAG, "Login failed: " + safeString);
+                    LogUtil.d(TAG, "Login failed: " + safeString);
                     this.authListener.onFailure(new WbConnectErrorMessage(safeString2, safeString3));
                 }
             } else if (i2 == 0) {
@@ -192,8 +194,5 @@ public class BaseSsoHandler {
     @Deprecated
     public boolean isWbAppInstalled() {
         return WbSdk.isWbInstall(this.mAuthActivity);
-    }
-
-    protected void couldNotStartWbSsoActivity() {
     }
 }

@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class h {
-    private static h cCS = new h();
-    private b cCT;
-    private a cCU;
+    private static h cDN = new h();
+    private b cDO;
+    private a cDP;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,28 +18,28 @@ public class h {
     private h() {
     }
 
-    public static h awg() {
-        return cCS;
+    public static h aws() {
+        return cDN;
     }
 
     public void a(a aVar) {
-        this.cCU = aVar;
-        if (this.cCT != null) {
-            this.cCT.cancel();
+        this.cDP = aVar;
+        if (this.cDO != null) {
+            this.cDO.cancel();
         }
-        this.cCT = new b();
-        this.cCT.setPriority(4);
-        this.cCT.execute(new String[0]);
+        this.cDO = new b();
+        this.cDO.setPriority(4);
+        this.cDO.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean awh() {
+    public boolean awt() {
         int i;
         long j = 0;
-        byte[] nA = com.baidu.tbadk.core.util.m.nA(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
+        byte[] nC = com.baidu.tbadk.core.util.m.nC(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
         String str = null;
-        if (nA != null) {
-            str = new String(nA);
+        if (nC != null) {
+            str = new String(nC);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -50,7 +50,7 @@ public class h {
                 i = 0;
             } else {
                 i = com.baidu.adp.lib.g.b.f(split[0], 0);
-                j = com.baidu.adp.lib.g.b.c(split[1], j2);
+                j = com.baidu.adp.lib.g.b.e(split[1], j2);
             }
         }
         if (j == j2 && i > 1) {
@@ -69,15 +69,15 @@ public class h {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(h.this.awh());
+            return Boolean.valueOf(h.this.awt());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (h.this.cCU != null && bool != null) {
-                h.this.cCU.bE(bool.booleanValue());
+            if (h.this.cDP != null && bool != null) {
+                h.this.cDP.bE(bool.booleanValue());
             }
         }
     }

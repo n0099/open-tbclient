@@ -3,27 +3,27 @@ package com.baidu.mobads;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 class i implements e {
-    final /* synthetic */ d agK;
+    final /* synthetic */ d ahg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar) {
-        this.agK = dVar;
+        this.ahg = dVar;
     }
 
     @Override // com.baidu.mobads.e
-    public void uv() {
+    public void uz() {
     }
 
     @Override // com.baidu.mobads.e
-    public void uw() {
+    public void uA() {
     }
 
     @Override // com.baidu.mobads.e
-    public void cM(String str) {
+    public void cO(String str) {
     }
 
     @Override // com.baidu.mobads.e
-    public void ux() {
+    public void uB() {
     }
 
     @Override // com.baidu.mobads.e

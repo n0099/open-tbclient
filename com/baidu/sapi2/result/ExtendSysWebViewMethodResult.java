@@ -47,6 +47,10 @@ public class ExtendSysWebViewMethodResult extends SapiResult {
                 jSONObject.put(entry.getKey(), entry.getValue().toString());
             }
             jSONObject2.put("result", jSONObject);
+            if (this.recogResult != null) {
+                jSONObject2.put("retCode", this.recogResult.getResultCode());
+                jSONObject2.put("retMsg", this.recogResult.getResultMsg());
+            }
         } catch (JSONException e) {
         }
         return jSONObject2;

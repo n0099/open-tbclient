@@ -1,9 +1,11 @@
 package com.baidu.tieba.personCenter.data;
 /* loaded from: classes4.dex */
 public class i {
-    public boolean ilq;
-    public String ils;
-    public boolean ilt;
+    public boolean inr;
+    public String inu;
+    public boolean inv;
     public boolean isShowRedTip = false;
-    public long ilr = -1;
+
+    /* renamed from: int  reason: not valid java name */
+    public long f0int = -1;
 }

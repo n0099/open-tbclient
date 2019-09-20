@@ -159,39 +159,40 @@ public class SdkConfigOptions {
 
     /* loaded from: classes2.dex */
     public static class LivenessConfigOption {
-        public static final String CROP_FACE_RATIO = "crop_face_ratio";
-        public static final String CROP_FACE_SIZE = "crop_face_size";
-        public static final int DEFAULT_CROP_FACE_RATIO = 3;
-        public static final int DEFAULT_CROP_FACE_SIZE = 256;
-        public static final int DEFAULT_DETECT_INTERVAL = 300;
+        private static final String CROP_FACE_RATIO = "crop_face_ratio";
+        private static final String CROP_FACE_SIZE = "crop_face_size";
+        private static final int DEFAULT_CROP_FACE_RATIO = 3;
+        private static final int DEFAULT_CROP_FACE_SIZE = 256;
+        private static final int DEFAULT_DETECT_INTERVAL = 300;
         private static final int DEFAULT_FIRST_LIVENESS_RECOG_TIME = 6;
-        public static final int DEFAULT_ILLUM_THR = 40;
-        public static final int DEFAULT_MAX_REG_IMG_NUM = 3;
+        private static final int DEFAULT_ILLUM_THR = 40;
+        private static final int DEFAULT_MAX_REG_IMG_NUM = 3;
         public static final int DEFAULT_MIN_FACE_SIZE = 100;
         public static final int DEFAULT_PITCH = 15;
-        public static final int DEFAULT_PREFETCH_REG_IMG_INTERVAL = 300;
+        private static final int DEFAULT_PREFETCH_REG_IMG_INTERVAL = 300;
         private static final int DEFAULT_RECOG_UPLOAD_PORTRAIT_COUNT = 3;
-        public static final int DEFAULT_ROLL = 15;
-        public static final int DEFAULT_TRACK_INTERVAL = 300;
-        public static final int DEFAULT_WHITE_BG_ILLUM_THR = 10;
+        private static final int DEFAULT_ROLL = 15;
+        private static final int DEFAULT_TRACK_INTERVAL = 300;
+        private static final int DEFAULT_WHITE_BG_ILLUM_THR = 10;
         public static final int DEFAULT_YAW = 15;
-        public static final String DETECT_INTERVAL = "detect_interval";
-        public static final String ILLUM_THR = "illum_thr";
+        private static final String DETECT_INTERVAL = "detect_interval";
+        private static final String ILLUM_THR = "illum_thr";
         private static final String KEY_ABTEST_ILLUM_LIST = "abtest_illum_list";
-        public static final String KEY_WHITE_BG_ILLUM_THR = "white_bg_illum_thr";
+        private static final String KEY_CLOSE_SKIP_LIVING = "close_skip_living";
+        private static final String KEY_WHITE_BG_ILLUM_THR = "white_bg_illum_thr";
         public static final int LIVENESS_RECOG_TYPE_BLINK = 1;
         public static final int LIVENESS_RECOG_TYPE_OPEN_MOUTH = 2;
-        public static final String MAX_REG_IMG_NUM = "max_reg_img_num";
-        public static final String MIN_FACE_SIZE = "min_face_size";
-        public static final String PITCH_RANGE = "pitch";
-        public static final String PREFETCH_REG_IMG_INTERVAL = "prefetch_reg_img_interval";
-        public static final String RECOG_ACTION_TYPE = "recog_action_type";
-        public static final String RECOG_TIME_INTERVAL = "recog_time_interval";
-        public static final String RECOG_UPLOAD_PORTRAIT_COUNT = "recog_upload_portrait_count";
-        public static final String ROLL_RANGE = "roll";
-        public static final String SWITCH_RECORD_VIDEO = "switch_record_video";
-        public static final String TRACK_INTERVAL = "track_interval";
-        public static final String YAW_RANGE = "yaw";
+        private static final String MAX_REG_IMG_NUM = "max_reg_img_num";
+        private static final String MIN_FACE_SIZE = "min_face_size";
+        private static final String PITCH_RANGE = "pitch";
+        private static final String PREFETCH_REG_IMG_INTERVAL = "prefetch_reg_img_interval";
+        private static final String RECOG_ACTION_TYPE = "recog_action_type";
+        private static final String RECOG_TIME_INTERVAL = "recog_time_interval";
+        private static final String RECOG_UPLOAD_PORTRAIT_COUNT = "recog_upload_portrait_count";
+        private static final String ROLL_RANGE = "roll";
+        private static final String SWITCH_RECORD_VIDEO = "switch_record_video";
+        private static final String TRACK_INTERVAL = "track_interval";
+        private static final String YAW_RANGE = "yaw";
         public String recogActionType;
         public String recogTimeInterval;
         public String recogUploadPortraitCount;
@@ -199,16 +200,17 @@ public class SdkConfigOptions {
         public int whiteBgIllumThr;
         public List<Integer> illumList = new ArrayList();
         public String minFaceSize = String.valueOf(100);
-        public String illumThr = String.valueOf(40);
-        public String trackInterval = String.valueOf(300);
-        public String detectInterval = String.valueOf(300);
-        public String yaw = String.valueOf(15);
-        public String pitch = String.valueOf(15);
-        public String roll = String.valueOf(15);
-        public String maxRegImgNum = String.valueOf(3);
-        public String prefetchRegImgInterval = String.valueOf(300);
-        public String cropFaceSize = String.valueOf(3);
-        public String cropFaceRatio = String.valueOf(256);
+        private String illumThr = String.valueOf(40);
+        private String trackInterval = String.valueOf(300);
+        private String detectInterval = String.valueOf(300);
+        private String yaw = String.valueOf(15);
+        private String pitch = String.valueOf(15);
+        private String roll = String.valueOf(15);
+        private String maxRegImgNum = String.valueOf(3);
+        private String prefetchRegImgInterval = String.valueOf(300);
+        private String cropFaceSize = String.valueOf(3);
+        private String cropFaceRatio = String.valueOf(256);
+        public boolean closeSkipLiving = false;
 
         public static LivenessConfigOption fromJson(JSONObject jSONObject) {
             LivenessConfigOption livenessConfigOption = new LivenessConfigOption();
@@ -229,6 +231,7 @@ public class SdkConfigOptions {
                 livenessConfigOption.recogTimeInterval = jSONObject.optString(RECOG_TIME_INTERVAL);
                 livenessConfigOption.recogUploadPortraitCount = jSONObject.optString(RECOG_UPLOAD_PORTRAIT_COUNT);
                 livenessConfigOption.whiteBgIllumThr = jSONObject.optInt(KEY_WHITE_BG_ILLUM_THR, 10);
+                livenessConfigOption.closeSkipLiving = jSONObject.optBoolean(KEY_CLOSE_SKIP_LIVING, false);
                 setJsonArrayToList(jSONObject.optJSONArray(KEY_ABTEST_ILLUM_LIST), livenessConfigOption.illumList);
             }
             return livenessConfigOption;
@@ -253,6 +256,7 @@ public class SdkConfigOptions {
                 jSONObject.put(RECOG_TIME_INTERVAL, this.recogTimeInterval);
                 jSONObject.put(RECOG_UPLOAD_PORTRAIT_COUNT, this.recogUploadPortraitCount);
                 jSONObject.put(KEY_WHITE_BG_ILLUM_THR, this.whiteBgIllumThr);
+                jSONObject.put(KEY_CLOSE_SKIP_LIVING, this.closeSkipLiving);
                 setListToJsonArray(jSONObject, KEY_ABTEST_ILLUM_LIST, this.illumList);
                 return jSONObject;
             } catch (JSONException e) {

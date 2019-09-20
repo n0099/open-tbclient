@@ -2,7 +2,6 @@ package com.baidu.platform.comapi.wnplatform.walkmap;
 
 import android.graphics.Point;
 import android.os.Bundle;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapsdkplatform.comjni.map.basemap.JNIBaseMap;
@@ -64,7 +63,7 @@ public class WNaviBaiduMap {
             case 11:
                 return 10000;
             case 12:
-                return UIMsg.m_AppUI.MSG_APP_GPS;
+                return 5000;
             case 13:
                 return 2000;
             case 14:

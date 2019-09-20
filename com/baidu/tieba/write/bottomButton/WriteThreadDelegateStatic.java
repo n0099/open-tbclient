@@ -21,14 +21,14 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c atT() {
+    public c auf() {
         c cVar = new c();
-        cVar.cxK = new WriteThreadFragment();
+        cVar.cyG = new WriteThreadFragment();
         cVar.type = 9;
-        cVar.bXe = R.string.send;
-        cVar.bXf = R.drawable.icon_tabbar_add_n;
-        cVar.cxL = R.drawable.icon_tabbar_chaticon_n;
-        cVar.cxQ = c.cxM;
+        cVar.bXX = R.string.send;
+        cVar.bXY = R.drawable.icon_tabbar_add_n;
+        cVar.cyH = R.drawable.icon_tabbar_chaticon_n;
+        cVar.cyM = c.cyI;
         return cVar;
     }
 
@@ -37,12 +37,12 @@ public class WriteThreadDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c atU;
+                c aug;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (atU = writeThreadDelegateStatic.atU()) != null) {
-                        atU.cxK.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (aug = writeThreadDelegateStatic.aug()) != null) {
+                        aug.cyG.setArguments(new Bundle());
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class WriteThreadDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cP(Context context) {
-        this.cxw = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        return this.cxw;
+        this.cys = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        return this.cys;
     }
 }

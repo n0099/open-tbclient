@@ -13,44 +13,44 @@ import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class p extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bh>> implements com.baidu.adp.widget.ListView.s, com.baidu.tieba.a.f, com.baidu.tieba.card.aa, com.baidu.tieba.card.z, com.baidu.tieba.frs.d.d {
-    private String WN;
-    private ab<bh> dEt;
-    private int fCU;
+    private String WM;
+    private ab<bh> dGe;
+    private int fEH;
     private String mFrom;
 
     public p(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.fCU = 3;
-        this.dEt = new ab<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.p.1
+        this.fEH = 3;
+        this.dGe = new ab<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.p.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bh bhVar) {
                 if (view != null && bhVar != null) {
-                    if (p.this.ftX != null) {
-                        p.this.ftX.a(view, (View) bhVar, (Object) p.this.getType());
+                    if (p.this.fvK != null) {
+                        p.this.fvK.a(view, (View) bhVar, (Object) p.this.getType());
                     }
                     if ("c13010".equals(p.this.mFrom)) {
-                        TiebaStatic.log(new an("c13010").P("obj_type", 1).l("fid", bhVar.getFid()).bT("tid", bhVar.getTid()));
+                        TiebaStatic.log(new an("c13010").P("obj_type", 1).n("fid", bhVar.getFid()).bT("tid", bhVar.getTid()));
                     }
-                    if (view.getId() == R.id.thread_card_root && bhVar.afs()) {
-                        p.this.af(bhVar);
+                    if (view.getId() == R.id.thread_card_root && bhVar.afw()) {
+                        p.this.ag(bhVar);
                     }
                     if ((view instanceof ThreadSmartAppLayout) || view.getId() == R.id.iv_thread_smart_app_head || view.getId() == R.id.tv_thread_smart_app_title || view.getId() == R.id.tv_thread_smart_app_abstract) {
-                        com.baidu.tieba.card.n.vx(bhVar.getTid());
-                        if (bhVar.afk() != null) {
-                            TiebaStatic.log(new an("c13274").l("uid", TbadkCoreApplication.getCurrentAccountId()).l("fid", bhVar.getFid()).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "frs_card").l(VideoPlayActivityConfig.OBJ_ID, bhVar.afk().swan_app_id.longValue()).bT("obj_name", bhVar.afk().name).bT("tid", bhVar.getTid()).P("obj_param1", bhVar.afk().is_game.intValue()));
+                        com.baidu.tieba.card.n.vW(bhVar.getTid());
+                        if (bhVar.afo() != null) {
+                            TiebaStatic.log(new an("c13274").n("uid", TbadkCoreApplication.getCurrentAccountId()).n("fid", bhVar.getFid()).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "frs_card").n(VideoPlayActivityConfig.OBJ_ID, bhVar.afo().swan_app_id.longValue()).bT("obj_name", bhVar.afo().name).bT("tid", bhVar.getTid()).P("obj_param1", bhVar.afo().is_game.intValue()));
                             return;
                         }
                         return;
                     }
-                    com.baidu.tieba.frs.d.c.brS().a(com.baidu.tieba.frs.d.d.fCV, bhVar, 1);
-                    com.baidu.tieba.frs.d.a.a(bhVar, 1, p.this.mPageId, com.baidu.tieba.frs.d.d.fCV);
+                    com.baidu.tieba.frs.d.c.bsF().a(com.baidu.tieba.frs.d.d.fEI, bhVar, 1);
+                    com.baidu.tieba.frs.d.a.a(bhVar, 1, p.this.mPageId, com.baidu.tieba.frs.d.d.fEI);
                 }
             }
         };
@@ -65,8 +65,7 @@ public class p extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bh>> implement
     public com.baidu.card.z<bh> onCreateViewHolder(ViewGroup viewGroup) {
         x.a aVar = new x.a(this.mPageContext.getPageActivity(), false);
         aVar.a((com.baidu.card.f) new com.baidu.card.v(this.mPageContext.getPageActivity()));
-        aVar.qN().setBackgroundResource(R.color.cp_bg_line_d);
-        com.baidu.card.x a = aVar.a(false, viewGroup, this.eZn);
+        com.baidu.card.x a = aVar.a(false, viewGroup, this.faT);
         a.bq(3);
         com.baidu.card.z<bh> zVar = new com.baidu.card.z<>(a);
         zVar.setPageId(this.mPageId);
@@ -83,18 +82,18 @@ public class p extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bh>> implement
         if (bgVar == null || zVar == null || zVar.getView() == null) {
             return null;
         }
-        zVar.qP().setPage(this.WN);
-        zVar.qP().setPosition(i);
+        zVar.qQ().setPage(this.WM);
+        zVar.qQ().setPosition(i);
         zVar.a(bgVar.threadData);
-        zVar.qP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        zVar.qP().a(this.dEt);
-        bgVar.threadData.afC();
+        zVar.qQ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        zVar.qQ().a(this.dGe);
+        bgVar.threadData.afG();
         return zVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void sm(String str) {
-        this.WN = str;
+    public void sy(String str) {
+        this.WM = str;
     }
 
     @Override // com.baidu.tieba.card.z
@@ -102,17 +101,17 @@ public class p extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bh>> implement
     }
 
     @Override // com.baidu.tieba.card.z
-    public void nD(int i) {
-        this.fCU = i;
+    public void nH(int i) {
+        this.fEH = i;
     }
 
     @Override // com.baidu.tieba.card.aa
-    public void iG(boolean z) {
+    public void iJ(boolean z) {
     }
 
     @Override // com.baidu.tieba.frs.d.d
-    public com.baidu.tieba.frs.d.b bph() {
-        return fCV;
+    public com.baidu.tieba.frs.d.b bpS() {
+        return fEI;
     }
 
     @Override // com.baidu.adp.widget.ListView.s
@@ -121,16 +120,16 @@ public class p extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bh>> implement
             com.baidu.card.z zVar = (com.baidu.card.z) view.getTag();
             bh bhVar = ((bg) mVar).threadData;
             bhVar.objType = 1;
-            if (this.dEt != null) {
-                this.dEt.a(zVar.getView(), bhVar);
+            if (this.dGe != null) {
+                this.dGe.a(zVar.getView(), bhVar);
             }
-            av.a((com.baidu.tbadk.core.data.a) bhVar, view.getContext(), this.fCU, false);
-            zVar.qP().b(new a.C0038a(1));
+            au.a((com.baidu.tbadk.core.data.a) bhVar, view.getContext(), this.fEH, false);
+            zVar.qQ().b(new a.C0038a(1));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void af(bh bhVar) {
-        TiebaStatic.log(new an("c12126").bT("tid", bhVar.getId()).P("obj_locate", blN() ? 2 : 1).l(VideoPlayActivityConfig.OBJ_ID, bhVar.aeR() == null ? -1L : bhVar.aeR().live_id).P("obj_type", 1));
+    public void ag(bh bhVar) {
+        TiebaStatic.log(new an("c12126").bT("tid", bhVar.getId()).P("obj_locate", bmy() ? 2 : 1).n(VideoPlayActivityConfig.OBJ_ID, bhVar.aeV() == null ? -1L : bhVar.aeV().live_id).P("obj_type", 1));
     }
 }

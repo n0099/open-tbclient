@@ -6,9 +6,9 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.e.DEBUG;
-    private String bsY;
-    private long bsZ;
-    private JSONObject bta;
+    private String btw;
+    private long btx;
+    private JSONObject bty;
     private int mErrorCode = -1;
 
     public int getErrorCode() {
@@ -19,23 +19,23 @@ public class c {
         this.mErrorCode = i;
     }
 
-    public JSONObject Wp() {
-        return this.bta;
+    public JSONObject Wt() {
+        return this.bty;
     }
 
     public void aB(JSONObject jSONObject) {
-        this.bta = jSONObject;
+        this.bty = jSONObject;
     }
 
     public void setErrorMessage(String str) {
-        this.bsY = str;
+        this.btw = str;
     }
 
     public void af(long j) {
-        this.bsZ = j;
+        this.btx = j;
     }
 
-    public static c ks(String str) {
+    public static c ku(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

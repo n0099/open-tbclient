@@ -6,10 +6,10 @@ import com.baidu.swan.apps.scheme.d;
 /* loaded from: classes2.dex */
 public class SchemeRuntime {
     public static ISchemeContext getSchemeContext() {
-        return b.MM();
+        return b.MQ();
     }
 
     public static ISchemeIoc getSchemeIoc() {
-        return d.MN();
+        return d.MR();
     }
 }

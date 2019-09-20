@@ -15,11 +15,11 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class a implements g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> atx = h.M("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, SkiaImageDecoder.FILE_PREFIX);
+    private static final Set<String> atV = h.M("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, SkiaImageDecoder.FILE_PREFIX);
 
     @Override // com.baidu.swan.apps.b.c.g
     public boolean P(@NonNull Context context, String str) {
-        return !dW(str) && T(context, str);
+        return !dY(str) && T(context, str);
     }
 
     private static boolean T(Context context, String str) {
@@ -48,11 +48,11 @@ public class a implements g {
         }
     }
 
-    private static boolean dW(String str) {
+    private static boolean dY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : atx) {
+        for (String str2 : atV) {
             if (str.startsWith(str2)) {
                 return true;
             }

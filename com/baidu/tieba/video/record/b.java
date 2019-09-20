@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes5.dex */
 class b {
-    private float jAU;
-    private int jAV;
-    private i jAW;
+    private float jDq;
+    private int jDr;
+    private i jDs;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.jAW = iVar;
+        this.jDs = iVar;
     }
 
     public boolean j(MotionEvent motionEvent) {
-        if (this.jAW == null || !this.jAW.alC()) {
+        if (this.jDs == null || !this.jDs.alO()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float x = x(motionEvent);
-                        int i = (int) ((x - this.jAU) / 10.0f);
+                        int i = (int) ((x - this.jDq) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.jAV;
+                            int i2 = i + this.jDr;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.jAU = x;
+                            this.jDq = x;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.jAU = x(motionEvent);
+                    this.jDq = x(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.jAV = i;
+                this.jDr = i;
             }
         }
     }

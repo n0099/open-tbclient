@@ -11,14 +11,14 @@ import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class a {
-    private PushDialogActivity iDj;
+    private PushDialogActivity iFB;
     private long taskId;
     private String tid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PushDialogActivity pushDialogActivity) {
-        this.iDj = pushDialogActivity;
-        this.iDj.registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
+        this.iFB = pushDialogActivity;
+        this.iFB.registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage instanceof PushDialogHttpResMsg) {
@@ -28,43 +28,43 @@ public class a {
                 }
             }
         });
-        Intent intent = this.iDj.getIntent();
+        Intent intent = this.iFB.getIntent();
         if (intent != null) {
             this.tid = intent.getStringExtra("thread_id");
             this.taskId = intent.getLongExtra("task_id", 0L);
             if (StringUtils.isNull(this.tid)) {
-                this.iDj.finish();
+                this.iFB.finish();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadData() {
-        long c = com.baidu.adp.lib.g.b.c(this.tid, 0L);
-        if (c == 0) {
-            if (this.iDj != null) {
-                this.iDj.a(false, null);
+        long e = com.baidu.adp.lib.g.b.e(this.tid, 0L);
+        if (e == 0) {
+            if (this.iFB != null) {
+                this.iFB.a(false, null);
                 return;
             }
             return;
         }
         PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
         pushDialogReqNetMsg.setTask_id(this.taskId);
-        pushDialogReqNetMsg.setTid(c);
+        pushDialogReqNetMsg.setTid(e);
         MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        if (this.iDj != null) {
-            this.iDj.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+        if (this.iFB != null) {
+            this.iFB.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        if (this.iDj != null) {
-            this.iDj.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
+        if (this.iFB != null) {
+            this.iFB.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
         }
     }
 

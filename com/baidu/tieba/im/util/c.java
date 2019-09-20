@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class c extends Thread {
-    private String bTg;
+    private String bTH;
     private String mGroupId;
     private String mObjTp;
 
     public c(String str, String str2, String str3) {
-        this.bTg = null;
+        this.bTH = null;
         this.mObjTp = null;
         this.mGroupId = null;
-        this.bTg = str;
+        this.bTH = str;
         this.mObjTp = str2;
         this.mGroupId = str3;
     }
@@ -23,10 +23,10 @@ public class c extends Thread {
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            xVar.o("obj", this.bTg);
+            xVar.o("obj", this.bTH);
             xVar.o("obj_tp", this.mObjTp);
             xVar.o("group_id", this.mGroupId);
-            xVar.aii();
+            xVar.aim();
         }
     }
 }

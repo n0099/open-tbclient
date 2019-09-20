@@ -4,45 +4,45 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes5.dex */
 public class b implements i {
-    private String fpS;
-    private ArrayList<BawuRoleInfoPub> fpQ = new ArrayList<>();
+    private String frG;
+    private ArrayList<BawuRoleInfoPub> frE = new ArrayList<>();
     private boolean isLast = false;
-    private boolean fpR = false;
+    private boolean frF = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int bkw() {
+    public int blh() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> bkx() {
-        return this.fpQ;
+    public ArrayList<BawuRoleInfoPub> bli() {
+        return this.frE;
     }
 
     public void T(ArrayList<BawuRoleInfoPub> arrayList) {
-        this.fpQ = arrayList;
+        this.frE = arrayList;
     }
 
     public boolean isLast() {
         return this.isLast;
     }
 
-    public void jD(boolean z) {
+    public void jG(boolean z) {
         this.isLast = z;
     }
 
-    public boolean bky() {
-        return this.fpR;
+    public boolean blj() {
+        return this.frF;
     }
 
-    public void jE(boolean z) {
-        this.fpR = z;
+    public void jH(boolean z) {
+        this.frF = z;
     }
 
-    public String bkz() {
-        return this.fpS;
+    public String blk() {
+        return this.frG;
     }
 
-    public void wI(String str) {
-        this.fpS = str;
+    public void xh(String str) {
+        this.frG = str;
     }
 }

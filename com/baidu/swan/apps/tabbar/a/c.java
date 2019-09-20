@@ -22,24 +22,24 @@ public class c extends z {
             return false;
         }
         int optInt = optParamsAsJo.optInt("index");
-        com.baidu.swan.apps.core.d.e vJ = com.baidu.swan.apps.w.e.GF().vJ();
-        if (vJ == null) {
+        com.baidu.swan.apps.core.d.e vN = com.baidu.swan.apps.w.e.GJ().vN();
+        if (vN == null) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.d As = vJ.As();
-        if (As == null) {
+        com.baidu.swan.apps.core.d.d Aw = vN.Aw();
+        if (Aw == null) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a Ae = As.Ae();
-        if (Ae == null) {
+        com.baidu.swan.apps.tabbar.b.a Ai = Aw.Ai();
+        if (Ai == null) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "bottomBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!Ae.ey(optInt)) {
+        } else if (!Ai.ez(optInt)) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "close red dot fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

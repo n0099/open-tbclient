@@ -26,8 +26,8 @@ public class h extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject bP(int i) {
-        return super.bP(i);
+    public /* bridge */ /* synthetic */ JSONObject bQ(int i) {
+        return super.bQ(i);
     }
 
     public h(j jVar) {
@@ -37,37 +37,37 @@ public class h extends a {
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar) {
         final String str;
-        com.baidu.swan.apps.core.d.d As;
+        com.baidu.swan.apps.core.d.d Aw;
         final com.baidu.swan.apps.canvas.c.f c = c(unitedSchemeEntity);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
-            unitedSchemeEntity.result = bP(201);
+            unitedSchemeEntity.result = bQ(201);
             return false;
         }
-        String hE = com.baidu.swan.apps.storage.b.hE(bVar.id);
-        if (TextUtils.isEmpty(hE)) {
+        String hG = com.baidu.swan.apps.storage.b.hG(bVar.id);
+        if (TextUtils.isEmpty(hG)) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
-            unitedSchemeEntity.result = bP(201);
+            unitedSchemeEntity.result = bQ(201);
             return false;
         }
-        String str2 = hE + File.separator + Calendar.getInstance().getTimeInMillis();
-        if (c.xZ()) {
+        String str2 = hG + File.separator + Calendar.getInstance().getTimeInMillis();
+        if (c.yd()) {
             str = str2 + ".jpg";
         } else {
             str = str2 + ".png";
         }
-        if (TextUtils.isEmpty(c.aDU) && (As = com.baidu.swan.apps.w.e.GF().As()) != null) {
-            c.aDU = As.Ac();
+        if (TextUtils.isEmpty(c.aEs) && (Aw = com.baidu.swan.apps.w.e.GJ().Aw()) != null) {
+            c.aEs = Aw.Ag();
         }
-        if (TextUtils.isEmpty(c.aDU) || TextUtils.isEmpty(c.id)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + c.aDU + " ; canvas id = " + c.id);
-            unitedSchemeEntity.result = bP(201);
+        if (TextUtils.isEmpty(c.aEs) || TextUtils.isEmpty(c.id)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + c.aEs + " ; canvas id = " + c.id);
+            unitedSchemeEntity.result = bQ(201);
             return false;
         }
-        final CanvasView b = com.baidu.swan.apps.canvas.a.xP().b(c);
+        final CanvasView b = com.baidu.swan.apps.canvas.a.xT().b(c);
         if (b == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
-            unitedSchemeEntity.result = bP(201);
+            unitedSchemeEntity.result = bQ(201);
             return false;
         }
         com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.h.1
@@ -91,7 +91,7 @@ public class h extends a {
                         try {
                             str3 = new JSONObject(str4).optString("cb");
                             try {
-                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.aG(str, bVar.id) + "." + c.ya());
+                                jSONObject.putOpt("tempFilePath", com.baidu.swan.apps.storage.b.aG(str, bVar.id) + "." + c.ye());
                             } catch (JSONException e2) {
                                 e = e2;
                                 e.printStackTrace();

@@ -26,13 +26,13 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mCallback = o.dd(unitedSchemeEntity.getParam("params")).optString("cb");
+        this.mCallback = o.df(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             c.i("scanCode", "cb is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.u.a.Es().a(bVar.getActivity(), new a() { // from class: com.baidu.swan.apps.g.b.1
+        com.baidu.swan.apps.u.a.Ew().a(bVar.getActivity(), new a() { // from class: com.baidu.swan.apps.g.b.1
             @Override // com.baidu.swan.apps.g.a
             public void onSuccess(String str, String str2, String str3) {
                 try {

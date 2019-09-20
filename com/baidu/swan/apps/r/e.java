@@ -9,14 +9,14 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b.a aya;
+    private static b.a ayy;
 
     public static void a(b.a aVar) {
-        aya = aVar;
+        ayy = aVar;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && aya != null) {
+        if (editText != null && ayy != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UBC.CONTENT_KEY_VALUE, editText.getText());
@@ -28,7 +28,7 @@ public class e {
                     e.printStackTrace();
                 }
             }
-            aya.d(String.valueOf(editText.getTag()), jSONObject);
+            ayy.d(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,7 +45,7 @@ public class e {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && aya != null) {
+        if (editText != null && ayy != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UBC.CONTENT_KEY_VALUE, editText.getText());
@@ -57,7 +57,7 @@ public class e {
                     e.printStackTrace();
                 }
             }
-            aya.d(String.valueOf(editText.getTag()), jSONObject);
+            ayy.d(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

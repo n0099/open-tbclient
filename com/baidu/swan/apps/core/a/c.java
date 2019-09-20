@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String apy;
+    public static String apW;
 
     public static void a(Context context, com.baidu.swan.apps.v.b.c cVar) {
         a(context, cVar, true);
@@ -31,60 +31,60 @@ public class c {
     public static void a(final Context context, final com.baidu.swan.apps.v.b.c cVar, boolean z) {
         boolean z2;
         String uuid = UUID.randomUUID().toString();
-        cVar.Fu().putLong("launch_flag_for_statistic", System.currentTimeMillis());
-        cVar.Fu().putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-        com.baidu.swan.apps.performance.b.IC().q(uuid, "aiapp_abtest_info", TextUtils.isEmpty(apy) ? "" : apy);
-        apy = "";
-        com.baidu.swan.apps.performance.b.IC().f(uuid, "is_sileng_updating_when_start", com.baidu.swan.apps.core.a.c.b.zm().zn());
-        cVar.Fu().putLong("aiapp_start_timestamp", System.currentTimeMillis());
-        com.baidu.swan.apps.database.a dZ = SwanAppDbControl.aX(context).dZ(cVar.mAppId);
-        com.baidu.swan.apps.performance.b.IC().as(uuid, "aiapp_query_db_timestamp");
-        boolean a = a(dZ, cVar, uuid);
+        cVar.Fy().putLong("launch_flag_for_statistic", System.currentTimeMillis());
+        cVar.Fy().putLong("page_display_flag_for_statistic", System.currentTimeMillis());
+        com.baidu.swan.apps.performance.b.IG().q(uuid, "aiapp_abtest_info", TextUtils.isEmpty(apW) ? "" : apW);
+        apW = "";
+        com.baidu.swan.apps.performance.b.IG().f(uuid, "is_sileng_updating_when_start", com.baidu.swan.apps.core.a.c.b.zq().zr());
+        cVar.Fy().putLong("aiapp_start_timestamp", System.currentTimeMillis());
+        com.baidu.swan.apps.database.a eb = SwanAppDbControl.aX(context).eb(cVar.mAppId);
+        com.baidu.swan.apps.performance.b.IG().as(uuid, "aiapp_query_db_timestamp");
+        boolean a = a(eb, cVar, uuid);
         String str = a ? "1" : "0";
         if (z) {
-            cVar.Fu().putLong("ext_launch_time", System.currentTimeMillis());
-            a(cVar, dZ, str);
+            cVar.Fy().putLong("ext_launch_time", System.currentTimeMillis());
+            a(cVar, eb, str);
         }
-        cVar.Fu().putString("aiapp_extra_need_download", str);
+        cVar.Fy().putString("aiapp_extra_need_download", str);
         com.baidu.swan.apps.statistic.b.c.e(cVar);
         if (a) {
             if (DEBUG) {
                 Log.i("loadSwanAppBundle", "执行APS全流程，不执行并行操作");
             }
-            b.a(context, cVar, a.yZ(), uuid);
+            b.a(context, cVar, a.zd(), uuid);
         } else {
             if (DEBUG) {
                 Log.e("loadSwanAppBundle", "本地有包，Local");
             }
-            if (dZ != null && !TextUtils.isEmpty(dZ.appId)) {
-                b(dZ.appId, dZ.iconUrl, dZ.version, dZ.ave);
+            if (eb != null && !TextUtils.isEmpty(eb.appId)) {
+                b(eb.appId, eb.iconUrl, eb.version, eb.avC);
             }
-            b.a(context, cVar, dZ, true, uuid);
+            b.a(context, cVar, eb, true, uuid);
             if (DEBUG) {
                 Log.i("loadSwanAppBundle", "本地有包，并行请求APS");
             }
-            final int yY = a.yY();
-            if (dZ != null && (z2 = dZ.avh)) {
+            final int zc = a.zc();
+            if (eb != null && (z2 = eb.avF)) {
                 if (DEBUG) {
                     Log.i("loadSwanAppBundle", "本地有包，手百更新后小程序首次启动: " + z2);
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(dZ.appId);
-                com.baidu.b.a.c.a.c(Constants.VIA_REPORT_TYPE_QQFAVORITES, arrayList);
+                arrayList.add(eb.appId);
+                com.baidu.b.a.c.a.b(Constants.VIA_REPORT_TYPE_QQFAVORITES, arrayList);
             }
             int i = 0;
-            if (com.baidu.swan.apps.u.a.En() != null) {
-                i = com.baidu.swan.apps.u.a.En().wh();
+            if (com.baidu.swan.apps.u.a.Er() != null) {
+                i = com.baidu.swan.apps.u.a.Er().wl();
             }
             if (i > 0) {
                 j.a(new Runnable() { // from class: com.baidu.swan.apps.core.a.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.a(context, cVar, yY, "");
+                        b.a(context, cVar, zc, "");
                     }
                 }, i, TimeUnit.MILLISECONDS);
             } else {
-                b.a(context, cVar, yY, "");
+                b.a(context, cVar, zc, "");
             }
         }
         if (DEBUG) {
@@ -95,11 +95,11 @@ public class c {
     public static void b(String str, String str2, String str3, int i) {
         SwanAppMessengerService serviceObject;
         if (!TextUtils.isEmpty(str) && (serviceObject = SwanAppMessengerService.getServiceObject()) != null) {
-            a.b gm = com.baidu.swan.apps.process.messaging.service.a.Jx().gm(str);
+            a.b go = com.baidu.swan.apps.process.messaging.service.a.JB().go(str);
             if (DEBUG) {
-                Log.d("loadSwanAppBundle", "appId: " + str + ", client: " + gm);
+                Log.d("loadSwanAppBundle", "appId: " + str + ", client: " + go);
             }
-            if (gm.aHJ && gm.aHF.isSwanAppProcess()) {
+            if (go.aIh && go.aId.isSwanAppProcess()) {
                 SwanAppPreHandleInfo swanAppPreHandleInfo = new SwanAppPreHandleInfo();
                 swanAppPreHandleInfo.appId = str;
                 if (!TextUtils.isEmpty(str3)) {
@@ -108,10 +108,10 @@ public class c {
                 if (!TextUtils.isEmpty(str2)) {
                     swanAppPreHandleInfo.iconUrl = str2;
                 }
-                swanAppPreHandleInfo.ave = i;
+                swanAppPreHandleInfo.avC = i;
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("ai_apps_data", swanAppPreHandleInfo);
-                serviceObject.sendMessageToClient(gm, 108, bundle);
+                serviceObject.sendMessageToClient(go, 108, bundle);
             }
         }
     }
@@ -120,19 +120,19 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return a(SwanAppDbControl.aX(context).dZ(str));
+        return a(SwanAppDbControl.aX(context).eb(str));
     }
 
     private static void a(com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.apps.database.a aVar, String str) {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.e.dP(cVar.azz);
+        fVar.mFrom = com.baidu.swan.apps.statistic.e.dQ(cVar.azX);
         fVar.d(cVar);
-        fVar.aVX = str;
+        fVar.aWv = str;
         fVar.mType = Config.LAUNCH;
         if (aVar != null) {
             fVar.mAppVersion = aVar.version;
         }
-        fVar.ak(com.baidu.swan.apps.statistic.e.ht(cVar.azw));
+        fVar.ak(com.baidu.swan.apps.statistic.e.hv(cVar.azU));
         com.baidu.swan.apps.statistic.e.onEvent(fVar);
     }
 
@@ -141,46 +141,46 @@ public class c {
             if (DEBUG) {
                 Log.i("loadSwanAppBundle", "本地无包，走APS");
             }
-            com.baidu.swan.apps.performance.b.IC().d(str, "aiapp_launch_state", 0);
-            cVar.Fu().putString("aiapp_extra_pkg_download", "1");
+            com.baidu.swan.apps.performance.b.IG().d(str, "aiapp_launch_state", 0);
+            cVar.Fy().putString("aiapp_extra_pkg_download", "1");
             return true;
         } else if (aVar.errorCode != 0) {
             if (DEBUG) {
                 Log.i("loadSwanAppBundle", "有错误code，走APS");
             }
-            com.baidu.swan.apps.performance.b.IC().d(str, "aiapp_launch_state", 2);
+            com.baidu.swan.apps.performance.b.IG().d(str, "aiapp_launch_state", 2);
             return true;
         } else if (com.baidu.swan.apps.database.a.e(aVar)) {
             if (DEBUG) {
                 Log.i("loadSwanAppBundle", "有悬而未决的的aps errcode要处理，走APS");
             }
-            com.baidu.swan.apps.performance.b.IC().d(str, "aiapp_launch_state", 2);
+            com.baidu.swan.apps.performance.b.IG().d(str, "aiapp_launch_state", 2);
             return true;
-        } else if (aVar.Ct()) {
-            if (com.baidu.swan.apps.core.a.c.b.zm().dD(aVar.appId)) {
+        } else if (aVar.Cx()) {
+            if (com.baidu.swan.apps.core.a.c.b.zq().dF(aVar.appId)) {
                 if (DEBUG) {
                     Log.i("loadSwanAppBundle", "MaxAge已过期，但5小时内已通过SilentUpdateManager检测无新包，id =" + aVar.appId);
                 }
-                com.baidu.swan.apps.performance.b.IC().d(str, "aiapp_launch_state", 3);
+                com.baidu.swan.apps.performance.b.IG().d(str, "aiapp_launch_state", 3);
                 return false;
             }
             if (DEBUG) {
                 Log.i("loadSwanAppBundle", "本地包已过期");
             }
-            com.baidu.swan.apps.performance.b.IC().d(str, "aiapp_launch_state", 1);
-            boolean z = aVar.avh;
+            com.baidu.swan.apps.performance.b.IG().d(str, "aiapp_launch_state", 1);
+            boolean z = aVar.avF;
             if (z) {
                 if (DEBUG) {
                     Log.i("loadSwanAppBundle", "本地有包，手百更新后小程序首次启动且包过期: " + z);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(aVar.appId);
-                com.baidu.b.a.c.a.c(Constants.VIA_REPORT_TYPE_QQFAVORITES, arrayList);
+                com.baidu.b.a.c.a.b(Constants.VIA_REPORT_TYPE_QQFAVORITES, arrayList);
                 return true;
             }
             return true;
         } else {
-            com.baidu.swan.apps.performance.b.IC().d(str, "aiapp_launch_state", 4);
+            com.baidu.swan.apps.performance.b.IG().d(str, "aiapp_launch_state", 4);
             return false;
         }
     }
@@ -189,7 +189,7 @@ public class c {
         if (aVar == null || TextUtils.isEmpty(aVar.appId) || TextUtils.isEmpty(aVar.version)) {
             return false;
         }
-        if (aVar.ave == 1) {
+        if (aVar.avC == 1) {
             return b(aVar);
         }
         File ae = e.d.ae(aVar.appId, aVar.version);

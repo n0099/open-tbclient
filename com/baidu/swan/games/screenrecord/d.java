@@ -8,72 +8,72 @@ import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d bkx = null;
-    private GameRecorderController bhR;
-    private boolean bky;
+    private static volatile d bkV = null;
+    private GameRecorderController bir;
+    private boolean bkW;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void fd(int i);
+        void fe(int i);
     }
 
     private d() {
     }
 
-    public static d ST() {
-        if (bkx == null) {
+    public static d SX() {
+        if (bkV == null) {
             synchronized (d.class) {
-                if (bkx == null) {
-                    bkx = new d();
+                if (bkV == null) {
+                    bkV = new d();
                 }
             }
         }
-        return bkx;
+        return bkV;
     }
 
     public void b(GameRecorderController gameRecorderController) {
-        if (this.bhR != null && this.bhR != gameRecorderController) {
-            this.bhR.release();
+        if (this.bir != null && this.bir != gameRecorderController) {
+            this.bir.release();
         }
-        this.bhR = gameRecorderController;
+        this.bir = gameRecorderController;
     }
 
     @NonNull
-    public GameRecorderController SU() {
+    public GameRecorderController SY() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.bhR);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.bir);
         }
-        return this.bhR == null ? GameRecorderController.SS() : this.bhR;
+        return this.bir == null ? GameRecorderController.SW() : this.bir;
     }
 
     public void c(GameRecorderController gameRecorderController) {
-        if (this.bhR != null && this.bhR == gameRecorderController) {
-            this.bhR.release();
-            this.bhR = null;
+        if (this.bir != null && this.bir == gameRecorderController) {
+            this.bir.release();
+            this.bir = null;
         }
     }
 
-    public boolean SV() {
+    public boolean SZ() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.bky);
+            Log.i("GameRecorderManager", "isGamePause:" + this.bkW);
         }
-        return this.bky;
+        return this.bkW;
     }
 
-    public void SW() {
-        this.bky = true;
+    public void Ta() {
+        this.bkW = true;
     }
 
-    public void SX() {
-        this.bky = false;
+    public void Tb() {
+        this.bkW = false;
     }
 
     public static void a(@NonNull final a aVar) {
-        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
-        if (Md == null || Md.getActivity() == null) {
-            aVar.fd(2);
+        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
+        if (Mh == null || Mh.getActivity() == null) {
+            aVar.fe(2);
         } else {
-            Md.Mh().a(Md.getActivity(), "mapp_record", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.games.screenrecord.d.1
+            Mh.Ml().a(Mh.getActivity(), "mapp_record", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.games.screenrecord.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
@@ -81,7 +81,7 @@ public class d {
                     if (bool.booleanValue()) {
                         d.b(a.this);
                     } else {
-                        a.this.fd(2);
+                        a.this.fe(2);
                     }
                 }
             });
@@ -91,20 +91,20 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(@NonNull final a aVar) {
         boolean z;
-        if (com.baidu.swan.apps.an.a.Ph()) {
-            z = ActivityCompat.checkSelfPermission(com.baidu.swan.apps.u.a.Ek(), "android.permission.RECORD_AUDIO") == 0;
+        if (com.baidu.swan.apps.an.a.Pl()) {
+            z = ActivityCompat.checkSelfPermission(com.baidu.swan.apps.u.a.Eo(), "android.permission.RECORD_AUDIO") == 0;
         } else {
             z = true;
         }
         if (z) {
-            aVar.fd(0);
+            aVar.fe(0);
         } else {
-            e.GF().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0111a() { // from class: com.baidu.swan.games.screenrecord.d.2
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0111a
+            e.GJ().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0120a() { // from class: com.baidu.swan.games.screenrecord.d.2
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0120a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     boolean z2;
                     if (i != 2 || iArr.length <= 0) {
-                        a.this.fd(1);
+                        a.this.fe(1);
                         return;
                     }
                     int length = iArr.length;
@@ -120,7 +120,7 @@ public class d {
                             i2++;
                         }
                     }
-                    a.this.fd(z2 ? 0 : 1);
+                    a.this.fe(z2 ? 0 : 1);
                 }
             });
         }

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a fcE;
-    private b fcG;
+    private a fer;
+    private b fet;
     private int mScrollState = -1;
-    private int fcF = 0;
+    private int fes = 0;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.fcF != 0 && this.fcG != null) {
-                    this.fcG.a(absListView, 0, -this.fcF);
+                if (this.fes != 0 && this.fet != null) {
+                    this.fet.a(absListView, 0, -this.fes);
                 }
-                this.fcF = 0;
-                this.fcE = null;
+                this.fes = 0;
+                this.fer = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.fcE == null) {
-                this.fcE = aVar;
-                this.fcF = absListView.getPaddingTop() - childAt.getTop();
-                if (this.fcG != null) {
-                    this.fcG.a(absListView, this.fcF, 0);
+            if (this.fer == null) {
+                this.fer = aVar;
+                this.fes = absListView.getPaddingTop() - childAt.getTop();
+                if (this.fet != null) {
+                    this.fet.a(absListView, this.fes, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.fcE.a(aVar);
-            this.fcE = aVar;
-            this.fcF += a2;
-            if (this.fcG != null) {
-                this.fcG.a(absListView, this.fcF, a2);
+            int a2 = this.fer.a(aVar);
+            this.fer = aVar;
+            this.fes += a2;
+            if (this.fet != null) {
+                this.fet.a(absListView, this.fes, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.fcG = bVar;
+        this.fet = bVar;
     }
 
     /* loaded from: classes4.dex */

@@ -17,24 +17,24 @@ public class ExtensionCore extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cw */
+        /* renamed from: cx */
         public ExtensionCore[] newArray(int i) {
             return new ExtensionCore[i];
         }
     };
-    public int awQ;
-    public long awR;
-    public String awS;
-    public String awT;
+    public int axo;
+    public long axp;
+    public String axq;
+    public String axr;
 
     public ExtensionCore() {
     }
 
     private ExtensionCore(Parcel parcel) {
-        this.awQ = parcel.readInt();
-        this.awR = parcel.readLong();
-        this.awS = parcel.readString();
-        this.awT = parcel.readString();
+        this.axo = parcel.readInt();
+        this.axp = parcel.readLong();
+        this.axq = parcel.readString();
+        this.axr = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -44,17 +44,17 @@ public class ExtensionCore extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.awQ);
-        parcel.writeLong(this.awR);
-        parcel.writeString(this.awS);
-        parcel.writeString(this.awT);
+        parcel.writeInt(this.axo);
+        parcel.writeLong(this.axp);
+        parcel.writeString(this.axq);
+        parcel.writeString(this.axr);
     }
 
     public String toString() {
-        return "ExtensionCore{extensionCoreType=" + this.awQ + ", extensionCoreVersionCode=" + this.awR + ", extensionCoreVersionName=" + this.awS + ", extensionCorePath='" + this.awT + "', isAvailable='" + isAvailable() + "'}";
+        return "ExtensionCore{extensionCoreType=" + this.axo + ", extensionCoreVersionCode=" + this.axp + ", extensionCoreVersionName=" + this.axq + ", extensionCorePath='" + this.axr + "', isAvailable='" + isAvailable() + "'}";
     }
 
     public boolean isAvailable() {
-        return !TextUtils.isEmpty(this.awT) && new File(this.awT).exists();
+        return !TextUtils.isEmpty(this.axr) && new File(this.axr).exists();
     }
 }

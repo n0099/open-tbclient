@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.baidu.sapi2.utils.SapiGIDEvent;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.setting.a.g;
@@ -21,29 +20,29 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends g<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public g.a aVf;
-    public b aVg = new b(Looper.getMainLooper(), this);
-    public Bundle aVh;
+    public g.a aVD;
+    public b aVE = new b(Looper.getMainLooper(), this);
+    public Bundle aVF;
     protected final Activity mActivity;
 
     public e(Activity activity, g.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.aVf = aVar;
-        this.aVh = bundle;
+        this.aVD = aVar;
+        this.aVF = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean DO() {
+    protected boolean DS() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", Mu().id);
+            jSONObject.put("ma_id", My().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", Mu().getAppKey());
+            jSONObject2.put("app_key", My().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String wS = com.baidu.swan.apps.u.a.Ew().wS();
-            if (!TextUtils.isEmpty(wS)) {
-                jSONObject2.put("host_api_key", wS);
+            String wW = com.baidu.swan.apps.u.a.EA().wW();
+            if (!TextUtils.isEmpty(wW)) {
+                jSONObject2.put("host_api_key", wW);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
@@ -55,18 +54,18 @@ public class e extends g<c> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.u.a.Ew().d(this.mActivity, gVar.Ny());
+        return com.baidu.swan.apps.u.a.EA().d(this.mActivity, gVar.NC());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    public boolean DN() {
-        a(DR());
-        return super.DN();
+    public boolean DR() {
+        a(DV());
+        return super.DR();
     }
 
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d DR() {
+    protected com.baidu.swan.apps.setting.oauth.d DV() {
         return new a();
     }
 
@@ -99,7 +98,7 @@ public class e extends g<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.aVg.removeMessages(1);
+        this.aVE.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -109,14 +108,14 @@ public class e extends g<c> {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean DQ() throws Exception {
-            com.baidu.swan.apps.a.b Mi = e.this.Mu().Mi();
-            boolean aD = Mi.aD(e.this.mActivity);
+        protected boolean DU() throws Exception {
+            com.baidu.swan.apps.a.b Mm = e.this.My().Mm();
+            boolean aD = Mm.aD(e.this.mActivity);
             if (e.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + aD + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!aD) {
-                Mi.a(e.this.mActivity, e.this.aVh, this);
+                Mm.a(e.this.mActivity, e.this.aVF, this);
             }
             return aD;
         }
@@ -136,7 +135,7 @@ public class e extends g<c> {
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.a("Login Preparation ok, is already login", (Boolean) false);
-                    Nt();
+                    Nx();
                     return;
             }
         }
@@ -157,23 +156,23 @@ public class e extends g<c> {
 
     /* loaded from: classes2.dex */
     public static class b extends Handler {
-        private WeakReference<e> aVj;
+        private WeakReference<e> aVH;
 
         private b(Looper looper, e eVar) {
             super(looper);
-            this.aVj = new WeakReference<>(eVar);
+            this.aVH = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            e eVar = this.aVj.get();
+            e eVar = this.aVH.get();
             if (eVar != null) {
                 switch (message.what) {
                     case 1:
                         if (e.DEBUG) {
                             Log.d("LoginRequest", "handleMessage: timeout");
                         }
-                        eVar.l(new OAuthException("request timeout", (int) HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL));
+                        eVar.l(new OAuthException("request timeout", 10007));
                         return;
                     default:
                         return;

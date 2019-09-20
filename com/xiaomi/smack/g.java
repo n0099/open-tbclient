@@ -1,6 +1,5 @@
 package com.xiaomi.smack;
 
-import com.baidu.mapapi.UIMsg;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.net.URL;
@@ -19,7 +18,7 @@ public final class g {
     private static Vector<String> e = new Vector<>();
 
     static {
-        a = UIMsg.m_AppUI.MSG_APP_GPS;
+        a = 5000;
         b = 330000;
         try {
             for (ClassLoader classLoader : d()) {

@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.baidu.ubc.UBC;
 import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -685,7 +684,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             this.k = jSONObject.optString("exp2", "{}");
             this.l = jSONObject.optInt("anti_tag");
             this.n = jSONObject.optString("vurl", "");
-            this.p = jSONObject.optInt(UBC.CONTENT_KEY_DURATION, 0);
+            this.p = jSONObject.optInt("duration", 0);
             this.o = jSONObject.optInt("sound", 0) != 1;
             this.u = jSONObject.optInt("iv", 0) == 1;
             this.v = jSONObject.optInt("dur", 0);

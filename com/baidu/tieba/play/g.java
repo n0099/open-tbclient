@@ -3,6 +3,7 @@ package com.baidu.tieba.play;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.net.Uri;
+import android.support.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -10,17 +11,17 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface a {
-        void onCompletion(g gVar);
+        void onCompletion(@Nullable g gVar);
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        boolean onError(g gVar, int i, int i2);
+        boolean onError(@Nullable g gVar, int i, int i2);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean a(g gVar, int i, int i2, int i3);
+        boolean a(@Nullable g gVar, int i, int i2, int i3);
     }
 
     /* loaded from: classes.dex */
@@ -30,18 +31,18 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface e {
-        boolean onInfo(g gVar, int i, int i2);
+        boolean onInfo(@Nullable g gVar, int i, int i2);
     }
 
     /* loaded from: classes.dex */
     public interface f {
-        void onPrepared(g gVar);
+        void onPrepared(@Nullable g gVar);
     }
 
     /* renamed from: com.baidu.tieba.play.g$g  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0393g {
-        void b(g gVar);
+    public interface InterfaceC0404g {
+        void b(@Nullable g gVar);
     }
 
     /* loaded from: classes.dex */
@@ -68,11 +69,11 @@ public interface g {
 
     void a(i iVar);
 
-    int aBG();
+    int aBU();
 
-    boolean aBH();
+    boolean aBV();
 
-    void awx();
+    void awJ();
 
     void forceUseSystemMediaPlayer(boolean z);
 
@@ -96,8 +97,6 @@ public interface g {
 
     boolean isExistInRemote();
 
-    boolean isNewPlayer();
-
     boolean isPlayerReuse();
 
     boolean isPlaying();
@@ -116,7 +115,7 @@ public interface g {
 
     void setOnPreparedListener(f fVar);
 
-    void setOnSeekCompleteListener(InterfaceC0393g interfaceC0393g);
+    void setOnSeekCompleteListener(InterfaceC0404g interfaceC0404g);
 
     void setSurface(SurfaceTexture surfaceTexture);
 

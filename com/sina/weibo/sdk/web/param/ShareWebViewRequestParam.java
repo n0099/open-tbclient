@@ -15,6 +15,7 @@ import com.sina.weibo.sdk.network.impl.RequestParam;
 import com.sina.weibo.sdk.network.impl.RequestService;
 import com.sina.weibo.sdk.network.target.SimpleTarget;
 import com.sina.weibo.sdk.utils.Base64;
+import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.WebPicUploadResult;
@@ -26,7 +27,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
-    private static final String SHARE_URL = "https://service.weibo.com/share/mobilesdk.php";
+    public static final String SHARE_URL = "https://service.weibo.com/share/mobilesdk.php";
     private static final String UPLOAD_PIC_URL = "https://service.weibo.com/share/mobilesdk_uppic.php";
     private String hashKey;
     private byte[] mBase64ImgData;
@@ -62,6 +63,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public void doExtraTask(final BaseWebViewRequestParam.ExtraTaskCallback extraTaskCallback) {
         super.doExtraTask(extraTaskCallback);
+        LogUtil.i("Share", "ShareWebViewRequestParam.doExtraTask()");
         new WeiboParameters(getBaseData().getAuthInfo().getAppKey());
         String str = new String(this.mBase64ImgData);
         IRequestService requestService = RequestService.getInstance();
@@ -72,6 +74,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         requestService.asyncRequest(builder.build(), new SimpleTarget() { // from class: com.sina.weibo.sdk.web.param.ShareWebViewRequestParam.1
             @Override // com.sina.weibo.sdk.network.target.SimpleTarget
             public void onSuccess(String str2) {
+                LogUtil.i("Share", "ShareWebViewRequestParam.doExtraTask().onSuccess()");
                 WebPicUploadResult parse = WebPicUploadResult.parse(str2);
                 if (parse != null && parse.getCode() == 1 && !TextUtils.isEmpty(parse.getPicId())) {
                     ShareWebViewRequestParam.this.picId = parse.getPicId();
@@ -85,6 +88,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
 
             @Override // com.sina.weibo.sdk.network.target.Target
             public void onFailure(Exception exc) {
+                LogUtil.i("Share", "ShareWebViewRequestParam.doExtraTask().onFailure(),e =" + exc.getMessage());
                 if (extraTaskCallback != null) {
                     extraTaskCallback.onException("upload pic fail");
                 }

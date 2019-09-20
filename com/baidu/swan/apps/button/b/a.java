@@ -17,9 +17,9 @@ public class a<M extends a> extends com.baidu.swan.apps.model.a.a.a {
     public double acn;
     public double aco;
     public double acp;
-    public JSONObject akZ;
-    public int ala;
-    public float alb;
+    public float alA;
+    public JSONObject aly;
+    public int alz;
     public int backgroundColor;
     public int borderColor;
     public int borderWidth;
@@ -33,48 +33,48 @@ public class a<M extends a> extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.akZ = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-        if (this.akZ != null) {
+        this.aly = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+        if (this.aly != null) {
             try {
-                this.backgroundColor = Color.parseColor(this.akZ.optString("bgColor"));
+                this.backgroundColor = Color.parseColor(this.aly.optString("bgColor"));
             } catch (Exception e) {
                 c.e("SwanAppNativeViewModel", "bgColor occurs exception", e);
                 this.backgroundColor = 0;
             }
-            this.ala = this.akZ.optInt("borderRadius");
-            this.borderWidth = this.akZ.optInt("borderWidth");
+            this.alz = this.aly.optInt("borderRadius");
+            this.borderWidth = this.aly.optInt("borderWidth");
             try {
-                this.borderColor = Color.parseColor(this.akZ.optString("borderColor"));
+                this.borderColor = Color.parseColor(this.aly.optString("borderColor"));
             } catch (Exception e2) {
                 c.e("SwanAppNativeViewModel", "borderColor occurs exception", e2);
                 this.borderColor = 0;
             }
-            JSONArray optJSONArray = this.akZ.optJSONArray("padding");
+            JSONArray optJSONArray = this.aly.optJSONArray("padding");
             if (optJSONArray != null && optJSONArray.length() == 4) {
                 this.acm = optJSONArray.optDouble(3, 0.0d);
                 this.acn = optJSONArray.optDouble(0, 0.0d);
                 this.aco = optJSONArray.optDouble(1, 0.0d);
                 this.acp = optJSONArray.optDouble(2, 0.0d);
             }
-            this.alb = o.a(this.akZ, "opacity", -1.0f);
+            this.alA = o.a(this.aly, "opacity", -1.0f);
         }
     }
 
     public void a(M m, com.baidu.swan.apps.view.container.c.a aVar) {
         if (m != null && aVar != null) {
             if (!TextUtils.equals(this.id, m.id)) {
-                aVar.eL(63);
+                aVar.eM(63);
                 return;
             }
-            if (this.aDW != null && !this.aDW.equals(m.aDW)) {
-                aVar.eL(1);
+            if (this.aEu != null && !this.aEu.equals(m.aEu)) {
+                aVar.eM(1);
             }
             if (m.hidden != this.hidden) {
-                aVar.eL(8);
+                aVar.eM(8);
             }
-            if (m.akZ != null) {
-                if (this.akZ == null || !TextUtils.equals(this.akZ.toString(), m.akZ.toString())) {
-                    aVar.eL(2);
+            if (m.aly != null) {
+                if (this.aly == null || !TextUtils.equals(this.aly.toString(), m.aly.toString())) {
+                    aVar.eM(2);
                 }
             }
         }

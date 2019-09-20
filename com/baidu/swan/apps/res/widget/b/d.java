@@ -11,25 +11,25 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.z;
 /* loaded from: classes2.dex */
 public class d {
-    private static boolean azt = com.baidu.swan.apps.b.DEBUG;
-    private CharSequence aQe;
-    private CharSequence aQf;
-    private Drawable aQg;
-    private Uri aQh;
-    private int aQi;
-    private a aQj;
-    private boolean aQn;
+    private static boolean azR = com.baidu.swan.apps.b.DEBUG;
+    private CharSequence aQC;
+    private CharSequence aQD;
+    private Drawable aQE;
+    private Uri aQF;
+    private int aQG;
+    private a aQH;
+    private boolean aQL;
     private Context mContext;
     private CharSequence mTitleText;
-    private int aQk = 2;
-    private int aQl = 1;
-    private int aQm = 1;
+    private int aQI = 2;
+    private int aQJ = 1;
+    private int aQK = 1;
     private int mDuration = 2;
     private int mTextSize = 14;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void LX();
+        void Mb();
     }
 
     private d(Context context) {
@@ -42,23 +42,23 @@ public class d {
 
     public static d a(@NonNull Context context, @NonNull CharSequence charSequence) {
         d dVar = new d(context);
-        dVar.aQe = charSequence;
+        dVar.aQC = charSequence;
         return dVar;
     }
 
     public static d k(@NonNull Context context, @StringRes int i) {
         d dVar = new d(context);
-        dVar.aQe = context.getText(i);
+        dVar.aQC = context.getText(i);
         return dVar;
     }
 
-    public d dF(@NonNull int i) {
-        this.aQi = i;
+    public d dG(@NonNull int i) {
+        this.aQG = i;
         return this;
     }
 
     public d co(boolean z) {
-        this.aQn = z;
+        this.aQL = z;
         return this;
     }
 
@@ -68,31 +68,31 @@ public class d {
     }
 
     public d f(@NonNull CharSequence charSequence) {
-        this.aQe = charSequence;
-        return this;
-    }
-
-    public d dG(int i) {
-        this.aQk = i;
+        this.aQC = charSequence;
         return this;
     }
 
     public d dH(int i) {
-        this.aQl = i;
+        this.aQI = i;
         return this;
     }
 
     public d dI(int i) {
-        this.aQm = i;
-        return this;
-    }
-
-    public d g(@NonNull CharSequence charSequence) {
-        this.aQf = charSequence;
+        this.aQJ = i;
         return this;
     }
 
     public d dJ(int i) {
+        this.aQK = i;
+        return this;
+    }
+
+    public d g(@NonNull CharSequence charSequence) {
+        this.aQD = charSequence;
+        return this;
+    }
+
+    public d dK(int i) {
         if (i < 1 || i > 10) {
             this.mDuration = 2;
         } else {
@@ -102,35 +102,35 @@ public class d {
     }
 
     public d b(a aVar) {
-        this.aQj = aVar;
+        this.aQH = aVar;
         return this;
     }
 
     public d d(@NonNull Drawable drawable) {
-        this.aQg = drawable;
+        this.aQE = drawable;
         return this;
     }
 
-    public d dK(@DrawableRes int i) {
+    public d dL(@DrawableRes int i) {
         if (this.mContext != null && this.mContext.getResources() != null) {
-            this.aQg = this.mContext.getResources().getDrawable(i);
+            this.aQE = this.mContext.getResources().getDrawable(i);
         }
         return this;
     }
 
     public d f(@NonNull Uri uri) {
-        this.aQh = uri;
+        this.aQF = uri;
         return this;
     }
 
-    private boolean LP() {
+    private boolean LT() {
         if (this.mContext == null) {
-            if (azt) {
+            if (azR) {
                 throw new IllegalArgumentException("UniversalToast mContext is null!!!");
             }
             return false;
-        } else if (this.aQe == null) {
-            if (azt) {
+        } else if (this.aQC == null) {
+            if (azR) {
                 throw new IllegalArgumentException("UniversalToast toast text is null!!!");
             }
             return false;
@@ -139,97 +139,97 @@ public class d {
         }
     }
 
-    public void LQ() {
+    public void LU() {
         cp(false);
     }
 
-    public void LR() {
-        if (LP()) {
-            LW();
-            com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQe, this.mDuration, false, this.aQi, this.aQn);
+    public void LV() {
+        if (LT()) {
+            Ma();
+            com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQC, this.mDuration, false, this.aQG, this.aQL);
         }
     }
 
     public void cp(boolean z) {
-        if (LP()) {
-            LW();
+        if (LT()) {
+            Ma();
             if (!z && (this.mContext instanceof Activity)) {
-                e.a((Activity) this.mContext, this.aQe, this.mDuration, this.aQi, this.aQn);
+                e.a((Activity) this.mContext, this.aQC, this.mDuration, this.aQG, this.aQL);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQe, this.mDuration, true, this.aQi, this.aQn);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQC, this.mDuration, true, this.aQG, this.aQL);
             }
         }
     }
 
-    public void LS() {
+    public void LW() {
         cq(false);
     }
 
     public void cq(boolean z) {
-        if (LP()) {
-            LW();
+        if (LT()) {
+            Ma();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQe, this.mDuration);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQC, this.mDuration);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.aQe, this.mDuration);
+                e.a((Activity) this.mContext, this.aQC, this.mDuration);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQe, this.mDuration);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQC, this.mDuration);
             }
         }
     }
 
-    public void LT() {
+    public void LX() {
         cr(false);
     }
 
     public void cr(boolean z) {
-        if (LP()) {
-            LW();
+        if (LT()) {
+            Ma();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQe, this.aQg, this.mDuration, this.aQn);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQC, this.aQE, this.mDuration, this.aQL);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.aQe, this.aQg, this.mDuration, this.aQn);
+                e.a((Activity) this.mContext, this.aQC, this.aQE, this.mDuration, this.aQL);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQe, this.aQg, this.mDuration, this.aQn);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQC, this.aQE, this.mDuration, this.aQL);
             }
         }
     }
 
-    public void LU() {
+    public void LY() {
         cs(false);
     }
 
     public void cs(boolean z) {
-        if (LP()) {
-            LW();
+        if (LT()) {
+            Ma();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQe, this.mDuration, this.aQn);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQC, this.mDuration, this.aQL);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.aQe, this.mDuration, this.aQn);
+                e.a((Activity) this.mContext, this.aQC, this.mDuration, this.aQL);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQe, this.mDuration, this.aQn);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQC, this.mDuration, this.aQL);
             }
         }
     }
 
-    public void LV() {
+    public void LZ() {
         ct(false);
     }
 
     public void ct(boolean z) {
-        if (LP()) {
-            LW();
+        if (LT()) {
+            Ma();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQh, this.aQm, this.mTitleText, this.aQe, this.aQf, this.aQk, this.mDuration, this.aQj);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQF, this.aQK, this.mTitleText, this.aQC, this.aQD, this.aQI, this.mDuration, this.aQH);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.aQh, this.aQm, this.mTitleText, this.aQe, this.aQf, this.aQk, this.aQl, this.mDuration, this.aQj);
+                e.a((Activity) this.mContext, this.aQF, this.aQK, this.mTitleText, this.aQC, this.aQD, this.aQI, this.aQJ, this.mDuration, this.aQH);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQh, this.aQm, this.mTitleText, this.aQe, this.aQf, this.aQk, this.mDuration, this.aQj);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aQF, this.aQK, this.mTitleText, this.aQC, this.aQD, this.aQI, this.mDuration, this.aQH);
             }
         }
     }
 
-    public static void LW() {
+    public static void Ma() {
         com.baidu.swan.apps.res.widget.b.a.cancel();
         e.cancel();
     }

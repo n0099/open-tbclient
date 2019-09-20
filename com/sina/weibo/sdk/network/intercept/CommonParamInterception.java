@@ -28,7 +28,7 @@ public class CommonParamInterception implements IRequestIntercept {
         Bundle postBundle;
         String str;
         if (TextUtils.isEmpty(aidInfo)) {
-            aidInfo = WeiboSsoManager.getInstance().getAid();
+            aidInfo = WeiboSsoManager.getInstance().getAid(iRequestParam.getContext(), appKey);
         }
         if (TextUtils.isEmpty(aidInfo)) {
             throw new InterceptException("aid get error");

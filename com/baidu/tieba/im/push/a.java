@@ -21,8 +21,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import protobuf.NewpushGroupRepair;
 /* loaded from: classes.dex */
 public class a {
-    private static a gPn = null;
-    private final CustomMessageListener gOB = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.a.3
+    private static a gRh = null;
+    private final CustomMessageListener gQt = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -31,31 +31,31 @@ public class a {
             }
         }
     };
-    private Handler gPo;
-    private ConcurrentHashMap<Long, GroupMsgData> gPp;
-    private ConcurrentHashMap<Long, NewpushGroupRepair> gPq;
-    private ConcurrentHashMap<Long, Runnable> gPr;
-    private Vector<Long> gPs;
+    private Handler gRi;
+    private ConcurrentHashMap<Long, GroupMsgData> gRj;
+    private ConcurrentHashMap<Long, NewpushGroupRepair> gRk;
+    private ConcurrentHashMap<Long, Runnable> gRl;
+    private Vector<Long> gRm;
     private Handler mHandler;
 
-    public static a bGe() {
-        if (gPn == null) {
+    public static a bGS() {
+        if (gRh == null) {
             synchronized (a.class) {
-                if (gPn == null) {
-                    gPn = new a();
+                if (gRh == null) {
+                    gRh = new a();
                 }
             }
         }
-        return gPn;
+        return gRh;
     }
 
     private a() {
         this.mHandler = null;
-        this.gPo = null;
-        this.gPp = null;
-        this.gPq = null;
-        this.gPr = null;
-        this.gPs = null;
+        this.gRi = null;
+        this.gRj = null;
+        this.gRk = null;
+        this.gRl = null;
+        this.gRm = null;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.im.push.a.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -64,11 +64,11 @@ public class a {
                         MessageUtils.updateGroupNotExist(message.getData());
                         return;
                     case 10002:
-                        MessageManager.getInstance().registerListener(a.this.gOB);
+                        MessageManager.getInstance().registerListener(a.this.gQt);
                         return;
                     case 10003:
                         if (message.getData() != null && message.getData().containsKey("groupId")) {
-                            a.this.gPs.remove(Long.valueOf(message.getData().getLong("groupId")));
+                            a.this.gRm.remove(Long.valueOf(message.getData().getLong("groupId")));
                             return;
                         }
                         return;
@@ -77,11 +77,11 @@ public class a {
                 }
             }
         };
-        this.gPo = new Handler(Looper.myLooper());
-        this.gPp = new ConcurrentHashMap<>();
-        this.gPq = new ConcurrentHashMap<>();
-        this.gPr = new ConcurrentHashMap<>();
-        this.gPs = new Vector<>();
+        this.gRi = new Handler(Looper.myLooper());
+        this.gRj = new ConcurrentHashMap<>();
+        this.gRk = new ConcurrentHashMap<>();
+        this.gRl = new ConcurrentHashMap<>();
+        this.gRm = new Vector<>();
         this.mHandler.sendEmptyMessage(10002);
     }
 
@@ -90,20 +90,20 @@ public class a {
         GroupMsgData groupMsgData2;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo aM = j.bCY().aM(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
-            if (!(aM != null)) {
-                if (!this.gPs.contains(Long.valueOf(groupId))) {
+            ImMessageCenterPojo aO = j.bDM().aO(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            if (!(aO != null)) {
+                if (!this.gRm.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
                     return;
                 }
                 return;
             }
-            long sid = aM.getSid();
-            long dU = com.baidu.tieba.im.util.d.dU(aM.getPulled_msgId());
-            GroupMsgData groupMsgData3 = this.gPp.get(Long.valueOf(groupId));
+            long sid = aO.getSid();
+            long dX = com.baidu.tieba.im.util.d.dX(aO.getPulled_msgId());
+            GroupMsgData groupMsgData3 = this.gRj.get(Long.valueOf(groupId));
             if (groupMsgData3 == null) {
                 GroupMsgData groupMsgData4 = new GroupMsgData(groupMsgData.getCmd());
-                this.gPp.put(Long.valueOf(groupId), groupMsgData4);
+                this.gRj.put(Long.valueOf(groupId), groupMsgData4);
                 groupMsgData2 = groupMsgData4;
             } else {
                 groupMsgData2 = groupMsgData3;
@@ -116,21 +116,21 @@ public class a {
                 }
             }
             listMessage.clear();
-            List<ChatMessage> dK = dK(groupId);
-            if (dK != null && dK.size() > 0) {
-                if (z || sid <= 0 || dK.get(0).getSid() == 1 + sid) {
-                    listMessage.addAll(dK);
+            List<ChatMessage> dN = dN(groupId);
+            if (dN != null && dN.size() > 0) {
+                if (z || sid <= 0 || dN.get(0).getSid() == 1 + sid) {
+                    listMessage.addAll(dN);
                     sid = listMessage.get(listMessage.size() - 1).getSid();
-                    dU = listMessage.get(listMessage.size() - 1).getMsgId();
+                    dX = listMessage.get(listMessage.size() - 1).getMsgId();
                 } else {
-                    groupMsgData2.getListMessage().addAll(dK);
+                    groupMsgData2.getListMessage().addAll(dN);
                 }
             }
             if (z) {
-                this.gPs.remove(Long.valueOf(groupId));
+                this.gRm.remove(Long.valueOf(groupId));
             }
-            if (!this.gPs.contains(Long.valueOf(groupId))) {
-                a(sid, groupId, groupMsgData.getGroupInfo().getUserType(), dU);
+            if (!this.gRm.contains(Long.valueOf(groupId))) {
+                a(sid, groupId, groupMsgData.getGroupInfo().getUserType(), dX);
             }
         }
     }
@@ -141,7 +141,7 @@ public class a {
             bundle.putLong("groupId", j);
             bundle.putLong("lastMid", linkedList.get(0).getMsgId());
             if (linkedList.get(0).getSid() > 0) {
-                this.gPq.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+                this.gRk.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
             }
             bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
             Message message = new Message();
@@ -149,13 +149,13 @@ public class a {
             message.setData(bundle);
             this.mHandler.sendMessage(message);
             linkedList.clear();
-            this.gPs.add(Long.valueOf(j));
-            dL(j);
+            this.gRm.add(Long.valueOf(j));
+            dO(j);
         }
     }
 
-    private List<ChatMessage> dK(long j) {
-        GroupMsgData groupMsgData = this.gPp.get(Long.valueOf(j));
+    private List<ChatMessage> dN(long j) {
+        GroupMsgData groupMsgData = this.gRj.get(Long.valueOf(j));
         if (groupMsgData == null) {
             return null;
         }
@@ -183,12 +183,12 @@ public class a {
     }
 
     private void a(long j, long j2, int i, long j3) {
-        GroupMsgData groupMsgData = this.gPp.get(Long.valueOf(j2));
+        GroupMsgData groupMsgData = this.gRj.get(Long.valueOf(j2));
         if (groupMsgData != null) {
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
             if (listMessage == null || listMessage.size() == 0) {
-                dN(j2);
-            } else if (!this.gPr.containsKey(Long.valueOf(j2))) {
+                dQ(j2);
+            } else if (!this.gRl.containsKey(Long.valueOf(j2))) {
                 b(j, j2, i, j3);
             }
         }
@@ -198,9 +198,9 @@ public class a {
         Runnable runnable = new Runnable() { // from class: com.baidu.tieba.im.push.a.2
             @Override // java.lang.Runnable
             public void run() {
-                GroupMsgData groupMsgData = (GroupMsgData) a.this.gPp.get(Long.valueOf(j2));
+                GroupMsgData groupMsgData = (GroupMsgData) a.this.gRj.get(Long.valueOf(j2));
                 if (groupMsgData == null) {
-                    a.this.dN(j2);
+                    a.this.dQ(j2);
                     return;
                 }
                 LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
@@ -220,21 +220,21 @@ public class a {
                     listMessage.clear();
                 }
                 long j5 = j4;
-                a.this.dN(j2);
+                a.this.dQ(j2);
                 if (j5 > j) {
-                    a.this.gPq.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(j2, i, j, j5, j3));
-                    com.baidu.tieba.im.a.b.bFN().a(j2, 1L, 0L, true);
-                    a.this.gPs.add(Long.valueOf(j2));
-                    a.this.dL(j2);
+                    a.this.gRk.put(Long.valueOf(j2), MessageUtils.makeNewpushGroupRepair(j2, i, j, j5, j3));
+                    com.baidu.tieba.im.a.b.bGB().a(j2, 1L, 0L, true);
+                    a.this.gRm.add(Long.valueOf(j2));
+                    a.this.dO(j2);
                 }
             }
         };
-        this.gPo.postDelayed(runnable, b.bGf().gq().gr());
-        this.gPr.put(Long.valueOf(j2), runnable);
+        this.gRi.postDelayed(runnable, b.bGT().gq().gr());
+        this.gRl.put(Long.valueOf(j2), runnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dL(long j) {
+    public void dO(long j) {
         Message message = new Message();
         message.what = 10003;
         Bundle bundle = new Bundle();
@@ -243,18 +243,18 @@ public class a {
         this.mHandler.sendMessageDelayed(message, 3000L);
     }
 
-    public NewpushGroupRepair dM(long j) {
-        if (this.gPq.containsKey(Long.valueOf(j))) {
-            return this.gPq.remove(Long.valueOf(j));
+    public NewpushGroupRepair dP(long j) {
+        if (this.gRk.containsKey(Long.valueOf(j))) {
+            return this.gRk.remove(Long.valueOf(j));
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dN(long j) {
-        Runnable remove = this.gPr.remove(Long.valueOf(j));
+    public void dQ(long j) {
+        Runnable remove = this.gRl.remove(Long.valueOf(j));
         if (remove != null) {
-            this.gPo.removeCallbacks(remove);
+            this.gRi.removeCallbacks(remove);
         }
     }
 
@@ -288,20 +288,20 @@ public class a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.gPo != null) {
-            this.gPo.removeCallbacksAndMessages(null);
+        if (this.gRi != null) {
+            this.gRi.removeCallbacksAndMessages(null);
         }
-        if (this.gPr != null) {
-            for (Map.Entry<Long, Runnable> entry : this.gPr.entrySet()) {
-                dN(entry.getKey().longValue());
+        if (this.gRl != null) {
+            for (Map.Entry<Long, Runnable> entry : this.gRl.entrySet()) {
+                dQ(entry.getKey().longValue());
             }
-            this.gPr.clear();
+            this.gRl.clear();
         }
-        if (this.gPp != null) {
-            this.gPp.clear();
+        if (this.gRj != null) {
+            this.gRj.clear();
         }
-        if (this.gPs != null) {
-            this.gPs.clear();
+        if (this.gRm != null) {
+            this.gRm.clear();
         }
     }
 }

@@ -13,33 +13,33 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.x;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.s;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private String clQ;
-    private String clR;
-    protected Button clS;
-    protected TbImageView clT;
-    private TbImageView clU;
-    private View clV;
-    private boolean clW;
-    private float clX;
-    private boolean clY;
-    private x clZ;
-    private a cma;
-    View.OnClickListener cmb;
+    private String cmM;
+    private String cmN;
+    protected Button cmO;
+    protected TbImageView cmP;
+    private TbImageView cmQ;
+    private View cmR;
+    private boolean cmS;
+    private float cmT;
+    private boolean cmU;
+    private x cmV;
+    private a cmW;
+    View.OnClickListener cmX;
     private String link;
     private TbPageContext<?> mContext;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aqh();
+        void aqt();
 
-        void aqi();
+        void aqu();
     }
 
     public void setBannerType(String str) {
@@ -47,45 +47,45 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerData(x xVar) {
-        this.clZ = xVar;
-        s.a(this.clZ.bGT, this.clU, this.clZ.bGU, l.g(getContext(), R.dimen.ds26));
+        this.cmV = xVar;
+        s.a(this.cmV.bHr, this.cmQ, this.cmV.bHs, l.g(getContext(), R.dimen.ds26));
     }
 
     public void setMtjInfo(String str, String str2) {
         if (str != null && str2 != null) {
-            this.clQ = str;
-            this.clR = str2;
+            this.cmM = str;
+            this.cmN = str2;
         }
     }
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.clQ = "";
-        this.clR = "";
-        this.clW = false;
-        this.clX = 0.16875f;
-        this.clY = false;
-        this.cmb = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerView.1
+        this.cmM = "";
+        this.cmN = "";
+        this.cmS = false;
+        this.cmT = 0.16875f;
+        this.cmU = false;
+        this.cmX = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == BannerView.this.clS) {
-                    if (!TextUtils.isEmpty(BannerView.this.clR)) {
-                        TiebaStatic.log(BannerView.this.clR);
+                if (view == BannerView.this.cmO) {
+                    if (!TextUtils.isEmpty(BannerView.this.cmN)) {
+                        TiebaStatic.log(BannerView.this.cmN);
                     }
-                    BannerView.this.clW = true;
+                    BannerView.this.cmS = true;
                     BannerView.this.setVisibility(8);
-                    if (BannerView.this.cma != null) {
-                        BannerView.this.cma.aqi();
+                    if (BannerView.this.cmW != null) {
+                        BannerView.this.cmW.aqu();
                         return;
                     }
                     return;
                 }
-                if (!TextUtils.isEmpty(BannerView.this.clQ)) {
-                    TiebaStatic.log(BannerView.this.clQ);
+                if (!TextUtils.isEmpty(BannerView.this.cmM)) {
+                    TiebaStatic.log(BannerView.this.cmM);
                 }
-                if (BannerView.this.cma == null) {
+                if (BannerView.this.cmW == null) {
                     if (!TextUtils.isEmpty(BannerView.this.link)) {
-                        bb.ajE().c(BannerView.this.mContext, new String[]{BannerView.this.link});
+                        ba.ajK().c(BannerView.this.mContext, new String[]{BannerView.this.link});
                         if (!BannerView.this.link.startsWith("game:detail:") || !"frs_banner".equals(BannerView.this.type)) {
                             if (BannerView.this.link.startsWith("game:detail:") && "enterforum_banner".equals(BannerView.this.type)) {
                                 TiebaStatic.eventStat(BannerView.this.mContext.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
@@ -98,7 +98,7 @@ public class BannerView extends RelativeLayout {
                     }
                     return;
                 }
-                BannerView.this.cma.aqh();
+                BannerView.this.cmW.aqt();
             }
         };
         init(context);
@@ -110,41 +110,41 @@ public class BannerView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.bannerview, this);
-        this.clS = (Button) findViewById(R.id.btn_close);
-        this.clS.setOnClickListener(this.cmb);
-        this.clT = (TbImageView) findViewById(R.id.banner_image);
-        this.clT.setAutoChangeStyle(true);
-        this.clT.setOnClickListener(this.cmb);
-        this.clU = (TbImageView) findViewById(R.id.tv_advert);
-        this.clV = findViewById(R.id.banner_mask);
-        am.l(this.clV, R.color.black_alpha0);
+        this.cmO = (Button) findViewById(R.id.btn_close);
+        this.cmO.setOnClickListener(this.cmX);
+        this.cmP = (TbImageView) findViewById(R.id.banner_image);
+        this.cmP.setAutoChangeStyle(true);
+        this.cmP.setOnClickListener(this.cmX);
+        this.cmQ = (TbImageView) findViewById(R.id.tv_advert);
+        this.cmR = findViewById(R.id.banner_mask);
+        am.l(this.cmR, R.color.black_alpha0);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.clT != null && aVar != null) {
-            this.clT.setEvent(aVar);
+        if (this.cmP != null && aVar != null) {
+            this.cmP.setEvent(aVar);
         }
     }
 
     public void setTagViewVisible(boolean z) {
         if (z) {
-            this.clU.setVisibility(0);
+            this.cmQ.setVisibility(0);
         } else {
-            this.clU.setVisibility(8);
+            this.cmQ.setVisibility(8);
         }
     }
 
     public void setData(TbPageContext<?> tbPageContext, String str, String str2) {
         this.mContext = tbPageContext;
         this.link = str2;
-        this.clY = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.cmU = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.clW && this.clY) {
-            ViewGroup.LayoutParams layoutParams = this.clT.getLayoutParams();
+        if (!this.cmS && this.cmU) {
+            ViewGroup.LayoutParams layoutParams = this.cmP.getLayoutParams();
             layoutParams.width = l.af(getContext());
-            layoutParams.height = (int) ((l.af(getContext()) * this.clX) + 0.5d);
-            this.clT.setLayoutParams(layoutParams);
-            this.clT.startLoad(str, 10, 640, 108, false);
+            layoutParams.height = (int) ((l.af(getContext()) * this.cmT) + 0.5d);
+            this.cmP.setLayoutParams(layoutParams);
+            this.cmP.startLoad(str, 10, 640, 108, false);
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             if (layoutParams2 != null) {
                 layoutParams2.height = layoutParams.height;
@@ -159,27 +159,27 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.cma = aVar;
+        this.cmW = aVar;
     }
 
     public void setBannerMaskColor(int i) {
-        this.clV.setBackgroundColor(i);
+        this.cmR.setBackgroundColor(i);
     }
 
-    public boolean aqf() {
-        return this.clY;
+    public boolean aqr() {
+        return this.cmU;
     }
 
     public TbImageView getBannerView() {
-        return this.clT;
+        return this.cmP;
     }
 
     public void reset() {
-        this.clW = false;
-        this.clY = false;
+        this.cmS = false;
+        this.cmU = false;
     }
 
-    public void aqg() {
-        this.clT.postInvalidate();
+    public void aqs() {
+        this.cmP.postInvalidate();
     }
 }

@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    List<ValidateItemData> dxP = new ArrayList();
-    ValidateActivity gRA;
+    List<ValidateItemData> dzA = new ArrayList();
+    ValidateActivity gTt;
 
     public a(ValidateActivity validateActivity) {
-        this.gRA = validateActivity;
+        this.gTt = validateActivity;
     }
 
     public void destroy() {
-        this.gRA = null;
+        this.gTt = null;
     }
 
     public void setData(List<ValidateItemData> list) {
         if (list != null) {
-            this.dxP.addAll(list);
+            this.dzA.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dxP == null) {
+        if (this.dzA == null) {
             return 0;
         }
-        return this.dxP.size();
+        return this.dzA.size();
     }
 
     @Override // android.widget.Adapter
@@ -40,14 +40,14 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.gRA) : bVar;
-        bVar2.f(this.dxP.get(i));
+        b bVar2 = bVar == null ? new b(this.gTt) : bVar;
+        bVar2.f(this.dzA.get(i));
         return bVar2.eY();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.dxP.get(i);
+        return this.dzA.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,6 +56,6 @@ public class a extends BaseAdapter {
     }
 
     public List<ValidateItemData> getDatas() {
-        return this.dxP;
+        return this.dzA;
     }
 }

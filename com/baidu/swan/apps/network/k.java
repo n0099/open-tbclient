@@ -8,8 +8,8 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class k {
-    public static final a aFi = new a(null);
-    private Set<String> aFh;
+    public static final a aFG = new a(null);
+    private Set<String> aFF;
 
     /* loaded from: classes2.dex */
     public static final class a {
@@ -23,18 +23,18 @@ public final class k {
 
     public final void a(WebSocketTask webSocketTask) {
         p.k(webSocketTask, "task");
-        if (this.aFh == null) {
-            this.aFh = new LinkedHashSet();
+        if (this.aFF == null) {
+            this.aFF = new LinkedHashSet();
         }
-        Set<String> set = this.aFh;
+        Set<String> set = this.aFF;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
     }
 
-    public final void fM(String str) {
+    public final void fO(String str) {
         p.k(str, "taskId");
-        Set<String> set = this.aFh;
+        Set<String> set = this.aFF;
         if (set != null) {
             set.remove(str);
         }
@@ -43,7 +43,7 @@ public final class k {
     public final void release() {
         try {
             try {
-                Set<String> set = this.aFh;
+                Set<String> set = this.aFF;
                 if (set != null) {
                     for (String str : set) {
                         try {
@@ -54,7 +54,7 @@ public final class k {
                     }
                 }
                 try {
-                    Set<String> set2 = this.aFh;
+                    Set<String> set2 = this.aFF;
                     if (set2 != null) {
                         set2.clear();
                     }
@@ -66,7 +66,7 @@ public final class k {
             }
         } finally {
             try {
-                Set<String> set3 = this.aFh;
+                Set<String> set3 = this.aFF;
                 if (set3 != null) {
                     set3.clear();
                 }
@@ -76,8 +76,8 @@ public final class k {
         }
     }
 
-    public final boolean HS() {
-        Set<String> set = this.aFh;
+    public final boolean HW() {
+        Set<String> set = this.aFF;
         return (set != null ? set.size() : 0) < 5;
     }
 }

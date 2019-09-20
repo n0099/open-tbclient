@@ -12,14 +12,14 @@ public class SwanEntryActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!n.R(this)) {
-            aGb();
+            aGF();
         }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        aGb();
+        aGF();
     }
 
     @Override // android.app.Activity
@@ -33,7 +33,7 @@ public class SwanEntryActivity extends Activity {
         });
     }
 
-    private void aGb() {
+    private void aGF() {
         String uri;
         Intent intent = getIntent();
         if (intent != null) {
@@ -44,7 +44,7 @@ public class SwanEntryActivity extends Activity {
                 uri = data == null ? null : data.toString();
             }
             if (!TextUtils.isEmpty(uri)) {
-                a.ti(uri);
+                a.tH(uri);
             }
         }
     }

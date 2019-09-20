@@ -17,35 +17,35 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class ScreenLockHeaderView extends LinearLayout {
-    private TextView dZc;
-    TextView iPW;
-    View iPX;
-    View iPY;
-    TextView iPZ;
-    TextView iQa;
-    TextView iQb;
-    private d iQc;
-    private RelativeLayout iQd;
+    private TextView eaM;
+    TextView iSs;
+    View iSt;
+    View iSu;
+    TextView iSv;
+    TextView iSw;
+    TextView iSx;
+    private d iSy;
+    private RelativeLayout iSz;
     private EditText mEditText;
     View mLine;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.iPW = (TextView) findViewById(R.id.friend_name_show1);
-        this.iPX = findViewById(R.id.friend_name_layout);
-        this.iPY = findViewById(R.id.msg_content_layout);
-        this.iPZ = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.iQa = (TextView) findViewById(R.id.one_msg_content_show1);
-        this.iQb = (TextView) findViewById(R.id.unread_msg_count_show1);
+        this.iSs = (TextView) findViewById(R.id.friend_name_show1);
+        this.iSt = findViewById(R.id.friend_name_layout);
+        this.iSu = findViewById(R.id.msg_content_layout);
+        this.iSv = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.iSw = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.iSx = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.mLine = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.screen_notify_item_background);
         setOrientation(1);
-        this.iQd = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
-        this.dZc = (TextView) findViewById(R.id.screenlock_send_button);
+        this.iSz = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
+        this.eaM = (TextView) findViewById(R.id.screenlock_send_button);
         this.mEditText = (EditText) findViewById(R.id.screenlock_edit_view);
-        this.iQd.setVisibility(8);
+        this.iSz.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -57,28 +57,28 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public void f(d dVar) {
-        this.iQc = dVar;
-        this.iPW.setText(dVar.groupName);
-        this.iPZ.setText(eu(dVar.lastTime));
-        this.iQa.setText(dVar.content);
-        this.iQb.setText(zY(dVar.iPS));
+        this.iSy = dVar;
+        this.iSs.setText(dVar.groupName);
+        this.iSv.setText(ex(dVar.lastTime));
+        this.iSw.setText(dVar.content);
+        this.iSx.setText(Ab(dVar.iSo));
     }
 
-    public void qA(boolean z) {
+    public void qD(boolean z) {
         if (z) {
-            this.iQd.setVisibility(0);
+            this.iSz.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.iQd.setVisibility(8);
+        this.iSz.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
-    public String eu(long j) {
+    public String ex(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String zY(int i) {
+    public String Ab(int i) {
         return i < 100 ? "" + i : "99+";
     }
 
@@ -94,12 +94,12 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public d getData() {
-        return this.iQc;
+        return this.iSy;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.dZc.setOnClickListener(onClickListener);
-        this.iPX.setOnClickListener(onClickListener2);
-        this.iPY.setOnClickListener(onClickListener2);
+        this.eaM.setOnClickListener(onClickListener);
+        this.iSt.setOnClickListener(onClickListener2);
+        this.iSu.setOnClickListener(onClickListener2);
     }
 }

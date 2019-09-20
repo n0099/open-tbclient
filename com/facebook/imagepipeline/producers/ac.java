@@ -12,23 +12,23 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ac implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.e kgT;
-    private final com.facebook.imagepipeline.c.e kgU;
-    private final com.facebook.imagepipeline.c.f kgV;
-    private final com.facebook.imagepipeline.c.r kiA;
+    private final com.facebook.imagepipeline.c.e kjr;
+    private final com.facebook.imagepipeline.c.e kjs;
+    private final com.facebook.imagepipeline.c.f kjt;
     @Nullable
-    private com.facebook.imagepipeline.c.q kil;
-    private final com.facebook.imagepipeline.c.l kkM;
-    private final ai<com.facebook.imagepipeline.f.d> kkp;
+    private com.facebook.imagepipeline.c.q kkI;
+    private final com.facebook.imagepipeline.c.r kkX;
+    private final ai<com.facebook.imagepipeline.f.d> kmM;
+    private final com.facebook.imagepipeline.c.l knj;
 
     public ac(com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.e eVar2, com.facebook.imagepipeline.c.f fVar, com.facebook.imagepipeline.c.r rVar, @Nullable com.facebook.imagepipeline.c.q qVar, com.facebook.imagepipeline.c.l lVar, ai<com.facebook.imagepipeline.f.d> aiVar) {
-        this.kgT = eVar;
-        this.kgU = eVar2;
-        this.kgV = fVar;
-        this.kiA = rVar;
-        this.kil = qVar;
-        this.kkM = lVar;
-        this.kkp = aiVar;
+        this.kjr = eVar;
+        this.kjs = eVar2;
+        this.kjt = fVar;
+        this.kkX = rVar;
+        this.kkI = qVar;
+        this.knj = lVar;
+        this.kmM = aiVar;
     }
 
     /* JADX DEBUG: Type inference failed for r9v0. Raw type applied. Possible types: bolts.f<com.facebook.imagepipeline.request.a, java.lang.Object>, bolts.f<com.facebook.imagepipeline.request.a, TContinuationResult> */
@@ -36,35 +36,35 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     public void a(final j<com.facebook.imagepipeline.f.d> jVar, final aj ajVar) {
         final String mediaId;
         String str;
-        final ImageRequest cKW = ajVar.cKW();
-        final com.facebook.imagepipeline.common.c cLM = cKW.cLM();
-        com.facebook.imagepipeline.request.a cLL = cKW.cLL();
-        if (!cKW.cLR() || cLM == null || cLM.height <= 0 || cLM.width <= 0) {
+        final ImageRequest cLK = ajVar.cLK();
+        final com.facebook.imagepipeline.common.c cMA = cLK.cMA();
+        com.facebook.imagepipeline.request.a cMz = cLK.cMz();
+        if (!cLK.cMF() || cMA == null || cMA.height <= 0 || cMA.width <= 0) {
             e(jVar, ajVar);
             return;
         }
-        if (cLL == null) {
-            if (this.kil == null) {
+        if (cMz == null) {
+            if (this.kkI == null) {
                 mediaId = null;
                 str = null;
             } else {
-                mediaId = this.kil.K(cKW.cLJ());
+                mediaId = this.kkI.K(cLK.cMx());
                 str = "id_extractor";
             }
         } else {
-            mediaId = cLL.getMediaId();
+            mediaId = cMz.getMediaId();
             str = "index_db";
         }
-        if (cLL == null && mediaId == null) {
+        if (cMz == null && mediaId == null) {
             e(jVar, ajVar);
             return;
         }
-        ajVar.cKX().eA(ajVar.getId(), "MediaVariationsFallbackProducer");
+        ajVar.cLL().eB(ajVar.getId(), "MediaVariationsFallbackProducer");
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-        if (cLL != null && cLL.cLY() > 0) {
-            a(jVar, ajVar, cKW, cLL, cLM, atomicBoolean);
+        if (cMz != null && cMz.cMM() > 0) {
+            a(jVar, ajVar, cLK, cMz, cMA, atomicBoolean);
         } else {
-            this.kiA.a(mediaId, com.facebook.imagepipeline.request.a.HV(mediaId).sE(cLL != null && cLL.cLZ()).HW(str)).a(new bolts.f<com.facebook.imagepipeline.request.a, Object>() { // from class: com.facebook.imagepipeline.producers.ac.1
+            this.kkX.a(mediaId, com.facebook.imagepipeline.request.a.Iv(mediaId).sH(cMz != null && cMz.cMN()).Iw(str)).a(new bolts.f<com.facebook.imagepipeline.request.a, Object>() { // from class: com.facebook.imagepipeline.producers.ac.1
                 @Override // bolts.f
                 public Object a(bolts.g<com.facebook.imagepipeline.request.a> gVar) throws Exception {
                     bolts.g a2;
@@ -74,7 +74,7 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
                                 ac.this.a(jVar, ajVar, mediaId);
                                 a2 = null;
                             } else {
-                                a2 = ac.this.a(jVar, ajVar, cKW, gVar.getResult(), cLM, atomicBoolean);
+                                a2 = ac.this.a(jVar, ajVar, cLK, gVar.getResult(), cMA, atomicBoolean);
                             }
                             return a2;
                         } catch (Exception e) {
@@ -90,7 +90,7 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public bolts.g a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, ImageRequest imageRequest, com.facebook.imagepipeline.request.a aVar, com.facebook.imagepipeline.common.c cVar, AtomicBoolean atomicBoolean) {
-        if (aVar.cLY() == 0) {
+        if (aVar.cMM() == 0) {
             return bolts.g.g((com.facebook.imagepipeline.f.d) null).a(b(jVar, ajVar, imageRequest, aVar, Collections.emptyList(), 0, atomicBoolean));
         }
         return a(jVar, ajVar, imageRequest, aVar, aVar.a(new b(cVar)), 0, atomicBoolean);
@@ -98,15 +98,15 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public bolts.g a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, ImageRequest imageRequest, com.facebook.imagepipeline.request.a aVar, List<a.b> list, int i, AtomicBoolean atomicBoolean) {
-        ImageRequest.CacheChoice cLI;
+        ImageRequest.CacheChoice cMw;
         a.b bVar = list.get(i);
-        com.facebook.cache.common.b a2 = this.kgV.a(imageRequest, bVar.getUri(), ajVar.cGp());
-        if (bVar.cLI() == null) {
-            cLI = imageRequest.cLI();
+        com.facebook.cache.common.b a2 = this.kjt.a(imageRequest, bVar.getUri(), ajVar.cHd());
+        if (bVar.cMw() == null) {
+            cMw = imageRequest.cMw();
         } else {
-            cLI = bVar.cLI();
+            cMw = bVar.cMw();
         }
-        return (cLI == ImageRequest.CacheChoice.SMALL ? this.kgU : this.kgT).a(a2, atomicBoolean).a(b(jVar, ajVar, imageRequest, aVar, list, i, atomicBoolean));
+        return (cMw == ImageRequest.CacheChoice.SMALL ? this.kjs : this.kjr).a(a2, atomicBoolean).a(b(jVar, ajVar, imageRequest, aVar, list, i, atomicBoolean));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,7 +116,7 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
 
     private bolts.f<com.facebook.imagepipeline.f.d, Void> b(final j<com.facebook.imagepipeline.f.d> jVar, final aj ajVar, final ImageRequest imageRequest, final com.facebook.imagepipeline.request.a aVar, final List<a.b> list, final int i, final AtomicBoolean atomicBoolean) {
         final String id = ajVar.getId();
-        final al cKX = ajVar.cKX();
+        final al cLL = ajVar.cLL();
         return new bolts.f<com.facebook.imagepipeline.f.d, Void>() { // from class: com.facebook.imagepipeline.producers.ac.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // bolts.f
@@ -124,19 +124,19 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
             public Void a(bolts.g<com.facebook.imagepipeline.f.d> gVar) throws Exception {
                 boolean z = true;
                 if (ac.c(gVar)) {
-                    cKX.b(id, "MediaVariationsFallbackProducer", null);
-                    jVar.cEV();
+                    cLL.b(id, "MediaVariationsFallbackProducer", null);
+                    jVar.cFJ();
                     z = false;
                 } else if (gVar.bi()) {
-                    cKX.a(id, "MediaVariationsFallbackProducer", gVar.bj(), null);
+                    cLL.a(id, "MediaVariationsFallbackProducer", gVar.bj(), null);
                     ac.this.a(jVar, ajVar, aVar.getMediaId());
                 } else {
                     com.facebook.imagepipeline.f.d result = gVar.getResult();
                     if (result != null) {
-                        boolean z2 = !aVar.cLZ() && ac.a((a.b) list.get(i), imageRequest.cLM());
-                        cKX.a(id, "MediaVariationsFallbackProducer", ac.a(cKX, id, true, list.size(), aVar.getSource(), z2));
+                        boolean z2 = !aVar.cMN() && ac.a((a.b) list.get(i), imageRequest.cMA());
+                        cLL.a(id, "MediaVariationsFallbackProducer", ac.a(cLL, id, true, list.size(), aVar.getSource(), z2));
                         if (z2) {
-                            jVar.aR(1.0f);
+                            jVar.aS(1.0f);
                         }
                         jVar.e(result, z2);
                         result.close();
@@ -147,7 +147,7 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
                         ac.this.a(jVar, ajVar, imageRequest, aVar, list, i + 1, atomicBoolean);
                         z = false;
                     } else {
-                        cKX.a(id, "MediaVariationsFallbackProducer", ac.a(cKX, id, false, list.size(), aVar.getSource(), false));
+                        cLL.a(id, "MediaVariationsFallbackProducer", ac.a(cLL, id, false, list.size(), aVar.getSource(), false));
                     }
                 }
                 if (z) {
@@ -159,12 +159,12 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     }
 
     private void e(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.kkp.a(jVar, ajVar);
+        this.kmM.a(jVar, ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, String str) {
-        this.kkp.a(new a(jVar, ajVar, str), ajVar);
+        this.kmM.a(new a(jVar, ajVar, str), ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -173,7 +173,7 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     }
 
     static Map<String, String> a(al alVar, String str, boolean z, int i, String str2, boolean z2) {
-        if (!alVar.HQ(str)) {
+        if (!alVar.Iq(str)) {
             return null;
         }
         if (z) {
@@ -185,7 +185,7 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     private void a(final AtomicBoolean atomicBoolean, aj ajVar) {
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ac.3
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cLd() {
+            public void cLR() {
                 atomicBoolean.set(true);
             }
         });
@@ -194,12 +194,12 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final aj kkA;
+        private final aj kmX;
         private final String mMediaId;
 
         public a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, String str) {
             super(jVar);
-            this.kkA = ajVar;
+            this.kmX = ajVar;
             this.mMediaId = str;
         }
 
@@ -211,13 +211,13 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
             if (z && dVar != null) {
                 j(dVar);
             }
-            cLj().e(dVar, z);
+            cLX().e(dVar, z);
         }
 
         private void j(com.facebook.imagepipeline.f.d dVar) {
-            ImageRequest cKW = this.kkA.cKW();
-            if (cKW.cLR() && this.mMediaId != null) {
-                ac.this.kiA.a(this.mMediaId, ac.this.kkM.a(cKW, dVar), ac.this.kgV.c(cKW, this.kkA.cGp()), dVar);
+            ImageRequest cLK = this.kmX.cLK();
+            if (cLK.cMF() && this.mMediaId != null) {
+                ac.this.kkX.a(this.mMediaId, ac.this.knj.a(cLK, dVar), ac.this.kjt.c(cLK, this.kmX.cHd()), dVar);
             }
         }
     }
@@ -225,18 +225,18 @@ public class ac implements ai<com.facebook.imagepipeline.f.d> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b implements Comparator<a.b> {
-        private final com.facebook.imagepipeline.common.c kfU;
+        private final com.facebook.imagepipeline.common.c kis;
 
         b(com.facebook.imagepipeline.common.c cVar) {
-            this.kfU = cVar;
+            this.kis = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(a.b bVar, a.b bVar2) {
-            boolean a = ac.a(bVar, this.kfU);
-            boolean a2 = ac.a(bVar2, this.kfU);
+            boolean a = ac.a(bVar, this.kis);
+            boolean a2 = ac.a(bVar2, this.kis);
             if (a && a2) {
                 return bVar.getWidth() - bVar2.getWidth();
             }

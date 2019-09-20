@@ -5,12 +5,12 @@ import android.util.Log;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean Bf() {
-        return co(0) || co(1);
+    public static boolean Bj() {
+        return cp(0) || cp(1);
     }
 
-    public static boolean co(int i) {
-        if (com.baidu.swan.apps.ac.a.a.IU() || cp(i)) {
+    public static boolean cp(int i) {
+        if (com.baidu.swan.apps.ac.a.a.IY() || cq(i)) {
             if (DEBUG) {
                 Log.i("PMSAbTestManager", "Debug 模式-强制命中PMS : " + i);
             }
@@ -19,10 +19,10 @@ public class a {
         boolean z = false;
         switch (i) {
             case 0:
-                z = com.baidu.swan.apps.u.a.En().wu();
+                z = com.baidu.swan.apps.u.a.Er().wy();
                 break;
             case 1:
-                z = com.baidu.swan.apps.u.a.En().wv();
+                z = com.baidu.swan.apps.u.a.Er().wz();
                 break;
         }
         if (DEBUG) {
@@ -32,15 +32,15 @@ public class a {
         return z;
     }
 
-    public static int Bg() {
-        int s = com.baidu.swan.apps.u.a.En().s("swan_pms_buffer", 64);
+    public static int Bk() {
+        int s = com.baidu.swan.apps.u.a.Er().s("swan_pms_buffer", 64);
         if (DEBUG) {
             Log.i("PMSAbTestManager", "PMS Buffer size：" + s + "KiB");
         }
         return s * 1024;
     }
 
-    public static boolean cp(int i) {
-        return com.baidu.swan.apps.storage.b.f.NX().getBoolean("key_sp_force_pms_for_debug" + i, false);
+    public static boolean cq(int i) {
+        return com.baidu.swan.apps.storage.b.f.Ob().getBoolean("key_sp_force_pms_for_debug" + i, false);
     }
 }

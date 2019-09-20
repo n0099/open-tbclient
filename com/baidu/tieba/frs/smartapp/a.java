@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> aIn;
+    private ArrayList<b> aIL;
     private TbPageContext mContext;
 
     public a(TbPageContext tbPageContext) {
@@ -22,23 +22,23 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<b> arrayList) {
-        this.aIn = arrayList;
+        this.aIL = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aIn == null) {
+        if (this.aIL == null) {
             return 0;
         }
-        return this.aIn.size();
+        return this.aIL.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aIn == null || i < 0 || i >= this.aIn.size()) {
+        if (this.aIL == null || i < 0 || i >= this.aIL.size()) {
             return null;
         }
-        return this.aIn.get(i);
+        return this.aIL.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,40 +51,40 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0316a c0316a;
+        C0327a c0327a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.frs_lite_program_list_fragment_item, viewGroup, false);
-            C0316a c0316a2 = new C0316a();
-            c0316a2.fOA = (RelativeLayout) view.findViewById(R.id.card);
-            c0316a2.fOy = (HeadImageView) view.findViewById(R.id.portrait);
-            c0316a2.mTitle = (TextView) view.findViewById(R.id.title);
-            c0316a2.fOz = (TextView) view.findViewById(R.id.desc);
-            view.setTag(c0316a2);
-            c0316a = c0316a2;
+            C0327a c0327a2 = new C0327a();
+            c0327a2.fQq = (RelativeLayout) view.findViewById(R.id.card);
+            c0327a2.fQo = (HeadImageView) view.findViewById(R.id.portrait);
+            c0327a2.mTitle = (TextView) view.findViewById(R.id.title);
+            c0327a2.fQp = (TextView) view.findViewById(R.id.desc);
+            view.setTag(c0327a2);
+            c0327a = c0327a2;
         } else {
-            c0316a = (C0316a) view.getTag();
+            c0327a = (C0327a) view.getTag();
         }
         b bVar = (b) getItem(i);
         int g = l.g(this.mContext.getPageActivity(), R.dimen.tbds136);
-        c0316a.fOy.setIsRound(true);
-        c0316a.fOy.startLoad(bVar.avatar, 10, g, g, false);
-        c0316a.mTitle.setText(bVar.name);
-        c0316a.fOz.setText(bVar.fOC);
-        am.f(c0316a.mTitle, R.color.cp_cont_b, 1);
-        am.f(c0316a.fOz, R.color.cp_cont_d, 1);
-        am.k(c0316a.fOA, R.drawable.lite_progrom_icorner_bg);
+        c0327a.fQo.setIsRound(true);
+        c0327a.fQo.startLoad(bVar.avatar, 10, g, g, false);
+        c0327a.mTitle.setText(bVar.name);
+        c0327a.fQp.setText(bVar.fQs);
+        am.f(c0327a.mTitle, R.color.cp_cont_b, 1);
+        am.f(c0327a.fQp, R.color.cp_cont_d, 1);
+        am.k(c0327a.fQq, R.drawable.lite_progrom_icorner_bg);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.frs.smartapp.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0316a {
-        RelativeLayout fOA;
-        HeadImageView fOy;
-        TextView fOz;
+    public class C0327a {
+        HeadImageView fQo;
+        TextView fQp;
+        RelativeLayout fQq;
         TextView mTitle;
 
-        public C0316a() {
+        public C0327a() {
         }
     }
 }

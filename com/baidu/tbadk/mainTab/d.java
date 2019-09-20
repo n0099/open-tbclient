@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d {
-    private ArrayList<b> bCN = new ArrayList<>();
+    private ArrayList<b> bDl = new ArrayList<>();
     private Context mContext;
 
     public d(Context context) {
@@ -13,20 +13,20 @@ public class d {
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.atU() != null) {
-            Iterator<b> it = this.bCN.iterator();
+        if (bVar != null && bVar.aug() != null) {
+            Iterator<b> it = this.bDl.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.atU() != null && next.atU().type == bVar.atU().type) {
+                if (next != null && next.aug() != null && next.aug().type == bVar.aug().type) {
                     return;
                 }
             }
-            this.bCN.add(bVar);
+            this.bDl.add(bVar);
         }
     }
 
     public ArrayList<b> getList() {
-        return this.bCN;
+        return this.bDl;
     }
 
     public Context getContext() {

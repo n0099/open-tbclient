@@ -23,11 +23,11 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.kDn);
+        super(a.kFF);
         this.active = true;
-        this.onStart = Actions.cPD();
-        this.onAdded = Actions.cPD();
-        this.onTerminated = Actions.cPD();
+        this.onStart = Actions.cQp();
+        this.onAdded = Actions.cQp();
+        this.onTerminated = Actions.cQp();
     }
 
     public void call(j<? super T> jVar) {
@@ -59,7 +59,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     b<T>[] observers() {
-        return get().kDk;
+        return get().kFC;
     }
 
     boolean add(b<T> bVar) {
@@ -89,34 +89,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().kDk;
+        return get().kFC;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.kDl : getAndSet(a.kDm).kDk;
+        return get().terminated ? a.kFD : getAndSet(a.kFE).kFC;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public static final class a<T> {
-        static final b[] kDl = new b[0];
-        static final a kDm = new a(true, kDl);
-        static final a kDn = new a(false, kDl);
-        final b[] kDk;
+        static final b[] kFD = new b[0];
+        static final a kFE = new a(true, kFD);
+        static final a kFF = new a(false, kFD);
+        final b[] kFC;
         final boolean terminated;
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.kDk = bVarArr;
+            this.kFC = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.kDk.length;
+            int length = this.kFC.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.kDk, 0, bVarArr, 0, length);
+            System.arraycopy(this.kFC, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -124,10 +124,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.kDk;
+            b[] bVarArr2 = this.kFC;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return kDn;
+                return kFF;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -147,7 +147,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return kDn;
+                    return kFF;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];
@@ -167,8 +167,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         final j<? super T> actual;
         boolean emitting;
         boolean first = true;
-        List<Object> kDo;
-        boolean kDp;
+        List<Object> kFG;
+        boolean kFH;
 
         public b(j<? super T> jVar) {
             this.actual = jVar;
@@ -191,17 +191,17 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void bG(Object obj) {
-            if (!this.kDp) {
+            if (!this.kFH) {
                 synchronized (this) {
                     this.first = false;
                     if (this.emitting) {
-                        if (this.kDo == null) {
-                            this.kDo = new ArrayList();
+                        if (this.kFG == null) {
+                            this.kFG = new ArrayList();
                         }
-                        this.kDo.add(obj);
+                        this.kFG.add(obj);
                         return;
                     }
-                    this.kDp = true;
+                    this.kFH = true;
                 }
             }
             NotificationLite.a(this.actual, obj);
@@ -251,8 +251,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                 try {
                     synchronized (this) {
                         try {
-                            list = this.kDo;
-                            this.kDo = null;
+                            list = this.kFG;
+                            this.kFG = null;
                             if (list == null) {
                                 this.emitting = false;
                                 return;

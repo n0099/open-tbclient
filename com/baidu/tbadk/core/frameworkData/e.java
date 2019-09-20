@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.frameworkData;
 
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ax;
 /* loaded from: classes.dex */
 public class e {
     public static void initial() {
         try {
-            if (!ay.loadStaticClasses()) {
+            if (!ax.loadStaticClasses()) {
                 c.cr(BdBaseApplication.getInst());
             }
         } catch (Exception e) {
