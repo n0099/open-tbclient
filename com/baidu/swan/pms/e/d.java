@@ -1,6 +1,7 @@
 package com.baidu.swan.pms.e;
 
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.swan.pms.model.h;
@@ -19,12 +20,12 @@ public class d {
         com.baidu.swan.pms.b.c.a aVar = new com.baidu.swan.pms.b.c.a();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
         if (optJSONObject != null) {
-            aVar.bsT = aM(optJSONObject.optJSONObject("main"));
-            aVar.btE = q(optJSONObject.optJSONArray("sub"));
+            aVar.btr = aM(optJSONObject.optJSONObject("main"));
+            aVar.buc = q(optJSONObject.optJSONArray("sub"));
         }
-        aVar.btF = aN(jSONObject.optJSONObject("framework"));
-        aVar.btH = aO(jSONObject.optJSONObject("extension"));
-        aVar.btG = aQ(jSONObject.optJSONObject("app_info"));
+        aVar.bud = aN(jSONObject.optJSONObject("framework"));
+        aVar.bug = aO(jSONObject.optJSONObject("extension"));
+        aVar.bue = aQ(jSONObject.optJSONObject("app_info"));
         return aVar;
     }
 
@@ -35,7 +36,7 @@ public class d {
         com.baidu.swan.pms.b.c.c cVar = new com.baidu.swan.pms.b.c.c();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
         if (optJSONObject != null) {
-            cVar.btE = q(optJSONObject.optJSONArray("sub"));
+            cVar.buc = q(optJSONObject.optJSONArray("sub"));
             return cVar;
         }
         return cVar;
@@ -46,9 +47,9 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.b.c.d dVar = new com.baidu.swan.pms.b.c.d();
-        dVar.avg = jSONObject.optLong("max_age");
-        dVar.btF = aN(jSONObject.optJSONObject("framework"));
-        dVar.btH = aO(jSONObject.optJSONObject("extension"));
+        dVar.avE = jSONObject.optLong("max_age");
+        dVar.bud = aN(jSONObject.optJSONObject("framework"));
+        dVar.bug = aO(jSONObject.optJSONObject("extension"));
         return dVar;
     }
 
@@ -57,7 +58,7 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.b.c.b bVar = new com.baidu.swan.pms.b.c.b();
-        bVar.btI = aP(jSONObject);
+        bVar.buh = aP(jSONObject);
         return bVar;
     }
 
@@ -66,7 +67,7 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) a(jSONObject, new com.baidu.swan.pms.model.f());
-        fVar.bsS = jSONObject.optInt("pkg_type");
+        fVar.btq = jSONObject.optInt("pkg_type");
         return fVar;
     }
 
@@ -78,7 +79,7 @@ public class d {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 h hVar = (h) a(optJSONObject, new h());
                 hVar.Ht = optJSONObject.optString("sub_path");
-                hVar.bsV = optJSONObject.optBoolean("independent");
+                hVar.btt = optJSONObject.optBoolean("independent");
                 arrayList.add(hVar);
             }
             return arrayList;
@@ -111,8 +112,8 @@ public class d {
         if (jSONObject == null || t == null) {
             return null;
         }
-        t.bsR = jSONObject.optString("bundle_id");
-        t.ave = jSONObject.optInt("category");
+        t.btp = jSONObject.optString("bundle_id");
+        t.avC = jSONObject.optInt("category");
         t.versionName = jSONObject.optString("version_name");
         t.versionCode = jSONObject.optInt("version_code");
         t.size = jSONObject.optLong("size");
@@ -128,31 +129,31 @@ public class d {
         }
         PMSAppInfo pMSAppInfo = new PMSAppInfo();
         pMSAppInfo.appKey = jSONObject.optString("app_key");
-        pMSAppInfo.appName = jSONObject.optString("app_name");
+        pMSAppInfo.appName = jSONObject.optString(DpStatConstants.KEY_APP_NAME);
         pMSAppInfo.description = jSONObject.optString("app_desc");
         pMSAppInfo.appStatus = jSONObject.optInt("app_status");
-        pMSAppInfo.bsH = jSONObject.optString("status_detail");
-        pMSAppInfo.bsI = jSONObject.optString("status_desc");
-        pMSAppInfo.auS = jSONObject.optString("resume_date");
-        pMSAppInfo.auW = jSONObject.optString("subject_info");
-        pMSAppInfo.avg = jSONObject.optLong("max_age");
-        pMSAppInfo.bsL = jSONObject.optInt("sub_category");
+        pMSAppInfo.btf = jSONObject.optString("status_detail");
+        pMSAppInfo.btg = jSONObject.optString("status_desc");
+        pMSAppInfo.avq = jSONObject.optString("resume_date");
+        pMSAppInfo.avu = jSONObject.optString("subject_info");
+        pMSAppInfo.avE = jSONObject.optLong("max_age");
+        pMSAppInfo.btj = jSONObject.optInt("sub_category");
         pMSAppInfo.iconUrl = jSONObject.optString("icon_url");
-        pMSAppInfo.auV = jSONObject.optString("service_category");
-        pMSAppInfo.bsM = jSONObject.optString("webview_domains");
-        pMSAppInfo.bsN = jSONObject.optString("web_action");
-        pMSAppInfo.bsO = jSONObject.optString("domains");
-        pMSAppInfo.bsP = jSONObject.optString("ext");
-        pMSAppInfo.bsG = jSONObject.optLong("app_sign");
-        JSONObject optJSONObject = dd(pMSAppInfo.bsP).optJSONObject("bear_info");
+        pMSAppInfo.avt = jSONObject.optString("service_category");
+        pMSAppInfo.btk = jSONObject.optString("webview_domains");
+        pMSAppInfo.btl = jSONObject.optString("web_action");
+        pMSAppInfo.btm = jSONObject.optString("domains");
+        pMSAppInfo.btn = jSONObject.optString("ext");
+        pMSAppInfo.bte = jSONObject.optLong("app_sign");
+        JSONObject optJSONObject = df(pMSAppInfo.btn).optJSONObject("bear_info");
         if (optJSONObject != null) {
-            pMSAppInfo.auX = optJSONObject.toString();
+            pMSAppInfo.avv = optJSONObject.toString();
             return pMSAppInfo;
         }
         return pMSAppInfo;
     }
 
-    public static JSONObject dd(String str) {
+    public static JSONObject df(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONObject();
         }

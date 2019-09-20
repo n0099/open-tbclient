@@ -10,7 +10,7 @@ import okhttp3.Response;
 /* loaded from: classes2.dex */
 public class a {
     private Context a;
-    private a.InterfaceC0199a bdN;
+    private a.InterfaceC0208a bem;
 
     public a(Context context) {
         this.a = context;
@@ -43,12 +43,12 @@ public class a {
                     if (bVar2 == null) {
                         a.this.a("200000");
                     } else if (bVar2.c().size() > 0) {
-                        final com.baidu.swan.game.ad.a.a QH = bVar2.QH();
+                        final com.baidu.swan.game.ad.a.a QL = bVar2.QL();
                         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.bdN != null) {
-                                    a.this.bdN.a(QH);
+                                if (a.this.bem != null) {
+                                    a.this.bem.a(QL);
                                 }
                             }
                         });
@@ -78,8 +78,8 @@ public class a {
         }
     }
 
-    public void a(a.InterfaceC0199a interfaceC0199a) {
-        this.bdN = interfaceC0199a;
+    public void a(a.InterfaceC0208a interfaceC0208a) {
+        this.bem = interfaceC0208a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -87,8 +87,8 @@ public class a {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bdN != null) {
-                    a.this.bdN.a(str);
+                if (a.this.bem != null) {
+                    a.this.bem.a(str);
                 }
             }
         });

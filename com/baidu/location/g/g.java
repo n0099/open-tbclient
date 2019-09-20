@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
 import android.provider.Settings;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.bbalbs.common.security.Base64;
@@ -96,7 +95,7 @@ public class g {
     public static int ac = 20;
     public static int ad = 300;
     public static int ae = 1000;
-    public static int af = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    public static int af = Integer.MAX_VALUE;
     public static long ag = 900000;
     public static long ah = 420000;
     public static long ai = 180000;

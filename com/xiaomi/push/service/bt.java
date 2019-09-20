@@ -16,9 +16,9 @@ class bt extends com.xiaomi.smack.b {
     @Override // com.xiaomi.smack.b
     public byte[] a() {
         try {
-            b.C0492b c0492b = new b.C0492b();
-            c0492b.a(bh.a().c());
-            return c0492b.c();
+            b.C0498b c0498b = new b.C0498b();
+            c0498b.a(bh.a().c());
+            return c0498b.c();
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a("getOBBString err: " + e.toString());
             return null;

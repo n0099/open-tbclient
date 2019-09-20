@@ -3,7 +3,6 @@ package com.baidu.idl.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.mapapi.UIMsg;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -327,11 +326,11 @@ public class NetUtil {
         }
 
         public int getConnectTimeout() {
-            return UIMsg.m_AppUI.MSG_APP_GPS;
+            return 5000;
         }
 
         public int getReadTimeout() {
-            return UIMsg.m_AppUI.MSG_APP_GPS;
+            return 5000;
         }
 
         public String getRequestMethod() {

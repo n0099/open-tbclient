@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public interface a {
     void b(AdView adView);
 
-    void cM(String str);
+    void cO(String str);
 
     void n(JSONObject jSONObject);
 
@@ -13,5 +13,5 @@ public interface a {
 
     void p(JSONObject jSONObject);
 
-    void uq();
+    void uu();
 }

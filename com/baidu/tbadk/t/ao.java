@@ -17,7 +17,7 @@ public class ao extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int hJ() {
-        return com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("key_mission_entrance", 0);
+        return com.baidu.tbadk.core.sharedPref.b.ahU().getInt("key_mission_entrance", 0);
     }
 
     @Override // com.baidu.adp.lib.b.a

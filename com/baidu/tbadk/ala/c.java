@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener bAR = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener bBp = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
@@ -28,7 +28,7 @@ public class c {
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.bAN;
+                AlaUserInfoData alaUserInfoData = aVar.bBl;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -56,11 +56,11 @@ public class c {
                             break;
                         case 7:
                             if (alaUserInfoData.ala_id != 0) {
-                                TiebaStatic.log(new an("c11855").bT("uid", currentAccount).l("click_uid", alaUserInfoData.ala_id).P("live_status", alaUserInfoData.live_status));
+                                TiebaStatic.log(new an("c11855").bT("uid", currentAccount).n("click_uid", alaUserInfoData.ala_id).P("live_status", alaUserInfoData.live_status));
                             }
                             TiebaStatic.log(new an("c12542"));
-                            if (aVar.bAO && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.c(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_toast_game_error).agS();
+                            if (aVar.bBm && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake_n_svg, true).agW();
                                 return;
                             }
                             break;
@@ -82,7 +82,7 @@ public class c {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(bAR);
+        textView.setOnClickListener(bBp);
         return textView;
     }
 }

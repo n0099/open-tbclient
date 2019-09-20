@@ -13,34 +13,34 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(C0183a c0183a) {
-        if (c0183a != null) {
+    public void a(C0192a c0192a) {
+        if (c0192a != null) {
             final JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(c0183a.from)) {
-                    jSONObject.put("from", c0183a.from);
+                if (!TextUtils.isEmpty(c0192a.from)) {
+                    jSONObject.put("from", c0192a.from);
                 }
-                if (!TextUtils.isEmpty(c0183a.type)) {
-                    jSONObject.put("type", c0183a.type);
+                if (!TextUtils.isEmpty(c0192a.type)) {
+                    jSONObject.put("type", c0192a.type);
                 }
-                if (!TextUtils.isEmpty(c0183a.value)) {
-                    jSONObject.put(UBC.CONTENT_KEY_VALUE, c0183a.value);
+                if (!TextUtils.isEmpty(c0192a.value)) {
+                    jSONObject.put(UBC.CONTENT_KEY_VALUE, c0192a.value);
                 }
-                if (!TextUtils.isEmpty(c0183a.source)) {
-                    jSONObject.put("source", c0183a.source);
+                if (!TextUtils.isEmpty(c0192a.source)) {
+                    jSONObject.put("source", c0192a.source);
                 }
-                if (!TextUtils.isEmpty(c0183a.page)) {
-                    jSONObject.put("page", c0183a.page);
+                if (!TextUtils.isEmpty(c0192a.page)) {
+                    jSONObject.put("page", c0192a.page);
                 }
-                boolean isEmpty = TextUtils.isEmpty(c0183a.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(c0183a.aVF);
+                boolean isEmpty = TextUtils.isEmpty(c0192a.appId);
+                boolean isEmpty2 = TextUtils.isEmpty(c0192a.aWd);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
-                        jSONObject2.put("appid", c0183a.appId);
+                        jSONObject2.put("appid", c0192a.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put(Config.LAUNCH_INFO, c0183a.aVF);
+                        jSONObject2.put(Config.LAUNCH_INFO, c0192a.aWd);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -60,32 +60,32 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.statistic.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0183a {
-        private String aVF;
+    public static class C0192a {
+        private String aWd;
         private String appId;
         private String page;
         private String source;
         private String type;
         private String value;
-        private a aVE = new a();
+        private a aWc = new a();
         private String from = "swan";
 
-        public C0183a(int i) {
+        public C0192a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public C0183a hp(String str) {
+        public C0192a hr(String str) {
             this.appId = str;
             return this;
         }
 
-        public C0183a hq(String str) {
-            this.aVF = str;
+        public C0192a hs(String str) {
+            this.aWd = str;
             return this;
         }
 
-        public void Gb() {
-            this.aVE.a(this);
+        public void Gf() {
+            this.aWc.a(this);
         }
     }
 }

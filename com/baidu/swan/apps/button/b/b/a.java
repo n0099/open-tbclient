@@ -6,8 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a<M extends a> extends com.baidu.swan.apps.button.b.a<M> {
-    public String alc;
-    public String ald;
+    public String alB;
+    public String alC;
     public String fontWeight;
     public double nK;
     public String text;
@@ -29,20 +29,20 @@ public class a<M extends a> extends com.baidu.swan.apps.button.b.a<M> {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.text = jSONObject.optString("text");
-        if (this.akZ != null) {
-            this.alc = this.akZ.optString("color");
-            this.textSize = this.akZ.optInt("fontSize");
-            this.nK = this.akZ.optDouble("lineHeight", 0.0d);
-            this.textAlign = this.akZ.optString("textAlign");
-            this.fontWeight = this.akZ.optString("fontWeight");
-            this.ald = this.akZ.optString("whiteSpace");
+        if (this.aly != null) {
+            this.alB = this.aly.optString("color");
+            this.textSize = this.aly.optInt("fontSize");
+            this.nK = this.aly.optDouble("lineHeight", 0.0d);
+            this.textAlign = this.aly.optString("textAlign");
+            this.fontWeight = this.aly.optString("fontWeight");
+            this.alC = this.aly.optString("whiteSpace");
         }
     }
 
     public void a(M m, com.baidu.swan.apps.view.container.c.a aVar) {
         super.a((a<M>) m, aVar);
         if (!TextUtils.equals(this.text, m.text)) {
-            aVar.eL(2);
+            aVar.eM(2);
         }
     }
 }

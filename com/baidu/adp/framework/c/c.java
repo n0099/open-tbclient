@@ -1,6 +1,4 @@
 package com.baidu.adp.framework.c;
-
-import com.baidu.mapapi.UIMsg;
 /* loaded from: classes.dex */
 public class c extends d {
     private static c wn = null;
@@ -17,7 +15,7 @@ public class c extends d {
     }
 
     private c() {
-        this.wo = new e(20000, 10000, UIMsg.m_AppUI.MSG_APP_GPS);
+        this.wo = new e(20000, 10000, 5000);
         this.mRetryCount = 3;
     }
 

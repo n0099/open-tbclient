@@ -17,13 +17,13 @@ import com.baidu.swan.game.ad.component.AdImageVIew;
 /* loaded from: classes2.dex */
 public class b {
     public Context a;
-    private com.baidu.swan.game.ad.a.a bdo;
-    private AdImageVIew bdp;
-    private AdImageVIew bdq;
-    private RelativeLayout bdr;
-    private RelativeLayout bds;
-    private Button bdt;
-    private a.c bdu;
+    private com.baidu.swan.game.ad.a.a bdM;
+    private AdImageVIew bdN;
+    private AdImageVIew bdO;
+    private RelativeLayout bdP;
+    private RelativeLayout bdQ;
+    private Button bdR;
+    private a.c bdS;
     private View c;
     private LinearLayout d;
     private int e;
@@ -34,15 +34,15 @@ public class b {
     private View.OnClickListener p = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.bdu != null) {
-                b.this.bdu.b();
+            if (b.this.bdS != null) {
+                b.this.bdS.b();
             }
         }
     };
 
     public b(Context context, com.baidu.swan.game.ad.a.a aVar) {
         this.a = context;
-        this.bdo = aVar;
+        this.bdM = aVar;
         d();
     }
 
@@ -50,25 +50,25 @@ public class b {
         Resources resources = this.a.getResources();
         this.c = LayoutInflater.from(this.a).inflate(a.e.ng_game_banner_ad, (ViewGroup) null);
         this.d = (LinearLayout) this.c.findViewById(a.d.banner_view);
-        this.bds = (RelativeLayout) this.c.findViewById(a.d.banner_ad_left);
-        this.bdp = (AdImageVIew) this.c.findViewById(a.d.banner_w_pic);
-        this.bdp.setImageUrl(this.bdo.c());
-        this.bdq = (AdImageVIew) this.c.findViewById(a.d.ad_text);
-        this.bdq.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
-        this.bdr = (RelativeLayout) this.c.findViewById(a.d.banner_ad_right);
+        this.bdQ = (RelativeLayout) this.c.findViewById(a.d.banner_ad_left);
+        this.bdN = (AdImageVIew) this.c.findViewById(a.d.banner_w_pic);
+        this.bdN.setImageUrl(this.bdM.c());
+        this.bdO = (AdImageVIew) this.c.findViewById(a.d.ad_text);
+        this.bdO.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
+        this.bdP = (RelativeLayout) this.c.findViewById(a.d.banner_ad_right);
         this.k = (RelativeLayout) this.c.findViewById(a.d.banner_right_bottom);
         this.l = (TextView) this.c.findViewById(a.d.banner_title);
-        this.l.setText(this.bdo.a());
+        this.l.setText(this.bdM.a());
         this.m = (TextView) this.c.findViewById(a.d.banner_app_name);
-        this.m.setText(this.bdo.h());
-        this.bdt = (Button) this.c.findViewById(a.d.banner_ad_act);
-        if (this.bdo.g() == 1) {
-            this.bdt.setText(resources.getString(a.f.see_detail));
+        this.m.setText(this.bdM.h());
+        this.bdR = (Button) this.c.findViewById(a.d.banner_ad_act);
+        if (this.bdM.g() == 1) {
+            this.bdR.setText(resources.getString(a.f.see_detail));
         }
-        if (this.bdo.g() == 2) {
-            this.bdt.setText(resources.getString(a.f.down_immediately));
+        if (this.bdM.g() == 2) {
+            this.bdR.setText(resources.getString(a.f.down_immediately));
         }
-        this.bdt.setOnClickListener(this.p);
+        this.bdR.setOnClickListener(this.p);
         this.d.setOnClickListener(this.p);
         this.c.setVisibility(4);
     }
@@ -83,14 +83,14 @@ public class b {
         this.c.setLayoutParams(new RelativeLayout.LayoutParams(this.e, this.f));
         this.d.setLayoutParams(new RelativeLayout.LayoutParams(this.e, this.f));
         int i2 = (int) (this.f * com.baidu.swan.game.ad.e.d.b);
-        this.bds.setLayoutParams(new LinearLayout.LayoutParams(i2, this.f));
+        this.bdQ.setLayoutParams(new LinearLayout.LayoutParams(i2, this.f));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (i2 * com.baidu.swan.game.ad.e.d.m), (int) (this.f * com.baidu.swan.game.ad.e.d.n));
         layoutParams.addRule(12);
         layoutParams.addRule(9);
         layoutParams.setMarginStart(0);
-        this.bdq.setLayoutParams(layoutParams);
+        this.bdO.setLayoutParams(layoutParams);
         int i3 = this.e - i2;
-        this.bdr.setLayoutParams(new LinearLayout.LayoutParams(i3, this.f));
+        this.bdP.setLayoutParams(new LinearLayout.LayoutParams(i3, this.f));
         int i4 = (int) (i3 * com.baidu.swan.game.ad.e.d.h);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams2.addRule(9);
@@ -116,13 +116,13 @@ public class b {
         RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) (i3 * com.baidu.swan.game.ad.e.d.j), i5);
         layoutParams5.addRule(12);
         layoutParams5.addRule(11);
-        this.bdt.setTextSize(0, i6);
-        this.bdt.setLayoutParams(layoutParams5);
+        this.bdR.setTextSize(0, i6);
+        this.bdR.setLayoutParams(layoutParams5);
     }
 
     public void b() {
         if (this.c != null && this.c.getVisibility() == 4) {
-            this.c.setAnimation(AnimationUtils.loadAnimation(this.a, a.C0198a.ng_game_ad_open));
+            this.c.setAnimation(AnimationUtils.loadAnimation(this.a, a.C0207a.ng_game_ad_open));
             this.c.setVisibility(0);
         }
     }
@@ -134,6 +134,6 @@ public class b {
     }
 
     public void a(a.c cVar) {
-        this.bdu = cVar;
+        this.bdS = cVar;
     }
 }

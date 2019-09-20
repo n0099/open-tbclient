@@ -5,8 +5,8 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes2.dex */
 public class b<D> {
-    InterfaceC0228b<D> bvj;
-    a<D> bvk;
+    InterfaceC0237b<D> bvH;
+    a<D> bvI;
     boolean mAbandoned;
     boolean mContentChanged;
     int mId;
@@ -20,42 +20,42 @@ public class b<D> {
 
     /* renamed from: com.baidu.swan.support.v4.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0228b<D> {
+    public interface InterfaceC0237b<D> {
     }
 
-    public void a(int i, InterfaceC0228b<D> interfaceC0228b) {
-        if (this.bvj != null) {
+    public void a(int i, InterfaceC0237b<D> interfaceC0237b) {
+        if (this.bvH != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.bvj = interfaceC0228b;
+        this.bvH = interfaceC0237b;
         this.mId = i;
     }
 
-    public void a(InterfaceC0228b<D> interfaceC0228b) {
-        if (this.bvj == null) {
+    public void a(InterfaceC0237b<D> interfaceC0237b) {
+        if (this.bvH == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.bvj != interfaceC0228b) {
+        if (this.bvH != interfaceC0237b) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.bvj = null;
+        this.bvH = null;
     }
 
     public void a(a<D> aVar) {
-        if (this.bvk != null) {
+        if (this.bvI != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.bvk = aVar;
+        this.bvI = aVar;
     }
 
     public void b(a<D> aVar) {
-        if (this.bvk == null) {
+        if (this.bvI == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.bvk != aVar) {
+        if (this.bvI != aVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.bvk = null;
+        this.bvI = null;
     }
 
     public final void startLoading() {
@@ -109,7 +109,7 @@ public class b<D> {
         printWriter.print("mId=");
         printWriter.print(this.mId);
         printWriter.print(" mListener=");
-        printWriter.println(this.bvj);
+        printWriter.println(this.bvH);
         if (this.mStarted || this.mContentChanged || this.mProcessingChange) {
             printWriter.print(str);
             printWriter.print("mStarted=");

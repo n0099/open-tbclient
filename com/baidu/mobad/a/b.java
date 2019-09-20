@@ -4,20 +4,20 @@ import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXLinearAdSlot;
 /* loaded from: classes5.dex */
 class b implements Runnable {
-    final /* synthetic */ a agb;
+    final /* synthetic */ a agy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.agb = aVar;
+        this.agy = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         f fVar;
-        fVar = this.agb.aga;
-        IXLinearAdSlot un = fVar.un();
-        if (un != null && un.getSlotState() == IXAdConstants4PDK.SlotState.PLAYING) {
-            un.resize();
+        fVar = this.agy.agx;
+        IXLinearAdSlot ur = fVar.ur();
+        if (ur != null && ur.getSlotState() == IXAdConstants4PDK.SlotState.PLAYING) {
+            ur.resize();
         }
     }
 }

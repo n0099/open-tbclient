@@ -9,42 +9,41 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.media.a.b.c;
 import com.baidu.swan.apps.media.a.b.d;
-import com.baidu.ubc.UBC;
 import java.io.File;
 import java.net.URI;
 /* loaded from: classes2.dex */
 public class a extends c.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] aBW = {"_id", "_data", UBC.CONTENT_KEY_DURATION, "_size", "height", "width"};
+    private static final String[] aCu = {"_id", "_data", "duration", "_size", "height", "width"};
 
     public a(d.a aVar) {
         super(aVar);
     }
 
     @Override // com.baidu.swan.apps.media.a.b.c.b
-    public c.C0152c a(Context context, c.C0152c c0152c) {
-        if (c0152c == null) {
-            c0152c = new c.C0152c();
+    public c.C0161c a(Context context, c.C0161c c0161c) {
+        if (c0161c == null) {
+            c0161c = new c.C0161c();
         }
-        if (this.aCb.uri == null) {
-            return c0152c.d(true, "uri is Null");
+        if (this.aCz.uri == null) {
+            return c0161c.d(true, "uri is Null");
         }
         if (DEBUG) {
-            Log.i("AlbumTaskStrategy", "AlbumTaskStrategy doInBackground uri=" + this.aCb.uri);
+            Log.i("AlbumTaskStrategy", "AlbumTaskStrategy doInBackground uri=" + this.aCz.uri);
         }
-        boolean a = a(c0152c);
+        boolean a = a(c0161c);
         if (!a) {
-            a = b(context, c0152c);
+            a = b(context, c0161c);
         }
         if (!a) {
-            return c0152c.d(true, "can not handle uri:" + this.aCb.uri);
+            return c0161c.d(true, "can not handle uri:" + this.aCz.uri);
         }
-        if (f(this.aCb)) {
-            c0152c.b(1, this.aCb);
-            return c0152c;
+        if (f(this.aCz)) {
+            c0161c.b(1, this.aCz);
+            return c0161c;
         }
-        c0152c.b(2, this.aCb);
-        return c0152c;
+        c0161c.b(2, this.aCz);
+        return c0161c;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [120=4] */
@@ -53,43 +52,43 @@ public class a extends c.b {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v1, types: [android.net.Uri] */
     /* JADX WARN: Type inference failed for: r1v6 */
-    private boolean b(@NonNull Context context, @NonNull c.C0152c c0152c) {
+    private boolean b(@NonNull Context context, @NonNull c.C0161c c0161c) {
         MediaMetadataRetriever mediaMetadataRetriever;
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            MediaMetadataRetriever mediaMetadataRetriever2 = this.aCb.uri;
-            Cursor query = contentResolver.query(mediaMetadataRetriever2, aBW, null, null, null);
+            MediaMetadataRetriever mediaMetadataRetriever2 = this.aCz.uri;
+            Cursor query = contentResolver.query(mediaMetadataRetriever2, aCu, null, null, null);
             try {
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.i("AlbumTaskStrategy", "query exception", e);
                 }
-                c0152c.d(true, "query occurs exception:" + e.getMessage());
+                c0161c.d(true, "query occurs exception:" + e.getMessage());
             } finally {
                 com.baidu.swan.c.a.c(query);
             }
             if (query == null) {
-                c0152c.d(true, "query return null:" + this.aCb.uri);
+                c0161c.d(true, "query return null:" + this.aCz.uri);
                 return false;
             } else if (query.moveToFirst()) {
                 d.c cVar = new d.c();
                 cVar.id = query.getLong(0);
-                cVar.aCr = query.getString(1);
+                cVar.aCP = query.getString(1);
                 cVar.duration = query.getLong(2);
                 cVar.size = query.getLong(3);
-                cVar.aCp = query.getLong(4);
-                cVar.aCq = query.getLong(5);
-                if (cVar.aCq == 0 || cVar.aCp == 0) {
+                cVar.aCN = query.getLong(4);
+                cVar.aCO = query.getLong(5);
+                if (cVar.aCO == 0 || cVar.aCN == 0) {
                     try {
-                        if (!TextUtils.isEmpty(cVar.aCr)) {
+                        if (!TextUtils.isEmpty(cVar.aCP)) {
                             try {
                                 mediaMetadataRetriever = new MediaMetadataRetriever();
                                 try {
-                                    mediaMetadataRetriever.setDataSource(cVar.aCr);
+                                    mediaMetadataRetriever.setDataSource(cVar.aCP);
                                     String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
                                     String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
-                                    cVar.aCq = Long.parseLong(extractMetadata);
-                                    cVar.aCp = Long.parseLong(extractMetadata2);
+                                    cVar.aCO = Long.parseLong(extractMetadata);
+                                    cVar.aCN = Long.parseLong(extractMetadata2);
                                     if (mediaMetadataRetriever != null) {
                                         mediaMetadataRetriever.release();
                                     }
@@ -101,7 +100,7 @@ public class a extends c.b {
                                     if (mediaMetadataRetriever != null) {
                                         mediaMetadataRetriever.release();
                                     }
-                                    this.aCb.aCk = cVar;
+                                    this.aCz.aCI = cVar;
                                     return true;
                                 }
                             } catch (Exception e3) {
@@ -120,25 +119,25 @@ public class a extends c.b {
                         th = th2;
                     }
                 }
-                this.aCb.aCk = cVar;
+                this.aCz.aCI = cVar;
                 return true;
             } else {
                 return false;
             }
         } catch (Exception e4) {
-            c0152c.d(true, e4.getMessage());
+            c0161c.d(true, e4.getMessage());
             return false;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [168=6, 169=5] */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x007d -> B:10:0x0039). Please submit an issue!!! */
-    private boolean a(@NonNull c.C0152c c0152c) {
+    private boolean a(@NonNull c.C0161c c0161c) {
         File file;
         MediaMetadataRetriever mediaMetadataRetriever = null;
         try {
             try {
-                file = new File(new URI(this.aCb.uri.toString()));
+                file = new File(new URI(this.aCz.uri.toString()));
             } catch (Exception e) {
                 e = e;
             }
@@ -149,9 +148,9 @@ public class a extends c.b {
                 return false;
             }
             d.c cVar = new d.c();
-            cVar.aCr = file.getPath();
-            if (TextUtils.isEmpty(cVar.aCr)) {
-                c0152c.d(true, "can not find path");
+            cVar.aCP = file.getPath();
+            if (TextUtils.isEmpty(cVar.aCP)) {
+                c0161c.d(true, "can not find path");
                 if (0 != 0) {
                     mediaMetadataRetriever.release();
                     return true;
@@ -161,14 +160,14 @@ public class a extends c.b {
             cVar.size = file.length();
             MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
             try {
-                mediaMetadataRetriever2.setDataSource(cVar.aCr);
+                mediaMetadataRetriever2.setDataSource(cVar.aCP);
                 String extractMetadata = mediaMetadataRetriever2.extractMetadata(18);
                 String extractMetadata2 = mediaMetadataRetriever2.extractMetadata(19);
                 String extractMetadata3 = mediaMetadataRetriever2.extractMetadata(9);
-                cVar.aCq = Long.parseLong(extractMetadata);
-                cVar.aCp = Long.parseLong(extractMetadata2);
+                cVar.aCO = Long.parseLong(extractMetadata);
+                cVar.aCN = Long.parseLong(extractMetadata2);
                 cVar.duration = Long.parseLong(extractMetadata3);
-                this.aCb.aCk = cVar;
+                this.aCz.aCI = cVar;
                 if (mediaMetadataRetriever2 != null) {
                     mediaMetadataRetriever2.release();
                     return true;

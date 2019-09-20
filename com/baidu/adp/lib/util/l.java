@@ -313,7 +313,7 @@ public class l {
         return ellipsize.toString();
     }
 
-    public static int[] b(int i, int i2, int i3, int i4) {
+    public static int[] e(int i, int i2, int i3, int i4) {
         int i5;
         int i6;
         if (i <= 0 || i2 <= 0 || i3 <= 0 || i4 <= 0) {

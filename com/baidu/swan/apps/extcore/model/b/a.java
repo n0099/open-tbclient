@@ -5,14 +5,14 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public interface a {
     @NonNull
-    String Dd();
+    String Dh();
 
     @NonNull
-    File De();
+    File Di();
 
     @NonNull
-    String Df();
+    String Dj();
 
     @NonNull
-    String Dg();
+    String Dk();
 }

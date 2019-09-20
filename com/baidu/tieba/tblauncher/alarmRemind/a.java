@@ -14,11 +14,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes4.dex */
 public class a {
-    public static boolean cjw() {
+    public static boolean cki() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage Fm(String str) {
+    public static RemindRecommendMessage FM(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -52,7 +52,7 @@ public class a {
         }
     }
 
-    public static long eA(long j) {
+    public static long eD(long j) {
         int i;
         int i2;
         int i3;
@@ -97,8 +97,8 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long crZ() {
-        return eA(System.currentTimeMillis());
+    public static long csN() {
+        return eD(System.currentTimeMillis());
     }
 
     public static boolean bc(long j) {
@@ -111,7 +111,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean csa() {
-        return com.baidu.tbadk.core.sharedPref.b.ahQ().getInt("sync_local_dialog", 1) == 1;
+    public static boolean csO() {
+        return com.baidu.tbadk.core.sharedPref.b.ahU().getInt("sync_local_dialog", 1) == 1;
     }
 }

@@ -12,7 +12,7 @@ import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class a {
     private static final Matrix.ScaleToFit[] GD = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
-    private static final PorterDuffColorFilter GE = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
+    private static final PorterDuffColorFilter GE = new PorterDuffColorFilter(1409286144, PorterDuff.Mode.SRC_ATOP);
     private InterfaceC0020a GC;
     public Paint mPaint = new Paint(6);
     public Paint GF = new Paint();

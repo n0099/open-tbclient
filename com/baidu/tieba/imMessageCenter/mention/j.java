@@ -14,12 +14,12 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean Hs;
-    protected ArrayList<FeedData> gWv = new ArrayList<>();
+    protected ArrayList<FeedData> gYp = new ArrayList<>();
     protected an page = new an();
-    protected h gWw = new h();
+    protected h gYq = new h();
 
-    public ArrayList<FeedData> bIq() {
-        return this.gWv;
+    public ArrayList<FeedData> bJe() {
+        return this.gYp;
     }
 
     public an getPage() {
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.gWv.add(feedData);
+                    this.gYp.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.Z(feedData.getPraiseList()) == 0) {
-                        this.gWv.remove(feedData);
+                        this.gYp.remove(feedData);
                     }
                 }
             }
-            this.gWw.parserJson(jSONObject.optJSONObject("message"));
+            this.gYq.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.Hs = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.gWv.add(feedData);
+                        this.gYp.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.Z(feedData.getPraiseList()) == 0) {
-                            this.gWv.remove(feedData);
+                            this.gYp.remove(feedData);
                         }
                     }
                 }

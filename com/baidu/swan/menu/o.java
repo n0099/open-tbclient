@@ -19,30 +19,30 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class o extends PopupWindow implements View.OnClickListener, a {
-    private boolean aqP;
-    private FrameLayout blL;
-    private int bqJ;
-    private View brM;
-    private BaseMenuView brN;
-    private g brO;
-    private View brP;
-    private MainMenuView brQ;
-    private boolean brR;
-    private b brS;
-    private int brT;
-    private String brz;
+    private boolean arn;
+    private FrameLayout bmj;
+    private String brX;
+    private int brh;
+    private View bsk;
+    private BaseMenuView bsl;
+    private g bsm;
+    private View bsn;
+    private MainMenuView bso;
+    private boolean bsp;
+    private b bsq;
+    private int bsr;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(Context context, View view, int i, @Nullable b bVar) {
         super(context);
-        this.brR = true;
-        this.aqP = true;
-        this.brT = 0;
+        this.bsp = true;
+        this.arn = true;
+        this.bsr = 0;
         this.mContext = context;
-        this.brP = view;
-        this.bqJ = i;
-        this.brS = bVar;
+        this.bsn = view;
+        this.brh = i;
+        this.bsq = bVar;
         dg(false);
         setFocusable(true);
         df(true);
@@ -68,48 +68,48 @@ public class o extends PopupWindow implements View.OnClickListener, a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setStatisticSource(String str) {
-        this.brz = str;
-        this.brQ.setStatisticSource(str);
+        this.brX = str;
+        this.bso.setStatisticSource(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMenuSource(String str) {
-        this.brQ.setMenuSource(str);
+        this.bso.setMenuSource(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void showView() {
         if (!isShowing()) {
-            if (this.brS != null) {
-                this.brS.a(this.brQ);
+            if (this.bsq != null) {
+                this.bsq.a(this.bso);
             }
-            this.brQ.reset();
-            this.brN = this.brQ;
-            final View contentView = this.brQ.getContentView();
-            b(this.brP, 81, 0, 0);
+            this.bso.reset();
+            this.bsl = this.bso;
+            final View contentView = this.bso.getContentView();
+            b(this.bsn, 81, 0, 0);
             if (contentView.getHeight() == 0) {
                 contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.menu.o.1
                     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                     public void onGlobalLayout() {
-                        o.this.brQ.fv(contentView.getHeight());
-                        o.this.VO();
+                        o.this.bso.fw(contentView.getHeight());
+                        o.this.VS();
                         contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
             } else {
-                VO();
+                VS();
             }
-            this.brQ.VE();
+            this.bso.VI();
         }
     }
 
     public void b(View view, int i, int i2, int i3) {
-        if (this.aqP) {
+        if (this.arn) {
             setFocusable(false);
         }
         a(view, i, i2, i3);
-        if (this.aqP) {
-            getContentView().setSystemUiVisibility(this.brT | 1024 | 4096);
+        if (this.arn) {
+            getContentView().setSystemUiVisibility(this.bsr | 1024 | 4096);
             setFocusable(true);
             update();
         }
@@ -119,8 +119,8 @@ public class o extends PopupWindow implements View.OnClickListener, a {
         if (!z) {
             super.dismiss();
         } else if (isShowing()) {
-            ObjectAnimator aB = d.aB(this.brM);
-            ObjectAnimator d = d.d(this.brN);
+            ObjectAnimator aB = d.aB(this.bsk);
+            ObjectAnimator d = d.d(this.bsl);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.menu.o.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -128,8 +128,8 @@ public class o extends PopupWindow implements View.OnClickListener, a {
                     Context context = o.this.mContext;
                     if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                         o.super.dismiss();
-                        if (o.this.brN != o.this.brQ) {
-                            o.this.brN.setVisibility(8);
+                        if (o.this.bsl != o.this.bso) {
+                            o.this.bsl.setVisibility(8);
                         }
                     }
                 }
@@ -141,53 +141,53 @@ public class o extends PopupWindow implements View.OnClickListener, a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void G(List<j> list) {
-        this.brQ.B(list);
+        this.bso.B(list);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(g gVar) {
-        this.brO = gVar;
+        this.bsm = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMode(SwanAppMenuMode swanAppMenuMode) {
-        this.brQ.setMode(swanAppMenuMode);
+        this.bso.setMode(swanAppMenuMode);
     }
 
     private void initViews() {
-        this.blL = (FrameLayout) LayoutInflater.from(this.mContext).inflate(f.e.aiapp_menu_layout, (ViewGroup) null);
-        this.brM = this.blL.findViewById(f.d.mask);
-        this.brQ = (MainMenuView) this.blL.findViewById(f.d.aiapp_menu_body);
-        this.brM.setOnClickListener(this);
-        this.brQ.setClickListener(this);
-        this.brQ.setMenuStyle(this.bqJ);
-        this.brQ.setDismissCallback(this);
-        this.blL.measure(0, 0);
-        setContentView(this.blL);
+        this.bmj = (FrameLayout) LayoutInflater.from(this.mContext).inflate(f.e.aiapp_menu_layout, (ViewGroup) null);
+        this.bsk = this.bmj.findViewById(f.d.mask);
+        this.bso = (MainMenuView) this.bmj.findViewById(f.d.aiapp_menu_body);
+        this.bsk.setOnClickListener(this);
+        this.bso.setClickListener(this);
+        this.bso.setMenuStyle(this.brh);
+        this.bso.setDismissCallback(this);
+        this.bmj.measure(0, 0);
+        setContentView(this.bmj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VO() {
+    public void VS() {
         ObjectAnimator b;
-        View bgView = this.brQ.getBgView();
-        View contentView = this.brQ.getContentView();
+        View bgView = this.bso.getBgView();
+        View contentView = this.bso.getContentView();
         int height = contentView.getHeight();
-        this.brQ.setTranslationY(0.0f);
+        this.bso.setTranslationY(0.0f);
         bgView.setTranslationY(height);
         contentView.setTranslationY(height);
-        this.brM.setAlpha(0.0f);
+        this.bsk.setAlpha(0.0f);
         contentView.setAlpha(0.0f);
-        ObjectAnimator a = d.a(this.brM, this.brQ);
-        ObjectAnimator a2 = d.a(this.brQ);
-        ObjectAnimator b2 = d.b((BaseMenuView) this.brQ);
-        ObjectAnimator c = d.c(this.brQ);
+        ObjectAnimator a = d.a(this.bsk, this.bso);
+        ObjectAnimator a2 = d.a(this.bso);
+        ObjectAnimator b2 = d.b((BaseMenuView) this.bso);
+        ObjectAnimator c = d.c(this.bso);
         ArrayList arrayList = new ArrayList();
         arrayList.add(a);
         arrayList.add(a2);
         arrayList.add(b2);
         arrayList.add(c);
-        View coverView = this.brQ.getCoverView();
-        if (coverView != null && (b = d.b(this.brQ)) != null) {
+        View coverView = this.bso.getCoverView();
+        if (coverView != null && (b = d.b(this.bso)) != null) {
             coverView.setTranslationY(height);
             arrayList.add(b);
         }
@@ -196,7 +196,7 @@ public class o extends PopupWindow implements View.OnClickListener, a {
         animatorSet.start();
     }
 
-    public void fy(int i) {
-        this.brT = i;
+    public void fz(int i) {
+        this.bsr = i;
     }
 }

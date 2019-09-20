@@ -3,7 +3,6 @@ package com.baidu.tieba.qrcode.lib.core;
 import android.content.Context;
 import android.graphics.Point;
 import android.hardware.Camera;
-import android.support.v7.widget.ActivityChooserView;
 import android.view.WindowManager;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.xiaomi.mipush.sdk.Constants;
@@ -13,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 final class b {
-    private static final Pattern iEc = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point iEd;
-    private Point iEe;
-    private Point iEf;
+    private static final Pattern iGt = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private Point iGu;
+    private Point iGv;
+    private Point iGw;
     private final Context mContext;
 
     public b(Context context) {
@@ -28,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.iEd = a.eh(this.mContext);
+        this.iGu = a.ei(this.mContext);
         Point point = new Point();
-        point.x = this.iEd.x;
-        point.y = this.iEd.y;
-        int eg = a.eg(this.mContext);
-        if (eg == 0) {
-            point.x = this.iEd.y;
-            point.y = this.iEd.x;
+        point.x = this.iGu.x;
+        point.y = this.iGu.y;
+        int eh = a.eh(this.mContext);
+        if (eh == 0) {
+            point.x = this.iGu.y;
+            point.y = this.iGu.x;
         }
-        this.iEf = a(parameters, point);
-        if (eg == 0) {
-            this.iEe = new Point(this.iEf.y, this.iEf.x);
+        this.iGw = a(parameters, point);
+        if (eh == 0) {
+            this.iGv = new Point(this.iGw.y, this.iGw.x);
         } else {
-            this.iEe = this.iEf;
+            this.iGv = this.iGw;
         }
     }
 
@@ -49,15 +48,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point chg() {
-        return this.iEe;
+    public Point chU() {
+        return this.iGv;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.iEf.x, this.iEf.y);
+        parameters.setPreviewSize(this.iGw.x, this.iGw.y);
         a(parameters);
-        camera.setDisplayOrientation(chh());
+        camera.setDisplayOrientation(chV());
         camera.setParameters(parameters);
     }
 
@@ -72,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int chh() {
+    public int chV() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -112,7 +111,7 @@ final class b {
         int i2;
         int i3;
         int i4;
-        int i5 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i5 = Integer.MAX_VALUE;
         Iterator<Camera.Size> it = list.iterator();
         int i6 = 0;
         int i7 = 0;
@@ -148,7 +147,7 @@ final class b {
     }
 
     private static int b(CharSequence charSequence, int i) {
-        String[] split = iEc.split(charSequence);
+        String[] split = iGt.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

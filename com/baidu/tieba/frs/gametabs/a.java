@@ -17,22 +17,22 @@ import com.baidu.tieba.R;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends n {
-    private l bPS;
-    private String eFF;
+    private l bQt;
+    private String eHo;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.bPS = lVar;
-        this.eFF = str;
+        this.bQt = lVar;
+        this.eHo = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String abl() {
+    public String abp() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(ahC = false, value = "downloadGame")
+    @o(ahG = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -44,22 +44,22 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    xn(optString);
+                    xM(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.cic().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.DH(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.ciQ().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.Eg(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new an("c12775").bT("fid", StringUtils.isNull(this.eFF) ? "" : this.eFF));
+                TiebaStatic.log(new an("c12775").bT("fid", StringUtils.isNull(this.eHo) ? "" : this.eHo));
             }
         }
     }
 
-    private void xn(String str) {
+    private void xM(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.bPS.getContext() instanceof Activity)) {
+            if (!(this.bQt.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.bPS.getContext().startActivity(intent);
+            this.bQt.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

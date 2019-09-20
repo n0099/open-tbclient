@@ -4,34 +4,34 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean czn = false;
-    private List<String> czo;
-    private String czp;
-    private long czq;
-    public String czr;
-    public String czs;
-    public String czt;
-    private String czu;
+    public boolean cAj = false;
+    private List<String> cAk;
+    private String cAl;
+    private long cAm;
+    public String cAn;
+    public String cAo;
+    public String cAp;
+    private String cAq;
     private long fid;
     public String objParam1;
     private long pid;
     public String task_id;
     private long tid;
 
-    public List<String> auX() {
-        return this.czo;
+    public List<String> avj() {
+        return this.cAk;
     }
 
     public void ao(List<String> list) {
-        this.czo = list;
+        this.cAk = list;
     }
 
     public String getCurrentPageKey() {
-        return this.czp;
+        return this.cAl;
     }
 
-    public void qT(String str) {
-        this.czp = str;
+    public void re(String str) {
+        this.cAl = str;
     }
 
     public long getFid() {
@@ -54,12 +54,12 @@ public class d {
         return this.pid;
     }
 
-    public long auY() {
-        return this.czq;
+    public long avk() {
+        return this.cAm;
     }
 
-    public void bi(long j) {
-        this.czq = j;
+    public void bl(long j) {
+        this.cAm = j;
     }
 
     public void setTaskId(String str) {
@@ -70,15 +70,15 @@ public class d {
         return this.task_id;
     }
 
-    public String auZ() {
-        return this.czu;
+    public String avl() {
+        return this.cAq;
     }
 
-    public void qU(String str) {
-        this.czu = str;
+    public void rf(String str) {
+        this.cAq = str;
     }
 
-    public boolean ava() {
-        return StringUtils.isNull(this.czp);
+    public boolean avm() {
+        return StringUtils.isNull(this.cAl);
     }
 }

@@ -8,6 +8,8 @@ import android.util.Pair;
 import com.baidu.sofire.a.a;
 import com.baidu.sofire.b;
 import com.baidu.sofire.b.e;
+import com.baidu.sofire.b.i;
+import com.baidu.sofire.b.t;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.d;
 import com.baidu.sofire.core.f;
@@ -144,16 +146,16 @@ public class F implements FI {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    e.f("0");
+                    e.e("0");
                     byte[] a = com.baidu.sofire.b.a.a(bArr2, bArr);
                     if (a == null || a.length <= 0) {
                         if (sAsc == null) {
                             sAsc = new Asc();
                         }
-                        e.f("1");
+                        e.e("1");
                         byte[] ac = sAsc.ac(bArr, bArr2);
                         if (ac == null || ac.length == 0) {
-                            e.f("2");
+                            e.e("2");
                             return ac;
                         }
                         return ac;
@@ -173,16 +175,16 @@ public class F implements FI {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    e.f("3");
+                    e.e("3");
                     byte[] a = com.baidu.sofire.b.a.a(bArr2, bArr, true);
                     if (a == null || a.length <= 0) {
                         if (sAsc == null) {
                             sAsc = new Asc();
                         }
-                        e.f("4");
+                        e.e("4");
                         byte[] dc = sAsc.dc(bArr, bArr2);
                         if (dc == null || dc.length == 0) {
-                            e.f("5");
+                            e.e("5");
                             return dc;
                         }
                         return dc;
@@ -202,16 +204,16 @@ public class F implements FI {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    e.f(Constants.VIA_SHARE_TYPE_INFO);
-                    byte[] a = (bArr == null || bArr2 == null) ? null : com.baidu.sofire.b.h.a(bArr, bArr2);
+                    e.e(Constants.VIA_SHARE_TYPE_INFO);
+                    byte[] a = (bArr == null || bArr2 == null) ? null : i.a(bArr, bArr2);
                     if (a == null || a.length <= 0) {
                         if (sAsc == null) {
                             sAsc = new Asc();
                         }
-                        e.f("7");
+                        e.e("7");
                         byte[] ar = sAsc.ar(bArr, bArr2);
                         if (ar == null || ar.length == 0) {
-                            e.f(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
+                            e.e(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
                             return ar;
                         }
                         return ar;
@@ -231,7 +233,7 @@ public class F implements FI {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    byte[] a = (bArr == null || bArr2 == null) ? null : com.baidu.sofire.b.h.a(bArr, bArr2);
+                    byte[] a = (bArr == null || bArr2 == null) ? null : i.a(bArr, bArr2);
                     if (a == null || a.length <= 0) {
                         if (sAsc == null) {
                             sAsc = new Asc();
@@ -274,12 +276,7 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public boolean chh(Context context, String str) {
-        try {
-            return e.a(context, str);
-        } catch (Throwable th) {
-            e.a();
-            return false;
-        }
+        return true;
     }
 
     @Override // com.baidu.sofire.ac.FI
@@ -296,6 +293,17 @@ public class F implements FI {
         } catch (Throwable th) {
             e.a();
             return new Pair<>(3, null);
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public String gta(Context context) {
+        try {
+            t.a(context);
+            return t.a();
+        } catch (Throwable th) {
+            e.a();
+            return "";
         }
     }
 

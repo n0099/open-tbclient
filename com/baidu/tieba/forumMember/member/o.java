@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private com.baidu.tbadk.coreExtra.view.c cfg;
+    private com.baidu.tbadk.coreExtra.view.c cfZ;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -28,7 +28,7 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    bb.ajE().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
+                    ba.ajK().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -53,23 +53,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    am.f(qVar.frF, R.color.cp_cont_d, 1);
-                    am.f(qVar.frE, R.color.cp_cont_b, 1);
-                    am.k(qVar.frG, R.drawable.frs_member_manito_bg);
+                    am.f(qVar.fts, R.color.cp_cont_d, 1);
+                    am.f(qVar.ftr, R.color.cp_cont_b, 1);
+                    am.k(qVar.ftt, R.drawable.frs_member_manito_bg);
                 }
-                int bkJ = pVar.bkJ();
-                if (bkJ > 0) {
-                    qVar.frF.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(bkJ)));
-                    qVar.frG.setTag(R.id.assist_apply_tip, pVar.bkK());
-                    qVar.frG.setOnClickListener(this.mClickListener);
-                    qVar.frG.setEnabled(true);
-                    qVar.frG.setClickable(true);
+                int blu = pVar.blu();
+                if (blu > 0) {
+                    qVar.fts.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(blu)));
+                    qVar.ftt.setTag(R.id.assist_apply_tip, pVar.blv());
+                    qVar.ftt.setOnClickListener(this.mClickListener);
+                    qVar.ftt.setEnabled(true);
+                    qVar.ftt.setClickable(true);
                 } else {
-                    qVar.frF.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.frG.setEnabled(false);
-                    qVar.frG.setClickable(false);
+                    qVar.fts.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.ftt.setEnabled(false);
+                    qVar.ftt.setClickable(false);
                 }
-                qVar.frF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.fts.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -85,17 +85,17 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         } else {
             activity = ((TbPageContext) ab).getPageActivity();
         }
-        if (this.cfg == null) {
-            this.cfg = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.cfZ == null) {
+            this.cfZ = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.cfg.aqt();
-        this.cfg.setAccountData(accountData);
-        this.cfg.jU(1);
+        this.cfZ.aqF();
+        this.cfZ.setAccountData(accountData);
+        this.cfZ.jX(1);
     }
 
     public void onDestroy() {
-        if (this.cfg != null) {
-            this.cfg.onDestroy();
+        if (this.cfZ != null) {
+            this.cfZ.onDestroy();
         }
     }
 }

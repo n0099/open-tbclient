@@ -11,6 +11,7 @@ import com.baidu.sapi2.a.c;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
+import com.baidu.sapi2.share.a.b;
 import com.baidu.sapi2.utils.FileUtil;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
@@ -224,7 +225,7 @@ public final class SapiCache {
     public void c(SapiOptions sapiOptions) {
         new c().a(SapiAccountManager.getInstance().getSapiConfiguration(), sapiOptions.chinaMobileOauthGray, sapiOptions.ctGray);
         SapiAccountManager.getInstance().preFetchStoken(SapiAccountManager.getInstance().getSession(), false);
-        new com.baidu.sapi2.share.a.c().a();
+        new b().a(this.d, (String) null);
         a(sapiOptions.resetFileExecPer);
     }
 

@@ -19,16 +19,16 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PbBusinessPromotionContainer extends RelativeLayout {
-    private static final int iev = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
-    private static final int iew = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
-    private boolean cEV;
-    private TextView ccd;
-    private bh ccq;
-    private View.OnClickListener cdw;
-    private RelativeLayout dqe;
-    private TextView fzW;
-    private TbImageView iex;
-    private boolean iey;
+    private static final int igu = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
+    private static final int igv = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
+    private boolean cFL;
+    private TextView ccX;
+    private bh cdk;
+    private View.OnClickListener cep;
+    private RelativeLayout drP;
+    private TextView fBJ;
+    private TbImageView igw;
+    private boolean igx;
     private boolean isShowing;
     private CustomMessageListener mLikeForumListener;
     private final View.OnClickListener mOnClickListener;
@@ -44,15 +44,15 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
 
     public PbBusinessPromotionContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cEV = false;
-        this.iey = false;
+        this.cFL = false;
+        this.igx = false;
         this.isShowing = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbBusinessPromotionContainer.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                view.setTag(PbBusinessPromotionContainer.this.ccq);
-                if (PbBusinessPromotionContainer.this.cdw != null) {
-                    PbBusinessPromotionContainer.this.cdw.onClick(view);
+                view.setTag(PbBusinessPromotionContainer.this.cdk);
+                if (PbBusinessPromotionContainer.this.cep != null) {
+                    PbBusinessPromotionContainer.this.cep.onClick(view);
                 }
             }
         };
@@ -62,9 +62,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                    if (PbBusinessPromotionContainer.this.ccq != null && PbBusinessPromotionContainer.this.ccq.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
-                        PbBusinessPromotionContainer.this.iey = false;
-                        PbBusinessPromotionContainer.this.cat();
+                    if (PbBusinessPromotionContainer.this.cdk != null && PbBusinessPromotionContainer.this.cdk.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
+                        PbBusinessPromotionContainer.this.igx = false;
+                        PbBusinessPromotionContainer.this.cbh();
                     }
                 }
             }
@@ -75,23 +75,23 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                    if (PbBusinessPromotionContainer.this.ccq != null && PbBusinessPromotionContainer.this.ccq.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
-                        PbBusinessPromotionContainer.this.iey = true;
-                        PbBusinessPromotionContainer.this.cat();
+                    if (PbBusinessPromotionContainer.this.cdk != null && PbBusinessPromotionContainer.this.cdk.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
+                        PbBusinessPromotionContainer.this.igx = true;
+                        PbBusinessPromotionContainer.this.cbh();
                     }
                 }
             }
         };
         LayoutInflater.from(context).inflate(R.layout.layout_pb_business_promotion, this);
-        this.dqe = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
-        this.iex = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
-        this.ccd = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
-        this.fzW = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
-        this.iex.setRadius(l.g(context, R.dimen.tbds24));
-        this.iex.setConrers(5);
-        this.iex.setDefaultResource(17170445);
-        this.iex.setDefaultBgResource(17170445);
-        this.dqe.setOnClickListener(this.mOnClickListener);
+        this.drP = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
+        this.igw = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
+        this.ccX = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
+        this.fBJ = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
+        this.igw.setRadius(l.g(context, R.dimen.tbds24));
+        this.igw.setConrers(5);
+        this.igw.setDefaultResource(17170445);
+        this.igw.setDefaultBgResource(17170445);
+        this.drP.setOnClickListener(this.mOnClickListener);
         MessageManager.getInstance().registerListener(this.mLikeForumListener);
         MessageManager.getInstance().registerListener(this.mUnlikeForumListener);
     }
@@ -102,61 +102,61 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             setVisibility(8);
             return;
         }
-        this.ccq = bhVar;
-        pv(z);
+        this.cdk = bhVar;
+        pz(z);
         this.isShowing = true;
         setVisibility(0);
-        this.iex.startLoad(bdVar.getAvatar(), 10, false);
-        this.ccd.setText(bdVar.getForumName());
-        if (!this.cEV) {
-            this.cEV = true;
-            this.iey = bdVar.getIsLike();
-            cat();
+        this.igw.startLoad(bdVar.getAvatar(), 10, false);
+        this.ccX.setText(bdVar.getForumName());
+        if (!this.cFL) {
+            this.cFL = true;
+            this.igx = bdVar.getIsLike();
+            cbh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cat() {
-        if (this.iey) {
-            this.fzW.setText(getResources().getString(R.string.followed));
-            am.j(this.fzW, R.color.cp_cont_d);
-            am.k(this.fzW, 17170445);
-            this.fzW.setOnClickListener(null);
+    public void cbh() {
+        if (this.igx) {
+            this.fBJ.setText(getResources().getString(R.string.followed));
+            am.j(this.fBJ, R.color.cp_cont_d);
+            am.k(this.fBJ, 17170445);
+            this.fBJ.setOnClickListener(null);
             return;
         }
-        this.fzW.setText(getResources().getString(R.string.attention));
-        am.j(this.fzW, R.color.cp_btn_a);
-        am.k(this.fzW, R.drawable.pb_business_promotion_attention_bg);
-        this.fzW.setOnClickListener(this.mOnClickListener);
+        this.fBJ.setText(getResources().getString(R.string.attention));
+        am.j(this.fBJ, R.color.cp_cont_a);
+        am.k(this.fBJ, R.drawable.pb_business_promotion_attention_bg);
+        this.fBJ.setOnClickListener(this.mOnClickListener);
     }
 
     public void onChangeSkinType() {
-        am.j(this.ccd, R.color.cp_cont_b);
-        am.k(this.dqe, R.drawable.pb_business_promotion_bg);
-        if (this.iey) {
-            am.j(this.fzW, R.color.cp_cont_d);
-            am.k(this.fzW, 17170445);
+        am.j(this.ccX, R.color.cp_cont_b);
+        am.k(this.drP, R.drawable.pb_business_promotion_bg);
+        if (this.igx) {
+            am.j(this.fBJ, R.color.cp_cont_d);
+            am.k(this.fBJ, 17170445);
             return;
         }
-        am.j(this.fzW, R.color.cp_btn_a);
-        am.k(this.fzW, R.drawable.pb_business_promotion_attention_bg);
+        am.j(this.fBJ, R.color.cp_cont_a);
+        am.k(this.fBJ, R.drawable.pb_business_promotion_attention_bg);
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        this.cdw = onClickListener;
+        this.cep = onClickListener;
     }
 
-    private void pv(boolean z) {
+    private void pz(boolean z) {
         if (z) {
             setPadding(0, 0, 0, 0);
         } else {
-            setPadding(0, iev, 0, iew);
+            setPadding(0, igu, 0, igv);
         }
     }
 
     public void destroy() {
-        this.cEV = false;
-        this.iey = false;
+        this.cFL = false;
+        this.igx = false;
         this.isShowing = false;
         if (this.mLikeForumListener != null) {
             MessageManager.getInstance().unRegisterListener(this.mLikeForumListener);

@@ -15,8 +15,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CoverViewHelper {
     private static final boolean DEBUG = b.DEBUG;
-    protected com.baidu.swan.apps.view.coverview.a bcL;
-    private a bcM = new a();
+    protected com.baidu.swan.apps.view.coverview.a bdj;
+    private a bdk = new a();
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -32,12 +32,12 @@ public class CoverViewHelper {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ar(final View view) {
-        if (!com.baidu.swan.apps.view.container.b.b.Qo()) {
+        if (!com.baidu.swan.apps.view.container.b.b.Qs()) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.coverview.subview.CoverViewHelper.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (CoverViewHelper.this.bcL != null) {
-                        CoverViewHelper.this.bcL.a(2, view, null);
+                    if (CoverViewHelper.this.bdj != null) {
+                        CoverViewHelper.this.bdj.a(2, view, null);
                     }
                 }
             });
@@ -46,8 +46,8 @@ public class CoverViewHelper {
                 @SuppressLint({"ClickableViewAccessibility"})
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 1) {
-                        CoverViewHelper.this.bcM.x = motionEvent.getRawX();
-                        CoverViewHelper.this.bcM.y = motionEvent.getRawY();
+                        CoverViewHelper.this.bdk.x = motionEvent.getRawX();
+                        CoverViewHelper.this.bdk.y = motionEvent.getRawY();
                         return false;
                     }
                     return false;
@@ -57,13 +57,13 @@ public class CoverViewHelper {
     }
 
     public void setOnActionCallback(com.baidu.swan.apps.view.coverview.a aVar) {
-        if (this.bcL != aVar) {
-            this.bcL = aVar;
+        if (this.bdj != aVar) {
+            this.bdj = aVar;
         }
     }
 
-    public com.baidu.swan.apps.view.coverview.a Qs() {
-        return this.bcL;
+    public com.baidu.swan.apps.view.coverview.a Qw() {
+        return this.bdj;
     }
 
     public void a(@NonNull View view, @NonNull JSONObject jSONObject) {
@@ -107,6 +107,6 @@ public class CoverViewHelper {
     }
 
     public a getClickPosition() {
-        return this.bcM;
+        return this.bdk;
     }
 }

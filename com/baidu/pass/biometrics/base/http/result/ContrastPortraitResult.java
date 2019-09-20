@@ -19,14 +19,6 @@ public class ContrastPortraitResult extends PassBiometricResult {
     public String imgdigests;
     public int recordvideo;
 
-    public boolean isContrastPass() {
-        return 1 == this.contrastres;
-    }
-
-    public boolean isGotoRecordvideo() {
-        return 1 == this.recordvideo;
-    }
-
     public boolean isProcessPass() {
         return 1 == this.finalres;
     }

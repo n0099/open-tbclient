@@ -10,11 +10,11 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class a {
-    public static String WR() {
+    public static String WV() {
         return "Android";
     }
 
-    public static int WS() {
+    public static int WW() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.widthPixels;
@@ -22,7 +22,7 @@ public class a {
         return 0;
     }
 
-    public static int WT() {
+    public static int WX() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.heightPixels;

@@ -1,7 +1,6 @@
 package com.baidu.mobads.production.d;
 
 import android.webkit.WebView;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
@@ -47,7 +46,7 @@ public class a extends com.baidu.mobads.production.b implements IXNonLinearAdSlo
     public void b(d dVar) {
         this.k = dVar;
         k();
-        a((com.baidu.mobads.openad.d.c) null, (v) null, UIMsg.m_AppUI.MSG_APP_GPS);
+        a((com.baidu.mobads.openad.d.c) null, (v) null, 5000);
     }
 
     @Override // com.baidu.mobads.production.b

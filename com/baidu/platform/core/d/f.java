@@ -1,6 +1,7 @@
 package com.baidu.platform.core.d;
 
 import android.net.http.Headers;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -9,7 +10,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.route.IndoorRouteLine;
 import com.baidu.mapapi.search.route.IndoorRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
-import com.baidu.ubc.UBC;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -55,7 +55,7 @@ public class f extends com.baidu.platform.base.d {
                         JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i);
                         if (optJSONObject4 != null) {
                             indoorRouteLine.setDistance(optJSONObject4.optInt("distance"));
-                            indoorRouteLine.setDuration(optJSONObject4.optInt(UBC.CONTENT_KEY_DURATION));
+                            indoorRouteLine.setDuration(optJSONObject4.optInt("duration"));
                             indoorRouteLine.setStarting(RouteNode.location(a(optJSONObject4, "sstart_location")));
                             indoorRouteLine.setTerminal(RouteNode.location(a(optJSONObject4, "send_location")));
                             JSONArray optJSONArray3 = optJSONObject4.optJSONArray("steps");
@@ -66,7 +66,7 @@ public class f extends com.baidu.platform.base.d {
                                     JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i2);
                                     if (optJSONObject5 != null) {
                                         indoorRouteStep.setDistance(optJSONObject5.optInt("distance"));
-                                        indoorRouteStep.setDuration(optJSONObject5.optInt(UBC.CONTENT_KEY_DURATION));
+                                        indoorRouteStep.setDuration(optJSONObject5.optInt("duration"));
                                         indoorRouteStep.setBuildingId(optJSONObject5.optString("buildingid"));
                                         indoorRouteStep.setFloorId(optJSONObject5.optString("floorid"));
                                         indoorRouteStep.setEntrace(RouteNode.location(a(optJSONObject5, "sstart_location")));
@@ -95,7 +95,7 @@ public class f extends com.baidu.platform.base.d {
                                                     JSONObject optJSONObject6 = optJSONArray5.optJSONObject(i4);
                                                     if (optJSONObject6 != null) {
                                                         IndoorRouteLine.IndoorRouteStep.IndoorStepNode indoorStepNode = new IndoorRouteLine.IndoorRouteStep.IndoorStepNode();
-                                                        indoorStepNode.setDetail(optJSONObject6.optString("detail"));
+                                                        indoorStepNode.setDetail(optJSONObject6.optString(DpStatConstants.KEY_DETAIL));
                                                         indoorStepNode.setName(optJSONObject6.optString("name"));
                                                         indoorStepNode.setType(optJSONObject6.optInt("type"));
                                                         indoorStepNode.setLocation(a(optJSONObject6, Headers.LOCATION));

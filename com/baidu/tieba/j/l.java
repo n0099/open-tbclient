@@ -1,9 +1,9 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface l {
-    e Bi(String str);
+    e BH(String str);
 
-    i X(String str, String str2, String str3);
+    i Z(String str, String str2, String str3);
 
-    h bPk();
+    h bPY();
 }

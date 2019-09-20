@@ -20,21 +20,21 @@ import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextView extends AbsFloorImageTextView {
-    private static final int cmp = l.g(TbadkApplication.getInst(), R.dimen.tbds56);
-    private static final int cmq = l.g(TbadkApplication.getInst(), R.dimen.tbds45);
-    private static final int cmr = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
-    private TbRichTextView cms;
-    private EditorScrollView cmt;
-    private int cmu;
-    private boolean cmv;
-    private final View.OnTouchListener cmw;
+    private static final int cnk = l.g(TbadkApplication.getInst(), R.dimen.tbds56);
+    private static final int cnl = l.g(TbadkApplication.getInst(), R.dimen.tbds45);
+    private static final int cnm = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
+    private TbRichTextView cnn;
+    private EditorScrollView cno;
+    private int cnp;
+    private boolean cnq;
+    private final View.OnTouchListener cnr;
     private float mLastMotionY;
     private int mMaxHeight;
 
     public FloorImageTextView(Context context) {
         super(context);
-        this.cmv = false;
-        this.cmw = new View.OnTouchListener() { // from class: com.baidu.tbadk.coreExtra.view.FloorImageTextView.3
+        this.cnq = false;
+        this.cnr = new View.OnTouchListener() { // from class: com.baidu.tbadk.coreExtra.view.FloorImageTextView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return true;
@@ -43,20 +43,20 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         init(context);
     }
 
-    private boolean aqk() {
-        return this.cmt.aqk();
+    private boolean aqw() {
+        return this.cno.aqw();
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout, (ViewGroup) this, true);
         am.l(this, R.color.black_alpha50);
-        this.cms = (TbRichTextView) findViewById(R.id.textview);
-        this.cms.setVerticalScrollBarEnabled(true);
-        this.cms.setTextSize(clx);
-        this.cms.setTextColor(am.getColor(R.color.white_alpha83));
-        this.cmt = (EditorScrollView) findViewById(R.id.scrollview);
-        this.cmt.setPadding(0, clu, 0, clv);
-        this.cmt.setOnTouchListener(this.clA);
+        this.cnn = (TbRichTextView) findViewById(R.id.textview);
+        this.cnn.setVerticalScrollBarEnabled(true);
+        this.cnn.setTextSize(cmt);
+        this.cnn.setTextColor(am.getColor(R.color.white_alpha83));
+        this.cno = (EditorScrollView) findViewById(R.id.scrollview);
+        this.cno.setPadding(0, cmq, 0, cmr);
+        this.cno.setOnTouchListener(this.cmw);
         setVisibility(8);
     }
 
@@ -69,32 +69,32 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         if (pair != null) {
             int intValue = ((Integer) pair.second).intValue();
             if (intValue >= 5) {
-                this.mMaxHeight = jT(5) + cmr;
+                this.mMaxHeight = jW(5) + cnm;
             } else {
-                this.mMaxHeight = jT(intValue) + cmr;
+                this.mMaxHeight = jW(intValue) + cnm;
             }
             if (intValue > 2) {
-                this.cmv = true;
-                this.cmu = jT(2) + cmq;
+                this.cnq = true;
+                this.cnp = jW(2) + cnl;
             } else if (intValue == 2) {
-                this.cmv = false;
-                this.cmu = jT(2) + cmr;
+                this.cnq = false;
+                this.cnp = jW(2) + cnm;
             } else {
-                this.cmv = false;
-                this.cmu = jT(1);
+                this.cnq = false;
+                this.cnp = jW(1);
             }
-            jQ(this.cmu);
+            jT(this.cnp);
         }
     }
 
-    private int jT(int i) {
-        return (cmp * i) + clu + clv;
+    private int jW(int i) {
+        return (cnk * i) + cmq + cmr;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void a(ImageUrlData imageUrlData) {
         JSONArray jSONArray;
-        this.cly = imageUrlData;
+        this.cmu = imageUrlData;
         JSONArray jSONArray2 = null;
         if (imageUrlData != null) {
             try {
@@ -107,8 +107,8 @@ public class FloorImageTextView extends AbsFloorImageTextView {
                 if (imageUrlData == null && jSONArray2 != null && jSONArray2.length() > 0) {
                     setVisibility(0);
                     TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
-                    e(pF(a.toString()));
-                    this.cms.setText(a);
+                    e(pQ(a.toString()));
+                    this.cnn.setText(a);
                     return;
                 }
                 setVisibility(8);
@@ -124,7 +124,7 @@ public class FloorImageTextView extends AbsFloorImageTextView {
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void q(boolean z, boolean z2) {
         if (z2) {
-            eQ(z);
+            eT(z);
         } else {
             setExpandState(z);
         }
@@ -135,7 +135,7 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         if (layoutParams != null) {
             setVisibility(0);
             if (z) {
-                layoutParams.height = this.cmu;
+                layoutParams.height = this.cnp;
                 setLayoutParams(layoutParams);
                 return;
             }
@@ -144,14 +144,14 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         }
     }
 
-    private void eQ(boolean z) {
+    private void eT(boolean z) {
         ValueAnimator ofInt;
         final ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams != null) {
             int i = layoutParams.height;
             setVisibility(0);
             if (z) {
-                ofInt = ValueAnimator.ofInt(0, this.cmu);
+                ofInt = ValueAnimator.ofInt(0, this.cnp);
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.coreExtra.view.FloorImageTextView.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -222,21 +222,21 @@ public class FloorImageTextView extends AbsFloorImageTextView {
 
     private void ao(float f) {
         boolean z = false;
-        if (this.cmv) {
+        if (this.cnq) {
             int height = ((int) f) + getHeight();
             boolean z2 = height < this.mMaxHeight;
-            boolean z3 = height > this.cmu;
+            boolean z3 = height > this.cnp;
             if (f > 0.0f) {
                 z = z2;
-            } else if (f < 0.0f && aqk()) {
+            } else if (f < 0.0f && aqw()) {
                 z = z3;
             }
             if (z) {
-                this.cmt.setOnTouchListener(this.cmw);
-                jQ(height);
+                this.cno.setOnTouchListener(this.cnr);
+                jT(height);
                 return;
             }
-            this.cmt.setOnTouchListener(this.clA);
+            this.cno.setOnTouchListener(this.cmw);
         }
     }
 }

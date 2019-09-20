@@ -6,6 +6,7 @@ import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.network.http.g;
 import com.baidu.adp.lib.network.http.h;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -187,7 +188,7 @@ public class a {
             }
             eVar.iu().q("client_logid", String.valueOf(this.Bf));
             if (!TextUtils.isEmpty(Ba)) {
-                eVar.iu().q("cuid", Ba);
+                eVar.iu().q(DpStatConstants.KEY_CUID, Ba);
             }
             if (!TextUtils.isEmpty(Bb)) {
                 eVar.iu().q("cuid_galaxy2", Bb);

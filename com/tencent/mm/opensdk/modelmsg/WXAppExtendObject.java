@@ -3,7 +3,7 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-import java.io.File;
+import com.tencent.mm.opensdk.utils.d;
 /* loaded from: classes2.dex */
 public class WXAppExtendObject implements WXMediaMessage.IMediaObject {
     private static final int CONTENT_LENGTH_LIMIT = 10485760;
@@ -28,14 +28,7 @@ public class WXAppExtendObject implements WXMediaMessage.IMediaObject {
     }
 
     private int getFileSize(String str) {
-        if (str == null || str.length() == 0) {
-            return 0;
-        }
-        File file = new File(str);
-        if (file.exists()) {
-            return (int) file.length();
-        }
-        return 0;
+        return d.getFileSize(str);
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject

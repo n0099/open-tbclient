@@ -13,8 +13,6 @@ import com.baidu.pass.biometrics.base.R;
 @SuppressLint({"InlinedApi", "NewApi"})
 /* loaded from: classes2.dex */
 public final class PassBioGlobalUtils {
-    private static String msg;
-
     private PassBioGlobalUtils() {
     }
 

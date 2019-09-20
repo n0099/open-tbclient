@@ -4,7 +4,7 @@ import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigInteger;
 /* loaded from: classes2.dex */
 public final class k extends h {
-    private static final Class<?>[] knO = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+    private static final Class<?>[] kql = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
     public k(Boolean bool) {
@@ -28,40 +28,40 @@ public final class k extends h {
         this.value = obj;
     }
 
-    public boolean cMr() {
+    public boolean cNf() {
         return this.value instanceof Boolean;
     }
 
     @Override // com.google.gson.h
-    Boolean cMq() {
+    Boolean cNe() {
         return (Boolean) this.value;
     }
 
     @Override // com.google.gson.h
-    public boolean cMi() {
-        return cMr() ? cMq().booleanValue() : Boolean.parseBoolean(cMh());
+    public boolean cMW() {
+        return cNf() ? cNe().booleanValue() : Boolean.parseBoolean(cMV());
     }
 
-    public boolean cMs() {
+    public boolean cNg() {
         return this.value instanceof Number;
     }
 
     @Override // com.google.gson.h
-    public Number cMg() {
+    public Number cMU() {
         return this.value instanceof String ? new LazilyParsedNumber((String) this.value) : (Number) this.value;
     }
 
-    public boolean cMt() {
+    public boolean cNh() {
         return this.value instanceof String;
     }
 
     @Override // com.google.gson.h
-    public String cMh() {
-        if (cMs()) {
-            return cMg().toString();
+    public String cMV() {
+        if (cNg()) {
+            return cMU().toString();
         }
-        if (cMr()) {
-            return cMq().toString();
+        if (cNf()) {
+            return cNe().toString();
         }
         return (String) this.value;
     }
@@ -71,7 +71,7 @@ public final class k extends h {
             return true;
         }
         Class<?> cls = obj.getClass();
-        for (Class<?> cls2 : knO) {
+        for (Class<?> cls2 : kql) {
             if (cls2.isAssignableFrom(cls)) {
                 return true;
             }
@@ -84,10 +84,10 @@ public final class k extends h {
             return 31;
         }
         if (a(this)) {
-            long longValue = cMg().longValue();
+            long longValue = cMU().longValue();
             return (int) (longValue ^ (longValue >>> 32));
         } else if (this.value instanceof Number) {
-            long doubleToLongBits = Double.doubleToLongBits(cMg().doubleValue());
+            long doubleToLongBits = Double.doubleToLongBits(cMU().doubleValue());
             return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
         } else {
             return this.value.hashCode();
@@ -106,10 +106,10 @@ public final class k extends h {
         if (this.value == null) {
             return kVar.value == null;
         } else if (a(this) && a(kVar)) {
-            return cMg().longValue() == kVar.cMg().longValue();
+            return cMU().longValue() == kVar.cMU().longValue();
         } else if ((this.value instanceof Number) && (kVar.value instanceof Number)) {
-            double doubleValue = cMg().doubleValue();
-            double doubleValue2 = kVar.cMg().doubleValue();
+            double doubleValue = cMU().doubleValue();
+            double doubleValue2 = kVar.cMU().doubleValue();
             if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
                 z = true;
             }

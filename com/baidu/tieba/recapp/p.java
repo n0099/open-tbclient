@@ -9,11 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.view.JumpButton;
-import com.baidu.tieba.recapp.view.AdCloseView;
+import com.baidu.tieba.recapp.view.AdCriusCloseView;
 import com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes3.dex */
@@ -28,12 +27,12 @@ public class p implements com.baidu.c.a.b.b {
             headImageView.setDefaultErrorResource(R.drawable.icon_default_avatar100);
             headImageView.setDefaultBgResource(R.color.cp_bg_line_e);
             return headImageView;
-        } else if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(str)) {
+        } else if ("time".equalsIgnoreCase(str)) {
             TextView textView = new TextView(context);
             textView.setIncludeFontPadding(false);
             return textView;
         } else if ("closead".equalsIgnoreCase(str)) {
-            return new AdCloseView(context);
+            return new AdCriusCloseView(context);
         } else {
             if ("download".equalsIgnoreCase(str)) {
                 return new ApkDownloadView(context);
@@ -77,7 +76,7 @@ public class p implements com.baidu.c.a.b.b {
             ((HeadImageView) view).startLoad(aVar.src, 10, false);
             return true;
         }
-        if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(str)) {
+        if ("time".equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textView.setTextColor(aVar.abj);

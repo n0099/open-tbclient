@@ -37,16 +37,11 @@ public class WeiboAppManager {
     }
 
     public synchronized WbAppInfo getWbAppInfo() {
-        this.wbAppInfo = queryWbInfoInternal(this.mContext);
-        return this.wbAppInfo;
+        return queryWbInfoInternal(this.mContext);
     }
 
     public static WbAppInfo queryWbInfoInternal(Context context) {
-        WbAppInfo queryWbInfoByAsset = queryWbInfoByAsset(context);
-        if (queryWbInfoByAsset != null) {
-            return queryWbInfoByAsset;
-        }
-        return null;
+        return queryWbInfoByAsset(context);
     }
 
     @Deprecated
@@ -81,22 +76,21 @@ public class WeiboAppManager {
         return wbAppInfo;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [145=4] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x008c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [140=5, 142=4, 143=4, 144=4] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static WbAppInfo parseWbInfoByAsset(Context context, String str) {
-        Throwable th;
         InputStream inputStream;
-        InputStream inputStream2 = null;
+        Throwable th;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
+            byte[] bArr = new byte[4096];
+            inputStream = context.createPackageContext(str, 2).getAssets().open(SDK_INT_FILE_NAME);
             try {
-                byte[] bArr = new byte[4096];
-                inputStream = context.createPackageContext(str, 2).getAssets().open(SDK_INT_FILE_NAME);
                 try {
                     StringBuilder sb = new StringBuilder();
                     while (true) {
@@ -110,25 +104,40 @@ public class WeiboAppManager {
                     }
                     JSONObject jSONObject = new JSONObject(sb.toString());
                     int optInt = jSONObject.optInt("support_api", -1);
+                    String optString = jSONObject.optString("authActivityName", null);
+                    if (optInt == -1 || TextUtils.isEmpty(optString)) {
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                                return null;
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                                return null;
+                            }
+                        }
+                        return null;
+                    }
                     WbAppInfo wbAppInfo = new WbAppInfo();
                     wbAppInfo.setPackageName(str);
                     wbAppInfo.setSupportVersion(optInt);
-                    wbAppInfo.setAuthActivityName(jSONObject.optString("authActivityName", "com.sina.weibo.SSOActivity"));
+                    wbAppInfo.setAuthActivityName(optString);
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e) {
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                     return wbAppInfo;
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e3) {
+                    e = e3;
                     LogUtil.e(TAG, e.getMessage());
                     if (inputStream != null) {
                         try {
                             inputStream.close();
                             return null;
-                        } catch (IOException e3) {
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                             return null;
                         }
                     }
@@ -136,20 +145,22 @@ public class WeiboAppManager {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                if (0 != 0) {
+                if (inputStream != null) {
                     try {
-                        inputStream2.close();
-                    } catch (IOException e4) {
+                        inputStream.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e5) {
-            e = e5;
+        } catch (Exception e6) {
+            e = e6;
             inputStream = null;
         } catch (Throwable th3) {
+            inputStream = null;
             th = th3;
-            if (0 != 0) {
+            if (inputStream != null) {
             }
             throw th;
         }

@@ -15,12 +15,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    public j iCb;
-    private b iCc;
-    public i ipY;
+    public j iEt;
+    private b iEu;
+    public i irX;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private ArrayList<m> dPQ = new ArrayList<>();
+    private ArrayList<m> dRB = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
@@ -28,20 +28,20 @@ public class a {
     }
 
     private void r(TbPageContext<?> tbPageContext) {
-        this.ipY = new i(tbPageContext);
-        this.iCb = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.isi);
-        this.iCc = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.iCb.a(this.iCc);
-        this.mAdapters.add(this.ipY);
-        this.mAdapters.add(this.iCb);
+        this.irX = new i(tbPageContext);
+        this.iEt = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.iuh);
+        this.iEu = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.iEt.a(this.iEu);
+        this.mAdapters.add(this.irX);
+        this.mAdapters.add(this.iEt);
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void I(ArrayList<m> arrayList) {
         if (arrayList != null && this.mListView != null) {
-            this.dPQ.clear();
-            this.dPQ.addAll(arrayList);
-            this.mListView.setData(this.dPQ);
+            this.dRB.clear();
+            this.dRB.addAll(arrayList);
+            this.mListView.setData(this.dRB);
         }
     }
 
@@ -57,15 +57,15 @@ public class a {
         }
     }
 
-    public boolean Dj(String str) {
+    public boolean DI(String str) {
         boolean z;
         if (aq.isEmpty(str)) {
             return false;
         }
-        if (this.mListView == null || this.dPQ == null) {
+        if (this.mListView == null || this.dRB == null) {
             return false;
         }
-        Iterator<m> it = this.dPQ.iterator();
+        Iterator<m> it = this.dRB.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -79,8 +79,8 @@ public class a {
             }
         }
         if (z) {
-            this.dPQ = PersonPostModel.mergeDynamicThreadByTime(this.dPQ);
-            this.mListView.setData(this.dPQ);
+            this.dRB = PersonPostModel.mergeDynamicThreadByTime(this.dRB);
+            this.mListView.setData(this.dRB);
             notifyDataSetChanged();
             return z;
         }

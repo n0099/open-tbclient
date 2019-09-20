@@ -3,23 +3,23 @@ package com.baidu.poly.util;
 import android.util.Log;
 /* loaded from: classes2.dex */
 public class b {
-    private static String ahO;
-    private static String ahP;
-    private static int ahQ;
-    private static boolean ahR = true;
+    private static String ail;
+    private static String aim;
+    private static int ain;
+    private static boolean aio = true;
 
     public static void enable(boolean z) {
-        ahR = z;
+        aio = z;
     }
 
-    private static String cW(String str) {
-        return Thread.currentThread().getName() + "[" + ahO + ":" + ahP + ":" + ahQ + "]" + str;
+    private static String cY(String str) {
+        return Thread.currentThread().getName() + "[" + ail + ":" + aim + ":" + ain + "]" + str;
     }
 
     private static void b(StackTraceElement[] stackTraceElementArr) {
-        ahO = stackTraceElementArr[1].getFileName();
-        ahP = stackTraceElementArr[1].getMethodName();
-        ahQ = stackTraceElementArr[1].getLineNumber();
+        ail = stackTraceElementArr[1].getFileName();
+        aim = stackTraceElementArr[1].getMethodName();
+        ain = stackTraceElementArr[1].getLineNumber();
     }
 
     private static String j(Object... objArr) {
@@ -29,18 +29,18 @@ public class b {
                 sb.append(obj.toString());
             }
         }
-        return cW(sb.toString());
+        return cY(sb.toString());
     }
 
     public static void f(String str, Throwable th) {
-        if (ahR) {
+        if (aio) {
             b(new Throwable().getStackTrace());
             Log.e("PaySdk", j(str), th);
         }
     }
 
     public static void k(Object... objArr) {
-        if (ahR) {
+        if (aio) {
             b(new Throwable().getStackTrace());
             Log.d("PaySdk", j(objArr));
         }

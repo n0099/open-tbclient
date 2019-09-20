@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d implements ae {
     private String avatar;
-    private int dtX;
-    private int eOK;
+    private int dvI;
+    private int eQr;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int iXG;
-    private int iXH;
-    private int iXI;
-    private boolean iXJ;
-    private boolean iXK;
-    private boolean iXL;
-    private boolean iXM;
-    private int iXN;
+    private int jab;
+    private int jac;
+    private int jad;
+    private boolean jae;
+    private boolean jaf;
+    private boolean jag;
+    private boolean jah;
+    private int jai;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cnl() {
-        return this.iXG;
+    public int cnY() {
+        return this.jab;
     }
 
-    public int cnm() {
-        return this.dtX;
+    public int cnZ() {
+        return this.dvI;
     }
 
-    public int cnn() {
-        return this.eOK;
+    public int coa() {
+        return this.eQr;
     }
 
-    public int cno() {
-        return this.iXH;
+    public int cob() {
+        return this.jac;
     }
 
-    public int cnp() {
-        return this.iXI;
-    }
-
-    public void AM(int i) {
-        this.iXG = i;
-    }
-
-    public void AN(int i) {
-        this.dtX = i;
-    }
-
-    public void AO(int i) {
-        this.eOK = i;
-    }
-
-    public boolean aJZ() {
-        return this.iXJ;
-    }
-
-    public void qP(boolean z) {
-        this.iXJ = z;
-        this.iXG = 1;
-    }
-
-    public boolean cnq() {
-        return this.iXL;
-    }
-
-    public void qQ(boolean z) {
-        this.iXL = z;
-        this.iXG = 0;
-    }
-
-    public boolean cnr() {
-        return this.iXM;
-    }
-
-    public void qR(boolean z) {
-        this.iXM = z;
-    }
-
-    public int cns() {
-        return this.iXN;
+    public int coc() {
+        return this.jad;
     }
 
     public void AP(int i) {
-        this.iXN = i;
+        this.jab = i;
+    }
+
+    public void AQ(int i) {
+        this.dvI = i;
+    }
+
+    public void AR(int i) {
+        this.eQr = i;
+    }
+
+    public boolean aKD() {
+        return this.jae;
+    }
+
+    public void qS(boolean z) {
+        this.jae = z;
+        this.jab = 1;
+    }
+
+    public boolean cod() {
+        return this.jag;
+    }
+
+    public void qT(boolean z) {
+        this.jag = z;
+        this.jab = 0;
+    }
+
+    public boolean coe() {
+        return this.jah;
+    }
+
+    public void qU(boolean z) {
+        this.jah = z;
+    }
+
+    public int cof() {
+        return this.jai;
+    }
+
+    public void AS(int i) {
+        this.jai = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean cnt() {
-        return this.iXK;
+    public boolean cog() {
+        return this.jaf;
     }
 
-    public void qS(boolean z) {
-        this.iXK = z;
+    public void qV(boolean z) {
+        this.jaf = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.iXG = jSONObject.optInt("is_sign_in");
-            this.dtX = jSONObject.optInt("cont_sign_num");
-            this.eOK = jSONObject.optInt("user_level");
-            this.iXH = jSONObject.optInt("user_exp");
-            this.iXI = jSONObject.optInt("need_exp");
-            if (this.iXG != 0) {
-                this.iXJ = true;
-                this.iXL = false;
+            this.jab = jSONObject.optInt("is_sign_in");
+            this.dvI = jSONObject.optInt("cont_sign_num");
+            this.eQr = jSONObject.optInt("user_level");
+            this.jac = jSONObject.optInt("user_exp");
+            this.jad = jSONObject.optInt("need_exp");
+            if (this.jab != 0) {
+                this.jae = true;
+                this.jag = false;
             }
         }
     }

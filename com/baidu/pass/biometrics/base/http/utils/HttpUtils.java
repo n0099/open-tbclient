@@ -43,7 +43,7 @@ public class HttpUtils {
             e2.printStackTrace();
             messageDigest = null;
         }
-        if (messageDigest == null || arrayList == null) {
+        if (messageDigest == null) {
             return "";
         }
         for (int i = 0; i < arrayList.size(); i++) {

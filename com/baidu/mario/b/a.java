@@ -27,8 +27,8 @@ public class a {
     private boolean adT = false;
     private boolean adX = false;
     private boolean mIsLandscape = false;
+    private int Um = 0;
     private int Un = 0;
-    private int Uo = 0;
     private c adY = c.tl();
     private d adZ = new d() { // from class: com.baidu.mario.b.a.1
         @Override // com.baidu.mario.b.d
@@ -86,8 +86,8 @@ public class a {
             if (z) {
                 this.adv.sY().a(MirrorType.VERTICALLY);
             }
-            this.Un = i;
-            this.Uo = i2;
+            this.Um = i;
+            this.Un = i2;
             this.aea.setVideoWidth(i);
             this.aea.setVideoHeight(i2);
         }
@@ -163,8 +163,8 @@ public class a {
             this.aea.cF(str);
             this.aea.aP(z);
             this.aea.z(i * 1000);
-            this.aea.setVideoWidth(this.Un);
-            this.aea.setVideoHeight(this.Uo);
+            this.aea.setVideoWidth(this.Um);
+            this.aea.setVideoHeight(this.Un);
             if (i > 0 && i < 120) {
                 this.adS = i * 1000;
             } else {
@@ -299,7 +299,7 @@ public class a {
 
     private void tj() {
         if (this.aef == null) {
-            this.aef = new C0059a(this);
+            this.aef = new C0067a(this);
         }
     }
 
@@ -327,10 +327,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mario.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0059a implements com.baidu.mario.a.a.b {
+    public static class C0067a implements com.baidu.mario.a.a.b {
         private WeakReference<a> aeh;
 
-        public C0059a(a aVar) {
+        public C0067a(a aVar) {
             this.aeh = new WeakReference<>(aVar);
             Log.i(a.TAG, "gameRecorderRef is:" + this.aeh.get());
         }

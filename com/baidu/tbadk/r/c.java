@@ -7,6 +7,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.s;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -86,7 +87,7 @@ public class c extends com.baidu.adp.framework.a.d {
             httpMessage.addHeader(HTTP.CONN_DIRECTIVE, "close");
         }
         httpMessage.addHeader("client_logid", String.valueOf(httpMessage.getClientLogID()));
-        httpMessage.addHeader("cuid", TbadkCoreApplication.getInst().getCuid());
+        httpMessage.addHeader(DpStatConstants.KEY_CUID, TbadkCoreApplication.getInst().getCuid());
         httpMessage.addHeader("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         httpMessage.addHeader("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
     }
@@ -115,16 +116,16 @@ public class c extends com.baidu.adp.framework.a.d {
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
         }
-        httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+        httpMessage.addParam(DpStatConstants.KEY_CUID, TbadkCoreApplication.getInst().getCuid());
         httpMessage.addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         httpMessage.addParam("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
-        httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
+        httpMessage.addParam(DpStatConstants.KEY_TIMESTAMP, Long.toString(System.currentTimeMillis()));
         httpMessage.addParam("model", Build.MODEL);
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.alM().alN()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.alM().alO()));
+        if (com.baidu.tbadk.coreExtra.b.a.alY().alZ()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.alY().ama()));
         }
         if (1 == j.netType()) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -170,23 +171,23 @@ public class c extends com.baidu.adp.framework.a.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.bn(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && w.iN()) {
-            httpMessage.addParam("sig", StringU.rK(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.rV(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
 
     private void e(HttpMessage httpMessage) {
-        aa.a aiR = aa.aiR();
-        if (aiR != null) {
-            httpMessage.addParam("stTime", String.valueOf(aiR.mTime));
-            httpMessage.addParam("stSize", String.valueOf(aiR.aWr));
-            httpMessage.addParam("stTimesNum", String.valueOf(aiR.bSE));
-            httpMessage.addParam("stMode", String.valueOf(aiR.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(aiR.bSD));
+        aa.a aiV = aa.aiV();
+        if (aiV != null) {
+            httpMessage.addParam("stTime", String.valueOf(aiV.mTime));
+            httpMessage.addParam("stSize", String.valueOf(aiV.aWP));
+            httpMessage.addParam("stTimesNum", String.valueOf(aiV.bTf));
+            httpMessage.addParam("stMode", String.valueOf(aiV.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(aiV.bTe));
         }
         int hZ = aa.hZ(0);
-        if (hZ == 0 && aiR != null) {
-            hZ = aiR.bSE;
+        if (hZ == 0 && aiV != null) {
+            hZ = aiV.bTf;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(hZ));
     }

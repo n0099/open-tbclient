@@ -3,6 +3,8 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tieba.a;
+import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class BaseLegoCardInfo implements ICardInfo {
@@ -11,6 +13,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     protected final String flipId;
     protected final String itemId;
     private BdUniqueId mBdUniqueId;
+    protected ClientParams mClientParams;
     protected String mGroupId;
     protected int page;
     protected final String sExtras;
@@ -43,6 +46,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             this.statTab = 0;
             this.showLine = -1;
             this.showCover = false;
+            this.mClientParams = null;
             return;
         }
         this.cardType = jSONObject.optInt("card_type");
@@ -59,6 +63,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.showCover = jSONObject.optInt("showCover") == 1;
         this.showLine = jSONObject.optInt("showLine", -1);
         this.page = jSONObject.optInt("page", 0);
+        this.mClientParams = new ClientParams(jSONObject.optJSONObject("client_params"));
     }
 
     public int getPage() {
@@ -210,5 +215,14 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     @Override // com.baidu.tieba.lego.card.model.ICardInfo
     public boolean isReusable(ICardInfo iCardInfo) {
         return getCardType() == iCardInfo.getCardType();
+    }
+
+    /* loaded from: classes.dex */
+    public static class ClientParams implements Serializable {
+        public ClientParams(JSONObject jSONObject) {
+            if (jSONObject != null) {
+                a.aAF().parse(jSONObject);
+            }
+        }
     }
 }

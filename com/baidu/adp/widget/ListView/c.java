@@ -13,6 +13,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     private boolean MX = true;
     private int MY = 0;
     private int MZ = 0;
+    private boolean Nb = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -59,11 +60,24 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         return this.mView;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean ob() {
+        return this.Nb;
+    }
+
+    public void pause() {
+        this.Nb = true;
+    }
+
+    public void resume() {
+        this.Nb = false;
+    }
+
     public void setPadding(int i, int i2, int i3, int i4) {
-        if (this.mView != null) {
+        if (this.mView != null && !this.Nb) {
             this.mView.setPadding(i, i2, i3, i4);
             if (this.Na != null) {
-                this.Na.a(this, i, i3, i2 + ob(), i4);
+                this.Na.a(this, i, i3, i2 + oc(), i4);
             }
         }
     }
@@ -92,34 +106,44 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int ob() {
+    public int oc() {
         return this.MY;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onPullToRefresh() {
-        ar(false);
+        if (!this.Nb) {
+            ar(false);
+        }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onReleaseToRefresh() {
-        releaseToRefresh();
+        if (!this.Nb) {
+            releaseToRefresh();
+        }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onRefreshing() {
-        refreshing();
-        at(true);
+        if (!this.Nb) {
+            refreshing();
+            at(true);
+        }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void oc() {
-        oa();
+    public void od() {
+        if (!this.Nb) {
+            oa();
+        }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onFinish() {
-        as(true);
+        if (!this.Nb) {
+            as(true);
+        }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b

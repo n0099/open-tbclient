@@ -14,13 +14,13 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cR */
+        /* renamed from: cS */
         public SwanAppPreHandleInfo[] newArray(int i) {
             return new SwanAppPreHandleInfo[i];
         }
     };
     public String appId;
-    public int ave;
+    public int avC;
     public String iconUrl;
     public String version;
 
@@ -31,11 +31,11 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
         this.iconUrl = parcel.readString();
         this.appId = parcel.readString();
         this.version = parcel.readString();
-        this.ave = parcel.readInt();
+        this.avC = parcel.readInt();
     }
 
     public String toString() {
-        return "SwanAppPreHandleInfo{iconUrl='" + this.iconUrl + "appId=" + this.appId + "version=" + this.version + "category" + this.ave + '}';
+        return "SwanAppPreHandleInfo{iconUrl='" + this.iconUrl + "appId=" + this.appId + "version=" + this.version + "category" + this.avC + '}';
     }
 
     @Override // android.os.Parcelable
@@ -48,6 +48,6 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
         parcel.writeString(this.iconUrl);
         parcel.writeString(this.appId);
         parcel.writeString(this.version);
-        parcel.writeInt(this.ave);
+        parcel.writeInt(this.avC);
     }
 }

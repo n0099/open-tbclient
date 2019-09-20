@@ -22,63 +22,63 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c;
+import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class ScanBoxView extends View {
     private int GW;
-    private int bYm;
-    private int cEc;
-    private String hsk;
-    private Rect iEA;
-    private float iEB;
-    private float iEC;
-    private TextPaint iED;
-    private int iEE;
-    private int iEF;
-    private int iEG;
-    private int iEH;
-    private int iEI;
-    private int iEJ;
-    private int iEK;
-    private int iEL;
-    private boolean iEM;
-    private Drawable iEN;
-    private Bitmap iEO;
-    private int iEP;
-    private int iEQ;
-    private boolean iER;
-    private int iES;
-    private boolean iET;
-    private String iEU;
-    private String iEV;
-    private int iEW;
-    private int iEX;
-    private boolean iEY;
-    private int iEZ;
-    private Bitmap iEu;
-    private Bitmap iEv;
-    private Bitmap iEw;
-    private Bitmap iEx;
-    private int iEy;
-    private int iEz;
-    private boolean iFa;
-    private int iFb;
-    private boolean iFc;
-    private boolean iFd;
-    private boolean iFe;
-    private Drawable iFf;
-    private Bitmap iFg;
-    private float iFh;
-    private float iFi;
-    private Bitmap iFj;
-    private Bitmap iFk;
-    private Bitmap iFl;
-    private Bitmap iFm;
-    private float iFn;
-    private StaticLayout iFo;
-    private int iFp;
-    private boolean iFq;
-    private ColorMatrixColorFilter iFr;
+    private int bZf;
+    private int cET;
+    private String hue;
+    private Bitmap iGL;
+    private Bitmap iGM;
+    private Bitmap iGN;
+    private Bitmap iGO;
+    private int iGP;
+    private int iGQ;
+    private Rect iGR;
+    private float iGS;
+    private float iGT;
+    private TextPaint iGU;
+    private int iGV;
+    private int iGW;
+    private int iGX;
+    private int iGY;
+    private int iGZ;
+    private Bitmap iHA;
+    private Bitmap iHB;
+    private Bitmap iHC;
+    private Bitmap iHD;
+    private float iHE;
+    private StaticLayout iHF;
+    private int iHG;
+    private boolean iHH;
+    private ColorMatrixColorFilter iHI;
+    private int iHa;
+    private int iHb;
+    private int iHc;
+    private boolean iHd;
+    private Drawable iHe;
+    private Bitmap iHf;
+    private int iHg;
+    private int iHh;
+    private boolean iHi;
+    private int iHj;
+    private boolean iHk;
+    private String iHl;
+    private String iHm;
+    private int iHn;
+    private int iHo;
+    private boolean iHp;
+    private int iHq;
+    private boolean iHr;
+    private int iHs;
+    private boolean iHt;
+    private boolean iHu;
+    private boolean iHv;
+    private Drawable iHw;
+    private Bitmap iHx;
+    private float iHy;
+    private float iHz;
     private Context mContext;
     private Paint mPaint;
 
@@ -87,389 +87,389 @@ public class ScanBoxView extends View {
         this.mContext = context;
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.bYm = Color.parseColor("#33FFFFFF");
-        this.iEE = a.e(context, 20.0f);
-        this.iEF = a.e(context, 3.0f);
-        this.iEJ = a.e(context, 1.0f);
-        this.iEK = -1;
-        this.cEc = a.e(context, 90.0f);
-        this.iEG = a.e(context, 200.0f);
-        this.iEI = a.e(context, 140.0f);
-        this.iEL = 0;
-        this.iEM = false;
-        this.iEN = null;
-        this.iEO = null;
-        this.iEP = a.e(context, 1.0f);
+        this.bZf = Color.parseColor("#33FFFFFF");
+        this.iGV = a.f(context, 20.0f);
+        this.iGW = a.f(context, 3.0f);
+        this.iHa = a.f(context, 1.0f);
+        this.iHb = -1;
+        this.cET = a.f(context, 90.0f);
+        this.iGX = a.f(context, 200.0f);
+        this.iGZ = a.f(context, 140.0f);
+        this.iHc = 0;
+        this.iHd = false;
+        this.iHe = null;
+        this.iHf = null;
+        this.iHg = a.f(context, 1.0f);
         this.GW = -1;
-        this.iEQ = 1000;
-        this.iER = false;
-        this.iES = 0;
-        this.iET = false;
-        this.iEy = a.e(context, 2.0f);
-        this.hsk = null;
-        this.iEW = a.sp2px(context, 14.0f);
-        this.iEX = -1;
-        this.iEY = false;
-        this.iEZ = a.e(context, 20.0f);
-        this.iFa = false;
-        this.iFb = Color.parseColor("#22000000");
-        this.iFc = false;
-        this.iFd = false;
-        this.iFe = false;
-        this.iED = new TextPaint();
-        this.iED.setAntiAlias(true);
-        this.iFp = a.e(context, 4.0f);
-        this.iFq = false;
+        this.iHh = 1000;
+        this.iHi = false;
+        this.iHj = 0;
+        this.iHk = false;
+        this.iGP = a.f(context, 2.0f);
+        this.hue = null;
+        this.iHn = a.e(context, 14.0f);
+        this.iHo = -1;
+        this.iHp = false;
+        this.iHq = a.f(context, 20.0f);
+        this.iHr = false;
+        this.iHs = Color.parseColor("#22000000");
+        this.iHt = false;
+        this.iHu = false;
+        this.iHv = false;
+        this.iGU = new TextPaint();
+        this.iGU.setAntiAlias(true);
+        this.iHG = a.f(context, 4.0f);
+        this.iHH = false;
         ColorMatrix colorMatrix = new ColorMatrix();
         colorMatrix.setScale(1.5f, 1.5f, 1.5f, 1.0f);
         ColorMatrix colorMatrix2 = new ColorMatrix();
         colorMatrix2.postConcat(colorMatrix);
-        this.iFr = new ColorMatrixColorFilter(colorMatrix2);
+        this.iHI = new ColorMatrixColorFilter(colorMatrix2);
     }
 
     public void j(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.QRCodeView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.a.QRCodeView);
         int indexCount = obtainStyledAttributes.getIndexCount();
         for (int i = 0; i < indexCount; i++) {
             a(obtainStyledAttributes.getIndex(i), obtainStyledAttributes);
         }
         obtainStyledAttributes.recycle();
-        chs();
-        chr();
+        cig();
+        cif();
     }
 
-    private void chr() {
+    private void cif() {
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.outWidth = this.iEE;
-        options.outHeight = this.iEE;
-        this.iEu = BitmapHelper.getResBitmap(this.mContext, R.drawable.icon_scan_upperleft, options);
+        options.outWidth = this.iGV;
+        options.outHeight = this.iGV;
+        this.iGL = BitmapHelper.getResBitmap(this.mContext, R.drawable.icon_scan_upperleft, options);
         Matrix matrix = new Matrix();
         matrix.postRotate(90.0f);
-        this.iEv = Bitmap.createBitmap(this.iEu, 0, 0, this.iEu.getWidth(), this.iEu.getHeight(), matrix, false);
+        this.iGM = Bitmap.createBitmap(this.iGL, 0, 0, this.iGL.getWidth(), this.iGL.getHeight(), matrix, false);
         matrix.postRotate(180.0f);
-        this.iEw = Bitmap.createBitmap(this.iEu, 0, 0, this.iEu.getWidth(), this.iEu.getHeight(), matrix, false);
+        this.iGN = Bitmap.createBitmap(this.iGL, 0, 0, this.iGL.getWidth(), this.iGL.getHeight(), matrix, false);
         matrix.postRotate(270.0f);
-        this.iEx = Bitmap.createBitmap(this.iEu, 0, 0, this.iEu.getWidth(), this.iEu.getHeight(), matrix, false);
+        this.iGO = Bitmap.createBitmap(this.iGL, 0, 0, this.iGL.getWidth(), this.iGL.getHeight(), matrix, false);
     }
 
     private void a(int i, TypedArray typedArray) {
         if (i == 0) {
-            this.cEc = typedArray.getDimensionPixelSize(i, this.cEc);
+            this.cET = typedArray.getDimensionPixelSize(i, this.cET);
         } else if (i == 1) {
-            this.iEF = typedArray.getDimensionPixelSize(i, this.iEF);
+            this.iGW = typedArray.getDimensionPixelSize(i, this.iGW);
         } else if (i == 2) {
-            this.iEE = typedArray.getDimensionPixelSize(i, this.iEE);
+            this.iGV = typedArray.getDimensionPixelSize(i, this.iGV);
         } else if (i == 6) {
-            this.iEJ = typedArray.getDimensionPixelSize(i, this.iEJ);
+            this.iHa = typedArray.getDimensionPixelSize(i, this.iHa);
         } else if (i == 3) {
-            this.iEG = typedArray.getDimensionPixelSize(i, this.iEG);
+            this.iGX = typedArray.getDimensionPixelSize(i, this.iGX);
         } else if (i == 5) {
-            this.bYm = typedArray.getColor(i, this.bYm);
+            this.bZf = typedArray.getColor(i, this.bZf);
         } else if (i == 7) {
-            this.iEK = typedArray.getColor(i, this.iEK);
+            this.iHb = typedArray.getColor(i, this.iHb);
         } else if (i == 8) {
-            this.iEL = typedArray.getDimensionPixelSize(i, this.iEL);
+            this.iHc = typedArray.getDimensionPixelSize(i, this.iHc);
         } else if (i == 9) {
-            this.iEM = typedArray.getBoolean(i, this.iEM);
+            this.iHd = typedArray.getBoolean(i, this.iHd);
         } else if (i == 10) {
-            this.iEN = typedArray.getDrawable(i);
+            this.iHe = typedArray.getDrawable(i);
         } else if (i == 11) {
-            this.iEP = typedArray.getDimensionPixelSize(i, this.iEP);
+            this.iHg = typedArray.getDimensionPixelSize(i, this.iHg);
         } else if (i == 12) {
             this.GW = typedArray.getColor(i, this.GW);
         } else if (i == 13) {
-            this.iEQ = typedArray.getInteger(i, this.iEQ);
+            this.iHh = typedArray.getInteger(i, this.iHh);
         } else if (i == 14) {
-            this.iER = typedArray.getBoolean(i, this.iER);
+            this.iHi = typedArray.getBoolean(i, this.iHi);
         } else if (i == 15) {
-            this.iES = typedArray.getDimensionPixelSize(i, this.iES);
+            this.iHj = typedArray.getDimensionPixelSize(i, this.iHj);
         } else if (i == 4) {
-            this.iEI = typedArray.getDimensionPixelSize(i, this.iEI);
+            this.iGZ = typedArray.getDimensionPixelSize(i, this.iGZ);
         } else if (i == 16) {
-            this.iET = typedArray.getBoolean(i, this.iET);
+            this.iHk = typedArray.getBoolean(i, this.iHk);
         } else if (i == 18) {
-            this.iEV = typedArray.getString(i);
+            this.iHm = typedArray.getString(i);
         } else if (i == 17) {
-            this.iEU = typedArray.getString(i);
+            this.iHl = typedArray.getString(i);
         } else if (i == 19) {
-            this.iEW = typedArray.getDimensionPixelSize(i, this.iEW);
+            this.iHn = typedArray.getDimensionPixelSize(i, this.iHn);
         } else if (i == 20) {
-            this.iEX = typedArray.getColor(i, this.iEX);
+            this.iHo = typedArray.getColor(i, this.iHo);
         } else if (i == 21) {
-            this.iEY = typedArray.getBoolean(i, this.iEY);
+            this.iHp = typedArray.getBoolean(i, this.iHp);
         } else if (i == 22) {
-            this.iEZ = typedArray.getDimensionPixelSize(i, this.iEZ);
+            this.iHq = typedArray.getDimensionPixelSize(i, this.iHq);
         } else if (i == 23) {
-            this.iFa = typedArray.getBoolean(i, this.iFa);
+            this.iHr = typedArray.getBoolean(i, this.iHr);
         } else if (i == 24) {
-            this.iFc = typedArray.getBoolean(i, this.iFc);
+            this.iHt = typedArray.getBoolean(i, this.iHt);
         } else if (i == 25) {
-            this.iFb = typedArray.getColor(i, this.iFb);
+            this.iHs = typedArray.getColor(i, this.iHs);
         } else if (i == 26) {
-            this.iFd = typedArray.getBoolean(i, this.iFd);
+            this.iHu = typedArray.getBoolean(i, this.iHu);
         } else if (i == 27) {
-            this.iFe = typedArray.getBoolean(i, this.iFe);
+            this.iHv = typedArray.getBoolean(i, this.iHv);
         } else if (i == 28) {
-            this.iFf = typedArray.getDrawable(i);
+            this.iHw = typedArray.getDrawable(i);
         } else if (i == 29) {
-            this.iFq = typedArray.getBoolean(i, this.iFq);
+            this.iHH = typedArray.getBoolean(i, this.iHH);
         }
     }
 
-    private void chs() {
-        if (this.iFf != null) {
-            this.iFl = ((BitmapDrawable) this.iFf).getBitmap();
+    private void cig() {
+        if (this.iHw != null) {
+            this.iHC = ((BitmapDrawable) this.iHw).getBitmap();
         }
-        if (this.iFl == null) {
-            this.iFl = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
-            this.iFl = a.e(this.iFl, this.iEK);
+        if (this.iHC == null) {
+            this.iHC = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
+            this.iHC = a.e(this.iHC, this.iHb);
         }
-        this.iFm = a.adjustPhotoRotation(this.iFl, 90);
-        this.iFm = a.adjustPhotoRotation(this.iFm, 90);
-        this.iFm = a.adjustPhotoRotation(this.iFm, 90);
-        if (this.iEN != null) {
-            this.iFj = ((BitmapDrawable) this.iEN).getBitmap();
+        this.iHD = a.adjustPhotoRotation(this.iHC, 90);
+        this.iHD = a.adjustPhotoRotation(this.iHD, 90);
+        this.iHD = a.adjustPhotoRotation(this.iHD, 90);
+        if (this.iHe != null) {
+            this.iHA = ((BitmapDrawable) this.iHe).getBitmap();
         }
-        if (this.iFj == null) {
-            this.iFj = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
-            this.iFj = a.e(this.iFj, this.iEK);
+        if (this.iHA == null) {
+            this.iHA = BitmapFactory.decodeResource(getResources(), R.drawable.pc_scan_line);
+            this.iHA = a.e(this.iHA, this.iHb);
         }
-        this.iFk = a.adjustPhotoRotation(this.iFj, 90);
-        this.iFn = (1.0f * this.iEF) / 2.0f;
-        this.iED.setTextSize(this.iEW);
-        this.iED.setColor(this.iEX);
-        setIsBarcode(this.iET);
+        this.iHB = a.adjustPhotoRotation(this.iHA, 90);
+        this.iHE = (1.0f * this.iGW) / 2.0f;
+        this.iGU.setTextSize(this.iHn);
+        this.iGU.setColor(this.iHo);
+        setIsBarcode(this.iHk);
     }
 
-    public void cht() {
-        this.iED.setColor(this.iEX);
+    public void cih() {
+        this.iGU.setColor(this.iHo);
         setIsBarcode(false);
         invalidate();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.iEA != null) {
-            U(canvas);
+        if (this.iGR != null) {
             V(canvas);
-            X(canvas);
-            Y(canvas);
             W(canvas);
-            chu();
-        }
-    }
-
-    private void U(Canvas canvas) {
-        int width = canvas.getWidth();
-        int height = canvas.getHeight();
-        if (this.bYm != 0) {
-            this.mPaint.setStyle(Paint.Style.FILL);
-            this.mPaint.setColor(this.bYm);
-            canvas.drawRect(0.0f, 0.0f, width, this.iEA.top, this.mPaint);
-            canvas.drawRect(0.0f, this.iEA.top, this.iEA.left, this.iEA.bottom + 1, this.mPaint);
-            canvas.drawRect(this.iEA.right + 1, this.iEA.top, width, this.iEA.bottom + 1, this.mPaint);
-            canvas.drawRect(0.0f, this.iEA.bottom + 1, width, height, this.mPaint);
+            Y(canvas);
+            Z(canvas);
+            X(canvas);
+            cii();
         }
     }
 
     private void V(Canvas canvas) {
-        if (this.iEP > 0) {
-            this.mPaint.setStyle(Paint.Style.STROKE);
-            this.mPaint.setColor(this.GW);
-            this.mPaint.setAntiAlias(false);
-            this.mPaint.setStrokeWidth(this.iEP);
-            canvas.drawRect(this.iEA, this.mPaint);
+        int width = canvas.getWidth();
+        int height = canvas.getHeight();
+        if (this.bZf != 0) {
+            this.mPaint.setStyle(Paint.Style.FILL);
+            this.mPaint.setColor(this.bZf);
+            canvas.drawRect(0.0f, 0.0f, width, this.iGR.top, this.mPaint);
+            canvas.drawRect(0.0f, this.iGR.top, this.iGR.left, this.iGR.bottom + 1, this.mPaint);
+            canvas.drawRect(this.iGR.right + 1, this.iGR.top, width, this.iGR.bottom + 1, this.mPaint);
+            canvas.drawRect(0.0f, this.iGR.bottom + 1, width, height, this.mPaint);
         }
     }
 
     private void W(Canvas canvas) {
-        this.mPaint.reset();
-        this.mPaint.setAntiAlias(false);
-        canvas.drawBitmap(this.iEu, getMainFrameLeft(), getMainFrameTop(), this.mPaint);
-        canvas.drawBitmap(this.iEv, getMainFrameRight() - this.iEu.getWidth(), getMainFrameTop(), this.mPaint);
-        canvas.drawBitmap(this.iEw, getMainFrameLeft(), getMainFrameBottom() - this.iEu.getHeight(), this.mPaint);
-        canvas.drawBitmap(this.iEx, getMainFrameRight() - this.iEu.getWidth(), getMainFrameBottom() - this.iEu.getHeight(), this.mPaint);
-    }
-
-    private int getMainFrameLeft() {
-        return (this.iEA.left - getBitmapOffset()) - 1;
-    }
-
-    private int getMainFrameRight() {
-        return this.iEA.right + getBitmapOffset();
-    }
-
-    private int getMainFrameTop() {
-        return (this.iEA.top - getBitmapOffset()) - 1;
-    }
-
-    private int getMainFrameBottom() {
-        return this.iEA.bottom + getBitmapOffset();
-    }
-
-    private int getBitmapOffset() {
-        return this.iEP / 2;
+        if (this.iHg > 0) {
+            this.mPaint.setStyle(Paint.Style.STROKE);
+            this.mPaint.setColor(this.GW);
+            this.mPaint.setAntiAlias(false);
+            this.mPaint.setStrokeWidth(this.iHg);
+            canvas.drawRect(this.iGR, this.mPaint);
+        }
     }
 
     private void X(Canvas canvas) {
-        if (this.iET) {
-            if (this.iFg != null) {
-                RectF rectF = new RectF(this.iEA.left + this.iFn + 0.5f, this.iEA.top + this.iFn + this.iEL, this.iFi, (this.iEA.bottom - this.iFn) - this.iEL);
-                Rect rect = new Rect((int) (this.iFg.getWidth() - rectF.width()), 0, this.iFg.getWidth(), this.iFg.getHeight());
+        this.mPaint.reset();
+        this.mPaint.setAntiAlias(false);
+        canvas.drawBitmap(this.iGL, getMainFrameLeft(), getMainFrameTop(), this.mPaint);
+        canvas.drawBitmap(this.iGM, getMainFrameRight() - this.iGL.getWidth(), getMainFrameTop(), this.mPaint);
+        canvas.drawBitmap(this.iGN, getMainFrameLeft(), getMainFrameBottom() - this.iGL.getHeight(), this.mPaint);
+        canvas.drawBitmap(this.iGO, getMainFrameRight() - this.iGL.getWidth(), getMainFrameBottom() - this.iGL.getHeight(), this.mPaint);
+    }
+
+    private int getMainFrameLeft() {
+        return (this.iGR.left - getBitmapOffset()) - 1;
+    }
+
+    private int getMainFrameRight() {
+        return this.iGR.right + getBitmapOffset();
+    }
+
+    private int getMainFrameTop() {
+        return (this.iGR.top - getBitmapOffset()) - 1;
+    }
+
+    private int getMainFrameBottom() {
+        return this.iGR.bottom + getBitmapOffset();
+    }
+
+    private int getBitmapOffset() {
+        return this.iHg / 2;
+    }
+
+    private void Y(Canvas canvas) {
+        if (this.iHk) {
+            if (this.iHx != null) {
+                RectF rectF = new RectF(this.iGR.left + this.iHE + 0.5f, this.iGR.top + this.iHE + this.iHc, this.iHz, (this.iGR.bottom - this.iHE) - this.iHc);
+                Rect rect = new Rect((int) (this.iHx.getWidth() - rectF.width()), 0, this.iHx.getWidth(), this.iHx.getHeight());
                 if (rect.left < 0) {
                     rect.left = 0;
                     rectF.left = rectF.right - rect.width();
                 }
-                canvas.drawBitmap(this.iFg, rect, rectF, this.mPaint);
-            } else if (this.iEO != null) {
-                canvas.drawBitmap(this.iEO, (Rect) null, new RectF(this.iEC, this.iEA.top + this.iFn + this.iEL, this.iEC + this.iEO.getWidth(), (this.iEA.bottom - this.iFn) - this.iEL), this.mPaint);
+                canvas.drawBitmap(this.iHx, rect, rectF, this.mPaint);
+            } else if (this.iHf != null) {
+                canvas.drawBitmap(this.iHf, (Rect) null, new RectF(this.iGT, this.iGR.top + this.iHE + this.iHc, this.iGT + this.iHf.getWidth(), (this.iGR.bottom - this.iHE) - this.iHc), this.mPaint);
             } else {
                 this.mPaint.setStyle(Paint.Style.FILL);
-                this.mPaint.setColor(this.iEK);
-                canvas.drawRect(this.iEC, this.iEL + this.iEA.top + this.iFn, this.iEJ + this.iEC, (this.iEA.bottom - this.iFn) - this.iEL, this.mPaint);
+                this.mPaint.setColor(this.iHb);
+                canvas.drawRect(this.iGT, this.iHc + this.iGR.top + this.iHE, this.iHa + this.iGT, (this.iGR.bottom - this.iHE) - this.iHc, this.mPaint);
             }
-        } else if (this.iFg != null) {
-            RectF rectF2 = new RectF(this.iEA.left + this.iFn + this.iEL, this.iEA.top + this.iFn + 0.5f, (this.iEA.right - this.iFn) - this.iEL, this.iFh);
-            Rect rect2 = new Rect(0, (int) (this.iFg.getHeight() - rectF2.height()), this.iFg.getWidth(), this.iFg.getHeight());
+        } else if (this.iHx != null) {
+            RectF rectF2 = new RectF(this.iGR.left + this.iHE + this.iHc, this.iGR.top + this.iHE + 0.5f, (this.iGR.right - this.iHE) - this.iHc, this.iHy);
+            Rect rect2 = new Rect(0, (int) (this.iHx.getHeight() - rectF2.height()), this.iHx.getWidth(), this.iHx.getHeight());
             if (rect2.top < 0) {
                 rect2.top = 0;
                 rectF2.top = rectF2.bottom - rect2.height();
             }
-            this.mPaint.setColorFilter(this.iFr);
-            canvas.drawBitmap(this.iFg, rect2, rectF2, this.mPaint);
-        } else if (this.iEO != null) {
-            canvas.drawBitmap(this.iEO, (Rect) null, new RectF(this.iEA.left + this.iFn + this.iEL, this.iEB, (this.iEA.right - this.iFn) - this.iEL, this.iEB + this.iEO.getHeight()), this.mPaint);
+            this.mPaint.setColorFilter(this.iHI);
+            canvas.drawBitmap(this.iHx, rect2, rectF2, this.mPaint);
+        } else if (this.iHf != null) {
+            canvas.drawBitmap(this.iHf, (Rect) null, new RectF(this.iGR.left + this.iHE + this.iHc, this.iGS, (this.iGR.right - this.iHE) - this.iHc, this.iGS + this.iHf.getHeight()), this.mPaint);
         } else {
             this.mPaint.setStyle(Paint.Style.FILL);
-            this.mPaint.setColor(this.iEK);
-            canvas.drawRect(this.iEL + this.iEA.left + this.iFn, this.iEB, (this.iEA.right - this.iFn) - this.iEL, this.iEJ + this.iEB, this.mPaint);
+            this.mPaint.setColor(this.iHb);
+            canvas.drawRect(this.iHc + this.iGR.left + this.iHE, this.iGS, (this.iGR.right - this.iHE) - this.iHc, this.iHa + this.iGS, this.mPaint);
         }
     }
 
-    private void Y(Canvas canvas) {
-        if (!TextUtils.isEmpty(this.hsk) && this.iFo != null) {
-            if (this.iEY) {
-                if (this.iFc) {
-                    this.mPaint.setColor(this.iFb);
+    private void Z(Canvas canvas) {
+        if (!TextUtils.isEmpty(this.hue) && this.iHF != null) {
+            if (this.iHp) {
+                if (this.iHt) {
+                    this.mPaint.setColor(this.iHs);
                     this.mPaint.setStyle(Paint.Style.FILL);
-                    if (this.iFa) {
+                    if (this.iHr) {
                         Rect rect = new Rect();
-                        this.iED.getTextBounds(this.hsk, 0, this.hsk.length(), rect);
-                        float width = ((canvas.getWidth() - rect.width()) / 2) - this.iFp;
-                        canvas.drawRoundRect(new RectF(width, (this.iEA.bottom + this.iEZ) - this.iFp, rect.width() + width + (this.iFp * 2), this.iEA.bottom + this.iEZ + this.iFo.getHeight() + this.iFp), this.iFp, this.iFp, this.mPaint);
+                        this.iGU.getTextBounds(this.hue, 0, this.hue.length(), rect);
+                        float width = ((canvas.getWidth() - rect.width()) / 2) - this.iHG;
+                        canvas.drawRoundRect(new RectF(width, (this.iGR.bottom + this.iHq) - this.iHG, rect.width() + width + (this.iHG * 2), this.iGR.bottom + this.iHq + this.iHF.getHeight() + this.iHG), this.iHG, this.iHG, this.mPaint);
                     } else {
-                        canvas.drawRoundRect(new RectF(this.iEA.left, (this.iEA.bottom + this.iEZ) - this.iFp, this.iEA.right, this.iEA.bottom + this.iEZ + this.iFo.getHeight() + this.iFp), this.iFp, this.iFp, this.mPaint);
+                        canvas.drawRoundRect(new RectF(this.iGR.left, (this.iGR.bottom + this.iHq) - this.iHG, this.iGR.right, this.iGR.bottom + this.iHq + this.iHF.getHeight() + this.iHG), this.iHG, this.iHG, this.mPaint);
                     }
                 }
                 canvas.save();
-                if (this.iFa) {
-                    canvas.translate(0.0f, this.iEA.bottom + this.iEZ);
+                if (this.iHr) {
+                    canvas.translate(0.0f, this.iGR.bottom + this.iHq);
                 } else {
-                    canvas.translate(this.iEA.left + this.iFp, this.iEA.bottom + this.iEZ);
+                    canvas.translate(this.iGR.left + this.iHG, this.iGR.bottom + this.iHq);
                 }
-                this.iFo.draw(canvas);
+                this.iHF.draw(canvas);
                 canvas.restore();
                 return;
             }
-            if (this.iFc) {
-                this.mPaint.setColor(this.iFb);
+            if (this.iHt) {
+                this.mPaint.setColor(this.iHs);
                 this.mPaint.setStyle(Paint.Style.FILL);
-                if (this.iFa) {
+                if (this.iHr) {
                     Rect rect2 = new Rect();
-                    this.iED.getTextBounds(this.hsk, 0, this.hsk.length(), rect2);
-                    float width2 = ((canvas.getWidth() - rect2.width()) / 2) - this.iFp;
-                    canvas.drawRoundRect(new RectF(width2, ((this.iEA.top - this.iEZ) - this.iFo.getHeight()) - this.iFp, rect2.width() + width2 + (this.iFp * 2), (this.iEA.top - this.iEZ) + this.iFp), this.iFp, this.iFp, this.mPaint);
+                    this.iGU.getTextBounds(this.hue, 0, this.hue.length(), rect2);
+                    float width2 = ((canvas.getWidth() - rect2.width()) / 2) - this.iHG;
+                    canvas.drawRoundRect(new RectF(width2, ((this.iGR.top - this.iHq) - this.iHF.getHeight()) - this.iHG, rect2.width() + width2 + (this.iHG * 2), (this.iGR.top - this.iHq) + this.iHG), this.iHG, this.iHG, this.mPaint);
                 } else {
-                    canvas.drawRoundRect(new RectF(this.iEA.left, ((this.iEA.top - this.iEZ) - this.iFo.getHeight()) - this.iFp, this.iEA.right, (this.iEA.top - this.iEZ) + this.iFp), this.iFp, this.iFp, this.mPaint);
+                    canvas.drawRoundRect(new RectF(this.iGR.left, ((this.iGR.top - this.iHq) - this.iHF.getHeight()) - this.iHG, this.iGR.right, (this.iGR.top - this.iHq) + this.iHG), this.iHG, this.iHG, this.mPaint);
                 }
             }
             canvas.save();
-            if (this.iFa) {
-                canvas.translate(0.0f, (this.iEA.top - this.iEZ) - this.iFo.getHeight());
+            if (this.iHr) {
+                canvas.translate(0.0f, (this.iGR.top - this.iHq) - this.iHF.getHeight());
             } else {
-                canvas.translate(this.iEA.left + this.iFp, (this.iEA.top - this.iEZ) - this.iFo.getHeight());
+                canvas.translate(this.iGR.left + this.iHG, (this.iGR.top - this.iHq) - this.iHF.getHeight());
             }
-            this.iFo.draw(canvas);
+            this.iHF.draw(canvas);
             canvas.restore();
         }
     }
 
-    private void chu() {
-        if (this.iET) {
-            if (this.iFg == null) {
-                this.iEC += this.iEy;
-                int i = this.iEJ;
-                if (this.iEO != null) {
-                    i = this.iEO.getWidth();
+    private void cii() {
+        if (this.iHk) {
+            if (this.iHx == null) {
+                this.iGT += this.iGP;
+                int i = this.iHa;
+                if (this.iHf != null) {
+                    i = this.iHf.getWidth();
                 }
-                if (this.iFd) {
-                    if (i + this.iEC > this.iEA.right - this.iFn || this.iEC < this.iEA.left + this.iFn) {
-                        this.iEy = -this.iEy;
+                if (this.iHu) {
+                    if (i + this.iGT > this.iGR.right - this.iHE || this.iGT < this.iGR.left + this.iHE) {
+                        this.iGP = -this.iGP;
                     }
                 } else {
-                    if (i + this.iEC > this.iEA.right - this.iFn) {
-                        this.iEC = this.iEA.left + this.iFn + 0.5f;
+                    if (i + this.iGT > this.iGR.right - this.iHE) {
+                        this.iGT = this.iGR.left + this.iHE + 0.5f;
                     }
                 }
             } else {
-                this.iFi += this.iEy;
-                if (this.iFi > this.iEA.right - this.iFn) {
-                    this.iFi = this.iEA.left + this.iFn + 0.5f;
+                this.iHz += this.iGP;
+                if (this.iHz > this.iGR.right - this.iHE) {
+                    this.iHz = this.iGR.left + this.iHE + 0.5f;
                 }
             }
-        } else if (this.iFg == null) {
-            this.iEB += this.iEy;
-            int i2 = this.iEJ;
-            if (this.iEO != null) {
-                i2 = this.iEO.getHeight();
+        } else if (this.iHx == null) {
+            this.iGS += this.iGP;
+            int i2 = this.iHa;
+            if (this.iHf != null) {
+                i2 = this.iHf.getHeight();
             }
-            if (this.iFd) {
-                if (i2 + this.iEB > this.iEA.bottom - this.iFn || this.iEB < this.iEA.top + this.iFn) {
-                    this.iEy = -this.iEy;
+            if (this.iHu) {
+                if (i2 + this.iGS > this.iGR.bottom - this.iHE || this.iGS < this.iGR.top + this.iHE) {
+                    this.iGP = -this.iGP;
                 }
             } else {
-                if (i2 + this.iEB > this.iEA.bottom - this.iFn) {
-                    this.iEB = this.iEA.top + this.iFn + 0.5f;
+                if (i2 + this.iGS > this.iGR.bottom - this.iHE) {
+                    this.iGS = this.iGR.top + this.iHE + 0.5f;
                 }
             }
         } else {
-            this.iFh += this.iEy;
-            if (this.iFh > this.iEA.bottom - this.iFn) {
-                this.iFh = this.iEA.top + this.iFn + 0.5f;
+            this.iHy += this.iGP;
+            if (this.iHy > this.iGR.bottom - this.iHE) {
+                this.iHy = this.iGR.top + this.iHE + 0.5f;
             }
         }
-        postInvalidateDelayed(this.iEz, this.iEA.left, this.iEA.top, this.iEA.right, this.iEA.bottom);
+        postInvalidateDelayed(this.iGQ, this.iGR.left, this.iGR.top, this.iGR.right, this.iGR.bottom);
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        chv();
+        cij();
     }
 
-    private void chv() {
+    private void cij() {
         int i;
-        if (this.iET) {
-            i = this.cEc + this.iES;
+        if (this.iHk) {
+            i = this.cET + this.iHj;
         } else {
-            i = this.cEc;
+            i = this.cET;
         }
-        int width = (getWidth() - this.iEG) / 2;
-        this.iEA = new Rect(width, i, this.iEG + width, this.iEH + i);
-        if (this.iET) {
-            float f = this.iEA.left + this.iFn + 0.5f;
-            this.iEC = f;
-            this.iFi = f;
+        int width = (getWidth() - this.iGX) / 2;
+        this.iGR = new Rect(width, i, this.iGX + width, this.iGY + i);
+        if (this.iHk) {
+            float f = this.iGR.left + this.iHE + 0.5f;
+            this.iGT = f;
+            this.iHz = f;
             return;
         }
-        float f2 = this.iEA.top + this.iFn + 0.5f;
-        this.iEB = f2;
-        this.iFh = f2;
+        float f2 = this.iGR.top + this.iHE + 0.5f;
+        this.iGS = f2;
+        this.iHy = f2;
     }
 
-    public Rect zv(int i) {
-        if (this.iFq) {
-            Rect rect = new Rect(this.iEA);
+    public Rect zy(int i) {
+        if (this.iHH) {
+            Rect rect = new Rect(this.iGR);
             float measuredHeight = (1.0f * i) / getMeasuredHeight();
             rect.left = (int) (rect.left * measuredHeight);
             rect.right = (int) (rect.right * measuredHeight);
@@ -481,160 +481,160 @@ public class ScanBoxView extends View {
     }
 
     public void setIsBarcode(boolean z) {
-        this.iET = z;
-        if (this.iFf != null || this.iFe) {
-            if (this.iET) {
-                this.iFg = this.iFm;
+        this.iHk = z;
+        if (this.iHw != null || this.iHv) {
+            if (this.iHk) {
+                this.iHx = this.iHD;
             } else {
-                this.iFg = this.iFl;
+                this.iHx = this.iHC;
             }
-        } else if (this.iEN != null || this.iEM) {
-            if (this.iET) {
-                this.iEO = this.iFk;
+        } else if (this.iHe != null || this.iHd) {
+            if (this.iHk) {
+                this.iHf = this.iHB;
             } else {
-                this.iEO = this.iFj;
+                this.iHf = this.iHA;
             }
         }
-        if (this.iET) {
-            this.hsk = this.iEV;
-            this.iEH = this.iEI;
-            this.iEz = (int) (((this.iEQ * 1.0f) * this.iEy) / this.iEG);
+        if (this.iHk) {
+            this.hue = this.iHm;
+            this.iGY = this.iGZ;
+            this.iGQ = (int) (((this.iHh * 1.0f) * this.iGP) / this.iGX);
         } else {
-            this.hsk = this.iEU;
-            this.iEH = this.iEG;
-            this.iEz = (int) (((this.iEQ * 1.0f) * this.iEy) / this.iEH);
+            this.hue = this.iHl;
+            this.iGY = this.iGX;
+            this.iGQ = (int) (((this.iHh * 1.0f) * this.iGP) / this.iGY);
         }
-        if (!TextUtils.isEmpty(this.hsk)) {
-            if (this.iFa) {
-                this.iFo = new StaticLayout(this.hsk, this.iED, a.eh(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+        if (!TextUtils.isEmpty(this.hue)) {
+            if (this.iHr) {
+                this.iHF = new StaticLayout(this.hue, this.iGU, a.ei(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
             } else {
-                this.iFo = new StaticLayout(this.hsk, this.iED, this.iEG - (this.iFp * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+                this.iHF = new StaticLayout(this.hue, this.iGU, this.iGX - (this.iHG * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
             }
         }
-        if (this.iER) {
-            int i = a.eh(getContext()).y;
-            if (this.iES == 0) {
-                this.cEc = (i - this.iEH) / 2;
-            } else if (this.iET) {
-                this.cEc = ((i - this.iEH) / 2) + (this.iES / 2);
+        if (this.iHi) {
+            int i = a.ei(getContext()).y;
+            if (this.iHj == 0) {
+                this.cET = (i - this.iGY) / 2;
+            } else if (this.iHk) {
+                this.cET = ((i - this.iGY) / 2) + (this.iHj / 2);
             } else {
-                this.cEc = (i - this.iEH) / 2;
+                this.cET = (i - this.iGY) / 2;
             }
         }
-        chv();
+        cij();
         postInvalidate();
     }
 
     public boolean getIsBarcode() {
-        return this.iET;
+        return this.iHk;
     }
 
     public int getMaskColor() {
-        return this.bYm;
+        return this.bZf;
     }
 
     public void setMaskColor(int i) {
-        this.bYm = i;
+        this.bZf = i;
     }
 
     public int getCornerLength() {
-        return this.iEE;
+        return this.iGV;
     }
 
     public void setCornerLength(int i) {
-        this.iEE = i;
+        this.iGV = i;
     }
 
     public int getCornerSize() {
-        return this.iEF;
+        return this.iGW;
     }
 
     public void setCornerSize(int i) {
-        this.iEF = i;
+        this.iGW = i;
     }
 
     public int getRectWidth() {
-        return this.iEG;
+        return this.iGX;
     }
 
     public void setRectWidth(int i) {
-        this.iEG = i;
+        this.iGX = i;
     }
 
     public int getRectHeight() {
-        return this.iEH;
+        return this.iGY;
     }
 
     public void setRectHeight(int i) {
-        this.iEH = i;
+        this.iGY = i;
     }
 
     public int getBarcodeRectHeight() {
-        return this.iEI;
+        return this.iGZ;
     }
 
     public void setBarcodeRectHeight(int i) {
-        this.iEI = i;
+        this.iGZ = i;
     }
 
     public int getTopOffset() {
-        return this.cEc;
+        return this.cET;
     }
 
     public void setTopOffset(int i) {
-        this.cEc = i;
+        this.cET = i;
     }
 
     public int getScanLineSize() {
-        return this.iEJ;
+        return this.iHa;
     }
 
     public void setScanLineSize(int i) {
-        this.iEJ = i;
+        this.iHa = i;
     }
 
     public int getScanLineColor() {
-        return this.iEK;
+        return this.iHb;
     }
 
     public void setScanLineColor(int i) {
-        this.iEK = i;
+        this.iHb = i;
     }
 
     public int getScanLineMargin() {
-        return this.iEL;
+        return this.iHc;
     }
 
     public void setScanLineMargin(int i) {
-        this.iEL = i;
+        this.iHc = i;
     }
 
     public void setShowDefaultScanLineDrawable(boolean z) {
-        this.iEM = z;
+        this.iHd = z;
     }
 
     public Drawable getCustomScanLineDrawable() {
-        return this.iEN;
+        return this.iHe;
     }
 
     public void setCustomScanLineDrawable(Drawable drawable) {
-        this.iEN = drawable;
+        this.iHe = drawable;
     }
 
     public Bitmap getScanLineBitmap() {
-        return this.iEO;
+        return this.iHf;
     }
 
     public void setScanLineBitmap(Bitmap bitmap) {
-        this.iEO = bitmap;
+        this.iHf = bitmap;
     }
 
     public int getBorderSize() {
-        return this.iEP;
+        return this.iHg;
     }
 
     public void setBorderSize(int i) {
-        this.iEP = i;
+        this.iHg = i;
     }
 
     public int getBorderColor() {
@@ -646,126 +646,126 @@ public class ScanBoxView extends View {
     }
 
     public int getAnimTime() {
-        return this.iEQ;
+        return this.iHh;
     }
 
     public void setAnimTime(int i) {
-        this.iEQ = i;
+        this.iHh = i;
     }
 
     public void setCenterVertical(boolean z) {
-        this.iER = z;
+        this.iHi = z;
     }
 
     public int getToolbarHeight() {
-        return this.iES;
+        return this.iHj;
     }
 
     public void setToolbarHeight(int i) {
-        this.iES = i;
+        this.iHj = i;
     }
 
     public String getQRCodeTipText() {
-        return this.iEU;
+        return this.iHl;
     }
 
     public void setQRCodeTipText(String str) {
-        this.iEU = str;
+        this.iHl = str;
     }
 
     public String getBarCodeTipText() {
-        return this.iEV;
+        return this.iHm;
     }
 
     public void setBarCodeTipText(String str) {
-        this.iEV = str;
+        this.iHm = str;
     }
 
     public String getTipText() {
-        return this.hsk;
+        return this.hue;
     }
 
     public void setTipText(String str) {
-        this.hsk = str;
+        this.hue = str;
     }
 
     public int getTipTextColor() {
-        return this.iEX;
+        return this.iHo;
     }
 
     public void setTipTextColor(int i) {
-        this.iEX = i;
+        this.iHo = i;
     }
 
     public int getTipTextSize() {
-        return this.iEW;
+        return this.iHn;
     }
 
     public void setTipTextSize(int i) {
-        this.iEW = i;
+        this.iHn = i;
     }
 
     public void setTipTextBelowRect(boolean z) {
-        this.iEY = z;
+        this.iHp = z;
     }
 
     public int getTipTextMargin() {
-        return this.iEZ;
+        return this.iHq;
     }
 
     public void setTipTextMargin(int i) {
-        this.iEZ = i;
+        this.iHq = i;
     }
 
     public void setShowTipTextAsSingleLine(boolean z) {
-        this.iFa = z;
+        this.iHr = z;
     }
 
     public void setShowTipBackground(boolean z) {
-        this.iFc = z;
+        this.iHt = z;
     }
 
     public int getTipBackgroundColor() {
-        return this.iFb;
+        return this.iHs;
     }
 
     public void setTipBackgroundColor(int i) {
-        this.iFb = i;
+        this.iHs = i;
     }
 
     public void setScanLineReverse(boolean z) {
-        this.iFd = z;
+        this.iHu = z;
     }
 
     public void setShowDefaultGridScanLineDrawable(boolean z) {
-        this.iFe = z;
+        this.iHv = z;
     }
 
     public float getHalfCornerSize() {
-        return this.iFn;
+        return this.iHE;
     }
 
     public void setHalfCornerSize(float f) {
-        this.iFn = f;
+        this.iHE = f;
     }
 
     public StaticLayout getTipTextSl() {
-        return this.iFo;
+        return this.iHF;
     }
 
     public void setTipTextSl(StaticLayout staticLayout) {
-        this.iFo = staticLayout;
+        this.iHF = staticLayout;
     }
 
     public int getTipBackgroundRadius() {
-        return this.iFp;
+        return this.iHG;
     }
 
     public void setTipBackgroundRadius(int i) {
-        this.iFp = i;
+        this.iHG = i;
     }
 
     public void setOnlyDecodeScanBoxArea(boolean z) {
-        this.iFq = z;
+        this.iHH = z;
     }
 }

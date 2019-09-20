@@ -1,7 +1,6 @@
 package com.coremedia.iso.boxes;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.ubc.UBC;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -15,17 +14,17 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class MediaHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mdhd";
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_9 = null;
     private Date creationTime;
     private long duration;
     private String language;
@@ -47,7 +46,7 @@ public class MediaHeaderBox extends AbstractFullBox {
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "java.util.Date", "creationTime", "", "void"), 79);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "java.util.Date", "modificationTime", "", "void"), 83);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setTimescale", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "timescale", "", "void"), 87);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "long", UBC.CONTENT_KEY_DURATION, "", "void"), 91);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "duration", "", "void"), 91);
         ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 95);
     }
 
@@ -99,12 +98,12 @@ public class MediaHeaderBox extends AbstractFullBox {
     }
 
     public void setTimescale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.eP(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.eS(j)));
         this.timescale = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.eP(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.eS(j)));
         this.duration = j;
     }
 

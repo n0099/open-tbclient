@@ -11,7 +11,6 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -139,7 +138,7 @@ public final class k {
             jSONObject.put("version", "1.0");
             String a2 = a();
             if (!TextUtils.isEmpty(a2)) {
-                jSONObject.put(PhoneUtils.CPUInfo.FEATURE_COMMON, new JSONObject(a2));
+                jSONObject.put("common", new JSONObject(a2));
             }
             String a3 = this.c.a(j, j2, i);
             if (!TextUtils.isEmpty(a3)) {

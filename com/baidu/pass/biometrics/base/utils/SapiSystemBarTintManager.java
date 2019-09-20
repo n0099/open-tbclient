@@ -17,7 +17,7 @@ import android.widget.FrameLayout;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class SapiSystemBarTintManager {
-    public static final int DEFAULT_TINT_COLOR = -1728053248;
+    private static final int DEFAULT_TINT_COLOR = -1728053248;
     private static String sNavBarOverride;
     private final SystemBarConfig mConfig;
     private boolean mNavBarAvailable;

@@ -1,30 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public static void a(com.baidu.tbadk.coreExtra.data.e eVar) {
-        if (eVar != null) {
-            if (eVar.cfV != 0) {
-                com.baidu.tbadk.core.sharedPref.b.ahQ().putString("app_entrance_nologin", eVar.cfV + "");
-            }
-            if (eVar.cfU != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
-                com.baidu.tbadk.core.sharedPref.b.ahQ().putString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), eVar.cfU + "");
-            }
+    private static final a cRQ = new a();
+    private AtomicBoolean cRR = new AtomicBoolean(false);
+    private int cRS = 0;
+
+    private a() {
+    }
+
+    public static a aAF() {
+        return cRQ;
+    }
+
+    public void parse(JSONObject jSONObject) {
+        boolean z = this.cRR.get();
+        if (jSONObject != null && !z) {
+            this.cRR.set(true);
+            this.cRS = jSONObject.optInt("tieba_landing_page_type_switch", -1);
         }
     }
 
-    public int aAt() {
-        String string;
-        if (TbadkCoreApplication.getCurrentAccount() == null) {
-            string = com.baidu.tbadk.core.sharedPref.b.ahQ().getString("app_entrance_nologin", "");
-        } else {
-            string = com.baidu.tbadk.core.sharedPref.b.ahQ().getString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
-        }
-        int f = com.baidu.adp.lib.g.b.f(string, 0);
-        if (f != 1 && f == 2) {
-            return 1;
-        }
-        return 2;
+    public int aAG() {
+        return this.cRS;
     }
 }

@@ -12,30 +12,30 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0354a {
-        public Rect cxj;
-        public String heR;
-        public Rect heS;
+    public static class C0365a {
+        public Rect cyf;
+        public String hgL;
+        public Rect hgM;
         public String picUrl;
 
-        public C0354a() {
+        public C0365a() {
             this.picUrl = "";
-            this.cxj = new Rect(0, 0, 0, 0);
-            this.heR = "";
-            this.heS = new Rect(0, 0, 0, 0);
+            this.cyf = new Rect(0, 0, 0, 0);
+            this.hgL = "";
+            this.hgM = new Rect(0, 0, 0, 0);
         }
 
-        private C0354a(JSONObject jSONObject) {
+        private C0365a(JSONObject jSONObject) {
             this.picUrl = jSONObject.optString("pic_url");
-            this.cxj = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
+            this.cyf = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
         }
 
         public boolean isValid() {
-            return (TextUtils.isEmpty(this.picUrl) || this.cxj.isEmpty()) ? false : true;
+            return (TextUtils.isEmpty(this.picUrl) || this.cyf.isEmpty()) ? false : true;
         }
 
-        public boolean bKs() {
-            return (TextUtils.isEmpty(this.heR) || this.heS.isEmpty()) ? false : true;
+        public boolean bLf() {
+            return (TextUtils.isEmpty(this.hgL) || this.hgM.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -45,29 +45,29 @@ public interface a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("pic_url", this.picUrl);
-                jSONObject.put("rect_left", this.cxj.left);
-                jSONObject.put("rect_top", this.cxj.top);
-                jSONObject.put("rect_right", this.cxj.right);
-                jSONObject.put("rect_bottom", this.cxj.bottom);
+                jSONObject.put("rect_left", this.cyf.left);
+                jSONObject.put("rect_top", this.cyf.top);
+                jSONObject.put("rect_right", this.cyf.right);
+                jSONObject.put("rect_bottom", this.cyf.bottom);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             return jSONObject.toString();
         }
 
-        public static C0354a Aa(String str) {
+        public static C0365a Az(String str) {
             if (TextUtils.isEmpty(str)) {
-                return new C0354a();
+                return new C0365a();
             }
             try {
-                return new C0354a(new JSONObject(str));
+                return new C0365a(new JSONObject(str));
             } catch (Throwable th) {
                 th.printStackTrace();
-                return new C0354a();
+                return new C0365a();
             }
         }
 
-        public void Ab(String str) {
+        public void AA(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
@@ -75,8 +75,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.heR = jSONObject.optString("pic_url");
-                                this.heS = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.hgL = jSONObject.optString("pic_url");
+                                this.hgM = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -54,9 +54,9 @@ public class a {
 
     public void d(ByteBuffer byteBuffer, int i, long j) {
         if (byteBuffer != null && i > 0) {
-            C0060a c0060a = new C0060a(byteBuffer, i, j);
+            C0068a c0068a = new C0068a(byteBuffer, i, j);
             if (this.aeI != null && this.aeK) {
-                this.aeI.sendMessage(this.aeI.obtainMessage(1003, c0060a));
+                this.aeI.sendMessage(this.aeI.obtainMessage(1003, c0068a));
             }
         }
     }
@@ -93,8 +93,8 @@ public class a {
                     a.this.tG();
                     return;
                 case 1003:
-                    C0060a c0060a = (C0060a) message.obj;
-                    a.this.e(c0060a.aeL, c0060a.aeM, c0060a.aeN);
+                    C0068a c0068a = (C0068a) message.obj;
+                    a.this.e(c0068a.aeL, c0068a.aeM, c0068a.aeN);
                     return;
                 case 1004:
                     a.this.tH();
@@ -163,12 +163,12 @@ public class a {
 
     /* renamed from: com.baidu.mario.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class C0060a {
+    private class C0068a {
         ByteBuffer aeL;
         int aeM;
         long aeN;
 
-        public C0060a(ByteBuffer byteBuffer, int i, long j) {
+        public C0068a(ByteBuffer byteBuffer, int i, long j) {
             this.aeL = byteBuffer;
             this.aeM = i;
             this.aeN = j;

@@ -12,6 +12,7 @@ import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.k;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
@@ -383,7 +384,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         ArrayList arrayList2 = new ArrayList();
                         for (int i = 0; i < jSONArray.length(); i++) {
                             JSONObject jSONObject4 = jSONArray.getJSONObject(i);
-                            String string6 = jSONObject4.getString("tag");
+                            String string6 = jSONObject4.getString(AddressManageResult.KEY_TAG);
                             if (jSONObject4.getInt("result") == 0) {
                                 arrayList.add(string6);
                             } else {
@@ -414,7 +415,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         ArrayList arrayList4 = new ArrayList();
                         for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                             JSONObject jSONObject7 = jSONArray2.getJSONObject(i2);
-                            String string8 = jSONObject7.getString("tag");
+                            String string8 = jSONObject7.getString(AddressManageResult.KEY_TAG);
                             if (jSONObject7.getInt("result") == 0) {
                                 arrayList3.add(string8);
                             } else {

@@ -15,19 +15,19 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fg */
+        /* renamed from: fh */
         public SwanGameSubPackageAPSInfo[] newArray(int i) {
             return new SwanGameSubPackageAPSInfo[i];
         }
     };
     public String appId;
     public String appVersion;
-    public int blu;
-    public String blv;
-    public String blw;
-    public String blx;
-    public String bly;
-    public String blz;
+    public int blS;
+    public String blT;
+    public String blU;
+    public String blV;
+    public String blW;
+    public String blX;
     public String key;
     public int resultCode;
 
@@ -39,12 +39,12 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         this.appVersion = parcel.readString();
         this.key = parcel.readString();
         this.resultCode = parcel.readInt();
-        this.blu = parcel.readInt();
-        this.blv = parcel.readString();
-        this.blw = parcel.readString();
-        this.blx = parcel.readString();
-        this.bly = parcel.readString();
-        this.blz = parcel.readString();
+        this.blS = parcel.readInt();
+        this.blT = parcel.readString();
+        this.blU = parcel.readString();
+        this.blV = parcel.readString();
+        this.blW = parcel.readString();
+        this.blX = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -58,15 +58,15 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         parcel.writeString(this.appVersion);
         parcel.writeString(this.key);
         parcel.writeInt(this.resultCode);
-        parcel.writeInt(this.blu);
-        parcel.writeString(this.blv);
-        parcel.writeString(this.blw);
-        parcel.writeString(this.blx);
-        parcel.writeString(this.bly);
-        parcel.writeString(this.blz);
+        parcel.writeInt(this.blS);
+        parcel.writeString(this.blT);
+        parcel.writeString(this.blU);
+        parcel.writeString(this.blV);
+        parcel.writeString(this.blW);
+        parcel.writeString(this.blX);
     }
 
     public String toString() {
-        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.blu + ",appRootPath:" + this.blv + ",subPackageRoot:" + this.blw + ",zipPath:" + this.blx + ",callbackKey:" + this.bly + ",subPackagePath:" + this.blz;
+        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.blS + ",appRootPath:" + this.blT + ",subPackageRoot:" + this.blU + ",zipPath:" + this.blV + ",callbackKey:" + this.blW + ",subPackagePath:" + this.blX;
     }
 }

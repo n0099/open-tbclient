@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.smartapp;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.SmartAppList.DataReq;
 import tbclient.SmartAppList.SmartAppListReqIdl;
 /* loaded from: classes4.dex */
@@ -38,7 +38,7 @@ public class FrsListProgramListRequestMessage extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = this.rn;
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         SmartAppListReqIdl.Builder builder2 = new SmartAppListReqIdl.Builder();
         builder2.data = builder.build(false);

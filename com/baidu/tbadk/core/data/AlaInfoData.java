@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.data;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.ubc.UBC;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -70,7 +69,7 @@ public class AlaInfoData implements Serializable {
                 this.share_info = new AlaShareInfoData();
                 this.share_info.parserJson(jSONObject.optJSONObject("share_info"));
                 this.live_status = jSONObject.optInt("live_status");
-                this.duration = jSONObject.optInt(UBC.CONTENT_KEY_DURATION);
+                this.duration = jSONObject.optInt("duration");
                 this.audience_count = jSONObject.optInt("audience_count");
                 this.live_type = jSONObject.optInt("live_type");
                 this.screen_direction = jSONObject.optInt("screen_direction");

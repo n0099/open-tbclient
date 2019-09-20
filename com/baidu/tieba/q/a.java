@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final List<String> jdy = Arrays.asList("a006", "a005", "a008", "a002");
+    private static final List<String> jfT = Arrays.asList("a006", "a005", "a008", "a002");
 
     public static an a(bh bhVar, String str, String str2, int i, int i2, boolean z, String str3, String str4) {
         return a(true, bhVar, str, str2, i, i2, z, str3, str4, false, "", 0);
@@ -43,8 +43,8 @@ public class a {
     public static an b(String str, String str2, boolean z, int i, int i2) {
         an anVar = new an(str2);
         anVar.bT("page_type", str).P("ad_exp", z ? 1 : 0).P("ad_exp_cnt", i).P("obj_adlocate", i2);
-        if (str != null && jdy.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cfT);
+        if (str != null && jfT.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cgM);
         }
         return anVar;
     }
@@ -66,11 +66,11 @@ public class a {
     public static an a(boolean z, bh bhVar, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5, int i3) {
         an anVar = new an(str2);
         anVar.bT("page_type", str).P("obj_floor", i2).P("obj_isad", z2 ? 1 : 0).bT(VideoPlayActivityConfig.OBJ_ID, a(z2, str3, z3, str5, bhVar.getId())).bT("tid", bhVar.getTid()).P("thread_type", z2 ? -1 : bhVar.getThreadType()).P("obj_adlocate", i3);
-        if (!aq.isEmpty(bhVar.afP())) {
-            anVar.bT("list_strategy", bhVar.afP());
+        if (!aq.isEmpty(bhVar.afT())) {
+            anVar.bT("list_strategy", bhVar.afT());
         }
-        if (str != null && jdy.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().cfT)) {
-            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cfT);
+        if (str != null && jfT.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().cgM)) {
+            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cgM);
         } else if (!aq.isEmpty(bhVar.mRecomAbTag)) {
             anVar.bT("ab_tag", bhVar.mRecomAbTag);
         }
@@ -78,17 +78,17 @@ public class a {
             anVar.P("obj_locate", i);
         }
         if (bhVar.getFid() > 0) {
-            anVar.l("fid", bhVar.getFid());
+            anVar.n("fid", bhVar.getFid());
         }
         if (z) {
-            if (!StringUtils.isNull(bhVar.aeD())) {
-                anVar.bT(ImageViewerConfig.FORUM_NAME, bhVar.aeD());
+            if (!StringUtils.isNull(bhVar.aeH())) {
+                anVar.bT(ImageViewerConfig.FORUM_NAME, bhVar.aeH());
             }
-            if (!StringUtils.isNull(bhVar.age())) {
-                anVar.bT("first_dir", bhVar.age());
+            if (!StringUtils.isNull(bhVar.agi())) {
+                anVar.bT("first_dir", bhVar.agi());
             }
-            if (!StringUtils.isNull(bhVar.agf())) {
-                anVar.bT("second_dir", bhVar.agf());
+            if (!StringUtils.isNull(bhVar.agj())) {
+                anVar.bT("second_dir", bhVar.agj());
             }
         }
         if (!StringUtils.isNull(str4)) {
@@ -104,8 +104,8 @@ public class a {
             str3 = str4;
         }
         P.bT(VideoPlayActivityConfig.OBJ_ID, str3).P("obj_adlocate", i3);
-        if (str != null && jdy.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cfT);
+        if (str != null && jfT.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cgM);
         }
         if (z) {
             anVar.P("obj_locate", i);

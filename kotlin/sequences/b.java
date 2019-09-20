@@ -7,13 +7,13 @@ import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> ktp;
-    private final kotlin.jvm.a.b<T, T> ktq;
+    private final kotlin.jvm.a.a<T> kvI;
+    private final kotlin.jvm.a.b<T, T> kvJ;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<T> {
         private T Eu;
-        private int ktn = -2;
+        private int kvG = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -24,44 +24,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void cOp() {
+        private final void cPb() {
             T t;
-            if (this.ktn == -2) {
-                t = (T) b.this.ktp.invoke();
+            if (this.kvG == -2) {
+                t = (T) b.this.kvI.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.ktq;
+                kotlin.jvm.a.b bVar = b.this.kvJ;
                 T t2 = this.Eu;
                 if (t2 == null) {
-                    p.cOf();
+                    p.cOR();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.Eu = t;
-            this.ktn = this.Eu == null ? 0 : 1;
+            this.kvG = this.Eu == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.ktn < 0) {
-                cOp();
+            if (this.kvG < 0) {
+                cPb();
             }
-            if (this.ktn == 0) {
+            if (this.kvG == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.Eu;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.ktn = -1;
+            this.kvG = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.ktn < 0) {
-                cOp();
+            if (this.kvG < 0) {
+                cPb();
             }
-            return this.ktn == 1;
+            return this.kvG == 1;
         }
     }
 
@@ -71,8 +71,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         p.k(aVar, "getInitialValue");
         p.k(bVar, "getNextValue");
-        this.ktp = aVar;
-        this.ktq = bVar;
+        this.kvI = aVar;
+        this.kvJ = bVar;
     }
 
     @Override // kotlin.sequences.c

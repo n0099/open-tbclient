@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class f {
     private HashMap<String, IXAdProd> a = new HashMap<>();
 
-    public Boolean cK(String str) {
+    public Boolean cM(String str) {
         return Boolean.valueOf(this.a.containsKey(str));
     }
 
@@ -17,11 +17,11 @@ public class f {
         this.a.put(iXAdProd.getId(), iXAdProd);
     }
 
-    public IXAdProd cL(String str) {
+    public IXAdProd cN(String str) {
         return this.a.get(str);
     }
 
-    public IXLinearAdSlot un() {
+    public IXLinearAdSlot ur() {
         return (IXLinearAdSlot) a(IXAdConstants4PDK.SlotType.SLOT_TYPE_PREROLL);
     }
 

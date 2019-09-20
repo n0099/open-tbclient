@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.mapapi.search.poi.PoiBoundSearchOption;
 import com.baidu.mapapi.search.poi.PoiCitySearchOption;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
 public class i extends com.baidu.platform.base.e {
@@ -25,7 +26,7 @@ public class i extends com.baidu.platform.base.e {
 
     private void a(PoiBoundSearchOption poiBoundSearchOption) {
         this.a.a("query", poiBoundSearchOption.mKeyword);
-        this.a.a("tag", poiBoundSearchOption.mTag);
+        this.a.a(AddressManageResult.KEY_TAG, poiBoundSearchOption.mTag);
         this.a.a("bounds", poiBoundSearchOption.mBound.southwest.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + poiBoundSearchOption.mBound.southwest.longitude + Constants.ACCEPT_TIME_SEPARATOR_SP + poiBoundSearchOption.mBound.northeast.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + poiBoundSearchOption.mBound.northeast.longitude);
         this.a.a("output", "json");
         this.a.a("scope", poiBoundSearchOption.mScope + "");
@@ -44,7 +45,7 @@ public class i extends com.baidu.platform.base.e {
         this.a.a("page_num", poiCitySearchOption.mPageNum + "");
         this.a.a("page_size", poiCitySearchOption.mPageCapacity + "");
         this.a.a("scope", poiCitySearchOption.mScope + "");
-        this.a.a("tag", poiCitySearchOption.mTag);
+        this.a.a(AddressManageResult.KEY_TAG, poiCitySearchOption.mTag);
         if (poiCitySearchOption.mIsCityLimit) {
             this.a.a("city_limit", "true");
         } else {
@@ -64,7 +65,7 @@ public class i extends com.baidu.platform.base.e {
         this.a.a("page_num", poiNearbySearchOption.mPageNum + "");
         this.a.a("page_size", poiNearbySearchOption.mPageCapacity + "");
         this.a.a("scope", poiNearbySearchOption.mScope + "");
-        this.a.a("tag", poiNearbySearchOption.mTag);
+        this.a.a(AddressManageResult.KEY_TAG, poiNearbySearchOption.mTag);
         if (poiNearbySearchOption.mRadiusLimit) {
             this.a.a("radius_limit", "true");
         } else {

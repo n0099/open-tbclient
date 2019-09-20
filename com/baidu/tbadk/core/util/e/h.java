@@ -1,88 +1,59 @@
 package com.baidu.tbadk.core.util.e;
 
-import android.text.TextUtils;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public class h {
-    private static h bWk;
-    private HashMap<String, f> bWl = new HashMap<>();
-    private LinkedList<String> bWm = new LinkedList<>();
+public class h extends a {
+    private int height;
+    private int procType;
+    private int width;
 
-    private h() {
+    public h(boolean z, int i) {
+        this.width = 0;
+        this.height = 0;
+        this.procType = 0;
+        this.procType = i;
+        if (z) {
+            this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds176);
+            this.height = this.width;
+            return;
+        }
+        this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds184);
+        this.height = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds184);
     }
 
-    public static h akd() {
-        if (bWk == null) {
-            synchronized (h.class) {
-                if (bWk == null) {
-                    bWk = new h();
-                }
-            }
-        }
-        return bWk;
+    @Override // com.baidu.tbadk.core.util.e.a, com.baidu.adp.lib.f.e
+    public boolean iH() {
+        return true;
     }
 
-    public void ac(List<String> list) {
-        if (this.bWm != null) {
-            this.bWm.clear();
-        }
-        for (String str : list) {
-            if (!TextUtils.isEmpty(str)) {
-                if (this.bWl.get(str) == null) {
-                    if (this.bWl.size() < e.akb().akc()) {
-                        g.log("put loadingQueue  url: " + str);
-                        f oK = oK(str);
-                        this.bWl.put(str, oK);
-                        oK.load();
-                    } else {
-                        g.log("put waitingQueue  url: " + str);
-                        this.bWm.push(str);
-                    }
-                } else {
-                    g.log("has loading  : " + str);
-                }
-            }
-        }
+    @Override // com.baidu.tbadk.core.util.e.a
+    public int getWidth() {
+        return this.width;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void oJ(String str) {
-        f remove = this.bWl.remove(str);
-        g.log("processCallback remove loadingQueue  url: " + str);
-        if (remove != null) {
-            remove.release();
-        }
-        if (this.bWm != null && this.bWm.size() > 0) {
-            String pop = this.bWm.pop();
-            f oK = oK(pop);
-            this.bWl.put(pop, oK);
-            g.log("processCallback put loadingQueue  url: " + pop);
-            oK.load();
-        }
-        g.log("processCallback  mWaitingQueue.size() =  " + this.bWm.size() + " mLoadingQueue.size()  " + this.bWl.size());
+    @Override // com.baidu.tbadk.core.util.e.a
+    public int getHeight() {
+        return this.height;
     }
 
-    private f oK(String str) {
-        return new f(str, new b() { // from class: com.baidu.tbadk.core.util.e.h.1
-            @Override // com.baidu.tbadk.core.util.e.b
-            public void onSuccess(String str2) {
-                g.log("onSuccess  url = " + str2);
-                h.this.oJ(str2);
-            }
+    @Override // com.baidu.tbadk.core.util.e.a
+    public boolean isFromCDN() {
+        return false;
+    }
 
-            @Override // com.baidu.tbadk.core.util.e.b
-            public void bW(String str2, String str3) {
-                g.log("onFail  url = " + str2);
-                h.this.oJ(str2);
-            }
+    @Override // com.baidu.tbadk.core.util.e.a
+    public boolean akg() {
+        return false;
+    }
 
-            @Override // com.baidu.tbadk.core.util.e.b
-            public void oH(String str2) {
-                g.log("onCancle  url = " + str2);
-                h.this.oJ(str2);
-            }
-        });
+    @Override // com.baidu.tbadk.core.util.e.a
+    public boolean akh() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.e.a
+    public int aki() {
+        return this.procType;
     }
 }

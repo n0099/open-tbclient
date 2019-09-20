@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int hCW = 3;
+    private static int hES = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -52,7 +52,7 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.akN();
+            aVar.akZ();
             aVar.a(this.mDataList.get(i));
         }
         return view;
@@ -60,32 +60,32 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TextView ccd;
-        public BarImageView hCY;
-        public View jRc;
+        public TextView ccX;
+        public BarImageView hEU;
+        public View jTz;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.ccd = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.hCY = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.jRc = view.findViewById(R.id.divider_line);
+                this.ccX = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.hEU = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.jTz = view.findViewById(R.id.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.ccd.setText(transmitForumData.forumName);
-                this.hCY.startLoad(transmitForumData.avatar, 10, false);
+                this.ccX.setText(transmitForumData.forumName);
+                this.hEU.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void akN() {
-            if (b.hCW != this.mSkinType) {
-                am.j(this.ccd, R.color.cp_cont_b);
-                am.l(this.jRc, R.color.cp_bg_line_c);
+        public void akZ() {
+            if (b.hES != this.mSkinType) {
+                am.j(this.ccX, R.color.cp_cont_b);
+                am.l(this.jTz, R.color.cp_bg_line_c);
             }
-            this.mSkinType = b.hCW;
+            this.mSkinType = b.hES;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (hCW != i) {
+        if (hES != i) {
             notifyDataSetChanged();
         }
-        hCW = i;
+        hES = i;
     }
 }

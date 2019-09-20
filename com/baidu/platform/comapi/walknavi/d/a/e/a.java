@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.baidu.platform.comapi.walknavi.d.a.f.d;
 import com.baidu.platform.comapi.walknavi.d.a.g.b;
 import com.baidu.platform.comapi.walknavi.d.a.g.e;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Calendar;
@@ -73,13 +72,13 @@ public class a {
                 jSONObject.put(FrsArActivityConfig.AR_ID, this.c.b());
             }
             com.baidu.platform.comapi.walknavi.d.a.f.e.a(context, jSONObject);
-            jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, String.valueOf(Long.valueOf(System.currentTimeMillis())));
+            jSONObject.put("time", String.valueOf(Long.valueOf(System.currentTimeMillis())));
             jSONObject.put("os_type", "android");
             jSONObject.put("os_version", Build.MODEL);
             jSONObject.put("device_type", Build.BRAND);
             jSONObject.put("device_id", uuid);
             jSONObject.put("os_version", Build.VERSION.SDK_INT);
-            jSONObject.put(Constants.EXTRA_KEY_APP_VERSION, b.a());
+            jSONObject.put("app_version", b.a());
             jSONObject.put("engine_version", b.a());
             if (!TextUtils.isEmpty(b.a(context))) {
                 jSONObject.put(Constants.APP_ID, b.a(context));

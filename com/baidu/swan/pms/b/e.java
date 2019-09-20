@@ -1,27 +1,28 @@
 package com.baidu.swan.pms.b;
 
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class e {
-    public static String Wr() {
-        return String.format("%s/getpkg", Wu());
+    public static String Wv() {
+        return String.format("%s/getpkg", Wy());
     }
 
-    public static String Ws() {
-        return String.format("%s/updatecore", Wu());
+    public static String Ww() {
+        return String.format("%s/updatecore", Wy());
     }
 
-    public static String Wt() {
-        return String.format("%s/getplugin", Wu());
+    public static String Wx() {
+        return String.format("%s/getplugin", Wy());
     }
 
-    private static String Wu() {
-        return com.baidu.swan.pms.e.VZ().ES();
+    private static String Wy() {
+        return com.baidu.swan.pms.e.Wd().EW();
     }
 
     public static String f(String str, Map<String, String> map) {
-        return g(kt(str), map);
+        return g(kv(str), map);
     }
 
     public static String g(String str, Map<String, String> map) {
@@ -35,28 +36,28 @@ public class e {
         return str;
     }
 
-    private static String kt(String str) {
-        String B = B(B(B(B(B(B(B(B(B(str, "cuid", com.baidu.swan.pms.e.VZ().ET()), "ua", Wv()), "host_app", com.baidu.swan.pms.e.VZ().EU()), "host_app_ver", com.baidu.swan.pms.e.VZ().EV()), "host_os", com.baidu.swan.pms.e.a.WR()), "host_os_ver", com.baidu.swan.pms.e.a.getOsVersion()), "network", com.baidu.swan.pms.e.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.e.VZ().EW()), "cfrom", com.baidu.swan.c.c.YB());
-        String VY = com.baidu.swan.pms.e.Wa().VY();
-        if (!TextUtils.isEmpty(VY)) {
-            return B(B, "extension_rule", VY);
+    private static String kv(String str) {
+        String B = B(B(B(B(B(B(B(B(B(str, DpStatConstants.KEY_CUID, com.baidu.swan.pms.e.Wd().EX()), "ua", Wz()), "host_app", com.baidu.swan.pms.e.Wd().EY()), "host_app_ver", com.baidu.swan.pms.e.Wd().EZ()), "host_os", com.baidu.swan.pms.e.a.WV()), "host_os_ver", com.baidu.swan.pms.e.a.getOsVersion()), DpStatConstants.KEY_NETWORK, com.baidu.swan.pms.e.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.e.Wd().Fa()), "cfrom", com.baidu.swan.c.c.YF());
+        String Wc = com.baidu.swan.pms.e.We().Wc();
+        if (!TextUtils.isEmpty(Wc)) {
+            return B(B, "extension_rule", Wc);
         }
         return B;
     }
 
-    private static String Wv() {
-        int WS = com.baidu.swan.pms.e.a.WS();
-        int WT = com.baidu.swan.pms.e.a.WT();
+    private static String Wz() {
+        int WW = com.baidu.swan.pms.e.a.WW();
+        int WX = com.baidu.swan.pms.e.a.WX();
         int densityDpi = com.baidu.swan.pms.e.a.getDensityDpi();
-        String WR = com.baidu.swan.pms.e.a.WR();
+        String WV = com.baidu.swan.pms.e.a.WV();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(WS);
+        stringBuffer.append(WW);
         stringBuffer.append("_");
-        stringBuffer.append(WT);
+        stringBuffer.append(WX);
         stringBuffer.append("_");
-        stringBuffer.append(WR);
+        stringBuffer.append(WV);
         stringBuffer.append("_");
-        stringBuffer.append(com.baidu.swan.pms.e.VZ().EV());
+        stringBuffer.append(com.baidu.swan.pms.e.Wd().EZ());
         stringBuffer.append("_");
         stringBuffer.append(densityDpi);
         return stringBuffer.toString();

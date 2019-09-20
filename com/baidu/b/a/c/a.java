@@ -18,7 +18,7 @@ public class a {
     public static void N(String str, String str2) {
     }
 
-    public static int c(String str, List<String> list) {
+    public static int b(String str, List<String> list) {
         return -1;
     }
 }

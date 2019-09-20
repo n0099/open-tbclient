@@ -6,9 +6,9 @@ import tbclient.RecommendInfo;
 import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
 public class ay extends bh {
-    public static final BdUniqueId bIE = BdUniqueId.gen();
+    public static final BdUniqueId bJc = BdUniqueId.gen();
     private String title = "";
-    private ArrayList<ba> bIF = new ArrayList<>();
+    private ArrayList<ba> bJd = new ArrayList<>();
 
     public void a(RecommendInfo recommendInfo) {
         if (recommendInfo != null) {
@@ -17,7 +17,7 @@ public class ay extends bh {
                 if (schoolRecomUserInfo != null) {
                     ba baVar = new ba();
                     baVar.a(schoolRecomUserInfo);
-                    this.bIF.add(baVar);
+                    this.bJd.add(baVar);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class ay extends bh {
         return this.title;
     }
 
-    public ArrayList<ba> adG() {
-        return this.bIF;
+    public ArrayList<ba> adK() {
+        return this.bJd;
     }
 
     @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return bIE;
+        return bJc;
     }
 }

@@ -26,7 +26,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.data.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.b> aVar) {
-        aVar.bat().a(eVar);
+        aVar.baX().a(eVar);
         return aVar.getView();
     }
 }

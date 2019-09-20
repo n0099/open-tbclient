@@ -2,6 +2,7 @@ package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -31,7 +32,7 @@ public class p extends z {
             return false;
         }
         try {
-            optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+            optParamsAsJo.putOpt(DpStatConstants.KEY_TIMESTAMP, Long.valueOf(System.currentTimeMillis()));
             optParamsAsJo.putOpt("eventType", "0");
         } catch (JSONException e) {
             if (DEBUG) {

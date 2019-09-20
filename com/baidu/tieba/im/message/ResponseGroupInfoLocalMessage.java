@@ -32,84 +32,84 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes5.dex */
     public static class a {
-        private boolean flU;
-        private boolean gLP;
-        private GroupData gOb;
-        private List<MemberData> gOc;
-        private List<PhotoUrlData> gOd;
-        private int gOe;
-        private int gOf;
-        private boolean gOg;
-        private boolean gOh;
-        private GroupActivityData gOi;
+        private boolean fnH;
+        private boolean gNH;
+        private GroupData gPT;
+        private List<MemberData> gPU;
+        private List<PhotoUrlData> gPV;
+        private int gPW;
+        private int gPX;
+        private boolean gPY;
+        private boolean gPZ;
+        private GroupActivityData gQa;
         private boolean isMemGroup;
 
-        public GroupActivityData bFC() {
-            return this.gOi;
+        public GroupActivityData bGq() {
+            return this.gQa;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.gOi = groupActivityData;
+            this.gQa = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.gOb;
+            return this.gPT;
         }
 
         public void setGroup(GroupData groupData) {
-            this.gOb = groupData;
+            this.gPT = groupData;
         }
 
-        public List<MemberData> bFD() {
-            return this.gOc;
+        public List<MemberData> bGr() {
+            return this.gPU;
         }
 
         public void de(List<MemberData> list) {
-            this.gOc = list;
+            this.gPU = list;
         }
 
-        public List<PhotoUrlData> bFE() {
-            return this.gOd;
+        public List<PhotoUrlData> bGs() {
+            return this.gPV;
         }
 
         public void df(List<PhotoUrlData> list) {
-            this.gOd = list;
+            this.gPV = list;
         }
 
-        public int bFF() {
-            return this.gOe;
+        public int bGt() {
+            return this.gPW;
         }
 
-        public void vM(int i) {
-            this.gOe = i;
+        public void vQ(int i) {
+            this.gPW = i;
         }
 
-        public int bFG() {
-            return this.gOf;
+        public int bGu() {
+            return this.gPX;
         }
 
-        public void vN(int i) {
-            this.gOf = i;
+        public void vR(int i) {
+            this.gPX = i;
         }
 
-        public boolean bFH() {
-            return this.flU;
+        public boolean bGv() {
+            return this.fnH;
         }
 
-        public void mv(boolean z) {
-            this.flU = z;
+        public void my(boolean z) {
+            this.fnH = z;
         }
 
-        public boolean bFI() {
-            return this.gLP;
+        public boolean bGw() {
+            return this.gNH;
         }
 
-        public void mw(boolean z) {
-            this.gLP = z;
+        public void mz(boolean z) {
+            this.gNH = z;
         }
 
-        public void mx(boolean z) {
-            this.gOg = z;
+        public void mA(boolean z) {
+            this.gPY = z;
         }
 
         public boolean isMemGroup() {
@@ -120,12 +120,12 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean bFJ() {
-            return this.gOh;
+        public boolean bGx() {
+            return this.gPZ;
         }
 
-        public void my(boolean z) {
-            this.gOh = z;
+        public void mB(boolean z) {
+            this.gPZ = z;
         }
     }
 
@@ -143,13 +143,13 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.vN(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.mw(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.mx(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.mv(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.vM(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.vR(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.mz(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.mA(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.my(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.vQ(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.my(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.mB(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);

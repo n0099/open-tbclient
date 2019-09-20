@@ -6,39 +6,39 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public interface i {
-    void pk();
+    void pl();
 
     /* loaded from: classes.dex */
     public static class a implements i {
-        private d Rt;
-        private boolean Ru;
-        private final HttpMessageListener Rv = new HttpMessageListener(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC) { // from class: com.baidu.afd.i.a.1
+        private d Rs;
+        private boolean Rt;
+        private final HttpMessageListener Ru = new HttpMessageListener(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC) { // from class: com.baidu.afd.i.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                     e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
-                    a.this.Rt.a(eVar);
-                    if (eVar.Rq && eVar.Rs != null) {
-                        com.baidu.tieba.recapp.report.c.ciQ().a(com.baidu.tieba.recapp.report.f.a(a.this.Rt, eVar.Rs));
+                    a.this.Rs.a(eVar);
+                    if (eVar.Rp && eVar.Rr != null) {
+                        com.baidu.tieba.recapp.report.c.cjE().a(com.baidu.tieba.recapp.report.f.a(a.this.Rs, eVar.Rr));
                     }
                 }
             }
         };
 
         public a(d dVar) {
-            this.Rt = dVar;
-            this.Rv.setSelfListener(true);
-            this.Rv.setTag(dVar.getTag());
-            MessageManager.getInstance().registerListener(this.Rv);
+            this.Rs = dVar;
+            this.Ru.setSelfListener(true);
+            this.Ru.setTag(dVar.getTag());
+            MessageManager.getInstance().registerListener(this.Ru);
         }
 
         @Override // com.baidu.afd.i
-        public void pk() {
-            if (!this.Ru) {
-                this.Ru = true;
-                AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.Rt.Rm);
-                afdSyncRequestMessage.setTag(this.Rt.getTag());
+        public void pl() {
+            if (!this.Rt) {
+                this.Rt = true;
+                AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.Rs.Rl);
+                afdSyncRequestMessage.setTag(this.Rs.getTag());
                 MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
             }
         }

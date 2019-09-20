@@ -27,12 +27,12 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        final e vJ = com.baidu.swan.apps.w.e.GF().vJ();
-        if (vJ == null) {
+        final e vN = com.baidu.swan.apps.w.e.GJ().vN();
+        if (vN == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        bVar.Mh().a((Activity) context, "mapp_i_open_adlanding", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.d.b.1
+        bVar.Ml().a((Activity) context, "mapp_i_open_adlanding", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.d.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -42,7 +42,7 @@ public class b extends z {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied"));
                     return;
                 }
-                b.this.a(com.baidu.swan.apps.model.b.aq(b, b), vJ);
+                b.this.a(com.baidu.swan.apps.model.b.aq(b, b), vN);
                 com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             }
@@ -53,6 +53,6 @@ public class b extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.model.b bVar, e eVar) {
         com.baidu.swan.apps.console.c.i("AdLanding", "openAdLanding: page url=" + bVar.mBaseUrl);
-        eVar.dS("adLanding").B(e.arw, e.ary).a("adLanding", bVar).AD();
+        eVar.dU("adLanding").B(e.arU, e.arW).a("adLanding", bVar).AH();
     }
 }

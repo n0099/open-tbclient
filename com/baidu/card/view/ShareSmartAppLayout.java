@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes3.dex */
 public class ShareSmartAppLayout extends LinearLayout implements i<a> {
-    private a VJ;
-    private ab<a> WO;
+    private a VI;
+    private ab<a> WN;
     public AppletsCellView YV;
     private boolean Yd;
 
@@ -26,7 +26,7 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.Yd = true;
-        this.VJ = null;
+        this.VI = null;
         initUI();
     }
 
@@ -45,25 +45,25 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(a aVar) {
-        if (aVar == null || aVar.acy() == null || aVar.acy().afk() == null) {
+        if (aVar == null || aVar.acC() == null || aVar.acC().afo() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.VJ = aVar;
-        bh acy = aVar.acy();
-        this.YV.setData(acy.afk());
-        this.YV.setForumId(String.valueOf(acy.getFid()));
+        this.VI = aVar;
+        bh acC = aVar.acC();
+        this.YV.setData(acC.afo());
+        this.YV.setForumId(String.valueOf(acC.getFid()));
         AppletsCellView appletsCellView = this.YV;
         AppletsCellView appletsCellView2 = this.YV;
         appletsCellView.setFrom("frs_card");
     }
 
     public ab<a> getSubClickListener() {
-        return this.WO;
+        return this.WN;
     }
 
     public void setSubClickListener(ab<a> abVar) {
-        this.WO = abVar;
+        this.WN = abVar;
     }
 }

@@ -22,14 +22,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private ImageView cBj;
-    private TextView cBk;
-    private View cBl;
-    private TextView cBm;
-    private TextView cBn;
-    private PluginStatus cBo;
-    private ShadowLayout cBp;
-    private View cfi;
+    private ImageView cCf;
+    private TextView cCg;
+    private View cCh;
+    private TextView cCi;
+    private TextView cCj;
+    private PluginStatus cCk;
+    private ShadowLayout cCl;
+    private View cgb;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -51,11 +51,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.cBo = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.cCk = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.cBo = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.cCk = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.cBo == null) {
+        if (this.cCk == null) {
             finish();
             return;
         }
@@ -65,29 +65,29 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.cfi = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.cfi.setOnClickListener(this);
+        this.cgb = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.cgb.setOnClickListener(this);
         this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
-        this.cBj = (ImageView) findViewById(R.id.plugin_error_tip_image);
-        this.cBk = (TextView) findViewById(R.id.plugin_error_install_fail);
-        this.cBm = (TextView) findViewById(R.id.plugin_error_tip_resolve);
-        this.cBl = findViewById(R.id.plugin_error_parent);
-        this.cBp = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
-        this.cBn = (TextView) findViewById(R.id.plugin_error_btn);
-        this.cBn.setOnClickListener(this);
-        this.cBm.setText(getString(R.string.plugin_error_tips, new Object[]{this.cBo.getErrorMsg(), this.cBo.nc()}));
-        if (this.cBo.getErrorCode() == 5 || this.cBo.getErrorCode() == 1 || this.cBo.getErrorCode() == 100) {
-            this.cBn.setText(R.string.pluginstatus_btn_restartapp);
-            this.cBn.setVisibility(0);
+        this.cCf = (ImageView) findViewById(R.id.plugin_error_tip_image);
+        this.cCg = (TextView) findViewById(R.id.plugin_error_install_fail);
+        this.cCi = (TextView) findViewById(R.id.plugin_error_tip_resolve);
+        this.cCh = findViewById(R.id.plugin_error_parent);
+        this.cCl = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
+        this.cCj = (TextView) findViewById(R.id.plugin_error_btn);
+        this.cCj.setOnClickListener(this);
+        this.cCi.setText(getString(R.string.plugin_error_tips, new Object[]{this.cCk.getErrorMsg(), this.cCk.nc()}));
+        if (this.cCk.getErrorCode() == 5 || this.cCk.getErrorCode() == 1 || this.cCk.getErrorCode() == 100) {
+            this.cCj.setText(R.string.pluginstatus_btn_restartapp);
+            this.cCj.setVisibility(0);
             return;
         }
-        this.cBn.setVisibility(8);
+        this.cCj.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.cBo);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.cCk);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -95,10 +95,10 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cfi) {
+        if (view == this.cgb) {
             finish();
-        } else if (view == this.cBn) {
-            if (this.cBo != null && this.cBo.getErrorCode() == 100) {
+        } else if (view == this.cCj) {
+            if (this.cCk != null && this.cCk.getErrorCode() == 100) {
                 com.baidu.adp.plugin.b.a.mc().aj(true);
             }
             showLoadingDialog(getResources().getString(R.string.waiting));
@@ -129,12 +129,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.c(this.cBj, (int) R.drawable.new_pic_emotion_05);
-        am.j(this.cBk, R.color.cp_cont_c);
-        am.l(this.cBl, R.color.cp_bg_line_d);
-        am.j(this.cBm, R.color.cp_cont_b);
-        am.j(this.cBn, R.color.cp_cont_g);
-        am.k(this.cBn, R.drawable.selector_blue_gradient_button);
-        this.cBp.setShadowColor(R.color.plugin_button_shadow_blue);
+        am.c(this.cCf, (int) R.drawable.new_pic_emotion_05);
+        am.j(this.cCg, R.color.cp_cont_c);
+        am.l(this.cCh, R.color.cp_bg_line_d);
+        am.j(this.cCi, R.color.cp_cont_b);
+        am.j(this.cCj, R.color.cp_cont_g);
+        am.k(this.cCj, R.drawable.selector_blue_gradient_button);
+        this.cCl.setShadowColor(R.color.plugin_button_shadow_blue);
     }
 }

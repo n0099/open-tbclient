@@ -13,6 +13,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.location.a.c;
 import com.baidu.location.a.d;
 import com.baidu.location.a.i;
@@ -216,10 +217,10 @@ public final class LocationClient implements c.a, d.b {
                     } catch (Exception e2) {
                         return;
                     }
-                case 701:
+                case CyberPlayerManager.MEDIA_INFO_BUFFERING_START /* 701 */:
                     locationClient.a((BDLocation) message.obj);
                     return;
-                case 702:
+                case CyberPlayerManager.MEDIA_INFO_BUFFERING_END /* 702 */:
                     BDLocation bDLocation2 = (BDLocation) message.obj;
                     if (locationClient.x) {
                         return;
@@ -729,7 +730,7 @@ public final class LocationClient implements c.a, d.b {
 
     @Override // com.baidu.location.a.d.b
     public void onReceiveFixLocation(BDLocation bDLocation) {
-        Message obtainMessage = this.g.obtainMessage(702);
+        Message obtainMessage = this.g.obtainMessage(CyberPlayerManager.MEDIA_INFO_BUFFERING_END);
         obtainMessage.obj = bDLocation;
         obtainMessage.sendToTarget();
     }
@@ -737,7 +738,7 @@ public final class LocationClient implements c.a, d.b {
     @Override // com.baidu.location.a.c.a
     public void onReceiveLocation(BDLocation bDLocation) {
         if ((!this.F || this.E) && bDLocation != null) {
-            Message obtainMessage = this.g.obtainMessage(701);
+            Message obtainMessage = this.g.obtainMessage(CyberPlayerManager.MEDIA_INFO_BUFFERING_START);
             obtainMessage.obj = bDLocation;
             obtainMessage.sendToTarget();
         }

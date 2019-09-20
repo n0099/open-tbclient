@@ -3,13 +3,13 @@ package com.baidu.tieba.frs.entelechy.b;
 public interface c {
     void H(boolean z, boolean z2);
 
-    boolean bps();
+    boolean bqd();
 
-    void bpt();
+    void bqe();
 
-    void bpu();
+    void bqf();
 
-    void kz(boolean z);
+    void kC(boolean z);
 
     void onChangeSkinType(int i);
 }

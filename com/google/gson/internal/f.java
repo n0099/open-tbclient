@@ -7,7 +7,7 @@ import java.io.Writer;
 /* loaded from: classes2.dex */
 public final class f {
     public static void b(h hVar, com.google.gson.stream.a aVar) throws IOException {
-        m.kqw.a(aVar, hVar);
+        m.ksT.a(aVar, hVar);
     }
 
     public static Writer a(Appendable appendable) {
@@ -16,22 +16,22 @@ public final class f {
 
     /* loaded from: classes2.dex */
     private static final class a extends Writer {
-        private final Appendable koK;
-        private final C0463a koL = new C0463a();
+        private final Appendable krh;
+        private final C0474a kri = new C0474a();
 
         a(Appendable appendable) {
-            this.koK = appendable;
+            this.krh = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.koL.chars = cArr;
-            this.koK.append(this.koL, i, i + i2);
+            this.kri.chars = cArr;
+            this.krh.append(this.kri, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.koK.append((char) i);
+            this.krh.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -44,10 +44,10 @@ public final class f {
 
         /* renamed from: com.google.gson.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        static class C0463a implements CharSequence {
+        static class C0474a implements CharSequence {
             char[] chars;
 
-            C0463a() {
+            C0474a() {
             }
 
             @Override // java.lang.CharSequence

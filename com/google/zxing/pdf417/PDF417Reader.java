@@ -1,6 +1,5 @@
 package com.google.zxing.pdf417;
 
-import android.support.v7.widget.ActivityChooserView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
@@ -72,7 +71,10 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     }
 
     private static int getMinWidth(ResultPoint resultPoint, ResultPoint resultPoint2) {
-        return (resultPoint == null || resultPoint2 == null) ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : (int) Math.abs(resultPoint.getX() - resultPoint2.getX());
+        if (resultPoint == null || resultPoint2 == null) {
+            return Integer.MAX_VALUE;
+        }
+        return (int) Math.abs(resultPoint.getX() - resultPoint2.getX());
     }
 
     private static int getMaxCodewordWidth(ResultPoint[] resultPointArr) {

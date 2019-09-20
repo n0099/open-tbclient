@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class k {
-    public String iZq;
+    public String jbL;
     public String link;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.iZq = jSONObject.optString("banner");
+                this.jbL = jSONObject.optString("banner");
                 this.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

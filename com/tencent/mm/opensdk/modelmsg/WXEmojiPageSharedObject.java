@@ -32,7 +32,7 @@ public class WXEmojiPageSharedObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if (d.a(this.title) || d.a(this.iconUrl)) {
+        if (d.b(this.title) || d.b(this.iconUrl)) {
             Log.e(TAG, "checkArgs fail, title or iconUrl is invalid");
             return false;
         }

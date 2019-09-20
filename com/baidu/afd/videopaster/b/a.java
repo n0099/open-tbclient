@@ -1,12 +1,12 @@
 package com.baidu.afd.videopaster.b;
 /* loaded from: classes.dex */
 public class a {
-    public int SA;
-    public int SB = 3;
+    public int SA = 3;
+    public int Sg;
     public int Sh;
-    public int Si;
-    public int Ss;
-    public String St;
+    public int Sr;
+    public String Ss;
+    public int St;
     public int Su;
     public int Sv;
     public int Sw;

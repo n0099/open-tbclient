@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.swan.menu.f;
 /* loaded from: classes2.dex */
 class k extends RelativeLayout {
-    private int bqJ;
+    private int brh;
     private Context mContext;
     private ImageView mIconView;
     private TextView mTitleView;
@@ -39,7 +39,7 @@ class k extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMenuStyle(int i) {
-        this.bqJ = i;
+        this.brh = i;
     }
 
     private void f(j jVar) {
@@ -61,7 +61,7 @@ class k extends RelativeLayout {
         Drawable h = h(jVar);
         if (h != null) {
             this.mIconView.setImageDrawable(h);
-            this.mIconView.setImageLevel(jVar.VL());
+            this.mIconView.setImageLevel(jVar.VP());
         }
         this.mTitleView.setTextColor(getResources().getColor(f.a.aiapp_menu_item_text));
     }

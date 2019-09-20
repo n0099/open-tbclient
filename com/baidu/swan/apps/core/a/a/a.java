@@ -1,44 +1,44 @@
 package com.baidu.swan.apps.core.a.a;
 /* loaded from: classes2.dex */
 public class a {
-    private int apW;
-    private boolean apX = false;
-    private boolean apY = false;
-    private String apZ = "0";
-    private com.baidu.swan.apps.core.a.c.a aqa;
+    private int aqu;
+    private boolean aqv = false;
+    private boolean aqw = false;
+    private String aqx = "0";
+    private com.baidu.swan.apps.core.a.c.a aqy;
 
-    public int ze() {
-        return this.apW;
+    public int zi() {
+        return this.aqu;
     }
 
-    public boolean zf() {
-        return this.apX;
+    public boolean zj() {
+        return this.aqv;
     }
 
-    public com.baidu.swan.apps.core.a.c.a zg() {
-        return this.aqa;
+    public com.baidu.swan.apps.core.a.c.a zk() {
+        return this.aqy;
     }
 
-    public String zh() {
-        return this.apZ;
+    public String zl() {
+        return this.aqx;
     }
 
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0131a {
-        private a aqb = new a();
+    public static class C0140a {
+        private a aqz = new a();
 
-        public a zi() {
-            return this.aqb;
+        public a zm() {
+            return this.aqz;
         }
 
-        public C0131a bY(int i) {
-            this.aqb.apW = i;
+        public C0140a bZ(int i) {
+            this.aqz.aqu = i;
             return this;
         }
 
-        public C0131a aZ(boolean z) {
-            this.aqb.apX = z;
+        public C0140a aZ(boolean z) {
+            this.aqz.aqv = z;
             return this;
         }
     }

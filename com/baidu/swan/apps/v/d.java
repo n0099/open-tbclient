@@ -19,10 +19,10 @@ public class d {
     public static void a(Context context, com.baidu.swan.apps.v.b.c cVar, PMSAppInfo pMSAppInfo, String str) {
         int a = a(cVar, pMSAppInfo);
         if (a != 0 || pMSAppInfo == null) {
-            com.baidu.swan.apps.ak.a bW = bW(a);
-            e.OZ().b(bW);
-            b(context, cVar, bW);
-            b.Fn().Fp();
+            com.baidu.swan.apps.ak.a bX = bX(a);
+            e.Pd().b(bX);
+            b(context, cVar, bX);
+            b.Fr().Ft();
             return;
         }
         c(context, a(pMSAppInfo, cVar), str);
@@ -32,35 +32,35 @@ public class d {
         com.baidu.swan.apps.v.b.b a = a(cVar);
         if (a == null) {
             if (aVar == null) {
-                aVar = new com.baidu.swan.apps.ak.a().Z(10L).aa(2902L).ig("no aiapps info in database");
-                e.OZ().b(aVar);
+                aVar = new com.baidu.swan.apps.ak.a().Z(10L).aa(2902L).ii("no aiapps info in database");
+                e.Pd().b(aVar);
             }
             b(context, cVar, aVar);
-            b.Fn().Fp();
+            b.Fr().Ft();
             return;
         }
-        PMSAppInfo FW = a.FW();
-        if (FW != null && !TextUtils.isEmpty(FW.appId) && !TextUtils.isEmpty(FW.iconUrl)) {
-            com.baidu.swan.apps.core.a.c.b(FW.appId, FW.iconUrl, String.valueOf(FW.versionCode), FW.bsL);
+        PMSAppInfo Ga = a.Ga();
+        if (Ga != null && !TextUtils.isEmpty(Ga.appId) && !TextUtils.isEmpty(Ga.iconUrl)) {
+            com.baidu.swan.apps.core.a.c.b(Ga.appId, Ga.iconUrl, String.valueOf(Ga.versionCode), Ga.btj);
         }
         c(context, a, str);
         com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().a(aVar).c(cVar));
     }
 
     private static com.baidu.swan.apps.v.b.b a(com.baidu.swan.apps.v.b.c cVar) {
-        PMSAppInfo kp;
-        if (cVar == null || (kp = com.baidu.swan.pms.database.a.We().kp(cVar.mAppId)) == null || TextUtils.isEmpty(kp.appId)) {
+        PMSAppInfo kr;
+        if (cVar == null || (kr = com.baidu.swan.pms.database.a.Wi().kr(cVar.mAppId)) == null || TextUtils.isEmpty(kr.appId)) {
             return null;
         }
-        return a(kp, cVar);
+        return a(kr, cVar);
     }
 
     private static void c(Context context, com.baidu.swan.apps.v.b.b bVar, String str) {
-        if (bVar.Fx() == 0) {
+        if (bVar.FB() == 0) {
             b(context, bVar, str);
             return;
         }
-        b.Fn().Fp();
+        b.Fr().Ft();
         a(context, bVar);
     }
 
@@ -73,9 +73,9 @@ public class d {
         if (c != null) {
             c.setComponent(new ComponentName(context, SwanAppErrorActivity.class));
             context.startActivity(c);
-            new com.baidu.swan.apps.ak.a().Z(2L).aa(35L).ig("app has been offline");
+            new com.baidu.swan.apps.ak.a().Z(2L).aa(35L).ii("app has been offline");
             f fVar = new f();
-            fVar.mFrom = com.baidu.swan.apps.statistic.e.dP(bVar.FQ());
+            fVar.mFrom = com.baidu.swan.apps.statistic.e.dQ(bVar.FU());
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "success";
             fVar.t(bVar);
@@ -88,20 +88,20 @@ public class d {
         if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId)) {
             return 1;
         }
-        if ((cVar.azz == 0 && pMSAppInfo.bsL != 0) || (cVar.azz == 1 && pMSAppInfo.bsL != 1)) {
+        if ((cVar.azX == 0 && pMSAppInfo.btj != 0) || (cVar.azX == 1 && pMSAppInfo.btj != 1)) {
             return 2;
         }
         return 0;
     }
 
-    private static com.baidu.swan.apps.ak.a bW(int i) {
+    private static com.baidu.swan.apps.ak.a bX(int i) {
         com.baidu.swan.apps.ak.a aVar = new com.baidu.swan.apps.ak.a();
         switch (i) {
             case 1:
-                aVar.Z(10L).aa(2902L).ig("no aiapps info in database");
+                aVar.Z(10L).aa(2902L).ii("no aiapps info in database");
                 break;
             case 2:
-                aVar.Z(10L).aa(27L).ig("category not match");
+                aVar.Z(10L).aa(27L).ii("category not match");
                 break;
         }
         return aVar;
@@ -119,19 +119,19 @@ public class d {
         } else {
             com.baidu.swan.apps.v.a.c cVar2 = new com.baidu.swan.apps.v.a.c();
             cVar2.mAppId = cVar.mAppId;
-            com.baidu.swan.apps.v.a.a.a(context, aVar, cVar.azz, cVar2);
+            com.baidu.swan.apps.v.a.a.a(context, aVar, cVar.azX, cVar2);
             f fVar = new f();
-            fVar.mFrom = com.baidu.swan.apps.statistic.e.dP(cVar.azz);
+            fVar.mFrom = com.baidu.swan.apps.statistic.e.dQ(cVar.azX);
             fVar.d(cVar);
             fVar.mType = Config.LAUNCH;
             fVar.mValue = LivenessStat.TYPE_FACE_MATCH_FAIL;
-            fVar.k("errcode", String.valueOf(aVar.OV()));
-            fVar.k("msg", aVar.OU().toString());
-            fVar.ak(com.baidu.swan.apps.statistic.e.ht(cVar.azw));
+            fVar.k("errcode", String.valueOf(aVar.OZ()));
+            fVar.k("msg", aVar.OY().toString());
+            fVar.ak(com.baidu.swan.apps.statistic.e.hv(cVar.azU));
             com.baidu.swan.apps.statistic.e.onEvent(fVar);
-            if (!aVar.OW()) {
-                com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().hv(com.baidu.swan.apps.statistic.e.dP(cVar.azz)).a(aVar).hw(cVar.mAppId).hx(cVar.mFrom));
-                aVar.OX();
+            if (!aVar.Pa()) {
+                com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().hx(com.baidu.swan.apps.statistic.e.dQ(cVar.azX)).a(aVar).hy(cVar.mAppId).hz(cVar.mFrom));
+                aVar.Pb();
             }
         }
     }
@@ -142,21 +142,21 @@ public class d {
         }
         com.baidu.swan.apps.v.b.b bVar = new com.baidu.swan.apps.v.b.b();
         bVar.e(pMSAppInfo);
-        bVar.eM(cVar.mFrom);
-        bVar.setPage(cVar.azs);
-        bVar.setDebug(cVar.azt);
-        bVar.p(cVar.Fu());
-        bVar.eN(cVar.azw);
-        bVar.eR(cVar.azx);
-        bVar.a(cVar.aun);
-        bVar.a(cVar.auo);
-        bVar.eQ(cVar.azv);
-        bVar.cF(cVar.azm);
-        if (pMSAppInfo.bsL == 1) {
-            bVar.cr(1);
+        bVar.eO(cVar.mFrom);
+        bVar.setPage(cVar.azQ);
+        bVar.setDebug(cVar.azR);
+        bVar.p(cVar.Fy());
+        bVar.eP(cVar.azU);
+        bVar.eT(cVar.azV);
+        bVar.a(cVar.auL);
+        bVar.a(cVar.auM);
+        bVar.eS(cVar.azT);
+        bVar.cG(cVar.azK);
+        if (pMSAppInfo.btj == 1) {
+            bVar.cs(1);
             return bVar;
         }
-        bVar.cr(0);
+        bVar.cs(0);
         return bVar;
     }
 }

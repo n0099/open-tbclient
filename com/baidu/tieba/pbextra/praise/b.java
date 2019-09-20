@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b {
-    private View dbY;
-    private HeadImageView iiI;
-    private TextView iiJ;
-    private TextView iiK;
-    private ImageView iiL;
+    private View ddM;
+    private HeadImageView ikH;
+    private TextView ikI;
+    private TextView ikJ;
+    private ImageView ikK;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.dbY = null;
-        this.iiI = null;
-        this.iiJ = null;
-        this.iiK = null;
-        this.iiL = null;
-        this.dbY = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.iiI = (HeadImageView) this.dbY.findViewById(R.id.zan_list_item_head);
-        this.iiJ = (TextView) this.dbY.findViewById(R.id.zan_list_item_name);
-        this.iiK = (TextView) this.dbY.findViewById(R.id.zan_list_item_time);
-        this.iiL = (ImageView) this.dbY.findViewById(R.id.zan_list_item_line_bottom);
-        this.iiL.setVisibility(0);
-        this.dbY.setTag(this);
+        this.ddM = null;
+        this.ikH = null;
+        this.ikI = null;
+        this.ikJ = null;
+        this.ikK = null;
+        this.ddM = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.ikH = (HeadImageView) this.ddM.findViewById(R.id.zan_list_item_head);
+        this.ikI = (TextView) this.ddM.findViewById(R.id.zan_list_item_name);
+        this.ikJ = (TextView) this.ddM.findViewById(R.id.zan_list_item_time);
+        this.ikK = (ImageView) this.ddM.findViewById(R.id.zan_list_item_line_bottom);
+        this.ikK.setVisibility(0);
+        this.ddM.setTag(this);
     }
 
     public View getView() {
-        return this.dbY;
+        return this.ddM;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.iiJ.setText(str);
-        this.iiI.setImageDrawable(null);
-        this.iiK.setText(aq.aD(j));
-        this.iiI.startLoad(str2, 28, false);
+        this.ikI.setText(str);
+        this.ikH.setImageDrawable(null);
+        this.ikJ.setText(aq.aD(j));
+        this.ikH.startLoad(str2, 28, false);
     }
 }

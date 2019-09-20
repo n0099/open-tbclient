@@ -11,6 +11,7 @@ import android.net.wifi.WifiManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.xiaomi.channel.commonutils.misc.h;
@@ -149,7 +150,7 @@ public class u extends h.a {
         Location location3;
         LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
         try {
-            location = locationManager.getLastKnownLocation("network");
+            location = locationManager.getLastKnownLocation(DpStatConstants.KEY_NETWORK);
         } catch (Exception e) {
             location = null;
         }

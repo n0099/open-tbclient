@@ -2,48 +2,48 @@ package com.baidu.tieba.aiapps.apps.media.b;
 
 import android.util.Log;
 import android.util.SparseArray;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mapapi.UIMsg;
-import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final SparseArray<Integer> dfp = new SparseArray<>(32);
+    private static final SparseArray<Integer> dha = new SparseArray<>(32);
 
     static {
-        dfp.put(10015, 2001);
-        dfp.put(10013, 2002);
-        dfp.put(904, 2003);
-        dfp.put(10012, 2004);
-        dfp.put(10004, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
-        dfp.put(701, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
-        dfp.put(10005, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE));
-        dfp.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
-        dfp.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL, -2301);
-        dfp.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_NULL, 2101);
-        dfp.put(923, 2103);
-        dfp.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_PARSER_FAILED, 2105);
-        dfp.put(10010, 2106);
-        dfp.put(10003, 2107);
-        dfp.put(10011, 2108);
-        dfp.put(10014, 3001);
-        dfp.put(3002, 3002);
-        dfp.put(3003, 3003);
-        dfp.put(3004, 3005);
+        dha.put(CyberPlayerManager.MEDIA_INFO_CONNECTED_SERVER, 2001);
+        dha.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
+        dha.put(CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, 2003);
+        dha.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
+        dha.put(10004, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
+        dha.put(CyberPlayerManager.MEDIA_INFO_BUFFERING_START, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
+        dha.put(10005, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE));
+        dha.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
+        dha.put(10007, -2301);
+        dha.put(10008, 2101);
+        dha.put(CyberPlayerManager.MEDIA_INFO_NET_RECONNECTING, 2103);
+        dha.put(10009, 2105);
+        dha.put(CyberPlayerManager.MEDIA_INFO_HARDWARE_START_FAIL_CHANGE_MODE, 2106);
+        dha.put(10003, 2107);
+        dha.put(CyberPlayerManager.MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE, 2108);
+        dha.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
+        dha.put(CyberPlayerManager.MEDIA_INFO_RTMP_CONNECT_SERVER_FAIL, Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_RTMP_CONNECT_SERVER_FAIL));
+        dha.put(CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL, Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL));
+        dha.put(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL, 3005);
     }
 
-    public static int mJ(int i) {
-        if (dfp.indexOfKey(i) < 0) {
+    public static int mN(int i) {
+        if (dha.indexOfKey(i) < 0) {
             if (DEBUG) {
                 Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
             }
             return 100;
         }
-        return dfp.get(i).intValue();
+        return dha.get(i).intValue();
     }
 
-    public static String mK(int i) {
+    public static String mO(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("code", i);

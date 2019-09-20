@@ -5,7 +5,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.baidu.ubc.UBC;
 import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -27,7 +26,7 @@ public class a implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eR */
+        /* renamed from: eS */
         public a[] newArray(int i) {
             return new a[i];
         }
@@ -41,13 +40,13 @@ public class a implements Parcelable {
     private long G;
     private String a;
     private String b;
-    private Set<String> bdA;
-    private Set<String> bdB;
-    private JSONObject bdC;
-    private Set<String> bdw;
-    private Set<String> bdx;
-    private Set<String> bdy;
-    private Set<String> bdz;
+    private Set<String> bdU;
+    private Set<String> bdV;
+    private Set<String> bdW;
+    private Set<String> bdX;
+    private Set<String> bdY;
+    private Set<String> bdZ;
+    private JSONObject bea;
     private Set<String> c;
     private String d;
     private String e;
@@ -73,13 +72,13 @@ public class a implements Parcelable {
         this.c = new HashSet();
         this.m = 0;
         this.n = 0;
-        this.bdw = new HashSet();
-        this.bdx = new HashSet();
-        this.bdy = new HashSet();
-        this.bdz = new HashSet();
-        this.bdA = new HashSet();
-        this.bdB = new HashSet();
-        this.bdC = jSONObject;
+        this.bdU = new HashSet();
+        this.bdV = new HashSet();
+        this.bdW = new HashSet();
+        this.bdX = new HashSet();
+        this.bdY = new HashSet();
+        this.bdZ = new HashSet();
+        this.bea = jSONObject;
         try {
             this.G = System.currentTimeMillis();
             this.a = jSONObject.optString("qk", "");
@@ -99,7 +98,7 @@ public class a implements Parcelable {
             this.l = jSONObject.optString("vurl", "");
             this.m = jSONObject.optInt("w", 0);
             this.n = jSONObject.optInt("h", 0);
-            this.o = jSONObject.optInt(UBC.CONTENT_KEY_DURATION, 0);
+            this.o = jSONObject.optInt("duration", 0);
             this.p = jSONObject.optInt("closetype", 0);
             this.q = jSONObject.optInt("expiration", 0);
             JSONObject optJSONObject = jSONObject.optJSONObject("monitors");
@@ -160,12 +159,12 @@ public class a implements Parcelable {
         this.c = new HashSet();
         this.m = 0;
         this.n = 0;
-        this.bdw = new HashSet();
-        this.bdx = new HashSet();
-        this.bdy = new HashSet();
-        this.bdz = new HashSet();
-        this.bdA = new HashSet();
-        this.bdB = new HashSet();
+        this.bdU = new HashSet();
+        this.bdV = new HashSet();
+        this.bdW = new HashSet();
+        this.bdX = new HashSet();
+        this.bdY = new HashSet();
+        this.bdZ = new HashSet();
         this.a = parcel.readString();
         this.b = parcel.readString();
         this.d = parcel.readString();
@@ -270,58 +269,58 @@ public class a implements Parcelable {
     }
 
     public List<String> l() {
-        return new ArrayList(this.bdw);
+        return new ArrayList(this.bdU);
     }
 
-    public List<String> QF() {
-        return new ArrayList(this.bdx);
+    public List<String> QJ() {
+        return new ArrayList(this.bdV);
     }
 
-    public List<String> QG() {
-        return new ArrayList(this.bdy);
+    public List<String> QK() {
+        return new ArrayList(this.bdW);
     }
 
     public List<String> o() {
-        return new ArrayList(this.bdz);
+        return new ArrayList(this.bdX);
     }
 
     public List<String> p() {
-        return new ArrayList(this.bdA);
+        return new ArrayList(this.bdY);
     }
 
     private void a(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bdw.add(str);
+            this.bdU.add(str);
         }
     }
 
     private void b(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bdx.add(str);
+            this.bdV.add(str);
         }
     }
 
     private void c(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bdy.add(str);
+            this.bdW.add(str);
         }
     }
 
     private void d(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bdz.add(str);
+            this.bdX.add(str);
         }
     }
 
     private void e(String str) {
         if (str != null && !str.equals("")) {
-            this.bdA.add(str);
+            this.bdY.add(str);
         }
     }
 
     private void f(String str) {
         if (str != null && !str.equals("")) {
-            this.bdB.add(str);
+            this.bdZ.add(str);
         }
     }
 }

@@ -12,24 +12,24 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> jbJ;
-    View.OnClickListener jbK = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
+    private ArrayList<d> jee;
+    View.OnClickListener jef = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Object tag = view.getTag();
-            if ((tag instanceof C0411a) && (dVar = ((C0411a) tag).jbO) != null) {
-                if (dVar.iZF == null) {
-                    BarFolderFirstDirActivity.h(a.this.coq(), null);
+            if ((tag instanceof C0422a) && (dVar = ((C0422a) tag).jej) != null) {
+                if (dVar.jca == null) {
+                    BarFolderFirstDirActivity.h(a.this.cpd(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.coq(), dVar.iZE, dVar.iZF, dVar.iZG)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.cpd(), dVar.jbZ, dVar.jca, dVar.jcb)));
                 }
             }
         }
@@ -38,36 +38,36 @@ public class a extends BaseAdapter {
 
     public a(Activity activity, b bVar, boolean z) {
         this.mContext = activity;
-        this.jbJ = bVar.cop();
+        this.jee = bVar.cpc();
     }
 
-    public ArrayList<d> cop() {
-        return this.jbJ;
+    public ArrayList<d> cpc() {
+        return this.jee;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.tieba.square.square.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0411a {
-        public TextView bmT;
-        public BarImageView jbM;
-        public BestStringsFitTextView jbN;
-        public d jbO;
+    public static class C0422a {
+        public TextView bnr;
+        public BarImageView jeh;
+        public BestStringsFitTextView jei;
+        public d jej;
 
-        protected C0411a() {
+        protected C0422a() {
         }
     }
 
     public void aD(ArrayList<d> arrayList) {
-        this.jbJ = arrayList;
+        this.jee = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jbJ == null) {
+        if (this.jee == null) {
             return 0;
         }
-        return (this.jbJ.size() * 2) + 1;
+        return (this.jee.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -75,9 +75,9 @@ public class a extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = x(viewGroup, itemViewType);
-            bd.aL(view);
+            bc.aL(view);
         }
-        bd.aK(view);
+        bc.aK(view);
         if (itemViewType != 3) {
             TbadkCoreApplication.getInst().getSkinType();
             View findViewById = view.findViewById(R.id.container);
@@ -87,7 +87,7 @@ public class a extends BaseAdapter {
                     findViewById.setVisibility(0);
                 }
             } else if (itemViewType == 1) {
-                a(viewGroup, (C0411a) view.getTag(), i);
+                a(viewGroup, (C0422a) view.getTag(), i);
             }
         }
         return view;
@@ -101,33 +101,33 @@ public class a extends BaseAdapter {
             return LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.jbK);
-        C0411a c0411a = new C0411a();
-        c0411a.jbM = (BarImageView) inflate.findViewById(R.id.portrait);
-        c0411a.bmT = (TextView) inflate.findViewById(R.id.name);
-        c0411a.jbN = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-        inflate.setTag(c0411a);
+        inflate.setOnClickListener(this.jef);
+        C0422a c0422a = new C0422a();
+        c0422a.jeh = (BarImageView) inflate.findViewById(R.id.portrait);
+        c0422a.bnr = (TextView) inflate.findViewById(R.id.name);
+        c0422a.jei = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        inflate.setTag(c0422a);
         return inflate;
     }
 
-    private void a(ViewGroup viewGroup, C0411a c0411a, int i) {
-        d dVar = this.jbJ.get(i / 2);
-        c0411a.jbO = dVar;
-        c0411a.bmT.setText(dVar.iZE);
-        if (dVar.jbR != null) {
-            c0411a.jbN.setVisibility(0);
-            String[] strArr = new String[dVar.jbR.size()];
-            for (int i2 = 0; i2 < dVar.jbR.size(); i2++) {
-                strArr[i2] = dVar.jbR.get(i2).iZE;
+    private void a(ViewGroup viewGroup, C0422a c0422a, int i) {
+        d dVar = this.jee.get(i / 2);
+        c0422a.jej = dVar;
+        c0422a.bnr.setText(dVar.jbZ);
+        if (dVar.jem != null) {
+            c0422a.jei.setVisibility(0);
+            String[] strArr = new String[dVar.jem.size()];
+            for (int i2 = 0; i2 < dVar.jem.size(); i2++) {
+                strArr[i2] = dVar.jem.get(i2).jbZ;
             }
-            c0411a.jbN.setTextArray(strArr);
+            c0422a.jei.setTextArray(strArr);
         } else {
-            c0411a.jbN.setVisibility(8);
+            c0422a.jei.setVisibility(8);
         }
         if (dVar.logoUrl != null) {
             int dip2px = l.dip2px(this.mContext, 45.0f);
-            c0411a.jbM.setTag(dVar.logoUrl);
-            c0411a.jbM.startLoad(dVar.logoUrl, 10, dip2px, dip2px, false);
+            c0422a.jeh.setTag(dVar.logoUrl);
+            c0422a.jeh.startLoad(dVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class a extends BaseAdapter {
         return 2;
     }
 
-    protected Activity coq() {
+    protected Activity cpd() {
         return this.mContext;
     }
 }

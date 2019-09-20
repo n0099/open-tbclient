@@ -9,6 +9,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -108,7 +109,7 @@ public class c extends b {
         String a = PushSettings.a(context);
         String cuid = DeviceId.getCUID(context);
         jSONObject.put("channel_id", a);
-        jSONObject.put("cuid", cuid);
+        jSONObject.put(DpStatConstants.KEY_CUID, cuid);
         jSONObject.put("aksinfo", c);
         return com.baidu.android.pushservice.j.b.a(BaiduAppSSOJni.encryptR(jSONObject.toString().getBytes(), 2), "utf-8");
     }

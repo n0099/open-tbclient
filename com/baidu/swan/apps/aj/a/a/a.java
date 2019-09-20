@@ -58,10 +58,10 @@ public class a extends z {
                 return false;
             }
             c.i("accelerometer", " init ");
-            com.baidu.swan.apps.aj.a.a On = com.baidu.swan.apps.aj.a.a.On();
-            On.m(context, C0114a.hS(optParamsAsJo.optString("interval")));
-            On.a(new a.InterfaceC0113a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
-                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0113a
+            com.baidu.swan.apps.aj.a.a Or = com.baidu.swan.apps.aj.a.a.Or();
+            Or.m(context, C0123a.hU(optParamsAsJo.optString("interval")));
+            Or.a(new a.InterfaceC0122a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
+                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0122a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -75,7 +75,7 @@ public class a extends z {
                     }
                 }
             });
-            On.Oo();
+            Or.Os();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -97,17 +97,17 @@ public class a extends z {
 
     /* renamed from: com.baidu.swan.apps.aj.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0114a {
-        private static ArrayMap<String, Integer> aXk = new ArrayMap<>(3);
+    private static class C0123a {
+        private static ArrayMap<String, Integer> aXI = new ArrayMap<>(3);
 
         static {
-            aXk.put("ui", 60);
-            aXk.put("game", 20);
-            aXk.put("normal", 200);
+            aXI.put("ui", 60);
+            aXI.put("game", 20);
+            aXI.put("normal", 200);
         }
 
-        public static int hS(String str) {
-            Integer num = aXk.get(str);
+        public static int hU(String str) {
+            Integer num = aXI.get(str);
             if (num != null) {
                 return num.intValue();
             }

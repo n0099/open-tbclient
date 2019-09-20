@@ -6,13 +6,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> hak;
-    public int hai = 0;
+    public ArrayList<ArrayList<String>> hce;
+    public int hcc = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String haj = null;
-    boolean hal = false;
-    public String ham = null;
+    public String hcd = null;
+    boolean hcf = false;
+    public String hcg = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -20,19 +20,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.hai = optJSONObject.optInt("errorno");
+                    this.hcc = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.hal = true;
+                    this.hcf = true;
                 } else {
-                    this.hal = false;
+                    this.hcf = false;
                 }
-                this.ham = jSONObject.optString("cdn_domain");
+                this.hcg = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.haj = optJSONObject2.optString("img_md5");
+                    this.hcd = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -55,7 +55,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.hak = arrayList;
+                        this.hce = arrayList;
                     }
                 }
             } catch (Exception e) {

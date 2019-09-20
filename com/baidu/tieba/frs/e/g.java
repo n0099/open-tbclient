@@ -21,17 +21,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
 /* loaded from: classes4.dex */
 public class g {
-    public RelativeLayout dzg;
-    public LinearGradientView fQQ;
-    public BarImageView fQR;
-    public TextView fQS;
-    public FrsHeaderBannerView fQT;
-    public View fQU;
-    public TbImageView fQV;
-    public TbImageView fQW;
-    public ImageView fQX;
-    public ImageView fQY;
-    public ImageView fQZ;
+    public RelativeLayout dAR;
+    public LinearGradientView fSH;
+    public BarImageView fSI;
+    public TextView fSJ;
+    public FrsHeaderBannerView fSK;
+    public View fSL;
+    public TbImageView fSM;
+    public TbImageView fSN;
+    public ImageView fSO;
+    public ImageView fSP;
+    public ImageView fSQ;
     private Context mContext;
     private TbImageView.b mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.frs.e.g.2
         @Override // com.baidu.tbadk.widget.TbImageView.b
@@ -58,23 +58,24 @@ public class g {
         if (context != null) {
             this.mContext = context;
             this.mRootView = LayoutInflater.from(context).inflate(R.layout.frs_fake_view, (ViewGroup) null);
-            this.dzg = (RelativeLayout) this.mRootView.findViewById(R.id.head_top_bg_container);
-            this.fQQ = (LinearGradientView) this.mRootView.findViewById(R.id.head_top_gradient_bg);
-            this.fQW = (TbImageView) this.mRootView.findViewById(R.id.head_top_bg_mask);
-            this.fQW.setDefaultBgResource(R.color.transparent);
-            this.fQW.setDefaultResource(R.drawable.pic_frs_head_default);
-            this.fQR = (BarImageView) this.mRootView.findViewById(R.id.frs_image);
-            this.fQS = (TextView) this.mRootView.findViewById(R.id.forum_name);
-            am.j(this.fQS, R.color.cp_btn_a);
-            this.fQT = (FrsHeaderBannerView) this.mRootView.findViewById(R.id.frs_header_banner);
-            this.fQU = this.mRootView.findViewById(R.id.frs_topview);
-            this.fQV = (TbImageView) this.mRootView.findViewById(R.id.fake_content);
-            ((RelativeLayout.LayoutParams) this.fQV.getLayoutParams()).height = l.ah(context) - l.g(context, R.dimen.tbds108);
-            this.fQV.setOnDrawListener(this.mOnDrawListener);
-            this.fQX = (ImageView) this.mRootView.findViewById(R.id.fake_return_icon);
-            this.fQY = (ImageView) this.mRootView.findViewById(R.id.fake_more_icon);
-            this.fQZ = (ImageView) this.mRootView.findViewById(R.id.fake_remind_icon);
-            this.fQX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.e.g.1
+            this.dAR = (RelativeLayout) this.mRootView.findViewById(R.id.head_top_bg_container);
+            this.fSH = (LinearGradientView) this.mRootView.findViewById(R.id.head_top_gradient_bg);
+            this.fSN = (TbImageView) this.mRootView.findViewById(R.id.head_top_bg_mask);
+            this.fSN.setDefaultBgResource(R.color.transparent);
+            this.fSN.setDefaultResource(R.drawable.pic_frs_head_default);
+            this.fSI = (BarImageView) this.mRootView.findViewById(R.id.frs_image);
+            this.fSJ = (TextView) this.mRootView.findViewById(R.id.forum_name);
+            am.j(this.fSJ, R.color.cp_cont_a);
+            this.fSK = (FrsHeaderBannerView) this.mRootView.findViewById(R.id.frs_header_banner);
+            this.fSL = this.mRootView.findViewById(R.id.frs_topview);
+            this.fSM = (TbImageView) this.mRootView.findViewById(R.id.fake_content);
+            this.fSM.setAutoChangeStyle(false);
+            ((RelativeLayout.LayoutParams) this.fSM.getLayoutParams()).height = l.ah(context) - l.g(context, R.dimen.tbds108);
+            this.fSM.setOnDrawListener(this.mOnDrawListener);
+            this.fSO = (ImageView) this.mRootView.findViewById(R.id.fake_return_icon);
+            this.fSP = (ImageView) this.mRootView.findViewById(R.id.fake_more_icon);
+            this.fSQ = (ImageView) this.mRootView.findViewById(R.id.fake_remind_icon);
+            this.fSO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.e.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (context instanceof Activity) {
@@ -82,19 +83,18 @@ public class g {
                     }
                 }
             });
-            this.fQR.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.fQR.setContentDescription(context.getResources().getString(R.string.bar_header));
-            this.fQR.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-            this.fQR.setShowOval(true);
-            this.fQR.setBorderColor(am.getColor(R.color.black_alpha15));
-            this.fQR.setStrokeColorResId(R.color.cp_bg_line_d);
+            this.fSI.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.fSI.setContentDescription(context.getResources().getString(R.string.bar_header));
+            this.fSI.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+            this.fSI.setShowOval(true);
+            this.fSI.setBorderColor(am.getColor(R.color.black_alpha15));
+            this.fSI.setStrokeColorResId(R.color.cp_bg_line_d);
             am.l(this.mRootView, R.color.cp_bg_line_c);
-            am.k(this.fQU, R.drawable.frs_fake_top_view);
-            am.c(this.fQV, (int) R.drawable.fake_bg);
-            am.c(this.fQX, (int) R.drawable.icon_topbar_return_white_n);
-            am.c(this.fQY, (int) R.drawable.icon_topbar_more_white_n);
-            am.c(this.fQZ, (int) R.drawable.icon_common_news_white_n);
-            am.c(this.fQV, (int) R.drawable.fake_bg);
+            am.k(this.fSL, R.drawable.frs_fake_top_view);
+            am.c(this.fSO, (int) R.drawable.icon_topbar_return_white_n);
+            am.c(this.fSP, (int) R.drawable.icon_topbar_more_white_n);
+            am.c(this.fSQ, (int) R.drawable.icon_common_news_white_n);
+            am.c(this.fSM, (int) R.drawable.pic_frs_transition_placeholder);
         }
     }
 }

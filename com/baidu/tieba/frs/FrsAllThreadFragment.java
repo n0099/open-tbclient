@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ag {
-    private BdSwipeRefreshLayout dpp;
+    private BdSwipeRefreshLayout dra;
     private String forumId;
-    private View ftG;
-    private RecyclerView ftH;
+    private View fvt;
+    private RecyclerView fvu;
     private int tabId;
 
     @Override // android.support.v4.app.Fragment
@@ -29,36 +29,36 @@ public class FrsAllThreadFragment extends BaseFragment implements ag {
             this.forumId = arguments.getString("forum_id", "");
             this.tabId = arguments.getInt(MyBookrackActivityConfig.TAB_ID);
         }
-        blG();
-        return this.ftG;
+        bmr();
+        return this.fvt;
     }
 
     public void setView(View view) {
-        this.ftG = view;
-        this.ftH = (RecyclerView) this.ftG.findViewById(R.id.frs_lv_thread);
-        this.dpp = (BdSwipeRefreshLayout) this.ftG.findViewById(R.id.frs_pull_refresh_layout);
-        blG();
+        this.fvt = view;
+        this.fvu = (RecyclerView) this.fvt.findViewById(R.id.frs_lv_thread);
+        this.dra = (BdSwipeRefreshLayout) this.fvt.findViewById(R.id.frs_pull_refresh_layout);
+        bmr();
     }
 
-    private void blG() {
-        if (this.ftG != null && (this.ftG.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.ftG.getParent()).removeView(this.ftG);
-            this.ftG.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void bmr() {
+        if (this.fvt != null && (this.fvt.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.fvt.getParent()).removeView(this.fvt);
+            this.fvt.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void blH() {
-        if (this.ftH != null) {
-            this.ftH.scrollToPosition(0);
+    public void bms() {
+        if (this.fvu != null) {
+            this.fvu.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void aKj() {
-        if (this.dpp != null) {
-            blH();
-            this.dpp.setRefreshing(true);
+    public void aKN() {
+        if (this.dra != null) {
+            bms();
+            this.dra.setRefreshing(true);
         }
     }
 

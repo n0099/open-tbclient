@@ -83,7 +83,7 @@ class b {
         CtSetting ctSetting = new CtSetting(8000, 8000, (int) f);
         final long currentTimeMillis = System.currentTimeMillis() / 1000;
         CtAuth.getInstance().requestPreLogin(ctSetting, new ResultListener() { // from class: com.baidu.sapi2.a.b.2
-            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=4] */
+            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [150=4] */
             public void onResult(String str) {
                 String str2;
                 int i;
@@ -117,7 +117,6 @@ class b {
                             if (aVar != null) {
                                 aVar.a();
                             }
-                            SapiStatUtil.statChinaMobile(i2, str4, null, null);
                             SapiStatUtil.statChinaMobile(i2, str4, b.b, str3);
                         } catch (Throwable th) {
                             th = th;

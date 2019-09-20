@@ -12,42 +12,42 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ConsumptionRecordsActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonMoreActivityConfig;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.personCenter.data.g;
 /* loaded from: classes6.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private b ikm;
-    private Bundle ikn;
-    private g iko;
+    private b imm;
+    private Bundle imn;
+    private g imo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null && getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE) != null) {
-            this.ikn = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.imn = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(R.layout.person_center_more_layout);
-        this.ikm = new b(getPageContext(), this.ikn, new ab<g>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
+        this.imm = new b(getPageContext(), this.imn, new ab<g>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, g gVar) {
-                PersonCenterMoreActivity.this.iko = gVar;
-                if (PersonCenterMoreActivity.this.iko != null && !PersonCenterMoreActivity.this.aRn()) {
-                    PersonCenterMoreActivity.this.CB(PersonCenterMoreActivity.this.iko.bDN);
+                PersonCenterMoreActivity.this.imo = gVar;
+                if (PersonCenterMoreActivity.this.imo != null && !PersonCenterMoreActivity.this.aRR()) {
+                    PersonCenterMoreActivity.this.Da(PersonCenterMoreActivity.this.imo.bEl);
                 }
             }
         });
-        this.ikm.initView();
+        this.imm.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aRn() {
+    public boolean aRR() {
         Activity pageActivity = getPageContext().getPageActivity();
-        com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-        aVar.ajS();
+        com.baidu.tbadk.core.util.c.a aVar = new com.baidu.tbadk.core.util.c.a();
+        aVar.ake();
         aVar.e(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
         return aVar.ad(pageActivity);
     }
@@ -55,18 +55,18 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            CB(this.iko.bDN);
+            Da(this.imo.bEl);
         }
     }
 
-    private void CA(String str) {
+    private void CZ(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
                     l.showToast(getPageContext().getPageActivity(), (int) R.string.cosume_record_plugin_not_install_tip);
                     return;
                 }
-                bb.ajE().c(getPageContext(), new String[]{str.substring("tieba&".length())});
+                ba.ajK().c(getPageContext(), new String[]{str.substring("tieba&".length())});
             } else if (str.startsWith("http:") || str.startsWith("https:")) {
                 com.baidu.tbadk.browser.a.b(getPageContext().getPageActivity(), true, str);
             } else {
@@ -76,14 +76,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void CB(String str) {
+    public void Da(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                CA(str);
+                CZ(str);
             } else if (str.startsWith("nohead:url")) {
-                bb.ajE().c(getPageContext(), new String[]{str.replaceFirst("nohead:url=", "") + (str.contains("?") ? "&" : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
+                ba.ajK().c(getPageContext(), new String[]{str.replaceFirst("nohead:url=", "") + (str.contains("?") ? "&" : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {
-                bb.ajE().c(getPageContext(), new String[]{str});
+                ba.ajK().c(getPageContext(), new String[]{str});
             }
         }
     }
@@ -92,8 +92,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ikm != null) {
-            this.ikm.onChangeSkinType();
+        if (this.imm != null) {
+            this.imm.onChangeSkinType();
         }
     }
 }

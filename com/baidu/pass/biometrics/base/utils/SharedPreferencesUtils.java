@@ -46,10 +46,4 @@ public final class SharedPreferencesUtils {
         }
         return null;
     }
-
-    public static void clear(Context context, String str) {
-        SharedPreferences.Editor edit = context.getSharedPreferences(str, 0).edit();
-        edit.clear();
-        edit.commit();
-    }
 }

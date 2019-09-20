@@ -13,8 +13,8 @@ import com.baidu.tieba.setting.more.MsgSettingItemView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter implements BdSwitchView.a {
-    private ArrayList<OfficialAccountPushInfo> aIn;
-    private BdSwitchView.a emh;
+    private ArrayList<OfficialAccountPushInfo> aIL;
+    private BdSwitchView.a enT;
     private TbPageContext mContext;
 
     public a(TbPageContext tbPageContext) {
@@ -22,23 +22,23 @@ public class a extends BaseAdapter implements BdSwitchView.a {
     }
 
     public void setData(ArrayList<OfficialAccountPushInfo> arrayList) {
-        this.aIn = arrayList;
+        this.aIL = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aIn == null) {
+        if (this.aIL == null) {
             return 0;
         }
-        return this.aIn.size();
+        return this.aIL.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aIn == null || i < 0 || i >= this.aIn.size()) {
+        if (this.aIL == null || i < 0 || i >= this.aIL.size()) {
             return null;
         }
-        return this.aIn.get(i);
+        return this.aIL.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,51 +51,51 @@ public class a extends BaseAdapter implements BdSwitchView.a {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0405a c0405a;
+        C0416a c0416a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
-            c0405a = new C0405a();
-            c0405a.iUC = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
-            view.setTag(c0405a);
+            c0416a = new C0416a();
+            c0416a.iWX = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            view.setTag(c0416a);
         } else {
-            c0405a = (C0405a) view.getTag();
+            c0416a = (C0416a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (aq.isEmpty(officialAccountPushInfo.name)) {
-            c0405a.iUC.setVisibility(8);
+            c0416a.iWX.setVisibility(8);
         } else {
-            c0405a.iUC.setVisibility(0);
-            c0405a.iUC.setText(officialAccountPushInfo.name);
-            if (officialAccountPushInfo.iUE == 1) {
-                c0405a.iUC.getSwitchView().nk();
+            c0416a.iWX.setVisibility(0);
+            c0416a.iWX.setText(officialAccountPushInfo.name);
+            if (officialAccountPushInfo.iWZ == 1) {
+                c0416a.iWX.getSwitchView().nk();
             } else {
-                c0405a.iUC.getSwitchView().nl();
+                c0416a.iWX.getSwitchView().nl();
             }
-            c0405a.iUC.setLineVisibility(true);
-            c0405a.iUC.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
-            c0405a.iUC.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0405a.iUC.getSwitchView().setTag(officialAccountPushInfo);
+            c0416a.iWX.setLineVisibility(true);
+            c0416a.iWX.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
+            c0416a.iWX.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0416a.iWX.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.emh = aVar;
+        this.enT = aVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (this.emh != null) {
-            this.emh.a(view, switchState);
+        if (this.enT != null) {
+            this.enT.a(view, switchState);
         }
     }
 
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0405a {
-        MsgSettingItemView iUC;
+    public class C0416a {
+        MsgSettingItemView iWX;
 
-        public C0405a() {
+        public C0416a() {
         }
     }
 }

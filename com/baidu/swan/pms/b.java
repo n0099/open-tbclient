@@ -6,14 +6,6 @@ import org.json.JSONObject;
 public interface b {
     boolean A(String str, int i);
 
-    String ES();
-
-    String ET();
-
-    String EU();
-
-    String EV();
-
     String EW();
 
     String EX();
@@ -24,7 +16,15 @@ public interface b {
 
     String Fa();
 
-    CookieManager Fb();
+    String Fb();
+
+    String Fc();
+
+    String Fd();
+
+    String Fe();
+
+    CookieManager Ff();
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 

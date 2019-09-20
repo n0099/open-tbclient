@@ -22,10 +22,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends UnitedSchemeBaseInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> aTT = new HashSet();
+    private static final Set<String> aUr = new HashSet();
 
     static {
-        aTT.add("_baiduboxapp");
+        aUr.add("_baiduboxapp");
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -57,9 +57,9 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         if (TextUtils.isEmpty(g)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            com.baidu.swan.apps.ak.a ig = new com.baidu.swan.apps.ak.a().Z(1L).aa(1L).ig("appId is empty");
-            e.OZ().b(ig);
-            com.baidu.swan.apps.statistic.e.b(new d().hv(com.baidu.swan.apps.statistic.e.dP(0)).a(ig).aC("scheme", uri.toString()));
+            com.baidu.swan.apps.ak.a ii = new com.baidu.swan.apps.ak.a().Z(1L).aa(1L).ii("appId is empty");
+            e.Pd().b(ii);
+            com.baidu.swan.apps.statistic.e.b(new d().hx(com.baidu.swan.apps.statistic.e.dQ(0)).a(ii).aC("scheme", uri.toString()));
             return true;
         }
         String b = b(g, uri);
@@ -72,11 +72,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         c cVar = new c();
         cVar.mAppId = g;
-        cVar.azw = uri.toString();
+        cVar.azU = uri.toString();
         if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(h)) {
-            cVar.azs = b + "?" + h;
+            cVar.azQ = b + "?" + h;
         } else if (!TextUtils.isEmpty(b)) {
-            cVar.azs = b;
+            cVar.azQ = b;
         }
         String valueOf = String.valueOf(System.currentTimeMillis());
         com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a(IntentConfig.START, valueOf, ""));
@@ -99,7 +99,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 str = optJSONObject.optString("searchid");
                 try {
                     str2 = optJSONObject.optString("url");
-                    cVar.azv = optJSONObject.optString("clkid");
+                    cVar.azT = optJSONObject.optString("clkid");
                 } catch (JSONException e3) {
                     e = e3;
                     if (DEBUG) {
@@ -107,9 +107,9 @@ public class a extends UnitedSchemeBaseInterceptor {
                     }
                     if (TextUtils.isEmpty(str)) {
                     }
-                    cVar.Fu().putString("search_id", str);
-                    cVar.Fu().putString("search_url", str2);
-                    cVar.Fu().putLong("search_dom_click_timestamp", System.currentTimeMillis());
+                    cVar.Fy().putString("search_id", str);
+                    cVar.Fy().putString("search_url", str2);
+                    cVar.Fy().putLong("search_dom_click_timestamp", System.currentTimeMillis());
                     com.baidu.swan.apps.statistic.search.b.f(cVar);
                     String valueOf2 = String.valueOf(System.currentTimeMillis());
                     com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a("scheme", valueOf2, ""));
@@ -121,9 +121,9 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return true;
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.equals("1002", cVar.mFrom)) {
-                    cVar.Fu().putString("search_id", str);
-                    cVar.Fu().putString("search_url", str2);
-                    cVar.Fu().putLong("search_dom_click_timestamp", System.currentTimeMillis());
+                    cVar.Fy().putString("search_id", str);
+                    cVar.Fy().putString("search_url", str2);
+                    cVar.Fy().putLong("search_dom_click_timestamp", System.currentTimeMillis());
                     com.baidu.swan.apps.statistic.search.b.f(cVar);
                 }
                 String valueOf22 = String.valueOf(System.currentTimeMillis());
@@ -140,9 +140,9 @@ public class a extends UnitedSchemeBaseInterceptor {
         str = null;
         if (TextUtils.isEmpty(str)) {
         }
-        cVar.Fu().putString("search_id", str);
-        cVar.Fu().putString("search_url", str2);
-        cVar.Fu().putLong("search_dom_click_timestamp", System.currentTimeMillis());
+        cVar.Fy().putString("search_id", str);
+        cVar.Fy().putString("search_url", str2);
+        cVar.Fy().putLong("search_dom_click_timestamp", System.currentTimeMillis());
         com.baidu.swan.apps.statistic.search.b.f(cVar);
         String valueOf222 = String.valueOf(System.currentTimeMillis());
         com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a("scheme", valueOf222, ""));
@@ -175,6 +175,6 @@ public class a extends UnitedSchemeBaseInterceptor {
     }
 
     private String h(Uri uri) {
-        return aa.d(uri.getEncodedQuery(), aTT);
+        return aa.d(uri.getEncodedQuery(), aUr);
     }
 }

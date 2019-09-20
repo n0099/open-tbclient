@@ -1,6 +1,5 @@
 package com.google.protobuf.micro;
 
-import android.support.v7.widget.ActivityChooserView;
 import java.io.InputStream;
 import java.util.Vector;
 import org.apache.http.protocol.HTTP;
@@ -19,7 +18,7 @@ public final class b {
     private int k;
 
     private b(InputStream inputStream) {
-        this.h = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.h = Integer.MAX_VALUE;
         this.j = 64;
         this.k = 67108864;
         this.a = new byte[4096];
@@ -29,7 +28,7 @@ public final class b {
     }
 
     private b(byte[] bArr, int i, int i2) {
-        this.h = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.h = Integer.MAX_VALUE;
         this.j = 64;
         this.k = 67108864;
         this.a = bArr;

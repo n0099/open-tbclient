@@ -9,6 +9,6 @@ public abstract class e extends f {
     }
 
     @Override // org.java_websocket.framing.f
-    public void cOT() throws InvalidDataException {
+    public void cPF() throws InvalidDataException {
     }
 }

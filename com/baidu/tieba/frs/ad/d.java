@@ -12,18 +12,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes4.dex */
 public class d extends h<c, com.baidu.tieba.card.a.a<b>> {
-    private b fzs;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> fzt;
-    private com.baidu.adp.lib.e.b<TbImageView> fzu;
+    private b fBf;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> fBg;
+    private com.baidu.adp.lib.e.b<TbImageView> fBh;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.fzt = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.ad.d.1
+        this.fBg = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.ad.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: bom */
+            /* renamed from: boX */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(d.this.mPageContext.getPageActivity());
             }
@@ -49,10 +49,10 @@ public class d extends h<c, com.baidu.tieba.card.a.a<b>> {
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.fzu = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.ad.d.2
+        this.fBh = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.ad.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: ale */
+            /* renamed from: alq */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(d.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -93,11 +93,11 @@ public class d extends h<c, com.baidu.tieba.card.a.a<b>> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aq */
     public com.baidu.tieba.card.a.a<b> onCreateViewHolder(ViewGroup viewGroup) {
-        this.fzs = new b(this.mPageContext);
-        this.fzs.setSingleImageRatio(0.75d);
-        this.fzs.setConstrainLayoutPool(this.fzt);
-        this.fzs.setConstrainImagePool(this.fzu);
-        return new com.baidu.tieba.card.a.a<>(this.fzs);
+        this.fBf = new b(this.mPageContext);
+        this.fBf.setSingleImageRatio(0.75d);
+        this.fBf.setConstrainLayoutPool(this.fBg);
+        this.fBf.setConstrainImagePool(this.fBh);
+        return new com.baidu.tieba.card.a.a<>(this.fBf);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public class d extends h<c, com.baidu.tieba.card.a.a<b>> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, com.baidu.tieba.card.a.a<b> aVar) {
         super.onFillViewHolder(i, view, viewGroup, cVar, aVar);
-        aVar.bat().a(cVar);
+        aVar.baX().a(cVar);
         return aVar.getView();
     }
 }

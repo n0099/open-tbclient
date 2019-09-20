@@ -1,24 +1,24 @@
 package rx;
 /* loaded from: classes2.dex */
 public class b {
-    static final b kvp = new b(new a() { // from class: rx.b.1
+    static final b kxI = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cRo());
+            cVar.onSubscribe(rx.subscriptions.e.cSa());
             cVar.onCompleted();
         }
     }, false);
-    static final b kvq = new b(new a() { // from class: rx.b.2
+    static final b kxJ = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cRo());
+            cVar.onSubscribe(rx.subscriptions.e.cSa());
         }
     }, false);
-    private final a kvo;
+    private final a kxH;
 
     /* loaded from: classes2.dex */
     public interface a extends rx.functions.b<c> {
@@ -26,7 +26,7 @@ public class b {
 
     /* renamed from: rx.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0506b extends rx.functions.f<c, c> {
+    public interface InterfaceC0512b extends rx.functions.f<c, c> {
     }
 
     public static b a(a aVar) {
@@ -55,14 +55,14 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.kvo = rx.c.c.b(aVar);
+        this.kxH = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.kvo = z ? rx.c.c.b(aVar) : aVar;
+        this.kxH = z ? rx.c.c.b(aVar) : aVar;
     }
 
-    public final k cPh() {
+    public final k cPT() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         a(new c() { // from class: rx.b.3
             @Override // rx.c
@@ -93,7 +93,7 @@ public class b {
     public final void a(c cVar) {
         bk(cVar);
         try {
-            rx.c.c.b(this, this.kvo).call(cVar);
+            rx.c.c.b(this, this.kxH).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

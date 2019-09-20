@@ -13,24 +13,24 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tieba.c;
+import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class PartingLineView extends ViewGroup {
     private Paint GF;
     private int GW;
-    private Paint crR;
-    private int crS;
-    private View deI;
-    private int deN;
-    private int deO;
-    private Paint deP;
-    private int deQ;
-    private int deR;
-    private Path deS;
-    private Path deT;
-    private int deU;
-    private RectF deV;
-    private RectF deW;
+    private Paint csM;
+    private int csN;
+    private Paint dgA;
+    private int dgB;
+    private int dgC;
+    private Path dgD;
+    private Path dgE;
+    private int dgF;
+    private RectF dgG;
+    private RectF dgH;
+    private View dgt;
+    private int dgy;
+    private int dgz;
     private int mBorderWidth;
     private Context mContext;
     private Path mRoundPath;
@@ -51,64 +51,64 @@ public class PartingLineView extends ViewGroup {
 
     private void c(Context context, AttributeSet attributeSet, int i) {
         this.mContext = context;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.PartingLineView);
-        this.deN = obtainStyledAttributes.getColor(0, SupportMenu.CATEGORY_MASK);
-        this.deO = obtainStyledAttributes.getColor(1, SupportMenu.CATEGORY_MASK);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.a.PartingLineView);
+        this.dgy = obtainStyledAttributes.getColor(0, SupportMenu.CATEGORY_MASK);
+        this.dgz = obtainStyledAttributes.getColor(1, SupportMenu.CATEGORY_MASK);
         this.GW = obtainStyledAttributes.getColor(2, ViewCompat.MEASURED_STATE_MASK);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelOffset(3, 1);
-        this.deQ = obtainStyledAttributes.getColor(4, ViewCompat.MEASURED_STATE_MASK);
-        this.deR = obtainStyledAttributes.getDimensionPixelOffset(5, 1);
-        this.deU = obtainStyledAttributes.getDimensionPixelOffset(6, 30);
+        this.dgB = obtainStyledAttributes.getColor(4, ViewCompat.MEASURED_STATE_MASK);
+        this.dgC = obtainStyledAttributes.getDimensionPixelOffset(5, 1);
+        this.dgF = obtainStyledAttributes.getDimensionPixelOffset(6, 30);
         obtainStyledAttributes.recycle();
-        dv(context);
+        dw(context);
     }
 
-    private void dv(Context context) {
+    private void dw(Context context) {
         setWillNotDraw(false);
-        this.crS = this.deN;
-        this.crR = new Paint();
-        this.crR.setStyle(Paint.Style.FILL);
-        this.crR.setAntiAlias(true);
-        this.crR.setColor(this.crS);
+        this.csN = this.dgy;
+        this.csM = new Paint();
+        this.csM.setStyle(Paint.Style.FILL);
+        this.csM.setAntiAlias(true);
+        this.csM.setColor(this.csN);
         this.GF = new Paint();
         this.GF.setStyle(Paint.Style.STROKE);
         this.GF.setAntiAlias(true);
         this.GF.setColor(this.GW);
         this.GF.setStrokeWidth(this.mBorderWidth);
-        this.deP = new Paint();
-        this.deP.setStyle(Paint.Style.STROKE);
-        this.deP.setAntiAlias(true);
-        this.deP.setColor(this.deQ);
-        this.deP.setPathEffect(new DashPathEffect(new float[]{9.0f, 9.0f}, 0.0f));
-        this.deP.setStrokeWidth(this.deR);
-        this.deS = new Path();
-        this.deT = new Path();
+        this.dgA = new Paint();
+        this.dgA.setStyle(Paint.Style.STROKE);
+        this.dgA.setAntiAlias(true);
+        this.dgA.setColor(this.dgB);
+        this.dgA.setPathEffect(new DashPathEffect(new float[]{9.0f, 9.0f}, 0.0f));
+        this.dgA.setStrokeWidth(this.dgC);
+        this.dgD = new Path();
+        this.dgE = new Path();
         this.mRoundPath = new Path();
-        this.deV = new RectF();
-        this.deW = new RectF();
+        this.dgG = new RectF();
+        this.dgH = new RectF();
     }
 
     public void setContentView(View view, View view2) {
         if (view != null && view2 != null) {
             this.mTopView = view;
-            this.deI = view2;
+            this.dgt = view2;
             bq(this.mTopView);
-            bq(this.deI);
+            bq(this.dgt);
             invalidate();
         }
     }
 
     public void setBgNormalColor(int i) {
-        if (this.mContext != null && this.crR != null) {
-            this.deN = this.mContext.getResources().getColor(i);
-            this.crS = this.deN;
-            this.crR.setColor(this.crS);
+        if (this.mContext != null && this.csM != null) {
+            this.dgy = this.mContext.getResources().getColor(i);
+            this.csN = this.dgy;
+            this.csM.setColor(this.csN);
         }
     }
 
     public void setBgPressedColor(int i) {
         if (this.mContext != null) {
-            this.deO = this.mContext.getResources().getColor(i);
+            this.dgz = this.mContext.getResources().getColor(i);
         }
     }
 
@@ -120,9 +120,9 @@ public class PartingLineView extends ViewGroup {
     }
 
     public void setDividerLineColor(int i) {
-        if (this.mContext != null && this.deP != null) {
-            this.deQ = this.mContext.getResources().getColor(i);
-            this.deP.setColor(this.deQ);
+        if (this.mContext != null && this.dgA != null) {
+            this.dgB = this.mContext.getResources().getColor(i);
+            this.dgA.setColor(this.dgB);
         }
     }
 
@@ -135,10 +135,10 @@ public class PartingLineView extends ViewGroup {
         }
     }
 
-    public void gy(boolean z) {
-        if (this.crR != null) {
-            this.crS = z ? this.deO : this.deN;
-            this.crR.setColor(this.crS);
+    public void gB(boolean z) {
+        if (this.csM != null) {
+            this.csN = z ? this.dgz : this.dgy;
+            this.csM.setColor(this.csN);
             invalidate();
         }
     }
@@ -158,7 +158,7 @@ public class PartingLineView extends ViewGroup {
             setMeasuredDimension(0, 0);
         }
         if (mode != 1073741824) {
-            setMeasuredDimension(size, (this.mTopView != null ? this.mTopView.getMeasuredHeight() : 0) + 0 + getPaddingTop() + this.deR + (this.deI != null ? this.deI.getMeasuredHeight() : 0) + getPaddingBottom());
+            setMeasuredDimension(size, (this.mTopView != null ? this.mTopView.getMeasuredHeight() : 0) + 0 + getPaddingTop() + this.dgC + (this.dgt != null ? this.dgt.getMeasuredHeight() : 0) + getPaddingBottom());
         }
     }
 
@@ -175,51 +175,51 @@ public class PartingLineView extends ViewGroup {
         } else {
             i5 = 0;
         }
-        if (this.deI != null) {
-            this.deI.layout(paddingLeft + 0, this.deR + i5, 0 + paddingRight + this.deI.getMeasuredWidth(), i5 + this.deI.getMeasuredHeight());
+        if (this.dgt != null) {
+            this.dgt.layout(paddingLeft + 0, this.dgC + i5, 0 + paddingRight + this.dgt.getMeasuredWidth(), i5 + this.dgt.getMeasuredHeight());
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.mTopView != null && this.deI != null) {
+        if (this.mTopView != null && this.dgt != null) {
             int paddingLeft = getPaddingLeft();
             int paddingRight = getPaddingRight();
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
             int width = (getWidth() - paddingLeft) - paddingRight;
             int height = (getHeight() - paddingTop) - paddingBottom;
-            this.deT.reset();
-            this.deT.moveTo(paddingLeft, paddingTop);
-            this.deT.lineTo(paddingLeft + width, paddingTop);
-            this.deT.lineTo(paddingLeft + width, (this.mTopView.getHeight() + paddingTop) - this.deU);
-            this.deV.set((paddingLeft + width) - this.deU, (this.mTopView.getHeight() + paddingTop) - this.deU, paddingLeft + width + this.deU, this.mTopView.getHeight() + paddingTop + this.deU);
-            this.deT.arcTo(this.deV, 270.0f, -180.0f);
-            this.deT.lineTo(paddingLeft + width, paddingTop + height);
-            this.deT.lineTo(paddingLeft, paddingTop + height);
-            this.deT.lineTo(paddingLeft, this.mTopView.getHeight() + paddingTop + this.deU);
-            this.deV.set(paddingLeft - this.deU, (this.mTopView.getHeight() + paddingTop) - this.deU, this.deU + paddingLeft, this.mTopView.getHeight() + paddingTop + this.deU);
-            this.deT.arcTo(this.deV, 90.0f, -180.0f);
-            this.deT.lineTo(paddingLeft, paddingTop);
-            this.deT.close();
+            this.dgE.reset();
+            this.dgE.moveTo(paddingLeft, paddingTop);
+            this.dgE.lineTo(paddingLeft + width, paddingTop);
+            this.dgE.lineTo(paddingLeft + width, (this.mTopView.getHeight() + paddingTop) - this.dgF);
+            this.dgG.set((paddingLeft + width) - this.dgF, (this.mTopView.getHeight() + paddingTop) - this.dgF, paddingLeft + width + this.dgF, this.mTopView.getHeight() + paddingTop + this.dgF);
+            this.dgE.arcTo(this.dgG, 270.0f, -180.0f);
+            this.dgE.lineTo(paddingLeft + width, paddingTop + height);
+            this.dgE.lineTo(paddingLeft, paddingTop + height);
+            this.dgE.lineTo(paddingLeft, this.mTopView.getHeight() + paddingTop + this.dgF);
+            this.dgG.set(paddingLeft - this.dgF, (this.mTopView.getHeight() + paddingTop) - this.dgF, this.dgF + paddingLeft, this.mTopView.getHeight() + paddingTop + this.dgF);
+            this.dgE.arcTo(this.dgG, 90.0f, -180.0f);
+            this.dgE.lineTo(paddingLeft, paddingTop);
+            this.dgE.close();
             int i = this.mBorderWidth / 2;
-            this.deW.set(paddingLeft + i, paddingTop + i, (width + paddingLeft) - i, (height + paddingTop) - i);
+            this.dgH.set(paddingLeft + i, paddingTop + i, (width + paddingLeft) - i, (height + paddingTop) - i);
             this.mRoundPath.reset();
-            this.mRoundPath.addRoundRect(this.deW, 10.0f, 10.0f, Path.Direction.CCW);
-            this.deT.op(this.mRoundPath, Path.Op.INTERSECT);
-            if (this.crR != null) {
-                canvas.drawPath(this.deT, this.crR);
+            this.mRoundPath.addRoundRect(this.dgH, 10.0f, 10.0f, Path.Direction.CCW);
+            this.dgE.op(this.mRoundPath, Path.Op.INTERSECT);
+            if (this.csM != null) {
+                canvas.drawPath(this.dgE, this.csM);
             }
             if (this.GF != null) {
-                canvas.drawPath(this.deT, this.GF);
+                canvas.drawPath(this.dgE, this.GF);
             }
-            if (this.deP != null && this.mTopView != null && this.deI != null) {
+            if (this.dgA != null && this.mTopView != null && this.dgt != null) {
                 float height2 = paddingTop + this.mTopView.getHeight();
-                this.deS.reset();
-                this.deS.moveTo(paddingLeft + this.deU + 9, height2);
-                this.deS.lineTo(((getWidth() - paddingRight) - this.deU) - 9, height2);
-                canvas.drawPath(this.deS, this.deP);
+                this.dgD.reset();
+                this.dgD.moveTo(paddingLeft + this.dgF + 9, height2);
+                this.dgD.lineTo(((getWidth() - paddingRight) - this.dgF) - 9, height2);
+                canvas.drawPath(this.dgD, this.dgA);
             }
         }
     }

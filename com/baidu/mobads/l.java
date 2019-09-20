@@ -12,16 +12,16 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* loaded from: classes5.dex */
 public class l implements XAdView.Listener {
     final /* synthetic */ Context a;
-    final /* synthetic */ XAdView agM;
-    final /* synthetic */ d agN;
+    final /* synthetic */ XAdView ahi;
+    final /* synthetic */ d ahj;
     final /* synthetic */ String c;
     final /* synthetic */ boolean d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(d dVar, Context context, XAdView xAdView, String str, boolean z) {
-        this.agN = dVar;
+        this.ahj = dVar;
         this.a = context;
-        this.agM = xAdView;
+        this.ahi = xAdView;
         this.c = str;
         this.d = z;
     }
@@ -30,9 +30,9 @@ public class l implements XAdView.Listener {
     public void onWindowVisibilityChanged(int i) {
         com.baidu.mobads.production.g.a aVar;
         com.baidu.mobads.production.g.a aVar2;
-        aVar = this.agN.a;
+        aVar = this.ahj.a;
         if (aVar != null) {
-            aVar2 = this.agN.a;
+            aVar2 = this.ahj.a;
             aVar2.a(i);
         }
     }
@@ -41,9 +41,9 @@ public class l implements XAdView.Listener {
     public void onWindowFocusChanged(boolean z) {
         com.baidu.mobads.production.g.a aVar;
         com.baidu.mobads.production.g.a aVar2;
-        aVar = this.agN.a;
+        aVar = this.ahj.a;
         if (aVar != null) {
-            aVar2 = this.agN.a;
+            aVar2 = this.ahj.a;
             aVar2.a(z);
         }
     }
@@ -66,41 +66,41 @@ public class l implements XAdView.Listener {
         com.baidu.mobads.production.g.a aVar7;
         IOAdEventListener iOAdEventListener6;
         com.baidu.mobads.production.g.a aVar8;
-        aVar = this.agN.a;
+        aVar = this.ahj.a;
         if (aVar == null) {
             float screenDensity = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenDensity(this.a);
             if (i < 200.0f * screenDensity || i2 < screenDensity * 150.0f) {
                 XAdSDKFoundationFacade.getInstance().getAdLogger().e(XAdSDKFoundationFacade.getInstance().getErrorCode().genCompleteErrorMessage(XAdErrorCode.SHOW_STANDARD_UNFIT, "开屏显示区域太小,宽度至少200dp,高度至少150dp"));
-                eVar = this.agN.agE;
-                eVar.uw();
+                eVar = this.ahj.aha;
+                eVar.uA();
                 return;
             }
-            d dVar = this.agN;
+            d dVar = this.ahj;
             Context context = this.a;
-            XAdView xAdView = this.agM;
+            XAdView xAdView = this.ahi;
             String str = this.c;
             boolean z = this.d;
-            i3 = this.agN.b;
+            i3 = this.ahj.b;
             dVar.a = new com.baidu.mobads.production.g.a(context, xAdView, str, z, i, i2, i3);
-            aVar2 = this.agN.a;
-            iOAdEventListener = this.agN.agF;
+            aVar2 = this.ahj.a;
+            iOAdEventListener = this.ahj.ahb;
             aVar2.addEventListener("AdUserClick", iOAdEventListener);
-            aVar3 = this.agN.a;
-            iOAdEventListener2 = this.agN.agF;
+            aVar3 = this.ahj.a;
+            iOAdEventListener2 = this.ahj.ahb;
             aVar3.addEventListener(IXAdEvent.AD_LOADED, iOAdEventListener2);
-            aVar4 = this.agN.a;
-            iOAdEventListener3 = this.agN.agF;
+            aVar4 = this.ahj.a;
+            iOAdEventListener3 = this.ahj.ahb;
             aVar4.addEventListener(IXAdEvent.AD_STARTED, iOAdEventListener3);
-            aVar5 = this.agN.a;
-            iOAdEventListener4 = this.agN.agF;
+            aVar5 = this.ahj.a;
+            iOAdEventListener4 = this.ahj.ahb;
             aVar5.addEventListener(IXAdEvent.AD_STOPPED, iOAdEventListener4);
-            aVar6 = this.agN.a;
-            iOAdEventListener5 = this.agN.agF;
+            aVar6 = this.ahj.a;
+            iOAdEventListener5 = this.ahj.ahb;
             aVar6.addEventListener(IXAdEvent.AD_ERROR, iOAdEventListener5);
-            aVar7 = this.agN.a;
-            iOAdEventListener6 = this.agN.agF;
+            aVar7 = this.ahj.a;
+            iOAdEventListener6 = this.ahj.ahb;
             aVar7.addEventListener("AdTypeReady", iOAdEventListener6);
-            aVar8 = this.agN.a;
+            aVar8 = this.ahj.a;
             aVar8.request();
         }
     }
@@ -110,9 +110,9 @@ public class l implements XAdView.Listener {
     public void onDetachedFromWindow() {
         com.baidu.mobads.production.g.a aVar;
         com.baidu.mobads.production.g.a aVar2;
-        aVar = this.agN.a;
+        aVar = this.ahj.a;
         if (aVar != null) {
-            aVar2 = this.agN.a;
+            aVar2 = this.ahj.a;
             aVar2.o();
         }
     }
@@ -121,9 +121,9 @@ public class l implements XAdView.Listener {
     public void onAttachedToWindow() {
         com.baidu.mobads.production.g.a aVar;
         com.baidu.mobads.production.g.a aVar2;
-        aVar = this.agN.a;
+        aVar = this.ahj.a;
         if (aVar != null) {
-            aVar2 = this.agN.a;
+            aVar2 = this.ahj.a;
             aVar2.n();
         }
     }

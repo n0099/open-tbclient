@@ -13,12 +13,12 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
-    private final int cbW;
-    private ThreadForumEnterButton cbX;
-    private ThreadForumEnterButton cbY;
-    private ThreadForumEnterButton cbZ;
-    private int cca;
-    private int ccb;
+    private final int ccQ;
+    private ThreadForumEnterButton ccR;
+    private ThreadForumEnterButton ccS;
+    private ThreadForumEnterButton ccT;
+    private int ccU;
+    private int ccV;
 
     public ThreadForumEnterButtonContainer(Context context) {
         this(context, null);
@@ -30,26 +30,26 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
 
     public ThreadForumEnterButtonContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cbW = com.baidu.adp.lib.util.l.g(TbadkApplication.getInst(), R.dimen.tbds22);
+        this.ccQ = com.baidu.adp.lib.util.l.g(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
-        this.cbX = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
-        this.cbY = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
-        this.cbZ = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
-        this.cca = (((com.baidu.adp.lib.util.l.af(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.cbW) / 2;
-        this.ccb = (((com.baidu.adp.lib.util.l.af(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.cbW * 2)) / 3;
+        this.ccR = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
+        this.ccS = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
+        this.ccT = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
+        this.ccU = (((com.baidu.adp.lib.util.l.af(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.ccQ) / 2;
+        this.ccV = (((com.baidu.adp.lib.util.l.af(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.ccQ * 2)) / 3;
     }
 
-    public void y(bh bhVar) {
-        if (bhVar != null && !aq.isEmpty(bhVar.aeD())) {
-            if (this.cbX != null) {
-                this.cbX.x(bhVar);
+    public void z(bh bhVar) {
+        if (bhVar != null && !aq.isEmpty(bhVar.aeH())) {
+            if (this.ccR != null) {
+                this.ccR.y(bhVar);
                 setVisibility(0);
             }
-            if (this.cbY != null) {
-                this.cbY.setVisibility(8);
+            if (this.ccS != null) {
+                this.ccS.setVisibility(8);
             }
-            if (this.cbZ != null) {
-                this.cbZ.setVisibility(8);
+            if (this.ccT != null) {
+                this.ccT.setVisibility(8);
             }
         }
     }
@@ -57,47 +57,47 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public void a(bh bhVar, List<bd> list) {
         if (bhVar != null) {
             if (list == null || list.size() <= 1) {
-                y(bhVar);
+                z(bhVar);
             } else if (list.size() == 2) {
-                if (this.cbX != null && list.get(0) != null && !aq.isEmpty(list.get(0).getForumName())) {
+                if (this.ccR != null && list.get(0) != null && !aq.isEmpty(list.get(0).getForumName())) {
                     bh bhVar2 = new bh();
                     bhVar2.setId(bhVar.getId());
-                    bhVar2.mz(list.get(0).getForumName());
-                    bhVar2.setFid(com.baidu.adp.lib.g.b.c(list.get(0).getForumId(), 0L));
-                    this.cbX.a(bhVar2, this.cca);
+                    bhVar2.mB(list.get(0).getForumName());
+                    bhVar2.setFid(com.baidu.adp.lib.g.b.e(list.get(0).getForumId(), 0L));
+                    this.ccR.a(bhVar2, this.ccU);
                 }
-                if (this.cbY != null && list.get(1) != null && !aq.isEmpty(list.get(1).getForumName())) {
+                if (this.ccS != null && list.get(1) != null && !aq.isEmpty(list.get(1).getForumName())) {
                     bh bhVar3 = new bh();
                     bhVar3.setId(bhVar.getId());
-                    bhVar3.mz(list.get(1).getForumName());
-                    bhVar3.setFid(com.baidu.adp.lib.g.b.c(list.get(1).getForumId(), 0L));
-                    this.cbY.a(bhVar3, this.cca);
+                    bhVar3.mB(list.get(1).getForumName());
+                    bhVar3.setFid(com.baidu.adp.lib.g.b.e(list.get(1).getForumId(), 0L));
+                    this.ccS.a(bhVar3, this.ccU);
                 }
-                if (this.cbZ != null) {
-                    this.cbZ.setVisibility(8);
+                if (this.ccT != null) {
+                    this.ccT.setVisibility(8);
                 }
                 setVisibility(0);
             } else {
-                if (this.cbX != null && list.get(0) != null && !aq.isEmpty(list.get(0).getForumName())) {
+                if (this.ccR != null && list.get(0) != null && !aq.isEmpty(list.get(0).getForumName())) {
                     bh bhVar4 = new bh();
                     bhVar4.setId(bhVar.getId());
-                    bhVar4.mz(list.get(0).getForumName());
-                    bhVar4.setFid(com.baidu.adp.lib.g.b.c(list.get(0).getForumId(), 0L));
-                    this.cbX.a(bhVar4, this.ccb);
+                    bhVar4.mB(list.get(0).getForumName());
+                    bhVar4.setFid(com.baidu.adp.lib.g.b.e(list.get(0).getForumId(), 0L));
+                    this.ccR.a(bhVar4, this.ccV);
                 }
-                if (this.cbY != null && list.get(1) != null && !aq.isEmpty(list.get(1).getForumName())) {
+                if (this.ccS != null && list.get(1) != null && !aq.isEmpty(list.get(1).getForumName())) {
                     bh bhVar5 = new bh();
                     bhVar5.setId(bhVar.getId());
-                    bhVar5.mz(list.get(1).getForumName());
-                    bhVar5.setFid(com.baidu.adp.lib.g.b.c(list.get(1).getForumId(), 0L));
-                    this.cbY.a(bhVar5, this.ccb);
+                    bhVar5.mB(list.get(1).getForumName());
+                    bhVar5.setFid(com.baidu.adp.lib.g.b.e(list.get(1).getForumId(), 0L));
+                    this.ccS.a(bhVar5, this.ccV);
                 }
-                if (this.cbZ != null && list.get(2) != null && !aq.isEmpty(list.get(2).getForumName())) {
+                if (this.ccT != null && list.get(2) != null && !aq.isEmpty(list.get(2).getForumName())) {
                     bh bhVar6 = new bh();
                     bhVar6.setId(bhVar.getId());
-                    bhVar6.mz(list.get(2).getForumName());
-                    bhVar6.setFid(com.baidu.adp.lib.g.b.c(list.get(2).getForumId(), 0L));
-                    this.cbZ.a(bhVar6, this.ccb);
+                    bhVar6.mB(list.get(2).getForumName());
+                    bhVar6.setFid(com.baidu.adp.lib.g.b.e(list.get(2).getForumId(), 0L));
+                    this.ccT.a(bhVar6, this.ccV);
                 }
                 setVisibility(0);
             }
@@ -105,38 +105,38 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     }
 
     public void onChangeSkinType() {
-        if (this.cbX != null) {
-            this.cbX.onChangeSkinType();
+        if (this.ccR != null) {
+            this.ccR.onChangeSkinType();
         }
-        if (this.cbY != null) {
-            this.cbY.onChangeSkinType();
+        if (this.ccS != null) {
+            this.ccS.onChangeSkinType();
         }
-        if (this.cbZ != null) {
-            this.cbZ.onChangeSkinType();
+        if (this.ccT != null) {
+            this.ccT.onChangeSkinType();
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        if (this.cbX != null) {
-            this.cbX.setAfterClickListener(onClickListener);
+        if (this.ccR != null) {
+            this.ccR.setAfterClickListener(onClickListener);
         }
-        if (this.cbY != null) {
-            this.cbY.setAfterClickListener(onClickListener);
+        if (this.ccS != null) {
+            this.ccS.setAfterClickListener(onClickListener);
         }
-        if (this.cbZ != null) {
-            this.cbZ.setAfterClickListener(onClickListener);
+        if (this.ccT != null) {
+            this.ccT.setAfterClickListener(onClickListener);
         }
     }
 
     public void setFrom(int i) {
-        if (this.cbX != null) {
-            this.cbX.setFrom(i);
+        if (this.ccR != null) {
+            this.ccR.setFrom(i);
         }
-        if (this.cbY != null) {
-            this.cbY.setFrom(i);
+        if (this.ccS != null) {
+            this.ccS.setFrom(i);
         }
-        if (this.cbZ != null) {
-            this.cbZ.setFrom(i);
+        if (this.ccT != null) {
+            this.ccT.setFrom(i);
         }
     }
 }

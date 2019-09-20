@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.concern.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.RedNotify.DataReq;
 import tbclient.RedNotify.RedNotifyReqIdl;
 /* loaded from: classes4.dex */
@@ -19,7 +19,7 @@ public class CheckRedNotifyReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                s.bindCommonParamsToProtobufData(builder, true);
+                r.bindCommonParamsToProtobufData(builder, true);
             }
             RedNotifyReqIdl.Builder builder2 = new RedNotifyReqIdl.Builder();
             builder2.data = builder.build(false);

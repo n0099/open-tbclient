@@ -10,20 +10,20 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.aj.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0115a {
-        public boolean aXl;
+    public static class C0124a {
+        public boolean aXJ;
         public int level;
     }
 
     @Nullable
-    public static C0115a bE(@NonNull Context context) {
+    public static C0124a bE(@NonNull Context context) {
         Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         if (registerReceiver == null) {
             return null;
         }
-        C0115a c0115a = new C0115a();
-        c0115a.level = registerReceiver.getIntExtra("level", -1);
-        c0115a.aXl = registerReceiver.getIntExtra("plugged", 0) != 0;
-        return c0115a;
+        C0124a c0124a = new C0124a();
+        c0124a.level = registerReceiver.getIntExtra("level", -1);
+        c0124a.aXJ = registerReceiver.getIntExtra("plugged", 0) != 0;
+        return c0124a;
     }
 }

@@ -1,24 +1,35 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import java.util.ArrayList;
-/* loaded from: classes3.dex */
-public class v {
-    private String cgH;
-    private ArrayList<Object> cgI;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class v extends com.baidu.tbadk.core.data.k {
+    private long mStartTime = Long.MAX_VALUE;
+    private long aHr = 0;
+    private String chB = null;
 
-    public v() {
-        v(new ArrayList<>());
+    @Override // com.baidu.tbadk.core.data.k
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.mStartTime = jSONObject.optLong("start_time", Long.MAX_VALUE);
+                this.aHr = jSONObject.optLong("end_time", 0L);
+                this.chB = jSONObject.optString("dest_url", "");
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
     }
 
-    public String amD() {
-        return this.cgH;
+    public long getStartTime() {
+        return this.mStartTime;
     }
 
-    public ArrayList<Object> amE() {
-        return this.cgI;
+    public long getEndTime() {
+        return this.aHr;
     }
 
-    public void v(ArrayList<Object> arrayList) {
-        this.cgI = arrayList;
+    public String amO() {
+        return this.chB;
     }
 }

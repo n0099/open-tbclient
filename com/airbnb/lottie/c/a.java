@@ -9,7 +9,7 @@ public class a {
         return f <= 0.04045f ? f / 12.92f : (float) Math.pow((0.055f + f) / 1.055f, 2.4000000953674316d);
     }
 
-    public static int a(float f, int i, int i2) {
+    public static int b(float f, int i, int i2) {
         float f2 = ((i >> 24) & 255) / 255.0f;
         float k = k(((i >> 16) & 255) / 255.0f);
         float k2 = k(((i >> 8) & 255) / 255.0f);

@@ -17,14 +17,21 @@ import java.net.InetSocketAddress;
 import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
+import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.HttpHost;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class RequestEngine {
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v29, types: [java.net.HttpURLConnection] */
     public static WbResponse request(IRequestParam iRequestParam) throws RequestException {
-        HttpURLConnection httpURLConnection;
+        HttpsURLConnection httpsURLConnection;
         String url = iRequestParam.getUrl();
         if (TextUtils.isEmpty(url) || (!url.startsWith(HttpHost.DEFAULT_SCHEME_NAME) && !url.startsWith("https"))) {
             throw new RequestException("非法的请求地址");
@@ -36,26 +43,39 @@ public class RequestEngine {
             proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress((String) apn.first, ((Integer) apn.second).intValue()));
         }
         try {
-            URL url2 = new URL(buildCompleteUri);
-            if (buildCompleteUri.startsWith("https")) {
-                if (proxy == null) {
-                    httpURLConnection = (HttpsURLConnection) url2.openConnection();
-                } else {
-                    httpURLConnection = (HttpsURLConnection) url2.openConnection(proxy);
-                }
-            } else if (proxy == null) {
-                httpURLConnection = (HttpURLConnection) url2.openConnection();
+            final URL url2 = new URL(buildCompleteUri);
+            if (proxy == null) {
+                httpsURLConnection = (HttpURLConnection) url2.openConnection();
             } else {
-                httpURLConnection = (HttpURLConnection) url2.openConnection(proxy);
+                httpsURLConnection = (HttpsURLConnection) url2.openConnection(proxy);
             }
-            setRequestHeader(httpURLConnection, iRequestParam.getHeader());
+            if ("https".equalsIgnoreCase(url2.getProtocol())) {
+                HttpsURLConnection httpsURLConnection2 = httpsURLConnection;
+                httpsURLConnection2.setHostnameVerifier(new HostnameVerifier() { // from class: com.sina.weibo.sdk.network.impl.RequestEngine.1
+                    @Override // javax.net.ssl.HostnameVerifier
+                    public boolean verify(String str, SSLSession sSLSession) {
+                        String host = url2.getHost();
+                        if (TextUtils.isEmpty(host) || !host.equals(str)) {
+                            return false;
+                        }
+                        return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
+                    }
+                });
+                try {
+                    httpsURLConnection2.setSSLSocketFactory(SSLContext.getDefault().getSocketFactory());
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                    httpsURLConnection2.setSSLSocketFactory((SSLSocketFactory) SSLSocketFactory.getDefault());
+                }
+            }
+            setRequestHeader(httpsURLConnection, iRequestParam.getHeader());
             Bundle bundle = new Bundle();
             String str = "------------" + RequestBodyHelper.getBoundry();
             if (iRequestParam.getMethod() == IRequestParam.RequestType.POST) {
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
-                httpURLConnection.setUseCaches(false);
+                httpsURLConnection.setRequestMethod("POST");
+                httpsURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                httpsURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
+                httpsURLConnection.setUseCaches(false);
                 if (iRequestParam.getPostBundle().getByteArray(RequestParam.KEY_PARAM_BODY_BYTE_ARRAY) != null) {
                     bundle.putString("Content-Type", "application/octet-stream");
                 } else if (RequestBodyHelper.isMultipartRequest(iRequestParam)) {
@@ -63,35 +83,35 @@ public class RequestEngine {
                 } else {
                     bundle.putString("Content-Type", URLEncodedUtils.CONTENT_TYPE);
                 }
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
+                httpsURLConnection.setDoInput(true);
+                httpsURLConnection.setDoOutput(true);
             } else if (iRequestParam.getMethod() == IRequestParam.RequestType.GET) {
-                httpURLConnection.setRequestMethod("GET");
+                httpsURLConnection.setRequestMethod("GET");
             } else if (iRequestParam.getMethod() == IRequestParam.RequestType.PATCH) {
-                httpURLConnection.setRequestMethod("PATCH");
+                httpsURLConnection.setRequestMethod("PATCH");
             }
-            httpURLConnection.setReadTimeout(iRequestParam.getResponseTimeout());
-            httpURLConnection.setConnectTimeout(iRequestParam.getRequestTimeout());
-            setRequestHeader(httpURLConnection, bundle);
-            httpURLConnection.connect();
+            httpsURLConnection.setReadTimeout(iRequestParam.getResponseTimeout());
+            httpsURLConnection.setConnectTimeout(iRequestParam.getRequestTimeout());
+            setRequestHeader(httpsURLConnection, bundle);
+            httpsURLConnection.connect();
             if (iRequestParam.getMethod() != IRequestParam.RequestType.GET) {
-                RequestBodyHelper.fillRequestBody(iRequestParam, httpURLConnection, str);
+                RequestBodyHelper.fillRequestBody(iRequestParam, httpsURLConnection, str);
             }
-            int responseCode = httpURLConnection.getResponseCode();
+            int responseCode = httpsURLConnection.getResponseCode();
             if (responseCode == 200) {
-                return new WbResponse(new WbResponseBody(httpURLConnection.getInputStream(), httpURLConnection.getContentLength()));
+                return new WbResponse(new WbResponseBody(httpsURLConnection.getInputStream(), httpsURLConnection.getContentLength()));
             }
             if (responseCode == 302 || responseCode == 301) {
-                iRequestParam.setUrl(httpURLConnection.getHeaderField("Location"));
+                iRequestParam.setUrl(httpsURLConnection.getHeaderField("Location"));
                 return request(iRequestParam);
             }
-            throw new RequestException("服务器异常" + new WbResponseBody(httpURLConnection.getErrorStream(), httpURLConnection.getContentLength()).string());
-        } catch (MalformedURLException e) {
-            LogUtil.v("weibosdk", e.toString());
-            throw new RequestException("请求异常" + e.toString());
-        } catch (IOException e2) {
+            throw new RequestException("服务器异常" + new WbResponseBody(httpsURLConnection.getErrorStream(), httpsURLConnection.getContentLength()).string());
+        } catch (MalformedURLException e2) {
             LogUtil.v("weibosdk", e2.toString());
             throw new RequestException("请求异常" + e2.toString());
+        } catch (IOException e3) {
+            LogUtil.v("weibosdk", e3.toString());
+            throw new RequestException("请求异常" + e3.toString());
         }
     }
 
@@ -101,8 +121,5 @@ public class RequestEngine {
                 httpURLConnection.addRequestProperty(str, String.valueOf(bundle.get(str)));
             }
         }
-    }
-
-    private static void fillRequestBody(HttpURLConnection httpURLConnection, RequestParam requestParam) {
     }
 }

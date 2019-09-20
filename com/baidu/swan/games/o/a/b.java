@@ -10,7 +10,7 @@ public class b {
     @V8JavascriptField
     public String value;
 
-    public boolean SL() {
+    public boolean SP() {
         try {
             if (this.key != null) {
                 if (this.key.getBytes(HTTP.UTF_8).length <= 128) {
@@ -24,7 +24,7 @@ public class b {
         }
     }
 
-    public boolean SM() {
+    public boolean SQ() {
         try {
             if (this.key != null && this.value != null) {
                 if (this.key.getBytes(HTTP.UTF_8).length + this.value.getBytes(HTTP.UTF_8).length <= 1024) {

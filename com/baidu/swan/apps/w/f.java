@@ -8,30 +8,30 @@ import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes2.dex */
 public class f implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f aAk;
-    private int aAl;
-    private boolean asc = false;
+    private static volatile f aAI;
+    private int aAJ;
+    private boolean asA = false;
 
-    public static f GI() {
-        if (aAk == null) {
+    public static f GM() {
+        if (aAI == null) {
             synchronized (f.class) {
-                if (aAk == null) {
-                    aAk = new f();
+                if (aAI == null) {
+                    aAI = new f();
                 }
             }
         }
-        return aAk;
+        return aAI;
     }
 
     private f() {
     }
 
-    public void GJ() {
-        com.baidu.swan.apps.u.a.Ek().registerActivityLifecycleCallbacks(this);
+    public void GN() {
+        com.baidu.swan.apps.u.a.Eo().registerActivityLifecycleCallbacks(this);
     }
 
-    public void GK() {
-        com.baidu.swan.apps.u.a.Ek().unregisterActivityLifecycleCallbacks(this);
+    public void GO() {
+        com.baidu.swan.apps.u.a.Eo().unregisterActivityLifecycleCallbacks(this);
     }
 
     private void H(Activity activity) {
@@ -39,7 +39,7 @@ public class f implements Application.ActivityLifecycleCallbacks {
             if (DEBUG) {
                 Log.d("SwanAppLifecycle", "onBackgroundToForeground");
             }
-            this.asc = true;
+            this.asA = true;
         }
     }
 
@@ -48,12 +48,12 @@ public class f implements Application.ActivityLifecycleCallbacks {
             if (DEBUG) {
                 Log.d("SwanAppLifecycle", "onForegroundToBackground");
             }
-            this.asc = false;
+            this.asA = false;
         }
     }
 
-    public boolean GL() {
-        return this.asc;
+    public boolean GP() {
+        return this.asA;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -62,8 +62,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        this.aAl++;
-        if (this.aAl == 1) {
+        this.aAJ++;
+        if (this.aAJ == 1) {
             H(activity);
         }
     }
@@ -78,8 +78,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
-        this.aAl--;
-        if (this.aAl == 0) {
+        this.aAJ--;
+        if (this.aAJ == 0) {
             I(activity);
         }
     }

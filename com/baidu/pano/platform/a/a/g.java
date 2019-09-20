@@ -1,6 +1,5 @@
 package com.baidu.pano.platform.a.a;
 
-import com.baidu.mapapi.UIMsg;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
@@ -40,7 +39,7 @@ public class g implements i {
         a(b);
         HttpParams params = b.getParams();
         int t = nVar.t();
-        HttpConnectionParams.setConnectionTimeout(params, UIMsg.m_AppUI.MSG_APP_GPS);
+        HttpConnectionParams.setConnectionTimeout(params, 5000);
         HttpConnectionParams.setSoTimeout(params, t);
         return this.a.execute(b);
     }

@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes4.dex */
 public class h {
-    private String bAM;
-    private String cVx;
-    private boolean cVy;
-    private long cVz = -1;
-    private long cVA = -1;
-    private long cVB = 0;
-    private long cVC = 0;
+    private String bBk;
+    private String cWq;
+    private boolean cWr;
+    private long cWs = -1;
+    private long cWt = -1;
+    private long cWu = 0;
+    private long cWv = 0;
 
-    public String aCh() {
-        return this.cVx;
+    public String aCv() {
+        return this.cWq;
     }
 
-    public void rV(String str) {
-        this.cVx = str;
+    public void sg(String str) {
+        this.cWq = str;
     }
 
-    public String aCi() {
-        return this.bAM;
+    public String aCw() {
+        return this.bBk;
     }
 
-    public void rW(String str) {
-        this.bAM = str;
+    public void sh(String str) {
+        this.bBk = str;
     }
 
-    public boolean aCj() {
-        return this.cVy;
+    public boolean aCx() {
+        return this.cWr;
     }
 
-    public void gj(boolean z) {
-        this.cVy = z;
+    public void gm(boolean z) {
+        this.cWr = z;
     }
 
-    public long aCk() {
-        return this.cVz;
+    public long aCy() {
+        return this.cWs;
     }
 
-    public void bL(long j) {
-        this.cVz = j;
+    public void bO(long j) {
+        this.cWs = j;
     }
 
-    public long aCl() {
-        return this.cVA;
+    public long aCz() {
+        return this.cWt;
     }
 
-    public void bM(long j) {
-        this.cVA = j;
+    public void bP(long j) {
+        this.cWt = j;
     }
 
     public long getTotalLength() {
-        return this.cVB;
+        return this.cWu;
     }
 
-    public void be(long j) {
-        this.cVB = j;
+    public void bh(long j) {
+        this.cWu = j;
     }
 
-    public void bN(long j) {
-        this.cVC = j;
+    public void bQ(long j) {
+        this.cWv = j;
     }
 
-    public long aCm() {
-        return this.cVC;
+    public long aCA() {
+        return this.cWv;
     }
 }

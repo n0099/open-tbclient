@@ -2,7 +2,7 @@ package com.baidu.tieba.square.forumlist;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.GetForumsFromForumClass.DataReq;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassReqIdl;
 /* loaded from: classes5.dex */
@@ -31,7 +31,7 @@ public class SquareForumListReq extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         GetForumsFromForumClassReqIdl.Builder builder2 = new GetForumsFromForumClassReqIdl.Builder();
         builder.limit = Integer.valueOf(this.pageLimit);

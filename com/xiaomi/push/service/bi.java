@@ -20,7 +20,7 @@ public class bi extends k.b {
     @Override // com.xiaomi.channel.commonutils.misc.k.b
     public void b() {
         try {
-            a.C0491a b = a.C0491a.b(Base64.decode(HttpUtils.a(com.xiaomi.channel.commonutils.android.n.a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.channel.commonutils.network.c>) null), 10));
+            a.C0497a b = a.C0497a.b(Base64.decode(HttpUtils.a(com.xiaomi.channel.commonutils.android.n.a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.channel.commonutils.network.c>) null), 10));
             if (b != null) {
                 this.b.c = b;
                 this.a = true;
@@ -36,7 +36,7 @@ public class bi extends k.b {
         List list;
         List list2;
         bh.a[] aVarArr;
-        a.C0491a c0491a;
+        a.C0497a c0497a;
         this.b.d = null;
         if (this.a) {
             synchronized (this.b) {
@@ -45,8 +45,8 @@ public class bi extends k.b {
                 aVarArr = (bh.a[]) list.toArray(new bh.a[list2.size()]);
             }
             for (bh.a aVar : aVarArr) {
-                c0491a = this.b.c;
-                aVar.a(c0491a);
+                c0497a = this.b.c;
+                aVar.a(c0497a);
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.sapi2;
 
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.scheme.SapiScheme;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiEnv;
@@ -18,13 +19,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class SapiOptions {
-    private static final String A = "extrajson_limit_len";
-    private static final String B = "share_direction";
-    private static final String C = "pass_httpclient_async_cookie";
-    private static final String D = "reset_file_exec_per";
-    private static final String E = "cm_oauth_gray";
-    private static final String F = "sid_key";
-    private static final String G = "rim_back_tpl_list";
+    private static final String A = "pass_httpclient_async_cookie";
+    private static final String B = "reset_file_exec_per";
+    private static final String C = "cm_oauth_gray";
+    private static final String D = "sid_key";
+    private static final String E = "rim_back_tpl_list";
+    private static final String F = "gray";
+    private static final int G = 1000000;
     public static final String KEY_CHINA_CT_LOGIN_GRAY = "ct_gray";
     private static final String Q = "登录后%s将获得百度帐号的公开信息（用户名、头像）";
     private static final String a = "fast_reg_sms_num";
@@ -47,16 +48,14 @@ public final class SapiOptions {
     private static final String r = "phone_risks_tpls";
     private static final String s = "share_inter_storage_gray";
     private static final String t = "share_livinguname_enabled";
-    private static final String u = "face_login_check_enabled";
-    private static final String v = "di_except_index";
-    private static final String w = "share_account_gray";
-    private static final String x = "share_common_storage_enable";
-    private static final String y = "join_qr_login_prompt";
-    private static final String z = "face_login_check_freq_v2";
+    private static final String u = "di_except_index";
+    private static final String v = "share_account_gray";
+    private static final String w = "share_common_storage_enable";
+    private static final String x = "join_qr_login_prompt";
+    private static final String y = "extrajson_limit_len";
+    private static final String z = "share_direction";
     private LoginShareStrategy J;
     public int chinaMobileOauthGray;
-    public boolean faceLoginCheckEnabled;
-    public int faceLoginCheckFreq;
     public boolean httpClientAsyncCookie;
     public int loginStatExtraLimitLen;
     public boolean resetFileExecPer;
@@ -74,9 +73,10 @@ public final class SapiOptions {
     public List<String> phoneRisksTpls = new ArrayList();
     public Map<String, String> shareDirection = new HashMap();
     public int shareInterGray = 100;
-    public int ctGray = 1000000;
+    public int ctGray = G;
     public String joinQrLoginPrompt = Q;
     private Cache H = new Cache();
+    public b gray = new b();
     private String I = SapiEnv.FAST_REG_SMS_NUMBER;
 
     public String getFastRegSmsNum() {
@@ -134,38 +134,37 @@ public final class SapiOptions {
             jSONObject.put(g, this.H.a());
             jSONObject.put(a, this.I);
             jSONObject.put(t, this.shareLivingunameEnabled);
-            jSONObject.put(u, this.faceLoginCheckEnabled);
-            jSONObject.put(x, this.shareCommonStorageEnable);
-            jSONObject.put(z, this.faceLoginCheckFreq);
+            jSONObject.put(w, this.shareCommonStorageEnable);
             jSONObject.put(s, this.shareInterGray);
             if (this.J != null) {
                 jSONObject.put(b, this.J.getStrValue());
             }
             jSONObject.put(d, this.K);
-            jSONObject.put(E, this.chinaMobileOauthGray);
+            jSONObject.put(C, this.chinaMobileOauthGray);
             JSONObject jSONObject2 = new JSONObject();
             for (Map.Entry<String, LoginShareStrategy> entry : this.L.entrySet()) {
                 jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
             }
             jSONObject.put(c, jSONObject2);
-            b(jSONObject, B, this.shareDirection);
+            b(jSONObject, z, this.shareDirection);
             a(jSONObject, e, this.M);
             a(jSONObject, f, this.N);
             a(jSONObject, p, this.O);
             a(jSONObject, q, this.P);
-            a(jSONObject, G, this.rimBackTplList);
+            a(jSONObject, E, this.rimBackTplList);
             a(jSONObject, r, this.phoneRisksTpls);
             JSONArray jSONArray = new JSONArray();
             for (Integer num : this.diExceptIndex) {
                 jSONArray.put(num);
             }
-            jSONObject.put(v, jSONArray);
-            jSONObject.put(A, this.loginStatExtraLimitLen);
-            jSONObject.put(C, this.httpClientAsyncCookie);
-            jSONObject.put(D, this.resetFileExecPer);
-            jSONObject.put(F, this.sidKeys);
-            jSONObject.put(y, this.joinQrLoginPrompt);
+            jSONObject.put(u, jSONArray);
+            jSONObject.put(y, this.loginStatExtraLimitLen);
+            jSONObject.put(A, this.httpClientAsyncCookie);
+            jSONObject.put(B, this.resetFileExecPer);
+            jSONObject.put(D, this.sidKeys);
+            jSONObject.put(x, this.joinQrLoginPrompt);
             jSONObject.put(KEY_CHINA_CT_LOGIN_GRAY, this.ctGray);
+            jSONObject.put(F, this.gray.a());
             return jSONObject.toString();
         } catch (Throwable th) {
             return null;
@@ -220,13 +219,11 @@ public final class SapiOptions {
             a(jSONObject, sapiOptions);
         }
         sapiOptions.I = jSONObject.optString(a, SapiEnv.FAST_REG_SMS_NUMBER);
-        sapiOptions.faceLoginCheckEnabled = jSONObject.optBoolean(u, true);
         sapiOptions.shareLivingunameEnabled = jSONObject.optBoolean(t);
-        sapiOptions.shareCommonStorageEnable = jSONObject.optBoolean(x);
-        sapiOptions.faceLoginCheckFreq = jSONObject.optInt(z, 24);
+        sapiOptions.shareCommonStorageEnable = jSONObject.optBoolean(w);
         sapiOptions.K = jSONObject.optBoolean(d, true);
         sapiOptions.shareInterGray = jSONObject.optInt(s, 0);
-        sapiOptions.chinaMobileOauthGray = jSONObject.optInt(E, 0);
+        sapiOptions.chinaMobileOauthGray = jSONObject.optInt(C, 0);
         String optString = jSONObject.optString(b);
         if (!TextUtils.isEmpty(optString)) {
             sapiOptions.J = LoginShareStrategy.mapStrToValue(optString);
@@ -239,26 +236,27 @@ public final class SapiOptions {
                 sapiOptions.L.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
             }
         }
-        b(jSONObject.optJSONObject(B), sapiOptions.shareDirection);
+        b(jSONObject.optJSONObject(z), sapiOptions.shareDirection);
         a(jSONObject.optJSONArray(e), sapiOptions.M);
         a(jSONObject.optJSONArray(f), sapiOptions.N);
         a(jSONObject.optJSONArray(p), sapiOptions.O);
         a(jSONObject.optJSONArray(q), sapiOptions.P);
-        a(jSONObject.optJSONArray(G), sapiOptions.rimBackTplList);
+        a(jSONObject.optJSONArray(E), sapiOptions.rimBackTplList);
         a(jSONObject.optJSONArray(r), sapiOptions.phoneRisksTpls);
-        JSONArray optJSONArray = jSONObject.optJSONArray(v);
+        JSONArray optJSONArray = jSONObject.optJSONArray(u);
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 sapiOptions.diExceptIndex.add(Integer.valueOf(optJSONArray.optInt(i2)));
             }
         }
-        sapiOptions.loginStatExtraLimitLen = jSONObject.optInt(A, 100);
-        sapiOptions.httpClientAsyncCookie = jSONObject.optBoolean(C, false);
-        sapiOptions.resetFileExecPer = jSONObject.optBoolean(D, false);
-        sapiOptions.sidKeys = jSONObject.optString(F, "");
-        sapiOptions.joinQrLoginPrompt = jSONObject.optString(y, Q);
-        sapiOptions.ctGray = jSONObject.optInt(KEY_CHINA_CT_LOGIN_GRAY, 1000000);
+        sapiOptions.loginStatExtraLimitLen = jSONObject.optInt(y, 100);
+        sapiOptions.httpClientAsyncCookie = jSONObject.optBoolean(A, false);
+        sapiOptions.resetFileExecPer = jSONObject.optBoolean(B, false);
+        sapiOptions.sidKeys = jSONObject.optString(D, "");
+        sapiOptions.joinQrLoginPrompt = jSONObject.optString(x, Q);
+        sapiOptions.ctGray = jSONObject.optInt(KEY_CHINA_CT_LOGIN_GRAY, G);
+        sapiOptions.gray = b.a(jSONObject);
         return sapiOptions;
     }
 
@@ -300,21 +298,6 @@ public final class SapiOptions {
             return this.a;
         }
 
-        JSONObject c() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(SapiOptions.i, this.a);
-                JSONArray jSONArray = new JSONArray();
-                for (Cache.Module module : a()) {
-                    jSONArray.put(module.a());
-                }
-                jSONObject.put(SapiOptions.l, jSONArray);
-                return jSONObject;
-            } catch (Throwable th) {
-                return null;
-            }
-        }
-
         static a a(JSONObject jSONObject) {
             a aVar = new a();
             if (jSONObject != null) {
@@ -328,6 +311,103 @@ public final class SapiOptions {
                 }
             }
             return aVar;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class b {
+        public static final String a = "finger";
+        static String b = "v";
+        static String c = "p";
+        static String d = Config.EXCEPTION_PART;
+        static String e = "meet";
+        static String f = "t";
+        private Map<String, a> g = new HashMap();
+
+        static b a(JSONObject jSONObject) {
+            b bVar = new b();
+            JSONObject optJSONObject = jSONObject.optJSONObject(SapiOptions.F);
+            if (optJSONObject != null) {
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String obj = keys.next().toString();
+                    if (obj != null && !"".equals(obj)) {
+                        bVar.g.put(obj, a.a(obj, optJSONObject.optJSONObject(obj)));
+                    }
+                }
+            }
+            return bVar;
+        }
+
+        JSONObject a() {
+            JSONObject jSONObject = new JSONObject();
+            for (String str : this.g.keySet()) {
+                try {
+                    jSONObject.put(str, this.g.get(str).a());
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                }
+            }
+            return jSONObject;
+        }
+
+        public a a(String str) {
+            a aVar = this.g.get(str);
+            if (aVar == null) {
+                a aVar2 = new a();
+                aVar2.c = true;
+                return aVar2;
+            }
+            return aVar;
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        /* loaded from: classes.dex */
+        public static class a {
+            String a;
+            long b;
+            boolean c;
+            String d;
+
+            a() {
+            }
+
+            JSONObject a() {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(b.b, this.a);
+                    jSONObject.put(b.c, this.b);
+                    jSONObject.put(b.d, this.d);
+                    jSONObject.put(b.e, this.c);
+                    return jSONObject;
+                } catch (Throwable th) {
+                    return null;
+                }
+            }
+
+            static a a(String str, JSONObject jSONObject) {
+                SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+                a aVar = new a();
+                JSONObject optJSONObject = jSONObject.has(b.f) ? jSONObject.optJSONObject(b.f).optJSONObject(confignation.tpl) : new JSONObject();
+                if (optJSONObject == null) {
+                    optJSONObject = new JSONObject();
+                }
+                aVar.a = optJSONObject.has(b.b) ? optJSONObject.optString(b.b) : jSONObject.optString(b.b);
+                aVar.b = optJSONObject.has(b.c) ? optJSONObject.optLong(b.c) : jSONObject.optLong(b.c);
+                aVar.d = optJSONObject.has(b.d) ? optJSONObject.optString(b.d) : jSONObject.optString(b.d);
+                long j = SapiContext.getInstance(confignation.context).getLong(str, -1L);
+                if (j == -1) {
+                    Random random = new Random();
+                    random.setSeed(System.currentTimeMillis());
+                    j = random.nextInt(SapiOptions.G);
+                    SapiContext.getInstance(confignation.context).put(str, j);
+                }
+                aVar.c = aVar.b >= j;
+                if (!TextUtils.isEmpty(aVar.a) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), aVar.a) < 0) {
+                    aVar.c = false;
+                }
+                return aVar;
+            }
         }
     }
 
@@ -480,7 +560,6 @@ public final class SapiOptions {
         Map<String, String> a() {
             HashMap hashMap = new HashMap();
             hashMap.put("com.baidu.BaiduMap(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
-            hashMap.put("com.baidu.minivideo", "7fd3727852d29eb6f4283988dc0d6150");
             hashMap.put("com.nuomi.merchant", "59215ee95c063ff2c56226581a62130a");
             hashMap.put("com.baidu.hi", "c2b0b497d0389e6de1505e7fd8f4d539");
             hashMap.put("com.baidu.finance", "3029dbf5932d8d9cd70d3f6e61a1bfaf");
@@ -571,6 +650,7 @@ public final class SapiOptions {
             hashMap.put("com.baidu.car.radio", "246ed007729a5f84a1886adfebce0d63");
             hashMap.put("com.baidu.che.codriver", "5a7c4b062a2292a56f5b7ff283bf3da5");
             hashMap.put("com.baidu.searchcraft", "88f73a1aa8439d646e7ee31c92684f9a");
+            hashMap.put("com.baidu.minivideo", "7fd3727852d29eb6f4283988dc0d6150");
             return hashMap;
         }
 

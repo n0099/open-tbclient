@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class i implements k {
-    private List<k> kBz;
-    private volatile boolean kvO;
+    private List<k> kDR;
+    private volatile boolean kyh;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.kBz = new LinkedList(Arrays.asList(kVarArr));
+        this.kDR = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.kBz = new LinkedList();
-        this.kBz.add(kVar);
+        this.kDR = new LinkedList();
+        this.kDR.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.kvO;
+        return this.kyh;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.kvO) {
+            if (!this.kyh) {
                 synchronized (this) {
-                    if (!this.kvO) {
-                        List list = this.kBz;
+                    if (!this.kyh) {
+                        List list = this.kDR;
                         if (list == null) {
                             list = new LinkedList();
-                            this.kBz = list;
+                            this.kDR = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.kvO) {
+        if (!this.kyh) {
             synchronized (this) {
-                List<k> list = this.kBz;
-                if (!this.kvO && list != null) {
+                List<k> list = this.kDR;
+                if (!this.kyh && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.kvO) {
+        if (!this.kyh) {
             synchronized (this) {
-                if (!this.kvO) {
-                    this.kvO = true;
-                    List<k> list = this.kBz;
-                    this.kBz = null;
+                if (!this.kyh) {
+                    this.kyh = true;
+                    List<k> list = this.kDR;
+                    this.kDR = null;
                     n(list);
                 }
             }

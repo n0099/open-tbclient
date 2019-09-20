@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes4.dex */
 public class ab {
-    public String hSJ;
-    public boolean hSK;
-    public boolean hSL;
-    public boolean hSw = false;
-    public boolean hSx = false;
+    public String hUG;
+    public boolean hUH;
+    public boolean hUI;
+    public boolean hUt = false;
+    public boolean hUu = false;
     public boolean oy = false;
-    public boolean hSy = false;
-    public boolean hSz = false;
-    public boolean hSA = false;
-    public boolean hSB = false;
-    public boolean hSC = false;
-    public boolean hSD = false;
-    public boolean hSE = false;
-    public boolean hSF = false;
-    public boolean hSG = false;
-    public boolean hSH = false;
-    public boolean hSI = false;
+    public boolean hUv = false;
+    public boolean hUw = false;
+    public boolean hUx = false;
+    public boolean hUy = false;
+    public boolean hUz = false;
+    public boolean hUA = false;
+    public boolean hUB = false;
+    public boolean hUC = false;
+    public boolean hUD = false;
+    public boolean hUE = false;
+    public boolean hUF = false;
     public boolean isHostOnly = false;
 }

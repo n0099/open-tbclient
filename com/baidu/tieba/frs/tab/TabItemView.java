@@ -12,25 +12,25 @@ import com.baidu.tieba.R;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
 public class TabItemView extends TextView {
-    private d fQc;
-    private boolean fQd;
-    private int fQe;
+    private d fRT;
+    private boolean fRU;
+    private int fRV;
     private int mState;
-    public static int fQa = 0;
-    public static int fQb = 1;
+    public static int fRR = 0;
+    public static int fRS = 1;
     public static int STATE_EXPANDED = 2;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = fQa;
-        this.fQe = 0;
-        this.fQc = dVar;
-        this.fQd = z;
+        this.mState = fRR;
+        this.fRV = 0;
+        this.fRT = dVar;
+        this.fRU = z;
         m(context, i);
     }
 
     private void m(Context context, int i) {
-        if (this.fQd) {
+        if (this.fRU) {
             setPadding(0, l.g(getContext(), R.dimen.tbds20), 0, 0);
             setTextSize(0, l.g(context, R.dimen.tbds42));
         } else {
@@ -38,16 +38,16 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.fQc != null) {
-            setText(this.fQc.name);
+        if (this.fRT != null) {
+            setText(this.fRT.name);
         }
-        akN();
+        akZ();
     }
 
     public void setState(int i) {
-        if (this.fQc != null && this.fQc.fPZ != null && this.fQc.fPZ.fyb != null && this.fQc.fPZ.fyb.size() > 0) {
+        if (this.fRT != null && this.fRT.fRQ != null && this.fRT.fRQ.fzO != null && this.fRT.fRQ.fzO.size() > 0) {
             int i2 = -l.g(getContext(), R.dimen.tbds20);
-            if (!this.fQd) {
+            if (!this.fRU) {
                 i2 = 0;
             }
             if (i == STATE_EXPANDED) {
@@ -61,14 +61,14 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
         }
-        if (this.fQd) {
+        if (this.fRU) {
             am.f(this, R.color.cp_cont_b, 1);
         } else {
-            if (i == fQb || i == STATE_EXPANDED) {
-                if (this.fQe == 0) {
+            if (i == fRS || i == STATE_EXPANDED) {
+                if (this.fRV == 0) {
                     am.f(this, R.color.cp_link_tip_a, 1);
                 } else {
-                    am.f(this, this.fQe, 1);
+                    am.f(this, this.fRV, 1);
                 }
             } else {
                 am.f(this, R.color.cp_cont_f, 1);
@@ -80,17 +80,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.fQc == null) {
+        if (this.fRT == null) {
             return -1;
         }
-        return this.fQc.tabId;
+        return this.fRT.tabId;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void akN() {
+    public void akZ() {
         setState(this.mState);
     }
 
@@ -98,7 +98,7 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.fQd) {
+            if (this.fRU) {
                 setPadding(0, l.g(getContext(), R.dimen.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.fQc == null) {
+        if (this.fRT == null) {
             return null;
         }
-        return this.fQc.url;
+        return this.fRT.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.fQd = z;
+        this.fRU = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.fQe = i;
+        this.fRV = i;
     }
 }

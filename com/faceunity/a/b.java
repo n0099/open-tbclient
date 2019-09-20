@@ -5,21 +5,21 @@ import android.support.annotation.NonNull;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class b {
-    private static b kmM;
-    private boolean kmN;
+    private static b kpj;
+    private boolean kpk;
     private AudioRecord mAudioRecord;
-    private static final int[] kmJ = {1, 0, 5, 7, 6};
-    public static int kmK = 48000;
+    private static final int[] kpg = {1, 0, 5, 7, 6};
+    public static int kph = 48000;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int kmL = 24;
+    public static int kpi = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(kmK, 16, 2);
-        int i = SAMPLES_PER_FRAME * kmL;
+        int minBufferSize = AudioRecord.getMinBufferSize(kph, 16, 2);
+        int i = SAMPLES_PER_FRAME * kpi;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : kmJ) {
+        for (int i2 : kpg) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, kmK, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, kph, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -30,8 +30,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.kmN) {
-            this.kmN = true;
+        if (!this.kpk) {
+            this.kpk = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -48,11 +48,11 @@ public class b {
 
     public void tE() {
         if (this.mAudioRecord != null) {
-            if (kmM != null && !kmM.cMd()) {
-                kmM.release();
+            if (kpj != null && !kpj.cMR()) {
+                kpj.release();
             }
             this.mAudioRecord.startRecording();
-            kmM = this;
+            kpj = this;
         }
     }
 
@@ -62,11 +62,11 @@ public class b {
         }
     }
 
-    public boolean cMd() {
-        return this.kmN;
+    public boolean cMR() {
+        return this.kpk;
     }
 
-    public AudioRecord cMe() {
+    public AudioRecord cMS() {
         return this.mAudioRecord;
     }
 }

@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter {
-    private List<com.baidu.tieba.interestlabel.b.a> hbA;
-    private List<Integer> hbB = new ArrayList();
-    private LabelSettingView hby;
+    private LabelSettingView hds;
+    private List<com.baidu.tieba.interestlabel.b.a> hdu;
+    private List<Integer> hdv = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.hby = labelSettingView;
+        this.hds = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.aa(bVar.bJB())) {
+        if (bVar != null && !v.aa(bVar.bKo())) {
             this.mLabelDataSet = bVar;
-            this.hbA = bVar.bJB();
-            if (!v.aa(bVar.bJC())) {
-                this.hbB = new ArrayList(bVar.bJC());
+            this.hdu = bVar.bKo();
+            if (!v.aa(bVar.bKp())) {
+                this.hdv = new ArrayList(bVar.bKp());
             }
         }
     }
 
-    public List<Integer> bJy() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.bJC();
+    public List<Integer> bKl() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.bKp();
     }
 
-    public List<Integer> bJz() {
-        return this.hbB;
+    public List<Integer> bKm() {
+        return this.hdv;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.Z(this.hbA);
+        return v.Z(this.hdu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wp */
+    /* renamed from: ws */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.c(this.hbA, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.c(this.hdu, i);
     }
 
     @Override // android.widget.Adapter
@@ -60,25 +60,25 @@ public class b extends BaseAdapter {
         if (item == null) {
             return 0L;
         }
-        return item.bFM;
+        return item.bGk;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0351b c0351b;
+        C0362b c0362b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.hby.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0351b c0351b2 = new C0351b();
-            c0351b2.hbD = (TextView) view2;
-            view2.setTag(c0351b2);
-            c0351b = c0351b2;
+            view2 = LayoutInflater.from(this.hds.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            C0362b c0362b2 = new C0362b();
+            c0362b2.hdx = (TextView) view2;
+            view2.setTag(c0362b2);
+            c0362b = c0362b2;
         } else {
-            c0351b = (C0351b) view.getTag();
+            c0362b = (C0362b) view.getTag();
             view2 = view;
         }
-        c0351b.hbD.setOnClickListener(new a(i));
-        a(c0351b.hbD, getItem(i));
+        c0362b.hdx.setOnClickListener(new a(i));
+        a(c0362b.hdx, getItem(i));
         return view2;
     }
 
@@ -104,10 +104,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    class C0351b {
-        TextView hbD;
+    class C0362b {
+        TextView hdx;
 
-        C0351b() {
+        C0362b() {
         }
     }
 
@@ -128,12 +128,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.hbB.add(Integer.valueOf(item.bFM));
+                    b.this.hdv.add(Integer.valueOf(item.bGk));
                 } else {
-                    b.this.hbB.remove(Integer.valueOf(item.bFM));
+                    b.this.hdv.remove(Integer.valueOf(item.bGk));
                 }
-                if (b.this.hby != null) {
-                    b.this.hby.mW(v.Z(b.this.hbB) > 0);
+                if (b.this.hds != null) {
+                    b.this.hds.mZ(v.Z(b.this.hdv) > 0);
                 }
             }
         }

@@ -15,15 +15,15 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SampleGroupDescriptionBox extends AbstractFullBox {
     public static final String TYPE = "sgpd";
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_8 = null;
     private int defaultLength;
     private int descriptionLength;
     private List<GroupEntry> groupEntries;
@@ -126,7 +126,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
 
     private GroupEntry parseGroupEntry(ByteBuffer byteBuffer, String str) {
         GroupEntry unknownEntry;
-        if ("roll".equals(str)) {
+        if (RollRecoveryEntry.TYPE.equals(str)) {
             unknownEntry = new RollRecoveryEntry();
         } else if (RateShareEntry.TYPE.equals(str)) {
             unknownEntry = new RateShareEntry();
@@ -159,7 +159,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
     }
 
     public void setDefaultLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EO(i)));
         this.defaultLength = i;
     }
 

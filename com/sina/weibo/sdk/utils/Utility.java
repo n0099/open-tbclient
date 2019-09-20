@@ -87,7 +87,7 @@ public class Utility {
     }
 
     public static String getAid(Context context, String str) {
-        return context == null ? "" : WeiboSsoManager.getInstance().getAid();
+        return context == null ? "" : WeiboSsoManager.getInstance().getAid(context, str);
     }
 
     public static String generateUAAid(Context context) {

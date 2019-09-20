@@ -4,6 +4,7 @@ public interface SapiEnv {
     public static final String ACCOUNT_CENTER_ACCOUNT_BIND = "/wp/v3/ucenter/accountbind";
     public static final String ACCOUNT_CENTER_EDITUSER = "/wp/v3/ucenter/edituser";
     public static final String ACCOUNT_CENTER_MODIFY_PWD_RESULT = "/wp/passwordresult";
+    public static final String CAPTCHA_URI = "/cgi-bin/genimage?";
     public static final String CHECK_USER_FACE_ID = "/v3/security/sapi/faceCheck";
     public static final String DEFAULT_PORTRAIT = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/img/default_portrait.png";
     public static final String EXTEND_SYS_WEBVIEW_METHOD_CHECK = "/v3/security/sapi/appFaceCheck";
@@ -11,7 +12,6 @@ public interface SapiEnv {
     public static final String FACE_LOGIN_STATUS_CHECK = "/v3/security/sapi/faceLoginStatus";
     public static final String FACE_LOGIN_SWITCH_URI = "/v3/security/faceloginswitchresult";
     public static final String FAST_REG_SMS_NUMBER = "10698000036592";
-    public static final String FAST_REG_URI = "/v2/sapi/smsgetlogin";
     public static final String FILL_UNAME = "/v2/sapi/center/filluname";
     public static final String FILL_USER_PROFILE_BIND_URI = "/v2/security/sapibindwidgetbind";
     public static final String FILL_USER_PROFILE_SEND_URI = "/v2/security/sapibindwidgetsend";
@@ -29,6 +29,7 @@ public interface SapiEnv {
     public static final String OAUTH_URI = "/v2/sapi/bdussexchangeaccesstoken";
     public static final String PUSH_CHECK_URI = "/v3/ucenter/sapi/checkmobilenotactivepush";
     public static final String QR_APP_LOGIN_URI = "/v2/sapi/qrlogin";
+    public static final String QUERY_CONTACTS_DATA = "/v3/ucenter/contacts/get";
     public static final String SAPI_CONFIG_HTTPS_URI = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/conf/android-conf.txt";
     public static final String SAPI_CONFIG_URI = "/static/appsapi/conf/android-conf.txt";
     public static final String SHARE_AES_MODE = "AES/CBC/PKCS5Padding";
@@ -39,4 +40,5 @@ public interface SapiEnv {
     public static final String SOCIAL_START_URI = "/phoenix/account/startlogin";
     public static final String SSO_FINISH_URI = "/phoenix/account/ssologin";
     public static final String SSO_START_URI = "/phoenix/account/ssologin";
+    public static final String UPLOAD_CONTACTS_DATA = "/v3/ucenter/contacts/upload";
 }

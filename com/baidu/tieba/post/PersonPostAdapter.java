@@ -6,37 +6,37 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes6.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
-    private int[] dDA;
-    private PersonThreadFragment iBo;
-    private PersonReplyFragment iBp;
+    private int[] dFl;
+    private PersonThreadFragment iDG;
+    private PersonReplyFragment iDH;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.cfK());
-        this.iBp = new PersonReplyFragment();
-        this.iBp.setArguments(bundle);
-        this.iBp.a(personPostActivity);
-        this.iBo = new PersonThreadFragment();
-        this.iBo.setArguments(bundle);
-        this.iBo.a((d) personPostActivity);
-        this.iBo.a((b) personPostActivity);
-        this.dDA = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.cgy());
+        this.iDH = new PersonReplyFragment();
+        this.iDH.setArguments(bundle);
+        this.iDH.a(personPostActivity);
+        this.iDG = new PersonThreadFragment();
+        this.iDG.setArguments(bundle);
+        this.iDG.a((d) personPostActivity);
+        this.iDG.a((b) personPostActivity);
+        this.dFl = new int[]{0, 1};
     }
 
-    public PersonThreadFragment cfL() {
-        return this.iBo;
+    public PersonThreadFragment cgz() {
+        return this.iDG;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.iBo;
+                return this.iDG;
             case 1:
-                return this.iBp;
+                return this.iDH;
             default:
                 return null;
         }
@@ -47,7 +47,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int vT(int i) {
-        return this.dDA[i];
+    public int vX(int i) {
+        return this.dFl[i];
     }
 }

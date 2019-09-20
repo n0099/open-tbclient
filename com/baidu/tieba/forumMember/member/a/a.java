@@ -17,27 +17,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private o frK;
-    private r frL;
+    private o ftx;
+    private r fty;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
-    public List<com.baidu.adp.widget.ListView.a> aJo() {
+    public List<com.baidu.adp.widget.ListView.a> aJS() {
         return this.mAdapters;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.mAdapters.add(new i(baseActivity.getPageContext(), j.fqV));
-        this.mAdapters.add(new l(baseActivity.getPageContext(), m.frh));
-        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.ftY));
-        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.fqy));
-        this.mAdapters.add(new d(baseActivity.getPageContext(), e.fqB));
+        this.mAdapters.add(new i(baseActivity.getPageContext(), j.fsJ));
+        this.mAdapters.add(new l(baseActivity.getPageContext(), m.fsV));
+        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.fvL));
+        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.fsm));
+        this.mAdapters.add(new d(baseActivity.getPageContext(), e.fsp));
         this.mAdapters.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.frK = new o(baseActivity.getPageContext(), p.fry);
-        this.mAdapters.add(this.frK);
-        this.frL = new r(baseActivity.getPageContext(), s.frI);
-        this.mAdapters.add(this.frL);
+        this.ftx = new o(baseActivity.getPageContext(), p.ftl);
+        this.mAdapters.add(this.ftx);
+        this.fty = new r(baseActivity.getPageContext(), s.ftv);
+        this.mAdapters.add(this.fty);
     }
 
     public void notifyDataSetChanged() {
@@ -47,7 +47,7 @@ public class a {
     }
 
     public void onDestroy() {
-        this.frK.onDestroy();
-        this.frL.onDestroy();
+        this.ftx.onDestroy();
+        this.fty.onDestroy();
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.sofire.core;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
@@ -11,12 +10,11 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.rp.Report;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -86,22 +84,22 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
 
     public final synchronized void a(Callback callback) {
         String str;
-        com.baidu.sofire.b.e.d(b);
-        new StringBuilder().append(this.d);
-        com.baidu.sofire.b.a();
         if (this.d) {
             if (callback != null) {
                 callback.onEnd(new Object[0]);
             }
         } else {
             this.d = true;
+            com.baidu.sofire.b.e.n(b);
+            this.a.a(true);
+            JSONObject o = com.baidu.sofire.b.e.o(b);
+            com.baidu.sofire.b.e.d(b);
+            new StringBuilder().append(this.d);
+            com.baidu.sofire.b.a();
             com.baidu.sofire.e eVar = this.a;
-            eVar.c.putString("ssv", "3.2.2.1");
+            eVar.c.putString("ssv", "3.3.9");
             eVar.c.commit();
             Report.getInstance(b).n();
-            IntentFilter intentFilter = new IntentFilter("android.intent.action.PACKAGE_REMOVED");
-            intentFilter.addDataScheme("package");
-            b.registerReceiver(new MyReceiver(), intentFilter);
             for (ApkInfo apkInfo : this.h.a()) {
                 try {
                     str = b.getFilesDir().getCanonicalPath();
@@ -126,13 +124,9 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 com.baidu.sofire.a.a aVar = this.h;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("n", (Integer) 0);
-                try {
-                    aVar.c.update("pgn", contentValues, "n=-1", null);
-                } catch (Throwable th) {
-                    com.baidu.sofire.b.e.a();
-                }
+                aVar.c.update("pgn", contentValues, "n=-1", null);
             }
-            new U(b, 1, false).start();
+            new U(b, 1, false, o).start();
             if (callback != null) {
                 callback.onEnd(new Object[0]);
             }
@@ -144,11 +138,11 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             List<ApkInfo> a = this.h.a();
             new StringBuilder("all=").append(a);
             com.baidu.sofire.b.a();
-            final List<Integer> p = this.a.p();
-            List<Integer> o = this.a.o();
-            for (int i = 0; i < o.size(); i++) {
-                if (!p.contains(o.get(i))) {
-                    p.add(o.get(i));
+            final List<Integer> q = this.a.q();
+            List<Integer> p = this.a.p();
+            for (int i = 0; i < p.size(); i++) {
+                if (!q.contains(p.get(i))) {
+                    q.add(p.get(i));
                 }
             }
             Collections.sort(a, new Comparator<ApkInfo>() { // from class: com.baidu.sofire.core.d.1
@@ -162,8 +156,8 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                             if (apkInfo3.priority > apkInfo4.priority) {
                                 return 1;
                             }
-                            int indexOf = (p == null || !p.contains(Integer.valueOf(apkInfo3.key))) ? -1 : p.indexOf(Integer.valueOf(apkInfo3.key));
-                            int indexOf2 = (p == null || !p.contains(Integer.valueOf(apkInfo4.key))) ? -1 : p.indexOf(Integer.valueOf(apkInfo4.key));
+                            int indexOf = (q == null || !q.contains(Integer.valueOf(apkInfo3.key))) ? -1 : q.indexOf(Integer.valueOf(apkInfo3.key));
+                            int indexOf2 = (q == null || !q.contains(Integer.valueOf(apkInfo4.key))) ? -1 : q.indexOf(Integer.valueOf(apkInfo4.key));
                             if (indexOf == -1 || indexOf2 != -1) {
                                 if ((indexOf != -1 || indexOf2 == -1) && indexOf <= indexOf2) {
                                     return indexOf >= indexOf2 ? 0 : -1;
@@ -215,106 +209,64 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         }
     }
 
-    public final void b(Context context) {
+    public final void a(JSONObject jSONObject) {
+        ApkInfo apkInfo;
         try {
-            if (!this.a.a.getBoolean("lpcf", false)) {
-                JSONArray jSONArray = new JSONArray(com.baidu.sofire.b.e.a(context, "sofire_local.cfg", RecentlyVisitedForumModel.LOCAL_ACCOUNT));
-                HashMap hashMap = new HashMap();
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("pkgname");
-                    String optString2 = optJSONObject.optString("version");
-                    int optInt = optJSONObject.optInt("id");
-                    if (optInt > 0) {
-                        arrayList.add(Integer.valueOf(optInt));
-                    }
-                    String optString3 = optJSONObject.optString("md5");
-                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && optInt > 0) {
-                        String lowerCase = optString3.toLowerCase();
-                        ApkInfo apkInfo = new ApkInfo();
-                        apkInfo.packageName = optString;
-                        apkInfo.versionName = optString2;
-                        apkInfo.key = optInt;
-                        apkInfo.apkMD5 = lowerCase;
-                        hashMap.put(Integer.valueOf(optInt), apkInfo);
-                    }
+            if (!this.a.s() && jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray(com.tencent.connect.common.Constants.VIA_SHARE_TYPE_INFO);
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    this.a.r();
                 }
-                this.a.a(arrayList);
-                if (hashMap.size() <= 0) {
-                    this.a.q();
-                    return;
-                }
-                String str = com.baidu.sofire.b.e.b() + "p/1/pio";
-                JSONArray jSONArray2 = new JSONArray();
-                for (ApkInfo apkInfo2 : hashMap.values()) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("pk", apkInfo2.packageName);
-                    jSONObject.put(Config.MODEL, apkInfo2.apkMD5);
-                    jSONObject.put("l", apkInfo2.key);
-                    jSONObject.put("v", apkInfo2.versionName);
-                    jSONArray2.put(jSONObject);
-                }
-                String jSONArray3 = jSONArray2.toString();
-                com.baidu.sofire.b.a();
-                String a = com.baidu.sofire.b.h.a(context, str, jSONArray3);
-                new StringBuilder().append(a);
-                com.baidu.sofire.b.a();
-                JSONArray jSONArray4 = new JSONArray(a);
-                if (jSONArray4.length() > 0) {
-                    this.a.q();
-                }
-                for (int i2 = 0; i2 < jSONArray4.length(); i2++) {
-                    JSONObject optJSONObject2 = jSONArray4.optJSONObject(i2);
-                    int optInt2 = optJSONObject2.optInt("errno");
-                    int optInt3 = optJSONObject2.optInt("l");
-                    if (optInt2 == 1) {
-                        JSONObject optJSONObject3 = optJSONObject2.optJSONObject("detail");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    int optInt = optJSONObject.optInt("errno");
+                    int optInt2 = optJSONObject.optInt("l");
+                    if (optInt == 1) {
+                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(DpStatConstants.KEY_DETAIL);
                         PackageInfo packageInfo = new PackageInfo();
-                        packageInfo.packageName = optJSONObject3.optString("p");
-                        packageInfo.versionName = optJSONObject3.optString("v");
+                        packageInfo.packageName = optJSONObject2.optString("p");
+                        packageInfo.versionName = optJSONObject2.optString("v");
                         ApplicationInfo applicationInfo = new ApplicationInfo();
-                        applicationInfo.className = optJSONObject3.optString("n");
+                        applicationInfo.className = optJSONObject2.optString("n");
                         if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                             applicationInfo.className = packageInfo.packageName + applicationInfo.className;
                         }
-                        applicationInfo.theme = optJSONObject3.optInt("t");
+                        applicationInfo.theme = optJSONObject2.optInt("t");
                         packageInfo.applicationInfo = applicationInfo;
-                        JSONArray optJSONArray = optJSONObject3.optJSONArray(Config.APP_VERSION_CODE);
-                        if (optJSONArray != null && optJSONArray.length() > 0) {
-                            ArrayList arrayList2 = new ArrayList();
-                            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                                try {
-                                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                                    if (jSONObject2 != null) {
-                                        ActivityInfo activityInfo = new ActivityInfo();
-                                        activityInfo.name = jSONObject2.optString("n");
-                                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
-                                            activityInfo.name = packageInfo.packageName + activityInfo.name;
-                                        }
-                                        activityInfo.packageName = packageInfo.packageName;
-                                        activityInfo.theme = jSONObject2.optInt("t");
-                                        activityInfo.labelRes = jSONObject2.optInt("l");
-                                        if (!TextUtils.isEmpty(activityInfo.name)) {
-                                            arrayList2.add(activityInfo);
-                                        }
+                        JSONArray optJSONArray2 = optJSONObject2.optJSONArray(Config.APP_VERSION_CODE);
+                        if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                            ArrayList arrayList = new ArrayList();
+                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                                JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
+                                if (jSONObject2 != null) {
+                                    ActivityInfo activityInfo = new ActivityInfo();
+                                    activityInfo.name = jSONObject2.optString("n");
+                                    if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
+                                        activityInfo.name = packageInfo.packageName + activityInfo.name;
                                     }
-                                } catch (Throwable th) {
-                                    com.baidu.sofire.b.e.a();
+                                    activityInfo.packageName = packageInfo.packageName;
+                                    activityInfo.theme = jSONObject2.optInt("t");
+                                    activityInfo.labelRes = jSONObject2.optInt("l");
+                                    if (!TextUtils.isEmpty(activityInfo.name)) {
+                                        arrayList.add(activityInfo);
+                                    }
                                 }
                             }
-                            if (arrayList2.size() > 0) {
-                                packageInfo.activities = (ActivityInfo[]) arrayList2.toArray(new ActivityInfo[arrayList2.size()]);
+                            if (arrayList.size() > 0) {
+                                packageInfo.activities = (ActivityInfo[]) arrayList.toArray(new ActivityInfo[arrayList.size()]);
                             }
                         }
-                        ApkInfo apkInfo3 = (ApkInfo) hashMap.get(Integer.valueOf(optInt3));
-                        if (apkInfo3 != null && packageInfo != null && !TextUtils.isEmpty(packageInfo.packageName)) {
-                            a(apkInfo3.key, apkInfo3.versionName, apkInfo3.apkMD5, packageInfo);
+                        if (com.baidu.sofire.b.e.f != null && (apkInfo = com.baidu.sofire.b.e.f.get(Integer.valueOf(optInt2))) != null && packageInfo != null && !TextUtils.isEmpty(packageInfo.packageName)) {
+                            a(apkInfo.key, apkInfo.versionName, apkInfo.apkMD5, packageInfo);
                         }
                     }
                 }
+                if (com.baidu.sofire.b.e.f != null) {
+                    com.baidu.sofire.b.e.f.clear();
+                    com.baidu.sofire.b.e.f = null;
+                }
             }
-        } catch (Throwable th2) {
+        } catch (Throwable th) {
             com.baidu.sofire.b.e.a();
         }
     }
@@ -327,7 +279,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [549=7, 551=6, 555=5, 557=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=7, 514=6, 518=5, 520=6] */
     private void a(int r10, java.lang.String r11, java.lang.String r12, android.content.pm.PackageInfo r13) {
         /*
             r9 = this;
@@ -338,7 +290,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             com.baidu.sofire.core.ApkInfo r1 = r1.a(r10)     // Catch: java.lang.Throwable -> L103
             if (r1 == 0) goto L1c
             java.lang.String r1 = r1.versionName     // Catch: java.lang.Throwable -> L103
-            boolean r1 = com.baidu.sofire.b.e.c(r11, r1)     // Catch: java.lang.Throwable -> L103
+            boolean r1 = com.baidu.sofire.b.e.b(r11, r1)     // Catch: java.lang.Throwable -> L103
             if (r1 != 0) goto L14
         L13:
             return
@@ -449,7 +401,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             java.lang.String r5 = r1.getAbsolutePath()     // Catch: java.lang.Throwable -> L80
             r6 = 1
             com.baidu.sofire.b.e.a(r5, r6)     // Catch: java.lang.Throwable -> L80
-            java.lang.String r5 = com.baidu.sofire.b.o.a(r1)     // Catch: java.lang.Throwable -> L80
+            java.lang.String r5 = com.baidu.sofire.b.p.a(r1)     // Catch: java.lang.Throwable -> L80
             if (r5 == 0) goto L120
             boolean r6 = r5.equalsIgnoreCase(r12)     // Catch: java.lang.Throwable -> L80
             if (r6 != 0) goto L130
@@ -762,7 +714,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                 } catch (Throwable th) {
                                     com.baidu.sofire.b.e.a();
                                 }
-                                if (!((Boolean) com.baidu.sofire.b.e.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, Boolean.valueOf(this.a.n()))).booleanValue()) {
+                                if (!((Boolean) com.baidu.sofire.b.e.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, true)).booleanValue()) {
                                     HashMap hashMap5 = new HashMap();
                                     hashMap5.put("0", 6);
                                     hashMap5.put("1", String.valueOf(i));
@@ -826,9 +778,9 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x003b: IGET  (r4v41 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0137: IGET  (r4v39 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x01d9: IGET  (r7v8 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x02f1: IGET  (r4v24 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0352: IGET  (r5v1 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0452: IGET  (r4v19 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x02ec: IGET  (r4v24 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x034d: IGET  (r5v1 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x044d: IGET  (r4v19 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
     public final boolean a(ApkInfo apkInfo, String str) {
         String str2;
         String str3;
@@ -898,7 +850,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             }
             Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, b);
             com.baidu.sofire.b.e.a(invoke, "setSecurityVerifyInfo", new Class[]{String.class, String.class}, str2, str3);
-            if (!((Boolean) com.baidu.sofire.b.e.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, Boolean.valueOf(this.a.n()))).booleanValue()) {
+            if (!((Boolean) com.baidu.sofire.b.e.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, true)).booleanValue()) {
                 com.baidu.sofire.b.a();
                 com.baidu.sofire.c.a(file);
                 b(c2.packageName);
@@ -968,7 +920,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1217=8, 1218=8, 1224=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1179=8, 1180=8, 1186=5] */
     public final void a(int i, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
         try {
             new StringBuilder().append(str);
@@ -1132,7 +1084,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1325=10, 1326=10] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1287=10, 1288=10] */
     public final Pair<Integer, Object> a(int i, String str, Class<?>[] clsArr, Object... objArr) {
         int i2 = 2;
         new StringBuilder().append(str);

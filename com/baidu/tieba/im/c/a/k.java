@@ -8,7 +8,7 @@ public class k implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
         int f = com.baidu.adp.lib.g.b.f(customMessage.getData(), 0);
-        if (!com.baidu.tieba.im.db.l.bDe().yN(String.valueOf(f))) {
+        if (!com.baidu.tieba.im.db.l.bDS().zm(String.valueOf(f))) {
             return null;
         }
         return new CustomResponsedMessage<>(2001151, String.valueOf(f));

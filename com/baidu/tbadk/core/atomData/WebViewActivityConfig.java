@@ -14,6 +14,7 @@ import com.baidu.tieba.R;
 public class WebViewActivityConfig extends IntentConfig {
     public static final String IS_SHOW_RIGHT_ICON = "is_show_right_icon";
     public static final String TAG_COOKIE = "tag_cookie";
+    public static final String TAG_DOWNLOAD_AD_ID = "tag_download_ad_id";
     public static final String TAG_ENABLE_JS = "tag_enable_js";
     public static final String TAG_FIX_TITLE = "tag_fix_title";
     public static final String TAG_NAV_BAR = "tag_navigation_bar";

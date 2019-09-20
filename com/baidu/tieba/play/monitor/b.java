@@ -1,39 +1,13 @@
 package com.baidu.tieba.play.monitor;
 
 import com.baidu.tieba.j.i;
-import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public static void a(i iVar, final long j) {
-        if (iVar != null) {
-            iVar.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.b.1
-                private long iyS = 0;
-
-                @Override // com.baidu.tieba.j.b
-                public void bJ(JSONObject jSONObject) throws JSONException {
-                }
-
-                @Override // com.baidu.tieba.j.b
-                public void bK(JSONObject jSONObject) throws JSONException {
-                    this.iyS = jSONObject.optLong("loadingTime");
-                }
-
-                @Override // com.baidu.tieba.j.b
-                public void bL(JSONObject jSONObject) throws JSONException {
-                    if (this.iyS != 0 && j != 0 && this.iyS <= 86400000 && j <= 86400000) {
-                        jSONObject.put("pbLoadingTime", j);
-                        jSONObject.put("pbVideoPreview", this.iyS + j);
-                    }
-                }
-            });
-        }
-    }
-
     public static void a(i iVar, final long j, final long j2, final long j3, final long j4) {
         if (iVar != null) {
-            iVar.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.b.2
+            iVar.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.b.1
                 @Override // com.baidu.tieba.j.b
                 public void bJ(JSONObject jSONObject) throws JSONException {
                 }
@@ -46,7 +20,7 @@ public class b {
                 public void bL(JSONObject jSONObject) throws JSONException {
                     jSONObject.put("flow_count", j);
                     jSONObject.put("play_position", j2);
-                    jSONObject.put(WebVideoActivityConfig.KEY_VIDEO_DURATION, j3);
+                    jSONObject.put("video_duration", j3);
                     jSONObject.put("play_seek_position", j4);
                 }
             });

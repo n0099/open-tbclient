@@ -11,13 +11,13 @@ public abstract class a {
         if (aVar == null) {
             return null;
         }
-        String str = aVar.aDU;
+        String str = aVar.aEs;
         String str2 = aVar.id;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        c cVar = (c) e.GF().dY(aVar.aDU);
-        return cVar != null ? cVar.dc(aVar.id) : null;
+        c cVar = (c) e.GJ().ea(aVar.aEs);
+        return cVar != null ? cVar.de(aVar.id) : null;
     }
 
     public CanvasView b(com.baidu.swan.apps.canvas.c.a aVar) {
@@ -25,6 +25,6 @@ public abstract class a {
         if (a == null) {
             return null;
         }
-        return a.anq;
+        return a.anO;
     }
 }

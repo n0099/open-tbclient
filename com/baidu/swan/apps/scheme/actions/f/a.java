@@ -25,22 +25,22 @@ public class a extends z {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        e vJ = com.baidu.swan.apps.w.e.GF().vJ();
-        if (vJ == null) {
+        e vN = com.baidu.swan.apps.w.e.GJ().vN();
+        if (vN == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b Ar = vJ.Ar();
-        if (Ar == null) {
+        com.baidu.swan.apps.core.d.b Av = vN.Av();
+        if (Av == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        SwanAppActionBar zB = Ar.zB();
-        if (zB == null) {
+        SwanAppActionBar zF = Av.zF();
+        if (zF == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        View rightMenu = zB.getRightMenu();
+        View rightMenu = zF.getRightMenu();
         if (rightMenu == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

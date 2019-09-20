@@ -11,6 +11,7 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.g;
 import com.baidu.android.pushservice.i.i;
 import com.baidu.android.pushservice.i.l;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.sapi2.SapiContext;
 import com.coloros.mcssdk.PushManager;
 import com.xiaomi.mipush.sdk.Constants;
@@ -510,7 +511,7 @@ public class d extends b {
                                 hashMap.put("pushSdkInt", ((int) com.baidu.android.pushservice.a.a()) + "");
                             }
                             hashMap.put("manufacture", Build.MANUFACTURER);
-                            hashMap.put("cuid", DeviceId.getCUID(d.this.a));
+                            hashMap.put(DpStatConstants.KEY_CUID, DeviceId.getCUID(d.this.a));
                             hashMap.put(Constants.PACKAGE_NAME, d.this.a.getPackageName());
                             String a2 = d.this.a(hashMap);
                             if (!TextUtils.isEmpty(a2) && (jSONObject = (JSONObject) new JSONObject(a2).get("response_params")) != null) {

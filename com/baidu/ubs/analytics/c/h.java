@@ -8,44 +8,44 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a jXT;
+    private a kaq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.jXT = aVar;
+        this.kaq = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.jXT.cDK()) {
-            for (a.InterfaceC0445a interfaceC0445a : this.jXT.cDK()) {
-                interfaceC0445a.T();
+        synchronized (this.kaq.cEy()) {
+            for (a.InterfaceC0456a interfaceC0456a : this.kaq.cEy()) {
+                interfaceC0456a.T();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.jXT.cDK()) {
-            for (a.InterfaceC0445a interfaceC0445a : this.jXT.cDK()) {
-                interfaceC0445a.U();
+        synchronized (this.kaq.cEy()) {
+            for (a.InterfaceC0456a interfaceC0456a : this.kaq.cEy()) {
+                interfaceC0456a.U();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.jXT.cDK()) {
-            for (a.InterfaceC0445a interfaceC0445a : this.jXT.cDK()) {
-                interfaceC0445a.a(activity);
+        synchronized (this.kaq.cEy()) {
+            for (a.InterfaceC0456a interfaceC0456a : this.kaq.cEy()) {
+                interfaceC0456a.a(activity);
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.jXT.cDK()) {
-            Iterator<a.InterfaceC0445a> it = this.jXT.cDK().iterator();
+        synchronized (this.kaq.cEy()) {
+            Iterator<a.InterfaceC0456a> it = this.kaq.cEy().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.jXT.cDK()) {
-            Iterator<a.InterfaceC0445a> it = this.jXT.cDK().iterator();
+        synchronized (this.kaq.cEy()) {
+            Iterator<a.InterfaceC0456a> it = this.kaq.cEy().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.jXT.cDK()) {
-            Iterator<a.InterfaceC0445a> it = this.jXT.cDK().iterator();
+        synchronized (this.kaq.cEy()) {
+            Iterator<a.InterfaceC0456a> it = this.kaq.cEy().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,9 +74,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.jXT.cDK()) {
-            for (a.InterfaceC0445a interfaceC0445a : this.jXT.cDK()) {
-                interfaceC0445a.onActivityDestroyed(activity);
+        synchronized (this.kaq.cEy()) {
+            for (a.InterfaceC0456a interfaceC0456a : this.kaq.cEy()) {
+                interfaceC0456a.onActivityDestroyed(activity);
             }
         }
     }

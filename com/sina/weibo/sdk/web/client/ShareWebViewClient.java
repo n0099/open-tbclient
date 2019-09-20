@@ -11,6 +11,7 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import com.sina.weibo.sdk.constant.WBConstants;
+import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.WbUtils;
 import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.WeiboCallbackManager;
@@ -104,6 +105,7 @@ public class ShareWebViewClient extends BaseWebViewClient {
     }
 
     private void sendSdkResponse(Activity activity, int i, String str) {
+        LogUtil.i("Share", "WebActivity.sendSdkResponse,errCode:" + i + ",errMsg:" + str);
         Bundle extras = activity.getIntent().getExtras();
         if (extras != null && !this.hasCallbacked) {
             Intent intent = new Intent(WBConstants.ACTIVITY_REQ_SDK);

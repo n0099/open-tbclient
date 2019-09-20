@@ -17,25 +17,25 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean iey;
+    private boolean igx;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.iey = false;
+        this.igx = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iey = false;
+        this.igx = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iey = false;
+        this.igx = false;
     }
 
-    public void ev(boolean z) {
-        this.iey = z;
+    public void ey(boolean z) {
+        this.igx = z;
         if (z) {
             setText(R.string.followed);
             setBackgroundDrawable(am.getDrawable(R.drawable.selector_like_button_gray_bg));
@@ -53,7 +53,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void f(boolean z, int i) {
-        ev(z);
+        ey(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -62,7 +62,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void jf(int i) {
+    public void ji(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -75,7 +75,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
             anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(anVar);
         }
-        if (!this.iey) {
+        if (!this.igx) {
             Context context = getContext();
             if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.o.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
@@ -93,7 +93,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iey) {
+        if (this.igx) {
             setBackgroundDrawable(am.getDrawable(R.drawable.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             am.f(this, R.color.cp_cont_e, 1);

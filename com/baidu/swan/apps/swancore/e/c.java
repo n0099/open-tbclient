@@ -3,56 +3,56 @@ package com.baidu.swan.apps.swancore.e;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public boolean aWV;
-    public boolean aWW;
+    public boolean aXt;
+    public boolean aXu;
     @Nullable
-    public com.baidu.swan.apps.v.b.c aWX;
-    public String aWY;
+    public com.baidu.swan.apps.v.b.c aXv;
+    public String aXw;
 
     private c() {
-        this.aWV = false;
-        this.aWW = false;
-        this.aWX = null;
-        this.aWY = "";
+        this.aXt = false;
+        this.aXu = false;
+        this.aXv = null;
+        this.aXw = "";
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private boolean aWV = false;
-        private boolean aWW = false;
+        private boolean aXt = false;
+        private boolean aXu = false;
         @Nullable
-        private com.baidu.swan.apps.v.b.c aWX = null;
-        private String aWY = "";
+        private com.baidu.swan.apps.v.b.c aXv = null;
+        private String aXw = "";
 
-        public static a Ok() {
+        public static a Oo() {
             return new a();
         }
 
         public a cA(boolean z) {
-            this.aWV = z;
+            this.aXt = z;
             return this;
         }
 
-        public a hR(String str) {
-            this.aWY = str;
+        public a hT(String str) {
+            this.aXw = str;
             return this;
         }
 
-        public c Ol() {
+        public c Op() {
             c cVar = new c();
-            cVar.aWV = this.aWV;
-            cVar.aWW = this.aWW;
-            cVar.aWX = this.aWX;
-            cVar.aWY = this.aWY;
+            cVar.aXt = this.aXt;
+            cVar.aXu = this.aXu;
+            cVar.aXv = this.aXv;
+            cVar.aXw = this.aXw;
             return cVar;
         }
 
-        public c Om() {
-            this.aWV = false;
-            this.aWW = false;
-            this.aWX = null;
-            this.aWY = "";
-            return Ol();
+        public c Oq() {
+            this.aXt = false;
+            this.aXu = false;
+            this.aXv = null;
+            this.aXw = "";
+            return Op();
         }
     }
 }

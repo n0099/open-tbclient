@@ -14,6 +14,6 @@ public class b extends f<Integer> {
         if (aVar.lI == null || aVar.lJ == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return Integer.valueOf(com.airbnb.lottie.c.a.a(f, aVar.lI.intValue(), aVar.lJ.intValue()));
+        return Integer.valueOf(com.airbnb.lottie.c.a.b(f, aVar.lI.intValue(), aVar.lJ.intValue()));
     }
 }

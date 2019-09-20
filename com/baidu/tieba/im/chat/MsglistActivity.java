@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.l;
+import com.baidu.tbadk.util.k;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements d {
@@ -14,11 +14,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract void initView();
 
     @Override // com.baidu.tieba.im.chat.d
-    public void bAH() {
-        bAj();
+    public void bBv() {
+        bAX();
     }
 
-    public void bAj() {
+    public void bAX() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,14 +31,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        if (this.gAG != null) {
-            this.gAG.setImageUploadUIProgressCallback(this.gAL);
+        if (this.gCx != null) {
+            this.gCx.setImageUploadUIProgressCallback(this.gCC);
         }
-        bAN();
+        bBB();
         if (a((d) this)) {
             loadDraft();
-            bAh();
-            j.gAE = l.awi();
+            bAV();
+            j.gCv = k.awu();
         }
     }
 
@@ -46,8 +46,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.gAG != null) {
-            this.gAG.onDestroy();
+        if (this.gCx != null) {
+            this.gCx.onDestroy();
         }
         setIntent(intent);
         if (!U(null)) {
@@ -56,7 +56,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        bAN();
+        bBB();
         if (a((d) this)) {
             loadDraft();
         }
@@ -66,8 +66,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gAF != null) {
-            this.gAF.onChangeSkinType(i);
+        if (this.gCw != null) {
+            this.gCw.onChangeSkinType(i);
         }
     }
 
@@ -75,37 +75,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.gAF != null) {
-            this.gAF.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            bAe();
+        if (this.gCw != null) {
+            this.gCw.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            bAS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bAe() {
+    public void bAS() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.gAF.showReceiver();
+            this.gCw.showReceiver();
         } else {
-            this.gAF.closeReceiver();
+            this.gCw.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.gAG.loadDraft();
+        return this.gCx.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        bAi();
+        bAW();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bAh() {
+    public void bAV() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bAi() {
+    public void bAW() {
     }
 }

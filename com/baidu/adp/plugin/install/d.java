@@ -19,7 +19,6 @@ import com.baidu.adp.plugin.util.e;
 import com.baidu.adp.plugin.util.f;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
@@ -278,7 +277,7 @@ public class d {
             e(str, str2, "copy_temp_fail", b);
             return null;
         }
-        com.baidu.adp.plugin.b.a.mc().a("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
+        com.baidu.adp.plugin.b.a.mc().b("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
         String str9 = null;
         boolean z5 = false;
         boolean z6 = false;
@@ -599,10 +598,10 @@ public class d {
             }
             long currentTimeMillis2 = System.currentTimeMillis();
             f(file3.getAbsolutePath(), file5.getAbsolutePath(), str6);
-            com.baidu.adp.plugin.b.a.mc().a("plugin_extract_so", System.currentTimeMillis() - currentTimeMillis2, str6);
+            com.baidu.adp.plugin.b.a.mc().b("plugin_extract_so", System.currentTimeMillis() - currentTimeMillis2, str6);
             long currentTimeMillis3 = System.currentTimeMillis();
             a(file3.getAbsolutePath(), str6, file4);
-            com.baidu.adp.plugin.b.a.mc().a("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis3, str6);
+            com.baidu.adp.plugin.b.a.mc().b("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis3, str6);
             Iv.put(str2 + str, true);
             Intent intent3 = new Intent("com.baidu.adp.plugin.installed");
             intent3.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -719,19 +718,19 @@ public class d {
                     }
                 }
                 if (lowerCase.contains(PassBiometricUtil.CPU_TYPE_X86) || str4.contains(PassBiometricUtil.CPU_TYPE_X86)) {
-                    a(arrayList2, arrayList);
+                    b(arrayList2, arrayList);
                     a(zipFile, str2, arrayList2);
                     if (arrayList2.size() <= 0) {
                         return;
                     }
                 } else if (lowerCase.contains("mips") || str4.contains("mips")) {
-                    a(arrayList3, arrayList);
+                    b(arrayList3, arrayList);
                     a(zipFile, str2, arrayList3);
                     if (arrayList3.size() <= 0) {
                         return;
                     }
                 } else if (lowerCase.contains(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || str4.contains(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || mb()) {
-                    a(arrayList4, arrayList);
+                    b(arrayList4, arrayList);
                     a(zipFile, str2, arrayList4);
                     if (arrayList4.size() <= 0) {
                         return;
@@ -958,7 +957,7 @@ public class d {
         return z;
     }
 
-    private static void a(ArrayList<ZipEntry> arrayList, ArrayList<ZipEntry> arrayList2) {
+    private static void b(ArrayList<ZipEntry> arrayList, ArrayList<ZipEntry> arrayList2) {
         if (arrayList != null && arrayList2 != null) {
             Iterator<ZipEntry> it = arrayList2.iterator();
             while (it.hasNext()) {
@@ -1076,8 +1075,8 @@ public class d {
                                     objArr[0] = "ARM";
                                     objArr[1] = Integer.valueOf(com.baidu.adp.lib.g.b.f(sb.toString(), -1));
                                 } else if (trim.compareToIgnoreCase("Features") == 0) {
-                                    if (trim2.contains(PhoneUtils.CPUInfo.FEATURE_NEON)) {
-                                        objArr[2] = PhoneUtils.CPUInfo.FEATURE_NEON;
+                                    if (trim2.contains("neon")) {
+                                        objArr[2] = "neon";
                                     }
                                 } else if (trim.compareToIgnoreCase("model name") == 0) {
                                     if (trim2.contains("Intel")) {

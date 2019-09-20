@@ -15,59 +15,59 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
 /* loaded from: classes2.dex */
 public class b {
-    private WindowManager aPT;
-    private View aPU;
-    private boolean aPX;
-    private View aPY;
-    private boolean azt;
+    private WindowManager aQr;
+    private View aQs;
+    private boolean aQv;
+    private View aQw;
+    private boolean azR;
     private Context mContext;
     private volatile int mDuration;
     private View mMaskView;
     private Runnable mShowRunnable;
     private View mView;
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private Runnable aPW = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.b.1
+    private Runnable aQu = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.b.1
         @Override // java.lang.Runnable
         public void run() {
             if (b.this.mView != null) {
                 if (b.this.mView.getParent() != null) {
-                    b.this.aPT.removeView(b.this.mView);
+                    b.this.aQr.removeView(b.this.mView);
                 }
                 b.this.mView = null;
             }
             if (b.this.mMaskView != null) {
                 if (b.this.mMaskView.getParent() != null) {
-                    b.this.aPT.removeView(b.this.mMaskView);
+                    b.this.aQr.removeView(b.this.mMaskView);
                 }
                 b.this.mMaskView = null;
             }
         }
     };
-    private WindowManager.LayoutParams aPV = new WindowManager.LayoutParams();
+    private WindowManager.LayoutParams aQt = new WindowManager.LayoutParams();
 
     public b(Context context) {
         this.mContext = context;
-        this.aPT = (WindowManager) this.mContext.getSystemService("window");
-        this.aPV.height = -2;
-        this.aPV.width = -2;
-        this.aPV.format = -3;
-        this.aPV.windowAnimations = a.i.toast_animation;
-        this.aPV.type = 2005;
-        this.aPV.setTitle("Toast");
-        this.aPV.flags = 168;
-        this.aPV.gravity = 81;
-        this.aPV.y = -30;
+        this.aQr = (WindowManager) this.mContext.getSystemService("window");
+        this.aQt.height = -2;
+        this.aQt.width = -2;
+        this.aQt.format = -3;
+        this.aQt.windowAnimations = a.i.toast_animation;
+        this.aQt.type = 2005;
+        this.aQt.setTitle("Toast");
+        this.aQt.flags = 168;
+        this.aQt.gravity = 81;
+        this.aQt.y = -30;
         this.mDuration = 2;
-        this.azt = com.baidu.swan.apps.b.DEBUG;
+        this.azR = com.baidu.swan.apps.b.DEBUG;
     }
 
     public void setView(@NonNull View view) {
-        this.aPU = view;
-        this.aPU.setClickable(true);
+        this.aQs = view;
+        this.aQs.setClickable(true);
     }
 
     public void setMask(boolean z) {
-        this.aPX = z;
+        this.aQv = z;
     }
 
     public void setDuration(int i) {
@@ -77,43 +77,43 @@ public class b {
         this.mDuration = i;
     }
 
-    public void dD(@StyleRes int i) {
-        if (this.aPV != null) {
-            this.aPV.windowAnimations = i;
+    public void dE(@StyleRes int i) {
+        if (this.aQt != null) {
+            this.aQt.windowAnimations = i;
         }
     }
 
-    public void dE(int i) {
-        if (this.aPV != null) {
-            this.aPV.type = i;
+    public void dF(int i) {
+        if (this.aQt != null) {
+            this.aQt.type = i;
         }
     }
 
     public void setGravity(int i, int i2, int i3) {
-        if (this.aPV != null) {
-            this.aPV.gravity = i;
-            this.aPV.x = i2;
-            this.aPV.y = i3;
+        if (this.aQt != null) {
+            this.aQt.gravity = i;
+            this.aQt.x = i2;
+            this.aQt.y = i3;
         }
     }
 
     public void a(@Nullable final d.a aVar) {
-        if (this.aPU != null) {
+        if (this.aQs != null) {
             View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.b.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (aVar != null) {
-                        aVar.LX();
+                        aVar.Mb();
                     }
                     b.this.cancel();
                 }
             };
-            this.aPU.setClickable(true);
-            View findViewById = this.aPU.findViewById(a.f.clickable_toast_click_area);
+            this.aQs.setClickable(true);
+            View findViewById = this.aQs.findViewById(a.f.clickable_toast_click_area);
             if (findViewById != null) {
                 findViewById.setOnClickListener(onClickListener);
             } else {
-                this.aPU.setOnClickListener(onClickListener);
+                this.aQs.setOnClickListener(onClickListener);
             }
         }
     }
@@ -127,23 +127,23 @@ public class b {
             public void run() {
                 boolean z;
                 try {
-                    if (b.this.aPX) {
+                    if (b.this.aQv) {
                         if (b.this.mMaskView != null && (b.this.mMaskView.getParent() instanceof ViewGroup)) {
                             ((ViewGroup) b.this.mMaskView.getParent()).removeView(b.this.mMaskView);
                         }
-                        WindowManager.LayoutParams LJ = b.this.LJ();
-                        b.this.aPY = new FrameLayout(b.this.mContext);
-                        b.this.aPY.setClickable(true);
-                        b.this.aPT.addView(b.this.aPY, LJ);
-                        b.this.mMaskView = b.this.aPY;
+                        WindowManager.LayoutParams LN = b.this.LN();
+                        b.this.aQw = new FrameLayout(b.this.mContext);
+                        b.this.aQw.setClickable(true);
+                        b.this.aQr.addView(b.this.aQw, LN);
+                        b.this.mMaskView = b.this.aQw;
                     }
-                    if (b.this.aPU != null && (b.this.aPU.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) b.this.aPU.getParent()).removeView(b.this.aPU);
+                    if (b.this.aQs != null && (b.this.aQs.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) b.this.aQs.getParent()).removeView(b.this.aQs);
                     }
-                    b.this.aPT.addView(b.this.aPU, b.this.aPV);
-                    b.this.mView = b.this.aPU;
-                    b.this.mHandler.postDelayed(b.this.aPW, b.this.mDuration * 1000);
-                    if (b.this.azt) {
+                    b.this.aQr.addView(b.this.aQs, b.this.aQt);
+                    b.this.mView = b.this.aQs;
+                    b.this.mHandler.postDelayed(b.this.aQu, b.this.mDuration * 1000);
+                    if (b.this.azR) {
                         Log.d("ToastCustom", "add mView");
                     }
                 } finally {
@@ -164,18 +164,18 @@ public class b {
                     try {
                         if (b.this.mView != null) {
                             if (b.this.mView.getParent() != null) {
-                                b.this.aPT.removeViewImmediate(b.this.mView);
+                                b.this.aQr.removeViewImmediate(b.this.mView);
                             }
-                            if (b.this.azt) {
+                            if (b.this.azR) {
                                 Log.d("ToastCustom", "remove mView");
                             }
                             b.this.mView = null;
                         }
                         if (b.this.mMaskView != null) {
                             if (b.this.mMaskView.getParent() != null) {
-                                b.this.aPT.removeViewImmediate(b.this.mMaskView);
+                                b.this.aQr.removeViewImmediate(b.this.mMaskView);
                             }
-                            if (b.this.azt) {
+                            if (b.this.azR) {
                                 Log.d("ToastCustom", "remove mMaskView");
                             }
                             b.this.mMaskView = null;
@@ -186,15 +186,15 @@ public class b {
                     }
                 }
             });
-            this.mHandler.removeCallbacks(this.aPW);
-            if (this.azt) {
+            this.mHandler.removeCallbacks(this.aQu);
+            if (this.azR) {
                 Log.d("ToastCustom", "cancel");
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public WindowManager.LayoutParams LJ() {
+    public WindowManager.LayoutParams LN() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -1;

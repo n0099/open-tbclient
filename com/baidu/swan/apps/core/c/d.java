@@ -19,12 +19,12 @@ public class d extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     public d(Context context) {
         super(context);
         this.mContext = context;
-        zp();
+        zt();
     }
 
-    protected void zp() {
-        xt().setVisibility(8);
-        xt().setBackgroundColor(0);
+    protected void zt() {
+        xx().setVisibility(8);
+        xx().setBackgroundColor(0);
         loadUrl("file:///android_asset/aiapps/sConsole.html");
     }
 
@@ -41,15 +41,15 @@ public class d extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
         HashMap hashMap = new HashMap();
         hashMap.put("logType", str);
         hashMap.put("logs", jSONArray.toString());
-        e.GF().a("console", new com.baidu.swan.apps.m.a.b("searchboxSConsole", hashMap));
+        e.GJ().a("console", new com.baidu.swan.apps.m.a.b("searchboxSConsole", hashMap));
     }
 
     @Override // com.baidu.swan.apps.b.c.a
-    public void xl() {
+    public void xp() {
         com.baidu.swan.apps.console.c.aW(false);
-        ViewParent parent = xt().getParent();
+        ViewParent parent = xx().getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(xt());
+            ((ViewGroup) parent).removeView(xx());
         }
         destroy();
     }
@@ -57,18 +57,18 @@ public class d extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     @Override // com.baidu.swan.apps.b.c.a
     public void e(ViewGroup viewGroup) {
         if (viewGroup != null) {
-            a(viewGroup, xt());
+            a(viewGroup, xx());
         }
     }
 
     @Override // com.baidu.swan.apps.b.c.a
     public void aR(boolean z) {
-        xt().setVisibility(z ? 0 : 8);
+        xx().setVisibility(z ? 0 : 8);
     }
 
     @Override // com.baidu.swan.apps.b.c.a
-    public void xk() {
-        aR(xt().getVisibility() != 0);
+    public void xo() {
+        aR(xx().getVisibility() != 0);
     }
 
     private void a(ViewGroup viewGroup, View view) {
@@ -88,17 +88,17 @@ public class d extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     }
 
     @Override // com.baidu.swan.apps.b.c.e
-    public String xv() {
+    public String xz() {
         return "console";
     }
 
     @Override // com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void destroy() {
-        xq();
+        xu();
         super.destroy();
     }
 
-    private void xq() {
+    private void xu() {
         if (this.mContext != null && (this.mContext instanceof Activity)) {
             p.a(this.mContext, ((Activity) this.mContext).getWindow().getDecorView().getWindowToken());
         }

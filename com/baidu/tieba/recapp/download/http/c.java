@@ -2,6 +2,7 @@ package com.baidu.tieba.recapp.download.http;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,8 +17,8 @@ public class c {
     private static boolean AZ;
     private static String Ba;
     private long Bf;
-    private g iHT;
-    private d iHU;
+    private g iKp;
+    private d iKq;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
@@ -37,33 +38,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.iHT = new g();
-        a(this.iHT, z);
-        this.iHT.cil().setUrl(str);
-        this.iHU = new d(this.iHT);
-        this.iHU.d(i, i3, i4);
-        return this.iHT.cim();
+        this.iKp = new g();
+        a(this.iKp, z);
+        this.iKp.ciZ().setUrl(str);
+        this.iKq = new d(this.iKp);
+        this.iKq.d(i, i3, i4);
+        return this.iKp.cja();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.iHT = new g();
-        a(this.iHT, z);
-        this.iHT.cil().setUrl(str);
+        this.iKp = new g();
+        a(this.iKp, z);
+        this.iKp.ciZ().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.iHT.cil().a(basicNameValuePair);
+                this.iKp.ciZ().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.iHT.cil().q(next.getName(), next.getValue());
+                this.iKp.ciZ().q(next.getName(), next.getValue());
             }
         }
-        this.iHU = new d(this.iHT);
-        this.iHU.f(i, i2, -1);
-        return this.iHT.cim();
+        this.iKq = new d(this.iKp);
+        this.iKq.f(i, i2, -1);
+        return this.iKp.cja();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -71,11 +72,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.iHT = new g();
-        b(this.iHT);
-        this.iHT.cil().setUrl(str);
-        this.iHU = new d(this.iHT);
-        return this.iHU.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.iKp = new g();
+        b(this.iKp);
+        this.iKp.ciZ().setUrl(str);
+        this.iKq = new d(this.iKp);
+        return this.iKq.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -83,54 +84,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.iHU != null) {
-            this.iHU.cancel();
+        if (this.iKq != null) {
+            this.iKq.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.iHU != null) {
-            return this.iHU.im();
+        if (this.iKq != null) {
+            return this.iKq.im();
         }
         return false;
     }
 
     public void in() {
-        if (this.iHU != null) {
-            this.iHU.in();
+        if (this.iKq != null) {
+            this.iKq.in();
         }
     }
 
-    public g cik() {
-        return this.iHT;
+    public g ciY() {
+        return this.iKp;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
             if (!TextUtils.isEmpty(AW)) {
-                gVar.cil().q(SM.COOKIE, AW);
+                gVar.ciZ().q(SM.COOKIE, AW);
             } else {
-                gVar.cil().q(SM.COOKIE, "");
+                gVar.ciZ().q(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(AY)) {
-                gVar.cil().q("client_user_token", AY);
+                gVar.ciZ().q("client_user_token", AY);
             }
             if (!TextUtils.isEmpty(AX)) {
-                gVar.cil().q(HTTP.USER_AGENT, AX);
+                gVar.ciZ().q(HTTP.USER_AGENT, AX);
             }
             if (z) {
-                gVar.cil().q("Accept-Encoding", "gzip");
+                gVar.ciZ().q("Accept-Encoding", "gzip");
             } else {
-                gVar.cil().q("Accept-Encoding", "");
+                gVar.ciZ().q("Accept-Encoding", "");
             }
             if (AZ) {
-                gVar.cil().q(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                gVar.ciZ().q(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.cil().q(HTTP.CONN_DIRECTIVE, "close");
+                gVar.ciZ().q(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.cil().q("client_logid", String.valueOf(this.Bf));
+            gVar.ciZ().q("client_logid", String.valueOf(this.Bf));
             if (!TextUtils.isEmpty(Ba)) {
-                gVar.cil().q("cuid", Ba);
+                gVar.ciZ().q(DpStatConstants.KEY_CUID, Ba);
             }
         }
     }

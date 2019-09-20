@@ -18,28 +18,28 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.k;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.adp.widget.ListView.a<k, z<k>> {
-    private ab<k> VC;
+    private ab<k> VB;
     private r YY;
-    private int bWN;
-    private NEGFeedBackView.a cSK;
-    private BdUniqueId cxE;
+    private int bXG;
+    private NEGFeedBackView.a cTD;
+    private BdUniqueId cyA;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.VC = new ab<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.f.1
+        this.VB = new ab<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, k kVar) {
                 int id = view.getId();
                 if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                    com.baidu.tieba.homepage.gamevideo.e.a.c(kVar, f.this.bWN);
+                    com.baidu.tieba.homepage.gamevideo.e.a.c(kVar, f.this.bXG);
                 } else if (id == R.id.user_avatar) {
-                    com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, f.this.bWN);
+                    com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, f.this.bXG);
                 } else if (id == R.id.user_name) {
-                    com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, f.this.bWN);
+                    com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, f.this.bXG);
                 }
             }
         };
@@ -57,7 +57,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, z<k>> {
     public z<k> onCreateViewHolder(ViewGroup viewGroup) {
         x.a aVar = new x.a(this.mPageContext.getPageActivity());
         com.baidu.card.d dVar = new com.baidu.card.d(this.mPageContext.getPageActivity());
-        dVar.setPageUniqueId(this.cxE);
+        dVar.setPageUniqueId(this.cyA);
         dVar.bn(1024);
         dVar.a(new d.a() { // from class: com.baidu.tieba.homepage.gamevideo.a.f.2
             @Override // com.baidu.card.d.a
@@ -65,11 +65,10 @@ public class f extends com.baidu.adp.widget.ListView.a<k, z<k>> {
             }
         });
         aVar.c(dVar);
-        aVar.qN().setBackgroundResource(R.color.cp_bg_line_d);
         x a = aVar.a(false, viewGroup, this.YY);
         a.bq(18);
         z<k> zVar = new z<>(a);
-        zVar.setPageId(this.cxE);
+        zVar.setPageId(this.cyA);
         setOnAdapterItemClickListener(new s() { // from class: com.baidu.tieba.homepage.gamevideo.a.f.3
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -77,11 +76,11 @@ public class f extends com.baidu.adp.widget.ListView.a<k, z<k>> {
                     z zVar2 = (z) view.getTag();
                     k kVar = (k) mVar;
                     kVar.objType = 1;
-                    if (f.this.VC != null) {
-                        f.this.VC.a(zVar2.getView(), kVar);
+                    if (f.this.VB != null) {
+                        f.this.VB.a(zVar2.getView(), kVar);
                     }
                     com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, view.getContext(), 18, false);
-                    zVar2.qP().b(new a.C0038a(1));
+                    zVar2.qQ().b(new a.C0038a(1));
                 }
             }
         });
@@ -96,24 +95,24 @@ public class f extends com.baidu.adp.widget.ListView.a<k, z<k>> {
         if (kVar == null || zVar == null || zVar.getView() == null || kVar.threadData == null) {
             return null;
         }
-        kVar.pJ(kVar.position + 1);
-        zVar.qP().setPosition(i);
-        zVar.qQ().a(this.cSK);
+        kVar.pN(kVar.position + 1);
+        zVar.qQ().setPosition(i);
+        zVar.qR().a(this.cTD);
         zVar.a(kVar);
-        zVar.qP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        zVar.qP().a(this.VC);
+        zVar.qQ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        zVar.qQ().a(this.VB);
         return zVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.cxE = bdUniqueId;
+        this.cyA = bdUniqueId;
     }
 
-    public void tZ(int i) {
-        this.bWN = i;
+    public void ud(int i) {
+        this.bXG = i;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.cSK = aVar;
+        this.cTD = aVar;
     }
 }

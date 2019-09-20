@@ -55,7 +55,7 @@ public final class StatService {
                         public void run() {
                             StatService.b(HttpHashMapWrap.this);
                         }
-                    }, "pass_sdk_".concat(str).concat("_").concat(String.valueOf(System.currentTimeMillis())), 60000L, false);
+                    }, "pass_sdk_".concat(str), 60000L, false);
                     return;
                 }
                 b(httpHashMapWrap);
@@ -82,6 +82,16 @@ public final class StatService {
         } catch (Throwable th) {
             return false;
         }
+    }
+
+    public static void onEventAutoStatistic(String str) {
+        LinkedHashMap linkedHashMap = new LinkedHashMap(1);
+        linkedHashMap.put("name", str);
+        onEventAutoStatistic(linkedHashMap);
+    }
+
+    public static void onEventAutoStatistic(LinkedHashMap<String, String> linkedHashMap) {
+        onEventAutoStatistic(linkedHashMap, null);
     }
 
     @TargetApi(8)

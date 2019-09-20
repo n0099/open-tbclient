@@ -4,8 +4,8 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes2.dex */
 public class c {
-    private int bhA;
-    private int bhB;
+    private int bhY;
+    private int bhZ;
     @V8JavascriptField
     public String digest;
     @V8JavascriptField
@@ -14,18 +14,18 @@ public class c {
     public int size;
 
     public c() {
-        this.bhB = 0;
-        int i = this.bhB;
-        this.bhB = i + 1;
-        this.bhA = i;
+        this.bhZ = 0;
+        int i = this.bhZ;
+        this.bhZ = i + 1;
+        this.bhY = i;
     }
 
     @JavascriptInterface
     public int jsObjectID() {
-        return this.bhA;
+        return this.bhY;
     }
 
     public String toString() {
-        return "GetFileInfoCallBack" + this.bhA;
+        return "GetFileInfoCallBack" + this.bhY;
     }
 }

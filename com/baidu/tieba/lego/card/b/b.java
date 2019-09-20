@@ -10,22 +10,22 @@ public interface b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String heT;
-        public String heU;
-        public ArrayList<String> heV = new ArrayList<>();
-        public ArrayList<String> heW = new ArrayList<>();
+        public String hgN;
+        public String hgO;
+        public ArrayList<String> hgP = new ArrayList<>();
+        public ArrayList<String> hgQ = new ArrayList<>();
 
         public void parseFromJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.heT = jSONObject.optString("charge_click_url");
-                this.heU = jSONObject.optString("charge_show_url");
+                this.hgN = jSONObject.optString("charge_click_url");
+                this.hgO = jSONObject.optString("charge_show_url");
                 JSONArray optJSONArray = jSONObject.optJSONArray("monitor_show_url");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         String optString = optJSONArray.optString(i);
                         if (!TextUtils.isEmpty(optString)) {
-                            this.heV.add(optString);
+                            this.hgP.add(optString);
                         }
                     }
                 }
@@ -35,7 +35,7 @@ public interface b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String optString2 = optJSONArray2.optString(i2);
                         if (!TextUtils.isEmpty(optString2)) {
-                            this.heW.add(optString2);
+                            this.hgQ.add(optString2);
                         }
                     }
                 }

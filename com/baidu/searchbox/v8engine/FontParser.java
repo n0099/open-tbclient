@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine;
 
 import android.util.Xml;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.smallgame.sdk.Log;
 import com.coloros.mcssdk.mode.CommandMessage;
@@ -234,7 +235,7 @@ public class FontParser {
     }
 
     private static Axis readAxis(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
-        String attributeValue = xmlPullParser.getAttributeValue(null, "tag");
+        String attributeValue = xmlPullParser.getAttributeValue(null, AddressManageResult.KEY_TAG);
         if (attributeValue != null && TAG_PATTERN.matcher(attributeValue).matches()) {
             int charAt = attributeValue.charAt(3) + (attributeValue.charAt(0) << 24) + (attributeValue.charAt(1) << 16) + (attributeValue.charAt(2) << '\b');
             String attributeValue2 = xmlPullParser.getAttributeValue(null, "stylevalue");

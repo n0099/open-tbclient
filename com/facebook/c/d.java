@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d kfD;
-    private int kfE;
+    private static d kia;
+    private int kib;
     @Nullable
-    private List<c.a> kfF;
-    private final c.a kfG = new a();
+    private List<c.a> kic;
+    private final c.a kie = new a();
 
     private d() {
-        cHA();
+        cIo();
     }
 
     public void eF(@Nullable List<c.a> list) {
-        this.kfF = list;
-        cHA();
+        this.kic = list;
+        cIo();
     }
 
     public c s(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.kfE];
-        int a = a(this.kfE, inputStream, bArr);
-        if (this.kfF != null) {
-            for (c.a aVar : this.kfF) {
+        byte[] bArr = new byte[this.kib];
+        int a = a(this.kib, inputStream, bArr);
+        if (this.kic != null) {
+            for (c.a aVar : this.kic) {
                 c l = aVar.l(bArr, a);
-                if (l != null && l != c.kfB) {
+                if (l != null && l != c.khY) {
                     return l;
                 }
             }
         }
-        c l2 = this.kfG.l(bArr, a);
+        c l2 = this.kie.l(bArr, a);
         if (l2 == null) {
-            return c.kfB;
+            return c.khY;
         }
         return l2;
     }
 
-    private void cHA() {
-        this.kfE = this.kfG.getHeaderSize();
-        if (this.kfF != null) {
-            for (c.a aVar : this.kfF) {
-                this.kfE = Math.max(this.kfE, aVar.getHeaderSize());
+    private void cIo() {
+        this.kib = this.kie.getHeaderSize();
+        if (this.kic != null) {
+            for (c.a aVar : this.kic) {
+                this.kib = Math.max(this.kib, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d cHB() {
+    public static synchronized d cIp() {
         d dVar;
         synchronized (d.class) {
-            if (kfD == null) {
-                kfD = new d();
+            if (kia == null) {
+                kia = new d();
             }
-            dVar = kfD;
+            dVar = kia;
         }
         return dVar;
     }
 
     public static c t(InputStream inputStream) throws IOException {
-        return cHB().s(inputStream);
+        return cIp().s(inputStream);
     }
 
     public static c u(InputStream inputStream) {

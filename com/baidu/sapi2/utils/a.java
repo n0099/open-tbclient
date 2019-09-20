@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.annotation.TargetApi;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
@@ -19,7 +20,7 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", "native");
-            jSONObject.put("timestamp", l);
+            jSONObject.put(DpStatConstants.KEY_TIMESTAMP, l);
             jSONObject.put("host_api_key", confignation.bdOauthAppId);
             jSONObject.put("host_pkgname", packageName);
             jSONObject.put("host_key_hash", packageSign);

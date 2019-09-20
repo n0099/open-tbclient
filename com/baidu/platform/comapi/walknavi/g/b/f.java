@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g.b;
 import com.baidu.platform.comapi.walknavi.g.b.c;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* loaded from: classes5.dex */
-class f implements a.InterfaceC0080a {
+class f implements a.InterfaceC0089a {
     final /* synthetic */ String a;
     final /* synthetic */ c b;
 
@@ -13,7 +13,7 @@ class f implements a.InterfaceC0080a {
         this.a = str;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0080a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0089a
     public void a() {
         this.b.a(this.a, (c.d) null);
     }

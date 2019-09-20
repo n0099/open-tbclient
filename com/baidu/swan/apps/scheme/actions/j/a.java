@@ -36,7 +36,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mName = o.dd(unitedSchemeEntity.getParam("params")).optString("name");
+        this.mName = o.df(unitedSchemeEntity.getParam("params")).optString("name");
         if (TextUtils.isEmpty(this.mName)) {
             c.e("Screenshot", "invalid params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -50,14 +50,14 @@ public class a extends z {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.j.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap PA = com.baidu.swan.apps.an.z.PA();
-                if (PA == null) {
+                final Bitmap PE = com.baidu.swan.apps.an.z.PE();
+                if (PE == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.j.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(PA, unitedSchemeEntity, callbackHandler, bVar);
+                            a.this.a(PE, unitedSchemeEntity, callbackHandler, bVar);
                         }
                     }, "savescreenshot");
                 }
@@ -88,9 +88,9 @@ public class a extends z {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull b bVar) {
         FileOutputStream fileOutputStream;
-        String hE = com.baidu.swan.apps.storage.b.hE(bVar.id);
-        if (hE != null) {
-            String str = hE + File.separator + "screenshot";
+        String hG = com.baidu.swan.apps.storage.b.hG(bVar.id);
+        if (hG != null) {
+            String str = hG + File.separator + "screenshot";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();

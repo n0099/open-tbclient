@@ -15,10 +15,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
-    private HttpMessageListener cSj;
+    private HttpMessageListener cTc;
     private String mFrom;
-    private a cSV = null;
-    private CustomMessageListener cSn = new CustomMessageListener(2016489) { // from class: com.baidu.tieba.NEGFeedBack.d.1
+    private a cTO = null;
+    private CustomMessageListener cTg = new CustomMessageListener(2016489) { // from class: com.baidu.tieba.NEGFeedBack.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,29 +35,29 @@ public class d {
 
     public d(String str) {
         this.mFrom = str;
-        if (this.cSj == null) {
-            this.cSj = new HttpMessageListener(CmdConfigHttp.CMD_NEG_DELETE_THREAD) { // from class: com.baidu.tieba.NEGFeedBack.d.2
+        if (this.cTc == null) {
+            this.cTc = new HttpMessageListener(CmdConfigHttp.CMD_NEG_DELETE_THREAD) { // from class: com.baidu.tieba.NEGFeedBack.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && d.this.cSV != null) {
-                        d.this.cSV.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
+                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && d.this.cTO != null) {
+                        d.this.cTO.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.cSj);
-        MessageManager.getInstance().registerListener(this.cSn);
+        MessageManager.getInstance().registerListener(this.cTc);
+        MessageManager.getInstance().registerListener(this.cTg);
     }
 
     public void registerListener() {
-        MessageManager.getInstance().registerListener(this.cSj);
-        MessageManager.getInstance().registerListener(this.cSn);
+        MessageManager.getInstance().registerListener(this.cTc);
+        MessageManager.getInstance().registerListener(this.cTg);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cSn);
-        MessageManager.getInstance().unRegisterListener(this.cSj);
+        MessageManager.getInstance().unRegisterListener(this.cTg);
+        MessageManager.getInstance().unRegisterListener(this.cTc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -82,6 +82,6 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.cSV = aVar;
+        this.cTO = aVar;
     }
 }

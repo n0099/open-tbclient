@@ -7,105 +7,105 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 class s {
-    private boolean bxq = false;
-    private JSONArray aIq = new JSONArray();
-    private SparseArray<Integer> bxm = new SparseArray<>();
-    private ArrayList<String> bxn = new ArrayList<>();
-    private long bxo = 0;
-    private long bxp = 0;
-    private String bwn = "0";
+    private boolean bxO = false;
+    private JSONArray aIO = new JSONArray();
+    private SparseArray<Integer> bxK = new SparseArray<>();
+    private ArrayList<String> bxL = new ArrayList<>();
+    private long bxM = 0;
+    private long bxN = 0;
+    private String bwL = "0";
 
     public final void aU(JSONObject jSONObject) {
-        this.aIq.put(jSONObject);
+        this.aIO.put(jSONObject);
     }
 
-    public final SparseArray<Integer> Yq() {
-        return this.bxm;
+    public final SparseArray<Integer> Yu() {
+        return this.bxK;
     }
 
     public final void Q(int i, int i2) {
-        this.bxm.put(i, Integer.valueOf(i2));
+        this.bxK.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList Yr() {
-        return this.bxn;
+    public final ArrayList Yv() {
+        return this.bxL;
     }
 
-    public final void lb(String str) {
-        if (!this.bxn.contains(str)) {
-            this.bxn.add(str);
+    public final void ld(String str) {
+        if (!this.bxL.contains(str)) {
+            this.bxL.add(str);
         }
     }
 
     public final void g(long j, long j2) {
-        if ((j < this.bxo || this.bxo == 0) && j != 0) {
-            this.bxo = j;
+        if ((j < this.bxM || this.bxM == 0) && j != 0) {
+            this.bxM = j;
         }
-        if (j2 > this.bxp) {
-            this.bxp = j2;
+        if (j2 > this.bxN) {
+            this.bxN = j2;
         }
     }
 
-    public boolean ge(int i) {
-        return this.aIq.toString().getBytes().length >= i;
+    public boolean gf(int i) {
+        return this.aIO.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.aIq.length() == 0;
+        return this.aIO.length() == 0;
     }
 
-    public JSONObject cDA() {
+    public JSONObject cEo() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("data", this.aIq);
-            if (this.bxo == 0 || this.bxp == 0) {
-                this.bxo = this.bxp;
+            jSONObject.put("data", this.aIO);
+            if (this.bxM == 0 || this.bxN == 0) {
+                this.bxM = this.bxN;
             }
-            jSONObject2.put("mintime", Long.toString(this.bxo));
-            jSONObject2.put("maxtime", Long.toString(this.bxp));
+            jSONObject2.put("mintime", Long.toString(this.bxM));
+            jSONObject2.put("maxtime", Long.toString(this.bxN));
             jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-            jSONObject2.put("md5", com.baidu.f.c.toMd5(this.aIq.toString().getBytes(), true));
+            jSONObject2.put("md5", com.baidu.f.c.toMd5(this.aIO.toString().getBytes(), true));
             jSONObject.put("metadata", jSONObject2);
-            jSONObject.put("isAbtest", this.bwn);
-            jSONObject.put("isreal", this.bxq ? "1" : "0");
+            jSONObject.put("isAbtest", this.bwL);
+            jSONObject.put("isreal", this.bxO ? "1" : "0");
         } catch (JSONException e) {
         }
         return jSONObject;
     }
 
     public void clearData() {
-        this.bxm.clear();
-        this.bxn.clear();
-        this.aIq = null;
+        this.bxK.clear();
+        this.bxL.clear();
+        this.aIO = null;
     }
 
-    public void lc(String str) {
-        this.bwn = str;
+    public void le(String str) {
+        this.bwL = str;
     }
 
-    public String Yt() {
-        return this.bwn;
+    public String Yx() {
+        return this.bwL;
     }
 
-    public long Yu() {
-        return this.bxo;
+    public long Yy() {
+        return this.bxM;
     }
 
-    public long Yv() {
-        return this.bxp;
+    public long Yz() {
+        return this.bxN;
     }
 
-    public JSONArray Yw() {
-        return this.aIq;
+    public JSONArray YA() {
+        return this.aIO;
     }
 
-    public boolean Yx() {
-        return this.bxq;
+    public boolean YB() {
+        return this.bxO;
     }
 
     public void ds(boolean z) {
-        this.bxq = z;
+        this.bxO = z;
     }
 }

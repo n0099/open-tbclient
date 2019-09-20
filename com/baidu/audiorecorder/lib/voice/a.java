@@ -7,133 +7,133 @@ import com.baidu.adp.lib.voice.h;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class a {
-    private static b Tm;
-    private static String Tn;
-    private static g To;
-    private static int Tl = 0;
-    private static long Tp = 0;
+    private static b Tl;
+    private static String Tm;
+    private static g Tn;
+    private static int Tk = 0;
+    private static long To = 0;
     private static Handler mHandler = new Handler(new Handler.Callback() { // from class: com.baidu.audiorecorder.lib.voice.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    if (a.To != null) {
-                        a.To.j(a.Tn, message.arg1);
-                        g unused = a.To = null;
+                    if (a.Tn != null) {
+                        a.Tn.j(a.Tm, message.arg1);
+                        g unused = a.Tn = null;
                         break;
                     }
                     break;
                 case 1:
                 case 3:
-                    if (a.To != null) {
+                    if (a.Tn != null) {
                         if (com.baidu.adp.lib.util.f.jL()) {
-                            a.To.error(message.what, h.getString(R.string.voice_err_create_file_fail));
+                            a.Tn.error(message.what, h.getString(R.string.voice_err_create_file_fail));
                         } else {
-                            a.To.error(message.what, h.getString(R.string.voice_err_sdcard_nospace));
+                            a.Tn.error(message.what, h.getString(R.string.voice_err_sdcard_nospace));
                         }
-                        g unused2 = a.To = null;
+                        g unused2 = a.Tn = null;
                         break;
                     }
                     break;
                 case 2:
-                    if (a.To != null) {
-                        a.To.error(message.what, h.getString(R.string.voice_err_file_fail));
-                        g unused3 = a.To = null;
+                    if (a.Tn != null) {
+                        a.Tn.error(message.what, h.getString(R.string.voice_err_file_fail));
+                        g unused3 = a.Tn = null;
                         break;
                     }
                     break;
                 case 4:
-                    if (a.To != null) {
-                        a.To.ax(message.arg1);
+                    if (a.Tn != null) {
+                        a.Tn.ax(message.arg1);
                         break;
                     }
                     break;
                 case 5:
-                    if (a.To != null) {
-                        a.To.error(message.what, h.getString(R.string.voice_err_load_lib_fail));
-                        g unused4 = a.To = null;
+                    if (a.Tn != null) {
+                        a.Tn.error(message.what, h.getString(R.string.voice_err_load_lib_fail));
+                        g unused4 = a.Tn = null;
                         break;
                     }
                     break;
                 case 6:
-                    if (a.To != null) {
-                        a.To.error(message.what, h.getString(R.string.voice_err_init_fail));
-                        g unused5 = a.To = null;
+                    if (a.Tn != null) {
+                        a.Tn.error(message.what, h.getString(R.string.voice_err_init_fail));
+                        g unused5 = a.Tn = null;
                         break;
                     }
                     break;
                 case 7:
-                    if (a.To != null) {
-                        a.To.error(message.what, h.getString(R.string.voice_record_timeout_tip));
-                        g unused6 = a.To = null;
+                    if (a.Tn != null) {
+                        a.Tn.error(message.what, h.getString(R.string.voice_record_timeout_tip));
+                        g unused6 = a.Tn = null;
                         break;
                     }
                     break;
                 case 8:
-                    if (a.To != null) {
-                        a.To.error(message.what, h.getString(R.string.voice_record_short_tip));
-                        g unused7 = a.To = null;
+                    if (a.Tn != null) {
+                        a.Tn.error(message.what, h.getString(R.string.voice_record_short_tip));
+                        g unused7 = a.Tn = null;
                         break;
                     }
                     break;
                 case 9:
-                    if (a.To != null) {
-                        a.To.ay(message.arg1);
+                    if (a.Tn != null) {
+                        a.Tn.ay(message.arg1);
                         break;
                     }
                     break;
                 case 100:
-                    if (a.To != null) {
-                        a.To.kG();
+                    if (a.Tn != null) {
+                        a.Tn.kG();
                         break;
                     }
                     break;
                 default:
-                    if (a.To != null) {
-                        a.To.error(message.what, h.getString(R.string.voice_err_other));
-                        g unused8 = a.To = null;
+                    if (a.Tn != null) {
+                        a.Tn.error(message.what, h.getString(R.string.voice_err_other));
+                        g unused8 = a.Tn = null;
                         break;
                     }
                     break;
             }
-            int unused9 = a.Tl = 0;
+            int unused9 = a.Tk = 0;
             return false;
         }
     });
 
     public static boolean a(String str, int i, g gVar) {
-        if (System.currentTimeMillis() - Tp < 1000) {
+        if (System.currentTimeMillis() - To < 1000) {
             return false;
         }
-        Tp = System.currentTimeMillis();
-        if (Tl == 0) {
-            if (Tm == null) {
-                Tm = new b(mHandler);
+        To = System.currentTimeMillis();
+        if (Tk == 0) {
+            if (Tl == null) {
+                Tl = new b(mHandler);
             }
-            Tn = str;
-            To = gVar;
-            if (Tm.n(str, i)) {
-                Tl = 3;
-                new Thread(Tm).start();
+            Tm = str;
+            Tn = gVar;
+            if (Tl.n(str, i)) {
+                Tk = 3;
+                new Thread(Tl).start();
                 return true;
             }
-            Tm = null;
+            Tl = null;
             return false;
         }
         return false;
     }
 
     public static void stop() {
-        if (Tm != null) {
-            Tm.stop();
+        if (Tl != null) {
+            Tl.stop();
         }
-        Tl = 0;
+        Tk = 0;
     }
 
     public static void cancel() {
-        if (Tm != null) {
-            Tm.cancel();
+        if (Tl != null) {
+            Tl.cancel();
         }
-        Tl = 0;
+        Tk = 0;
     }
 }

@@ -12,6 +12,7 @@ import com.sina.weibo.sdk.network.exception.InterceptException;
 import com.sina.weibo.sdk.network.exception.SdkException;
 import com.sina.weibo.sdk.network.intercept.GlobalInterceptHelper;
 import com.sina.weibo.sdk.network.target.Target;
+import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,7 +34,8 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
     public RequestResult doInBackground(Object... objArr) {
         RequestResult requestResult = new RequestResult();
         if (!NetStateManager.isNetworkConnected(this.param.getContext())) {
-            requestResult.setE(new SdkException("网络连接错误，请检查网络状态"));
+            LogUtil.e("Task", "RequestTask:android.permission.ACCESS_NETWORK_STATE");
+            requestResult.setE(new SdkException("android.permission.ACCESS_NETWORK_STATE"));
         }
         if (this.param.needIntercept()) {
             try {

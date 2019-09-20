@@ -130,9 +130,9 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0071a(this.n, true).execute(new Integer[0]);
+            new AsyncTaskC0080a(this.n, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0071a(this.n, false).execute(new Integer[0]);
+            new AsyncTaskC0080a(this.n, false).execute(new Integer[0]);
         }
     }
 
@@ -166,14 +166,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     public void a(int i) {
-        if (i == R.drawable.aiapps_follow_vip_blue) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_follow_vip_blue));
+        if (i == R.drawable.aiapps_favorite_guide_checkbox_selector) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_checkbox_selector));
             this.e = 1;
-        } else if (i == R.drawable.aiapps_game_keyboard_sendbuton_bg) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_game_keyboard_sendbuton_bg));
+        } else if (i == R.drawable.aiapps_favorite_guide_close_selector) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_close_selector));
             this.e = 2;
-        } else if (i == R.drawable.aiapps_follow_vip_golden) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_follow_vip_golden));
+        } else if (i == R.drawable.aiapps_favorite_guide_close) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_close));
             this.e = 3;
         }
     }
@@ -277,12 +277,12 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class AsyncTaskC0071a extends AsyncTask<Integer, Integer, String> {
+    public class AsyncTaskC0080a extends AsyncTask<Integer, Integer, String> {
         private ScrollView b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0071a(ScrollView scrollView, boolean z) {
+        public AsyncTaskC0080a(ScrollView scrollView, boolean z) {
             this.b = scrollView;
             this.c = z;
         }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.PushManager;
 import com.meizu.cloud.pushsdk.c.b.f;
@@ -89,7 +90,7 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("taskId", str3);
         hashMap.put("deviceId", str2);
-        hashMap.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        hashMap.put(DpStatConstants.KEY_TIMESTAMP, String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put(Constants.PACKAGE_NAME, str);
         hashMap.put("pushsdk_version", str4);
         hashMap.put("push_info", str5);

@@ -6,44 +6,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class a {
-    private static final String[] eSH = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] eSI = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] eSJ = {"111.206.37.190"};
-    private static final String[] eSK = {"115.239.211.146", "180.97.33.196"};
-    private volatile int eSG;
+    private static final String[] eUo = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] eUp = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] eUq = {"111.206.37.190"};
+    private static final String[] eUr = {"115.239.211.146", "180.97.33.196"};
+    private volatile int eUn;
     private volatile String imsi;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String beh() {
-        bei();
+    public String beL() {
+        beM();
         if (j.kd()) {
-            return eSK[new Random().nextInt(eSK.length)];
+            return eUr[new Random().nextInt(eUr.length)];
         }
         if (j.ke()) {
-            if (this.eSG == 1) {
-                return eSH[new Random().nextInt(eSH.length)];
+            if (this.eUn == 1) {
+                return eUo[new Random().nextInt(eUo.length)];
             }
-            if (this.eSG == 2) {
-                return eSI[new Random().nextInt(eSI.length)];
+            if (this.eUn == 2) {
+                return eUp[new Random().nextInt(eUp.length)];
             }
-            if (this.eSG == 3) {
-                return eSJ[new Random().nextInt(eSJ.length)];
+            if (this.eUn == 3) {
+                return eUq[new Random().nextInt(eUq.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void bei() {
+    protected void beM() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
-        this.eSG = 0;
+        this.eUn = 0;
         if (this.imsi != null) {
             if (this.imsi.startsWith("46000") || this.imsi.startsWith("46002") || this.imsi.startsWith("46007")) {
-                this.eSG = 1;
+                this.eUn = 1;
             } else if (this.imsi.startsWith("46001") || this.imsi.startsWith("46006")) {
-                this.eSG = 2;
+                this.eUn = 2;
             } else if (this.imsi.startsWith("46003") || this.imsi.startsWith("46005")) {
-                this.eSG = 3;
+                this.eUn = 3;
             }
         }
     }

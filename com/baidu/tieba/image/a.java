@@ -26,79 +26,79 @@ import com.baidu.tieba.tbadkCore.w;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements ImagePagerAdapter.a {
-    private static int gYj = 7;
-    private boolean cmS;
-    private DragImageView.d coI;
-    private AdvertAppInfo gYl;
-    private boolean gYm;
-    private b gYn;
-    private c gYo;
+    private static int had = 7;
+    private boolean cnO;
+    private DragImageView.d cpD;
+    private AdvertAppInfo haf;
+    private boolean hag;
+    private b hah;
+    private c hai;
     private TbPageContext<?> mContext;
-    private int gYk = 0;
-    private boolean gYp = false;
-    private final View.OnClickListener gYq = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
+    private int hae = 0;
+    private boolean haj = false;
+    private final View.OnClickListener hak = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.gYl != null) {
-                if (a.this.gYn == null || !a.this.gYn.gYA || a.this.gYn.bIH() != view) {
+            if (a.this.haf != null) {
+                if (a.this.hah == null || !a.this.hah.hau || a.this.hah.bJu() != view) {
                     if (!w.at((Activity) view.getContext())) {
                         l.showToast((Activity) view.getContext(), (int) R.string.write_external_storage_permission_denied_fun_disable);
                         return;
                     }
                     if (view.getId() == R.id.big_image_ad_title || view.getId() == R.id.big_image_ad_brand) {
-                        a.this.gYo.bIN();
+                        a.this.hai.bJA();
                     } else {
-                        a.this.gYo.bIM();
+                        a.this.hai.bJz();
                     }
-                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.gYl));
-                    int i = a.this.gYl.bET;
+                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.haf));
+                    int i = a.this.haf.bFr;
                     if (i == 0 || i == 3) {
                         if (!j.kc() || j.kd()) {
-                            String str = a.this.gYl.bEV;
+                            String str = a.this.haf.bFt;
                             if (StringUtils.isNull(str)) {
                                 str = a.this.mContext.getString(R.string.app_name);
                             }
-                            a.this.gYo.bIP();
-                            if (s.a(a.this.mContext.getPageActivity(), a.this.gYl, 0, str)) {
-                                a.this.gYo.zL(a.this.gYl.bEY);
+                            a.this.hai.bJC();
+                            if (s.a(a.this.mContext.getPageActivity(), a.this.haf, 0, str)) {
+                                a.this.hai.Ak(a.this.haf.bFw);
                                 return;
                             }
                             return;
                         }
-                        a.this.c(a.this.gYl);
+                        a.this.c(a.this.haf);
                     } else if (i == 1) {
-                        s.f(a.this.gYl);
-                        a.this.gYl.bET = 3;
-                        a.this.bIB();
+                        s.f(a.this.haf);
+                        a.this.haf.bFr = 3;
+                        a.this.bJo();
                     } else if (i == 2) {
-                        if (com.baidu.tieba.recapp.download.d.cic().qb(a.this.gYl.bEY)) {
-                            w.aG(a.this.mContext.getPageActivity(), a.this.gYl.bEY);
+                        if (com.baidu.tieba.recapp.download.e.ciQ().qm(a.this.haf.bFw)) {
+                            w.aN(a.this.mContext.getPageActivity(), a.this.haf.bFw);
                             return;
                         }
-                        a.this.gYl.bET = 0;
-                        a.this.bIB();
+                        a.this.haf.bFr = 0;
+                        a.this.bJo();
                     }
                 }
             }
         }
     };
-    private final View.OnClickListener gYr = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
+    private final View.OnClickListener hal = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.gYl != null) {
-                if (a.this.gYn == null || !a.this.gYn.gYA || a.this.gYn.bIH() != view) {
+            if (a.this.haf != null) {
+                if (a.this.hah == null || !a.this.hah.hau || a.this.hah.bJu() != view) {
                     if (view.getId() == R.id.big_image_ad_title || view.getId() == R.id.big_image_ad_brand) {
-                        a.this.gYo.bIN();
+                        a.this.hai.bJA();
                     } else {
-                        a.this.gYo.bIM();
+                        a.this.hai.bJz();
                     }
-                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.gYl));
-                    r.chV().chS().a(a.this.mContext.getPageActivity(), new String[]{a.this.gYl.bEW}, true);
+                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.haf));
+                    r.ciJ().ciG().a(a.this.mContext.getPageActivity(), new String[]{a.this.haf.bFu}, true);
                 }
             }
         }
     };
-    private final CustomMessageListener gYs = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
+    private final CustomMessageListener ham = new CustomMessageListener(0) { // from class: com.baidu.tieba.image.a.6
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -114,92 +114,92 @@ public class a implements ImagePagerAdapter.a {
     };
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.cmS = false;
-        this.gYm = false;
-        this.cmS = z;
-        this.gYm = z2;
+        this.cnO = false;
+        this.hag = false;
+        this.cnO = z;
+        this.hag = z2;
         this.mContext = tbPageContext;
-        this.mContext.registerListener(2001118, this.gYs);
-        this.gYo = new c(tbPageContext.getPageActivity(), str, str2);
+        this.mContext.registerListener(2001118, this.ham);
+        this.hai = new c(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.gYl = advertAppInfo;
-        this.gYk = i;
-        this.gYo.d(this.gYl);
+        this.haf = advertAppInfo;
+        this.hae = i;
+        this.hai.d(this.haf);
     }
 
-    public boolean bIA() {
-        if (!this.gYm || this.gYl == null) {
+    public boolean bJn() {
+        if (!this.hag || this.haf == null) {
             return false;
         }
-        return (this.gYl.acJ() || this.gYl.acI()) && !w.isInstalledPackage(this.mContext.getPageActivity(), this.gYl.bEY);
+        return (this.haf.acN() || this.haf.acM()) && !w.isInstalledPackage(this.mContext.getPageActivity(), this.haf.bFw);
     }
 
     public String getAdId() {
-        if (this.gYl != null) {
-            return this.gYl.bEU;
+        if (this.haf != null) {
+            return this.haf.bFs;
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View h(ViewGroup viewGroup, int i) {
-        if (wk(i)) {
-            this.gYn = new b(viewGroup);
-            this.gYn.setDragToExitListener(this.coI);
-            bIB();
-            viewGroup.addView(this.gYn.getView());
-            return this.gYn.getView();
+        if (wn(i)) {
+            this.hah = new b(viewGroup);
+            this.hah.setDragToExitListener(this.cpD);
+            bJo();
+            viewGroup.addView(this.hah.getView());
+            return this.hah.getView();
         }
         return null;
     }
 
-    private boolean wk(int i) {
-        return bIA() && this.gYk != 0 && i == this.gYk;
+    private boolean wn(int i) {
+        return bJn() && this.hae != 0 && i == this.hae;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIB() {
-        if (this.gYl != null && this.gYl.bFe != null) {
-            bIC();
-            if (this.gYl.acJ()) {
-                this.gYn.bII().setVisibility(8);
-                this.gYn.A(this.gYr);
-            } else if (this.gYl.acI()) {
-                this.gYn.bII().setVisibility(0);
-                this.gYn.A(this.gYq);
-                bID();
+    public void bJo() {
+        if (this.haf != null && this.haf.bFC != null) {
+            bJp();
+            if (this.haf.acN()) {
+                this.hah.bJv().setVisibility(8);
+                this.hah.A(this.hal);
+            } else if (this.haf.acM()) {
+                this.hah.bJv().setVisibility(0);
+                this.hah.A(this.hak);
+                bJq();
             }
-            if (!TextUtils.isEmpty(this.gYl.bFe.adSource)) {
-                this.gYn.gYz.setText(this.gYl.bFe.adSource);
-                this.gYn.gYw.setVisibility(0);
+            if (!TextUtils.isEmpty(this.haf.bFC.adSource)) {
+                this.hah.hat.setText(this.haf.bFC.adSource);
+                this.hah.haq.setVisibility(0);
             } else {
-                this.gYn.gYw.setVisibility(8);
+                this.hah.haq.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(this.gYl.bFe.userName)) {
-                if (!TextUtils.isEmpty(this.gYl.bFe.tagName)) {
-                    this.gYn.gYy.setText(this.mContext.getResources().getString(R.string.big_image_ad_brand_and_tag, this.gYl.bFe.userName, this.gYl.bFe.tagName));
+            if (!TextUtils.isEmpty(this.haf.bFC.userName)) {
+                if (!TextUtils.isEmpty(this.haf.bFC.tagName)) {
+                    this.hah.has.setText(this.mContext.getResources().getString(R.string.big_image_ad_brand_and_tag, this.haf.bFC.userName, this.haf.bFC.tagName));
                 } else {
-                    this.gYn.gYy.setText(this.mContext.getResources().getString(R.string.big_image_ad_brand_and_tag, this.gYl.bFe.userName, this.mContext.getString(R.string.advert_label)));
+                    this.hah.has.setText(this.mContext.getResources().getString(R.string.big_image_ad_brand_and_tag, this.haf.bFC.userName, this.mContext.getString(R.string.advert_label)));
                 }
             }
-            if (!TextUtils.isEmpty(this.gYl.bFe.bFn)) {
-                this.gYn.gYx.setText(this.gYl.bFe.bFn);
+            if (!TextUtils.isEmpty(this.haf.bFC.bFL)) {
+                this.hah.har.setText(this.haf.bFC.bFL);
             }
         }
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.coI = dVar;
+        this.cpD = dVar;
     }
 
-    private void bIC() {
-        this.gYn.bIH().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+    private void bJp() {
+        this.hah.bJu().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void P(String str, boolean z) {
                 if (z) {
-                    a.this.gYn.bIL();
+                    a.this.hah.bJy();
                 }
             }
 
@@ -207,51 +207,51 @@ public class a implements ImagePagerAdapter.a {
             public void onCancel() {
             }
         });
-        this.gYn.bIH().startLoad(this.gYl.bFe.bFp, this.cmS ? 30 : 31, 720, 720, false);
-        if (this.gYn.bIG() != null) {
-            this.gYn.bIG().setIsCdn(this.cmS);
-            this.gYn.bIG().setUrl(this.gYl.bFe.bFp, true);
+        this.hah.bJu().startLoad(this.haf.bFC.bFN, this.cnO ? 30 : 31, 720, 720, false);
+        if (this.hah.bJt() != null) {
+            this.hah.bJt().setIsCdn(this.cnO);
+            this.hah.bJt().setUrl(this.haf.bFC.bFN, true);
         }
     }
 
-    private void bID() {
-        if (this.gYl != null) {
-            String str = this.gYl.bEV;
+    private void bJq() {
+        if (this.haf != null) {
+            String str = this.haf.bFt;
             if (StringUtils.isNull(str)) {
                 str = this.mContext.getString(R.string.app_name);
             }
-            if (com.baidu.tieba.recapp.download.d.cic().qb(this.gYl.bEY)) {
-                this.gYl.bET = 2;
-            } else if (com.baidu.tieba.recapp.download.d.cic().dY(this.gYl.bEY, str)) {
-                if (com.baidu.tieba.recapp.download.d.cic().pZ(this.gYl.bEY)) {
-                    this.gYl.bET = 1;
+            if (com.baidu.tieba.recapp.download.e.ciQ().qm(this.haf.bFw)) {
+                this.haf.bFr = 2;
+            } else if (com.baidu.tieba.recapp.download.e.ciQ().dZ(this.haf.bFw, str)) {
+                if (com.baidu.tieba.recapp.download.e.ciQ().qk(this.haf.bFw)) {
+                    this.haf.bFr = 1;
                 } else {
-                    this.gYl.bET = 3;
+                    this.haf.bFr = 3;
                 }
             }
-            switch (this.gYl.bET) {
+            switch (this.haf.bFr) {
                 case 0:
                     String string = this.mContext.getString(R.string.install_app);
-                    if (this.gYl.bFe != null && !StringUtils.isNull(this.gYl.bFe.buttonText)) {
-                        string = this.gYl.bFe.buttonText;
+                    if (this.haf.bFC != null && !StringUtils.isNull(this.haf.bFC.buttonText)) {
+                        string = this.haf.bFC.buttonText;
                     }
-                    if (string.length() > gYj) {
-                        string = string.substring(0, gYj);
+                    if (string.length() > had) {
+                        string = string.substring(0, had);
                     }
-                    this.gYn.zK(string);
+                    this.hah.Aj(string);
                     return;
                 case 1:
-                    this.gYn.bIJ();
+                    this.hah.bJw();
                     return;
                 case 2:
-                    this.gYn.bIK();
+                    this.hah.bJx();
                     return;
                 case 3:
-                    this.gYn.zK(this.mContext.getString(R.string.pb_download_pause));
+                    this.hah.Aj(this.mContext.getString(R.string.pb_download_pause));
                     return;
                 default:
-                    this.gYn.bII().setVisibility(8);
-                    this.gYn.A(null);
+                    this.hah.bJv().setVisibility(8);
+                    this.hah.A(null);
                     return;
             }
         }
@@ -267,17 +267,17 @@ public class a implements ImagePagerAdapter.a {
             } else {
                 string = this.mContext.getString(R.string.confirm_download_app);
             }
-            aVar.mO(string);
+            aVar.mQ(string);
             aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.image.a.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    String str = a.this.gYl.bEV;
+                    String str = a.this.haf.bFt;
                     if (StringUtils.isNull(str)) {
                         str = a.this.mContext.getString(R.string.app_name);
                     }
-                    a.this.gYo.bIP();
-                    if (s.a(a.this.mContext.getPageActivity(), a.this.gYl, 0, str)) {
-                        a.this.gYo.zL(a.this.gYl.bEY);
+                    a.this.hai.bJC();
+                    if (s.a(a.this.mContext.getPageActivity(), a.this.haf, 0, str)) {
+                        a.this.hai.Ak(a.this.haf.bFw);
                     }
                     aVar2.dismiss();
                 }
@@ -288,38 +288,38 @@ public class a implements ImagePagerAdapter.a {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.mContext).agK();
+            aVar.b(this.mContext).agO();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
-        if ((responsedMessage instanceof DownloadMessage) && this.gYl != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
+        if ((responsedMessage instanceof DownloadMessage) && this.haf != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
             for (DownloadData downloadData : data) {
-                if (downloadData != null && TextUtils.equals(this.gYl.bEY, downloadData.getId())) {
+                if (downloadData != null && TextUtils.equals(this.haf.bFw, downloadData.getId())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
-                        this.gYl.bET = 2;
+                        this.haf.bFr = 2;
                     } else if (status == 2 || status == 4) {
                         if (!aq.isEmpty(downloadData.getStatusMsg())) {
                             this.mContext.showToast(downloadData.getStatusMsg());
                         }
-                        this.gYl.bET = 0;
+                        this.haf.bFr = 0;
                     } else if (status == 1) {
-                        this.gYl.bET = 1;
+                        this.haf.bFr = 1;
                     }
-                    bIB();
+                    bJo();
                 }
             }
         }
     }
 
-    public void bIE() {
-        if (!this.gYp) {
-            this.gYp = true;
-            this.gYo.bIO();
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(this.gYl));
+    public void bJr() {
+        if (!this.haj) {
+            this.haj = true;
+            this.hai.bJB();
+            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(this.haf));
         }
     }
 }

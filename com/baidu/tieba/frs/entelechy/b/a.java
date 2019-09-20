@@ -14,5 +14,5 @@ public interface a {
 
     c b(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    b boQ();
+    b bpB();
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.m;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -181,7 +181,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.parseJson(optJSONArray.optJSONObject(i));
-                    imageFileInfo.setIsLong(m.nv(imageFileInfo.getFilePath()));
+                    imageFileInfo.setIsLong(m.nx(imageFileInfo.getFilePath()));
                     this.chosedFiles.add(imageFileInfo);
                 }
             }
@@ -224,7 +224,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             while (descendingIterator.hasNext()) {
                 ImageFileInfo next = descendingIterator.next();
                 if (next != null && !next.isHasAddPostQualityAction()) {
-                    next.addPersistAction(com.baidu.tbadk.img.effect.d.al(as.ajq().ajw(), as.ajq().ajx()));
+                    next.addPersistAction(com.baidu.tbadk.img.effect.d.al(ar.ajw().ajC(), ar.ajw().ajD()));
                     next.setHasAddPostQualityAction(true);
                 }
             }

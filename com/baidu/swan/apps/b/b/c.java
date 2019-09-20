@@ -9,29 +9,29 @@ public interface c {
 
     int s(String str, int i);
 
-    boolean wd();
+    boolean wA();
 
-    int we();
+    boolean wB();
 
-    int wf();
+    String wC();
 
-    int wg();
+    boolean wD();
 
-    int wh();
+    boolean wh();
 
-    boolean wi();
+    int wi();
 
-    boolean wj();
+    int wj();
 
-    JSONObject wk();
+    int wk();
 
-    boolean wl();
+    int wl();
 
     boolean wm();
 
     boolean wn();
 
-    String wo();
+    JSONObject wo();
 
     boolean wp();
 
@@ -39,7 +39,7 @@ public interface c {
 
     boolean wr();
 
-    boolean ws();
+    String ws();
 
     boolean wt();
 
@@ -51,7 +51,7 @@ public interface c {
 
     boolean wx();
 
-    String wy();
+    boolean wy();
 
     boolean wz();
 }

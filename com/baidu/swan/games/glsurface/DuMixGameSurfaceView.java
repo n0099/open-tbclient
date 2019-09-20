@@ -28,11 +28,11 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private int LQ;
     private int LR;
-    private com.baidu.swan.games.e.a bhC;
-    private AREngineDelegate bhO;
-    private com.baidu.swan.games.glsurface.a.a bhP;
-    private volatile b bhQ;
-    private GameRecorderController bhR;
+    private com.baidu.swan.games.e.a bia;
+    private AREngineDelegate bio;
+    private com.baidu.swan.games.glsurface.a.a bip;
+    private volatile b biq;
+    private GameRecorderController bir;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -57,69 +57,69 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         holder.addCallback(this);
         MarioSDK.a aVar = new MarioSDK.a();
         aVar.setSurfaceHolder(holder);
-        aVar.setFirstFrameListener(RY());
+        aVar.setFirstFrameListener(Sc());
         aVar.setRenderer(new a());
-        f.fS("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_game_engine_start"));
-        this.bhO = MarioSDK.createAREngine(aVar);
-        f.fS("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_game_engine_end"));
-        this.bhP = new com.baidu.swan.games.glsurface.a.a();
-        this.bhR = new GameRecorderController(this.bhO);
-        d.ST().b(this.bhR);
+        f.fU("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_game_engine_start"));
+        this.bio = MarioSDK.createAREngine(aVar);
+        f.fU("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_game_engine_end"));
+        this.bip = new com.baidu.swan.games.glsurface.a.a();
+        this.bir = new GameRecorderController(this.bio);
+        d.SX().b(this.bir);
     }
 
-    private ArBridge.FirstFrameListener RY() {
+    private ArBridge.FirstFrameListener Sc() {
         if (getContext() instanceof SwanAppActivity) {
-            com.baidu.swan.apps.o.d vE = ((SwanAppActivity) getContext()).vE();
-            if (vE instanceof com.baidu.swan.games.g.a) {
-                return ((com.baidu.swan.games.g.a) vE).RY();
+            com.baidu.swan.apps.o.d vI = ((SwanAppActivity) getContext()).vI();
+            if (vI instanceof com.baidu.swan.games.g.a) {
+                return ((com.baidu.swan.games.g.a) vI).Sc();
             }
         }
         return null;
     }
 
     private void setRenderer(GLSurfaceView.Renderer renderer) {
-        if (this.bhO != null) {
-            this.bhO.setRenderer(renderer);
+        if (this.bio != null) {
+            this.bio.setRenderer(renderer);
         }
     }
 
     public void setRenderMode(int i) {
-        if (this.bhO != null) {
-            this.bhO.setRenderMode(i);
+        if (this.bio != null) {
+            this.bio.setRenderMode(i);
         }
     }
 
-    public void Sf() {
-        Pair<Integer, Integer> Gu = e.GF().Gu();
-        V8Engine.updateSurfaceViewSize(((Integer) Gu.first).intValue(), ((Integer) Gu.second).intValue());
-        if (this.bhP != null) {
-            this.bhP.J(((Integer) Gu.first).intValue(), ((Integer) Gu.second).intValue());
+    public void Sj() {
+        Pair<Integer, Integer> Gy = e.GJ().Gy();
+        V8Engine.updateSurfaceViewSize(((Integer) Gy.first).intValue(), ((Integer) Gy.second).intValue());
+        if (this.bip != null) {
+            this.bip.J(((Integer) Gy.first).intValue(), ((Integer) Gy.second).intValue());
         }
     }
 
-    public void Sg() {
+    public void Sk() {
         surfaceChanged(getHolder(), 0, getWidth(), getHeight());
     }
 
     public com.baidu.swan.games.e.a getV8Engine() {
-        return this.bhC;
+        return this.bia;
     }
 
     public void setV8Engine(com.baidu.swan.games.e.a aVar) {
-        this.bhC = aVar;
-        this.bhP.setV8Engine(this.bhC);
+        this.bia = aVar;
+        this.bip.setV8Engine(this.bia);
     }
 
     public Thread getThread() {
-        if (this.bhO != null) {
-            return this.bhO.getGLThread();
+        if (this.bio != null) {
+            return this.bio.getGLThread();
         }
         return null;
     }
 
     public int getRenderMode() {
-        if (this.bhO != null) {
-            return this.bhO.getRenderMode();
+        if (this.bio != null) {
+            return this.bio.getRenderMode();
         }
         return 1;
     }
@@ -129,8 +129,8 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "surfaceCreated");
         }
-        if (this.bhO != null) {
-            this.bhO.surfaceCreated();
+        if (this.bio != null) {
+            this.bio.surfaceCreated();
         }
     }
 
@@ -139,11 +139,11 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "surfaceChanged width: " + i2 + ", height: " + i3);
         }
-        if (this.bhO != null) {
-            this.bhO.surfaceChanged(i2, i3);
+        if (this.bio != null) {
+            this.bio.surfaceChanged(i2, i3);
         }
-        if (this.bhP != null) {
-            this.bhP.K(i2, i3);
+        if (this.bip != null) {
+            this.bip.K(i2, i3);
         }
     }
 
@@ -152,16 +152,16 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "surfaceDestroyed width");
         }
-        Sh();
-        if (this.bhO != null) {
-            this.bhO.surfaceDestroyed();
+        Sl();
+        if (this.bio != null) {
+            this.bio.surfaceDestroyed();
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback2
     public void surfaceRedrawNeeded(SurfaceHolder surfaceHolder) {
-        if (this.bhO != null) {
-            this.bhO.requestRenderAndWait();
+        if (this.bio != null) {
+            this.bio.requestRenderAndWait();
         }
     }
 
@@ -172,35 +172,35 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         queueEvent(new Runnable() { // from class: com.baidu.swan.games.glsurface.DuMixGameSurfaceView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (DuMixGameSurfaceView.this.bhO.getArBridge() != null) {
-                    DuMixGameSurfaceView.this.bhO.getArBridge().smallGameOnPause();
+                if (DuMixGameSurfaceView.this.bio.getArBridge() != null) {
+                    DuMixGameSurfaceView.this.bio.getArBridge().smallGameOnPause();
                 }
             }
         });
-        if (this.bhO != null) {
-            this.bhO.onPause();
+        if (this.bio != null) {
+            this.bio.onPause();
         }
-        d.ST().SW();
+        d.SX().Ta();
     }
 
     public void onResume() {
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "onResume");
         }
-        if (this.bhO != null) {
-            this.bhO.onResume();
+        if (this.bio != null) {
+            this.bio.onResume();
         }
-        d.ST().SX();
+        d.SX().Tb();
     }
 
     public void onDestroy() {
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "onDestroy");
         }
-        Sh();
-        d.ST().c(this.bhR);
-        if (this.bhO.getArBridge() != null) {
-            this.bhO.getArBridge().smallGameDestroy();
+        Sl();
+        d.SX().c(this.bir);
+        if (this.bio.getArBridge() != null) {
+            this.bio.getArBridge().smallGameDestroy();
         }
     }
 
@@ -208,8 +208,8 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "queueEvent");
         }
-        if (this.bhO != null) {
-            this.bhO.queueEvent(runnable);
+        if (this.bio != null) {
+            this.bio.queueEvent(runnable);
         }
     }
 
@@ -217,16 +217,16 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "queueEvent delayed");
         }
-        if (this.bhO != null) {
-            this.bhO.queueEvent(runnable, j);
+        if (this.bio != null) {
+            this.bio.queueEvent(runnable, j);
         }
     }
 
     @Override // android.view.SurfaceView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.bhO != null) {
-            this.bhO.onAttachedToWindow();
+        if (this.bio != null) {
+            this.bio.onAttachedToWindow();
         }
     }
 
@@ -235,28 +235,28 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "onDetachedFromWindow");
         }
-        if (this.bhO != null) {
-            this.bhO.onDetachedFromWindow();
+        if (this.bio != null) {
+            this.bio.onDetachedFromWindow();
         }
         super.onDetachedFromWindow();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bhP.onTouchEvent(motionEvent)) {
+        if (this.bip.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     protected void finalize() throws Throwable {
-        if (this.bhO != null) {
-            this.bhO.exitGLThread();
-            this.bhO = null;
+        if (this.bio != null) {
+            this.bio.exitGLThread();
+            this.bio = null;
         }
     }
 
-    private void Sh() {
+    private void Sl() {
         this.LR = 0;
         this.LQ = 0;
     }
@@ -288,14 +288,14 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             if (DuMixGameSurfaceView.DEBUG) {
                 Log.d("DuMixGameSurfaceView", "AiWebRender onDrawFrame !!!");
             }
-            if (DuMixGameSurfaceView.this.bhO.getArBridge() != null) {
-                DuMixGameSurfaceView.this.bhO.getArBridge().smallGameUpdate();
+            if (DuMixGameSurfaceView.this.bio.getArBridge() != null) {
+                DuMixGameSurfaceView.this.bio.getArBridge().smallGameUpdate();
             }
-            if (DuMixGameSurfaceView.this.bhQ != null) {
+            if (DuMixGameSurfaceView.this.biq != null) {
                 synchronized (DuMixGameSurfaceView.this) {
-                    if (DuMixGameSurfaceView.this.bhQ != null) {
-                        DuMixGameSurfaceView.this.bhQ.b(DuMixGameSurfaceView.this.getScreenShot(), DuMixGameSurfaceView.this.LQ, DuMixGameSurfaceView.this.LR);
-                        DuMixGameSurfaceView.this.bhQ = null;
+                    if (DuMixGameSurfaceView.this.biq != null) {
+                        DuMixGameSurfaceView.this.biq.b(DuMixGameSurfaceView.this.getScreenShot(), DuMixGameSurfaceView.this.LQ, DuMixGameSurfaceView.this.LR);
+                        DuMixGameSurfaceView.this.biq = null;
                     }
                 }
             }
@@ -303,11 +303,11 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     }
 
     public synchronized void a(b bVar) {
-        this.bhQ = bVar;
+        this.biq = bVar;
     }
 
-    public synchronized void Si() {
-        this.bhQ = null;
+    public synchronized void Sm() {
+        this.biq = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

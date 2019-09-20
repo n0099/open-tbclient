@@ -229,7 +229,7 @@ public class b {
         if (baiduMap == null) {
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "BaiduMap instance is null");
             if (c != null) {
-                c.onRenderHistroyTrace(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_BAIDUMAP_NULL);
+                c.onRenderHistroyTrace(10007, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_BAIDUMAP_NULL);
             }
         } else if (5 == i) {
             this.i.a(historyTraceDisplayOptions, baiduMap, i);

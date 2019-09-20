@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
 /* loaded from: classes4.dex */
@@ -76,7 +76,7 @@ public class RealTimeRequest extends NetMessage {
         builder.abtest_tag = this.abtest_tag;
         builder.type = Integer.valueOf(this.type);
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         RealtimeReqIdl.Builder builder2 = new RealtimeReqIdl.Builder();
         builder2.data = builder.build(false);

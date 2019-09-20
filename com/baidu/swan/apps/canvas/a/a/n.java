@@ -7,17 +7,17 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class n extends a {
-    private String amD;
-    private int amu;
-    private int amv;
+    private int amS;
+    private int amT;
+    private String anb;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void e(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 2) {
-                this.amD = jSONArray.optString(0);
-                this.amu = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
-                this.amv = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(2));
+                this.anb = jSONArray.optString(0);
+                this.amS = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
+                this.amT = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(2));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -29,30 +29,30 @@ public class n extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         float f;
-        if (!TextUtils.isEmpty(this.amD)) {
-            TextPaint textPaint = bVar.amc;
-            int i = bVar.amh;
+        if (!TextUtils.isEmpty(this.anb)) {
+            TextPaint textPaint = bVar.amA;
+            int i = bVar.amF;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-            float f2 = fontMetrics.top + this.amv;
-            float f3 = fontMetrics.ascent + this.amv;
-            float f4 = fontMetrics.bottom + this.amv;
+            float f2 = fontMetrics.top + this.amT;
+            float f3 = fontMetrics.ascent + this.amT;
+            float f4 = fontMetrics.bottom + this.amT;
             switch (i) {
                 case 1:
-                    f = this.amv + ((f4 - f2) / 2.0f) + (f3 - f2);
+                    f = this.amT + ((f4 - f2) / 2.0f) + (f3 - f2);
                     break;
                 case 2:
-                    f = (this.amv + ((fontMetrics.bottom - fontMetrics.top) / 2.0f)) - fontMetrics.bottom;
+                    f = (this.amT + ((fontMetrics.bottom - fontMetrics.top) / 2.0f)) - fontMetrics.bottom;
                     break;
                 case 3:
-                    f = this.amv - (f3 - f2);
+                    f = this.amT - (f3 - f2);
                     break;
                 default:
-                    f = this.amv;
+                    f = this.amT;
                     break;
             }
             int alpha = textPaint.getAlpha();
             bVar.a(textPaint);
-            canvas.drawText(this.amD, this.amu, f, textPaint);
+            canvas.drawText(this.anb, this.amS, f, textPaint);
             textPaint.setAlpha(alpha);
         }
     }

@@ -13,26 +13,26 @@ import com.baidu.ubc.UBC;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.ye().putBoolean(str, z);
+            a.yi().putBoolean(str, z);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0128b.class, k(str, z));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0137b.class, k(str, z));
         }
     }
 
     public static void aV(boolean z) {
-        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
-        if (Md != null) {
-            putBoolean(dq(Md.getAppKey()), z);
+        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
+        if (Mh != null) {
+            putBoolean(ds(Mh.getAppKey()), z);
         }
     }
 
-    public static boolean dp(String str) {
-        return !TextUtils.isEmpty(str) && a.ye().getBoolean(dq(str), false);
+    public static boolean dr(String str) {
+        return !TextUtils.isEmpty(str) && a.yi().getBoolean(ds(str), false);
     }
 
-    private static String dq(String str) {
-        String bc = com.baidu.swan.apps.u.a.Ep().bc(com.baidu.swan.apps.u.a.Ek());
-        return "consoleSwitch" + str + (TextUtils.isEmpty(bc) ? "" : v.b(bc.getBytes(), false));
+    private static String ds(String str) {
+        String bc = com.baidu.swan.apps.u.a.Et().bc(com.baidu.swan.apps.u.a.Eo());
+        return "consoleSwitch" + str + (TextUtils.isEmpty(bc) ? "" : v.c(bc.getBytes(), false));
     }
 
     public static Bundle k(String str, boolean z) {
@@ -51,25 +51,25 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0127a {
-            private static final a anD = new a();
+        public static final class C0136a {
+            private static final a aob = new a();
         }
 
-        public static a ye() {
-            return C0127a.anD;
+        public static a yi() {
+            return C0136a.aob;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0128b extends ProviderDelegation {
-        private C0128b() {
+    public static class C0137b extends ProviderDelegation {
+        private C0137b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
-            a.ye().putBoolean(bundle.getString("key"), bundle.getBoolean(UBC.CONTENT_KEY_VALUE));
+            a.yi().putBoolean(bundle.getString("key"), bundle.getBoolean(UBC.CONTENT_KEY_VALUE));
             return Bundle.EMPTY;
         }
     }

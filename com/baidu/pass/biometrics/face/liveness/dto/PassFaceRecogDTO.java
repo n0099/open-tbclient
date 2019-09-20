@@ -27,6 +27,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String uid;
     public PassFaceRecogType livenessType = PassFaceRecogType.RECOG_TYPE_BDUSS;
     public Map<String, String> extraParamsMap = new HashMap();
+    public boolean guideLiveness = true;
     public String imageFlag = "0";
 
     public String getSpParams() {

@@ -306,7 +306,7 @@ public class PluginPackageManager {
                 }
                 com.baidu.adp.plugin.packageManager.pluginSettings.c.mW().bT(PluginPackageManager.this.Jk);
                 if (PluginPackageManager.ms().isMainProcess()) {
-                    com.baidu.adp.plugin.b.a.mc().e("plugin_install", System.currentTimeMillis() - PluginPackageManager.this.Jm);
+                    com.baidu.adp.plugin.b.a.mc().g("plugin_install", System.currentTimeMillis() - PluginPackageManager.this.Jm);
                 }
             } else if (PluginPackageManager.ms().isMainProcess()) {
                 PluginSettings mT2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.mW().mT();

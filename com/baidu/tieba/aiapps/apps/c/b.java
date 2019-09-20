@@ -6,12 +6,12 @@ import okhttp3.HttpUrl;
 import okhttp3.Request;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.swan.apps.u.b.a {
-    private String aFm() {
-        return d.ddf;
+    private String aFQ() {
+        return d.deS;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wL() {
+    public String wP() {
         return "tiebaclient";
     }
 
@@ -21,37 +21,37 @@ public class b extends com.baidu.swan.apps.u.b.a {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public boolean wM() {
+    public boolean wQ() {
         return isDebug();
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wN() {
-        return d.sZ(String.format("%s/ma/reset", aFm()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wO() {
-        return d.sZ(String.format("%s/ma/update", aFm()));
+    public String wR() {
+        return d.ty(String.format("%s/ma/reset", aFQ()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wS() {
+        return d.ty(String.format("%s/ma/update", aFQ()));
+    }
+
+    @Override // com.baidu.swan.apps.b.b.f
+    public String wW() {
         return "flFqXclepWs7RdugAszy9eERL7G5dS0I";
     }
 
     private Request i(String str, Map<String, String> map) {
-        HttpUrl parse = HttpUrl.parse(aFm());
+        HttpUrl parse = HttpUrl.parse(aFQ());
         if (parse == null) {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.j.a.aGX().dhg.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.j.a.aHB().diR.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
         Request.Builder builder = new Request.Builder();
-        builder.url(d.sZ(build.toString()));
+        builder.url(d.ty(build.toString()));
         builder.post(com.baidu.swan.apps.setting.oauth.c.n(map));
         return builder.build();
     }
@@ -87,62 +87,62 @@ public class b extends com.baidu.swan.apps.u.b.a {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wU() {
+    public String wY() {
         return "MEwwDQYJKoZIhvcNAQEBBQADOwAwOAIxAMrOpIWOfuGDG1bjUXV5aPU5UQr0vmOqJif4uJC+7/2B9Nm27SEGINei70QIW4x/vwIDAQAB";
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wW() {
-        return d.sZ(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", aFm()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wX() {
-        return d.sZ(String.format("%s/ma/game/od/get_user_info", aFm()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wY() {
-        return d.sZ(String.format("%s/ma/game/od/remove_user_cloud_storage", aFm()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wZ() {
-        return d.sZ(String.format("%s/ma/game/od/get_user_cloud_storage", aFm()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
     public String xa() {
-        return d.sZ(String.format("%s/ma/game/od/set_user_cloud_storage", aFm()));
+        return d.ty(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", aFQ()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String xb() {
-        return d.sZ(String.format("%s/ma/game/od/get_friend_cloud_storage", aFm()));
+        return d.ty(String.format("%s/ma/game/od/get_user_info", aFQ()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String xc() {
-        return d.sZ(String.format("%s/ma/game/od/get_follow_cloud_storage", aFm()));
+        return d.ty(String.format("%s/ma/game/od/remove_user_cloud_storage", aFQ()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String xd() {
-        return d.sZ(String.format("%s/api/exchange/list", a.aFl()));
+        return d.ty(String.format("%s/ma/game/od/get_user_cloud_storage", aFQ()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String xe() {
-        return d.sZ(String.format("%s/api/exchange/transfer_report", a.aFl()));
+        return d.ty(String.format("%s/ma/game/od/set_user_cloud_storage", aFQ()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String xf() {
-        return d.sZ(String.format("%s/api/subscribe/v1/relation/get", aFm()));
+        return d.ty(String.format("%s/ma/game/od/get_friend_cloud_storage", aFQ()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String xg() {
-        return d.sZ(String.format("%s/api/subscribe/v1/relation/receive", aFm()));
+        return d.ty(String.format("%s/ma/game/od/get_follow_cloud_storage", aFQ()));
+    }
+
+    @Override // com.baidu.swan.apps.b.b.f
+    public String xh() {
+        return d.ty(String.format("%s/api/exchange/list", a.aFP()));
+    }
+
+    @Override // com.baidu.swan.apps.b.b.f
+    public String xi() {
+        return d.ty(String.format("%s/api/exchange/transfer_report", a.aFP()));
+    }
+
+    @Override // com.baidu.swan.apps.b.b.f
+    public String xj() {
+        return d.ty(String.format("%s/api/subscribe/v1/relation/get", aFQ()));
+    }
+
+    @Override // com.baidu.swan.apps.b.b.f
+    public String xk() {
+        return d.ty(String.format("%s/api/subscribe/v1/relation/receive", aFQ()));
     }
 }

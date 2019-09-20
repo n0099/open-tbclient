@@ -2,7 +2,6 @@ package com.baidu.tieba.recapp.lego.model;
 
 import android.text.TextUtils;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class DistributeVrVideoCard extends BaseLegoCardInfo {
@@ -10,12 +9,12 @@ public class DistributeVrVideoCard extends BaseLegoCardInfo {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public int cMS;
-        public int eIO;
-        public String hfr;
-        public int hfs;
-        public int hft;
-        public boolean hfv;
+        public int cNI;
+        public int eKx;
+        public String hhl;
+        public int hhm;
+        public int hhn;
+        public boolean hhp;
         public String thumbUrl;
         public int videoDuration;
         public int videoHeight;
@@ -28,8 +27,8 @@ public class DistributeVrVideoCard extends BaseLegoCardInfo {
         JSONObject optJSONObject = jSONObject.optJSONObject("video");
         if (optJSONObject != null) {
             String optString = optJSONObject.optString("video_md5");
-            String optString2 = optJSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
-            int optInt = optJSONObject.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
+            String optString2 = optJSONObject.optString("video_url");
+            int optInt = optJSONObject.optInt("video_duration");
             int optInt2 = optJSONObject.optInt("video_width");
             int optInt3 = optJSONObject.optInt("video_height");
             String optString3 = optJSONObject.optString("thumb_url");
@@ -40,17 +39,17 @@ public class DistributeVrVideoCard extends BaseLegoCardInfo {
             boolean z = optJSONObject.optInt("show_progress", 1) == 1;
             if (optInt > 0 && !TextUtils.isEmpty(optString2)) {
                 this.videoInfo = new a();
-                this.videoInfo.hfr = optString;
+                this.videoInfo.hhl = optString;
                 this.videoInfo.videoUrl = optString2;
                 this.videoInfo.videoDuration = optInt;
                 this.videoInfo.videoWidth = optInt2;
                 this.videoInfo.videoHeight = optInt3;
                 this.videoInfo.thumbUrl = optString3;
-                this.videoInfo.hfs = optInt4;
-                this.videoInfo.hft = optInt5;
-                this.videoInfo.eIO = optInt6;
-                this.videoInfo.cMS = optInt7;
-                this.videoInfo.hfv = z;
+                this.videoInfo.hhm = optInt4;
+                this.videoInfo.hhn = optInt5;
+                this.videoInfo.eKx = optInt6;
+                this.videoInfo.cNI = optInt7;
+                this.videoInfo.hhp = z;
                 return;
             }
             this.videoInfo = null;

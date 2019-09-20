@@ -61,14 +61,14 @@ public final class c {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public String dbl;
-        public Map<String, String> dbm;
+        public String dcY;
+        public Map<String, String> dcZ;
         public int mErrCode;
         public String mErrMsg;
     }
 
     public static String o(Context context, String str, String str2) {
-        return com.baidu.swan.apps.storage.b.f.NX().getString(str, str2);
+        return com.baidu.swan.apps.storage.b.f.Ob().getString(str, str2);
     }
 
     public static Map<String, String> a(Context context, @NonNull Set<String> set) {
@@ -79,45 +79,45 @@ public final class c {
         return j(context, hashMap);
     }
 
-    public static String dk(Context context) {
-        return ProcessUtils.isMainProcess() ? dm(context) : dl(context);
+    public static String dl(Context context) {
+        return ProcessUtils.isMainProcess() ? dn(context) : dm(context);
     }
 
-    public static String dl(Context context) {
+    public static String dm(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, d.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
-    public static String dm(Context context) {
-        return !aEA() ? "" : TbadkCoreApplication.getCurrentBduss();
+    public static String dn(Context context) {
+        return !aFe() ? "" : TbadkCoreApplication.getCurrentBduss();
     }
 
-    public static String dn(Context context) {
+    /* renamed from: do  reason: not valid java name */
+    public static String m20do(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, i.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
     public static String aE(Context context) {
-        return !aEA() ? "" : TbadkCoreApplication.getCurrentAccount();
+        return !aFe() ? "" : TbadkCoreApplication.getCurrentAccount();
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public static String m20do(Context context) {
+    public static String dp(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, f.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
-    public static String dp(Context context) {
-        return !aEA() ? "" : TbadkCoreApplication.getInst().getCuidGalaxy2();
+    public static String dq(Context context) {
+        return !aFe() ? "" : TbadkCoreApplication.getInst().getCuidGalaxy2();
     }
 
-    public static boolean dq(Context context) {
+    public static boolean dr(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, k.class, null);
         return callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false);
     }
 
     public static boolean aD(Context context) {
-        if (aEA()) {
+        if (aFe()) {
             return TbadkCoreApplication.isLogin();
         }
         return false;
@@ -151,7 +151,7 @@ public final class c {
 
     public static void a(Context context, Bundle bundle, final com.baidu.swan.apps.a.a aVar) {
         int i;
-        if (!aEA()) {
+        if (!aFe()) {
             aVar.onResult(-1);
             return;
         }
@@ -177,16 +177,16 @@ public final class c {
         });
     }
 
-    private static boolean aEA() {
+    private static boolean aFe() {
         return ProcessUtils.isMainProcess();
     }
 
     public static void a(com.baidu.swan.apps.a.c cVar) {
-        com.baidu.tieba.aiapps.apps.a.a.aEy().a(cVar);
+        com.baidu.tieba.aiapps.apps.a.a.aFc().a(cVar);
     }
 
     public static void a(String str, final c.a aVar) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url("https://mbd.baidu.com/ma/relate2user").cookieManager(com.baidu.swan.apps.u.a.EH().Ff()).addUrlParam("app_key", str).build().executeAsyncOnUIBack(new ResponseCallback<JSONObject>() { // from class: com.baidu.tieba.aiapps.apps.a.c.3
+        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url("https://mbd.baidu.com/ma/relate2user").cookieManager(com.baidu.swan.apps.u.a.EL().Fj()).addUrlParam("app_key", str).build().executeAsyncOnUIBack(new ResponseCallback<JSONObject>() { // from class: com.baidu.tieba.aiapps.apps.a.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -243,12 +243,12 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(final Activity activity, String str, String str2) {
-        new g.a(activity).d(str).gC(str2).a(new com.baidu.swan.apps.view.b.a()).ce(true).c(activity.getString(R.string.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.c.5
+        new g.a(activity).d(str).gE(str2).a(new com.baidu.swan.apps.view.b.a()).ce(true).c(activity.getString(R.string.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.c.5
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 c.a(activity, true, null, null);
             }
-        }).d(activity.getString(R.string.aiapps_login_refuse), null).Lx();
+        }).d(activity.getString(R.string.aiapps_login_refuse), null).LB();
     }
 
     public static String c(InputStream inputStream, String str) {
@@ -315,19 +315,19 @@ public final class c {
             aVar.D(null);
             return;
         }
-        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
-        if (Md == null) {
+        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
+        if (Mh == null) {
             aVar.D(null);
             return;
         }
-        com.baidu.swan.apps.process.messaging.client.a DA = Md.DA();
-        if (DA == null) {
+        com.baidu.swan.apps.process.messaging.client.a DE = Mh.DE();
+        if (DE == null) {
             aVar.D(null);
             return;
         }
         Bundle bundle = new Bundle();
         bundle.putStringArray("key_param_tpl_list", strArr);
-        DA.a(bundle, h.class, new com.baidu.swan.apps.process.b.b.c.b() { // from class: com.baidu.tieba.aiapps.apps.a.c.6
+        DE.a(bundle, h.class, new com.baidu.swan.apps.process.b.b.c.b() { // from class: com.baidu.tieba.aiapps.apps.a.c.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.b.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.b.b.a.b bVar) {
@@ -354,17 +354,17 @@ public final class c {
     }
 
     public static void b(Context context, final com.baidu.swan.apps.an.d.a<Bundle> aVar, @Nullable String... strArr) {
-        if (!aEA()) {
+        if (!aFe()) {
             throw new IllegalStateException("must call in MainProcess");
         }
         a(new a() { // from class: com.baidu.tieba.aiapps.apps.a.c.7
             @Override // com.baidu.tieba.aiapps.apps.a.c.a
             public void a(b bVar) {
-                if (bVar.mErrCode != 0 || bVar.dbm == null) {
+                if (bVar.mErrCode != 0 || bVar.dcZ == null) {
                     com.baidu.swan.apps.an.d.a.this.D(null);
                 }
                 Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : bVar.dbm.entrySet()) {
+                for (Map.Entry<String, String> entry : bVar.dcZ.entrySet()) {
                     String key = entry.getKey();
                     if (!TextUtils.isEmpty(key)) {
                         bundle.putString(key, entry.getValue());
@@ -385,7 +385,7 @@ public final class c {
             @Override // com.baidu.tieba.aiapps.apps.a.c.a
             public void onFinish() {
             }
-        }, dk(context), strArr == null ? Collections.emptyList() : Arrays.asList(strArr));
+        }, dl(context), strArr == null ? Collections.emptyList() : Arrays.asList(strArr));
     }
 
     private static void a(final a aVar, String str, List<String> list) {
@@ -397,11 +397,11 @@ public final class c {
                     if (a.this != null) {
                         b bVar = new b();
                         if (getTplStokenResult != null) {
-                            bVar.dbm = getTplStokenResult.tplStokenMap;
+                            bVar.dcZ = getTplStokenResult.tplStokenMap;
                             bVar.mErrCode = getTplStokenResult.getResultCode();
                             bVar.mErrMsg = getTplStokenResult.getResultMsg();
                             if (getTplStokenResult.failureType != null) {
-                                bVar.dbl = getTplStokenResult.failureType.name();
+                                bVar.dcY = getTplStokenResult.failureType.name();
                             }
                         }
                         a.this.a(bVar);
@@ -414,11 +414,11 @@ public final class c {
                     if (a.this != null) {
                         b bVar = new b();
                         if (getTplStokenResult != null) {
-                            bVar.dbm = getTplStokenResult.tplStokenMap;
+                            bVar.dcZ = getTplStokenResult.tplStokenMap;
                             bVar.mErrCode = getTplStokenResult.getResultCode();
                             bVar.mErrMsg = getTplStokenResult.getResultMsg();
                             if (getTplStokenResult.failureType != null) {
-                                bVar.dbl = getTplStokenResult.failureType.name();
+                                bVar.dcY = getTplStokenResult.failureType.name();
                             }
                         }
                         a.this.b(bVar);
@@ -442,11 +442,11 @@ public final class c {
         }
     }
 
-    public static String dr(Context context) {
-        return !ProcessUtils.isMainProcess() ? ds(context) : getZid(context);
+    public static String ds(Context context) {
+        return !ProcessUtils.isMainProcess() ? dt(context) : getZid(context);
     }
 
-    public static String ds(Context context) {
+    public static String dt(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, j.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }

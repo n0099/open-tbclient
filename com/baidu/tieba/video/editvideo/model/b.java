@@ -2,7 +2,7 @@ package com.baidu.tieba.video.editvideo.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.d;
 import com.baidu.tieba.video.c;
@@ -10,73 +10,73 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class b {
-    private static volatile b jxn;
-    private HashMap<String, String> jxi;
-    private DownloadData jxj;
+    private static volatile b jzJ;
+    private HashMap<String, String> jzE;
+    private DownloadData jzF;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void FF(String str);
+        void Gf(String str);
 
-        void cuj();
+        void cuX();
 
-        void es(String str, String str2);
+        void et(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b cuY() {
-        if (jxn == null) {
+    public static b cvM() {
+        if (jzJ == null) {
             synchronized (b.class) {
-                if (jxn == null) {
-                    jxn = new b();
+                if (jzJ == null) {
+                    jzJ = new b();
                 }
             }
         }
-        return jxn;
+        return jzJ;
     }
 
-    public String FO(String str) {
-        String oj = at.oj(str);
-        if (oj == null) {
+    public String Go(String str) {
+        String ol = as.ol(str);
+        if (ol == null) {
             return null;
         }
-        if (this.jxi == null) {
-            this.jxi = new HashMap<>();
-            cuZ();
-            if (this.jxi.size() > 0) {
-                return this.jxi.get(oj);
+        if (this.jzE == null) {
+            this.jzE = new HashMap<>();
+            cvN();
+            if (this.jzE.size() > 0) {
+                return this.jzE.get(ol);
             }
             return null;
         }
-        return this.jxi.get(oj);
+        return this.jzE.get(ol);
     }
 
-    public void cuZ() {
-        if (this.jxi == null) {
-            this.jxi = new HashMap<>();
+    public void cvN() {
+        if (this.jzE == null) {
+            this.jzE = new HashMap<>();
         } else {
-            this.jxi.clear();
+            this.jzE.clear();
         }
-        File file = new File(c.juI);
+        File file = new File(c.jxe);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.jxi.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.jzE.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
     }
 
     public void a(String str, final String str2, final a aVar) {
-        String oj;
-        if (!TextUtils.isEmpty(str2) && (oj = at.oj(str2)) != null) {
-            if (this.jxj != null) {
-                d.arU().S(this.jxj.getUrl(), true);
+        String ol;
+        if (!TextUtils.isEmpty(str2) && (ol = as.ol(str2)) != null) {
+            if (this.jzF != null) {
+                d.asg().S(this.jzF.getUrl(), true);
             }
-            File file = new File(c.juI);
+            File file = new File(c.jxe);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -84,7 +84,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.juI + oj + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.jxe + ol + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -93,11 +93,11 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.jxj != null && downloadData2.getUrl().equals(b.this.jxj.getUrl())) {
-                            b.this.jxj = null;
+                        if (b.this.jzF != null && downloadData2.getUrl().equals(b.this.jzF.getUrl())) {
+                            b.this.jzF = null;
                         }
                         if (aVar != null) {
-                            aVar.cuj();
+                            aVar.cuX();
                         }
                     }
                 }
@@ -115,12 +115,12 @@ public class b {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.jxj != null && downloadData2.getUrl().equals(b.this.jxj.getUrl())) {
-                            b.this.jxj = null;
+                        if (b.this.jzF != null && downloadData2.getUrl().equals(b.this.jzF.getUrl())) {
+                            b.this.jzF = null;
                         }
                         if (aVar != null) {
-                            b.this.jxi.put(downloadData2.getPath().substring(c.juI.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
-                            aVar.es(str2, downloadData2.getPath());
+                            b.this.jzE.put(downloadData2.getPath().substring(c.jxe.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            aVar.et(str2, downloadData2.getPath());
                         }
                     }
                 }
@@ -131,16 +131,16 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.jxj != null && downloadData2.getUrl().equals(b.this.jxj.getUrl())) {
-                        b.this.jxj = null;
+                    if (b.this.jzF != null && downloadData2.getUrl().equals(b.this.jzF.getUrl())) {
+                        b.this.jzF = null;
                     }
                     if (aVar != null) {
-                        aVar.FF(str3);
+                        aVar.Gf(str3);
                     }
                 }
             });
-            this.jxj = downloadData;
-            d.arU().f(downloadData);
+            this.jzF = downloadData;
+            d.asg().f(downloadData);
         }
     }
 }

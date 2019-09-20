@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -27,50 +28,50 @@ public class h extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.v.b.b vL = bVar.vL();
-        if (vL == null || !vL.isValid()) {
+        com.baidu.swan.apps.v.b.b vP = bVar.vP();
+        if (vP == null || !vP.isValid()) {
             com.baidu.swan.apps.console.c.e("appInfo", "launch info is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appid", vL.getAppId());
-            jSONObject.put("appname", vL.Cv());
-            if (!TextUtils.isEmpty(vL.getIconUrl())) {
-                jSONObject.put("iconUrl", vL.getIconUrl());
+            jSONObject.put("appid", vP.getAppId());
+            jSONObject.put("appname", vP.Cz());
+            if (!TextUtils.isEmpty(vP.getIconUrl())) {
+                jSONObject.put("iconUrl", vP.getIconUrl());
             }
-            if (!TextUtils.isEmpty(vL.FH())) {
-                jSONObject.put("appLaunchScheme", vL.FH());
+            if (!TextUtils.isEmpty(vP.FL())) {
+                jSONObject.put("appLaunchScheme", vP.FL());
             }
-            if (vL.FW() != null) {
-                String str = vL.FW().description;
+            if (vP.Ga() != null) {
+                String str = vP.Ga().description;
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("appDesc", str);
                 }
             }
-            String bd = com.baidu.swan.apps.u.a.Ep().bd(context);
-            jSONObject.put("cuid", bd);
+            String bd = com.baidu.swan.apps.u.a.Et().bd(context);
+            jSONObject.put(DpStatConstants.KEY_CUID, bd);
             jSONObject.put("mtjCuid", bd);
-            jSONObject.put("clkid", vL.FL());
-            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vL.FG());
-            jSONObject.put("appId", vL.getAppId());
-            Bundle FK = vL.FK();
-            if (FK != null) {
-                String string = FK.getString("extraData");
+            jSONObject.put("clkid", vP.FP());
+            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vP.FK());
+            jSONObject.put("appId", vP.getAppId());
+            Bundle FO = vP.FO();
+            if (FO != null) {
+                String string = FO.getString("extraData");
                 if (!TextUtils.isEmpty(string)) {
                     jSONObject.put("extraData", new JSONObject(string));
                 }
-                if (!TextUtils.isEmpty(FK.getString("srcAppId"))) {
-                    jSONObject.put("srcAppId", FK.getString("srcAppId"));
+                if (!TextUtils.isEmpty(FO.getString("srcAppId"))) {
+                    jSONObject.put("srcAppId", FO.getString("srcAppId"));
                 }
-                if (!TextUtils.isEmpty(FK.getString("srcAppPage"))) {
-                    jSONObject.put("srcAppPage", FK.getString("srcAppPage"));
+                if (!TextUtils.isEmpty(FO.getString("srcAppPage"))) {
+                    jSONObject.put("srcAppPage", FO.getString("srcAppPage"));
                 }
                 String str2 = "sys";
-                SwanAppActivity Gr = com.baidu.swan.apps.w.e.GF().Gr();
-                if (Gr != null) {
-                    str2 = Gr.vI();
+                SwanAppActivity Gv = com.baidu.swan.apps.w.e.GJ().Gv();
+                if (Gv != null) {
+                    str2 = Gv.vM();
                 }
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "sys";

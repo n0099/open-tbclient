@@ -7,9 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    public int bFM;
-    public int fFU;
-    public List<m> fFV;
+    public int bGk;
+    public int fHJ;
+    public List<m> fHK;
     public boolean hasMore;
     public String key;
     public int pn;
@@ -19,9 +19,9 @@ public class c {
         if (v.aa(list)) {
             return 0;
         }
-        if (v.aa(this.fFV)) {
-            this.fFV = new LinkedList();
-            this.fFV.addAll(list);
+        if (v.aa(this.fHK)) {
+            this.fHK = new LinkedList();
+            this.fHK.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             m mVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.fFV.size()) {
+                if (i2 >= this.fHK.size()) {
                     z = false;
                     break;
                 }
-                m mVar2 = this.fFV.get(i2);
+                m mVar2 = this.fHK.get(i2);
                 if (mVar != null && (mVar instanceof b) && mVar2 != null && (mVar2 instanceof b)) {
-                    bh acy = ((b) mVar).acy();
-                    bh acy2 = ((b) mVar2).acy();
-                    if (acy != null && acy2 != null && acy.getTid() != null && acy2.getTid() != null && acy.getTid().equals(acy2.getTid())) {
+                    bh acC = ((b) mVar).acC();
+                    bh acC2 = ((b) mVar2).acC();
+                    if (acC != null && acC2 != null && acC.getTid() != null && acC2.getTid() != null && acC.getTid().equals(acC2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.a((List) this.fFV, 0, (List) linkedList);
+            v.a((List) this.fHK, 0, (List) linkedList);
         }
         return linkedList.size();
     }

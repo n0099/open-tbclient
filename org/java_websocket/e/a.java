@@ -108,7 +108,7 @@ public class a {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [695=5, 696=4, 697=4] */
     public static byte[] encodeBytesToBytes(byte[] bArr, int i, int i2, int i3) throws IOException {
-        C0503a c0503a;
+        C0509a c0509a;
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2;
         GZIPOutputStream gZIPOutputStream;
@@ -162,9 +162,9 @@ public class a {
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                c0503a = new C0503a(byteArrayOutputStream, i3 | 1);
+                c0509a = new C0509a(byteArrayOutputStream, i3 | 1);
                 try {
-                    gZIPOutputStream = new GZIPOutputStream(c0503a);
+                    gZIPOutputStream = new GZIPOutputStream(c0509a);
                 } catch (IOException e) {
                     e = e;
                     byteArrayOutputStream2 = byteArrayOutputStream;
@@ -173,19 +173,19 @@ public class a {
                 }
             } catch (IOException e2) {
                 e = e2;
-                c0503a = null;
+                c0509a = null;
                 byteArrayOutputStream2 = byteArrayOutputStream;
             } catch (Throwable th2) {
                 th = th2;
-                c0503a = null;
+                c0509a = null;
             }
         } catch (IOException e3) {
             e = e3;
-            c0503a = null;
+            c0509a = null;
             byteArrayOutputStream2 = null;
         } catch (Throwable th3) {
             th = th3;
-            c0503a = null;
+            c0509a = null;
             byteArrayOutputStream = null;
         }
         try {
@@ -196,7 +196,7 @@ public class a {
             } catch (Exception e4) {
             }
             try {
-                c0503a.close();
+                c0509a.close();
             } catch (Exception e5) {
             }
             try {
@@ -218,7 +218,7 @@ public class a {
                 } catch (Exception e8) {
                 }
                 try {
-                    c0503a.close();
+                    c0509a.close();
                 } catch (Exception e9) {
                 }
                 try {
@@ -231,7 +231,7 @@ public class a {
             th = th5;
             gZIPOutputStream2 = gZIPOutputStream;
             gZIPOutputStream2.close();
-            c0503a.close();
+            c0509a.close();
             byteArrayOutputStream.close();
             throw th;
         }
@@ -271,7 +271,7 @@ public class a {
 
     /* renamed from: org.java_websocket.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0503a extends FilterOutputStream {
+    public static class C0509a extends FilterOutputStream {
         private boolean Do;
         private int Dp;
         private int Dq;
@@ -283,7 +283,7 @@ public class a {
         private byte[] buffer;
         private int position;
 
-        public C0503a(OutputStream outputStream, int i) {
+        public C0509a(OutputStream outputStream, int i) {
             super(outputStream);
             this.Dr = (i & 8) != 0;
             this.Do = (i & 1) != 0;

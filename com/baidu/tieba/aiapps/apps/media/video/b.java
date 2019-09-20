@@ -20,14 +20,14 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class b {
-    private SwanAppNAViewContainer alj;
-    private a dfS;
+    private SwanAppNAViewContainer alI;
+    private a dhD;
     private Context mContext;
 
     public b(Context context) {
         this.mContext = context;
-        this.alj = new SwanAppNAViewContainer(this.mContext);
-        this.alj.setBackgroundColor(Color.parseColor("#666666"));
+        this.alI = new SwanAppNAViewContainer(this.mContext);
+        this.alI.setBackgroundColor(Color.parseColor("#666666"));
     }
 
     public void j(com.baidu.swan.apps.media.d.c cVar) {
@@ -38,57 +38,57 @@ public class b {
 
     private void k(com.baidu.swan.apps.media.d.c cVar) {
         if (cVar != null) {
-            if (com.baidu.swan.apps.view.container.c.b.a(cVar.aDU, cVar.id, ac.ix(cVar.aDU)) == null) {
-                if (aGB().getModel() != null) {
-                    aGB().Qi();
+            if (com.baidu.swan.apps.view.container.c.b.a(cVar.aEs, cVar.id, ac.iz(cVar.aEs)) == null) {
+                if (aHf().getModel() != null) {
+                    aHf().Qm();
                 }
-                if (aGx().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) aGx().getParent()).removeView(aGx());
+                if (aHb().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) aHb().getParent()).removeView(aHb());
                 }
-                aGB().setDescendantFocusability(393216);
-                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + aGB().a(aGx(), cVar) + " position " + cVar.aDW);
+                aHf().setDescendantFocusability(393216);
+                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + aHf().a(aHb(), cVar) + " position " + cVar.aEu);
                 return;
             }
-            com.baidu.swan.apps.model.a.a.a Hs = cVar.Hs();
-            Hs.aDU = aGB().getSlaveId();
-            Hs.aDV = aGB().getParentId();
-            Hs.id = aGB().getViewId();
-            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + aGB().a(Hs) + " position " + cVar.aDW);
+            com.baidu.swan.apps.model.a.a.a Hw = cVar.Hw();
+            Hw.aEs = aHf().getSlaveId();
+            Hw.aEt = aHf().getParentId();
+            Hw.id = aHf().getViewId();
+            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + aHf().a(Hw) + " position " + cVar.aEu);
         }
     }
 
-    private a aGx() {
-        if (this.dfS == null) {
-            this.dfS = new a(this.mContext);
+    private a aHb() {
+        if (this.dhD == null) {
+            this.dhD = new a(this.mContext);
         }
-        return this.dfS;
+        return this.dhD;
     }
 
-    public FrameLayout aGy() {
-        return aGx().aGy();
+    public FrameLayout aHc() {
+        return aHb().aHc();
     }
 
     public void j(View.OnClickListener onClickListener) {
-        View aGF = aGx().aGF();
-        aGF.setOnClickListener(onClickListener);
-        s(aGF, 0);
+        View aHj = aHb().aHj();
+        aHj.setOnClickListener(onClickListener);
+        s(aHj, 0);
     }
 
-    public void aGz() {
-        s(aGx().aGF(), 8);
+    public void aHd() {
+        s(aHb().aHj(), 8);
     }
 
-    public void cq(String str, String str2) {
-        aGx().cr(str, str2);
-        s(aGx().aGG(), 0);
+    public void cr(String str, String str2) {
+        aHb().cs(str, str2);
+        s(aHb().aHk(), 0);
     }
 
-    public void aGA() {
-        s(aGx().aGG(), 8);
+    public void aHe() {
+        s(aHb().aHk(), 8);
     }
 
-    public SwanAppNAViewContainer aGB() {
-        return this.alj;
+    public SwanAppNAViewContainer aHf() {
+        return this.alI;
     }
 
     private void s(View view, int i) {
@@ -100,55 +100,55 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends FrameLayout {
-        private FrameLayout dfN;
-        private ImageView dfT;
-        private SimpleDraweeView dfU;
+        private ImageView dhE;
+        private SimpleDraweeView dhF;
+        private FrameLayout dhy;
 
         public a(@NonNull Context context) {
             super(context);
-            aGC();
-            aGD();
-            aGE();
+            aHg();
+            aHh();
+            aHi();
         }
 
-        private void aGC() {
-            this.dfN = new FrameLayout(getContext());
-            addView(this.dfN, new FrameLayout.LayoutParams(-1, -1));
+        private void aHg() {
+            this.dhy = new FrameLayout(getContext());
+            addView(this.dhy, new FrameLayout.LayoutParams(-1, -1));
         }
 
-        private void aGD() {
-            this.dfU = new SimpleDraweeView(getContext());
+        private void aHh() {
+            this.dhF = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.dfU.getHierarchy().b(n.b.keo);
-            addView(this.dfU, layoutParams);
+            this.dhF.getHierarchy().b(n.b.kgM);
+            addView(this.dhF, layoutParams);
         }
 
-        private void aGE() {
-            this.dfT = new ImageView(b.this.mContext);
-            this.dfT.setImageResource(R.drawable.btn_play);
+        private void aHi() {
+            this.dhE = new ImageView(b.this.mContext);
+            this.dhE.setImageResource(R.drawable.btn_play);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.dfT, layoutParams);
+            addView(this.dhE, layoutParams);
         }
 
-        public FrameLayout aGy() {
-            return this.dfN;
+        public FrameLayout aHc() {
+            return this.dhy;
         }
 
-        public View aGF() {
-            return this.dfT;
+        public View aHj() {
+            return this.dhE;
         }
 
-        public SimpleDraweeView aGG() {
-            return this.dfU;
+        public SimpleDraweeView aHk() {
+            return this.dhF;
         }
 
-        public void cr(String str, String str2) {
+        public void cs(String str, String str2) {
             if (!TextUtils.isEmpty(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                n.b bVar = n.b.keo;
+                n.b bVar = n.b.kgM;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -172,36 +172,36 @@ public class b {
                 }
                 switch (c) {
                     case 0:
-                        n.b bVar2 = n.b.ken;
+                        n.b bVar2 = n.b.kgL;
                         break;
                     case 1:
-                        n.b bVar3 = n.b.keo;
+                        n.b bVar3 = n.b.kgM;
                         break;
                     case 2:
-                        n.b bVar4 = n.b.kei;
+                        n.b bVar4 = n.b.kgG;
                         break;
                 }
-                this.dfU.getHierarchy().b(n.b.keo);
-                a(str, this.dfU);
+                this.dhF.getHierarchy().b(n.b.kgM);
+                a(str, this.dhF);
             }
         }
 
         public void a(String str, SimpleDraweeView simpleDraweeView) {
-            Uri iw = iw(str);
-            if (iw == null) {
+            Uri iy = iy(str);
+            if (iy == null) {
                 simpleDraweeView.setController(null);
                 return;
             }
-            ImageRequestBuilder U = ImageRequestBuilder.U(iw);
+            ImageRequestBuilder U = ImageRequestBuilder.U(iy);
             int measuredWidth = simpleDraweeView.getMeasuredWidth() / 2;
             int measuredHeight = simpleDraweeView.getMeasuredHeight() / 2;
             if (measuredWidth > 0 && measuredHeight > 0) {
                 U.c(new com.facebook.imagepipeline.common.c(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.cFP().b(simpleDraweeView.getController()).aO(U.cLX()).cGz());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.cGD().b(simpleDraweeView.getController()).aO(U.cML()).cHn());
         }
 
-        public Uri iw(String str) {
+        public Uri iy(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

@@ -29,22 +29,22 @@ public class WebVideoActivityConfig extends AdTbWebViewActivityConfig {
     }
 
     public void setChargeStyle(String str) {
-        getIntent().putExtra(KEY_CHARGE_STYLE, str);
+        getIntent().putExtra("charge_style", str);
     }
 
     public void setChargeUrl(String str) {
-        getIntent().putExtra(KEY_CHARGE_URL, str);
+        getIntent().putExtra("charge_url", str);
     }
 
     public void setTailFrame(String str) {
-        getIntent().putExtra(KEY_TAIL_FRAME, str);
+        getIntent().putExtra("tail_frame", str);
     }
 
     private void init(String str, String str2, float f, int i) {
         Intent intent = getIntent();
-        intent.putExtra(KEY_VIDEO_URL, str);
-        intent.putExtra(KEY_VIDEO_THUMB_URL, str2);
-        intent.putExtra(KEY_VIDEO_RATIO, f);
-        intent.putExtra(KEY_VIDEO_DURATION, i);
+        intent.putExtra("video_url", str);
+        intent.putExtra("video_thumb_url", str2);
+        intent.putExtra("video_ratio", f);
+        intent.putExtra("video_duration", i);
     }
 }

@@ -5,10 +5,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        e.VZ().a(fM(i), str, str2, i2, jSONObject);
+        e.Wd().a(fN(i), str, str2, i2, jSONObject);
     }
 
-    private static String fM(int i) {
+    private static String fN(int i) {
         switch (i) {
             case 0:
                 return "swan";

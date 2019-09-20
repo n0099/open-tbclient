@@ -1,7 +1,7 @@
 package com.baidu.location;
 
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 /* loaded from: classes3.dex */
 public final class LocationClientOption {
@@ -49,7 +49,7 @@ public final class LocationClientOption {
 
     public LocationClientOption() {
         this.coorType = CoordinateType.GCJ02;
-        this.addrType = "detail";
+        this.addrType = DpStatConstants.KEY_DETAIL;
         this.openGps = false;
         this.scanSpan = 0;
         this.timeOut = 12000;
@@ -72,12 +72,12 @@ public final class LocationClientOption {
         this.autoNotifyLocSensitivity = 0.5f;
         this.autoNotifyMinTimeInterval = 0;
         this.autoNotifyMinDistance = 0;
-        this.wifiCacheTimeOut = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.wifiCacheTimeOut = Integer.MAX_VALUE;
     }
 
     public LocationClientOption(LocationClientOption locationClientOption) {
         this.coorType = CoordinateType.GCJ02;
-        this.addrType = "detail";
+        this.addrType = DpStatConstants.KEY_DETAIL;
         this.openGps = false;
         this.scanSpan = 0;
         this.timeOut = 12000;
@@ -100,7 +100,7 @@ public final class LocationClientOption {
         this.autoNotifyLocSensitivity = 0.5f;
         this.autoNotifyMinTimeInterval = 0;
         this.autoNotifyMinDistance = 0;
-        this.wifiCacheTimeOut = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.wifiCacheTimeOut = Integer.MAX_VALUE;
         this.coorType = locationClientOption.coorType;
         this.addrType = locationClientOption.addrType;
         this.openGps = locationClientOption.openGps;

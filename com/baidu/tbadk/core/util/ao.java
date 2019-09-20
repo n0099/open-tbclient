@@ -19,24 +19,19 @@ public class ao {
         try {
             mSetStatusBarColorIcon = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
         }
         try {
             mSetStatusBarDarkIcon = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException e2) {
-            e2.printStackTrace();
         }
         try {
             mStatusBarColorFiled = WindowManager.LayoutParams.class.getField("statusBarColor");
         } catch (NoSuchFieldException e3) {
-            e3.printStackTrace();
         }
         try {
             SYSTEM_UI_FLAG_LIGHT_STATUS_BAR = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
         } catch (IllegalAccessException e4) {
-            e4.printStackTrace();
         } catch (NoSuchFieldException e5) {
-            e5.printStackTrace();
         }
     }
 

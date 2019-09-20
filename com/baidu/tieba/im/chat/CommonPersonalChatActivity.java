@@ -24,15 +24,15 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void bAe() {
-        super.bAe();
+    public void bAS() {
+        super.bAS();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void am(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
         c(userData);
-        ((CommonPersonalMsglistModel) this.gAG).setUser(userData);
+        ((CommonPersonalMsglistModel) this.gCx).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,7 +40,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             c(userData);
-            ((CommonPersonalMsglistModel) this.gAG).setUser(userData);
+            ((CommonPersonalMsglistModel) this.gCx).setUser(userData);
         }
     }
 
@@ -48,30 +48,30 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.gAG).getUser()));
+        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.gCx).getUser()));
     }
 
     protected void c(UserData userData) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bAg() {
+    public boolean bAU() {
         UserData user;
-        return (!(this.gAG instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.gAG).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
+        return (!(this.gCx instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.gCx).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void V(Bundle bundle) throws Exception {
-        this.gAG.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
+        this.gCx.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
         W(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bAf() {
+    public void bAT() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        if (this.gAG != null) {
-            this.gAG.setIsAcceptNotify(booleanExtra);
+        if (this.gCx != null) {
+            this.gCx.setIsAcceptNotify(booleanExtra);
             am(intent);
         }
     }
@@ -83,7 +83,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (bAQ() && this.gAG != null && (msg = this.gAG.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
+                if (bBE() && this.gCx != null && (msg = this.gCx.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);
@@ -112,7 +112,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] H(int i, boolean z) {
-        return super.H(i, true);
+    public String[] I(int i, boolean z) {
+        return super.I(i, true);
     }
 }

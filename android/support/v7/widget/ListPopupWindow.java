@@ -15,7 +15,6 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.PopupWindowCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.menu.ShowableListMenu;
-import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -117,7 +116,7 @@ public class ListPopupWindow implements ShowableListMenu {
         this.mDropDownGravity = 0;
         this.mDropDownAlwaysVisible = false;
         this.mForceIgnoreOutsideTouch = false;
-        this.mListItemExpandMaximum = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.mListItemExpandMaximum = Integer.MAX_VALUE;
         this.mPromptPosition = 0;
         this.mResizePopupRunnable = new ResizePopupRunnable();
         this.mTouchInterceptor = new PopupTouchInterceptor();
@@ -520,7 +519,7 @@ public class ListPopupWindow implements ShowableListMenu {
             int selectedItemPosition = this.mDropDownList.getSelectedItemPosition();
             boolean z = !this.mPopup.isAboveAnchor();
             ListAdapter listAdapter = this.mAdapter;
-            int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i2 = Integer.MAX_VALUE;
             int i3 = Integer.MIN_VALUE;
             if (listAdapter != null) {
                 boolean areAllItemsEnabled = listAdapter.areAllItemsEnabled();

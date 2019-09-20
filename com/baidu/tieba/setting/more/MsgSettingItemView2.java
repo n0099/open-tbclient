@@ -3,7 +3,6 @@ package com.baidu.tieba.setting.more;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -11,8 +10,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class MsgSettingItemView2 extends LinearLayout {
-    private CheckBox iUh;
-    private View mBottomLine;
+    private CheckBox iWC;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -27,32 +25,27 @@ public class MsgSettingItemView2 extends LinearLayout {
     public void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
-        this.iUh = (CheckBox) findViewById(R.id.setting_check_view);
-        this.mBottomLine = findViewById(R.id.bottom_line_ll);
+        this.iWC = (CheckBox) findViewById(R.id.setting_check_view);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.iUh.setText(str);
+        this.iWC.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.iUh.setText(i);
+            this.iWC.setText(i);
         }
     }
 
+    @Deprecated
     public void setLineVisibility(boolean z) {
-        if (z) {
-            this.mBottomLine.setVisibility(0);
-        } else {
-            this.mBottomLine.setVisibility(8);
-        }
     }
 
     public CheckBox getSwitchView() {
-        return this.iUh;
+        return this.iWC;
     }
 }

@@ -11,33 +11,33 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements h {
-    private final l bPe;
-    private final HashMap<String, Method> bPf = new HashMap<>();
+    private final l bPF;
+    private final HashMap<String, Method> bPG = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(l lVar) {
-        this.bPe = lVar;
+        this.bPF = lVar;
         n(getClass());
-        if (this.bPf.isEmpty()) {
+        if (this.bPG.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.bPe.getContext();
+        return this.bPF.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sendMessage(Message<?> message) {
-        a.C0242a.sendMessage(message);
+        a.C0251a.sendMessage(message);
     }
 
     protected void m(String str, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str)) {
-            e.mT("sendResponseToJS got empty callbackId.");
+            e.mV("sendResponseToJS got empty callbackId.");
             return;
         }
         HashMap hashMap = new HashMap(4);
@@ -46,25 +46,25 @@ public abstract class d implements h {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.bPe.a(m.h(str, hashMap));
+        this.bPF.a(m.h(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.hybrid.h
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.bPf.get(str);
+        Method method = this.bPG.get(str);
         if (method != null) {
             o oVar = (o) method.getAnnotation(o.class);
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!oVar.ahC()) {
+                if (!oVar.ahG()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
                         invoke = method.invoke(this, jSONObject);
                     } else if (parameterTypes.length == 0) {
-                        e.mT("native method " + getClass().getSimpleName() + ":" + oVar.value() + " ignored all parameters.");
+                        e.mV("native method " + getClass().getSimpleName() + ":" + oVar.value() + " ignored all parameters.");
                         invoke = method.invoke(this, new Object[0]);
                     } else {
                         a(str, jSONObject2, "500", "parameters too much!");
@@ -84,7 +84,7 @@ public abstract class d implements h {
                         }
                         return;
                     } else if (parameterTypes.length == 0) {
-                        e.mT("native method " + getClass().getSimpleName() + ":" + oVar.value() + " ignored all parameters.");
+                        e.mV("native method " + getClass().getSimpleName() + ":" + oVar.value() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
                             m(optString, null);
@@ -100,15 +100,15 @@ public abstract class d implements h {
                     return;
                 }
             } catch (IllegalAccessException e) {
-                e.mT("native method call error:" + e.getMessage());
+                e.mV("native method call error:" + e.getMessage());
                 a(str, jSONObject2, "501", "IllegalAccessException:" + e.getMessage());
                 return;
             } catch (InvocationTargetException e2) {
-                e.mT("native method call error:" + e2.getMessage());
+                e.mV("native method call error:" + e2.getMessage());
                 a(str, jSONObject2, "502", "InvocationTargetException:" + e2.getMessage());
                 return;
             } catch (Exception e3) {
-                e.mT("native method call error:" + e3.getMessage());
+                e.mV("native method call error:" + e3.getMessage());
                 a(str, jSONObject2, "503", "Native call exception:" + e3.getMessage());
                 return;
             }
@@ -119,13 +119,13 @@ public abstract class d implements h {
     private void a(String str, JSONObject jSONObject, String str2, String str3) {
         String optString = jSONObject.optString(WBConstants.SHARE_CALLBACK_ID);
         if (TextUtils.isEmpty(optString)) {
-            e.mT("method " + str + " not found!");
+            e.mV("method " + str + " not found!");
             return;
         }
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.bPe.a(m.h(optString, hashMap));
+        this.bPF.a(m.h(optString, hashMap));
     }
 
     private void n(Class<? extends d> cls) {
@@ -137,14 +137,14 @@ public abstract class d implements h {
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (oVar.ahC() && !Void.TYPE.equals(method.getReturnType())) {
+                if (oVar.ahG() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.bPf.put(value, method);
+                this.bPG.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

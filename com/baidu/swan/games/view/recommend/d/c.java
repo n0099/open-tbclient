@@ -2,6 +2,7 @@ package com.baidu.swan.games.view.recommend.d;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,7 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     @NonNull
-    public static d kf(String str) {
+    public static d kh(String str) {
         d dVar = new d();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -34,13 +35,13 @@ public class c {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            bVar.bnf = aA(optJSONObject);
+            bVar.bnD = aA(optJSONObject);
         }
-        bVar.bng = new ArrayList();
+        bVar.bnE = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                bVar.bng.add(aA(optJSONArray.optJSONObject(i)));
+                bVar.bnE.add(aA(optJSONArray.optJSONObject(i)));
             }
         }
         return bVar;
@@ -49,7 +50,7 @@ public class c {
     @NonNull
     private static a aA(@NonNull JSONObject jSONObject) {
         a aVar = new a();
-        aVar.appName = jSONObject.optString("app_name");
+        aVar.appName = jSONObject.optString(DpStatConstants.KEY_APP_NAME);
         aVar.appKey = jSONObject.optString("app_key");
         aVar.iconUrl = jSONObject.optString("icon_url");
         aVar.scheme = jSONObject.optString("scheme");

@@ -33,7 +33,7 @@ public final class e implements Choreographer.FrameCallback {
     public static /* synthetic */ void a(e eVar) {
         Context context;
         byte[] bArr = null;
-        Map<String, Object> g = a.rb().g();
+        Map<String, Object> g = a.rc().g();
         if (g == null) {
             com.baidu.crabsdk.c.a.w("no keyStack; blockRecord = null; not a block!!!");
             return;
@@ -56,7 +56,7 @@ public final class e implements Choreographer.FrameCallback {
             com.baidu.crabsdk.c.a.ch("-BlockCanaryCore- switch on -  *^o^* doUploadBlock *^o^*");
             if (!com.baidu.crabsdk.sender.h.rx()) {
                 com.baidu.crabsdk.c.a.ch("CrashSwitch.canBlockUploadToday() == false");
-                b.rc().stop();
+                b.rd().stop();
                 eVar.stop();
                 return;
             }

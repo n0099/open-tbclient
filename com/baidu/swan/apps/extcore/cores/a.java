@@ -6,28 +6,28 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a awy;
+    private static volatile a awW;
 
-    public static a CY() {
-        if (awy == null) {
+    public static a Dc() {
+        if (awW == null) {
             synchronized (a.class) {
-                if (awy == null) {
-                    awy = new a();
+                if (awW == null) {
+                    awW = new a();
                 }
             }
         }
-        return awy;
+        return awW;
     }
 
     public void a(@Nullable final com.baidu.swan.apps.extcore.c.a aVar, int i) {
-        com.baidu.swan.apps.swancore.d.b.Oi().a(new com.baidu.swan.apps.swancore.a.a() { // from class: com.baidu.swan.apps.extcore.cores.a.1
+        com.baidu.swan.apps.swancore.d.b.Om().a(new com.baidu.swan.apps.swancore.a.a() { // from class: com.baidu.swan.apps.extcore.cores.a.1
             @Override // com.baidu.swan.apps.swancore.a.a
-            public void vV() {
-                com.baidu.swan.apps.extcore.a.CT().a(new com.baidu.swan.apps.extcore.c.a() { // from class: com.baidu.swan.apps.extcore.cores.a.1.1
+            public void vZ() {
+                com.baidu.swan.apps.extcore.a.CX().a(new com.baidu.swan.apps.extcore.c.a() { // from class: com.baidu.swan.apps.extcore.cores.a.1.1
                     @Override // com.baidu.swan.apps.extcore.c.a
-                    public void vV() {
+                    public void vZ() {
                         if (aVar != null) {
-                            aVar.vV();
+                            aVar.vZ();
                         }
                     }
                 });
@@ -35,10 +35,10 @@ public class a {
         }, i);
     }
 
-    public void CZ() {
-        com.baidu.swan.apps.swancore.d.b.Oi().a((com.baidu.swan.apps.swancore.a.a) null, 0);
-        com.baidu.swan.apps.swancore.d.b.Oi().a((com.baidu.swan.apps.swancore.a.a) null, 1);
-        com.baidu.swan.apps.extcore.a.CT().a((com.baidu.swan.apps.extcore.c.a) null);
+    public void Dd() {
+        com.baidu.swan.apps.swancore.d.b.Om().a((com.baidu.swan.apps.swancore.a.a) null, 0);
+        com.baidu.swan.apps.swancore.d.b.Om().a((com.baidu.swan.apps.swancore.a.a) null, 1);
+        com.baidu.swan.apps.extcore.a.CX().a((com.baidu.swan.apps.extcore.c.a) null);
     }
 
     public void C(int i, int i2) {
@@ -46,6 +46,6 @@ public class a {
             Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
         }
         com.baidu.swan.apps.swancore.b.C(i, i2);
-        com.baidu.swan.apps.extcore.a.CT().C(i, i2);
+        com.baidu.swan.apps.extcore.a.CX().C(i, i2);
     }
 }

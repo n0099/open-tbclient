@@ -44,6 +44,7 @@ public class LivenessStat {
     public int whiteBg = -1;
     public float illumValue = -1.0f;
     public int onLineIllum = -1;
+    public int guideLiveness = 0;
     public String livingPassPeriod = TYPE_STRING_DEFAULT;
     public int getIDLPicture = -1;
     public String faceMatchType = TYPE_STRING_DEFAULT;
@@ -182,6 +183,7 @@ public class LivenessStat {
         hashMap.put("time_whole", (this.timePointEnd - this.timePointStart) + "");
         hashMap.put("error_code", this.errCode + "");
         hashMap.put("recog_type", this.recogType);
+        hashMap.put("guide_liveness", this.guideLiveness + "");
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         hashMap.put("screen_size", defaultDisplay.getWidth() + Constants.ACCEPT_TIME_SEPARATOR_SP + defaultDisplay.getHeight());
         hashMap.put("os_ver", PassBiometricUtil.getOSVersion());

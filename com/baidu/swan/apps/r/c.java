@@ -6,47 +6,47 @@ import android.widget.EditText;
 /* loaded from: classes2.dex */
 public class c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c axP;
-    private EditText axQ;
-    private b axR;
+    private static volatile c ayn;
+    private EditText ayo;
+    private b ayp;
     private TextWatcher mTextWatcher;
 
     private c() {
     }
 
-    public static c DU() {
-        if (axP == null) {
+    public static c DY() {
+        if (ayn == null) {
             synchronized (c.class) {
-                if (axP == null) {
-                    axP = new c();
+                if (ayn == null) {
+                    ayn = new c();
                 }
             }
         }
-        return axP;
+        return ayn;
     }
 
     public EditText ba(Context context) {
-        this.axQ = new EditText(context);
-        return this.axQ;
+        this.ayo = new EditText(context);
+        return this.ayo;
     }
 
-    public EditText DV() {
-        return this.axQ;
+    public EditText DZ() {
+        return this.ayo;
     }
 
-    public void DW() {
-        this.axQ = null;
+    public void Ea() {
+        this.ayo = null;
     }
 
-    public b DX() {
-        return this.axR;
+    public b Eb() {
+        return this.ayp;
     }
 
     public void c(b bVar) {
-        this.axR = bVar;
+        this.ayp = bVar;
     }
 
-    public TextWatcher DY() {
+    public TextWatcher Ec() {
         return this.mTextWatcher;
     }
 

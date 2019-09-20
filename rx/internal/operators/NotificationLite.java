@@ -3,14 +3,14 @@ package rx.internal.operators;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public final class NotificationLite {
-    private static final Object kwk = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    private static final Object kyD = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         private static final long serialVersionUID = 1;
 
         public String toString() {
             return "Notification=>Completed";
         }
     };
-    private static final Object kwl = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    private static final Object kyE = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         private static final long serialVersionUID = 2;
 
         public String toString() {
@@ -34,13 +34,13 @@ public final class NotificationLite {
 
     public static <T> Object bq(T t) {
         if (t == null) {
-            return kwl;
+            return kyE;
         }
         return t;
     }
 
-    public static Object cPI() {
-        return kwk;
+    public static Object cQu() {
+        return kyD;
     }
 
     public static Object N(Throwable th) {
@@ -48,10 +48,10 @@ public final class NotificationLite {
     }
 
     public static <T> boolean a(rx.e<? super T> eVar, Object obj) {
-        if (obj == kwk) {
+        if (obj == kyD) {
             eVar.onCompleted();
             return true;
-        } else if (obj == kwl) {
+        } else if (obj == kyE) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
@@ -67,7 +67,7 @@ public final class NotificationLite {
     }
 
     public static boolean br(Object obj) {
-        return obj == kwk;
+        return obj == kyD;
     }
 
     public static boolean bs(Object obj) {
@@ -77,7 +77,7 @@ public final class NotificationLite {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T bt(Object obj) {
-        if (obj == kwl) {
+        if (obj == kyE) {
             return null;
         }
         return obj;

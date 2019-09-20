@@ -1,454 +1,711 @@
 package com.baidu.tieba.recapp.download;
 
-import android.app.PendingIntent;
-import android.content.Intent;
+import android.content.Context;
+import android.os.Build;
+import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.webkit.CookieManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.s;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.m;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tbadk.core.util.q;
 import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.tieba.recapp.download.http.BdHttpCancelException;
 import java.io.File;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes.dex */
-public class d {
-    private final int cry = 5;
-    private a iHB = null;
-    private HashMap<String, f> iHD = new HashMap<>();
-    private static d iHA = null;
-    private static DownloadData crA = null;
-    private static List<DownloadData> mTaskList = new LinkedList();
-    private static HashMap<String, Integer> iHC = new HashMap<>();
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
+public class d implements q {
+    private static int bSQ = 2097152;
+    private final com.baidu.tbadk.core.util.a.a bSK;
+    private com.baidu.tieba.recapp.download.http.c iJU = new com.baidu.tieba.recapp.download.http.c();
+    private Context mContext = TbadkCoreApplication.getInst().getApp();
 
-    private d() {
-    }
-
-    public static d cic() {
-        synchronized (d.class) {
-            if (iHA == null) {
-                iHA = new d();
-            }
+    public d(com.baidu.tbadk.core.util.a.a aVar) {
+        this.bSK = aVar;
+        com.baidu.tieba.recapp.download.http.c.setUserAgent("bdtb for Android " + TbConfig.getVersion());
+        if (Integer.parseInt(Build.VERSION.SDK) < 8) {
+            System.setProperty("http.keepAlive", "false");
         }
-        return iHA;
+        String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
+        com.baidu.tieba.recapp.download.http.c.aC((TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) ? com.baidu.tbadk.browser.a.bCh : cookie);
     }
 
-    public void a(String str, String str2, String str3, int i, int i2, String[] strArr, boolean z, boolean z2, boolean z3, String str4, DownloadStaticsData downloadStaticsData, String str5) {
-        DownloadData downloadData = new DownloadData(str);
-        downloadData.setType(12);
-        downloadData.setId(str);
-        downloadData.setUrl(str2);
-        downloadData.setName(str3);
-        downloadData.setTag(strArr);
-        downloadData.setPosition(i);
-        downloadData.setNotifyId(i2);
-        downloadData.setNeedInvokeApk(z);
-        downloadData.setForceDownload(z2);
-        downloadData.setNeedNotify(z3);
-        downloadData.setApp_icon(str4);
-        downloadData.setDownloadStaticsData(downloadStaticsData);
-        downloadData.setUser_name(str5);
-        a(downloadData);
-    }
-
-    public void a(DownloadData downloadData) {
-        if (downloadData != null) {
-            List<DownloadData> mN = e.cie().mN();
-            if (mN != null && mN.size() >= 5) {
-                downloadData.setStatus(2);
-                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
-                b(downloadData);
-                UtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.download_fail_over_max);
+    @Override // com.baidu.tbadk.core.util.q
+    public void u(ArrayList<BasicNameValuePair> arrayList) {
+        if (this.bSK.ajM().ajP().bVP != null) {
+            this.bSK.ajM().ajP().bVP.clear();
+        }
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < arrayList.size()) {
+                a(arrayList.get(i2));
+                i = i2 + 1;
+            } else {
                 return;
             }
-            mTaskList.add(downloadData);
-            arT();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void arT() {
-        if (crA == null && !mTaskList.isEmpty()) {
-            crA = mTaskList.get(0);
-            if (crA != null) {
-                this.iHB = new a();
-                this.iHB.setPriority(3);
-                this.iHB.execute(crA);
+    @Override // com.baidu.tbadk.core.util.q
+    public ArrayList<BasicNameValuePair> ail() {
+        return this.bSK.ajM().ajP().bVP;
+    }
+
+    @Override // com.baidu.tbadk.core.util.q
+    public void o(String str, String str2) {
+        a(new BasicNameValuePair(str, str2));
+    }
+
+    @Override // com.baidu.tbadk.core.util.q
+    public void a(BasicNameValuePair basicNameValuePair) {
+        if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
+            if (this.bSK.ajM().ajP().bVP == null) {
+                this.bSK.ajM().ajP().bVP = new ArrayList<>();
             }
-        }
-    }
-
-    public String getFileOfUrl(String str) {
-        if (str == null || str.length() == 0) {
-            return null;
-        }
-        if (str.contains("?")) {
-            str = str.substring(0, str.indexOf("?"));
-        }
-        String[] split = str.split("/");
-        return split[split.length - 1];
-    }
-
-    public void b(DownloadData downloadData) {
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(downloadData);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
-    }
-
-    public void ah(List<DownloadData> list) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
-    }
-
-    public void x(ArrayList<AdvertAppInfo> arrayList) {
-        try {
-            new b().execute(arrayList);
-        } catch (Exception e) {
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> crC;
-
-        private b() {
-            this.crC = null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public List<DownloadData> doInBackground(ArrayList<AdvertAppInfo>... arrayListArr) {
-            ArrayList<AdvertAppInfo> arrayList = arrayListArr[0];
-            LinkedList linkedList = new LinkedList();
-            if (arrayList == null) {
-                return linkedList;
-            }
-            this.crC = arrayList;
-            Iterator<AdvertAppInfo> it = arrayList.iterator();
-            while (it.hasNext()) {
-                AdvertAppInfo next = it.next();
-                String str = next.bEY;
-                if (m.nk(d.this.getFileOfUrl(next.bEX)) != null) {
-                    DownloadData downloadData = new DownloadData(str);
-                    downloadData.setStatus(3);
-                    linkedList.add(downloadData);
+            int b = b(this.bSK.ajM().ajP().bVP, basicNameValuePair.getName());
+            int size = this.bSK.ajM().ajP().bVP.size();
+            if (b >= 0 && b < size) {
+                if (basicNameValuePair.getName().equals(this.bSK.ajM().ajP().bVP.get(b).getName())) {
+                    this.bSK.ajM().ajP().bVP.set(b, basicNameValuePair);
+                } else {
+                    this.bSK.ajM().ajP().bVP.add(b, basicNameValuePair);
                 }
+            } else if (b == size) {
+                this.bSK.ajM().ajP().bVP.add(b, basicNameValuePair);
+            }
+        }
+    }
+
+    private int b(ArrayList<BasicNameValuePair> arrayList, String str) {
+        int i = 0;
+        if (arrayList == null || str == null) {
+            return -1;
+        }
+        int size = arrayList.size();
+        int i2 = 0;
+        while (true) {
+            if (i >= size) {
+                break;
+            }
+            int compareTo = str.compareTo(arrayList.get(i).getName());
+            if (compareTo < 0) {
+                i2 = i;
+                break;
+            } else if (compareTo == 0) {
+                return -1;
+            } else {
+                i2 = i;
+                i++;
+            }
+        }
+        return i >= size ? size : i2;
+    }
+
+    @Override // com.baidu.tbadk.core.util.q
+    public void d(String str, byte[] bArr) {
+        if (this.bSK.ajM().ajP().bVQ == null) {
+            this.bSK.ajM().ajP().bVQ = new HashMap<>();
+        }
+        this.bSK.ajM().ajP().bVQ.put(str, bArr);
+    }
+
+    @Override // com.baidu.tbadk.core.util.q
+    public void ik() {
+        this.iJU.cancel();
+    }
+
+    @Override // com.baidu.tbadk.core.util.q
+    public void in() {
+        if (this.iJU != null) {
+            this.iJU.in();
+        }
+    }
+
+    private LinkedList<BasicNameValuePair> aiT() {
+        if (this.bSK != null) {
+            LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
+            if (!TextUtils.isEmpty(this.bSK.ajM().ajP().bVU)) {
+                linkedList.add(new BasicNameValuePair("sid", this.bSK.ajM().ajP().bVU));
+            }
+            if (!TextUtils.isEmpty(this.bSK.ajM().ajP().mNetType)) {
+                linkedList.add(new BasicNameValuePair("net", this.bSK.ajM().ajP().mNetType));
+                return linkedList;
             }
             return linkedList;
         }
+        return null;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: P */
-        public void onPostExecute(List<DownloadData> list) {
-            super.onPostExecute(list);
-            if (list == null) {
-                list = new LinkedList<>();
-            }
-            for (DownloadData downloadData : e.cie().mN()) {
-                Iterator<AdvertAppInfo> it = this.crC.iterator();
-                while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().bEY, downloadData.getId())) {
-                        list.add(downloadData);
-                    }
+    public void nU(String str) {
+        this.bSK.ajN().bVr = -1;
+        if (str != null) {
+            try {
+                ErrorData errorData = new ErrorData();
+                errorData.parserJson(str);
+                this.bSK.ajN().bVr = errorData.getError_code();
+                if (this.bSK.ajN().bVr == -1) {
+                    this.bSK.ajN().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
+                } else if (this.bSK.ajN().bVr != 0) {
+                    this.bSK.ajN().mErrorString = errorData.getError_msg();
                 }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                this.bSK.ajN().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
             }
-            d.this.ah(list);
-            this.crC = null;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String aV(String str) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(m.aif());
-        File file = new File(sb.toString());
-        if (!file.exists()) {
-            file.mkdirs();
+    private int getMode(int i) {
+        switch (i) {
+            case 1:
+            default:
+                return 1;
+            case 2:
+                return 2;
+            case 3:
+                return 3;
         }
-        sb.append("/");
-        sb.append(str);
-        return sb.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<DownloadData, DownloadData, DownloadData> {
-        private a() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public DownloadData doInBackground(DownloadData... downloadDataArr) {
-            DownloadData downloadData = downloadDataArr[0];
-            if (downloadData != null) {
-                String id = downloadData.getId();
-                String name = downloadData.getName();
-                if (!aq.isEmpty(id) && !aq.isEmpty(name)) {
-                    boolean isForceDownload = downloadData.isForceDownload();
-                    String str = id.replace(".", "_") + ".apk";
-                    String aV = d.this.aV(str);
-                    File nk = m.nk(str);
-                    if (isForceDownload || nk == null) {
-                        downloadData.setCallback(new com.baidu.tbadk.download.a());
-                        downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
-                        downloadData.setType(12);
-                        downloadData.setPath(aV);
-                        return downloadData;
-                    }
-                    DownloadData downloadData2 = new DownloadData(id);
-                    downloadData2.setName(str);
-                    downloadData2.setPath(aV);
-                    downloadData2.setStatus(3);
-                    return downloadData2;
-                }
-                return downloadData;
+    @Override // com.baidu.tbadk.core.util.q
+    public String aim() {
+        Throwable th;
+        String str;
+        Exception e;
+        SocketTimeoutException e2;
+        SocketException e3;
+        OutOfMemoryError e4;
+        BdHttpCancelException bdHttpCancelException;
+        String str2;
+        StringBuilder sb = new StringBuilder(1024);
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (this.bSK.ajM().ajP().bVP == null || i2 >= this.bSK.ajM().ajP().bVP.size()) {
+                break;
             }
-            return downloadData;
+            BasicNameValuePair basicNameValuePair = this.bSK.ajM().ajP().bVP.get(i2);
+            if (basicNameValuePair != null) {
+                String name = basicNameValuePair.getName();
+                String value = basicNameValuePair.getValue();
+                sb.append(name);
+                sb.append("=");
+                sb.append(value);
+            }
+            i = i2 + 1;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: e */
-        public void onPostExecute(DownloadData downloadData) {
-            super.onPostExecute(downloadData);
-            d.this.iHB = null;
-            if (downloadData != null) {
-                if (downloadData.getStatus() == 3) {
-                    d.this.b(downloadData);
-                    if (downloadData.isNeedInvokeApk()) {
-                        UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
-                    }
+        if (this.bSK.ajM().ajP().mIsBaiduServer) {
+            sb.append("tiebaclient!!!");
+            o("sign", s.bn(sb.toString()));
+        }
+        if (TbConfig.getDebugSwitch()) {
+        }
+        try {
+            if (this.iJU.isCanceled()) {
+                return null;
+            }
+            if (this.iJU.b(this.bSK.ajM().ajP().mUrl, this.bSK.ajM().ajP().bVP, this.bSK.ajM().ajP().bVR, 5, -1, aiT()) == null) {
+                throw new BdHttpCancelException();
+            }
+            com.baidu.tieba.recapp.download.http.g ciY = this.iJU.ciY();
+            if (ciY == null) {
+                return null;
+            }
+            com.baidu.tieba.recapp.download.http.i cja = ciY.cja();
+            if (ciY == null || ciY.iw() == null || ciY.iw().size() > 0) {
+            }
+            this.bSK.ajN().AR = cja.responseCode;
+            this.bSK.ajN().mHeader = cja.AT;
+            if (this.bSK.ajN().AR != 200) {
+                if (this.bSK.ajO().bVt != null && !TextUtils.isEmpty(this.bSK.ajO().bVt.Az)) {
+                    this.bSK.ajN().bVs = this.bSK.ajO().bVt.Az;
                 } else {
-                    e.cie().a(downloadData, 5);
-                    if (d.this.cd(downloadData.getId(), downloadData.getName()) <= 0) {
-                        if (downloadData.getDownloadStaticsData() != null) {
-                            downloadData.getDownloadStaticsData().setDa_range("0");
-                        }
-                        if (downloadData.isNeedNotify()) {
-                            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
-                            f fVar = new f(downloadData, 0);
-                            d.this.iHD.put(downloadData.getUrl(), fVar);
-                            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), d.this.pY(downloadData.getAction()), false, fVar.cif(), false);
-                        }
-                    } else {
-                        if (downloadData.getDownloadStaticsData() != null) {
-                            downloadData.getDownloadStaticsData().setDa_range("1");
-                        }
-                        d.this.c(downloadData);
+                    this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt == null ? -1 : this.bSK.ajO().bVt.Aw);
+                }
+                TiebaStatic.net(this.bSK);
+                return null;
+            } else if (this.iJU.isCanceled()) {
+                return null;
+            } else {
+                str = new String(cja.AU, "utf-8");
+                try {
+                    if (this.bSK.ajM().ajP().mIsBaiduServer && this.bSK.ajM().ajP().bVS) {
+                        nU(str);
                     }
+                    aa.a aVar = new aa.a();
+                    aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
+                    aVar.aWP = this.bSK.ajO().bVt.Au;
+                    aVar.mTime = this.bSK.ajO().bVt.Ax;
+                    aVar.bTf = this.bSK.ajO().bVt.Aw;
+                    aVar.bTe = 1;
+                    aa.a(aVar);
+                    aa.bTd.set(this.bSK.ajO().bVt.Aw);
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (BdHttpCancelException e5) {
+                    bdHttpCancelException = e5;
+                    str2 = str;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt == null ? -1 : this.bSK.ajO().bVt.Aw) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                    this.bSK.ajN().AR = -14;
+                    return str2;
+                } catch (SocketException e6) {
+                    e3 = e6;
+                    this.bSK.ajN().AR = -12;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    BdLog.e(e3.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (SocketTimeoutException e7) {
+                    e2 = e7;
+                    this.bSK.ajN().AR = -13;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    BdLog.e(e2.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (Exception e8) {
+                    e = e8;
+                    this.bSK.ajN().AR = -10;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                    BdLog.e(e.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (OutOfMemoryError e9) {
+                    e4 = e9;
+                    this.bSK.ajN().AR = -15;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                    BdLog.e(e4.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (Throwable th2) {
+                    th = th2;
+                    this.bSK.ajN().AR = -10;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    BdLog.e(th.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
                 }
-                DownloadData unused = d.crA = null;
-                if (!d.mTaskList.isEmpty()) {
-                    d.mTaskList.remove(0);
-                    d.this.arT();
+            }
+        } catch (BdHttpCancelException e10) {
+            bdHttpCancelException = e10;
+            str2 = null;
+        } catch (OutOfMemoryError e11) {
+            e4 = e11;
+            str = null;
+        } catch (SocketException e12) {
+            e3 = e12;
+            str = null;
+        } catch (SocketTimeoutException e13) {
+            e2 = e13;
+            str = null;
+        } catch (Exception e14) {
+            e = e14;
+            str = null;
+        } catch (Throwable th3) {
+            th = th3;
+            str = null;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:118:0x05ba  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x016d  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:93:0x0396 -> B:94:0x0397). Please submit an issue!!! */
+    @Override // com.baidu.tbadk.core.util.q
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public byte[] ain() {
+        com.baidu.tieba.recapp.download.http.i iVar;
+        BdHttpCancelException bdHttpCancelException;
+        com.baidu.tieba.recapp.download.http.i iVar2;
+        byte[] bArr;
+        String str;
+        String str2;
+        boolean z = true;
+        com.baidu.tieba.recapp.download.http.c.setUid(TbadkCoreApplication.getCurrentAccount());
+        try {
+            if (this.bSK.ajM().ajP().bVP != null && this.bSK.ajM().ajP().bVP.size() > 0 && !this.bSK.ajM().mIsFromCDN) {
+                StringBuilder sb = new StringBuilder(30);
+                sb.append(this.bSK.ajM().ajP().mUrl);
+                if (this.bSK.ajM().ajP().mUrl.indexOf("?") < 0) {
+                    sb.append("?");
+                } else if (!this.bSK.ajM().ajP().mUrl.endsWith("?") && !this.bSK.ajM().ajP().mUrl.endsWith("&")) {
+                    sb.append("&");
                 }
+                for (int i = 0; i < this.bSK.ajM().ajP().bVP.size(); i++) {
+                    if (i != 0) {
+                        sb.append("&");
+                    }
+                    sb.append(this.bSK.ajM().ajP().bVP.get(i).getName());
+                    sb.append("=");
+                    sb.append(aq.bi(this.bSK.ajM().ajP().bVP.get(i).getValue()));
+                }
+                str = sb.toString();
+            } else {
+                str = this.bSK.ajM().ajP().mUrl;
             }
-        }
-    }
-
-    public void c(DownloadData downloadData) {
-        if (downloadData != null && downloadData.isNeedNotify()) {
-            int cd = cd(downloadData.getId(), downloadData.getName());
-            String str = cd + "%";
-            f fVar = this.iHD.get(downloadData.getUrl());
-            f fVar2 = fVar == null ? new f(downloadData, cd) : fVar;
-            int status = getStatus(downloadData);
-            if (status == 1) {
-                fVar2.cig();
-            } else if (status == 4 || status == 2 || status == 7) {
-                fVar2.cih();
-            } else if (status == 6) {
-                NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-                return;
+            if (TbConfig.getDebugSwitch()) {
             }
-            fVar2.zA(cd);
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str, downloadData.getUser_name(), pY(downloadData.getAction()), false, fVar2.cif(), false);
-        }
-    }
-
-    public void i(DownloadData downloadData) {
-        if (downloadData != null) {
-            f fVar = this.iHD.get(downloadData.getUrl());
-            f fVar2 = fVar == null ? new f(downloadData, cd(downloadData.getId(), downloadData.getName())) : fVar;
-            fVar2.cig();
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, cd(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), pY(downloadData.getAction()), false, fVar2.cif(), false);
-        }
-    }
-
-    public void j(DownloadData downloadData) {
-        if (downloadData != null) {
-            f fVar = this.iHD.get(downloadData.getUrl());
-            int cd = cd(downloadData.getId(), downloadData.getName());
-            if (fVar == null) {
-                fVar = new f(downloadData, cd);
+            if ((!this.bSK.ajM().ajP().bVR || this.bSK.ajM().ajP().mIsBDImage) && !this.bSK.ajM().mIsFromCDN) {
+                z = false;
             }
-            fVar.cih();
+        } catch (BdHttpCancelException e) {
+            bdHttpCancelException = e;
+            iVar2 = null;
+        } catch (OutOfMemoryError e2) {
+            e = e2;
+            iVar = null;
+        } catch (SocketException e3) {
+            e = e3;
+            iVar = null;
+        } catch (SocketTimeoutException e4) {
+            e = e4;
+            iVar = null;
+        } catch (Exception e5) {
+            e = e5;
+            iVar = null;
         }
-    }
-
-    public void k(DownloadData downloadData) {
-        if (downloadData != null) {
-            j(downloadData);
-            f fVar = this.iHD.get(downloadData.getUrl());
-            if (fVar != null) {
-                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, cd(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), pY(downloadData.getAction()), false, fVar.cif(), false);
-            }
+        if (this.iJU.isCanceled()) {
+            throw new BdHttpCancelException();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public PendingIntent pY(String str) {
-        if (TextUtils.isEmpty(str)) {
+        long j = new Date().getTime();
+        this.iJU.b(str, z, 5, 100, -1, -1, aiT());
+        com.baidu.tieba.recapp.download.http.g ciY = this.iJU.ciY();
+        if (ciY == null) {
             return null;
         }
-        Intent intent = new Intent(str);
-        intent.addCategory("android.intent.category.DEFAULT");
-        intent.setFlags(268435456);
-        return PendingIntent.getActivity(TbadkCoreApplication.getInst(), 0, intent, 0);
-    }
-
-    public void l(DownloadData downloadData) {
-        String string;
-        if (downloadData != null) {
-            switch (downloadData.getErrorCode()) {
-                case 1:
-                    string = TbadkCoreApplication.getInst().getString(R.string.download_fail_tip_sdcrad);
-                    break;
-                case 2:
-                default:
-                    string = TbadkCoreApplication.getInst().getString(R.string.download_fail_tip);
-                    break;
-                case 3:
-                    string = TbadkCoreApplication.getInst().getString(R.string.download_fail_tip_net);
-                    break;
-            }
-            if (downloadData.isNeedNotify()) {
-                int process = downloadData.getProcess();
-                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getUser_name() + TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_fail_tip), process, process + "%", string, pY(downloadData.getAction()), false);
-            }
-        }
-    }
-
-    public boolean pZ(String str) {
-        for (DownloadData downloadData : e.cie().mN()) {
-            if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public int cd(String str, String str2) {
-        long ce = ce(str, str2);
-        long j = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L);
-        if (0 == j) {
-            return -1;
-        }
-        if (ce <= j) {
-            return (int) ((100 * ce) / j);
-        }
-        return 0;
-    }
-
-    public boolean DG(String str) {
-        for (DownloadData downloadData : e.cie().mN()) {
-            if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void x(String str, String str2, boolean z) {
-        if (!StringUtils.isNull(str)) {
-            DownloadData downloadData = null;
-            for (DownloadData downloadData2 : e.cie().mN()) {
-                if (downloadData2.getId() == null || !downloadData2.getId().equals(str2)) {
-                    downloadData2 = downloadData;
+        iVar = ciY.cja();
+        if (ciY != null) {
+            try {
+                if (ciY.iw() == null || ciY.iw().size() > 0) {
                 }
-                downloadData = downloadData2;
+            } catch (BdHttpCancelException e6) {
+                iVar2 = iVar;
+                bdHttpCancelException = e6;
+                this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt == null ? -1 : this.bSK.ajO().bVt.Aw) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                this.bSK.ajN().AR = -14;
+                iVar = iVar2;
+                if (iVar == null) {
+                }
+                return bArr;
+            } catch (Exception e7) {
+                e = e7;
+                this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt != null ? this.bSK.ajO().bVt.Aw : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.bSK.ajN().AR = -10;
+                BdLog.e(e.getMessage());
+                TiebaStatic.net(this.bSK);
+                if (iVar == null) {
+                }
+                return bArr;
+            } catch (OutOfMemoryError e8) {
+                e = e8;
+                this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt != null ? this.bSK.ajO().bVt.Aw : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.bSK.ajN().AR = -15;
+                BdLog.e(e.getMessage());
+                TiebaStatic.net(this.bSK);
+                if (iVar == null) {
+                }
+                return bArr;
+            } catch (SocketException e9) {
+                e = e9;
+                this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt != null ? this.bSK.ajO().bVt.Aw : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.bSK.ajN().AR = -12;
+                TiebaStatic.net(this.bSK);
+                if (iVar == null) {
+                }
+                return bArr;
+            } catch (SocketTimeoutException e10) {
+                e = e10;
+                this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt != null ? this.bSK.ajO().bVt.Aw : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.bSK.ajN().AR = -13;
+                TiebaStatic.net(this.bSK);
+                if (iVar == null) {
+                }
+                return bArr;
             }
-            if (z) {
-                e.cie().S(str, true);
+        }
+        if (iVar == null) {
+            return null;
+        }
+        this.bSK.ajN().AR = iVar.responseCode;
+        if (this.bSK.ajN().AR != 200) {
+            this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+            if (this.bSK.ajO().bVt != null && !TextUtils.isEmpty(this.bSK.ajO().bVt.Az)) {
+                this.bSK.ajN().bVs = this.bSK.ajO().bVt.Az;
             } else {
-                e.cie().qc(str);
+                this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt == null ? -1 : this.bSK.ajO().bVt.Aw);
             }
-            if (downloadData != null) {
-                int cd = cd(downloadData.getId(), downloadData.getName());
-                String str3 = cd + "%";
-                if (downloadData != null && cd >= 0) {
-                    f fVar = this.iHD.get(downloadData.getUrl());
-                    f fVar2 = fVar == null ? new f(downloadData, cd) : fVar;
-                    fVar2.cih();
-                    NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str3, downloadData.getUser_name(), pY(downloadData.getAction()), false, fVar2.cif(), false);
+            TiebaStatic.net(this.bSK);
+            return null;
+        }
+        if (TbadkCoreApplication.getInst().isMainProcess(true) && (str2 = iVar.contentLength) != null) {
+            try {
+                int parseInt = Integer.parseInt(str2);
+                if (parseInt > bSQ) {
+                    this.bSK.ajN().AR = -11;
+                    TiebaStatic.net(this.bSK);
+                    bArr = null;
+                } else {
+                    int i2 = parseInt * 10;
+                    if (i2 > 0) {
+                        if (BdLog.isDebugMode()) {
+                        }
+                        if (!com.baidu.tbadk.imageManager.c.atK().kJ(i2)) {
+                            BdLog.d("Image download cacelled. out of memory. url:[" + this.bSK.ajM().ajP().mUrl + "], size:" + i2);
+                            this.bSK.ajN().AR = -16;
+                            TiebaStatic.net(this.bSK);
+                            bArr = null;
+                        }
+                    }
+                }
+            } catch (Throwable th) {
+            }
+            return bArr;
+        }
+        aa.a aVar = new aa.a();
+        aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
+        aVar.aWP = this.bSK.ajO().bVt.Au;
+        aVar.mTime = new Date().getTime() - j;
+        aVar.bTf = this.bSK.ajO().bVt.Aw;
+        aVar.bTe = 2;
+        aa.a(aVar);
+        aa.bTd.set(this.bSK.ajO().bVt.Aw);
+        TiebaStatic.net(this.bSK);
+        bArr = iVar == null ? iVar.AU : null;
+        return bArr;
+    }
+
+    @Override // com.baidu.tbadk.core.util.q
+    public String aio() {
+        String str;
+        OutOfMemoryError e;
+        Exception e2;
+        byte[] ain = ain();
+        if (ain == null || this.bSK.ajN().AR != 200) {
+            return null;
+        }
+        try {
+            this.bSK.ajM().ajP().bVT = TextUtils.isEmpty(this.bSK.ajM().ajP().bVT) ? HTTP.UTF_8 : this.bSK.ajM().ajP().bVT;
+            str = new String(ain, 0, ain.length, this.bSK.ajM().ajP().bVT);
+        } catch (Exception e3) {
+            str = null;
+            e2 = e3;
+        } catch (OutOfMemoryError e4) {
+            str = null;
+            e = e4;
+        }
+        try {
+            nU(str);
+            return str;
+        } catch (Exception e5) {
+            e2 = e5;
+            BdLog.e(e2.getMessage());
+            return str;
+        } catch (OutOfMemoryError e6) {
+            e = e6;
+            BdLog.e(e.getMessage());
+            return str;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.util.q
+    public String aip() {
+        Throwable th;
+        String str;
+        Exception e;
+        SocketTimeoutException e2;
+        SocketException e3;
+        OutOfMemoryError e4;
+        BdHttpCancelException bdHttpCancelException;
+        String str2;
+        StringBuilder sb = new StringBuilder(1024);
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (this.bSK.ajM().ajP().bVP == null || i2 >= this.bSK.ajM().ajP().bVP.size()) {
+                break;
+            }
+            BasicNameValuePair basicNameValuePair = this.bSK.ajM().ajP().bVP.get(i2);
+            if (basicNameValuePair != null) {
+                String name = basicNameValuePair.getName();
+                String value = basicNameValuePair.getValue();
+                sb.append(name);
+                sb.append("=");
+                sb.append(value);
+            }
+            i = i2 + 1;
+        }
+        if (this.bSK.ajM().ajP().mIsBaiduServer) {
+            sb.append("tiebaclient!!!");
+            o("sign", s.bn(sb.toString()));
+        }
+        if (TbConfig.getDebugSwitch()) {
+        }
+        try {
+            if (this.iJU.isCanceled()) {
+                return null;
+            }
+            if (this.iJU.b(this.bSK.ajM().ajP().mUrl, this.bSK.ajM().ajP().bVP, this.bSK.ajM().ajP().bVR, 5, -1, aiT()) == null) {
+                throw new BdHttpCancelException();
+            }
+            com.baidu.tieba.recapp.download.http.g ciY = this.iJU.ciY();
+            if (ciY == null) {
+                return null;
+            }
+            com.baidu.tieba.recapp.download.http.i cja = ciY.cja();
+            if (ciY == null || ciY.iw() == null || ciY.iw().size() > 0) {
+            }
+            this.bSK.ajN().AR = cja.responseCode;
+            this.bSK.ajN().mHeader = cja.AT;
+            if (this.bSK.ajN().AR != 200) {
+                if (this.bSK.ajO().bVt != null && !TextUtils.isEmpty(this.bSK.ajO().bVt.Az)) {
+                    this.bSK.ajN().bVs = this.bSK.ajO().bVt.Az;
+                } else {
+                    this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt == null ? -1 : this.bSK.ajO().bVt.Aw);
+                }
+                TiebaStatic.net(this.bSK);
+                return null;
+            } else if (this.iJU.isCanceled()) {
+                return null;
+            } else {
+                str = new String(cja.AU, "utf-8");
+                try {
+                    if (this.bSK.ajM().ajP().mIsBaiduServer && this.bSK.ajM().ajP().bVS) {
+                        nU(str);
+                    }
+                    aa.a aVar = new aa.a();
+                    aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
+                    aVar.aWP = this.bSK.ajO().bVt.Au;
+                    aVar.mTime = this.bSK.ajO().bVt.Ax;
+                    aVar.bTf = this.bSK.ajO().bVt.Aw;
+                    aVar.bTe = 1;
+                    aa.a(aVar);
+                    aa.bTd.set(this.bSK.ajO().bVt.Aw);
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (BdHttpCancelException e5) {
+                    bdHttpCancelException = e5;
+                    str2 = str;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.bSK.ajN().bVs = String.valueOf(this.bSK.ajN().AR) + "|retryCount:" + (this.bSK.ajO().bVt == null ? -1 : this.bSK.ajO().bVt.Aw) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                    this.bSK.ajN().AR = -14;
+                    return str2;
+                } catch (SocketException e6) {
+                    e3 = e6;
+                    this.bSK.ajN().AR = -12;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    BdLog.e(e3.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (SocketTimeoutException e7) {
+                    e2 = e7;
+                    this.bSK.ajN().AR = -13;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    BdLog.e(e2.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (Exception e8) {
+                    e = e8;
+                    this.bSK.ajN().AR = -10;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                    BdLog.e(e.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (OutOfMemoryError e9) {
+                    e4 = e9;
+                    this.bSK.ajN().AR = -15;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                    BdLog.e(e4.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
+                } catch (Throwable th2) {
+                    th = th2;
+                    this.bSK.ajN().AR = -10;
+                    this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    BdLog.e(th.getMessage());
+                    TiebaStatic.net(this.bSK);
+                    return str;
                 }
             }
+        } catch (BdHttpCancelException e10) {
+            bdHttpCancelException = e10;
+            str2 = null;
+        } catch (OutOfMemoryError e11) {
+            e4 = e11;
+            str = null;
+        } catch (SocketException e12) {
+            e3 = e12;
+            str = null;
+        } catch (SocketTimeoutException e13) {
+            e2 = e13;
+            str = null;
+        } catch (Exception e14) {
+            e = e14;
+            str = null;
+        } catch (Throwable th3) {
+            th = th3;
+            str = null;
         }
     }
 
-    public void m(DownloadData downloadData) {
-        e.cie().h(downloadData);
-        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        b(downloadData);
-    }
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [805=5] */
+    @Override // com.baidu.tbadk.core.util.q
+    public boolean a(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
+        try {
+            if (this.iJU.isCanceled()) {
+                return false;
+            }
+            return this.iJU.a(this.bSK.ajM().ajP().mUrl, (z ? new File(str) : m.nt(str)).getAbsolutePath(), false, i2, i3, -1, -1, aiT(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
+                int bSS = 0;
+                int bST = 0;
+                int bSU = 0;
 
-    public boolean dY(String str, String str2) {
-        File nk;
-        return TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L) != 0 && (nk = m.nk(new StringBuilder().append(str).append("_").append(str2).append(".tmp").toString())) != null && nk.exists() && nk.isFile();
-    }
-
-    public long ce(String str, String str2) {
-        File nk = m.nk(str + "_" + str2 + ".tmp");
-        if (nk != null && nk.exists() && nk.isFile()) {
-            return nk.length();
+                @Override // com.baidu.tieba.recapp.download.http.j
+                public void o(int i4, int i5) {
+                    if (i5 > 0) {
+                        this.bSS = i5 / 50;
+                    }
+                    this.bST += i4 - this.bSU;
+                    this.bSU = i4;
+                    if (handler != null) {
+                        if (this.bST > this.bSS || i4 == i5) {
+                            this.bST = 0;
+                            handler.sendMessage(handler.obtainMessage(i, i4, i5));
+                        }
+                    }
+                }
+            }, true);
+        } catch (Exception e) {
+            this.bSK.ajN().AR = -10;
+            this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+            BdLog.e(e.getMessage());
+            return false;
+        } catch (OutOfMemoryError e2) {
+            this.bSK.ajN().AR = -15;
+            this.bSK.ajN().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+            BdLog.e(e2.getMessage());
+            return false;
+        } finally {
+            TiebaStatic.net(this.bSK);
         }
-        return -1L;
-    }
-
-    public boolean qb(String str) {
-        return (TextUtils.isEmpty(str) || m.nk(new StringBuilder().append(str.replace(".", "_")).append(".apk").toString()) == null) ? false : true;
-    }
-
-    public static int getStatus(DownloadData downloadData) {
-        if (cic().qb(downloadData.getId())) {
-            return 3;
-        }
-        if (cic().DG(downloadData.getId())) {
-            return 5;
-        }
-        if (cic().pZ(downloadData.getId())) {
-            return 1;
-        }
-        if (!cic().dY(downloadData.getId(), downloadData.getName())) {
-            return 6;
-        }
-        return 7;
-    }
-
-    public static Integer DH(String str) {
-        if (iHC.containsKey(str)) {
-            return iHC.get(str);
-        }
-        Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-        iHC.put(str, valueOf);
-        return valueOf;
     }
 }

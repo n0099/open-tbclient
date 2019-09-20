@@ -8,51 +8,51 @@ import com.baidu.tbadk.editortools.k;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends k {
-    private EditText cub;
+    private EditText cuY;
 
     public e(Context context) {
         super(context, (String) null, 27);
-        this.csS = false;
-        this.csR = 3;
-        this.csa = new PbNewInputContainer(context);
-        this.cub = ((PbNewInputContainer) this.csa).getInputView();
-        ((PbNewInputContainer) this.csa).setHint(context.getString(R.string.say_your_point));
-        this.csT = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+        this.ctO = false;
+        this.ctN = 3;
+        this.csV = new PbNewInputContainer(context);
+        this.cuY = ((PbNewInputContainer) this.csV).getInputView();
+        ((PbNewInputContainer) this.csV).setHint(context.getString(R.string.say_your_point));
+        this.ctP = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
     }
 
     public void c(TextWatcher textWatcher) {
-        this.cub.addTextChangedListener(textWatcher);
+        this.cuY.addTextChangedListener(textWatcher);
     }
 
     public void d(TextWatcher textWatcher) {
-        this.cub.removeTextChangedListener(textWatcher);
+        this.cuY.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.csa != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.csa).setHint(str);
+        if (this.csV != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.csV).setHint(str);
         }
     }
 
     public void setDefaultHint(String str) {
-        if (this.csa != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.csa).setDefaultHint(str);
+        if (this.csV != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.csV).setDefaultHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.cub;
+        return this.cuY;
     }
 
     public void setType(int i) {
-        if (this.csa != null) {
-            ((PbNewInputContainer) this.csa).setType(i);
+        if (this.csV != null) {
+            ((PbNewInputContainer) this.csV).setType(i);
         }
     }
 
-    public void ky(int i) {
-        if (this.csa != null) {
-            ((PbNewInputContainer) this.csa).ky(i);
+    public void kB(int i) {
+        if (this.csV != null) {
+            ((PbNewInputContainer) this.csV).kB(i);
         }
     }
 }

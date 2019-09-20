@@ -2,6 +2,7 @@ package com.baidu.platform.core.a;
 
 import com.baidu.mapapi.search.district.DistrictSearchOption;
 import com.baidu.mobstat.Config;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes5.dex */
@@ -17,7 +18,7 @@ public class a extends com.baidu.platform.base.e {
         }
         this.a.a("qt", "con");
         this.a.a("rp_format", "json");
-        this.a.a("rp_filter", "mobile");
+        this.a.a("rp_filter", AddressManageResult.KEY_MOBILE);
         this.a.a("area_res", "true");
         this.a.a("addr_identify", "1");
         this.a.a("ie", "utf-8");

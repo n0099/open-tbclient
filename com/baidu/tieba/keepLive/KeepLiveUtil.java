@@ -95,7 +95,7 @@ public class KeepLiveUtil {
         if (mKeepLiveContext == null) {
             mKeepLiveContext = TbadkCoreApplication.getInst().getApplicationContext();
         }
-        if (!ak.Pw()) {
+        if (!ak.PA()) {
             SyncService.startAccountSync(mKeepLiveContext.getApplicationContext());
         }
     }

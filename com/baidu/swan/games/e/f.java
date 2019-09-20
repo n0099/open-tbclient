@@ -8,7 +8,7 @@ public final class f {
         a b = b(gVar, bVar, v8ThreadDelegatePolicy);
         b.a(new com.baidu.swan.games.e.a.b(b));
         b.a(new com.baidu.swan.games.e.a.c(b));
-        b.RE();
+        b.RI();
         return b;
     }
 

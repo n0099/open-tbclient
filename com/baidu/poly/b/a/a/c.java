@@ -7,7 +7,7 @@ import java.nio.charset.Charset;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 final class c {
-    static final Charset ahN = Charset.forName("US-ASCII");
+    static final Charset aik = Charset.forName("US-ASCII");
     static final Charset UTF_8 = Charset.forName(HTTP.UTF_8);
 
     /* JADX INFO: Access modifiers changed from: package-private */

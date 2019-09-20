@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
-    private TextView cTY;
-    private TextView cTZ;
-    private TextView cUa;
-    private ClickableSpan cUb = new ClickableSpan() { // from class: com.baidu.tieba.SecretHintActivity.1
+    private TextView cUR;
+    private TextView cUS;
+    private TextView cUT;
+    private ClickableSpan cUU = new ClickableSpan() { // from class: com.baidu.tieba.SecretHintActivity.1
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.SecretHintActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.text.style.ClickableSpan
@@ -32,7 +32,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             if (view != null) {
                 ((TextView) view).setHighlightColor(SecretHintActivity.this.getResources().getColor(17170445));
             }
-            bb.ajE().a(SecretHintActivity.this.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
+            ba.ajK().a(SecretHintActivity.this.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -40,7 +40,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             textPaint.setColor(SecretHintActivity.this.getResources().getColor(R.color.cp_link_tip_c));
         }
     };
-    private View.OnClickListener cUc = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.2
+    private View.OnClickListener cUV = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             SecretHintActivity.this.showDialog();
@@ -49,10 +49,10 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             TiebaStatic.log(anVar);
         }
     };
-    private View.OnClickListener cUd = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.3
+    private View.OnClickListener cUW = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("key_secret_is_show", true);
+            com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("key_secret_is_show", true);
             if (MessageManager.getInstance().findTask(2015001) != null) {
                 SecretHintActivity.this.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(SecretHintActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, 1)));
             } else {
@@ -77,20 +77,20 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
     }
 
     private void initUI() {
-        this.cTY = (TextView) findViewById(R.id.secret_hint_footer);
-        this.cTZ = (TextView) findViewById(R.id.unok_text);
-        this.cUa = (TextView) findViewById(R.id.ok_text);
+        this.cUR = (TextView) findViewById(R.id.secret_hint_footer);
+        this.cUS = (TextView) findViewById(R.id.unok_text);
+        this.cUT = (TextView) findViewById(R.id.ok_text);
         SpannableString spannableString = new SpannableString(getString(R.string.secret_hint_footer));
-        spannableString.setSpan(this.cUb, 39, 45, 33);
+        spannableString.setSpan(this.cUU, 39, 45, 33);
         spannableString.setSpan(new ForegroundColorSpan(am.getColor(0, R.color.cp_link_tip_a)), 39, 45, 33);
-        this.cTY.setText(spannableString);
-        this.cTY.setMovementMethod(LinkMovementMethod.getInstance());
+        this.cUR.setText(spannableString);
+        this.cUR.setMovementMethod(LinkMovementMethod.getInstance());
         onChangeSkinType(0);
     }
 
     private void initListener() {
-        this.cTZ.setOnClickListener(this.cUc);
-        this.cUa.setOnClickListener(this.cUd);
+        this.cUS.setOnClickListener(this.cUV);
+        this.cUT.setOnClickListener(this.cUW);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,8 +98,8 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
         Activity eU = com.baidu.adp.base.a.eT().eU();
         if (eU != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eU);
-            aVar.mO(getString(R.string.secret_hint_dialog_content));
-            aVar.mN(getString(R.string.secret_hint_dialog_title));
+            aVar.mQ(getString(R.string.secret_hint_dialog_content));
+            aVar.mP(getString(R.string.secret_hint_dialog_title));
             aVar.dX(true);
             aVar.setAutoNight(false);
             aVar.a(getString(R.string.know), new a.b() { // from class: com.baidu.tieba.SecretHintActivity.4
@@ -109,7 +109,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
                 }
             });
             aVar.b(((com.baidu.adp.base.f) eU).getPageContext());
-            aVar.agK();
+            aVar.agO();
         }
     }
 

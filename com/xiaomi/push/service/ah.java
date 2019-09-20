@@ -13,12 +13,11 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.ala.ALaKeepAliveService;
 import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -439,7 +438,7 @@ public class ah {
     public static c a(Context context, com.xiaomi.xmpush.thrift.af afVar, byte[] bArr) {
         Notification notification;
         c cVar = new c();
-        if (com.xiaomi.channel.commonutils.android.a.c(context, a(afVar)) == a.EnumC0483a.NOT_ALLOWED) {
+        if (com.xiaomi.channel.commonutils.android.a.c(context, a(afVar)) == a.EnumC0489a.NOT_ALLOWED) {
             com.xiaomi.xmpush.thrift.u m = afVar.m();
             if (m != null) {
                 com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(f(afVar), m.b(), "Do not notify because user block " + a(afVar) + "‘s notification");
@@ -556,7 +555,7 @@ public class ah {
             int q = m3.q() + ((a(afVar).hashCode() / 10) * 10);
             notificationManager.notify(q, notification);
             if (b(afVar)) {
-                com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(f(afVar), m3.b(), 3002, "try show business message");
+                com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(f(afVar), m3.b(), CyberPlayerManager.MEDIA_INFO_RTMP_CONNECT_SERVER_FAIL, "try show business message");
             }
             if (d(afVar)) {
                 com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(f(afVar), m3.b(), 1002, "try show notification message");
@@ -884,8 +883,8 @@ public class ah {
                         }
                     }
                 }
-                if (jSONObject.has(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) {
-                    JSONObject jSONObject4 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+                if (jSONObject.has("time")) {
+                    JSONObject jSONObject4 = jSONObject.getJSONObject("time");
                     Iterator<String> keys3 = jSONObject4.keys();
                     while (keys3.hasNext()) {
                         String next3 = keys3.next();
@@ -925,7 +924,7 @@ public class ah {
     }
 
     static int c(Context context, String str) {
-        return context.getSharedPreferences("pref_notify_type", 0).getInt(str, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return context.getSharedPreferences("pref_notify_type", 0).getInt(str, Integer.MAX_VALUE);
     }
 
     public static boolean c(com.xiaomi.xmpush.thrift.af afVar) {

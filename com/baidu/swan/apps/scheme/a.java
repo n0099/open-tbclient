@@ -23,6 +23,6 @@ public class a implements ISchemeContext {
 
     @Override // com.baidu.searchbox.unitedscheme.ISchemeContext
     public void showSchemeNotSupportDialog(Context context) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, "current version is not support for this scheme").LQ();
+        com.baidu.swan.apps.res.widget.b.d.a(context, "current version is not support for this scheme").LU();
     }
 }

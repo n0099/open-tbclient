@@ -13,25 +13,25 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f implements a {
-    private e fAw;
-    private boolean fAx;
+    private e fCj;
+    private boolean fCk;
     private TbPageContext mContext;
     private BdTypeListView mListView;
     private List<m> mDatas = new ArrayList();
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private int fAy = -1;
+    private int fCl = -1;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
-        this.fAx = false;
+        this.fCk = false;
         this.mContext = tbPageContext;
         this.mListView = bdTypeListView;
-        this.fAx = z;
+        this.fCk = z;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.fAw = new e(this.mContext, this, this.fAx);
-        this.mAdapters.add(this.fAw);
+        this.fCj = new e(this.mContext, this, this.fCk);
+        this.mAdapters.add(this.fCj);
         this.mListView.addAdapters(this.mAdapters);
     }
 
@@ -42,8 +42,8 @@ public class f implements a {
             }
             this.mDatas.addAll(list);
             this.mListView.setData(this.mDatas);
-            if (z && list.size() > 0 && this.fAx && j.kd()) {
-                boC();
+            if (z && list.size() > 0 && this.fCk && j.kd()) {
+                bpn();
                 list.get(0).autoPlay = true;
             }
         }
@@ -60,8 +60,8 @@ public class f implements a {
                     break;
                 }
                 m next = it.next();
-                if (next != null && (next instanceof g) && ((g) next).fAD != null && str.equals(((g) next).fAD.userId)) {
-                    ((g) next).fAD.hasFocus = z;
+                if (next != null && (next instanceof g) && ((g) next).fCq != null && str.equals(((g) next).fCq.userId)) {
+                    ((g) next).fCq.hasFocus = z;
                     z2 = true;
                 }
                 z3 = z2;
@@ -79,32 +79,32 @@ public class f implements a {
     }
 
     public void onDestroy() {
-        this.fAw.onDestroy();
+        this.fCj.onDestroy();
     }
 
-    public boolean po() {
-        return this.fAw.po();
-    }
-
-    public void pm() {
-        this.fAw.pm();
+    public boolean pp() {
+        return this.fCj.pp();
     }
 
     public void pn() {
-        this.fAw.pn();
+        this.fCj.pn();
+    }
+
+    public void po() {
+        this.fCj.po();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.fAw.onConfigurationChanged(configuration);
+        this.fCj.onConfigurationChanged(configuration);
     }
 
-    public boolean rT(int i) {
-        return this.fAw.rT(i);
+    public boolean rW(int i) {
+        return this.fCj.rW(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
-    public void rS(int i) {
-        this.fAy = i;
+    public void rV(int i) {
+        this.fCl = i;
         if (!v.aa(this.mDatas) && this.mListView != null) {
             for (m mVar : this.mDatas) {
                 if (mVar instanceof g) {
@@ -112,27 +112,27 @@ public class f implements a {
                 }
             }
             if (j.kd()) {
-                if (this.fAy < this.mDatas.size() - 1) {
+                if (this.fCl < this.mDatas.size() - 1) {
                     List<m> list = this.mDatas;
-                    int i2 = this.fAy + 1;
-                    this.fAy = i2;
+                    int i2 = this.fCl + 1;
+                    this.fCl = i2;
                     if (list.get(i2) instanceof g) {
-                        ((g) this.mDatas.get(this.fAy)).autoPlay = true;
+                        ((g) this.mDatas.get(this.fCl)).autoPlay = true;
                         this.mListView.smoothScrollToPositionFromTop(this.mListView.getHeaderViewsCount() + i + 1, 0);
                         notifyDataSetChanged();
                     }
-                } else if (this.fAy == this.mDatas.size() - 1 && (this.mDatas.get(this.fAy) instanceof g)) {
-                    ((g) this.mDatas.get(this.fAy)).autoPlay = false;
+                } else if (this.fCl == this.mDatas.size() - 1 && (this.mDatas.get(this.fCl) instanceof g)) {
+                    ((g) this.mDatas.get(this.fCl)).autoPlay = false;
                 }
             }
         }
     }
 
-    public int boA() {
-        return this.fAy;
+    public int bpl() {
+        return this.fCl;
     }
 
-    public void boB() {
+    public void bpm() {
         if (!v.aa(this.mDatas)) {
             Iterator<m> it = this.mDatas.iterator();
             while (it.hasNext()) {
@@ -143,12 +143,12 @@ public class f implements a {
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        boC();
+        bpn();
     }
 
-    private void boC() {
-        boB();
-        this.fAy = 0;
-        pm();
+    private void bpn() {
+        bpm();
+        this.fCl = 0;
+        pn();
     }
 }

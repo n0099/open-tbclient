@@ -3,22 +3,22 @@ package com.baidu.swan.apps.ak;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class a {
-    private a aZp = null;
-    private long aZq = 0;
-    private long aZr = 0;
-    private long aZs = 2;
-    private String aZt = "";
-    private final StringBuilder aZu = new StringBuilder();
-    private boolean aZv = false;
+    private a aZN = null;
+    private long aZO = 0;
+    private long aZP = 0;
+    private long aZQ = 2;
+    private String aZR = "";
+    private final StringBuilder aZS = new StringBuilder();
+    private boolean aZT = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(OV()), Long.valueOf(OQ()), Long.valueOf(OR()), Long.valueOf(OS()), OT()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(OZ()), Long.valueOf(OU()), Long.valueOf(OV()), Long.valueOf(OW()), OX()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(OQ()), Long.valueOf(OR()), Long.valueOf(OS())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(OU()), Long.valueOf(OV()), Long.valueOf(OW())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", OU()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", OY()));
         }
         return sb.toString();
     }
@@ -28,56 +28,55 @@ public final class a {
     }
 
     public a Y(long j) {
-        this.aZs = a(j, 9L, "platform");
+        this.aZQ = a(j, 9L, "platform");
         return this;
     }
 
-    public long OQ() {
-        return this.aZs;
+    public long OU() {
+        return this.aZQ;
     }
 
     public a Z(long j) {
-        this.aZq = a(j, 999L, "feature");
+        this.aZO = a(j, 999L, "feature");
         return this;
-    }
-
-    public long OR() {
-        return this.aZq;
-    }
-
-    public a aa(long j) {
-        this.aZr = a(j, 9999L, "error");
-        return this;
-    }
-
-    public long OS() {
-        return this.aZr;
-    }
-
-    /* renamed from: if  reason: not valid java name */
-    public a m14if(String str) {
-        if (str == null) {
-            str = "";
-        }
-        this.aZt = str;
-        return this;
-    }
-
-    public String OT() {
-        return this.aZt;
-    }
-
-    public a ig(String str) {
-        this.aZu.append(str).append("\n");
-        return this;
-    }
-
-    public StringBuilder OU() {
-        return this.aZu;
     }
 
     public long OV() {
-        return (OQ() * 10000000) + (OR() * 10000) + (OS() * 1);
+        return this.aZO;
+    }
+
+    public a aa(long j) {
+        this.aZP = a(j, 9999L, "error");
+        return this;
+    }
+
+    public long OW() {
+        return this.aZP;
+    }
+
+    public a ih(String str) {
+        if (str == null) {
+            str = "";
+        }
+        this.aZR = str;
+        return this;
+    }
+
+    public String OX() {
+        return this.aZR;
+    }
+
+    public a ii(String str) {
+        this.aZS.append(str).append("\n");
+        return this;
+    }
+
+    public StringBuilder OY() {
+        return this.aZS;
+    }
+
+    public long OZ() {
+        return (OU() * 10000000) + (OV() * 10000) + (OW() * 1);
     }
 
     public a ab(long j) {
@@ -88,18 +87,18 @@ public final class a {
         return this;
     }
 
-    public boolean OW() {
-        return this.aZv;
+    public boolean Pa() {
+        return this.aZT;
     }
 
-    public void OX() {
-        this.aZv = true;
+    public void Pb() {
+        this.aZT = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            ig("illegalFallback " + str + "::" + String.valueOf(j));
+            ii("illegalFallback " + str + "::" + String.valueOf(j));
         }
         return z ? j2 : j;
     }

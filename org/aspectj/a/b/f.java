@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes5.dex */
 abstract class f implements org.aspectj.lang.c {
-    int kob;
-    ClassLoader ktJ = null;
-    String ktS;
-    Class ktT;
-    a ktU;
-    private String ktV;
+    int kqy;
+    ClassLoader kwc = null;
+    String kwl;
+    Class kwm;
+    a kwn;
+    private String kwo;
     String name;
-    private static boolean eSN = true;
+    private static boolean eUt = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] ktW = new Class[0];
+    static Class[] kwp = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -27,108 +27,108 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.kob = -1;
-        this.kob = i;
+        this.kqy = -1;
+        this.kqy = i;
         this.name = str;
-        this.ktT = cls;
+        this.kwm = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (eSN) {
-            if (this.ktU == null) {
+        if (eUt) {
+            if (this.kwn == null) {
                 try {
-                    this.ktU = new b();
+                    this.kwn = new b();
                 } catch (Throwable th) {
-                    eSN = false;
+                    eUt = false;
                 }
             } else {
-                str = this.ktU.get(hVar.kuh);
+                str = this.kwn.get(hVar.kwA);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (eSN) {
-            this.ktU.aP(hVar.kuh, str);
+        if (eUt) {
+            this.kwn.aP(hVar.kwA, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.kuj);
+        return a(h.kwC);
     }
 
-    public int cOx() {
-        if (this.kob == -1) {
-            this.kob = EM(0);
+    public int cPj() {
+        if (this.kqy == -1) {
+            this.kqy = EQ(0);
         }
-        return this.kob;
+        return this.kqy;
     }
 
     public String getName() {
         if (this.name == null) {
-            this.name = EL(1);
+            this.name = EP(1);
         }
         return this.name;
     }
 
-    public Class cOy() {
-        if (this.ktT == null) {
-            this.ktT = EN(2);
+    public Class cPk() {
+        if (this.kwm == null) {
+            this.kwm = ER(2);
         }
-        return this.ktT;
+        return this.kwm;
     }
 
-    public String cOz() {
-        if (this.ktS == null) {
-            this.ktS = cOy().getName();
+    public String cPl() {
+        if (this.kwl == null) {
+            this.kwl = cPk().getName();
         }
-        return this.ktS;
+        return this.kwl;
     }
 
-    private ClassLoader cOA() {
-        if (this.ktJ == null) {
-            this.ktJ = getClass().getClassLoader();
+    private ClassLoader cPm() {
+        if (this.kwc == null) {
+            this.kwc = getClass().getClassLoader();
         }
-        return this.ktJ;
+        return this.kwc;
     }
 
-    String EL(int i) {
+    String EP(int i) {
         int i2 = 0;
-        int indexOf = this.ktV.indexOf(45);
+        int indexOf = this.kwo.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.ktV.indexOf(45, i2);
+            indexOf = this.kwo.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.ktV.length();
+            indexOf = this.kwo.length();
         }
-        return this.ktV.substring(i2, indexOf);
+        return this.kwo.substring(i2, indexOf);
     }
 
-    int EM(int i) {
-        return Integer.parseInt(EL(i), 16);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Class EN(int i) {
-        return org.aspectj.a.b.b.b(EL(i), cOA());
+    int EQ(int i) {
+        return Integer.parseInt(EP(i), 16);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Class[] EO(int i) {
-        StringTokenizer stringTokenizer = new StringTokenizer(EL(i), ":");
+    public Class ER(int i) {
+        return org.aspectj.a.b.b.b(EP(i), cPm());
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Class[] ES(int i) {
+        StringTokenizer stringTokenizer = new StringTokenizer(EP(i), ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cOA());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cPm());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static final class b implements a {
-        private SoftReference ktX;
+        private SoftReference kwq;
 
         public b() {
-            cOC();
+            cPo();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String get(int i) {
-            String[] cOB = cOB();
-            if (cOB == null) {
+            String[] cPn = cPn();
+            if (cPn == null) {
                 return null;
             }
-            return cOB[i];
+            return cPn[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void aP(int i, String str) {
-            String[] cOB = cOB();
-            if (cOB == null) {
-                cOB = cOC();
+            String[] cPn = cPn();
+            if (cPn == null) {
+                cPn = cPo();
             }
-            cOB[i] = str;
+            cPn[i] = str;
         }
 
-        private String[] cOB() {
-            return (String[]) this.ktX.get();
+        private String[] cPn() {
+            return (String[]) this.kwq.get();
         }
 
-        private String[] cOC() {
+        private String[] cPo() {
             String[] strArr = new String[3];
-            this.ktX = new SoftReference(strArr);
+            this.kwq = new SoftReference(strArr);
             return strArr;
         }
     }

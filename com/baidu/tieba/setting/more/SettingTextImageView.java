@@ -10,86 +10,88 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c;
+import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SettingTextImageView extends FrameLayout {
-    private ImageView ahs;
-    private LinearLayout coi;
-    private HeadImageView iUm;
+    private ImageView ahO;
+    private TextView ajd;
+    private LinearLayout cpd;
+    private HeadImageView iWH;
     private Context mContext;
-    private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aqx();
+        aqJ();
         c(attributeSet);
-        ka(TbadkCoreApplication.getInst().getSkinType());
+        kd(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        aqx();
-        ka(TbadkCoreApplication.getInst().getSkinType());
+        aqJ();
+        kd(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void ka(int i) {
-        am.f(this.textView, R.color.common_color_10039, 1);
-        am.b(this.ahs, (int) R.drawable.icon_arrow_gray_right_n, i);
-        this.iUm.invalidate();
+    public void kd(int i) {
+        setBackgroundDrawable(am.io(R.color.cp_bg_line_e));
+        am.f(this.ajd, R.color.common_color_10039, 1);
+        SvgManager.ajv().a(this.ahO, R.drawable.icon_pure_list_arrow16_right_tint_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        this.iWH.invalidate();
     }
 
-    public void clS() {
-        if (this.iUm != null) {
-            this.iUm.setVisibility(8);
+    public void cmE() {
+        if (this.iWH != null) {
+            this.iWH.setVisibility(8);
         }
     }
 
-    public void clT() {
-        if (this.iUm != null) {
-            this.iUm.setVisibility(0);
+    public void cmF() {
+        if (this.iWH != null) {
+            this.iWH.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.textView.setText(str);
+        this.ajd.setText(str);
     }
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.iUm.startLoad(str, 26, false);
+            this.iWH.startLoad(str, 26, false);
         } else {
-            this.iUm.startLoad(str, 12, false);
+            this.iWH.startLoad(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void aqx() {
+    private void aqJ() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-        this.coi = (LinearLayout) findViewById(R.id.container);
-        this.textView = (TextView) findViewById(R.id.text);
-        this.iUm = (HeadImageView) findViewById(R.id.icon);
-        this.ahs = (ImageView) findViewById(R.id.arrow);
+        this.cpd = (LinearLayout) findViewById(R.id.container);
+        this.ajd = (TextView) findViewById(R.id.text);
+        this.iWH = (HeadImageView) findViewById(R.id.icon);
+        this.ahO = (ImageView) findViewById(R.id.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, c.a.TbSettingView);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, d.a.TbSettingView);
         String string = obtainStyledAttributes.getString(5);
         int color = obtainStyledAttributes.getColor(3, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.textView.setText(string);
+            this.ajd.setText(string);
         }
         if (color > -1) {
-            this.textView.setTextColor(color);
+            this.ajd.setTextColor(color);
         }
-        this.coi.setClickable(false);
-        this.coi.setFocusable(false);
+        this.cpd.setClickable(false);
+        this.cpd.setFocusable(false);
     }
 }

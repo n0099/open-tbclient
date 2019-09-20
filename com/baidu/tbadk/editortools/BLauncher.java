@@ -6,30 +6,39 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean crK;
-    private int mIcon;
+    private k csE;
+    private boolean csF;
     private int mId;
     private int mSkinType;
     private TextView mTip;
 
-    public BLauncher(Context context, int i, int i2) {
+    public BLauncher(Context context, k kVar) {
         super(context);
         this.mSkinType = 0;
-        this.crK = false;
-        setIcon(i);
-        setToolId(i2);
+        this.csF = false;
+        if (kVar != null) {
+            this.csE = kVar;
+            setIcon();
+            setToolId(kVar.id);
+        }
     }
 
     public void setName(String str) {
     }
 
-    public void setIcon(int i) {
-        this.mIcon = i;
-        am.b(this, this.mIcon, this.mSkinType);
+    public void setIcon() {
+        if (this.csE != null) {
+            if (this.csE.ctK) {
+                setImageDrawable(SvgManager.ajv().r(this.csE.ctI, this.csE.ctJ, this.mSkinType));
+            } else {
+                am.b(this, this.csE.ctI, this.mSkinType);
+            }
+        }
     }
 
     public void setToolId(int i) {
@@ -42,17 +51,17 @@ public class BLauncher extends ImageView implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void qk() {
+    public void ql() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        arZ();
+        asl();
         setVisibility(8);
     }
 
-    public void qd(String str) {
+    public void qo(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -83,7 +92,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void arZ() {
+    public void asl() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +107,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                arZ();
+                asl();
             } else if (aVar.data instanceof String) {
-                qd((String) aVar.data);
+                qo((String) aVar.data);
             }
         }
     }
@@ -108,7 +117,7 @@ public class BLauncher extends ImageView implements g {
     @Override // com.baidu.tbadk.editortools.g
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        am.b(this, this.mIcon, i);
+        setIcon();
         if (this.mTip != null) {
             am.d(this.mTip, R.color.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
@@ -120,11 +129,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.crK;
+        return this.csF;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.crK = z;
+        this.csF = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

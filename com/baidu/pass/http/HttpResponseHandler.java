@@ -84,7 +84,7 @@ public class HttpResponseHandler extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(int i, HashMap<String, String> hashMap, byte[] bArr) {
+    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
         if (i == 200) {
             a(i, hashMap, bArr);
             return;
@@ -93,8 +93,7 @@ public class HttpResponseHandler extends Handler {
         a(new HttpErrorException(i, str), str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
+    void b(int i, HashMap<String, String> hashMap, byte[] bArr) {
         onSuccess(i, bArr == null ? null : new String(bArr), hashMap);
     }
 
@@ -108,7 +107,7 @@ public class HttpResponseHandler extends Handler {
         switch (message.what) {
             case 0:
                 Object[] objArr = (Object[]) message.obj;
-                c(((Integer) objArr[0]).intValue(), (HashMap) objArr[1], (byte[]) objArr[2]);
+                b(((Integer) objArr[0]).intValue(), (HashMap) objArr[1], (byte[]) objArr[2]);
                 return;
             case 1:
                 Object[] objArr2 = (Object[]) message.obj;

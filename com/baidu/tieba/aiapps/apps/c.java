@@ -9,11 +9,11 @@ import com.baidu.swan.ubc.m;
 import com.baidu.swan.ubc.q;
 /* loaded from: classes4.dex */
 public class c {
-    private static boolean daT = false;
+    private static boolean dcG = false;
 
     public static void a(Application application, boolean z) {
-        gn(z);
-        if (aEt()) {
+        gq(z);
+        if (aEX()) {
             d(application);
             e(application);
         }
@@ -21,28 +21,28 @@ public class c {
 
     private static void d(Application application) {
         e.a(new com.baidu.tieba.aiapps.apps.q.d());
-        if (com.baidu.pyramid.runtime.multiprocess.a.vb()) {
-            q.Yj();
-            m.XY().initConfig();
+        if (com.baidu.pyramid.runtime.multiprocess.a.vf()) {
+            q.Yn();
+            m.Yc().initConfig();
         }
     }
 
     private static void e(Application application) {
         com.facebook.drawee.a.a.c.initialize(application);
         if (ProcessUtils.isMainProcess()) {
-            aEs();
-            com.baidu.swan.apps.env.d.CP().l(null);
+            aEW();
+            com.baidu.swan.apps.env.d.CT().l(null);
         }
-        a.de(application).aEp();
+        a.df(application).aET();
         if (com.baidu.swan.apps.b.DEBUG) {
             com.baidu.swan.apps.am.a.H(0, 1);
         }
     }
 
-    private static void aEs() {
+    private static void aEW() {
         final boolean z = true;
-        final boolean z2 = com.baidu.swan.apps.core.pms.a.co(0) && com.baidu.swan.pms.d.a.fN(0);
-        if (!com.baidu.swan.apps.core.pms.a.co(1) || !com.baidu.swan.pms.d.a.fN(1)) {
+        final boolean z2 = com.baidu.swan.apps.core.pms.a.cp(0) && com.baidu.swan.pms.d.a.fO(0);
+        if (!com.baidu.swan.apps.core.pms.a.cp(1) || !com.baidu.swan.pms.d.a.fO(1)) {
             z = false;
         }
         if (z2 || z) {
@@ -60,11 +60,11 @@ public class c {
         }
     }
 
-    private static void gn(boolean z) {
-        daT = z;
+    private static void gq(boolean z) {
+        dcG = z;
     }
 
-    public static boolean aEt() {
-        return !daT || com.baidu.swan.apps.an.a.hasLollipop();
+    public static boolean aEX() {
+        return !dcG || com.baidu.swan.apps.an.a.hasLollipop();
     }
 }

@@ -12,6 +12,7 @@ import com.sina.weibo.sdk.api.StoryMessage;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.auth.AccessTokenKeeper;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.FileUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
@@ -62,7 +63,10 @@ public class WbShareHandler {
         if (WbSdk.isWbInstall(this.context) || !z) {
             if (z) {
                 startClientShare(weiboMultiMessage);
-            } else if (WbSdk.isWbInstall(this.context) && WeiboAppManager.getInstance(this.context).getWbAppInfo().getSupportVersion() > 10000) {
+                return;
+            }
+            WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.context).getWbAppInfo();
+            if (WbSdk.isWbInstall(this.context) && wbAppInfo != null && wbAppInfo.getSupportVersion() > 10000) {
                 startClientShare(weiboMultiMessage);
             } else {
                 startWebShare(weiboMultiMessage);
@@ -80,6 +84,7 @@ public class WbShareHandler {
             intent.putExtra(WBConstants.SHARE_START_PACKAGE, WeiboAppManager.getInstance(this.context).getWbAppInfo().getPackageName());
             intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
             intent.putExtra(WBConstants.TRANS_PROGRESS_ID, this.progressId);
+            intent.putExtra(WBConstants.SHARE_START_FLAG, 0);
             intent.setClass(this.context, WbShareToStoryActivity.class);
             this.context.startActivityForResult(intent, 1);
             return;
@@ -99,9 +104,7 @@ public class WbShareHandler {
         intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
         intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
         intent.putExtra(WBConstants.TRANS_PROGRESS_ID, this.progressId);
-        if (bundle != null) {
-            intent.putExtras(bundle);
-        }
+        intent.putExtras(bundle);
         try {
             this.context.startActivityForResult(intent, 1);
         } catch (Exception e) {
@@ -110,6 +113,7 @@ public class WbShareHandler {
     }
 
     private void startWebShare(WeiboMultiMessage weiboMultiMessage) {
+        LogUtil.i("Share", "startWebShare");
         Intent intent = new Intent(this.context, WbShareTransActivity.class);
         String packageName = this.context.getPackageName();
         ShareWebViewRequestParam shareWebViewRequestParam = new ShareWebViewRequestParam(WbSdk.getAuthInfo(), WebRequestType.SHARE, "", 1, "微博分享", null, this.context);

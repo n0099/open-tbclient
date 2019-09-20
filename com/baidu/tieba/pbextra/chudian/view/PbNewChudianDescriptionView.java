@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.pb.a;
 /* loaded from: classes4.dex */
 public class PbNewChudianDescriptionView extends LinearLayout implements View.OnClickListener {
-    private a.InterfaceC0371a igK;
-    private String igM;
-    private int igN;
+    private a.InterfaceC0382a iiJ;
+    private String iiL;
+    private int iiM;
     private Context mContext;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!aq.isEmpty(this.igM)) {
-            com.baidu.tbadk.browser.a.ae(this.mContext, this.igM);
-            if (this.igK != null) {
-                switch (this.igN) {
+        if (!aq.isEmpty(this.iiL)) {
+            com.baidu.tbadk.browser.a.ae(this.mContext, this.iiL);
+            if (this.iiJ != null) {
+                switch (this.iiM) {
                     case 0:
-                        this.igK.h(this.igM, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.iiJ.h(this.iiL, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 1:
-                        this.igK.h(this.igM, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.iiJ.h(this.iiL, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 2:
-                        this.igK.h(this.igM, "IMAGE2", "LINK_IMAGE", null, null);
+                        this.iiJ.h(this.iiL, "IMAGE2", "LINK_IMAGE", null, null);
                         return;
                     case 3:
-                        this.igK.h(this.igM, "IMAGE3", "LINK_IMAGE", null, null);
+                        this.iiJ.h(this.iiL, "IMAGE3", "LINK_IMAGE", null, null);
                         return;
                     default:
                         return;
@@ -38,7 +38,7 @@ public class PbNewChudianDescriptionView extends LinearLayout implements View.On
     }
 
     public void setClickUrl(String str, int i) {
-        this.igM = str;
-        this.igN = i;
+        this.iiL = str;
+        this.iiM = i;
     }
 }

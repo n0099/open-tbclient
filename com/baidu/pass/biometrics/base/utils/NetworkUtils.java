@@ -4,11 +4,6 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.telephony.TelephonyManager;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class NetworkUtils {
     public static final int NETWORK_2G = 2;
@@ -35,7 +30,6 @@ public final class NetworkUtils {
     public static final int NETWORK_TYPE_UNKNOWN = 0;
     public static final int NETWORK_UNKNOW = 0;
     public static final int NETWORK_WIFI = 1;
-    private static final String TAG = "NetworkUtils";
 
     private NetworkUtils() {
     }
@@ -47,15 +41,6 @@ public final class NetworkUtils {
             return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
         }
         return false;
-    }
-
-    public static boolean isWifiNetworkAvailable(Context context) {
-        NetworkInfo activeNetworkInfo;
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
-            return false;
-        }
-        return activeNetworkInfo.getType() == 1;
     }
 
     @TargetApi(3)
@@ -96,63 +81,5 @@ public final class NetworkUtils {
             }
         }
         return "UNKNOWN";
-    }
-
-    public static int getNetworkType(Context context) {
-        if (isWifiNetworkAvailable(context)) {
-            return 1;
-        }
-        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-        if (telephonyManager != null) {
-            switch (telephonyManager.getNetworkType()) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return 2;
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return 3;
-                case 13:
-                case 18:
-                    return 4;
-                default:
-                    return 0;
-            }
-        }
-        return 0;
-    }
-
-    public static JSONObject getConnectedWifi(Context context) {
-        if (context == null) {
-            return null;
-        }
-        try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
-            if (wifiManager == null || !wifiManager.isWifiEnabled()) {
-                return null;
-            }
-            WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-            if (connectionInfo != null) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("mac", connectionInfo.getBSSID());
-                jSONObject.put("rssi", connectionInfo.getRssi());
-                jSONObject.put("ssid", connectionInfo.getSSID());
-                return jSONObject;
-            }
-            return null;
-        } catch (Exception e) {
-            return null;
-        }
     }
 }

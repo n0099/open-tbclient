@@ -15,16 +15,16 @@ import com.baidu.tieba.barselect.data.e;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes3.dex */
 public class VoteStatusCard extends LinearLayout {
-    private f euT;
-    private e ewp;
-    private TextView ezJ;
-    private VoteStatusView ezK;
-    private TextView ezL;
-    private TextView ezM;
-    private TextView ezN;
-    private TextView ezO;
-    private TextView ezP;
-    private TextView ezQ;
+    private TextView eBs;
+    private VoteStatusView eBt;
+    private TextView eBu;
+    private TextView eBv;
+    private TextView eBw;
+    private TextView eBx;
+    private TextView eBy;
+    private TextView eBz;
+    private f ewD;
+    private e exZ;
     private Context mContext;
     private int status;
 
@@ -34,7 +34,7 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.status = d.ezd;
+        this.status = d.eAM;
         initUI();
     }
 
@@ -48,58 +48,58 @@ public class VoteStatusCard extends LinearLayout {
         int g2 = l.g(this.mContext, R.dimen.tbds52);
         setPadding(g, g2, g, g2);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
-        qX();
+        qY();
     }
 
-    private void qX() {
-        this.ezJ = (TextView) findViewById(R.id.bar_maneger_apply_title);
-        this.ezK = (VoteStatusView) findViewById(R.id.vote_status_view);
-        this.ezL = (TextView) findViewById(R.id.apply_title);
-        this.ezM = (TextView) findViewById(R.id.apply_start_time);
-        this.ezN = (TextView) findViewById(R.id.vote_title);
-        this.ezO = (TextView) findViewById(R.id.vote_start_time);
-        this.ezP = (TextView) findViewById(R.id.publicity_title);
-        this.ezQ = (TextView) findViewById(R.id.publicity_start_time);
+    private void qY() {
+        this.eBs = (TextView) findViewById(R.id.bar_maneger_apply_title);
+        this.eBt = (VoteStatusView) findViewById(R.id.vote_status_view);
+        this.eBu = (TextView) findViewById(R.id.apply_title);
+        this.eBv = (TextView) findViewById(R.id.apply_start_time);
+        this.eBw = (TextView) findViewById(R.id.vote_title);
+        this.eBx = (TextView) findViewById(R.id.vote_start_time);
+        this.eBy = (TextView) findViewById(R.id.publicity_title);
+        this.eBz = (TextView) findViewById(R.id.publicity_start_time);
     }
 
     public void setData(f fVar) {
-        this.euT = fVar;
-        if (this.euT == null || this.euT.aYR() == null) {
+        this.ewD = fVar;
+        if (this.ewD == null || this.ewD.aZv() == null) {
             setVisibility(8);
             return;
         }
-        this.ewp = this.euT.aYR();
-        this.status = this.ewp.getStatus();
-        this.ezK.setStatus(this.status);
-        long aYM = this.ewp.aYM() * 1000;
-        this.ezM.setText(aq.ax(this.ewp.aYK() * 1000));
-        this.ezO.setText(aq.aw(this.ewp.aYN() * 1000));
-        this.ezQ.setText(aq.aw(this.ewp.aYL() * 1000));
+        this.exZ = this.ewD.aZv();
+        this.status = this.exZ.getStatus();
+        this.eBt.setStatus(this.status);
+        long aZq = this.exZ.aZq() * 1000;
+        this.eBv.setText(aq.ax(this.exZ.aZo() * 1000));
+        this.eBx.setText(aq.aw(this.exZ.aZr() * 1000));
+        this.eBz.setText(aq.aw(this.exZ.aZp() * 1000));
     }
 
-    public void nA(int i) {
+    public void nE(int i) {
         int color = am.getColor(i, R.color.cp_cont_b);
         int color2 = am.getColor(i, R.color.cp_cont_d);
-        if (this.ezL != null) {
-            this.ezL.setTextColor(color);
+        if (this.eBu != null) {
+            this.eBu.setTextColor(color);
         }
-        if (this.ezN != null) {
-            this.ezN.setTextColor(this.status > d.ezc ? color : color2);
+        if (this.eBw != null) {
+            this.eBw.setTextColor(this.status > d.eAL ? color : color2);
         }
-        if (this.ezP != null) {
-            TextView textView = this.ezP;
-            if (this.status <= d.ezd) {
+        if (this.eBy != null) {
+            TextView textView = this.eBy;
+            if (this.status <= d.eAM) {
                 color = color2;
             }
             textView.setTextColor(color);
         }
-        if (this.ezK != null) {
-            this.ezK.nA(i);
+        if (this.eBt != null) {
+            this.eBt.nE(i);
         }
-        am.d(this.ezJ, R.color.cp_cont_b, 1, i);
-        am.d(this.ezM, R.color.cp_cont_d, 1, i);
-        am.d(this.ezO, R.color.cp_cont_d, 1, i);
-        am.d(this.ezQ, R.color.cp_cont_d, 1, i);
+        am.d(this.eBs, R.color.cp_cont_b, 1, i);
+        am.d(this.eBv, R.color.cp_cont_d, 1, i);
+        am.d(this.eBx, R.color.cp_cont_d, 1, i);
+        am.d(this.eBz, R.color.cp_cont_d, 1, i);
         am.g(this, R.drawable.bar_select_bg_shadow_and_radius, i);
     }
 }

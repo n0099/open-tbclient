@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public interface ak {
-    void cLd();
+    void cLR();
 
-    void cLe();
+    void cLS();
 
-    void cLf();
+    void cLT();
 
-    void cLg();
+    void cLU();
 }

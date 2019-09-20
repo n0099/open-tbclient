@@ -21,8 +21,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject bP(int i) {
-        return super.bP(i);
+    public /* bridge */ /* synthetic */ JSONObject bQ(int i) {
+        return super.bQ(i);
     }
 
     public b(j jVar) {
@@ -34,7 +34,7 @@ public class b extends a {
         com.baidu.swan.apps.canvas.c.b c = c(unitedSchemeEntity);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "draw model is null");
-            unitedSchemeEntity.result = bP(201);
+            unitedSchemeEntity.result = bQ(201);
             return false;
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -43,9 +43,9 @@ public class b extends a {
             return false;
         }
         final String optString = optParamsAsJo.optString("cb");
-        boolean a = com.baidu.swan.apps.canvas.a.xP().a(context, c, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
+        boolean a = com.baidu.swan.apps.canvas.a.xT().a(context, c, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
             @Override // com.baidu.swan.apps.canvas.view.CanvasView.b
-            public void xR() {
+            public void xV() {
                 if (optString != null) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
                 }

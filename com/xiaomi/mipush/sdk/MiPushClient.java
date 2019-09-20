@@ -8,6 +8,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.coloros.mcssdk.mode.Message;
 import com.xiaomi.clientreport.data.Config;
@@ -375,7 +376,7 @@ public abstract class MiPushClient {
                     aiVar.c("client_info_update");
                     aiVar.a(com.xiaomi.push.service.aq.a());
                     aiVar.h = new HashMap();
-                    aiVar.h.put(Constants.EXTRA_KEY_APP_VERSION, com.xiaomi.channel.commonutils.android.a.a(sContext, sContext.getPackageName()));
+                    aiVar.h.put("app_version", com.xiaomi.channel.commonutils.android.a.a(sContext, sContext.getPackageName()));
                     aiVar.h.put(Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.channel.commonutils.android.a.b(sContext, sContext.getPackageName())));
                     aiVar.h.put("push_sdk_vn", "3_6_9");
                     aiVar.h.put("push_sdk_vc", Integer.toString(30609));
@@ -641,7 +642,7 @@ public abstract class MiPushClient {
     private static void scheduleGeoFenceLocUploadJobs() {
         if (com.xiaomi.push.service.j.e(sContext) && !TextUtils.equals("com.xiaomi.xmsf", sContext.getPackageName()) && com.xiaomi.push.service.an.a(sContext).a(com.xiaomi.xmpush.thrift.g.UploadGeoAppLocSwitch.a(), true) && !com.xiaomi.channel.commonutils.android.n.d()) {
             u.a(sContext, true);
-            int max = Math.max(60, com.xiaomi.push.service.an.a(sContext).a(com.xiaomi.xmpush.thrift.g.UploadWIFIGeoLocFrequency.a(), 900));
+            int max = Math.max(60, com.xiaomi.push.service.an.a(sContext).a(com.xiaomi.xmpush.thrift.g.UploadWIFIGeoLocFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
             com.xiaomi.channel.commonutils.misc.h.a(sContext).a(new u(sContext, max), max, max);
         }
     }

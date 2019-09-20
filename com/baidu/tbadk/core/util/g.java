@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean ahZ() {
+    public static boolean aid() {
         boolean z = true;
         if (com.baidu.tbadk.t.ah.iN()) {
             String trim = Build.MODEL.trim();
@@ -25,11 +25,11 @@ public class g {
         return false;
     }
 
-    public static boolean aia() {
+    public static boolean aie() {
         return aq.bV(Build.MODEL.trim(), "ANE-AL00");
     }
 
-    public static boolean aib() {
+    public static boolean aif() {
         return aq.bV(Build.MODEL.trim(), "vivo X20A");
     }
 }

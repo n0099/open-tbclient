@@ -7,8 +7,8 @@ import tbclient.NewTopicList.PkModule;
 /* loaded from: classes4.dex */
 public class b {
     public int from;
-    public a gnV;
-    public a gnW;
+    public a gpM;
+    public a gpN;
     public long pkId;
     public long topicId;
     public long userPkId;
@@ -17,22 +17,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.gnV = new a();
-            this.gnV.gnX = pkModule.agree.pk_num.longValue();
-            this.gnV.gnY = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.gnV.gnZ = pkModule.agree.last_username;
-            this.gnV.goa = pkModule.agree.pk_icon;
-            this.gnV.gob = pkModule.agree.has_clicked.longValue() == 1;
-            this.gnV.goc = pkModule.agree.pk_index.longValue();
-            this.gnV.god = pkModule.agree.pk_icon_after;
-            this.gnW = new a();
-            this.gnW.gnX = pkModule.disagree.pk_num.longValue();
-            this.gnW.gnY = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.gnW.gnZ = pkModule.disagree.last_username;
-            this.gnW.goa = pkModule.disagree.pk_icon;
-            this.gnW.gob = pkModule.disagree.has_clicked.longValue() == 1;
-            this.gnW.goc = pkModule.disagree.pk_index.longValue();
-            this.gnW.god = pkModule.disagree.pk_icon_after;
+            this.gpM = new a();
+            this.gpM.gpO = pkModule.agree.pk_num.longValue();
+            this.gpM.gpP = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.gpM.gpQ = pkModule.agree.last_username;
+            this.gpM.gpR = pkModule.agree.pk_icon;
+            this.gpM.gpS = pkModule.agree.has_clicked.longValue() == 1;
+            this.gpM.gpT = pkModule.agree.pk_index.longValue();
+            this.gpM.gpU = pkModule.agree.pk_icon_after;
+            this.gpN = new a();
+            this.gpN.gpO = pkModule.disagree.pk_num.longValue();
+            this.gpN.gpP = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.gpN.gpQ = pkModule.disagree.last_username;
+            this.gpN.gpR = pkModule.disagree.pk_icon;
+            this.gpN.gpS = pkModule.disagree.has_clicked.longValue() == 1;
+            this.gpN.gpT = pkModule.disagree.pk_index.longValue();
+            this.gpN.gpU = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -40,22 +40,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.gnV = new a();
-            this.gnV.gnX = pkModule.agree.pk_num.longValue();
-            this.gnV.gnY = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.gnV.gnZ = pkModule.agree.last_username;
-            this.gnV.goa = pkModule.agree.pk_icon;
-            this.gnV.gob = pkModule.agree.has_clicked.longValue() == 1;
-            this.gnV.goc = pkModule.agree.pk_index.longValue();
-            this.gnV.god = pkModule.agree.pk_icon_after;
-            this.gnW = new a();
-            this.gnW.gnX = pkModule.disagree.pk_num.longValue();
-            this.gnW.gnY = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.gnW.gnZ = pkModule.disagree.last_username;
-            this.gnW.goa = pkModule.disagree.pk_icon;
-            this.gnW.gob = pkModule.disagree.has_clicked.longValue() == 1;
-            this.gnW.goc = pkModule.disagree.pk_index.longValue();
-            this.gnW.god = pkModule.disagree.pk_icon_after;
+            this.gpM = new a();
+            this.gpM.gpO = pkModule.agree.pk_num.longValue();
+            this.gpM.gpP = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.gpM.gpQ = pkModule.agree.last_username;
+            this.gpM.gpR = pkModule.agree.pk_icon;
+            this.gpM.gpS = pkModule.agree.has_clicked.longValue() == 1;
+            this.gpM.gpT = pkModule.agree.pk_index.longValue();
+            this.gpM.gpU = pkModule.agree.pk_icon_after;
+            this.gpN = new a();
+            this.gpN.gpO = pkModule.disagree.pk_num.longValue();
+            this.gpN.gpP = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.gpN.gpQ = pkModule.disagree.last_username;
+            this.gpN.gpR = pkModule.disagree.pk_icon;
+            this.gpN.gpS = pkModule.disagree.has_clicked.longValue() == 1;
+            this.gpN.gpT = pkModule.disagree.pk_index.longValue();
+            this.gpN.gpU = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -63,34 +63,34 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.gnV = new a();
-            this.gnV.gnX = pkModule.agree.pk_num.longValue();
-            this.gnV.gnY = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.gnV.gnZ = pkModule.agree.last_username;
-            this.gnV.goa = pkModule.agree.pk_icon;
-            this.gnV.gob = pkModule.agree.has_clicked.longValue() == 1;
-            this.gnV.goc = pkModule.agree.pk_index.longValue();
-            this.gnV.god = pkModule.agree.pk_icon_after;
-            this.gnW = new a();
-            this.gnW.gnX = pkModule.disagree.pk_num.longValue();
-            this.gnW.gnY = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.gnW.gnZ = pkModule.disagree.last_username;
-            this.gnW.goa = pkModule.disagree.pk_icon;
-            this.gnW.gob = pkModule.disagree.has_clicked.longValue() == 1;
-            this.gnW.goc = pkModule.disagree.pk_index.longValue();
-            this.gnW.god = pkModule.disagree.pk_icon_after;
+            this.gpM = new a();
+            this.gpM.gpO = pkModule.agree.pk_num.longValue();
+            this.gpM.gpP = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.gpM.gpQ = pkModule.agree.last_username;
+            this.gpM.gpR = pkModule.agree.pk_icon;
+            this.gpM.gpS = pkModule.agree.has_clicked.longValue() == 1;
+            this.gpM.gpT = pkModule.agree.pk_index.longValue();
+            this.gpM.gpU = pkModule.agree.pk_icon_after;
+            this.gpN = new a();
+            this.gpN.gpO = pkModule.disagree.pk_num.longValue();
+            this.gpN.gpP = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.gpN.gpQ = pkModule.disagree.last_username;
+            this.gpN.gpR = pkModule.disagree.pk_icon;
+            this.gpN.gpS = pkModule.disagree.has_clicked.longValue() == 1;
+            this.gpN.gpT = pkModule.disagree.pk_index.longValue();
+            this.gpN.gpU = pkModule.disagree.pk_icon_after;
         }
     }
 
     /* loaded from: classes4.dex */
     public class a {
-        public long gnX;
-        public String gnY;
-        public String gnZ;
-        public String goa;
-        public boolean gob;
-        public long goc;
-        public String god;
+        public long gpO;
+        public String gpP;
+        public String gpQ;
+        public String gpR;
+        public boolean gpS;
+        public long gpT;
+        public String gpU;
 
         public a() {
         }

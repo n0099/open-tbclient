@@ -35,14 +35,14 @@ public class r {
             } else if (TextUtils.equals(lowerCase, "meizu")) {
                 bJ(context);
             } else {
-                Map<String, ComponentName> Ps = Ps();
-                if (Ps.containsKey(lowerCase)) {
-                    a(context, Ps.get(lowerCase));
+                Map<String, ComponentName> Pw = Pw();
+                if (Pw.containsKey(lowerCase)) {
+                    a(context, Pw.get(lowerCase));
                     return;
                 }
-                Map<String, String> Pt = Pt();
-                if (Pt.containsKey(lowerCase)) {
-                    W(context, Pt.get(lowerCase));
+                Map<String, String> Px = Px();
+                if (Px.containsKey(lowerCase)) {
+                    W(context, Px.get(lowerCase));
                 } else {
                     bK(context);
                 }
@@ -50,7 +50,7 @@ public class r {
         }
     }
 
-    private static Map<String, ComponentName> Ps() {
+    private static Map<String, ComponentName> Pw() {
         HashMap hashMap = new HashMap();
         hashMap.put("huawei", new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -59,7 +59,7 @@ public class r {
         return hashMap;
     }
 
-    private static Map<String, String> Pt() {
+    private static Map<String, String> Px() {
         HashMap hashMap = new HashMap();
         hashMap.put("oppo", "com.coloros.safecenter");
         hashMap.put("vivo", "com.bairenkeji.icaller");
@@ -68,17 +68,17 @@ public class r {
     }
 
     private static void bI(Context context) {
-        String Pu = Pu();
+        String Py = Py();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + Pu);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + Py);
         }
         Intent intent = new Intent();
-        if ("V10".equals(Pu) || "V9".equals(Pu) || "V8".equals(Pu)) {
+        if ("V10".equals(Py) || "V9".equals(Py) || "V8".equals(Py)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             context.startActivity(intent);
-        } else if ("V7".equals(Pu) || "V6".equals(Pu)) {
+        } else if ("V7".equals(Py) || "V6".equals(Py)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
@@ -92,7 +92,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String Pu() {
+    private static String Py() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;

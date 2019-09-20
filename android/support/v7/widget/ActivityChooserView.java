@@ -351,7 +351,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     }
                     return;
                 case 1:
-                    ActivityChooserView.this.showPopupUnchecked(ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                    ActivityChooserView.this.showPopupUnchecked(Integer.MAX_VALUE);
                     return;
                 default:
                     throw new IllegalArgumentException();
@@ -506,7 +506,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
 
         public int measureContentWidth() {
             int i = this.mMaxActivityCount;
-            this.mMaxActivityCount = MAX_ACTIVITY_COUNT_UNLIMITED;
+            this.mMaxActivityCount = Integer.MAX_VALUE;
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(0, 0);
             int count = getCount();

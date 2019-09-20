@@ -59,7 +59,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
         } else {
             this.c.setImageResource(i);
         }
-        if (i == R.drawable.aiapp_alertdialog_button_day_bg_all_selector || i == R.drawable.aiapp_alertdialog_button_day_bg_left_selector) {
+        if (i == R.drawable.ad_icon_sound_open || i == R.drawable.ad_list_item_bg) {
             this.d.setText("步行导航开始");
         } else {
             this.d.setText(str);

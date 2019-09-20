@@ -18,7 +18,7 @@ public class b extends z {
         if (DEBUG) {
             Log.d("ShortVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.aj.h.b.a.OG().OI();
+        com.baidu.swan.apps.aj.h.b.a.OK().OM();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

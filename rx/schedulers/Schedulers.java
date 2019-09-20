@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes2.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> kCO = new AtomicReference<>();
-    private final g kCL;
-    private final g kCM;
-    private final g kCN;
+    private static final AtomicReference<Schedulers> kFg = new AtomicReference<>();
+    private final g kFd;
+    private final g kFe;
+    private final g kFf;
 
-    private static Schedulers cQY() {
+    private static Schedulers cRK() {
         Schedulers schedulers;
         while (true) {
-            schedulers = kCO.get();
+            schedulers = kFg.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (kCO.compareAndSet(null, schedulers)) {
+                if (kFg.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.cRa();
+                schedulers.cRM();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g cQP = f.cQK().cQP();
-        g cQT = cQP.cQT();
-        if (cQT != null) {
-            this.kCL = cQT;
+        rx.c.g cRB = f.cRw().cRB();
+        g cRF = cRB.cRF();
+        if (cRF != null) {
+            this.kFd = cRF;
         } else {
-            this.kCL = rx.c.g.cQQ();
+            this.kFd = rx.c.g.cRC();
         }
-        g cQU = cQP.cQU();
-        if (cQU != null) {
-            this.kCM = cQU;
+        g cRG = cRB.cRG();
+        if (cRG != null) {
+            this.kFe = cRG;
         } else {
-            this.kCM = rx.c.g.cQR();
+            this.kFe = rx.c.g.cRD();
         }
-        g cQV = cQP.cQV();
-        if (cQV != null) {
-            this.kCN = cQV;
+        g cRH = cRB.cRH();
+        if (cRH != null) {
+            this.kFf = cRH;
         } else {
-            this.kCN = rx.c.g.cQS();
+            this.kFf = rx.c.g.cRE();
         }
     }
 
     public static g immediate() {
-        return e.kAv;
+        return e.kCN;
     }
 
     public static g trampoline() {
-        return j.kAV;
+        return j.kDn;
     }
 
     public static g newThread() {
-        return c.i(cQY().kCN);
+        return c.i(cRK().kFf);
     }
 
     public static g computation() {
-        return c.g(cQY().kCL);
+        return c.g(cRK().kFd);
     }
 
     public static g io() {
-        return c.h(cQY().kCM);
+        return c.h(cRK().kFe);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = kCO.getAndSet(null);
+        Schedulers andSet = kFg.getAndSet(null);
         if (andSet != null) {
-            andSet.cRa();
+            andSet.cRM();
         }
     }
 
     public static void start() {
-        Schedulers cQY = cQY();
-        cQY.cQZ();
-        synchronized (cQY) {
-            d.kAs.start();
+        Schedulers cRK = cRK();
+        cRK.cRL();
+        synchronized (cRK) {
+            d.kCK.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers cQY = cQY();
-        cQY.cRa();
-        synchronized (cQY) {
-            d.kAs.shutdown();
+        Schedulers cRK = cRK();
+        cRK.cRM();
+        synchronized (cRK) {
+            d.kCK.shutdown();
         }
     }
 
-    synchronized void cQZ() {
-        if (this.kCL instanceof h) {
-            ((h) this.kCL).start();
+    synchronized void cRL() {
+        if (this.kFd instanceof h) {
+            ((h) this.kFd).start();
         }
-        if (this.kCM instanceof h) {
-            ((h) this.kCM).start();
+        if (this.kFe instanceof h) {
+            ((h) this.kFe).start();
         }
-        if (this.kCN instanceof h) {
-            ((h) this.kCN).start();
+        if (this.kFf instanceof h) {
+            ((h) this.kFf).start();
         }
     }
 
-    synchronized void cRa() {
-        if (this.kCL instanceof h) {
-            ((h) this.kCL).shutdown();
+    synchronized void cRM() {
+        if (this.kFd instanceof h) {
+            ((h) this.kFd).shutdown();
         }
-        if (this.kCM instanceof h) {
-            ((h) this.kCM).shutdown();
+        if (this.kFe instanceof h) {
+            ((h) this.kFe).shutdown();
         }
-        if (this.kCN instanceof h) {
-            ((h) this.kCN).shutdown();
+        if (this.kFf instanceof h) {
+            ((h) this.kFf).shutdown();
         }
     }
 }

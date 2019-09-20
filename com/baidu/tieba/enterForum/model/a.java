@@ -4,27 +4,27 @@ import android.content.Context;
 import android.view.WindowManager;
 /* loaded from: classes4.dex */
 public class a {
-    private static a eYB;
-    private boolean aIw;
+    private static a fah;
+    private boolean aIU;
     private int mStatusBarHeight;
     private WindowManager mWindowManager;
 
-    public static a bgk() {
-        if (eYB == null) {
+    public static a bgQ() {
+        if (fah == null) {
             synchronized (a.class) {
-                if (eYB == null) {
-                    eYB = new a();
+                if (fah == null) {
+                    fah = new a();
                 }
             }
         }
-        return eYB;
+        return fah;
     }
 
     private a() {
     }
 
     public void m(Context context, int i) {
-        this.aIw = true;
+        this.aIU = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
@@ -33,7 +33,7 @@ public class a {
     }
 
     public void destroy() {
-        this.aIw = false;
-        eYB = null;
+        this.aIU = false;
+        fah = null;
     }
 }

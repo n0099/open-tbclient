@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
@@ -61,7 +61,7 @@ public class LookMoreReqMessage extends NetMessage {
             builder.st_type = Integer.valueOf(this.st_type);
             builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
             if (z) {
-                s.bindCommonParamsToProtobufData(builder, true);
+                r.bindCommonParamsToProtobufData(builder, true);
             }
             GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
             builder2.data = builder.build(false);

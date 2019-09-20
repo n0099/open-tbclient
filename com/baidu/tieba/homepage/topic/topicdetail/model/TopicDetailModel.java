@@ -18,14 +18,14 @@ import com.baidu.tieba.message.RequestBlessMessage;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TopicDetailModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a gjE;
-    private com.baidu.tieba.homepage.topic.topicdetail.a gmN;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.a gmO;
+    private com.baidu.adp.framework.listener.a glw;
+    private com.baidu.tieba.homepage.topic.topicdetail.a goE;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.a goF;
     private TbPageContext<?> mPageContext;
 
     public TopicDetailModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gjE = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
+        this.glw = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -44,8 +44,8 @@ public class TopicDetailModel extends BdBaseModel {
                     if (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                         j = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
                     }
-                    if (j != 0 && TopicDetailModel.this.gmO != null && TopicDetailModel.this.gmO.gmu != null && TopicDetailModel.this.gmO.gmu.gmz != null && TopicDetailModel.this.gmO.gmu.gmz.pkId == j) {
-                        TopicDetailModel.this.gmO.gmu.gmz.userPkId = j2;
+                    if (j != 0 && TopicDetailModel.this.goF != null && TopicDetailModel.this.goF.gol != null && TopicDetailModel.this.goF.gol.goq != null && TopicDetailModel.this.goF.gol.goq.pkId == j) {
+                        TopicDetailModel.this.goF.gol.goq.userPkId = j2;
                     }
                 }
             }
@@ -54,21 +54,21 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_DETAIL, 309629) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.gmN != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.goE != null) {
                     if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                        TopicDetailModel.this.gmO = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.goF = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
                     if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                        TopicDetailModel.this.gmO = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.goF = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
-                    TopicDetailModel.this.gmN.a(responsedMessage.getError(), TopicDetailModel.this.gmO);
+                    TopicDetailModel.this.goE.a(responsedMessage.getError(), TopicDetailModel.this.goF);
                 }
             }
         });
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_THREAD, 309631) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.gmN != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.goE != null) {
                     List<m> list = null;
                     boolean z = false;
                     if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
@@ -79,21 +79,21 @@ public class TopicDetailModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getDataList();
                         z = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getHasMore();
                     }
-                    TopicDetailModel.this.gmN.a(responsedMessage.getError(), z, list);
+                    TopicDetailModel.this.goE.a(responsedMessage.getError(), z, list);
                 }
             }
         });
-        registerListener(this.gjE);
+        registerListener(this.glw);
     }
 
     public void a(com.baidu.tieba.homepage.topic.topicdetail.a aVar) {
-        this.gmN = aVar;
+        this.goE = aVar;
     }
 
-    public void ds(long j) {
+    public void dv(long j) {
         if (!j.jQ()) {
-            if (this.gmN != null) {
-                this.gmN.a(-1, null);
+            if (this.goE != null) {
+                this.goE.a(-1, null);
                 return;
             }
             return;
@@ -107,8 +107,8 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void d(long j, long j2, long j3) {
         if (!j.jQ()) {
-            if (this.gmN != null) {
-                this.gmN.a(-1, false, null);
+            if (this.goE != null) {
+                this.goE.a(-1, false, null);
                 return;
             }
             return;

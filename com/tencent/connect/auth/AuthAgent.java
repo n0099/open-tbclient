@@ -34,7 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -208,8 +208,8 @@ public class AuthAgent extends BaseApi {
         }
         String str = (System.currentTimeMillis() / 1000) + "";
         a2.putString("sign", h.b(e.a(), str));
-        a2.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str);
-        a2.putString("display", "mobile");
+        a2.putString("time", str);
+        a2.putString("display", AddressManageResult.KEY_MOBILE);
         a2.putString(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "token");
         a2.putString(WBConstants.AUTH_PARAMS_REDIRECT_URL, "auth://tauth.qq.com/");
         a2.putString("cancel_display", "1");

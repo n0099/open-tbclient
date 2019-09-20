@@ -7,14 +7,14 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.z;
 /* loaded from: classes2.dex */
 public class f extends z {
-    private c aDA;
-    private k aDB;
-    private e aDC;
-    private d aDD;
-    private i aDE;
-    private b aDF;
-    private j aDG;
-    private h aDH;
+    private c aDY;
+    private k aDZ;
+    private e aEa;
+    private d aEb;
+    private i aEc;
+    private b aEd;
+    private j aEe;
+    private h aEf;
 
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/video");
@@ -87,52 +87,52 @@ public class f extends z {
         }
         switch (c) {
             case 0:
-                if (this.aDA == null) {
-                    this.aDA = new c("/swan/video/open");
+                if (this.aDY == null) {
+                    this.aDY = new c("/swan/video/open");
                 }
-                a = this.aDA.a(context, unitedSchemeEntity, callbackHandler, bVar);
+                a = this.aDY.a(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 1:
-                if (this.aDB == null) {
-                    this.aDB = new k("/swan/video/update");
+                if (this.aDZ == null) {
+                    this.aDZ = new k("/swan/video/update");
                 }
-                a = this.aDB.a(context, unitedSchemeEntity, callbackHandler, bVar);
+                a = this.aDZ.a(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 2:
-                if (this.aDH == null) {
-                    this.aDH = new h("/swan/video/remove");
+                if (this.aEf == null) {
+                    this.aEf = new h("/swan/video/remove");
                 }
-                a = this.aDH.a(context, unitedSchemeEntity, callbackHandler, bVar);
+                a = this.aEf.a(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 3:
-                if (this.aDC == null) {
-                    this.aDC = new e("/swan/video/play");
+                if (this.aEa == null) {
+                    this.aEa = new e("/swan/video/play");
                 }
-                a = this.aDC.a(context, unitedSchemeEntity, callbackHandler, bVar);
+                a = this.aEa.a(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 4:
-                if (this.aDD == null) {
-                    this.aDD = new d("/swan/video/pause");
+                if (this.aEb == null) {
+                    this.aEb = new d("/swan/video/pause");
                 }
-                a = this.aDD.a(context, unitedSchemeEntity, callbackHandler, bVar);
+                a = this.aEb.a(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 5:
-                if (this.aDE == null) {
-                    this.aDE = new i("/swan/video/seek");
+                if (this.aEc == null) {
+                    this.aEc = new i("/swan/video/seek");
                 }
-                a = this.aDE.a(context, unitedSchemeEntity, callbackHandler, bVar);
+                a = this.aEc.a(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 6:
-                if (this.aDF == null) {
-                    this.aDF = new b("/swan/video/fullScreen");
+                if (this.aEd == null) {
+                    this.aEd = new b("/swan/video/fullScreen");
                 }
-                a = this.aDF.a(context, unitedSchemeEntity, callbackHandler, bVar);
+                a = this.aEd.a(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 7:
-                if (this.aDG == null) {
-                    this.aDG = new j("/swan/video/sendDanmu");
+                if (this.aEe == null) {
+                    this.aEe = new j("/swan/video/sendDanmu");
                 }
-                a = this.aDG.a(context, unitedSchemeEntity, callbackHandler, bVar);
+                a = this.aEe.a(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             default:
                 a = false;

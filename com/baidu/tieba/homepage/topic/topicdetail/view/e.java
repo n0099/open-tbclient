@@ -20,11 +20,11 @@ import com.baidu.tieba.homepage.topic.topictab.view.CellTopicLinearLayout;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.topicdetail.b.d> {
-    private TbImageView bWR;
-    private CellTopicLinearLayout gnH;
-    private TextView gnI;
-    private TextView gnJ;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.d gnK;
+    private TbImageView bXK;
+    private TextView gpA;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.d gpB;
+    private CellTopicLinearLayout gpy;
+    private TextView gpz;
     private int mSkinType;
     private TextView mTitleView;
 
@@ -32,24 +32,24 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.gnH = (CellTopicLinearLayout) view.findViewById(R.id.topic_special_root);
-        this.gnI = (TextView) view.findViewById(R.id.topic_special_title);
-        this.bWR = (TbImageView) view.findViewById(R.id.topic_special_thread_img);
+        this.gpy = (CellTopicLinearLayout) view.findViewById(R.id.topic_special_root);
+        this.gpz = (TextView) view.findViewById(R.id.topic_special_title);
+        this.bXK = (TbImageView) view.findViewById(R.id.topic_special_thread_img);
         this.mTitleView = (TextView) view.findViewById(R.id.topic_special_thread_title);
-        this.gnJ = (TextView) view.findViewById(R.id.topic_special_thread_discuss);
-        this.bWR.setRadius(l.g(this.mContext, R.dimen.tbds22));
-        this.bWR.setConrers(15);
-        this.gnH.setTopicOnClickListener(this);
+        this.gpA = (TextView) view.findViewById(R.id.topic_special_thread_discuss);
+        this.bXK.setRadius(l.g(this.mContext, R.dimen.tbds22));
+        this.bXK.setConrers(15);
+        this.gpy.setTopicOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.j(this.gnI, R.color.cp_cont_b);
-            this.bWR.setIsNight(this.mSkinType == 1);
+            am.j(this.gpz, R.color.cp_cont_b);
+            this.bXK.setIsNight(this.mSkinType == 1);
             am.j(this.mTitleView, R.color.cp_cont_f);
-            am.j(this.gnJ, R.color.cp_cont_d);
+            am.j(this.gpA, R.color.cp_cont_d);
         }
     }
 
@@ -62,18 +62,18 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.homepage.topic.topicdetail.b.d dVar) {
         if (dVar != null && dVar.threadData != null) {
-            this.gnK = dVar;
-            if (dVar.gmG) {
-                if (StringUtils.isNull(dVar.gmH)) {
-                    this.gnI.setText(R.string.topic_special_title_default);
+            this.gpB = dVar;
+            if (dVar.gox) {
+                if (StringUtils.isNull(dVar.goy)) {
+                    this.gpz.setText(R.string.topic_special_title_default);
                 } else {
-                    this.gnI.setText(dVar.gmH);
+                    this.gpz.setText(dVar.goy);
                 }
             }
-            this.gnI.setVisibility(dVar.gmG ? 0 : 8);
+            this.gpz.setVisibility(dVar.gox ? 0 : 8);
             String str = null;
-            if (!v.aa(dVar.threadData.aeI())) {
-                Iterator<MediaData> it = dVar.threadData.aeI().iterator();
+            if (!v.aa(dVar.threadData.aeM())) {
+                Iterator<MediaData> it = dVar.threadData.aeM().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {
@@ -93,31 +93,31 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
                     }
                 }
             }
-            if (!aq.bV(str, this.bWR.getUrl())) {
-                this.bWR.reset();
+            if (!aq.bV(str, this.bXK.getUrl())) {
+                this.bXK.reset();
             }
-            this.bWR.startLoad(str, 10, false);
+            this.bXK.startLoad(str, 10, false);
             if (StringUtils.isNull(dVar.threadData.getTitle())) {
                 this.mTitleView.setVisibility(8);
             } else {
                 this.mTitleView.setVisibility(0);
                 this.mTitleView.setText(dVar.threadData.getTitle());
             }
-            this.gnJ.setText(String.format(this.mContext.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.threadData.aep())));
+            this.gpA.setText(String.format(this.mContext.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.threadData.aet())));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gnK != null && this.gnK.threadData != null) {
-            TiebaStatic.log(new an("c13354").bT("tid", this.gnK.threadData.tid).l("topic_id", this.gnK.topicId).P("obj_locate", this.gnK.index));
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mTbPageContext.getPageActivity()).createFromThreadCfg(this.gnK.threadData, null, "", 18005, true, false, false);
-            if (this.gnK.threadData.agl() == null) {
-                createFromThreadCfg.setForumId(String.valueOf(this.gnK.threadData.getFid()));
-                createFromThreadCfg.setForumName(this.gnK.threadData.aeD());
+        if (this.gpB != null && this.gpB.threadData != null) {
+            TiebaStatic.log(new an("c13354").bT("tid", this.gpB.threadData.tid).n("topic_id", this.gpB.topicId).P("obj_locate", this.gpB.index));
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mTbPageContext.getPageActivity()).createFromThreadCfg(this.gpB.threadData, null, "", 18005, true, false, false);
+            if (this.gpB.threadData.agp() == null) {
+                createFromThreadCfg.setForumId(String.valueOf(this.gpB.threadData.getFid()));
+                createFromThreadCfg.setForumName(this.gpB.threadData.aeH());
             } else {
-                createFromThreadCfg.setForumId(this.gnK.threadData.agl().getForumId());
-                createFromThreadCfg.setForumName(this.gnK.threadData.agl().getForumName());
+                createFromThreadCfg.setForumId(this.gpB.threadData.agp().getForumId());
+                createFromThreadCfg.setForumName(this.gpB.threadData.agp().getForumName());
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }

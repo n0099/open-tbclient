@@ -35,7 +35,6 @@ public class c {
     public JSONObject a(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("errno", 0);
             if (b(context)) {
                 if (!TextUtils.isEmpty(a)) {
                     jSONObject.put("phone", a);

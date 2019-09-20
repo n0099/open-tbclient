@@ -17,7 +17,7 @@ public class j extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        String xv;
+        String xz;
         if (DEBUG) {
             Log.d("SwitchTabAction", "handle entity: " + unitedSchemeEntity.toString());
         }
@@ -27,38 +27,38 @@ public class j extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.w.e GF = com.baidu.swan.apps.w.e.GF();
-        final com.baidu.swan.apps.core.d.e vJ = GF.vJ();
-        if (vJ == null) {
+        com.baidu.swan.apps.w.e GJ = com.baidu.swan.apps.w.e.GJ();
+        final com.baidu.swan.apps.core.d.e vN = GJ.vN();
+        if (vN == null) {
             com.baidu.swan.apps.console.c.e("switchTab", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final com.baidu.swan.apps.model.b aq = com.baidu.swan.apps.model.b.aq(b, GF.Go());
-        if (!ac.a(GF.Gn(), aq)) {
+        final com.baidu.swan.apps.model.b aq = com.baidu.swan.apps.model.b.aq(b, GJ.Gs());
+        if (!ac.a(GJ.Gr(), aq)) {
             com.baidu.swan.apps.console.c.e("switchTab", "tab params error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.core.d.d At = vJ.At();
-        if (At == null || TextUtils.isEmpty(At.dO(aq.azs))) {
-            final b.a A = com.baidu.swan.apps.core.i.b.A(GF.Gr());
-            xv = A.atB.xv();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.hh(xv), 0));
-            com.baidu.swan.apps.core.i.b.a(A, new b.InterfaceC0139b() { // from class: com.baidu.swan.apps.scheme.actions.i.j.1
-                @Override // com.baidu.swan.apps.core.i.b.InterfaceC0139b
+        com.baidu.swan.apps.core.d.d Ax = vN.Ax();
+        if (Ax == null || TextUtils.isEmpty(Ax.dQ(aq.azQ))) {
+            final b.a A = com.baidu.swan.apps.core.i.b.A(GJ.Gv());
+            xz = A.atZ.xz();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.hj(xz), 0));
+            com.baidu.swan.apps.core.i.b.a(A, new b.InterfaceC0148b() { // from class: com.baidu.swan.apps.scheme.actions.i.j.1
+                @Override // com.baidu.swan.apps.core.i.b.InterfaceC0148b
                 public void onReady() {
-                    a.a(A.atB, aq);
-                    j.this.d(vJ, aq);
+                    a.a(A.atZ, aq);
+                    j.this.d(vN, aq);
                 }
             });
         } else {
-            xv = At.dO(aq.azs);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.hh(xv), 0));
-            d(vJ, aq);
+            xz = Ax.dQ(aq.azQ);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.hj(xz), 0));
+            d(vN, aq);
         }
         if (DEBUG) {
-            Log.d("SwitchTabAction", "webview idx: " + xv);
+            Log.d("SwitchTabAction", "webview idx: " + xz);
         }
         com.baidu.swan.apps.console.c.i("switchTab", "create and load page");
         return true;
@@ -66,6 +66,6 @@ public class j extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.swan.apps.core.d.e eVar, com.baidu.swan.apps.model.b bVar) {
-        eVar.dS("switchTab").B(0, 0).AA().d(bVar).AD();
+        eVar.dU("switchTab").B(0, 0).AE().d(bVar).AH();
     }
 }

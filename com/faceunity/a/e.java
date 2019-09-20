@@ -17,21 +17,21 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class e {
     private boolean afr;
-    private h jhv;
-    private c kmH;
-    private int kmI;
+    private h jjR;
+    private c kpe;
+    private int kpf;
     private MediaCodec.BufferInfo mBufferInfo;
     private MediaCodec mEncoder;
     private Surface mInputSurface;
-    private Bundle aHg = new Bundle();
-    private long knm = 0;
-    private boolean kni = false;
+    private Bundle aHE = new Bundle();
+    private long kpJ = 0;
+    private boolean kpF = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.jhv = lVar.bPk();
+            this.jjR = lVar.bPY();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -44,16 +44,16 @@ public class e {
         this.mInputSurface = this.mEncoder.createInputSurface();
         this.mEncoder.start();
         if (Build.VERSION.SDK_INT >= 19) {
-            this.aHg.putInt("request-sync", 0);
-            this.mEncoder.setParameters(this.aHg);
+            this.aHE.putInt("request-sync", 0);
+            this.mEncoder.setParameters(this.aHE);
         }
-        this.kmI = -1;
+        this.kpf = -1;
         this.afr = false;
-        this.kmH = cVar;
+        this.kpe = cVar;
     }
 
     public synchronized void requestStop() {
-        this.kni = true;
+        this.kpF = true;
     }
 
     public Surface getInputSurface() {
@@ -66,15 +66,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.kmH != null) {
+        if (this.kpe != null) {
             try {
-                this.kmH.stop();
+                this.kpe.stop();
             } catch (IllegalStateException e) {
-                if (this.jhv != null) {
-                    this.jhv.av(17, com.baidu.tieba.j.a.p(e));
+                if (this.jjR != null) {
+                    this.jjR.av(17, com.baidu.tieba.j.a.p(e));
                 }
             }
-            this.kmH = null;
+            this.kpe = null;
         }
     }
 
@@ -97,19 +97,19 @@ public class e {
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.kmI = this.kmH.f(outputFormat);
-                if (!this.kmH.start()) {
-                    synchronized (this.kmH) {
-                        while (!this.kmH.isStarted() && !this.kni) {
+                this.kpf = this.kpe.f(outputFormat);
+                if (!this.kpe.start()) {
+                    synchronized (this.kpe) {
+                        while (!this.kpe.isStarted() && !this.kpF) {
                             try {
-                                this.kmH.wait(100L);
+                                this.kpe.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.kni) {
+                if (!this.kpF) {
                     this.afr = true;
                 } else {
                     return;
@@ -130,12 +130,12 @@ public class e {
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.kmH.c(this.kmI, byteBuffer, this.mBufferInfo);
+                    this.kpe.c(this.kpf, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.knm >= 500) {
-                    this.mEncoder.setParameters(this.aHg);
-                    this.knm = System.currentTimeMillis();
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.kpJ >= 500) {
+                    this.mEncoder.setParameters(this.aHE);
+                    this.kpJ = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

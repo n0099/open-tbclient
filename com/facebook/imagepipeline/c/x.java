@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes2.dex */
 public class x implements o {
-    private static x kgS = null;
+    private static x kjq = null;
 
     private x() {
     }
 
-    public static synchronized x cIa() {
+    public static synchronized x cIO() {
         x xVar;
         synchronized (x.class) {
-            if (kgS == null) {
-                kgS = new x();
+            if (kjq == null) {
+                kjq = new x();
             }
-            xVar = kgS;
+            xVar = kjq;
         }
         return xVar;
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void cHR() {
+    public void cIF() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -26,11 +26,11 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void cHS() {
+    public void cIG() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void cHT() {
+    public void cIH() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -38,7 +38,7 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void cHU() {
+    public void cII() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -46,19 +46,19 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void cHV() {
+    public void cIJ() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void cHW() {
+    public void cIK() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void cHX() {
+    public void cIL() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void cHY() {
+    public void cIM() {
     }
 
     @Override // com.facebook.imagepipeline.c.o

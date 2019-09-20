@@ -20,9 +20,9 @@ public class d {
             aVar.onFail();
             return;
         }
-        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
-        if (Md != null) {
-            Md.Mh().a((Activity) context, "mapp_location", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.impl.map.a.b.d.1
+        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
+        if (Mh != null) {
+            Mh.Ml().a((Activity) context, "mapp_location", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.impl.map.a.b.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
@@ -39,11 +39,11 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(final a aVar) {
-        if (ac.PK()) {
+        if (ac.PO()) {
             aVar.onSuccess();
         } else {
-            com.baidu.swan.apps.w.e.GF().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0111a() { // from class: com.baidu.swan.impl.map.a.b.d.2
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0111a
+            com.baidu.swan.apps.w.e.GJ().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0120a() { // from class: com.baidu.swan.impl.map.a.b.d.2
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0120a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
                         a.this.onFail();

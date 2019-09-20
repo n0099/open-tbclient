@@ -6,12 +6,12 @@ public class a implements com.baidu.tieba.p.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0271a {
-        private static a cXQ = new a();
+    private static class C0280a {
+        private static a cZw = new a();
     }
 
-    public static a aDj() {
-        return C0271a.cXQ;
+    public static a aDN() {
+        return C0280a.cZw;
     }
 
     @Override // com.baidu.tieba.p.a
@@ -63,7 +63,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void H(String str, String str2, String str3) {
+    public void I(String str, String str2, String str3) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "alert_click");
         init.addParam("f2", str);

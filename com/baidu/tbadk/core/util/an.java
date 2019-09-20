@@ -43,7 +43,7 @@ public class an {
         return this;
     }
 
-    public an l(String str, long j) {
+    public an n(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;
@@ -53,7 +53,7 @@ public class an {
         this.params = list;
     }
 
-    public void nV(String str) {
+    public void nX(String str) {
         int indexOf;
         if (!aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
             this.params.remove(indexOf);
@@ -61,13 +61,13 @@ public class an {
         }
     }
 
-    public an ajj() {
+    public an ajp() {
         an anVar = new an(getKey());
         anVar.ab(getParams());
         return anVar;
     }
 
-    public void ajk() {
+    public void ajq() {
         TiebaStatic.log(this);
     }
 }

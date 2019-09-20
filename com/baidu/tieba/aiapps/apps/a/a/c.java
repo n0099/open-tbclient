@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -40,21 +39,21 @@ public class c extends z {
             return false;
         }
         final String optString2 = optParamsAsJo.optString("type", "");
-        int sR = sR(optString2);
+        int tq = tq(optString2);
         final g.a aVar = new g.a(optParamsAsJo);
         final Bundle bundle = new Bundle();
-        bundle.putInt("key_login_mode", sR);
-        bVar.Mh().a((Activity) context, "mapp_i_login", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.1
+        bundle.putInt("key_login_mode", tq);
+        bVar.Ml().a((Activity) context, "mapp_i_login", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
             public void D(Boolean bool) {
                 if (bool.booleanValue()) {
-                    if (c.this.as(context, optString2)) {
+                    if (c.this.az(context, optString2)) {
                         c.this.a(bVar, (Activity) context, aVar, callbackHandler, optString, bundle);
                         return;
                     }
-                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams((int) HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_NULL, com.baidu.swan.apps.setting.oauth.c.getErrMessage(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_NULL)).toString());
+                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10008, com.baidu.swan.apps.setting.oauth.c.getErrMessage(10008)).toString());
                     return;
                 }
                 com.baidu.swan.apps.console.c.i("ThirdPartyLoginAction", "request authorize denied");
@@ -67,7 +66,7 @@ public class c extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.ae.b bVar, Activity activity, final g.a aVar, final CallbackHandler callbackHandler, final String str, Bundle bundle) {
-        bVar.Mh().a(activity, aVar, bundle, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.2
+        bVar.Ml().a(activity, aVar, bundle, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
@@ -98,7 +97,7 @@ public class c extends z {
         });
     }
 
-    private int sR(String str) {
+    private int tq(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:
@@ -149,7 +148,7 @@ public class c extends z {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean as(Context context, String str) {
+    public boolean az(Context context, String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:

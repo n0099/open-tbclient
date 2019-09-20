@@ -13,6 +13,7 @@ import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
 import com.baidu.sapi2.dto.WebSocialLoginDTO;
 import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
@@ -86,7 +87,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             if (BaseSSOLoginActivity.this.businessFrom == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i);
-                intent.putExtra("result_msg", str);
+                intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 BaseSSOLoginActivity.this.setActivtyResult(1002, intent);
             } else if (PassportSDK.getInstance().getWebAuthListener() != null) {
                 BaseSSOLoginActivity.this.webAuthResult.setResultCode(i);
@@ -103,7 +104,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.C0040a.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.C0048a.layout_sapi_sdk_webview_with_title_bar);
             initData();
         } catch (Throwable th) {
             reportWebviewError(th);
@@ -123,8 +124,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         this.webAuthResult.activity = this;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
-    protected SapiWebDTO getWebDTO() {
+    public SapiWebDTO getWebDTO() {
         return PassportSDK.getInstance().getSocialLoginDTO();
     }
 
@@ -144,25 +146,28 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        this.sapiWebView.onKeyUp(4);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
         ViewUtility.enableStatusBarTint(this, -1);
         configTitle();
-        this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
-            @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
-            public boolean onBack() {
-                BaseSSOLoginActivity.this.handleBack(BaseSSOLoginActivity.this.businessFrom);
-                return true;
-            }
-        });
-        this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.4
+        this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
-                BaseSSOLoginActivity.this.handleBack(BaseSSOLoginActivity.this.businessFrom);
+                if (BaseSSOLoginActivity.this.sapiWebView != null && BaseSSOLoginActivity.this.sapiWebView.canGoBack()) {
+                    BaseSSOLoginActivity.this.sapiWebView.goBack();
+                } else {
+                    BaseSSOLoginActivity.this.handleBack(BaseSSOLoginActivity.this.businessFrom);
+                }
             }
         });
-        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.5
+        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.4
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
                 BaseSSOLoginActivity.this.handleBack(BaseSSOLoginActivity.this.businessFrom);
@@ -189,7 +194,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         if (i == 2001) {
             Intent intent = new Intent();
             intent.putExtra("result_code", -301);
-            intent.putExtra("result_msg", SapiResult.ERROR_MSG_PROCESSED_END);
+            intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, SapiResult.ERROR_MSG_PROCESSED_END);
             setActivtyResult(1002, intent);
         } else if (PassportSDK.getInstance().getWebAuthListener() != null) {
             this.webAuthResult.setResultCode(-301);

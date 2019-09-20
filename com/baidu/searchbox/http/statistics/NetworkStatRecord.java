@@ -1,7 +1,6 @@
 package com.baidu.searchbox.http.statistics;
 
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import com.baidu.searchbox.websocket.WebSocketRequest;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -39,7 +38,7 @@ public class NetworkStatRecord {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("ver", 2);
-            jSONObject.put("type", PhoneUtils.CPUInfo.FEATURE_COMMON);
+            jSONObject.put("type", "common");
             if (!TextUtils.isEmpty(this.url)) {
                 jSONObject.put("url", this.url);
             }

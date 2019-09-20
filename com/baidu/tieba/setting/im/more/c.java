@@ -11,39 +11,38 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
-    private View cfi;
-    private View.OnClickListener dWR;
-    private LinearLayout fgY;
-    private TbSettingTextTipView iQK;
-    private TbSettingTextTipView iQL;
-    private TbSettingTextTipView iQM;
-    private TbSettingTextTipView iQN;
-    private View iQO;
-    private TbSettingTextTipView iQP;
-    private View iQQ;
-    private TbSettingTextTipView iQR;
-    private SecretSettingActivity iQS;
-    private View iQT;
-    private String[] iQU;
-    private TbSettingTextTipView iQV;
-    private a iQW;
+    private View cgb;
+    private View.OnClickListener dYB;
+    private LinearLayout fiN;
+    private TbSettingTextTipView iTg;
+    private TbSettingTextTipView iTh;
+    private TbSettingTextTipView iTi;
+    private TbSettingTextTipView iTj;
+    private View iTk;
+    private TbSettingTextTipView iTl;
+    private TbSettingTextTipView iTm;
+    private SecretSettingActivity iTn;
+    private View iTo;
+    private String[] iTp;
+    private TbSettingTextTipView iTq;
+    private a iTr;
     private NavigationBar mNavigationBar;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void cjO();
+        void ckA();
 
-        void cjP();
+        void ckB();
 
-        void cjQ();
+        void ckC();
 
-        void cjR();
+        void ckD();
 
-        void cjS();
+        void ckE();
 
-        void cjT();
+        void ckF();
 
-        void cjU();
+        void ckG();
 
         void onBackPressed();
     }
@@ -51,137 +50,134 @@ public class c extends com.baidu.adp.base.c<SecretSettingActivity> {
     public c(SecretSettingActivity secretSettingActivity) {
         super(secretSettingActivity.getPageContext());
         this.mNavigationBar = null;
-        this.dWR = new View.OnClickListener() { // from class: com.baidu.tieba.setting.im.more.c.1
+        this.dYB = new View.OnClickListener() { // from class: com.baidu.tieba.setting.im.more.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.iQW != null) {
-                    if (view == c.this.cfi) {
-                        c.this.iQW.onBackPressed();
-                    } else if (view == c.this.iQK) {
-                        c.this.iQW.cjO();
-                    } else if (view == c.this.iQL) {
-                        c.this.iQW.cjP();
-                    } else if (view == c.this.iQM) {
-                        c.this.iQW.cjR();
-                    } else if (view == c.this.iQR) {
-                        c.this.iQW.cjQ();
-                    } else if (view == c.this.iQN) {
-                        c.this.iQW.cjS();
-                    } else if (view == c.this.iQP) {
-                        c.this.iQW.cjT();
-                    } else if (view == c.this.iQV) {
-                        c.this.iQW.cjU();
+                if (c.this.iTr != null) {
+                    if (view == c.this.cgb) {
+                        c.this.iTr.onBackPressed();
+                    } else if (view == c.this.iTg) {
+                        c.this.iTr.ckA();
+                    } else if (view == c.this.iTh) {
+                        c.this.iTr.ckB();
+                    } else if (view == c.this.iTi) {
+                        c.this.iTr.ckD();
+                    } else if (view == c.this.iTm) {
+                        c.this.iTr.ckC();
+                    } else if (view == c.this.iTj) {
+                        c.this.iTr.ckE();
+                    } else if (view == c.this.iTl) {
+                        c.this.iTr.ckF();
+                    } else if (view == c.this.iTq) {
+                        c.this.iTr.ckG();
                     }
                 }
             }
         };
-        this.iQS = secretSettingActivity;
+        this.iTn = secretSettingActivity;
         secretSettingActivity.setContentView(R.layout.secret_setting_activity);
         g(secretSettingActivity);
     }
 
     public void onChangeSkinType(int i) {
-        this.iQS.getLayoutMode().setNightMode(i == 1);
-        this.iQS.getLayoutMode().onModeChanged(this.fgY);
-        this.mNavigationBar.onChangeSkinType(this.iQS.getPageContext(), i);
+        this.iTn.getLayoutMode().setNightMode(i == 1);
+        this.iTn.getLayoutMode().onModeChanged(this.fiN);
+        this.mNavigationBar.onChangeSkinType(this.iTn.getPageContext(), i);
     }
 
     private void g(SecretSettingActivity secretSettingActivity) {
-        this.fgY = (LinearLayout) secretSettingActivity.findViewById(R.id.parent);
+        this.fiN = (LinearLayout) secretSettingActivity.findViewById(R.id.parent);
         this.mNavigationBar = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
-        this.cfi = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.cgb = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(secretSettingActivity.getPageContext().getString(R.string.secretSetting));
-        this.iQK = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
-        this.iQL = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_bar);
-        this.iQR = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_group);
-        this.iQQ = secretSettingActivity.findViewById(R.id.divide_line_under_privacy_attention_group);
-        this.iQM = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_live);
-        this.iQN = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.user_mute_list);
-        this.iQP = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.thread_reply_setting);
-        this.iQO = secretSettingActivity.findViewById(R.id.container_thread_reply_setting);
-        this.cfi.setOnClickListener(this.dWR);
-        this.iQK.setOnClickListener(this.dWR);
-        this.iQN.setOnClickListener(this.dWR);
-        this.iQR.setOnClickListener(this.dWR);
-        this.iQL.setOnClickListener(this.dWR);
-        this.iQM.setOnClickListener(this.dWR);
-        this.iQP.setOnClickListener(this.dWR);
-        this.iQT = this.iQS.findViewById(R.id.privacy_setting_container);
-        this.iQU = this.iQS.getResources().getStringArray(R.array.privacy_setting_config);
+        this.iTg = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
+        this.iTh = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_bar);
+        this.iTm = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_group);
+        this.iTi = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_live);
+        this.iTj = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.user_mute_list);
+        this.iTl = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.thread_reply_setting);
+        this.iTk = secretSettingActivity.findViewById(R.id.container_thread_reply_setting);
+        this.cgb.setOnClickListener(this.dYB);
+        this.iTg.setOnClickListener(this.dYB);
+        this.iTj.setOnClickListener(this.dYB);
+        this.iTm.setOnClickListener(this.dYB);
+        this.iTh.setOnClickListener(this.dYB);
+        this.iTi.setOnClickListener(this.dYB);
+        this.iTl.setOnClickListener(this.dYB);
+        this.iTo = this.iTn.findViewById(R.id.privacy_setting_container);
+        this.iTp = this.iTn.getResources().getStringArray(R.array.privacy_setting_config);
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(PersonGroupActivityConfig.class)) {
-            this.iQR.setVisibility(0);
-            this.iQQ.setVisibility(0);
+            this.iTm.setVisibility(0);
         } else {
-            this.iQR.setVisibility(8);
-            this.iQQ.setVisibility(8);
+            this.iTm.setVisibility(8);
         }
-        this.iQV = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_permission);
-        this.iQV.setOnClickListener(this.dWR);
+        this.iTq = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_permission);
+        this.iTq.setOnClickListener(this.dYB);
     }
 
     public void a(a aVar) {
-        this.iQW = aVar;
+        this.iTr = aVar;
     }
 
-    public void cjV() {
-        this.iQK.recycle();
+    public void ckH() {
+        this.iTg.recycle();
     }
 
-    public void qB(boolean z) {
+    public void qE(boolean z) {
         if (z) {
-            this.iQT.setVisibility(0);
+            this.iTo.setVisibility(0);
         } else {
-            this.iQT.setVisibility(8);
+            this.iTo.setVisibility(8);
         }
         if (d.hS().az("reply_private_setting_switch") == 1) {
-            this.iQO.setVisibility(0);
-            this.iQP.setVisibility(0);
+            this.iTk.setVisibility(0);
+            this.iTl.setVisibility(0);
             return;
         }
-        this.iQO.setVisibility(8);
-        this.iQP.setVisibility(8);
+        this.iTk.setVisibility(8);
+        this.iTl.setVisibility(8);
     }
 
-    public void bm(String str, int i) {
+    public void bo(String str, int i) {
         int i2 = i - 1;
-        if (this.iQU != null && i2 < this.iQU.length && i2 >= 0) {
+        if (this.iTp != null && i2 < this.iTp.length && i2 >= 0) {
             if (TextUtils.equals(str, "like")) {
-                this.iQL.setTip(this.iQU[i2]);
+                this.iTh.setTip(this.iTp[i2]);
             } else if (TextUtils.equals(str, "group")) {
-                this.iQR.setTip(this.iQU[i2]);
+                this.iTm.setTip(this.iTp[i2]);
             } else if (TextUtils.equals(str, "live")) {
-                this.iQM.setTip(this.iQU[i2]);
+                this.iTi.setTip(this.iTp[i2]);
             } else if (TextUtils.equals(str, "reply")) {
                 if (i2 == 0) {
-                    this.iQP.setTip(this.iQS.getString(R.string.all_person));
+                    this.iTl.setTip(this.iTn.getString(R.string.all_person));
                 } else {
-                    this.iQP.setTip(this.iQU[i2]);
+                    this.iTl.setTip(this.iTp[i2]);
                 }
             }
         }
     }
 
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
-        if (aVar != null && this.iQU != null) {
-            int length = this.iQU.length;
-            int cjJ = aVar.cjJ() - 1;
-            if (cjJ < length && cjJ >= 0) {
-                this.iQR.setTip(this.iQU[cjJ]);
+        if (aVar != null && this.iTp != null) {
+            int length = this.iTp.length;
+            int ckv = aVar.ckv() - 1;
+            if (ckv < length && ckv >= 0) {
+                this.iTm.setTip(this.iTp[ckv]);
             }
-            int cjI = aVar.cjI() - 1;
-            if (cjI < length && cjI >= 0) {
-                this.iQL.setTip(this.iQU[cjI]);
+            int cku = aVar.cku() - 1;
+            if (cku < length && cku >= 0) {
+                this.iTh.setTip(this.iTp[cku]);
             }
-            int arz = aVar.arz() - 1;
-            if (arz < length && arz >= 0) {
-                this.iQM.setTip(this.iQU[arz]);
+            int arL = aVar.arL() - 1;
+            if (arL < length && arL >= 0) {
+                this.iTi.setTip(this.iTp[arL]);
             }
-            int cjL = aVar.cjL() - 1;
-            if (cjL < length && cjL >= 0) {
-                if (cjL == 0) {
-                    this.iQP.setTip(this.iQS.getString(R.string.all_person));
+            int ckx = aVar.ckx() - 1;
+            if (ckx < length && ckx >= 0) {
+                if (ckx == 0) {
+                    this.iTl.setTip(this.iTn.getString(R.string.all_person));
                 } else {
-                    this.iQP.setTip(this.iQU[cjL]);
+                    this.iTl.setTip(this.iTp[ckx]);
                 }
             }
         }

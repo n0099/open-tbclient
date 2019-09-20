@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.poly.b.a.a.a ahy;
+    private com.baidu.poly.b.a.a.a ahU;
 
     public a(Context context) {
         File O = O(context, "bitmap");
@@ -20,19 +20,19 @@ public class a {
             O.mkdirs();
         }
         try {
-            this.ahy = com.baidu.poly.b.a.a.a.a(O, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+            this.ahU = com.baidu.poly.b.a.a.a.a(O, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public Bitmap j(String str, int i, int i2) throws IOException {
-        if (this.ahy == null) {
+        if (this.ahU == null) {
             return null;
         }
-        a.c cT = this.ahy.cT(com.baidu.poly.b.b.b.cV(str));
-        if (cT != null) {
-            FileInputStream fileInputStream = (FileInputStream) cT.bH(0);
+        a.c cV = this.ahU.cV(com.baidu.poly.b.b.b.cX(str));
+        if (cV != null) {
+            FileInputStream fileInputStream = (FileInputStream) cV.bI(0);
             if (i <= 0 || i2 <= 0) {
                 return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
             }
@@ -41,17 +41,17 @@ public class a {
         return null;
     }
 
-    public void cQ(String str) {
-        if (this.ahy != null) {
+    public void cS(String str) {
+        if (this.ahU != null) {
             try {
-                a.C0087a cU = this.ahy.cU(com.baidu.poly.b.b.b.cV(str));
-                if (cU != null) {
-                    if (d.a(str, cU.bE(0))) {
-                        cU.commit();
+                a.C0096a cW = this.ahU.cW(com.baidu.poly.b.b.b.cX(str));
+                if (cW != null) {
+                    if (d.a(str, cW.bF(0))) {
+                        cW.commit();
                     } else {
-                        cU.abort();
+                        cW.abort();
                     }
-                    this.ahy.flush();
+                    this.ahU.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

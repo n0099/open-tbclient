@@ -22,7 +22,7 @@ public class m {
         this.tag = str3;
     }
 
-    public String ahe() {
+    public String ahi() {
         return this.tip;
     }
 

@@ -17,10 +17,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.AdTbWebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.atomData.NewAdTbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.core.util.aq;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,10 +43,17 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        aaW();
+        aba();
         try {
             if (!StringUtils.isNull(str2)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
+                String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
+                int aAG = com.baidu.tieba.a.aAF().aAG();
+                String queryParameter = Uri.parse(appendVersionCode).getQueryParameter(LegoListActivityConfig.AD_ID);
+                if (aAG == 1) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewAdTbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3, queryParameter)));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));
+                }
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -97,7 +105,7 @@ public class e {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00b3 -> B:33:0x001c). Please submit an issue!!! */
     public static void cl(Context context) {
         CookieManager cookieManager;
-        a.b mj = com.baidu.tbadk.core.a.a.acf().mj(TbadkCoreApplication.getCurrentBduss());
+        a.b ml = com.baidu.tbadk.core.a.a.acj().ml(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -106,7 +114,7 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (mj != null) {
+            if (ml != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -141,7 +149,7 @@ public class e {
         }
     }
 
-    private static void aaW() {
+    private static void aba() {
         new ag("open_webview", true).start();
     }
 }

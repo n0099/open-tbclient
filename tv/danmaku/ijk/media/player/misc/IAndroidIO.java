@@ -1,13 +1,14 @@
 package tv.danmaku.ijk.media.player.misc;
 
-import java.io.IOException;
-/* loaded from: classes3.dex */
+import com.baidu.media.duplayer.Keep;
+@Keep
+/* loaded from: classes.dex */
 public interface IAndroidIO {
-    int close() throws IOException;
+    int close();
 
-    int open(String str) throws IOException;
+    int open(String str);
 
-    int read(byte[] bArr, int i) throws IOException;
+    int read(byte[] bArr, int i);
 
-    long seek(long j, int i) throws IOException;
+    long seek(long j, int i);
 }

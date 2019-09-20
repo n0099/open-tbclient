@@ -18,15 +18,15 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class CanvasView extends AbsCanvasView {
-    private List<a> anu;
-    private final DrawFilter anv;
-    private int anw;
-    private HashMap<String, Bitmap> anx;
-    private b any;
+    private List<a> anS;
+    private final DrawFilter anT;
+    private int anU;
+    private HashMap<String, Bitmap> anV;
+    private b anW;
 
     /* loaded from: classes2.dex */
     public interface b {
-        void xR();
+        void xV();
     }
 
     public CanvasView(Context context) {
@@ -39,35 +39,35 @@ public class CanvasView extends AbsCanvasView {
 
     public CanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.anu = new ArrayList();
-        this.anv = new PaintFlagsDrawFilter(0, 3);
-        this.anw = 0;
-        this.anx = new HashMap<>();
-        this.anw = getLayerType();
+        this.anS = new ArrayList();
+        this.anT = new PaintFlagsDrawFilter(0, 3);
+        this.anU = 0;
+        this.anV = new HashMap<>();
+        this.anU = getLayerType();
     }
 
     public void c(List<com.baidu.swan.apps.canvas.a.a.a> list, boolean z) {
-        if (list != null && !this.anu.contains(list)) {
+        if (list != null && !this.anS.contains(list)) {
             if (!z) {
-                this.anu.clear();
+                this.anS.clear();
             }
-            int size = this.anu.size();
+            int size = this.anS.size();
             boolean z2 = z && size > 0;
             a aVar = new a();
             if (z2) {
-                a aVar2 = this.anu.get(size - 1);
-                aVar.anA = aVar2.anA;
-                aVar.anh = aVar2.anh;
-                aVar.anh.addAll(list);
+                a aVar2 = this.anS.get(size - 1);
+                aVar.anY = aVar2.anY;
+                aVar.anF = aVar2.anF;
+                aVar.anF.addAll(list);
             } else {
-                aVar.anA = new com.baidu.swan.apps.canvas.a.a.b(this);
-                aVar.anh = list;
+                aVar.anY = new com.baidu.swan.apps.canvas.a.a.b(this);
+                aVar.anF = list;
             }
-            this.anu.add(aVar);
+            this.anS.add(aVar);
             ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.canvas.view.CanvasView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    CanvasView.this.yc();
+                    CanvasView.this.yg();
                 }
             });
         }
@@ -75,23 +75,23 @@ public class CanvasView extends AbsCanvasView {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return yb() || super.onTouchEvent(motionEvent);
+        return yf() || super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.anu.size() > 0) {
+        if (this.anS.size() > 0) {
             canvas.save();
-            canvas.setDrawFilter(this.anv);
-            for (a aVar : this.anu) {
-                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.anh;
-                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.anA;
+            canvas.setDrawFilter(this.anT);
+            for (a aVar : this.anS) {
+                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.anF;
+                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.anY;
                 bVar.init();
                 for (com.baidu.swan.apps.canvas.a.a.a aVar2 : list) {
                     aVar2.a(bVar, canvas);
                     if (aVar2 instanceof k) {
-                        ((k) aVar2).m(this.anx);
+                        ((k) aVar2).m(this.anV);
                     }
                 }
             }
@@ -100,22 +100,21 @@ public class CanvasView extends AbsCanvasView {
     }
 
     public com.baidu.swan.apps.canvas.a.a.b getCanvasContext() {
-        if (this.anu.size() > 0) {
-            return this.anu.get(this.anu.size() - 1).anA;
+        if (this.anS.size() > 0) {
+            return this.anS.get(this.anS.size() - 1).anY;
         }
         return null;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public Bitmap m15do(String str) {
+    public Bitmap dq(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.anx.get(str);
+        return this.anV.get(str);
     }
 
-    public synchronized void xK() {
-        this.anx.clear();
+    public synchronized void xO() {
+        this.anV.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -123,17 +122,17 @@ public class CanvasView extends AbsCanvasView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void yc() {
+    public void yg() {
         int i;
-        int i2 = this.anw;
-        if (this.anu.size() > 0) {
-            Iterator<a> it = this.anu.iterator();
+        int i2 = this.anU;
+        if (this.anS.size() > 0) {
+            Iterator<a> it = this.anS.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
                     break;
                 }
-                for (com.baidu.swan.apps.canvas.a.a.a aVar : it.next().anh) {
+                for (com.baidu.swan.apps.canvas.a.a.a aVar : it.next().anF) {
                     if ((aVar instanceof af) || (aVar instanceof f)) {
                         i2 = 1;
                         break;
@@ -154,14 +153,14 @@ public class CanvasView extends AbsCanvasView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        com.baidu.swan.apps.canvas.a.a.b anA;
-        List<com.baidu.swan.apps.canvas.a.a.a> anh;
+        List<com.baidu.swan.apps.canvas.a.a.a> anF;
+        com.baidu.swan.apps.canvas.a.a.b anY;
 
         private a() {
         }
     }
 
     public void setOnDrawCompleteLinstener(b bVar) {
-        this.any = bVar;
+        this.anW = bVar;
     }
 }

@@ -23,19 +23,11 @@ public interface f {
 
     boolean isDebug();
 
-    String wL();
-
-    boolean wM();
-
-    String wN();
-
-    String wO();
-
     String wP();
 
-    String wQ();
+    boolean wQ();
 
-    void wR();
+    String wR();
 
     String wS();
 
@@ -43,7 +35,7 @@ public interface f {
 
     String wU();
 
-    String wV();
+    void wV();
 
     String wW();
 
@@ -66,4 +58,12 @@ public interface f {
     String xf();
 
     String xg();
+
+    String xh();
+
+    String xi();
+
+    String xj();
+
+    String xk();
 }

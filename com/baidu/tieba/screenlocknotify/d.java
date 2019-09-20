@@ -8,11 +8,11 @@ public class d {
     public int followStatus;
     public String groupId;
     public String groupName;
-    public int iPS;
-    public String iPT = "";
-    public long iPU;
-    public boolean irv;
+    public int iSo;
+    public String iSp = "";
+    public long iSq;
     public boolean isAcceptNotify;
+    public boolean itu;
     public long lastTime;
     public long msgId;
     public int msgType;
@@ -36,7 +36,7 @@ public class d {
     }
 
     private static void e(d dVar) {
-        dVar.iPS = 0;
+        dVar.iSo = 0;
         dVar.msgType = 4;
         dVar.customGroupType = 4;
         dVar.lastTime = System.currentTimeMillis();

@@ -29,7 +29,7 @@ public class a {
     }
 
     public static void v(Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.client.a.Jr().e(300, bundle);
+        com.baidu.swan.apps.process.messaging.client.a.Jv().e(300, bundle);
     }
 
     public static void m(Message message) {
@@ -42,7 +42,7 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.b.b.a.b bVar = new com.baidu.swan.apps.process.b.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.i(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.b.b.b.a.Jo().a(bVar);
+        com.baidu.swan.apps.process.b.b.b.a.Js().a(bVar);
     }
 
     public static void n(Message message) {
@@ -83,6 +83,6 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.b.b.a.b bVar = new com.baidu.swan.apps.process.b.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.i(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.b.b.b.a.Jo().a(bVar);
+        com.baidu.swan.apps.process.b.b.b.a.Js().a(bVar);
     }
 }

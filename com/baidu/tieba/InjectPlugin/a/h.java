@@ -4,8 +4,8 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class h {
     public static b a(c cVar) {
-        if (cVar != null && (cVar.aAD() instanceof TbPageContext) && (((TbPageContext) cVar.aAD()).getPageActivity() instanceof b)) {
-            return (b) ((TbPageContext) cVar.aAD()).getPageActivity();
+        if (cVar != null && (cVar.aAR() instanceof TbPageContext) && (((TbPageContext) cVar.aAR()).getPageActivity() instanceof b)) {
+            return (b) ((TbPageContext) cVar.aAR()).getPageActivity();
         }
         return null;
     }

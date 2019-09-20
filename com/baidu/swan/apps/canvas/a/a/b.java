@@ -8,22 +8,22 @@ import com.baidu.swan.apps.canvas.view.CanvasView;
 import java.util.Stack;
 /* loaded from: classes2.dex */
 public class b implements Cloneable {
-    CanvasView ame;
-    ak amf;
-    private Stack<b> amb = new Stack<>();
+    CanvasView amC;
+    ak amD;
+    private Stack<b> amz = new Stack<>();
     Paint mFillPaint = new Paint();
     Paint mStrokePaint = new Paint();
     Paint Mi = new Paint();
-    TextPaint amc = new TextPaint();
+    TextPaint amA = new TextPaint();
     Path mPath = new Path();
-    boolean amd = false;
-    int amg = -1;
-    int amh = 0;
-    int ami = 0;
+    boolean amB = false;
+    int amE = -1;
+    int amF = 0;
+    int amG = 0;
     int mStrokeColor = ViewCompat.MEASURED_STATE_MASK;
 
     public b(CanvasView canvasView) {
-        this.ame = canvasView;
+        this.amC = canvasView;
         init();
     }
 
@@ -32,28 +32,28 @@ public class b implements Cloneable {
         bVar.mFillPaint = new Paint(this.mFillPaint);
         bVar.mStrokePaint = new Paint(this.mStrokePaint);
         bVar.Mi = new Paint(this.Mi);
-        bVar.amc = new TextPaint(this.amc);
+        bVar.amA = new TextPaint(this.amA);
         bVar.mPath = new Path(this.mPath);
-        bVar.amh = this.amh;
-        bVar.ami = this.ami;
+        bVar.amF = this.amF;
+        bVar.amG = this.amG;
         bVar.mStrokeColor = this.mStrokeColor;
-        this.amb.push(bVar);
+        this.amz.push(bVar);
     }
 
-    public void xS() {
-        if (!this.amb.empty()) {
-            b pop = this.amb.pop();
+    public void xW() {
+        if (!this.amz.empty()) {
+            b pop = this.amz.pop();
             this.mFillPaint = pop.mFillPaint;
             this.mStrokePaint = pop.mStrokePaint;
             this.Mi = pop.Mi;
-            this.amc = pop.amc;
+            this.amA = pop.amA;
             this.mPath = pop.mPath;
-            this.amd = pop.amd;
-            this.amb = pop.amb;
-            this.amf = pop.amf;
-            this.amg = pop.amg;
-            this.amh = pop.amh;
-            this.ami = pop.ami;
+            this.amB = pop.amB;
+            this.amz = pop.amz;
+            this.amD = pop.amD;
+            this.amE = pop.amE;
+            this.amF = pop.amF;
+            this.amG = pop.amG;
             this.mStrokeColor = pop.mStrokeColor;
         }
     }
@@ -61,21 +61,21 @@ public class b implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Paint paint) {
         if (paint != null) {
-            if (this.ame != null && this.amf != null && this.amf.amN != null && !this.amf.amN.xU()) {
-                paint.setShadowLayer(this.amf.and, this.amf.anb, this.amf.anc, this.amf.amN.getColor());
+            if (this.amC != null && this.amD != null && this.amD.anl != null && !this.amD.anl.xY()) {
+                paint.setShadowLayer(this.amD.anB, this.amD.anz, this.amD.anA, this.amD.anl.getColor());
             }
-            if (this.amg >= 0 && this.amg <= 255) {
-                paint.setAlpha(Math.min((paint.getAlpha() * this.amg) >> 8, 255));
+            if (this.amE >= 0 && this.amE <= 255) {
+                paint.setAlpha(Math.min((paint.getAlpha() * this.amE) >> 8, 255));
             }
         }
     }
 
-    public void bQ(int i) {
-        this.ami = i;
+    public void bR(int i) {
+        this.amG = i;
     }
 
-    public int xT() {
-        return this.ami;
+    public int xX() {
+        return this.amG;
     }
 
     public void init() {
@@ -84,10 +84,10 @@ public class b implements Cloneable {
         this.mFillPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.Mi.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.amc.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.amA.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setStrokeWidth(com.baidu.swan.apps.an.z.ad(1.0f));
         this.mStrokePaint.setAntiAlias(true);
-        this.amc.setAntiAlias(true);
+        this.amA.setAntiAlias(true);
         this.Mi.setAntiAlias(true);
         this.mPath.reset();
     }

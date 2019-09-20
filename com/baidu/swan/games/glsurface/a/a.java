@@ -4,10 +4,10 @@ import android.view.MotionEvent;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes2.dex */
 public final class a {
-    private com.baidu.swan.games.e.a bhC;
+    private com.baidu.swan.games.e.a bia;
 
     public void setV8Engine(com.baidu.swan.games.e.a aVar) {
-        this.bhC = aVar;
+        this.bia = aVar;
     }
 
     public void J(int i, int i2) {
@@ -19,16 +19,16 @@ public final class a {
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bhC != null) {
-            boolean a = b.a(this.bhC.RG());
-            boolean a2 = b.a(this.bhC.RH());
+        if (this.bia != null) {
+            boolean a = b.a(this.bia.RK());
+            boolean a2 = b.a(this.bia.RL());
             JSEvent jSEvent = null;
             if (a || a2) {
                 jSEvent = b.t(motionEvent);
             }
-            r0 = a ? this.bhC.dispatchEvent(jSEvent) : false;
-            if (a2 && this.bhC.isLoaded()) {
-                this.bhC.RH().dispatchEvent(jSEvent);
+            r0 = a ? this.bia.dispatchEvent(jSEvent) : false;
+            if (a2 && this.bia.isLoaded()) {
+                this.bia.RL().dispatchEvent(jSEvent);
             }
             b.cR(true);
         }

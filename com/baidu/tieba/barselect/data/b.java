@@ -21,7 +21,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cA(long j) {
+    public void cD(long j) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_CARD_INFO);
         httpMessage.addParam("fid", j);
         MessageManager.getInstance().sendMessage(httpMessage);

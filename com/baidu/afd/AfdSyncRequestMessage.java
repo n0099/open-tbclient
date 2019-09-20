@@ -8,6 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.appsearchlib.Info;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
@@ -31,15 +32,15 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam(Info.kBaiduPIDKey, "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.pc());
+        addParam("ft", gVar.pd());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.pe()));
-        addParam("fc", String.valueOf(gVar.pe()));
+        addParam("flr", String.valueOf(gVar.pf()));
+        addParam("fc", String.valueOf(gVar.pf()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.pf().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.pg().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();
@@ -48,7 +49,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
     private void addCommonParams() {
         addParam("mod", Build.MODEL);
         addParam("ver", TbConfig.getVersion());
-        addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+        addParam(DpStatConstants.KEY_CUID, TbadkCoreApplication.getInst().getCuid());
         addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         addParam("ov", Build.VERSION.RELEASE);
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());

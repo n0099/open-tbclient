@@ -20,29 +20,29 @@ import com.baidu.swan.games.k.a;
 import com.baidu.swan.games.k.c;
 /* loaded from: classes2.dex */
 public class a {
-    private EditText bmb;
-    private EditText bmc;
-    private RelativeLayout bmd;
-    private Button bme;
-    private a.InterfaceC0206a bmg;
-    private c bmh;
+    private EditText bmA;
+    private EditText bmB;
+    private RelativeLayout bmC;
+    private Button bmD;
+    private a.InterfaceC0215a bmF;
+    private c bmG;
     private RelativeLayout mRootView;
-    private boolean bmf = false;
-    private View.OnClickListener bmi = new View.OnClickListener() { // from class: com.baidu.swan.games.view.b.a.1
+    private boolean bmE = false;
+    private View.OnClickListener bmH = new View.OnClickListener() { // from class: com.baidu.swan.games.view.b.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.bmc != null && a.this.bmf) {
-                if (a.this.bmg != null) {
-                    a.this.bmg.jG(a.this.bmc.getText().toString());
+            if (a.this.bmB != null && a.this.bmE) {
+                if (a.this.bmF != null) {
+                    a.this.bmF.jI(a.this.bmB.getText().toString());
                 }
-                if (a.this.bmh != null && !a.this.bmh.bja && a.this.bmg != null) {
-                    a.this.bmg.Sx();
-                    a.this.ke("");
+                if (a.this.bmG != null && !a.this.bmG.bjy && a.this.bmF != null) {
+                    a.this.bmF.SB();
+                    a.this.kg("");
                 }
             }
         }
     };
-    private TextWatcher bmj = new TextWatcher() { // from class: com.baidu.swan.games.view.b.a.2
+    private TextWatcher bmI = new TextWatcher() { // from class: com.baidu.swan.games.view.b.a.2
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
@@ -53,33 +53,33 @@ public class a {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(final Editable editable) {
-            if (a.this.bmg != null) {
-                a.this.bmg.jF(editable.toString());
+            if (a.this.bmF != null) {
+                a.this.bmF.jH(editable.toString());
             }
-            a.this.bme.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
+            a.this.bmD.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (TextUtils.isEmpty(editable.toString())) {
-                        a.this.bme.setEnabled(false);
-                    } else if (!a.this.bme.isEnabled()) {
-                        a.this.bme.setEnabled(true);
+                        a.this.bmD.setEnabled(false);
+                    } else if (!a.this.bmD.isEnabled()) {
+                        a.this.bmD.setEnabled(true);
                     }
                 }
             });
         }
     };
-    private TextView.OnEditorActionListener bmk = new TextView.OnEditorActionListener() { // from class: com.baidu.swan.games.view.b.a.3
+    private TextView.OnEditorActionListener bmJ = new TextView.OnEditorActionListener() { // from class: com.baidu.swan.games.view.b.a.3
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            if (a.this.bmh == null || a.this.bmh.bjb != i || a.this.bmc == null || !a.this.bmf) {
+            if (a.this.bmG == null || a.this.bmG.bjz != i || a.this.bmB == null || !a.this.bmE) {
                 return false;
             }
-            if (a.this.bmg != null) {
-                a.this.bmg.jG(a.this.bmc.getText().toString());
+            if (a.this.bmF != null) {
+                a.this.bmF.jI(a.this.bmB.getText().toString());
             }
-            if (!a.this.bmh.bja && a.this.bmg != null) {
-                a.this.bmg.Sx();
-                a.this.ke("");
+            if (!a.this.bmG.bjy && a.this.bmF != null) {
+                a.this.bmF.SB();
+                a.this.kg("");
             }
             return true;
         }
@@ -87,17 +87,17 @@ public class a {
 
     public a(Context context) {
         this.mRootView = (RelativeLayout) LayoutInflater.from(context).inflate(a.g.aiapps_ai_games_input_view, (ViewGroup) null);
-        this.bmb = (EditText) this.mRootView.findViewById(a.f.ai_games_virtual_input_et);
-        this.bmd = (RelativeLayout) this.mRootView.findViewById(a.f.ai_games_real_input_container);
-        this.bmc = (EditText) this.mRootView.findViewById(a.f.ai_games_real_input_et);
-        this.bme = (Button) this.mRootView.findViewById(a.f.ai_games_input_send_btn);
-        this.bme.setOnClickListener(this.bmi);
-        this.bmc.addTextChangedListener(this.bmj);
-        this.bmc.setOnEditorActionListener(this.bmk);
-        this.bme.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.4
+        this.bmA = (EditText) this.mRootView.findViewById(a.f.ai_games_virtual_input_et);
+        this.bmC = (RelativeLayout) this.mRootView.findViewById(a.f.ai_games_real_input_container);
+        this.bmB = (EditText) this.mRootView.findViewById(a.f.ai_games_real_input_et);
+        this.bmD = (Button) this.mRootView.findViewById(a.f.ai_games_input_send_btn);
+        this.bmD.setOnClickListener(this.bmH);
+        this.bmB.addTextChangedListener(this.bmI);
+        this.bmB.setOnEditorActionListener(this.bmJ);
+        this.bmD.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.4
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bme.setEnabled(false);
+                a.this.bmD.setEnabled(false);
             }
         });
     }
@@ -106,68 +106,68 @@ public class a {
         return this.mRootView;
     }
 
-    public boolean TT() {
-        if (this.bmf) {
+    public boolean TX() {
+        if (this.bmE) {
             return false;
         }
-        this.bmb.setVisibility(0);
-        this.bmd.setVisibility(8);
-        this.bmb.setFocusableInTouchMode(true);
-        this.bmb.requestFocus();
-        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.bmb, 0);
+        this.bmA.setVisibility(0);
+        this.bmC.setVisibility(8);
+        this.bmA.setFocusableInTouchMode(true);
+        this.bmA.requestFocus();
+        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.bmA, 0);
         return true;
     }
 
-    public void fk(int i) {
-        this.bmd.setVisibility(0);
-        this.bmc.setFocusableInTouchMode(true);
-        this.bmc.requestFocus();
-        this.bmb.setVisibility(8);
-        this.bmf = true;
-        if (this.bmg != null) {
-            this.bmg.eZ(i);
+    public void fl(int i) {
+        this.bmC.setVisibility(0);
+        this.bmB.setFocusableInTouchMode(true);
+        this.bmB.requestFocus();
+        this.bmA.setVisibility(8);
+        this.bmE = true;
+        if (this.bmF != null) {
+            this.bmF.fa(i);
         }
     }
 
     public void hideKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method");
-        if (inputMethodManager.isActive() && this.bmc != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.bmc.getApplicationWindowToken(), 0);
-            this.bmf = false;
-            this.bmb.setVisibility(8);
-            this.bmd.setVisibility(8);
-            if (this.bmg != null && this.bmc != null) {
-                this.bmg.jH(this.bmc.getText().toString());
+        if (inputMethodManager.isActive() && this.bmB != null) {
+            inputMethodManager.hideSoftInputFromWindow(this.bmB.getApplicationWindowToken(), 0);
+            this.bmE = false;
+            this.bmA.setVisibility(8);
+            this.bmC.setVisibility(8);
+            if (this.bmF != null && this.bmB != null) {
+                this.bmF.jJ(this.bmB.getText().toString());
             }
         }
     }
 
-    public void a(a.InterfaceC0206a interfaceC0206a) {
-        this.bmg = interfaceC0206a;
+    public void a(a.InterfaceC0215a interfaceC0215a) {
+        this.bmF = interfaceC0215a;
     }
 
     public void a(final c cVar) {
-        this.bmh = cVar;
-        if (this.bmc != null && cVar != null) {
-            if (!TextUtils.isEmpty(cVar.biY)) {
-                this.bmc.setText(cVar.biY);
+        this.bmG = cVar;
+        if (this.bmB != null && cVar != null) {
+            if (!TextUtils.isEmpty(cVar.bjw)) {
+                this.bmB.setText(cVar.bjw);
                 if (cVar.maxLength > 0) {
-                    if (!TextUtils.isEmpty(cVar.biY) && cVar.biY.length() > cVar.maxLength) {
-                        cVar.maxLength = cVar.biY.length();
+                    if (!TextUtils.isEmpty(cVar.bjw) && cVar.bjw.length() > cVar.maxLength) {
+                        cVar.maxLength = cVar.bjw.length();
                     }
-                    this.bmc.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.maxLength)});
+                    this.bmB.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.maxLength)});
                 }
-                this.bmc.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.5
+                this.bmB.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.5
                     @Override // java.lang.Runnable
                     public void run() {
                         int length;
                         try {
-                            if (a.this.bmc.getText().length() <= cVar.biY.length()) {
-                                length = a.this.bmc.getText().length();
+                            if (a.this.bmB.getText().length() <= cVar.bjw.length()) {
+                                length = a.this.bmB.getText().length();
                             } else {
-                                length = cVar.biY.length();
+                                length = cVar.bjw.length();
                             }
-                            a.this.bmc.setSelection(length);
+                            a.this.bmB.setSelection(length);
                         } catch (Exception e) {
                             if (com.baidu.swan.apps.b.DEBUG) {
                                 e.printStackTrace();
@@ -176,35 +176,35 @@ public class a {
                     }
                 }, 300L);
             } else {
-                this.bmc.setText("");
+                this.bmB.setText("");
             }
-            this.bme.setEnabled(TextUtils.isEmpty(cVar.biY) ? false : true);
-            if (cVar.biZ) {
-                this.bmc.setMinLines(1);
-                this.bmc.setInputType(131073);
-                this.bme.setText(cVar.bjc);
+            this.bmD.setEnabled(TextUtils.isEmpty(cVar.bjw) ? false : true);
+            if (cVar.bjx) {
+                this.bmB.setMinLines(1);
+                this.bmB.setInputType(131073);
+                this.bmD.setText(cVar.bjA);
                 return;
             }
-            this.bmc.setMaxLines(1);
-            this.bmc.setInputType(1);
+            this.bmB.setMaxLines(1);
+            this.bmB.setInputType(1);
         }
     }
 
-    public boolean ke(final String str) {
-        if (!this.bmf || this.bmc == null) {
+    public boolean kg(final String str) {
+        if (!this.bmE || this.bmB == null) {
             return false;
         }
-        this.bmc.setText(str);
-        this.bmc.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.6
+        this.bmB.setText(str);
+        this.bmB.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.6
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bmc.setSelection(str.length());
+                a.this.bmB.setSelection(str.length());
             }
         }, 300L);
         return true;
     }
 
-    public boolean TU() {
-        return this.bmf;
+    public boolean TY() {
+        return this.bmE;
     }
 }

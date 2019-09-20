@@ -12,13 +12,13 @@ public class b {
             }
 
             @Override // com.facebook.imagepipeline.c.v
-            public void cHE() {
-                o.this.cHS();
+            public void cIs() {
+                o.this.cIG();
             }
 
             @Override // com.facebook.imagepipeline.c.v
-            public void cHF() {
-                o.this.cHR();
+            public void cIt() {
+                o.this.cIF();
             }
         });
     }

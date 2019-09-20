@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.bgmusic;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile SwanAppBgMusicPlayerImpl ddd;
+    private static volatile SwanAppBgMusicPlayerImpl deQ;
 
-    public static synchronized SwanAppBgMusicPlayerImpl aFi() {
+    public static synchronized SwanAppBgMusicPlayerImpl aFM() {
         SwanAppBgMusicPlayerImpl swanAppBgMusicPlayerImpl;
         synchronized (a.class) {
-            if (ddd == null) {
-                ddd = new SwanAppBgMusicPlayerImpl();
+            if (deQ == null) {
+                deQ = new SwanAppBgMusicPlayerImpl();
             }
-            swanAppBgMusicPlayerImpl = ddd;
+            swanAppBgMusicPlayerImpl = deQ;
         }
         return swanAppBgMusicPlayerImpl;
     }

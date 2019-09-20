@@ -4,14 +4,14 @@ import android.net.Uri;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d implements b {
-    final List<b> jZd;
+    final List<b> kbA;
 
-    public List<b> cEn() {
-        return this.jZd;
+    public List<b> cFb() {
+        return this.kbA;
     }
 
     public String toString() {
-        return "MultiCacheKey:" + this.jZd.toString();
+        return "MultiCacheKey:" + this.kbA.toString();
     }
 
     public boolean equals(Object obj) {
@@ -19,19 +19,19 @@ public class d implements b {
             return true;
         }
         if (obj instanceof d) {
-            return this.jZd.equals(((d) obj).jZd);
+            return this.kbA.equals(((d) obj).kbA);
         }
         return false;
     }
 
     public int hashCode() {
-        return this.jZd.hashCode();
+        return this.kbA.hashCode();
     }
 
     @Override // com.facebook.cache.common.b
     public boolean x(Uri uri) {
-        for (int i = 0; i < this.jZd.size(); i++) {
-            if (this.jZd.get(i).x(uri)) {
+        for (int i = 0; i < this.kbA.size(); i++) {
+            if (this.kbA.get(i).x(uri)) {
                 return true;
             }
         }
@@ -39,7 +39,7 @@ public class d implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String cEm() {
-        return this.jZd.get(0).cEm();
+    public String cFa() {
+        return this.kbA.get(0).cFa();
     }
 }

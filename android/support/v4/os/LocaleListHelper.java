@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.Size;
-import android.support.v7.widget.ActivityChooserView;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 import java.util.Collection;
@@ -265,7 +264,7 @@ final class LocaleListHelper {
                 return i;
             }
         }
-        return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        return Integer.MAX_VALUE;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x001f, code lost:

@@ -20,33 +20,33 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c {
-    private PopupWindow fTc;
-    private Runnable fTe = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.1
+    private PopupWindow fUT;
+    private Runnable fUV = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.mTabHost != null && c.this.fTc != null && c.this.fTc.getContentView() != null) {
+            if (c.this.mTabHost != null && c.this.fUT != null && c.this.fUT.getContentView() != null) {
                 FragmentTabWidget fragmentTabWidget = c.this.mTabHost.getFragmentTabWidget();
-                int af = l.af(c.this.jmx.getActivity());
-                int g = l.g(c.this.jmx.getActivity(), R.dimen.ds278);
-                c.this.fTc.getContentView().measure(0, 0);
-                g.showPopupWindowAsDropDown(c.this.fTc, fragmentTabWidget, (af - l.g(c.this.jmx.getActivity(), R.dimen.ds430)) / 2, -g);
-                com.baidu.tbadk.core.sharedPref.b.ahQ().putLong("home_tip", c.this.gmS);
-                e.iK().postDelayed(c.this.fTf, 5000L);
+                int af = l.af(c.this.joS.getActivity());
+                int g = l.g(c.this.joS.getActivity(), R.dimen.ds278);
+                c.this.fUT.getContentView().measure(0, 0);
+                g.showPopupWindowAsDropDown(c.this.fUT, fragmentTabWidget, (af - l.g(c.this.joS.getActivity(), R.dimen.ds430)) / 2, -g);
+                com.baidu.tbadk.core.sharedPref.b.ahU().putLong("home_tip", c.this.goJ);
+                e.iK().postDelayed(c.this.fUW, 5000L);
                 TiebaStatic.log(new an("c13016").P("obj_locate", 1));
             }
         }
     };
-    private Runnable fTf = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
+    private Runnable fUW = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
         @Override // java.lang.Runnable
         public void run() {
-            c.this.btl();
+            c.this.btZ();
         }
     };
-    private View.OnClickListener fTg = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
+    private View.OnClickListener fUX = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.btk();
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.jmx, 9, String.valueOf(0), "", null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
+            c.this.btY();
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.joS, 9, String.valueOf(0), "", null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
             if (!StringUtils.isNull(c.this.mTopicName)) {
                 writeActivityConfig.setTitle(c.this.mTopicName, true);
             }
@@ -54,52 +54,52 @@ public class c {
             TiebaStatic.log(new an("c13017").P("obj_locate", 1));
         }
     };
-    private long gmS;
-    private TextView guD;
-    private MainTabActivity jmx;
-    private View jmy;
-    private TextView jmz;
+    private long goJ;
+    private TextView gwu;
+    private MainTabActivity joS;
+    private View joT;
+    private TextView joU;
     private FragmentTabHost mTabHost;
     private String mTopicName;
 
     public c(MainTabActivity mainTabActivity) {
-        this.jmx = mainTabActivity;
-        this.mTabHost = (FragmentTabHost) this.jmx.findViewById(R.id.tab_host);
+        this.joS = mainTabActivity;
+        this.mTabHost = (FragmentTabHost) this.joS.findViewById(R.id.tab_host);
     }
 
-    public void j(String str, String str2, long j) {
-        if (com.baidu.tbadk.core.sharedPref.b.ahQ().getLong("home_tip", 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+    public void i(String str, String str2, long j) {
+        if (com.baidu.tbadk.core.sharedPref.b.ahU().getLong("home_tip", 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             this.mTopicName = str2;
-            this.gmS = j;
-            if (this.jmy == null) {
-                this.jmy = LayoutInflater.from(this.jmx.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
-                this.guD = (TextView) this.jmy.findViewById(R.id.tips);
-                this.jmz = (TextView) this.jmy.findViewById(R.id.tips_content);
-                this.jmy.setOnClickListener(this.fTg);
+            this.goJ = j;
+            if (this.joT == null) {
+                this.joT = LayoutInflater.from(this.joS.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+                this.gwu = (TextView) this.joT.findViewById(R.id.tips);
+                this.joU = (TextView) this.joT.findViewById(R.id.tips_content);
+                this.joT.setOnClickListener(this.fUX);
             }
-            this.guD.setText(aq.l(str, 24, "..."));
-            this.jmz.setText(R.string.topic_join);
-            if (this.fTc == null) {
-                this.fTc = new PopupWindow(this.jmy, -2, -2);
+            this.gwu.setText(aq.l(str, 24, "..."));
+            this.joU.setText(R.string.topic_join);
+            if (this.fUT == null) {
+                this.fUT = new PopupWindow(this.joT, -2, -2);
             } else {
-                btk();
+                btY();
             }
-            e.iK().removeCallbacks(this.fTe);
-            e.iK().postDelayed(this.fTe, 100L);
+            e.iK().removeCallbacks(this.fUV);
+            e.iK().postDelayed(this.fUV, 100L);
         }
     }
 
-    public void btk() {
-        e.iK().removeCallbacks(this.fTe);
-        e.iK().removeCallbacks(this.fTf);
-        btl();
+    public void btY() {
+        e.iK().removeCallbacks(this.fUV);
+        e.iK().removeCallbacks(this.fUW);
+        btZ();
     }
 
-    public void btl() {
-        g.a(this.fTc);
+    public void btZ() {
+        g.a(this.fUT);
     }
 
     public void onDestroy() {
-        btk();
+        btY();
     }
 }

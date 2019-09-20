@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class i {
-    private static int VN = 0;
+    private static int VM = 0;
 
     public static int cv(Context context) {
         return p(context, 0);
@@ -15,9 +15,9 @@ public class i {
         if (context == null) {
             return com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds200);
         }
-        if (VN <= 0) {
-            VN = (int) (com.baidu.adp.lib.util.l.ah(context) * 0.11d);
+        if (VM <= 0) {
+            VM = (int) (com.baidu.adp.lib.util.l.ah(context) * 0.11d);
         }
-        return VN;
+        return VM;
     }
 }

@@ -14,21 +14,21 @@ import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
 /* loaded from: classes.dex */
 public class b {
-    private static b cvu;
-    private UserData cvv;
+    private static b cwq;
+    private UserData cwr;
 
     private b() {
     }
 
-    public static b atq() {
-        if (cvu == null) {
+    public static b atC() {
+        if (cwq == null) {
             synchronized (b.class) {
-                if (cvu == null) {
-                    cvu = new b();
+                if (cwq == null) {
+                    cwq = new b();
                 }
             }
         }
-        return cvu;
+        return cwq;
     }
 
     public void registerTask() {
@@ -36,18 +36,18 @@ public class b {
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void atr() {
+    public void atD() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.b.c(currentAccountObj.getID(), 0L));
+            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.b.e(currentAccountObj.getID(), 0L));
         }
         getUserInfoRequstData.setScreenWidth(l.af(TbadkCoreApplication.getInst().getApp()));
         MessageManager.getInstance().sendMessage(getUserInfoRequstData);
     }
 
     public void a(UserData userData) {
-        this.cvv = userData;
+        this.cwr = userData;
         if (userData != null) {
             final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
@@ -79,8 +79,8 @@ public class b {
             }
             CloseAdData closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.ars());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.art());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.arE());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.arF());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
@@ -94,7 +94,7 @@ public class b {
         }
     }
 
-    public UserData ats() {
-        return this.cvv;
+    public UserData atE() {
+        return this.cwr;
     }
 }

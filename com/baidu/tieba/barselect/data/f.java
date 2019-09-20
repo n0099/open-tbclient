@@ -5,23 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
-    private BdUniqueId XE;
-    private e ewp;
-    private d ewq;
-    private List<d> ewr;
+    private BdUniqueId XD;
+    private e exZ;
+    private d eya;
+    private List<d> eyb;
     private long fid;
     private boolean hasMore;
 
-    public List<d> aYP() {
-        return this.ewr;
+    public List<d> aZt() {
+        return this.eyb;
     }
 
-    public d aYQ() {
-        return this.ewq;
+    public d aZu() {
+        return this.eya;
     }
 
-    public e aYR() {
-        return this.ewp;
+    public e aZv() {
+        return this.exZ;
     }
 
     public boolean getHasMore() {
@@ -33,19 +33,19 @@ public class f {
     }
 
     public BdUniqueId getUniqueId() {
-        return this.XE;
+        return this.XD;
     }
 
     public void L(ArrayList<d> arrayList) {
-        this.ewr = arrayList;
+        this.eyb = arrayList;
     }
 
     public void a(e eVar) {
-        this.ewp = eVar;
+        this.exZ = eVar;
     }
 
     public void a(d dVar) {
-        this.ewq = dVar;
+        this.eya = dVar;
     }
 
     public void setHasMore(boolean z) {
@@ -57,6 +57,6 @@ public class f {
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.XE = bdUniqueId;
+        this.XD = bdUniqueId;
     }
 }

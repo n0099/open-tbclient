@@ -10,8 +10,8 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class a {
     private boolean afr;
-    private c kmH;
-    private int kmI;
+    private c kpe;
+    private int kpf;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
 
@@ -27,9 +27,9 @@ public class a {
         }
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
-        this.kmI = -1;
+        this.kpf = -1;
         this.afr = false;
-        this.kmH = cVar;
+        this.kpe = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +64,7 @@ public class a {
         }
     }
 
-    public void cMc() throws Exception {
+    public void cMQ() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -77,12 +77,12 @@ public class a {
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.kmI = this.kmH.f(outputFormat);
-                    if (!this.kmH.start()) {
-                        synchronized (this.kmH) {
-                            while (!this.kmH.isStarted()) {
+                    this.kpf = this.kpe.f(outputFormat);
+                    if (!this.kpe.start()) {
+                        synchronized (this.kpe) {
+                            while (!this.kpe.isStarted()) {
                                 try {
-                                    this.kmH.wait(100L);
+                                    this.kpe.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -106,7 +106,7 @@ public class a {
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.kmH.c(this.kmI, byteBuffer, this.mBufferInfo);
+                        this.kpe.c(this.kpf, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -126,9 +126,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.kmH != null) {
-                this.kmH.stop();
-                this.kmH = null;
+            if (this.kpe != null) {
+                this.kpe.stop();
+                this.kpe = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

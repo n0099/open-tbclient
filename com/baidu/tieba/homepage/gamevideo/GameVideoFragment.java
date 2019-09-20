@@ -10,61 +10,61 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.w;
 import com.baidu.tieba.frs.ae;
 import com.baidu.tieba.homepage.gamevideo.b.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class GameVideoFragment extends BaseFragment implements ae {
-    private c gha;
+    private c giT;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.gha == null) {
-            this.gha = new c(getPageContext(), getUniqueId());
+        if (this.giT == null) {
+            this.giT = new c(getPageContext(), getUniqueId());
         }
-        this.gha.init();
+        this.giT.init();
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.gha == null || this.gha.getView() == null) {
+        if (this.giT == null || this.giT.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.gha.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.gha.getView().getParent()).removeView(this.gha.getView());
+        if (this.giT.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.giT.getView().getParent()).removeView(this.giT.getView());
         }
-        return this.gha.getView();
+        return this.giT.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.gha != null) {
-            this.gha.loadData();
+        if (this.giT != null) {
+            this.giT.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJk() {
-        if (this.gha != null) {
-            this.gha.aJk();
+    public void aJO() {
+        if (this.giT != null) {
+            this.giT.aJO();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJl() {
+    public void aJP() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJm() {
+    public void aJQ() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void setRecommendFrsNavigationAnimDispatcher(x xVar) {
+    public void setRecommendFrsNavigationAnimDispatcher(w wVar) {
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -72,15 +72,15 @@ public class GameVideoFragment extends BaseFragment implements ae {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void akN() {
+    public void akZ() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gha != null) {
-            this.gha.akN();
+        if (this.giT != null) {
+            this.giT.akZ();
         }
     }
 
@@ -94,24 +94,24 @@ public class GameVideoFragment extends BaseFragment implements ae {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.gha != null) {
-            this.gha.setPrimary(isPrimary());
+        if (this.giT != null) {
+            this.giT.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.gha != null) {
-            this.gha.onPause();
+        if (this.giT != null) {
+            this.giT.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gha != null) {
-            this.gha.onDestroy();
+        if (this.giT != null) {
+            this.giT.onDestroy();
         }
     }
 

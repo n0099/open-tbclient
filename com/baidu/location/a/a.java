@@ -7,7 +7,6 @@ import android.os.DeadObjectException;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
-import android.support.v7.widget.ActivityChooserView;
 import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
@@ -15,13 +14,14 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private ArrayList<C0042a> f;
+    private ArrayList<C0050a> f;
     private static a e = null;
     public static long c = 0;
     private boolean g = false;
@@ -38,14 +38,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0042a {
+    public class C0050a {
         public String a;
         public Messenger b;
         public LocationClientOption c = new LocationClientOption();
         public int d = 0;
         final /* synthetic */ a e;
 
-        public C0042a(a aVar, Message message) {
+        public C0050a(a aVar, Message message) {
             boolean z = false;
             this.e = aVar;
             this.a = null;
@@ -73,7 +73,7 @@ public class a {
             com.baidu.location.g.g.h = com.baidu.location.g.g.h || message.getData().getBoolean("isneedaptag", false);
             com.baidu.location.g.g.j = com.baidu.location.g.g.j || message.getData().getBoolean("isneedaptagd", false);
             com.baidu.location.g.g.R = message.getData().getFloat("autoNotifyLocSensitivity", 0.5f);
-            int i = message.getData().getInt("wifitimeout", ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            int i = message.getData().getInt("wifitimeout", Integer.MAX_VALUE);
             if (i < com.baidu.location.g.g.af) {
                 com.baidu.location.g.g.af = i;
             }
@@ -207,13 +207,13 @@ public class a {
         this.f = new ArrayList<>();
     }
 
-    private C0042a a(Messenger messenger) {
+    private C0050a a(Messenger messenger) {
         if (this.f == null) {
             return null;
         }
-        Iterator<C0042a> it = this.f.iterator();
+        Iterator<C0050a> it = this.f.iterator();
         while (it.hasNext()) {
-            C0042a next = it.next();
+            C0050a next = it.next();
             if (next.b.equals(messenger)) {
                 return next;
             }
@@ -228,16 +228,16 @@ public class a {
         return e;
     }
 
-    private void a(C0042a c0042a) {
-        if (c0042a == null) {
+    private void a(C0050a c0050a) {
+        if (c0050a == null) {
             return;
         }
-        if (a(c0042a.b) != null) {
-            c0042a.a(14);
+        if (a(c0050a.b) != null) {
+            c0050a.a(14);
             return;
         }
-        this.f.add(c0042a);
-        c0042a.a(13);
+        this.f.add(c0050a);
+        c0050a.a(13);
     }
 
     private void b(String str) {
@@ -245,7 +245,7 @@ public class a {
         intent.setPackage("com.baidu.baidulocationdemo");
         intent.putExtra("data", str);
         intent.putExtra("pack", com.baidu.location.g.b.d);
-        intent.putExtra("tag", WXLoginActivity.KEY_BASE_RESP_STATE);
+        intent.putExtra(AddressManageResult.KEY_TAG, WXLoginActivity.KEY_BASE_RESP_STATE);
         com.baidu.location.f.getServiceContext().sendBroadcast(intent);
     }
 
@@ -255,11 +255,11 @@ public class a {
     }
 
     private void f() {
-        Iterator<C0042a> it = this.f.iterator();
+        Iterator<C0050a> it = this.f.iterator();
         boolean z = false;
         boolean z2 = false;
         while (it.hasNext()) {
-            C0042a next = it.next();
+            C0050a next = it.next();
             if (next.c.openGps) {
                 z2 = true;
             }
@@ -273,10 +273,10 @@ public class a {
     }
 
     public void a(Bundle bundle, int i) {
-        Iterator<C0042a> it = this.f.iterator();
+        Iterator<C0050a> it = this.f.iterator();
         while (it.hasNext()) {
             try {
-                C0042a next = it.next();
+                C0050a next = it.next();
                 next.a(i, bundle);
                 if (next.d > 4) {
                     it.remove();
@@ -294,7 +294,7 @@ public class a {
         c = System.currentTimeMillis();
         this.a = true;
         com.baidu.location.e.f.a().b();
-        a(new C0042a(this, message));
+        a(new C0050a(this, message));
         e();
         if (this.k) {
             b(IntentConfig.START);
@@ -323,7 +323,7 @@ public class a {
     }
 
     public void b(Message message) {
-        C0042a a = a(message.replyTo);
+        C0050a a = a(message.replyTo);
         if (a != null) {
             this.f.remove(a);
         }
@@ -347,10 +347,10 @@ public class a {
             if (bDLocation.getLocType() == 61) {
                 bDLocation.setGpsAccuracyStatus(com.baidu.location.b.a.a().a(bDLocation));
             }
-            Iterator<C0042a> it = this.f.iterator();
+            Iterator<C0050a> it = this.f.iterator();
             while (it.hasNext()) {
                 try {
-                    C0042a next = it.next();
+                    C0050a next = it.next();
                     next.a(bDLocation);
                     if (next.d > 4) {
                         it.remove();
@@ -363,10 +363,10 @@ public class a {
                 this.i = new BDLocation();
                 this.i.setLocType(505);
             }
-            Iterator<C0042a> it2 = this.f.iterator();
+            Iterator<C0050a> it2 = this.f.iterator();
             while (it2.hasNext()) {
                 try {
-                    C0042a next2 = it2.next();
+                    C0050a next2 = it2.next();
                     next2.a(this.i);
                     if (next2.d > 4) {
                         it2.remove();
@@ -400,13 +400,13 @@ public class a {
         if (this.f.isEmpty()) {
             return "&prod=" + com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d;
         }
-        C0042a c0042a = this.f.get(0);
-        if (c0042a.c.prodName != null) {
-            stringBuffer.append(c0042a.c.prodName);
+        C0050a c0050a = this.f.get(0);
+        if (c0050a.c.prodName != null) {
+            stringBuffer.append(c0050a.c.prodName);
         }
-        if (c0042a.a != null) {
+        if (c0050a.a != null) {
             stringBuffer.append(":");
-            stringBuffer.append(c0042a.a);
+            stringBuffer.append(c0050a.a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -435,7 +435,7 @@ public class a {
 
     public boolean c(Message message) {
         boolean z = false;
-        C0042a a = a(message.replyTo);
+        C0050a a = a(message.replyTo);
         if (a != null) {
             int i = a.c.scanSpan;
             a.c.scanSpan = message.getData().getInt("scanSpan", a.c.scanSpan);
@@ -475,7 +475,7 @@ public class a {
             a.c.timeOut = message.getData().getInt("timeOut", a.c.timeOut);
             a.c.location_change_notify = message.getData().getBoolean("location_change_notify", a.c.location_change_notify);
             a.c.priority = message.getData().getInt("priority", a.c.priority);
-            int i2 = message.getData().getInt("wifitimeout", ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            int i2 = message.getData().getInt("wifitimeout", Integer.MAX_VALUE);
             if (i2 < com.baidu.location.g.g.af) {
                 com.baidu.location.g.g.af = i2;
             }
@@ -485,7 +485,7 @@ public class a {
     }
 
     public int d(Message message) {
-        C0042a a;
+        C0050a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.c == null) {
             return 1;
         }
@@ -493,7 +493,7 @@ public class a {
     }
 
     public void d() {
-        Iterator<C0042a> it = this.f.iterator();
+        Iterator<C0050a> it = this.f.iterator();
         while (it.hasNext()) {
             it.next().a();
         }

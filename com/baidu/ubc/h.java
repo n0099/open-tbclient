@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String bwk;
-    private String bwl;
-    private int bwm;
-    private String bwn;
-    private int bwo;
-    private int bwp;
-    private String bwq;
+    private String bwI;
+    private String bwJ;
+    private int bwK;
+    private String bwL;
+    private int bwM;
+    private int bwN;
+    private String bwO;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,42 +15,42 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.bwk = str2;
-        this.bwl = str3;
-        this.bwm = i;
+        this.bwI = str2;
+        this.bwJ = str3;
+        this.bwK = i;
         this.mType = str4;
-        this.bwn = str5;
+        this.bwL = str5;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String XG() {
-        return this.bwk;
+    public String XK() {
+        return this.bwI;
     }
 
-    public String XH() {
-        return this.bwl;
+    public String XL() {
+        return this.bwJ;
     }
 
     public int getTimeout() {
-        return this.bwm;
+        return this.bwK;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String XI() {
-        return this.bwn;
+    public String XM() {
+        return this.bwL;
     }
 
-    public int XJ() {
+    public int XN() {
         return this.mRate;
     }
 
-    public void fY(int i) {
+    public void fZ(int i) {
         this.mRate = i;
     }
 
@@ -62,27 +62,27 @@ class h {
         this.mCategory = str;
     }
 
-    public int XK() {
-        return this.bwo;
-    }
-
-    public void fZ(int i) {
-        this.bwo = i;
-    }
-
-    public int XL() {
-        return this.bwp;
+    public int XO() {
+        return this.bwM;
     }
 
     public void ga(int i) {
-        this.bwp = i;
+        this.bwM = i;
     }
 
-    public String XM() {
-        return this.bwq;
+    public int XP() {
+        return this.bwN;
     }
 
-    public void kU(String str) {
-        this.bwq = str;
+    public void gb(int i) {
+        this.bwN = i;
+    }
+
+    public String XQ() {
+        return this.bwO;
+    }
+
+    public void kW(String str) {
+        this.bwO = str;
     }
 }

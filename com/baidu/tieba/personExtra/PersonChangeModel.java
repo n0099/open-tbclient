@@ -4,19 +4,19 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes6.dex */
 public class PersonChangeModel extends BdBaseModel {
-    PersonChangeData ioX;
+    PersonChangeData iqW;
 
     public PersonChangeModel(PersonChangeData personChangeData) {
         super(null);
-        this.ioX = null;
-        this.ioX = personChangeData;
-        if (this.ioX == null) {
-            this.ioX = new PersonChangeData();
+        this.iqW = null;
+        this.iqW = personChangeData;
+        if (this.iqW == null) {
+            this.iqW = new PersonChangeData();
         }
     }
 
-    public PersonChangeData ccA() {
-        return this.ioX;
+    public PersonChangeData cdo() {
+        return this.iqW;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

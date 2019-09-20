@@ -28,7 +28,7 @@ public class b extends a implements f {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
             return false;
         }
-        SwanAppNetworkUtils.a(bVar.Mj().HN(), optString);
+        SwanAppNetworkUtils.a(bVar.Mn().HR(), optString);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }

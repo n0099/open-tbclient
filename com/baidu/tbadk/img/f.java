@@ -8,7 +8,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.i;
-import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.core.util.x;
@@ -20,14 +19,14 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private a cwS;
-    private Object cwT;
-    private e cwU;
+    private a cxO;
+    private Object cxP;
+    private e cxQ;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int cwR = 512000;
+    private int cxN = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -40,7 +39,7 @@ public class f {
         this.from = str;
     }
 
-    public void m(int i, int i2, int i3, int i4) {
+    public void p(int i, int i2, int i3, int i4) {
         this.bigWidth = i;
         this.bigHeight = i2;
         this.smallWidth = i3;
@@ -48,10 +47,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.cwS = aVar;
-        this.cwT = obj;
+        this.cxO = aVar;
+        this.cxP = obj;
         if (aVar != null) {
-            this.cwR = 10240;
+            this.cxN = 10240;
         }
     }
 
@@ -121,10 +120,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.cwU == null) {
-            this.cwU = new e();
+        if (this.cxQ == null) {
+            this.cxQ = new e();
         }
-        return f(this.cwU.c(imageFileInfo, z), z, z2);
+        return f(this.cxQ.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -135,45 +134,45 @@ public class f {
         return f(str, false, z);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [428=6, 429=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [433=6, 434=4] */
     /* JADX DEBUG: Multi-variable search result rejected for r4v8, resolved type: java.io.File */
-    /* JADX WARN: Code restructure failed: missing block: B:115:0x03bc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:118:0x03d4, code lost:
         r5 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:122:0x03cc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x03e4, code lost:
         r5 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:123:0x03cd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x03e5, code lost:
         r20.append("|startChunk=");
         r20.append(r8);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:125:0x03dc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:128:0x03f4, code lost:
         r6 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x03dd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:129:0x03f5, code lost:
         r13 = r4;
         r4 = null;
         r5 = r6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x043e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:142:0x0456, code lost:
         com.baidu.adp.lib.util.BdLog.e(r5.getMessage());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:140:0x0447, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:143:0x045f, code lost:
         r4 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:141:0x0448, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:144:0x0460, code lost:
         r5 = r13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:142:0x044b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x0463, code lost:
         r10 = com.baidu.tbadk.core.util.TbErrInfo.ERR_IMG_SEND;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:143:0x044f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:146:0x0467, code lost:
         r11 = r5.getMessage();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:156:0x0470, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:159:0x0488, code lost:
         r5 = r12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:178:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:181:?, code lost:
         return r4;
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x0184, code lost:
@@ -181,19 +180,19 @@ public class f {
         r20.append(r8);
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x019b, code lost:
-        if (r25.isCancelled != false) goto L108;
+        if (r25.isCancelled != false) goto L111;
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x019d, code lost:
         r20.append("|request cancelled.");
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x01a5, code lost:
-        if (r4 != null) goto L110;
+        if (r4 != null) goto L113;
      */
     /* JADX WARN: Code restructure failed: missing block: B:40:0x01a7, code lost:
         r10 = r4.error_code;
      */
     /* JADX WARN: Code restructure failed: missing block: B:41:0x01a9, code lost:
-        if (r4 != null) goto L112;
+        if (r4 != null) goto L115;
      */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x01ab, code lost:
         r11 = r4.error_msg;
@@ -205,28 +204,28 @@ public class f {
         com.baidu.adp.lib.g.a.b(r13);
         r25.mNetwork = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:89:0x0326, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:92:0x033e, code lost:
         r20.append("|startChunk=");
         r20.append(r8);
         r20.append("|picNull=");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:90:0x033b, code lost:
-        if (r12 != null) goto L85;
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x0353, code lost:
+        if (r12 != null) goto L88;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:91:0x033d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:94:0x0355, code lost:
         r5 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:92:0x033e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x0356, code lost:
         r20.append(r5);
         r20.append("|picErrNo=");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:93:0x034b, code lost:
-        if (r12 == null) goto L84;
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x0363, code lost:
+        if (r12 == null) goto L87;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:94:0x034d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x0365, code lost:
         r20.append(r12.error_code);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:95:0x0354, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:98:0x036c, code lost:
         r5 = r12;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -274,12 +273,12 @@ public class f {
                         ImageUploadResult imageUploadResult5 = new ImageUploadResult();
                         imageUploadResult5.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                         imageUploadResult5.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_not_exist);
-                        TiebaStatic.imgError(TbErrInfo.ERR_IMG_FILE, "file error: " + imageUploadResult5.error_msg, sb.toString());
+                        TiebaStatic.imgError(-1007, "file error: " + imageUploadResult5.error_msg, sb.toString());
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = h + this.cwR;
-                        long j2 = length % ((long) this.cwR) == 0 ? length / this.cwR : (length / this.cwR) + 1;
+                        String str2 = h + this.cxN;
+                        long j2 = length % ((long) this.cxN) == 0 ? length / this.cxN : (length / this.cxN) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -313,14 +312,14 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i3 < j2) {
-                                                    i4 = this.cwR;
+                                                    i4 = this.cxN;
                                                 } else if (i3 == j2) {
-                                                    i4 = (int) (length - (this.cwR * (j2 - 1)));
+                                                    i4 = (int) (length - (this.cxN * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i4) {
                                                     bArr2 = new byte[i4];
                                                 }
-                                                randomAccessFile2.seek(this.cwR * (i3 - 1));
+                                                randomAccessFile2.seek(this.cxN * (i3 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i4);
                                                 bArr = bArr2;
                                             }
@@ -351,22 +350,26 @@ public class f {
                                                 this.mNetwork.o("saveOrigin", "0");
                                             }
                                             if (z2) {
-                                                int acc = i.aca().acc();
-                                                if (acc != 0) {
-                                                    this.mNetwork.o("pic_water_type", String.valueOf(acc));
+                                                int acg = i.ace().acg();
+                                                if (acg != 0) {
+                                                    this.mNetwork.o("pic_water_type", String.valueOf(acg));
                                                 }
                                                 String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                                                if (!StringUtils.isNull(currentAccountName) && acc == 1) {
+                                                if (!StringUtils.isNull(currentAccountName) && acg == 1) {
                                                     this.mNetwork.o("user_name", currentAccountName);
                                                 }
-                                                String acd = i.aca().acd();
-                                                if (!StringUtils.isNull(acd) && acc == 2) {
-                                                    this.mNetwork.o("forum_name", acd);
+                                                String ach = i.ace().ach();
+                                                if (!StringUtils.isNull(ach) && acg == 2) {
+                                                    this.mNetwork.o("forum_name", ach);
                                                 }
                                             }
-                                            String ail = this.mNetwork.ail();
-                                            imageUploadResult3 = ImageUploadResult.parser(ail);
-                                            if (ail == null || imageUploadResult3 == null) {
+                                            String ach2 = i.ace().ach();
+                                            if (!StringUtils.isNull(ach2)) {
+                                                this.mNetwork.o("small_flow_fname", ach2);
+                                            }
+                                            String aip = this.mNetwork.aip();
+                                            imageUploadResult3 = ImageUploadResult.parser(aip);
+                                            if (aip == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {
@@ -376,9 +379,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
-                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.cwR) : j4;
-                                                    if (this.cwS != null) {
-                                                        this.cwS.a(str, this.cwT, j5, length);
+                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.cxN) : j4;
+                                                    if (this.cxO != null) {
+                                                        this.cxO.a(str, this.cxP, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;
@@ -431,13 +434,13 @@ public class f {
                     e = e5;
                     imageUploadResult = file;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e6) {
+                randomAccessFile = null;
+                e = e6;
+                imageUploadResult = null;
             }
-        } catch (Exception e6) {
-            randomAccessFile = null;
-            e = e6;
-            imageUploadResult = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 

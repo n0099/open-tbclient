@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends v.a {
-    public int cdS;
+    public int ceL;
     public View dividerLine;
-    public TextView eDc;
+    public TextView eEL;
 
     public c(View view) {
         super(view);
-        this.cdS = 3;
-        this.eDc = (TextView) view.findViewById(R.id.look_more_view);
+        this.ceL = 3;
+        this.eEL = (TextView) view.findViewById(R.id.look_more_view);
         this.dividerLine = view.findViewById(R.id.divider_line_above_more_god_replays);
-        am.j(this.eDc, R.color.cp_cont_f);
-        am.k(this.eDc, R.drawable.more_all);
+        am.j(this.eEL, R.color.cp_cont_f);
+        am.k(this.eEL, R.drawable.more_all);
         am.k(this.dividerLine, R.color.cp_bg_line_c);
     }
 }

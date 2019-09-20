@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.concern.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
 /* loaded from: classes4.dex */
@@ -19,9 +19,9 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            builder.last_req_unix = Long.valueOf(b.ahQ().getLong(b.getSharedPrefKeyWithAccount("concern_data_res_request_time"), 0L));
+            builder.last_req_unix = Long.valueOf(b.ahU().getLong(b.getSharedPrefKeyWithAccount("concern_data_res_request_time"), 0L));
             if (z) {
-                s.bindCommonParamsToProtobufData(builder, true);
+                r.bindCommonParamsToProtobufData(builder, true);
             }
             UserlikeReqIdl.Builder builder2 = new UserlikeReqIdl.Builder();
             builder2.data = builder.build(false);

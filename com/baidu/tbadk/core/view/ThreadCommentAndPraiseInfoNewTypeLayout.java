@@ -30,47 +30,18 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updatePraiseNum(bh bhVar) {
         super.updatePraiseNum(bhVar);
-        if (this.bWo != null && this.cbC) {
-            if (this.bWo.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bWo.getLayoutParams();
+        if (this.bXh != null && this.ccw) {
+            if (this.bXh.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bXh.getLayoutParams();
                 layoutParams.width = -2;
                 layoutParams.leftMargin = 0;
                 layoutParams.weight = 0.0f;
-                this.bWo.setLayoutParams(layoutParams);
+                this.bXh.setLayoutParams(layoutParams);
             }
-            ImageView imageView = this.bWo.bXk;
+            ImageView imageView = this.bXh.bYd;
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams2.leftMargin = this.cbe;
+            layoutParams2.leftMargin = this.cbX;
             imageView.setLayoutParams(layoutParams2);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void q(bh bhVar) {
-        super.q(bhVar);
-        if (this.cbl != null && this.cbG) {
-            this.cbl.setVisibility(0);
-            if (this.cbl.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cbl.getLayoutParams();
-                layoutParams.width = -2;
-                layoutParams.leftMargin = this.cbe;
-                layoutParams.weight = 0.0f;
-                this.cbl.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void p(bh bhVar) {
-        super.p(bhVar);
-        if (this.cbo != null && this.cbI && this.cbo.getLayoutParams() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cbo.getLayoutParams();
-            layoutParams.width = -2;
-            layoutParams.leftMargin = this.cbe;
-            layoutParams.weight = 0.0f;
-            this.cbo.setLayoutParams(layoutParams);
         }
     }
 
@@ -78,14 +49,43 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void r(bh bhVar) {
         super.r(bhVar);
-        if (this.cbv != null && this.cbJ) {
-            this.cbv.setVisibility(0);
-            if (this.cbv.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cbv.getLayoutParams();
+        if (this.cce != null && this.ccA) {
+            this.cce.setVisibility(0);
+            if (this.cce.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cce.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.cbe;
+                layoutParams.leftMargin = this.cbX;
                 layoutParams.weight = 0.0f;
-                this.cbv.setLayoutParams(layoutParams);
+                this.cce.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void q(bh bhVar) {
+        super.q(bhVar);
+        if (this.cch != null && this.ccC && this.cch.getLayoutParams() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cch.getLayoutParams();
+            layoutParams.width = -2;
+            layoutParams.leftMargin = this.cbX;
+            layoutParams.weight = 0.0f;
+            this.cch.setLayoutParams(layoutParams);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void s(bh bhVar) {
+        super.s(bhVar);
+        if (this.cco != null && this.ccD) {
+            this.cco.setVisibility(0);
+            if (this.cco.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cco.getLayoutParams();
+                layoutParams.width = -2;
+                layoutParams.leftMargin = this.cbX;
+                layoutParams.weight = 0.0f;
+                this.cco.setLayoutParams(layoutParams);
             }
         }
     }

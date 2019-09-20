@@ -13,14 +13,14 @@ import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes2.dex */
 public class t extends c<s> {
-    private final ExecutorService bav;
+    private final ExecutorService baT;
 
     public t() {
         this(Executors.newFixedThreadPool(3));
     }
 
     t(ExecutorService executorService) {
-        this.bav = executorService;
+        this.baT = executorService;
     }
 
     @Override // com.facebook.imagepipeline.producers.af
@@ -30,17 +30,17 @@ public class t extends c<s> {
 
     @Override // com.facebook.imagepipeline.producers.af
     public void a(final s sVar, final af.a aVar) {
-        final Future<?> submit = this.bav.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
+        final Future<?> submit = this.baT.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
             @Override // java.lang.Runnable
             public void run() {
                 t.this.b(sVar, aVar);
             }
         });
-        sVar.cLk().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
+        sVar.cLY().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cLd() {
+            public void cLR() {
                 if (submit.cancel(false)) {
-                    aVar.cEV();
+                    aVar.cFJ();
                 }
             }
         });
@@ -128,8 +128,8 @@ public class t extends c<s> {
     private HttpURLConnection b(Uri uri, int i) throws IOException {
         HttpURLConnection P = P(uri);
         int responseCode = P.getResponseCode();
-        if (!Ep(responseCode)) {
-            if (Eq(responseCode)) {
+        if (!Et(responseCode)) {
+            if (Eu(responseCode)) {
                 String headerField = P.getHeaderField("Location");
                 P.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
@@ -149,11 +149,11 @@ public class t extends c<s> {
         return (HttpURLConnection) new URL(uri.toString()).openConnection();
     }
 
-    private static boolean Ep(int i) {
+    private static boolean Et(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean Eq(int i) {
+    private static boolean Eu(int i) {
         switch (i) {
             case 300:
             case 301:

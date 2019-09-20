@@ -9,11 +9,11 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class AlbumCompressProgressView extends View {
-    private int amS;
-    private int bNN;
-    private Paint bNO;
-    private Paint bNP;
-    private RectF bNQ;
+    private int anq;
+    private int bOm;
+    private Paint bOn;
+    private Paint bOo;
+    private RectF bOp;
     private int mValue;
     private int mWidth;
 
@@ -44,24 +44,24 @@ public class AlbumCompressProgressView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.amS = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.bNN = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.bNO = new Paint();
-        this.bNO.setStrokeWidth(this.amS);
-        this.bNO.setColor(getResources().getColor(R.color.cp_bg_line_d));
-        this.bNO.setStyle(Paint.Style.STROKE);
-        this.bNO.setAntiAlias(true);
-        this.bNP = new Paint();
-        this.bNP.setStrokeWidth(this.bNN);
-        this.bNP.setColor(getResources().getColor(R.color.cp_btn_a));
-        this.bNP.setStyle(Paint.Style.STROKE);
-        this.bNP.setAntiAlias(true);
-        this.bNQ = new RectF(this.amS, this.amS, this.mWidth + this.amS, this.mWidth + this.amS);
+        this.anq = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.bOm = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.bOn = new Paint();
+        this.bOn.setStrokeWidth(this.anq);
+        this.bOn.setColor(getResources().getColor(R.color.cp_bg_line_d));
+        this.bOn.setStyle(Paint.Style.STROKE);
+        this.bOn.setAntiAlias(true);
+        this.bOo = new Paint();
+        this.bOo.setStrokeWidth(this.bOm);
+        this.bOo.setColor(getResources().getColor(R.color.cp_cont_a));
+        this.bOo.setStyle(Paint.Style.STROKE);
+        this.bOo.setAntiAlias(true);
+        this.bOp = new RectF(this.anq, this.anq, this.mWidth + this.anq, this.mWidth + this.anq);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.bNQ, 270.0f, 360.0f, false, this.bNP);
-        canvas.drawArc(this.bNQ, 270.0f, (this.mValue * 360) / 100, false, this.bNO);
+        canvas.drawArc(this.bOp, 270.0f, 360.0f, false, this.bOo);
+        canvas.drawArc(this.bOp, 270.0f, (this.mValue * 360) / 100, false, this.bOn);
     }
 }

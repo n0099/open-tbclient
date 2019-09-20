@@ -12,10 +12,10 @@ public class c implements Interceptor {
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
-        String iy = ac.iy(com.baidu.swan.apps.core.j.c.BQ().Cl());
-        if (TextUtils.isEmpty(iy)) {
-            iy = "";
+        String iA = ac.iA(com.baidu.swan.apps.core.j.c.BU().Cp());
+        if (TextUtils.isEmpty(iA)) {
+            iA = "";
         }
-        return chain.proceed(request.newBuilder().header(HTTP.USER_AGENT, iy).build());
+        return chain.proceed(request.newBuilder().header(HTTP.USER_AGENT, iA).build());
     }
 }

@@ -28,22 +28,22 @@ import com.baidu.swan.apps.res.widget.floatlayer.a;
 import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes2.dex */
-public class SwanAppActivity extends FragmentActivity implements ServiceConnection, ActivityResultDispatcherHolder, com.baidu.swan.apps.aj.f.c, a.InterfaceC0172a {
+public class SwanAppActivity extends FragmentActivity implements ServiceConnection, ActivityResultDispatcherHolder, com.baidu.swan.apps.aj.f.c, a.InterfaceC0181a {
     private static final boolean DEBUG = b.DEBUG;
-    private static final String akh = SwanAppActivity.class.getName();
-    private d aki;
-    private SwanAppLocalService akj;
-    private String akk = "sys";
-    private boolean akl = false;
+    private static final String akF = SwanAppActivity.class.getName();
+    private d akG;
+    private SwanAppLocalService akH;
+    private String akI = "sys";
+    private boolean akJ = false;
     private boolean mIsDestroyed;
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     @DebugTrace
     protected void onCreate(Bundle bundle) {
         Bundle bundle2;
-        overridePendingTransition(a.C0110a.aiapps_slide_in_from_right, a.C0110a.aiapps_hold);
+        overridePendingTransition(a.C0119a.aiapps_slide_in_from_right, a.C0119a.aiapps_hold);
         SwanAppProcessInfo.init(getProcessInfo());
-        this.akl = true;
+        this.akJ = true;
         super.onCreate(bundle);
         if (!n.R(this)) {
             Intent intent = getIntent();
@@ -67,11 +67,11 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
             com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onCreate");
             setContentView(a.g.aiapps_activity);
             z(intent);
-            this.aki.onCreate(bundle);
+            this.akG.onCreate(bundle);
             j.a(new Runnable() { // from class: com.baidu.swan.apps.SwanAppActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.u.a.Ew().wR();
+                    com.baidu.swan.apps.u.a.EA().wV();
                 }
             }, "initMobStat");
         }
@@ -80,7 +80,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
     private boolean x(Intent intent) {
         if (intent != null) {
             ComponentName component = intent.getComponent();
-            return (component == null || component.getClassName().startsWith(akh)) ? false : true;
+            return (component == null || component.getClassName().startsWith(akF)) ? false : true;
         }
         return true;
     }
@@ -111,7 +111,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
     @Override // android.app.Activity
     protected void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        this.aki.onPostCreate(bundle);
+        this.akG.onPostCreate(bundle);
     }
 
     @Override // android.content.ServiceConnection
@@ -120,7 +120,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
             Log.i("SwanAppActivity", "onServiceConnected: " + componentName);
         }
         if (iBinder instanceof SwanAppLocalService.a) {
-            this.akj = ((SwanAppLocalService.a) iBinder).Jq();
+            this.akH = ((SwanAppLocalService.a) iBinder).Ju();
         }
     }
 
@@ -129,39 +129,39 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
         if (DEBUG) {
             Log.i("SwanAppActivity", "onServiceDisconnected: " + componentName);
         }
-        this.akj = null;
+        this.akH = null;
     }
 
-    public int vD() {
-        return this.aki.vD();
+    public int vH() {
+        return this.akG.vH();
     }
 
-    public d vE() {
-        return this.aki;
+    public d vI() {
+        return this.akG;
     }
 
     private void z(Intent intent) {
-        this.aki = e.b(this, e.E(intent));
+        this.akG = e.b(this, e.E(intent));
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     protected void onNewIntent(Intent intent) {
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onNewIntent");
         setIntent(intent);
-        overridePendingTransition(a.C0110a.aiapps_slide_in_from_right, a.C0110a.aiapps_hold);
+        overridePendingTransition(a.C0119a.aiapps_slide_in_from_right, a.C0119a.aiapps_hold);
         if (DEBUG) {
             Log.i("SwanAppActivity", "onNewIntent:REORDER_TO_FRONT = " + ((intent.getFlags() & 131072) == 131072));
         }
-        this.akl = true;
-        if (vD() != e.E(intent)) {
-            vJ().Av().B(0, 0).AB().AD();
-            this.aki.onDestroy();
+        this.akJ = true;
+        if (vH() != e.E(intent)) {
+            vN().Az().B(0, 0).AF().AH();
+            this.akG.onDestroy();
             z(intent);
-            this.aki.onCreate(null);
+            this.akG.onCreate(null);
         } else {
-            this.aki.onNewIntent(intent);
+            this.akG.onNewIntent(intent);
         }
-        ab.PH();
+        ab.PL();
     }
 
     public void A(Intent intent) {
@@ -170,7 +170,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.aki.onKeyDown(i, keyEvent)) {
+        if (this.akG.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -179,72 +179,72 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder
     @NonNull
     public ActivityResultDispatcher getResultDispatcher() {
-        return this.aki.getResultDispatcher();
+        return this.akG.getResultDispatcher();
     }
 
-    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0172a
+    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0181a
     @NonNull
-    public com.baidu.swan.apps.res.widget.floatlayer.a vF() {
-        return this.aki.vF();
+    public com.baidu.swan.apps.res.widget.floatlayer.a vJ() {
+        return this.akG.vJ();
     }
 
-    public com.baidu.swan.apps.view.b vG() {
-        return this.aki.vG();
+    public com.baidu.swan.apps.view.b vK() {
+        return this.akG.vK();
     }
 
-    public void vH() {
-        if (this.akl) {
-            this.akk = "schema";
+    public void vL() {
+        if (this.akJ) {
+            this.akI = "schema";
         } else {
-            this.akk = "user";
+            this.akI = "user";
         }
     }
 
-    public String vI() {
-        return this.akk;
+    public String vM() {
+        return this.akI;
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     protected void onStart() {
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onStart");
-        if (com.baidu.swan.apps.u.a.En().wj()) {
-            vH();
-            com.baidu.swan.apps.w.e.GF().xh();
+        if (com.baidu.swan.apps.u.a.Er().wn()) {
+            vL();
+            com.baidu.swan.apps.w.e.GJ().xl();
         }
         super.onStart();
-        this.aki.onStart();
+        this.akG.onStart();
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     protected void onResume() {
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onResume");
-        if (!com.baidu.swan.apps.u.a.En().wj()) {
-            vH();
-            com.baidu.swan.apps.w.e.GF().xh();
+        if (!com.baidu.swan.apps.u.a.Er().wn()) {
+            vL();
+            com.baidu.swan.apps.w.e.GJ().xl();
         }
         super.onResume();
-        this.aki.onResume();
+        this.akG.onResume();
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     protected void onPause() {
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onPause");
-        this.aki.onPause();
+        this.akG.onPause();
         super.onPause();
-        if (!com.baidu.swan.apps.u.a.En().wj()) {
-            com.baidu.swan.apps.w.e.GF().xi();
-            this.akl = false;
+        if (!com.baidu.swan.apps.u.a.Er().wn()) {
+            com.baidu.swan.apps.w.e.GJ().xm();
+            this.akJ = false;
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     protected void onStop() {
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onStop");
-        this.aki.onStop();
+        this.akG.onStop();
         super.onStop();
-        if (com.baidu.swan.apps.u.a.En().wj()) {
-            com.baidu.swan.apps.w.e.GF().xi();
-            this.akl = false;
+        if (com.baidu.swan.apps.u.a.Er().wn()) {
+            com.baidu.swan.apps.w.e.GJ().xm();
+            this.akJ = false;
         }
     }
 
@@ -252,23 +252,23 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
     protected void onActivityResult(int i, int i2, Intent intent) {
         if (!getResultDispatcher().notifyActivityResult(i, i2, intent)) {
             super.onActivityResult(i, i2, intent);
-            com.baidu.swan.apps.b.c.a.a.xz().xA().xy().a(this, i, i2, intent);
+            com.baidu.swan.apps.b.c.a.a.xD().xE().xC().a(this, i, i2, intent);
         }
     }
 
-    public com.baidu.swan.apps.core.d.e vJ() {
-        return this.aki.vJ();
+    public com.baidu.swan.apps.core.d.e vN() {
+        return this.akG.vN();
     }
 
     @Override // android.app.Activity
     public void finish() {
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity finish");
-        if (this.aki == null || !this.aki.uE()) {
+        if (this.akG == null || !this.akG.uI()) {
             super.finish();
         }
     }
 
-    public void vK() {
+    public void vO() {
         finish();
         destroy();
     }
@@ -280,15 +280,15 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
         }
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onDestroy");
         destroy();
-        if (this.akj != null) {
+        if (this.akH != null) {
             unbindService(this);
         }
         super.onDestroy();
     }
 
     private void destroy() {
-        if (!this.mIsDestroyed && this.aki != null) {
-            this.aki.onDestroy();
+        if (!this.mIsDestroyed && this.akG != null) {
+            this.akG.onDestroy();
             this.mIsDestroyed = true;
             com.baidu.swan.apps.textarea.a.release();
         }
@@ -300,7 +300,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
             Log.d("SwanAppActivity", "onBackPressed back stack count: " + getFragmentManager().getBackStackEntryCount());
         }
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onBackPressed");
-        this.aki.onBackPressed();
+        this.akG.onBackPressed();
     }
 
     @Override // android.app.Activity
@@ -314,7 +314,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
             e = e2;
         }
         try {
-            overridePendingTransition(0, a.C0110a.aiapps_slide_out_to_right_zadjustment_top);
+            overridePendingTransition(0, a.C0119a.aiapps_slide_out_to_right_zadjustment_top);
         } catch (Exception e3) {
             e = e3;
             if (DEBUG) {
@@ -329,74 +329,74 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
         return SwanAppProcessInfo.P0;
     }
 
-    public com.baidu.swan.apps.v.b.b vL() {
-        return this.aki.vL();
+    public com.baidu.swan.apps.v.b.b vP() {
+        return this.akG.vP();
     }
 
     public final void a(f fVar) {
-        this.aki.a(fVar);
+        this.akG.a(fVar);
     }
 
     public void k(Bundle bundle) {
         com.baidu.swan.apps.process.messaging.service.c.b(this, bundle);
     }
 
-    public void a(int i, @NonNull String[] strArr, a.InterfaceC0111a interfaceC0111a) {
-        this.aki.a(i, strArr, interfaceC0111a);
+    public void a(int i, @NonNull String[] strArr, a.InterfaceC0120a interfaceC0120a) {
+        this.akG.a(i, strArr, interfaceC0120a);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0229a
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0238a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (!this.aki.b(i, strArr, iArr)) {
+        if (!this.akG.b(i, strArr, iArr)) {
             super.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
     public void showLoadingView() {
-        this.aki.showLoadingView();
+        this.akG.showLoadingView();
     }
 
-    public void vM() {
-        this.aki.vM();
+    public void vQ() {
+        this.akG.vQ();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
     public void onTrimMemory(int i) {
         super.onTrimMemory(i);
-        this.aki.onTrimMemory(i);
+        this.akG.onTrimMemory(i);
     }
 
     @Override // com.baidu.swan.apps.aj.f.c
     @NonNull
-    public com.baidu.swan.apps.aj.f.b vN() {
-        return this.aki.vN();
+    public com.baidu.swan.apps.aj.f.b vR() {
+        return this.akG.vR();
     }
 
     public void aQ(boolean z) {
-        this.aki.aQ(z);
+        this.akG.aQ(z);
     }
 
     public boolean isLandScape() {
-        return this.aki.isLandScape();
+        return this.akG.isLandScape();
     }
 
     public void a(com.baidu.swan.apps.o.b bVar) {
-        this.aki.a(bVar);
+        this.akG.a(bVar);
     }
 
     public void b(com.baidu.swan.apps.o.b bVar) {
-        this.aki.b(bVar);
+        this.akG.b(bVar);
     }
 
-    public boolean vO() {
-        return this.aki.vO();
+    public boolean vS() {
+        return this.akG.vS();
     }
 
     @UiThread
-    public void bK(int i) {
+    public void bL(int i) {
         if (DEBUG) {
             Log.i("SwanAppActivity", "handleSwanAppExit:" + i + ", pid:" + Process.myPid());
         }
-        com.baidu.swan.apps.u.a.EM().a(this, i, vL());
+        com.baidu.swan.apps.u.a.EQ().a(this, i, vP());
     }
 }

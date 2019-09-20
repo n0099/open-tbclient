@@ -13,13 +13,13 @@ import com.baidu.swan.menu.viewpager.SwanAppMenuSlidableGridView;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MainMenuView extends BaseMenuView {
-    private List<j> aPr;
-    private SwanAppMenuSlidableGridView bqH;
-    private i bqI;
-    private int bqJ;
-    private boolean bqK;
-    private SwanAppMenuMode bqL;
-    private View bqM;
+    private List<j> aPP;
+    private SwanAppMenuSlidableGridView brf;
+    private i brg;
+    private int brh;
+    private boolean bri;
+    private SwanAppMenuMode brj;
+    private View brk;
 
     public MainMenuView(@NonNull Context context) {
         this(context, null);
@@ -31,61 +31,61 @@ public class MainMenuView extends BaseMenuView {
 
     public MainMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
-        this.bqK = false;
+        this.bri = false;
         LinearLayout linearLayout = new LinearLayout(context, attributeSet, i);
         linearLayout.setOrientation(1);
         new LinearLayout.LayoutParams(-1, -2);
-        this.bqH = new SwanAppMenuSlidableGridView(context, attributeSet, i);
+        this.brf = new SwanAppMenuSlidableGridView(context, attributeSet, i);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.bqH.setPadding(0, (int) this.mContext.getResources().getDimension(f.b.aiapp_menu_gridview_padding_top), 0, 0);
-        linearLayout.addView(this.bqH, layoutParams);
+        this.brf.setPadding(0, (int) this.mContext.getResources().getDimension(f.b.aiapp_menu_gridview_padding_top), 0, 0);
+        linearLayout.addView(this.brf, layoutParams);
         a(linearLayout, new FrameLayout.LayoutParams(-1, -2));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean VD() {
-        return this.aPr != null && this.aPr.size() > 0 && this.aPr.size() > 4;
+    public boolean VH() {
+        return this.aPP != null && this.aPP.size() > 0 && this.aPP.size() > 4;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.menu.BaseMenuView
     public void setMode(SwanAppMenuMode swanAppMenuMode) {
-        this.bqL = swanAppMenuMode;
-        this.bqH.setMode(swanAppMenuMode);
+        this.brj = swanAppMenuMode;
+        this.brf.setMode(swanAppMenuMode);
         super.setMode(swanAppMenuMode);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        this.bqH.setCurrentPage(0);
+        this.brf.setCurrentPage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMenuStyle(int i) {
-        this.bqJ = i;
+        this.brh = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(List<j> list) {
-        this.aPr = list;
-        this.bqH.setGridViewPading(0, 0, 0, 0);
-        this.bqH.setIndicatorColor(f.c.menu_indicator_normal, f.c.menu_indicator_selected);
-        this.bqH.setBackground(null);
-        if (this.bqI == null) {
-            this.bqI = new i(this.mContext);
-            this.bqH.setGridItemAdapter(this.bqI);
+        this.aPP = list;
+        this.brf.setGridViewPading(0, 0, 0, 0);
+        this.brf.setIndicatorColor(f.c.menu_indicator_normal, f.c.menu_indicator_selected);
+        this.brf.setBackground(null);
+        if (this.brg == null) {
+            this.brg = new i(this.mContext);
+            this.brf.setGridItemAdapter(this.brg);
         }
-        this.bqI.setMenuStyle(this.bqJ);
-        this.bqI.dj(this.bqK);
-        this.bqI.setData(list);
-        this.bqI.VX();
-        this.aPr = list;
+        this.brg.setMenuStyle(this.brh);
+        this.brg.dj(this.bri);
+        this.brg.setData(list);
+        this.brg.Wb();
+        this.aPP = list;
     }
 
     public void setDismissCallback(a aVar) {
     }
 
-    public void VE() {
+    public void VI() {
     }
 
     public void setStatisticSource(String str) {
@@ -96,10 +96,10 @@ public class MainMenuView extends BaseMenuView {
 
     @Nullable
     public View getCoverView() {
-        return this.bqM;
+        return this.brk;
     }
 
     public void setCoverView(View view) {
-        this.bqM = view;
+        this.brk = view;
     }
 }

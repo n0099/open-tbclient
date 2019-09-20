@@ -4,128 +4,128 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class a {
-    private int cqQ;
-    private int cqT;
-    private int iQp;
-    private int iQq;
-    private boolean iQr;
-    private int iQs;
-    private SimpleUser iQt;
-    private int iQu;
+    private int crL;
+    private int crO;
+    private int iSL;
+    private int iSM;
+    private boolean iSN;
+    private int iSO;
+    private SimpleUser iSP;
+    private int iSQ;
 
-    public boolean cjF() {
-        com.baidu.tbadk.core.sharedPref.b ahQ = com.baidu.tbadk.core.sharedPref.b.ahQ();
+    public boolean ckr() {
+        com.baidu.tbadk.core.sharedPref.b ahU = com.baidu.tbadk.core.sharedPref.b.ahU();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.iQp = ahQ.getInt("post" + currentAccount, 0);
-        this.iQq = ahQ.getInt("like" + currentAccount, 0);
-        this.cqQ = ahQ.getInt("group" + currentAccount, 0);
-        this.cqT = ahQ.getInt("live" + currentAccount, 0);
-        this.iQs = ahQ.getInt("reply" + currentAccount, 1);
-        this.iQr = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.iQp == 0 && this.iQq == 0 && this.cqQ == 0 && this.cqT == 0 && this.iQs == 1) ? false : true;
+        this.iSL = ahU.getInt("post" + currentAccount, 0);
+        this.iSM = ahU.getInt("like" + currentAccount, 0);
+        this.crL = ahU.getInt("group" + currentAccount, 0);
+        this.crO = ahU.getInt("live" + currentAccount, 0);
+        this.iSO = ahU.getInt("reply" + currentAccount, 1);
+        this.iSN = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.iSL == 0 && this.iSM == 0 && this.crL == 0 && this.crO == 0 && this.iSO == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.iQp = aVar.iQp;
-            this.iQq = aVar.iQq;
-            this.cqQ = aVar.cqQ;
-            this.iQr = aVar.iQr;
-            this.cqT = aVar.cqT;
-            this.iQu = aVar.iQu;
-            this.iQs = aVar.iQs;
+            this.iSL = aVar.iSL;
+            this.iSM = aVar.iSM;
+            this.crL = aVar.crL;
+            this.iSN = aVar.iSN;
+            this.crO = aVar.crO;
+            this.iSQ = aVar.iSQ;
+            this.iSO = aVar.iSO;
         }
     }
 
-    public int cjG() {
-        return this.iQp;
+    public int cks() {
+        return this.iSL;
     }
 
-    public void bk(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.ahQ().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
+    public void bm(String str, int i) {
+        com.baidu.tbadk.core.sharedPref.b.ahU().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void cjH() {
+    public void ckt() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        com.baidu.tbadk.core.sharedPref.b ahQ = com.baidu.tbadk.core.sharedPref.b.ahQ();
-        ahQ.putInt("post" + currentAccount, this.iQp);
-        ahQ.putInt("like" + currentAccount, this.iQq);
-        ahQ.putInt("group" + currentAccount, this.cqQ);
-        ahQ.putInt("live" + currentAccount, this.cqT);
-        ahQ.putInt("reply" + currentAccount, this.iQs);
-        TbadkCoreApplication.getInst().setLocationShared(this.iQr);
-    }
-
-    public void zZ(int i) {
-        this.iQp = i;
-    }
-
-    public int cjI() {
-        return this.iQq;
-    }
-
-    public void Aa(int i) {
-        if (i <= 3 && i >= 1) {
-            this.iQq = i;
-        }
-    }
-
-    public int arz() {
-        return this.cqT;
-    }
-
-    public void Ab(int i) {
-        if (i <= 3 && i >= 1) {
-            this.cqT = i;
-        }
-    }
-
-    public int cjJ() {
-        return this.cqQ;
+        com.baidu.tbadk.core.sharedPref.b ahU = com.baidu.tbadk.core.sharedPref.b.ahU();
+        ahU.putInt("post" + currentAccount, this.iSL);
+        ahU.putInt("like" + currentAccount, this.iSM);
+        ahU.putInt("group" + currentAccount, this.crL);
+        ahU.putInt("live" + currentAccount, this.crO);
+        ahU.putInt("reply" + currentAccount, this.iSO);
+        TbadkCoreApplication.getInst().setLocationShared(this.iSN);
     }
 
     public void Ac(int i) {
-        if (i <= 3 && i >= 1) {
-            this.cqQ = i;
-        }
+        this.iSL = i;
     }
 
-    public boolean cjK() {
-        return this.iQr;
+    public int cku() {
+        return this.iSM;
     }
 
     public void Ad(int i) {
-        switch (i) {
-            case 1:
-                this.iQr = true;
-                return;
-            default:
-                this.iQr = false;
-                return;
+        if (i <= 3 && i >= 1) {
+            this.iSM = i;
         }
     }
 
-    public SimpleUser aCZ() {
-        return this.iQt;
-    }
-
-    public void b(SimpleUser simpleUser) {
-        this.iQt = simpleUser;
+    public int arL() {
+        return this.crO;
     }
 
     public void Ae(int i) {
-        this.iQu = i;
-    }
-
-    public void Af(int i) {
-        if (i == 0) {
-            this.iQs = 1;
-        } else {
-            this.iQs = i;
+        if (i <= 3 && i >= 1) {
+            this.crO = i;
         }
     }
 
-    public int cjL() {
-        return this.iQs;
+    public int ckv() {
+        return this.crL;
+    }
+
+    public void Af(int i) {
+        if (i <= 3 && i >= 1) {
+            this.crL = i;
+        }
+    }
+
+    public boolean ckw() {
+        return this.iSN;
+    }
+
+    public void Ag(int i) {
+        switch (i) {
+            case 1:
+                this.iSN = true;
+                return;
+            default:
+                this.iSN = false;
+                return;
+        }
+    }
+
+    public SimpleUser aDn() {
+        return this.iSP;
+    }
+
+    public void b(SimpleUser simpleUser) {
+        this.iSP = simpleUser;
+    }
+
+    public void Ah(int i) {
+        this.iSQ = i;
+    }
+
+    public void Ai(int i) {
+        if (i == 0) {
+            this.iSO = 1;
+        } else {
+            this.iSO = i;
+        }
+    }
+
+    public int ckx() {
+        return this.iSO;
     }
 }

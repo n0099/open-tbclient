@@ -5,12 +5,12 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.swan.games.b.a {
     private static final boolean DEBUG = b.DEBUG;
-    private SwanGameSubPackageAPSInfo blt;
+    private SwanGameSubPackageAPSInfo blR;
     private Context mContext;
 
     public a(Context context, SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo) {
         super(swanGameSubPackageAPSInfo.key);
         this.mContext = context;
-        this.blt = swanGameSubPackageAPSInfo;
+        this.blR = swanGameSubPackageAPSInfo;
     }
 }

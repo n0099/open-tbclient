@@ -47,7 +47,7 @@ public class d {
     private e f = null;
     private b j = null;
     private boolean k = false;
-    private C0048d l = null;
+    private C0056d l = null;
     private OnNmeaMessageListener m = null;
     private long r = 0;
     private boolean s = false;
@@ -248,8 +248,8 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.e.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0048d implements GpsStatus.NmeaListener {
-        private C0048d() {
+    public class C0056d implements GpsStatus.NmeaListener {
+        private C0056d() {
         }
 
         @Override // android.location.GpsStatus.NmeaListener
@@ -552,7 +552,7 @@ public class d {
                         };
                         this.c.addNmeaListener(this.m);
                     } else {
-                        this.l = new C0048d();
+                        this.l = new C0056d();
                         this.c.addNmeaListener(this.l);
                     }
                 }

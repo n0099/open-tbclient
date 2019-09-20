@@ -2,10 +2,11 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import com.baidu.location.BDLocation;
+import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize bSe = null;
+    private static LocalViewSize bSF = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -14,11 +15,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize aiz() {
-        if (bSe == null) {
-            bSe = new LocalViewSize();
+    public static LocalViewSize aiD() {
+        if (bSF == null) {
+            bSF = new LocalViewSize();
         }
-        return bSe;
+        return bSF;
     }
 
     private LocalViewSize() {
@@ -59,15 +60,18 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int aiA() {
+    public int aiE() {
         int af = com.baidu.adp.lib.util.l.af(this.mContext);
         if (af >= 1080) {
             return 1080;
         }
-        return (af < 720 || af >= 1080) ? 480 : 720;
+        if (af < 720 || af >= 1080) {
+            return CameraInterface.DEFAULT_PREVIEW_HEIGHT;
+        }
+        return 720;
     }
 
-    public ImageSize aiB() {
+    public ImageSize aiF() {
         int i = 240;
         int af = com.baidu.adp.lib.util.l.af(this.mContext);
         if (af < 240) {
@@ -85,15 +89,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize aiC() {
+    public ImageSize aiG() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.ah(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.af(this.mContext);
         return imageSize;
     }
 
-    public int aiD() {
-        ImageSize aiB = aiB();
-        return aiB.height >= aiB.width ? aiB.height : aiB.width;
+    public int aiH() {
+        ImageSize aiF = aiF();
+        return aiF.height >= aiF.width ? aiF.height : aiF.width;
     }
 }

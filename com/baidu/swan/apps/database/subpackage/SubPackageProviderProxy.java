@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class SubPackageProviderProxy extends ContentProvider {
-    private volatile b avJ;
+    private volatile b awh;
 
-    private b CL() {
-        if (this.avJ == null) {
+    private b CP() {
+        if (this.awh == null) {
             synchronized (b.class) {
-                if (this.avJ == null) {
-                    this.avJ = new b(getContext());
+                if (this.awh == null) {
+                    this.awh = new b(getContext());
                 }
             }
         }
-        return this.avJ;
+        return this.awh;
     }
 
     @Override // android.content.ContentProvider
@@ -29,28 +29,28 @@ public class SubPackageProviderProxy extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return CL().query(uri, strArr, str, strArr2, str2);
+        return CP().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return CL().getType(uri);
+        return CP().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return CL().insert(uri, contentValues);
+        return CP().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return CL().delete(uri, str, strArr);
+        return CP().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return CL().update(uri, contentValues, str, strArr);
+        return CP().update(uri, contentValues, str, strArr);
     }
 }

@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 /* loaded from: classes4.dex */
 public interface a {
-    void BA(int i);
+    void BD(int i);
 
-    void Bz(int i);
+    void BE(int i);
 
     void a(InterestFrsData.Tag tag);
 

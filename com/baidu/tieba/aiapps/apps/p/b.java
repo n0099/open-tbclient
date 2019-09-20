@@ -9,17 +9,17 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.aHE().putBoolean(str, z);
+            a.aIi().putBoolean(str, z);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.e(1, str, String.valueOf(z)));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.f(1, str, String.valueOf(z)));
         }
     }
 
     public static boolean getBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            return a.aHE().getBoolean(str, z);
+            return a.aIi().getBoolean(str, z);
         }
-        return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.e(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
+        return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.f(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -32,26 +32,26 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.tieba.aiapps.apps.p.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static final class C0290a {
-            private static final a dhS = new a();
+        public static final class C0299a {
+            private static final a djD = new a();
         }
 
-        public static a aHE() {
-            return C0290a.dhS;
+        public static a aIi() {
+            return C0299a.djD;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class e {
-        final int aWA;
-        final String aWB;
-        final String aWC;
+        final int aWY;
+        final String aWZ;
+        final String aXa;
 
         e(int i, String str, String str2) {
-            this.aWA = i;
-            this.aWB = str;
-            this.aWC = str2;
+            this.aWY = i;
+            this.aWZ = str;
+            this.aXa = str2;
         }
 
         static e J(Bundle bundle) {
@@ -61,7 +61,7 @@ public class b {
             return new e(bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
         }
 
-        static Bundle e(int i, String str, String str2) {
+        static Bundle f(int i, String str, String str2) {
             Bundle bundle = new Bundle();
             bundle.putString("bundle_prefs_key", str);
             bundle.putInt("bundle_data_type_key", i);
@@ -70,16 +70,16 @@ public class b {
         }
 
         public String toString() {
-            return "SpMethodInfo{mDataType=" + this.aWA + ", mPrefName='" + this.aWB + "', mDataValue='" + this.aWC + "'}";
+            return "SpMethodInfo{mDataType=" + this.aWY + ", mPrefName='" + this.aWZ + "', mDataValue='" + this.aXa + "'}";
         }
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static abstract class AbstractC0291b extends ProviderDelegation {
+    private static abstract class AbstractC0300b extends ProviderDelegation {
         protected abstract Bundle a(e eVar);
 
-        private AbstractC0291b() {
+        private AbstractC0300b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
@@ -93,16 +93,16 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public static class d extends AbstractC0291b {
+    public static class d extends AbstractC0300b {
         private d() {
             super();
         }
 
-        @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0291b
+        @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0300b
         protected Bundle a(e eVar) {
-            switch (eVar.aWA) {
+            switch (eVar.aWY) {
                 case 1:
-                    a.aHE().putBoolean(eVar.aWB, Boolean.parseBoolean(eVar.aWC));
+                    a.aIi().putBoolean(eVar.aWZ, Boolean.parseBoolean(eVar.aXa));
                     break;
             }
             return Bundle.EMPTY;
@@ -111,17 +111,17 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public static class c extends AbstractC0291b {
+    public static class c extends AbstractC0300b {
         private c() {
             super();
         }
 
-        @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0291b
+        @Override // com.baidu.tieba.aiapps.apps.p.b.AbstractC0300b
         protected Bundle a(e eVar) {
             Bundle bundle = new Bundle();
-            switch (eVar.aWA) {
+            switch (eVar.aWY) {
                 case 1:
-                    bundle.putBoolean("result_value", a.aHE().getBoolean(eVar.aWB, Boolean.parseBoolean(eVar.aWC)));
+                    bundle.putBoolean("result_value", a.aIi().getBoolean(eVar.aWZ, Boolean.parseBoolean(eVar.aXa)));
                     break;
             }
             return bundle;

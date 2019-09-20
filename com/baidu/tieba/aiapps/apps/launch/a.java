@@ -10,20 +10,20 @@ import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.tieba.aiapps.apps.c;
 /* loaded from: classes4.dex */
 public class a {
-    private static void th(String str) {
+    private static void tG(String str) {
         SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
     }
 
-    public static void ti(String str) {
-        if (!c.aEt()) {
+    public static void tH(String str) {
+        if (!c.aEX()) {
             Log.w("SwanAppLaunchHelper", "entrance not open");
-            d.a(AppRuntime.getAppContext(), "not support for this android version").LQ();
+            d.a(AppRuntime.getAppContext(), "not support for this android version").LU();
         } else if (TextUtils.isEmpty(str)) {
-            d.a(AppRuntime.getAppContext(), "url is empty").LQ();
+            d.a(AppRuntime.getAppContext(), "url is empty").LU();
         } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-            th(str);
+            tG(str);
         } else {
-            d.a(AppRuntime.getAppContext(), "not support this uri").LQ();
+            d.a(AppRuntime.getAppContext(), "not support this uri").LU();
         }
     }
 }

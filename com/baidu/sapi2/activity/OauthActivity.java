@@ -15,6 +15,7 @@ import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.SsoHashCallback;
 import com.baidu.sapi2.dto.WebLoginDTO;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.SsoHashResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
@@ -174,7 +175,6 @@ public class OauthActivity extends BaseActivity {
         this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.OauthActivity.4
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onSuccess() {
-                super.onSuccess();
                 OauthActivity.this.loadPage();
                 LoginStatusChangeCallback loginStatusChangeCallback = PassportSDK.getLoginStatusChangeCallback();
                 if (loginStatusChangeCallback != null) {
@@ -317,7 +317,7 @@ public class OauthActivity extends BaseActivity {
                 hashMap.put("suppcheck", "1");
                 if (OauthActivity.this.oauthType == 0) {
                     hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_token");
-                    hashMap.put("display", "mobile");
+                    hashMap.put("display", AddressManageResult.KEY_MOBILE);
                     hashMap.put("scope", OauthActivity.this.scope);
                     hashMap.put("sso_hash", ssoHashResult.ssoHash);
                     hashMap.put("client_id", OauthActivity.this.callingAppId);

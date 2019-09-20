@@ -11,6 +11,7 @@ import android.os.Message;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.android.bbalbs.common.util.CommonParam;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.coremedia.iso.boxes.AuthorBox;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -306,9 +307,9 @@ public class LBSAuthManager {
         }
         a.a("cuid:" + str3);
         if (TextUtils.isEmpty(str3)) {
-            hashMap.put("cuid", "");
+            hashMap.put(DpStatConstants.KEY_CUID, "");
         } else {
-            hashMap.put("cuid", str3);
+            hashMap.put(DpStatConstants.KEY_CUID, str3);
         }
         hashMap.put("pcn", a.getPackageName());
         hashMap.put("version", VERSION);
@@ -370,9 +371,9 @@ public class LBSAuthManager {
         } catch (Exception e2) {
         }
         if (TextUtils.isEmpty(str3)) {
-            hashMap.put("cuid", "");
+            hashMap.put(DpStatConstants.KEY_CUID, "");
         } else {
-            hashMap.put("cuid", str3);
+            hashMap.put(DpStatConstants.KEY_CUID, str3);
         }
         hashMap.put("pcn", a.getPackageName());
         hashMap.put("version", VERSION);

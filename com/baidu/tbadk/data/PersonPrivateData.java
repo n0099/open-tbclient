@@ -6,41 +6,41 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class PersonPrivateData extends OrmObject {
-    private int cqO = 1;
-    private int cqP = 1;
-    private int cqQ = 1;
-    private int cqR = 1;
-    private int cqS = 1;
-    private int cqT = 1;
+    private int crJ = 1;
+    private int crK = 1;
+    private int crL = 1;
+    private int crM = 1;
+    private int crN = 1;
+    private int crO = 1;
 
-    public int ary() {
-        return this.cqP;
+    public int arK() {
+        return this.crK;
     }
 
-    public int arz() {
-        return this.cqT;
+    public int arL() {
+        return this.crO;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cqO = jSONObject.optInt(Headers.LOCATION, 1);
-            this.cqP = jSONObject.optInt("like", 1);
-            this.cqQ = jSONObject.optInt("group", 1);
-            this.cqR = jSONObject.optInt("post", 1);
-            this.cqS = jSONObject.optInt("friend", 1);
-            this.cqT = jSONObject.optInt("live", 1);
+            this.crJ = jSONObject.optInt(Headers.LOCATION, 1);
+            this.crK = jSONObject.optInt("like", 1);
+            this.crL = jSONObject.optInt("group", 1);
+            this.crM = jSONObject.optInt("post", 1);
+            this.crN = jSONObject.optInt("friend", 1);
+            this.crO = jSONObject.optInt("live", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.cqO = privSets.location.intValue();
-                this.cqP = privSets.like.intValue();
-                this.cqQ = privSets.group.intValue();
-                this.cqR = privSets.post.intValue();
-                this.cqS = privSets.friend.intValue();
-                this.cqT = privSets.live.intValue();
+                this.crJ = privSets.location.intValue();
+                this.crK = privSets.like.intValue();
+                this.crL = privSets.group.intValue();
+                this.crM = privSets.post.intValue();
+                this.crN = privSets.friend.intValue();
+                this.crO = privSets.live.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

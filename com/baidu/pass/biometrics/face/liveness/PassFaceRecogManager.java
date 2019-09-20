@@ -1,9 +1,8 @@
 package com.baidu.pass.biometrics.face.liveness;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.PassBiometric;
 import com.baidu.pass.biometrics.base.PassBiometricConfiguration;
@@ -16,7 +15,6 @@ import com.baidu.pass.biometrics.base.result.PassBiometricResult;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.ResUtils;
 import com.baidu.pass.biometrics.face.liveness.PassFaceOperation;
-import com.baidu.pass.biometrics.face.liveness.activity.LivenessLoadingActivity;
 import com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity;
 import com.baidu.pass.biometrics.face.liveness.beans.BeanDataCache;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
@@ -25,13 +23,11 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 /* loaded from: classes2.dex */
 public class PassFaceRecogManager implements PassBiometric {
-    public static final long MAX_CALL_INTERNAL_TIME = 300;
-    public static final String TAG = "SapiLivenessRecog";
+    private static final long MAX_CALL_INTERNAL_TIME = 300;
     private static PassFaceRecogManager instance;
     private PassBiometricConfiguration configuration;
     private long lastCallTime;
     private PassFaceRecogCallback passFaceRecogCallback;
-    private long startLoadingTime;
 
     private PassFaceRecogManager() {
     }
@@ -71,7 +67,6 @@ public class PassFaceRecogManager implements PassBiometric {
         PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
         if (passFaceRecogDTO == null) {
             passFaceRecogResult.setResultCode(-205);
-            passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_PARAM);
             if (passFaceRecogCallback != null) {
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
                 return;
@@ -91,7 +86,6 @@ public class PassFaceRecogManager implements PassBiometric {
         } else if (passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_AUTHTOKEN) {
             if (TextUtils.isEmpty(passFaceRecogDTO.authToken)) {
                 passFaceRecogResult.setResultCode(-205);
-                passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_PARAM);
                 if (passFaceRecogCallback != null) {
                     passFaceRecogCallback.onFailure(passFaceRecogResult);
                     return;
@@ -101,7 +95,6 @@ public class PassFaceRecogManager implements PassBiometric {
         } else if (passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_CERTINFO) {
             if ((TextUtils.isEmpty(passFaceRecogDTO.realName) || TextUtils.isEmpty(passFaceRecogDTO.idCardNum)) && TextUtils.isEmpty(passFaceRecogDTO.getAccessToken())) {
                 passFaceRecogResult.setResultCode(-205);
-                passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_PARAM);
                 if (passFaceRecogCallback != null) {
                     passFaceRecogCallback.onFailure(passFaceRecogResult);
                     return;
@@ -113,7 +106,6 @@ public class PassFaceRecogManager implements PassBiometric {
         } else if (passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_FACEDETECT) {
             if (TextUtils.isEmpty(passFaceRecogDTO.exUid)) {
                 passFaceRecogResult.setResultCode(-205);
-                passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_PARAM);
                 if (passFaceRecogCallback != null) {
                     passFaceRecogCallback.onFailure(passFaceRecogResult);
                     return;
@@ -122,7 +114,6 @@ public class PassFaceRecogManager implements PassBiometric {
             }
         } else if (passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_OUTER && TextUtils.isEmpty(passFaceRecogDTO.exUid)) {
             passFaceRecogResult.setResultCode(-205);
-            passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_PARAM);
             if (passFaceRecogCallback != null) {
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
                 return;
@@ -130,16 +121,11 @@ public class PassFaceRecogManager implements PassBiometric {
             return;
         }
         this.passFaceRecogCallback = passFaceRecogCallback;
-        if (passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_FACEDETECT) {
-            Intent intent = new Intent(context, LivenessRecogActivity.class);
+        Intent intent = new Intent(context, LivenessRecogActivity.class);
+        if (!(context instanceof Activity)) {
             intent.setFlags(268435456);
-            context.startActivity(intent);
-            return;
         }
-        this.startLoadingTime = System.currentTimeMillis();
-        Intent intent2 = new Intent(context, LivenessLoadingActivity.class);
-        intent2.setFlags(268435456);
-        context.startActivity(intent2);
+        context.startActivity(intent);
     }
 
     private void preInitLinessRecogDTO(PassFaceRecogDTO passFaceRecogDTO) {
@@ -164,26 +150,11 @@ public class PassFaceRecogManager implements PassBiometric {
         this.passFaceRecogCallback = null;
     }
 
-    private void closeLoading(final Context context) {
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager.1
-            @Override // java.lang.Runnable
-            public void run() {
-                Intent intent = new Intent();
-                intent.setAction(LivenessLoadingActivity.CLOSE_LOADING_ACTION);
-                context.sendBroadcast(intent);
-            }
-        }, System.currentTimeMillis() - this.startLoadingTime >= 1000 ? 0L : 1000L);
-    }
-
     private boolean meetFrequencyControl() {
-        return System.currentTimeMillis() - this.lastCallTime < 300;
+        return System.currentTimeMillis() - this.lastCallTime < MAX_CALL_INTERNAL_TIME;
     }
 
-    private void resetViews(Context context) {
-        closeLoading(context);
-    }
-
-    private void initData(Context context) {
+    private void initData() {
         this.lastCallTime = System.currentTimeMillis();
     }
 
@@ -199,8 +170,7 @@ public class PassFaceRecogManager implements PassBiometric {
             throw new IllegalArgumentException(PassBiometricDto.class.getSimpleName() + " can't be null");
         }
         if (((PassFaceOperation) passBiometricOperation).operationType == PassFaceOperation.OperationType.RECOGNIZE && !meetFrequencyControl()) {
-            resetViews(context);
-            initData(context);
+            initData();
             PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) passBiometricDto;
             preInitLinessRecogDTO(passFaceRecogDTO);
             startLivenessRecogize((PassFaceRecogCallback) passBiometricCallback, passFaceRecogDTO, context);

@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Looper;
 import com.baidu.appsearchlib.Info;
 import com.baidu.crabsdk.b.r;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,7 +31,7 @@ public final class b extends a {
         int indexOf;
         StringBuilder sb = new StringBuilder();
         try {
-            String str = (String) map.get(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            String str = (String) map.get("time");
             if (str == null) {
                 return;
             }
@@ -120,7 +119,7 @@ public final class b extends a {
                     hashMap.put("apiType", "ANR");
                     hashMap.put("errorType", "ANR");
                     hashMap.put(Info.kBaiduPIDKey, str4);
-                    hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str5);
+                    hashMap.put("time", str5);
                     StringBuilder sb = new StringBuilder();
                     while (readLine != null && !readLine.contains("DALVIK THREADS")) {
                         sb.append(readLine).append("\n");
@@ -237,7 +236,7 @@ public final class b extends a {
                     hashMap.put("apiType", "ANR");
                     hashMap.put("errorType", "ANR");
                     hashMap.put(Info.kBaiduPIDKey, "N/A");
-                    hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Long.valueOf(System.currentTimeMillis()));
+                    hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
                     hashMap.put("anrMsg", "N/A");
                     hashMap.put("threadList", r.L());
                     hashMap.put("traceList", "读取trace文件失败：\n" + e.getMessage());

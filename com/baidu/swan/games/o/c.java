@@ -16,10 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends a {
-    private com.baidu.swan.games.e.b bjG;
+    private com.baidu.swan.games.e.b bke;
 
     public c(@NonNull com.baidu.swan.games.e.b bVar) {
-        this.bjG = bVar;
+        this.bke = bVar;
     }
 
     @JavascriptInterface
@@ -28,9 +28,9 @@ public class c extends a {
         if (c != null) {
             JSONArray jSONArray = new JSONArray();
             try {
-                String[] iU = c.iU("swanIdList");
-                if (iU != null && iU.length > 0) {
-                    for (String str : iU) {
+                String[] iW = c.iW("swanIdList");
+                if (iW != null && iW.length > 0) {
+                    for (String str : iW) {
                         jSONArray.put(str);
                     }
                 }
@@ -41,16 +41,16 @@ public class c extends a {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", bjF);
+                jSONObject.put("ma_id", bkd);
                 jSONObject.put("swanid_list", jSONArray);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
             }
-            String fa = fa(1);
+            String fb = fb(1);
             final com.baidu.swan.games.o.a.c cVar = new com.baidu.swan.games.o.a.c();
-            a(fa, jSONObject.toString(), new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.games.o.c.1
+            a(fb, jSONObject.toString(), new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.games.o.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: a */
@@ -87,7 +87,7 @@ public class c extends a {
                     if (a.DEBUG) {
                         Log.d("OpenDataApi", "on success");
                     }
-                    c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.1.1
+                    c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             com.baidu.swan.games.utils.a.a(c, true, jSONObject2);
@@ -105,7 +105,7 @@ public class c extends a {
                         cVar.errNo = "100";
                         cVar.errMsg = String.format("%s: fail Error: %s", "getUserInfo", exc.getMessage());
                     }
-                    c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.1.2
+                    c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.1.2
                         @Override // java.lang.Runnable
                         public void run() {
                             com.baidu.swan.games.utils.a.a(c, false, cVar);
@@ -128,7 +128,7 @@ public class c extends a {
                 return;
             }
             try {
-                a(2, c.iU("keyList"), new ResponseCallback<com.baidu.swan.games.o.a.c>() { // from class: com.baidu.swan.games.o.c.2
+                a(2, c.iW("keyList"), new ResponseCallback<com.baidu.swan.games.o.a.c>() { // from class: com.baidu.swan.games.o.c.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.searchbox.http.callback.ResponseCallback
                     /* renamed from: d */
@@ -163,7 +163,7 @@ public class c extends a {
                         if (a.DEBUG) {
                             Log.d("OpenDataApi", "on success ");
                         }
-                        c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.2.1
+                        c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.2.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.a.a(c, true, cVar2);
@@ -181,7 +181,7 @@ public class c extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", exc.getMessage());
                         }
-                        c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.2.2
+                        c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.2.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.a.a(c, false, cVar);
@@ -212,7 +212,7 @@ public class c extends a {
                 return;
             }
             try {
-                a(3, c.iU("keyList"), new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.games.o.c.3
+                a(3, c.iW("keyList"), new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.games.o.c.3
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.searchbox.http.callback.ResponseCallback
                     /* renamed from: a */
@@ -249,7 +249,7 @@ public class c extends a {
                         if (a.DEBUG) {
                             Log.d("OpenDataApi", "on success");
                         }
-                        c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.3.1
+                        c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.3.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.a.a(c, true, jSONObject);
@@ -266,7 +266,7 @@ public class c extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", "getUserCloudStorage", exc.getMessage());
                         }
-                        c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.3.2
+                        c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.3.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.a.a(c, false, cVar);
@@ -297,9 +297,9 @@ public class c extends a {
                 return;
             }
             try {
-                com.baidu.swan.games.o.a.b[] a = a(c, c.iW("KVDataList"), cVar);
+                com.baidu.swan.games.o.a.b[] a = a(c, c.iY("KVDataList"), cVar);
                 if (a != null) {
-                    a(fa(4), a(a).toString(), new ResponseCallback<com.baidu.swan.games.o.a.c>() { // from class: com.baidu.swan.games.o.c.4
+                    a(fb(4), a(a).toString(), new ResponseCallback<com.baidu.swan.games.o.a.c>() { // from class: com.baidu.swan.games.o.c.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.searchbox.http.callback.ResponseCallback
                         /* renamed from: d */
@@ -334,7 +334,7 @@ public class c extends a {
                             if (a.DEBUG) {
                                 Log.d("OpenDataApi", "on success");
                             }
-                            c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.4.1
+                            c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.4.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     com.baidu.swan.games.utils.a.a(c, true, cVar2);
@@ -351,7 +351,7 @@ public class c extends a {
                                 cVar.errNo = "100";
                                 cVar.errMsg = String.format("%s: fail Error: %s", "setUserCloudStorage", exc.getMessage());
                             }
-                            c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.4.2
+                            c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.4.2
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     com.baidu.swan.games.utils.a.a(c, false, cVar);
@@ -372,17 +372,17 @@ public class c extends a {
     }
 
     private boolean isLogin() {
-        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
-        if (Md == null) {
+        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
+        if (Mh == null) {
             return false;
         }
-        return Md.Mi().aD(AppRuntime.getAppContext());
+        return Mh.Mm().aD(AppRuntime.getAppContext());
     }
 
     private JSONObject a(com.baidu.swan.games.o.a.b[] bVarArr) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", bjF);
+            jSONObject.put("ma_id", bkd);
             JSONArray jSONArray = new JSONArray();
             for (com.baidu.swan.games.o.a.b bVar : bVarArr) {
                 JSONObject jSONObject2 = new JSONObject();
@@ -421,11 +421,11 @@ public class c extends a {
                 bVarArr[i] = new com.baidu.swan.games.o.a.b();
                 bVarArr[i].key = c.optString("key");
                 bVarArr[i].value = c.optString(UBC.CONTENT_KEY_VALUE);
-                if (!bVarArr[i].SL()) {
+                if (!bVarArr[i].SP()) {
                     cVar2.errMsg = com.baidu.swan.games.utils.a.bj("setUserCloudStorage", "fail some keys in list meet length exceed");
                     com.baidu.swan.games.utils.a.a(cVar, false, cVar2);
                     return null;
-                } else if (!bVarArr[i].SM()) {
+                } else if (!bVarArr[i].SQ()) {
                     cVar2.errMsg = com.baidu.swan.games.utils.a.bj("setUserCloudStorage", "fail some key-value in list meet length exceed");
                     com.baidu.swan.games.utils.a.a(cVar, false, cVar2);
                     return null;
@@ -464,7 +464,7 @@ public class c extends a {
                 return;
             }
             try {
-                a(i, c.iU("keyList"), new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.games.o.c.5
+                a(i, c.iW("keyList"), new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.games.o.c.5
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.searchbox.http.callback.ResponseCallback
                     /* renamed from: a */
@@ -501,7 +501,7 @@ public class c extends a {
                         if (a.DEBUG) {
                             Log.d("OpenDataApi", "on success");
                         }
-                        c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.5.1
+                        c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.5.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.a.a(c, true, jSONObject);
@@ -519,7 +519,7 @@ public class c extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", str, exc.getMessage());
                         }
-                        c.this.bjG.l(new Runnable() { // from class: com.baidu.swan.games.o.c.5.2
+                        c.this.bke.l(new Runnable() { // from class: com.baidu.swan.games.o.c.5.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.a.a(c, false, cVar);
@@ -547,44 +547,44 @@ public class c extends a {
             }
         }
         try {
-            jSONObject.put("ma_id", bjF);
+            jSONObject.put("ma_id", bkd);
             jSONObject.put("key_list", jSONArray);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        a(fa(i), jSONObject.toString(), responseCallback);
+        a(fb(i), jSONObject.toString(), responseCallback);
     }
 
-    private String fa(int i) {
-        String xc;
+    private String fb(int i) {
+        String xg;
         switch (i) {
             case 1:
-                xc = com.baidu.swan.apps.u.a.Ew().wX();
+                xg = com.baidu.swan.apps.u.a.EA().xb();
                 break;
             case 2:
-                xc = com.baidu.swan.apps.u.a.Ew().wY();
+                xg = com.baidu.swan.apps.u.a.EA().xc();
                 break;
             case 3:
-                xc = com.baidu.swan.apps.u.a.Ew().wZ();
+                xg = com.baidu.swan.apps.u.a.EA().xd();
                 break;
             case 4:
-                xc = com.baidu.swan.apps.u.a.Ew().xa();
+                xg = com.baidu.swan.apps.u.a.EA().xe();
                 break;
             case 5:
-                xc = com.baidu.swan.apps.u.a.Ew().xb();
+                xg = com.baidu.swan.apps.u.a.EA().xf();
                 break;
             case 6:
-                xc = com.baidu.swan.apps.u.a.Ew().xc();
+                xg = com.baidu.swan.apps.u.a.EA().xg();
                 break;
             default:
-                xc = "";
+                xg = "";
                 break;
         }
-        if (TextUtils.isEmpty(xc)) {
+        if (TextUtils.isEmpty(xg)) {
             Log.e("OpenDataApi", "getUrlByType（）meet empty url !");
         }
-        return xc;
+        return xg;
     }
 }

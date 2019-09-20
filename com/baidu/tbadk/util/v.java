@@ -1,35 +1,83 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Handler;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
-public class v extends Thread {
-    private int cDn;
-    private int imageNum;
-    private String type = null;
+public class v {
+    private View cEf;
+    private int cEg;
+    private boolean cEh;
+    private final Handler mHandler;
 
-    public v(int i, int i2) {
-        this.imageNum = 0;
-        this.cDn = 0;
-        this.imageNum = i;
-        this.cDn = i2;
+    public void awH() {
+        this.mHandler.removeMessages(2);
+        if (!this.mHandler.hasMessages(1)) {
+            this.mHandler.sendEmptyMessageDelayed(1, 60L);
+        }
     }
 
-    public void setType(String str) {
-        this.type = str;
+    public void awI() {
+        this.mHandler.removeMessages(1);
+        if (!this.mHandler.hasMessages(2)) {
+            this.mHandler.sendEmptyMessageDelayed(2, 110L);
+        }
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            xVar.o("img_num", String.valueOf(this.imageNum));
-            xVar.o("img_total", String.valueOf(this.cDn));
-            if (this.type != null) {
-                xVar.o("img_type", this.type);
+    public void awJ() {
+        this.mHandler.removeCallbacksAndMessages(null);
+    }
+
+    public void fO(boolean z) {
+        if (this.cEf != null) {
+            if (z || this.cEf.getVisibility() != 8) {
+                awI();
             }
-            xVar.aii();
+        }
+    }
+
+    public void fP(boolean z) {
+        if (this.cEf != null) {
+            if (z || this.cEf.getVisibility() != 0) {
+                awH();
+            }
+        }
+    }
+
+    public void onScroll(int i, int i2) {
+        if (this.cEf != null) {
+            if (i != 0 && i2 > i && this.cEf.getVisibility() != 8) {
+                fO(false);
+            } else if ((i == 0 || i2 < i) && this.cEf.getVisibility() != 0) {
+                fP(false);
+            }
+            this.cEg = i;
+        }
+    }
+
+    public void i(ViewGroup viewGroup, int i) {
+        int firstVisiblePosition;
+        if (viewGroup != null && i == 0) {
+            if (viewGroup instanceof BdRecyclerView) {
+                firstVisiblePosition = ((BdRecyclerView) viewGroup).getFirstVisiblePosition();
+            } else if (viewGroup instanceof AbsListView) {
+                firstVisiblePosition = ((AbsListView) viewGroup).getFirstVisiblePosition();
+            } else {
+                return;
+            }
+            if (firstVisiblePosition > this.cEg) {
+                fO(true);
+            } else if (firstVisiblePosition < this.cEg) {
+                fP(true);
+            } else if (firstVisiblePosition == this.cEg) {
+                if (firstVisiblePosition == 0 || !this.cEh) {
+                    fP(true);
+                } else {
+                    fO(true);
+                }
+            }
         }
     }
 }

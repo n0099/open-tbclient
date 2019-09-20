@@ -9,13 +9,13 @@ import com.baidu.tbadk.coreExtra.c.e;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes6.dex */
 public class b implements com.baidu.tbadk.coreExtra.c.c {
-    private com.baidu.tbadk.coreExtra.c.b cln;
+    private com.baidu.tbadk.coreExtra.c.b cmj;
     private Context mContext;
 
     public b(Context context, com.baidu.tbadk.coreExtra.c.b bVar) {
         this.mContext = null;
         this.mContext = context;
-        this.cln = bVar;
+        this.cmj = bVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.c.c
@@ -30,25 +30,25 @@ public class b implements com.baidu.tbadk.coreExtra.c.c {
             shareEntity.setTitle(eVar.title);
             shareEntity.setContent(eVar.content);
             shareEntity.setImageUri(eVar.imageUri);
-            shareEntity.clh = eVar.clh;
+            shareEntity.cmc = eVar.cmc;
             String str = eVar.linkUrl;
-            if (i == 6 && !StringUtils.isNull(eVar.ckK)) {
-                str = eVar.ckK;
+            if (i == 6 && !StringUtils.isNull(eVar.clF)) {
+                str = eVar.clF;
             }
             shareEntity.setLinkUrl(str);
-            shareEntity.Ei(eVar.ckL);
-            shareEntity.setLocation(eVar.ckN);
-            shareEntity.Ar(i);
-            shareEntity.E(eVar.apY());
-            shareEntity.As(eVar.shareType);
+            shareEntity.EI(eVar.clG);
+            shareEntity.setLocation(eVar.clI);
+            shareEntity.Au(i);
+            shareEntity.E(eVar.aqk());
+            shareEntity.Av(eVar.shareType);
             shareEntity.setTid(eVar.tid);
             shareEntity.topic = eVar.topic;
-            if (i == 6 && !StringUtils.isNull(eVar.ckY)) {
-                shareEntity.topic = eVar.ckX + eVar.ckY;
+            if (i == 6 && !StringUtils.isNull(eVar.clT)) {
+                shareEntity.topic = eVar.clS + eVar.clT;
                 shareEntity.setContent("");
             }
-            shareEntity.ckZ = eVar.ckZ;
-            shareEntity.ckM = eVar.ckM;
+            shareEntity.clU = eVar.clU;
+            shareEntity.clH = eVar.clH;
             Bundle bundle = new Bundle();
             bundle.putParcelable("extra_share_data", shareEntity);
             bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());

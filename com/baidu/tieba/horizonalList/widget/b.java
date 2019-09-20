@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private List<c> bHx;
-    public final ArrayList<e> cIb = new ArrayList<>();
-    private e gqR;
+    private List<c> bHV;
+    public final ArrayList<e> cIS = new ArrayList<>();
+    private e gsI;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,11 +21,11 @@ public class b extends BaseAdapter {
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.gqR = eVar;
+        this.gsI = eVar;
     }
 
     public void setData(List<c> list) {
-        this.bHx = list;
+        this.bHV = list;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -39,34 +39,34 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.Z(this.bHx);
+        return v.Z(this.bHV);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return v.c(this.bHx, i);
+        return v.c(this.bHV, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (v.c(this.bHx, i) == null) {
+        if (v.c(this.bHV, i) == null) {
             return -1L;
         }
-        return ((c) v.c(this.bHx, i)).hashCode();
+        return ((c) v.c(this.bHV, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            e bE = this.gqR.bE(view);
+            e bE = this.gsI.bE(view);
             bE.setOnClickListener(this.mOnClickListener);
             view.setTag(bE);
-            this.cIb.add(bE);
+            this.cIS.add(bE);
         }
         e eVar = (e) view.getTag();
-        if (v.c(this.bHx, i) != null) {
-            a(eVar, this.bHx.get(i));
+        if (v.c(this.bHV, i) != null) {
+            a(eVar, this.bHV.get(i));
         }
         return eVar.getView();
     }
@@ -77,9 +77,9 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void iG(int i) {
-        if (v.Z(this.cIb) > 0) {
-            Iterator<e> it = this.cIb.iterator();
+    public void iJ(int i) {
+        if (v.Z(this.cIS) > 0) {
+            Iterator<e> it = this.cIS.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

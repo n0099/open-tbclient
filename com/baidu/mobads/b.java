@@ -39,11 +39,11 @@ public class b {
         this.a = activity;
     }
 
-    public static boolean ut() {
+    public static boolean ux() {
         return f.get();
     }
 
-    private Method cN(String str) {
+    private Method cP(String str) {
         Method[] methodArr;
         if (this.e == null) {
             return null;
@@ -65,12 +65,12 @@ public class b {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method cN = cN(str);
-            if (cN != null) {
+            Method cP = cP(str);
+            if (cP != null) {
                 if (objArr == null || objArr.length == 0) {
-                    cN.invoke(null, new Object[0]);
+                    cP.invoke(null, new Object[0]);
                 } else {
-                    cN.invoke(null, objArr);
+                    cP.invoke(null, objArr);
                 }
             }
         } catch (Exception e) {
@@ -86,12 +86,12 @@ public class b {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method cN = cN(str);
-            if (cN != null) {
+            Method cP = cP(str);
+            if (cP != null) {
                 if (objArr == null || objArr.length == 0) {
-                    cN.invoke(this.c, new Object[0]);
+                    cP.invoke(this.c, new Object[0]);
                 } else {
-                    cN.invoke(this.c, objArr);
+                    cP.invoke(this.c, objArr);
                 }
             }
         } catch (Exception e) {
@@ -107,12 +107,12 @@ public class b {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method cN = cN(str);
-            if (cN != null) {
+            Method cP = cP(str);
+            if (cP != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return ((Boolean) cN.invoke(this.c, new Object[0])).booleanValue();
+                    return ((Boolean) cP.invoke(this.c, new Object[0])).booleanValue();
                 }
-                return ((Boolean) cN.invoke(this.c, objArr)).booleanValue();
+                return ((Boolean) cP.invoke(this.c, objArr)).booleanValue();
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -128,12 +128,12 @@ public class b {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method cN = cN(str);
-            if (cN != null) {
+            Method cP = cP(str);
+            if (cP != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return cN.invoke(this.c, new Object[0]);
+                    return cP.invoke(this.c, new Object[0]);
                 }
-                return cN.invoke(this.c, objArr);
+                return cP.invoke(this.c, objArr);
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -189,7 +189,7 @@ public class b {
         try {
             f.set(true);
             Intent intent = this.a.getIntent();
-            if (AppActivity.ur() && intent.getParcelableExtra("EXTRA_DATA") == null) {
+            if (AppActivity.uv() && intent.getParcelableExtra("EXTRA_DATA") == null) {
                 XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo((String) null, new XAdInstanceInfo(new JSONObject()));
                 b(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra("EXTRA_DATA_STRING"));
                 b(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra("EXTRA_DATA_STRING_COM"));
@@ -200,7 +200,7 @@ public class b {
             if (d2 != null) {
                 d = Class.forName("com.baidu.mobads.container.landingpage.App2Activity", true, d2);
             } else {
-                d = cO("com.baidu.mobads.container.landingpage.App2Activity");
+                d = cQ("com.baidu.mobads.container.landingpage.App2Activity");
             }
             this.e = d.getDeclaredMethods();
             this.c = d.getConstructor(Activity.class).newInstance(this.a);
@@ -212,7 +212,7 @@ public class b {
         a("onCreate", bundle);
     }
 
-    public Class<?> cO(String str) {
+    public Class<?> cQ(String str) {
         Class<?> cls = null;
         com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
         try {

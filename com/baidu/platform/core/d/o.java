@@ -8,7 +8,6 @@ import com.baidu.mapapi.search.route.WalkingRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.ubc.UBC;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +61,7 @@ public class o extends k {
                 WalkingRouteLine.WalkingStep walkingStep = new WalkingRouteLine.WalkingStep();
                 walkingStep.setDirection(optJSONObject.optInt("direction") * 30);
                 walkingStep.setDistance(optJSONObject.optInt("distance"));
-                walkingStep.setDuration(optJSONObject.optInt(UBC.CONTENT_KEY_DURATION));
+                walkingStep.setDuration(optJSONObject.optInt("duration"));
                 walkingStep.setEntrance(RouteNode.location(CoordUtil.decodeLocation(optJSONObject.optString("start_location"))));
                 walkingStep.setExit(RouteNode.location(CoordUtil.decodeLocation(optJSONObject.optString("end_location"))));
                 String optString = optJSONObject.optString("instructions");
@@ -94,7 +93,7 @@ public class o extends k {
             TaxiInfo taxiInfo = new TaxiInfo();
             taxiInfo.setDesc(jSONObject.optString("remark"));
             taxiInfo.setDistance(jSONObject.optInt("distance"));
-            taxiInfo.setDuration(jSONObject.optInt(UBC.CONTENT_KEY_DURATION));
+            taxiInfo.setDuration(jSONObject.optInt("duration"));
             taxiInfo.setTotalPrice((float) jSONObject.optDouble("total_price"));
             taxiInfo.setStartPrice((float) jSONObject.optDouble("start_price"));
             taxiInfo.setPerKMPrice((float) jSONObject.optDouble("km_price"));
@@ -138,7 +137,7 @@ public class o extends k {
                                                 walkingRouteLine.setStarting(a);
                                                 walkingRouteLine.setTerminal(a2);
                                                 walkingRouteLine.setDistance(optJSONObject5.optInt("distance"));
-                                                walkingRouteLine.setDuration(optJSONObject5.optInt(UBC.CONTENT_KEY_DURATION));
+                                                walkingRouteLine.setDuration(optJSONObject5.optInt("duration"));
                                                 walkingRouteLine.setSteps(a(optJSONObject5.optJSONArray("steps")));
                                                 arrayList.add(walkingRouteLine);
                                             }

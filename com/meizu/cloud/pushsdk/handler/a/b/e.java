@@ -2,7 +2,6 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -48,8 +47,8 @@ public class e implements Parcelable {
                 if (!jSONObject.isNull("taskId")) {
                     eVar.a(jSONObject.getString("taskId"));
                 }
-                if (!jSONObject.isNull(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) {
-                    eVar.b(jSONObject.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
+                if (!jSONObject.isNull("time")) {
+                    eVar.b(jSONObject.getString("time"));
                 }
                 if (!jSONObject.isNull("pushExtra")) {
                     eVar.a(jSONObject.getInt("pushExtra") != 0);

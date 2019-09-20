@@ -7,51 +7,51 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class n implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.l kkM;
-    private final ai<com.facebook.imagepipeline.f.d> kkp;
+    private final ai<com.facebook.imagepipeline.f.d> kmM;
+    private final com.facebook.imagepipeline.c.l knj;
 
     public n(ai<com.facebook.imagepipeline.f.d> aiVar, com.facebook.imagepipeline.c.l lVar) {
-        this.kkp = aiVar;
-        this.kkM = lVar;
+        this.kmM = aiVar;
+        this.knj = lVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        ImageRequest cKW = ajVar.cKW();
-        if (!cKW.cLR()) {
+        ImageRequest cLK = ajVar.cLK();
+        if (!cLK.cMF()) {
             c(jVar, ajVar);
             return;
         }
-        ajVar.cKX().eA(ajVar.getId(), "DiskCacheProducer");
+        ajVar.cLL().eB(ajVar.getId(), "DiskCacheProducer");
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-        this.kkM.a(cKW, ajVar.cGp(), atomicBoolean).a(b(jVar, ajVar));
+        this.knj.a(cLK, ajVar.cHd(), atomicBoolean).a(b(jVar, ajVar));
         a(atomicBoolean, ajVar);
     }
 
     private bolts.f<com.facebook.imagepipeline.f.d, Void> b(final j<com.facebook.imagepipeline.f.d> jVar, final aj ajVar) {
         final String id = ajVar.getId();
-        final al cKX = ajVar.cKX();
+        final al cLL = ajVar.cLL();
         return new bolts.f<com.facebook.imagepipeline.f.d, Void>() { // from class: com.facebook.imagepipeline.producers.n.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // bolts.f
             /* renamed from: b */
             public Void a(bolts.g<com.facebook.imagepipeline.f.d> gVar) throws Exception {
                 if (n.c(gVar)) {
-                    cKX.b(id, "DiskCacheProducer", null);
-                    jVar.cEV();
+                    cLL.b(id, "DiskCacheProducer", null);
+                    jVar.cFJ();
                 } else if (gVar.bi()) {
-                    cKX.a(id, "DiskCacheProducer", gVar.bj(), null);
-                    n.this.kkp.a(jVar, ajVar);
+                    cLL.a(id, "DiskCacheProducer", gVar.bj(), null);
+                    n.this.kmM.a(jVar, ajVar);
                 } else {
                     com.facebook.imagepipeline.f.d result = gVar.getResult();
                     if (result != null) {
-                        cKX.a(id, "DiskCacheProducer", n.a(cKX, id, true, result.getSize()));
-                        jVar.aR(1.0f);
+                        cLL.a(id, "DiskCacheProducer", n.a(cLL, id, true, result.getSize()));
+                        jVar.aS(1.0f);
                         jVar.e(result, true);
                         result.close();
                     } else {
-                        cKX.a(id, "DiskCacheProducer", n.a(cKX, id, false, 0));
-                        n.this.kkp.a(jVar, ajVar);
+                        cLL.a(id, "DiskCacheProducer", n.a(cLL, id, false, 0));
+                        n.this.kmM.a(jVar, ajVar);
                     }
                 }
                 return null;
@@ -65,15 +65,15 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
     }
 
     private void c(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        if (ajVar.cKY().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+        if (ajVar.cLM().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
             jVar.e(null, true);
         } else {
-            this.kkp.a(jVar, ajVar);
+            this.kmM.a(jVar, ajVar);
         }
     }
 
     static Map<String, String> a(al alVar, String str, boolean z, int i) {
-        if (!alVar.HQ(str)) {
+        if (!alVar.Iq(str)) {
             return null;
         }
         if (z) {
@@ -85,7 +85,7 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
     private void a(final AtomicBoolean atomicBoolean, aj ajVar) {
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.n.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cLd() {
+            public void cLR() {
                 atomicBoolean.set(true);
             }
         });

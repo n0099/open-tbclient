@@ -17,7 +17,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.l(getView(), R.color.cp_bg_line_e);
+            am.l(getView(), R.color.cp_bg_line_c);
             this.mSkinType = i;
         }
     }

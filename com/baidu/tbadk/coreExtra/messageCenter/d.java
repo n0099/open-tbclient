@@ -8,223 +8,223 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 /* loaded from: classes.dex */
 public class d {
-    private static d cis = new d();
-    public int cit = 300;
-    public boolean ciu = true;
-    public boolean civ = false;
-    public boolean ciw = true;
-    public boolean cix = true;
-    public boolean ciy = true;
-    public boolean ciz = true;
-    public boolean ciA = false;
-    public boolean ciB = true;
-    public boolean ciC = true;
-    public boolean ciD = false;
-    public String ciE = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String ciF = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    private static d cjn = new d();
+    public int cjo = 300;
+    public boolean cjp = true;
+    public boolean cjq = false;
+    public boolean cjr = true;
+    public boolean cjs = true;
+    public boolean cjt = true;
+    public boolean cju = true;
+    public boolean cjv = false;
+    public boolean cjw = true;
+    public boolean cjx = true;
+    public boolean cjy = false;
+    public String cjz = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String cjA = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private d() {
     }
 
-    public static d aom() {
-        return cis;
+    public static d aoy() {
+        return cjn;
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.cqG();
+        com.baidu.tieba.tbadkCore.util.a.cru();
     }
 
-    public void aon() {
-        com.baidu.tieba.tbadkCore.util.a.aon();
+    public void aoz() {
+        com.baidu.tieba.tbadkCore.util.a.aoz();
     }
 
-    public boolean aoo() {
-        return this.cit > 0;
+    public boolean aoA() {
+        return this.cjo > 0;
     }
 
-    public int aop() {
-        return this.cit;
-    }
-
-    public boolean aoq() {
-        return this.civ;
-    }
-
-    public boolean aor() {
-        return this.ciw;
-    }
-
-    public boolean aos() {
-        return this.ciz;
-    }
-
-    public boolean aot() {
-        return this.cix;
-    }
-
-    public boolean aou() {
-        return this.ciu;
-    }
-
-    public boolean aov() {
-        return this.ciB;
-    }
-
-    public boolean aow() {
-        return this.ciC;
-    }
-
-    public boolean aox() {
-        return this.ciD;
-    }
-
-    public boolean aoy() {
-        return this.ciA;
-    }
-
-    public String aoz() {
-        return this.ciE;
-    }
-
-    public String aoA() {
-        return this.ciF;
-    }
-
-    private void aoB() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
-    }
-
-    public void eB(boolean z) {
-        this.ciu = z;
-        aoB();
-    }
-
-    public void jy(int i) {
-        if (i == 0) {
-            this.cit = i;
-            b.anF().setMsgBookmark(0);
-            b.anF().setMsgGiftNum(0);
-            b.anF().setMsgFans(0);
-        } else {
-            this.cit = 300;
-        }
-        aoB();
+    public int aoB() {
+        return this.cjo;
     }
 
     public boolean aoC() {
-        return TbadkSettings.getInst().loadBoolean("group_notify", true) && TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
-    }
-
-    public void eC(boolean z) {
-        TbadkSettings.getInst().saveBoolean("group_notify", z);
-        aoB();
+        return this.cjq;
     }
 
     public boolean aoD() {
-        return this.ciy;
-    }
-
-    public void eD(boolean z) {
-        this.ciy = z;
-        aoB();
-    }
-
-    public void eE(boolean z) {
-        this.civ = z;
-    }
-
-    public void eF(boolean z) {
-        this.ciD = z;
-    }
-
-    public void pm(String str) {
-        this.ciE = str;
-    }
-
-    public void pn(String str) {
-        this.ciF = str;
-    }
-
-    public void eG(boolean z) {
-        this.ciA = z;
-    }
-
-    public void eH(boolean z) {
-        this.ciC = z;
-    }
-
-    public void eI(boolean z) {
-        this.ciB = z;
-    }
-
-    public void eJ(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("permit_screen_lock", z);
+        return this.cjr;
     }
 
     public boolean aoE() {
-        return com.baidu.tbadk.core.sharedPref.b.ahQ().getBoolean("permit_screen_lock", true);
+        return this.cju;
+    }
+
+    public boolean aoF() {
+        return this.cjs;
+    }
+
+    public boolean aoG() {
+        return this.cjp;
+    }
+
+    public boolean aoH() {
+        return this.cjw;
+    }
+
+    public boolean aoI() {
+        return this.cjx;
+    }
+
+    public boolean aoJ() {
+        return this.cjy;
+    }
+
+    public boolean aoK() {
+        return this.cjv;
+    }
+
+    public String aoL() {
+        return this.cjz;
+    }
+
+    public String aoM() {
+        return this.cjA;
+    }
+
+    private void aoN() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
+    }
+
+    public void eE(boolean z) {
+        this.cjp = z;
+        aoN();
+    }
+
+    public void jB(int i) {
+        if (i == 0) {
+            this.cjo = i;
+            b.anR().setMsgBookmark(0);
+            b.anR().setMsgGiftNum(0);
+            b.anR().setMsgFans(0);
+        } else {
+            this.cjo = 300;
+        }
+        aoN();
+    }
+
+    public boolean aoO() {
+        return TbadkSettings.getInst().loadBoolean("group_notify", true) && TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
+    }
+
+    public void eF(boolean z) {
+        TbadkSettings.getInst().saveBoolean("group_notify", z);
+        aoN();
+    }
+
+    public boolean aoP() {
+        return this.cjt;
+    }
+
+    public void eG(boolean z) {
+        this.cjt = z;
+        aoN();
+    }
+
+    public void eH(boolean z) {
+        this.cjq = z;
+    }
+
+    public void eI(boolean z) {
+        this.cjy = z;
+    }
+
+    public void px(String str) {
+        this.cjz = str;
+    }
+
+    public void py(String str) {
+        this.cjA = str;
+    }
+
+    public void eJ(boolean z) {
+        this.cjv = z;
     }
 
     public void eK(boolean z) {
-        this.cix = z;
-        aoB();
+        this.cjx = z;
     }
 
     public void eL(boolean z) {
-        this.ciw = z;
-        aoB();
+        this.cjw = z;
     }
 
     public void eM(boolean z) {
-        this.ciz = z;
+        com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("permit_screen_lock", z);
+    }
+
+    public boolean aoQ() {
+        return com.baidu.tbadk.core.sharedPref.b.ahU().getBoolean("permit_screen_lock", true);
+    }
+
+    public void eN(boolean z) {
+        this.cjs = z;
+        aoN();
+    }
+
+    public void eO(boolean z) {
+        this.cjr = z;
+        aoN();
+    }
+
+    public void eP(boolean z) {
+        this.cju = z;
     }
 
     public boolean isSignAlertOn() {
-        return f.aoH().isSignAlertOn();
+        return f.aoT().isSignAlertOn();
     }
 
     public void setSignAlertOn(boolean z) {
-        f.aoH().setSignAlertOn(z);
+        f.aoT().setSignAlertOn(z);
     }
 
     public int getSignAlertHours() {
-        return f.aoH().getSignAlertHours();
+        return f.aoT().getSignAlertHours();
     }
 
     public int getSignAlertMins() {
-        return f.aoH().getSignAlertMins();
+        return f.aoT().getSignAlertMins();
     }
 
     public void setSignAlertTime(int i, int i2) {
-        f.aoH().setSignAlertTime(i, i2);
+        f.aoT().setSignAlertTime(i, i2);
     }
 
     public void updateSignAlarm() {
-        f.aoH().updateSignAlarm();
+        f.aoT().updateSignAlarm();
     }
 
-    public void jz(int i) {
+    public void jC(int i) {
         if (i == 0) {
-            eI(false);
-            eG(false);
+            eL(false);
+            eJ(false);
         } else if (i == 1) {
-            eI(true);
-            eG(false);
+            eL(true);
+            eJ(false);
         } else if (i == 2) {
-            eI(false);
-            eG(true);
+            eL(false);
+            eJ(true);
         } else {
-            eI(true);
-            eG(true);
+            eL(true);
+            eJ(true);
         }
     }
 
-    public int aoF() {
-        if (!this.ciB && !this.ciA) {
+    public int aoR() {
+        if (!this.cjw && !this.cjv) {
             return 0;
         }
-        if (!this.ciB || this.ciA) {
-            if (!this.ciB && this.ciA) {
+        if (!this.cjw || this.cjv) {
+            if (!this.cjw && this.cjv) {
                 return 2;
             }
             return 3;
@@ -232,11 +232,11 @@ public class d {
         return 1;
     }
 
-    public void eN(boolean z) {
+    public void eQ(boolean z) {
         TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", z);
     }
 
-    public boolean aoG() {
+    public boolean aoS() {
         return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", true);
     }
 }

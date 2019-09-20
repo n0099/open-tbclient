@@ -21,4 +21,8 @@ public final class g {
     public final String a() {
         return this.a.getString("xytk", "");
     }
+
+    public final int b() {
+        return this.a.getInt("td_a_c", 0);
+    }
 }

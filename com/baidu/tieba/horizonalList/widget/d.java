@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> gqS = new ArrayList<>();
-    boolean Nf;
+    static final ArrayList<HListView.b> gsJ = new ArrayList<>();
+    boolean Ng;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
     ArrayList<HListView.b> mHeaderViewInfos;
@@ -23,23 +23,23 @@ public class d implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = gqS;
+            this.mHeaderViewInfos = gsJ;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = gqS;
+            this.mFooterViewInfos = gsJ;
         } else {
             this.mFooterViewInfos = arrayList2;
         }
-        this.Nf = f(this.mHeaderViewInfos) && f(this.mFooterViewInfos);
-    }
-
-    public int od() {
-        return this.mHeaderViewInfos.size();
+        this.Ng = f(this.mHeaderViewInfos) && f(this.mFooterViewInfos);
     }
 
     public int oe() {
+        return this.mHeaderViewInfos.size();
+    }
+
+    public int og() {
         return this.mFooterViewInfos.size();
     }
 
@@ -52,7 +52,7 @@ public class d implements Filterable, WrapperListAdapter {
         if (arrayList != null) {
             Iterator<HListView.b> it = arrayList.iterator();
             while (it.hasNext()) {
-                if (!it.next().Ne) {
+                if (!it.next().Nf) {
                     return false;
                 }
             }
@@ -68,7 +68,7 @@ public class d implements Filterable, WrapperListAdapter {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Nf = z;
+                this.Ng = z;
                 return true;
             }
         }
@@ -83,7 +83,7 @@ public class d implements Filterable, WrapperListAdapter {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Nf = z;
+                this.Ng = z;
                 return true;
             }
         }
@@ -92,38 +92,38 @@ public class d implements Filterable, WrapperListAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.mAdapter != null ? oe() + od() + this.mAdapter.getCount() : oe() + od();
+        return this.mAdapter != null ? og() + oe() + this.mAdapter.getCount() : og() + oe();
     }
 
     @Override // android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.Nf && this.mAdapter.areAllItemsEnabled();
+            return this.Ng && this.mAdapter.areAllItemsEnabled();
         }
         return true;
     }
 
     @Override // android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        int od = od();
-        if (i < od) {
-            return this.mHeaderViewInfos.get(i).Ne;
+        int oe = oe();
+        if (i < oe) {
+            return this.mHeaderViewInfos.get(i).Nf;
         }
-        int i2 = i - od;
+        int i2 = i - oe;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             return this.mAdapter.isEnabled(i2);
         }
-        return this.mFooterViewInfos.get(i2 - i3).Ne;
+        return this.mFooterViewInfos.get(i2 - i3).Nf;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        int od = od();
-        if (i < od) {
+        int oe = oe();
+        if (i < oe) {
             return this.mHeaderViewInfos.get(i).data;
         }
-        int i2 = i - od;
+        int i2 = i - oe;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             return this.mAdapter.getItem(i2);
@@ -134,8 +134,8 @@ public class d implements Filterable, WrapperListAdapter {
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         int i2;
-        int od = od();
-        if (this.mAdapter == null || i < od || (i2 = i - od) >= this.mAdapter.getCount()) {
+        int oe = oe();
+        if (this.mAdapter == null || i < oe || (i2 = i - oe) >= this.mAdapter.getCount()) {
             return -1L;
         }
         return this.mAdapter.getItemId(i2);
@@ -151,11 +151,11 @@ public class d implements Filterable, WrapperListAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        int od = od();
-        if (i < od) {
+        int oe = oe();
+        if (i < oe) {
             return this.mHeaderViewInfos.get(i).view;
         }
-        int i2 = i - od;
+        int i2 = i - oe;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             return this.mAdapter.getView(i2, view, viewGroup);
@@ -166,8 +166,8 @@ public class d implements Filterable, WrapperListAdapter {
     @Override // android.widget.Adapter
     public int getItemViewType(int i) {
         int i2;
-        int od = od();
-        if (this.mAdapter == null || i < od || (i2 = i - od) >= this.mAdapter.getCount()) {
+        int oe = oe();
+        if (this.mAdapter == null || i < oe || (i2 = i - oe) >= this.mAdapter.getCount()) {
             return -2;
         }
         return this.mAdapter.getItemViewType(i2);

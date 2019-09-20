@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void I(String str, String str2, String str3) {
+    public static void K(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             if (DEBUG) {
                 Log.e("LiveStatusEventHelper", "dispatchStateChangeEvent failed slaveId: " + str + " ,liveId: " + str2);
@@ -20,10 +20,10 @@ public class c {
         hashMap.put("liveId", str2);
         hashMap.put("data", str3);
         hashMap.put("wvID", str);
-        com.baidu.swan.apps.w.e.GF().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
+        com.baidu.swan.apps.w.e.GJ().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
     }
 
-    public static void J(String str, String str2, String str3) {
+    public static void L(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             if (DEBUG) {
                 Log.e("LiveStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str + " ,liveId: " + str2);
@@ -36,6 +36,6 @@ public class c {
         hashMap.put("liveId", str2);
         hashMap.put("data", str3);
         hashMap.put("wvID", str);
-        com.baidu.swan.apps.w.e.GF().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
+        com.baidu.swan.apps.w.e.GJ().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
     }
 }

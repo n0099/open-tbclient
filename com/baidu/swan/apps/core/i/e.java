@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class e {
-    private static ArrayList<g> aua = new ArrayList<>();
+    private static ArrayList<g> auy = new ArrayList<>();
 
     static {
-        aua.add(new a());
+        auy.add(new a());
     }
 
     public static boolean P(Context context, String str) {
-        Iterator<g> it = aua.iterator();
+        Iterator<g> it = auy.iterator();
         while (it.hasNext()) {
             g next = it.next();
             if (next != null && next.P(context, str)) {

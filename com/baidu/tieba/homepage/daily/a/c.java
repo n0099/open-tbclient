@@ -39,7 +39,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.c cVar, v.a aVar) {
         if ((aVar.getView() instanceof TextView) && cVar != null) {
             TextView textView = (TextView) aVar.getView();
-            textView.setText(cVar.bvr());
+            textView.setText(cVar.bwf());
             am.j(textView, R.color.cp_cont_j);
             am.l(textView, R.color.cp_bg_line_e);
         }

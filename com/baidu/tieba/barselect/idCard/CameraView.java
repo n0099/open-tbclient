@@ -24,16 +24,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class CameraView extends FrameLayout {
-    private View ewC;
-    private ImageView exA;
-    private TextView exB;
-    private LinearLayout exC;
-    private b exD;
-    private final int exv;
-    private int exw;
-    private a exx;
-    private d exy;
-    private MaskView exz;
+    private View eyn;
+    private final int ezf;
+    private int ezg;
+    private a ezh;
+    private d ezi;
+    private MaskView ezj;
+    private ImageView ezk;
+    private TextView ezl;
+    private LinearLayout ezm;
+    private b ezn;
     private int maskType;
     Handler uiHandler;
 
@@ -44,70 +44,70 @@ public class CameraView extends FrameLayout {
     }
 
     public void setInitNativeStatus(int i) {
-        this.exw = i;
+        this.ezg = i;
     }
 
     public d getCameraControl() {
-        return this.exy;
+        return this.ezi;
     }
 
     public void setOrientation(int i) {
-        this.exy.setDisplayOrientation(i);
+        this.ezi.setDisplayOrientation(i);
     }
 
     public CameraView(Context context) {
         super(context);
-        this.exv = 0;
-        this.exw = 0;
-        this.exx = new a();
+        this.ezf = 0;
+        this.ezg = 0;
+        this.ezh = new a();
         this.uiHandler = new Handler(Looper.getMainLooper());
         init();
     }
 
     public CameraView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.exv = 0;
-        this.exw = 0;
-        this.exx = new a();
+        this.ezf = 0;
+        this.ezg = 0;
+        this.ezh = new a();
         this.uiHandler = new Handler(Looper.getMainLooper());
         init();
     }
 
     public CameraView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.exv = 0;
-        this.exw = 0;
-        this.exx = new a();
+        this.ezf = 0;
+        this.ezg = 0;
+        this.ezh = new a();
         this.uiHandler = new Handler(Looper.getMainLooper());
         init();
     }
 
     public void start() {
-        this.exy.start();
+        this.ezi.start();
         setKeepScreenOn(true);
     }
 
     public void stop() {
-        this.exy.stop();
+        this.ezi.stop();
         setKeepScreenOn(false);
     }
 
     public void a(File file, b bVar) {
-        this.exx.file = file;
-        this.exx.exE = bVar;
-        this.exy.a(this.exx);
+        this.ezh.file = file;
+        this.ezh.ezo = bVar;
+        this.ezi.a(this.ezh);
     }
 
     public void setAutoPictureCallback(b bVar) {
-        this.exD = bVar;
+        this.ezn = bVar;
     }
 
     public void setMaskType(@MaskView.MaskType int i, Context context) {
         int i2;
         boolean z = false;
-        this.exz.setMaskType(i);
-        this.exz.setVisibility(0);
-        this.exA.setVisibility(0);
+        this.ezj.setMaskType(i);
+        this.ezj.setVisibility(0);
+        this.ezk.setVisibility(0);
         this.maskType = i;
         switch (i) {
             case 1:
@@ -117,19 +117,19 @@ public class CameraView extends FrameLayout {
                 i2 = R.drawable.bd_ocr_round_corner;
                 break;
             default:
-                this.exz.setVisibility(4);
-                this.exA.setVisibility(4);
+                this.ezj.setVisibility(4);
+                this.ezk.setVisibility(4);
                 z = true;
                 i2 = R.drawable.bd_ocr_hint_align_id_card;
                 break;
         }
         if (z) {
-            this.exA.setImageResource(i2);
-            this.exC.setVisibility(4);
+            this.ezk.setImageResource(i2);
+            this.ezm.setVisibility(4);
         }
     }
 
-    private String py(int i) {
+    private String pC(int i) {
         switch (i) {
             case 0:
                 return "";
@@ -160,67 +160,67 @@ public class CameraView extends FrameLayout {
     }
 
     private void init() {
-        this.exy = new com.baidu.tieba.barselect.idCard.b(getContext());
-        this.ewC = this.exy.aYV();
-        addView(this.ewC);
-        this.exz = new MaskView(getContext());
-        addView(this.exz);
-        this.exA = new ImageView(getContext());
-        addView(this.exA);
-        this.exC = new LinearLayout(getContext());
-        this.exC.setOrientation(1);
+        this.ezi = new com.baidu.tieba.barselect.idCard.b(getContext());
+        this.eyn = this.ezi.aZz();
+        addView(this.eyn);
+        this.ezj = new MaskView(getContext());
+        addView(this.ezj);
+        this.ezk = new ImageView(getContext());
+        addView(this.ezk);
+        this.ezm = new LinearLayout(getContext());
+        this.ezm.setOrientation(1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, com.baidu.tieba.barselect.a.b.dpToPx(25));
         layoutParams.gravity = 17;
-        this.exB = new TextView(getContext());
-        this.exB.setBackgroundResource(R.drawable.bd_ocr_round_corner);
-        this.exB.setAlpha(0.5f);
-        this.exB.setPadding(com.baidu.tieba.barselect.a.b.dpToPx(10), 0, com.baidu.tieba.barselect.a.b.dpToPx(10), 0);
-        this.exC.addView(this.exB, layoutParams);
-        this.exB.setGravity(17);
-        this.exB.setTextColor(-1);
-        this.exB.setTextSize(2, 14.0f);
-        this.exB.setText(py(-1));
-        addView(this.exC, layoutParams);
+        this.ezl = new TextView(getContext());
+        this.ezl.setBackgroundResource(R.drawable.bd_ocr_round_corner);
+        this.ezl.setAlpha(0.5f);
+        this.ezl.setPadding(com.baidu.tieba.barselect.a.b.dpToPx(10), 0, com.baidu.tieba.barselect.a.b.dpToPx(10), 0);
+        this.ezm.addView(this.ezl, layoutParams);
+        this.ezl.setGravity(17);
+        this.ezl.setTextColor(-1);
+        this.ezl.setTextSize(2, 14.0f);
+        this.ezl.setText(pC(-1));
+        addView(this.ezm, layoutParams);
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.ewC.layout(i, 0, i3, i4 - i2);
-        this.exz.layout(i, 0, i3, i4 - i2);
+        this.eyn.layout(i, 0, i3, i4 - i2);
+        this.ezj.layout(i, 0, i3, i4 - i2);
         int dpToPx = com.baidu.tieba.barselect.a.b.dpToPx(ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
         int dpToPx2 = com.baidu.tieba.barselect.a.b.dpToPx(25);
         int width = (getWidth() - dpToPx) / 2;
-        int dpToPx3 = this.exz.getFrameRect().bottom + com.baidu.tieba.barselect.a.b.dpToPx(16);
-        this.exC.layout(width, dpToPx3, width + dpToPx, dpToPx3 + dpToPx2);
-        this.exA.layout(width, dpToPx3, dpToPx + width, dpToPx2 + dpToPx3);
+        int dpToPx3 = this.ezj.getFrameRect().bottom + com.baidu.tieba.barselect.a.b.dpToPx(16);
+        this.ezm.layout(width, dpToPx3, width + dpToPx, dpToPx3 + dpToPx2);
+        this.ezk.layout(width, dpToPx3, dpToPx + width, dpToPx2 + dpToPx3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap a(File file, byte[] bArr, int i) {
         try {
-            Rect aZd = this.exy.aZd();
-            if (this.exz.getWidth() == 0 || this.exz.getHeight() == 0 || aZd.width() == 0 || aZd.height() == 0) {
+            Rect aZH = this.ezi.aZH();
+            if (this.ezj.getWidth() == 0 || this.ezj.getHeight() == 0 || aZH.width() == 0 || aZH.height() == 0) {
                 return null;
             }
             BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, true);
             int width = i % SubsamplingScaleImageView.ORIENTATION_180 == 0 ? newInstance.getWidth() : newInstance.getHeight();
             int height = i % SubsamplingScaleImageView.ORIENTATION_180 == 0 ? newInstance.getHeight() : newInstance.getWidth();
-            Rect frameRect = this.exz.getFrameRect();
-            int width2 = (frameRect.left * width) / this.exz.getWidth();
-            int height2 = (frameRect.top * height) / this.exz.getHeight();
-            int width3 = (frameRect.right * width) / this.exz.getWidth();
-            int height3 = (frameRect.bottom * height) / this.exz.getHeight();
-            if (aZd.top < 0) {
-                int height4 = (aZd.height() * getWidth()) / aZd.width();
-                int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / aZd.width();
-                height2 = (((((height4 - frameRect.height()) / 2) * getWidth()) / aZd.width()) * height) / aZd.height();
-                height3 = (height5 * height) / aZd.height();
-            } else if (aZd.left < 0) {
-                int width4 = (aZd.width() * getHeight()) / aZd.height();
-                int width5 = (((width4 - this.exz.getFrameRect().width()) / 2) * getHeight()) / aZd.height();
-                int width6 = (((width4 + this.exz.getFrameRect().width()) / 2) * getHeight()) / aZd.height();
-                width2 = (width5 * width) / aZd.width();
-                width3 = (width6 * width) / aZd.width();
+            Rect frameRect = this.ezj.getFrameRect();
+            int width2 = (frameRect.left * width) / this.ezj.getWidth();
+            int height2 = (frameRect.top * height) / this.ezj.getHeight();
+            int width3 = (frameRect.right * width) / this.ezj.getWidth();
+            int height3 = (frameRect.bottom * height) / this.ezj.getHeight();
+            if (aZH.top < 0) {
+                int height4 = (aZH.height() * getWidth()) / aZH.width();
+                int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / aZH.width();
+                height2 = (((((height4 - frameRect.height()) / 2) * getWidth()) / aZH.width()) * height) / aZH.height();
+                height3 = (height5 * height) / aZH.height();
+            } else if (aZH.left < 0) {
+                int width4 = (aZH.width() * getHeight()) / aZH.height();
+                int width5 = (((width4 - this.ezj.getFrameRect().width()) / 2) * getHeight()) / aZH.height();
+                int width6 = (((width4 + this.ezj.getFrameRect().width()) / 2) * getHeight()) / aZH.height();
+                width2 = (width5 * width) / aZH.width();
+                width3 = (width6 * width) / aZH.width();
             }
             Rect rect = new Rect();
             rect.left = width2;
@@ -277,7 +277,7 @@ public class CameraView extends FrameLayout {
 
     /* loaded from: classes3.dex */
     private class a implements d.b {
-        private b exE;
+        private b ezo;
         private File file;
 
         private a() {
@@ -288,7 +288,7 @@ public class CameraView extends FrameLayout {
             c.execute(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.CameraView.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.exE.t(CameraView.this.a(a.this.file, bArr, com.baidu.tieba.barselect.a.c.N(bArr)));
+                    a.this.ezo.t(CameraView.this.a(a.this.file, bArr, com.baidu.tieba.barselect.a.c.N(bArr)));
                 }
             });
         }

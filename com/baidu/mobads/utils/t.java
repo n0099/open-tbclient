@@ -163,7 +163,7 @@ public class t implements IXAdURIUitls {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public String replaceURLWithSupportProtocol(String str) {
-        if (AdSettings.uo().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()) && isHttpProtocol(str).booleanValue()) {
+        if (AdSettings.us().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()) && isHttpProtocol(str).booleanValue()) {
             return str.replaceFirst("(?i)http", "https");
         }
         return str;

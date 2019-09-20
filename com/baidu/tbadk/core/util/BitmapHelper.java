@@ -37,6 +37,7 @@ public class BitmapHelper {
     public static final Object lockForSyncImageDecoder = new Object();
     private static volatile SparseArray<SoftReference<Bitmap>> mBitmapHash = new SparseArray<>();
     private static volatile SparseArray<SoftReference<Bitmap>> mBitmapNightHash = new SparseArray<>();
+    private static volatile SparseArray<SoftReference<Bitmap>> mBitmapDarkHash = new SparseArray<>();
     private static volatile SparseArray<SoftReference<Bitmap>> mBitmapThemeHash = new SparseArray<>();
 
     public static Bitmap getCashBitmap(int i, BitmapFactory.Options options) {
@@ -73,6 +74,27 @@ public class BitmapHelper {
             }
             if (bitmap != null) {
                 mBitmapNightHash.put(i2, new SoftReference<>(bitmap));
+            }
+        }
+        return bitmap;
+    }
+
+    public static Bitmap getDarkCashBitmap(Resources resources, int i, int i2, BitmapFactory.Options options) {
+        Bitmap bitmap;
+        SoftReference<Bitmap> softReference = mBitmapDarkHash.get(i2);
+        if (softReference == null) {
+            bitmap = null;
+        } else {
+            bitmap = softReference.get();
+        }
+        if (bitmap == null) {
+            try {
+                bitmap = BitmapFactory.decodeResource(resources, i, options);
+            } catch (OutOfMemoryError e) {
+                TbadkCoreApplication.getInst().onAppMemoryLow();
+            }
+            if (bitmap != null) {
+                mBitmapDarkHash.put(i2, new SoftReference<>(bitmap));
             }
         }
         return bitmap;
@@ -370,7 +392,7 @@ public class BitmapHelper {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [643=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [673=4] */
     public static android.graphics.Bitmap loadResizedBitmap(java.lang.String r8, int r9, int r10) {
         /*
             r1 = 1
@@ -544,7 +566,7 @@ public class BitmapHelper {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [706=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [736=4] */
     public static android.graphics.Bitmap loadBitmap(java.lang.String r4, android.graphics.BitmapFactory.Options r5) {
         /*
             r1 = 0
@@ -629,19 +651,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream nB = m.nB(str);
-                BitmapFactory.decodeStream(nB, null, options);
+                InputStream nD = m.nD(str);
+                BitmapFactory.decodeStream(nD, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.g(nB);
+                com.baidu.adp.lib.util.n.g(nD);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream nB2 = m.nB(str);
-                        decodeStream = BitmapFactory.decodeStream(nB2, null, options);
-                        com.baidu.adp.lib.util.n.g(nB2);
+                        InputStream nD2 = m.nD(str);
+                        decodeStream = BitmapFactory.decodeStream(nD2, null, options);
+                        com.baidu.adp.lib.util.n.g(nD2);
                     }
                 }
             }
@@ -819,7 +841,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [949=6, 951=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [979=6, 981=5] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -937,7 +959,7 @@ public class BitmapHelper {
         return bitmap;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1025=5, 1026=5, 1027=5, 1019=6, 1021=5, 1023=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1049=6, 1051=5, 1053=5, 1055=5, 1056=5, 1057=5] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;

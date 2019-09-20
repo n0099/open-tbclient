@@ -16,10 +16,10 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SampleToChunkBox extends AbstractFullBox {
     public static final String TYPE = "stsc";
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
     List<Entry> entries;
 
     static {
@@ -81,7 +81,7 @@ public class SampleToChunkBox extends AbstractFullBox {
     }
 
     public long[] blowup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EK(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EO(i)));
         long[] jArr = new long[i];
         LinkedList linkedList = new LinkedList(this.entries);
         Collections.reverse(linkedList);

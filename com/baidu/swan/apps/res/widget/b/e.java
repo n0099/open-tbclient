@@ -31,10 +31,10 @@ import com.facebook.drawee.view.SimpleDraweeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e {
-    private static Runnable aPW;
-    private static View aQo;
-    private static View aQp;
-    private static boolean aQq = false;
+    private static View aQM;
+    private static View aQN;
+    private static boolean aQO = false;
+    private static Runnable aQu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, int i, int i2, boolean z) {
@@ -53,7 +53,7 @@ public class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(K(activity), relativeLayout, i, layoutParams, a.C0110a.aiapps_toast_enter);
+        a(K(activity), relativeLayout, i, layoutParams, a.C0119a.aiapps_toast_enter);
     }
 
     static View K(@NonNull Activity activity) {
@@ -76,13 +76,13 @@ public class e {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
         layoutParams.bottomMargin = (int) resources.getDimension(a.d.aiapps_clickable_toast_view_margin_bottom);
-        a(K(activity), relativeLayout, i, layoutParams, a.C0110a.aiapps_toast_enter);
+        a(K(activity), relativeLayout, i, layoutParams, a.C0119a.aiapps_toast_enter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, @Nullable Drawable drawable, int i, boolean z) {
         Resources resources = activity.getResources();
-        aQq = z;
+        aQO = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_highlight_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
         TextView textView = (TextView) linearLayout.findViewById(a.f.highlight_toast_text);
@@ -99,13 +99,13 @@ public class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(K(activity), linearLayout, i, layoutParams, a.C0110a.aiapps_highlight_toast_show);
+        a(K(activity), linearLayout, i, layoutParams, a.C0119a.aiapps_highlight_toast_show);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Activity activity, CharSequence charSequence, int i, boolean z) {
         Resources resources = activity.getResources();
-        aQq = z;
+        aQO = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_highloading_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
         TextView textView = (TextView) linearLayout.findViewById(a.f.highLoading_progress_toast_title);
@@ -115,7 +115,7 @@ public class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(K(activity), linearLayout, i, layoutParams, a.C0110a.aiapps_highlight_toast_show);
+        a(K(activity), linearLayout, i, layoutParams, a.C0119a.aiapps_highlight_toast_show);
     }
 
     private static void a(View view, View view2, int i, FrameLayout.LayoutParams layoutParams, @AnimRes int i2) {
@@ -135,9 +135,9 @@ public class e {
                 view.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.aQq && view != null) {
-                            if (e.aQp != null && (e.aQp.getParent() instanceof ViewGroup)) {
-                                ((ViewGroup) e.aQp.getParent()).removeView(e.aQp);
+                        if (e.aQO && view != null) {
+                            if (e.aQN != null && (e.aQN.getParent() instanceof ViewGroup)) {
+                                ((ViewGroup) e.aQN.getParent()).removeView(e.aQN);
                             }
                             if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                                 FrameLayout frameLayout = new FrameLayout(context);
@@ -146,31 +146,31 @@ public class e {
                                 layoutParams2.topMargin = d.bx(context);
                                 if (view instanceof ViewGroup) {
                                     ((ViewGroup) view).addView(frameLayout, layoutParams2);
-                                    View unused = e.aQp = frameLayout;
+                                    View unused = e.aQN = frameLayout;
                                 }
                             } else {
                                 return;
                             }
                         }
-                        if (e.aQo != null && (e.aQo.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) e.aQo.getParent()).removeView(e.aQo);
+                        if (e.aQM != null && (e.aQM.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) e.aQM.getParent()).removeView(e.aQM);
                         }
                         if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                             ((ViewGroup) view).addView(view2, layoutParams);
                             view2.startAnimation(animation);
-                            View unused2 = e.aQo = view2;
+                            View unused2 = e.aQM = view2;
                         }
                     }
                 });
-                if (aPW == null) {
-                    aPW = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.3
+                if (aQu == null) {
+                    aQu = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.3
                         @Override // java.lang.Runnable
                         public void run() {
                             e.cancel();
                         }
                     };
                 }
-                view.postDelayed(aPW, i * 1000);
+                view.postDelayed(aQu, i * 1000);
             }
         }
     }
@@ -188,7 +188,7 @@ public class e {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().sA(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().sD(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -241,7 +241,7 @@ public class e {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.a.this != null) {
-                        d.a.this.LX();
+                        d.a.this.Mb();
                     }
                     e.cancel();
                 }
@@ -251,7 +251,7 @@ public class e {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.u.a.EF().Fe() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.u.a.EJ().Fi() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -279,7 +279,7 @@ public class e {
                 animation = animationSet;
                 break;
             default:
-                animation = AnimationUtils.loadAnimation(activity, a.C0110a.aiapps_toast_enter);
+                animation = AnimationUtils.loadAnimation(activity, a.C0119a.aiapps_toast_enter);
                 break;
         }
         a(K(activity), linearLayout, i4, layoutParams, animation);
@@ -287,12 +287,12 @@ public class e {
 
     public static synchronized void cancel() {
         synchronized (e.class) {
-            if (aQo != null) {
-                aQo.post(new AnonymousClass2(aQo, aQp));
-                aQo.removeCallbacks(aPW);
-                aQo = null;
-                aPW = null;
-                aQp = null;
+            if (aQM != null) {
+                aQM.post(new AnonymousClass2(aQM, aQN));
+                aQM.removeCallbacks(aQu);
+                aQM = null;
+                aQu = null;
+                aQN = null;
             }
         }
     }
@@ -301,17 +301,17 @@ public class e {
     /* renamed from: com.baidu.swan.apps.res.widget.b.e$2  reason: invalid class name */
     /* loaded from: classes2.dex */
     public static class AnonymousClass2 implements Runnable {
-        final /* synthetic */ View aQu;
-        final /* synthetic */ View aQv;
+        final /* synthetic */ View aQS;
+        final /* synthetic */ View aQT;
 
         AnonymousClass2(View view, View view2) {
-            this.aQu = view;
-            this.aQv = view2;
+            this.aQS = view;
+            this.aQT = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.aQu.getContext(), a.C0110a.aiapps_toast_exit);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.aQS.getContext(), a.C0119a.aiapps_toast_exit);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
@@ -319,22 +319,22 @@ public class e {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    if (AnonymousClass2.this.aQu.getParent() instanceof ViewGroup) {
-                        AnonymousClass2.this.aQu.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.1
+                    if (AnonymousClass2.this.aQS.getParent() instanceof ViewGroup) {
+                        AnonymousClass2.this.aQS.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AnonymousClass2.this.aQu.getParent() != null) {
-                                    ((ViewGroup) AnonymousClass2.this.aQu.getParent()).removeView(AnonymousClass2.this.aQu);
+                                if (AnonymousClass2.this.aQS.getParent() != null) {
+                                    ((ViewGroup) AnonymousClass2.this.aQS.getParent()).removeView(AnonymousClass2.this.aQS);
                                 }
                             }
                         });
                     }
-                    if (AnonymousClass2.this.aQv != null) {
-                        AnonymousClass2.this.aQv.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.2
+                    if (AnonymousClass2.this.aQT != null) {
+                        AnonymousClass2.this.aQT.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AnonymousClass2.this.aQv != null && AnonymousClass2.this.aQv.getParent() != null && (AnonymousClass2.this.aQv.getParent() instanceof ViewGroup)) {
-                                    ((ViewGroup) AnonymousClass2.this.aQv.getParent()).removeView(AnonymousClass2.this.aQv);
+                                if (AnonymousClass2.this.aQT != null && AnonymousClass2.this.aQT.getParent() != null && (AnonymousClass2.this.aQT.getParent() instanceof ViewGroup)) {
+                                    ((ViewGroup) AnonymousClass2.this.aQT.getParent()).removeView(AnonymousClass2.this.aQT);
                                 }
                             }
                         });
@@ -345,7 +345,7 @@ public class e {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aQu.startAnimation(loadAnimation);
+            this.aQS.startAnimation(loadAnimation);
         }
     }
 }

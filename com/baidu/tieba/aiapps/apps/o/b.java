@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends z {
-    public static String dhD = "com.baidu.tieba://";
+    public static String djo = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -37,17 +37,17 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
             return false;
         }
-        JSONObject dd = o.dd(param);
-        this.mCallback = dd.optString("cb");
+        JSONObject df = o.df(param);
+        this.mCallback = df.optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        final String optString = dd.optString("authority");
-        final String optString2 = dd.optString("path");
-        final String optString3 = dd.optString("module", "NA");
-        final String optString4 = dd.optString("action");
-        JSONObject optJSONObject = dd.optJSONObject("scheme");
+        final String optString = df.optString("authority");
+        final String optString2 = df.optString("path");
+        final String optString3 = df.optString("module", "NA");
+        final String optString4 = df.optString("action");
+        JSONObject optJSONObject = df.optJSONObject("scheme");
         try {
             optJSONObject.put("launchMode", "standard");
         } catch (JSONException e) {
@@ -56,7 +56,7 @@ public class b extends z {
             }
         }
         final String jSONObject = optJSONObject.toString();
-        bVar.Mh().a((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.o.b.1
+        bVar.Ml().a((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.o.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -94,7 +94,7 @@ public class b extends z {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            tp(optString);
+                            tO(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -102,7 +102,7 @@ public class b extends z {
                 }
             } else {
                 str6 = f(str, str2, str3, str4, str5);
-                z = at(context, str6);
+                z = aA(context, str6);
             }
             if (DEBUG) {
                 Log.i("PageTransitionAction", "result = " + z + "\n拼接后的uri is: " + str6);
@@ -111,13 +111,13 @@ public class b extends z {
         return z;
     }
 
-    private void tp(String str) {
-        com.baidu.swan.apps.process.messaging.client.a DA;
-        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
-        if (Md != null && (DA = Md.DA()) != null) {
+    private void tO(String str) {
+        com.baidu.swan.apps.process.messaging.client.a DE;
+        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
+        if (Mh != null && (DE = Mh.DE()) != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_param_url", str);
-            DA.a(bundle, a.class);
+            DE.a(bundle, a.class);
         }
     }
 
@@ -143,7 +143,7 @@ public class b extends z {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = dhD;
+            String str7 = djo;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -167,7 +167,7 @@ public class b extends z {
         }
     }
 
-    private static boolean at(Context context, String str) {
+    private static boolean aA(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return false;
         }

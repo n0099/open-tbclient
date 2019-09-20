@@ -83,7 +83,7 @@ public class FH {
     }
 
     public static String getVersion(Context context) {
-        return "3.2.2.1";
+        return "3.3.9";
     }
 
     public static String gzfi(Context context, String str, int i, String str2) {
@@ -95,6 +95,10 @@ public class FH {
     }
 
     public static String gz(Context context) {
+        return e.b(context);
+    }
+
+    public static String gd(Context context) {
         return e.a(context);
     }
 
@@ -104,5 +108,9 @@ public class FH {
 
     public static String xgz(Context context, String str) {
         return e.a(context, str);
+    }
+
+    public static void bc(Context context, boolean z) {
+        e.a(context, z);
     }
 }

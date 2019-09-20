@@ -27,7 +27,7 @@ public class c {
         }
         for (int i = 0; i < cVar.oA.length; i++) {
             this.oz[i] = com.airbnb.lottie.c.e.lerp(cVar.oz[i], cVar2.oz[i], f);
-            this.oA[i] = com.airbnb.lottie.c.a.a(f, cVar.oA[i], cVar2.oA[i]);
+            this.oA[i] = com.airbnb.lottie.c.a.b(f, cVar.oA[i], cVar2.oA[i]);
         }
     }
 }

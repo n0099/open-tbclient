@@ -6,23 +6,23 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class e {
-    private final com.facebook.common.memory.a kaE;
-    private int kje = 0;
-    private int kjd = 0;
-    private int kjf = 0;
-    private int kjh = 0;
-    private int kjg = 0;
-    private int kjc = 0;
+    private final com.facebook.common.memory.a kdb;
+    private int klB = 0;
+    private int klA = 0;
+    private int klC = 0;
+    private int klE = 0;
+    private int klD = 0;
+    private int klz = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.kaE = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.kdb = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.d dVar) {
-        if (this.kjc != 6 && dVar.getSize() > this.kje) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.kaE.get(16384), this.kaE);
+        if (this.klz != 6 && dVar.getSize() > this.klB) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.kdb.get(16384), this.kdb);
             try {
-                com.facebook.common.util.c.a(fVar, this.kje);
+                com.facebook.common.util.c.a(fVar, this.klB);
                 return v(fVar);
             } catch (IOException e) {
                 k.r(e);
@@ -36,75 +36,75 @@ public class e {
 
     private boolean v(InputStream inputStream) {
         int read;
-        int i = this.kjg;
-        while (this.kjc != 6 && (read = inputStream.read()) != -1) {
+        int i = this.klD;
+        while (this.klz != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.kje++;
-                switch (this.kjc) {
+                this.klB++;
+                switch (this.klz) {
                     case 0:
                         if (read == 255) {
-                            this.kjc = 1;
+                            this.klz = 1;
                             break;
                         } else {
-                            this.kjc = 6;
+                            this.klz = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.kjc = 2;
+                            this.klz = 2;
                             break;
                         } else {
-                            this.kjc = 6;
+                            this.klz = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.kjc = 3;
+                            this.klz = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.kjc = 3;
+                            this.klz = 3;
                             break;
                         } else if (read == 0) {
-                            this.kjc = 2;
+                            this.klz = 2;
                             break;
                         } else {
                             if (read == 218 || read == 217) {
-                                DT(this.kje - 2);
+                                DX(this.klB - 2);
                             }
-                            if (DS(read)) {
-                                this.kjc = 4;
+                            if (DW(read)) {
+                                this.klz = 4;
                                 break;
                             } else {
-                                this.kjc = 2;
+                                this.klz = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.kjc = 5;
+                        this.klz = 5;
                         break;
                     case 5:
-                        int i2 = ((this.kjd << 8) + read) - 2;
+                        int i2 = ((this.klA << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.kje = i2 + this.kje;
-                        this.kjc = 2;
+                        this.klB = i2 + this.klB;
+                        this.klz = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.kjd = read;
+                this.klA = read;
             } catch (IOException e) {
                 k.r(e);
             }
         }
-        return (this.kjc == 6 || this.kjg == i) ? false : true;
+        return (this.klz == 6 || this.klD == i) ? false : true;
     }
 
-    private static boolean DS(int i) {
+    private static boolean DW(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -118,20 +118,20 @@ public class e {
         return false;
     }
 
-    private void DT(int i) {
-        if (this.kjf > 0) {
-            this.kjh = i;
+    private void DX(int i) {
+        if (this.klC > 0) {
+            this.klE = i;
         }
-        int i2 = this.kjf;
-        this.kjf = i2 + 1;
-        this.kjg = i2;
+        int i2 = this.klC;
+        this.klC = i2 + 1;
+        this.klD = i2;
     }
 
-    public int cJU() {
-        return this.kjh;
+    public int cKI() {
+        return this.klE;
     }
 
-    public int cJV() {
-        return this.kjg;
+    public int cKJ() {
+        return this.klD;
     }
 }

@@ -4,22 +4,22 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes2.dex */
 public class f extends c {
-    private static f kal = null;
+    private static f kcI = null;
 
     private f() {
         super(new Handler(Looper.getMainLooper()));
     }
 
-    public static f cEW() {
-        if (kal == null) {
-            kal = new f();
+    public static f cFK() {
+        if (kcI == null) {
+            kcI = new f();
         }
-        return kal;
+        return kcI;
     }
 
     @Override // com.facebook.common.b.c, java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        if (cEU()) {
+        if (cFI()) {
             runnable.run();
         } else {
             super.execute(runnable);

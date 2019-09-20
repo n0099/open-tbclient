@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class b {
     public static boolean ct(Context context) {
         byte[] cu = cu(context);
-        return cu == null || cu.length == 0 || Arrays.equals(cu, jo("30819f300d06092a864886f70d010101050003818d0030818902818100b17c8a1a350a202f33e461293638cbf1b6bd481877a87379cd6b99d2ec33aa123d9e16028e94c89a3ea268bd5b055869cd99bf10780e7fafa6254a4471d4d57d36589331e28f66b0044bd8e6cc0cd82dc4fa21f28887776b2094118f859739e8271811894260d9a8f36482fc4e2e9df40dc953e2c2da429ea1101524bce33fd10203010001"));
+        return cu == null || cu.length == 0 || Arrays.equals(cu, jq("30819f300d06092a864886f70d010101050003818d0030818902818100b17c8a1a350a202f33e461293638cbf1b6bd481877a87379cd6b99d2ec33aa123d9e16028e94c89a3ea268bd5b055869cd99bf10780e7fafa6254a4471d4d57d36589331e28f66b0044bd8e6cc0cd82dc4fa21f28887776b2094118f859739e8271811894260d9a8f36482fc4e2e9df40dc953e2c2da429ea1101524bce33fd10203010001"));
     }
 
     private static byte[] cu(Context context) {
@@ -37,7 +37,7 @@ public class b {
         }
     }
 
-    private static byte[] jo(String str) {
+    private static byte[] jq(String str) {
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
         for (int i = 0; i < length; i++) {

@@ -40,8 +40,8 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class InterviewLiveLayout extends FrameLayout implements i<a> {
-    private a VJ;
-    private ab<a> WO;
+    private a VI;
+    private ab<a> WN;
     private boolean Yd;
     private TbImageView Ye;
     private TextView Yf;
@@ -60,7 +60,7 @@ public class InterviewLiveLayout extends FrameLayout implements i<a> {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.Yd = true;
-        this.VJ = null;
+        this.VI = null;
         this.Yg = new ArrayList<>();
         this.Yh = new View.OnClickListener() { // from class: com.baidu.card.view.InterviewLiveLayout.1
             @Override // android.view.View.OnClickListener
@@ -87,11 +87,11 @@ public class InterviewLiveLayout extends FrameLayout implements i<a> {
                         createConfig.setIsShowHost(false);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2010000, createConfig));
                         an anVar = new an("c13327");
-                        anVar.l("fid", InterviewLiveLayout.this.forumId);
+                        anVar.n("fid", InterviewLiveLayout.this.forumId);
                         anVar.bT(VideoPlayActivityConfig.OBJ_ID, InterviewLiveLayout.this.taskId);
                         TiebaStatic.log(anVar);
-                        if (InterviewLiveLayout.this.WO != null) {
-                            InterviewLiveLayout.this.WO.a(InterviewLiveLayout.this.Ye, InterviewLiveLayout.this.VJ);
+                        if (InterviewLiveLayout.this.WN != null) {
+                            InterviewLiveLayout.this.WN.a(InterviewLiveLayout.this.Ye, InterviewLiveLayout.this.VI);
                             return;
                         }
                         return;
@@ -110,10 +110,10 @@ public class InterviewLiveLayout extends FrameLayout implements i<a> {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a qH = c.aty().qH(com.baidu.adp.lib.f.c.iE().e(tbImageView.getUrl(), InterviewLiveLayout.this.Yd ? 13 : 14));
-                    if (qH != null) {
-                        int width = qH.getWidth();
-                        i = qH.getHeight();
+                    com.baidu.adp.widget.ImageView.a qS = c.atK().qS(com.baidu.adp.lib.f.c.iE().e(tbImageView.getUrl(), InterviewLiveLayout.this.Yd ? 13 : 14));
+                    if (qS != null) {
+                        int width = qS.getWidth();
+                        i = qS.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -183,27 +183,27 @@ public class InterviewLiveLayout extends FrameLayout implements i<a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(a aVar) {
-        this.VJ = aVar;
+        this.VI = aVar;
         if (aVar == null || this.Ye == null) {
             setVisibility(8);
             return;
         }
-        bh acy = aVar.acy();
-        bf aee = acy.aee();
-        if (aee == null) {
+        bh acC = aVar.acC();
+        bf aei = acC.aei();
+        if (aei == null) {
             setVisibility(8);
             return;
         }
-        this.forumId = acy.getFid();
-        this.taskId = aee.getTaskId();
-        if (com.baidu.tbadk.core.i.aca().ace() && aee != null && !StringUtils.isNull(aee.getThreadImgUrl())) {
+        this.forumId = acC.getFid();
+        this.taskId = aei.getTaskId();
+        if (com.baidu.tbadk.core.i.ace().aci() && aei != null && !StringUtils.isNull(aei.getThreadImgUrl())) {
             this.Yg.clear();
-            this.Yg.add(aee.getThreadImgUrl());
+            this.Yg.add(aei.getThreadImgUrl());
             setVisibility(0);
             this.Ye.setSupportNoImage(true);
             this.Ye.setScaleType(ImageView.ScaleType.MATRIX);
             this.Ye.setOnDrawListener(this.mOnDrawListener);
-            this.Ye.startLoad(aee.getThreadImgUrl(), this.Yd ? 13 : 14, false);
+            this.Ye.startLoad(aei.getThreadImgUrl(), this.Yd ? 13 : 14, false);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
             layoutParams.width = l.af(getContext()) - l.g(getContext(), R.dimen.ds68);
             layoutParams.height = (int) ((layoutParams.width * 428.0f) / 760.0f);
@@ -215,11 +215,11 @@ public class InterviewLiveLayout extends FrameLayout implements i<a> {
     }
 
     public ab<a> getSubClickListener() {
-        return this.WO;
+        return this.WN;
     }
 
     public void setSubClickListener(ab<a> abVar) {
-        this.WO = abVar;
+        this.WN = abVar;
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {

@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import com.baidu.sofire.b.r;
+import com.baidu.sofire.b.v;
 /* loaded from: classes2.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
@@ -22,7 +22,7 @@ public class MyProvider extends ContentProvider {
         try {
             if ("p".equals(str)) {
                 final Context context = getContext();
-                r.a().a(new Runnable() { // from class: com.baidu.sofire.MyProvider.1
+                v.a().a(new Runnable() { // from class: com.baidu.sofire.MyProvider.1
                     @Override // java.lang.Runnable
                     public final void run() {
                         try {

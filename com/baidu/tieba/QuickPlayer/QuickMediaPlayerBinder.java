@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+import tv.danmaku.ijk.media.player.IjkMediaPlayerLocal;
 /* loaded from: classes3.dex */
 public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     private static final String MODEL_MX4 = "MX4";
@@ -368,20 +368,20 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
         }
         if (isIjkPlayerLoaded) {
             try {
-                IjkMediaPlayer ijkMediaPlayer = new IjkMediaPlayer();
-                IjkMediaPlayer.native_setLogLevel(3);
-                ijkMediaPlayer.setOption(4, "mediacodec", 0L);
-                ijkMediaPlayer.setOption(4, "opensles", 0L);
-                ijkMediaPlayer.setOption(4, "overlay-format", 842225234L);
-                ijkMediaPlayer.setOption(4, "framedrop", 1L);
-                ijkMediaPlayer.setOption(4, "start-on-prepared", 0L);
-                ijkMediaPlayer.setOption(1, "http-detect-range-support", 0L);
-                ijkMediaPlayer.setOption(2, "skip_loop_filter", 0L);
-                ijkMediaPlayer.setOption(4, "enable-accurate-seek", 1L);
+                IjkMediaPlayerLocal ijkMediaPlayerLocal = new IjkMediaPlayerLocal();
+                IjkMediaPlayerLocal.native_setLogLevel(3);
+                ijkMediaPlayerLocal.setOption(4, "mediacodec", 0L);
+                ijkMediaPlayerLocal.setOption(4, "opensles", 0L);
+                ijkMediaPlayerLocal.setOption(4, "overlay-format", 842225234L);
+                ijkMediaPlayerLocal.setOption(4, "framedrop", 1L);
+                ijkMediaPlayerLocal.setOption(4, "start-on-prepared", 0L);
+                ijkMediaPlayerLocal.setOption(1, "http-detect-range-support", 0L);
+                ijkMediaPlayerLocal.setOption(2, "skip_loop_filter", 0L);
+                ijkMediaPlayerLocal.setOption(4, "enable-accurate-seek", 1L);
                 for (Map.Entry<String, String> entry : this.mDebugParamsMap.entrySet()) {
-                    ijkMediaPlayer.setOption(4, entry.getKey(), entry.getValue());
+                    ijkMediaPlayerLocal.setOption(4, entry.getKey(), entry.getValue());
                 }
-                return ijkMediaPlayer;
+                return ijkMediaPlayerLocal;
             } catch (Throwable th) {
                 th.printStackTrace();
                 mCreatePlayerFailed = true;
@@ -417,7 +417,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public boolean isIjkPlayer() throws RemoteException {
-        return this.mMediaPlayer != null && (this.mMediaPlayer instanceof IjkMediaPlayer);
+        return this.mMediaPlayer != null && (this.mMediaPlayer instanceof IjkMediaPlayerLocal);
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
@@ -428,8 +428,8 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public int getCachedPostion() throws RemoteException {
         if (isInPlaybackState() && isIjkPlayer()) {
-            long audioCachedDuration = ((IjkMediaPlayer) this.mMediaPlayer).getAudioCachedDuration();
-            long videoCachedDuration = ((IjkMediaPlayer) this.mMediaPlayer).getVideoCachedDuration();
+            long audioCachedDuration = ((IjkMediaPlayerLocal) this.mMediaPlayer).getAudioCachedDuration();
+            long videoCachedDuration = ((IjkMediaPlayerLocal) this.mMediaPlayer).getVideoCachedDuration();
             if (audioCachedDuration >= 0 && videoCachedDuration >= 0) {
                 if (audioCachedDuration <= videoCachedDuration) {
                     videoCachedDuration = audioCachedDuration;
@@ -443,7 +443,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public int getBitRate() throws RemoteException {
         if (isInPlaybackState() && isIjkPlayer()) {
-            long bitRate = ((IjkMediaPlayer) this.mMediaPlayer).getBitRate();
+            long bitRate = ((IjkMediaPlayerLocal) this.mMediaPlayer).getBitRate();
             if (bitRate > 2147483647L) {
                 return -1;
             }
@@ -455,8 +455,8 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public int getCachedSize() throws RemoteException {
         if (isInPlaybackState() && isIjkPlayer()) {
-            long audioCachedBytes = ((IjkMediaPlayer) this.mMediaPlayer).getAudioCachedBytes();
-            long videoCachedBytes = ((IjkMediaPlayer) this.mMediaPlayer).getVideoCachedBytes();
+            long audioCachedBytes = ((IjkMediaPlayerLocal) this.mMediaPlayer).getAudioCachedBytes();
+            long videoCachedBytes = ((IjkMediaPlayerLocal) this.mMediaPlayer).getVideoCachedBytes();
             if (audioCachedBytes >= 0 && videoCachedBytes >= 0) {
                 return (int) (videoCachedBytes + audioCachedBytes);
             }

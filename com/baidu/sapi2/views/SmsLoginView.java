@@ -28,6 +28,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.GetDynamicPwdCallback;
+import com.baidu.sapi2.callback.RequestSMSCallback;
 import com.baidu.sapi2.result.DynamicPwdLoginResult;
 import com.baidu.sapi2.result.GetDynamicPwdResult;
 import com.baidu.sapi2.shell.result.WebAuthResult;
@@ -471,7 +472,12 @@ public class SmsLoginView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void registerReceiver(Handler handler) {
         if (this.smsReceiver == null) {
-            this.smsReceiver = SapiCoreUtil.registerReceiver(this.context, handler);
+            SapiCoreUtil.registerReceiver(this.context, handler, new RequestSMSCallback() { // from class: com.baidu.sapi2.views.SmsLoginView.3
+                @Override // com.baidu.sapi2.callback.RequestSMSCallback
+                public void receiverResult(BroadcastReceiver broadcastReceiver) {
+                    SmsLoginView.this.smsReceiver = broadcastReceiver;
+                }
+            });
         }
     }
 

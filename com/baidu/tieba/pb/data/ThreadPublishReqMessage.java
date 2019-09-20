@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.ThreadPublish.DataReq;
 import tbclient.ThreadPublish.ThreadPublishReqIdl;
 /* loaded from: classes4.dex */
@@ -20,7 +20,7 @@ public class ThreadPublishReqMessage extends NetMessage {
         builder.forum_id = Long.valueOf(this.fid);
         builder.thread_id = Long.valueOf(this.tid);
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         ThreadPublishReqIdl.Builder builder2 = new ThreadPublishReqIdl.Builder();
         builder2.data = builder.build(false);

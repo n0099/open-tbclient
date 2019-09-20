@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.PushSocket;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
 import java.io.FileInputStream;
@@ -54,7 +55,7 @@ public final class d {
         }
     };
     private long t = 0;
-    private final int[] u = {SubsamplingScaleImageView.ORIENTATION_180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, 900};
+    private final int[] u = {SubsamplingScaleImageView.ORIENTATION_180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR};
     private int w = 0;
     private int x = 0;
 

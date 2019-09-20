@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsUploadConfig;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsWriteConfig;
-import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -108,7 +107,7 @@ public class BdStatSwitchData implements Serializable {
         if (jSONArray != null) {
             JSONObject optJSONObject = jSONArray.optJSONObject(0);
             ArrayList<String> arrayList = new ArrayList<>();
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject(PhoneUtils.CPUInfo.FEATURE_COMMON);
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("common");
             if (bdStatisticsWriteConfigItem != null) {
                 bdStatisticsWriteConfigItem.isWrite = optJSONObject2.optInt("is_write", 0) != 0;
                 bdStatisticsWriteConfigItem.particleNum = optJSONObject2.optInt("particleNum");

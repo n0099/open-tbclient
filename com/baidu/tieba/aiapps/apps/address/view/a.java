@@ -19,21 +19,21 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private g aRN;
-    private e.a dcQ;
-    private BdMultiPicker.b dcR;
-    private InterfaceC0284a dcS;
-    private JSONArray aIq = new JSONArray();
-    private JSONArray aIr = new JSONArray();
-    private List<d> dco = new ArrayList();
-    private List<d> dcO = new ArrayList();
-    private List<d> dcP = new ArrayList();
-    private Map<d, List<d>> dcp = new HashMap();
-    private Map<d, List<d>> dcq = new HashMap();
+    private g aSl;
+    private e.a deD;
+    private BdMultiPicker.b deE;
+    private InterfaceC0293a deF;
+    private JSONArray aIO = new JSONArray();
+    private JSONArray aIP = new JSONArray();
+    private List<d> deb = new ArrayList();
+    private List<d> deB = new ArrayList();
+    private List<d> deC = new ArrayList();
+    private Map<d, List<d>> dec = new HashMap();
+    private Map<d, List<d>> ded = new HashMap();
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0284a {
+    public interface InterfaceC0293a {
         void aG(List<d> list);
     }
 
@@ -42,19 +42,19 @@ public class a {
     }
 
     private void initData(Context context) {
-        this.dco = c.aEU().aEW();
-        this.dcp = c.aEU().aEX();
-        this.dcq = c.aEU().aEY();
-        aFe();
-        aFf();
-        this.dcQ = new e.a(context);
-        this.dcR = new BdMultiPicker.b() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
+        this.deb = c.aFy().aFA();
+        this.dec = c.aFy().aFB();
+        this.ded = c.aFy().aFC();
+        aFI();
+        aFJ();
+        this.deD = new e.a(context);
+        this.deE = new BdMultiPicker.b() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
             @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
             public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
                 if (jSONObject != null) {
                     int optInt = jSONObject.optInt("column");
                     int optInt2 = jSONObject.optInt("current");
-                    if (optInt != a.this.aIq.length() - 1) {
+                    if (optInt != a.this.aIO.length() - 1) {
                         a.this.aH(optInt, optInt2);
                     }
                 }
@@ -62,24 +62,24 @@ public class a {
         };
     }
 
-    private void aFe() {
-        this.aIr.put(0);
-        this.aIr.put(0);
-        this.aIr.put(0);
+    private void aFI() {
+        this.aIP.put(0);
+        this.aIP.put(0);
+        this.aIP.put(0);
     }
 
-    private void aFf() {
-        if (this.dco.size() > 0) {
-            this.aIq.put(aK(this.dco));
+    private void aFJ() {
+        if (this.deb.size() > 0) {
+            this.aIO.put(aK(this.deb));
         }
-        aG(0, this.aIr.optInt(0));
-        aG(1, this.aIr.optInt(1));
+        aG(0, this.aIP.optInt(0));
+        aG(1, this.aIP.optInt(1));
     }
 
     private void aF(int i, int i2) {
         JSONArray optJSONArray;
-        if (this.aRN != null && (optJSONArray = this.aIq.optJSONArray(i)) != null) {
-            ((e) this.aRN).a(i, optJSONArray, i2);
+        if (this.aSl != null && (optJSONArray = this.aIO.optJSONArray(i)) != null) {
+            ((e) this.aSl).a(i, optJSONArray, i2);
         }
     }
 
@@ -87,22 +87,22 @@ public class a {
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         if (i == 0) {
-            this.dcO = this.dcp.get(this.dco.get(i2));
-            if (this.dcO.size() <= 0) {
+            this.deB = this.dec.get(this.deb.get(i2));
+            if (this.deB.size() <= 0) {
                 jSONArray = null;
             } else {
-                jSONArray = aK(this.dcO);
+                jSONArray = aK(this.deB);
             }
             jSONArray2 = jSONArray;
         } else if (i == 1) {
-            this.dcP = this.dcq.get(this.dcO.get(i2));
-            if (this.dcP.size() > 0) {
-                jSONArray2 = aK(this.dcP);
+            this.deC = this.ded.get(this.deB.get(i2));
+            if (this.deC.size() > 0) {
+                jSONArray2 = aK(this.deC);
             }
         }
         if (jSONArray2 != null) {
             try {
-                this.aIq.put(i + 1, jSONArray2);
+                this.aIO.put(i + 1, jSONArray2);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -122,15 +122,15 @@ public class a {
         return jSONArray;
     }
 
-    public void aFg() {
-        if (this.aRN == null) {
-            this.aRN = this.dcQ.h(this.aIq).i(this.aIr).a(this.dcR).d("城市选择").b(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
+    public void aFK() {
+        if (this.aSl == null) {
+            this.aSl = this.deD.h(this.aIO).i(this.aIP).a(this.deE).d("城市选择").b(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     a.this.a(dialogInterface);
                     List<d> F = a.this.F(((e) dialogInterface).getCurrentIndex());
-                    if (a.this.dcS != null) {
-                        a.this.dcS.aG(F);
+                    if (a.this.deF != null) {
+                        a.this.deF.aG(F);
                     }
                 }
             }).c(R.string.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.2
@@ -138,36 +138,36 @@ public class a {
                 public void onClick(DialogInterface dialogInterface, int i) {
                     a.this.a(dialogInterface);
                 }
-            }).Lx();
+            }).LB();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public List<d> F(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList(3);
-        arrayList.add(this.dco.get(jSONArray.optInt(0)));
-        arrayList.add(this.dcO.get(jSONArray.optInt(1)));
-        arrayList.add(this.dcP.get(jSONArray.optInt(2)));
+        arrayList.add(this.deb.get(jSONArray.optInt(0)));
+        arrayList.add(this.deB.get(jSONArray.optInt(1)));
+        arrayList.add(this.deC.get(jSONArray.optInt(2)));
         return arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DialogInterface dialogInterface) {
         dialogInterface.dismiss();
-        this.aRN = null;
+        this.aSl = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aH(int i, int i2) {
         int i3 = i;
-        while (i3 < this.aIq.length() - 1) {
+        while (i3 < this.aIO.length() - 1) {
             aG(i3, i3 == i ? i2 : 0);
             aF(i3 + 1, 0);
             i3++;
         }
     }
 
-    public void a(InterfaceC0284a interfaceC0284a) {
-        this.dcS = interfaceC0284a;
+    public void a(InterfaceC0293a interfaceC0293a) {
+        this.deF = interfaceC0293a;
     }
 }

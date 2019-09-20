@@ -21,21 +21,21 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PersonInfoDelegateStatic extends b {
-    private MessageRedDotView gTg;
-    private Boolean ikD = false;
-    private CustomMessageListener ikE;
+    private MessageRedDotView gUZ;
+    private Boolean imD = false;
+    private CustomMessageListener imE;
 
     static {
         CustomMessageListener customMessageListener = new CustomMessageListener(2007002) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c atU;
+                c aug;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(personInfoDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (atU = personInfoDelegateStatic.atU()) != null) {
-                        atU.cxK.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (aug = personInfoDelegateStatic.aug()) != null) {
+                        aug.cyG.setArguments(new Bundle());
                     }
                 }
             }
@@ -50,63 +50,63 @@ public class PersonInfoDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c atT() {
+    public c auf() {
         c cVar = new c();
-        cVar.cxK = new PersonCenterFragment();
+        cVar.cyG = new PersonCenterFragment();
         cVar.type = 8;
-        cVar.bXe = R.string.mine;
+        cVar.bXX = R.string.mine;
         cVar.kE = R.raw.mime;
-        cVar.cxQ = c.cxP;
+        cVar.cyM = c.cyL;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cP(Context context) {
-        this.cxw = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.gTg = new MessageRedDotView(context);
+        this.cys = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        this.gUZ = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.cyh = this.cxw;
+        aVar.czd = this.cys;
         aVar.zQ = l.dip2px(context, 10.0f);
-        aVar.view = this.gTg;
-        this.cxw.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.ahQ().getBoolean("key_feedback_tip_tab_show", false);
-        if (this.ikD.booleanValue() || z) {
-            this.gTg.refresh(0);
-            this.gTg.setVisibility(0);
+        aVar.view = this.gUZ;
+        this.cys.b("emotion", aVar);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.ahU().getBoolean("key_feedback_tip_tab_show", false);
+        if (this.imD.booleanValue() || z) {
+            this.gUZ.refresh(0);
+            this.gUZ.setVisibility(0);
         } else {
-            this.gTg.setVisibility(8);
+            this.gUZ.setVisibility(8);
         }
-        return this.cxw;
+        return this.cys;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void atS() {
-        this.ikE = new CustomMessageListener(2007014) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.2
+    public void aue() {
+        this.imE = new CustomMessageListener(2007014) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof a)) {
-                    PersonInfoDelegateStatic.this.ikD = Boolean.valueOf(((a) customResponsedMessage.getData()).cxt);
-                    if (PersonInfoDelegateStatic.this.ikD.booleanValue()) {
-                        PersonInfoDelegateStatic.this.gTg.refresh(0);
-                        PersonInfoDelegateStatic.this.gTg.setVisibility(0);
+                    PersonInfoDelegateStatic.this.imD = Boolean.valueOf(((a) customResponsedMessage.getData()).cyp);
+                    if (PersonInfoDelegateStatic.this.imD.booleanValue()) {
+                        PersonInfoDelegateStatic.this.gUZ.refresh(0);
+                        PersonInfoDelegateStatic.this.gUZ.setVisibility(0);
                     } else {
-                        PersonInfoDelegateStatic.this.gTg.setVisibility(8);
+                        PersonInfoDelegateStatic.this.gUZ.setVisibility(8);
                     }
                     AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                    if (!PersonInfoDelegateStatic.this.ikD.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        com.baidu.tbadk.core.sharedPref.b.ahQ().putBoolean("member_close_ad_mine_clicked", true);
+                    if (!PersonInfoDelegateStatic.this.imD.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+                        com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("member_close_ad_mine_clicked", true);
                     }
                 }
             }
         };
-        this.ikE.setPriority(7);
-        MessageManager.getInstance().registerListener(this.ikE);
+        this.imE.setPriority(7);
+        MessageManager.getInstance().registerListener(this.imE);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void fv() {
         super.fv();
-        MessageManager.getInstance().unRegisterListener(this.ikE);
+        MessageManager.getInstance().unRegisterListener(this.imE);
     }
 }

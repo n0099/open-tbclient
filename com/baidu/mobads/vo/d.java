@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
@@ -158,12 +159,12 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("android_id", systemUtils.getAndroidId(this.d));
             hashMap.put("imei", systemUtils.getIMEI(this.d));
             hashMap.put("mac", systemUtils.getMacAddress(this.d));
-            hashMap.put("cuid", systemUtils.getCUID(this.d));
+            hashMap.put(DpStatConstants.KEY_CUID, systemUtils.getCUID(this.d));
             hashMap.put("snfrom", systemUtils.getSnFrom(this.d));
             hashMap.put(IXAdRequestInfo.P_VER, "8.8079");
             hashMap.put("req_id", commonUtils.createRequestId(this.d, getApid()));
             hashMap.put("cssid", systemUtils.isWifiConnected(this.d).booleanValue() ? systemUtils.getWifiConnected(this.d) : "");
-            if (AdSettings.uo().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
+            if (AdSettings.us().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
                 hashMap.put("rpt", String.valueOf(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()));
             }
             hashMap.put(IXAdRequestInfo.APP_VERSION_NAME, "" + b(this.d));

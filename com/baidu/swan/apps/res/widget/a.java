@@ -11,20 +11,20 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
-    public static final int aNB = Color.parseColor("#80000000");
-    public static final boolean aNC = Lm();
-    private static int aND;
+    public static final int aNZ = Color.parseColor("#80000000");
+    public static final boolean aOa = Lq();
+    private static int aOb;
 
     static {
-        aND = 0;
+        aOb = 0;
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            aND = 1;
+            aOb = 1;
         } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
-            aND = 2;
+            aOb = 2;
         }
     }
 
-    private static boolean Lm() {
+    private static boolean Lq() {
         boolean z = Build.VERSION.SDK_INT >= 21;
         if (DEBUG) {
             return z & t.getBoolean("sp_key_immersion_switch", z);

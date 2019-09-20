@@ -9,7 +9,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class BazhuHeadView extends HeadPendantView {
-    private TbImageView ezf;
+    private TbImageView eAO;
 
     public BazhuHeadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -32,11 +32,11 @@ public class BazhuHeadView extends HeadPendantView {
         if (getPendantView() != null) {
             getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(g, g2));
         }
-        this.ezf = new TbImageView(getContext());
-        this.ezf.setDefaultBgResource(0);
-        this.ezf.setDefaultResource(0);
-        this.ezf.setDefaultErrorResource(0);
-        this.ezf.setImageDrawable(null);
+        this.eAO = new TbImageView(getContext());
+        this.eAO.setDefaultBgResource(0);
+        this.eAO.setDefaultResource(0);
+        this.eAO.setDefaultErrorResource(0);
+        this.eAO.setImageDrawable(null);
         int g3 = l.g(getContext(), R.dimen.tbds115);
         int g4 = l.g(getContext(), R.dimen.tbds34);
         int g5 = l.g(getContext(), R.dimen.tbds154);
@@ -44,21 +44,21 @@ public class BazhuHeadView extends HeadPendantView {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g3, g4);
         layoutParams.topMargin = g5;
         layoutParams.leftMargin = g6;
-        this.ezf.setLayoutParams(layoutParams);
-        this.ezf.setVisibility(8);
-        addView(this.ezf);
+        this.eAO.setLayoutParams(layoutParams);
+        this.eAO.setVisibility(8);
+        addView(this.eAO);
     }
 
     public void setBawuLogoView(int i) {
         if (i == 0) {
-            this.ezf.setVisibility(8);
+            this.eAO.setVisibility(8);
             return;
         }
-        this.ezf.setImageResource(i);
-        this.ezf.setVisibility(0);
+        this.eAO.setImageResource(i);
+        this.eAO.setVisibility(0);
     }
 
-    public void iw(boolean z) {
+    public void iz(boolean z) {
         if (z) {
             int g = l.g(getContext(), R.dimen.tbds5);
             int g2 = l.g(getContext(), R.dimen.tbds130);
@@ -77,8 +77,8 @@ public class BazhuHeadView extends HeadPendantView {
         getHeadView().setBorderWidth(0);
         getHeadView().setDrawBorder(false);
         getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(g5, g5));
-        if (this.ezf != null) {
-            this.ezf.setVisibility(8);
+        if (this.eAO != null) {
+            this.eAO.setVisibility(8);
         }
         if (getPendantView() != null) {
             getPendantView().setVisibility(8);
@@ -97,6 +97,6 @@ public class BazhuHeadView extends HeadPendantView {
     }
 
     public TbImageView getBawuLogoView() {
-        return this.ezf;
+        return this.eAO;
     }
 }

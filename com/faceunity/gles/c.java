@@ -3,29 +3,29 @@ package com.faceunity.gles;
 import com.faceunity.gles.Drawable2d;
 /* loaded from: classes5.dex */
 public class c {
-    private final Drawable2d knp = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
-    private Texture2dProgram knq;
+    private final Drawable2d kpM = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
+    private Texture2dProgram kpN;
 
     public c(Texture2dProgram texture2dProgram) {
-        this.knq = texture2dProgram;
+        this.kpN = texture2dProgram;
     }
 
     public void release(boolean z) {
-        if (this.knq != null) {
+        if (this.kpN != null) {
             if (z) {
-                this.knq.release();
+                this.kpN.release();
             }
-            this.knq = null;
+            this.kpN = null;
         }
     }
 
     public int createTextureObject() {
-        return this.knq.createTextureObject();
+        return this.kpN.createTextureObject();
     }
 
     public void drawFrame(int i, float[] fArr) {
-        if (this.knq != null) {
-            this.knq.draw(d.IDENTITY_MATRIX, this.knp.getVertexArray(), 0, this.knp.getVertexCount(), this.knp.getCoordsPerVertex(), this.knp.getVertexStride(), fArr, this.knp.getTexCoordArray(), i, this.knp.getTexCoordStride());
+        if (this.kpN != null) {
+            this.kpN.draw(d.IDENTITY_MATRIX, this.kpM.getVertexArray(), 0, this.kpM.getVertexCount(), this.kpM.getCoordsPerVertex(), this.kpM.getVertexStride(), fArr, this.kpM.getTexCoordArray(), i, this.kpM.getTexCoordStride());
         }
     }
 }

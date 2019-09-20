@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.officialAccountPush;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.GetOfficialSwitch.DataReq;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchReqIdl;
 /* loaded from: classes3.dex */
@@ -15,7 +15,7 @@ public class OfficialAccountPushRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         GetOfficialSwitchReqIdl.Builder builder2 = new GetOfficialSwitchReqIdl.Builder();
         builder2.data = builder.build(false);

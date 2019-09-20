@@ -20,7 +20,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int ifu;
+    private int iht;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -29,7 +29,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ifu = 3;
+        this.iht = 3;
         setOrientation(0);
     }
 
@@ -38,10 +38,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.ifu) {
+        if (childCount > this.iht) {
             while (true) {
                 childCount--;
-                if (childCount <= this.ifu) {
+                if (childCount <= this.iht) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -94,7 +94,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             int g = l.g(context, R.dimen.tbds22);
             layoutParams.rightMargin = g;
             textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.qX(aVar.getTopicName()));
+            textView.setText(com.baidu.tbadk.plugins.b.ri(aVar.getTopicName()));
             addView(textView, layoutParams);
             textView.setTextSize(0, l.g(context, R.dimen.tbds33));
             textView.setGravity(17);
@@ -110,7 +110,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.ifu = i;
+        this.iht = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -119,10 +119,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new an("c11455").bT("obj_locate", "pb_bottom"));
             az.a aVar = (az.a) view.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.adJ() + "", aVar.getTopicName(), "2")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.adN() + "", aVar.getTopicName(), "2")));
                 return;
             }
-            com.baidu.tbadk.browser.a.ae(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.adJ() + "&topic_name=" + aVar.getTopicName());
+            com.baidu.tbadk.browser.a.ae(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.adN() + "&topic_name=" + aVar.getTopicName());
         }
     }
 }

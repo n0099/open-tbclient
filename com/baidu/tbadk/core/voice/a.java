@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String alx() {
+    public static String alJ() {
         return q.kD();
     }
 
-    public static String oV(String str) {
+    public static String pd(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -25,8 +25,8 @@ public class a {
         return m.O(str, 1);
     }
 
-    public static String oW(String str) {
-        return f.aV(oV(str));
+    public static String pe(String str) {
+        return f.aV(pd(str));
     }
 
     public static boolean aZ(String str) {

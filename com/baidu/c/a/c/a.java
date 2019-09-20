@@ -24,7 +24,6 @@ import com.baidu.crius.CriusPositionType;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -318,7 +317,7 @@ public class a {
         this.abd = b.g(jSONObject, "poster");
         this.abH = b.g(jSONObject, "href");
         this.text = b.g(jSONObject, "text");
-        if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(this.abG) && this.businessConverter != null) {
+        if ("time".equalsIgnoreCase(this.abG) && this.businessConverter != null) {
             this.text = this.businessConverter.cB(this.text);
         }
         this.maxLines = jSONObject.optInt("max-lines", 1);

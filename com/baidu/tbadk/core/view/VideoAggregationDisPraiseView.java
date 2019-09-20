@@ -7,23 +7,23 @@ import com.baidu.tieba.R;
 public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
     public VideoAggregationDisPraiseView(Context context) {
         super(context);
-        aki();
+        aku();
     }
 
     public VideoAggregationDisPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        aki();
+        aku();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView, com.baidu.tbadk.core.view.BasePraiseView
-    public void aki() {
+    public void aku() {
         this.agreeType = 5;
-        this.bXe = R.string.action_dislike;
-        this.bXh = R.color.cp_btn_a;
-        this.bXi = R.color.cp_link_tip_a_alpha70;
-        this.bXf = R.drawable.icon_card_dislike_white_n;
-        this.bXg = R.drawable.icon_card_dislike_white_s;
+        this.bXX = R.string.action_dislike;
+        this.bYa = R.color.cp_cont_a;
+        this.bYb = R.color.cp_link_tip_a_alpha70;
+        this.bXY = R.drawable.icon_card_dislike_white_n;
+        this.bXZ = R.drawable.icon_card_dislike_white_s;
     }
 
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView, com.baidu.tbadk.core.view.BasePraiseView
@@ -31,11 +31,11 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((com.baidu.tieba.frs.aggregation.g) this.mData).afS();
+        return ((com.baidu.tieba.frs.aggregation.g) this.mData).afW();
     }
 
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView
-    public boolean akl() {
-        return this.mData != 0 && ((com.baidu.tieba.frs.aggregation.g) this.mData).afU() == 5;
+    public boolean akx() {
+        return this.mData != 0 && ((com.baidu.tieba.frs.aggregation.g) this.mData).afY() == 5;
     }
 }

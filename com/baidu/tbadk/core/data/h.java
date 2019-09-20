@@ -3,17 +3,17 @@ package com.baidu.tbadk.core.data;
 import tbclient.AwardInfo;
 /* loaded from: classes.dex */
 public class h {
-    private long bFS;
-    private long bFT;
-    private String bFU;
-    private String bFV;
+    private long bGq;
+    private long bGr;
+    private String bGs;
+    private String bGt;
 
     public void a(AwardInfo awardInfo) {
         if (awardInfo != null) {
-            this.bFS = awardInfo.award_id.longValue();
-            this.bFT = awardInfo.award_act_id.longValue();
-            this.bFU = awardInfo.award_name;
-            this.bFV = awardInfo.award_imgsrc;
+            this.bGq = awardInfo.award_id.longValue();
+            this.bGr = awardInfo.award_act_id.longValue();
+            this.bGs = awardInfo.award_name;
+            this.bGt = awardInfo.award_imgsrc;
         }
     }
 }

@@ -9,6 +9,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.result.SapiResult;
@@ -124,6 +125,13 @@ public class AccountRealNameActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
         if (this.realNameResult.juniorRealNameSuc || this.realNameResult.seniorRealNameSuc) {
@@ -144,12 +152,18 @@ public class AccountRealNameActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public SapiWebDTO getWebDTO() {
+        return PassportSDK.getInstance().getRealNameDTO();
+    }
+
     private void finishActivity() {
         if (PassportSDK.getInstance().getAccountRealNameCallback() != null) {
             PassportSDK.getInstance().getAccountRealNameCallback().onFinish();
             PassportSDK.getInstance().getAccountRealNameCallback().onFinish(this.realNameResult);
         }
-        PassportSDK.getInstance().release();
         finish();
+        PassportSDK.getInstance().release();
     }
 }

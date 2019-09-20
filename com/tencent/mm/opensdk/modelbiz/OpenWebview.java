@@ -18,6 +18,12 @@ public class OpenWebview {
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
+        public void fromBundle(Bundle bundle) {
+            super.fromBundle(bundle);
+            this.url = bundle.getString("_wxapi_jump_to_webview_url");
+        }
+
+        @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public int getType() {
             return 12;
         }

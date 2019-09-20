@@ -12,6 +12,7 @@ import com.sina.weibo.sdk.network.exception.RequestException;
 import com.sina.weibo.sdk.network.exception.SdkException;
 import com.sina.weibo.sdk.network.intercept.GlobalInterceptHelper;
 import com.sina.weibo.sdk.network.target.Target;
+import com.sina.weibo.sdk.utils.LogUtil;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
@@ -37,6 +38,7 @@ public class RequestService implements IRequestService {
     public RequestResult request(IRequestParam iRequestParam) throws RequestException {
         RequestResult requestResult = new RequestResult();
         if (!NetStateManager.isNetworkConnected(iRequestParam.getContext())) {
+            LogUtil.e("Task", "RequestService:网络连接错误，请检查网络状态");
             requestResult.setE(new SdkException("网络连接错误，请检查网络状态"));
         }
         if (iRequestParam.needIntercept()) {

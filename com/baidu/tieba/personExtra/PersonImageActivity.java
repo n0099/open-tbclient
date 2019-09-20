@@ -26,16 +26,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
-    private HashMap<String, ImageUrlData> gKB;
-    private String gyE;
+    private String gAv;
+    private HashMap<String, ImageUrlData> gMt;
     private Context mContext;
     private ProgressBar mProgress = null;
-    private a ipm = null;
-    private MultiImageView gyz = null;
+    private a irl = null;
+    private MultiImageView gAq = null;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener cmF = null;
-    private b.a ipn = null;
-    private BaseViewPager.a gyA = null;
+    private View.OnLongClickListener cnB = null;
+    private b.a irm = null;
+    private BaseViewPager.a gAr = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -48,12 +48,12 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         initUI();
         ArrayList<String> arrayList = new ArrayList<>();
         this.mContext = getPageContext().getPageActivity();
-        arrayList.add(this.gyE);
-        this.gyz.setIsFromCDN(true);
-        this.gyz.setAllowLocalUrl(true);
-        this.gyz.setAssistUrls(this.gKB);
-        this.gyz.setUrlData(arrayList);
-        this.gyz.setCurrentItem(0, false);
+        arrayList.add(this.gAv);
+        this.gAq.setIsFromCDN(true);
+        this.gAq.setAllowLocalUrl(true);
+        this.gAq.setAssistUrls(this.gMt);
+        this.gAq.setUrlData(arrayList);
+        this.gAq.setCurrentItem(0, false);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -70,10 +70,10 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (i == 1) {
-            this.gyz.setBackgroundColor(am.ih(i));
+        if (i == 1 || i == 4) {
+            this.gAq.setBackgroundColor(am.ih(i));
         } else {
-            this.gyz.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            this.gAq.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
     }
 
@@ -81,29 +81,29 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.gyz.onPause();
+        this.gAq.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.gyz.onResume();
+        this.gAq.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.gyz.onDestroy();
+        this.gAq.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         TbadkCoreApplication.getInst().delRemoteActivity(this);
-        this.gyz.onDestroy();
-        if (this.ipm != null) {
-            this.ipm.cancel();
-            this.ipm = null;
+        this.gAq.onDestroy();
+        if (this.irl != null) {
+            this.irl.cancel();
+            this.irl = null;
         }
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
@@ -127,25 +127,25 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                 PersonImageActivity.this.finish();
             }
         };
-        this.cmF = new View.OnLongClickListener() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.2
+        this.cnB = new View.OnLongClickListener() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.2
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                PersonImageActivity.this.createListMenu(new String[]{PersonImageActivity.this.getPageContext().getString(R.string.save)}, PersonImageActivity.this.ipn);
+                PersonImageActivity.this.createListMenu(new String[]{PersonImageActivity.this.getPageContext().getString(R.string.save)}, PersonImageActivity.this.irm);
                 PersonImageActivity.this.showListMenu();
                 return false;
             }
         };
-        this.ipn = new b.a() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.3
+        this.irm = new b.a() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.3
             @Override // com.baidu.tbadk.core.dialog.b.a
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar == PersonImageActivity.this.getListMenu()) {
                     if (i == 0) {
                         try {
-                            byte[] currentImageData = PersonImageActivity.this.gyz.getCurrentImageData();
+                            byte[] currentImageData = PersonImageActivity.this.gAq.getCurrentImageData();
                             if (currentImageData != null) {
-                                String currentImageUrl = PersonImageActivity.this.gyz.getCurrentImageUrl();
-                                PersonImageActivity.this.ipm = new a(currentImageUrl, currentImageData);
-                                PersonImageActivity.this.ipm.execute(new String[0]);
+                                String currentImageUrl = PersonImageActivity.this.gAq.getCurrentImageUrl();
+                                PersonImageActivity.this.irl = new a(currentImageUrl, currentImageData);
+                                PersonImageActivity.this.irl.execute(new String[0]);
                                 PersonImageActivity.this.mProgress.setVisibility(0);
                             } else {
                                 PersonImageActivity.this.showToast(PersonImageActivity.this.getPageContext().getString(R.string.no_data));
@@ -158,49 +158,49 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                 }
             }
         };
-        this.gyA = new BaseViewPager.a() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.4
+        this.gAr = new BaseViewPager.a() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.4
             @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-            public void iy(int i) {
+            public void iB(int i) {
                 if (i == 0) {
                 }
             }
         };
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
-        this.gyz = (MultiImageView) findViewById(R.id.viewpager);
-        this.gyz.setPageMargin(l.dip2px(getPageContext().getPageActivity(), 8.0f));
-        this.gyz.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.gyz.setItemOnclickListener(this.mOnClickListener);
-        this.gyz.setItemOnLongClickListener(this.cmF);
-        this.gyz.setCurrentItem(0, false);
-        this.gyz.setOnScrollOutListener(this.gyA);
-        this.gyz.setHasNext(false);
-        this.gyz.setNextTitle("mNextTitle");
-        this.gyz.setHeadImage(true);
+        this.gAq = (MultiImageView) findViewById(R.id.viewpager);
+        this.gAq.setPageMargin(l.dip2px(getPageContext().getPageActivity(), 8.0f));
+        this.gAq.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.gAq.setItemOnclickListener(this.mOnClickListener);
+        this.gAq.setItemOnLongClickListener(this.cnB);
+        this.gAq.setCurrentItem(0, false);
+        this.gAq.setOnScrollOutListener(this.gAr);
+        this.gAq.setHasNext(false);
+        this.gAq.setNextTitle("mNextTitle");
+        this.gAq.setHeadImage(true);
     }
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.gyE = bundle.getString("curImgUrl");
-            this.gKB = (HashMap) bundle.getSerializable("assistUrls");
+            this.gAv = bundle.getString("curImgUrl");
+            this.gMt = (HashMap) bundle.getSerializable("assistUrls");
             return;
         }
         Intent intent = getIntent();
         if (intent != null) {
-            this.gyE = intent.getStringExtra("curImgUrl");
-            this.gKB = (HashMap) intent.getSerializableExtra("assistUrls");
+            this.gAv = intent.getStringExtra("curImgUrl");
+            this.gMt = (HashMap) intent.getSerializableExtra("assistUrls");
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("curImgUrl", this.gyE);
+        bundle.putString("curImgUrl", this.gAv);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.gyz.setCurrentItem(0, true);
+        this.gAq.setCurrentItem(0, true);
     }
 
     /* loaded from: classes6.dex */
@@ -221,7 +221,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         public String doInBackground(String... strArr) {
             switch (m.a(this.mUrl, this.mData, PersonImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return m.aid();
+                    return m.aih();
                 case -1:
                 default:
                     return PersonImageActivity.this.getPageContext().getString(R.string.save_fail);
@@ -236,7 +236,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
             PersonImageActivity.this.showToast(str);
-            PersonImageActivity.this.ipm = null;
+            PersonImageActivity.this.irl = null;
             PersonImageActivity.this.mProgress.setVisibility(8);
         }
 
@@ -248,7 +248,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            PersonImageActivity.this.ipm = null;
+            PersonImageActivity.this.irl = null;
             PersonImageActivity.this.mProgress.setVisibility(8);
             super.cancel(true);
         }

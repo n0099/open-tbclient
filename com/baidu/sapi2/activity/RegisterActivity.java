@@ -5,6 +5,7 @@ import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
@@ -17,8 +18,8 @@ public class RegisterActivity extends BaseActivity {
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
         public void finishActivity() {
             super.finishActivity();
-            PassportSDK.getInstance().release();
             RegisterActivity.this.finish();
+            PassportSDK.getInstance().release();
         }
     };
 
@@ -28,8 +29,8 @@ public class RegisterActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            setupViews();
             init();
+            setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
             WebAuthListener webAuthListener = PassportSDK.getInstance().getWebAuthListener();
@@ -38,8 +39,8 @@ public class RegisterActivity extends BaseActivity {
                 this.webAuthResult.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
                 webAuthListener.onFailure(this.webAuthResult);
             }
-            PassportSDK.getInstance().release();
             finish();
+            PassportSDK.getInstance().release();
         }
     }
 
@@ -69,8 +70,8 @@ public class RegisterActivity extends BaseActivity {
         if (webAuthListener != null) {
             webAuthListener.onFailure(this.webAuthResult);
         }
-        PassportSDK.getInstance().release();
         finish();
+        PassportSDK.getInstance().release();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -101,8 +102,8 @@ public class RegisterActivity extends BaseActivity {
                 }
                 WebRegDTO webRegDTO = PassportSDK.getInstance().getWebRegDTO();
                 if (webRegDTO != null && webRegDTO.finishActivityAfterSuc) {
-                    PassportSDK.getInstance().release();
                     RegisterActivity.this.finish();
+                    PassportSDK.getInstance().release();
                 }
             }
 
@@ -113,8 +114,8 @@ public class RegisterActivity extends BaseActivity {
                 if (webAuthListener != null) {
                     webAuthListener.onFailure(RegisterActivity.this.webAuthResult);
                 }
-                PassportSDK.getInstance().release();
                 RegisterActivity.this.finish();
+                PassportSDK.getInstance().release();
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -127,5 +128,11 @@ public class RegisterActivity extends BaseActivity {
         });
         WebRegDTO webRegDTO = PassportSDK.getInstance().getWebRegDTO();
         this.sapiWebView.loadRegist(webRegDTO != null ? webRegDTO.extraParams : null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public SapiWebDTO getWebDTO() {
+        return PassportSDK.getInstance().getWebRegDTO();
     }
 }

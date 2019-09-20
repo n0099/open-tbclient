@@ -5,10 +5,10 @@ import android.text.TextUtils;
 public class h extends e {
     public String Ht;
     public String appId;
-    public boolean bsV;
+    public boolean btt;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean Wo() {
-        return super.Wo() && !TextUtils.isEmpty(this.Ht);
+    public boolean Ws() {
+        return super.Ws() && !TextUtils.isEmpty(this.Ht);
     }
 }

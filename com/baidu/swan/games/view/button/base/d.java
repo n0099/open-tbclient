@@ -10,7 +10,7 @@ import java.io.File;
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static PathType hG(String str) {
+    public static PathType hI(String str) {
         if (TextUtils.isEmpty(str)) {
             return PathType.ERROR;
         }
@@ -20,9 +20,9 @@ public class d {
         return PathType.RELATIVE;
     }
 
-    public static String TS() {
+    public static String TW() {
         File ae;
-        if (com.baidu.swan.apps.ae.b.isDataValid() && com.baidu.swan.apps.ae.b.Md().getVersion() != null && (ae = a.d.ae(com.baidu.swan.apps.ae.b.Mo(), com.baidu.swan.apps.ae.b.Md().getVersion())) != null && ae.exists()) {
+        if (com.baidu.swan.apps.ae.b.isDataValid() && com.baidu.swan.apps.ae.b.Mh().getVersion() != null && (ae = a.d.ae(com.baidu.swan.apps.ae.b.Ms(), com.baidu.swan.apps.ae.b.Mh().getVersion())) != null && ae.exists()) {
             return SkiaImageDecoder.FILE_PREFIX + ae.getAbsolutePath();
         }
         return null;

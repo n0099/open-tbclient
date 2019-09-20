@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.d;
 /* loaded from: classes4.dex */
 public class b {
-    public boolean fPr = false;
-    public int fPs = 0;
-    public String fPt = null;
-    public int fPu = -1;
-    public int fPv = -1;
-    public int fPw = -1;
+    public boolean fRi = false;
+    public int fRj = 0;
+    public String fRk = null;
+    public int fRl = -1;
+    public int fRm = -1;
+    public int fRn = -1;
 }

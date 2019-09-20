@@ -42,7 +42,7 @@ public class SapiScheme {
         if (packageInfo == null) {
             return 2;
         }
-        if (SapiUtils.compareVersion(packageInfo.versionName, str) < 0) {
+        if (SapiUtils.versionCompareTo(packageInfo.versionName, str) < 0) {
             return 1;
         }
         if (invokeScAppCallback == null) {

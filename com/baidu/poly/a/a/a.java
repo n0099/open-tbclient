@@ -19,48 +19,48 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static String ahh = "b249MzEuMTg1NjM0JTJDMTIxLjYxMjgzJg==";
-    private static a ahi;
-    private d agT;
-    private final String ahj = uH();
-    private final int ahk;
+    private static String ahD = "b249MzEuMTg1NjM0JTJDMTIxLjYxMjgzJg==";
+    private static a ahE;
+    private final String ahF = uL();
+    private final int ahG;
+    private d ahp;
 
     private a(d dVar, int i) {
-        this.agT = dVar;
-        this.ahk = i;
+        this.ahp = dVar;
+        this.ahG = i;
     }
 
     public static void a(d dVar, int i) {
-        ahi = new a(dVar, i);
+        ahE = new a(dVar, i);
     }
 
-    public static a uG() {
-        return ahi;
+    public static a uK() {
+        return ahE;
     }
 
-    private String uH() {
-        return this.ahk == a.b.agX ? "https://nop.nuomi.com/nop/server/rest" : this.ahk == a.b.agY ? "http://nj03-orp-app0650.nj03.baidu.com:8222/nop/server/rest" : "http://sh01-orp-app0763.sh01.baidu.com:8290/nop/server/rest";
+    private String uL() {
+        return this.ahG == a.b.aht ? "https://nop.nuomi.com/nop/server/rest" : this.ahG == a.b.ahu ? "http://nj03-orp-app0650.nj03.baidu.com:8222/nop/server/rest" : "http://sh01-orp-app0763.sh01.baidu.com:8290/nop/server/rest";
     }
 
     public void a(Bundle bundle, final com.baidu.poly.a.a<Map<String, String>> aVar, PayChannel payChannel) {
         b bVar = new b();
         Set<String> keySet = bundle.keySet();
-        Map<String, String> uQ = c.uQ();
+        Map<String, String> uU = c.uU();
         for (String str : keySet) {
             if (bundle.get(str) instanceof String) {
-                uQ.put(str, bundle.get(str).toString());
+                uU.put(str, bundle.get(str).toString());
             }
         }
-        uQ.put("nop_method", "nuomi.integration_cashier.launchpayment");
-        uQ.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        uQ.put("payChannel", payChannel.getPayChannel());
-        a(bundle, uQ, bVar);
-        HttpSigner.a(uQ, this.ahk);
-        String c = c(this.ahj, uQ);
+        uU.put("nop_method", "nuomi.integration_cashier.launchpayment");
+        uU.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        uU.put("payChannel", payChannel.getPayChannel());
+        a(bundle, uU, bVar);
+        HttpSigner.a(uU, this.ahG);
+        String c = c(this.ahF, uU);
         if (Log.isLoggable(TAG, 4)) {
             Log.i(TAG, "launchPayment via url " + c);
         }
-        this.agT.a(c, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.1
+        this.ahp.a(c, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str2) {
@@ -78,17 +78,17 @@ public class a {
             }
 
             private Map<String, String> q(JSONObject jSONObject) {
-                Map<String, String> uQ2 = c.uQ();
+                Map<String, String> uU2 = c.uU();
                 if (jSONObject != null) {
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
                         if (!TextUtils.isEmpty(next)) {
-                            uQ2.put(next, jSONObject.optString(next));
+                            uU2.put(next, jSONObject.optString(next));
                         }
                     }
                 }
-                return uQ2;
+                return uU2;
             }
 
             @Override // com.baidu.poly.a.a
@@ -99,23 +99,23 @@ public class a {
     }
 
     public Map<String, String> a(Bundle bundle, b bVar) {
-        Map<String, String> uQ = c.uQ();
-        a(uQ, bundle);
-        uQ.put("payType", "android");
-        uQ.put("nop_method", "nuomi.pay_platform.pay");
-        uQ.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        a(bundle, uQ, bVar);
-        HttpSigner.a(uQ, this.ahk);
-        return uQ;
+        Map<String, String> uU = c.uU();
+        a(uU, bundle);
+        uU.put("payType", "android");
+        uU.put("nop_method", "nuomi.pay_platform.pay");
+        uU.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        a(bundle, uU, bVar);
+        HttpSigner.a(uU, this.ahG);
+        return uU;
     }
 
     public void a(Bundle bundle, final com.baidu.poly.a.a<Map<String, String>> aVar) {
         b bVar = new b();
-        String c = c(this.ahj, a(bundle, bVar));
+        String c = c(this.ahF, a(bundle, bVar));
         if (Log.isLoggable(TAG, 4)) {
             Log.i(TAG, "launchPayment via url " + c);
         }
-        this.agT.a(c, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.2
+        this.ahp.a(c, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str) {
@@ -133,17 +133,17 @@ public class a {
             }
 
             private Map<String, String> q(JSONObject jSONObject) {
-                Map<String, String> uQ = c.uQ();
+                Map<String, String> uU = c.uU();
                 if (jSONObject != null) {
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
                         if (!TextUtils.isEmpty(next)) {
-                            uQ.put(next, jSONObject.optString(next));
+                            uU.put(next, jSONObject.optString(next));
                         }
                     }
                 }
-                return uQ;
+                return uU;
             }
 
             @Override // com.baidu.poly.a.a
@@ -168,7 +168,7 @@ public class a {
     private void a(Bundle bundle, Map<String, String> map, b bVar) {
         String string = bundle.getString("bduss");
         if (!TextUtils.isEmpty(string)) {
-            map.put("bduss", ahh);
+            map.put("bduss", ahD);
             String str = bVar.get(SM.COOKIE);
             String str2 = "BDUSS=" + string;
             if (str == null) {
@@ -182,21 +182,21 @@ public class a {
     public void b(Bundle bundle, final com.baidu.poly.a.a<PayChannel[]> aVar) {
         b bVar = new b();
         Set<String> keySet = bundle.keySet();
-        Map<String, String> uQ = c.uQ();
+        Map<String, String> uU = c.uU();
         for (String str : keySet) {
             if (bundle.get(str) instanceof String) {
-                uQ.put(str, bundle.get(str).toString());
+                uU.put(str, bundle.get(str).toString());
             }
         }
-        uQ.put("nop_method", "nuomi.integration_cashier.gatewaylist");
-        uQ.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        a(bundle, uQ, bVar);
-        HttpSigner.a(uQ, this.ahk);
-        String c = c(this.ahj, uQ);
+        uU.put("nop_method", "nuomi.integration_cashier.gatewaylist");
+        uU.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        a(bundle, uU, bVar);
+        HttpSigner.a(uU, this.ahG);
+        String c = c(this.ahF, uU);
         if (Log.isLoggable(TAG, 4)) {
             Log.i(TAG, "getChannelList via url " + c);
         }
-        this.agT.a(c, bVar, aVar == null ? null : new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.3
+        this.ahp.a(c, bVar, aVar == null ? null : new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str2) {

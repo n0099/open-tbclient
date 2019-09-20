@@ -9,11 +9,11 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.AccountRealNameActivity;
+import com.baidu.sapi2.activity.AddressManageActivity;
 import com.baidu.sapi2.activity.AuthWidgetActivity;
-import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.activity.BindWidgetActivity;
-import com.baidu.sapi2.activity.FastRegActivity;
 import com.baidu.sapi2.activity.FillUProfileActivity;
+import com.baidu.sapi2.activity.InvoiceBuildActivity;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.sapi2.activity.ModifyPwdActivity;
@@ -25,11 +25,13 @@ import com.baidu.sapi2.bio.BiometricsManager;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
 import com.baidu.sapi2.callback.ActivityResultCallback;
+import com.baidu.sapi2.callback.AddressManageCallback;
 import com.baidu.sapi2.callback.AuthWidgetCallback;
 import com.baidu.sapi2.callback.ExtendSysWebViewMethodCallback;
 import com.baidu.sapi2.callback.FaceIDCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
+import com.baidu.sapi2.callback.InvoiceBuildCallback;
 import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.callback.NormalizeGuestAccountCallback;
 import com.baidu.sapi2.callback.QrLoginCallback;
@@ -42,8 +44,10 @@ import com.baidu.sapi2.callback.WebBindWidgetCallback;
 import com.baidu.sapi2.callback.WebFillUProfileCallback;
 import com.baidu.sapi2.callback.WebModifyPwdCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
+import com.baidu.sapi2.dto.AddressManageDTO;
 import com.baidu.sapi2.dto.FaceIDRegDTO;
 import com.baidu.sapi2.dto.FaceIDVerifyDTO;
+import com.baidu.sapi2.dto.InvoiceBuildDTO;
 import com.baidu.sapi2.dto.NormalizeGuestAccountDTO;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.RealNameDTO;
@@ -66,6 +70,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatLoadLogin;
+import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.SmsLoginView;
 import java.net.URLDecoder;
@@ -85,14 +90,19 @@ public final class PassportSDK {
     private AccountCenterDTO accountCenterDTO;
     private AccountRealNameCallback accountRealNameCallback;
     private ActivityResultCallback activityResultCallback;
+    private AddressManageCallback addressManageCallback;
+    private AddressManageDTO addressManageDTO;
     private AuthWidgetCallback authWidgetCallback;
     private WebBindWidgetDTO bindWidgetDTO;
     private Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
     private ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback;
     private ImageCropCallback imageCropCallback;
+    private InvoiceBuildCallback invoiceBuildCallback;
+    private InvoiceBuildDTO invoiceBuildDTO;
     private NormalizeGuestAccountCallback normalizeGuestAccountCallback;
     private NormalizeGuestAccountDTO normalizeGuestAccountDTO;
     private QrLoginCallback qrLoginCallback;
+    private RealNameDTO realNameDTO;
     private SapiWebCallback sapiWebCallback;
     private String smsLoginStatExtra;
     private SmsViewLoginCallback smsViewLoginCallback;
@@ -141,6 +151,10 @@ public final class PassportSDK {
 
     public AccountCenterDTO getAccountCenterDTO() {
         return this.accountCenterDTO;
+    }
+
+    public RealNameDTO getRealNameDTO() {
+        return this.realNameDTO;
     }
 
     public NormalizeGuestAccountDTO getNormalizeGuestAccountDTO() {
@@ -218,6 +232,22 @@ public final class PassportSDK {
         return this.qrLoginCallback;
     }
 
+    public AddressManageDTO getAddressManageDTO() {
+        return this.addressManageDTO;
+    }
+
+    public InvoiceBuildDTO getInvoiceBuildDTO() {
+        return this.invoiceBuildDTO;
+    }
+
+    public AddressManageCallback getAddressManageCallback() {
+        return this.addressManageCallback;
+    }
+
+    public InvoiceBuildCallback getInvoiceBuildCallback() {
+        return this.invoiceBuildCallback;
+    }
+
     public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
         this.thirdPartyService = abstractThirdPartyService;
     }
@@ -274,7 +304,7 @@ public final class PassportSDK {
             @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
             public void onSuccess() {
                 WebAuthResult webAuthResult = new WebAuthResult();
-                webAuthResult.accountType = SapiAccountManager.getInstance().getSession().getAccountType();
+                webAuthResult.accountType = AccountType.NORMAL;
                 webAuthResult.setResultCode(0);
                 if (PassportSDK.this.webAuthListener != null) {
                     PassportSDK.this.webAuthListener.onSuccess(webAuthResult);
@@ -308,6 +338,7 @@ public final class PassportSDK {
         this.thirdPartyService = getThirdPartyService();
         if (this.thirdPartyService != null) {
             this.thirdPartyService.loadThirdPartyLogin(webSocialLoginDTO.context == null ? this.context : webSocialLoginDTO.context, webSocialLoginDTO.socialType, 2002);
+            webSocialLoginDTO.context = null;
         }
     }
 
@@ -330,10 +361,6 @@ public final class PassportSDK {
         this.webAuthListener = webAuthListener;
         this.webRegDTO = webRegDTO;
         Intent intent = new Intent(this.context, RegisterActivity.class);
-        if (WebRegDTO.EXTRA_REGISTER_FAST.equals(webRegDTO.regType)) {
-            intent = new Intent(this.context, FastRegActivity.class);
-            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2002);
-        }
         intent.setFlags(268435456);
         this.context.startActivity(intent);
     }
@@ -356,6 +383,7 @@ public final class PassportSDK {
 
     public void loadAccountRealName(Context context, AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
         this.accountRealNameCallback = accountRealNameCallback;
+        this.realNameDTO = realNameDTO;
         Intent intent = new Intent(context, AccountRealNameActivity.class);
         if (realNameDTO != null) {
             intent.putExtra("EXTRA_BDUSS", realNameDTO.bduss);
@@ -559,49 +587,23 @@ public final class PassportSDK {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void recogWithBdussWrap(Context context, String str, Map<String, String> map, String str2, String str3, String str4, String str5, final VerifyUserFaceIDCallback verifyUserFaceIDCallback, final RealNameFaceIDResult realNameFaceIDResult) {
-        if (BiometricsManager.getInstance().usePassBioSDK(context)) {
-            BiometricsManager.getInstance().recogWithBduss(context, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new PassFaceRecogCallback() { // from class: com.baidu.sapi2.PassportSDK.6
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-                public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-                    realNameFaceIDResult.setResultCode(passFaceRecogResult.getResultCode());
-                    realNameFaceIDResult.setResultMsg(passFaceRecogResult.getResultMsg());
-                    realNameFaceIDResult.authSid = passFaceRecogResult.authSid;
-                    realNameFaceIDResult.callBackKey = passFaceRecogResult.callbackkey;
-                    realNameFaceIDResult.setResultCode(0);
-                    verifyUserFaceIDCallback.onSuccess(realNameFaceIDResult);
-                }
+        BiometricsManager.getInstance().recogWithBduss(context, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new PassFaceRecogCallback() { // from class: com.baidu.sapi2.PassportSDK.6
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+            public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
+                realNameFaceIDResult.setResultCode(passFaceRecogResult.getResultCode());
+                realNameFaceIDResult.setResultMsg(passFaceRecogResult.getResultMsg());
+                realNameFaceIDResult.authSid = passFaceRecogResult.authSid;
+                realNameFaceIDResult.callBackKey = passFaceRecogResult.callbackkey;
+                realNameFaceIDResult.setResultCode(0);
+                verifyUserFaceIDCallback.onSuccess(realNameFaceIDResult);
+            }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-                public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-                    realNameFaceIDResult.setResultCode(passFaceRecogResult.getResultCode());
-                    realNameFaceIDResult.setResultMsg(passFaceRecogResult.getResultMsg());
-                    verifyUserFaceIDCallback.onFailure(realNameFaceIDResult);
-                }
-            });
-            return;
-        }
-        final BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        biometricsManager.getClass();
-        BiometricsManager.LivenessDTO livenessDTO = new BiometricsManager.LivenessDTO();
-        livenessDTO.livenessRecogType = "bduss";
-        livenessDTO.showGuidePage = 0;
-        livenessDTO.subPro = BiometricsManager.buildSubPro(str, str5);
-        livenessDTO.bduss = str3;
-        BiometricsManager.getInstance().rimlivenessRecognize(context, str4, livenessDTO, new BiometricsManager.DelegateRimServiceCallback() { // from class: com.baidu.sapi2.PassportSDK.7
-            @Override // com.baidu.sapi2.bio.BiometricsManager.DelegateRimServiceCallback
-            public void onResult(int i, Map<String, Object> map2) {
-                BiometricsManager.LivenessResult parseMap2LivenessResult = biometricsManager.parseMap2LivenessResult(i, map2);
-                realNameFaceIDResult.setResultMsg(parseMap2LivenessResult.errMsg);
-                realNameFaceIDResult.authSid = parseMap2LivenessResult.authSid;
-                realNameFaceIDResult.callBackKey = parseMap2LivenessResult.callBackKey;
-                if (i == 0) {
-                    realNameFaceIDResult.setResultCode(0);
-                    verifyUserFaceIDCallback.onSuccess(realNameFaceIDResult);
-                    return;
-                }
-                realNameFaceIDResult.setResultCode(i);
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+            public void onFailure(PassFaceRecogResult passFaceRecogResult) {
+                realNameFaceIDResult.setResultCode(passFaceRecogResult.getResultCode());
+                realNameFaceIDResult.setResultMsg(passFaceRecogResult.getResultMsg());
                 verifyUserFaceIDCallback.onFailure(realNameFaceIDResult);
             }
         });
@@ -609,11 +611,7 @@ public final class PassportSDK {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bioScanFaceWrap(FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5) {
-        if (BiometricsManager.getInstance().usePassBioSDK(this.context)) {
-            bioScanFace(faceIDCallback, str, str2, str3, z, str4, str5);
-        } else {
-            rimBioScanFace(faceIDCallback, str, str2, str3, z, str4, str5);
-        }
+        bioScanFace(faceIDCallback, str, str2, str3, z, str4, str5);
     }
 
     private void bioScanFace(final FaceIDCallback faceIDCallback, final String str, String str2, String str3, boolean z, String str4, String str5) {
@@ -624,7 +622,7 @@ public final class PassportSDK {
         String buildSubPro = BiometricsManager.buildSubPro(str4, str5);
         HashMap hashMap = new HashMap();
         final UnRealNameFaceIDResult unRealNameFaceIDResult = new UnRealNameFaceIDResult();
-        PassFaceRecogCallback passFaceRecogCallback = new PassFaceRecogCallback() { // from class: com.baidu.sapi2.PassportSDK.8
+        PassFaceRecogCallback passFaceRecogCallback = new PassFaceRecogCallback() { // from class: com.baidu.sapi2.PassportSDK.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
@@ -658,52 +656,6 @@ public final class PassportSDK {
         }
     }
 
-    private void rimBioScanFace(final FaceIDCallback faceIDCallback, final String str, String str2, String str3, boolean z, String str4, String str5) {
-        if (TextUtils.isEmpty(str5)) {
-            throw new IllegalArgumentException("scene can't be empty");
-        }
-        BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        biometricsManager.getClass();
-        BiometricsManager.LivenessDTO livenessDTO = new BiometricsManager.LivenessDTO();
-        livenessDTO.transParamsList.add(new PassNameValuePair("authsid", str2));
-        livenessDTO.showGuidePage = z ? 1 : 0;
-        livenessDTO.livenessRecogType = str;
-        livenessDTO.livingUname = str3;
-        livenessDTO.subPro = BiometricsManager.buildSubPro(str4, str5);
-        biometricsManager.bioScanFace(this.context, livenessDTO, new BiometricsManager.DelegateRimServiceCallback() { // from class: com.baidu.sapi2.PassportSDK.9
-            @Override // com.baidu.sapi2.bio.BiometricsManager.DelegateRimServiceCallback
-            public void onResult(int i, Map<String, Object> map) {
-                UnRealNameFaceIDResult unRealNameFaceIDResult = new UnRealNameFaceIDResult();
-                unRealNameFaceIDResult.setResultMsg((String) map.get("retMsg"));
-                unRealNameFaceIDResult.registerResult = (String) map.get("result");
-                if (i == 0) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(unRealNameFaceIDResult.registerResult);
-                        if (str == "faceDetect") {
-                            unRealNameFaceIDResult.callBackKey = jSONObject.optString("faceid");
-                        } else if (str == "outer") {
-                            unRealNameFaceIDResult.callBackKey = jSONObject.optString("callbackkey");
-                        }
-                        if (TextUtils.isEmpty(unRealNameFaceIDResult.callBackKey)) {
-                            unRealNameFaceIDResult.setResultCode(-205);
-                            faceIDCallback.onFailure(unRealNameFaceIDResult);
-                            return;
-                        }
-                        unRealNameFaceIDResult.setResultCode(0);
-                        faceIDCallback.onSuccess(unRealNameFaceIDResult);
-                        return;
-                    } catch (JSONException e) {
-                        unRealNameFaceIDResult.setResultCode(-205);
-                        faceIDCallback.onFailure(unRealNameFaceIDResult);
-                        return;
-                    }
-                }
-                unRealNameFaceIDResult.setResultCode(i);
-                faceIDCallback.onFailure(unRealNameFaceIDResult);
-            }
-        });
-    }
-
     public void extendSysWebViewMethod(final Context context, String str, final ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
         final ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
         try {
@@ -718,7 +670,7 @@ public final class PassportSDK {
                 extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
                 return;
             }
-            SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new SapiCallback<SapiResult>() { // from class: com.baidu.sapi2.PassportSDK.10
+            SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new SapiCallback<SapiResult>() { // from class: com.baidu.sapi2.PassportSDK.8
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onSuccess(SapiResult sapiResult) {
                     switch (optInt) {
@@ -786,111 +738,55 @@ public final class PassportSDK {
     /* JADX INFO: Access modifiers changed from: private */
     public void extendWebviewBioWrap(final ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, int i, final ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
         BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        if (BiometricsManager.getInstance().usePassBioSDK(this.context)) {
-            PassFaceRecogCallback passFaceRecogCallback = new PassFaceRecogCallback() { // from class: com.baidu.sapi2.PassportSDK.11
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-                public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-                    extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
-                    extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-                }
+        PassFaceRecogCallback passFaceRecogCallback = new PassFaceRecogCallback() { // from class: com.baidu.sapi2.PassportSDK.9
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+            public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
+                extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
+                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
+            }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-                public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-                    extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
-                    extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-                }
-            };
-            int optInt = jSONObject.optInt("imageFlag", 0);
-            String optString = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
-            HashMap hashMap = new HashMap();
-            JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
-            if (optJSONObject != null) {
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    String optString2 = optJSONObject.optString(next);
-                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString2)) {
-                        hashMap.put(next, optString2);
-                    }
-                }
-            }
-            if (i == 1) {
-                biometricsManager.getClass();
-                extendWebviewBioWithBdussWrap(true, extendSysWebViewMethodCallback, new BiometricsManager.LivenessDTO(), extendSysWebViewMethodResult, null, passFaceRecogCallback, optString, hashMap, optInt + "");
-            }
-            if (i == 2) {
-                biometricsManager.recogWithCertInfo(this.context, optString, hashMap, optInt + "", jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), passFaceRecogCallback);
-            }
-            if (i == 3) {
-                biometricsManager.recogWithAuthToken(this.context, optString, hashMap, optInt + "", jSONObject.optString("authtoken"), passFaceRecogCallback);
-            }
-            if (i == 4) {
-                if (jSONObject.optInt("type") == 1) {
-                    biometricsManager.recogWithFaceDetect(this.context, optString, hashMap, optInt + "", jSONObject.optString("uid"), "", passFaceRecogCallback);
-                    return;
-                } else {
-                    biometricsManager.recogWithFaceOuter(this.context, optString, hashMap, optInt + "", jSONObject.optString("uid"), passFaceRecogCallback);
-                    return;
-                }
-            }
-            return;
-        }
-        BiometricsManager.DelegateRimServiceCallback delegateRimServiceCallback = new BiometricsManager.DelegateRimServiceCallback() { // from class: com.baidu.sapi2.PassportSDK.12
-            @Override // com.baidu.sapi2.bio.BiometricsManager.DelegateRimServiceCallback
-            public void onResult(int i2, Map<String, Object> map) {
-                extendSysWebViewMethodResult.params = map;
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
+            public void onFailure(PassFaceRecogResult passFaceRecogResult) {
+                extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
                 extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
             }
         };
-        biometricsManager.getClass();
-        BiometricsManager.LivenessDTO livenessDTO = new BiometricsManager.LivenessDTO();
-        if (jSONObject.opt("hideGuidePage") != null) {
-            livenessDTO.showGuidePage = 1 - jSONObject.optInt("hideGuidePage");
-        } else {
-            livenessDTO.showGuidePage = 1;
-        }
-        livenessDTO.imageFlag = jSONObject.optInt("imageFlag", 0);
-        livenessDTO.subPro = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("transParams");
-        if (optJSONObject2 != null) {
-            Iterator<String> keys2 = optJSONObject2.keys();
-            while (keys2.hasNext()) {
-                String next2 = keys2.next();
-                String optString3 = optJSONObject2.optString(next2);
-                if (!TextUtils.isEmpty(next2) && !TextUtils.isEmpty(optString3)) {
-                    livenessDTO.transParamsList.add(new PassNameValuePair(next2, optString3));
+        int optInt = jSONObject.optInt("imageFlag", 0);
+        String optString = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
+        HashMap hashMap = new HashMap();
+        JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
+        if (optJSONObject != null) {
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString2 = optJSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString2)) {
+                    hashMap.put(next, optString2);
                 }
             }
         }
         if (i == 1) {
-            extendWebviewBioWithBdussWrap(false, extendSysWebViewMethodCallback, livenessDTO, extendSysWebViewMethodResult, delegateRimServiceCallback, null, "", null, livenessDTO.imageFlag + "");
+            biometricsManager.getClass();
+            extendWebviewBioWithBdussWrap(extendSysWebViewMethodCallback, new BiometricsManager.LivenessDTO(), extendSysWebViewMethodResult, passFaceRecogCallback, optString, hashMap, optInt + "");
         }
         if (i == 2) {
-            livenessDTO.livenessRecogType = "certinfo";
-            livenessDTO.realName = jSONObject.optString("realname");
-            livenessDTO.idCardNum = jSONObject.optString("idcardnum");
-            livenessDTO.phoneNum = jSONObject.optString("bankmobile");
-            biometricsManager.rimlivenessRecognize(this.context, null, livenessDTO, delegateRimServiceCallback);
+            biometricsManager.recogWithCertInfo(this.context, optString, hashMap, optInt + "", jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), passFaceRecogCallback);
         }
         if (i == 3) {
-            livenessDTO.livenessRecogType = "authtoken";
-            livenessDTO.authToken = jSONObject.optString("authtoken");
-            biometricsManager.rimlivenessRecognize(this.context, null, livenessDTO, delegateRimServiceCallback);
+            biometricsManager.recogWithAuthToken(this.context, optString, hashMap, optInt + "", jSONObject.optString("authtoken"), passFaceRecogCallback);
         }
         if (i == 4) {
-            livenessDTO.livingUname = jSONObject.optString("uid");
             if (jSONObject.optInt("type") == 1) {
-                livenessDTO.livenessRecogType = "faceDetect";
+                biometricsManager.recogWithFaceDetect(this.context, optString, hashMap, optInt + "", jSONObject.optString("uid"), "", passFaceRecogCallback);
             } else {
-                livenessDTO.livenessRecogType = "outer";
+                biometricsManager.recogWithFaceOuter(this.context, optString, hashMap, optInt + "", jSONObject.optString("uid"), passFaceRecogCallback);
             }
-            biometricsManager.bioScanFace(this.context, livenessDTO, delegateRimServiceCallback);
         }
     }
 
-    private void extendWebviewBioWithBdussWrap(final boolean z, final ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, final BiometricsManager.LivenessDTO livenessDTO, final ExtendSysWebViewMethodResult extendSysWebViewMethodResult, final BiometricsManager.DelegateRimServiceCallback delegateRimServiceCallback, final PassFaceRecogCallback passFaceRecogCallback, final String str, final Map<String, String> map, final String str2) {
+    private void extendWebviewBioWithBdussWrap(final ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, BiometricsManager.LivenessDTO livenessDTO, final ExtendSysWebViewMethodResult extendSysWebViewMethodResult, final PassFaceRecogCallback passFaceRecogCallback, final String str, final Map<String, String> map, final String str2) {
         final SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session == null) {
             extendSysWebViewMethodResult.params.put("retCode", "-302");
@@ -901,18 +797,11 @@ public final class PassportSDK {
         livenessDTO.bduss = session.bduss;
         ArrayList arrayList = new ArrayList();
         arrayList.add("pp");
-        SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.PassportSDK.13
+        SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.PassportSDK.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                String str3 = getTplStokenResult.tplStokenMap.get("pp");
-                if (z) {
-                    BiometricsManager.getInstance().recogWithBduss(PassportSDK.this.context, str, map, str2, session.bduss, str3, passFaceRecogCallback);
-                    return;
-                }
-                livenessDTO.livenessRecogType = "bduss";
-                new ArrayList().add("pp");
-                BiometricsManager.getInstance().rimlivenessRecognize(PassportSDK.this.context, str3, livenessDTO, delegateRimServiceCallback);
+                BiometricsManager.getInstance().recogWithBduss(PassportSDK.this.context, str, map, str2, session.bduss, getTplStokenResult.tplStokenMap.get("pp"), passFaceRecogCallback);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -955,6 +844,8 @@ public final class PassportSDK {
         this.normalizeGuestAccountCallback = null;
         this.authWidgetCallback = null;
         this.extendSysWebViewMethodCallback = null;
+        this.addressManageDTO = null;
+        this.addressManageCallback = null;
         PassportViewManager.getInstance().release();
     }
 
@@ -970,11 +861,37 @@ public final class PassportSDK {
         }
     }
 
+    public void loadAddressManage(Context context, AddressManageDTO addressManageDTO, AddressManageCallback addressManageCallback) {
+        this.addressManageDTO = addressManageDTO;
+        this.addressManageCallback = addressManageCallback;
+        if (context == null) {
+            context = this.context;
+        }
+        Intent intent = new Intent(context, AddressManageActivity.class);
+        if (!(context instanceof Activity)) {
+            intent.setFlags(268435456);
+        }
+        context.startActivity(intent);
+    }
+
     public String getSidKey() {
         return SapiContext.getInstance(SapiAccountManager.getInstance().getConfignation().context).getSapiOptions().sidKeys;
     }
 
     public void setSidValue(String str) {
         SapiAccountManager.getInstance().getConfignation().sidValue = str;
+    }
+
+    public void loadInvoiceBuild(Context context, InvoiceBuildDTO invoiceBuildDTO, InvoiceBuildCallback invoiceBuildCallback) {
+        this.invoiceBuildDTO = invoiceBuildDTO;
+        this.invoiceBuildCallback = invoiceBuildCallback;
+        if (context == null) {
+            context = this.context;
+        }
+        Intent intent = new Intent(context, InvoiceBuildActivity.class);
+        if (!(context instanceof Activity)) {
+            intent.setFlags(268435456);
+        }
+        context.startActivity(intent);
     }
 }

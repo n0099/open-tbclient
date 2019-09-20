@@ -3,7 +3,6 @@ package android.support.design.widget;
 import android.content.Context;
 import android.support.v4.math.MathUtils;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -149,7 +148,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i) {
-        return setHeaderTopBottomOffset(coordinatorLayout, v, i, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return setHeaderTopBottomOffset(coordinatorLayout, v, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i, int i2, int i3) {

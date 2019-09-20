@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h kui = new h();
-    static h kuj;
-    static h kuk;
-    boolean ktZ = true;
-    boolean kua = true;
-    boolean kub = false;
-    boolean kuc = false;
-    boolean kud = false;
-    boolean kue = true;
-    boolean kuf = true;
-    boolean kug = true;
-    int kuh;
+    static h kwB = new h();
+    static h kwC;
+    static h kwD;
+    int kwA;
+    boolean kws = true;
+    boolean kwt = true;
+    boolean kwu = false;
+    boolean kwv = false;
+    boolean kww = false;
+    boolean kwx = true;
+    boolean kwy = true;
+    boolean kwz = true;
 
     h() {
     }
 
     static {
-        kui.ktZ = true;
-        kui.kua = false;
-        kui.kub = false;
-        kui.kuc = false;
-        kui.kud = true;
-        kui.kue = false;
-        kui.kuf = false;
-        kui.kuh = 0;
-        kuj = new h();
-        kuj.ktZ = true;
-        kuj.kua = true;
-        kuj.kub = false;
-        kuj.kuc = false;
-        kuj.kud = false;
-        kui.kuh = 1;
-        kuk = new h();
-        kuk.ktZ = false;
-        kuk.kua = true;
-        kuk.kub = false;
-        kuk.kuc = true;
-        kuk.kud = false;
-        kuk.kug = false;
-        kuk.kuh = 2;
+        kwB.kws = true;
+        kwB.kwt = false;
+        kwB.kwu = false;
+        kwB.kwv = false;
+        kwB.kww = true;
+        kwB.kwx = false;
+        kwB.kwy = false;
+        kwB.kwA = 0;
+        kwC = new h();
+        kwC.kws = true;
+        kwC.kwt = true;
+        kwC.kwu = false;
+        kwC.kwv = false;
+        kwC.kww = false;
+        kwB.kwA = 1;
+        kwD = new h();
+        kwD.kws = false;
+        kwD.kwt = true;
+        kwD.kwu = false;
+        kwD.kwv = true;
+        kwD.kww = false;
+        kwD.kwz = false;
+        kwD.kwA = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Io(String str) {
+    public String IM(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String EP(int i) {
-        if (this.kuc) {
+    public String ET(int i) {
+        if (this.kwv) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String Ip(String str) {
+    String IN(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return Ip(str).replace('$', '.');
+            return IN(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String G(Class cls) {
-        return b(cls, cls.getName(), this.ktZ);
+        return b(cls, cls.getName(), this.kws);
     }
 
     public String i(Class cls, String str) {
-        return b(cls, str, this.kud);
+        return b(cls, str, this.kww);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.kua) {
+            if (!this.kwt) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.kub && clsArr != null && clsArr.length != 0) {
+        if (this.kwu && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

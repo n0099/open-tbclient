@@ -3,12 +3,12 @@ package com.baidu.tieba.personCenter.data;
 import tbclient.SmartApp;
 /* loaded from: classes4.dex */
 public class l implements c {
-    private String eWy;
-    private String gvK;
-    private Long ilw;
-    private String ilx;
-    private String ily;
-    private Integer ilz;
+    private String eYe;
+    private String gxB;
+    private String inA;
+    private Integer inB;
+    private Long iny;
+    private String inz;
     private String mAppKey;
     private String mLink;
     private String mName;
@@ -17,18 +17,18 @@ public class l implements c {
     public l(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.ilw = smartApp.swan_app_id;
+            this.iny = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.eWy = smartApp.avatar;
+            this.eYe = smartApp.avatar;
             this.mName = smartApp.name;
-            this.gvK = smartApp._abstract;
-            this.ilx = smartApp.pic;
-            this.ily = smartApp.h5_url;
+            this.gxB = smartApp._abstract;
+            this.inz = smartApp.pic;
+            this.inA = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.ilz = smartApp.is_game;
+            this.inB = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class l implements c {
         return this.mType;
     }
 
-    public Long cbC() {
-        return this.ilw;
+    public Long ccq() {
+        return this.iny;
     }
 
     public String getAppKey() {
@@ -46,22 +46,22 @@ public class l implements c {
     }
 
     public String getAvatar() {
-        return this.eWy;
+        return this.eYe;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public String alV() {
-        return this.ily;
+    public String amh() {
+        return this.inA;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer cbD() {
-        return this.ilz;
+    public Integer ccr() {
+        return this.inB;
     }
 }

@@ -8,54 +8,54 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d apA;
-    private HashMap<String, a> apB = new HashMap<>();
-    private HashMap<String, Set<b>> apC = new HashMap<>();
+    private static volatile d apY;
+    private HashMap<String, a> apZ = new HashMap<>();
+    private HashMap<String, Set<b>> aqa = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface b {
-        void dA(String str);
+        void dC(String str);
     }
 
     private d() {
     }
 
-    public static d zb() {
-        if (apA == null) {
+    public static d zf() {
+        if (apY == null) {
             synchronized (d.class) {
-                if (apA == null) {
-                    apA = new d();
+                if (apY == null) {
+                    apY = new d();
                 }
             }
         }
-        return apA;
+        return apY;
     }
 
-    public synchronized void dz(String str) {
+    public synchronized void dB(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.i("SwanAppAPSStatusSync", "swanAppPreDownloadFinish:" + str);
             }
             a aVar = new a(2, 0);
-            if (this.apB != null) {
-                this.apB.put(str, aVar);
+            if (this.apZ != null) {
+                this.apZ.put(str, aVar);
             }
-            if (this.apC != null) {
-                Set<b> set = this.apC.get(str);
+            if (this.aqa != null) {
+                Set<b> set = this.aqa.get(str);
                 if (set != null) {
                     for (b bVar : set) {
                         if (bVar != null) {
-                            bVar.dA(str);
+                            bVar.dC(str);
                         }
                     }
                 }
-                this.apC.remove(str);
+                this.aqa.remove(str);
             }
         }
     }
 
     public synchronized void a(SubPackageAPSInfo subPackageAPSInfo) {
-        dz(b(subPackageAPSInfo));
+        dB(b(subPackageAPSInfo));
     }
 
     private String b(SubPackageAPSInfo subPackageAPSInfo) {
@@ -63,7 +63,7 @@ public final class d {
             return "";
         }
         String str = subPackageAPSInfo.mAppId;
-        String str2 = subPackageAPSInfo.ayM;
+        String str2 = subPackageAPSInfo.azk;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return "";
         }

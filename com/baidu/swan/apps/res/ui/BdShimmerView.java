@@ -8,7 +8,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
 /* loaded from: classes2.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.apps.res.widget.loadingview.b<BdShimmerView> {
-    private ImageView aIy;
+    private ImageView aIW;
     private int mType;
 
     public BdShimmerView(Context context) {
@@ -25,28 +25,28 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     }
 
     protected void init(Context context) {
-        this.aIy = new ImageView(context);
-        this.aIy.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        addView(this.aIy);
+        this.aIW = new ImageView(context);
+        this.aIW.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        addView(this.aIW);
     }
 
     public void setType(int i) {
         this.mType = i;
-        JT();
+        JX();
     }
 
-    private void JT() {
+    private void JX() {
         switch (this.mType) {
             case 0:
-                this.aIy.setImageDrawable(getResources().getDrawable(a.e.aiapps_black_shimmer_loading));
+                this.aIW.setImageDrawable(getResources().getDrawable(a.e.aiapps_black_shimmer_loading));
                 ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-                if (com.baidu.swan.apps.u.a.EF().Fe()) {
+                if (com.baidu.swan.apps.u.a.EJ().Fi()) {
                     maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
                 }
                 setMaskShape(maskShape);
                 return;
             case 1:
-                this.aIy.setImageDrawable(getResources().getDrawable(a.e.aiapps_white_shimmer_loading));
+                this.aIW.setImageDrawable(getResources().getDrawable(a.e.aiapps_white_shimmer_loading));
                 setMaskShape(ShimmerFrameLayout.MaskShape.WHITE_LINEAR);
                 return;
             default:
@@ -58,7 +58,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.u.a.EF().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.BdShimmerView.1
+        com.baidu.swan.apps.u.a.EJ().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.BdShimmerView.1
         });
     }
 
@@ -66,11 +66,11 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.u.a.EF().H(this);
+        com.baidu.swan.apps.u.a.EJ().H(this);
     }
 
     public void setPageResources() {
-        JT();
+        JX();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

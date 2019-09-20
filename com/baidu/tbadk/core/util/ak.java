@@ -7,63 +7,63 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ak {
-    private static String bTx;
-    private static String sVersion;
+    private static String bTY;
+    private static String bTZ;
 
-    public static boolean Pw() {
-        return aji();
+    public static boolean PA() {
+        return ajm();
     }
 
-    public static boolean aji() {
+    public static boolean ajm() {
         return check("EMUI") && Build.VERSION.SDK_INT >= 24;
     }
 
     public static boolean check(String str) {
-        if (bTx != null) {
-            return bTx.equals(str);
+        if (bTY != null) {
+            return bTY.equals(str);
         }
-        String gE = gE("ro.miui.ui.version.name");
-        sVersion = gE;
-        if (!TextUtils.isEmpty(gE)) {
-            bTx = "MIUI";
+        String gG = gG("ro.miui.ui.version.name");
+        bTZ = gG;
+        if (!TextUtils.isEmpty(gG)) {
+            bTY = "MIUI";
         } else {
-            String gE2 = gE("ro.build.version.emui");
-            sVersion = gE2;
-            if (!TextUtils.isEmpty(gE2)) {
-                bTx = "EMUI";
+            String gG2 = gG("ro.build.version.emui");
+            bTZ = gG2;
+            if (!TextUtils.isEmpty(gG2)) {
+                bTY = "EMUI";
             } else {
-                String gE3 = gE("ro.build.version.opporom");
-                sVersion = gE3;
-                if (!TextUtils.isEmpty(gE3)) {
-                    bTx = "OPPO";
+                String gG3 = gG("ro.build.version.opporom");
+                bTZ = gG3;
+                if (!TextUtils.isEmpty(gG3)) {
+                    bTY = "OPPO";
                 } else {
-                    String gE4 = gE("ro.vivo.os.version");
-                    sVersion = gE4;
-                    if (!TextUtils.isEmpty(gE4)) {
-                        bTx = "VIVO";
+                    String gG4 = gG("ro.vivo.os.version");
+                    bTZ = gG4;
+                    if (!TextUtils.isEmpty(gG4)) {
+                        bTY = "VIVO";
                     } else {
-                        String gE5 = gE("ro.smartisan.version");
-                        sVersion = gE5;
-                        if (!TextUtils.isEmpty(gE5)) {
-                            bTx = "SMARTISAN";
+                        String gG5 = gG("ro.smartisan.version");
+                        bTZ = gG5;
+                        if (!TextUtils.isEmpty(gG5)) {
+                            bTY = "SMARTISAN";
                         } else {
-                            sVersion = Build.DISPLAY;
-                            if (sVersion.toUpperCase().contains("FLYME")) {
-                                bTx = "FLYME";
+                            bTZ = Build.DISPLAY;
+                            if (bTZ.toUpperCase().contains("FLYME")) {
+                                bTY = "FLYME";
                             } else {
-                                sVersion = "unknown";
-                                bTx = Build.MANUFACTURER.toUpperCase();
+                                bTZ = "unknown";
+                                bTY = Build.MANUFACTURER.toUpperCase();
                             }
                         }
                     }
                 }
             }
         }
-        return bTx.equals(str);
+        return bTY.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */
-    public static String gE(String str) {
+    public static String gG(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {

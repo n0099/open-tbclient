@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.data.a;
 import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -28,18 +28,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> {
-    private a VJ;
-    private ab<a> WO;
+    private a VI;
+    private ab<a> WN;
     public TbImageView YI;
     public ImageView YJ;
     private boolean Yd;
     private boolean Yo;
     private LinkedList<MediaData> Yq;
     public TextView mTitle;
-    private static final int Xy = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+    private static final int Xx = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
     private static final int SCREEN_WIDTH = l.af(TbadkCoreApplication.getInst());
-    private static final int Xz = SCREEN_WIDTH - Xy;
-    private static final int XA = Xz / 2;
+    private static final int Xy = SCREEN_WIDTH - Xx;
+    private static final int Xz = Xy / 2;
 
     public MutiImgSingleHorizontalLayout(Context context) {
         this(context, null);
@@ -48,7 +48,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
     public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.Yd = true;
-        this.VJ = null;
+        this.VI = null;
         this.Yo = false;
         initUI();
     }
@@ -56,18 +56,18 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
         setOrientation(1);
-        setLayoutParams(new ViewGroup.LayoutParams(-1, XA));
+        setLayoutParams(new ViewGroup.LayoutParams(-1, Xz));
         this.mTitle = (TextView) findViewById(R.id.thread_card_title);
         this.YI = (TbImageView) findViewById(R.id.thread_card_img_singal);
         this.YJ = (ImageView) findViewById(R.id.play_btn);
     }
 
     private void setImageData(bh bhVar) {
-        ArrayList<MediaData> aeI = bhVar.aeI();
-        if (com.baidu.tbadk.core.i.aca().ace() && v.Z(aeI) != 0) {
+        ArrayList<MediaData> aeM = bhVar.aeM();
+        if (com.baidu.tbadk.core.i.ace().aci() && v.Z(aeM) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aeI.size(); i++) {
-                MediaData mediaData = (MediaData) v.c(aeI, i);
+            for (int i = 0; i < aeM.size(); i++) {
+                MediaData mediaData = (MediaData) v.c(aeM, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -80,7 +80,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
                 this.YI.setVisibility(0);
                 this.YJ.setVisibility(0);
                 this.YI.setConrers(15);
-                a((MediaData) v.c(aeI, 0), this.YI, true, false, true, 0);
+                a((MediaData) v.c(aeM, 0), this.YI, true, false, true, 0);
                 return;
             }
             this.YI.setVisibility(8);
@@ -104,10 +104,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(a aVar) {
-        this.VJ = aVar;
-        bh acy = aVar.acy();
-        av.a(this.mTitle, acy);
-        setImageData(acy);
+        this.VI = aVar;
+        bh acC = aVar.acC();
+        au.a(this.mTitle, acC);
+        setImageData(acC);
     }
 
     public void setMarginsTop(View view, int i) {
@@ -121,11 +121,11 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
     }
 
     public ab<a> getSubClickListener() {
-        return this.WO;
+        return this.WN;
     }
 
     public void setSubClickListener(ab<a> abVar) {
-        this.WO = abVar;
+        this.WN = abVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import java.util.HashMap;
 import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
@@ -19,12 +19,12 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     public int scrW;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String auf() {
+    public String aur() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean aug() {
+    public boolean aus() {
         return false;
     }
 
@@ -39,17 +39,17 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> aui() {
+    public HashMap<String, Object> auu() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> auj() {
+    public HashMap<String, String> auv() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object fw(boolean z) {
+    public Object fz(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         builder.scr_w = Integer.valueOf(this.scrW);
@@ -58,7 +58,7 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
         builder.q_type = Integer.valueOf(this.qType);
         builder.last_thread_id = Long.valueOf(this.lastThreadId);
         builder.rn = 30;
-        s.bindCommonParamsToProtobufData(builder, true, false, true);
+        r.bindCommonParamsToProtobufData(builder, true, false, true);
         StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

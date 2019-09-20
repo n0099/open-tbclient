@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
-    private b<View> bsb = new b<>(5);
-    private SparseArray<View> bsc = new SparseArray<>();
+    private b<View> bsz = new b<>(5);
+    private SparseArray<View> bsA = new SparseArray<>();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -36,17 +36,17 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.bsb.S(view);
-        this.bsc.remove(i);
+        this.bsz.S(view);
+        this.bsA.remove(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.bsb.get();
+        View view = this.bsz.get();
         if (view == null) {
             view = c(viewGroup, i);
         }
-        this.bsc.put(i, view);
+        this.bsA.put(i, view);
         viewGroup.addView(view);
         f(view, i);
         return view;

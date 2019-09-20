@@ -107,7 +107,7 @@ public class SystemBarTintManager {
             layoutParams.rightMargin = this.mConfig.getNavigationBarWidth();
         }
         this.mStatusBarTintView.setLayoutParams(layoutParams);
-        this.mStatusBarTintView.setBackgroundColor(-1728053248);
+        this.mStatusBarTintView.setBackgroundColor(DEFAULT_TINT_COLOR);
         this.mStatusBarTintView.setVisibility(8);
         viewGroup.addView(this.mStatusBarTintView);
     }
@@ -123,7 +123,7 @@ public class SystemBarTintManager {
             layoutParams.gravity = 5;
         }
         this.mNavBarTintView.setLayoutParams(layoutParams);
-        this.mNavBarTintView.setBackgroundColor(-1728053248);
+        this.mNavBarTintView.setBackgroundColor(DEFAULT_TINT_COLOR);
         this.mNavBarTintView.setVisibility(8);
         viewGroup.addView(this.mNavBarTintView);
     }

@@ -94,6 +94,13 @@ public class QrLoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
         SapiAccountManager.getInstance().getAccountService().qrAppLogin(new SapiCallback<QrAppLoginResult>() { // from class: com.baidu.sapi2.activity.QrLoginActivity.4
@@ -134,10 +141,10 @@ public class QrLoginActivity extends BaseActivity {
         if (qrLoginCallback != null) {
             qrLoginCallback.onFinish(this.result);
         }
-        PassportSDK.getInstance().release();
         if (z) {
             finish();
         }
+        PassportSDK.getInstance().release();
     }
 
     private void finishActivity() {

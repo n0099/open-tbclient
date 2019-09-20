@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.tbtitle.model.req;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.r;
 import tbclient.GetLevelInfo.DataReq;
 import tbclient.GetLevelInfo.GetLevelInfoReqIdl;
 /* loaded from: classes5.dex */
@@ -26,7 +26,7 @@ public class GetLevelInfoRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(getForumId());
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            r.bindCommonParamsToProtobufData(builder, true);
         }
         GetLevelInfoReqIdl.Builder builder2 = new GetLevelInfoReqIdl.Builder();
         builder2.data = builder.build(false);

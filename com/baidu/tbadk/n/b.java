@@ -23,29 +23,29 @@ import com.baidu.tieba.tbadkCore.data.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class b {
-    private static b cyj = null;
-    private a cyk;
+    private static b czf = null;
+    private a czg;
 
-    public static b aue() {
-        if (cyj == null) {
+    public static b auq() {
+        if (czf == null) {
             synchronized (b.class) {
-                if (cyj == null) {
-                    cyj = new b();
+                if (czf == null) {
+                    czf = new b();
                 }
             }
         }
-        return cyj;
+        return czf;
     }
 
     public void c(Application application) {
         if (application != null) {
             try {
-                if (this.cyk == null) {
-                    this.cyk = new a();
+                if (this.czg == null) {
+                    this.czg = new a();
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.setPriority(1000);
                     intentFilter.addAction("com.baidu.tieba.action.mutiProcess");
-                    application.registerReceiver(this.cyk, intentFilter);
+                    application.registerReceiver(this.czg, intentFilter);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -54,14 +54,14 @@ public class b {
     }
 
     public static void a(String str, Parcelable parcelable) {
-        aue().a(str, parcelable, null);
+        auq().a(str, parcelable, null);
     }
 
     public static void a(String str, Serializable serializable) {
-        aue().b(str, serializable);
+        auq().b(str, serializable);
     }
 
-    public Intent qR(String str) {
+    public Intent rc(String str) {
         Intent intent = new Intent();
         intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
         intent.setAction("com.baidu.tieba.action.mutiProcess");
@@ -71,11 +71,11 @@ public class b {
 
     private void a(String str, Parcelable parcelable, String str2) {
         try {
-            Intent qR = qR(str);
-            qR.putExtra("broadcast_data", parcelable);
-            qR.putExtra("process_id", Process.myPid());
-            qR.putExtra("broadcast_extra_data", str2);
-            TbadkCoreApplication.getInst().sendBroadcast(qR);
+            Intent rc = rc(str);
+            rc.putExtra("broadcast_data", parcelable);
+            rc.putExtra("process_id", Process.myPid());
+            rc.putExtra("broadcast_extra_data", str2);
+            TbadkCoreApplication.getInst().sendBroadcast(rc);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -83,9 +83,9 @@ public class b {
 
     private void b(String str, Serializable serializable) {
         try {
-            Intent qR = qR(str);
-            qR.putExtra("broadcast_data", serializable);
-            TbadkCoreApplication.getInst().sendBroadcast(qR);
+            Intent rc = rc(str);
+            rc.putExtra("broadcast_data", serializable);
+            TbadkCoreApplication.getInst().sendBroadcast(rc);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,7 +121,7 @@ public class b {
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("broadcast_data");
             if (serializableExtra instanceof String) {
-                n.vx((String) serializableExtra);
+                n.vW((String) serializableExtra);
             }
         }
     }
@@ -154,14 +154,14 @@ public class b {
                 String string = bundle.getString("key_message_type");
                 if ("onResume".equals(string)) {
                     int i2 = bundle.getInt("key_pageType");
-                    c.Zg().i(i, j);
-                    c.Zg().k(i2, j);
+                    c.Zk().i(i, j);
+                    c.Zk().k(i2, j);
                 } else if ("onPause".equals(string)) {
-                    c.Zg().Zl();
+                    c.Zk().Zp();
                 } else if ("onTouch".equals(string)) {
-                    c.Zg().Zn();
+                    c.Zk().Zr();
                 } else if ("onActivity".equals(string)) {
-                    c.Zg().i(i, j);
+                    c.Zk().i(i, j);
                 }
             }
         }

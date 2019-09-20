@@ -14,9 +14,9 @@ import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 public class a extends EventTargetImpl implements g.a, com.baidu.swan.games.a.b {
     @V8JavascriptField
     public String adUnitId;
-    private String bdY;
-    private f bdZ;
-    private i bea;
+    private i beA;
+    private String bey;
+    private f bez;
     public boolean isDestroyed;
     @V8JavascriptField
     public g style;
@@ -24,7 +24,7 @@ public class a extends EventTargetImpl implements g.a, com.baidu.swan.games.a.b 
     public a(com.baidu.swan.games.e.b bVar, JsObject jsObject) {
         super(bVar);
         this.style = null;
-        this.bea = new i() { // from class: com.baidu.swan.game.ad.f.a.1
+        this.beA = new i() { // from class: com.baidu.swan.game.ad.f.a.1
             @Override // com.baidu.swan.game.ad.f.i
             public void a() {
                 a.this.dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
@@ -47,18 +47,18 @@ public class a extends EventTargetImpl implements g.a, com.baidu.swan.games.a.b 
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
         if (c != null) {
             this.adUnitId = c.optString("adUnitId");
-            this.bdY = c.optString("appSid");
-            JsObject iZ = c.iZ(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            if (iZ != null) {
-                this.style = new g(iZ);
+            this.bey = c.optString("appSid");
+            JsObject jb = c.jb(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+            if (jb != null) {
+                this.style = new g(jb);
             }
         }
-        if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.bdY) || this.style == null) {
+        if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.bey) || this.style == null) {
             bVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
             return;
         }
-        this.bdZ = new f(this.bdY, this.adUnitId, this.style);
-        this.bdZ.a(this.bea);
+        this.bez = new f(this.bey, this.adUnitId, this.style);
+        this.bez.a(this.beA);
         if (this.style != null) {
             this.style.a(this);
         }
@@ -67,17 +67,17 @@ public class a extends EventTargetImpl implements g.a, com.baidu.swan.games.a.b 
     @Override // com.baidu.swan.games.a.b
     @JavascriptInterface
     public void showAd(JsObject jsObject) {
-        com.baidu.swan.games.view.a.b.kd("banner");
-        if (this.bdZ != null) {
-            this.bdZ.a(jsObject);
+        com.baidu.swan.games.view.a.b.kf("banner");
+        if (this.bez != null) {
+            this.bez.a(jsObject);
         }
     }
 
     @Override // com.baidu.swan.games.a.b
     @JavascriptInterface
     public void hide() {
-        if (this.bdZ != null) {
-            this.bdZ.a();
+        if (this.bez != null) {
+            this.bez.a();
         }
     }
 
@@ -88,16 +88,16 @@ public class a extends EventTargetImpl implements g.a, com.baidu.swan.games.a.b 
         removeEventListener("error", null);
         removeEventListener(TrackLoadSettingsAtom.TYPE, null);
         removeEventListener("resize", null);
-        if (this.bdZ != null) {
-            this.bdZ.b();
-            this.bdZ = null;
+        if (this.bez != null) {
+            this.bez.b();
+            this.bez = null;
         }
     }
 
     @Override // com.baidu.swan.game.ad.f.g.a
-    public void iK(String str) {
-        if (!this.isDestroyed && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && this.bdZ != null) {
-            this.bdZ.b(str);
+    public void iM(String str) {
+        if (!this.isDestroyed && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && this.bez != null) {
+            this.bez.b(str);
         }
     }
 }

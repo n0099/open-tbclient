@@ -1,6 +1,4 @@
 package com.googlecode.mp4parser.util;
-
-import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes5.dex */
 public class IntHashMap {
     private transient int count;
@@ -13,14 +11,14 @@ public class IntHashMap {
     public static class a {
         int hash;
         int key;
-        a krG;
+        a kud;
         Object value;
 
         protected a(int i, int i2, Object obj, a aVar) {
             this.hash = i;
             this.key = i2;
             this.value = obj;
-            this.krG = aVar;
+            this.kud = aVar;
         }
     }
 
@@ -62,7 +60,7 @@ public class IntHashMap {
         while (true) {
             int i = length - 1;
             if (length > 0) {
-                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.krG) {
+                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.kud) {
                     if (aVar.value.equals(obj)) {
                         return true;
                     }
@@ -80,7 +78,7 @@ public class IntHashMap {
 
     public boolean containsKey(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.krG) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.kud) {
             if (aVar.hash == i) {
                 return true;
             }
@@ -90,7 +88,7 @@ public class IntHashMap {
 
     public Object get(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.krG) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.kud) {
             if (aVar.hash == i) {
                 return aVar.value;
             }
@@ -110,9 +108,9 @@ public class IntHashMap {
             if (length > 0) {
                 a aVar = aVarArr[i2];
                 while (aVar != null) {
-                    a aVar2 = aVar.krG;
-                    int i3 = (aVar.hash & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) % i;
-                    aVar.krG = aVarArr2[i3];
+                    a aVar2 = aVar.kud;
+                    int i3 = (aVar.hash & Integer.MAX_VALUE) % i;
+                    aVar.kud = aVarArr2[i3];
                     aVarArr2[i3] = aVar;
                     aVar = aVar2;
                 }
@@ -125,8 +123,8 @@ public class IntHashMap {
 
     public Object put(int i, Object obj) {
         a[] aVarArr = this.table;
-        int length = (i & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.krG) {
+        int length = (i & Integer.MAX_VALUE) % aVarArr.length;
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.kud) {
             if (aVar.hash == i) {
                 Object obj2 = aVar.value;
                 aVar.value = obj;
@@ -136,7 +134,7 @@ public class IntHashMap {
         if (this.count >= this.threshold) {
             rehash();
             aVarArr = this.table;
-            length = (i & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) % aVarArr.length;
+            length = (i & Integer.MAX_VALUE) % aVarArr.length;
         }
         aVarArr[length] = new a(i, i, obj, aVarArr[length]);
         this.count++;
@@ -151,13 +149,13 @@ public class IntHashMap {
         while (aVar != null) {
             if (aVar.hash != i) {
                 a aVar3 = aVar;
-                aVar = aVar.krG;
+                aVar = aVar.kud;
                 aVar2 = aVar3;
             } else {
                 if (aVar2 != null) {
-                    aVar2.krG = aVar.krG;
+                    aVar2.kud = aVar.kud;
                 } else {
-                    aVarArr[length] = aVar.krG;
+                    aVarArr[length] = aVar.kud;
                 }
                 this.count--;
                 Object obj = aVar.value;

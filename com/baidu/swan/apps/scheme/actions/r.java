@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.ubc.UBC;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class r extends z {
@@ -28,20 +27,20 @@ public class r extends z {
             return false;
         }
         int optInt = c.optInt("scrollTop", -1);
-        int optInt2 = c.optInt(UBC.CONTENT_KEY_DURATION, -1);
+        int optInt2 = c.optInt("duration", -1);
         if (optInt <= -1 || optInt2 <= -1) {
             com.baidu.swan.apps.console.c.e("PageScrollToAction", "illegal scrollTop or duration");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        final com.baidu.swan.apps.b.c.d Gs = com.baidu.swan.apps.w.e.GF().Gs();
-        if (Gs != null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(Gs.getWebViewScrollY(), a(Gs, com.baidu.swan.apps.an.z.dip2px(context, optInt)));
+        final com.baidu.swan.apps.b.c.d Gw = com.baidu.swan.apps.w.e.GJ().Gw();
+        if (Gw != null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(Gw.getWebViewScrollY(), a(Gw, com.baidu.swan.apps.an.z.dip2px(context, optInt)));
             ofInt.setDuration(optInt2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.scheme.actions.r.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Gs.A(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    Gw.A(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
             ofInt.start();
@@ -51,7 +50,7 @@ public class r extends z {
     }
 
     private int a(@NonNull com.baidu.swan.apps.b.c.d dVar, int i) {
-        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.w.e.GF().Gt().second).intValue();
+        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.w.e.GJ().Gx().second).intValue();
         if (contentHeight <= 0) {
             return 0;
         }

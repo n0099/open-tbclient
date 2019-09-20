@@ -10,6 +10,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.appsearchlib.Info;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
@@ -31,19 +32,19 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam(Info.kBaiduPIDKey, aVar.pp());
+        addParam(Info.kBaiduPIDKey, aVar.pq());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.pe()));
+        addParam("flr", String.valueOf(aVar.pf()));
         addParam("sw", String.valueOf(aVar.width()));
         addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.pe()));
-        addParam("ft", aVar.pc());
+        addParam("fc", String.valueOf(aVar.pf()));
+        addParam("ft", aVar.pd());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
@@ -51,10 +52,10 @@ public class VideoPasterRequestData extends HttpMessage {
         if (aVar == null) {
             return null;
         }
-        if (aVar == null || aVar.pf() != null) {
-            if (aVar == null || !aVar.pf().isEmpty()) {
+        if (aVar == null || aVar.pg() != null) {
+            if (aVar == null || !aVar.pg().isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, String> entry : aVar.pf().entrySet()) {
+                for (Map.Entry<String, String> entry : aVar.pg().entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }
                 return jSONArray.toString();
@@ -67,7 +68,7 @@ public class VideoPasterRequestData extends HttpMessage {
     private void addCommonParams() {
         addParam("_client_version", TbConfig.getVersion());
         addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
-        addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+        addParam(DpStatConstants.KEY_CUID, TbadkCoreApplication.getInst().getCuid());
         addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         addParam("model", Build.MODEL);
         addParam("_client_type", "2");

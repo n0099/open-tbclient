@@ -50,19 +50,19 @@ public class a {
         }
     }
 
-    public void e(String str, long j) {
+    public void g(String str, long j) {
         a(str, j, 0);
     }
 
-    public void a(String str, long j, String str2) {
-        a(str, j, 0, str2);
+    public void b(String str, long j, String str2) {
+        b(str, j, 0, str2);
     }
 
     public void a(String str, long j, int i) {
-        a(str, j, i, (String) null);
+        b(str, j, i, null);
     }
 
-    public void a(String str, long j, int i, String str2) {
+    public void b(String str, long j, int i, String str2) {
         com.baidu.adp.lib.stats.a iF = iF();
         iF.append("workflow", str + "_cost");
         iF.c("cost", Long.valueOf(j));

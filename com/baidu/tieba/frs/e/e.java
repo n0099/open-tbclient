@@ -1,57 +1,57 @@
 package com.baidu.tieba.frs.e;
 /* loaded from: classes.dex */
 public class e {
-    private boolean fCx;
-    private boolean fQL;
-    private boolean fQM;
+    private boolean fEk;
+    private boolean fSC;
+    private boolean fSD;
 
     public e(String str) {
         if (str == null || !str.matches("\\d{1}_\\d{1}.*")) {
-            this.fCx = false;
-            this.fQL = true;
+            this.fEk = false;
+            this.fSC = true;
             return;
         }
-        this.fCx = str.substring(0, 1).contains("1");
-        this.fQL = str.substring(2, 3).contains("1");
+        this.fEk = str.substring(0, 1).contains("1");
+        this.fSC = str.substring(2, 3).contains("1");
         if (str.length() >= 5) {
-            this.fQM = str.substring(4, 5).contains("1");
+            this.fSD = str.substring(4, 5).contains("1");
         }
     }
 
     public e(boolean z, boolean z2) {
-        this.fCx = z;
-        this.fQL = z2;
+        this.fEk = z;
+        this.fSC = z2;
     }
 
     public String toString() {
         Object[] objArr = new Object[3];
-        objArr[0] = Integer.valueOf(this.fCx ? 1 : 0);
-        objArr[1] = Integer.valueOf(this.fQL ? 1 : 0);
-        objArr[2] = Integer.valueOf(this.fQM ? 1 : 0);
+        objArr[0] = Integer.valueOf(this.fEk ? 1 : 0);
+        objArr[1] = Integer.valueOf(this.fSC ? 1 : 0);
+        objArr[2] = Integer.valueOf(this.fSD ? 1 : 0);
         return String.format("%s_%s_%s", objArr);
     }
 
-    public boolean bsg() {
-        return this.fCx;
+    public boolean bsT() {
+        return this.fEk;
     }
 
-    public void kM(boolean z) {
-        this.fCx = z;
+    public void kP(boolean z) {
+        this.fEk = z;
     }
 
-    public boolean bsh() {
-        return this.fQL;
+    public boolean bsU() {
+        return this.fSC;
     }
 
-    public void kN(boolean z) {
-        this.fQL = z;
+    public void kQ(boolean z) {
+        this.fSC = z;
     }
 
-    public void kO(boolean z) {
-        this.fQM = z;
+    public void kR(boolean z) {
+        this.fSD = z;
     }
 
-    public boolean bsi() {
-        return this.fQM;
+    public boolean bsV() {
+        return this.fSD;
     }
 }

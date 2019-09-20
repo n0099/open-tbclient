@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.media;
 /* loaded from: classes2.dex */
 public interface a {
-    String GM();
+    String GQ();
 
-    String GN();
+    String GR();
 
-    Object GO();
+    Object GS();
 
     void bw(boolean z);
 

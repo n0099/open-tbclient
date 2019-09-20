@@ -15,7 +15,6 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -122,28 +121,28 @@ public class e extends z {
     }
 
     private int ac(JSONObject jSONObject) {
-        int hb = hb(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) / 1000;
-        if (hb <= 0) {
+        int hd = hd(jSONObject.optString("time")) / 1000;
+        if (hd <= 0) {
             return 2;
         }
-        return hb;
+        return hd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).dJ(i).co(z).dF(2).LQ();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).dK(i).co(z).dG(2).LU();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).d(drawable).dJ(i).co(z).LT();
+        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).d(drawable).dK(i).co(z).LX();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).dJ(i).co(z).LU();
+        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).dK(i).co(z).LY();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
@@ -182,7 +181,7 @@ public class e extends z {
         return stringBuffer.toString();
     }
 
-    private int hb(String str) {
+    private int hd(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -201,16 +200,16 @@ public class e extends z {
         if (DEBUG) {
             Log.e("ShowToastAction", "imagePath = " + str);
         }
-        ExifInterface he = he(str);
-        if (he == null) {
+        ExifInterface hg = hg(str);
+        if (hg == null) {
             if (DEBUG) {
                 Log.e("ShowToastAction", "exifInterface is null");
                 return null;
             }
             return null;
         }
-        int intValue = Integer.valueOf(he.getAttribute("ImageWidth")).intValue();
-        int intValue2 = Integer.valueOf(he.getAttribute("ImageLength")).intValue();
+        int intValue = Integer.valueOf(hg.getAttribute("ImageWidth")).intValue();
+        int intValue2 = Integer.valueOf(hg.getAttribute("ImageLength")).intValue();
         if (DEBUG) {
             Log.e("ShowToastAction", "width = " + intValue + "， height = " + intValue2);
         }
@@ -234,7 +233,7 @@ public class e extends z {
         return bitmapDrawable;
     }
 
-    private ExifInterface he(String str) {
+    private ExifInterface hg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

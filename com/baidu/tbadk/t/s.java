@@ -1,7 +1,7 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.lib.b.a {
-    private static int cCa = 1;
+    private static int cCW = 1;
 
     @Override // com.baidu.adp.lib.b.a
     protected void R(int i) {
@@ -32,11 +32,11 @@ public class s extends com.baidu.adp.lib.b.a {
         return 10;
     }
 
-    public static void kV(int i) {
-        cCa = i;
+    public static void kY(int i) {
+        cCW = i;
     }
 
-    public static int avR() {
-        return cCa;
+    public static int awd() {
+        return cCW;
     }
 }

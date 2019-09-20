@@ -12,24 +12,24 @@ import java.nio.channels.FileChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class a {
-    private static final int hxe = R(new byte[]{102, 114, 101, 101});
-    private static final int hxf = R(new byte[]{106, 117, 110, 107});
-    private static final int hxg = R(new byte[]{109, 100, 97, 116});
-    private static final int hxh = R(new byte[]{109, 111, 111, 118});
-    private static final int hxi = R(new byte[]{112, 110, 111, 116});
-    private static final int hxj = R(new byte[]{115, 107, 105, 112});
-    private static final int hxk = R(new byte[]{119, 105, 100, 101});
-    private static final int hxl = R(new byte[]{80, 73, 67, 84});
-    private static final int hxm = R(new byte[]{102, 116, 121, 112});
-    private static final int hxn = R(new byte[]{117, 117, 105, 100});
-    private static final int hxo = R(new byte[]{99, 109, 111, 118});
-    private static final int hxp = R(new byte[]{115, 116, 99, 111});
-    private static final int hxq = R(new byte[]{99, 111, 54, 52});
+    private static final int hza = R(new byte[]{102, 114, 101, 101});
+    private static final int hzb = R(new byte[]{106, 117, 110, 107});
+    private static final int hzc = R(new byte[]{109, 100, 97, 116});
+    private static final int hzd = R(new byte[]{109, 111, 111, 118});
+    private static final int hze = R(new byte[]{112, 110, 111, 116});
+    private static final int hzf = R(new byte[]{115, 107, 105, 112});
+    private static final int hzg = R(new byte[]{119, 105, 100, 101});
+    private static final int hzh = R(new byte[]{80, 73, 67, 84});
+    private static final int hzi = R(new byte[]{102, 116, 121, 112});
+    private static final int hzj = R(new byte[]{117, 117, 105, 100});
+    private static final int hzk = R(new byte[]{99, 109, 111, 118});
+    private static final int hzl = R(new byte[]{115, 116, 99, 111});
+    private static final int hzm = R(new byte[]{99, 111, 54, 52});
 
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0352a {
-        void ny(boolean z);
+    public interface InterfaceC0363a {
+        void nC(boolean z);
     }
 
     /* loaded from: classes5.dex */
@@ -37,18 +37,18 @@ public class a {
         void j(Integer num);
     }
 
-    static long xp(int i) {
+    static long xs(int i) {
         return i & 4294967295L;
     }
 
-    static int ec(long j) throws RuntimeException {
+    static int ef(long j) throws RuntimeException {
         if (j > 2147483647L || j < 0) {
             throw new RuntimeException("uint32 value is too large");
         }
         return (int) j;
     }
 
-    static long ed(long j) throws RuntimeException {
+    static long eg(long j) throws RuntimeException {
         if (j < 0) {
             throw new RuntimeException("uint64 value is too large");
         }
@@ -87,7 +87,7 @@ public class a {
                     if (strArr == null || strArr.length != 1) {
                         return 2;
                     }
-                    return Integer.valueOf(a.Bj(strArr[0]));
+                    return Integer.valueOf(a.BI(strArr[0]));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class a {
         }
     }
 
-    public static int Bj(String str) {
+    public static int BI(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -137,16 +137,16 @@ public class a {
                 i = i2;
                 break;
             }
-            long xp = xp(order.getInt());
+            long xs = xs(order.getInt());
             i = order.getInt();
-            if (i == hxm) {
-                int ec = ec(xp);
-                ByteBuffer order2 = ByteBuffer.allocate(ec).order(ByteOrder.BIG_ENDIAN);
+            if (i == hzi) {
+                int ef = ef(xs);
+                ByteBuffer order2 = ByteBuffer.allocate(ef).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
-                if (fileChannel.read(order2) >= ec - 8) {
+                if (fileChannel.read(order2) >= ef - 8) {
                     order2.flip();
-                    if ((i == hxe && i != hxf && i != hxg && i != hxh && i != hxi && i != hxj && i != hxk && i != hxl && i != hxn && i != hxm) || xp < 8) {
+                    if ((i == hza && i != hzb && i != hzc && i != hzd && i != hze && i != hzf && i != hzg && i != hzh && i != hzj && i != hzi) || xs < 8) {
                         break;
                     }
                     i2 = i;
@@ -154,28 +154,28 @@ public class a {
                     break;
                 }
             } else {
-                if (xp == 1) {
+                if (xs == 1) {
                     order.clear();
                     if (!a(fileChannel, order)) {
                         break;
                     }
-                    xp = ed(order.getLong());
-                    fileChannel.position((fileChannel.position() + xp) - 16);
+                    xs = eg(order.getLong());
+                    fileChannel.position((fileChannel.position() + xs) - 16);
                 } else {
-                    fileChannel.position((fileChannel.position() + xp) - 8);
+                    fileChannel.position((fileChannel.position() + xs) - 8);
                 }
-                if (i == hxe) {
+                if (i == hza) {
                 }
                 i2 = i;
             }
         }
-        return i != hxh ? 0 : 1;
+        return i != hzd ? 0 : 1;
     }
 
-    public static void a(String str, String str2, final InterfaceC0352a interfaceC0352a) {
-        if (interfaceC0352a != null) {
+    public static void a(String str, String str2, final InterfaceC0363a interfaceC0363a) {
+        if (interfaceC0363a != null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
-                interfaceC0352a.ny(false);
+                interfaceC0363a.nC(false);
             } else {
                 new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.k.a.2
                     /* JADX DEBUG: Method merged with bridge method */
@@ -185,7 +185,7 @@ public class a {
                         if (strArr == null || strArr.length != 2) {
                             return false;
                         }
-                        return Boolean.valueOf(a.dF(strArr[0], strArr[1]));
+                        return Boolean.valueOf(a.dH(strArr[0], strArr[1]));
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -193,8 +193,8 @@ public class a {
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onPostExecute(Boolean bool) {
                         super.onPostExecute((AnonymousClass2) bool);
-                        if (InterfaceC0352a.this != null) {
-                            InterfaceC0352a.this.ny(bool.booleanValue());
+                        if (InterfaceC0363a.this != null) {
+                            InterfaceC0363a.this.nC(bool.booleanValue());
                         }
                     }
                 }.execute(str, str2);
@@ -203,7 +203,7 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
-    public static boolean dF(String str, String str2) {
+    public static boolean dH(String str, String str2) {
         FileInputStream fileInputStream;
         Throwable th;
         FileOutputStream fileOutputStream;
@@ -264,14 +264,14 @@ public class a {
                 j = j4;
                 break;
             }
-            j2 = xp(order.getInt());
+            j2 = xs(order.getInt());
             i2 = order.getInt();
-            if (i2 == hxm) {
-                int ec = ec(j2);
-                byteBuffer2 = ByteBuffer.allocate(ec).order(ByteOrder.BIG_ENDIAN);
+            if (i2 == hzi) {
+                int ef = ef(j2);
+                byteBuffer2 = ByteBuffer.allocate(ef).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 byteBuffer2.put(order);
-                if (fileChannel.read(byteBuffer2) < ec - 8) {
+                if (fileChannel.read(byteBuffer2) < ef - 8) {
                     long j5 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -280,7 +280,7 @@ public class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == hxe && i2 != hxf && i2 != hxg && i2 != hxh && i2 != hxi && i2 != hxj && i2 != hxk && i2 != hxl && i2 != hxn && i2 != hxm) {
+                if (i2 == hza && i2 != hzb && i2 != hzc && i2 != hzd && i2 != hze && i2 != hzf && i2 != hzg && i2 != hzh && i2 != hzj && i2 != hzi) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -303,62 +303,62 @@ public class a {
                         j = j8;
                         break;
                     }
-                    j2 = ed(order.getLong());
+                    j2 = eg(order.getLong());
                     fileChannel.position((fileChannel.position() + j2) - 16);
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == hxe) {
+                if (i2 == hza) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != hxh) {
+        if (i != hzd) {
             return false;
         }
-        int ec2 = ec(j2);
-        long size = fileChannel.size() - ec2;
-        ByteBuffer order2 = ByteBuffer.allocate(ec2).order(ByteOrder.BIG_ENDIAN);
+        int ef2 = ef(j2);
+        long size = fileChannel.size() - ef2;
+        ByteBuffer order2 = ByteBuffer.allocate(ef2).order(ByteOrder.BIG_ENDIAN);
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == hxo) {
+        if (order2.getInt(12) == hzk) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != hxp && i3 != hxq) {
+            if (i3 != hzl && i3 != hzm) {
                 order2.position(order2.position() + 1);
-            } else if (xp(order2.getInt(position)) > order2.remaining()) {
+            } else if (xs(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
             } else {
                 order2.position(position + 12);
                 if (order2.remaining() < 4) {
                     throw new RuntimeException("malformed atom");
                 }
-                int ec3 = ec(order2.getInt());
-                if (i3 == hxp) {
-                    if (order2.remaining() < ec3 * 4) {
+                int ef3 = ef(order2.getInt());
+                if (i3 == hzl) {
+                    if (order2.remaining() < ef3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
-                    for (int i4 = 0; i4 < ec3; i4++) {
+                    for (int i4 = 0; i4 < ef3; i4++) {
                         int i5 = order2.getInt(order2.position());
-                        int i6 = i5 + ec2;
+                        int i6 = i5 + ef2;
                         if (i5 < 0 && i6 >= 0) {
                             throw new RuntimeException("This is bug in original qt-faststart.c: stco atom should be extended to co64 atom as new offset value overflows uint32, but is not implemented.");
                         }
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != hxq) {
+                } else if (i3 != hzm) {
                     continue;
-                } else if (order2.remaining() < ec3 * 8) {
+                } else if (order2.remaining() < ef3 * 8) {
                     throw new RuntimeException("bad atom size/element count");
                 } else {
-                    for (int i7 = 0; i7 < ec3; i7++) {
-                        order2.putLong(order2.getLong(order2.position()) + ec2);
+                    for (int i7 = 0; i7 < ef3; i7++) {
+                        order2.putLong(order2.getLong(order2.position()) + ef2);
                     }
                 }
             }

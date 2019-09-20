@@ -11,14 +11,14 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ShareFromFrsView extends LinearLayout {
-    private TextView bmT;
+    private TextView bnr;
     private Context context;
-    private ShareFromFrsMsgData fWC;
-    private HeadImageView fWz;
-    private TextView gRZ;
-    private TextView gSa;
-    private TextView gSb;
-    private TextView gSc;
+    private HeadImageView fYq;
+    private ShareFromFrsMsgData fYt;
+    private TextView gTS;
+    private TextView gTT;
+    private TextView gTU;
+    private TextView gTV;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -34,45 +34,45 @@ public class ShareFromFrsView extends LinearLayout {
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
-        this.bmT = (TextView) findViewById(R.id.frs_name);
-        this.fWz = (HeadImageView) findViewById(R.id.frs_img);
-        this.gSa = (TextView) findViewById(R.id.frs_member_num);
-        this.gSc = (TextView) findViewById(R.id.frs_post_num);
-        this.gRZ = (TextView) findViewById(R.id.frs_member_num_label);
-        this.gSb = (TextView) findViewById(R.id.frs_post_num_label);
+        this.bnr = (TextView) findViewById(R.id.frs_name);
+        this.fYq = (HeadImageView) findViewById(R.id.frs_img);
+        this.gTT = (TextView) findViewById(R.id.frs_member_num);
+        this.gTV = (TextView) findViewById(R.id.frs_post_num);
+        this.gTS = (TextView) findViewById(R.id.frs_member_num_label);
+        this.gTU = (TextView) findViewById(R.id.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.bmT.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-            this.gSa.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.gSc.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.gRZ.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.gSb.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.bnr.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
+            this.gTT.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.gTV.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.gTS.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.gTU.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
             return;
         }
-        this.bmT.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.gSa.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.gSc.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.gRZ.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.gSb.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.bnr.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.gTT.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.gTV.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.gTS.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.gTU.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.fWC = shareFromFrsMsgData;
-        JS();
+        this.fYt = shareFromFrsMsgData;
+        JW();
     }
 
-    private void JS() {
-        this.bmT.setText(om(this.fWC.getName()));
-        this.fWz.setDefaultResource(R.drawable.icon_default_ba_120);
-        this.fWz.setAutoChangeStyle(false);
-        this.fWz.startLoad(this.fWC.getImageUrl(), 10, false);
-        this.gSa.setText(aq.aM(this.fWC.getMemberNum()));
-        this.gSc.setText(aq.aM(this.fWC.getPostNum()));
+    private void JW() {
+        this.bnr.setText(op(this.fYt.getName()));
+        this.fYq.setDefaultResource(R.drawable.icon_default_ba_120);
+        this.fYq.setAutoChangeStyle(false);
+        this.fYq.startLoad(this.fYt.getImageUrl(), 10, false);
+        this.gTT.setText(aq.aM(this.fYt.getMemberNum()));
+        this.gTV.setText(aq.aM(this.fYt.getPostNum()));
     }
 
-    private String om(String str) {
+    private String op(String str) {
         return aq.i(str, 8) + this.context.getString(R.string.forum);
     }
 }

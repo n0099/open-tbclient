@@ -3,24 +3,23 @@ package com.baidu.tbadk.core.util;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
-import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ap {
-    private static ap bTE;
+    private static ap bUh;
 
-    public static synchronized ap ajl() {
+    public static synchronized ap ajr() {
         ap apVar;
         synchronized (ap.class) {
-            if (bTE == null) {
-                bTE = new ap();
+            if (bUh == null) {
+                bUh = new ap();
             }
-            apVar = bTE;
+            apVar = bUh;
         }
         return apVar;
     }
 
-    public String nW(String str) {
+    public String nY(String str) {
         if (str == null) {
             return null;
         }
@@ -28,38 +27,38 @@ public class ap {
         for (byte b : str.getBytes()) {
             j += b;
         }
-        return FileUtils.IMAGE_FILE_START + (j % 20);
+        return "image/" + (j % 20);
     }
 
-    public Bitmap nz(String str) {
+    public Bitmap nB(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return m.bP(nW(str), str);
+        return m.bP(nY(str), str);
     }
 
-    public boolean nX(String str) {
+    public boolean nZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m.bO(nW(str), str);
+        return m.bO(nY(str), str);
     }
 
-    public int nY(String str) {
+    public int oa(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) m.bN(nW(str), str);
+        return (int) m.bN(nY(str), str);
     }
 
     public boolean bQ(String str, String str2) {
         String str3 = m.Dz + "/" + TbConfig.getTempDirName() + "/";
-        if (!m.nh(str3)) {
-            m.nE(str3);
+        if (!m.nj(str3)) {
+            m.nG(str3);
         }
-        String str4 = str3 + nW(str2);
-        if (!m.nh(str4)) {
-            m.nE(str4);
+        String str4 = str3 + nY(str2);
+        if (!m.nj(str4)) {
+            m.nG(str4);
         }
         String str5 = str4 + "/" + str2;
         if (str.equals(str5)) {
@@ -70,7 +69,7 @@ public class ap {
 
     public void h(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            m.c(nW(str), str, bArr);
+            m.c(nY(str), str, bArr);
         }
     }
 
@@ -87,7 +86,7 @@ public class ap {
         }
     }
 
-    public void ajm() {
+    public void ajs() {
         F(new File(m.Dz + "/" + TbConfig.getTempDirName() + "/" + m.hV(3)));
     }
 

@@ -426,8 +426,8 @@ public class aw {
                                 break;
                             }
                         } else if ("client_info_update_ok".equalsIgnoreCase(aiVar.e)) {
-                            if (aiVar.j() != null && aiVar.j().containsKey(Constants.EXTRA_KEY_APP_VERSION)) {
-                                d.a(this.b).a(aiVar.j().get(Constants.EXTRA_KEY_APP_VERSION));
+                            if (aiVar.j() != null && aiVar.j().containsKey("app_version")) {
+                                d.a(this.b).a(aiVar.j().get("app_version"));
                                 break;
                             }
                         } else if (com.xiaomi.xmpush.thrift.r.AwakeApp.aa.equalsIgnoreCase(aiVar.e)) {

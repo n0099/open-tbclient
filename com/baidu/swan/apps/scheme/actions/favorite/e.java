@@ -11,8 +11,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends b {
-    private static final String aSG = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String aSH = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String aTe = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String aTf = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swan/getFavor");
@@ -21,9 +21,9 @@ public class e extends b {
     @Override // com.baidu.swan.apps.scheme.actions.favorite.b
     protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONArray jSONArray = new JSONArray();
-        List<com.baidu.swan.apps.database.a> Cy = com.baidu.swan.apps.database.favorite.a.Cy();
-        if (Cy.size() > 0) {
-            for (com.baidu.swan.apps.database.a aVar : Cy) {
+        List<com.baidu.swan.apps.database.a> CC = com.baidu.swan.apps.database.favorite.a.CC();
+        if (CC.size() > 0) {
+            for (com.baidu.swan.apps.database.a aVar : CC) {
                 jSONArray.put(g(aVar));
             }
         }
@@ -44,11 +44,11 @@ public class e extends b {
             jSONObject.put("type", aVar.type);
             jSONObject.put("iconUrl", aVar.iconUrl);
             jSONObject.put("title", aVar.name);
-            jSONObject.put("frameType", aVar.ave);
-            if (aVar.ave == 1) {
-                str = String.format(aSH, aVar.appId);
+            jSONObject.put("frameType", aVar.avC);
+            if (aVar.avC == 1) {
+                str = String.format(aTf, aVar.appId);
             } else {
-                str = aSG + aVar.appId + "\"}";
+                str = aTe + aVar.appId + "\"}";
             }
             jSONObject.put("scheme", str);
         } catch (JSONException e) {

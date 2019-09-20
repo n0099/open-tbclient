@@ -9,7 +9,15 @@ import com.weibo.ssosdk.b;
 /* loaded from: classes2.dex */
 public final class WeiboSsoManager {
     private static final String TAG = "WeiboSsoManager";
-    private static WeiboSsoManager sInstance;
+    private String aid;
+
+    /* loaded from: classes2.dex */
+    private static class Instance {
+        private static final WeiboSsoManager instance = new WeiboSsoManager();
+
+        private Instance() {
+        }
+    }
 
     private WeiboSsoManager() {
     }
@@ -17,10 +25,7 @@ public final class WeiboSsoManager {
     public static synchronized WeiboSsoManager getInstance() {
         WeiboSsoManager weiboSsoManager;
         synchronized (WeiboSsoManager.class) {
-            if (sInstance == null) {
-                sInstance = new WeiboSsoManager();
-            }
-            weiboSsoManager = sInstance;
+            weiboSsoManager = Instance.instance;
         }
         return weiboSsoManager;
     }
@@ -31,29 +36,29 @@ public final class WeiboSsoManager {
         bVar.setContext(context);
         bVar.setAppKey(str);
         bVar.setFrom("1478195010");
-        bVar.Ii("1000_0001");
+        bVar.IG("1000_0001");
         WeiboSsoSdk.a(bVar);
+        initAid();
     }
 
-    public String getAid() {
-        Exception e;
-        LogUtil.d(TAG, "getAid()");
+    private void initAid() {
         try {
-            String aid = WeiboSsoSdk.cND().getAid();
-            try {
-                if (TextUtils.isEmpty(aid)) {
-                    return WeiboSsoSdk.cND().cNE().getAid();
-                }
-                return aid;
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                LogUtil.e(TAG, e.getMessage());
-                return null;
+            this.aid = WeiboSsoSdk.cOo().cOq();
+            if (TextUtils.isEmpty(this.aid)) {
+                this.aid = WeiboSsoSdk.cOo().cOp().cOq();
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
+            e.printStackTrace();
+            LogUtil.e(TAG, e.getMessage());
         }
+    }
+
+    public String getAid(Context context, String str) {
+        LogUtil.d(TAG, "getAid()");
+        if (TextUtils.isEmpty(this.aid)) {
+            init(context, str);
+        }
+        return this.aid;
     }
 
     public String getMfp(Context context) {

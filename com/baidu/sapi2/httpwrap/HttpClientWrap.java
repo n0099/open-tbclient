@@ -1,6 +1,7 @@
 package com.baidu.sapi2.httpwrap;
 
 import android.content.Context;
+import android.os.Handler;
 import android.os.Looper;
 import com.baidu.pass.http.BinaryHttpResponseHandler;
 import com.baidu.pass.http.HttpHashMap;
@@ -47,9 +48,14 @@ public class HttpClientWrap {
     }
 
     public void get(String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final HttpHandlerWrap httpHandlerWrap) {
-        httpHandlerWrap.onStart();
+        new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.1
+            @Override // java.lang.Runnable
+            public void run() {
+                httpHandlerWrap.onStart();
+            }
+        });
         if (preHandle(httpHandlerWrap)) {
-            this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.1
+            this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 protected void onStart() {
                 }
@@ -79,7 +85,7 @@ public class HttpClientWrap {
     public void get(String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
         binaryHttpHandlerWrap.onStart();
         if (preHandle(binaryHttpHandlerWrap)) {
-            this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, hashMap, list, str2, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
+            this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, hashMap, list, str2, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 protected void onStart() {
                 }
@@ -115,9 +121,14 @@ public class HttpClientWrap {
     }
 
     public void post(String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final HttpHandlerWrap httpHandlerWrap) {
-        httpHandlerWrap.onStart();
+        new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.4
+            @Override // java.lang.Runnable
+            public void run() {
+                httpHandlerWrap.onStart();
+            }
+        });
         if (preHandle(httpHandlerWrap)) {
-            this.passHttpClient.post(this.context, buildParamDTO(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
+            this.passHttpClient.post(this.context, buildParamDTO(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.5
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 protected void onStart() {
                 }

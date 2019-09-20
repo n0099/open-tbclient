@@ -12,9 +12,9 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.webkit.WebView;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.aj;
 import com.baidu.mobstat.ak;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.coremedia.iso.boxes.MetaBox;
 import java.net.URI;
@@ -198,7 +198,7 @@ public class am {
         }
         try {
             String queryParameter = data.getQueryParameter("token");
-            String queryParameter2 = data.getQueryParameter(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            String queryParameter2 = data.getQueryParameter("time");
             if (!scheme.startsWith("mtj") || scheme.length() <= "mtj".length()) {
                 return false;
             }
@@ -460,7 +460,7 @@ public class am {
         arrayList.add(new Pair("deviceName", bw.m(context)));
         arrayList.add(new Pair("platform", "Android"));
         arrayList.add(new Pair("model", android.os.Build.MODEL));
-        arrayList.add(new Pair("cuid", CooperService.instance().getCUID(context, false)));
+        arrayList.add(new Pair(DpStatConstants.KEY_CUID, CooperService.instance().getCUID(context, false)));
         arrayList.add(new Pair("auto", "1"));
         if (!TextUtils.isEmpty(this.x)) {
             arrayList.add(new Pair("token", this.x));

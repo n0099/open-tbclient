@@ -7,11 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e implements com.baidu.swan.apps.model.a {
-    public ArrayList<c> aAW;
+    public ArrayList<c> aBu;
     public int strokeWidth = 1;
     public int nM = ViewCompat.MEASURED_STATE_MASK;
-    public int aAL = 0;
-    public int aAX = 0;
+    public int aBj = 0;
+    public int aBv = 0;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -19,29 +19,29 @@ public class e implements com.baidu.swan.apps.model.a {
             JSONArray optJSONArray = jSONObject.optJSONArray("points");
             int length = optJSONArray == null ? 0 : optJSONArray.length();
             if (length > 0) {
-                this.aAW = new ArrayList<>(length);
+                this.aBu = new ArrayList<>(length);
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         c cVar = new c();
                         cVar.parseFromJson(optJSONObject);
                         if (cVar.isValid()) {
-                            this.aAW.add(cVar);
+                            this.aBu.add(cVar);
                         }
                     }
                 }
             }
-            if (this.aAW != null && this.aAW.size() > 0) {
+            if (this.aBu != null && this.aBu.size() > 0) {
                 this.strokeWidth = (int) Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optInt("strokeWidth", 1)));
                 this.nM = com.baidu.swan.apps.x.a.d.B(jSONObject.optString("strokeColor"), ViewCompat.MEASURED_STATE_MASK);
-                this.aAL = com.baidu.swan.apps.x.a.d.B(jSONObject.optString("fillColor"), 0);
-                this.aAX = jSONObject.optInt("zIndex", 0);
+                this.aBj = com.baidu.swan.apps.x.a.d.B(jSONObject.optString("fillColor"), 0);
+                this.aBv = jSONObject.optInt("zIndex", 0);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.aAW == null || this.aAW.isEmpty()) ? false : true;
+        return (this.aBu == null || this.aBu.isEmpty()) ? false : true;
     }
 }

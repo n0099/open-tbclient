@@ -3,5 +3,5 @@ package com.baidu.swan.apps.core.container;
 public interface c {
     boolean aY(boolean z);
 
-    void yS();
+    void yW();
 }

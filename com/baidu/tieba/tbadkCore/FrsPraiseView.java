@@ -17,62 +17,62 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class FrsPraiseView extends LinearLayout {
-    private View bmR;
-    private boolean icb;
-    private TextView jes;
-    private TextView jet;
-    private TextView jeu;
-    private PraiseData jev;
-    private boolean jew;
+    private View bnp;
+    private boolean ied;
+    private TextView jgN;
+    private TextView jgO;
+    private TextView jgP;
+    private PraiseData jgQ;
+    private boolean jgR;
     private Context mContext;
     private String mPostId;
     private String mThreadId;
 
     public FrsPraiseView(Context context) {
         super(context, null);
-        this.icb = false;
-        this.jew = false;
+        this.ied = false;
+        this.jgR = false;
     }
 
     public FrsPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.icb = false;
-        this.jew = false;
+        this.ied = false;
+        this.jgR = false;
         setOrientation(0);
         this.mContext = context;
         initView();
     }
 
     private void initView() {
-        this.bmR = View.inflate(this.mContext, R.layout.frs_item_praise, this);
-        this.jes = (TextView) this.bmR.findViewById(R.id.frs_go_praise_list_num);
-        this.jet = (TextView) this.bmR.findViewById(R.id.frs_praise_user_name_text1);
-        this.jeu = (TextView) this.bmR.findViewById(R.id.frs_praise_user_name_text2);
+        this.bnp = View.inflate(this.mContext, R.layout.frs_item_praise, this);
+        this.jgN = (TextView) this.bnp.findViewById(R.id.frs_go_praise_list_num);
+        this.jgO = (TextView) this.bnp.findViewById(R.id.frs_praise_user_name_text1);
+        this.jgP = (TextView) this.bnp.findViewById(R.id.frs_praise_user_name_text2);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str = "";
-                if (FrsPraiseView.this.jev != null) {
-                    str = FrsPraiseView.this.jev.getTitle();
+                if (FrsPraiseView.this.jgQ != null) {
+                    str = FrsPraiseView.this.jgQ.getTitle();
                 }
-                com.baidu.tbadk.util.r.a(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.icb));
+                com.baidu.tbadk.util.q.a(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.ied));
             }
         });
-        this.jeu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
+        this.jgP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.jev.getUser().get(1);
+                MetaData metaData = FrsPraiseView.this.jgQ.getUser().get(1);
                 if (metaData != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.g.b.c(metaData.getUserId(), 0L), false, metaData.isBigV())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.g.b.e(metaData.getUserId(), 0L), false, metaData.isBigV())));
                 }
             }
         });
-        this.jet.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
+        this.jgO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.jev.getUser().get(0);
+                MetaData metaData = FrsPraiseView.this.jgQ.getUser().get(0);
                 if (metaData != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.g.b.c(metaData.getUserId(), 0L), false, metaData.isBigV())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.g.b.e(metaData.getUserId(), 0L), false, metaData.isBigV())));
                 }
             }
         });
@@ -82,77 +82,77 @@ public class FrsPraiseView extends LinearLayout {
         if (praiseData != null) {
             this.mThreadId = str;
             this.mPostId = str2;
-            this.jev = praiseData;
-            qX(z);
+            this.jgQ = praiseData;
+            ra(z);
         }
     }
 
     public void setIsFromPb(boolean z) {
-        this.icb = z;
+        this.ied = z;
     }
 
     public void setIsFromPbVideo(boolean z) {
-        this.jew = z;
+        this.jgR = z;
     }
 
-    private void qX(boolean z) {
-        long num = this.jev.getNum();
-        this.jeu.setVisibility(8);
-        this.jet.setVisibility(8);
+    private void ra(boolean z) {
+        long num = this.jgQ.getNum();
+        this.jgP.setVisibility(8);
+        this.jgO.setVisibility(8);
         if (num > 0) {
-            ArrayList<MetaData> user = this.jev.getUser();
+            ArrayList<MetaData> user = this.jgQ.getUser();
             if (user != null && user.size() > 0) {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
-                        this.jet.setVisibility(0);
-                        this.jet.setText(Ez(user.get(0).getName_show()));
+                        this.jgO.setVisibility(0);
+                        this.jgO.setText(EZ(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
-                        this.jet.setVisibility(0);
-                        this.jet.setText(Ez(user.get(0).getName_show()));
+                        this.jgO.setVisibility(0);
+                        this.jgO.setText(EZ(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
-                        this.jeu.setVisibility(0);
-                        this.jeu.setText("、" + Ez(user.get(1).getName_show()));
+                        this.jgP.setVisibility(0);
+                        this.jgP.setText("、" + EZ(user.get(1).getName_show()));
                     }
                 }
             }
             if (num <= 2) {
-                this.jes.setText(this.mContext.getString(R.string.common_praise_view_text));
+                this.jgN.setText(this.mContext.getString(R.string.common_praise_view_text));
             } else if (num <= 999999) {
-                this.jes.setText(this.mContext.getString(R.string.etc) + num + this.mContext.getString(R.string.common_praise_view_text2));
+                this.jgN.setText(this.mContext.getString(R.string.etc) + num + this.mContext.getString(R.string.common_praise_view_text2));
             } else {
-                this.jes.setText(this.mContext.getString(R.string.etc) + "999999+" + this.mContext.getString(R.string.common_praise_view_text2));
+                this.jgN.setText(this.mContext.getString(R.string.etc) + "999999+" + this.mContext.getString(R.string.common_praise_view_text2));
             }
         }
     }
 
-    private String Ez(String str) {
+    private String EZ(String str) {
         if (!TextUtils.isEmpty(str) && str.length() > 14) {
             return str.substring(0, 14);
         }
         return str;
     }
 
-    public void jd(int i) {
-        if (this.icb) {
-            if (this.jew) {
-                am.k(this.bmR, R.drawable.praise_video_selector);
-                am.f(this.jes, R.color.cp_cont_c, 1);
-                am.f(this.jet, R.color.cp_link_tip_c, 1);
-                am.f(this.jeu, R.color.cp_link_tip_c, 1);
+    public void jg(int i) {
+        if (this.ied) {
+            if (this.jgR) {
+                am.k(this.bnp, R.drawable.praise_video_selector);
+                am.f(this.jgN, R.color.cp_cont_c, 1);
+                am.f(this.jgO, R.color.cp_link_tip_c, 1);
+                am.f(this.jgP, R.color.cp_link_tip_c, 1);
                 return;
             }
-            am.k(this.bmR, R.drawable.praise_head_selector);
-            am.f(this.jes, R.color.cp_cont_d, 1);
-            am.f(this.jet, R.color.cp_link_tip_c, 1);
-            am.f(this.jeu, R.color.cp_link_tip_c, 1);
+            am.k(this.bnp, R.drawable.praise_head_selector);
+            am.f(this.jgN, R.color.cp_cont_d, 1);
+            am.f(this.jgO, R.color.cp_link_tip_c, 1);
+            am.f(this.jgP, R.color.cp_link_tip_c, 1);
             return;
         }
-        am.k(this.bmR, R.drawable.praise_view_btn_color);
-        am.f(this.jes, R.color.cp_cont_d, 1);
-        am.f(this.jet, R.color.cp_cont_c, 1);
-        am.f(this.jeu, R.color.cp_cont_c, 1);
+        am.k(this.bnp, R.drawable.praise_view_btn_color);
+        am.f(this.jgN, R.color.cp_cont_d, 1);
+        am.f(this.jgO, R.color.cp_cont_c, 1);
+        am.f(this.jgP, R.color.cp_cont_c, 1);
     }
 }

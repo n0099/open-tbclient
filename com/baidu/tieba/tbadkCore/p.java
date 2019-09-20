@@ -7,5 +7,5 @@ public interface p {
 
     void c(l lVar);
 
-    void ru(int i);
+    void rx(int i);
 }

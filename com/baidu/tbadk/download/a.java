@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.recapp.download.e;
 /* loaded from: classes.dex */
 public class a implements c {
     @Override // com.baidu.tbadk.download.c
@@ -19,8 +20,8 @@ public class a implements c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            com.baidu.tieba.recapp.download.d.cic().c(downloadData);
-            com.baidu.tieba.recapp.download.d.cic().b(downloadData);
+            e.ciQ().c(downloadData);
+            e.ciQ().b(downloadData);
         }
     }
 
@@ -52,7 +53,7 @@ public class a implements c {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            com.baidu.tieba.recapp.download.d.cic().b(downloadData);
+            e.ciQ().b(downloadData);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
             }
@@ -61,13 +62,13 @@ public class a implements c {
 
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        com.baidu.tieba.recapp.download.d cic = com.baidu.tieba.recapp.download.d.cic();
+        e ciQ = e.ciQ();
         if (i == 3) {
-            cic.k(downloadData);
+            ciQ.k(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
         } else {
-            cic.l(downloadData);
+            ciQ.l(downloadData);
         }
-        com.baidu.tieba.recapp.download.d.cic().b(downloadData);
+        e.ciQ().b(downloadData);
     }
 }

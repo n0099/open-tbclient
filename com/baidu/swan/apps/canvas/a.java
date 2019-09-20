@@ -17,12 +17,12 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
 
     /* renamed from: com.baidu.swan.apps.canvas.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0126a {
-        private static final a alR = new a();
+    private static class C0135a {
+        private static final a amp = new a();
     }
 
-    public static a xP() {
-        return C0126a.alR;
+    public static a xT() {
+        return C0135a.amp;
     }
 
     public boolean a(Context context, AbsoluteLayout absoluteLayout, com.baidu.swan.apps.canvas.c.a aVar) {
@@ -31,17 +31,17 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
             return false;
         }
         String str = aVar.id;
-        b bVar = aVar.aDW;
+        b bVar = aVar.aEu;
         if (TextUtils.isEmpty(str) || bVar == null || !bVar.isValid()) {
             c.e("SwanAppCanvas", "canvas id is empty or position is null");
             return false;
         }
         g gVar = new g(context, str, aVar);
-        com.baidu.swan.apps.b.c.c cVar = (com.baidu.swan.apps.b.c.c) e.GF().dY(aVar.aDU);
+        com.baidu.swan.apps.b.c.c cVar = (com.baidu.swan.apps.b.c.c) e.GJ().ea(aVar.aEs);
         if (cVar != null) {
             cVar.a(gVar);
         }
-        new SwanAppNAViewContainer(absoluteLayout.getContext()).a(gVar.anq, aVar);
+        new SwanAppNAViewContainer(absoluteLayout.getContext()).a(gVar.anO, aVar);
         return true;
     }
 
@@ -57,15 +57,15 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
             c.e("SwanAppCanvas", "get canvas view model is null");
             return false;
         }
-        CanvasView canvasView = a.anq;
+        CanvasView canvasView = a.anO;
         if (canvasView != null) {
-            canvasView.xK();
+            canvasView.xO();
         }
         SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(aVar, null);
-        if (a2 != null && a2.Qi()) {
+        if (a2 != null && a2.Qm()) {
             z = true;
         }
-        if (z && (cVar = (com.baidu.swan.apps.b.c.c) e.GF().dY(aVar.aDU)) != null) {
+        if (z && (cVar = (com.baidu.swan.apps.b.c.c) e.GJ().ea(aVar.aEs)) != null) {
             cVar.b(a);
         }
         return true;
@@ -78,12 +78,12 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
             return false;
         }
         String str = aVar.id;
-        b bVar = aVar.aDW;
+        b bVar = aVar.aEu;
         return (TextUtils.isEmpty(str) || bVar == null || !bVar.isValid() || (a = com.baidu.swan.apps.view.container.c.b.a(aVar, null)) == null || !a.a(aVar)) ? false : true;
     }
 
     public boolean a(Context context, com.baidu.swan.apps.canvas.c.a aVar, final CanvasView.b bVar) {
-        d As;
+        d Aw;
         if (context == null || aVar == null || !(aVar instanceof com.baidu.swan.apps.canvas.c.b)) {
             c.e("SwanAppCanvas", "some params is invalid");
             return false;
@@ -93,8 +93,8 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
             c.e("SwanAppCanvas", "drawCanvas canvasId = " + str);
             return false;
         }
-        if (TextUtils.isEmpty(aVar.aDU) && (As = e.GF().As()) != null) {
-            aVar.aDU = As.Ac();
+        if (TextUtils.isEmpty(aVar.aEs) && (Aw = e.GJ().Aw()) != null) {
+            aVar.aEs = Aw.Ag();
         }
         CanvasView b = b(aVar);
         if (b == null) {
@@ -102,13 +102,13 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
             return false;
         }
         com.baidu.swan.apps.canvas.c.b bVar2 = (com.baidu.swan.apps.canvas.c.b) aVar;
-        b.c(bVar2.xX(), bVar2.xY());
+        b.c(bVar2.yb(), bVar2.yc());
         b.postInvalidate();
         b.post(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.xR();
+                    bVar.xV();
                 }
             }
         });

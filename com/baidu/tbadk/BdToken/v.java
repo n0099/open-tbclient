@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import tbclient.GetToken.DataRes;
 /* loaded from: classes.dex */
 public class v {
-    private a bAc;
+    private a bAA;
     private String btn_cancel;
     private String btn_sure;
     private String img;
@@ -28,11 +28,11 @@ public class v {
             this.btn_sure = dataRes.btn_sure;
             this.btn_cancel = dataRes.btn_cancel;
             if (dataRes.activity_done != null) {
-                this.bAc = new a();
-                this.bAc.url = dataRes.activity_done.url;
-                this.bAc.btntext = dataRes.activity_done.btntext;
-                this.bAc.message = dataRes.activity_done.message;
-                this.bAc.sharetoken = dataRes.activity_done.sharetoken;
+                this.bAA = new a();
+                this.bAA.url = dataRes.activity_done.url;
+                this.bAA.btntext = dataRes.activity_done.btntext;
+                this.bAA.message = dataRes.activity_done.message;
+                this.bAA.sharetoken = dataRes.activity_done.sharetoken;
             }
         }
     }
@@ -45,7 +45,7 @@ public class v {
         return this.url;
     }
 
-    public a ZT() {
-        return this.bAc;
+    public a ZX() {
+        return this.bAA;
     }
 }

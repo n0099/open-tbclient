@@ -25,18 +25,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends z {
-    private int axt;
+    private int axR;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.q.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0163a {
+    public interface InterfaceC0172a {
         void x(JSONObject jSONObject);
     }
 
     public a(j jVar) {
         super(jVar, "/swan/privateGetUserInfo");
-        this.axt = -1;
+        this.axR = -1;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.z
@@ -79,17 +79,17 @@ public class a extends z {
         final JSONObject jSONObject = new JSONObject();
         jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, a.get("bd_box_display_name"));
         jSONObject.put(IntentConfig.PORTRAIT, a.get("bd_box_avatar_url"));
-        if (this.axt != -1) {
+        if (this.axR != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
-            a(new InterfaceC0163a() { // from class: com.baidu.swan.apps.q.a.a.a.1
-                @Override // com.baidu.swan.apps.q.a.a.a.InterfaceC0163a
+            a(new InterfaceC0172a() { // from class: com.baidu.swan.apps.q.a.a.a.1
+                @Override // com.baidu.swan.apps.q.a.a.a.InterfaceC0172a
                 public void x(JSONObject jSONObject2) {
                     if (jSONObject2 == null) {
                         a.this.a(callbackHandler, str, jSONObject);
                         return;
                     }
-                    a.this.axt = a.this.w(jSONObject2);
+                    a.this.axR = a.this.w(jSONObject2);
                     a.this.a(callbackHandler, str, jSONObject);
                 }
             });
@@ -98,9 +98,9 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (this.axt != -1) {
+        if (this.axR != -1) {
             try {
-                jSONObject.put("gender", String.valueOf(this.axt));
+                jSONObject.put("gender", String.valueOf(this.axR));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -135,30 +135,30 @@ public class a extends z {
         }
     }
 
-    private void a(final InterfaceC0163a interfaceC0163a) {
-        if (interfaceC0163a != null) {
+    private void a(final InterfaceC0172a interfaceC0172a) {
+        if (interfaceC0172a != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gender", "1");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(d.sZ(com.baidu.tieba.aiapps.apps.c.a.aFk()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.EH().Ff())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.apps.q.a.a.a.2
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(d.ty(com.baidu.tieba.aiapps.apps.c.a.aFO()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.EL().Fj())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.apps.q.a.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: x */
                 public void onSuccess(String str, int i) {
                     try {
-                        interfaceC0163a.x(new JSONObject(str));
+                        interfaceC0172a.x(new JSONObject(str));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
-                        interfaceC0163a.x(null);
+                        interfaceC0172a.x(null);
                     }
                 }
 
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
-                    interfaceC0163a.x(null);
+                    interfaceC0172a.x(null);
                 }
             });
         }

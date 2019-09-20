@@ -5,9 +5,9 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class b {
     @NonNull
-    public abstract String HZ();
+    public abstract String Id();
 
-    public abstract void Ia();
+    public abstract void Ie();
 
     public abstract void L(JSONObject jSONObject);
 

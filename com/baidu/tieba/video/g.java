@@ -10,60 +10,60 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class g {
-    private static g jvk;
-    private VideoHolyCardModel.a hwh = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
+    private static g jxG;
+    private VideoHolyCardModel.a hyb = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void bE(boolean z) {
-            g.this.jvm = z;
+            g.this.jxI = z;
         }
     };
-    private VideoHolyCardModel jvl;
-    private boolean jvm;
-    private boolean jvn;
+    private VideoHolyCardModel jxH;
+    private boolean jxI;
+    private boolean jxJ;
 
-    public static g cua() {
-        if (jvk == null) {
+    public static g cuO() {
+        if (jxG == null) {
             synchronized (g.class) {
-                if (jvk == null) {
-                    jvk = new g();
+                if (jxG == null) {
+                    jxG = new g();
                 }
             }
         }
-        return jvk;
+        return jxG;
     }
 
-    public boolean cub() {
-        return this.jvm;
+    public boolean cuP() {
+        return this.jxI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuc() {
-        if (this.jvl == null) {
-            this.jvl = new VideoHolyCardModel();
-            this.jvl.a(this.hwh);
+    public void cuQ() {
+        if (this.jxH == null) {
+            this.jxH = new VideoHolyCardModel();
+            this.jxH.a(this.hyb);
         }
-        this.jvl.bOK();
+        this.jxH.bPx();
     }
 
-    public void ep(Context context) {
-        if (this.jvm && !this.jvn) {
+    public void eq(Context context) {
+        if (this.jxI && !this.jxJ) {
             l.showToast(context, (int) R.string.free_data_tips);
-            this.jvn = true;
+            this.jxJ = true;
         }
     }
 
     private g() {
-        cud();
-        cuc();
+        cuR();
+        cuQ();
     }
 
-    private void cud() {
+    private void cuR() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2000994) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (j.ke()) {
-                    g.this.cuc();
+                    g.this.cuQ();
                 }
             }
         });

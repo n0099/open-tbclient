@@ -12,17 +12,17 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 /* loaded from: classes2.dex */
 public class a extends b<com.baidu.swan.apps.extcore.d.a.a, com.baidu.swan.apps.extcore.e.a.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a aws;
+    private static volatile a awQ;
 
-    public static a CT() {
-        if (aws == null) {
+    public static a CX() {
+        if (awQ == null) {
             synchronized (a.class) {
-                if (aws == null) {
-                    aws = new a();
+                if (awQ == null) {
+                    awQ = new a();
                 }
             }
         }
-        return aws;
+        return awQ;
     }
 
     private a() {
@@ -30,11 +30,11 @@ public class a extends b<com.baidu.swan.apps.extcore.d.a.a, com.baidu.swan.apps.
     }
 
     @Nullable
-    public ExtensionCore Cj() {
+    public ExtensionCore Cn() {
         if (ProcessUtils.isMainProcess()) {
-            return CX();
+            return Db();
         }
-        Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0147a.class, null).mResult;
+        Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0156a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
         ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
         if (DEBUG) {
@@ -46,21 +46,21 @@ public class a extends b<com.baidu.swan.apps.extcore.d.a.a, com.baidu.swan.apps.
 
     /* renamed from: com.baidu.swan.apps.extcore.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0147a extends ProviderDelegation {
+    public static class C0156a extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();
-            bundle2.putParcelable("aiapps_extension_core", CU());
+            bundle2.putParcelable("aiapps_extension_core", CY());
             return bundle2;
         }
 
-        private ExtensionCore CU() {
-            ExtensionCore CX = a.CT().CX();
-            if (!CX.isAvailable()) {
-                a.CT().CW();
-                return a.CT().CX();
+        private ExtensionCore CY() {
+            ExtensionCore Db = a.CX().Db();
+            if (!Db.isAvailable()) {
+                a.CX().Da();
+                return a.CX().Db();
             }
-            return CX;
+            return Db;
         }
     }
 }

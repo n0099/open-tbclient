@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.util.ab;
+import com.baidu.tbadk.util.aa;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes5.dex */
@@ -51,21 +51,21 @@ public class d extends h<e, f> {
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
                 am.k(fVar.getView(), R.drawable.frs_member_manito_bg);
-                am.f(fVar.bmT, R.color.cp_cont_f, 1);
-                am.f(fVar.eHW, R.color.cp_cont_d, 1);
+                am.f(fVar.bnr, R.color.cp_cont_f, 1);
+                am.f(fVar.eJF, R.color.cp_cont_d, 1);
                 am.l(fVar.dividerLine, R.color.cp_bg_line_c);
-                am.f(fVar.fqE, R.color.cp_cont_d, 1);
+                am.f(fVar.fss, R.color.cp_cont_d, 1);
             }
-            fVar.fqD.startLoad(eVar.bkE(), 12, false);
-            fVar.bmT.setText(ab.ac(eVar.getNameShow(), 16));
+            fVar.fsr.startLoad(eVar.blp(), 12, false);
+            fVar.bnr.setText(aa.ac(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.eHW.setText(R.string.god_intro_default);
+                fVar.eJF.setText(R.string.god_intro_default);
             } else {
-                fVar.eHW.setText(ab.ac(eVar.getIntro(), 30));
+                fVar.eJF.setText(aa.ac(eVar.getIntro(), 30));
             }
             int color = am.getColor(R.color.cp_cont_h);
             String aH = aq.aH(eVar.getFansNum());
-            fVar.fqE.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), aH), new String[]{aH}, new int[]{color}));
+            fVar.fss.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), aH), new String[]{aH}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

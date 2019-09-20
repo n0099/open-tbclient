@@ -11,13 +11,13 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 public abstract class b<P extends com.baidu.swan.apps.extcore.d.a, R extends com.baidu.swan.apps.extcore.e.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P aww;
+    private P awU;
     @NonNull
-    private R awx;
+    private R awV;
 
     public b(@NonNull P p, @NonNull R r) {
-        this.aww = p;
-        this.awx = r;
+        this.awU = p;
+        this.awV = r;
     }
 
     public void C(int i, int i2) {
@@ -30,41 +30,41 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.a, R extends com
     }
 
     public void a(@Nullable com.baidu.swan.apps.extcore.c.a aVar) {
-        this.aww.b(aVar);
+        this.awU.b(aVar);
     }
 
-    public void CW() {
-        this.aww.CW();
+    public void Da() {
+        this.awU.Da();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> boolean a(T t) {
-        return t != null && this.awx.b(t);
+        return t != null && this.awV.b(t);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @NonNull
-    public ExtensionCore CX() {
-        if (DEBUG && com.baidu.swan.apps.extcore.f.a.Dm()) {
+    public ExtensionCore Db() {
+        if (DEBUG && com.baidu.swan.apps.extcore.f.a.Dq()) {
             ExtensionCore extensionCore = new ExtensionCore();
-            extensionCore.awR = 0L;
-            extensionCore.awS = com.baidu.swan.apps.extcore.f.a.E(0L);
-            extensionCore.awT = com.baidu.swan.apps.extcore.debug.b.Da().getPath();
-            extensionCore.awQ = 2;
+            extensionCore.axp = 0L;
+            extensionCore.axq = com.baidu.swan.apps.extcore.f.a.E(0L);
+            extensionCore.axr = com.baidu.swan.apps.extcore.debug.b.De().getPath();
+            extensionCore.axo = 2;
             Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
             return extensionCore;
         }
-        ExtensionCore Di = this.aww.Di();
-        ExtensionCore Di2 = this.awx.Di();
-        if (Di.awR >= Di2.awR) {
+        ExtensionCore Dm = this.awU.Dm();
+        ExtensionCore Dm2 = this.awV.Dm();
+        if (Dm.axp >= Dm2.axp) {
             if (DEBUG) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Di.toString());
-                return Di;
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Dm.toString());
+                return Dm;
             }
-            return Di;
+            return Dm;
         }
         if (DEBUG) {
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + Di2.toString());
+            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + Dm2.toString());
         }
-        return Di2;
+        return Dm2;
     }
 }

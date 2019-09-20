@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private static b bBy = null;
-    private static a bBz = null;
-    private static boolean bBA = false;
-    private static String bBB = "";
-    private static transient List<String> bBC = new ArrayList(5);
+    private static b bBW = null;
+    private static a bBX = null;
+    private static boolean bBY = false;
+    private static String bBZ = "";
+    private static transient List<String> bCa = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (bBz == null) {
+        if (bBX == null) {
             synchronized (a.class) {
-                if (bBz == null) {
-                    bBz = new a();
-                    bBy = b.c(baseFragmentActivity);
+                if (bBX == null) {
+                    bBX = new a();
+                    bBW = b.c(baseFragmentActivity);
                 }
             }
-        } else if (bBy != null) {
-            bBy.a(baseFragmentActivity.getPageContext());
+        } else if (bBW != null) {
+            bBW.a(baseFragmentActivity.getPageContext());
         }
-        if (bBA && bBy != null) {
-            bBy.aaO();
-            bBy.aaP();
-            bBA = false;
+        if (bBY && bBW != null) {
+            bBW.aaS();
+            bBW.aaT();
+            bBY = false;
         }
-        return bBz;
+        return bBX;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        aaK();
+        aaO();
         if (z) {
-            aaF();
+            aaJ();
         }
         if (z2) {
-            aaG();
+            aaK();
         }
         dy(z3);
         a(aVar);
     }
 
-    public void aaF() {
-        aaK();
-        if (bBy != null) {
-            bBy.aaO();
-            bBA = false;
+    public void aaJ() {
+        aaO();
+        if (bBW != null) {
+            bBW.aaS();
+            bBY = false;
         }
     }
 
-    public void aaG() {
-        aaK();
-        if (bBy != null) {
-            bBy.aaP();
-            bBA = false;
+    public void aaK() {
+        aaO();
+        if (bBW != null) {
+            bBW.aaT();
+            bBY = false;
         }
     }
 
     public void dy(boolean z) {
-        aaK();
-        if (bBy != null) {
-            bBy.dy(z);
+        aaO();
+        if (bBW != null) {
+            bBW.dy(z);
         }
     }
 
     public void a(b.a aVar) {
-        aaK();
-        if (bBy != null) {
-            bBy.c(aVar);
+        aaO();
+        if (bBW != null) {
+            bBW.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        aaK();
-        if (bBy != null) {
-            if (bBy.aaL()) {
-                bBy.c(aVar);
+        aaO();
+        if (bBW != null) {
+            if (bBW.aaP()) {
+                bBW.c(aVar);
             }
-            bBy.aaN();
+            bBW.aaR();
         }
     }
 
     public void a(int i, b.a aVar) {
-        aaK();
-        if (bBy != null) {
-            if (bBy.aaL()) {
-                bBy.c(aVar);
+        aaO();
+        if (bBW != null) {
+            if (bBW.aaP()) {
+                bBW.c(aVar);
             }
-            bBy.gq(i);
+            bBW.gr(i);
         }
     }
 
-    public void aaH() {
-        aaK();
-        if (bBy != null) {
-            bBy.aaH();
-            bBA = true;
+    public void aaL() {
+        aaO();
+        if (bBW != null) {
+            bBW.aaL();
+            bBY = true;
         }
     }
 
-    public void aaI() {
-        aaK();
-        if (bBy != null) {
-            bBy.aaI();
+    public void aaM() {
+        aaO();
+        if (bBW != null) {
+            bBW.aaM();
         }
     }
 
-    public void aaJ() {
-        aaK();
-        aaI();
-        aaH();
+    public void aaN() {
+        aaO();
+        aaM();
+        aaL();
     }
 
-    private void aaK() {
-        if (bBy == null) {
+    private void aaO() {
+        if (bBW == null) {
         }
     }
 
-    public static void Ki() {
+    public static void Km() {
         try {
-            if (bBy != null) {
-                if (bBz != null) {
-                    bBz.aaJ();
+            if (bBW != null) {
+                if (bBX != null) {
+                    bBX.aaN();
                 }
-                bBy.aaM();
-                bBy.aaQ();
-                bBy = null;
+                bBW.aaQ();
+                bBW.aaU();
+                bBW = null;
             }
-            if (bBz != null) {
-                bBz = null;
+            if (bBX != null) {
+                bBX = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -66,18 +67,18 @@ public class ab extends z {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.core.g.a Cd = com.baidu.swan.apps.core.j.c.BQ().Cd();
-                if (Cd instanceof com.baidu.swan.apps.core.g.e) {
-                    i = ((com.baidu.swan.apps.core.g.e) Cd).Be();
+                com.baidu.swan.apps.core.g.a Ch = com.baidu.swan.apps.core.j.c.BU().Ch();
+                if (Ch instanceof com.baidu.swan.apps.core.g.e) {
+                    i = ((com.baidu.swan.apps.core.g.e) Ch).Bi();
                     if (DEBUG) {
                         Log.d("SwanAppAction", "ID_PERFORMANCED_FLOW CodeCache status: " + i);
                     }
                 } else {
                     i = 0;
                 }
-                com.baidu.swan.apps.performance.f.IL().ar("codecache", String.valueOf(i)).y(m(optParamsAsJo.optJSONArray("data"))).Iq();
+                com.baidu.swan.apps.performance.f.IP().ar("codecache", String.valueOf(i)).y(m(optParamsAsJo.optJSONArray("data"))).Iu();
                 com.baidu.swan.apps.statistic.e.cx(true);
-                com.baidu.swan.apps.statistic.e.NG();
+                com.baidu.swan.apps.statistic.e.NK();
                 break;
             case 1:
                 n(optParamsAsJo.optJSONArray("data"));
@@ -101,7 +102,7 @@ public class ab extends z {
         for (int i = 0; i < jSONArray.length(); i++) {
             UbcFlowEvent aa = aa(jSONArray.optJSONObject(i));
             if (aa != null) {
-                aa.gf("FE");
+                aa.gh("FE");
                 arrayList.add(aa);
             }
         }
@@ -110,7 +111,7 @@ public class ab extends z {
 
     UbcFlowEvent aa(JSONObject jSONObject) {
         String optString = jSONObject.optString("actionId");
-        long optLong = jSONObject.optLong("timestamp");
+        long optLong = jSONObject.optLong(DpStatConstants.KEY_TIMESTAMP);
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
@@ -131,7 +132,7 @@ public class ab extends z {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.aWo = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.aWM = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -144,8 +145,8 @@ public class ab extends z {
 
     private void o(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.d As = com.baidu.swan.apps.w.e.GF().As();
-        if (As != null) {
+        com.baidu.swan.apps.core.d.d Aw = com.baidu.swan.apps.w.e.GJ().Aw();
+        if (Aw != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -157,10 +158,10 @@ public class ab extends z {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        As.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        Aw.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    As.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    Aw.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -169,6 +170,6 @@ public class ab extends z {
     }
 
     private void p(@Nullable JSONArray jSONArray) {
-        com.baidu.swan.apps.y.f.Hy().g(jSONArray);
+        com.baidu.swan.apps.y.f.HC().g(jSONArray);
     }
 }

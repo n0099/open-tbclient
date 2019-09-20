@@ -8,18 +8,6 @@ import android.view.Window;
 import android.view.WindowManager;
 /* loaded from: classes2.dex */
 public class PassBioDisplayUtil {
-    public static void enableStatusBarTint(Activity activity, int i) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.flags |= 67108864;
-            window.setAttributes(attributes);
-            SapiSystemBarTintManager sapiSystemBarTintManager = new SapiSystemBarTintManager(activity);
-            sapiSystemBarTintManager.setStatusBarTintEnabled(true);
-            sapiSystemBarTintManager.setStatusBarTintColor(i);
-        }
-    }
-
     public static void enableNavigationBarTint(Activity activity, int i) {
         if (Build.VERSION.SDK_INT >= 19) {
             Window window = activity.getWindow();

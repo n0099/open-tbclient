@@ -6,14 +6,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class AdSettings {
-    private static HashSet<String> agi = new HashSet<>();
+    private static HashSet<String> agE = new HashSet<>();
     private static JSONArray b = new JSONArray();
     private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
-    private static HashSet<String> agj = new HashSet<>();
-    private static JSONArray agk = new JSONArray();
+    private static HashSet<String> agF = new HashSet<>();
+    private static JSONArray agG = new JSONArray();
     private static JSONObject m = new JSONObject();
 
-    public static String uo() {
+    public static String us() {
         return j;
     }
 
@@ -102,9 +102,9 @@ public class AdSettings {
         }
     }
 
-    public static JSONObject up() {
+    public static JSONObject ut() {
         JSONObject jSONObject = new JSONObject();
-        Iterator<String> it = agi.iterator();
+        Iterator<String> it = agE.iterator();
         b = new JSONArray();
         while (it.hasNext()) {
             b.put(it.next());

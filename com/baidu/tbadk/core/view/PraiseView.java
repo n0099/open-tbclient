@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes3.dex */
 public class PraiseView extends BasePraiseView<bh> {
-    private View.OnClickListener caC;
+    private View.OnClickListener cbv;
 
     public PraiseView(Context context) {
         this(context, null);
@@ -23,93 +23,93 @@ public class PraiseView extends BasePraiseView<bh> {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((bh) this.mData).afR();
+        return ((bh) this.mData).afV();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.tbadk.core.data.bh */
     /* JADX WARN: Multi-variable type inference failed */
-    public void o(bh bhVar) {
+    public void p(bh bhVar) {
         if (bhVar != 0) {
-            if (bhVar.afT() != 0) {
-                if (bhVar.afU() == 0 || bhVar.afU() == 1) {
-                    bhVar.hr(2);
+            if (bhVar.afX() != 0) {
+                if (bhVar.afY() == 0 || bhVar.afY() == 1) {
+                    bhVar.hs(2);
                 }
-                if (bhVar.afU() == 3 || bhVar.afU() == 4) {
-                    bhVar.hr(5);
+                if (bhVar.afY() == 3 || bhVar.afY() == 4) {
+                    bhVar.hs(5);
                 }
             }
             this.mData = bhVar;
             this.mThreadId = bhVar.getTid();
             this.mForumId = String.valueOf(bhVar.getFid());
-            this.bLJ = ((bh) this.mData).afR();
-            this.bLK = ((bh) this.mData).afS();
-            JS();
+            this.bMh = ((bh) this.mData).afV();
+            this.bMi = ((bh) this.mData).afW();
+            JW();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
-    public void JS() {
+    public void JW() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.bXe);
+        String string = context.getString(this.bXX);
         if (num > 0) {
             string = aq.aO(num);
         }
-        this.bXj.setText(string);
-        this.bXj.setContentDescription(context.getString(this.bXe) + num);
-        if (this.mData != 0 && ((bh) this.mData).afT() != 0 && akl()) {
-            this.bXk.setImageDrawable(Z(this.bXg, this.bXf));
-            this.bXj.setTextColor(createColorStateList(this.bXi, this.bXh));
+        this.bYc.setText(string);
+        this.bYc.setContentDescription(context.getString(this.bXX) + num);
+        if (this.mData != 0 && ((bh) this.mData).afX() != 0 && akx()) {
+            this.bYd.setImageDrawable(Z(this.bXZ, this.bXY));
+            this.bYc.setTextColor(createColorStateList(this.bYb, this.bYa));
             return;
         }
-        this.bXk.setImageDrawable(Z(this.bXf, this.bXg));
-        this.bXj.setTextColor(createColorStateList(this.bXh, this.bXi));
+        this.bYd.setImageDrawable(Z(this.bXY, this.bXZ));
+        this.bYc.setTextColor(createColorStateList(this.bYa, this.bYb));
     }
 
-    public int akk() {
+    public int akw() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((bh) this.mData).afT() != 0 && akl()) {
-            ((bh) this.mData).hr(2);
-            ((bh) this.mData).hp(0);
-            ((bh) this.mData).as(((bh) this.mData).afR() - 1);
-            ((bh) this.mData).at(((bh) this.mData).afS());
+        if (((bh) this.mData).afX() != 0 && akx()) {
+            ((bh) this.mData).hs(2);
+            ((bh) this.mData).hq(0);
+            ((bh) this.mData).as(((bh) this.mData).afV() - 1);
+            ((bh) this.mData).at(((bh) this.mData).afW());
             i = 1;
         } else {
-            if (((bh) this.mData).afT() != 0 && ((bh) this.mData).afU() == 5) {
-                ((bh) this.mData).at(((bh) this.mData).afS() - 1);
+            if (((bh) this.mData).afX() != 0 && ((bh) this.mData).afY() == 5) {
+                ((bh) this.mData).at(((bh) this.mData).afW() - 1);
             }
-            ((bh) this.mData).hp(1);
-            ((bh) this.mData).as(((bh) this.mData).afR() + 1);
-            ((bh) this.mData).hr(2);
-            com.baidu.tieba.n.a.chD().z(getTbPageContext());
+            ((bh) this.mData).hq(1);
+            ((bh) this.mData).as(((bh) this.mData).afV() + 1);
+            ((bh) this.mData).hs(2);
+            com.baidu.tieba.n.a.cir().z(getTbPageContext());
             i = 0;
         }
         return i;
     }
 
     public int aN(View view) {
-        if (com.baidu.tbadk.util.i.isFastDoubleClick() || !bd.cF(getContext()) || this.mData == 0) {
+        if (com.baidu.tbadk.util.i.isFastDoubleClick() || !bc.cF(getContext()) || this.mData == 0) {
             return -1;
         }
-        int akk = akk();
-        JS();
-        ix(akk);
-        iw(akk);
-        if (this.bWq != null) {
-            this.bWq.onClick(view);
+        int akw = akw();
+        JW();
+        iA(akw);
+        iz(akw);
+        if (this.bXj != null) {
+            this.bXj.onClick(view);
         }
-        a(akk, (bh) this.mData);
-        if (this.caC != null && ((bh) this.mData).aeC()) {
-            this.caC.onClick(view);
+        a(akw, (bh) this.mData);
+        if (this.cbv != null && ((bh) this.mData).aeG()) {
+            this.cbv.onClick(view);
         }
-        return akk;
+        return akw;
     }
 
-    public boolean akl() {
-        return this.mData != 0 && (((bh) this.mData).afU() == 2 || ((bh) this.mData).afU() == 1);
+    public boolean akx() {
+        return this.mData != 0 && (((bh) this.mData).afY() == 2 || ((bh) this.mData).afY() == 1);
     }
 
     public void setShowPraiseNum(boolean z) {
@@ -119,6 +119,6 @@ public class PraiseView extends BasePraiseView<bh> {
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.caC = onClickListener;
+        this.cbv = onClickListener;
     }
 }

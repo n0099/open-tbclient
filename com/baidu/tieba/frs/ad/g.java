@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.view.RoundAdapterLinearLayout;
@@ -22,11 +22,11 @@ import com.baidu.tieba.tbadkCore.h;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes4.dex */
 public class g {
-    private TbImageView fzD;
-    private h fzG;
-    private RoundAdapterLinearLayout fzI;
-    private TextView fzJ;
-    private FrsAdCommentScrollView fzK;
+    private TbImageView fBq;
+    private h fBt;
+    private RoundAdapterLinearLayout fBv;
+    private TextView fBw;
+    private FrsAdCommentScrollView fBx;
     private Context mContext;
     private TextView mTitleView;
 
@@ -36,29 +36,29 @@ public class g {
     }
 
     private void initView() {
-        this.fzI = (RoundAdapterLinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.frs_top_ad_view, (ViewGroup) null);
-        this.fzI.setRadius(this.mContext.getResources().getDimension(R.dimen.tbds20));
-        this.fzI.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds26));
-        this.mTitleView = (TextView) this.fzI.findViewById(R.id.frs_top_ad_title);
-        this.fzJ = (TextView) this.fzI.findViewById(R.id.frs_top_person_num);
-        this.fzD = (TbImageView) this.fzI.findViewById(R.id.frs_top_ad_img);
-        this.fzD.setDefaultBgResource(R.color.white_alpha100);
-        this.fzK = (FrsAdCommentScrollView) this.fzI.findViewById(R.id.ad_comment_scroll_view);
-        this.fzI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.g.1
+        this.fBv = (RoundAdapterLinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.frs_top_ad_view, (ViewGroup) null);
+        this.fBv.setRadius(this.mContext.getResources().getDimension(R.dimen.tbds20));
+        this.fBv.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds26));
+        this.mTitleView = (TextView) this.fBv.findViewById(R.id.frs_top_ad_title);
+        this.fBw = (TextView) this.fBv.findViewById(R.id.frs_top_person_num);
+        this.fBq = (TbImageView) this.fBv.findViewById(R.id.frs_top_ad_img);
+        this.fBq.setDefaultBgResource(R.color.white_alpha100);
+        this.fBx = (FrsAdCommentScrollView) this.fBv.findViewById(R.id.ad_comment_scroll_view);
+        this.fBv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.fzG != null && !StringUtils.isNull(g.this.fzG.getUrl())) {
-                    bb.ajE().a((TbPageContext) i.ab(g.this.mContext), new String[]{g.this.fzG.getUrl()}, true);
+                if (g.this.fBt != null && !StringUtils.isNull(g.this.fBt.getUrl())) {
+                    ba.ajK().a((TbPageContext) i.ab(g.this.mContext), new String[]{g.this.fBt.getUrl()}, true);
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                    httpMessage.addParam("id", g.this.fzG.getId());
+                    httpMessage.addParam("id", g.this.fBt.getId());
                     MessageManager.getInstance().sendMessage(httpMessage);
                     an anVar = new an("common_click");
                     anVar.bT("page_type", "a006");
                     anVar.bT("obj_isad", "1");
                     String str = Constants.VIA_SHARE_TYPE_INFO;
-                    if (g.this.fzG.getType() != 1) {
-                        if (g.this.fzG.getType() != 2) {
-                            if (g.this.fzG.getType() == 3) {
+                    if (g.this.fBt.getType() != 1) {
+                        if (g.this.fBt.getType() != 2) {
+                            if (g.this.fBt.getType() == 3) {
                                 str = Constants.VIA_SHARE_TYPE_PUBLISHVIDEO;
                             }
                         } else {
@@ -68,7 +68,7 @@ public class g {
                         str = Constants.VIA_SHARE_TYPE_INFO;
                     }
                     anVar.bT("obj_adlocate", str);
-                    anVar.l(VideoPlayActivityConfig.OBJ_ID, g.this.fzG.getId());
+                    anVar.n(VideoPlayActivityConfig.OBJ_ID, g.this.fBt.getId());
                     TiebaStatic.log(anVar);
                 }
             }
@@ -76,34 +76,34 @@ public class g {
     }
 
     public View getView() {
-        return this.fzI;
+        return this.fBv;
     }
 
-    public void jS(boolean z) {
-        if (this.fzK != null) {
-            this.fzK.jS(z);
+    public void jV(boolean z) {
+        if (this.fBx != null) {
+            this.fBx.jV(z);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.fzD.invalidate();
+        this.fBq.invalidate();
     }
 
     public void a(h hVar) {
         if (hVar != null) {
-            this.fzG = hVar;
-            this.mTitleView.setText(this.fzG.getTitle());
-            this.fzJ.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.fzG.coK())));
-            this.fzD.startLoad(this.fzG.Zy(), 10, false);
-            if (this.fzK != null) {
-                this.fzK.aU(this.fzG.coL());
+            this.fBt = hVar;
+            this.mTitleView.setText(this.fBt.getTitle());
+            this.fBw.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.fBt.cpx())));
+            this.fBq.startLoad(this.fBt.ZC(), 10, false);
+            if (this.fBx != null) {
+                this.fBx.aU(this.fBt.cpy());
             }
         }
     }
 
     public void onDestroy() {
-        if (this.fzK != null) {
-            this.fzK.onDestroy();
+        if (this.fBx != null) {
+            this.fBx.onDestroy();
         }
     }
 }

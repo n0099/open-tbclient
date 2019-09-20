@@ -9,33 +9,33 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class f implements o {
-    private final com.google.gson.internal.b knz;
-    final boolean kpb;
+    private final com.google.gson.internal.b kpW;
+    final boolean kry;
 
     public f(com.google.gson.internal.b bVar, boolean z) {
-        this.knz = bVar;
-        this.kpb = z;
+        this.kpW = bVar;
+        this.kry = z;
     }
 
     @Override // com.google.gson.o
     public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Type cMU = aVar.cMU();
-        if (!Map.class.isAssignableFrom(aVar.cMT())) {
+        Type cNI = aVar.cNI();
+        if (!Map.class.isAssignableFrom(aVar.cNH())) {
             return null;
         }
-        Type[] b = C$Gson$Types.b(cMU, C$Gson$Types.g(cMU));
-        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.knz.b(aVar));
+        Type[] b = C$Gson$Types.b(cNI, C$Gson$Types.g(cNI));
+        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.kpW.b(aVar));
     }
 
     private n<?> a(com.google.gson.d dVar, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? m.kpE : dVar.a(com.google.gson.b.a.l(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? m.ksb : dVar.a(com.google.gson.b.a.l(type));
     }
 
     /* loaded from: classes2.dex */
     private final class a<K, V> extends n<Map<K, V>> {
-        private final com.google.gson.internal.d<? extends Map<K, V>> koU;
-        private final n<K> kpc;
-        private final n<V> kpd;
+        private final n<V> krA;
+        private final com.google.gson.internal.d<? extends Map<K, V>> krr;
+        private final n<K> krz;
 
         @Override // com.google.gson.n
         public /* bridge */ /* synthetic */ void a(com.google.gson.stream.a aVar, Object obj) throws IOException {
@@ -43,9 +43,9 @@ public final class f implements o {
         }
 
         public a(com.google.gson.d dVar, Type type, n<K> nVar, Type type2, n<V> nVar2, com.google.gson.internal.d<? extends Map<K, V>> dVar2) {
-            this.kpc = new l(dVar, nVar, type);
-            this.kpd = new l(dVar, nVar2, type2);
-            this.koU = dVar2;
+            this.krz = new l(dVar, nVar, type);
+            this.krA = new l(dVar, nVar2, type2);
+            this.krr = dVar2;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.google.gson.n<V> */
@@ -54,60 +54,60 @@ public final class f implements o {
         public void a(com.google.gson.stream.a aVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                aVar.cMS();
-            } else if (!f.this.kpb) {
-                aVar.cMQ();
+                aVar.cNG();
+            } else if (!f.this.kry) {
+                aVar.cNE();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    aVar.HX(String.valueOf(entry.getKey()));
-                    this.kpd.a(aVar, entry.getValue());
+                    aVar.Ix(String.valueOf(entry.getKey()));
+                    this.krA.a(aVar, entry.getValue());
                 }
-                aVar.cMR();
+                aVar.cNF();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    com.google.gson.h be = this.kpc.be(entry2.getKey());
+                    com.google.gson.h be = this.krz.be(entry2.getKey());
                     arrayList.add(be);
                     arrayList2.add(entry2.getValue());
-                    z = (be.cMj() || be.cMk()) | z;
+                    z = (be.cMX() || be.cMY()) | z;
                 }
                 if (z) {
-                    aVar.cMO();
+                    aVar.cNC();
                     while (i < arrayList.size()) {
-                        aVar.cMO();
+                        aVar.cNC();
                         com.google.gson.internal.f.b((com.google.gson.h) arrayList.get(i), aVar);
-                        this.kpd.a(aVar, arrayList2.get(i));
-                        aVar.cMP();
+                        this.krA.a(aVar, arrayList2.get(i));
+                        aVar.cND();
                         i++;
                     }
-                    aVar.cMP();
+                    aVar.cND();
                     return;
                 }
-                aVar.cMQ();
+                aVar.cNE();
                 while (i < arrayList.size()) {
-                    aVar.HX(d((com.google.gson.h) arrayList.get(i)));
-                    this.kpd.a(aVar, arrayList2.get(i));
+                    aVar.Ix(d((com.google.gson.h) arrayList.get(i)));
+                    this.krA.a(aVar, arrayList2.get(i));
                     i++;
                 }
-                aVar.cMR();
+                aVar.cNF();
             }
         }
 
         private String d(com.google.gson.h hVar) {
-            if (hVar.cMl()) {
-                com.google.gson.k cMp = hVar.cMp();
-                if (cMp.cMs()) {
-                    return String.valueOf(cMp.cMg());
+            if (hVar.cMZ()) {
+                com.google.gson.k cNd = hVar.cNd();
+                if (cNd.cNg()) {
+                    return String.valueOf(cNd.cMU());
                 }
-                if (cMp.cMr()) {
-                    return Boolean.toString(cMp.cMi());
+                if (cNd.cNf()) {
+                    return Boolean.toString(cNd.cMW());
                 }
-                if (cMp.cMt()) {
-                    return cMp.cMh();
+                if (cNd.cNh()) {
+                    return cNd.cMV();
                 }
                 throw new AssertionError();
-            } else if (hVar.cMm()) {
+            } else if (hVar.cNa()) {
                 return "null";
             } else {
                 throw new AssertionError();

@@ -29,19 +29,19 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String aDV() {
+    public static String aEz() {
         return Build.VERSION.RELEASE;
     }
 
-    public static Integer cZ(Context context) {
+    public static Integer da(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
     }
 
-    public static Integer da(Context context) {
+    public static Integer db(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
     }
 
-    public static Integer db(Context context) {
+    public static Integer dc(Context context) {
         int value;
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
@@ -52,7 +52,7 @@ public class d {
             }
             if (typeName.equalsIgnoreCase("MOBILE")) {
                 if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
-                    value = dc(context) ? WirelessNetworkType.MOBILE_3G.getValue() : WirelessNetworkType.MOBILE_2G.getValue();
+                    value = dd(context) ? WirelessNetworkType.MOBILE_3G.getValue() : WirelessNetworkType.MOBILE_2G.getValue();
                 } else {
                     value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
                 }
@@ -63,7 +63,7 @@ public class d {
         return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
     }
 
-    private static boolean dc(Context context) {
+    private static boolean dd(Context context) {
         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
             case 0:
                 return false;

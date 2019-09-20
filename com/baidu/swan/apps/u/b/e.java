@@ -15,5 +15,5 @@ public interface e {
 
     void stop();
 
-    void xK();
+    void xO();
 }

@@ -29,32 +29,32 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    public static long aTV;
-    private static ContentObserver aTW;
-    private static PackageManager aTX;
-    private static boolean aTY;
-    private static Runnable aTZ;
+    public static long aUt;
+    private static ContentObserver aUu;
+    private static PackageManager aUv;
+    private static boolean aUw;
+    private static Runnable aUx;
     private static ContentResolver mContentResolver;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
     private static List<com.baidu.swan.apps.ag.a> mCallbacks = new ArrayList();
     private static int mCount = 0;
 
-    static /* synthetic */ int Nc() {
+    static /* synthetic */ int Ng() {
         int i = mCount;
         mCount = i + 1;
         return i;
     }
 
-    private static boolean Nb() {
+    private static boolean Nf() {
         return System.currentTimeMillis() - mLastTime <= 1000;
     }
 
     public static void bB(Context context) {
-        aTX = context.getPackageManager();
+        aUv = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        aTW = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ag.c.1
+        aUu = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ag.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 super.onChange(z, uri);
@@ -65,9 +65,9 @@ public class c {
             }
         };
         if (bC(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, aTW);
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, aUu);
         } else {
-            d.a(AppRuntime.getAppContext(), "WRITE_EXTERNAL_STORAGE permission denied").LQ();
+            d.a(AppRuntime.getAppContext(), "WRITE_EXTERNAL_STORAGE permission denied").LU();
         }
     }
 
@@ -76,8 +76,8 @@ public class c {
     public static void a(final Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable = null;
-        if (uri.toString().matches(a.aUb + ".*")) {
-            if (Nb() && aTY) {
+        if (uri.toString().matches(a.aUz + ".*")) {
+            if (Nf() && aUw) {
                 mLastTime = System.currentTimeMillis();
                 return;
             }
@@ -86,7 +86,7 @@ public class c {
             mLastTime = currentTimeMillis;
             try {
                 try {
-                    cursor = mContentResolver.query(uri, a.aBW, null, null, "date_added DESC");
+                    cursor = mContentResolver.query(uri, a.aCu, null, null, "date_added DESC");
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -98,18 +98,18 @@ public class c {
                                     Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + valueOf);
                                     Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + valueOf2);
                                 }
-                                if (a.hl(string) && a.f(valueOf2.longValue(), valueOf.longValue())) {
-                                    aTY = true;
+                                if (a.hn(string) && a.f(valueOf2.longValue(), valueOf.longValue())) {
+                                    aUw = true;
                                     final b bVar = new b(string, valueOf);
-                                    aTZ = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
+                                    aUx = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
                                         @Override // java.lang.Runnable
                                         public void run() {
-                                            c.Nc();
+                                            c.Ng();
                                             if (c.DEBUG) {
                                                 Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
                                             }
-                                            if (c.hj(string) || c.mCount > 10) {
-                                                if (c.hj(string) && c.T(2000L) && !c.hi(string)) {
+                                            if (c.hl(string) || c.mCount > 10) {
+                                                if (c.hl(string) && c.T(2000L) && !c.hk(string)) {
                                                     for (com.baidu.swan.apps.ag.a aVar : c.mCallbacks) {
                                                         if (aVar != null) {
                                                             aVar.a(bVar);
@@ -119,17 +119,17 @@ public class c {
                                                 }
                                                 return;
                                             }
-                                            handler.postDelayed(c.aTZ, 100L);
+                                            handler.postDelayed(c.aUx, 100L);
                                         }
                                     };
-                                    handler.post(aTZ);
+                                    handler.post(aUx);
                                 } else {
-                                    aTY = false;
+                                    aUw = false;
                                 }
                             }
                         } catch (RuntimeException e) {
-                            if (aTX != null) {
-                                List<ProviderInfo> queryContentProviders = aTX.queryContentProviders(null, 0, 131072);
+                            if (aUv != null) {
+                                List<ProviderInfo> queryContentProviders = aUv.queryContentProviders(null, 0, 131072);
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("from", "SystemScreenshot");
                                 hashMap.put("page", "SystemScreenshot");
@@ -159,11 +159,11 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean T(long j) {
-        return f.GI().GL() && System.currentTimeMillis() - aTV > j;
+        return f.GM().GP() && System.currentTimeMillis() - aUt > j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean hi(String str) {
+    public static boolean hk(String str) {
         Point point = new Point();
         ((WindowManager) AppRuntime.getAppContext().getSystemService("window")).getDefaultDisplay().getSize(point);
         int navigationBarHeight = (int) ((point.y + getNavigationBarHeight()) * 1.2d);
@@ -184,7 +184,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean hj(String str) {
+    public static boolean hl(String str) {
         new BitmapFactory.Options().inJustDecodeBounds = true;
         return BitmapFactory.decodeFile(str) != null;
     }
@@ -207,29 +207,29 @@ public class c {
 
     /* loaded from: classes2.dex */
     public static class b {
-        public Long aUc;
+        public Long aUA;
         public String mImagePath;
 
         public b(String str, Long l) {
             this.mImagePath = str;
-            this.aUc = l;
+            this.aUA = l;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        public static String[] aBW;
-        public static String aUb;
+        public static String[] aCu;
+        public static String aUz;
 
         static {
-            aUb = null;
-            aBW = null;
-            aUb = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            aBW = new String[]{"_display_name", "_data", "date_added"};
+            aUz = null;
+            aCu = null;
+            aUz = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            aCu = new String[]{"_display_name", "_data", "date_added"};
         }
 
-        public static boolean hl(String str) {
+        public static boolean hn(String str) {
             if (str == null) {
                 return false;
             }

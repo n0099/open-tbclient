@@ -19,107 +19,107 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b {
-    private DragImageView.d coI;
-    private TbImageView fgp;
-    public boolean gYA = false;
-    private UrlDragImageView gYB;
-    private RelativeLayout gYu;
-    private TextView gYv;
-    public LinearLayout gYw;
-    public TextView gYx;
-    public TextView gYy;
-    public TextView gYz;
+    private DragImageView.d cpD;
+    private TbImageView fic;
+    private RelativeLayout hao;
+    private TextView hap;
+    public LinearLayout haq;
+    public TextView har;
+    public TextView has;
+    public TextView hat;
+    public boolean hau = false;
+    private UrlDragImageView hav;
     private Context mContext;
 
     public b(ViewGroup viewGroup) {
-        this.gYu = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.big_image_ad, (ViewGroup) null);
-        this.fgp = (TbImageView) this.gYu.findViewById(R.id.big_image_ad_image);
-        this.gYv = (TextView) this.gYu.findViewById(R.id.big_image_ad_button);
-        this.gYw = (LinearLayout) this.gYu.findViewById(R.id.big_image_ad_source_container);
-        this.gYz = (TextView) this.gYu.findViewById(R.id.big_image_ad_source);
-        this.gYx = (TextView) this.gYu.findViewById(R.id.big_image_ad_title);
-        this.gYy = (TextView) this.gYu.findViewById(R.id.big_image_ad_brand);
+        this.hao = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.big_image_ad, (ViewGroup) null);
+        this.fic = (TbImageView) this.hao.findViewById(R.id.big_image_ad_image);
+        this.hap = (TextView) this.hao.findViewById(R.id.big_image_ad_button);
+        this.haq = (LinearLayout) this.hao.findViewById(R.id.big_image_ad_source_container);
+        this.hat = (TextView) this.hao.findViewById(R.id.big_image_ad_source);
+        this.har = (TextView) this.hao.findViewById(R.id.big_image_ad_title);
+        this.has = (TextView) this.hao.findViewById(R.id.big_image_ad_brand);
         this.mContext = viewGroup.getContext();
-        bIF();
+        bJs();
     }
 
     public View getView() {
-        return this.gYu;
+        return this.hao;
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.coI = dVar;
+        this.cpD = dVar;
     }
 
-    public void bIF() {
-        this.fgp.setVisibility(4);
-        this.gYB = new UrlDragImageView(this.mContext);
-        this.gYB.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.gYB.setIsCanDrag(true);
-        this.gYB.setCanScale(false);
-        this.gYB.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.1
+    public void bJs() {
+        this.fic.setVisibility(4);
+        this.hav = new UrlDragImageView(this.mContext);
+        this.hav.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.hav.setIsCanDrag(true);
+        this.hav.setCanScale(false);
+        this.hav.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.1
             @Override // com.baidu.tbadk.widget.DragImageView.d
-            public void axj() {
-                if (b.this.coI != null) {
-                    b.this.coI.axj();
+            public void axv() {
+                if (b.this.cpD != null) {
+                    b.this.cpD.axv();
                 }
-                b.this.A(b.this.gYx, 8);
-                b.this.A(b.this.gYy, 8);
+                b.this.A(b.this.har, 8);
+                b.this.A(b.this.has, 8);
             }
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
-            public void axk() {
-                if (b.this.coI != null) {
-                    b.this.coI.axk();
+            public void axw() {
+                if (b.this.cpD != null) {
+                    b.this.cpD.axw();
                 }
             }
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
-            public void axl() {
-                b.this.A(b.this.gYx, 0);
-                b.this.A(b.this.gYy, 0);
+            public void axx() {
+                b.this.A(b.this.har, 0);
+                b.this.A(b.this.has, 0);
             }
         });
-        this.gYu.addView(this.gYB, 0);
+        this.hao.addView(this.hav, 0);
     }
 
-    public UrlDragImageView bIG() {
-        return this.gYB;
+    public UrlDragImageView bJt() {
+        return this.hav;
     }
 
-    public TbImageView bIH() {
-        return this.fgp;
+    public TbImageView bJu() {
+        return this.fic;
     }
 
-    public TextView bII() {
-        return this.gYv;
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void bIJ() {
-        this.gYv.setText(R.string.pause_load);
-        this.gYv.setBackgroundResource(R.drawable.button_fenfa_xiazaizhong);
-        am.d(this.gYv, R.color.common_color_10049, 1, 0);
+    public TextView bJv() {
+        return this.hap;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void zK(String str) {
-        this.gYv.setText(str);
-        this.gYv.setBackgroundResource(R.drawable.button_fenfa_download_selector);
-        am.d(this.gYv, R.drawable.button_fenfa_download_text_selector, 1, 0);
+    public void bJw() {
+        this.hap.setText(R.string.pause_load);
+        this.hap.setBackgroundResource(R.drawable.button_fenfa_xiazaizhong);
+        am.d(this.hap, R.color.common_color_10049, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void bIK() {
-        this.gYv.setText(R.string.setup_text);
-        this.gYv.setBackgroundResource(R.drawable.button_fenfa_download_selector);
-        am.d(this.gYv, R.drawable.button_fenfa_download_text_selector, 1, 0);
+    public void Aj(String str) {
+        this.hap.setText(str);
+        this.hap.setBackgroundResource(R.drawable.button_fenfa_download_selector);
+        am.d(this.hap, R.drawable.button_fenfa_download_text_selector, 1, 0);
     }
 
-    public void bIL() {
+    @SuppressLint({"ResourceAsColor"})
+    public void bJx() {
+        this.hap.setText(R.string.setup_text);
+        this.hap.setBackgroundResource(R.drawable.button_fenfa_download_selector);
+        am.d(this.hap, R.drawable.button_fenfa_download_text_selector, 1, 0);
+    }
+
+    public void bJy() {
         int width = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getWidth();
-        ViewGroup.LayoutParams layoutParams = this.fgp.getLayoutParams();
-        double loadedHeight = this.fgp.getLoadedHeight() / this.fgp.getLoadedWidth();
+        ViewGroup.LayoutParams layoutParams = this.fic.getLayoutParams();
+        double loadedHeight = this.fic.getLoadedHeight() / this.fic.getLoadedWidth();
         if (loadedHeight > 1.0d) {
             layoutParams.height = width;
             layoutParams.width = (int) (width / loadedHeight);
@@ -127,33 +127,33 @@ public class b {
             layoutParams.height = (int) (loadedHeight * width);
             layoutParams.width = width;
         }
-        this.fgp.setLayoutParams(layoutParams);
+        this.fic.setLayoutParams(layoutParams);
     }
 
     public void A(final View.OnClickListener onClickListener) {
-        this.gYv.setOnClickListener(onClickListener);
-        this.fgp.setOnClickListener(onClickListener);
-        this.gYx.setOnClickListener(onClickListener);
-        this.gYy.setOnClickListener(onClickListener);
-        this.gYB.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.2
-            private float gYD = 0.0f;
-            private float gYE = 0.0f;
-            private float gYF = 0.0f;
+        this.hap.setOnClickListener(onClickListener);
+        this.fic.setOnClickListener(onClickListener);
+        this.har.setOnClickListener(onClickListener);
+        this.has.setOnClickListener(onClickListener);
+        this.hav.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.2
+            private float hax = 0.0f;
+            private float hay = 0.0f;
+            private float haz = 0.0f;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        b.this.gYA = false;
-                        this.gYD = motionEvent.getX();
-                        this.gYE = motionEvent.getY();
-                        this.gYF = 0.0f;
+                        b.this.hau = false;
+                        this.hax = motionEvent.getX();
+                        this.hay = motionEvent.getY();
+                        this.haz = 0.0f;
                         break;
                     case 1:
-                        b.this.gYA = 10.0f < this.gYF;
-                        if (!b.this.gYA) {
-                            if (b.this.j(b.this.fgp, (int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                                onClickListener.onClick(b.this.fgp);
+                        b.this.hau = 10.0f < this.haz;
+                        if (!b.this.hau) {
+                            if (b.this.j(b.this.fic, (int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                                onClickListener.onClick(b.this.fic);
                                 break;
                             } else if (b.this.mContext instanceof Activity) {
                                 ((Activity) b.this.mContext).finish();
@@ -162,11 +162,11 @@ public class b {
                         }
                         break;
                     case 2:
-                        float x = motionEvent.getX() - this.gYD;
-                        float y = motionEvent.getY() - this.gYE;
-                        this.gYF = (float) (Math.sqrt((x * x) + (y * y)) + this.gYF);
-                        this.gYD = motionEvent.getX();
-                        this.gYE = motionEvent.getY();
+                        float x = motionEvent.getX() - this.hax;
+                        float y = motionEvent.getY() - this.hay;
+                        this.haz = (float) (Math.sqrt((x * x) + (y * y)) + this.haz);
+                        this.hax = motionEvent.getX();
+                        this.hay = motionEvent.getY();
                         break;
                 }
                 return false;

@@ -1,8 +1,8 @@
 package com.baidu.swan.pms.model;
 /* loaded from: classes2.dex */
 public class g {
-    public f bsT;
-    public PMSAppInfo bsU;
+    public f btr;
+    public PMSAppInfo bts;
 
     public boolean equals(Object obj) {
         if (super.equals(obj)) {
@@ -11,10 +11,10 @@ public class g {
         if (obj == null || !(obj instanceof g)) {
             return false;
         }
-        return this.bsT.equals(((g) obj).bsT);
+        return this.btr.equals(((g) obj).btr);
     }
 
     public String toString() {
-        return "PMSPkgPair{pkgMain=" + this.bsT + ",appInfo=" + this.bsU + "}";
+        return "PMSPkgPair{pkgMain=" + this.btr + ",appInfo=" + this.bts + "}";
     }
 }

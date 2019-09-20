@@ -26,7 +26,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.swan.apps.camera.c.a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b alf;
+    private com.baidu.swan.apps.camera.b.b alE;
     private Timer mTimer;
 
     private a() {
@@ -34,12 +34,12 @@ public class a implements com.baidu.swan.apps.camera.c.a {
 
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0123a {
-        private static final a ali = new a();
+    private static class C0132a {
+        private static final a alH = new a();
     }
 
-    public static a xF() {
-        return C0123a.ali;
+    public static a xJ() {
+        return C0132a.alH;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2) {
@@ -89,11 +89,11 @@ public class a implements com.baidu.swan.apps.camera.c.a {
         }
     }
 
-    public CameraPreview di(String str) {
-        if (TextUtils.isEmpty(str) || alz.isEmpty()) {
+    public CameraPreview dk(String str) {
+        if (TextUtils.isEmpty(str) || alX.isEmpty()) {
             return null;
         }
-        for (CameraPreview cameraPreview : alz) {
+        for (CameraPreview cameraPreview : alX) {
             if (cameraPreview != null && TextUtils.equals(cameraPreview.getSlaveId(), str)) {
                 return cameraPreview;
             }
@@ -102,13 +102,13 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void a(CameraPreview cameraPreview) {
-        alz.add(cameraPreview);
+        alX.add(cameraPreview);
     }
 
-    public void dj(String str) {
+    public void dl(String str) {
         CameraPreview cameraPreview;
-        if (!TextUtils.isEmpty(str) && !alz.isEmpty()) {
-            Iterator<CameraPreview> it = alz.iterator();
+        if (!TextUtils.isEmpty(str) && !alX.isEmpty()) {
+            Iterator<CameraPreview> it = alX.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     cameraPreview = null;
@@ -120,20 +120,20 @@ public class a implements com.baidu.swan.apps.camera.c.a {
                 }
             }
             if (cameraPreview != null) {
-                cameraPreview.xK();
-                alz.remove(cameraPreview);
+                cameraPreview.xO();
+                alX.remove(cameraPreview);
             }
         }
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.alf = bVar;
+        this.alE = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.xI();
+                    bVar.xM();
                 }
                 a.this.stopTimer();
             }
@@ -141,32 +141,32 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void stopTimer() {
-        this.alf = null;
+        this.alE = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
-    public void xG() {
-        if (this.alf != null) {
-            this.alf.cancel();
+    public void xK() {
+        if (this.alE != null) {
+            this.alE.cancel();
         }
         stopTimer();
     }
 
     public void aT(boolean z) {
         if (z) {
-            xG();
+            xK();
         }
     }
 
     public void c(String str, String str2, boolean z) {
-        if (y.io("1.13.0")) {
+        if (y.iq("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? "error" : IntentConfig.STOP);
-            e.GF().a(new com.baidu.swan.apps.m.a.b("camera", hashMap));
+            e.GJ().a(new com.baidu.swan.apps.m.a.b("camera", hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();

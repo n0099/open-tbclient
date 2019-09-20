@@ -60,18 +60,18 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        AbsoluteLayout fe = ac.fe(ao.aDU);
-        if (fe == null) {
-            c.e("CoverView", "can not find webView by #" + ao.aDU);
+        AbsoluteLayout fg = ac.fg(ao.aEs);
+        if (fg == null) {
+            c.e("CoverView", "can not find webView by #" + ao.aEs);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(str, context, ao, fe, unitedSchemeEntity, callbackHandler);
+        return a(str, context, ao, fg, unitedSchemeEntity, callbackHandler);
     }
 
     protected com.baidu.swan.apps.view.coverview.b.a ao(JSONObject jSONObject) {
         com.baidu.swan.apps.view.coverview.b.c cVar = new com.baidu.swan.apps.view.coverview.b.c();
-        cVar.bcI = CoverViewHelper.Type.TEXT;
+        cVar.bdg = CoverViewHelper.Type.TEXT;
         try {
             cVar.parseFromJson(jSONObject);
         } catch (JSONException e) {
@@ -119,12 +119,12 @@ public class b extends z {
     }
 
     public boolean a(Context context, @NonNull com.baidu.swan.apps.view.coverview.b.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aDW;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aEu;
         if (bVar == null || !bVar.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final com.baidu.swan.apps.view.coverview.subview.a a = a(context, aVar.bcI);
+        final com.baidu.swan.apps.view.coverview.subview.a a = a(context, aVar.bdg);
         boolean a2 = new SwanAppNAViewContainer(context).a((View) a, aVar);
         a.a(aVar);
         a.setAlpha(aVar);
@@ -139,7 +139,7 @@ public class b extends z {
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put("type", "loadState");
-                                jSONObject.put("parentId", model.aDV);
+                                jSONObject.put("parentId", model.aEt);
                                 jSONObject.put("viewId", model.id);
                                 jSONObject.put("loadState", i == 1 ? "finish" : "error");
                             } catch (JSONException e) {
@@ -155,7 +155,7 @@ public class b extends z {
                             JSONObject jSONObject2 = new JSONObject();
                             try {
                                 jSONObject2.put("type", "click");
-                                jSONObject2.put("parentId", model.aDV);
+                                jSONObject2.put("parentId", model.aEt);
                                 jSONObject2.put("viewId", model.id);
                                 jSONObject2.put(Config.EVENT_HEAT_X, com.baidu.swan.apps.an.z.af(clickPosition.x));
                                 jSONObject2.put("y", com.baidu.swan.apps.an.z.af(clickPosition.y));
@@ -180,7 +180,7 @@ public class b extends z {
     }
 
     public boolean b(Context context, @NonNull com.baidu.swan.apps.view.coverview.b.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aDW;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aEu;
         if (bVar == null || !bVar.isValid()) {
             c.e("CoverView", "position not valid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -207,13 +207,13 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        boolean Qi = a.Qi();
-        if (Qi) {
+        boolean Qm = a.Qm();
+        if (Qm) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
         }
-        return Qi;
+        return Qm;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

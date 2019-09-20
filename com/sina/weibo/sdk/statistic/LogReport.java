@@ -3,7 +3,6 @@ package com.sina.weibo.sdk.statistic;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.sina.weibo.sdk.net.ConnectionFactory;
 import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.utils.LogUtil;
@@ -138,12 +137,14 @@ public class LogReport {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [227=6, 229=5, 230=5] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0131 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x012a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00e9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static boolean requestHttpExecute(String str, String str2, JSONObject jSONObject, JSONArray jSONArray, Context context) {
+        IOException e;
+        UnsupportedEncodingException e2;
         HttpURLConnection createConnect;
         ByteArrayOutputStream byteArrayOutputStream;
         boolean z = false;
@@ -155,28 +156,36 @@ public class LogReport {
                 if (jSONObject == null) {
                     try {
                         jSONObject = initCommonParams();
-                    } catch (UnsupportedEncodingException e) {
-                        e = e;
-                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e3) {
+                        e2 = e3;
+                        e2.printStackTrace();
                         if (byteArrayOutputStream2 != null) {
+                            try {
+                                byteArrayOutputStream2.close();
+                            } catch (IOException e4) {
+                            }
                         }
                         return z;
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e5) {
+                        e = e5;
                         e.printStackTrace();
                         if (byteArrayOutputStream2 != null) {
+                            try {
+                                byteArrayOutputStream2.close();
+                            } catch (IOException e6) {
+                            }
                         }
                         return z;
                     }
                 }
                 try {
-                    jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, System.currentTimeMillis() / 1000);
+                    jSONObject.put("time", System.currentTimeMillis() / 1000);
                     jSONObject.put("length", jSONArray.length());
-                    jSONObject.put("sign", getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)));
+                    jSONObject.put("sign", getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong("time")));
                     jSONObject.put("content", jSONArray);
                     LogUtil.d(WBAgent.TAG, "post content--- " + jSONObject.toString());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
+                } catch (JSONException e7) {
+                    e7.printStackTrace();
                 }
                 createConnect = ConnectionFactory.createConnect(str + "?source=" + mAppkey, context);
                 byteArrayOutputStream = new ByteArrayOutputStream();
@@ -202,7 +211,7 @@ public class LogReport {
                     if (byteArrayOutputStream != null) {
                         try {
                             byteArrayOutputStream.close();
-                        } catch (IOException e4) {
+                        } catch (IOException e8) {
                         }
                     }
                 } else {
@@ -210,30 +219,22 @@ public class LogReport {
                     if (byteArrayOutputStream != null) {
                         try {
                             byteArrayOutputStream.close();
-                        } catch (IOException e5) {
+                        } catch (IOException e9) {
                         }
                     }
                 }
-            } catch (UnsupportedEncodingException e6) {
-                e = e6;
+            } catch (UnsupportedEncodingException e10) {
+                e2 = e10;
                 byteArrayOutputStream2 = byteArrayOutputStream;
-                e.printStackTrace();
+                e2.printStackTrace();
                 if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (IOException e7) {
-                    }
                 }
                 return z;
-            } catch (IOException e8) {
-                e = e8;
+            } catch (IOException e11) {
+                e = e11;
                 byteArrayOutputStream2 = byteArrayOutputStream;
                 e.printStackTrace();
                 if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (IOException e9) {
-                    }
                 }
                 return z;
             } catch (Throwable th2) {
@@ -242,7 +243,7 @@ public class LogReport {
                 if (byteArrayOutputStream2 != null) {
                     try {
                         byteArrayOutputStream2.close();
-                    } catch (IOException e10) {
+                    } catch (IOException e12) {
                     }
                 }
                 throw th;

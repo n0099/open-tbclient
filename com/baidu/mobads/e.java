@@ -5,13 +5,13 @@ import java.util.HashMap;
 public interface e {
     void a(RsplashType rsplashType, int i);
 
-    void cM(String str);
+    void cO(String str);
 
     void l(HashMap hashMap);
 
-    void uv();
+    void uA();
 
-    void uw();
+    void uB();
 
-    void ux();
+    void uz();
 }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public final class b {
     @SuppressLint({"InlinedApi"})
     public static void a(HashMap<String, String> hashMap) {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        hashMap.put("timestamp", currentTimeMillis + "");
+        hashMap.put(DpStatConstants.KEY_TIMESTAMP, currentTimeMillis + "");
         hashMap.put("expires", (86400 + currentTimeMillis) + "");
         hashMap.put("v", "1");
         try {

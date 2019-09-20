@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes4.dex */
 public class b {
-    private static final String hGJ = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    private static final String hIF = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0375b {
+    public interface InterfaceC0386b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0375b interfaceC0375b) {
-        new a(str, str2, interfaceC0375b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0386b interfaceC0386b) {
+        new a(str, str2, interfaceC0386b).execute(new String[0]);
     }
 
     /* loaded from: classes4.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String hGK;
-        private String hGL;
-        private InterfaceC0375b hGM;
+        private String hIG;
+        private String hIH;
+        private InterfaceC0386b hII;
 
-        public a(String str, String str2, InterfaceC0375b interfaceC0375b) {
-            this.hGK = str;
-            this.hGL = str2;
-            this.hGM = interfaceC0375b;
+        public a(String str, String str2, InterfaceC0386b interfaceC0386b) {
+            this.hIG = str;
+            this.hIH = str2;
+            this.hII = interfaceC0386b;
             setPriority(3);
         }
 
@@ -41,13 +41,13 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: B */
         public ForbidTplData doInBackground(String... strArr) {
-            x xVar = new x(b.hGJ);
-            xVar.o("forum_id", this.hGK);
-            xVar.o("user_id", this.hGL);
-            String aii = xVar.aii();
-            if (xVar.aiG().ajH().isRequestSuccess()) {
+            x xVar = new x(b.hIF);
+            xVar.o("forum_id", this.hIG);
+            xVar.o("user_id", this.hIH);
+            String aim = xVar.aim();
+            if (xVar.aiK().ajN().isRequestSuccess()) {
                 try {
-                    return (ForbidTplData) OrmObject.objectWithJsonStr(aii, ForbidTplData.class);
+                    return (ForbidTplData) OrmObject.objectWithJsonStr(aim, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -56,7 +56,7 @@ public class b {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = xVar.aiK();
+            forbidTplData2.error.errno = xVar.aiO();
             forbidTplData2.error.errMsg = xVar.getErrorString();
             return forbidTplData2;
         }
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.hGM != null) {
+            if (this.hII != null) {
                 if (forbidTplData.error.errno == 0 && aq.isEmpty(forbidTplData.error.errMsg)) {
-                    this.hGM.a(forbidTplData);
+                    this.hII.a(forbidTplData);
                 } else {
-                    this.hGM.b(forbidTplData);
+                    this.hII.b(forbidTplData);
                 }
             }
         }

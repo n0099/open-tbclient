@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -1021,7 +1020,7 @@ public class BaiduMap {
                 }
             }
             this.H = infoWindow;
-            Overlay a = new MarkerOptions().perspective(false).icon(infoWindow.b != null ? BitmapDescriptorFactory.fromView(infoWindow.b) : infoWindow.a).position(infoWindow.c).zIndex(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED).yOffset(infoWindow.e).a();
+            Overlay a = new MarkerOptions().perspective(false).icon(infoWindow.b != null ? BitmapDescriptorFactory.fromView(infoWindow.b) : infoWindow.a).position(infoWindow.c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.e).a();
             a.listener = this.n;
             a.type = com.baidu.mapsdkplatform.comapi.map.h.popup;
             Bundle bundle = new Bundle();

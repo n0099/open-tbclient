@@ -4,33 +4,33 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.ForumCreateInfo;
 /* loaded from: classes4.dex */
 public class ForumCreateInfoData extends OrmObject {
-    private int eWr = 0;
-    private int eWs = 0;
-    private int eWt = 0;
-    private String eWu = null;
+    private int eXX = 0;
+    private int eXY = 0;
+    private int eXZ = 0;
+    private String eYa = null;
 
-    public boolean bfl() {
-        return this.eWr != 0;
+    public boolean bfP() {
+        return this.eXX != 0;
     }
 
-    public boolean bfm() {
-        return this.eWs != 0;
+    public boolean bfQ() {
+        return this.eXY != 0;
     }
 
-    public int bfn() {
-        return this.eWt;
+    public int bfR() {
+        return this.eXZ;
     }
 
-    public String bfo() {
-        return this.eWu;
+    public String bfS() {
+        return this.eYa;
     }
 
     public void a(ForumCreateInfo forumCreateInfo) {
         if (forumCreateInfo != null) {
-            this.eWr = forumCreateInfo.is_show_create.intValue();
-            this.eWs = forumCreateInfo.is_can_create.intValue();
-            this.eWt = forumCreateInfo.can_create_errno.intValue();
-            this.eWu = forumCreateInfo.can_create_errdata;
+            this.eXX = forumCreateInfo.is_show_create.intValue();
+            this.eXY = forumCreateInfo.is_can_create.intValue();
+            this.eXZ = forumCreateInfo.can_create_errno.intValue();
+            this.eYa = forumCreateInfo.can_create_errdata;
         }
     }
 }

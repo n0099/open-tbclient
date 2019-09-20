@@ -14,7 +14,7 @@ public class KeepLiveStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst()) && !ak.Pw()) {
+            if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst()) && !ak.PA()) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Boolean) {
                     if (((Boolean) data).booleanValue()) {
@@ -42,7 +42,7 @@ public class KeepLiveStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!ak.Pw() && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+            if (!ak.PA() && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 ScreenManager.isBackGround = false;
             }
         }
@@ -51,7 +51,7 @@ public class KeepLiveStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!ak.Pw() && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
+            if (!ak.PA() && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                 ScreenManager.isBackGround = ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue();
             }
         }

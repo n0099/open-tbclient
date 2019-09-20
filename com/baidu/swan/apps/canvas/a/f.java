@@ -22,8 +22,8 @@ public class f extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject bP(int i) {
-        return super.bP(i);
+    public /* bridge */ /* synthetic */ JSONObject bQ(int i) {
+        return super.bQ(i);
     }
 
     public f(j jVar) {
@@ -32,34 +32,34 @@ public class f extends a {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.core.d.d As;
+        com.baidu.swan.apps.core.d.d Aw;
         final com.baidu.swan.apps.canvas.c.e c = c(unitedSchemeEntity);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData action parse model is null");
-            unitedSchemeEntity.result = bP(201);
+            unitedSchemeEntity.result = bQ(201);
             return false;
         }
-        if (TextUtils.isEmpty(c.aDU) && (As = com.baidu.swan.apps.w.e.GF().As()) != null) {
-            c.aDU = As.Ac();
+        if (TextUtils.isEmpty(c.aEs) && (Aw = com.baidu.swan.apps.w.e.GJ().Aw()) != null) {
+            c.aEs = Aw.Ag();
         }
-        if (TextUtils.isEmpty(c.aDU) || TextUtils.isEmpty(c.id)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + c.aDU + " ; canvas id = " + c.id);
-            unitedSchemeEntity.result = bP(201);
+        if (TextUtils.isEmpty(c.aEs) || TextUtils.isEmpty(c.id)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + c.aEs + " ; canvas id = " + c.id);
+            unitedSchemeEntity.result = bQ(201);
             return false;
         }
-        final CanvasView b = com.baidu.swan.apps.canvas.a.xP().b(c);
+        final CanvasView b = com.baidu.swan.apps.canvas.a.xT().b(c);
         if (b == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData canvas view is null");
-            unitedSchemeEntity.result = bP(201);
+            unitedSchemeEntity.result = bQ(201);
             return false;
         }
         com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.f.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject wrapCallbackParams;
-                if (c.xW()) {
+                if (c.ya()) {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
-                    b.c(c.xX(), c.xY());
+                    b.c(c.yb(), c.yc());
                     b.postInvalidate();
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "error draw on canvas");

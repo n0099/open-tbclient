@@ -3,6 +3,6 @@ package com.baidu.swan.impl.map.item;
 import android.view.View;
 /* loaded from: classes5.dex */
 public class a {
-    public com.baidu.swan.apps.x.a.a.b boc;
-    public View bod;
+    public com.baidu.swan.apps.x.a.a.b boA;
+    public View boB;
 }

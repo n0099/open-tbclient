@@ -5,8 +5,8 @@ import java.util.Deque;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public class ar {
-    private boolean kmd = false;
-    private final Deque<Runnable> kme = new ArrayDeque();
+    private boolean koA = false;
+    private final Deque<Runnable> koB = new ArrayDeque();
     private final Executor mExecutor;
 
     public ar(Executor executor) {
@@ -14,14 +14,14 @@ public class ar {
     }
 
     public synchronized void v(Runnable runnable) {
-        if (this.kmd) {
-            this.kme.add(runnable);
+        if (this.koA) {
+            this.koB.add(runnable);
         } else {
             this.mExecutor.execute(runnable);
         }
     }
 
     public synchronized void remove(Runnable runnable) {
-        this.kme.remove(runnable);
+        this.koB.remove(runnable);
     }
 }

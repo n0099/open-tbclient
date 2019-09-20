@@ -31,7 +31,7 @@ public final class bg implements Runnable {
         aiVar.b(a.c());
         aiVar.d(this.a.getPackageName());
         aiVar.h = new HashMap();
-        com.xiaomi.channel.commonutils.android.h.a(aiVar.h, Constants.EXTRA_KEY_APP_VERSION, com.xiaomi.channel.commonutils.android.a.a(this.a, this.a.getPackageName()));
+        com.xiaomi.channel.commonutils.android.h.a(aiVar.h, "app_version", com.xiaomi.channel.commonutils.android.a.a(this.a, this.a.getPackageName()));
         com.xiaomi.channel.commonutils.android.h.a(aiVar.h, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.channel.commonutils.android.a.b(this.a, this.a.getPackageName())));
         com.xiaomi.channel.commonutils.android.h.a(aiVar.h, "push_sdk_vn", "3_6_9");
         com.xiaomi.channel.commonutils.android.h.a(aiVar.h, "push_sdk_vc", Integer.toString(30609));

@@ -1,25 +1,25 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class c extends e {
-    private String btO;
-    private String btP;
+    private String bun;
+    private String buo;
 
     public c(String str, String str2, int i) {
         super(i);
-        this.btO = str;
-        this.btP = str2;
+        this.bun = str;
+        this.buo = str2;
     }
 
-    public c kz(String str) {
-        this.btP = str;
+    public c kB(String str) {
+        this.buo = str;
         return this;
     }
 
-    public String WO() {
-        return this.btO;
+    public String WS() {
+        return this.bun;
     }
 
-    public String WP() {
-        return this.btP;
+    public String WT() {
+        return this.buo;
     }
 }

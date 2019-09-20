@@ -10,8 +10,8 @@ public class b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static String hGl = "c12585";
-        public static String hGm = "c12586";
+        public static String hIh = "c12585";
+        public static String hIi = "c12586";
     }
 
     public static CustomDialogData bN(JSONObject jSONObject) {

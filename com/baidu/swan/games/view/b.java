@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class b {
-    private FrameLayout blL;
-    private boolean blM;
+    private FrameLayout bmj;
+    private boolean bmk;
 
     public b(@NonNull FrameLayout frameLayout) {
-        this.blL = frameLayout;
+        this.bmj = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.b bVar) {
@@ -19,8 +19,8 @@ public class b {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
-        layoutParams.topMargin = bVar.Hv();
-        this.blL.addView(view, layoutParams);
+        layoutParams.topMargin = bVar.Hz();
+        this.bmj.addView(view, layoutParams);
         return true;
     }
 
@@ -28,7 +28,7 @@ public class b {
         if (!as(view)) {
             return false;
         }
-        this.blL.removeView(view);
+        this.bmj.removeView(view);
         return true;
     }
 
@@ -38,28 +38,28 @@ public class b {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
-        layoutParams.topMargin = bVar.Hv();
-        this.blL.updateViewLayout(view, layoutParams);
+        layoutParams.topMargin = bVar.Hz();
+        this.bmj.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.blM;
+        return this.bmk;
     }
 
     public void cV(boolean z) {
-        this.blM = z;
+        this.bmk = z;
     }
 
     public boolean as(View view) {
-        return view != null && view.getParent() == this.blL && this.blL.indexOfChild(view) >= 0;
+        return view != null && view.getParent() == this.bmj && this.bmj.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.blL.getContext();
+        return this.bmj.getContext();
     }
 
-    public FrameLayout Ty() {
-        return this.blL;
+    public FrameLayout TC() {
+        return this.bmj;
     }
 }

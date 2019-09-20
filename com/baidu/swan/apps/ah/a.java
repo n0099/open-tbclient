@@ -30,29 +30,29 @@ public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static void d(Context context, final com.baidu.swan.apps.v.b.b bVar) {
-        Uri iw;
+        Uri iy;
         String iconUrl = bVar.getIconUrl();
-        if (!TextUtils.isEmpty(iconUrl) && (iw = ac.iw(iconUrl)) != null) {
+        if (!TextUtils.isEmpty(iconUrl) && (iy = ac.iy(iconUrl)) != null) {
             q(bVar);
             final c cVar = new c();
             cVar.mAppId = bVar.getAppId();
-            cVar.mFrom = bVar.FG();
-            cVar.azx = bVar.FM();
-            cVar.azs = bVar.getPage();
-            cVar.azv = bVar.FL();
-            cVar.azt = bVar.isDebug();
-            cVar.azy = bVar.FP();
-            cVar.azz = bVar.FQ();
-            cVar.azA = bVar.getOrientation();
-            cVar.azw = c.c(bVar.getAppId(), bVar.FG(), bVar.FQ());
-            if (m.i(iw)) {
-                a(context, bVar, cVar, m.b(iw, context));
+            cVar.mFrom = bVar.FK();
+            cVar.azV = bVar.FQ();
+            cVar.azQ = bVar.getPage();
+            cVar.azT = bVar.FP();
+            cVar.azR = bVar.isDebug();
+            cVar.azW = bVar.FT();
+            cVar.azX = bVar.FU();
+            cVar.azY = bVar.getOrientation();
+            cVar.azU = c.c(bVar.getAppId(), bVar.FK(), bVar.FU());
+            if (m.i(iy)) {
+                a(context, bVar, cVar, m.b(iy, context));
             } else {
                 com.baidu.swan.apps.core.a.b.a(iconUrl, new m.a() { // from class: com.baidu.swan.apps.ah.a.1
                     @Override // com.baidu.swan.apps.an.m.a
                     public void d(String str, Bitmap bitmap) {
-                        if (com.baidu.swan.apps.ae.b.Md() != null) {
-                            a.a(com.baidu.swan.apps.ae.b.Md().getActivity(), com.baidu.swan.apps.v.b.b.this, cVar, bitmap);
+                        if (com.baidu.swan.apps.ae.b.Mh() != null) {
+                            a.a(com.baidu.swan.apps.ae.b.Mh().getActivity(), com.baidu.swan.apps.v.b.b.this, cVar, bitmap);
                         }
                     }
                 });
@@ -67,10 +67,10 @@ public final class a {
                 Toast.makeText(context, a.h.aiapps_common_emptyview_detail_text, 0).show();
                 return;
             }
-            if (com.baidu.swan.apps.an.a.Pi()) {
-                a(context, bVar.getAppId(), bVar.Cv(), bitmap, c.c(context, cVar));
+            if (com.baidu.swan.apps.an.a.Pm()) {
+                a(context, bVar.getAppId(), bVar.Cz(), bitmap, c.c(context, cVar));
             } else {
-                context.sendBroadcast(a(bVar.Cv(), bitmap, c.c(context, cVar)));
+                context.sendBroadcast(a(bVar.Cz(), bitmap, c.c(context, cVar)));
             }
             bD(context);
         }
@@ -78,7 +78,7 @@ public final class a {
 
     private static void q(com.baidu.swan.apps.v.b.b bVar) {
         bVar.setPage(null);
-        bVar.eM("1230000000000000");
+        bVar.eO("1230000000000000");
     }
 
     private static void bD(Context context) {
@@ -89,14 +89,14 @@ public final class a {
             return;
         }
         g.a aVar = new g.a(context);
-        g AX = aVar.AX();
-        aVar.cm(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, AX)).Lt().b(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.ah.a.2
+        g Bb = aVar.Bb();
+        aVar.cn(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, Bb)).Lx().b(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.ah.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
             }
-        }).cf(com.baidu.swan.apps.u.a.EF().Fe()).a(new com.baidu.swan.apps.view.b.a());
-        AX.setCancelable(false);
-        AX.show();
+        }).cf(com.baidu.swan.apps.u.a.EJ().Fi()).a(new com.baidu.swan.apps.view.b.a());
+        Bb.setCancelable(false);
+        Bb.show();
     }
 
     private static SpannableStringBuilder a(final Context context, final g gVar) {
@@ -145,6 +145,6 @@ public final class a {
                 return;
             }
         }
-        d.k(context, a.h.aiapps_shortcut_not_supported_text).LQ();
+        d.k(context, a.h.aiapps_shortcut_not_supported_text).LU();
     }
 }

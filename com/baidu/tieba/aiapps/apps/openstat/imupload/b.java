@@ -26,14 +26,14 @@ import okio.Okio;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class b {
-    private static b dhk;
-    private OkHttpClient dhj = aHb();
+    private static b diV;
+    private OkHttpClient diU = aHF();
 
-    public static b aHa() {
-        if (dhk == null) {
-            dhk = new b();
+    public static b aHE() {
+        if (diV == null) {
+            diV = new b();
         }
-        return dhk;
+        return diV;
     }
 
     private b() {
@@ -42,11 +42,11 @@ public class b {
     public void a(@NonNull Map<String, String> map, @NonNull byte[] bArr, String str, c cVar) {
         if (cVar != null) {
             Request a2 = a(map, bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 10000.0d)));
-            if (this.dhj == null) {
-                this.dhj = aHb();
+            if (this.diU == null) {
+                this.diU = aHF();
             }
             try {
-                Response execute = this.dhj.newCall(a2).execute();
+                Response execute = this.diU.newCall(a2).execute();
                 try {
                     if (execute.body() != null) {
                         String[] J = J(execute.body().bytes());
@@ -67,7 +67,7 @@ public class b {
     }
 
     @NonNull
-    private OkHttpClient aHb() {
+    private OkHttpClient aHF() {
         return new OkHttpClient.Builder().protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1)).pingInterval(1000L, TimeUnit.MILLISECONDS).addInterceptor(new a()).connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).connectionPool(new ConnectionPool()).build();
     }
 
@@ -92,18 +92,18 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        BIMLogPb.LogRequest.AuthInfo build = newBuilder.tl(str).build();
+        BIMLogPb.LogRequest.AuthInfo build = newBuilder.tK(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return BIMLogPb.LogRequest.newBuilder().ca(1L).tm("smart_app").b(build).cb(currentTimeMillis).tn(com.baidu.tieba.aiapps.apps.openstat.imupload.a.p("smart_app", currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+        return BIMLogPb.LogRequest.newBuilder().cd(1L).tL("smart_app").b(build).ce(currentTimeMillis).tM(com.baidu.tieba.aiapps.apps.openstat.imupload.a.r("smart_app", currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     @NonNull
     private String[] J(@NonNull byte[] bArr) {
         try {
             BIMLogPb.LogResponse parseFrom = BIMLogPb.LogResponse.parseFrom(bArr);
-            if (this.dhj.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
-                this.dhj.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
-                this.dhj = this.dhj.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
+            if (this.diU.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
+                this.diU.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
+                this.diU = this.diU.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
         } catch (InvalidProtocolBufferException e) {

@@ -28,6 +28,7 @@ import com.baidu.mapapi.walknavi.model.BaseNpcModel;
 import com.baidu.platform.comapi.walknavi.d.g;
 import com.baidu.platform.comapi.walknavi.fsm.RGState;
 import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
+import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.tieba.R;
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -332,7 +333,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     public void c() {
         if (this.T) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0078c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0087c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -348,10 +349,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0078c implements g.a {
+    public static class C0087c implements g.a {
         private WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> a;
 
-        public C0078c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
+        public C0087c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
             this.a = null;
             this.a = new WeakReference<>(bVar);
         }
@@ -434,14 +435,14 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     public void c(int i) {
-        if (i == R.drawable.aiapps_follow_vip_blue) {
-            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_follow_vip_blue));
+        if (i == R.drawable.aiapps_favorite_guide_checkbox_selector) {
+            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_favorite_guide_checkbox_selector));
             this.v = 1;
-        } else if (i == R.drawable.aiapps_game_keyboard_sendbuton_bg) {
-            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_game_keyboard_sendbuton_bg));
+        } else if (i == R.drawable.aiapps_favorite_guide_close_selector) {
+            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_favorite_guide_close_selector));
             this.v = 2;
-        } else if (i == R.drawable.aiapps_follow_vip_golden) {
-            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_follow_vip_golden));
+        } else if (i == R.drawable.aiapps_favorite_guide_close) {
+            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_favorite_guide_close));
             this.v = 3;
         }
     }
@@ -572,7 +573,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
         if (TextUtils.isEmpty(a2)) {
             this.N.setVisibility(0);
-            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_location_progress_bar_anim));
+            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_location_ding));
             return;
         }
         com.baidu.platform.comapi.walknavi.d.a a3 = com.baidu.platform.comapi.walknavi.b.a().a(a2);
@@ -584,13 +585,13 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 return;
             }
             this.N.setVisibility(0);
-            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_open_app_button_normal));
+            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_menu_add_bookmark_pressed));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("tag", "call npcSwitchCase");
+        com.baidu.platform.comapi.wnplatform.d.a.a(AddressManageResult.KEY_TAG, "call npcSwitchCase");
         com.baidu.platform.comapi.walknavi.d.e.c().a(str, this.k.getHeight(), this.k.getWidth());
         com.baidu.platform.comapi.walknavi.d.e.c().c(false);
     }

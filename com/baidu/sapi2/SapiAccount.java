@@ -42,9 +42,9 @@ public class SapiAccount implements Parcelable, Cloneable {
     @Deprecated
     private String i;
     @Deprecated
-    private String j;
-    @Deprecated
     public String phone;
+    @Deprecated
+    protected String portrait;
     protected String ptoken;
     @Deprecated
     protected String stoken;
@@ -87,9 +87,9 @@ public class SapiAccount implements Parcelable, Cloneable {
         this.app = parcel.readString();
         this.ptoken = parcel.readString();
         this.stoken = parcel.readString();
-        this.j = parcel.readString();
-        this.extra = parcel.readString();
         this.i = parcel.readString();
+        this.extra = parcel.readString();
+        this.portrait = parcel.readString();
     }
 
     public JSONObject toJSONObject() {
@@ -235,9 +235,9 @@ public class SapiAccount implements Parcelable, Cloneable {
         parcel.writeString(this.app);
         parcel.writeString(this.ptoken);
         parcel.writeString(this.stoken);
-        parcel.writeString(this.j);
-        parcel.writeString(this.extra);
         parcel.writeString(this.i);
+        parcel.writeString(this.extra);
+        parcel.writeString(this.portrait);
     }
 
     public boolean equals(Object obj) {

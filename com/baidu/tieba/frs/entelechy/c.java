@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class c implements com.baidu.tieba.frs.entelechy.b.b {
-    private float clX = 0.16875f;
+    private float cmT = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, FrsViewData frsViewData) {
@@ -24,7 +24,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
                 Iterator<m> it = threadList.iterator();
                 while (it.hasNext()) {
                     m next = it.next();
-                    if (next.getType() == bh.bJn) {
+                    if (next.getType() == bh.bJL) {
                         arrayList.add(next);
                     }
                 }
@@ -34,14 +34,14 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean rX(int i) {
+    public boolean sb(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, k kVar, FrsViewData frsViewData) {
         if (fVar != null && kVar != null && frsViewData != null) {
-            fVar.bsI();
+            fVar.btv();
             if (frsViewData != null && frsViewData.getForum() != null) {
                 kVar.a(frsViewData.getForum().getFrsBannerData());
             }

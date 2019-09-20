@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+import tv.danmaku.ijk.media.player.IjkMediaPlayerLocal;
 /* loaded from: classes3.dex */
 public final class m {
     private static final Object a = new Object();
@@ -518,16 +518,16 @@ public final class m {
                     a(a2, 20001);
                     return;
                 } else if (arrayList.size() < 0) {
-                    a(a2, IjkMediaPlayer.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
+                    a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
                     return;
                 } else if (c().size() + arrayList.size() > 500) {
-                    a(a2, IjkMediaPlayer.FFP_PROP_INT64_AUDIO_DECODER);
+                    a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_AUDIO_DECODER);
                     return;
                 } else {
                     Iterator<String> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (it.next().length() > 70) {
-                            a(a2, IjkMediaPlayer.FFP_PROP_INT64_VIDEO_DECODER);
+                            a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_VIDEO_DECODER);
                             return;
                         }
                     }
@@ -593,16 +593,16 @@ public final class m {
                     a(a2, 20001);
                     return;
                 } else if (arrayList.size() < 0) {
-                    a(a2, IjkMediaPlayer.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
+                    a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
                     return;
                 } else if (arrayList.size() > 500) {
-                    a(a2, IjkMediaPlayer.FFP_PROP_INT64_AUDIO_DECODER);
+                    a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_AUDIO_DECODER);
                     return;
                 } else {
                     Iterator<String> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (it.next().length() > 70) {
-                            a(a2, IjkMediaPlayer.FFP_PROP_INT64_VIDEO_DECODER);
+                            a(a2, IjkMediaPlayerLocal.FFP_PROP_INT64_VIDEO_DECODER);
                             return;
                         }
                     }

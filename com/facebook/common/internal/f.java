@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0449a kam;
-        private C0449a kan;
-        private boolean kao;
+        private C0460a kcJ;
+        private C0460a kcK;
+        private boolean kcL;
 
         private a(String str) {
-            this.kam = new C0449a();
-            this.kan = this.kam;
-            this.kao = false;
+            this.kcJ = new C0460a();
+            this.kcK = this.kcJ;
+            this.kcL = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -49,50 +49,50 @@ public final class f {
             return u(str, String.valueOf(z));
         }
 
-        public a bw(String str, int i) {
+        public a by(String str, int i) {
             return u(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.kao;
+            boolean z = this.kcL;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0449a c0449a = this.kam.kap; c0449a != null; c0449a = c0449a.kap) {
-                if (!z || c0449a.value != null) {
+            for (C0460a c0460a = this.kcJ.kcM; c0460a != null; c0460a = c0460a.kcM) {
+                if (!z || c0460a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0449a.name != null) {
-                        append.append(c0449a.name).append('=');
+                    if (c0460a.name != null) {
+                        append.append(c0460a.name).append('=');
                     }
-                    append.append(c0449a.value);
+                    append.append(c0460a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0449a cEX() {
-            C0449a c0449a = new C0449a();
-            this.kan.kap = c0449a;
-            this.kan = c0449a;
-            return c0449a;
+        private C0460a cFL() {
+            C0460a c0460a = new C0460a();
+            this.kcK.kcM = c0460a;
+            this.kcK = c0460a;
+            return c0460a;
         }
 
         private a u(String str, @Nullable Object obj) {
-            C0449a cEX = cEX();
-            cEX.value = obj;
-            cEX.name = (String) g.checkNotNull(str);
+            C0460a cFL = cFL();
+            cFL.value = obj;
+            cFL.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0449a {
-            C0449a kap;
+        public static final class C0460a {
+            C0460a kcM;
             String name;
             Object value;
 
-            private C0449a() {
+            private C0460a() {
             }
         }
     }

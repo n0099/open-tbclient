@@ -10,7 +10,7 @@ import org.json.JSONArray;
 public class f extends a {
     private Rect mRect;
     private Paint mPaint = new Paint();
-    private PorterDuffXfermode amr = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+    private PorterDuffXfermode amP = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void e(JSONArray jSONArray) {
@@ -30,7 +30,7 @@ public class f extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mRect != null) {
-            this.mPaint.setXfermode(this.amr);
+            this.mPaint.setXfermode(this.amP);
             canvas.drawRect(this.mRect, this.mPaint);
         }
     }

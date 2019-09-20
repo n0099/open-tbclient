@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class b extends e {
-    private String btJ;
-    private int btK;
-    private String btL;
-    private long btM;
-    private String btN;
+    private String bui;
+    private int buj;
+    private String buk;
+    private long bul;
+    private String bum;
     private String wX;
 
     public b(String str, int i) {
         super(i);
-        this.btK = -1;
-        this.btM = -1L;
-        this.btJ = str;
+        this.buj = -1;
+        this.bul = -1L;
+        this.bui = str;
     }
 
-    public b kw(String str) {
-        this.btL = str;
+    public b ky(String str) {
+        this.buk = str;
         return this;
     }
 
-    public b fL(int i) {
-        this.btK = i;
+    public b fM(int i) {
+        this.buj = i;
         return this;
     }
 
     public b ah(long j) {
-        this.btM = j;
+        this.bul = j;
         return this;
     }
 
-    public b kx(String str) {
-        this.btN = str;
+    public b kz(String str) {
+        this.bum = str;
         return this;
     }
 
-    public b ky(String str) {
+    public b kA(String str) {
         this.wX = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.btJ;
+        return this.bui;
     }
 
-    public int WK() {
-        return this.btK;
+    public int WO() {
+        return this.buj;
     }
 
-    public long WL() {
-        return this.btM;
+    public long WP() {
+        return this.bul;
     }
 
-    public String WM() {
-        return this.btL;
+    public String WQ() {
+        return this.buk;
     }
 
-    public String WN() {
-        return this.btN;
+    public String WR() {
+        return this.bum;
     }
 
     public String getPath() {
