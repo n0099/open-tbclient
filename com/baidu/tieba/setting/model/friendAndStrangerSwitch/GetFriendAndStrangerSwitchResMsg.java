@@ -1,7 +1,6 @@
 package com.baidu.tieba.setting.model.friendAndStrangerSwitch;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -10,7 +9,7 @@ public class GetFriendAndStrangerSwitchResMsg extends JsonHttpResponsedMessage {
     public int mMaskType;
 
     public GetFriendAndStrangerSwitchResMsg() {
-        super(CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH);
+        super(1003319);
         this.mMaskType = -1;
     }
 

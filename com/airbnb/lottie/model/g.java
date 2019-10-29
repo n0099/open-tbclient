@@ -1,6 +1,6 @@
 package com.airbnb.lottie.model;
 
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g {
-    private final List<com.airbnb.lottie.model.content.j> nR;
-    private final char nS;
-    private final String nT;
+    private final List<com.airbnb.lottie.model.content.j> gn;
+    private final char go;
+    private final String gp;
     private final int size;
     private final String style;
     private final double width;
@@ -20,16 +20,16 @@ public class g {
     }
 
     g(List<com.airbnb.lottie.model.content.j> list, char c, int i, double d, String str, String str2) {
-        this.nR = list;
-        this.nS = c;
+        this.gn = list;
+        this.go = c;
         this.size = i;
         this.width = d;
         this.style = str;
-        this.nT = str2;
+        this.gp = str2;
     }
 
-    public List<com.airbnb.lottie.model.content.j> cE() {
-        return this.nR;
+    public List<com.airbnb.lottie.model.content.j> bX() {
+        return this.gn;
     }
 
     public double getWidth() {
@@ -42,9 +42,9 @@ public class g {
             JSONArray optJSONArray;
             int i = 0;
             char charAt = jSONObject.optString("ch").charAt(0);
-            int optInt = jSONObject.optInt("size");
+            int optInt = jSONObject.optInt(TiebaInitialize.LogFields.SIZE);
             double optDouble = jSONObject.optDouble("w");
-            String optString = jSONObject.optString(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+            String optString = jSONObject.optString("style");
             String optString2 = jSONObject.optString("fFamily");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             List emptyList = Collections.emptyList();
@@ -65,6 +65,6 @@ public class g {
     }
 
     public int hashCode() {
-        return a(this.nS, this.nT, this.style);
+        return a(this.go, this.gp, this.style);
     }
 }

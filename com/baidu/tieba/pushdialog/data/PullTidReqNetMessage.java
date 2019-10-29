@@ -19,7 +19,7 @@ public class PullTidReqNetMessage extends NetMessage {
     protected Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            r.bindCommonParamsToProtobufData(builder, true, true, true);
+            r.a(builder, true, true, true);
             GetLockWindowTidReqIdl.Builder builder2 = new GetLockWindowTidReqIdl.Builder();
             builder2.data = builder.build(true);
             return builder2.build(true);

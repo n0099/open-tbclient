@@ -10,81 +10,82 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bc {
-    private static int bVf = -1;
-    private static int bVg = -1;
-    private static boolean bVh = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> bVi = new com.baidu.adp.lib.e.a<>(500);
+    private static int mSkin_1_common_color = -1;
+    private static int mMore_color = -1;
+    private static boolean mIsNeedInit = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> ckA = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean aI(View view);
+        boolean onViewFound(View view);
     }
 
-    public static void cC(Context context) {
+    public static void initSkinDataOnStartup(Context context) {
         mAppContext = context;
-        bVh = true;
+        mIsNeedInit = true;
     }
 
-    private static void ajL() {
+    private static void initCommonColor() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            bVg = mAppContext.getResources().getColor(R.color.common_color_10097);
-            bVf = mAppContext.getResources().getColor(R.color.common_color_10004);
+            mMore_color = mAppContext.getResources().getColor(R.color.common_color_10097);
+            mSkin_1_common_color = mAppContext.getResources().getColor(R.color.common_color_10004);
         }
     }
 
-    private static int ix(int i) {
+    private static int getCommonColor(int i) {
         boolean z = true;
         if (i != 1 && i != 4) {
             z = false;
         }
-        return ef(z);
+        return getCommonColor(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int ef(boolean z) {
-        if (bVh) {
-            bVh = false;
-            ajL();
+    public static int getCommonColor(boolean z) {
+        if (mIsNeedInit) {
+            mIsNeedInit = false;
+            initCommonColor();
         }
-        return z ? bVf : bVg;
+        return z ? mSkin_1_common_color : mMore_color;
     }
 
-    public static void aK(View view) {
+    public static void processCurrentSkin(View view) {
         if (view instanceof ViewGroup) {
-            d((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
+            processSkin((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public static void aL(View view) {
+    public static void prepareNewView(View view) {
         if (view != null) {
-            bVi.remove(Integer.valueOf(System.identityHashCode(view)));
+            ckA.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
-    public static void d(ViewGroup viewGroup, int i) {
+    public static void processSkin(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = bVi.get(Integer.valueOf(identityHashCode));
+        Integer num = ckA.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
-            e(viewGroup, i);
-            bVi.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            processSkin0(viewGroup, i);
+            ckA.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
     public static void a(ViewGroup viewGroup, boolean z, a aVar) {
-        if (!z || !aVar.aI(viewGroup)) {
+        if (!z || !aVar.onViewFound(viewGroup)) {
             LinkedList linkedList = new LinkedList();
             while (true) {
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = viewGroup.getChildAt(i);
-                    if (!aVar.aI(childAt)) {
+                    if (!aVar.onViewFound(childAt)) {
                         if (childAt instanceof ViewGroup) {
                             linkedList.addLast((ViewGroup) childAt);
                         }
@@ -101,57 +102,57 @@ public class bc {
         }
     }
 
-    private static void e(ViewGroup viewGroup, final int i) {
+    private static void processSkin0(ViewGroup viewGroup, final int i) {
         final boolean z = i == 1 || i == 4;
         a(viewGroup, true, new a() { // from class: com.baidu.tbadk.core.util.bc.1
             @Override // com.baidu.tbadk.core.util.bc.a
-            public boolean aI(View view) {
+            public boolean onViewFound(View view) {
                 Object tag = view.getTag();
                 if (tag != null) {
                     if ("skin_text_group".equals(tag)) {
-                        bc.b((TextView) view, i);
+                        bc.setTextColor((TextView) view, i);
                         return false;
                     } else if ("skin_text_content".equals(tag)) {
-                        bc.b((TextView) view, i);
+                        bc.setTextColor((TextView) view, i);
                         return false;
                     } else if ("skin_text_num".equals(tag)) {
-                        bc.f((TextView) view, i);
+                        bc.setGroupTextColor((TextView) view, i);
                         return false;
                     } else if ("skin_check_box".equals(tag)) {
-                        bc.a((CheckBox) view, i);
+                        bc.setTextColor((CheckBox) view, i);
                         return false;
                     } else if ("skin_sidebar_content".equals(tag)) {
                         ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), z ? R.style.sidebar_content_1 : R.style.sidebar_content);
                         return false;
                     } else if ("skin_more_up".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.ef(z));
+                            ((RadioButton) view).setTextColor(bc.getCommonColor(z));
                         }
-                        am.k(view, R.drawable.more_up);
+                        am.setBackgroundResource(view, R.drawable.more_up);
                         return false;
                     } else if ("skin_more_middle".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.ef(z));
+                            ((RadioButton) view).setTextColor(bc.getCommonColor(z));
                         }
-                        am.k(view, R.drawable.more_middle);
+                        am.setBackgroundResource(view, R.drawable.more_middle);
                         return false;
                     } else if ("skin_more_down".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.ef(z));
+                            ((RadioButton) view).setTextColor(bc.getCommonColor(z));
                         }
-                        am.k(view, R.drawable.more_down);
+                        am.setBackgroundResource(view, R.drawable.more_down);
                         return false;
                     } else if ("skin_more_all".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.ef(z));
+                            ((RadioButton) view).setTextColor(bc.getCommonColor(z));
                         }
-                        am.k(view, R.drawable.more_all);
+                        am.setBackgroundResource(view, R.drawable.more_all);
                         return false;
                     } else if ("skin_arrow".equals(tag)) {
-                        am.c((ImageView) view, (int) R.drawable.icon_ba_top_arrow_big);
+                        am.setImageResource((ImageView) view, R.drawable.icon_ba_top_arrow_big);
                         return false;
                     } else if ("skin_list_line".equals(tag)) {
-                        bc.m(view, i);
+                        bc.setSkinForListDivider(view, i);
                         return false;
                     } else {
                         return false;
@@ -162,7 +163,7 @@ public class bc {
         });
     }
 
-    public static void m(View view, int i) {
+    public static void setSkinForListDivider(View view, int i) {
         if (view != null) {
             if (i == 1 || i == 4) {
                 view.setBackgroundColor(-14078923);
@@ -173,39 +174,39 @@ public class bc {
     }
 
     @Deprecated
-    public static void cD(Context context) {
+    public static void skipToRegisterActivity(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
-            cE(context);
+            skipToLoginActivity(context);
         }
     }
 
-    public static void cE(Context context) {
+    public static void skipToLoginActivity(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true)));
         }
     }
 
-    public static void l(Context context, String str, String str2) {
+    public static void m(Context context, String str, String str2) {
         if (context != null) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true, str, str2)));
         }
     }
 
-    public static boolean cF(Context context) {
+    public static boolean checkUpIsLogin(Context context) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            cE(context);
+            skipToLoginActivity(context);
         }
         return isLogin;
     }
 
-    public static boolean m(Context context, String str, String str2) {
+    public static boolean n(Context context, String str, String str2) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            l(context, str, str2);
+            m(context, str, str2);
         }
         return isLogin;
     }
@@ -213,12 +214,12 @@ public class bc {
     public static boolean a(LoginActivityConfig loginActivityConfig) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
         }
         return isLogin;
     }
 
-    public static void f(TextView textView, int i) {
+    public static void setGroupTextColor(TextView textView, int i) {
         if (textView != null) {
             if (i == 1 || i == 4) {
                 textView.setTextColor(-11446171);
@@ -228,19 +229,19 @@ public class bc {
         }
     }
 
-    public static void b(TextView textView, int i) {
+    public static void setTextColor(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(ix(i));
+            textView.setTextColor(getCommonColor(i));
         }
     }
 
-    public static void a(CheckBox checkBox, int i) {
+    public static void setTextColor(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(ix(i));
+            checkBox.setTextColor(getCommonColor(i));
         }
     }
 
-    public static void b(View view, int i, boolean z) {
+    public static void addStateBarViewSpace(View view, int i, boolean z) {
         if (view != null && view.getParent() != null) {
             View view2 = (View) view.getParent().getParent();
             if (view2 instanceof LinearLayout) {
@@ -248,7 +249,7 @@ public class bc {
                 linearLayout.setOrientation(1);
                 View view3 = new View(view.getContext());
                 if (z) {
-                    am.l(view3, i);
+                    am.setBackgroundColor(view3, i);
                 } else {
                     view3.setBackgroundResource(i);
                 }

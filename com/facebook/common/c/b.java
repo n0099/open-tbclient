@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b kcP = new b();
-    private String kcQ = "unknown";
-    private int kcR = 5;
+    public static final b kaY = new b();
+    private String kaZ = "unknown";
+    private int kba = 5;
 
-    public static b cFO() {
-        return kcP;
+    public static b cCM() {
+        return kaY;
     }
 
     private b() {
@@ -18,27 +18,27 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.kcR <= i;
+        return this.kba <= i;
     }
 
     @Override // com.facebook.common.c.c
     public void v(String str, String str2) {
-        q(2, str, str2);
+        r(2, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void d(String str, String str2) {
-        q(3, str, str2);
+        r(3, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void i(String str, String str2) {
-        q(4, str, str2);
+        r(4, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void w(String str, String str2) {
-        q(5, str, str2);
+        r(5, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -48,7 +48,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public void e(String str, String str2) {
-        q(6, str, str2);
+        r(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -57,8 +57,8 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void eA(String str, String str2) {
-        q(6, str, str2);
+    public void em(String str, String str2) {
+        r(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -66,22 +66,22 @@ public class b implements c {
         b(6, str, str2, th);
     }
 
-    private void q(int i, String str, String str2) {
-        Log.println(i, Ig(str), str2);
+    private void r(int i, String str, String str2) {
+        Log.println(i, Gx(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, Ig(str), h(str2, th));
+        Log.println(i, Gx(str), j(str2, th));
     }
 
-    private String Ig(String str) {
-        if (this.kcQ != null) {
-            return this.kcQ + ":" + str;
+    private String Gx(String str) {
+        if (this.kaZ != null) {
+            return this.kaZ + ":" + str;
         }
         return str;
     }
 
-    private static String h(String str, Throwable th) {
+    private static String j(String str, Throwable th) {
         return str + '\n' + getStackTraceString(th);
     }
 

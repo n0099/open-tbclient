@@ -3,14 +3,14 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
+    private com.baidu.adp.widget.ImageView.a cGd;
+    private com.baidu.adp.widget.ImageView.a cGe;
     private int cols;
-    private com.baidu.adp.widget.ImageView.a ctU;
-    private com.baidu.adp.widget.ImageView.a ctV;
     private int rows;
 
-    public abstract boolean asB();
+    public abstract boolean aun();
 
-    public abstract EmotionGroupType asC();
+    public abstract EmotionGroupType auo();
 
     public abstract int getEmotionsCount();
 
@@ -22,51 +22,51 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String kw(int i);
+    public abstract String jO(int i);
 
-    public abstract boolean qt(String str);
+    public abstract boolean pC(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a qu(String str);
+    public abstract com.baidu.adp.widget.ImageView.a pD(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a qv(String str);
+    public abstract com.baidu.adp.widget.ImageView.a pE(String str);
 
-    public com.baidu.adp.widget.ImageView.a asD() {
-        return this.ctU;
+    public com.baidu.adp.widget.ImageView.a aup() {
+        return this.cGd;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.nK();
+            aVar.getRawBitmap();
         }
-        this.ctU = aVar;
+        this.cGd = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a asE() {
-        return this.ctV;
+    public com.baidu.adp.widget.ImageView.a auq() {
+        return this.cGe;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.nK();
+            aVar.getRawBitmap();
         }
-        this.ctV = aVar;
+        this.cGe = aVar;
     }
 
-    public int asF() {
+    public int aur() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void kx(int i) {
+    public void jP(int i) {
         this.cols = i;
     }
 
-    public int asG() {
+    public int aus() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ky(int i) {
+    public void jQ(int i) {
         this.rows = i;
     }
 }

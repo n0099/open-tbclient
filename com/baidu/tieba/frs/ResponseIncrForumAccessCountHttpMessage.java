@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountResIdl;
@@ -9,7 +8,7 @@ public class ResponseIncrForumAccessCountHttpMessage extends TbHttpResponsedMess
     private IncrForumAccessCountResIdl mResponseData;
 
     public ResponseIncrForumAccessCountHttpMessage() {
-        super(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT);
+        super(1003150);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

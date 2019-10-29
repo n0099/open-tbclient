@@ -6,6 +6,9 @@ import android.support.annotation.UiThread;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
+import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
@@ -22,20 +25,18 @@ import com.baidu.swan.games.view.recommend.a.a;
 import com.baidu.swan.games.view.recommend.a.c;
 import com.baidu.swan.games.view.recommend.a.d;
 import com.baidu.swan.games.view.recommend.a.e;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
 /* loaded from: classes2.dex */
-public class RecommendButtonApiProxy extends EventTargetImpl implements com.baidu.swan.games.view.recommend.a, a.InterfaceC0229a, d.a {
+public class RecommendButtonApiProxy extends EventTargetImpl implements com.baidu.swan.games.view.recommend.a, a.InterfaceC0261a, d.a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.games.e.b bft;
-    private com.baidu.swan.games.view.recommend.a.b bnF;
-    private c bnG;
-    private int bnH;
-    private RecommendButtonState bnI;
-    private com.baidu.swan.games.view.recommend.d.b bna;
+    private com.baidu.swan.games.view.recommend.d.b bFM;
+    private com.baidu.swan.games.view.recommend.a.b bGr;
+    private c bGs;
+    private int bGt;
+    private RecommendButtonState bGu;
+    private com.baidu.swan.games.e.b bym;
     @V8JavascriptField
     public final d style;
 
@@ -51,39 +52,39 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
 
     public RecommendButtonApiProxy(com.baidu.swan.games.e.b bVar, JsObject jsObject) {
         super(bVar);
-        com.baidu.swan.games.view.recommend.b AS;
-        this.bnG = new c();
+        com.baidu.swan.games.view.recommend.b FN;
+        this.bGs = new c();
         this.style = new d();
-        this.bft = bVar;
-        if (p(jsObject) && (AS = AS()) != null) {
-            AS.a(this);
+        this.bym = bVar;
+        if (p(jsObject) && (FN = FN()) != null) {
+            FN.a(this);
         }
     }
 
     @JavascriptInterface
     public void load() {
         if (DEBUG) {
-            Log.d("RecommendButtonApiProxy", "load: state-" + this.bnI);
+            Log.d("RecommendButtonApiProxy", "load: state-" + this.bGu);
         }
-        if (this.bnI == RecommendButtonState.IDLE) {
-            this.bnI = RecommendButtonState.LOADING;
-            e.a(this.bnH, new a() { // from class: com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.1
+        if (this.bGu == RecommendButtonState.IDLE) {
+            this.bGu = RecommendButtonState.LOADING;
+            e.a(this.bGt, new a() { // from class: com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.1
                 @Override // com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.a
                 void onSuccess(String str) {
-                    com.baidu.swan.games.view.recommend.d.d kh = com.baidu.swan.games.view.recommend.d.c.kh(str);
+                    com.baidu.swan.games.view.recommend.d.d kJ = com.baidu.swan.games.view.recommend.d.c.kJ(str);
                     if (RecommendButtonApiProxy.DEBUG) {
-                        Log.d("RecommendButtonApiProxy", "load: onSuccess-" + kh.isSuccess());
+                        Log.d("RecommendButtonApiProxy", "load: onSuccess-" + kJ.isSuccess());
                     }
-                    if (RecommendButtonApiProxy.this.bnI != RecommendButtonState.DESTROYED) {
-                        if (kh.isSuccess()) {
-                            RecommendButtonApiProxy.this.bnI = RecommendButtonState.HIDE;
-                            RecommendButtonApiProxy.this.bna = com.baidu.swan.games.view.recommend.d.c.az(kh.data);
-                            RecommendButtonApiProxy.this.bnF.a(RecommendButtonApiProxy.this.bna);
-                            RecommendButtonApiProxy.this.Us();
+                    if (RecommendButtonApiProxy.this.bGu != RecommendButtonState.DESTROYED) {
+                        if (kJ.isSuccess()) {
+                            RecommendButtonApiProxy.this.bGu = RecommendButtonState.HIDE;
+                            RecommendButtonApiProxy.this.bFM = com.baidu.swan.games.view.recommend.d.c.aX(kJ.data);
+                            RecommendButtonApiProxy.this.bGr.a(RecommendButtonApiProxy.this.bFM);
+                            RecommendButtonApiProxy.this.Zh();
                             return;
                         }
-                        RecommendButtonApiProxy.this.bnI = RecommendButtonState.IDLE;
-                        RecommendButtonApiProxy.this.kk(String.format("RecommendationButton.load failed,%s", kh.errMsg));
+                        RecommendButtonApiProxy.this.bGu = RecommendButtonState.IDLE;
+                        RecommendButtonApiProxy.this.kM(String.format("RecommendationButton.load failed,%s", kJ.errMsg));
                     }
                 }
 
@@ -92,9 +93,9 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
                     if (RecommendButtonApiProxy.DEBUG) {
                         Log.d("RecommendButtonApiProxy", "load: onFail-" + str);
                     }
-                    if (RecommendButtonApiProxy.this.bnI != RecommendButtonState.DESTROYED) {
-                        RecommendButtonApiProxy.this.bnI = RecommendButtonState.IDLE;
-                        RecommendButtonApiProxy.this.kk(String.format("RecommendationButton.load failed,%s", str));
+                    if (RecommendButtonApiProxy.this.bGu != RecommendButtonState.DESTROYED) {
+                        RecommendButtonApiProxy.this.bGu = RecommendButtonState.IDLE;
+                        RecommendButtonApiProxy.this.kM(String.format("RecommendationButton.load failed,%s", str));
                     }
                 }
             });
@@ -105,17 +106,17 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
     @JavascriptInterface
     public void show() {
         if (DEBUG) {
-            Log.d("RecommendButtonApiProxy", "show: state-" + this.bnI);
+            Log.d("RecommendButtonApiProxy", "show: state-" + this.bGu);
         }
-        if (Ur()) {
-            this.bnI = RecommendButtonState.SHOW;
+        if (Zg()) {
+            this.bGu = RecommendButtonState.SHOW;
             ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    RecommendButtonApiProxy.this.bnG.a(RecommendButtonApiProxy.this.bnH, RecommendButtonApiProxy.this.bna);
+                    RecommendButtonApiProxy.this.bGs.a(RecommendButtonApiProxy.this.bGt, RecommendButtonApiProxy.this.bFM);
                 }
             });
-            this.bnF.show();
+            this.bGr.show();
         }
     }
 
@@ -123,90 +124,90 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
     @JavascriptInterface
     public void hide() {
         if (DEBUG) {
-            Log.d("RecommendButtonApiProxy", "hide: state-" + this.bnI);
+            Log.d("RecommendButtonApiProxy", "hide: state-" + this.bGu);
         }
-        if (Ur()) {
-            this.bnI = RecommendButtonState.HIDE;
-            this.bnF.hide();
+        if (Zg()) {
+            this.bGu = RecommendButtonState.HIDE;
+            this.bGr.hide();
         }
     }
 
     @Override // com.baidu.swan.games.view.recommend.a
     @JavascriptInterface
     public void destroy() {
-        Uq();
-        com.baidu.swan.games.view.recommend.b AS = AS();
-        if (AS != null) {
-            AS.b(this);
+        Zf();
+        com.baidu.swan.games.view.recommend.b FN = FN();
+        if (FN != null) {
+            FN.b(this);
         }
     }
 
-    public void Uq() {
+    public void Zf() {
         if (DEBUG) {
-            Log.d("RecommendButtonApiProxy", "destroy: state-" + this.bnI);
+            Log.d("RecommendButtonApiProxy", "destroy: state-" + this.bGu);
         }
-        if (this.bnI != RecommendButtonState.DESTROYED) {
-            this.bnI = RecommendButtonState.DESTROYED;
-            if (this.bnF != null) {
-                this.bnF.destroy();
+        if (this.bGu != RecommendButtonState.DESTROYED) {
+            this.bGu = RecommendButtonState.DESTROYED;
+            if (this.bGr != null) {
+                this.bGr.destroy();
             }
-            this.bna = null;
+            this.bFM = null;
         }
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.d.a
-    public void iM(String str) {
+    public void jp(String str) {
         if (DEBUG) {
-            Log.d("RecommendButtonApiProxy", "onStyleChanged:" + str + Constants.ACCEPT_TIME_SEPARATOR_SP + this.bnI + Constants.ACCEPT_TIME_SEPARATOR_SP + this.style);
+            Log.d("RecommendButtonApiProxy", "onStyleChanged:" + str + Constants.ACCEPT_TIME_SEPARATOR_SP + this.bGu + Constants.ACCEPT_TIME_SEPARATOR_SP + this.style);
         }
-        if (this.bnI == RecommendButtonState.SHOW) {
-            this.bnF.update();
+        if (this.bGu == RecommendButtonState.SHOW) {
+            this.bGr.update();
         }
     }
 
-    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0229a
+    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0261a
     @UiThread
-    public void fn(int i) {
-        if (this.bna != null && i >= 0 && i < this.bna.bnE.size()) {
-            a(this.bna.bnE.get(i), "game");
+    public void gi(int i) {
+        if (this.bFM != null && i >= 0 && i < this.bFM.bGq.size()) {
+            a(this.bFM.bGq.get(i), ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME);
         }
     }
 
-    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0229a
+    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0261a
     @UiThread
-    public void Uj() {
-        if (this.bna != null) {
-            a(this.bna.bnD, "game_center");
+    public void YY() {
+        if (this.bFM != null) {
+            a(this.bFM.bGp, "game_center");
         }
     }
 
-    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0229a
+    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0261a
     @UiThread
-    public void Uk() {
-        this.bnG.g(this.bnH, IntentConfig.LIST, c.bnh);
+    public void YZ() {
+        this.bGs.g(this.bGt, "list", c.bFT);
     }
 
-    public void by(boolean z) {
-        if (Ur()) {
-            this.bnF.by(z);
+    public void bQ(boolean z) {
+        if (Zg()) {
+            this.bGr.bQ(z);
         }
     }
 
-    private com.baidu.swan.games.view.recommend.b AS() {
-        com.baidu.swan.apps.core.d.e vN;
-        SwanAppActivity Gv = com.baidu.swan.apps.w.e.GJ().Gv();
-        if (Gv == null || (vN = Gv.vN()) == null) {
+    private com.baidu.swan.games.view.recommend.b FN() {
+        com.baidu.swan.apps.core.d.e AH;
+        SwanAppActivity Lp = com.baidu.swan.apps.w.e.LD().Lp();
+        if (Lp == null || (AH = Lp.AH()) == null) {
             return null;
         }
-        h hVar = (h) vN.k(h.class);
+        h hVar = (h) AH.i(h.class);
         if (hVar != null) {
-            return hVar.AS();
+            return hVar.FN();
         }
         return null;
     }
 
     private boolean p(JsObject jsObject) {
-        this.bnI = RecommendButtonState.IDLE;
+        this.bGu = RecommendButtonState.IDLE;
         this.style.a(this);
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
         if (c == null) {
@@ -214,28 +215,28 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
         }
         String optString = c.optString("type");
         if (c(c, "type")) {
-            this.bnH = ki(optString);
+            this.bGt = kK(optString);
         } else {
-            this.bnH = 1;
+            this.bGt = 1;
         }
-        if (this.bnH == 0) {
-            kj("createRecommendationButton failed,parameter error: the 'type' is invalid.");
+        if (this.bGt == 0) {
+            kL("createRecommendationButton failed,parameter error: the 'type' is invalid.");
             return false;
         }
-        if (c(c, UnitedSchemeConstants.UNITED_SCHEME_STYLE)) {
-            JsObject jb = c.jb(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            if (jb == null) {
-                kj("createRecommendationButton failed,parameter error: the 'style' is invalid.");
+        if (c(c, "style")) {
+            JsObject jE = c.jE("style");
+            if (jE == null) {
+                kL("createRecommendationButton failed,parameter error: the 'style' is invalid.");
                 return false;
-            } else if (!q(jb)) {
-                kj("createRecommendationButton failed,parameter error: the 'style' is invalid.");
+            } else if (!q(jE)) {
+                kL("createRecommendationButton failed,parameter error: the 'style' is invalid.");
                 return false;
             }
         }
         if (DEBUG) {
             Log.d("RecommendButtonApiProxy", "init: style-" + this.style);
         }
-        this.bnF = new com.baidu.swan.games.view.recommend.proxy.a(this.bnH, this.style, this);
+        this.bGr = new com.baidu.swan.games.view.recommend.proxy.a(this.bGt, this.style, this);
         return true;
     }
 
@@ -245,11 +246,11 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
             return true;
         }
         try {
-            if (c(c, CustomDialogData.POS_LEFT)) {
-                this.style.left = (float) c.getDouble(CustomDialogData.POS_LEFT);
+            if (c(c, "left")) {
+                this.style.left = (float) c.getDouble("left");
             }
-            if (c(c, "top")) {
-                this.style.top = (float) c.getDouble("top");
+            if (c(c, VerticalTranslateLayout.TOP)) {
+                this.style.top = (float) c.getDouble(VerticalTranslateLayout.TOP);
                 return true;
             }
             return true;
@@ -259,12 +260,12 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
     }
 
     private boolean c(com.baidu.swan.games.binding.model.c cVar, String str) {
-        int iV = cVar != null ? cVar.iV(str) : 12;
-        return (iV == 12 || iV == 11) ? false : true;
+        int jy = cVar != null ? cVar.jy(str) : 12;
+        return (jy == 12 || jy == 11) ? false : true;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private int ki(@Nullable String str) {
+    private int kK(@Nullable String str) {
         boolean z;
         String lowerCase = str == null ? "" : str.toLowerCase(Locale.CHINA);
         switch (lowerCase.hashCode()) {
@@ -276,7 +277,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
                 z = true;
                 break;
             case 3322014:
-                if (lowerCase.equals(IntentConfig.LIST)) {
+                if (lowerCase.equals("list")) {
                     z = true;
                     break;
                 }
@@ -299,31 +300,31 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
     @UiThread
     private void a(com.baidu.swan.games.view.recommend.d.a aVar, String str) {
         if (aVar != null && !TextUtils.isEmpty(aVar.appKey) && !TextUtils.isEmpty(aVar.scheme)) {
-            e.x(this.bnH, aVar.appKey);
-            SchemeRouter.invokeScheme(com.baidu.swan.games.view.a.TB(), Uri.parse(aVar.scheme), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
-            this.bnG.g(this.bnH, str, aVar.appKey);
+            e.B(this.bGt, aVar.appKey);
+            SchemeRouter.invokeScheme(com.baidu.swan.games.view.a.Ys(), Uri.parse(aVar.scheme), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
+            this.bGs.g(this.bGt, str, aVar.appKey);
         }
     }
 
-    private boolean Ur() {
-        return this.bnI == RecommendButtonState.HIDE || this.bnI == RecommendButtonState.SHOW;
+    private boolean Zg() {
+        return this.bGu == RecommendButtonState.HIDE || this.bGu == RecommendButtonState.SHOW;
     }
 
-    private void kj(String str) {
-        this.bft.throwJSException(JSExceptionType.Error, str);
-        Uq();
+    private void kL(String str) {
+        this.bym.throwJSException(JSExceptionType.Error, str);
+        Zf();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Us() {
+    public void Zh() {
         dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kk(String str) {
+    public void kM(String str) {
         com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
         bVar.errMsg = str;
-        dispatchEvent(new JSEvent("error", bVar));
+        dispatchEvent(new JSEvent(BdStatsConstant.StatsType.ERROR, bVar));
     }
 
     /* loaded from: classes2.dex */
@@ -339,7 +340,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: x */
         public void onSuccess(final String str, int i) {
-            RecommendButtonApiProxy.this.bft.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.a.1
+            RecommendButtonApiProxy.this.bym.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.onSuccess(str);
@@ -349,7 +350,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(final Exception exc) {
-            RecommendButtonApiProxy.this.bft.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.a.2
+            RecommendButtonApiProxy.this.bym.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.a.2
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.onFail(exc.getMessage());

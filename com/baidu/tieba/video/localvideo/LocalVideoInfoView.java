@@ -8,105 +8,106 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.tieba.R;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object jCe = new Object();
-    private static long jCf = 3600000;
-    private ImageView ahO;
-    private TextView ajd;
-    private TextView jCd;
-    private SimpleDateFormat jCg;
-    private SimpleDateFormat jCh;
-    private boolean jCi;
+    public static final Object jBW = new Object();
+    private static long jBX = BdKVCache.MILLS_1Hour;
+    private ImageView aBm;
+    private TextView jBV;
+    private SimpleDateFormat jBY;
+    private SimpleDateFormat jBZ;
+    private boolean jCa;
     private Context mContext;
     private View mRootView;
+    private TextView textView;
     private String videoPath;
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.jCi = false;
+        this.jCa = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jCi = false;
+        this.jCa = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jCi = false;
+        this.jCa = false;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.local_video_info_view, (ViewGroup) null);
-        this.ahO = (ImageView) this.mRootView.findViewById(R.id.local_video_selet_thumb);
-        this.ahO.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ajd = (TextView) this.mRootView.findViewById(R.id.local_video_select_duration);
-        this.jCd = (TextView) this.mRootView.findViewById(R.id.no_video_title);
+        this.aBm = (ImageView) this.mRootView.findViewById(R.id.local_video_selet_thumb);
+        this.aBm.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.textView = (TextView) this.mRootView.findViewById(R.id.local_video_select_duration);
+        this.jBV = (TextView) this.mRootView.findViewById(R.id.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.jCh = new SimpleDateFormat("mm:ss");
-        this.jCg = new SimpleDateFormat("HH:mm:ss");
+        this.jBZ = new SimpleDateFormat("mm:ss");
+        this.jBY = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.jCh.setTimeZone(timeZone);
-        this.jCg.setTimeZone(timeZone);
+        this.jBZ.setTimeZone(timeZone);
+        this.jBY.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.jCi) {
+        if (!this.jCa) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
-                    this.ahO.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    this.ahO.setImageBitmap(dVar.cwD());
-                    this.ajd.setText(eF(dVar.getDuration()));
+                    this.aBm.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    this.aBm.setImageBitmap(dVar.cur());
+                    this.textView.setText(dZ(dVar.getDuration()));
                     return;
                 }
                 return;
             }
-            this.ahO.setScaleType(ImageView.ScaleType.CENTER);
-            this.ahO.setImageBitmap(null);
-            this.ahO.setImageResource(R.drawable.img_default_100);
-            this.ahO.setBackgroundColor(getResources().getColor(R.color.common_color_10304));
-            this.ajd.setText("");
+            this.aBm.setScaleType(ImageView.ScaleType.CENTER);
+            this.aBm.setImageBitmap(null);
+            this.aBm.setImageResource(R.drawable.img_default_100);
+            this.aBm.setBackgroundColor(getResources().getColor(R.color.common_color_10304));
+            this.textView.setText("");
         }
     }
 
-    public void rK(boolean z) {
-        this.jCi = true;
+    public void rt(boolean z) {
+        this.jCa = true;
         if (z) {
-            this.ahO.setScaleType(ImageView.ScaleType.CENTER);
-            this.ahO.setImageBitmap(null);
-            this.ahO.setImageResource(0);
-            this.ahO.setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d));
-            this.jCd.setVisibility(0);
+            this.aBm.setScaleType(ImageView.ScaleType.CENTER);
+            this.aBm.setImageBitmap(null);
+            this.aBm.setImageResource(0);
+            this.aBm.setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d));
+            this.jBV.setVisibility(0);
             return;
         }
-        this.ahO.setScaleType(ImageView.ScaleType.CENTER);
-        this.ahO.setImageResource(0);
-        this.ahO.setImageBitmap(null);
-        this.ahO.setBackgroundColor(getResources().getColor(R.color.white_alpha50));
-        this.ajd.setText("");
-        this.jCd.setVisibility(8);
+        this.aBm.setScaleType(ImageView.ScaleType.CENTER);
+        this.aBm.setImageResource(0);
+        this.aBm.setImageBitmap(null);
+        this.aBm.setBackgroundColor(getResources().getColor(R.color.white_alpha50));
+        this.textView.setText("");
+        this.jBV.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.jCi = false;
-        this.jCd.setVisibility(8);
+        this.jCa = false;
+        this.jBV.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.cwE()) {
+        if (dVar != null && dVar.cus()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
         }
     }
 
-    private String eF(long j) {
-        return j > jCf ? this.jCg.format(Long.valueOf(j)) : this.jCh.format(Long.valueOf(j));
+    private String dZ(long j) {
+        return j > jBX ? this.jBY.format(Long.valueOf(j)) : this.jBZ.format(Long.valueOf(j));
     }
 }

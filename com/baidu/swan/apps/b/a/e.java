@@ -5,7 +5,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class e implements com.baidu.swan.menu.c {
     @Override // com.baidu.swan.menu.c
-    public void d(int i, List<j> list) {
+    public void e(int i, List<j> list) {
     }
 
     @Override // com.baidu.swan.menu.c

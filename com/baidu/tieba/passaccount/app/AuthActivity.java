@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebView;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.d.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -38,7 +39,7 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.bSv();
+            PassManagerStatic.bPt();
             init();
             setupViews();
         } catch (Throwable th) {
@@ -77,14 +78,14 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    private String bSg() {
+    private String bPf() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", HTTP.UTF_8)));
             arrayList.add(new PassNameValuePair("banner", "1"));
             arrayList.add(new PassNameValuePair("isnew", "true"));
             arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.authToken, HTTP.UTF_8)));
-            arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, HTTP.UTF_8)));
+            arrayList.add(new PassNameValuePair(TableDefine.PaSubscribeColumns.COLUMN_TPL, URLEncoder.encode(this.tpl, HTTP.UTF_8)));
             arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=auth-widget", HTTP.UTF_8)));
         } catch (UnsupportedEncodingException e) {
             Log.e(e);
@@ -92,14 +93,14 @@ public class AuthActivity extends BaseActivity {
         return (SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap() + "/passport/authwidget") + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    private String bSh() {
+    private String bPg() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd", HTTP.UTF_8)));
             arrayList.add(new PassNameValuePair("adapter", "3"));
             arrayList.add(new PassNameValuePair("banner", "1"));
             arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-            arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, HTTP.UTF_8)));
+            arrayList.add(new PassNameValuePair(TableDefine.PaSubscribeColumns.COLUMN_TPL, URLEncoder.encode(this.tpl, HTTP.UTF_8)));
             arrayList.add(new PassNameValuePair("client", "android"));
             arrayList.add(new PassNameValuePair("clientfrom", "native"));
         } catch (UnsupportedEncodingException e) {
@@ -112,7 +113,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<PassNameValuePair> bSi() {
+    private List<PassNameValuePair> bPh() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -158,11 +159,11 @@ public class AuthActivity extends BaseActivity {
                 public void onPageFinished(WebView webView, String str) {
                 }
             });
-            this.sapiWebView.loadUrl(bSg());
+            this.sapiWebView.loadUrl(bPf());
         } else if (this.type == 1) {
             setTitleText(a.g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(bSh(), bSi());
+            this.sapiWebView.loadUrl(bPg(), bPh());
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
@@ -207,13 +208,13 @@ public class AuthActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void p(boolean z, String str) {
         if (this.type == 0) {
-            b.bSA().r(z, str);
+            b.bPy().r(z, str);
         } else if (this.type == 1) {
-            b.bSA().nW(z);
+            b.bPy().nG(z);
         } else if (this.type == 2) {
-            b.bSA().nX(z);
+            b.bPy().nH(z);
         } else {
-            b.bSA().a((AuthVerifyData.c) null);
+            b.bPy().a((AuthVerifyData.c) null);
         }
         finish();
     }

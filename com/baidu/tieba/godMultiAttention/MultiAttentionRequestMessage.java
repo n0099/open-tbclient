@@ -1,7 +1,7 @@
 package com.baidu.tieba.godMultiAttention;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.util.r;
 import java.util.ArrayList;
@@ -14,12 +14,12 @@ public class MultiAttentionRequestMessage extends NetMessage {
     private List<String> portraitList;
 
     public MultiAttentionRequestMessage() {
-        super(CmdConfigHttp.MULTI_ATTENTION_HTTP_CMD, 309388);
+        super(1003105, CmdConfigSocket.MULTI_ATTENTION_SOCKET_CMD);
         this.portraitList = new ArrayList();
     }
 
     public void setPortraitList(List<String> list) {
-        if (!v.aa(list)) {
+        if (!v.isEmpty(list)) {
             this.portraitList.clear();
             this.portraitList.addAll(list);
         }
@@ -38,7 +38,7 @@ public class MultiAttentionRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.portrait = this.portraitList;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true, true);
+            r.a(builder, true, true);
         }
         MFollowReqIdl.Builder builder2 = new MFollowReqIdl.Builder();
         builder2.data = builder.build(false);

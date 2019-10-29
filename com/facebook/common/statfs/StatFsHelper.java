@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class StatFsHelper {
-    private static StatFsHelper kds;
-    private static final long kdt = TimeUnit.MINUTES.toMillis(2);
-    private volatile File kdv;
-    private volatile File kdx;
+    private static StatFsHelper kbB;
+    private static final long kbC = TimeUnit.MINUTES.toMillis(2);
+    private volatile File kbE;
+    private volatile File kbG;
     @GuardedBy("lock")
-    private long kdy;
-    private volatile StatFs kdu = null;
-    private volatile StatFs kdw = null;
+    private long kbH;
+    private volatile StatFs kbD = null;
+    private volatile StatFs kbF = null;
     private volatile boolean mInitialized = false;
-    private final Lock kdz = new ReentrantLock();
+    private final Lock kbI = new ReentrantLock();
 
     /* loaded from: classes2.dex */
     public enum StorageType {
@@ -33,13 +33,13 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper cGh() {
+    public static synchronized StatFsHelper cDf() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (kds == null) {
-                kds = new StatFsHelper();
+            if (kbB == null) {
+                kbB = new StatFsHelper();
             }
-            statFsHelper = kds;
+            statFsHelper = kbB;
         }
         return statFsHelper;
     }
@@ -49,16 +49,16 @@ public class StatFsHelper {
 
     private void ensureInitialized() {
         if (!this.mInitialized) {
-            this.kdz.lock();
+            this.kbI.lock();
             try {
                 if (!this.mInitialized) {
-                    this.kdv = Environment.getDataDirectory();
-                    this.kdx = Environment.getExternalStorageDirectory();
-                    cGj();
+                    this.kbE = Environment.getDataDirectory();
+                    this.kbG = Environment.getExternalStorageDirectory();
+                    cDh();
                     this.mInitialized = true;
                 }
             } finally {
-                this.kdz.unlock();
+                this.kbI.unlock();
             }
         }
     }
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        cGi();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.kdu : this.kdw;
+        cDg();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.kbD : this.kbF;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,23 +89,23 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void cGi() {
-        if (this.kdz.tryLock()) {
+    private void cDg() {
+        if (this.kbI.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.kdy > kdt) {
-                    cGj();
+                if (SystemClock.uptimeMillis() - this.kbH > kbC) {
+                    cDh();
                 }
             } finally {
-                this.kdz.unlock();
+                this.kbI.unlock();
             }
         }
     }
 
     @GuardedBy("lock")
-    private void cGj() {
-        this.kdu = a(this.kdu, this.kdv);
-        this.kdw = a(this.kdw, this.kdx);
-        this.kdy = SystemClock.uptimeMillis();
+    private void cDh() {
+        this.kbD = a(this.kbD, this.kbE);
+        this.kbF = a(this.kbF, this.kbG);
+        this.kbH = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = Ik(file.getAbsolutePath());
+                statFs = GB(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -122,11 +122,11 @@ public class StatFsHelper {
         } catch (IllegalArgumentException e) {
             return null;
         } catch (Throwable th) {
-            throw k.r(th);
+            throw k.q(th);
         }
     }
 
-    protected static StatFs Ik(String str) {
+    protected static StatFs GB(String str) {
         return new StatFs(str);
     }
 }

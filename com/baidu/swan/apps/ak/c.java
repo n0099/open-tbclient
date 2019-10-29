@@ -3,13 +3,13 @@ package com.baidu.swan.apps.ak;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class c<ValueT> {
-    private a<ValueT> aZU;
+    private ValueT bY;
+    private a<ValueT> bsT;
     public final String id;
-    private ValueT jp;
 
     /* loaded from: classes2.dex */
     public interface a<ValueT> {
-        ValueT Oa() throws IllegalStateException;
+        ValueT SQ() throws IllegalStateException;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.ak.e */
@@ -17,27 +17,27 @@ public final class c<ValueT> {
     /* JADX WARN: Multi-variable type inference failed */
     public c(String str) {
         this.id = str;
-        e.Pd().a(this);
+        e.TT().a(this);
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, Pc());
+        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, TS());
     }
 
     public c<ValueT> a(a<ValueT> aVar) {
-        this.aZU = aVar;
+        this.bsT = aVar;
         update();
         return this;
     }
 
     public boolean update() {
-        return b(this.aZU);
+        return b(this.bsT);
     }
 
     public boolean b(a<ValueT> aVar) {
         if (aVar != null) {
             try {
-                return K(aVar.Oa());
+                return I(aVar.SQ());
             } catch (IllegalStateException e) {
                 com.baidu.swan.apps.console.c.w("Tracer", "index update IllegalStateException " + e.getMessage());
                 return false;
@@ -48,13 +48,13 @@ public final class c<ValueT> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.ak.e */
     /* JADX WARN: Multi-variable type inference failed */
-    public boolean K(ValueT valuet) {
-        this.jp = valuet;
-        e.Pd().b(this);
+    public boolean I(ValueT valuet) {
+        this.bY = valuet;
+        e.TT().b(this);
         return true;
     }
 
-    public CharSequence Pc() {
-        return this.jp == null ? "" : this.jp.toString();
+    public CharSequence TS() {
+        return this.bY == null ? "" : this.bY.toString();
     }
 }

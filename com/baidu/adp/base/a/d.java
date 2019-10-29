@@ -7,78 +7,78 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class d implements a {
-    private SQLiteDatabase sV = null;
-    private a.InterfaceC0012a sY;
-    private int tb;
-    private final String tc;
+    private SQLiteDatabase database = null;
+    private final String dbFileFullPath;
+    private a.InterfaceC0012a lf;
+    private int mVersion;
 
-    public abstract void d(SQLiteDatabase sQLiteDatabase);
+    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
 
-    public abstract void e(SQLiteDatabase sQLiteDatabase);
+    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
     public void a(a.InterfaceC0012a interfaceC0012a) {
-        this.sY = interfaceC0012a;
+        this.lf = interfaceC0012a;
     }
 
     public d(String str, int i) {
-        this.tb = 1;
-        this.tb = i;
-        this.tc = str;
+        this.mVersion = 1;
+        this.mVersion = i;
+        this.dbFileFullPath = str;
     }
 
     @Override // com.baidu.adp.base.a.a
     public SQLiteDatabase getWritableDatabase() {
-        File file = new File(this.tc);
+        File file = new File(this.dbFileFullPath);
         if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
             boolean exists = file.exists();
-            this.sV = SQLiteDatabase.openOrCreateDatabase(this.tc, (SQLiteDatabase.CursorFactory) null);
-            if (this.sV != null) {
+            this.database = SQLiteDatabase.openOrCreateDatabase(this.dbFileFullPath, (SQLiteDatabase.CursorFactory) null);
+            if (this.database != null) {
                 if (!exists) {
-                    g(this.sV);
-                    this.sV.setVersion(this.tb);
+                    onCreateDatabase(this.database);
+                    this.database.setVersion(this.mVersion);
                 } else {
-                    int version = this.sV.getVersion();
-                    if (version != this.tb) {
-                        a(this.sV, version, this.tb);
-                        this.sV.setVersion(this.tb);
+                    int version = this.database.getVersion();
+                    if (version != this.mVersion) {
+                        onUpdateDatabase(this.database, version, this.mVersion);
+                        this.database.setVersion(this.mVersion);
                     }
                 }
             }
         }
-        return this.sV;
+        return this.database;
     }
 
-    private void g(SQLiteDatabase sQLiteDatabase) {
+    private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
         onCreate(sQLiteDatabase);
-        f(sQLiteDatabase);
+        exeCallback(sQLiteDatabase);
     }
 
-    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         if (i2 > i) {
             onUpgrade(sQLiteDatabase, i, i2);
         } else {
             onDowngrade(sQLiteDatabase, i, i2);
         }
-        f(sQLiteDatabase);
+        exeCallback(sQLiteDatabase);
     }
 
-    private void f(SQLiteDatabase sQLiteDatabase) {
-        if (this.sY != null) {
-            this.sY.c(sQLiteDatabase);
+    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
+        if (this.lf != null) {
+            this.lf.onDatabaseCreated(sQLiteDatabase);
         }
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean ac(Context context) {
-        File file = new File(this.tc);
+    public boolean dropDatabase(Context context) {
+        File file = new File(this.dbFileFullPath);
         if (file.exists()) {
             return file.delete();
         }
         return false;
     }
 
-    public boolean b(SQLiteDatabase sQLiteDatabase, String str) {
+    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
             return true;
@@ -89,11 +89,11 @@ public abstract class d implements a {
     }
 
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        d(sQLiteDatabase);
+        createAllTables(sQLiteDatabase);
     }
 
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        e(sQLiteDatabase);
-        d(sQLiteDatabase);
+        clearAllTables(sQLiteDatabase);
+        createAllTables(sQLiteDatabase);
     }
 }

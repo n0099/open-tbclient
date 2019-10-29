@@ -17,30 +17,30 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsAdCommentScrollView extends LinearLayout {
-    private int evs;
-    private ValueAnimator evt;
-    private TextView fBk;
-    private TextView fBl;
-    private FrameLayout fBm;
-    private FrameLayout fBn;
-    private List<i> fBo;
+    private FrameLayout fAA;
+    private FrameLayout fAB;
+    private ValueAnimator fAC;
+    private List<i> fAD;
+    private int fAE;
+    private TextView fAy;
+    private TextView fAz;
     private Handler mHandler;
     private Runnable mScrollRunnable;
 
     static /* synthetic */ int e(FrsAdCommentScrollView frsAdCommentScrollView) {
-        int i = frsAdCommentScrollView.evs;
-        frsAdCommentScrollView.evs = i + 1;
+        int i = frsAdCommentScrollView.fAE;
+        frsAdCommentScrollView.fAE = i + 1;
         return i;
     }
 
     public FrsAdCommentScrollView(Context context) {
         super(context);
         this.mHandler = new Handler();
-        this.evs = 0;
+        this.fAE = 0;
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.aYO();
+                FrsAdCommentScrollView.this.bmh();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -50,11 +50,11 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrsAdCommentScrollView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = new Handler();
-        this.evs = 0;
+        this.fAE = 0;
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.aYO();
+                FrsAdCommentScrollView.this.bmh();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -64,11 +64,11 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrsAdCommentScrollView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = new Handler();
-        this.evs = 0;
+        this.fAE = 0;
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.aYO();
+                FrsAdCommentScrollView.this.bmh();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -76,79 +76,79 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     private void init() {
-        this.fBo = new LinkedList();
+        this.fAD = new LinkedList();
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.frs_ad_comment_scroll_view, this);
-        this.fBk = (TextView) findViewById(R.id.cur_display_view);
-        this.fBl = (TextView) findViewById(R.id.next_display_view);
-        this.fBm = (FrameLayout) findViewById(R.id.cur_display_layout);
-        this.fBm.setTag(this.fBk);
-        this.fBn = (FrameLayout) findViewById(R.id.next_display_layout);
-        this.fBn.setTag(this.fBl);
+        this.fAy = (TextView) findViewById(R.id.cur_display_view);
+        this.fAz = (TextView) findViewById(R.id.next_display_view);
+        this.fAA = (FrameLayout) findViewById(R.id.cur_display_layout);
+        this.fAA.setTag(this.fAy);
+        this.fAB = (FrameLayout) findViewById(R.id.next_display_layout);
+        this.fAB.setTag(this.fAz);
     }
 
-    public void jV(boolean z) {
+    public void jJ(boolean z) {
         if (z) {
-            bpb();
+            bmf();
         }
     }
 
-    public void aU(List<i> list) {
-        if (v.Z(list) <= 1) {
+    public void bh(List<i> list) {
+        if (v.getCount(list) <= 1) {
             this.mHandler.removeCallbacks(this.mScrollRunnable);
             setVisibility(8);
             return;
         }
-        this.fBo.clear();
-        this.fBo.addAll(list);
+        this.fAD.clear();
+        this.fAD.addAll(list);
         setVisibility(0);
-        this.evs = 0;
-        bpc();
-        bpb();
+        this.fAE = 0;
+        bmg();
+        bmf();
     }
 
-    private void bpb() {
+    private void bmf() {
         this.mHandler.removeCallbacks(this.mScrollRunnable);
-        if (v.Z(this.fBo) >= 2) {
+        if (v.getCount(this.fAD) >= 2) {
             this.mHandler.postDelayed(this.mScrollRunnable, 5000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpc() {
+    public void bmg() {
         i iVar;
-        i iVar2 = (i) v.c(this.fBo, this.evs);
-        if (this.evs + 1 >= this.fBo.size()) {
-            iVar = (i) v.c(this.fBo, 0);
+        i iVar2 = (i) v.getItem(this.fAD, this.fAE);
+        if (this.fAE + 1 >= this.fAD.size()) {
+            iVar = (i) v.getItem(this.fAD, 0);
         } else {
-            iVar = (i) v.c(this.fBo, this.evs + 1);
+            iVar = (i) v.getItem(this.fAD, this.fAE + 1);
         }
-        if ((this.fBm.getTag() instanceof TextView) && iVar2 != null) {
+        if ((this.fAA.getTag() instanceof TextView) && iVar2 != null) {
             String title = iVar2.getTitle();
-            if (iVar2.cpz()) {
+            if (iVar2.cnq()) {
                 title = getContext().getString(R.string.frs_top_ad_lz_reply, title);
             }
-            ((TextView) this.fBm.getTag()).setText(title);
+            ((TextView) this.fAA.getTag()).setText(title);
         }
-        if ((this.fBn.getTag() instanceof TextView) && iVar != null) {
+        if ((this.fAB.getTag() instanceof TextView) && iVar != null) {
             String title2 = iVar.getTitle();
-            ((TextView) this.fBn.getTag()).setText(iVar.cpz() ? getContext().getString(R.string.frs_top_ad_lz_reply, title2) : title2);
+            ((TextView) this.fAB.getTag()).setText(iVar.cnq() ? getContext().getString(R.string.frs_top_ad_lz_reply, title2) : title2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aYO() {
-        final float y = this.fBn.getY();
-        this.evt = ValueAnimator.ofFloat(0.0f, this.fBm.getMeasuredHeight());
-        this.evt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.2
+    public void bmh() {
+        final float y = this.fAB.getY();
+        this.fAC = ValueAnimator.ofFloat(0.0f, this.fAA.getMeasuredHeight());
+        this.fAC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                FrsAdCommentScrollView.this.fBm.setY(-floatValue);
-                FrsAdCommentScrollView.this.fBn.setY(y - floatValue);
+                FrsAdCommentScrollView.this.fAA.setY(-floatValue);
+                FrsAdCommentScrollView.this.fAB.setY(y - floatValue);
             }
         });
-        this.evt.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.3
+        this.fAC.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -156,14 +156,14 @@ public class FrsAdCommentScrollView extends LinearLayout {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 FrsAdCommentScrollView.e(FrsAdCommentScrollView.this);
-                if (FrsAdCommentScrollView.this.evs == FrsAdCommentScrollView.this.fBo.size()) {
-                    FrsAdCommentScrollView.this.evs = 0;
+                if (FrsAdCommentScrollView.this.fAE == FrsAdCommentScrollView.this.fAD.size()) {
+                    FrsAdCommentScrollView.this.fAE = 0;
                 }
-                FrameLayout frameLayout = FrsAdCommentScrollView.this.fBm;
-                FrsAdCommentScrollView.this.fBm = FrsAdCommentScrollView.this.fBn;
-                FrsAdCommentScrollView.this.fBn = frameLayout;
-                FrsAdCommentScrollView.this.fBn.setY(FrsAdCommentScrollView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds99));
-                FrsAdCommentScrollView.this.bpc();
+                FrameLayout frameLayout = FrsAdCommentScrollView.this.fAA;
+                FrsAdCommentScrollView.this.fAA = FrsAdCommentScrollView.this.fAB;
+                FrsAdCommentScrollView.this.fAB = frameLayout;
+                FrsAdCommentScrollView.this.fAB.setY(FrsAdCommentScrollView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds99));
+                FrsAdCommentScrollView.this.bmg();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -174,13 +174,13 @@ public class FrsAdCommentScrollView extends LinearLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.evt.start();
+        this.fAC.start();
     }
 
     public void onDestroy() {
         this.mHandler.removeCallbacks(this.mScrollRunnable);
-        if (this.evt != null) {
-            this.evt.cancel();
+        if (this.fAC != null) {
+            this.fAC.cancel();
         }
     }
 }

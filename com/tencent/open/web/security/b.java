@@ -14,7 +14,7 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class b extends com.tencent.open.a {
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List<String> list, a.C0483a c0483a) {
+    public void a(String str, String str2, List<String> list, a.C0584a c0584a) {
         f.a("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -27,12 +27,12 @@ public class b extends com.tencent.open.a {
         a.b bVar = this.a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.SecureJsBridge", "-->handler != null");
-            bVar.call(str2, list, c0483a);
+            bVar.call(str2, list, c0584a);
             return;
         }
         f.b("openSDK_LOG.SecureJsBridge", "-->handler == null");
-        if (c0483a != null) {
-            c0483a.a();
+        if (c0584a != null) {
+            c0584a.a();
         }
     }
 

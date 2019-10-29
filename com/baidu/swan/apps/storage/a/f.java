@@ -2,6 +2,7 @@ package com.baidu.swan.apps.storage.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -25,22 +26,22 @@ public class f extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = optParamsAsJo.optString("key");
+        String optString = optParamsAsJo.optString(TiebaInitialize.Params.KEY);
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        String string = bVar.Mk().NV().getString(optString, "");
+        String string = bVar.Rc().SL().getString(optString, "");
         try {
-            JSONObject hO = hO(string);
-            if (hO == null) {
-                hO = new JSONObject();
+            JSONObject is = is(string);
+            if (is == null) {
+                is = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                hO.put("data", string);
+                is.put("data", string);
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hO, 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(is, 0));
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
@@ -51,14 +52,14 @@ public class f extends z {
         }
     }
 
-    private JSONObject hO(String str) {
+    private JSONObject is(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.has("key")) {
-                jSONObject.remove("key");
+            if (jSONObject.has(TiebaInitialize.Params.KEY)) {
+                jSONObject.remove(TiebaInitialize.Params.KEY);
             }
             return jSONObject;
         } catch (JSONException e) {

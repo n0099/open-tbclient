@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.mobstat.Config;
 import com.tencent.connect.common.Constants;
 import java.io.BufferedReader;
@@ -75,7 +76,7 @@ public class f {
     private String c(String str) {
         InputStream open;
         try {
-            open = this.c.openFileInput(this.d != null ? str + "." + this.d : str);
+            open = this.c.openFileInput(this.d != null ? str + DefaultConfig.TOKEN_SEPARATOR + this.d : str);
         } catch (FileNotFoundException e) {
             try {
                 open = this.c.getAssets().open(str);
@@ -125,7 +126,7 @@ public class f {
     private void a(String str, String str2) {
         try {
             if (this.d != null) {
-                str = str + "." + this.d;
+                str = str + DefaultConfig.TOKEN_SEPARATOR + this.d;
             }
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.c.openFileOutput(str, 0), Charset.forName(HTTP.UTF_8));
             outputStreamWriter.write(str2);

@@ -46,19 +46,19 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 /* loaded from: classes4.dex */
 public class b implements e {
-    private static final MediaType djF = MediaType.parse("application/octet-stream");
+    private static final MediaType dsZ = MediaType.parse("application/octet-stream");
     private OkHttpClient client;
-    private OkHttpClient.Builder djG = null;
-    private OkHttpClient djH = null;
+    private OkHttpClient.Builder dta = null;
+    private OkHttpClient dtb = null;
     private final HttpParams params = new AbstractHttpParams() { // from class: com.baidu.tieba.aiapps.apps.q.b.1
         @Override // org.apache.http.params.HttpParams
         public Object getParameter(String str) {
             Proxy proxy;
             if (str.equals(ConnRoutePNames.DEFAULT_PROXY)) {
-                if (b.this.djH != null) {
-                    proxy = b.this.djH.proxy();
+                if (b.this.dtb != null) {
+                    proxy = b.this.dtb.proxy();
                 } else {
-                    proxy = b.this.aIm().proxy();
+                    proxy = b.this.aIw().proxy();
                 }
                 if (proxy == null) {
                     return null;
@@ -66,21 +66,21 @@ public class b implements e {
                 InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
                 return new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort());
             } else if (str.equals(CoreConnectionPNames.CONNECTION_TIMEOUT)) {
-                int connectTimeoutMillis = b.this.aIm().connectTimeoutMillis();
-                if (b.this.djH != null) {
-                    connectTimeoutMillis = b.this.djH.connectTimeoutMillis();
+                int connectTimeoutMillis = b.this.aIw().connectTimeoutMillis();
+                if (b.this.dtb != null) {
+                    connectTimeoutMillis = b.this.dtb.connectTimeoutMillis();
                 }
                 return Integer.valueOf(connectTimeoutMillis);
             } else if (str.equals(CoreConnectionPNames.SO_TIMEOUT)) {
-                int readTimeoutMillis = b.this.aIm().readTimeoutMillis();
-                if (b.this.djH != null) {
-                    readTimeoutMillis = b.this.djH.readTimeoutMillis();
+                int readTimeoutMillis = b.this.aIw().readTimeoutMillis();
+                if (b.this.dtb != null) {
+                    readTimeoutMillis = b.this.dtb.readTimeoutMillis();
                 }
                 return Integer.valueOf(readTimeoutMillis);
             } else if (str.equals(ClientPNames.HANDLE_REDIRECTS)) {
-                boolean followRedirects = b.this.aIm().followRedirects();
-                if (b.this.djH != null) {
-                    followRedirects = b.this.djH.followRedirects();
+                boolean followRedirects = b.this.aIw().followRedirects();
+                if (b.this.dtb != null) {
+                    followRedirects = b.this.dtb.followRedirects();
                 }
                 return Boolean.valueOf(followRedirects);
             } else if (str.equals(CoreProtocolPNames.USER_AGENT)) {
@@ -101,15 +101,15 @@ public class b implements e {
                 if (httpHost != null) {
                     proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(httpHost.getHostName(), httpHost.getPort()));
                 }
-                b.this.aIn().proxy(proxy);
+                b.this.aIx().proxy(proxy);
             } else if (str.equals(CoreConnectionPNames.CONNECTION_TIMEOUT)) {
-                b.this.aIn().connectTimeout(((Integer) obj).intValue(), TimeUnit.MILLISECONDS);
+                b.this.aIx().connectTimeout(((Integer) obj).intValue(), TimeUnit.MILLISECONDS);
             } else if (str.equals(CoreConnectionPNames.SO_TIMEOUT)) {
                 int intValue = ((Integer) obj).intValue();
-                b.this.aIn().readTimeout(intValue, TimeUnit.MILLISECONDS).writeTimeout(intValue, TimeUnit.MILLISECONDS);
+                b.this.aIx().readTimeout(intValue, TimeUnit.MILLISECONDS).writeTimeout(intValue, TimeUnit.MILLISECONDS);
             } else if (str.equals(ClientPNames.HANDLE_REDIRECTS)) {
                 boolean booleanValue = ((Boolean) obj).booleanValue();
-                b.this.aIn().followRedirects(booleanValue).followSslRedirects(booleanValue);
+                b.this.aIx().followRedirects(booleanValue).followSslRedirects(booleanValue);
             } else if (str.equals(CoreProtocolPNames.USER_AGENT)) {
                 b.this.userAgent = (String) obj;
             } else {
@@ -131,26 +131,26 @@ public class b implements e {
     private String userAgent;
 
     public b() {
-        aIl();
+        aIv();
     }
 
-    protected void aIl() {
+    protected void aIv() {
         this.client = HttpManager.getDefault(AppRuntime.getAppContext()).getOkHttpClient();
     }
 
-    protected OkHttpClient aIm() {
+    protected OkHttpClient aIw() {
         return this.client;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public OkHttpClient.Builder aIn() {
-        if (this.djG == null) {
-            this.djG = aIm().newBuilder();
+    public OkHttpClient.Builder aIx() {
+        if (this.dta == null) {
+            this.dta = aIw().newBuilder();
         }
-        return this.djG;
+        return this.dta;
     }
 
-    private Request a(HttpRequest httpRequest) {
+    private Request c(HttpRequest httpRequest) {
         RequestBody requestBody;
         String str;
         Request.Builder builder = new Request.Builder();
@@ -233,7 +233,7 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.q.e
-    public HttpResponse b(HttpUriRequest httpUriRequest) throws ClientProtocolException, IOException {
+    public HttpResponse executeSafely(HttpUriRequest httpUriRequest) throws ClientProtocolException, IOException {
         return execute(httpUriRequest);
     }
 
@@ -241,7 +241,7 @@ public class b implements e {
     public void close() {
     }
 
-    public void aIo() throws IOException {
+    public void aIy() throws IOException {
     }
 
     @Override // org.apache.http.client.HttpClient
@@ -272,13 +272,13 @@ public class b implements e {
     @Override // org.apache.http.client.HttpClient
     public HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws IOException {
         Call newCall;
-        aIo();
-        Request a2 = a(httpRequest);
-        if (this.djG == null) {
-            newCall = aIm().newCall(a2);
+        aIy();
+        Request c = c(httpRequest);
+        if (this.dta == null) {
+            newCall = aIw().newCall(c);
         } else {
-            this.djH = this.djG.build();
-            newCall = this.djH.newCall(a2);
+            this.dtb = this.dta.build();
+            newCall = this.dtb.newCall(c);
         }
         return a(newCall.execute());
     }
@@ -318,15 +318,15 @@ public class b implements e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static final class a extends RequestBody {
-        private final HttpEntity djJ;
+        private final HttpEntity dtd;
         private final MediaType mediaType;
 
         a(HttpEntity httpEntity, String str) {
-            this.djJ = httpEntity;
+            this.dtd = httpEntity;
             if (str != null) {
                 this.mediaType = MediaType.parse(str);
             } else if (httpEntity.getContentType() == null) {
-                this.mediaType = b.djF;
+                this.mediaType = b.dsZ;
             } else {
                 this.mediaType = MediaType.parse(httpEntity.getContentType().getValue());
             }
@@ -334,7 +334,7 @@ public class b implements e {
 
         @Override // okhttp3.RequestBody
         public long contentLength() {
-            return this.djJ.getContentLength();
+            return this.dtd.getContentLength();
         }
 
         @Override // okhttp3.RequestBody
@@ -344,7 +344,7 @@ public class b implements e {
 
         @Override // okhttp3.RequestBody
         public void writeTo(BufferedSink bufferedSink) throws IOException {
-            this.djJ.writeTo(bufferedSink.outputStream());
+            this.dtd.writeTo(bufferedSink.outputStream());
         }
     }
 }

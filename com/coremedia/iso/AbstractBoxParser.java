@@ -2,7 +2,6 @@ package com.coremedia.iso;
 
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.DataSource;
 import java.io.EOFException;
 import java.io.IOException;
@@ -15,7 +14,7 @@ public abstract class AbstractBoxParser implements BoxParser {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
-        /* renamed from: cEY */
+        /* renamed from: cBL */
         public ByteBuffer initialValue() {
             return ByteBuffer.allocate(32);
         }
@@ -56,7 +55,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                 } else {
                     j = readUInt32 - 8;
                 }
-                if (UserBox.TYPE.equals(read4cc)) {
+                if ("uuid".equals(read4cc)) {
                     this.header.get().limit(this.header.get().limit() + 16);
                     dataSource.read(this.header.get());
                     byte[] bArr3 = new byte[16];

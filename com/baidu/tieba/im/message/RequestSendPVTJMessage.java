@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import java.util.HashMap;
 import org.json.JSONObject;
@@ -15,11 +16,11 @@ public class RequestSendPVTJMessage extends TbSocketMessage {
     private String stType;
 
     public RequestSendPVTJMessage() {
-        super(104001);
+        super(CmdConfigSocket.CMD_SEND_PV_TJ);
     }
 
     public RequestSendPVTJMessage(String str, String str2) {
-        super(104001);
+        super(CmdConfigSocket.CMD_SEND_PV_TJ);
         this.stType = str;
         this.stExt = str2;
     }

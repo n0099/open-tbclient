@@ -3,6 +3,8 @@ package com.baidu.swan.apps.scheme.actions.f;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -11,7 +13,6 @@ import com.baidu.swan.apps.core.d.e;
 import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -25,46 +26,46 @@ public class a extends z {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        e vN = com.baidu.swan.apps.w.e.GJ().vN();
-        if (vN == null) {
+        e AH = com.baidu.swan.apps.w.e.LD().AH();
+        if (AH == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b Av = vN.Av();
-        if (Av == null) {
+        com.baidu.swan.apps.core.d.b Fq = AH.Fq();
+        if (Fq == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        SwanAppActionBar zF = Av.zF();
-        if (zF == null) {
+        SwanAppActionBar EA = Fq.EA();
+        if (EA == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        View rightMenu = zF.getRightMenu();
+        View rightMenu = EA.getRightMenu();
         if (rightMenu == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        unitedSchemeEntity.result = aj(rightMenu);
+        unitedSchemeEntity.result = ap(rightMenu);
         return true;
     }
 
-    private JSONObject aj(View view) {
+    private JSONObject ap(View view) {
         JSONObject wrapCallbackParams;
-        float ag = com.baidu.swan.apps.an.z.ag(view.getLeft());
-        float ag2 = com.baidu.swan.apps.an.z.ag(view.getRight());
-        float ag3 = com.baidu.swan.apps.an.z.ag(view.getTop());
-        float ag4 = com.baidu.swan.apps.an.z.ag(view.getBottom());
-        float f = ag2 - ag;
-        float f2 = ag4 - ag3;
+        float V = com.baidu.swan.apps.an.z.V(view.getLeft());
+        float V2 = com.baidu.swan.apps.an.z.V(view.getRight());
+        float V3 = com.baidu.swan.apps.an.z.V(view.getTop());
+        float V4 = com.baidu.swan.apps.an.z.V(view.getBottom());
+        float f = V2 - V;
+        float f2 = V4 - V3;
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("width", f);
             jSONObject.put("height", f2);
-            jSONObject.put(CustomDialogData.POS_LEFT, ag);
-            jSONObject.put("right", ag2);
-            jSONObject.put("top", ag3);
-            jSONObject.put("bottom", ag4);
+            jSONObject.put("left", V);
+            jSONObject.put(HorizontalTranslateLayout.RIGHT, V2);
+            jSONObject.put(VerticalTranslateLayout.TOP, V3);
+            jSONObject.put(VerticalTranslateLayout.BOTTOM, V4);
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
         } catch (JSONException e) {
             if (DEBUG) {

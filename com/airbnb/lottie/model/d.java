@@ -2,6 +2,7 @@ package com.airbnb.lottie.model;
 
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import org.json.JSONArray;
@@ -11,13 +12,13 @@ public class d {
     @ColorInt
     public int color;
     public String fontName;
-    int nI;
-    public int nJ;
-    double nK;
-    public double nL;
+    int ge;
+    public int gf;
+    double gg;
+    public double gh;
     @ColorInt
-    public int nM;
-    public boolean nN;
+    public int gi;
+    public boolean gj;
     public int size;
     public int strokeWidth;
     public String text;
@@ -26,21 +27,21 @@ public class d {
         this.text = str;
         this.fontName = str2;
         this.size = i;
-        this.nI = i2;
-        this.nJ = i3;
-        this.nK = d;
-        this.nL = d2;
+        this.ge = i2;
+        this.gf = i3;
+        this.gg = d;
+        this.gh = d2;
         this.color = i4;
-        this.nM = i5;
+        this.gi = i5;
         this.strokeWidth = i6;
-        this.nN = z;
+        this.gj = z;
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static d e(JSONObject jSONObject) {
             String optString = jSONObject.optString("t");
-            String optString2 = jSONObject.optString("f");
+            String optString2 = jSONObject.optString(BdStatsConstant.StatsKey.FROM);
             int optInt = jSONObject.optInt("s");
             int optInt2 = jSONObject.optInt("j");
             int optInt3 = jSONObject.optInt("tr");
@@ -58,7 +59,7 @@ public class d {
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.nK);
-        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.nI) * 31) + this.nJ) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.gg);
+        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.ge) * 31) + this.gf) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

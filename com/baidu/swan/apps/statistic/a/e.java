@@ -2,16 +2,15 @@ package com.baidu.swan.apps.statistic.a;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.ubc.UBC;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject aWq;
-    protected JSONObject aWr;
-    public String azQ;
+    public String aTe;
+    protected JSONObject bpu;
+    protected JSONObject bpv;
     public String mAppId;
     public String mFrom = "swan";
     public String mSource;
@@ -28,22 +27,22 @@ public class e {
                 jSONObject.put("type", this.mType);
             }
             if (!TextUtils.isEmpty(this.mValue)) {
-                jSONObject.put(UBC.CONTENT_KEY_VALUE, this.mValue);
+                jSONObject.put("value", this.mValue);
             }
             if (TextUtils.isEmpty(this.mSource)) {
                 this.mSource = "NA";
             }
             jSONObject.put("source", this.mSource);
-            if (!TextUtils.isEmpty(this.azQ)) {
-                jSONObject.put("page", this.azQ);
+            if (!TextUtils.isEmpty(this.aTe)) {
+                jSONObject.put("page", this.aTe);
             }
-            if (this.aWq == null) {
-                this.aWq = new JSONObject();
+            if (this.bpu == null) {
+                this.bpu = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.aWq.put("appid", this.mAppId);
+                this.bpu.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.aWq);
+            jSONObject.put("ext", this.bpu);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -53,16 +52,16 @@ public class e {
         }
     }
 
-    public void aj(JSONObject jSONObject) {
+    public void aH(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.aWq == null) {
-                this.aWq = new JSONObject();
+            if (this.bpu == null) {
+                this.bpu = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.aWq.put(next, jSONObject.opt(next));
+                    this.bpu.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -72,20 +71,20 @@ public class e {
         }
     }
 
-    public void ak(JSONObject jSONObject) {
+    public void aI(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.aWq == null) {
-                this.aWq = new JSONObject();
+            if (this.bpu == null) {
+                this.bpu = new JSONObject();
             }
-            this.aWr = this.aWq.optJSONObject("extlog");
-            if (this.aWr == null) {
-                this.aWr = new JSONObject();
+            this.bpv = this.bpu.optJSONObject("extlog");
+            if (this.bpv == null) {
+                this.bpv = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.aWr.put(next, jSONObject.opt(next));
+                    this.bpv.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -93,7 +92,7 @@ public class e {
                 }
             }
             try {
-                this.aWq.put("extlog", this.aWr);
+                this.bpu.put("extlog", this.bpv);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -102,12 +101,12 @@ public class e {
         }
     }
 
-    public void k(@NonNull String str, Object obj) {
-        if (this.aWq == null) {
-            this.aWq = new JSONObject();
+    public void h(@NonNull String str, Object obj) {
+        if (this.bpu == null) {
+            this.bpu = new JSONObject();
         }
         try {
-            this.aWq.put(str, obj);
+            this.bpu.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

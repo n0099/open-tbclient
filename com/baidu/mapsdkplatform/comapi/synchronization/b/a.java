@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceData;
@@ -120,7 +121,7 @@ public class a extends Handler {
             this.g = false;
             int optInt = jSONObject.optInt("total");
             historyTraceData.setTotalPoints(optInt);
-            int optInt2 = jSONObject.optInt("size");
+            int optInt2 = jSONObject.optInt(TiebaInitialize.LogFields.SIZE);
             int optInt3 = jSONObject.optInt("req_page_index");
             if (optInt2 * optInt3 < optInt) {
                 h = true;

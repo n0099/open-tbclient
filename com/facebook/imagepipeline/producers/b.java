@@ -5,20 +5,20 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class b<T> implements j<T> {
-    private boolean kmN = false;
+    private boolean kkZ = false;
 
-    protected abstract void A(Throwable th);
+    protected abstract void cHB();
 
-    protected abstract void cKE();
+    protected abstract void e(T t, boolean z);
 
-    protected abstract void d(T t, boolean z);
+    protected abstract void z(Throwable th);
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void e(@Nullable T t, boolean z) {
-        if (!this.kmN) {
-            this.kmN = z;
+    public synchronized void f(@Nullable T t, boolean z) {
+        if (!this.kkZ) {
+            this.kkZ = z;
             try {
-                d(t, z);
+                e(t, z);
             } catch (Exception e) {
                 n(e);
             }
@@ -26,11 +26,11 @@ public abstract class b<T> implements j<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void B(Throwable th) {
-        if (!this.kmN) {
-            this.kmN = true;
+    public synchronized void A(Throwable th) {
+        if (!this.kkZ) {
+            this.kkZ = true;
             try {
-                A(th);
+                z(th);
             } catch (Exception e) {
                 n(e);
             }
@@ -38,11 +38,11 @@ public abstract class b<T> implements j<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void cFJ() {
-        if (!this.kmN) {
-            this.kmN = true;
+    public synchronized void cCH() {
+        if (!this.kkZ) {
+            this.kkZ = true;
             try {
-                cKE();
+                cHB();
             } catch (Exception e) {
                 n(e);
             }
@@ -50,17 +50,17 @@ public abstract class b<T> implements j<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void aS(float f) {
-        if (!this.kmN) {
+    public synchronized void av(float f) {
+        if (!this.kkZ) {
             try {
-                bg(f);
+                aJ(f);
             } catch (Exception e) {
                 n(e);
             }
         }
     }
 
-    protected void bg(float f) {
+    protected void aJ(float f) {
     }
 
     protected void n(Exception exc) {

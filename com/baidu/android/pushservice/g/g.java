@@ -2,7 +2,6 @@ package com.baidu.android.pushservice.g;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -31,7 +30,7 @@ public class g extends b {
             jSONObject.put("app_package_name", b());
         }
         if (!TextUtils.isEmpty(c())) {
-            jSONObject.put(DpStatConstants.KEY_APP_NAME, c());
+            jSONObject.put("app_name", c());
         }
         if (!TextUtils.isEmpty(d())) {
             jSONObject.put("app_cfrom", d());

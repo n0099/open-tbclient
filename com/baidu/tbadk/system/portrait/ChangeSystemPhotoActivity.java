@@ -34,58 +34,58 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoActivity> {
-    com.baidu.tbadk.core.view.b cDr;
+    com.baidu.tbadk.core.view.b cOA;
     private NavigationBar mNavigationBar = null;
-    private TextView cDh = null;
-    private View cDi = null;
-    private BdGridView cDj = null;
-    private LinearLayout bOF = null;
-    private com.baidu.tbadk.system.portrait.a cDk = null;
-    private ArrayList<b> cDl = null;
-    private int cDm = -1;
-    private a cDn = null;
-    private com.baidu.adp.widget.ImageView.a cDo = null;
-    private String cDp = null;
-    private boolean cDq = true;
-    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> mCallback = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.7
+    private TextView cOq = null;
+    private View cOr = null;
+    private BdGridView cOs = null;
+    private LinearLayout mRootView = null;
+    private com.baidu.tbadk.system.portrait.a cOt = null;
+    private ArrayList<b> cOu = null;
+    private int cOv = -1;
+    private a cOw = null;
+    private com.baidu.adp.widget.ImageView.a cOx = null;
+    private String cOy = null;
+    private boolean cOz = true;
+    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> cit = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass7) aVar, str, i);
             if (aVar != null) {
-                if (ChangeSystemPhotoActivity.this.cDr == null) {
-                    ChangeSystemPhotoActivity.this.cDr = new com.baidu.tbadk.core.view.b(ChangeSystemPhotoActivity.this.getPageContext());
-                    ChangeSystemPhotoActivity.this.cDr.e(null);
+                if (ChangeSystemPhotoActivity.this.cOA == null) {
+                    ChangeSystemPhotoActivity.this.cOA = new com.baidu.tbadk.core.view.b(ChangeSystemPhotoActivity.this.getPageContext());
+                    ChangeSystemPhotoActivity.this.cOA.setCancelListener(null);
                 }
-                ChangeSystemPhotoActivity.this.cDr.em(true);
-                if (ChangeSystemPhotoActivity.this.cDq) {
-                    ChangeSystemPhotoActivity.this.cDo = aVar;
-                    if (ChangeSystemPhotoActivity.this.cDn != null) {
-                        ChangeSystemPhotoActivity.this.cDn.cancel();
+                ChangeSystemPhotoActivity.this.cOA.setDialogVisiable(true);
+                if (ChangeSystemPhotoActivity.this.cOz) {
+                    ChangeSystemPhotoActivity.this.cOx = aVar;
+                    if (ChangeSystemPhotoActivity.this.cOw != null) {
+                        ChangeSystemPhotoActivity.this.cOw.cancel();
                     }
-                    ChangeSystemPhotoActivity.this.cDn = new a();
-                    ChangeSystemPhotoActivity.this.cDn.execute(new String[0]);
+                    ChangeSystemPhotoActivity.this.cOw = new a();
+                    ChangeSystemPhotoActivity.this.cOw.execute(new String[0]);
                     return;
                 }
-                Bitmap nK = aVar.nK();
-                if (nK != null) {
-                    if (!ChangeSystemPhotoActivity.this.f(TbConfig.PERSON_USER_PIC_TEMP_FILE, nK)) {
-                        if (ChangeSystemPhotoActivity.this.cDr != null) {
-                            ChangeSystemPhotoActivity.this.cDr.em(false);
+                Bitmap rawBitmap = aVar.getRawBitmap();
+                if (rawBitmap != null) {
+                    if (!ChangeSystemPhotoActivity.this.b(TbConfig.PERSON_USER_PIC_TEMP_FILE, rawBitmap)) {
+                        if (ChangeSystemPhotoActivity.this.cOA != null) {
+                            ChangeSystemPhotoActivity.this.cOA.setDialogVisiable(false);
                             return;
                         }
                         return;
                     }
-                    if (ChangeSystemPhotoActivity.this.cDr != null) {
-                        ChangeSystemPhotoActivity.this.cDr.em(false);
+                    if (ChangeSystemPhotoActivity.this.cOA != null) {
+                        ChangeSystemPhotoActivity.this.cOA.setDialogVisiable(false);
                     }
                     Intent intent = new Intent();
                     intent.putExtra("upload_image_type", 2);
                     ChangeSystemPhotoActivity.this.setResult(-1, intent);
                     ChangeSystemPhotoActivity.this.finish();
-                } else if (ChangeSystemPhotoActivity.this.cDr != null) {
-                    ChangeSystemPhotoActivity.this.cDr.em(false);
+                } else if (ChangeSystemPhotoActivity.this.cOA != null) {
+                    ChangeSystemPhotoActivity.this.cOA.setDialogVisiable(false);
                 }
             }
         }
@@ -101,13 +101,13 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     }
 
     public void initUI() {
-        this.bOF = (LinearLayout) findViewById(R.id.change_system_photo_layout);
+        this.mRootView = (LinearLayout) findViewById(R.id.change_system_photo_layout);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.cDi = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.cDi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.1
+        this.cOr = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.cOr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ChangeSystemPhotoActivity.this.cDm != -1) {
+                if (ChangeSystemPhotoActivity.this.cOv != -1) {
                     ChangeSystemPhotoActivity.this.showDialog();
                     return;
                 }
@@ -116,44 +116,44 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             }
         });
         this.mNavigationBar.setTitleText(R.string.choose_system_photo);
-        this.cDh = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.done));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cDh.getLayoutParams();
-        layoutParams.rightMargin = l.g(getPageContext().getPageActivity(), R.dimen.ds16);
-        this.cDh.setLayoutParams(layoutParams);
-        fM(false);
-        am.k(this.cDh, R.drawable.s_navbar_button_bg);
-        am.f(this.cDh, R.color.navbar_btn_color, 1);
-        this.cDh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.2
+        this.cOq = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.done));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cOq.getLayoutParams();
+        layoutParams.rightMargin = l.getDimens(getPageContext().getPageActivity(), R.dimen.ds16);
+        this.cOq.setLayoutParams(layoutParams);
+        fB(false);
+        am.setBackgroundResource(this.cOq, R.drawable.s_navbar_button_bg);
+        am.setViewTextColor(this.cOq, R.color.navbar_btn_color, 1);
+        this.cOq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ChangeSystemPhotoActivity.this.cDm != -1) {
-                    ChangeSystemPhotoActivity.this.a((b) ChangeSystemPhotoActivity.this.cDl.get(ChangeSystemPhotoActivity.this.cDm));
+                if (ChangeSystemPhotoActivity.this.cOv != -1) {
+                    ChangeSystemPhotoActivity.this.a((b) ChangeSystemPhotoActivity.this.cOu.get(ChangeSystemPhotoActivity.this.cOv));
                 }
             }
         });
-        this.cDj = (BdGridView) findViewById(R.id.recommend_photos_list);
-        this.cDk = new com.baidu.tbadk.system.portrait.a(getPageContext());
-        this.cDj.setAdapter((ListAdapter) this.cDk);
-        this.cDj.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.3
+        this.cOs = (BdGridView) findViewById(R.id.recommend_photos_list);
+        this.cOt = new com.baidu.tbadk.system.portrait.a(getPageContext());
+        this.cOs.setAdapter((ListAdapter) this.cOt);
+        this.cOs.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (ChangeSystemPhotoActivity.this.cDl != null && ChangeSystemPhotoActivity.this.cDl.size() > 0 && ChangeSystemPhotoActivity.this.cDl.size() > i && ChangeSystemPhotoActivity.this.cDl.get(i) != null) {
-                    ChangeSystemPhotoActivity.this.cDm = i;
-                    ChangeSystemPhotoActivity.this.fM(true);
-                    ChangeSystemPhotoActivity.this.cDk.la(i);
-                    ChangeSystemPhotoActivity.this.cDk.notifyDataSetChanged();
+                if (ChangeSystemPhotoActivity.this.cOu != null && ChangeSystemPhotoActivity.this.cOu.size() > 0 && ChangeSystemPhotoActivity.this.cOu.size() > i && ChangeSystemPhotoActivity.this.cOu.get(i) != null) {
+                    ChangeSystemPhotoActivity.this.cOv = i;
+                    ChangeSystemPhotoActivity.this.fB(true);
+                    ChangeSystemPhotoActivity.this.cOt.kl(i);
+                    ChangeSystemPhotoActivity.this.cOt.notifyDataSetChanged();
                 }
             }
         });
     }
 
     public void initData() {
-        this.cDq = getIntent().getBooleanExtra("need_upload", true);
-        this.cDl = new ArrayList<>();
-        awh();
+        this.cOz = getIntent().getBooleanExtra("need_upload", true);
+        this.cOu = new ArrayList<>();
+        axm();
     }
 
-    private void awh() {
+    private void axm() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             SapiAccountManager.getInstance().getAccountService().getPopularPortraitsInfo(new GetPopularPortraitsCallback() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.4
@@ -167,13 +167,13 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                                 b bVar = new b();
                                 bVar.setUrl(popularPortraitsInfo.url);
                                 bVar.setNum(popularPortraitsInfo.num);
-                                bVar.lb(popularPortraitsInfo.myItem);
-                                bVar.rk(popularPortraitsInfo.series);
-                                ChangeSystemPhotoActivity.this.cDl.add(bVar);
+                                bVar.km(popularPortraitsInfo.myItem);
+                                bVar.qi(popularPortraitsInfo.series);
+                                ChangeSystemPhotoActivity.this.cOu.add(bVar);
                             }
                         }
-                        ChangeSystemPhotoActivity.this.cDk.A(ChangeSystemPhotoActivity.this.cDl);
-                        ChangeSystemPhotoActivity.this.cDk.notifyDataSetChanged();
+                        ChangeSystemPhotoActivity.this.cOt.C(ChangeSystemPhotoActivity.this.cOu);
+                        ChangeSystemPhotoActivity.this.cOt.notifyDataSetChanged();
                     }
                 }
 
@@ -196,20 +196,20 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
 
     public void a(b bVar) {
         if (bVar != null && !StringUtils.isNull(bVar.getUrl())) {
-            this.cDp = bVar.getUrl();
-            c.iE().a(bVar.getUrl(), 10, this.mCallback, 0, 0, getUniqueId(), new Object[0]);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921378, this.cDp));
+            this.cOy = bVar.getUrl();
+            c.fT().a(bVar.getUrl(), 10, this.cit, 0, 0, getUniqueId(), new Object[0]);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921378, this.cOy));
         }
     }
 
-    public void fM(boolean z) {
-        this.cDh.setEnabled(z);
-        am.k(this.cDh, R.drawable.s_navbar_button_bg);
+    public void fB(boolean z) {
+        this.cOq.setEnabled(z);
+        am.setBackgroundResource(this.cOq, R.drawable.s_navbar_button_bg);
     }
 
     public void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.hv(R.string.enter_forum_cancel_change_tip);
+        aVar.hU(R.string.enter_forum_cancel_change_tip);
         aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -223,13 +223,13 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 ChangeSystemPhotoActivity.this.finish();
             }
         });
-        aVar.b(getPageContext()).agO();
+        aVar.b(getPageContext()).akO();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.cDm != -1) {
+            if (this.cOv != -1) {
                 showDialog();
             } else {
                 setResult(0);
@@ -245,16 +245,16 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.bOF);
+        getLayoutMode().onModeChanged(this.mRootView);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.k(this.cDh, R.drawable.s_navbar_button_bg);
-        am.f(this.cDh, R.color.navbar_btn_color, 1);
+        am.setBackgroundResource(this.cOq, R.drawable.s_navbar_button_bg);
+        am.setViewTextColor(this.cOq, R.color.navbar_btn_color, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean f(String str, Bitmap bitmap) {
+    public boolean b(String str, Bitmap bitmap) {
         try {
-            m.a((String) null, str, bitmap, 80);
+            m.a(null, str, bitmap, 80);
             return true;
         } catch (Exception e) {
             BdLog.e(e.toString());
@@ -284,14 +284,14 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Exception e;
             this.mNetwork = new x(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
             try {
-                this.mNetwork.d("pic", ChangeSystemPhotoActivity.this.cDo.nN());
-                str = this.mNetwork.aip();
+                this.mNetwork.addPostData("pic", ChangeSystemPhotoActivity.this.cOx.getImageByte());
+                str = this.mNetwork.postMultiNetData();
             } catch (Exception e2) {
                 str = null;
                 e = e2;
             }
             try {
-                if (this.mNetwork.aiK().ajN().isRequestSuccess()) {
+                if (this.mNetwork.amr().amS().isRequestSuccess()) {
                     return str;
                 }
                 return null;
@@ -304,9 +304,9 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ChangeSystemPhotoActivity.this.cDn = null;
+            ChangeSystemPhotoActivity.this.cOw = null;
             if (this.mNetwork != null) {
-                this.mNetwork.ik();
+                this.mNetwork.cancelNetConnect();
             }
             super.cancel(true);
         }
@@ -316,19 +316,19 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             if (this.mNetwork != null) {
-                if (ChangeSystemPhotoActivity.this.cDr != null) {
-                    ChangeSystemPhotoActivity.this.cDr.em(false);
+                if (ChangeSystemPhotoActivity.this.cOA != null) {
+                    ChangeSystemPhotoActivity.this.cOA.setDialogVisiable(false);
                 }
-                if (this.mNetwork.aiK().ajN().isRequestSuccess()) {
-                    new e().i(ChangeSystemPhotoActivity.this.getResources().getString(R.string.reset_success));
+                if (this.mNetwork.amr().amS().isRequestSuccess()) {
+                    new e().showSuccessToast(ChangeSystemPhotoActivity.this.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
-                    intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.cDp);
+                    intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.cOy);
                     intent.putExtra("upload_image_type", 1);
                     ChangeSystemPhotoActivity.this.setResult(-1, intent);
                     ChangeSystemPhotoActivity.this.finish();
                     return;
                 }
-                new e().j(ChangeSystemPhotoActivity.this.getResources().getString(R.string.setdefualt_error));
+                new e().showFailToast(ChangeSystemPhotoActivity.this.getResources().getString(R.string.setdefualt_error));
             }
         }
     }

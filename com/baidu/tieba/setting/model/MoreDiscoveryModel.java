@@ -8,9 +8,9 @@ import com.baidu.adp.framework.listener.a;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
@@ -26,9 +26,9 @@ import tbclient.Profile.ProfileResIdl;
 public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public static final int GET_DATA_FROM_DB = 2;
     public static final int GET_DATA_FROM_NET = 1;
-    private b fao;
-    private a iTw;
-    private NicknameInfo itR;
+    private b fcZ;
+    private a iTh;
+    private NicknameInfo isr;
     private final Context mContext;
     private String mId;
     private boolean mIsLoading;
@@ -38,26 +38,26 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public MoreDiscoveryModel(MoreActivity moreActivity) {
         super(moreActivity.getPageContext());
         this.mUIHandler = null;
-        this.fao = null;
+        this.fcZ = null;
         this.mIsLoading = false;
-        this.iTw = new a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012) { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.1
+        this.iTh = new a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || MoreDiscoveryModel.this.getUniqueId() == null || MoreDiscoveryModel.this.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
                         if (responsedMessage instanceof ProfileSocketResponseMessage) {
                             ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                            if (MoreDiscoveryModel.this.fao != null) {
-                                MoreDiscoveryModel.this.fao.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.getDownSize(), 0L, profileSocketResponseMessage.getCostTime());
-                                MoreDiscoveryModel.this.fao = null;
+                            if (MoreDiscoveryModel.this.fcZ != null) {
+                                MoreDiscoveryModel.this.fcZ.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.getDownSize(), 0L, profileSocketResponseMessage.getCostTime());
+                                MoreDiscoveryModel.this.fcZ = null;
                             }
                             MoreDiscoveryModel.this.a(profileSocketResponseMessage);
                         }
                         if (responsedMessage instanceof ProfileHttpResponseMessage) {
                             ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                            if (MoreDiscoveryModel.this.fao != null) {
-                                MoreDiscoveryModel.this.fao.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.getDownSize(), profileHttpResponseMessage.getCostTime(), 0L);
-                                MoreDiscoveryModel.this.fao = null;
+                            if (MoreDiscoveryModel.this.fcZ != null) {
+                                MoreDiscoveryModel.this.fcZ.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.getDownSize(), profileHttpResponseMessage.getCostTime(), 0L);
+                                MoreDiscoveryModel.this.fcZ = null;
                             }
                             MoreDiscoveryModel.this.a(profileHttpResponseMessage);
                         }
@@ -68,12 +68,12 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.mUser = null;
         this.mContext = moreActivity.getPageContext().getContext();
         this.mUIHandler = new Handler(Looper.getMainLooper());
-        this.fao = new b("profileStat");
-        registerListener(this.iTw);
+        this.fcZ = new b("profileStat");
+        registerListener(this.iTh);
     }
 
     public NicknameInfo getNicknameInfo() {
-        return this.itR;
+        return this.isr;
     }
 
     public UserData getUser() {
@@ -88,20 +88,20 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.mId = str;
     }
 
-    public void ai(boolean z, boolean z2) {
+    public void ak(boolean z, boolean z2) {
         cancelMessage();
-        aj(z, z2);
+        al(z, z2);
     }
 
-    public void aj(boolean z, boolean z2) {
+    public void al(boolean z, boolean z2) {
         if (!this.mIsLoading) {
             this.mIsLoading = true;
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                profileRequestMessage.set_uid(Long.valueOf(com.baidu.adp.lib.g.b.e(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(com.baidu.adp.lib.g.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L)));
             }
             if (z) {
-                acu();
+                agA();
                 return;
             }
             profileRequestMessage.set_need_post_count(1);
@@ -113,7 +113,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             profileRequestMessage.setSelf(true);
             profileRequestMessage.setIs_from_usercenter(1);
             profileRequestMessage.setPage(2);
-            ckK();
+            ciw();
             sendMessage(profileRequestMessage);
         }
     }
@@ -124,9 +124,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (user != null) {
                 setUser(user);
             }
-            com.baidu.tbadk.getUserInfo.b.atC().a(getUser());
+            com.baidu.tbadk.getUserInfo.b.avm().a(getUser());
             this.mLoadDataMode = 1;
-            this.mLoadDataCallBack.m(true);
+            this.mLoadDataCallBack.callback(true);
             return;
         }
         if (z3) {
@@ -135,7 +135,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             setErrorString(this.mContext.getString(R.string.neterror));
         }
         this.mLoadDataMode = 1;
-        this.mLoadDataCallBack.m(false);
+        this.mLoadDataCallBack.callback(false);
     }
 
     public void a(ProfileSocketResponseMessage profileSocketResponseMessage) {
@@ -159,7 +159,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(profileSocketResponseMessage.GetUser());
-                this.itR = profileSocketResponseMessage.getNicknameInfo();
+                this.isr = profileSocketResponseMessage.getNicknameInfo();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -172,7 +172,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(profileHttpResponseMessage.GetUser());
-                this.itR = profileHttpResponseMessage.getNicknameInfo();
+                this.isr = profileHttpResponseMessage.getNicknameInfo();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -180,12 +180,12 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
     }
 
-    public void acu() {
-        ckJ().a("profile_cache_key", new l.a<byte[]>() { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.2
+    public void agA() {
+        civ().a("profile_cache_key", new l.a<byte[]>() { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.cache.l.a
-            /* renamed from: m */
-            public void h(String str, byte[] bArr) {
+            /* renamed from: l */
+            public void onItemGet(String str, byte[] bArr) {
                 boolean z;
                 if (bArr != null) {
                     try {
@@ -200,7 +200,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                             public void run() {
                                 MoreDiscoveryModel.this.mLoadDataMode = 2;
                                 MoreDiscoveryModel.this.setErrorString(null);
-                                MoreDiscoveryModel.this.mLoadDataCallBack.m(true);
+                                MoreDiscoveryModel.this.mLoadDataCallBack.callback(true);
                             }
                         });
                     }
@@ -215,21 +215,21 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(dataRes.user);
-                this.itR = dataRes.nickname_info;
+                this.isr = dataRes.nickname_info;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private l<byte[]> ckJ() {
-        return com.baidu.tbadk.core.d.a.agL().bD("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+    private l<byte[]> civ() {
+        return com.baidu.tbadk.core.d.a.akN().bJ("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
     }
 
-    private void ckK() {
-        if (this.fao == null) {
-            this.fao = new b("profileStat");
-            this.fao.start();
+    private void ciw() {
+        if (this.fcZ == null) {
+            this.fcZ = new b("profileStat");
+            this.fcZ.start();
         }
     }
 

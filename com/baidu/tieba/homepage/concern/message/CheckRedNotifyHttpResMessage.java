@@ -1,7 +1,6 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.RedNotify.RedNotifyResIdl;
 /* loaded from: classes4.dex */
@@ -9,7 +8,7 @@ public class CheckRedNotifyHttpResMessage extends HttpResponsedMessage {
     private boolean isShowRedNotify;
 
     public CheckRedNotifyHttpResMessage() {
-        super(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY);
+        super(1003344);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

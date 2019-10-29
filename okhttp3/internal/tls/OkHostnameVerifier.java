@@ -1,5 +1,7 @@
 package okhttp3.internal.tls;
 
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -87,14 +89,14 @@ public final class OkHostnameVerifier implements HostnameVerifier {
     }
 
     public boolean verifyHostname(String str, String str2) {
-        if (str == null || str.length() == 0 || str.startsWith(".") || str.endsWith("..") || str2 == null || str2.length() == 0 || str2.startsWith(".") || str2.endsWith("..")) {
+        if (str == null || str.length() == 0 || str.startsWith(DefaultConfig.TOKEN_SEPARATOR) || str.endsWith("..") || str2 == null || str2.length() == 0 || str2.startsWith(DefaultConfig.TOKEN_SEPARATOR) || str2.endsWith("..")) {
             return false;
         }
-        if (!str.endsWith(".")) {
-            str = str + '.';
+        if (!str.endsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+            str = str + BdFileHelper.EXTENSION_SEPARATOR;
         }
-        if (!str2.endsWith(".")) {
-            str2 = str2 + '.';
+        if (!str2.endsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+            str2 = str2 + BdFileHelper.EXTENSION_SEPARATOR;
         }
         String lowerCase = str2.toLowerCase(Locale.US);
         if (!lowerCase.contains("*")) {

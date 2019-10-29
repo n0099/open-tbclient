@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class j implements m.a<PointF> {
-    public static final j nU = new j();
+    public static final j gq = new j();
 
     private j() {
     }

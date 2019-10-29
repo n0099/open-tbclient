@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -11,6 +12,6 @@ public class ThreadPrivacySelectActivityConfig extends IntentConfig {
     public ThreadPrivacySelectActivityConfig(Context context) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(25029);
+        setRequestCode(RequestResponseCode.THREAD_PRIVACY_SELECT_CALL_BACK);
     }
 }

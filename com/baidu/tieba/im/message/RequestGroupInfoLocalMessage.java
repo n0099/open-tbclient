@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import protobuf.QueryGroupDetail.DataReq;
 import protobuf.QueryGroupDetail.QueryGroupDetailReqIdl;
 /* loaded from: classes5.dex */
@@ -13,7 +14,7 @@ public class RequestGroupInfoLocalMessage extends CustomMessage<Object> {
     private int smallWidth;
 
     public RequestGroupInfoLocalMessage() {
-        super(2001102);
+        super(CmdConfigCustom.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL);
     }
 
     public long getGroupId() {

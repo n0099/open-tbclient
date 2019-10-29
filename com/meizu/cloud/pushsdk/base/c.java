@@ -7,7 +7,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -90,7 +89,7 @@ public class c {
                     str = null;
                     str2 = str;
                 } else {
-                    WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+                    WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                         str2 = connectionInfo.getMacAddress();
                     }

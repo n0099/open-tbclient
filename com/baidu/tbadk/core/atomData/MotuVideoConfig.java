@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -22,7 +23,7 @@ public class MotuVideoConfig extends IntentConfig {
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra("video_title", str3);
         getIntent().putExtra(LOCAL_VIDEO_OPEN, z);
-        setRequestCode(13010);
+        setRequestCode(RequestResponseCode.REQUEST_RECORDER_VIDEO);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

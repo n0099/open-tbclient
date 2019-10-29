@@ -6,6 +6,8 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.PassBiometricConfiguration;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.dynamicupdate.SdkConfigOptions;
@@ -79,7 +81,7 @@ public class UpdateSo {
     public void getHostConfig() {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("appid", this.configuration.appId);
-        httpHashMapWrap.put("tpl", this.configuration.tpl);
+        httpHashMapWrap.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.configuration.tpl);
         new HttpClientWrap(this.application).get("https://gss0.bdstatic.com/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new HttpHandlerWrap(true) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.2
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
@@ -449,7 +451,7 @@ public class UpdateSo {
                             th = th;
                         }
                         if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
-                            String str3 = name.substring(name.lastIndexOf("/") + 1, name.lastIndexOf("_")) + PluginInstallerService.APK_LIB_SUFFIX;
+                            String str3 = name.substring(name.lastIndexOf("/") + 1, name.lastIndexOf(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) + PluginInstallerService.APK_LIB_SUFFIX;
                             Log.d(TAG, "unZipApkSoToLibDir(),fileName2:" + str3);
                             File file = new File(str2 + File.separator + str3);
                             if (file.exists()) {

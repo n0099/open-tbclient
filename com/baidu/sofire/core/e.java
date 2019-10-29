@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.Callback;
@@ -49,7 +51,7 @@ public class e {
                                 intent.addCategory("android.intent.category.DEFAULT");
                                 Bundle bundle = new Bundle();
                                 bundle.putStringArray("appkey", new String[]{str, str2});
-                                bundle.putIntArray("key", iArr);
+                                bundle.putIntArray(TiebaInitialize.Params.KEY, iArr);
                                 bundle.putInt("delay", i);
                                 intent.putExtra("bundle", bundle);
                                 context.startService(intent);
@@ -541,7 +543,7 @@ public class e {
                         if (cVar2.e.length == 2) {
                             String str4 = (String) cVar2.e[0];
                             num = (Integer) cVar2.e[1];
-                            new StringBuilder("args ").append(str4).append(" ").append(num);
+                            new StringBuilder("args ").append(str4).append(HanziToPinyin.Token.SEPARATOR).append(num);
                             com.baidu.sofire.b.a();
                             str3 = str4;
                             str2 = null;

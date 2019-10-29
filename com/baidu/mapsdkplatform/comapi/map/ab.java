@@ -1,9 +1,10 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Bundle;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.Point;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes5.dex */
 public class ab {
     private static final String t = ab.class.getSimpleName();
@@ -70,10 +71,10 @@ public class ab {
         bundle.putDouble("overlooking", this.c);
         bundle.putDouble("centerptx", this.d);
         bundle.putDouble("centerpty", this.e);
-        bundle.putInt(CustomDialogData.POS_LEFT, this.j.left);
-        bundle.putInt("right", this.j.right);
-        bundle.putInt("top", this.j.top);
-        bundle.putInt("bottom", this.j.bottom);
+        bundle.putInt("left", this.j.left);
+        bundle.putInt(HorizontalTranslateLayout.RIGHT, this.j.right);
+        bundle.putInt(VerticalTranslateLayout.TOP, this.j.top);
+        bundle.putInt(VerticalTranslateLayout.BOTTOM, this.j.bottom);
         if (this.f >= 0 && this.g >= 0 && this.f <= this.j.right && this.g <= this.j.bottom && this.j.right > 0 && this.j.bottom > 0) {
             int i = this.f - ((this.j.right - this.j.left) / 2);
             int i2 = this.g;
@@ -107,10 +108,10 @@ public class ab {
         this.c = (int) bundle.getDouble("overlooking");
         this.d = bundle.getDouble("centerptx");
         this.e = bundle.getDouble("centerpty");
-        this.j.left = bundle.getInt(CustomDialogData.POS_LEFT);
-        this.j.right = bundle.getInt("right");
-        this.j.top = bundle.getInt("top");
-        this.j.bottom = bundle.getInt("bottom");
+        this.j.left = bundle.getInt("left");
+        this.j.right = bundle.getInt(HorizontalTranslateLayout.RIGHT);
+        this.j.top = bundle.getInt(VerticalTranslateLayout.TOP);
+        this.j.bottom = bundle.getInt(VerticalTranslateLayout.BOTTOM);
         this.h = bundle.getLong("xoffset");
         this.i = bundle.getLong("yoffset");
         if (this.j.right != 0 && this.j.bottom != 0) {

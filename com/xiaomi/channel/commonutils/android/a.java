@@ -19,14 +19,14 @@ public class a {
 
     /* renamed from: com.xiaomi.channel.commonutils.android.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public enum EnumC0489a {
+    public enum EnumC0590a {
         UNKNOWN(0),
         ALLOWED(1),
         NOT_ALLOWED(2);
         
         private final int d;
 
-        EnumC0489a(int i) {
+        EnumC0590a(int i) {
             this.d = i;
         }
 
@@ -140,22 +140,22 @@ public class a {
     }
 
     @TargetApi(19)
-    public static EnumC0489a c(Context context, String str) {
-        EnumC0489a enumC0489a;
+    public static EnumC0590a c(Context context, String str) {
+        EnumC0590a enumC0590a;
         if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
-            return EnumC0489a.UNKNOWN;
+            return EnumC0590a.UNKNOWN;
         }
         try {
             Integer num = (Integer) com.xiaomi.channel.commonutils.reflect.a.a((Class<? extends Object>) AppOpsManager.class, "OP_POST_NOTIFICATION");
             if (num == null) {
-                enumC0489a = EnumC0489a.UNKNOWN;
+                enumC0590a = EnumC0590a.UNKNOWN;
             } else {
                 Integer num2 = (Integer) com.xiaomi.channel.commonutils.reflect.a.a((AppOpsManager) context.getSystemService("appops"), "checkOpNoThrow", num, Integer.valueOf(context.getPackageManager().getApplicationInfo(str, 0).uid), str);
-                enumC0489a = (num2 == null || num2.intValue() != 0) ? EnumC0489a.NOT_ALLOWED : EnumC0489a.ALLOWED;
+                enumC0590a = (num2 == null || num2.intValue() != 0) ? EnumC0590a.NOT_ALLOWED : EnumC0590a.ALLOWED;
             }
-            return enumC0489a;
+            return enumC0590a;
         } catch (Throwable th) {
-            return EnumC0489a.UNKNOWN;
+            return EnumC0590a.UNKNOWN;
         }
     }
 

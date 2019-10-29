@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class g {
-    private long cDF;
-    private long cDG;
-    private long cDH;
-    private long cDI;
-    private long cDJ;
-    private a cDK;
+    private long cOM;
+    private long cON;
+    private long cOO;
+    private long cOP;
+    private long cOQ;
+    private a cOR;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean Nb = false;
-    private Runnable cDL = new Runnable() { // from class: com.baidu.tbadk.util.g.1
+    private boolean xT = false;
+    private Runnable cOS = new Runnable() { // from class: com.baidu.tbadk.util.g.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (g.this.cDJ > g.this.cDI) {
-                g.this.cDI = currentTimeMillis - g.this.cDH;
-                g.this.cDJ = g.this.cDI;
+            if (g.this.cOQ > g.this.cOP) {
+                g.this.cOP = currentTimeMillis - g.this.cOO;
+                g.this.cOQ = g.this.cOP;
             }
-            long j = currentTimeMillis - g.this.cDI;
-            g.this.cDG += g.this.cDH;
-            if (g.this.cDG < g.this.cDF) {
-                g.this.handler.postDelayed(g.this.cDL, (2 * g.this.cDH) - j);
-                if (g.this.cDK != null) {
-                    g.this.cDK.b(g.this.cDF, g.this.cDF - g.this.cDG);
+            long j = currentTimeMillis - g.this.cOP;
+            g.this.cON += g.this.cOO;
+            if (g.this.cON < g.this.cOM) {
+                g.this.handler.postDelayed(g.this.cOS, (2 * g.this.cOO) - j);
+                if (g.this.cOR != null) {
+                    g.this.cOR.b(g.this.cOM, g.this.cOM - g.this.cON);
                 }
             } else {
-                g.this.cDG = g.this.cDF;
+                g.this.cON = g.this.cOM;
                 g.this.finish();
             }
-            g.this.cDI = currentTimeMillis;
+            g.this.cOP = currentTimeMillis;
         }
     };
 
@@ -40,57 +40,57 @@ public class g {
     public interface a {
         void b(long j, long j2);
 
-        void q(long j);
+        void p(long j);
     }
 
     public g(long j, long j2) {
-        this.cDF = j;
-        this.cDH = j2;
+        this.cOM = j;
+        this.cOO = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.cDI = this.startTime;
-        if (this.cDK != null) {
-            this.cDK.b(this.cDF, this.cDF - this.cDG);
+        this.cOP = this.startTime;
+        if (this.cOR != null) {
+            this.cOR.b(this.cOM, this.cOM - this.cON);
         }
-        this.handler.postDelayed(this.cDL, this.cDH);
+        this.handler.postDelayed(this.cOS, this.cOO);
     }
 
     public void pause() {
-        if (!this.Nb) {
-            this.Nb = true;
-            this.cDJ = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.cDL);
+        if (!this.xT) {
+            this.xT = true;
+            this.cOQ = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.cOS);
         }
     }
 
     public void resume() {
-        if (this.Nb) {
-            this.Nb = false;
-            this.handler.postDelayed(this.cDL, this.cDH - (this.cDJ - this.cDI));
+        if (this.xT) {
+            this.xT = false;
+            this.handler.postDelayed(this.cOS, this.cOO - (this.cOQ - this.cOP));
         }
     }
 
     public void stop() {
-        this.Nb = false;
-        this.cDI = this.startTime;
-        this.cDJ = this.cDI;
-        this.handler.removeCallbacks(this.cDL);
+        this.xT = false;
+        this.cOP = this.startTime;
+        this.cOQ = this.cOP;
+        this.handler.removeCallbacks(this.cOS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.cDK != null) {
-            this.cDK.q(this.cDF);
+        if (this.cOR != null) {
+            this.cOR.p(this.cOM);
         }
     }
 
     public void a(a aVar) {
-        this.cDK = aVar;
+        this.cOR = aVar;
     }
 
-    public long awr() {
-        return this.cDG;
+    public long axw() {
+        return this.cON;
     }
 }

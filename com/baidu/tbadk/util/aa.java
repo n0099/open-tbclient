@@ -6,29 +6,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class aa {
-    public static TextView cEm;
+    public static TextView cPs;
 
-    public static int d(char c) {
-        if (e(c)) {
+    public static int getCharLength(char c) {
+        if (isCharacter(c)) {
             return 1;
         }
         return 2;
     }
 
-    public static boolean e(char c) {
+    public static boolean isCharacter(char c) {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int ry(String str) {
+    public static int getTextLength(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
-            if (e(str.charAt(i2))) {
+            if (isCharacter(str.charAt(i2))) {
                 i++;
             } else {
                 i += 2;
@@ -37,7 +38,7 @@ public class aa {
         return i;
     }
 
-    public static int rz(String str) {
+    public static int getTextLengthWithEmoji(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -48,13 +49,13 @@ public class aa {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += ry(substring);
+                i += getTextLength(substring);
             }
         }
         return i;
     }
 
-    public static int rA(String str) {
+    public static int getTextLengthAllOne(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -68,13 +69,13 @@ public class aa {
         return i;
     }
 
-    public static String ab(String str, int i) {
+    public static String subStringWithAllOne(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (rA(substring) > i) {
+            if (getTextLengthAllOne(substring) > i) {
                 break;
             }
             i2++;
@@ -83,17 +84,17 @@ public class aa {
         return str2;
     }
 
-    public static String ac(String str, int i) {
+    public static String interceptString(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (ry(str) > i) {
-            return p(str, 0, i - 2) + "...";
+        if (getTextLength(str) > i) {
+            return subString(str, 0, i - 2) + StringHelper.STRING_MORE;
         }
         return str;
     }
 
-    public static String p(String str, int i, int i2) {
+    public static String subString(String str, int i, int i2) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str) || i > i2) {
             return sb.toString();
@@ -111,7 +112,7 @@ public class aa {
                 if (i3 >= i) {
                     sb.append(charAt);
                 }
-                if (e(charAt)) {
+                if (isCharacter(charAt)) {
                     i3++;
                 } else {
                     i3 += 2;
@@ -121,11 +122,11 @@ public class aa {
         return sb.toString();
     }
 
-    public static boolean f(char c) {
+    public static boolean isCharacterExceptCapital(char c) {
         return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
     }
 
-    public static String S(String str, int i) {
+    public static String subString(String str, int i) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return sb.toString();
@@ -143,7 +144,7 @@ public class aa {
                 if (i2 >= 0) {
                     sb.append(charAt);
                 }
-                if (f(charAt)) {
+                if (isCharacterExceptCapital(charAt)) {
                     i2++;
                 } else {
                     i2 += 2;
@@ -153,13 +154,13 @@ public class aa {
         return sb.toString();
     }
 
-    public static String ad(String str, int i) {
+    public static String subStringWithEmoji(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (rz(substring) > i) {
+            if (getTextLengthWithEmoji(substring) > i) {
                 break;
             }
             i2++;
@@ -168,12 +169,12 @@ public class aa {
         return str2;
     }
 
-    public static Pair<Integer, Integer> q(String str, int i, int i2) {
+    public static Pair<Integer, Integer> p(String str, int i, int i2) {
         try {
-            if (cEm == null) {
-                cEm = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (cPs == null) {
+                cPs = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = cEm;
+            TextView textView = cPs;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

@@ -14,17 +14,17 @@ import com.baidu.tieba.R;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public class RecordingAnimView extends View {
-    private int Ui;
-    private int Uj;
-    private boolean Uk;
-    private boolean Ul;
-    private int Um;
-    private int Un;
-    private RectF[] Uo;
-    private int[] Up;
-    private int Uq;
-    private int Ur;
-    private final Runnable Us;
+    private int DA;
+    private int DC;
+    private boolean DD;
+    private boolean DE;
+    private int DF;
+    private int DG;
+    private RectF[] DH;
+    private int[] DI;
+    private int DJ;
+    private int DK;
+    private final Runnable DL;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -33,130 +33,130 @@ public class RecordingAnimView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.Ui = 0;
-        this.Uj = 8;
-        this.Uk = false;
-        this.Ul = true;
-        this.Up = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Uq = l.g(TbadkCoreApplication.getInst(), R.dimen.ds4);
-        this.Us = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
+        this.DA = 0;
+        this.DC = 8;
+        this.DD = false;
+        this.DE = true;
+        this.DI = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.DJ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
+        this.DL = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                RecordingAnimView.this.qp();
+                RecordingAnimView.this.li();
             }
         };
-        qq();
-        qp();
+        lj();
+        li();
     }
 
     public RecordingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.Ui = 0;
-        this.Uj = 8;
-        this.Uk = false;
-        this.Ul = true;
-        this.Up = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Uq = l.g(TbadkCoreApplication.getInst(), R.dimen.ds4);
-        this.Us = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
+        this.DA = 0;
+        this.DC = 8;
+        this.DD = false;
+        this.DE = true;
+        this.DI = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.DJ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds4);
+        this.DL = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                RecordingAnimView.this.qp();
+                RecordingAnimView.this.li();
             }
         };
-        qq();
-        qp();
+        lj();
+        li();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qp() {
-        if (this.Uk) {
+    public void li() {
+        if (this.DD) {
             invalidate();
         }
-        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.Us);
-        if (!this.Ul) {
-            com.baidu.adp.lib.g.e.iK().postDelayed(this.Us, 250L);
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.DL);
+        if (!this.DE) {
+            com.baidu.adp.lib.g.e.fZ().postDelayed(this.DL, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.Ui > 0) {
+        if (this.DA > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.Um = this.Uq * ((this.Ui * 2) - 1);
-            this.Uj = this.Ui;
-            i = View.MeasureSpec.makeMeasureSpec(this.Um, mode);
+            this.DF = this.DJ * ((this.DA * 2) - 1);
+            this.DC = this.DA;
+            i = View.MeasureSpec.makeMeasureSpec(this.DF, mode);
         }
         super.onMeasure(i, i2);
-        this.Un = getMeasuredHeight();
-        this.Um = getMeasuredWidth();
-        if (this.Ui <= 0) {
-            this.Uj = (this.Um / this.Uq) / 2;
+        this.DG = getMeasuredHeight();
+        this.DF = getMeasuredWidth();
+        if (this.DA <= 0) {
+            this.DC = (this.DF / this.DJ) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.Uk) {
-            for (int i = 0; i < this.Uj; i++) {
-                qr();
-                if (i < this.Uo.length) {
-                    canvas.drawRoundRect(this.Uo[i], 10.0f, 10.0f, this.mPaint);
+        if (this.DD) {
+            for (int i = 0; i < this.DC; i++) {
+                lk();
+                if (i < this.DH.length) {
+                    canvas.drawRoundRect(this.DH[i], 10.0f, 10.0f, this.mPaint);
                 }
             }
         }
     }
 
-    private void qq() {
-        this.Ur = bk(TbadkCoreApplication.getInst().getSkinType());
+    private void lj() {
+        this.DK = az(TbadkCoreApplication.getInst().getSkinType());
         this.mPaint = new Paint();
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(am.getColor(this.Ur));
+        this.mPaint.setColor(am.getColor(this.DK));
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.Ur = bk(i);
-            this.mPaint.setColor(am.getColor(this.Ur));
+            this.DK = az(i);
+            this.mPaint.setColor(am.getColor(this.DK));
             invalidate();
             this.mSkinType = i;
         }
     }
 
-    public int bk(int i) {
+    public int az(int i) {
         return i == 0 ? R.color.white_alpha100 : R.color.white_alpha70;
     }
 
-    private void qr() {
+    private void lk() {
         int nextInt;
-        if (this.Uo == null || this.Uo.length != this.Uj) {
-            this.Uo = new RectF[this.Uj];
+        if (this.DH == null || this.DH.length != this.DC) {
+            this.DH = new RectF[this.DC];
         }
-        for (int i = 0; i < this.Uj; i++) {
-            int i2 = this.Uq * i * 2;
-            if (this.Ul) {
-                nextInt = (int) ((1.0d - (this.Up[i % 22] / 10.0d)) * this.Un);
+        for (int i = 0; i < this.DC; i++) {
+            int i2 = this.DJ * i * 2;
+            if (this.DE) {
+                nextInt = (int) ((1.0d - (this.DI[i % 22] / 10.0d)) * this.DG);
             } else {
-                nextInt = this.Un > 0 ? this.random.nextInt(this.Un) : 0;
+                nextInt = this.DG > 0 ? this.random.nextInt(this.DG) : 0;
             }
-            int i3 = this.Uq + i2;
-            int i4 = this.Un;
-            if (this.Uo[i] == null) {
-                this.Uo[i] = new RectF(i2, nextInt, i3, i4);
+            int i3 = this.DJ + i2;
+            int i4 = this.DG;
+            if (this.DH[i] == null) {
+                this.DH[i] = new RectF(i2, nextInt, i3, i4);
             } else {
-                this.Uo[i].set(i2, nextInt, i3, i4);
+                this.DH[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.Uq = i;
+            this.DJ = i;
         }
     }
 
@@ -164,30 +164,30 @@ public class RecordingAnimView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(am.getColor(i));
         }
-        this.Ur = i;
+        this.DK = i;
     }
 
     public void start() {
-        this.Uk = true;
-        this.Ul = false;
-        qp();
+        this.DD = true;
+        this.DE = false;
+        li();
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.Ui = i;
+            this.DA = i;
         }
     }
 
-    public void qs() {
-        this.Uk = true;
-        this.Ul = true;
-        qp();
+    public void ll() {
+        this.DD = true;
+        this.DE = true;
+        li();
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.Us);
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.DL);
     }
 }

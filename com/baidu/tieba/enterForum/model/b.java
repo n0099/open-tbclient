@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes4.dex */
 public class b {
-    public static boolean bha() {
-        if (j.kc()) {
-            return d.hS().az("is_call_test_https") == 1;
+    public static boolean beT() {
+        if (j.isNetWorkAvailable()) {
+            return d.ft().af("is_call_test_https") == 1;
         }
         return false;
     }
 
-    public static void bhb() {
+    public static void beU() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -22,15 +22,15 @@ public class b {
             public Void doInBackground(Void... voidArr) {
                 if (!TbadkCoreApplication.getInst().checkInterrupt()) {
                     x xVar = new x("http://tiebac.baidu.com/empty.gif");
-                    xVar.ain();
-                    int i = xVar.aiN() ? 1 : 0;
+                    xVar.getNetData();
+                    int i = xVar.isNetSuccess() ? 1 : 0;
                     x xVar2 = new x("https://tiebac.baidu.com/empty.gif");
-                    xVar2.ain();
-                    int i2 = xVar2.aiN() ? 1 : 0;
+                    xVar2.getNetData();
+                    int i2 = xVar2.isNetSuccess() ? 1 : 0;
                     x xVar3 = new x("http://c.tieba.baidu.com/c/s/recordHttpsConnectivity");
-                    xVar3.o("is_success_http", String.valueOf(i));
-                    xVar3.o("is_success_https", String.valueOf(i2));
-                    xVar3.aim();
+                    xVar3.addPostData("is_success_http", String.valueOf(i));
+                    xVar3.addPostData("is_success_https", String.valueOf(i2));
+                    xVar3.postNetData();
                 }
                 return null;
             }

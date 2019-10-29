@@ -1,6 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
@@ -11,7 +12,7 @@ public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMe
     private LinkedList<VisitedForumData> mForumData;
 
     public RecentlyVisitedForumSocketResponseMessage() {
-        super(309601);
+        super(CmdConfigSocket.CMD_GET_HISTORY_FORUM);
     }
 
     public LinkedList<VisitedForumData> getForumData() {

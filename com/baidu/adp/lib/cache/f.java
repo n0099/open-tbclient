@@ -10,7 +10,7 @@ public class f {
         return z ? new b(i) : new a(i);
     }
 
-    public static e hy() {
+    public static e fc() {
         return new c();
     }
 
@@ -20,12 +20,12 @@ public class f {
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public int hs() {
+        public int getMaxSize() {
             return 1;
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public boolean ht() {
+        public boolean shouldUpdateLastHitTime() {
             return false;
         }
     }
@@ -33,20 +33,20 @@ public class f {
     /* loaded from: classes.dex */
     static class a implements e.a {
         private final int maxSize;
-        private LinkedList<g<?>> yt;
+        private LinkedList<g<?>> tempItems;
 
         public a(int i) {
             this.maxSize = i;
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public int hs() {
+        public int getMaxSize() {
             return this.maxSize;
         }
 
         @Override // com.baidu.adp.lib.cache.e.a
-        public void hu() {
-            this.yt = new LinkedList<>();
+        public void startEvict() {
+            this.tempItems = new LinkedList<>();
         }
 
         @Override // com.baidu.adp.lib.cache.e.a
@@ -54,19 +54,19 @@ public class f {
             String str;
             int i;
             String str2 = null;
-            if (gVar.yz < System.currentTimeMillis()) {
-                return gVar.yv;
+            if (gVar.timeToExpire < System.currentTimeMillis()) {
+                return gVar.uniqueKey;
             }
-            this.yt.add(gVar);
-            if (this.yt.size() > hs()) {
+            this.tempItems.add(gVar);
+            if (this.tempItems.size() > getMaxSize()) {
                 long j = 0;
                 int i2 = 0;
                 int i3 = -1;
-                while (i2 < this.yt.size()) {
-                    g<?> gVar2 = this.yt.get(i2);
-                    if (i3 == -1 || gVar2.yy < j) {
-                        String str3 = gVar2.yv;
-                        j = gVar2.yy;
+                while (i2 < this.tempItems.size()) {
+                    g<?> gVar2 = this.tempItems.get(i2);
+                    if (i3 == -1 || gVar2.lastHitTime < j) {
+                        String str3 = gVar2.uniqueKey;
+                        j = gVar2.lastHitTime;
                         str = str3;
                         i = i2;
                     } else {
@@ -77,51 +77,51 @@ public class f {
                     i3 = i;
                     str2 = str;
                 }
-                this.yt.remove(i3);
+                this.tempItems.remove(i3);
                 return str2;
             }
             return null;
         }
 
         @Override // com.baidu.adp.lib.cache.e.a
-        public void hv() {
-            this.yt.clear();
-            this.yt = null;
+        public void finishEvict() {
+            this.tempItems.clear();
+            this.tempItems = null;
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public boolean ht() {
+        public boolean shouldUpdateLastHitTime() {
             return true;
         }
     }
 
     /* loaded from: classes.dex */
     static class b implements e.b {
+        private HashMap<String, Long> items = new HashMap<>();
         private final int maxSize;
-        private HashMap<String, Long> yu = new HashMap<>();
 
         public b(int i) {
             this.maxSize = i;
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public int hs() {
+        public int getMaxSize() {
             return this.maxSize;
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public boolean ht() {
+        public boolean shouldUpdateLastHitTime() {
             return true;
         }
 
-        public String am(String str) {
+        public String keyToEvictedOnNewItemJoined(String str) {
             String key;
             long j;
             String str2 = null;
-            if (!this.yu.containsKey(str) && this.yu.size() >= this.maxSize) {
+            if (!this.items.containsKey(str) && this.items.size() >= this.maxSize) {
                 synchronized (this) {
                     long j2 = -1;
-                    for (Map.Entry<String, Long> entry : this.yu.entrySet()) {
+                    for (Map.Entry<String, Long> entry : this.items.entrySet()) {
                         long longValue = entry.getValue().longValue();
                         if (j2 == -1 || j2 > longValue) {
                             key = entry.getKey();
@@ -134,7 +134,7 @@ public class f {
                         j2 = j;
                     }
                     if (str2 != null) {
-                        this.yu.remove(str2);
+                        this.items.remove(str2);
                     }
                 }
             }
@@ -143,30 +143,30 @@ public class f {
 
         @Override // com.baidu.adp.lib.cache.e.b
         public String e(g<?> gVar) {
-            String am = am(gVar.yv);
+            String keyToEvictedOnNewItemJoined = keyToEvictedOnNewItemJoined(gVar.uniqueKey);
             synchronized (this) {
-                this.yu.put(gVar.yv, Long.valueOf(gVar.yy));
+                this.items.put(gVar.uniqueKey, Long.valueOf(gVar.lastHitTime));
             }
-            return am;
+            return keyToEvictedOnNewItemJoined;
         }
 
         @Override // com.baidu.adp.lib.cache.e.b
-        public void hw() {
+        public void startInit() {
         }
 
         @Override // com.baidu.adp.lib.cache.e.b
         public String f(g<?> gVar) {
-            return gVar.yz < System.currentTimeMillis() ? gVar.yv : e(gVar);
+            return gVar.timeToExpire < System.currentTimeMillis() ? gVar.uniqueKey : e(gVar);
         }
 
         @Override // com.baidu.adp.lib.cache.e.b
-        public void hx() {
+        public void finishInit() {
         }
 
         @Override // com.baidu.adp.lib.cache.e.b
         public void release() {
             synchronized (this) {
-                this.yu.clear();
+                this.items.clear();
             }
         }
     }

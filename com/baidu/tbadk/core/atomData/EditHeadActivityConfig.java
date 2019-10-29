@@ -38,7 +38,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
+        getIntent().putExtra("cut_image_height_scale", f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
@@ -50,7 +50,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
+        getIntent().putExtra("cut_image_height_scale", f);
         getIntent().putExtra("need_upload", z);
         getIntent().setData(uri);
         setRequestCode(i2);
@@ -59,7 +59,7 @@ public class EditHeadActivityConfig extends IntentConfig {
 
     public EditHeadActivityConfig setFromWhere(String str) {
         if (!StringUtils.isNull(str)) {
-            getIntent().putExtra(FROM_WHERE, str);
+            getIntent().putExtra("from_where", str);
         }
         return this;
     }
@@ -69,7 +69,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
+        getIntent().putExtra("cut_image_height_scale", f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
@@ -80,7 +80,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", 0);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
+        getIntent().putExtra("cut_image_height_scale", f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
@@ -91,7 +91,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", 0);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
+        getIntent().putExtra("cut_image_height_scale", f);
         getIntent().putExtra("need_upload", z);
         getIntent().setData(uri);
         setRequestCode(i2);
@@ -103,8 +103,8 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
-        getIntent().putExtra(FROM_WHERE, str);
+        getIntent().putExtra("cut_image_height_scale", f);
+        getIntent().putExtra("from_where", str);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
@@ -116,8 +116,8 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra(ACCOUNTDATA, accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
-        getIntent().putExtra(FROM_WHERE, str2);
+        getIntent().putExtra("cut_image_height_scale", f);
+        getIntent().putExtra("from_where", str2);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);

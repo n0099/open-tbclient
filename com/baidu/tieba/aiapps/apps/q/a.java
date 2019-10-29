@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.ubc.UBC;
 import com.baidu.ubc.m;
 import com.tencent.connect.common.Constants;
@@ -33,18 +34,18 @@ public class a implements m {
 
     @Override // com.baidu.ubc.m
     public boolean a(String str, JSONObject jSONObject, boolean z) {
-        String ty = com.baidu.tieba.aiapps.apps.c.d.ty(str + "/tcbox?action=ubc");
-        HttpPost httpPost = new HttpPost(ty);
+        String sh = com.baidu.tieba.aiapps.apps.c.d.sh(str + "/tcbox?action=ubc");
+        HttpPost httpPost = new HttpPost(sh);
         if (DEBUG) {
-            Log.d("UploadManager", ty);
+            Log.d("UploadManager", sh);
         }
-        httpPost.setEntity(bj(jSONObject));
+        httpPost.setEntity(bG(jSONObject));
         httpPost.setHeader("Content-type", URLEncodedUtils.CONTENT_TYPE);
         b bVar = new b();
-        String bk = bk(jSONObject);
+        String bH = bH(jSONObject);
         try {
             try {
-                return b(bVar.b(httpPost), bk);
+                return b(bVar.executeSafely(httpPost), bH);
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.d("UploadManager", "requestToServer e:" + e.getMessage());
@@ -53,8 +54,8 @@ public class a implements m {
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put("type", "sendFail");
-                        if (!TextUtils.isEmpty(bk)) {
-                            jSONObject2.put("md5", bk);
+                        if (!TextUtils.isEmpty(bH)) {
+                            jSONObject2.put("md5", bH);
                         }
                         jSONObject2.put("exception", Log.getStackTraceString(e));
                     } catch (JSONException e2) {
@@ -70,13 +71,13 @@ public class a implements m {
         }
     }
 
-    private AbstractHttpEntity bj(JSONObject jSONObject) {
+    private AbstractHttpEntity bG(JSONObject jSONObject) {
         UrlEncodedFormEntity urlEncodedFormEntity;
         ArrayList arrayList = new ArrayList();
-        byte[] K = c.K(jSONObject.toString().getBytes());
-        K[0] = 117;
-        K[1] = 123;
-        arrayList.add(new BasicNameValuePair("data", Base64.encodeToString(K, 0)));
+        byte[] y = c.y(jSONObject.toString().getBytes());
+        y[0] = 117;
+        y[1] = 123;
+        arrayList.add(new BasicNameValuePair("data", Base64.encodeToString(y, 0)));
         try {
             urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");
             try {
@@ -145,7 +146,7 @@ public class a implements m {
                                         }
                                     }
                                 }
-                                int i = new JSONObject(new String(r2.toByteArray())).getInt("error");
+                                int i = new JSONObject(new String(r2.toByteArray())).getInt(BdStatsConstant.StatsType.ERROR);
                                 if (i != 0) {
                                     if (DEBUG) {
                                         Log.d("UploadManager", "server error");
@@ -250,7 +251,7 @@ public class a implements m {
         return z;
     }
 
-    private String bk(JSONObject jSONObject) {
+    private String bH(JSONObject jSONObject) {
         if (jSONObject == null || !jSONObject.has("metadata")) {
             return "";
         }

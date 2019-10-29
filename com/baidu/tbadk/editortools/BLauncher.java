@@ -6,13 +6,15 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private k csE;
-    private boolean csF;
+    private k cEO;
+    private boolean cEP;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -20,9 +22,9 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, k kVar) {
         super(context);
         this.mSkinType = 0;
-        this.csF = false;
+        this.cEP = false;
         if (kVar != null) {
-            this.csE = kVar;
+            this.cEO = kVar;
             setIcon();
             setToolId(kVar.id);
         }
@@ -32,11 +34,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public void setIcon() {
-        if (this.csE != null) {
-            if (this.csE.ctK) {
-                setImageDrawable(SvgManager.ajv().r(this.csE.ctI, this.csE.ctJ, this.mSkinType));
+        if (this.cEO != null) {
+            if (this.cEO.cFT) {
+                setImageDrawable(SvgManager.amN().v(this.cEO.cFR, this.cEO.cFS, this.mSkinType));
             } else {
-                am.b(this, this.csE.ctI, this.mSkinType);
+                am.setImageResource(this, this.cEO.cFR, this.mSkinType);
             }
         }
     }
@@ -51,21 +53,21 @@ public class BLauncher extends ImageView implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void ql() {
+    public void le() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        asl();
+        atY();
         setVisibility(8);
     }
 
-    public void qo(String str) {
+    public void px(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
-                this.mTip.setTag("tip");
+                this.mTip.setTag(AlaStaticKeys.ALA_STATIC_VALUE_TIP);
                 ViewParent parent = getParent();
                 if (parent instanceof ViewGroup) {
                     ((ViewGroup) parent).addView(this.mTip);
@@ -76,23 +78,23 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            am.d(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
+            am.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
-            if (!str.equals(" ")) {
+            if (!str.equals(HanziToPinyin.Token.SEPARATOR)) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                am.g(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
+                am.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                am.g(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
+                am.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
     }
 
-    public void asl() {
+    public void atY() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -107,9 +109,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                asl();
+                atY();
             } else if (aVar.data instanceof String) {
-                qo((String) aVar.data);
+                px((String) aVar.data);
             }
         }
     }
@@ -119,21 +121,21 @@ public class BLauncher extends ImageView implements g {
         this.mSkinType = i;
         setIcon();
         if (this.mTip != null) {
-            am.d(this.mTip, R.color.cp_cont_g, 1, i);
+            am.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                am.g(this.mTip, R.drawable.icon_news_head_prompt_one, i);
+                am.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
             } else {
-                am.g(this.mTip, R.drawable.icon_news_down_bar_one, i);
+                am.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.csF;
+        return this.cEP;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.csF = z;
+        this.cEP = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

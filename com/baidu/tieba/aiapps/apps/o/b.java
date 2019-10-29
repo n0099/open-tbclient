@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -19,7 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends z {
-    public static String djo = "com.baidu.tieba://";
+    public static String dsI = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -37,17 +38,17 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
             return false;
         }
-        JSONObject df = o.df(param);
-        this.mCallback = df.optString("cb");
+        JSONObject dP = o.dP(param);
+        this.mCallback = dP.optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        final String optString = df.optString("authority");
-        final String optString2 = df.optString("path");
-        final String optString3 = df.optString("module", "NA");
-        final String optString4 = df.optString("action");
-        JSONObject optJSONObject = df.optJSONObject("scheme");
+        final String optString = dP.optString("authority");
+        final String optString2 = dP.optString("path");
+        final String optString3 = dP.optString(BdStatsConstant.StatsKey.TYPE, "NA");
+        final String optString4 = dP.optString("action");
+        JSONObject optJSONObject = dP.optJSONObject("scheme");
         try {
             optJSONObject.put("launchMode", "standard");
         } catch (JSONException e) {
@@ -56,11 +57,11 @@ public class b extends z {
             }
         }
         final String jSONObject = optJSONObject.toString();
-        bVar.Ml().a((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.o.b.1
+        bVar.Rd().a((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.o.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
-            public void D(Boolean bool) {
+            public void B(Boolean bool) {
                 if (!bool.booleanValue()) {
                     com.baidu.swan.apps.console.c.e("PageTransitionAction", "non-authorized");
                     callbackHandler.handleSchemeDispatchCallback(b.this.mCallback, UnitedSchemeUtility.wrapCallbackParams(402).toString());
@@ -94,7 +95,7 @@ public class b extends z {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            tO(optString);
+                            sy(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -102,7 +103,7 @@ public class b extends z {
                 }
             } else {
                 str6 = f(str, str2, str3, str4, str5);
-                z = aA(context, str6);
+                z = ax(context, str6);
             }
             if (DEBUG) {
                 Log.i("PageTransitionAction", "result = " + z + "\n拼接后的uri is: " + str6);
@@ -111,13 +112,13 @@ public class b extends z {
         return z;
     }
 
-    private void tO(String str) {
-        com.baidu.swan.apps.process.messaging.client.a DE;
-        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
-        if (Mh != null && (DE = Mh.DE()) != null) {
+    private void sy(String str) {
+        com.baidu.swan.apps.process.messaging.client.a Iy;
+        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+        if (QZ != null && (Iy = QZ.Iy()) != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_param_url", str);
-            DE.a(bundle, a.class);
+            Iy.a(bundle, a.class);
         }
     }
 
@@ -143,7 +144,7 @@ public class b extends z {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = djo;
+            String str7 = dsI;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -167,7 +168,7 @@ public class b extends z {
         }
     }
 
-    private static boolean aA(Context context, String str) {
+    private static boolean ax(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return false;
         }

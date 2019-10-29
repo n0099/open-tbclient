@@ -16,6 +16,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.tbadk.BaseActivity;
@@ -23,7 +24,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.util.ad;
@@ -37,7 +37,7 @@ import java.util.TimerTask;
 /* loaded from: classes3.dex */
 public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewActivity> {
     private static final String[] ALLOWED_NATIVE_SCHEME = {SchemeConfig.DEFAULT_SCHEME_HEAD, "taobao"};
-    protected c cYo;
+    protected c dhJ;
     private ad.a mCookieInfo;
     protected boolean mEnableJs;
     protected boolean mIsShowNavBar;
@@ -60,7 +60,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         public void run() {
             com.baidu.tbadk.coreExtra.c.e createShareContent = AdBaseWebViewActivity.this.createShareContent(null, null, null, null);
             if (createShareContent != null) {
-                AdBaseWebViewActivity.this.cYo.a(createShareContent);
+                AdBaseWebViewActivity.this.dhJ.a(createShareContent);
             }
         }
     };
@@ -102,24 +102,24 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         initWebView();
-        this.cYo = new c(this);
+        this.dhJ = new c(this);
         initData();
-        this.cYo.aby();
-        this.cYo.d(new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity.3
+        this.dhJ.age();
+        this.dhJ.e(new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!j.kc()) {
+                if (!j.isNetWorkAvailable()) {
                     AdBaseWebViewActivity.this.showToast(R.string.neterror);
                     return;
                 }
-                AdBaseWebViewActivity.this.cYo.hideNoDataView();
+                AdBaseWebViewActivity.this.dhJ.hideNoDataView();
                 AdBaseWebViewActivity.this.refresh();
             }
         });
-        this.cYo.dB(this.mIsLogin);
-        this.cYo.dB(isNeedShowMenuItem());
-        if (!this.cYo.abw() && UtilHelper.canUseStyleImmersiveSticky()) {
-            bc.b(this.cYo.mRoot, R.color.cp_link_tip_b, false);
+        this.dhJ.dS(this.mIsLogin);
+        this.dhJ.dS(isNeedShowMenuItem());
+        if (!this.dhJ.agc() && UtilHelper.canUseStyleImmersiveSticky()) {
+            bc.addStateBarViewSpace(this.dhJ.mRoot, R.color.cp_link_tip_b, false);
         }
         adjustResizeForSoftInput();
     }
@@ -127,7 +127,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        this.mUrl = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
+        this.mUrl = intent.getStringExtra("tag_url");
         refresh();
     }
 
@@ -135,31 +135,31 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     @Override // com.baidu.tbadk.BaseActivity
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        if (this.cYo != null) {
-            this.cYo.dB(z);
+        if (this.dhJ != null) {
+            this.dhJ.dS(z);
         }
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.mUrlTitle = intent.getStringExtra(WebViewActivityConfig.TAG_TITLE);
-            this.mUrl = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
+            this.mUrlTitle = intent.getStringExtra("tag_title");
+            this.mUrl = intent.getStringExtra("tag_url");
             if (this.mUrl != null && !this.mUrl.startsWith("http://") && !this.mUrl.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
                 this.mUrl = "http://".concat(this.mUrl);
             }
-            this.mNeedCookie = intent.getBooleanExtra(WebViewActivityConfig.TAG_COOKIE, false);
-            this.mEnableJs = intent.getBooleanExtra(WebViewActivityConfig.TAG_ENABLE_JS, false);
-            this.mIsShowNavBar = intent.getBooleanExtra(WebViewActivityConfig.TAG_NAV_BAR, true);
+            this.mNeedCookie = intent.getBooleanExtra("tag_cookie", false);
+            this.mEnableJs = intent.getBooleanExtra("tag_enable_js", false);
+            this.mIsShowNavBar = intent.getBooleanExtra("tag_navigation_bar", true);
             this.mIsShowNavBar = this.mIsShowNavBar && isNeedShowNavigationBar();
-            this.cYo.setNavBarVisibility(this.mIsShowNavBar);
-            setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
+            this.dhJ.setNavBarVisibility(this.mIsShowNavBar);
+            setUseStyleImmersiveSticky(intent.getBooleanExtra("tag_style_immersive_sticky", true));
             if (TextUtils.isEmpty(this.mUrl)) {
                 l.showToast(getPageContext().getPageActivity(), getResources().getString(R.string.url_is_null));
                 return;
             }
             if (this.mUrl.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
-                this.cYo.dD(false);
+                this.dhJ.dU(false);
             }
             this.mHandler.postDelayed(this.mRunnable, 500L);
         }
@@ -273,8 +273,8 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         dismissAllDialog();
         dismissAllPopupWindow();
         hideListMenu();
-        if (this.cYo != null) {
-            this.cYo.UQ();
+        if (this.dhJ != null) {
+            this.dhJ.ZF();
         }
     }
 
@@ -290,8 +290,8 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         webViewDestory();
         TbadkCoreApplication.getInst().delRemoteActivity(this);
         stopLoadTimer();
-        if (this.cYo != null) {
-            this.cYo.release();
+        if (this.dhJ != null) {
+            this.dhJ.release();
         }
         super.onDestroy();
     }
@@ -430,15 +430,15 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         super.onClick(view);
         int id = view.getId();
         if (id == R.id.webview_more_pop_item_share_friend_layout) {
-            this.cYo.UQ();
+            this.dhJ.ZF();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
             this.mShareResultToFe = true;
         } else if (id == R.id.webview_more_pop_item_open_browser_layout) {
-            this.cYo.UQ();
-            com.baidu.tieba.ad.browser.e.ag(getPageContext().getPageActivity(), this.mUrl);
+            this.dhJ.ZF();
+            com.baidu.tieba.ad.browser.e.startExternWebActivity(getPageContext().getPageActivity(), this.mUrl);
         } else if (id == R.id.webview_more_pop_item_copy_link_layout) {
-            this.cYo.UQ();
-            com.baidu.adp.lib.util.a.aS(this.mUrl);
+            this.dhJ.ZF();
+            com.baidu.adp.lib.util.a.copyToClipboard(this.mUrl);
             l.showToast(view.getContext(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
@@ -493,25 +493,25 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (!this.mAutoChangeStyle) {
             i = 0;
         }
-        this.cYo.onChangeSkinType(i);
+        this.dhJ.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void showProgressBar() {
-        this.cYo.showProgressBar();
+        this.dhJ.showProgressBar();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void hideProgressBar() {
-        this.cYo.hideProgressBar();
+        this.dhJ.hideProgressBar();
     }
 
     public void hideCrashTip() {
-        this.cYo.hideCrashTip();
+        this.dhJ.hideCrashTip();
     }
 
     public void showNoDataView() {
-        this.cYo.showNoDataView();
+        this.dhJ.showNoDataView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -539,14 +539,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         String str2;
         boolean z;
         String str3 = "";
-        a.b ml = com.baidu.tbadk.core.a.a.acj().ml(TbadkCoreApplication.getCurrentBduss());
-        if (ml != null) {
-            if (ml.BY != null) {
-                str3 = ml.BY;
+        a.b mJ = com.baidu.tbadk.core.a.a.agr().mJ(TbadkCoreApplication.getCurrentBduss());
+        if (mJ != null) {
+            if (mJ.mBduss != null) {
+                str3 = mJ.mBduss;
             }
-            if (ml.bEg != null) {
+            if (mJ.mPtoken != null) {
                 str = str3;
-                str2 = ml.bEg;
+                str2 = mJ.mPtoken;
                 ad.a aVar = new ad.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;
@@ -572,7 +572,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.o.a
     public String getCurrentPageKey() {
-        return "a012";
+        return PageStayDurationConstants.PageName.WEBVIEW;
     }
 
     /* loaded from: classes3.dex */
@@ -583,7 +583,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         @JavascriptInterface
         public void getSource(String str) {
             AdBaseWebViewActivity.this.mSource = str;
-            com.baidu.adp.lib.g.e.iK().post(AdBaseWebViewActivity.this.mShareRunnable);
+            com.baidu.adp.lib.g.e.fZ().post(AdBaseWebViewActivity.this.mShareRunnable);
         }
 
         @JavascriptInterface

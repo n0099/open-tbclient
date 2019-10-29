@@ -20,41 +20,41 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class i {
-    private NoNetworkView dpy;
-    private PbListView dpz;
-    private ChannelHomeActivity eLU;
-    private g eLV;
-    private f eLW;
-    private com.baidu.tieba.channel.a.c eLX = null;
-    private FrameLayout eLY = null;
-    private BdTypeListView mListView;
+    private BdTypeListView dvB;
+    private NoNetworkView dwI;
+    private PbListView dwJ;
+    private ChannelHomeActivity eUA;
+    private g eUB;
+    private f eUC;
+    private com.baidu.tieba.channel.a.c eUD = null;
+    private FrameLayout eUE = null;
     private View mNoDataView;
     private View mRootView;
 
     public i(ChannelHomeActivity channelHomeActivity) {
-        this.eLU = channelHomeActivity;
-        this.eLU.setIsAddSwipeBackLayout(true);
-        this.eLU.setSwipeBackEnabled(true);
-        this.eLU.setUseStyleImmersiveSticky(true);
+        this.eUA = channelHomeActivity;
+        this.eUA.setIsAddSwipeBackLayout(true);
+        this.eUA.setSwipeBackEnabled(true);
+        this.eUA.setUseStyleImmersiveSticky(true);
         initViews();
     }
 
     public void initViews() {
-        this.eLU.setContentView(R.layout.channel_home_layout);
-        this.mRootView = this.eLU.findViewById(R.id.channel_home_rootview);
-        this.eLY = (FrameLayout) this.eLU.findViewById(R.id.channel_home_loading_view);
-        this.dpy = (NoNetworkView) this.mRootView.findViewById(R.id.channel_home_no_network_view);
-        this.eLV = new g(this.eLU.getPageContext().getPageActivity(), (NavigationBar) this.mRootView.findViewById(R.id.channel_home_navigation_bar), this.eLU);
-        aKs();
+        this.eUA.setContentView(R.layout.channel_home_layout);
+        this.mRootView = this.eUA.findViewById(R.id.channel_home_rootview);
+        this.eUE = (FrameLayout) this.eUA.findViewById(R.id.channel_home_loading_view);
+        this.dwI = (NoNetworkView) this.mRootView.findViewById(R.id.channel_home_no_network_view);
+        this.eUB = new g(this.eUA.getPageContext().getPageActivity(), (NavigationBar) this.mRootView.findViewById(R.id.channel_home_navigation_bar), this.eUA);
+        aJP();
     }
 
-    private void aKs() {
-        this.mListView = (BdTypeListView) this.mRootView.findViewById(R.id.channel_home_listview);
-        this.eLW = new f(this.eLU.getPageContext().getPageActivity(), this.eLU);
-        this.mListView.addHeaderView(this.eLW.aXx());
-        this.eLX = new com.baidu.tieba.channel.a.c(this.eLU.getPageContext().getPageActivity(), this.mListView);
-        this.eLX.a(this.eLU);
-        this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.channel.view.i.1
+    private void aJP() {
+        this.dvB = (BdTypeListView) this.mRootView.findViewById(R.id.channel_home_listview);
+        this.eUC = new f(this.eUA.getPageContext().getPageActivity(), this.eUA);
+        this.dvB.addHeaderView(this.eUC.aMx());
+        this.eUD = new com.baidu.tieba.channel.a.c(this.eUA.getPageContext().getPageActivity(), this.dvB);
+        this.eUD.a(this.eUA);
+        this.dvB.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.channel.view.i.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
             }
@@ -64,38 +64,38 @@ public class i {
                 i.this.a(absListView, i, i2, i3);
             }
         });
-        this.mListView.setOnSrollToBottomListener(this.eLU);
-        this.dpz = new PbListView(this.eLU.getPageContext().getPageActivity());
-        this.dpz.nZ();
-        this.dpz.setTextColor(am.getColor(R.color.cp_cont_d));
-        this.mListView.setNextPage(this.dpz);
+        this.dvB.setOnSrollToBottomListener(this.eUA);
+        this.dwJ = new PbListView(this.eUA.getPageContext().getPageActivity());
+        this.dwJ.createView();
+        this.dwJ.setTextColor(am.getColor(R.color.cp_cont_d));
+        this.dvB.setNextPage(this.dwJ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AbsListView absListView, int i, int i2, int i3) {
-        if (Build.VERSION.SDK_INT >= 11 && this.eLW != null) {
-            int dimension = (int) this.eLU.getResources().getDimension(R.dimen.ds98);
+        if (Build.VERSION.SDK_INT >= 11 && this.eUC != null) {
+            int dimension = (int) this.eUA.getResources().getDimension(R.dimen.ds98);
             int i4 = 0;
-            if (UtilHelper.useNavigationBarStyleImmersiveSticky(this.eLU.getPageContext().getPageActivity())) {
+            if (UtilHelper.useNavigationBarStyleImmersiveSticky(this.eUA.getPageContext().getPageActivity())) {
                 i4 = UtilHelper.getStatusBarHeight();
             }
-            int bbv = this.eLW.bbv() - (i4 + (-this.eLW.aXx().getTop()));
-            if (this.eLV != null) {
-                this.eLV.I(bbv, dimension, i);
+            int bbA = this.eUC.bbA() - (i4 + (-this.eUC.aMx().getTop()));
+            if (this.eUB != null) {
+                this.eUB.H(bbA, dimension, i);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (bbB() != null && bbB().aXx() != null) {
-            this.eLU.getLayoutMode().setNightMode(i == 1);
-            this.eLU.getLayoutMode().onModeChanged(bbB().aXx());
+        if (bbG() != null && bbG().aMx() != null) {
+            this.eUA.getLayoutMode().setNightMode(i == 1);
+            this.eUA.getLayoutMode().onModeChanged(bbG().aMx());
         }
-        Wb();
-        this.eLW.onChangeSkinType(i);
-        this.eLV.onChangeSkinType(i);
-        this.dpz.iY(i);
-        this.dpy.onChangeSkinType(this.eLU.getPageContext(), i);
+        aaQ();
+        this.eUC.onChangeSkinType(i);
+        this.eUB.onChangeSkinType(i);
+        this.dwJ.changeSkin(i);
+        this.dwI.onChangeSkinType(this.eUA.getPageContext(), i);
     }
 
     public void onPause() {
@@ -108,97 +108,97 @@ public class i {
     }
 
     public void g(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.bbh() != null) {
-            this.eLW.iQ(dVar.isHost());
-            this.eLW.d(dVar);
-            this.eLX.setIsHost(dVar.isHost());
+        if (dVar != null && dVar.bbl() != null) {
+            this.eUC.iT(dVar.isHost());
+            this.eUC.d(dVar);
+            this.eUD.setIsHost(dVar.isHost());
             h(dVar);
-            this.eLV.a(dVar.isHost(), this.eLU);
-            this.eLV.ao(dVar);
+            this.eUB.a(dVar.isHost(), this.eUA);
+            this.eUB.al(dVar);
         }
     }
 
     public void h(com.baidu.tieba.channel.data.d dVar) {
         if (dVar != null) {
-            if (dVar.bbi() == null || dVar.bbi().size() == 0) {
-                aKQ();
-                this.mNoDataView = LayoutInflater.from(this.eLU.getPageContext().getPageActivity()).inflate(R.layout.channel_home_no_data, (ViewGroup) null);
-                this.mListView.setNoData(this.mNoDataView);
+            if (dVar.bbm() == null || dVar.bbm().size() == 0) {
+                aKk();
+                this.mNoDataView = LayoutInflater.from(this.eUA.getPageContext().getPageActivity()).inflate(R.layout.channel_home_no_data, (ViewGroup) null);
+                this.dvB.setNoData(this.mNoDataView);
             } else {
-                this.mListView.setNoData((View) null);
-                iR(true);
+                this.dvB.setNoData((View) null);
+                iU(true);
             }
             ArrayList arrayList = new ArrayList();
-            if (dVar.bbi() != null) {
-                Iterator<E> it = dVar.bbi().iterator();
+            if (dVar.bbm() != null) {
+                Iterator<E> it = dVar.bbm().iterator();
                 while (it.hasNext()) {
                     arrayList.add((m) it.next());
                 }
             }
-            this.mListView.setData(arrayList);
-            if (!dVar.bbj()) {
-                iR(true);
+            this.dvB.setData(arrayList);
+            if (!dVar.bbn()) {
+                iU(true);
             }
         }
     }
 
-    public void Wb() {
-        if (this.mListView.getAdapter() != null && (this.mListView.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            this.mListView.getAdapter().notifyDataSetChanged();
+    public void aaQ() {
+        if (this.dvB.getAdapter() != null && (this.dvB.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.dvB.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void e(com.baidu.tieba.channel.data.d dVar) {
-        this.eLV.ao(dVar);
-        this.eLW.e(dVar);
+        this.eUB.al(dVar);
+        this.eUC.e(dVar);
     }
 
     public void f(com.baidu.tieba.channel.data.d dVar) {
-        this.eLW.f(dVar);
+        this.eUC.f(dVar);
     }
 
-    public void iR(boolean z) {
-        this.dpz.akS();
+    public void iU(boolean z) {
+        this.dwJ.endLoadData();
         if (z) {
-            this.dpz.setText(this.eLU.getPageContext().getPageActivity().getResources().getString(R.string.list_no_more));
+            this.dwJ.setText(this.eUA.getPageContext().getPageActivity().getResources().getString(R.string.list_no_more));
         } else {
-            this.dpz.setText("");
+            this.dwJ.setText("");
         }
     }
 
-    public void aKQ() {
-        this.dpz.ja(0);
+    public void aKk() {
+        this.dwJ.hideWithoutEmptyView(0);
     }
 
-    public void bbA() {
-        this.dpz.akR();
+    public void bbF() {
+        this.dwJ.startLoadData();
     }
 
     public void showLoadingView() {
-        this.eLU.showLoadingView(this.eLY);
-        this.eLY.setVisibility(0);
+        this.eUA.showLoadingView(this.eUE);
+        this.eUE.setVisibility(0);
     }
 
     public void hideLoadingView() {
-        this.eLY.setVisibility(8);
-        this.eLU.hideLoadingView(this.eLY);
+        this.eUE.setVisibility(8);
+        this.eUA.hideLoadingView(this.eUE);
     }
 
-    public void BR() {
-        this.eLY.setVisibility(0);
-        this.eLU.showNetRefreshView(this.eLY, this.eLU.getResources().getString(R.string.neterror));
+    public void GL() {
+        this.eUE.setVisibility(0);
+        this.eUA.showNetRefreshView(this.eUE, this.eUA.getResources().getString(R.string.neterror));
     }
 
-    public void BS() {
-        this.eLY.setVisibility(8);
-        this.eLU.hideNetRefreshView(this.eLY);
+    public void GM() {
+        this.eUE.setVisibility(8);
+        this.eUA.hideNetRefreshView(this.eUE);
     }
 
-    public f bbB() {
-        return this.eLW;
+    public f bbG() {
+        return this.eUC;
     }
 
     public void f(ChannelInfo channelInfo) {
-        this.eLW.e(channelInfo);
+        this.eUC.e(channelInfo);
     }
 }

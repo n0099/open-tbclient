@@ -1,6 +1,7 @@
 package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.ReplyFriend.ReplyFriendResIdl;
 /* loaded from: classes.dex */
@@ -25,7 +26,7 @@ public class ResponseApplyMessage extends SocketResponsedMessage {
     }
 
     public ResponseApplyMessage() {
-        super(304103);
+        super(CmdConfigSocket.CMD_APPLY_MESSAGE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -18,30 +18,29 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    protected v.a onCreateViewHolder(ViewGroup viewGroup) {
+    protected v.a b(ViewGroup viewGroup) {
         Context context = viewGroup.getContext();
-        int g = l.g(context, R.dimen.tbds16);
-        int g2 = l.g(context, R.dimen.tbds32);
-        int g3 = l.g(context, R.dimen.tbds42);
-        int g4 = l.g(context, R.dimen.tbds44);
+        int dimens = l.getDimens(context, R.dimen.tbds16);
+        int dimens2 = l.getDimens(context, R.dimen.tbds32);
+        int dimens3 = l.getDimens(context, R.dimen.tbds42);
+        int dimens4 = l.getDimens(context, R.dimen.tbds44);
         TextView textView = new TextView(context);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-        textView.setPadding(g4, g, g4, g2);
+        textView.setPadding(dimens4, dimens, dimens4, dimens2);
         textView.setLayoutParams(generateLayoutParamsByParent);
-        textView.setTextSize(0, g3);
+        textView.setTextSize(0, dimens3);
         return new v.a(textView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.c cVar, v.a aVar) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.c cVar, v.a aVar) {
         if ((aVar.getView() instanceof TextView) && cVar != null) {
             TextView textView = (TextView) aVar.getView();
-            textView.setText(cVar.bwf());
-            am.j(textView, R.color.cp_cont_j);
-            am.l(textView, R.color.cp_bg_line_e);
+            textView.setText(cVar.btk());
+            am.setViewTextColor(textView, (int) R.color.cp_cont_j);
+            am.setBackgroundColor(textView, R.color.cp_bg_line_e);
         }
         return aVar.getView();
     }

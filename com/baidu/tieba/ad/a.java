@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.tieba.recapp.h;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,24 +16,24 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern bVa = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a cXU = new a();
+    private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a dhp = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> bUY = new ConcurrentHashMap<>();
-    private h.c cXV = null;
+    private final ConcurrentHashMap<String, h.b> mHandlers = new ConcurrentHashMap<>();
+    private h.c dhq = null;
 
     private a() {
     }
 
-    public static a aDp() {
-        return cXU;
+    public static a aDy() {
+        return dhp;
     }
 
     public void a(final h.a aVar) {
-        if (l.ks()) {
+        if (l.isMainThread()) {
             b(aVar);
         } else {
-            e.iK().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
+            e.fZ().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(aVar);
@@ -49,7 +50,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.cXV = cVar;
+        this.dhq = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -76,9 +77,9 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.bUY.get(ou(str2));
+        h.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.k(context, ot(sB(str2)));
+            bVar.k(context, getInnerParamPair(rk(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -93,7 +94,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.cXV != null) {
+        if (!z3 && this.dhq != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -104,7 +105,7 @@ public final class a implements h {
         return z4;
     }
 
-    private String sB(String str) {
+    private String rk(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -112,14 +113,14 @@ public final class a implements h {
         return null;
     }
 
-    private Map<String, String> ot(String str) {
+    private Map<String, String> getInnerParamPair(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         HashMap hashMap = new HashMap();
         String[] split = str.split("[&]");
         if (split == null) {
-            hashMap.put("default_param", str);
+            hashMap.put(UrlManager.DEFAULT_PARAM, str);
             return hashMap;
         }
         for (String str2 : split) {
@@ -131,7 +132,7 @@ public final class a implements h {
         return hashMap;
     }
 
-    private String ou(String str) {
+    private String getSchemaKey(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -152,13 +153,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (bVa.matcher(str2).find()) {
-            this.cXV.b(context, str, str2, z, dVar, z2);
+        if (pattern.matcher(str2).find()) {
+            this.dhq.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean sC(String str) {
-        return bVa.matcher(str).find();
+    public boolean rl(String str) {
+        return pattern.matcher(str).find();
     }
 }

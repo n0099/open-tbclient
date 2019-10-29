@@ -142,7 +142,7 @@ public class LinearSnapHelper extends SnapHelper {
         int i2 = Integer.MAX_VALUE;
         int childCount = layoutManager.getChildCount();
         if (childCount == 0) {
-            return INVALID_DISTANCE;
+            return 1.0f;
         }
         int i3 = 0;
         View view4 = null;
@@ -176,10 +176,13 @@ public class LinearSnapHelper extends SnapHelper {
             i2 = i;
         }
         if (view4 == null || view3 == null) {
-            return INVALID_DISTANCE;
+            return 1.0f;
         }
         int max = Math.max(orientationHelper.getDecoratedEnd(view4), orientationHelper.getDecoratedEnd(view3)) - Math.min(orientationHelper.getDecoratedStart(view4), orientationHelper.getDecoratedStart(view3));
-        return max == 0 ? INVALID_DISTANCE : (max * INVALID_DISTANCE) / ((i4 - i2) + 1);
+        if (max == 0) {
+            return 1.0f;
+        }
+        return (max * 1.0f) / ((i4 - i2) + 1);
     }
 
     @NonNull

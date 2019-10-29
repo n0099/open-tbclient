@@ -1,13 +1,13 @@
 package com.baidu.adp.framework.client.socket;
 /* loaded from: classes.dex */
 public interface b {
-    void R(String str);
-
-    boolean b(boolean z, String str);
-
-    void fl();
-
-    void fm();
+    void Ping(String str);
 
     int getCmd();
+
+    void resetPing();
+
+    boolean sendPing(boolean z, String str);
+
+    void stopPing();
 }

@@ -5,8 +5,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
@@ -144,7 +144,7 @@ public class SapiDeviceInfo {
         try {
             String d2 = d();
             String base64Encode = SapiDeviceUtils.DeviceCrypto.base64Encode(new AES().encrypt(str, d2, d));
-            return TextUtils.join("_", new String[]{d2, base64Encode, MD5Util.toMd5(TextUtils.join("_", new String[]{d2, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
+            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{d2, base64Encode, MD5Util.toMd5(TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{d2, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
         } catch (Throwable th) {
             Log.e(th);
             return "";
@@ -201,8 +201,8 @@ public class SapiDeviceInfo {
             arrayList.add("PhoneModel");
             arrayList.add("SystemVersion");
             arrayList.add("SystemType");
-            arrayList.add(DpStatConstants.KEY_CUID);
-            arrayList.add("tpl");
+            arrayList.add("cuid");
+            arrayList.add(TableDefine.PaSubscribeColumns.COLUMN_TPL);
             arrayList.add("uid_count");
             arrayList.add("uid_list");
             arrayList.add("usetype");
@@ -210,7 +210,7 @@ public class SapiDeviceInfo {
             arrayList.add("cur_uid");
             arrayList.add("net_type");
             arrayList.add("is_root");
-            arrayList.add(IXAdSystemUtils.NT_WIFI);
+            arrayList.add("wifi");
             arrayList.add("imei");
             arrayList.add("emulator");
             arrayList.add("mac_address");
@@ -221,7 +221,7 @@ public class SapiDeviceInfo {
             arrayList.add("up_time");
             arrayList.add("gps");
             arrayList.add("package_list");
-            arrayList.add("ip");
+            arrayList.add(TableDefine.UserInfoColumns.COLUMN_IP);
             arrayList.add("device_name");
             arrayList.add("map_location");
             arrayList.add("device_sn");

@@ -3,6 +3,8 @@ package com.baidu.tieba.im;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
@@ -16,7 +18,7 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class Static {
     static {
-        MessageManager.getInstance().registerListener(103104, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.Static.1
+        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_DISSMISS_GROUP, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.Static.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -29,7 +31,7 @@ public class Static {
                 }
             }
         });
-        MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.c(103101) { // from class: com.baidu.tieba.im.Static.2
+        MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_ADD_GROUP) { // from class: com.baidu.tieba.im.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -38,18 +40,18 @@ public class Static {
                     RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.vS(requestAddGroupMessage.getGroupType()));
+                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.uy(requestAddGroupMessage.getGroupType()));
                     AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                     if (addGroupInfo != null) {
                         imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                         imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.dW(1L));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
+                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.ds(1L));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_UPDATE_ITEM_CREATE_GROUP, imMessageCenterPojo));
                     }
                 }
             }
         });
-        MessageManager.getInstance().registerListener(103112, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.Static.3
+        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_REMOVE_MEMBERS, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.Static.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {

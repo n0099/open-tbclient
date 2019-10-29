@@ -32,7 +32,7 @@ public class a extends z {
         if (DEBUG) {
             Log.d("ConsoleAction", "handleSubAction subAction: " + str);
         }
-        if (!com.baidu.swan.apps.console.a.yh() && !com.baidu.swan.apps.console.c.yk() && !TextUtils.equals(str, "/swan/sConsole/debugSwitch")) {
+        if (!com.baidu.swan.apps.console.a.Dc() && !com.baidu.swan.apps.console.c.Df() && !TextUtils.equals(str, "/swan/sConsole/debugSwitch")) {
             return super.a(context, unitedSchemeEntity, callbackHandler, str, bVar);
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -83,7 +83,7 @@ public class a extends z {
         }
         switch (c) {
             case 0:
-                if (optParamsAsJo == null || (optBoolean = optParamsAsJo.optBoolean("enableDebug")) == com.baidu.swan.apps.console.a.yh()) {
+                if (optParamsAsJo == null || (optBoolean = optParamsAsJo.optBoolean("enableDebug")) == com.baidu.swan.apps.console.a.Dc()) {
                     return true;
                 }
                 h(context, optBoolean);
@@ -91,19 +91,19 @@ public class a extends z {
                 com.baidu.swan.apps.console.c.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
                 return true;
             case 1:
-                e.GJ().Gp().aR(true);
+                e.LD().Lj().bj(true);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "sConsole show");
                 return true;
             case 2:
-                e.GJ().Gp().aR(false);
+                e.LD().Lj().bj(false);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "sConsole hide");
                 return true;
             case 3:
                 if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
                     com.baidu.swan.apps.console.c.i("ConsoleAction", "send san inc data");
-                    b.dJ(optParamsAsJo.toString());
+                    b.er(optParamsAsJo.toString());
                     return true;
                 }
                 com.baidu.swan.apps.console.c.e("ConsoleAction", "san inc data is null");
@@ -111,17 +111,17 @@ public class a extends z {
             case 4:
                 if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
                     com.baidu.swan.apps.console.c.i("ConsoleAction", "send san full data");
-                    b.dI(optParamsAsJo.toString());
+                    b.eq(optParamsAsJo.toString());
                     return true;
                 }
                 com.baidu.swan.apps.console.c.e("ConsoleAction", "san full data is null");
                 return true;
             case 5:
                 com.baidu.swan.apps.console.c.i("ConsoleAction", "request san full data");
-                b.zs();
+                b.En();
                 return true;
             case 6:
-                com.baidu.swan.games.c.e.ar(optParamsAsJo);
+                com.baidu.swan.games.c.e.aP(optParamsAsJo);
                 return true;
             default:
                 return super.a(context, unitedSchemeEntity, callbackHandler, str, bVar);
@@ -129,15 +129,15 @@ public class a extends z {
     }
 
     private void h(final Context context, final boolean z) {
-        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
-        if (Mh != null) {
-            c.a(Mh, context, new c.a() { // from class: com.baidu.swan.apps.core.c.a.1
+        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+        if (QZ != null) {
+            c.a(QZ, context, new c.a() { // from class: com.baidu.swan.apps.core.c.a.1
                 @Override // com.baidu.swan.apps.core.c.c.a
-                public void c(boolean z2, String str) {
+                public void d(boolean z2, String str) {
                     if (z2) {
                         com.baidu.swan.apps.console.a.h(context, z);
                     } else {
-                        c.S(context, str);
+                        c.R(context, str);
                     }
                 }
             });

@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
 public abstract class b extends z {
-    protected String aTc;
+    protected String bmg;
     protected String mCallback;
 
     protected abstract void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
@@ -22,7 +22,7 @@ public abstract class b extends z {
     public b(j jVar, String str) {
         super(jVar, str);
         this.mCallback = null;
-        this.aTc = null;
+        this.bmg = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.z
@@ -36,7 +36,7 @@ public abstract class b extends z {
             }
             return false;
         }
-        this.mCallback = o.df(unitedSchemeEntity.getParam("params")).optString("cb");
+        this.mCallback = o.dP(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             com.baidu.swan.apps.console.c.e("favorite", "none cb");
             if (DEBUG) {
@@ -55,11 +55,11 @@ public abstract class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
             return false;
         } else {
-            bVar.Ml().a((Activity) context, "mapp_favorite", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.favorite.b.1
+            bVar.Rd().a((Activity) context, "mapp_favorite", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.favorite.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
-                public void D(Boolean bool) {
+                public void B(Boolean bool) {
                     if (!bool.booleanValue()) {
                         com.baidu.swan.apps.console.c.e("favorite", "permission denied");
                         if (b.DEBUG) {

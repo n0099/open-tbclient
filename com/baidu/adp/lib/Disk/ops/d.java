@@ -5,22 +5,22 @@ import com.baidu.adp.lib.util.BdLog;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class d extends DiskFileOperate {
+    private String mCharsetName;
     private String mContent;
-    private String xp;
 
     public d(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mContent = null;
-        this.xp = HTTP.UTF_8;
+        this.mCharsetName = HTTP.UTF_8;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean i(byte[] bArr) {
+    public boolean formatData(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
         try {
-            this.mContent = new String(bArr, this.xp);
+            this.mContent = new String(bArr, this.mCharsetName);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -29,10 +29,10 @@ public class d extends DiskFileOperate {
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] gL() {
+    public byte[] buildFormatData() {
         if (this.mContent != null) {
             try {
-                return this.mContent.getBytes(this.xp);
+                return this.mContent.getBytes(this.mCharsetName);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;

@@ -1,6 +1,5 @@
 package com.baidu.tieba.face;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
                 this.mData.setPage(optJSONObject.optInt("current_pn"));
                 this.mData.setHasMore(optJSONObject.optInt("has_more"));
             }
-            this.mData.bL(parseImageData(jSONObject.optJSONArray(IntentConfig.LIST)));
+            this.mData.bY(parseImageData(jSONObject.optJSONArray("list")));
         }
     }
 

@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.interfaces.download.activate.IXAppInfo;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
@@ -120,7 +121,7 @@ public class b implements Observer {
             if (z) {
                 XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "launch installing .............");
                 String str = this.c.c + this.c.b;
-                if (!this.c.i.contains(".")) {
+                if (!this.c.i.contains(DefaultConfig.TOKEN_SEPARATOR)) {
                     this.c.i = XAdSDKFoundationFacade.getInstance().getPackageUtils().getLocalApkFileInfo(this.d, str).packageName;
                 }
                 if (this.e == null) {
@@ -192,7 +193,7 @@ public class b implements Observer {
             str4 = this.c.g.getMessage();
             i = 17301633;
         }
-        Intent intent = new Intent(this.d, AppActivity.uw());
+        Intent intent = new Intent(this.d, AppActivity.zq());
         intent.putExtra("dealWithDownload", true);
         intent.putExtra("pausedManually", iOAdDownloader.isPausedManually());
         intent.putExtra("status", this.c.g.getCode());

@@ -1,5 +1,6 @@
 package okio;
 
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -19,7 +20,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes2.dex */
 public final class Buffer implements Cloneable, ByteChannel, BufferedSink, BufferedSource {
-    private static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102};
+    private static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     static final int REPLACEMENT_CHARACTER = 65533;
     @Nullable
     Segment head;

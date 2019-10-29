@@ -2,7 +2,6 @@ package com.baidu.tieba.recapp.download.http;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,60 +10,60 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class c {
-    private static String AW;
-    private static String AX;
-    private static String AY;
-    private static boolean AZ;
-    private static String Ba;
-    private long Bf;
-    private g iKp;
-    private d iKq;
+    private static String pC;
+    private static String pD;
+    private static boolean pE;
+    private static String pF;
+    private static String sUid;
+    private g iJg;
+    private d iJh;
+    private long pK;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.Bf = BdStatisticsManager.getInstance().getClientLogId();
+        this.pK = BdStatisticsManager.getInstance().getClientLogId();
     }
 
-    public static void aC(String str) {
-        AW = str;
+    public static void ai(String str) {
+        pC = str;
     }
 
     public static void setUserAgent(String str) {
-        AX = str;
+        pD = str;
     }
 
     public static void setUid(String str) {
-        AY = str;
+        sUid = str;
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.iKp = new g();
-        a(this.iKp, z);
-        this.iKp.ciZ().setUrl(str);
-        this.iKq = new d(this.iKp);
-        this.iKq.d(i, i3, i4);
-        return this.iKp.cja();
+        this.iJg = new g();
+        a(this.iJg, z);
+        this.iJg.cgb().setUrl(str);
+        this.iJh = new d(this.iJg);
+        this.iJh.c(i, i3, i4);
+        return this.iJg.cgc();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.iKp = new g();
-        a(this.iKp, z);
-        this.iKp.ciZ().setUrl(str);
+        this.iJg = new g();
+        a(this.iJg, z);
+        this.iJg.cgb().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.iKp.ciZ().a(basicNameValuePair);
+                this.iJg.cgb().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.iKp.ciZ().q(next.getName(), next.getValue());
+                this.iJg.cgb().l(next.getName(), next.getValue());
             }
         }
-        this.iKq = new d(this.iKp);
-        this.iKq.f(i, i2, -1);
-        return this.iKp.cja();
+        this.iJh = new d(this.iJg);
+        this.iJh.e(i, i2, -1);
+        return this.iJg.cgc();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -72,11 +71,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.iKp = new g();
-        b(this.iKp);
-        this.iKp.ciZ().setUrl(str);
-        this.iKq = new d(this.iKp);
-        return this.iKq.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.iJg = new g();
+        b(this.iJg);
+        this.iJg.cgb().setUrl(str);
+        this.iJh = new d(this.iJg);
+        return this.iJh.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -84,54 +83,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.iKq != null) {
-            this.iKq.cancel();
+        if (this.iJh != null) {
+            this.iJh.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.iKq != null) {
-            return this.iKq.im();
+        if (this.iJh != null) {
+            return this.iJh.isCancel();
         }
         return false;
     }
 
-    public void in() {
-        if (this.iKq != null) {
-            this.iKq.in();
+    public void setCancel() {
+        if (this.iJh != null) {
+            this.iJh.setCancel();
         }
     }
 
-    public g ciY() {
-        return this.iKp;
+    public g cga() {
+        return this.iJg;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
-            if (!TextUtils.isEmpty(AW)) {
-                gVar.ciZ().q(SM.COOKIE, AW);
+            if (!TextUtils.isEmpty(pC)) {
+                gVar.cgb().l(SM.COOKIE, pC);
             } else {
-                gVar.ciZ().q(SM.COOKIE, "");
+                gVar.cgb().l(SM.COOKIE, "");
             }
-            if (!TextUtils.isEmpty(AY)) {
-                gVar.ciZ().q("client_user_token", AY);
+            if (!TextUtils.isEmpty(sUid)) {
+                gVar.cgb().l("client_user_token", sUid);
             }
-            if (!TextUtils.isEmpty(AX)) {
-                gVar.ciZ().q(HTTP.USER_AGENT, AX);
+            if (!TextUtils.isEmpty(pD)) {
+                gVar.cgb().l(HTTP.USER_AGENT, pD);
             }
             if (z) {
-                gVar.ciZ().q("Accept-Encoding", "gzip");
+                gVar.cgb().l("Accept-Encoding", "gzip");
             } else {
-                gVar.ciZ().q("Accept-Encoding", "");
+                gVar.cgb().l("Accept-Encoding", "");
             }
-            if (AZ) {
-                gVar.ciZ().q(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (pE) {
+                gVar.cgb().l(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.ciZ().q(HTTP.CONN_DIRECTIVE, "close");
+                gVar.cgb().l(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.ciZ().q("client_logid", String.valueOf(this.Bf));
-            if (!TextUtils.isEmpty(Ba)) {
-                gVar.ciZ().q(DpStatConstants.KEY_CUID, Ba);
+            gVar.cgb().l("client_logid", String.valueOf(this.pK));
+            if (!TextUtils.isEmpty(pF)) {
+                gVar.cgb().l("cuid", pF);
             }
         }
     }

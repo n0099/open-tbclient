@@ -20,34 +20,34 @@ public class g extends z {
             Log.d("SetTabBarItemAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.w.e GJ = com.baidu.swan.apps.w.e.GJ();
+        com.baidu.swan.apps.w.e LD = com.baidu.swan.apps.w.e.LD();
         if (optParamsAsJo == null) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.e vN = GJ.vN();
-        if (vN == null) {
+        com.baidu.swan.apps.core.d.e AH = LD.AH();
+        if (AH == null) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.d Aw = vN.Aw();
+        com.baidu.swan.apps.core.d.d Fr = AH.Fr();
         int optInt = optParamsAsJo.optInt("index");
         String optString = optParamsAsJo.optString("text");
         String optString2 = optParamsAsJo.optString("iconPath");
         String optString3 = optParamsAsJo.optString("selectedIconPath");
-        if (Aw == null) {
+        if (Fr == null) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a Ai = Aw.Ai();
-        if (Ai == null) {
+        com.baidu.swan.apps.tabbar.b.a Fd = Fr.Fd();
+        if (Fd == null) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "bottomBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!Ai.c(optInt, optString, optString2, optString3)) {
+        } else if (!Fd.c(optInt, optString, optString2, optString3)) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "set bottom bar time fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

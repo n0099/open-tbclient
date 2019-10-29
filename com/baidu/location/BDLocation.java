@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.location.Address;
 import com.baidu.location.g.g;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
@@ -430,7 +430,7 @@ public final class BDLocation implements Parcelable {
             try {
                 JSONObject jSONObject2 = new JSONObject(str);
                 JSONObject jSONObject3 = jSONObject2.getJSONObject("result");
-                int parseInt = Integer.parseInt(jSONObject3.getString("error"));
+                int parseInt = Integer.parseInt(jSONObject3.getString(BdStatsConstant.StatsType.ERROR));
                 setLocType(parseInt);
                 setTime(jSONObject3.getString("time"));
                 if (parseInt == 61) {
@@ -497,7 +497,7 @@ public final class BDLocation implements Parcelable {
                             ArrayList arrayList = new ArrayList();
                             for (int i = 0; i < jSONArray.length(); i++) {
                                 JSONObject jSONObject11 = jSONArray.getJSONObject(i);
-                                arrayList.add(new Poi(jSONObject11.getString(Info.kBaiduPIDKey), jSONObject11.getString("pname"), jSONObject11.getDouble(Config.PRINCIPAL_PART)));
+                                arrayList.add(new Poi(jSONObject11.getString("pid"), jSONObject11.getString("pname"), jSONObject11.getDouble(Config.PRINCIPAL_PART)));
                             }
                             this.L = arrayList;
                         }

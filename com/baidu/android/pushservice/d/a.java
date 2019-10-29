@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.d;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.pushservice.PushConstants;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -13,12 +14,12 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
     protected Context a;
     protected l b;
     protected String c = com.baidu.android.pushservice.g.e();
-    private C0032a d = new C0032a();
+    private C0036a d = new C0036a();
 
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0032a {
-        public C0032a() {
+    public class C0036a {
+        public C0036a() {
         }
 
         public void a(Boolean bool) {
@@ -256,7 +257,7 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                 hashMap.put("access_token", this.b.d);
             } else if (TextUtils.isEmpty(this.b.i)) {
             } else {
-                hashMap.put("apikey", this.b.i);
+                hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.b.i);
             }
         } else if (!TextUtils.isEmpty(this.b.h)) {
             if (this.b.e.equals(this.a.getPackageName())) {
@@ -269,7 +270,7 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
             if (TextUtils.isEmpty(this.b.i)) {
                 return;
             }
-            hashMap.put("apikey", this.b.i);
+            hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.b.i);
         } else if (this.b.e.equals(this.a.getPackageName())) {
             hashMap.put("pure_access_token", this.b.d);
         } else {

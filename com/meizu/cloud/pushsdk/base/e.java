@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.base;
 
 import android.util.Log;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileFilter;
@@ -82,7 +83,7 @@ public class e {
         if (this.d != null) {
             StringBuffer stringBuffer = new StringBuffer(str);
             stringBuffer.append(str2);
-            stringBuffer.append(" ");
+            stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
             stringBuffer.append(str3);
             this.d.write(this.c.a(stringBuffer.toString().getBytes()));
             this.d.write("\r\n");

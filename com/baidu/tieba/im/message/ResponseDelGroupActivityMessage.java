@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.squareup.wire.Wire;
 import protobuf.DelGroupActivity.DataRes;
@@ -10,7 +11,7 @@ public class ResponseDelGroupActivityMessage extends SocketResponsedMessage {
     private GroupActivityData activityData;
 
     public ResponseDelGroupActivityMessage() {
-        super(103121);
+        super(CmdConfigSocket.CMD_DEL_GROUP_ACTIVITY);
     }
 
     public GroupActivityData getActivityData() {

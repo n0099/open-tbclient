@@ -22,13 +22,13 @@ public final class a {
     int a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0115a e;
+    private C0147a e;
     private Context f;
 
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.e = new C0115a(context.getApplicationContext());
+        this.e = new C0147a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -51,8 +51,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class C0115a extends SQLiteOpenHelper {
-        public C0115a(Context context) {
+    private class C0147a extends SQLiteOpenHelper {
+        public C0147a(Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.a);
             new StringBuilder().append(a.this.a);
             b.a();
@@ -117,7 +117,7 @@ public final class a {
                 if (b(apkInfo.key)) {
                     j = this.c.update("pgn", contentValues, "k=" + apkInfo.key, null);
                 } else {
-                    contentValues.put(Config.APP_KEY, Integer.valueOf(apkInfo.key));
+                    contentValues.put("k", Integer.valueOf(apkInfo.key));
                     j = this.c.insert("pgn", null, contentValues);
                 }
             } catch (Throwable th) {
@@ -135,7 +135,7 @@ public final class a {
                 while (cursor.moveToNext()) {
                     try {
                         ApkInfo apkInfo = new ApkInfo();
-                        apkInfo.key = cursor.getInt(cursor.getColumnIndex(Config.APP_KEY));
+                        apkInfo.key = cursor.getInt(cursor.getColumnIndex("k"));
                         apkInfo.packageName = cursor.getString(cursor.getColumnIndex("p"));
                         apkInfo.pkgPath = cursor.getString(cursor.getColumnIndex(Config.APP_VERSION_CODE));
                         apkInfo.libPath = cursor.getString(cursor.getColumnIndex("l"));
@@ -196,7 +196,7 @@ public final class a {
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
-                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex(Config.APP_KEY))), "'" + cursor.getString(cursor.getColumnIndex("v")) + "'");
+                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("k"))), "'" + cursor.getString(cursor.getColumnIndex("v")) + "'");
                     } catch (Throwable th) {
                         try {
                             e.a();
@@ -249,7 +249,7 @@ public final class a {
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
-                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex(Config.APP_KEY))), cursor.getString(cursor.getColumnIndex("p")));
+                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("k"))), cursor.getString(cursor.getColumnIndex("p")));
                     } catch (Throwable th) {
                         try {
                             e.a();

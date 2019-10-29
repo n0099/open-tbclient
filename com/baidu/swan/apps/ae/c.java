@@ -9,7 +9,7 @@ public abstract class c extends ContextWrapper {
     }
 
     @NonNull
-    public b My() {
+    public b Rq() {
         return (b) getBaseContext();
     }
 

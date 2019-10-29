@@ -1,6 +1,6 @@
 package com.baidu.platform.core.d;
 
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -8,8 +8,6 @@ import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.VehicleInfo;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteResult;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -25,7 +23,7 @@ public class m extends k {
         RouteNode routeNode = new RouteNode();
         routeNode.setTitle(optJSONObject.optString(ActVideoSetting.WIFI_DISPLAY));
         routeNode.setUid(optJSONObject.optString("uid"));
-        routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString(Config.PLATFORM_TYPE)));
+        routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString("pt")));
         return routeNode;
     }
 
@@ -37,7 +35,7 @@ public class m extends k {
             return null;
         }
         TaxiInfo taxiInfo = new TaxiInfo();
-        JSONArray optJSONArray = jSONObject.optJSONArray(DpStatConstants.KEY_DETAIL);
+        JSONArray optJSONArray = jSONObject.optJSONArray("detail");
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return null;
         }
@@ -96,7 +94,7 @@ public class m extends k {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
                 return false;
             }
-            switch (optJSONObject.optInt("error")) {
+            switch (optJSONObject.optInt(BdStatsConstant.StatsType.ERROR)) {
                 case 0:
                     JSONObject optJSONObject2 = jSONObject.optJSONObject("bus");
                     if (optJSONObject2 == null) {
@@ -110,7 +108,7 @@ public class m extends k {
                     if (optJSONObject4 == null) {
                         return false;
                     }
-                    RouteNode a = a(optJSONObject4, IntentConfig.START);
+                    RouteNode a = a(optJSONObject4, "start");
                     RouteNode a2 = a(optJSONObject4, "end");
                     JSONArray optJSONArray = optJSONObject2.optJSONArray("routes");
                     if (optJSONArray == null || optJSONArray.length() <= 0) {

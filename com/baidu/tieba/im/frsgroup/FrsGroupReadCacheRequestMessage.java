@@ -1,13 +1,14 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes5.dex */
 public class FrsGroupReadCacheRequestMessage extends CustomMessage<Object> {
     private String forumName;
     private int type;
 
     public FrsGroupReadCacheRequestMessage() {
-        super(2001204);
+        super(CmdConfigCustom.CMD_CACHE_GROUPS_BY_FID);
     }
 
     public int getType() {

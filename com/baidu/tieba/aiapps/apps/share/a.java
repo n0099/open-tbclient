@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tbadk.coreExtra.c.e {
-    public void bi(JSONObject jSONObject) throws JSONException {
-        this.cme = true;
+    public void bF(JSONObject jSONObject) throws JSONException {
+        this.czd = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -17,13 +17,13 @@ public class a extends com.baidu.tbadk.coreExtra.c.e {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.cmf = optJSONObject.optString("source2");
-            this.cmh = optJSONObject.optString("source3");
+            this.cze = optJSONObject.optString("source2");
+            this.czg = optJSONObject.optString("source3");
         }
         if (jSONObject.optJSONObject(CommandMessage.COMMAND) != null) {
-            this.cmg = 2;
+            this.czf = 2;
         } else {
-            this.cmg = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+            this.czf = "url".equals(jSONObject.optString("type")) ? 1 : 3;
         }
     }
 }

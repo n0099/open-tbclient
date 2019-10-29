@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -40,9 +41,9 @@ public class a extends z {
         try {
             File file2 = null;
             if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
-                String aE = com.baidu.swan.apps.storage.b.aE(optString, bVar.id);
-                if (!TextUtils.isEmpty(aE)) {
-                    file2 = new File(aE);
+                String aL = com.baidu.swan.apps.storage.b.aL(optString, bVar.id);
+                if (!TextUtils.isEmpty(aL)) {
+                    file2 = new File(aL);
                 }
                 file = file2;
             } else {
@@ -65,11 +66,11 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Ml().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.d.a.a.1
+                bVar.Rd().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.d.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
-                    public void D(Boolean bool) {
+                    public void B(Boolean bool) {
                         if (bool.booleanValue()) {
                             a.this.a(context, file, callbackHandler, optString2);
                         } else {
@@ -94,21 +95,21 @@ public class a extends z {
         if (file == null) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
         } else {
-            rx.d.bm(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.d.a.a.3
+            rx.d.bh(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.d.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
-                /* renamed from: t */
+                /* renamed from: j */
                 public File call(File file2) {
-                    String hG = com.baidu.swan.apps.storage.b.hG(com.baidu.swan.apps.ae.b.Ms());
-                    if (!TextUtils.isEmpty(hG) && file2.getPath().startsWith(hG)) {
+                    String ik = com.baidu.swan.apps.storage.b.ik(com.baidu.swan.apps.ae.b.Rk());
+                    if (!TextUtils.isEmpty(ik) && file2.getPath().startsWith(ik)) {
                         return a.this.d(context, file2);
                     }
                     return null;
                 }
-            }).b(Schedulers.io()).a(rx.a.b.a.cQm()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
+            }).b(Schedulers.io()).a(rx.a.b.a.cOs()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
-                /* renamed from: s */
+                /* renamed from: i */
                 public void call(File file2) {
                     if (file2 == null) {
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "output file create fail").toString());
@@ -128,29 +129,29 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(Context context, String str, long j) {
-        if (fw(str)) {
-            long J = J(j);
-            ContentValues k = k(str, J);
-            k.put("datetaken", Long.valueOf(J));
-            k.put("mime_type", fv(str));
-            context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, k);
+        if (checkFile(str)) {
+            long ac = ac(j);
+            ContentValues m = m(str, ac);
+            m.put("datetaken", Long.valueOf(ac));
+            m.put("mime_type", getVideoMimeType(str));
+            context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, m);
         }
     }
 
-    private ContentValues k(String str, long j) {
+    private ContentValues m(String str, long j) {
         ContentValues contentValues = new ContentValues();
         File file = new File(str);
-        long J = J(j);
+        long ac = ac(j);
         contentValues.put("title", file.getName());
         contentValues.put("_display_name", file.getName());
-        contentValues.put("date_modified", Long.valueOf(J));
-        contentValues.put("date_added", Long.valueOf(J));
+        contentValues.put("date_modified", Long.valueOf(ac));
+        contentValues.put("date_added", Long.valueOf(ac));
         contentValues.put("_data", file.getAbsolutePath());
         contentValues.put("_size", Long.valueOf(file.length()));
         return contentValues;
     }
 
-    private String fv(String str) {
+    private String getVideoMimeType(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -158,14 +159,14 @@ public class a extends z {
         return "video/mp4";
     }
 
-    private long J(long j) {
+    private long ac(long j) {
         if (j <= 0) {
             return System.currentTimeMillis();
         }
         return j;
     }
 
-    private boolean fw(String str) {
+    private boolean checkFile(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -174,18 +175,18 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public File d(Context context, @NonNull File file) {
-        File bn = bn(context);
-        if (bn == null) {
+        File bp = bp(context);
+        if (bp == null) {
             return null;
         }
-        File file2 = new File(bn, file.getName());
-        if (com.baidu.swan.c.a.f(file, file2) <= 0) {
+        File file2 = new File(bp, file.getName());
+        if (com.baidu.swan.c.a.e(file, file2) <= 0) {
             file2 = null;
         }
         return file2;
     }
 
-    public static File bn(Context context) {
+    public static File bp(Context context) {
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath());
         if (file.exists()) {
             String str = "Video";
@@ -197,7 +198,7 @@ public class a extends z {
                 return file2;
             }
         }
-        File file3 = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "baidu" + File.separator + "searchbox" + File.separator + "Video");
+        File file3 = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + BuildConfig.FLAVOR + File.separator + "searchbox" + File.separator + "Video");
         if (!file3.exists() && !file3.mkdirs()) {
             File externalFilesDir = context.getExternalFilesDir(null);
             if (externalFilesDir != null) {

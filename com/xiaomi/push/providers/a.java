@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
@@ -22,7 +23,7 @@ public class a extends SQLiteOpenHelper {
             if (i != 0) {
                 sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
-            sb.append(c[i]).append(" ").append(c[i + 1]);
+            sb.append(c[i]).append(HanziToPinyin.Token.SEPARATOR).append(c[i + 1]);
         }
         sb.append(");");
         sQLiteDatabase.execSQL(sb.toString());

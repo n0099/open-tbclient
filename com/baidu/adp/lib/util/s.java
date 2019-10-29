@@ -7,18 +7,18 @@ import org.apache.http.protocol.HTTP;
 public class s {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-    public static String m(byte[] bArr) {
+    public static String toMd5(byte[] bArr) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bArr);
-            return n(messageDigest.digest());
+            return toHexString(messageDigest.digest());
         } catch (Exception e) {
             BdLog.e(e);
             return null;
         }
     }
 
-    public static String n(byte[] bArr) {
+    public static String toHexString(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -30,7 +30,7 @@ public class s {
         return sb.toString();
     }
 
-    public static String h(InputStream inputStream) {
+    public static String toMd5(InputStream inputStream) {
         String str = null;
         if (inputStream != null) {
             try {
@@ -43,22 +43,22 @@ public class s {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                str = n(messageDigest.digest());
+                str = toHexString(messageDigest.digest());
             } catch (Exception e) {
                 BdLog.e(e.toString());
             } finally {
-                n.g(inputStream);
+                n.close(inputStream);
             }
         }
         return str;
     }
 
-    public static String bn(String str) {
+    public static String toMd5(String str) {
         if (str == null) {
             return null;
         }
         try {
-            return m(str.getBytes(HTTP.UTF_8));
+            return toMd5(str.getBytes(HTTP.UTF_8));
         } catch (Exception e) {
             return null;
         }

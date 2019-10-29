@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
@@ -11,12 +12,12 @@ import com.baidu.tbadk.t.ao;
 @CoordinatorLayout.DefaultBehavior(b.class)
 /* loaded from: classes4.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    private b giK;
-    private a giL;
+    private b gii;
+    private a gij;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void lo(boolean z);
+        void lc(boolean z);
     }
 
     public StickyAppBarLayout(Context context) {
@@ -30,63 +31,63 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     private void init() {
-        if (ao.iN()) {
-            bwQ();
+        if (ao.isOn()) {
+            btV();
         }
     }
 
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        bwO();
+        btT();
     }
 
-    private void bwO() {
+    private void btT() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof b) {
-                this.giK = (b) behavior;
+                this.gii = (b) behavior;
             }
         }
     }
 
-    public boolean bwP() {
-        if (this.giK == null) {
-            bwO();
+    public boolean btU() {
+        if (this.gii == null) {
+            btT();
         }
-        if (this.giK != null) {
-            if (isSticky() && ao.iN() && this.giK.bwS() != null && this.giK.bwS().getVisibility() == 0) {
-                bwQ();
+        if (this.gii != null) {
+            if (isSticky() && ao.isOn() && this.gii.btX() != null && this.gii.btX().getVisibility() == 0) {
+                btV();
             }
-            this.giK.bwR();
+            this.gii.btW();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.giK == null) {
-            bwO();
+        if (this.gii == null) {
+            btT();
         }
-        if (this.giK != null) {
-            return this.giK.isSticky();
+        if (this.gii != null) {
+            return this.gii.isSticky();
         }
         return false;
     }
 
-    private void bwQ() {
+    private void btV() {
         an anVar = new an("c13422");
-        anVar.P("obj_type", 1);
-        anVar.P("obj_locate", 1);
-        anVar.P("ab_tag", TbSingleton.getInstance().getHomePageStyleAbTest());
+        anVar.O("obj_type", 1);
+        anVar.O("obj_locate", 1);
+        anVar.O(TiebaInitialize.Params.AB_TAG, TbSingleton.getInstance().getHomePageStyleAbTest());
         TiebaStatic.log(anVar);
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.giL = aVar;
+        this.gij = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.giL;
+        return this.gij;
     }
 }

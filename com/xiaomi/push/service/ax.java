@@ -3,8 +3,8 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.mobstat.Config;
+import com.baidu.live.adp.lib.cache.BdKVCache;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.HostFilter;
 import com.xiaomi.network.HostManager;
@@ -31,8 +31,8 @@ public class ax extends bh.a implements HostManager.HostManagerFactory {
             Uri.Builder buildUpon = Uri.parse(str).buildUpon();
             buildUpon.appendQueryParameter("sdkver", String.valueOf(37));
             buildUpon.appendQueryParameter("osver", String.valueOf(Build.VERSION.SDK_INT));
-            buildUpon.appendQueryParameter(IXAdRequestInfo.OS, com.xiaomi.smack.util.d.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
-            buildUpon.appendQueryParameter("mi", String.valueOf(com.xiaomi.channel.commonutils.android.n.b()));
+            buildUpon.appendQueryParameter("os", com.xiaomi.smack.util.d.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
+            buildUpon.appendQueryParameter(BdStatsConstant.StatsKey.MERGE_ITEM, String.valueOf(com.xiaomi.channel.commonutils.android.n.b()));
             String builder = buildUpon.toString();
             com.xiaomi.channel.commonutils.logger.b.c("fetch bucket from : " + builder);
             URL url = new URL(builder);
@@ -79,7 +79,7 @@ public class ax extends bh.a implements HostManager.HostManagerFactory {
         bh.a().a(axVar);
         synchronized (HostManager.class) {
             HostManager.setHostManagerFactory(axVar);
-            HostManager.init(xMPushService, null, new a(), "0", Config.PUSH, "2.2");
+            HostManager.init(xMPushService, null, new a(), "0", "push", "2.2");
         }
     }
 
@@ -89,15 +89,15 @@ public class ax extends bh.a implements HostManager.HostManagerFactory {
     }
 
     @Override // com.xiaomi.push.service.bh.a
-    public void a(a.C0497a c0497a) {
+    public void a(a.C0598a c0598a) {
     }
 
     @Override // com.xiaomi.push.service.bh.a
-    public void a(b.C0498b c0498b) {
+    public void a(b.C0599b c0599b) {
         Fallback fallbacksByHost;
         boolean z;
-        if (c0498b.e() && c0498b.d() && System.currentTimeMillis() - this.b > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0498b.d());
+        if (c0599b.e() && c0599b.d() && System.currentTimeMillis() - this.b > BdKVCache.MILLS_1Hour) {
+            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0599b.d());
             this.b = System.currentTimeMillis();
             HostManager hostManager = HostManager.getInstance();
             hostManager.clear();

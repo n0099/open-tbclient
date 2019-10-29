@@ -1,10 +1,6 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface h {
-    void By(String str);
-
-    void Bz(String str);
-
     void av(int i, String str);
 
     void aw(int i, String str);
@@ -13,13 +9,17 @@ public interface h {
 
     void ay(int i, String str);
 
-    void bPB();
+    void bMB();
 
-    void bPC();
+    void bMC();
 
-    void bPD();
+    void bMD();
 
-    void bPE();
+    void bME();
 
     void h(int i, int i2, String str);
+
+    void zS(String str);
+
+    void zT(String str);
 }

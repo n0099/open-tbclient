@@ -1,5 +1,6 @@
 package com.baidu.mapapi.cloud;
 
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -20,7 +21,7 @@ public abstract class BaseSearchResult {
         if (this.status == 1233 || this.status == 2) {
             this.status = 2;
         }
-        this.size = jSONObject.optInt("size");
+        this.size = jSONObject.optInt(TiebaInitialize.LogFields.SIZE);
         this.total = jSONObject.optInt("total");
     }
 }

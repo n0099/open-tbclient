@@ -3,6 +3,7 @@ package com.baidu.swan.apps.network;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.z;
@@ -18,13 +19,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends z {
-    protected static final Set<String> aFb = com.facebook.common.internal.h.M("localhost", "127.0.0.1");
-    public static final Set<String> aFc = com.facebook.common.internal.h.M("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> aFa;
+    protected static final Set<String> aYq = com.facebook.common.internal.h.J("localhost", "127.0.0.1");
+    public static final Set<String> aYr = com.facebook.common.internal.h.J("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> aYp;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.aFa = new ConcurrentHashMap<>();
+        this.aYp = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.z
@@ -32,34 +33,34 @@ public class a extends z {
         return false;
     }
 
-    public final long fH(String str) {
+    public final long gl(String str) {
         long j;
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
         try {
-            j = this.aFa.get(str).longValue();
+            j = this.aYp.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
         return j;
     }
 
-    public final void fI(String str) {
-        if (this.aFa != null && !TextUtils.isEmpty(str)) {
-            this.aFa.remove(str);
+    public final void gm(String str) {
+        if (this.aYp != null && !TextUtils.isEmpty(str)) {
+            this.aYp.remove(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static HttpUrl fJ(String str) {
+    public static HttpUrl gn(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if ((com.baidu.swan.apps.ae.b.Mh() == null ? null : com.baidu.swan.apps.ae.b.Mh().getActivity()) == null) {
+        if ((com.baidu.swan.apps.ae.b.QZ() == null ? null : com.baidu.swan.apps.ae.b.QZ().getActivity()) == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if ((DEBUG && com.baidu.swan.apps.ac.a.a.Jf()) || a(parse)) {
+        } else if ((DEBUG && com.baidu.swan.apps.ac.a.a.NZ()) || a(parse)) {
             return parse;
         } else {
             return null;
@@ -67,17 +68,17 @@ public class a extends z {
     }
 
     protected static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean MP = com.baidu.swan.apps.af.a.b.MP();
-        if (!com.baidu.swan.apps.u.a.Er().wr()) {
-            MP = false;
+        boolean RH = com.baidu.swan.apps.af.a.b.RH();
+        if (!com.baidu.swan.apps.u.a.Jl().Bl()) {
+            RH = false;
         }
         if (httpUrl != null) {
-            return (!MP || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aFb.contains(httpUrl.host().toLowerCase());
+            return (!RH || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aYq.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
 
-    protected static HashMap<String, String> I(@Nullable JSONObject jSONObject) {
+    protected static HashMap<String, String> ag(@Nullable JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() < 1) {
             return null;
         }
@@ -85,7 +86,7 @@ public class a extends z {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !aFc.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !aYr.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);
@@ -96,24 +97,24 @@ public class a extends z {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static HashMap<String, String> a(@Nullable JSONObject jSONObject, boolean z) {
-        HashMap<String, String> I = I(jSONObject);
+    public static HashMap<String, String> b(@Nullable JSONObject jSONObject, boolean z) {
+        HashMap<String, String> ag = ag(jSONObject);
         if (z) {
-            if (I == null) {
-                I = new HashMap<>();
+            if (ag == null) {
+                ag = new HashMap<>();
             }
-            I.put("Referer", HQ());
+            ag.put("Referer", MK());
         }
-        return I;
+        return ag;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String fK(String str) {
-        return str + "_" + System.currentTimeMillis();
+    public String go(String str) {
+        return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject fL(String str) {
+    public JSONObject gp(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -127,9 +128,9 @@ public class a extends z {
         return jSONObject;
     }
 
-    public static String HQ() {
-        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
-        return Mh != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", Mh.getAppKey(), Mh.Mv()) : "";
+    public static String MK() {
+        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+        return QZ != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", QZ.getAppKey(), QZ.Rn()) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

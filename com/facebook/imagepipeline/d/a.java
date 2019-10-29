@@ -4,41 +4,41 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes2.dex */
 public class a implements e {
-    private final Executor kjS;
-    private final Executor kjT;
-    private final Executor kjU;
-    private final Executor kjV;
+    private final Executor kie;
+    private final Executor kif;
+    private final Executor kig;
+    private final Executor kih;
 
     public a(int i) {
         k kVar = new k(10);
-        this.kjS = Executors.newFixedThreadPool(2);
-        this.kjT = Executors.newFixedThreadPool(i, kVar);
-        this.kjU = Executors.newFixedThreadPool(i, kVar);
-        this.kjV = Executors.newFixedThreadPool(1, kVar);
+        this.kie = Executors.newFixedThreadPool(2);
+        this.kif = Executors.newFixedThreadPool(i, kVar);
+        this.kig = Executors.newFixedThreadPool(i, kVar);
+        this.kih = Executors.newFixedThreadPool(1, kVar);
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cJh() {
-        return this.kjS;
+    public Executor cGe() {
+        return this.kie;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cJi() {
-        return this.kjS;
+    public Executor cGf() {
+        return this.kie;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cJj() {
-        return this.kjT;
+    public Executor cGg() {
+        return this.kif;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cJk() {
-        return this.kjU;
+    public Executor cGh() {
+        return this.kig;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cJl() {
-        return this.kjV;
+    public Executor cGi() {
+        return this.kih;
     }
 }

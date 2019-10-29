@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.adp.plugin.Plugin;
 import com.baidu.android.common.so.SoUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -188,7 +187,7 @@ public final class SoLoader {
     }
 
     public static File getReleaseSoFilePath(Context context) {
-        return new File(context.getFilesDir(), Plugin.SO_LIB_DIR_NAME);
+        return new File(context.getFilesDir(), "lib");
     }
 
     private boolean loadLibrary(ICallingSoLoader iCallingSoLoader, String str, String str2) {
@@ -502,7 +501,7 @@ public final class SoLoader {
             if (SoUtils.hasGingerbread()) {
                 absolutePath = packageInfo.applicationInfo.nativeLibraryDir;
             } else {
-                absolutePath = new File(packageInfo.applicationInfo.dataDir, Plugin.SO_LIB_DIR_NAME).getAbsolutePath();
+                absolutePath = new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
             }
             return absolutePath;
         } catch (PackageManager.NameNotFoundException e) {
@@ -562,7 +561,7 @@ public final class SoLoader {
     private void addLocalSoLibraryDirectory(Context context) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new File(getNativeLibraryDir(context)));
-        arrayList.add(new File(context.getFilesDir(), Plugin.SO_LIB_DIR_NAME));
+        arrayList.add(new File(context.getFilesDir(), "lib"));
         for (int i = 0; i < arrayList.size(); i++) {
             if (!soSources.contains(arrayList.get(i))) {
                 soSources.add(arrayList.get(i));

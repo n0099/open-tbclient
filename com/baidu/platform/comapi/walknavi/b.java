@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.bikenavi.adapter.IBNaviStatusListener;
 import com.baidu.mapapi.bikenavi.adapter.IBRouteGuidanceListener;
 import com.baidu.mapapi.map.MapStatus;
@@ -30,7 +32,6 @@ import com.baidu.mapapi.walknavi.adapter.IWNaviStatusListener;
 import com.baidu.mapapi.walknavi.adapter.IWRouteGuidanceListener;
 import com.baidu.mapapi.walknavi.model.BaseNpcModel;
 import com.baidu.mapapi.walknavi.model.WalkNaviDisplayOption;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.platform.comapi.walknavi.fsm.WGuideFSM;
 import com.baidu.platform.comapi.walknavi.g.a;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
@@ -38,7 +39,6 @@ import com.baidu.platform.comapi.wnplatform.o.n;
 import com.baidu.platform.comapi.wnplatform.o.o;
 import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -343,7 +343,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
             this.K = new ArrayList<>();
         }
         if (this.L == null) {
-            this.L = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_location_ding);
+            this.L = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_loading_progress);
         }
         BaseNpcModel baseNpcModel = new BaseNpcModel();
         baseNpcModel.setDownLoadKey("");
@@ -352,7 +352,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         baseNpcModel.setLoadFromLocal(true);
         this.K.add(baseNpcModel);
         if (this.M == null) {
-            this.M = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_location_search_del);
+            this.M = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_location_progress_bar_anim);
         }
         BaseNpcModel baseNpcModel2 = new BaseNpcModel();
         baseNpcModel2.setDownLoadKey("10279765");
@@ -605,7 +605,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
 
     public void a(Context context, a.b bVar, int i) {
         if (context != null) {
-            if (((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).isWifiEnabled()) {
+            if (((WifiManager) context.getSystemService("wifi")).isWifiEnabled()) {
                 bVar.a(i);
             } else if (i != 1 && i != 3) {
                 if (i == 2) {
@@ -868,10 +868,10 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     public MapBound T() {
         new Bundle();
         Bundle m = a().D().m();
-        int i = m.getInt(CustomDialogData.POS_LEFT);
-        int i2 = m.getInt("bottom");
-        int i3 = m.getInt("right");
-        int i4 = m.getInt("top");
+        int i = m.getInt("left");
+        int i2 = m.getInt(VerticalTranslateLayout.BOTTOM);
+        int i3 = m.getInt(HorizontalTranslateLayout.RIGHT);
+        int i4 = m.getInt(VerticalTranslateLayout.TOP);
         MapBound mapBound = new MapBound();
         mapBound.setPtLB(new Point(i, i2));
         mapBound.setPtRT(new Point(i3, i4));
@@ -881,10 +881,10 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
     public MapBound f(int i) {
         new Bundle();
         Bundle f = a().D().f(i);
-        int i2 = f.getInt(CustomDialogData.POS_LEFT);
-        int i3 = f.getInt("bottom");
-        int i4 = f.getInt("right");
-        int i5 = f.getInt("top");
+        int i2 = f.getInt("left");
+        int i3 = f.getInt(VerticalTranslateLayout.BOTTOM);
+        int i4 = f.getInt(HorizontalTranslateLayout.RIGHT);
+        int i5 = f.getInt(VerticalTranslateLayout.TOP);
         MapBound mapBound = new MapBound();
         mapBound.setPtLB(new Point(i2, i3));
         mapBound.setPtRT(new Point(i4, i5));

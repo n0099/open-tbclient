@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumMember.tbtitle.model.cache;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
@@ -9,7 +10,7 @@ public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessag
     private DataRes mResult;
 
     public GetLevelInfoReadCacheResponsedMessage() {
-        super(2003007);
+        super(CmdConfigCustom.CMD_GET_LEVEL_INFO_CACHE);
     }
 
     public DataRes getResult() {

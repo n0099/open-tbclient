@@ -134,7 +134,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                 return;
             }
             onFail(signInResultFromIntent.getStatus().getStatusCode(), getString(a.b.sapi_sdk_third_error_hw));
-        } else if (i == REQUEST_SIGN_IN_CHECK_PASSWORD) {
+        } else if (i == 1005) {
             signIn();
         } else if (i == 2007) {
             handleSignInResult(HuaweiId.HuaweiIdApi.getSignInResultFromIntent(intent));
@@ -159,7 +159,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
             Log.i(TAG, "帐号已登录，需要用户授权");
             startActivityForResult(data, 1003);
         } else if (signInResult.getStatus().getStatusCode() == 2004) {
-            startActivityForResult(data, REQUEST_SIGN_IN_CHECK_PASSWORD);
+            startActivityForResult(data, 1005);
         } else if (signInResult.getStatus().getStatusCode() == 2007) {
             startActivityForResult(data, 2007);
         } else {

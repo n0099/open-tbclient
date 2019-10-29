@@ -4,13 +4,13 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
     private String mName;
-    private int za;
-    private a zd;
-    private int zc = 0;
-    private String[] zf = null;
-    private int zb = 0;
-    private String[] zg = null;
-    private boolean zh = false;
+    private int of;
+    private a oi;
+    private int oh = 0;
+    private String[] ol = null;
+    private int og = 0;
+    private String[] om = null;
+    private boolean on = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,61 +19,61 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.zd = null;
-        this.za = 0;
+        this.oi = null;
+        this.of = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.zd = aVar;
-        this.za = i;
+        this.oi = aVar;
+        this.of = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.zc = i;
-        this.zf = strArr;
-        this.zb = i2;
+        this.oh = i;
+        this.ol = strArr;
+        this.og = i2;
     }
 
-    public void Q(boolean z) {
-        this.zh = z;
+    public void z(boolean z) {
+        this.on = z;
     }
 
-    public boolean hO() {
-        return this.zh;
+    public boolean fo() {
+        return this.on;
     }
 
     public void g(String[] strArr) {
-        this.zg = strArr;
+        this.om = strArr;
     }
 
-    public String[] hM() {
-        return this.zg;
+    public String[] fm() {
+        return this.om;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public int hL() {
-        return this.zc;
+    public int fl() {
+        return this.oh;
     }
 
-    public String[] hP() {
-        return this.zf;
+    public String[] fp() {
+        return this.ol;
     }
 
-    public int hK() {
-        return this.zb;
+    public int fk() {
+        return this.og;
     }
 
-    public int hJ() {
-        return this.za;
+    public int fj() {
+        return this.of;
     }
 
     public void f(int i, boolean z) {
-        if (this.zd != null) {
-            this.zd.a(this.mName, i, z);
+        if (this.oi != null) {
+            this.oi.a(this.mName, i, z);
         }
     }
 }

@@ -2,6 +2,8 @@ package com.baidu.mapsdkplatform.comapi.favrite;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mobstat.Config;
@@ -28,8 +30,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0062a implements Comparator<String> {
-        C0062a() {
+    public class C0094a implements Comparator<String> {
+        C0094a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -170,7 +172,7 @@ public class a {
                     JSONObject jSONObject = new JSONObject();
                     favSyncPoi.b = str;
                     String valueOf = String.valueOf(System.currentTimeMillis());
-                    String str2 = valueOf + "_" + favSyncPoi.hashCode();
+                    String str2 = valueOf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + favSyncPoi.hashCode();
                     favSyncPoi.h = valueOf;
                     favSyncPoi.a = str2;
                     jSONObject.put("bdetail", favSyncPoi.i);
@@ -178,7 +180,7 @@ public class a {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put(Config.EVENT_HEAT_X, favSyncPoi.c.getmPtx());
                     jSONObject2.put("y", favSyncPoi.c.getmPty());
-                    jSONObject.put(Config.PLATFORM_TYPE, jSONObject2);
+                    jSONObject.put("pt", jSONObject2);
                     jSONObject.put("ncityid", favSyncPoi.e);
                     jSONObject.put("npoitype", favSyncPoi.g);
                     jSONObject.put("uspoiuid", favSyncPoi.f);
@@ -233,7 +235,7 @@ public class a {
                 JSONObject optJSONObject = jSONObject.optJSONObject("Fav_Sync");
                 String optString = jSONObject.optString("Fav_Content");
                 favSyncPoi.b = optJSONObject.optString("uspoiname");
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject(Config.PLATFORM_TYPE);
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject("pt");
                 favSyncPoi.c = new Point(optJSONObject2.optInt(Config.EVENT_HEAT_X), optJSONObject2.optInt("y"));
                 favSyncPoi.e = optJSONObject.optString("ncityid");
                 favSyncPoi.f = optJSONObject.optString("uspoiuid");
@@ -275,7 +277,7 @@ public class a {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put(Config.EVENT_HEAT_X, favSyncPoi.c.getmPtx());
                     jSONObject2.put("y", favSyncPoi.c.getmPty());
-                    jSONObject.put(Config.PLATFORM_TYPE, jSONObject2);
+                    jSONObject.put("pt", jSONObject2);
                     jSONObject.put("ncityid", favSyncPoi.e);
                     jSONObject.put("npoitype", favSyncPoi.g);
                     jSONObject.put("uspoiuid", favSyncPoi.f);
@@ -338,7 +340,7 @@ public class a {
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0062a());
+                            Collections.sort(this.f, new C0094a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -378,7 +380,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0062a());
+                            Collections.sort(this.e, new C0094a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -420,7 +422,7 @@ public class a {
                             i = i2;
                         } else {
                             JSONObject optJSONObject = new JSONObject(b2).optJSONObject("Fav_Sync");
-                            optJSONObject.put("key", next);
+                            optJSONObject.put(TiebaInitialize.Params.KEY, next);
                             jSONArray.put(i2, optJSONObject);
                             i = i2 + 1;
                         }

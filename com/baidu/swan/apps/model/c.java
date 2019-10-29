@@ -8,34 +8,34 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean aEn;
-    private String azQ;
+    private String aTe;
+    private boolean aXC;
     private String mBaseUrl;
     private String mParams;
 
     public String getPage() {
-        return this.azQ;
+        return this.aTe;
     }
 
     public String getParams() {
         return this.mParams;
     }
 
-    public String Gs() {
+    public String Lm() {
         return this.mBaseUrl;
     }
 
-    public void Au() {
-        this.aEn = false;
+    public void Fp() {
+        this.aXC = false;
     }
 
-    public String Hu() {
+    public String Mo() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("page", this.azQ);
+            jSONObject.put("page", this.aTe);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.aEn);
+            jSONObject.put("isFirstPage", this.aXC);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -44,17 +44,17 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c fx(String str) {
+    public static c gb(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             c cVar = new c();
             JSONObject jSONObject = new JSONObject(str);
-            cVar.azQ = jSONObject.optString("page");
+            cVar.aTe = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.aEn = jSONObject.optBoolean("isFirstPage");
+            cVar.aXC = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private c arg = new c();
+        private c aKw = new c();
 
-        public a fy(String str) {
-            this.arg.azQ = str;
+        public a gc(String str) {
+            this.aKw.aTe = str;
             return this;
         }
 
-        public a fz(String str) {
-            this.arg.mParams = str;
+        public a gd(String str) {
+            this.aKw.mParams = str;
             return this;
         }
 
-        public a fA(String str) {
-            this.arg.mBaseUrl = str;
+        public a ge(String str) {
+            this.aKw.mBaseUrl = str;
             return this;
         }
 
-        public a bA(boolean z) {
-            this.arg.aEn = z;
+        public a bS(boolean z) {
+            this.aKw.aXC = z;
             return this;
         }
 
-        public c Hv() {
-            return this.arg;
+        public c Mp() {
+            return this.aKw;
         }
     }
 }

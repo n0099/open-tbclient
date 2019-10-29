@@ -29,7 +29,7 @@ public class l implements Runnable {
             m mVar = new m(this, d);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("v", "" + d);
-            hashMap.put(IXAdRequestInfo.OS, "android");
+            hashMap.put("os", "android");
             hashMap.put(IXAdRequestInfo.PHONE_TYPE, XAdSDKFoundationFacade.getInstance().getCommonUtils().getTextEncoder(Build.MODEL));
             hashMap.put(IXAdRequestInfo.BDR, XAdSDKFoundationFacade.getInstance().getCommonUtils().getTextEncoder(Build.VERSION.SDK));
             str = g.i;

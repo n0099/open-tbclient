@@ -1,12 +1,10 @@
 package com.baidu.swan.pms;
-
-import android.support.v4.view.PointerIconCompat;
 /* loaded from: classes2.dex */
 public class d {
 
     /* loaded from: classes2.dex */
     public static final class a {
-        public static String fH(int i) {
+        public static String gC(int i) {
             switch (i) {
                 case 1001:
                     return "system error";
@@ -17,10 +15,10 @@ public class d {
                 case 1004:
                     return "invalid query params";
                 case 1005:
-                case PointerIconCompat.TYPE_CELL /* 1006 */:
-                case PointerIconCompat.TYPE_CROSSHAIR /* 1007 */:
-                case PointerIconCompat.TYPE_TEXT /* 1008 */:
-                case PointerIconCompat.TYPE_VERTICAL_TEXT /* 1009 */:
+                case 1006:
+                case 1007:
+                case 1008:
+                case 1009:
                 default:
                     return "";
                 case 1010:
@@ -33,7 +31,7 @@ public class d {
                     return "please upgrade SDK version";
                 case 1014:
                     return "the framework is not available";
-                case PointerIconCompat.TYPE_VERTICAL_DOUBLE_ARROW /* 1015 */:
+                case 1015:
                     return "the host app is not support this app";
             }
         }

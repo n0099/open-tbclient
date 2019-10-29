@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.pb.main;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -37,7 +38,7 @@ public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (isSuccess()) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("error");
+            JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null) {
                 this.tid_typedesc = optJSONObject2.optString("tid_typedesc");

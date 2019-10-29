@@ -10,14 +10,14 @@ public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.baidu.swan.game.ad.a.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: n */
+        /* renamed from: v */
         public b createFromParcel(Parcel parcel) {
             return new b(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eT */
+        /* renamed from: fO */
         public b[] newArray(int i) {
             return new b[i];
         }
@@ -72,7 +72,7 @@ public class b implements Parcelable {
         return 0;
     }
 
-    public a QL() {
+    public a VB() {
         if (this.d.size() > 0) {
             return this.d.get(0);
         }

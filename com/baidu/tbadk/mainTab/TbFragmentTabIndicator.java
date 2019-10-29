@@ -10,46 +10,46 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean cyV;
-    protected float cyW;
-    protected float cyX;
-    protected int cyY;
-    protected int cyZ;
+    protected float cKr;
+    protected float cKs;
+    protected int cKt;
+    protected int cKu;
+    protected boolean mIsContentSelectBold;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.cyV = false;
-        this.cyW = 0.0f;
-        this.cyX = 0.0f;
-        this.cyY = 0;
-        this.cyZ = 0;
+        this.mIsContentSelectBold = false;
+        this.cKr = 0.0f;
+        this.cKs = 0.0f;
+        this.cKt = 0;
+        this.cKu = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cyV = false;
-        this.cyW = 0.0f;
-        this.cyX = 0.0f;
-        this.cyY = 0;
-        this.cyZ = 0;
+        this.mIsContentSelectBold = false;
+        this.cKr = 0.0f;
+        this.cKs = 0.0f;
+        this.cKt = 0;
+        this.cKu = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cyV = false;
-        this.cyW = 0.0f;
-        this.cyX = 0.0f;
-        this.cyY = 0;
-        this.cyZ = 0;
+        this.mIsContentSelectBold = false;
+        this.cKr = 0.0f;
+        this.cKs = 0.0f;
+        this.cKt = 0;
+        this.cKu = 0;
     }
 
-    public void jg(int i) {
+    public void onChangeSkin(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void fw(boolean z) {
+    public void onTabSelected(boolean z) {
     }
 
     public View getContentTv() {
@@ -65,7 +65,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a ra(String str) {
+    public a qa(String str) {
         return null;
     }
 
@@ -102,56 +102,56 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void auh() {
+    public void avA() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.cyV = z;
+        this.mIsContentSelectBold = z;
     }
 
     public void setContentSelectTextSize(float f) {
-        this.cyW = f;
+        this.cKr = f;
     }
 
     public void setContentDefaultTextSize(float f) {
-        this.cyX = f;
+        this.cKs = f;
     }
 
     public void setContentSelectTextColor(int i) {
-        this.cyY = i;
+        this.cKt = i;
     }
 
     public void setContentDefaultTextColor(int i) {
-        this.cyZ = i;
+        this.cKu = i;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int czb;
-        public TbFragmentTabIndicator czd;
+        public int bgDayRes;
+        public TbFragmentTabIndicator cKv;
+        public int offsetX;
         public View view;
-        public int zQ;
-        public boolean cza = true;
-        public int czc = R.color.common_color_10225;
+        public boolean isRight = true;
+        public int textDayColor = R.color.common_color_10225;
 
-        public void jg(int i) {
-            if (this.czb != 0) {
-                am.k(this.view, this.czb);
+        public void onChangeSkin(int i) {
+            if (this.bgDayRes != 0) {
+                am.setBackgroundResource(this.view, this.bgDayRes);
             }
             if (this.view instanceof TextView) {
-                if (this.czc != 0) {
-                    am.f(this.view, this.czc, 1);
+                if (this.textDayColor != 0) {
+                    am.setViewTextColor(this.view, this.textDayColor, 1);
                 }
-                int c = c((TextView) this.view);
-                if (c > 0 && c < 10) {
-                    am.k(this.view, R.drawable.icon_news_head_prompt_one);
-                } else if (c >= 10 && c < 100) {
-                    am.k(this.view, R.drawable.icon_news_head_prompt_two);
-                } else if (c >= 100) {
-                    am.k(this.view, R.drawable.icon_news_head_prompt_more);
+                int messageCount = getMessageCount((TextView) this.view);
+                if (messageCount > 0 && messageCount < 10) {
+                    am.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_one);
+                } else if (messageCount >= 10 && messageCount < 100) {
+                    am.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_two);
+                } else if (messageCount >= 100) {
+                    am.setBackgroundResource(this.view, R.drawable.icon_news_head_prompt_more);
                 }
             }
             if (this.view instanceof MessageRedDotView) {
@@ -159,7 +159,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             }
         }
 
-        private int c(TextView textView) {
+        private int getMessageCount(TextView textView) {
             if (textView == null) {
                 return -1;
             }
@@ -167,7 +167,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             if ("   ".equals(charSequence)) {
                 return 100;
             }
-            return com.baidu.adp.lib.g.b.f(charSequence, -1);
+            return com.baidu.adp.lib.g.b.toInt(charSequence, -1);
         }
     }
 }

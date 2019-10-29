@@ -24,22 +24,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends BaseAdapter {
-    private com.baidu.tbadk.img.b cue;
-    private l cuo;
-    private a jXO;
-    private int jXP;
+    private com.baidu.tbadk.img.b cGn;
+    private l cGx;
+    private a jVN;
+    private int jVO;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mDataList = new ArrayList();
-    private boolean jQS = false;
+    private boolean jON = false;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Dm(int i);
+        void BI(int i);
 
-        void Dt(int i);
+        void BP(int i);
 
-        void cDB();
+        void cAl();
     }
 
     private String getString(int i) {
@@ -47,22 +47,22 @@ public class f extends BaseAdapter {
     }
 
     public f(Context context, com.baidu.tbadk.img.b bVar, l lVar, a aVar) {
-        this.cuo = lVar;
+        this.cGx = lVar;
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(this.mContext);
-        this.cue = bVar;
-        this.jXO = aVar;
+        this.cGn = bVar;
+        this.jVN = aVar;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
         if (writeImagesInfo != null) {
-            this.jXP = writeImagesInfo.getMaxImagesAllowed();
-            int Z = v.Z(writeImagesInfo.getChosedFiles());
+            this.jVO = writeImagesInfo.getMaxImagesAllowed();
+            int count = v.getCount(writeImagesInfo.getChosedFiles());
             this.mDataList.clear();
-            if (Z > 0) {
+            if (count > 0) {
                 this.mDataList.addAll(writeImagesInfo.getChosedFiles());
             }
-            if (Z < this.jXP && this.jQS) {
+            if (count < this.jVO && this.jON) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setFilePath("FLAG_ADD_ICON");
                 this.mDataList.add(imageFileInfo);
@@ -88,40 +88,40 @@ public class f extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
         AbsListView.LayoutParams layoutParams;
-        ImageFileInfo imageFileInfo = (ImageFileInfo) v.c(this.mDataList, i);
+        ImageFileInfo imageFileInfo = (ImageFileInfo) v.getItem(this.mDataList, i);
         if (imageFileInfo == null) {
             return null;
         }
         View inflate = view == null ? this.mLayoutInflater.inflate(R.layout.new_frame_editor_muti_image_item, (ViewGroup) null) : view;
-        int af = (com.baidu.adp.lib.util.l.af(this.mContext) - ((com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds44) * 2) + (com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds10) * 2))) / 3;
+        int equipmentWidth = (com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - ((com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44) * 2) + (com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds10) * 2))) / 3;
         if (inflate.getLayoutParams() instanceof AbsListView.LayoutParams) {
             layoutParams = (AbsListView.LayoutParams) inflate.getLayoutParams();
-            layoutParams.width = af;
-            layoutParams.height = af;
+            layoutParams.width = equipmentWidth;
+            layoutParams.height = equipmentWidth;
         } else {
-            layoutParams = new AbsListView.LayoutParams(af, af);
+            layoutParams = new AbsListView.LayoutParams(equipmentWidth, equipmentWidth);
         }
         inflate.setLayoutParams(layoutParams);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv);
-        tbImageView.setTagTextSize(com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds30));
+        tbImageView.setTagTextSize(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30));
         tbImageView.setDrawBorder(true);
         tbImageView.setDrawCorner(false);
         tbImageView.setRadius(0);
         tbImageView.setAutoChangeStyle(true);
         LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.delete_info);
-        am.c((ImageView) inflate.findViewById(R.id.delete), (int) R.drawable.ic_post_image_delete_n);
+        am.setImageResource((ImageView) inflate.findViewById(R.id.delete), R.drawable.ic_post_image_delete_n);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.item_root);
         if ("FLAG_ADD_ICON".equals(imageFileInfo.getFilePath())) {
             tbImageView.setVisibility(8);
             linearLayout.setVisibility(8);
-            am.k(inflate, R.drawable.new_frame_btn_add_photo_selector);
+            am.setBackgroundResource(inflate, R.drawable.new_frame_btn_add_photo_selector);
             inflate.invalidate();
             frameLayout.setForeground(null);
             inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (f.this.jXO != null) {
-                        f.this.jXO.cDB();
+                    if (f.this.jVN != null) {
+                        f.this.jVN.cAl();
                     }
                 }
             });
@@ -139,7 +139,7 @@ public class f extends BaseAdapter {
         } else {
             tbImageView.setTagColor(this.mContext.getResources().getColor(R.color.cp_cont_a));
         }
-        a(imageFileInfo, inflate, viewGroup, af, af);
+        a(imageFileInfo, inflate, viewGroup, equipmentWidth, equipmentWidth);
         if (imageFileInfo.isFromMoreForum) {
             linearLayout.setVisibility(8);
             tbImageView.setTagStr("");
@@ -159,14 +159,14 @@ public class f extends BaseAdapter {
                             z = new File(imageFileInfo2.getFilePath()).exists();
                         }
                         if (!z) {
-                            com.baidu.adp.lib.util.l.f(f.this.mContext, R.string.editor_mutiiamge_image_error);
+                            com.baidu.adp.lib.util.l.showLongToast(f.this.mContext, (int) R.string.editor_mutiiamge_image_error);
                             return;
                         }
-                        if (f.this.cuo != null) {
-                            f.this.cuo.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
+                        if (f.this.cGx != null) {
+                            f.this.cGx.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                         }
-                        if (f.this.jXO != null) {
-                            f.this.jXO.Dt(i);
+                        if (f.this.jVN != null) {
+                            f.this.jVN.BP(i);
                         }
                     }
                 }
@@ -175,8 +175,8 @@ public class f extends BaseAdapter {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (f.this.jXO != null) {
-                    f.this.jXO.Dm(i);
+                if (f.this.jVN != null) {
+                    f.this.jVN.BI(i);
                 }
             }
         });
@@ -185,18 +185,18 @@ public class f extends BaseAdapter {
 
     private void a(ImageFileInfo imageFileInfo, View view, final ViewGroup viewGroup, int i, int i2) {
         if (imageFileInfo != null && i > 0 && i2 > 0) {
-            ImageOperation al = com.baidu.tbadk.img.effect.d.al(i, i2);
+            ImageOperation ao = com.baidu.tbadk.img.effect.d.ao(i, i2);
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(al);
+            imageFileInfo.addPageAction(ao);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.iv);
             ((FrameLayout) view.findViewById(R.id.item_root)).setForeground(am.getDrawable(R.drawable.new_frame_add_photo_foreground_selector));
             if (imageFileInfo.getImageType() == 0) {
-                com.baidu.adp.widget.ImageView.a a2 = this.cue.a(imageFileInfo, true);
+                com.baidu.adp.widget.ImageView.a a2 = this.cGn.a(imageFileInfo, true);
                 tbImageView.setTag(imageFileInfo.toCachedKey(true));
                 if (a2 != null) {
                     tbImageView.invalidate();
                 } else {
-                    this.cue.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.f.4
+                    this.cGn.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.f.4
                         @Override // com.baidu.tbadk.imageManager.b
                         public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                             TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);
@@ -210,14 +210,14 @@ public class f extends BaseAdapter {
             } else if (imageFileInfo.getImageType() == 1) {
                 String filePath = imageFileInfo.getFilePath();
                 if (!aq.isEmpty(filePath) && filePath.startsWith("#(")) {
-                    final String e = com.baidu.adp.lib.f.c.iE().e(filePath, 20);
-                    tbImageView.setTag(e);
-                    com.baidu.adp.lib.f.c.iE().a(filePath, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.write.write.f.5
+                    final String genCacheKey = com.baidu.adp.lib.f.c.fT().genCacheKey(filePath, 20);
+                    tbImageView.setTag(genCacheKey);
+                    com.baidu.adp.lib.f.c.fT().a(filePath, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.write.write.f.5
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i3) {
-                            TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(e);
+                            TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(genCacheKey);
                             if (tbImageView2 != null && aVar != null) {
                                 tbImageView2.invalidate();
                             }
@@ -229,7 +229,7 @@ public class f extends BaseAdapter {
         }
     }
 
-    public void sl(boolean z) {
-        this.jQS = z;
+    public void rQ(boolean z) {
+        this.jON = z;
     }
 }

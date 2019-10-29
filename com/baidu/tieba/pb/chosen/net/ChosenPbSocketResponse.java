@@ -2,6 +2,7 @@ package com.baidu.tieba.pb.chosen.net;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.cache.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.ExcPbPage.ExcPbPageResIdl;
@@ -17,7 +18,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
     private List<User> userList;
 
     public ChosenPbSocketResponse() {
-        super(309093);
+        super(CmdConfigSocket.CMD_GET_FINE_PB);
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a
@@ -53,9 +54,9 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0) {
-            l<byte[]> mM = com.baidu.tbadk.core.d.a.agL().mM("tb.pb_normal");
-            mM.remove("chosen_pb_page_cache");
-            mM.f("chosen_pb_page_cache", bArr);
+            l<byte[]> nk = com.baidu.tbadk.core.d.a.akN().nk("tb.pb_normal");
+            nk.remove("chosen_pb_page_cache");
+            nk.setForever("chosen_pb_page_cache", bArr);
         }
     }
 

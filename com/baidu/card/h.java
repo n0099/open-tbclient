@@ -5,8 +5,8 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.card.a.a;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
@@ -14,30 +14,30 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes3.dex */
 public class h extends f {
-    private com.baidu.tbadk.core.data.a VI;
-    private ThreadGodReplyLayout VP;
-    private an VQ;
+    private ThreadGodReplyLayout FE;
+    private an FF;
+    private com.baidu.tbadk.core.data.a Fx;
 
     public h(Context context) {
         super(context);
-        setTopMargin(com.baidu.adp.lib.util.l.g(context, R.dimen.tbds26));
-        this.VP = new ThreadGodReplyLayout(context);
+        setTopMargin(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26));
+        this.FE = new ThreadGodReplyLayout(context);
         final View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.card.h.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (h.this.qC() != null) {
-                    h.this.qC().a(view, h.this.VI);
+                if (h.this.lH() != null) {
+                    h.this.lH().a(view, h.this.Fx);
                 }
             }
         };
-        this.VP.setAfterClickListener(onClickListener);
-        this.VP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.h.2
+        this.FE.setAfterClickListener(onClickListener);
+        this.FE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.h.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mContext).createNormalCfg(h.this.VI.acC().getTid(), h.this.VI.acC().aga().getId() + "", 1, ImageViewerConfig.FROM_OTHER);
-                createNormalCfg.setStartFrom(h.this.VA.qM());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                h.this.VA.b(new a.C0038a(1));
+                PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mContext).createNormalCfg(h.this.Fx.agI().getTid(), h.this.Fx.agI().akd().getId() + "", 1, "other");
+                createNormalCfg.setStartFrom(h.this.Fp.lR());
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
+                h.this.Fp.b(new a.C0044a(1));
                 onClickListener.onClick(view);
             }
         });
@@ -46,48 +46,48 @@ public class h extends f {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.VP;
+        return this.FE;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void qB() {
+    public void lG() {
         a(1, new a.b() { // from class: com.baidu.card.h.3
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0038a c0038a) {
-                com.baidu.tieba.card.n.a(h.this.VP.getGodReplyContent(), h.this.VI.acC().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            public boolean a(a.C0044a c0044a) {
+                com.baidu.tieba.card.n.a(h.this.FE.getGodReplyContent(), h.this.Fx.agI().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 return false;
             }
         });
     }
 
     public void a(an anVar) {
-        this.VQ = anVar;
+        this.FF = anVar;
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.VP.onChangeSkinType();
+        this.FE.onChangeSkinType();
     }
 
     public void setFromCDN(boolean z) {
-        this.VP.setFromCDN(z);
+        this.FE.setFromCDN(z);
     }
 
     public void setForm(String str) {
-        this.VP.setFrom(str);
+        this.FE.setFrom(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
-    public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.VI = aVar;
-        PostData aga = aVar.acC().aga();
-        if (this.VQ != null && aga != null && aga.aeC() != null && aga.aeC().getUserId() != null) {
-            this.VQ.bT("tid", aVar.acC().tid).bT("post_id", aga.getId()).bT("uid", aga.aeC().getUserId());
-            com.baidu.tieba.card.t.bat().c(this.VQ);
+    public void z(com.baidu.tbadk.core.data.a aVar) {
+        this.Fx = aVar;
+        PostData akd = aVar.agI().akd();
+        if (this.FF != null && akd != null && akd.aiG() != null && akd.aiG().getUserId() != null) {
+            this.FF.bS("tid", aVar.agI().tid).bS("post_id", akd.getId()).bS("uid", akd.aiG().getUserId());
+            com.baidu.tieba.card.t.baw().c(this.FF);
         }
-        this.VP.setData(aVar.acC());
+        this.FE.setData(aVar.agI());
     }
 }

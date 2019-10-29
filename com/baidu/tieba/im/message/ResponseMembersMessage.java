@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.UserData;
@@ -17,7 +18,7 @@ public class ResponseMembersMessage extends SocketResponsedMessage {
     private MembersData membersData;
 
     public ResponseMembersMessage() {
-        super(103005);
+        super(CmdConfigSocket.CMD_REQUEST_MEMBERS_BY_ID);
     }
 
     public MembersData getMembersData() {

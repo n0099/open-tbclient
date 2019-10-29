@@ -11,48 +11,48 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b {
-    private int cGA;
-    protected final Paint cGs = new Paint();
-    protected final Paint cGt = new Paint();
-    private int cGu;
-    private int cGv;
-    private int cGw;
-    private int cGx;
-    private int cGy;
-    private int cGz;
+    private int extraHeight;
+    private int extraWidth;
     private int radius;
+    private int tagBGColor;
+    private int tagDisX;
+    private int tagDisY;
+    private int tagTextColor;
+    private int tagTextSize;
     protected final View view;
+    protected final Paint tagPaint = new Paint();
+    protected final Paint tagBGPaint = new Paint();
 
     private Context getContext() {
         return (this.view == null || this.view.getContext() == null) ? TbadkCoreApplication.getInst().getContext() : this.view.getContext();
     }
 
     public b(View view) {
-        this.cGu = 16;
-        this.cGv = 16;
-        this.cGw = -1;
-        this.cGx = 1711276032;
-        this.cGy = 20;
-        this.cGz = 20;
-        this.cGA = 36;
+        this.tagDisY = 16;
+        this.tagDisX = 16;
+        this.tagTextColor = -1;
+        this.tagBGColor = 1711276032;
+        this.tagTextSize = 20;
+        this.extraHeight = 20;
+        this.extraWidth = 36;
         this.radius = 0;
         this.view = view;
-        this.cGx = getContext().getResources().getColor(R.color.black_alpha40);
-        this.cGt.setColor(this.cGx);
-        this.cGt.setAntiAlias(true);
-        this.cGy = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
-        this.cGw = getContext().getResources().getColor(R.color.cp_cont_a);
-        this.cGs.setColor(this.cGw);
-        this.cGs.setTextSize(this.cGy);
-        this.cGs.setAntiAlias(true);
-        this.cGu = l.g(getContext(), R.dimen.tbds16);
-        this.cGv = l.g(getContext(), R.dimen.tbds16);
-        this.cGz = l.g(getContext(), R.dimen.tbds22);
-        this.cGA = l.g(getContext(), R.dimen.tbds40);
-        this.radius = l.g(getContext(), R.dimen.tbds10);
+        this.tagBGColor = getContext().getResources().getColor(R.color.black_alpha40);
+        this.tagBGPaint.setColor(this.tagBGColor);
+        this.tagBGPaint.setAntiAlias(true);
+        this.tagTextSize = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
+        this.tagTextColor = getContext().getResources().getColor(R.color.cp_cont_a);
+        this.tagPaint.setColor(this.tagTextColor);
+        this.tagPaint.setTextSize(this.tagTextSize);
+        this.tagPaint.setAntiAlias(true);
+        this.tagDisY = l.getDimens(getContext(), R.dimen.tbds16);
+        this.tagDisX = l.getDimens(getContext(), R.dimen.tbds16);
+        this.extraHeight = l.getDimens(getContext(), R.dimen.tbds22);
+        this.extraWidth = l.getDimens(getContext(), R.dimen.tbds40);
+        this.radius = l.getDimens(getContext(), R.dimen.tbds10);
     }
 
-    public void c(Canvas canvas, String str) {
+    public void drawBottomRightTag(Canvas canvas, String str) {
         if (canvas != null && this.view != null && !TextUtils.isEmpty(str)) {
             int save = canvas.save();
             this.view.getPaddingLeft();
@@ -63,14 +63,14 @@ public class b {
             int right = this.view.getRight();
             int top = this.view.getTop();
             int bottom = this.view.getBottom();
-            float measureText = this.cGs.measureText(str);
-            float f = this.cGA + measureText;
-            float f2 = this.cGy + this.cGz;
-            canvas.translate((((right - left) - paddingRight) - f) - this.cGv, (((bottom - top) - paddingBottom) - f2) - this.cGu);
+            float measureText = this.tagPaint.measureText(str);
+            float f = this.extraWidth + measureText;
+            float f2 = this.tagTextSize + this.extraHeight;
+            canvas.translate((((right - left) - paddingRight) - f) - this.tagDisX, (((bottom - top) - paddingBottom) - f2) - this.tagDisY);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, this.radius, this.radius, this.cGt);
-            Paint.FontMetrics fontMetrics = this.cGs.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.cGs);
+            canvas.drawRoundRect(rectF, this.radius, this.radius, this.tagBGPaint);
+            Paint.FontMetrics fontMetrics = this.tagPaint.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.tagPaint);
             canvas.restoreToCount(save);
         }
     }
@@ -82,28 +82,28 @@ public class b {
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        this.cGv = i;
-        this.cGu = i2;
+        this.tagDisX = i;
+        this.tagDisY = i2;
         invalidate();
     }
 
-    public void lf(int i) {
-        this.cGw = i;
-        this.cGs.setColor(i);
+    public void setTagTextColor(int i) {
+        this.tagTextColor = i;
+        this.tagPaint.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
-        this.cGy = i;
-        this.cGs.setTextSize(i);
+        this.tagTextSize = i;
+        this.tagPaint.setTextSize(i);
         invalidate();
     }
 
-    public float rG(String str) {
-        return l.b(this.cGs, str).height() + this.cGz;
+    public float getTagHeight(String str) {
+        return l.measureText(this.tagPaint, str).height() + this.extraHeight;
     }
 
-    public float rH(String str) {
-        return l.a(this.cGs, str) + this.cGA;
+    public float getTagWidth(String str) {
+        return l.measureTextWidth(this.tagPaint, str) + this.extraWidth;
     }
 }

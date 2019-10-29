@@ -19,18 +19,18 @@ public class d extends z {
         if (DEBUG) {
             Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        e vN = com.baidu.swan.apps.w.e.GJ().vN();
-        if (vN == null) {
+        e AH = com.baidu.swan.apps.w.e.LD().AH();
+        if (AH == null) {
             com.baidu.swan.apps.console.c.e("navigationLoading", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b Av = vN.Av();
-        if (Av == null) {
+        com.baidu.swan.apps.core.d.b Fq = AH.Fq();
+        if (Fq == null) {
             com.baidu.swan.apps.console.c.e("navigationLoading", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!Av.zU()) {
+        } else if (!Fq.EP()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("navigationLoading", "show navigation loading progressbar fail");
             return false;

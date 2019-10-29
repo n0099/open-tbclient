@@ -15,48 +15,48 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class n extends v.a {
-    public static BdUniqueId fyX = BdUniqueId.gen();
-    private LinearLayout cpd;
-    private int cye;
-    private Rect cyf;
-    public TextView fyY;
-    public ImageView fyZ;
-    private int fza;
-    private CustomMessageListener fzb;
+    public static BdUniqueId fyk = BdUniqueId.gen();
+    private Rect apc;
+    private LinearLayout cBY;
+    private int cJS;
+    public TextView fyl;
+    public ImageView fym;
+    private int fyn;
+    private CustomMessageListener fyo;
     private ViewGroup mParent;
     private View mRootView;
 
     public n(View view, ViewGroup viewGroup) {
         super(view);
-        this.cyf = new Rect();
-        this.fzb = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.n.1
+        this.apc = new Rect();
+        this.fyo = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.n.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Integer num;
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && (num = (Integer) customResponsedMessage.getData()) != null) {
-                    n.this.kL(num.intValue());
+                    n.this.jZ(num.intValue());
                 }
             }
         };
         this.mRootView = view;
         this.mParent = viewGroup;
-        this.cpd = (LinearLayout) view.findViewById(R.id.container);
-        this.fyZ = (ImageView) view.findViewById(R.id.emotion_view);
-        this.fyY = (TextView) view.findViewById(R.id.no_data_tips);
-        com.baidu.tbadk.core.util.am.c(this.fyZ, (int) R.drawable.new_pic_emotion_gray_06);
-        this.fzb.setTag(fyX);
-        MessageManager.getInstance().registerListener(this.fzb);
-        bol();
+        this.cBY = (LinearLayout) view.findViewById(R.id.container);
+        this.fym = (ImageView) view.findViewById(R.id.emotion_view);
+        this.fyl = (TextView) view.findViewById(R.id.no_data_tips);
+        com.baidu.tbadk.core.util.am.setImageResource(this.fym, R.drawable.new_pic_emotion_gray_06);
+        this.fyo.setTag(fyk);
+        MessageManager.getInstance().registerListener(this.fyo);
+        blp();
     }
 
-    private void bol() {
+    private void blp() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.n.2
                 @Override // android.view.View.OnLayoutChangeListener
                 public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-                    if (n.this.bQ(view)) {
-                        n.this.kL(Integer.MAX_VALUE);
+                    if (n.this.bN(view)) {
+                        n.this.jZ(Integer.MAX_VALUE);
                     }
                 }
             });
@@ -64,45 +64,45 @@ public class n extends v.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bQ(View view) {
+    public boolean bN(View view) {
         if (view == null) {
             return false;
         }
-        return view.getGlobalVisibleRect(this.cyf);
+        return view.getGlobalVisibleRect(this.apc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kL(int i) {
+    public void jZ(int i) {
         if (this.mRootView != null && this.mParent != null) {
-            if (this.cye <= 0) {
-                this.cye = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+            if (this.cJS <= 0) {
+                this.cJS = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
             }
-            if (i != Integer.MAX_VALUE || this.fza != Integer.MAX_VALUE) {
-                this.fza = i;
-                if (this.mParent.getLocalVisibleRect(this.cyf)) {
-                    int i2 = this.cyf.bottom;
-                    int abs = Math.abs(this.cpd.getTop());
-                    int abs2 = i2 - Math.abs(this.cpd.getBottom());
-                    ViewGroup.LayoutParams layoutParams = this.cpd.getLayoutParams();
+            if (i != Integer.MAX_VALUE || this.fyn != Integer.MAX_VALUE) {
+                this.fyn = i;
+                if (this.mParent.getLocalVisibleRect(this.apc)) {
+                    int i2 = this.apc.bottom;
+                    int abs = Math.abs(this.cBY.getTop());
+                    int abs2 = i2 - Math.abs(this.cBY.getBottom());
+                    ViewGroup.LayoutParams layoutParams = this.cBY.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                        if (abs < this.cye) {
-                            marginLayoutParams.topMargin = this.cye;
-                            this.cpd.setLayoutParams(marginLayoutParams);
-                        } else if (abs == this.cye) {
-                            if (abs2 > this.cye) {
-                                marginLayoutParams.topMargin = ((abs2 - this.cye) / 2) + this.cye;
-                                this.cpd.setLayoutParams(marginLayoutParams);
+                        if (abs < this.cJS) {
+                            marginLayoutParams.topMargin = this.cJS;
+                            this.cBY.setLayoutParams(marginLayoutParams);
+                        } else if (abs == this.cJS) {
+                            if (abs2 > this.cJS) {
+                                marginLayoutParams.topMargin = ((abs2 - this.cJS) / 2) + this.cJS;
+                                this.cBY.setLayoutParams(marginLayoutParams);
                             }
-                        } else if (abs > this.cye) {
-                            if (abs2 < this.cye) {
-                                marginLayoutParams.topMargin = this.cye;
-                            } else if (abs2 == this.cye) {
-                                marginLayoutParams.topMargin = this.cye;
-                            } else if (abs2 > this.cye) {
+                        } else if (abs > this.cJS) {
+                            if (abs2 < this.cJS) {
+                                marginLayoutParams.topMargin = this.cJS;
+                            } else if (abs2 == this.cJS) {
+                                marginLayoutParams.topMargin = this.cJS;
+                            } else if (abs2 > this.cJS) {
                                 marginLayoutParams.topMargin = (abs + abs2) / 2;
                             }
-                            this.cpd.setLayoutParams(marginLayoutParams);
+                            this.cBY.setLayoutParams(marginLayoutParams);
                         }
                     }
                 }

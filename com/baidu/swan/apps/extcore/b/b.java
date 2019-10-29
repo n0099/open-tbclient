@@ -11,60 +11,60 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 public abstract class b<P extends com.baidu.swan.apps.extcore.d.a, R extends com.baidu.swan.apps.extcore.e.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P awU;
+    private P aQj;
     @NonNull
-    private R awV;
+    private R aQk;
 
     public b(@NonNull P p, @NonNull R r) {
-        this.awU = p;
-        this.awV = r;
+        this.aQj = p;
+        this.aQk = r;
     }
 
-    public void C(int i, int i2) {
+    public void I(int i, int i2) {
         if (DEBUG) {
             Log.d("ExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
         }
         if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
-            com.baidu.swan.apps.extcore.f.a.bi(true);
+            com.baidu.swan.apps.extcore.f.a.bA(true);
         }
     }
 
     public void a(@Nullable com.baidu.swan.apps.extcore.c.a aVar) {
-        this.awU.b(aVar);
+        this.aQj.b(aVar);
     }
 
-    public void Da() {
-        this.awU.Da();
+    public void HU() {
+        this.aQj.HU();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> boolean a(T t) {
-        return t != null && this.awV.b(t);
+        return t != null && this.aQk.b(t);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @NonNull
-    public ExtensionCore Db() {
-        if (DEBUG && com.baidu.swan.apps.extcore.f.a.Dq()) {
+    public ExtensionCore HV() {
+        if (DEBUG && com.baidu.swan.apps.extcore.f.a.Ik()) {
             ExtensionCore extensionCore = new ExtensionCore();
-            extensionCore.axp = 0L;
-            extensionCore.axq = com.baidu.swan.apps.extcore.f.a.E(0L);
-            extensionCore.axr = com.baidu.swan.apps.extcore.debug.b.De().getPath();
-            extensionCore.axo = 2;
+            extensionCore.aQE = 0L;
+            extensionCore.aQF = com.baidu.swan.apps.extcore.f.a.X(0L);
+            extensionCore.aQG = com.baidu.swan.apps.extcore.debug.b.HY().getPath();
+            extensionCore.aQD = 2;
             Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
             return extensionCore;
         }
-        ExtensionCore Dm = this.awU.Dm();
-        ExtensionCore Dm2 = this.awV.Dm();
-        if (Dm.axp >= Dm2.axp) {
+        ExtensionCore Ig = this.aQj.Ig();
+        ExtensionCore Ig2 = this.aQk.Ig();
+        if (Ig.aQE >= Ig2.aQE) {
             if (DEBUG) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Dm.toString());
-                return Dm;
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Ig.toString());
+                return Ig;
             }
-            return Dm;
+            return Ig;
         }
         if (DEBUG) {
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + Dm2.toString());
+            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + Ig2.toString());
         }
-        return Dm2;
+        return Ig2;
     }
 }

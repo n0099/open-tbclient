@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
-    private com.baidu.swan.games.view.recommend.d.b bna;
-    private InterfaceC0230a bns;
+    private com.baidu.swan.games.view.recommend.d.b bFM;
+    private InterfaceC0262a bGe;
     private LayoutInflater mInflater;
 
     /* renamed from: com.baidu.swan.games.view.recommend.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0230a {
-        void fr(int i);
+    public interface InterfaceC0262a {
+        void gm(int i);
     }
 
     public a(@NonNull Context context) {
@@ -34,40 +34,40 @@ public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(d dVar, int i) {
-        com.baidu.swan.games.view.recommend.d.a aVar = this.bna.bnE.get(i);
+        com.baidu.swan.games.view.recommend.d.a aVar = this.bFM.bGq.get(i);
         if (aVar != null) {
-            dVar.bnq.setImageURI(aVar.iconUrl);
-            dVar.bnr.setText(aVar.appName);
-            dVar.bnB.setText(aVar.desc);
-            dVar.bnC.setText(aVar.buttonText);
+            dVar.bGc.setImageURI(aVar.iconUrl);
+            dVar.bGd.setText(aVar.appName);
+            dVar.bGn.setText(aVar.desc);
+            dVar.bGo.setText(aVar.buttonText);
             dVar.itemView.setTag(Integer.valueOf(i));
-            dVar.bnC.setTag(Integer.valueOf(i));
+            dVar.bGo.setTag(Integer.valueOf(i));
             dVar.itemView.setOnClickListener(this);
-            dVar.bnC.setOnClickListener(this);
+            dVar.bGo.setOnClickListener(this);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.bna == null || this.bna.bnE == null) {
+        if (this.bFM == null || this.bFM.bGq == null) {
             return 0;
         }
-        return this.bna.bnE.size();
+        return this.bFM.bGq.size();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bns != null && view != null && (view.getTag() instanceof Integer)) {
-            this.bns.fr(((Integer) view.getTag()).intValue());
+        if (this.bGe != null && view != null && (view.getTag() instanceof Integer)) {
+            this.bGe.gm(((Integer) view.getTag()).intValue());
         }
     }
 
     public void a(com.baidu.swan.games.view.recommend.d.b bVar) {
-        this.bna = bVar;
+        this.bFM = bVar;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0230a interfaceC0230a) {
-        this.bns = interfaceC0230a;
+    public void a(InterfaceC0262a interfaceC0262a) {
+        this.bGe = interfaceC0262a;
     }
 }

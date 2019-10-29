@@ -25,14 +25,14 @@ public class b extends z {
             return false;
         } else {
             SwanAppActivity swanAppActivity = (SwanAppActivity) context;
-            String FL = swanAppActivity.vP().FL();
-            if (TextUtils.isEmpty(FL)) {
+            String KF = swanAppActivity.AJ().KF();
+            if (TextUtils.isEmpty(KF)) {
                 com.baidu.swan.apps.console.c.e("applyUpdate", "launchScheme is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty launchScheme");
                 return false;
             }
-            swanAppActivity.vO();
-            SchemeRouter.invoke(swanAppActivity, FL);
+            swanAppActivity.AI();
+            SchemeRouter.invoke(swanAppActivity, KF);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

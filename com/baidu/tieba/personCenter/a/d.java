@@ -18,17 +18,16 @@ public class d extends com.baidu.adp.widget.ListView.a<h, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.card.a.a<g> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: as */
+    public com.baidu.tieba.card.a.a<g> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new g(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, com.baidu.tieba.card.a.a<g> aVar) {
-        aVar.baX().a(hVar);
+    public View a(int i, View view, ViewGroup viewGroup, h hVar, com.baidu.tieba.card.a.a<g> aVar) {
+        aVar.baZ().a(hVar);
         return aVar.getView();
     }
 }

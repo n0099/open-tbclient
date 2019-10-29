@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Message;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
@@ -29,7 +29,7 @@ public class FRSPageRequestMessage extends NetMessage {
     private int withGroup;
 
     public FRSPageRequestMessage() {
-        super(CmdConfigHttp.FRS_HTTP_CMD, 301001);
+        super(1001703, CmdConfigSocket.CMD_FRS_PAGE);
     }
 
     public boolean isNeedCache() {
@@ -210,8 +210,8 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cjz().cjC();
-        com.baidu.tbadk.util.r.bindCommonParamsToProtobufData(builder, true, false, true);
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cgD().cgG();
+        com.baidu.tbadk.util.r.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

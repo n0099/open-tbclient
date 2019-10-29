@@ -9,40 +9,40 @@ import com.baidu.swan.ubc.m;
 import com.baidu.swan.ubc.q;
 /* loaded from: classes4.dex */
 public class c {
-    private static boolean dcG = false;
+    private static boolean dmb = false;
 
     public static void a(Application application, boolean z) {
-        gq(z);
-        if (aEX()) {
-            d(application);
+        gf(z);
+        if (aFi()) {
             e(application);
-        }
-    }
-
-    private static void d(Application application) {
-        e.a(new com.baidu.tieba.aiapps.apps.q.d());
-        if (com.baidu.pyramid.runtime.multiprocess.a.vf()) {
-            q.Yn();
-            m.Yc().initConfig();
+            f(application);
         }
     }
 
     private static void e(Application application) {
-        com.facebook.drawee.a.a.c.initialize(application);
-        if (ProcessUtils.isMainProcess()) {
-            aEW();
-            com.baidu.swan.apps.env.d.CT().l(null);
-        }
-        a.df(application).aET();
-        if (com.baidu.swan.apps.b.DEBUG) {
-            com.baidu.swan.apps.am.a.H(0, 1);
+        e.a(new com.baidu.tieba.aiapps.apps.q.d());
+        if (com.baidu.pyramid.runtime.multiprocess.a.zZ()) {
+            q.add();
+            m.acS().initConfig();
         }
     }
 
-    private static void aEW() {
+    private static void f(Application application) {
+        com.facebook.drawee.a.a.c.initialize(application);
+        if (ProcessUtils.isMainProcess()) {
+            aFh();
+            com.baidu.swan.apps.env.d.HN().l(null);
+        }
+        a.cQ(application).aFe();
+        if (com.baidu.swan.apps.b.DEBUG) {
+            com.baidu.swan.apps.am.a.N(0, 1);
+        }
+    }
+
+    private static void aFh() {
         final boolean z = true;
-        final boolean z2 = com.baidu.swan.apps.core.pms.a.cp(0) && com.baidu.swan.pms.d.a.fO(0);
-        if (!com.baidu.swan.apps.core.pms.a.cp(1) || !com.baidu.swan.pms.d.a.fO(1)) {
+        final boolean z2 = com.baidu.swan.apps.core.pms.a.dl(0) && com.baidu.swan.pms.d.a.gJ(0);
+        if (!com.baidu.swan.apps.core.pms.a.dl(1) || !com.baidu.swan.pms.d.a.gJ(1)) {
             z = false;
         }
         if (z2 || z) {
@@ -60,11 +60,11 @@ public class c {
         }
     }
 
-    private static void gq(boolean z) {
-        dcG = z;
+    private static void gf(boolean z) {
+        dmb = z;
     }
 
-    public static boolean aEX() {
-        return !dcG || com.baidu.swan.apps.an.a.hasLollipop();
+    public static boolean aFi() {
+        return !dmb || com.baidu.swan.apps.an.a.hasLollipop();
     }
 }

@@ -134,8 +134,8 @@ public class HeadObject {
                 jSONObject.put("st", 0);
                 jSONObject.put("s", this.b == null ? "" : this.b);
                 jSONObject.put("sv", this.c == null ? "" : this.c);
-                jSONObject.put(Config.APP_KEY, this.e == null ? "" : this.e);
-                jSONObject.put(Config.PLATFORM_TYPE, this.d == null ? "0" : this.d);
+                jSONObject.put("k", this.e == null ? "" : this.e);
+                jSONObject.put("pt", this.d == null ? "0" : this.d);
                 jSONObject.put("i", "");
                 jSONObject.put("v", "3.9.5.1");
                 jSONObject.put(Config.STAT_SDK_CHANNEL, 14);
@@ -151,8 +151,8 @@ public class HeadObject {
                 jSONObject.put("h", this.k);
                 jSONObject.put(Config.DEVICE_NAME, this.v == null ? "" : this.v);
                 jSONObject.put("c", this.l == null ? "" : this.l);
-                jSONObject.put(Config.OPERATOR, this.m == null ? "" : this.m);
-                jSONObject.put(Config.MODEL, this.n == null ? "" : this.n);
+                jSONObject.put("op", this.m == null ? "" : this.m);
+                jSONObject.put("m", this.n == null ? "" : this.n);
                 jSONObject.put(Config.MANUFACTURER, this.o == null ? "" : this.o);
                 jSONObject.put(Config.CELL_LOCATION, this.p);
                 jSONObject.put(Config.GPS_LOCATION, this.q == null ? "" : this.q);
@@ -187,7 +187,7 @@ public class HeadObject {
                 if (this.B == null) {
                     this.B = new JSONObject();
                 }
-                jSONObject.put(Config.PUSH, this.B);
+                jSONObject.put("push", this.B);
                 jSONObject.put("uid", this.C);
                 jSONObject.put(Config.START_TYPE, String.valueOf(this.D));
             } catch (Exception e) {

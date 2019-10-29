@@ -33,7 +33,7 @@ public class d {
         return i2;
     }
 
-    public static float f(double d) {
-        return (float) (z.bT(AppRuntime.getAppContext()) * d);
+    public static float e(double d) {
+        return (float) (z.getDensity(AppRuntime.getAppContext()) * d);
     }
 }

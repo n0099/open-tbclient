@@ -27,6 +27,6 @@ public class InviteFriendListActivityConfig extends IntentConfig {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("gid", j);
-        intent.putExtra(GROUP_ID, j2);
+        intent.putExtra("groupid", j2);
     }
 }

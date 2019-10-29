@@ -175,11 +175,11 @@ public class DrawerLayout extends ViewGroup {
         float f2 = 400.0f * f;
         this.mLeftCallback = new ViewDragCallback(3);
         this.mRightCallback = new ViewDragCallback(5);
-        this.mLeftDragger = ViewDragHelper.create(this, TOUCH_SLOP_SENSITIVITY, this.mLeftCallback);
+        this.mLeftDragger = ViewDragHelper.create(this, 1.0f, this.mLeftCallback);
         this.mLeftDragger.setEdgeTrackingEnabled(1);
         this.mLeftDragger.setMinVelocity(f2);
         this.mLeftCallback.setDragger(this.mLeftDragger);
-        this.mRightDragger = ViewDragHelper.create(this, TOUCH_SLOP_SENSITIVITY, this.mRightCallback);
+        this.mRightDragger = ViewDragHelper.create(this, 1.0f, this.mRightCallback);
         this.mRightDragger.setEdgeTrackingEnabled(2);
         this.mRightDragger.setMinVelocity(f2);
         this.mRightCallback.setDragger(this.mRightDragger);
@@ -425,7 +425,7 @@ public class DrawerLayout extends ViewGroup {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             if (layoutParams.onScreen == 0.0f) {
                 dispatchOnDrawerClosed(view);
-            } else if (layoutParams.onScreen == TOUCH_SLOP_SENSITIVITY) {
+            } else if (layoutParams.onScreen == 1.0f) {
                 dispatchOnDrawerOpened(view);
             }
         }
@@ -888,14 +888,14 @@ public class DrawerLayout extends ViewGroup {
         } else if (this.mShadowLeftResolved != null && checkDrawerViewAbsoluteGravity(view, 3)) {
             int intrinsicWidth = this.mShadowLeftResolved.getIntrinsicWidth();
             int right2 = view.getRight();
-            float max = Math.max(0.0f, Math.min(right2 / this.mLeftDragger.getEdgeSize(), (float) TOUCH_SLOP_SENSITIVITY));
+            float max = Math.max(0.0f, Math.min(right2 / this.mLeftDragger.getEdgeSize(), 1.0f));
             this.mShadowLeftResolved.setBounds(right2, view.getTop(), intrinsicWidth + right2, view.getBottom());
             this.mShadowLeftResolved.setAlpha((int) (255.0f * max));
             this.mShadowLeftResolved.draw(canvas);
         } else if (this.mShadowRightResolved != null && checkDrawerViewAbsoluteGravity(view, 5)) {
             int intrinsicWidth2 = this.mShadowRightResolved.getIntrinsicWidth();
             int left = view.getLeft();
-            float max2 = Math.max(0.0f, Math.min((getWidth() - left) / this.mRightDragger.getEdgeSize(), (float) TOUCH_SLOP_SENSITIVITY));
+            float max2 = Math.max(0.0f, Math.min((getWidth() - left) / this.mRightDragger.getEdgeSize(), 1.0f));
             this.mShadowRightResolved.setBounds(left - intrinsicWidth2, view.getTop(), left, view.getBottom());
             this.mShadowRightResolved.setAlpha((int) (255.0f * max2));
             this.mShadowRightResolved.draw(canvas);
@@ -1041,7 +1041,7 @@ public class DrawerLayout extends ViewGroup {
         }
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         if (this.mFirstLayout) {
-            layoutParams.onScreen = TOUCH_SLOP_SENSITIVITY;
+            layoutParams.onScreen = 1.0f;
             layoutParams.openState = 1;
             updateChildrenImportantForAccessibility(view, true);
         } else if (z) {
@@ -1052,7 +1052,7 @@ public class DrawerLayout extends ViewGroup {
                 this.mRightDragger.smoothSlideViewTo(view, getWidth() - view.getWidth(), view.getTop());
             }
         } else {
-            moveDrawerToOffset(view, TOUCH_SLOP_SENSITIVITY);
+            moveDrawerToOffset(view, 1.0f);
             updateDrawerState(layoutParams.gravity, 0, view);
             view.setVisibility(0);
         }

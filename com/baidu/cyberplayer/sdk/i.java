@@ -9,7 +9,6 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.HashMap;
@@ -216,7 +215,7 @@ public class i extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
         this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "error_code", DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER);
         this.a.a(DpStatConstants.SESSION_TYPE_ERROR, DpStatConstants.KEY_SUB_CODE, i2);
         this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "time", System.currentTimeMillis());
-        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, DpStatConstants.KEY_DETAIL, i);
+        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "detail", i);
         return this.h != null && this.h.onError(i, i2, null);
     }
 
@@ -583,7 +582,7 @@ public class i extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void start() {
-        CyberLog.i("MediaPlayerImpl", IntentConfig.START);
+        CyberLog.i("MediaPlayerImpl", "start");
         if (d()) {
             this.v = 3;
             try {
@@ -607,7 +606,7 @@ public class i extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void stop() {
-        CyberLog.i("MediaPlayerImpl", IntentConfig.STOP);
+        CyberLog.i("MediaPlayerImpl", "stop");
         if (this.b != null) {
             this.u = -1L;
             this.v = 0;

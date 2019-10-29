@@ -23,23 +23,23 @@ public class AdCriusCloseView extends AdCloseView {
 
     @Override // com.baidu.tieba.recapp.view.AdCloseView
     protected void init() {
-        this.dJd = new ImageView(getContext());
-        this.dJd.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.iOp = new ImageView(getContext());
+        this.iOp.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.tbds31), getContext().getResources().getDimensionPixelSize(R.dimen.tbds31));
         layoutParams.gravity = 21;
-        addView(this.dJd, layoutParams);
-        this.mXOffset = l.g(this.mContext, R.dimen.ds32);
-        this.mYOffset = l.g(this.mContext, R.dimen.ds10);
-        this.mWindowHeight = l.g(this.mContext, R.dimen.ds278);
-        this.cTz = l.af(this.mContext) - (this.mXOffset * 2);
-        this.cTB = l.g(this.mContext, R.dimen.ds120);
-        setOnClickListener(this.cTv);
-        am.c(this.dJd, (int) R.drawable.icon_home_card_delete);
-        aBE();
+        addView(this.iOp, layoutParams);
+        this.mXOffset = l.getDimens(this.mContext, R.dimen.ds32);
+        this.mYOffset = l.getDimens(this.mContext, R.dimen.ds10);
+        this.mWindowHeight = l.getDimens(this.mContext, R.dimen.ds278);
+        this.dcU = l.getEquipmentWidth(this.mContext) - (this.mXOffset * 2);
+        this.dcW = l.getDimens(this.mContext, R.dimen.ds120);
+        setOnClickListener(this.dcQ);
+        am.setImageResource(this.iOp, R.drawable.icon_home_card_delete);
+        aBP();
     }
 
     @Override // com.baidu.tieba.recapp.view.AdCloseView
     public void onChangeSkinType() {
-        am.c(this.dJd, (int) R.drawable.icon_home_card_delete);
+        am.setImageResource(this.iOp, R.drawable.icon_home_card_delete);
     }
 }

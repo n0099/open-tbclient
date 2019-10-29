@@ -4,33 +4,33 @@ import android.view.MotionEvent;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes2.dex */
 public final class a {
-    private com.baidu.swan.games.e.a bia;
+    private com.baidu.swan.games.e.a bAQ;
 
     public void setV8Engine(com.baidu.swan.games.e.a aVar) {
-        this.bia = aVar;
+        this.bAQ = aVar;
     }
 
-    public void J(int i, int i2) {
-        b.L(i, i2);
+    public void P(int i, int i2) {
+        b.R(i, i2);
     }
 
-    public void K(int i, int i2) {
-        b.K(i, i2);
+    public void Q(int i, int i2) {
+        b.Q(i, i2);
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bia != null) {
-            boolean a = b.a(this.bia.RK());
-            boolean a2 = b.a(this.bia.RL());
+        if (this.bAQ != null) {
+            boolean a = b.a(this.bAQ.WB());
+            boolean a2 = b.a(this.bAQ.WC());
             JSEvent jSEvent = null;
             if (a || a2) {
-                jSEvent = b.t(motionEvent);
+                jSEvent = b.p(motionEvent);
             }
-            r0 = a ? this.bia.dispatchEvent(jSEvent) : false;
-            if (a2 && this.bia.isLoaded()) {
-                this.bia.RL().dispatchEvent(jSEvent);
+            r0 = a ? this.bAQ.dispatchEvent(jSEvent) : false;
+            if (a2 && this.bAQ.isLoaded()) {
+                this.bAQ.WC().dispatchEvent(jSEvent);
             }
-            b.cR(true);
+            b.di(true);
         }
         return r0;
     }

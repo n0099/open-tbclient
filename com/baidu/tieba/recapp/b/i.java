@@ -8,19 +8,19 @@ import com.baidu.tieba.tbadkCore.data.AppData;
 import com.baidu.tieba.tbadkCore.data.m;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baidu.tieba.recapp.m {
-    protected BaseActivity<?> cXM;
+    protected BaseActivity<?> mActivity;
 
     public i(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.cXM = baseActivity;
+        this.mActivity = baseActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bX */
-    public j onCreateViewHolder(ViewGroup viewGroup) {
-        View view = new View(this.cXM.getPageContext().getPageActivity());
+    /* renamed from: bZ */
+    public j b(ViewGroup viewGroup) {
+        View view = new View(this.mActivity.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new j(view);
     }
@@ -28,13 +28,12 @@ public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baid
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, j jVar) {
+    public View a(int i, View view, ViewGroup viewGroup, m mVar, j jVar) {
         boolean z = false;
-        AppData cqn = mVar.cqn();
-        if (cqn != null) {
-            com.baidu.tbadk.core.data.c cVar = cqn.advertAppContext;
-            if (cqn.goods != null && cqn.goods.goods_style == -1001) {
+        AppData cod = mVar.cod();
+        if (cod != null) {
+            com.baidu.tbadk.core.data.c cVar = cod.advertAppContext;
+            if (cod.goods != null && cod.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.c.b(cVar, mVar.getPosition(), z);

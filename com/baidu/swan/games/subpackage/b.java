@@ -21,29 +21,29 @@ public class b {
     public static void a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo, int i) {
         if (swanGameSubPackageAPSInfo != null) {
             if (f(swanGameSubPackageAPSInfo)) {
-                swanGameSubPackageAPSInfo.blS = i;
+                swanGameSubPackageAPSInfo.bEG = i;
                 c(swanGameSubPackageAPSInfo);
                 return;
             }
             swanGameSubPackageAPSInfo.resultCode = 2101;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", swanGameSubPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.blS, 111, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bEG, 111, bundle);
         }
     }
 
     private static void c(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo) {
-        if (com.baidu.swan.apps.core.pms.a.cp(1)) {
-            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.b.d.d(swanGameSubPackageAPSInfo.appId, Integer.valueOf(swanGameSubPackageAPSInfo.appVersion).intValue(), swanGameSubPackageAPSInfo.key, 1), new com.baidu.swan.games.subpackage.b.a(swanGameSubPackageAPSInfo));
+        if (com.baidu.swan.apps.core.pms.a.dl(1)) {
+            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.b.d.d(swanGameSubPackageAPSInfo.appId, Integer.valueOf(swanGameSubPackageAPSInfo.awa).intValue(), swanGameSubPackageAPSInfo.key, 1), new com.baidu.swan.games.subpackage.b.a(swanGameSubPackageAPSInfo));
             return;
         }
         Context appContext = AppRuntime.getAppContext();
-        com.baidu.b.a.d.a.a.putParams(swanGameSubPackageAPSInfo.key, swanGameSubPackageAPSInfo.appVersion);
+        com.baidu.a.a.d.a.a.putParams(swanGameSubPackageAPSInfo.key, swanGameSubPackageAPSInfo.awa);
         ArrayList arrayList = new ArrayList();
         arrayList.add(new com.baidu.swan.games.subpackage.aps.a(appContext, swanGameSubPackageAPSInfo));
-        com.baidu.b.a.a.init(appContext, ProcessUtils.isMainProcess());
-        com.baidu.b.a.c.a.a(appContext, com.baidu.swan.apps.u.a.EL().Fj());
-        com.baidu.b.a.c.a.b((List<Object>) arrayList, true);
+        com.baidu.a.a.a.init(appContext, ProcessUtils.isMainProcess());
+        com.baidu.a.a.c.a.a(appContext, com.baidu.swan.apps.u.a.JF().Kd());
+        com.baidu.a.a.c.a.b((List<Object>) arrayList, true);
     }
 
     public static void b(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo, int i) {
@@ -51,7 +51,7 @@ public class b {
             swanGameSubPackageAPSInfo.resultCode = i;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", swanGameSubPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.blS, 111, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bEG, 111, bundle);
         }
     }
 
@@ -60,17 +60,17 @@ public class b {
             swanGameSubPackageAPSInfo.resultCode = PushConstants.BROADCAST_MESSAGE_ARRIVE;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", swanGameSubPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.blS, 112, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bEG, 112, bundle);
         }
     }
 
     public static void a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo, long j, long j2) {
-        if (swanGameSubPackageAPSInfo != null && !TextUtils.isEmpty(swanGameSubPackageAPSInfo.blW)) {
+        if (swanGameSubPackageAPSInfo != null && !TextUtils.isEmpty(swanGameSubPackageAPSInfo.callbackKey)) {
             Bundle bundle = new Bundle();
             bundle.putLong("aigames_sub_package_bytes_read_key", j);
             bundle.putLong("aigames_sub_package_content_length_key", j2);
-            bundle.putString("aigames_sub_package_callback_key", swanGameSubPackageAPSInfo.blW);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.blS, 113, bundle);
+            bundle.putString("aigames_sub_package_callback_key", swanGameSubPackageAPSInfo.callbackKey);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bEG, 113, bundle);
         }
     }
 
@@ -78,31 +78,31 @@ public class b {
         if (swanGameSubPackageAPSInfo == null) {
             return null;
         }
-        String str = swanGameSubPackageAPSInfo.blT;
+        String str = swanGameSubPackageAPSInfo.bEH;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (str.endsWith(File.separator)) {
             str = str.substring(0, str.length() - 1);
         }
-        File dH = dH(str);
-        if (dH != null) {
-            return dH.getPath();
+        File ep = ep(str);
+        if (ep != null) {
+            return ep.getPath();
         }
         return null;
     }
 
     public static boolean a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo) {
-        return a.C0213a.a(swanGameSubPackageAPSInfo);
+        return a.C0245a.a(swanGameSubPackageAPSInfo);
     }
 
     public static boolean a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo, String str) {
         if (swanGameSubPackageAPSInfo == null) {
             return false;
         }
-        String dG = dG(swanGameSubPackageAPSInfo.key);
+        String eo = eo(swanGameSubPackageAPSInfo.key);
         String e = e(swanGameSubPackageAPSInfo);
-        if (e == null || TextUtils.isEmpty(dG)) {
+        if (e == null || TextUtils.isEmpty(eo)) {
             if (DEBUG) {
                 Log.e("GetGamesSubHelper", "ZIP文件夹或名称为空");
                 return false;
@@ -112,15 +112,15 @@ public class b {
         if (DEBUG) {
             Log.e("GetGamesSubHelper", "准备重命名小游戏子包");
             Log.e("GetGamesSubHelper", "zipFolder:" + e);
-            Log.e("GetGamesSubHelper", "zipName:" + dG);
+            Log.e("GetGamesSubHelper", "zipName:" + eo);
         }
-        File file = new File(e, dG);
+        File file = new File(e, eo);
         File file2 = new File(str);
         if (file2.renameTo(file)) {
             if (DEBUG) {
                 Log.i("GetGamesSubHelper", "重命名成功");
             }
-            swanGameSubPackageAPSInfo.blV = file.getAbsolutePath();
+            swanGameSubPackageAPSInfo.bEJ = file.getAbsolutePath();
             return true;
         }
         if (DEBUG) {
@@ -130,11 +130,11 @@ public class b {
         return false;
     }
 
-    private static String dG(String str) {
+    private static String eo(String str) {
         return !TextUtils.isEmpty(str) ? Base64.encodeToString(str.getBytes(), 2) + ".aigames" : "";
     }
 
-    private static File dH(String str) {
+    private static File ep(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -149,6 +149,6 @@ public class b {
         if (DEBUG && swanGameSubPackageAPSInfo != null) {
             Log.e("GetGamesSubHelper", swanGameSubPackageAPSInfo.toString());
         }
-        return (swanGameSubPackageAPSInfo == null || TextUtils.isEmpty(swanGameSubPackageAPSInfo.appVersion) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.key) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.blT) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.blU) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.blW)) ? false : true;
+        return (swanGameSubPackageAPSInfo == null || TextUtils.isEmpty(swanGameSubPackageAPSInfo.awa) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.key) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bEH) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bEI) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.callbackKey)) ? false : true;
     }
 }

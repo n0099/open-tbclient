@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes3.dex */
 public class a {
@@ -13,7 +14,7 @@ public class a {
     public static String a(Context context) {
         int d = d(context);
         if (d == 2) {
-            return IXAdSystemUtils.NT_WIFI;
+            return "wifi";
         }
         if (d == 1) {
             return "cmwap";
@@ -93,7 +94,7 @@ public class a {
                 }
                 return null;
             }
-            String string = query.getString(query.getColumnIndex("proxy"));
+            String string = query.getString(query.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
             if (query != null) {
                 query.close();
                 return string;

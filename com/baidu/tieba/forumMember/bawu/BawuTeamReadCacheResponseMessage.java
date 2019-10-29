@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
@@ -12,7 +13,7 @@ public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Obj
     private ManagerApplyInfo mManagerApplyInfo;
 
     public BawuTeamReadCacheResponseMessage() {
-        super(2003005);
+        super(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE);
     }
 
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {

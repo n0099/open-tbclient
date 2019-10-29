@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.chosen.net;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.ExcPbPage.DataReq;
 import tbclient.ExcPbPage.ExcPbPageReqIdl;
@@ -26,7 +26,7 @@ public class ChosenPbNetMessage extends NetMessage {
     }
 
     public ChosenPbNetMessage() {
-        super(CmdConfigHttp.CMD_GET_FINE_PB, 309093);
+        super(1003006, CmdConfigSocket.CMD_GET_FINE_PB);
     }
 
     public void setExcId(long j) {
@@ -59,7 +59,7 @@ public class ChosenPbNetMessage extends NetMessage {
         builder.scr_dip = Long.valueOf(this.scr_dip);
         builder.tag_code = Long.valueOf(this.tagCode);
         builder.thread_id = Long.valueOf(this.threadId);
-        r.bindCommonParamsToProtobufData(builder, true);
+        r.a(builder, true);
         ExcPbPageReqIdl.Builder builder2 = new ExcPbPageReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

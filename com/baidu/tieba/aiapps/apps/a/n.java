@@ -14,23 +14,23 @@ public class n implements com.baidu.swan.apps.u.b.c {
     }
 
     @Override // com.baidu.swan.apps.u.b.c
-    public boolean bb(Context context) {
-        return ProcessUtils.isMainProcess() ? c.aD(context) : c.dr(context);
+    public boolean bd(Context context) {
+        return ProcessUtils.isMainProcess() ? c.isLogin(context) : c.da(context);
     }
 
     @Override // com.baidu.swan.apps.u.b.c
-    public String bc(Context context) {
-        return ProcessUtils.isMainProcess() ? c.aE(context) : c.m20do(context);
+    public String be(Context context) {
+        return ProcessUtils.isMainProcess() ? c.getUid(context) : c.cY(context);
     }
 
     @Override // com.baidu.swan.apps.u.b.c
-    public String bd(@NonNull Context context) {
-        return ProcessUtils.isMainProcess() ? c.dq(context) : c.dp(context);
+    public String bf(@NonNull Context context) {
+        return ProcessUtils.isMainProcess() ? c.getCuid(context) : c.cZ(context);
     }
 
     @Override // com.baidu.swan.apps.u.b.c
-    public String be(@NonNull Context context) {
-        return c.dn(context);
+    public String bg(@NonNull Context context) {
+        return c.getBduss(context);
     }
 
     @Override // com.baidu.swan.apps.u.b.c

@@ -11,14 +11,14 @@ import android.view.View;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class c extends RecyclerView.ItemDecoration {
-    private int bnA;
+    private int bGm;
     private int mDividerHeight;
     private Paint mDividerPaint;
 
     public c(@NonNull Context context) {
         Resources resources = context.getResources();
         this.mDividerHeight = resources.getDimensionPixelSize(a.d.swangame_recommend_dialog_list_divider_height);
-        this.bnA = resources.getDimensionPixelSize(a.d.swangame_recommend_dialog_list_divider_margin);
+        this.bGm = resources.getDimensionPixelSize(a.d.swangame_recommend_dialog_list_divider_margin);
         this.mDividerPaint = new Paint();
         this.mDividerPaint.setColor(resources.getColor(a.c.swangame_recommend_dialog_list_divider));
     }
@@ -34,7 +34,7 @@ public class c extends RecyclerView.ItemDecoration {
         for (int i = 0; i < itemCount; i++) {
             View childAt = recyclerView.getChildAt(i);
             if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                canvas.drawRect(this.bnA, childAt.getBottom(), childAt.getWidth() - this.bnA, childAt.getBottom() + this.mDividerHeight, this.mDividerPaint);
+                canvas.drawRect(this.bGm, childAt.getBottom(), childAt.getWidth() - this.bGm, childAt.getBottom() + this.mDividerHeight, this.mDividerPaint);
             }
         }
     }

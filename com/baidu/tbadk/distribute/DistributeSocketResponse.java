@@ -1,12 +1,13 @@
 package com.baidu.tbadk.distribute;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.LogTogether.LogTogetherResIdl;
 /* loaded from: classes.dex */
 public class DistributeSocketResponse extends SocketResponsedMessage {
     public DistributeSocketResponse() {
-        super(303101);
+        super(CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

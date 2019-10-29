@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes4.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView gfU;
-    private TextView gfV;
-    private TextView gfW;
+    private ImageView gfr;
+    private TextView gfs;
+    private TextView gft;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -37,24 +37,24 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.gfU = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
-        this.gfV = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
-        this.gfW = (TextView) inflate.findViewById(R.id.tv_concern_login_and_see_more);
-        this.gfW.setOnClickListener(this);
+        this.gfr = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+        this.gfs = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
+        this.gft = (TextView) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+        this.gft.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.tv_concern_login_and_see_more) {
-            bc.cF(this.mContext);
-            HomePageStatic.ged = true;
+            bc.checkUpIsLogin(this.mContext);
+            HomePageStatic.gdA = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        am.c(this.gfU, (int) R.drawable.new_pic_emotion_01);
-        am.j(this.gfV, R.color.cp_cont_b);
-        am.j(this.gfW, R.color.cp_cont_a);
-        am.k(this.gfW, R.drawable.btn_all_blue);
+        am.setImageResource(this.gfr, R.drawable.new_pic_emotion_01);
+        am.setViewTextColor(this.gfs, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.gft, (int) R.color.cp_cont_a);
+        am.setBackgroundResource(this.gft, R.drawable.btn_all_blue);
     }
 }

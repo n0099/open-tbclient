@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobstat.bm;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.io.BufferedReader;
@@ -120,7 +121,7 @@ public class LogSender {
     public void saveLogData(Context context, String str, boolean z) {
         bo.a(context, (z ? Config.PREFIX_SEND_DATA_FULL : Config.PREFIX_SEND_DATA) + System.currentTimeMillis(), str, false);
         if (z) {
-            a(context, Config.FULL_TRACE_LOG_LIMIT, Config.PREFIX_SEND_DATA_FULL);
+            a(context, 10485760L, Config.PREFIX_SEND_DATA_FULL);
         }
     }
 
@@ -365,7 +366,7 @@ public class LogSender {
         d.setRequestProperty("Content-Type", "gzip");
         try {
             JSONObject jSONObject = new JSONObject(str2).getJSONObject(Config.HEADER_PART);
-            d.setRequestProperty("mtj_appkey", jSONObject.getString(Config.APP_KEY));
+            d.setRequestProperty("mtj_appkey", jSONObject.getString("k"));
             d.setRequestProperty("mtj_appversion", jSONObject.getString("n"));
             d.setRequestProperty("mtj_os", jSONObject.getString(Config.OS));
             d.setRequestProperty("mtj_pn", jSONObject.getString(Config.PACKAGE_NAME));
@@ -403,7 +404,7 @@ public class LogSender {
         d.setRequestProperty("Content-Type", "gzip");
         byte[] a2 = bm.a.a();
         byte[] b = bm.a.b();
-        d.setRequestProperty("key", bv.a(a2));
+        d.setRequestProperty(TiebaInitialize.Params.KEY, bv.a(a2));
         d.setRequestProperty("iv", bv.a(b));
         byte[] a3 = bm.a.a(a2, b, str2.getBytes("utf-8"));
         d.connect();

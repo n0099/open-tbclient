@@ -7,51 +7,51 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private static a keE = null;
-    private final Runnable keG = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a kcM = null;
+    private final Runnable kcO = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.cGQ();
-            for (InterfaceC0467a interfaceC0467a : a.this.keF) {
-                interfaceC0467a.release();
+            a.cDO();
+            for (InterfaceC0562a interfaceC0562a : a.this.kcN) {
+                interfaceC0562a.release();
             }
-            a.this.keF.clear();
+            a.this.kcN.clear();
         }
     };
-    private final Set<InterfaceC0467a> keF = new HashSet();
+    private final Set<InterfaceC0562a> kcN = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0467a {
+    public interface InterfaceC0562a {
         void release();
     }
 
-    public static synchronized a cGP() {
+    public static synchronized a cDN() {
         a aVar;
         synchronized (a.class) {
-            if (keE == null) {
-                keE = new a();
+            if (kcM == null) {
+                kcM = new a();
             }
-            aVar = keE;
+            aVar = kcM;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0467a interfaceC0467a) {
-        cGQ();
-        if (this.keF.add(interfaceC0467a) && this.keF.size() == 1) {
-            this.mUiHandler.post(this.keG);
+    public void a(InterfaceC0562a interfaceC0562a) {
+        cDO();
+        if (this.kcN.add(interfaceC0562a) && this.kcN.size() == 1) {
+            this.mUiHandler.post(this.kcO);
         }
     }
 
-    public void b(InterfaceC0467a interfaceC0467a) {
-        cGQ();
-        this.keF.remove(interfaceC0467a);
+    public void b(InterfaceC0562a interfaceC0562a) {
+        cDO();
+        this.kcN.remove(interfaceC0562a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cGQ() {
+    public static void cDO() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

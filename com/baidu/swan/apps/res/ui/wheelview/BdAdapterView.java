@@ -15,12 +15,12 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.Adapter;
 /* loaded from: classes2.dex */
 public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
-    f aNg;
-    c aNh;
-    e aNi;
-    d aNj;
-    long aNk;
-    private BdAdapterView<T>.g aNl;
+    f bgp;
+    c bgq;
+    e bgr;
+    d bgt;
+    long bgu;
+    private BdAdapterView<T>.g bgv;
     boolean mBlockLayoutRequests;
     boolean mDataChanged;
     private boolean mDesiredFocusableInTouchModeState;
@@ -84,7 +84,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
         this.mNeedSync = false;
         this.mInLayout = false;
         this.mNextSelectedPosition = -1;
-        this.aNk = Long.MIN_VALUE;
+        this.bgu = Long.MIN_VALUE;
         this.mSelectedPosition = -1;
         this.mSelectedRowId = Long.MIN_VALUE;
         this.mOldSelectedPosition = -1;
@@ -99,7 +99,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
         this.mNeedSync = false;
         this.mInLayout = false;
         this.mNextSelectedPosition = -1;
-        this.aNk = Long.MIN_VALUE;
+        this.bgu = Long.MIN_VALUE;
         this.mSelectedPosition = -1;
         this.mSelectedRowId = Long.MIN_VALUE;
         this.mOldSelectedPosition = -1;
@@ -114,7 +114,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
         this.mNeedSync = false;
         this.mInLayout = false;
         this.mNextSelectedPosition = -1;
-        this.aNk = Long.MIN_VALUE;
+        this.bgu = Long.MIN_VALUE;
         this.mSelectedPosition = -1;
         this.mSelectedRowId = Long.MIN_VALUE;
         this.mOldSelectedPosition = -1;
@@ -123,29 +123,29 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
     }
 
     public void setOnItemClickListener(c cVar) {
-        this.aNh = cVar;
+        this.bgq = cVar;
     }
 
     public final c getOnItemClickListener() {
-        return this.aNh;
+        return this.bgq;
     }
 
     public boolean performItemClick(View view, int i, long j) {
-        if (this.aNh != null) {
+        if (this.bgq != null) {
             playSoundEffect(0);
-            this.aNh.b(this, view, i, j);
+            this.bgq.b(this, view, i, j);
             return true;
         }
         return false;
     }
 
     public void setOnItemDoubleClickListener(d dVar) {
-        this.aNj = dVar;
+        this.bgt = dVar;
     }
 
-    public boolean a(View view, int i, long j) {
-        if (this.aNj != null) {
-            this.aNj.c(this, view, i, j);
+    public boolean b(View view, int i, long j) {
+        if (this.bgt != null) {
+            this.bgt.c(this, view, i, j);
             return true;
         }
         return false;
@@ -155,29 +155,29 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
         if (!isLongClickable()) {
             setLongClickable(true);
         }
-        this.aNi = eVar;
+        this.bgr = eVar;
     }
 
     public final e getOnItemLongClickListener() {
-        return this.aNi;
+        return this.bgr;
     }
 
     public void setOnItemSelectedListener(f fVar) {
-        this.aNg = fVar;
+        this.bgp = fVar;
     }
 
     public final f getOnItemSelectedListener() {
-        return this.aNg;
+        return this.bgp;
     }
 
     /* loaded from: classes2.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
-        public View aNm;
+        public View amH;
         public long id;
         public int position;
 
         public a(View view, int i, long j) {
-            this.aNm = view;
+            this.amH = view;
             this.position = i;
             this.id = j;
         }
@@ -231,7 +231,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
 
     @ViewDebug.CapturedViewProperty
     public long getSelectedItemId() {
-        return this.aNk;
+        return this.bgu;
     }
 
     public Object getSelectedItem() {
@@ -384,7 +384,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes2.dex */
     class b extends DataSetObserver {
-        private Parcelable aNn = null;
+        private Parcelable amI = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -395,9 +395,9 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
             BdAdapterView.this.mDataChanged = true;
             BdAdapterView.this.mOldItemCount = BdAdapterView.this.mItemCount;
             BdAdapterView.this.mItemCount = BdAdapterView.this.getAdapter().getCount();
-            if (BdAdapterView.this.getAdapter().hasStableIds() && this.aNn != null && BdAdapterView.this.mOldItemCount == 0 && BdAdapterView.this.mItemCount > 0) {
-                BdAdapterView.this.onRestoreInstanceState(this.aNn);
-                this.aNn = null;
+            if (BdAdapterView.this.getAdapter().hasStableIds() && this.amI != null && BdAdapterView.this.mOldItemCount == 0 && BdAdapterView.this.mItemCount > 0) {
+                BdAdapterView.this.onRestoreInstanceState(this.amI);
+                this.amI = null;
             } else {
                 BdAdapterView.this.rememberSyncState();
             }
@@ -409,14 +409,14 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             BdAdapterView.this.mDataChanged = true;
             if (BdAdapterView.this.getAdapter().hasStableIds()) {
-                this.aNn = BdAdapterView.this.onSaveInstanceState();
+                this.amI = BdAdapterView.this.onSaveInstanceState();
             }
             BdAdapterView.this.mOldItemCount = BdAdapterView.this.mItemCount;
             BdAdapterView.this.mItemCount = 0;
             BdAdapterView.this.mSelectedPosition = -1;
             BdAdapterView.this.mSelectedRowId = Long.MIN_VALUE;
             BdAdapterView.this.mNextSelectedPosition = -1;
-            BdAdapterView.this.aNk = Long.MIN_VALUE;
+            BdAdapterView.this.bgu = Long.MIN_VALUE;
             BdAdapterView.this.mNeedSync = false;
             BdAdapterView.this.checkSelectionChanged();
             BdAdapterView.this.checkFocus();
@@ -442,12 +442,12 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void selectionChanged() {
-        if (this.aNg != null) {
+        if (this.bgp != null) {
             if (this.mInLayout || this.mBlockLayoutRequests) {
-                if (this.aNl == null) {
-                    this.aNl = new g();
+                if (this.bgv == null) {
+                    this.bgv = new g();
                 }
-                this.aNl.post(this.aNl);
+                this.bgv.post(this.bgv);
             } else {
                 fireOnSelected();
             }
@@ -459,13 +459,13 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fireOnSelected() {
-        if (this.aNg != null) {
+        if (this.bgp != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
-                this.aNg.a(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
+                this.bgp.a(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
                 return;
             }
-            this.aNg.a(this);
+            this.bgp.a(this);
         }
     }
 
@@ -540,7 +540,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
             this.mSelectedPosition = -1;
             this.mSelectedRowId = Long.MIN_VALUE;
             this.mNextSelectedPosition = -1;
-            this.aNk = Long.MIN_VALUE;
+            this.bgu = Long.MIN_VALUE;
             this.mNeedSync = false;
             checkSelectionChanged();
         }
@@ -609,10 +609,10 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setNextSelectedPositionInt(int i) {
         this.mNextSelectedPosition = i;
-        this.aNk = getItemIdAtPosition(i);
+        this.bgu = getItemIdAtPosition(i);
         if (this.mNeedSync && this.mSyncMode == 0 && i >= 0) {
             this.mSyncPosition = i;
-            this.mSyncRowId = this.aNk;
+            this.mSyncRowId = this.bgu;
         }
     }
 
@@ -622,7 +622,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
             this.mSyncHeight = this.mLayoutHeight;
             if (this.mSelectedPosition >= 0) {
                 View childAt = getChildAt(this.mSelectedPosition - this.mFirstPosition);
-                this.mSyncRowId = this.aNk;
+                this.mSyncRowId = this.bgu;
                 this.mSyncPosition = this.mNextSelectedPosition;
                 if (childAt != null) {
                     this.mSpecificTop = childAt.getTop();

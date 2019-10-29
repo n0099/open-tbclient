@@ -3,6 +3,7 @@ package com.baidu.tieba.godSquare.model.req;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.godSquare.model.res.GodSquareCacheResponsedMsg;
 /* loaded from: classes6.dex */
 public class a implements CustomMessageTask.CustomRunnable<Object> {
@@ -11,10 +12,10 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof GodSquareCacheRequestMsg)) {
             return null;
         }
-        byte[] xi = new com.baidu.tieba.godSquare.model.a().xi(((GodSquareCacheRequestMsg) customMessage).cacheKey);
+        byte[] vB = new com.baidu.tieba.godSquare.model.a().vB(((GodSquareCacheRequestMsg) customMessage).cacheKey);
         GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = new GodSquareCacheResponsedMsg();
         try {
-            godSquareCacheResponsedMsg.decodeInBackGround(2016446, xi);
+            godSquareCacheResponsedMsg.decodeInBackGround(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE, vB);
             return godSquareCacheResponsedMsg;
         } catch (Exception e) {
             e.printStackTrace();

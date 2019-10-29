@@ -8,36 +8,36 @@ import com.baidu.swan.apps.b.a;
 import com.baidu.swan.apps.process.messaging.client.a;
 /* loaded from: classes2.dex */
 public final class e extends ContextWrapper {
-    private static e aRl = new e();
-    public final a<b> aRm;
-    public final a<? extends com.baidu.swan.apps.process.messaging.client.a> aRn;
-    public final a<com.baidu.swan.apps.b.a> aRo;
+    private static e bkp = new e();
+    public final a<b> bkq;
+    public final a<? extends com.baidu.swan.apps.process.messaging.client.a> bkr;
+    public final a<com.baidu.swan.apps.b.a> bks;
 
     private e() {
         super(AppRuntime.getApplication());
-        this.aRm = new a<>();
-        this.aRn = new a().a(new a.c());
-        this.aRo = new a().a(new a.C0130a());
+        this.bkq = new a<>();
+        this.bkr = new a().a(new a.c());
+        this.bks = new a().a(new a.C0162a());
     }
 
-    public static e Mz() {
-        return aRl;
+    public static e Rr() {
+        return bkp;
     }
 
     public synchronized boolean p(final com.baidu.swan.apps.v.b.b bVar) {
         boolean z;
         if (bVar != null) {
             if (!TextUtils.isEmpty(bVar.getAppId())) {
-                if (this.aRm.get() == null || !TextUtils.equals(bVar.getAppId(), this.aRm.get().id)) {
+                if (this.bkq.get() == null || !TextUtils.equals(bVar.getAppId(), this.bkq.get().id)) {
                     terminate();
-                    this.aRm.b(new b.a() { // from class: com.baidu.swan.apps.ae.e.1
+                    this.bkq.b(new b.a() { // from class: com.baidu.swan.apps.ae.e.1
                         @Override // com.baidu.swan.apps.ae.b.a
-                        String Mw() {
+                        String Ro() {
                             return bVar.getAppId();
                         }
                     });
                 }
-                this.aRm.get().o(bVar);
+                this.bkq.get().o(bVar);
                 z = true;
             }
         }
@@ -46,9 +46,9 @@ public final class e extends ContextWrapper {
     }
 
     public synchronized void terminate() {
-        if (this.aRm.get() != null) {
-            this.aRm.get().release();
-            this.aRm.Mf();
+        if (this.bkq.get() != null) {
+            this.bkq.get().release();
+            this.bkq.QX();
         }
     }
 }

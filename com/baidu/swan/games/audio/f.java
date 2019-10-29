@@ -3,8 +3,8 @@ package com.baidu.swan.games.audio;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.File;
 import java.net.MalformedURLException;
 import org.json.JSONObject;
@@ -12,18 +12,18 @@ import org.json.JSONObject;
 public class f {
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.aBA = gVar.aBA;
-        dVar.aBJ = gVar.autoplay;
-        dVar.mLoop = gVar.loop;
+        dVar.aUO = gVar.aUO;
+        dVar.aUX = gVar.autoplay;
+        dVar.aUY = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.bfq = gVar.startTime;
-        dVar.aBK = gVar.obeyMuteSwitch;
-        dVar.aBL = gVar.volume;
-        dVar.aBG = Ra().toString();
+        dVar.byj = gVar.startTime;
+        dVar.aUZ = gVar.obeyMuteSwitch;
+        dVar.aVa = gVar.volume;
+        dVar.aUU = VQ().toString();
         return dVar;
     }
 
-    public static JSONObject Ra() {
+    public static JSONObject VQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -32,8 +32,8 @@ public class f {
             jSONObject.put("onPause", "pause");
             jSONObject.put("onSeeking", "seeking");
             jSONObject.put("onSeeked", "seeked");
-            jSONObject.put("onStop", IntentConfig.STOP);
-            jSONObject.put("onError", "error");
+            jSONObject.put("onStop", "stop");
+            jSONObject.put("onError", BdStatsConstant.StatsType.ERROR);
             jSONObject.put("onTimeUpdate", "timeupdate");
             jSONObject.put("onBufferingUpdate", "buffered");
             jSONObject.put("onWaiting", "waiting");
@@ -45,23 +45,23 @@ public class f {
         return jSONObject;
     }
 
-    public static boolean ai(float f) {
+    public static boolean X(float f) {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String iQ(String str) throws MalformedURLException {
-        return "/" + com.baidu.swan.apps.ae.b.Ms() + "/" + String.valueOf(str.hashCode());
+    public static String jt(String str) throws MalformedURLException {
+        return "/" + com.baidu.swan.apps.ae.b.Rk() + "/" + String.valueOf(str.hashCode());
     }
 
-    public static String Rb() {
-        String Rc = Rc();
-        if (!Rd() || TextUtils.isEmpty(Rc)) {
+    public static String VR() {
+        String VS = VS();
+        if (!VT() || TextUtils.isEmpty(VS)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return Rc;
+        return VS;
     }
 
-    private static String Rc() {
+    private static String VS() {
         String str = com.baidu.swan.games.f.g.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -71,7 +71,7 @@ public class f {
         return str;
     }
 
-    private static boolean Rd() {
+    private static boolean VT() {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 }

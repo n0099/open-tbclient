@@ -4,6 +4,7 @@ import android.app.Application;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.Time;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
@@ -14,11 +15,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes4.dex */
 public class a {
-    public static boolean cki() {
-        return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
+    public static boolean chq() {
+        return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append(SharedPrefConfig.REMIND_RECOMMEND_SERVER_SWITCH).toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage FM(String str) {
+    public static RemindRecommendMessage Eo(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -52,12 +53,12 @@ public class a {
         }
     }
 
-    public static long eD(long j) {
+    public static long dW(long j) {
         int i;
         int i2;
         int i3;
         int i4;
-        String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
+        String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.REMIND_RECOMMEND_DLALOG_TIME, "12:05:00");
         if (TextUtils.isEmpty(loadString)) {
             loadString = "12:05:00";
         }
@@ -67,9 +68,9 @@ public class a {
             i2 = 5;
             i3 = 12;
         } else {
-            i3 = com.baidu.adp.lib.g.b.f(split[0], 12);
-            i2 = com.baidu.adp.lib.g.b.f(split[1], 5);
-            i = com.baidu.adp.lib.g.b.f(split[2], 0);
+            i3 = com.baidu.adp.lib.g.b.toInt(split[0], 12);
+            i2 = com.baidu.adp.lib.g.b.toInt(split[1], 5);
+            i = com.baidu.adp.lib.g.b.toInt(split[2], 0);
         }
         if (i3 < 0 || i3 > 23 || i2 < 0 || i2 > 59 || i < 0 || i > 59) {
             i = 0;
@@ -97,11 +98,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long csN() {
-        return eD(System.currentTimeMillis());
+    public static long cqD() {
+        return dW(System.currentTimeMillis());
     }
 
-    public static boolean bc(long j) {
+    public static boolean isTaday(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -111,7 +112,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean csO() {
-        return com.baidu.tbadk.core.sharedPref.b.ahU().getInt("sync_local_dialog", 1) == 1;
+    public static boolean cqE() {
+        return com.baidu.tbadk.core.sharedPref.b.alR().getInt(SharedPrefConfig.SYNC_LOCAL_DOALOG, 1) == 1;
     }
 }

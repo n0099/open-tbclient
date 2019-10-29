@@ -10,15 +10,15 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public final class AdView extends RelativeLayout {
-    private AtomicBoolean agH;
-    IOAdEventListener agI;
-    private com.baidu.mobads.production.a.a agJ;
-    private a agK;
+    private AtomicBoolean aAe;
+    IOAdEventListener aAf;
+    private com.baidu.mobads.production.a.a aAg;
+    private a aAh;
 
     public AdView(Context context) {
         super(context);
-        this.agH = new AtomicBoolean(false);
-        this.agI = new g(this);
+        this.aAe = new AtomicBoolean(false);
+        this.aAf = new g(this);
     }
 
     @Override // android.view.View
@@ -45,16 +45,16 @@ public final class AdView extends RelativeLayout {
         }
         layoutParams.width = i2;
         layoutParams.height = i;
-        if (this.agJ != null && this.agJ.getAdRequestInfo() != null) {
-            this.agJ.getAdRequestInfo().d(layoutParams.width);
-            this.agJ.getAdRequestInfo().e(layoutParams.height);
+        if (this.aAg != null && this.aAg.getAdRequestInfo() != null) {
+            this.aAg.getAdRequestInfo().d(layoutParams.width);
+            this.aAg.getAdRequestInfo().e(layoutParams.height);
         }
         XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams adapter", Integer.valueOf(layoutParams.width), Integer.valueOf(layoutParams.height));
         super.setLayoutParams(layoutParams);
     }
 
     public void setListener(a aVar) {
-        this.agK = aVar;
+        this.aAh = aVar;
     }
 
     @Override // android.view.View

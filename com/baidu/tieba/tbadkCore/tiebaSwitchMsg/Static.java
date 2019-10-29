@@ -9,6 +9,10 @@ import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInf
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.d;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.adp.plugin.util.Util;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.adp.framework.MessageConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
@@ -23,29 +27,29 @@ public class Static {
                 GroupNewsPojo p;
                 PluginNetConfigInfos parse;
                 int i = 0;
-                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.mW().mT().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.jp().jm().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
                     String content = p.getContent();
                     if (!TextUtils.isEmpty(content)) {
                         try {
-                            JSONObject jSONObject = new JSONObject(content).getJSONObject("userMsg");
+                            JSONObject jSONObject = new JSONObject(content).getJSONObject(TbEnum.SystemMessage.KEY_USER_MSG);
                             if (jSONObject != null) {
                                 String string = jSONObject.getString("client_version");
-                                String mE = PluginPackageManager.ms().mE();
-                                if (!TextUtils.isEmpty(mE)) {
-                                    String[] split = mE.split("\\.");
+                                String iX = PluginPackageManager.iL().iX();
+                                if (!TextUtils.isEmpty(iX)) {
+                                    String[] split = iX.split("\\.");
                                     if (split.length != 0 && split.length != 3) {
                                         String str = "";
                                         for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
-                                            str = str + split[i2] + ".";
+                                            str = str + split[i2] + DefaultConfig.TOKEN_SEPARATOR;
                                         }
-                                        mE = str.substring(0, str.length() - 1);
+                                        iX = str.substring(0, str.length() - 1);
                                     }
-                                    if (Util.J(string, mE) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
+                                    if (Util.A(string, iX) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                                         PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
-                                        PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.ms().getPluginConfig(pluginConfig.package_name);
-                                        d.mQ().mR().addOrUpdateConfig(pluginConfig);
+                                        PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.iL().getPluginConfig(pluginConfig.package_name);
+                                        d.jj().jk().addOrUpdateConfig(pluginConfig);
                                         if (pluginConfig2 == null) {
-                                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
+                                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_MIS_UPDATE, pluginConfig));
                                             return;
                                         }
                                         if (pluginConfig.enable_version_code != null) {
@@ -124,7 +128,7 @@ public class Static {
                                                 pluginConfig2.newest.version_code = pluginConfig.newest.version_code;
                                             }
                                         }
-                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig2));
+                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_MIS_UPDATE, pluginConfig2));
                                     }
                                 }
                             }
@@ -136,8 +140,8 @@ public class Static {
             }
         };
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            MessageManager.getInstance().registerStickyMode(2001401);
-            MessageManager.getInstance().registerListener(2001401, customMessageListener);
+            MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC);
+            MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC, customMessageListener);
         }
     }
 }

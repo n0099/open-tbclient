@@ -6,43 +6,43 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class e extends c {
     private static final String TAG = e.class.getSimpleName();
-    private static e aiA;
+    private static e aBX;
 
     private e() {
     }
 
-    public static e uY() {
-        if (aiA == null) {
+    public static e zS() {
+        if (aBX == null) {
             synchronized (e.class) {
-                if (aiA == null) {
-                    aiA = new e();
+                if (aBX == null) {
+                    aBX = new e();
                 }
             }
         }
-        return aiA;
+        return aBX;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d
-    public void a(Activity activity, Map<String, String> map, final a.C0099a c0099a) {
-        com.baidu.swan.apps.aa.b.Io().b(activity, l(map), new com.baidu.swan.apps.aa.a.d() { // from class: com.baidu.poly.d.a.e.1
+    public void a(Activity activity, Map<String, String> map, final a.C0131a c0131a) {
+        com.baidu.swan.apps.aa.b.Ni().b(activity, m(map), new com.baidu.swan.apps.aa.a.d() { // from class: com.baidu.poly.d.a.e.1
             @Override // com.baidu.swan.apps.aa.a.d
-            public void k(int i, String str) {
-                if (c0099a != null) {
+            public void o(int i, String str) {
+                if (c0131a != null) {
                     switch (i) {
                         case 0:
-                            c0099a.onResult(0, str);
+                            c0131a.onResult(0, str);
                             return;
                         case 1:
-                            c0099a.onResult(1, str);
+                            c0131a.onResult(1, str);
                             return;
                         case 2:
-                            c0099a.onResult(2, str);
+                            c0131a.onResult(2, str);
                             return;
                         case 3:
-                            c0099a.onResult(3, str);
+                            c0131a.onResult(3, str);
                             return;
                         default:
-                            c0099a.onResult(3, str);
+                            c0131a.onResult(3, str);
                             return;
                     }
                 }

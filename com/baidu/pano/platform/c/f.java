@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -19,7 +20,7 @@ public class f {
     private String e = LivenessStat.TYPE_STRING_DEFAULT;
     private String f = "02";
     private String g = "";
-    private String h = "baidu";
+    private String h = BuildConfig.FLAVOR;
     private Context i;
 
     public static f a(Context context) {

@@ -3,7 +3,7 @@ package com.baidu.lbsapi.auth;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.android.imsdk.IMConstants;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -43,7 +43,7 @@ public class g {
                 return null;
             }
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            return (extraInfo == null || !(extraInfo.trim().toLowerCase().equals("cmwap") || extraInfo.trim().toLowerCase().equals("uniwap") || extraInfo.trim().toLowerCase().equals("3gwap") || extraInfo.trim().toLowerCase().equals("ctwap"))) ? IXAdSystemUtils.NT_WIFI : extraInfo.trim().toLowerCase().equals("ctwap") ? "ctwap" : "cmwap";
+            return (extraInfo == null || !(extraInfo.trim().toLowerCase().equals("cmwap") || extraInfo.trim().toLowerCase().equals("uniwap") || extraInfo.trim().toLowerCase().equals("3gwap") || extraInfo.trim().toLowerCase().equals("ctwap"))) ? "wifi" : extraInfo.trim().toLowerCase().equals("ctwap") ? "ctwap" : "cmwap";
         } catch (Exception e) {
             if (a.a) {
                 e.printStackTrace();
@@ -386,8 +386,8 @@ public class g {
             httpsURLConnection.setDoInput(true);
             httpsURLConnection.setDoOutput(true);
             httpsURLConnection.setRequestMethod("POST");
-            httpsURLConnection.setConnectTimeout(50000);
-            httpsURLConnection.setReadTimeout(50000);
+            httpsURLConnection.setConnectTimeout(IMConstants.ERROR_BASE);
+            httpsURLConnection.setReadTimeout(IMConstants.ERROR_BASE);
             return httpsURLConnection;
         } catch (MalformedURLException e) {
             if (a.a) {

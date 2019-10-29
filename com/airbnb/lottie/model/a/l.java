@@ -12,57 +12,57 @@ import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e om;
-    private final m<PointF, PointF> on;
-    private final g oo;
-    private final b oq;
-    private final d or;
+    private final e gH;
+    private final m<PointF, PointF> gI;
+    private final g gJ;
+    private final b gK;
+    private final d gL;
     @Nullable
-    private final b ot;
+    private final b gM;
     @Nullable
-    private final b ou;
+    private final b gN;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.om = eVar;
-        this.on = mVar;
-        this.oo = gVar;
-        this.oq = bVar;
-        this.or = dVar;
-        this.ot = bVar2;
-        this.ou = bVar3;
+        this.gH = eVar;
+        this.gI = mVar;
+        this.gJ = gVar;
+        this.gK = bVar;
+        this.gL = dVar;
+        this.gM = bVar2;
+        this.gN = bVar3;
     }
 
-    public e cQ() {
-        return this.om;
+    public e cj() {
+        return this.gH;
     }
 
-    public m<PointF, PointF> cR() {
-        return this.on;
+    public m<PointF, PointF> ck() {
+        return this.gI;
     }
 
-    public g cS() {
-        return this.oo;
+    public g cl() {
+        return this.gJ;
     }
 
-    public b cT() {
-        return this.oq;
+    public b cm() {
+        return this.gK;
     }
 
-    public d cU() {
-        return this.or;
-    }
-
-    @Nullable
-    public b cV() {
-        return this.ot;
+    public d cn() {
+        return this.gL;
     }
 
     @Nullable
-    public b cW() {
-        return this.ou;
+    public b co() {
+        return this.gM;
     }
 
-    public p cX() {
+    @Nullable
+    public b cp() {
+        return this.gN;
+    }
+
+    public p cq() {
         return new p(this);
     }
 
@@ -74,8 +74,8 @@ public class l implements com.airbnb.lottie.model.content.b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static l cY() {
-            return new l(new e(), new e(), g.a.cN(), b.a.cI(), d.a.cK(), b.a.cI(), b.a.cI());
+        public static l cr() {
+            return new l(new e(), new e(), g.a.cg(), b.a.cb(), d.a.cd(), b.a.cb(), b.a.cb());
         }
 
         public static l n(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
@@ -86,7 +86,7 @@ public class l implements com.airbnb.lottie.model.content.b {
             d dVar;
             JSONObject optJSONObject = jSONObject.optJSONObject(Config.APP_VERSION_CODE);
             if (optJSONObject != null) {
-                eVar2 = new e(optJSONObject.opt(Config.APP_KEY), eVar);
+                eVar2 = new e(optJSONObject.opt("k"), eVar);
             } else {
                 Log.w("LOTTIE", "Layer has no transform property. You may be using an unsupported layer type such as a camera.");
                 eVar2 = new e();

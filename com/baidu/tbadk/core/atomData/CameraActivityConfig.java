@@ -16,6 +16,6 @@ public class CameraActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra(KEY_OUTPUT_FILE_PATH, str);
         intent.putExtra(KEY_CONTENT_TYPE, str2);
-        intent.putExtra(IntentConfig.REQUEST_CODE, i);
+        intent.putExtra("request_code", i);
     }
 }

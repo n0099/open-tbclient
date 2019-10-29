@@ -11,26 +11,26 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes4.dex */
 public class b {
-    private SpannableTextView fLS;
-    private a.InterfaceC0325a fLb;
+    private a.InterfaceC0414a fKv;
+    private SpannableTextView fLm;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
-        this.fLS = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
-        am.j(this.fLS, R.color.cp_cont_f);
+        this.fLm = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
+        am.setViewTextColor(this.fLm, (int) R.color.cp_cont_f);
     }
 
     public void f(final d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.fLS.f(dVar);
-            this.fLS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
+            this.fLm.f(dVar);
+            this.fLm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.fLb != null) {
-                        b.this.fLb.c(dVar);
+                    if (b.this.fKv != null) {
+                        b.this.fKv.c(dVar);
                     }
                 }
             });
@@ -41,22 +41,22 @@ public class b {
         return this.mRootView;
     }
 
-    public void setClickListener(a.InterfaceC0325a interfaceC0325a) {
-        this.fLb = interfaceC0325a;
-        this.fLS.setClickListener(interfaceC0325a);
+    public void setClickListener(a.InterfaceC0414a interfaceC0414a) {
+        this.fKv = interfaceC0414a;
+        this.fLm.setClickListener(interfaceC0414a);
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private b fLU;
+        private b fLo;
 
         public a(b bVar) {
             super(bVar.getRootView());
-            this.fLU = bVar;
+            this.fLo = bVar;
         }
 
         public void f(d dVar) {
-            this.fLU.f(dVar);
+            this.fLo.f(dVar);
         }
     }
 }

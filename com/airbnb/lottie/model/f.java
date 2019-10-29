@@ -3,27 +3,27 @@ package com.airbnb.lottie.model;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f {
-    private final String nP;
-    private final float nQ;
+    private final String gl;
+    private final float gm;
     private final String name;
     private final String style;
 
     f(String str, String str2, String str3, float f) {
-        this.nP = str;
+        this.gl = str;
         this.name = str2;
         this.style = str3;
-        this.nQ = f;
+        this.gm = f;
     }
 
-    public String cC() {
-        return this.nP;
+    public String bV() {
+        return this.gl;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public String cD() {
+    public String bW() {
         return this.style;
     }
 

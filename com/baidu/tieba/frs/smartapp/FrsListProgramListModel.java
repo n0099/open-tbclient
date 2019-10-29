@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class FrsListProgramListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a fQu;
-    private com.baidu.adp.framework.listener.a fQv = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HTTP_SMART_APP, 309623) { // from class: com.baidu.tieba.frs.smartapp.FrsListProgramListModel.1
+    private a fPN;
+    private com.baidu.adp.framework.listener.a fPO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HTTP_SMART_APP, 309623) { // from class: com.baidu.tieba.frs.smartapp.FrsListProgramListModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             FrsListProgramListHttpResponseMessage frsListProgramListHttpResponseMessage;
             if (responsedMessage instanceof FrsListProgramListSocketResponseMessage) {
                 FrsListProgramListSocketResponseMessage frsListProgramListSocketResponseMessage = (FrsListProgramListSocketResponseMessage) responsedMessage;
                 if (frsListProgramListSocketResponseMessage != null) {
-                    FrsListProgramListModel.this.fQu.a(frsListProgramListSocketResponseMessage.getList(), frsListProgramListSocketResponseMessage.getError(), frsListProgramListSocketResponseMessage.getErrorString(), frsListProgramListSocketResponseMessage.hasMore);
+                    FrsListProgramListModel.this.fPN.a(frsListProgramListSocketResponseMessage.getList(), frsListProgramListSocketResponseMessage.getError(), frsListProgramListSocketResponseMessage.getErrorString(), frsListProgramListSocketResponseMessage.hasMore);
                 } else {
                     return;
                 }
             }
             if ((responsedMessage instanceof FrsListProgramListHttpResponseMessage) && (frsListProgramListHttpResponseMessage = (FrsListProgramListHttpResponseMessage) responsedMessage) != null) {
-                FrsListProgramListModel.this.fQu.a(frsListProgramListHttpResponseMessage.getList(), frsListProgramListHttpResponseMessage.getError(), frsListProgramListHttpResponseMessage.getErrorString(), frsListProgramListHttpResponseMessage.hasMore);
+                FrsListProgramListModel.this.fPN.a(frsListProgramListHttpResponseMessage.getList(), frsListProgramListHttpResponseMessage.getError(), frsListProgramListHttpResponseMessage.getErrorString(), frsListProgramListHttpResponseMessage.hasMore);
             }
         }
     };
@@ -34,15 +34,15 @@ public class FrsListProgramListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public FrsListProgramListModel(a aVar) {
-        this.fQu = aVar;
-        registerListener(this.fQv);
+        this.fPN = aVar;
+        registerListener(this.fPO);
         com.baidu.tieba.tbadkCore.a.a.c(309623, FrsListProgramListSocketResponseMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(309623, CmdConfigHttp.CMD_HTTP_SMART_APP, TbConfig.SMART_APP_URL, FrsListProgramListHttpResponseMessage.class, false, false, true, false);
     }
 
-    public void s(String str, int i, int i2) {
+    public void q(String str, int i, int i2) {
         FrsListProgramListRequestMessage frsListProgramListRequestMessage = new FrsListProgramListRequestMessage();
-        frsListProgramListRequestMessage.setForumId(com.baidu.adp.lib.g.b.e(str, 0L));
+        frsListProgramListRequestMessage.setForumId(com.baidu.adp.lib.g.b.toLong(str, 0L));
         frsListProgramListRequestMessage.setRn(String.valueOf(i2));
         frsListProgramListRequestMessage.setPn(i);
         MessageManager.getInstance().sendMessage(frsListProgramListRequestMessage);
@@ -60,6 +60,6 @@ public class FrsListProgramListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fQv);
+        MessageManager.getInstance().unRegisterListener(this.fPO);
     }
 }

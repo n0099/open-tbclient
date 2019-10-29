@@ -1,13 +1,14 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.framework.a.a {
     public a() {
-        super(2016004);
+        super(CmdConfigCustom.MEMORY_CHANGED);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

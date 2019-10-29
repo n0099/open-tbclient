@@ -3,21 +3,21 @@ package com.baidu.tieba.personPolymeric.c;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId itS = BdUniqueId.gen();
+    public static final BdUniqueId iss = BdUniqueId.gen();
     public String avatar;
-    public String eIr;
-    public String eIs;
-    public boolean eIy;
+    public String eQW;
+    public String eQX;
+    public boolean eRd;
     public long forumId;
     public boolean isAttention;
     public boolean isHost;
-    public String itT;
-    public int itU;
+    public String ist;
+    public int isu;
     public int postNum;
     public int sex;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return itS;
+        return iss;
     }
 }

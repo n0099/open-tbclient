@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes4.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
@@ -15,7 +16,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     private int updateType;
 
     public pbPageSocketResponseMessage() {
-        super(302001);
+        super(CmdConfigSocket.CMD_PB_PAGE);
     }
 
     public com.baidu.tieba.pb.data.c getAppealInfo() {
@@ -53,7 +54,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.c();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.hKb = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.hIG = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -73,10 +74,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                g.bWi().a(this.cacheKey, this.isFromMark, bArr);
+                g.bTk().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                g.bWi().l(this.cacheKey, bArr);
+                g.bTk().k(this.cacheKey, bArr);
                 return;
             default:
                 return;

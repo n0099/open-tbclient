@@ -10,33 +10,33 @@ public class SwanCoreVersion extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR = new Parcelable.Creator<SwanCoreVersion>() { // from class: com.baidu.swan.apps.swancore.model.SwanCoreVersion.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: l */
+        /* renamed from: t */
         public SwanCoreVersion createFromParcel(Parcel parcel) {
             return new SwanCoreVersion(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eb */
+        /* renamed from: eW */
         public SwanCoreVersion[] newArray(int i) {
             return new SwanCoreVersion[i];
         }
     };
-    public long aXe;
-    public int aXg;
-    public String aXh;
+    public long bqi;
+    public int bqk;
+    public String bql;
 
     public SwanCoreVersion() {
     }
 
     private SwanCoreVersion(Parcel parcel) {
-        this.aXg = parcel.readInt();
-        this.aXe = parcel.readLong();
-        this.aXh = parcel.readString();
+        this.bqk = parcel.readInt();
+        this.bqi = parcel.readLong();
+        this.bql = parcel.readString();
     }
 
     public String toString() {
-        return "SwanCoreVersion{swanCorePath='" + this.aXh + "', swanCoreVersion=" + this.aXe + ", swanCoreType=" + this.aXg + ", isAvailable=" + isAvailable() + '}';
+        return "SwanCoreVersion{swanCorePath='" + this.bql + "', swanCoreVersion=" + this.bqi + ", swanCoreType=" + this.bqk + ", isAvailable=" + isAvailable() + '}';
     }
 
     @Override // android.os.Parcelable
@@ -46,12 +46,12 @@ public class SwanCoreVersion extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.aXg);
-        parcel.writeLong(this.aXe);
-        parcel.writeString(this.aXh);
+        parcel.writeInt(this.bqk);
+        parcel.writeLong(this.bqi);
+        parcel.writeString(this.bql);
     }
 
     public boolean isAvailable() {
-        return !TextUtils.isEmpty(this.aXh) && new File(this.aXh).exists();
+        return !TextUtils.isEmpty(this.bql) && new File(this.bql).exists();
     }
 }

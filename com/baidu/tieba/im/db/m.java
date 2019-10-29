@@ -3,25 +3,26 @@ package com.baidu.tieba.im.db;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class m extends a {
-    public static String gGW = "tb_private_msg_";
-    private static a gHu;
+    public static String gEU = "tb_private_msg_";
+    private static a gFs;
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized m bDU() {
+    public static synchronized m bAF() {
         m mVar;
         synchronized (m.class) {
-            if (gHu == null) {
-                gHu = new m();
+            if (gFs == null) {
+                gFs = new m();
             }
-            mVar = (m) gHu;
+            mVar = (m) gFs;
         }
         return mVar;
     }
@@ -41,20 +42,20 @@ public class m extends a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo aQ(String str, int i) {
+    public CommonMsgPojo aL(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = gGW;
+            ?? r2 = gEU;
             try {
                 try {
-                    cursor = h.bDI().b("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = h.bAs().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
-                            com.baidu.adp.lib.util.n.e(cursor);
+                            com.baidu.adp.lib.util.n.close(cursor);
                             r2 = cursor;
                         } else {
                             commonMsgPojo2.setGid(str);
@@ -66,13 +67,13 @@ public class m extends a {
                             commonMsgPojo2.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
                             commonMsgPojo2.setExt(cursor.getString(cursor.getColumnIndex("ext")));
                             commonMsgPojo2.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
-                            commonMsgPojo2.setMsg_status(cursor.getInt(cursor.getColumnIndex("msg_status")));
+                            commonMsgPojo2.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
                             commonMsgPojo2.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
                             commonMsgPojo2.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
                             commonMsgPojo2.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
                             commonMsgPojo2.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
                             commonMsgPojo2.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            com.baidu.adp.lib.util.n.e(cursor);
+                            com.baidu.adp.lib.util.n.close(cursor);
                             commonMsgPojo = commonMsgPojo2;
                             r2 = cursor;
                         }
@@ -80,21 +81,21 @@ public class m extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        zn(str);
-                        com.baidu.adp.lib.util.n.e(cursor);
+                        xF(str);
+                        com.baidu.adp.lib.util.n.close(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
                     } catch (Exception e2) {
                         e = e2;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        com.baidu.adp.lib.util.n.e(cursor);
+                        com.baidu.adp.lib.util.n.close(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    com.baidu.adp.lib.util.n.e(r2);
+                    com.baidu.adp.lib.util.n.close((Cursor) r2);
                     throw th;
                 }
             } catch (SQLiteException e3) {
@@ -106,7 +107,7 @@ public class m extends a {
             } catch (Throwable th3) {
                 r2 = 0;
                 th = th3;
-                com.baidu.adp.lib.util.n.e(r2);
+                com.baidu.adp.lib.util.n.close((Cursor) r2);
                 throw th;
             }
         }

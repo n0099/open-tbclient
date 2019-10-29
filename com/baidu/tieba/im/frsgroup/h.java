@@ -4,64 +4,64 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes5.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gJl = BdUniqueId.gen();
-    private Object XI;
-    private NoDataViewFactory.ImgType gJm;
-    private String gJn;
-    private String gJo;
-    private String gJp;
-    private int gJq;
+    public static final BdUniqueId gHj = BdUniqueId.gen();
+    private Object HC;
+    private NoDataViewFactory.ImgType gHk;
+    private String gHl;
+    private String gHm;
+    private String gHn;
+    private int gHo;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gJl;
+        return gHj;
     }
 
-    public String bEn() {
-        return this.gJn;
+    public String bAY() {
+        return this.gHl;
     }
 
-    public void zB(String str) {
-        this.gJn = str;
+    public void xT(String str) {
+        this.gHl = str;
     }
 
-    public String bEo() {
-        return this.gJo;
+    public String bAZ() {
+        return this.gHm;
     }
 
-    public void zC(String str) {
-        this.gJo = str;
+    public void xU(String str) {
+        this.gHm = str;
     }
 
-    public String bEp() {
-        return this.gJp;
+    public String bBa() {
+        return this.gHn;
     }
 
-    public void zD(String str) {
-        this.gJp = str;
+    public void xV(String str) {
+        this.gHn = str;
     }
 
-    public int bEq() {
-        return this.gJq;
+    public int bBb() {
+        return this.gHo;
     }
 
-    public void vA(int i) {
-        this.gJq = i;
+    public void ug(int i) {
+        this.gHo = i;
     }
 
-    public Object qW() {
-        return this.XI;
+    public Object mb() {
+        return this.HC;
     }
 
     public void setExtraData(Object obj) {
-        this.XI = obj;
+        this.HC = obj;
     }
 
-    public NoDataViewFactory.ImgType bEr() {
-        return this.gJm;
+    public NoDataViewFactory.ImgType bBc() {
+        return this.gHk;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.gJm = imgType;
+        this.gHk = imgType;
     }
 }

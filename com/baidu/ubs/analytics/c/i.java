@@ -12,7 +12,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import java.io.BufferedReader;
 import java.io.File;
@@ -97,13 +96,13 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String l(Context context) {
         String encode;
-        WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+        WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String cEJ = cEJ();
-                if (cEJ != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(cEJ);
+                String cBu = cBu();
+                if (cBu != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(cBu);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -119,7 +118,7 @@ public final class i {
         }
     }
 
-    private static String cEJ() {
+    private static String cBu() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -213,26 +212,26 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            aw(com.baidu.ubs.analytics.d.cEt().getContext());
+            an(com.baidu.ubs.analytics.d.cBd().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            aw(com.baidu.ubs.analytics.d.cEt().getContext());
+            an(com.baidu.ubs.analytics.d.cBd().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            aw(com.baidu.ubs.analytics.d.cEt().getContext());
+            an(com.baidu.ubs.analytics.d.cBd().getContext());
         }
         return B;
     }
 
-    private static void aw(Context context) {
+    private static void an(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         z = String.valueOf(displayMetrics.widthPixels);

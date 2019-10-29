@@ -9,19 +9,19 @@ import okio.BufferedSource;
 /* loaded from: classes2.dex */
 public abstract class c<T> implements a<T> {
     @Override // com.baidu.swan.pms.a.a
-    public void G(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.a
-    public void F(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.a
-    public void R(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.a
     public void E(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.a
+    public void D(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.a
+    public void P(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.a
+    public void C(T t) {
     }
 
     @Override // com.baidu.swan.pms.a.a
@@ -29,7 +29,7 @@ public abstract class c<T> implements a<T> {
     }
 
     @Override // com.baidu.swan.pms.a.a
-    public void T(T t) {
+    public void R(T t) {
     }
 
     @Override // com.baidu.swan.pms.a.a

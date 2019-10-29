@@ -19,13 +19,13 @@ public class a extends z {
         if (DEBUG) {
             Log.i("HideFloatButtonGuide", unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.scheme.actions.c.a MX = com.baidu.swan.apps.scheme.actions.c.a.MX();
-        FloatButton MZ = MX.MZ();
-        if (MZ == null) {
+        com.baidu.swan.apps.scheme.actions.c.a RN = com.baidu.swan.apps.scheme.actions.c.a.RN();
+        FloatButton RP = RN.RP();
+        if (RP == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
         } else {
-            MZ.setVisibility(8);
-            MX.a(null);
+            RP.setVisibility(8);
+            RN.a(null);
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         }
         return true;

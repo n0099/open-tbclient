@@ -1,29 +1,45 @@
 package com.vivo.push;
 
-import android.net.Uri;
-import com.baidu.mapapi.UIMsg;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 /* loaded from: classes3.dex */
 public final class w {
-    public static final Uri a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+    private static final Handler a = new Handler(Looper.getMainLooper());
+    private static final HandlerThread b;
+    private static final Handler c;
 
-    public static String a(int i) {
-        switch (i) {
-            case 2002:
-                return "method_alias_bind";
-            case 2003:
-                return "method_alias_unbind";
-            case 2004:
-                return "method_tag_bind";
-            case 2005:
-                return "method_tag_unbind";
-            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND /* 2006 */:
-                return "method_sdk_bind";
-            case UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE /* 2007 */:
-                return "method_sdk_unbind";
-            case UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE /* 2008 */:
-                return "method_stop";
-            default:
-                return null;
+    static {
+        HandlerThread handlerThread = new HandlerThread("push_client_thread");
+        b = handlerThread;
+        handlerThread.start();
+        c = new x(b.getLooper());
+    }
+
+    public static void a(v vVar) {
+        if (vVar == null) {
+            com.vivo.push.util.p.a("PushClientThread", "client thread error, task is null!");
+            return;
         }
+        int a2 = vVar.a();
+        if (0 > 0) {
+            c.removeMessages(a2);
+        }
+        Message message = new Message();
+        message.what = a2;
+        message.obj = vVar;
+        c.sendMessageDelayed(message, 0L);
+    }
+
+    public static void a(Runnable runnable) {
+        if (15000 > 0) {
+            c.removeCallbacks(runnable);
+        }
+        c.postDelayed(runnable, 15000L);
+    }
+
+    public static void b(Runnable runnable) {
+        a.post(runnable);
     }
 }

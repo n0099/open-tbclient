@@ -223,7 +223,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         this.mMediumAnimationDuration = getResources().getInteger(17694721);
         setWillNotDraw(false);
-        this.mDecelerateInterpolator = new DecelerateInterpolator(DECELERATE_INTERPOLATION_FACTOR);
+        this.mDecelerateInterpolator = new DecelerateInterpolator(2.0f);
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         this.mCircleDiameter = (int) (40.0f * displayMetrics.density);
         createProgressView();
@@ -647,9 +647,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
         float abs = Math.abs(f) - this.mTotalDragDistance;
         float f2 = this.mUsingCustomStart ? this.mSpinnerOffsetEnd - this.mOriginalOffsetTop : this.mSpinnerOffsetEnd;
-        float max2 = Math.max(0.0f, Math.min(abs, f2 * DECELERATE_INTERPOLATION_FACTOR) / f2);
-        float pow = ((float) ((max2 / 4.0f) - Math.pow(max2 / 4.0f, 2.0d))) * DECELERATE_INTERPOLATION_FACTOR;
-        int i = ((int) ((f2 * min) + (f2 * pow * DECELERATE_INTERPOLATION_FACTOR))) + this.mOriginalOffsetTop;
+        float max2 = Math.max(0.0f, Math.min(abs, f2 * 2.0f) / f2);
+        float pow = ((float) ((max2 / 4.0f) - Math.pow(max2 / 4.0f, 2.0d))) * 2.0f;
+        int i = ((int) ((f2 * min) + (f2 * pow * 2.0f))) + this.mOriginalOffsetTop;
         if (this.mCircleView.getVisibility() != 0) {
             this.mCircleView.setVisibility(0);
         }
@@ -669,7 +669,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         }
         this.mProgress.setStartEndTrim(0.0f, Math.min((float) MAX_PROGRESS_ANGLE, max * MAX_PROGRESS_ANGLE));
         this.mProgress.setArrowScale(Math.min(1.0f, max));
-        this.mProgress.setProgressRotation(((-0.25f) + (max * 0.4f) + (pow * DECELERATE_INTERPOLATION_FACTOR)) * DRAG_RATE);
+        this.mProgress.setProgressRotation(((-0.25f) + (max * 0.4f) + (pow * 2.0f)) * DRAG_RATE);
         setTargetOffsetTopAndBottom(i - this.mCurrentTargetOffsetTop);
     }
 

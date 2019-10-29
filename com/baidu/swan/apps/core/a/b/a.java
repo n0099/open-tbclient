@@ -13,41 +13,41 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.core.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0141a {
-        void ca(int i);
+    public interface InterfaceC0173a {
+        void Ej();
 
-        void zo();
+        void Ek();
 
-        void zp();
+        void cW(int i);
     }
 
-    public static void a(String str, InterfaceC0141a interfaceC0141a, final String str2) {
-        if (TextUtils.isEmpty(str) && interfaceC0141a != null) {
-            interfaceC0141a.zo();
-        } else if (com.baidu.swan.apps.core.pms.a.cp(0)) {
+    public static void a(String str, InterfaceC0173a interfaceC0173a, final String str2) {
+        if (TextUtils.isEmpty(str) && interfaceC0173a != null) {
+            interfaceC0173a.Ej();
+        } else if (com.baidu.swan.apps.core.pms.a.dl(0)) {
             com.baidu.swan.pms.b.d.b bVar = new com.baidu.swan.pms.b.d.b(str, 0);
-            bVar.kE("1");
-            c.a(bVar, new com.baidu.swan.apps.core.pms.a.a(str, interfaceC0141a) { // from class: com.baidu.swan.apps.core.a.b.a.1
+            bVar.lg("1");
+            c.a(bVar, new com.baidu.swan.apps.core.pms.a.a(str, interfaceC0173a) { // from class: com.baidu.swan.apps.core.a.b.a.1
                 @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.f
-                public void zn() {
-                    this.aqx = str2;
+                public void Ei() {
+                    this.aJN = str2;
                 }
 
                 @Override // com.baidu.swan.pms.a.f, com.baidu.swan.pms.a.b
-                public void X(String str3, String str4) {
-                    super.X(str3, str4);
-                    if (!TextUtils.isEmpty(str4) && TextUtils.equals(str3, "770") && this.aqi != null) {
-                        this.aqi.add(new UbcFlowEvent(str4));
+                public void af(String str3, String str4) {
+                    super.af(str3, str4);
+                    if (!TextUtils.isEmpty(str4) && TextUtils.equals(str3, "770") && this.aJy != null) {
+                        this.aJy.add(new UbcFlowEvent(str4));
                     }
                 }
             });
         } else {
             Context appContext = AppRuntime.getAppContext();
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new b(appContext, str, interfaceC0141a, str2));
-            com.baidu.b.a.a.init(appContext, ProcessUtils.isMainProcess());
-            com.baidu.b.a.c.a.a(appContext, com.baidu.swan.apps.u.a.EL().Fj());
-            com.baidu.b.a.c.a.b((List<Object>) arrayList, true);
+            arrayList.add(new b(appContext, str, interfaceC0173a, str2));
+            com.baidu.a.a.a.init(appContext, ProcessUtils.isMainProcess());
+            com.baidu.a.a.c.a.a(appContext, com.baidu.swan.apps.u.a.JF().Kd());
+            com.baidu.a.a.c.a.b((List<Object>) arrayList, true);
         }
     }
 }

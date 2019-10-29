@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import android.support.v4.view.PointerIconCompat;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;
@@ -47,7 +46,7 @@ public class dc {
             byteBuffer.reset();
             return charBuffer;
         } catch (CharacterCodingException e) {
-            throw new ch((int) PointerIconCompat.TYPE_CROSSHAIR, e);
+            throw new ch(1007, e);
         }
     }
 

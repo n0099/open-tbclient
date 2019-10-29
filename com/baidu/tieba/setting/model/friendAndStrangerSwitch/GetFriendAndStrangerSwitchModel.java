@@ -5,16 +5,15 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.setting.more.MoreActivity;
 /* loaded from: classes3.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public static int FRIEND_AND_STRANGER_MASK_TYPE = -1;
-    private HttpMessageListener iTL;
+    private HttpMessageListener iTw;
 
     public GetFriendAndStrangerSwitchModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.iTL = new HttpMessageListener(CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH) { // from class: com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel.1
+        this.iTw = new HttpMessageListener(1003319) { // from class: com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -26,13 +25,13 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
                 }
             }
         };
-        registerListener(this.iTL);
+        registerListener(this.iTw);
         LoadData();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH));
+        sendMessage(new HttpMessage(1003319));
         return false;
     }
 

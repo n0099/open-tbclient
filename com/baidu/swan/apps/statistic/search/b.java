@@ -3,12 +3,13 @@ package com.baidu.swan.apps.statistic.search;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.apps.v.b.c;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a aWN;
+    public static a bpR;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -17,23 +18,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.aWM) {
+                switch (searchFlowEvent.bpQ) {
                     case START:
-                        NR();
-                        if (aWN != null) {
-                            aWN.a(searchFlowEvent);
+                        SH();
+                        if (bpR != null) {
+                            bpR.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (aWN != null) {
-                            aWN.a(searchFlowEvent);
+                        if (bpR != null) {
+                            bpR.a(searchFlowEvent);
                         }
-                        NS();
+                        SI();
                         break;
                     case NORMAL:
-                        if (aWN != null) {
-                            aWN.a(searchFlowEvent);
+                        if (bpR != null) {
+                            bpR.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -48,10 +49,10 @@ public final class b {
     public static synchronized void w(com.baidu.swan.apps.v.b.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                c(bVar.FO(), bVar.FK());
-                if (aWN != null) {
-                    aWN.setAppId(bVar.getAppId());
-                    aWN.setSource(bVar.FK());
+                c(bVar.KI(), bVar.KE());
+                if (bpR != null) {
+                    bpR.setAppId(bVar.getAppId());
+                    bpR.setSource(bVar.KE());
                 }
             }
         }
@@ -60,33 +61,33 @@ public final class b {
     public static synchronized void f(c cVar) {
         synchronized (b.class) {
             if (cVar != null) {
-                c(cVar.Fy(), cVar.mFrom);
-                if (aWN != null) {
-                    aWN.setAppId(cVar.mAppId);
-                    aWN.setSource(cVar.mFrom);
+                c(cVar.Ks(), cVar.mFrom);
+                if (bpR != null) {
+                    bpR.setAppId(cVar.mAppId);
+                    bpR.setSource(cVar.mFrom);
                 }
             }
         }
     }
 
-    private static void NR() {
-        if (aWN != null) {
-            aWN.destroy();
-            aWN = null;
+    private static void SH() {
+        if (bpR != null) {
+            bpR.destroy();
+            bpR = null;
         }
-        aWN = new a("772");
+        bpR = new a("772");
     }
 
-    private static void NS() {
-        if (aWN != null) {
-            aWN.send();
+    private static void SI() {
+        if (bpR != null) {
+            bpR.send();
         }
     }
 
     private static void c(Bundle bundle, String str) {
         if (bundle != null) {
             String string = bundle.getString("search_id");
-            if (TextUtils.isEmpty(string) && !TextUtils.equals("1002", str)) {
+            if (TextUtils.isEmpty(string) && !TextUtils.equals(PayHelper.STATUS_FAIL, str)) {
                 if (DEBUG) {
                     Log.d("SwanAppSearchFlowUBC", "search id is null, and source is not 1002");
                     return;
@@ -94,9 +95,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (aWN != null) {
-                aWN.aD("searchid", string == null ? "" : string);
-                aWN.aD("url", bundle.getString("search_url"));
+            if (bpR != null) {
+                bpR.addExt("searchid", string == null ? "" : string);
+                bpR.addExt("url", bundle.getString("search_url"));
             }
         }
     }

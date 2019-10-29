@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.squareup.wire.Wire;
 import protobuf.AddGroup.AddGroupResIdl;
@@ -10,7 +11,7 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
     private AddGroupInfoData groupInfo;
 
     public ResponseAddGroupMessage() {
-        super(103101);
+        super(CmdConfigSocket.CMD_ADD_GROUP);
     }
 
     public AddGroupInfoData getAddGroupInfo() {

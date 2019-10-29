@@ -4,27 +4,27 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class r extends a {
-    private float ang;
-    private float anh;
+    private float aGy;
+    private float aGz;
+    private boolean mIsValid = false;
     private float mX;
     private float mY;
-    private boolean tY = false;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void e(JSONArray jSONArray) {
+    public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 3) {
-            this.ang = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(0));
-            this.anh = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
-            this.mX = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(2));
-            this.mY = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(3));
-            this.tY = true;
+            this.aGy = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(0));
+            this.aGz = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
+            this.mX = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(2));
+            this.mY = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(3));
+            this.mIsValid = true;
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.tY) {
-            bVar.mPath.quadTo(this.ang, this.anh, this.mX, this.mY);
+        if (this.mIsValid) {
+            bVar.mPath.quadTo(this.aGy, this.aGz, this.mX, this.mY);
         }
     }
 }

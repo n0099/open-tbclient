@@ -2,6 +2,8 @@ package com.baidu.platform.comapi.wnplatform.walkmap;
 
 import android.graphics.Point;
 import android.os.Bundle;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapsdkplatform.comjni.map.basemap.JNIBaseMap;
@@ -47,7 +49,7 @@ public class WNaviBaiduMap {
             case 3:
                 return 2000000;
             case 4:
-                return 1000000;
+                return MessageConfig.BASE_SEGMENT_LENGTH;
             case 5:
                 return 500000;
             case 6:
@@ -55,11 +57,11 @@ public class WNaviBaiduMap {
             case 7:
                 return 100000;
             case 8:
-                return 50000;
+                return IMConstants.ERROR_BASE;
             case 9:
                 return 25000;
             case 10:
-                return 20000;
+                return MessageConfig.SOCKET_TIME_OUT_MS_2G;
             case 11:
                 return 10000;
             case 12:

@@ -10,51 +10,51 @@ import android.support.v4.view.ViewCompat;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class g extends j {
-    private final Paint Hg = new Paint();
-    private final Paint Hh = new Paint();
-    private final Rect Hi = new Rect(0, 0, 0, 0);
-    private final Rect Hj = new Rect(0, 0, 0, 0);
+    private final Paint mModeBeforePaint = new Paint();
+    private final Paint mModeAfterPaint = new Paint();
+    private final Rect mDoubleCacheRect = new Rect(0, 0, 0, 0);
+    private final Rect mBitmapRect = new Rect(0, 0, 0, 0);
 
     public g() {
-        this.Hg.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.Hg.setStyle(Paint.Style.FILL);
-        this.Hg.setAntiAlias(true);
-        this.Hh.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.mModeBeforePaint.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.mModeBeforePaint.setStyle(Paint.Style.FILL);
+        this.mModeBeforePaint.setAntiAlias(true);
+        this.mModeAfterPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.b, com.baidu.adp.newwidget.ImageView.a
     public void b(Canvas canvas, c cVar, ImageView imageView) {
-        if (this.GH != null) {
-            canvas.concat(this.GH);
+        if (this.mDrawMatrix != null) {
+            canvas.concat(this.mDrawMatrix);
         }
-        if (cVar.lx()) {
-            Bitmap bitmap = cVar.GQ.getBitmap();
-            if (this.Hn) {
-                a(canvas, bitmap);
+        if (cVar.isDrawableAvalible()) {
+            Bitmap bitmap = cVar.drawable.getBitmap();
+            if (this.isPathAvailable) {
+                drawPathClip(canvas, bitmap);
                 return;
             }
-            this.Hj.set(0, 0, cVar.getWidth(), cVar.getHeight());
-            cVar.GR.a(canvas, this.Hj, this.GI, this.mPaint);
-        } else if (cVar.ly()) {
-            if (this.Hn) {
-                a(canvas, cVar.GR.nK());
+            this.mBitmapRect.set(0, 0, cVar.getWidth(), cVar.getHeight());
+            cVar.tW.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
+        } else if (cVar.isBdImgAvailable()) {
+            if (this.isPathAvailable) {
+                drawPathClip(canvas, cVar.tW.getRawBitmap());
                 return;
             }
-            this.Hj.set(0, 0, cVar.getWidth(), cVar.getHeight());
-            cVar.GR.a(canvas, this.Hj, this.GI, this.mPaint);
+            this.mBitmapRect.set(0, 0, cVar.getWidth(), cVar.getHeight());
+            cVar.tW.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
         } else {
-            this.Hj.set(0, 0, cVar.getWidth(), cVar.getHeight());
-            cVar.GR.a(canvas, this.Hj, this.GI, this.mPaint);
+            this.mBitmapRect.set(0, 0, cVar.getWidth(), cVar.getHeight());
+            cVar.tW.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
         }
     }
 
-    protected void a(Canvas canvas, Bitmap bitmap) {
-        this.Hj.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        this.Hi.set(0, 0, (int) this.GI.width(), (int) this.GI.height());
+    protected void drawPathClip(Canvas canvas, Bitmap bitmap) {
+        this.mBitmapRect.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        this.mDoubleCacheRect.set(0, 0, (int) this.mBounds.width(), (int) this.mBounds.height());
         canvas.save();
         canvas.drawARGB(0, 0, 0, 0);
-        canvas.drawPath(this.Hk, this.Hg);
-        canvas.drawBitmap(bitmap, this.Hj, this.GI, this.Hh);
+        canvas.drawPath(this.mDefaultPath, this.mModeBeforePaint);
+        canvas.drawBitmap(bitmap, this.mBitmapRect, this.mBounds, this.mModeAfterPaint);
         canvas.restore();
     }
 }

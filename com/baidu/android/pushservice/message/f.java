@@ -10,11 +10,10 @@ import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -124,13 +123,13 @@ public class f extends d {
         try {
             switch (com.baidu.android.pushservice.i.l.t(this.a)) {
                 case 1:
-                    return IXAdSystemUtils.NT_WIFI;
+                    return "wifi";
                 case 2:
-                    return "2g";
+                    return BdNetTypeUtil.NET_TYPENAME_2G;
                 case 3:
-                    return "3g";
+                    return BdNetTypeUtil.NET_TYPENAME_3G;
                 case 4:
-                    return "4g";
+                    return BdNetTypeUtil.NET_TYPENAME_4G;
                 default:
                     return null;
             }
@@ -144,7 +143,7 @@ public class f extends d {
             WindowManager windowManager = (WindowManager) this.a.getSystemService("window");
             if (windowManager != null) {
                 Display defaultDisplay = windowManager.getDefaultDisplay();
-                return defaultDisplay.getHeight() + "_" + defaultDisplay.getWidth();
+                return defaultDisplay.getHeight() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + defaultDisplay.getWidth();
             }
             return null;
         } catch (Exception e) {
@@ -188,7 +187,7 @@ public class f extends d {
     private String h() {
         WifiManager wifiManager;
         try {
-            if (!com.baidu.android.pushservice.i.l.u(this.a, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) this.a.getSystemService(IXAdSystemUtils.NT_WIFI)) == null) {
+            if (!com.baidu.android.pushservice.i.l.u(this.a, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) this.a.getSystemService("wifi")) == null) {
                 return null;
             }
             return wifiManager.getConnectionInfo().getMacAddress();
@@ -240,7 +239,7 @@ public class f extends d {
             }
             jSONObject.put("sa_mode", com.baidu.android.pushservice.b.d.a(this.a).b());
             jSONObject.put("highest_version", com.baidu.android.pushservice.b.d.a(this.a).d());
-            jSONObject.put("period", TbConfig.POST_IMAGE_MIDDLE);
+            jSONObject.put("period", 1800);
             jSONObject.put("channel_type", 3);
             jSONObject.put("tinyheart", 1);
             if (com.baidu.android.pushservice.i.l.D(this.a)) {
@@ -274,7 +273,7 @@ public class f extends d {
             }
             String d = d();
             if (!TextUtils.isEmpty(d)) {
-                jSONObject2.put(DpStatConstants.KEY_NETWORK, d);
+                jSONObject2.put("network", d);
             }
             String h = h();
             if (!TextUtils.isEmpty(h)) {
@@ -282,7 +281,7 @@ public class f extends d {
             }
             String cuid = DeviceId.getCUID(this.a);
             if (!TextUtils.isEmpty(cuid)) {
-                jSONObject2.put(DpStatConstants.KEY_CUID, cuid);
+                jSONObject2.put("cuid", cuid);
             }
             String g = g();
             if (!TextUtils.isEmpty(g)) {

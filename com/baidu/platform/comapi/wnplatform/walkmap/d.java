@@ -4,10 +4,11 @@ import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.inner.MapBound;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.lang.ref.SoftReference;
 /* loaded from: classes5.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
@@ -205,10 +206,10 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
 
     public float a(MapBound mapBound, int i, int i2) {
         Bundle bundle = new Bundle();
-        bundle.putInt(CustomDialogData.POS_LEFT, mapBound.ptLB.getmPtx());
-        bundle.putInt("bottom", mapBound.ptLB.getmPty());
-        bundle.putInt("right", mapBound.ptRT.getmPtx());
-        bundle.putInt("top", mapBound.ptRT.getmPty());
+        bundle.putInt("left", mapBound.ptLB.getmPtx());
+        bundle.putInt(VerticalTranslateLayout.BOTTOM, mapBound.ptLB.getmPty());
+        bundle.putInt(HorizontalTranslateLayout.RIGHT, mapBound.ptRT.getmPtx());
+        bundle.putInt(VerticalTranslateLayout.TOP, mapBound.ptRT.getmPty());
         if (this.c != null) {
             return this.c.a(bundle, i, i2);
         }

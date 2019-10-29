@@ -2,66 +2,65 @@ package com.baidu.tieba.tbadkCore.d;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
-import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a jjX;
-    private final int jjY = 10;
-    private final int jjZ = 3000;
-    public String jka = null;
-    public boolean bVS = false;
+    private com.baidu.adp.lib.stats.a jjM;
+    private final int jjN = 10;
+    private final int jjO = 3000;
+    public String jjP = null;
+    public boolean mIsJson = false;
 
     public b(String str) {
-        aB(str, false);
+        aw(str, false);
     }
 
-    public void aB(String str, boolean z) {
-        this.jka = str;
-        this.bVS = z;
-        this.jjX = new com.baidu.adp.lib.stats.a("dbg");
+    public void aw(String str, boolean z) {
+        this.jjP = str;
+        this.mIsJson = z;
+        this.jjM = new com.baidu.adp.lib.stats.a("dbg");
         c.A(str, getNetType(), z);
     }
 
     public void start() {
-        this.jjX.iO();
+        this.jjM.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e cqS;
-        if (this.jjX != null && (cqS = cqS()) != null) {
+        e coJ;
+        if (this.jjM != null && (coJ = coJ()) != null) {
             if (z) {
-                if (cqS.jkf != null) {
-                    cqS.jkf.num++;
+                if (coJ.jjU != null) {
+                    coJ.jjU.num++;
                     if (z2) {
-                        cqS.jkf.jkc += j2;
-                        cqS.jkf.size += j;
+                        coJ.jjU.jjR += j2;
+                        coJ.jjU.size += j;
                     } else {
-                        cqS.jkf.jkd++;
+                        coJ.jjU.jjS++;
                     }
                 } else {
                     return;
                 }
-            } else if (cqS.jkg != null) {
-                cqS.jkg.num++;
+            } else if (coJ.jjV != null) {
+                coJ.jjV.num++;
                 if (z2) {
-                    cqS.jkg.jkc += j3;
-                    cqS.jkg.size += j;
+                    coJ.jjV.jjR += j3;
+                    coJ.jjV.size += j;
                     j2 = j3;
                 } else {
-                    cqS.jkg.jkd++;
+                    coJ.jjV.jjS++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.jjX = null;
+            this.jjM = null;
             if (z2) {
-                c.a(cqS, 10);
+                c.a(coJ, 10);
             }
-            if (this.jka == "frsStat") {
+            if (this.jjP == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
-                    aVar.append(SocialConstants.PARAM_ACT, "frs");
+                    aVar.append("act", "frs");
                     aVar.append("result", z2 ? "0" : "1");
                     aVar.append("isHttp", z ? "1" : "0");
                     aVar.append("timeCost", String.valueOf(j2));
@@ -75,20 +74,20 @@ public class b {
     }
 
     public void destory() {
-        e cqS;
-        if (this.jjX != null && (cqS = cqS()) != null && cqS.jkh != null) {
-            long iP = this.jjX.iP();
-            if (iP > 3000) {
-                d dVar = cqS.jkh;
-                dVar.jkc = iP + dVar.jkc;
-                cqS.jkh.num++;
-                c.a(cqS, 10);
+        e coJ;
+        if (this.jjM != null && (coJ = coJ()) != null && coJ.jjW != null) {
+            long timeCost = this.jjM.getTimeCost();
+            if (timeCost > 3000) {
+                d dVar = coJ.jjW;
+                dVar.jjR = timeCost + dVar.jjR;
+                coJ.jjW.num++;
+                c.a(coJ, 10);
             }
         }
     }
 
-    private e cqS() {
-        return c.B(this.jka, getNetType(), this.bVS);
+    private e coJ() {
+        return c.B(this.jjP, getNetType(), this.mIsJson);
     }
 
     private String getNetType() {

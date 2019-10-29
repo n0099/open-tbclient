@@ -18,15 +18,15 @@ public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
-    public static Set<String> s(List<String> list) {
+    public static Set<String> R(List<String> list) {
         if (list == null || list.isEmpty()) {
             return null;
         }
-        return e(106, list);
+        return f(106, list);
     }
 
     @Nullable
-    public static Set<String> e(int i, List<String> list) {
+    public static Set<String> f(int i, List<String> list) {
         if (list == null || list.isEmpty()) {
             return null;
         }
@@ -35,12 +35,12 @@ public class c {
             return null;
         }
         HashSet hashSet = new HashSet();
-        for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.JB().JC()) {
-            if (bVar.aIh && bVar.JN() && list.contains(bVar.JJ())) {
+        for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Ov().Ow()) {
+            if (bVar.bbv && bVar.OH() && list.contains(bVar.OD())) {
                 serviceObject.sendMessageToClient(bVar, i, (Bundle) null);
-                hashSet.add(bVar.JJ());
+                hashSet.add(bVar.OD());
                 if (DEBUG) {
-                    Log.i("PurgerUtils", "sent msg(" + i + ") to active aiapp(" + bVar.JJ() + ")");
+                    Log.i("PurgerUtils", "sent msg(" + i + ") to active aiapp(" + bVar.OD() + ")");
                 }
             }
         }

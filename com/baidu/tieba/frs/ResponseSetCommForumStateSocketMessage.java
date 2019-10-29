@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.SetCommonForumState.SetCommonForumStateResIdl;
 /* loaded from: classes4.dex */
@@ -8,7 +9,7 @@ public class ResponseSetCommForumStateSocketMessage extends SocketResponsedMessa
     private SetCommonForumStateResIdl mResponseData;
 
     public ResponseSetCommForumStateSocketMessage() {
-        super(309365);
+        super(CmdConfigSocket.SET_COMMON_FORUM_STATE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

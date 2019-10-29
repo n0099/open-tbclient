@@ -2,33 +2,32 @@ package com.baidu.tbadk.util;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
 /* loaded from: classes.dex */
 public class b {
-    private static b cDA = null;
+    private static b cOJ = null;
 
     private b() {
     }
 
-    public static synchronized b awl() {
+    public static synchronized b axq() {
         b bVar;
         synchronized (b.class) {
-            if (cDA == null) {
-                cDA = new b();
+            if (cOJ == null) {
+                cOJ = new b();
             }
-            bVar = cDA;
+            bVar = cOJ;
         }
         return bVar;
     }
 
-    public void awm() {
-        String awn = awn();
-        if (!TextUtils.isEmpty(awn)) {
-            com.baidu.adp.lib.f.c.iE().a(awn, 10, null, 0, 0, null, new Object[0]);
+    public void axr() {
+        String axs = axs();
+        if (!TextUtils.isEmpty(axs)) {
+            com.baidu.adp.lib.f.c.fT().a(axs, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String awn() {
-        return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
+    public String axs() {
+        return TbadkSettings.getInst().loadString("ad_url", null);
     }
 }

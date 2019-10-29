@@ -10,6 +10,8 @@ import android.text.TextUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.sina.weibo.sdk.auth.AccessTokenKeeper;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
@@ -46,10 +48,10 @@ public class AuthWebViewClient extends BaseWebViewClient {
     }
 
     private boolean needOverLoad(WebView webView, String str) {
-        if (str.startsWith("sms:")) {
+        if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
             try {
                 Intent intent = new Intent("android.intent.action.VIEW");
-                intent.putExtra("address", str.replace("sms:", ""));
+                intent.putExtra("address", str.replace(UrlSchemaHelper.SCHEMA_TYPE_SMS, ""));
                 intent.setType("vnd.android-dir/mms-sms");
                 this.context.startActivity(intent);
                 return true;
@@ -126,7 +128,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
 
     private void handleRedirectUrl(String str) {
         Bundle parseUrl = Utility.parseUrl(str);
-        String string = parseUrl.getString("error");
+        String string = parseUrl.getString(BdStatsConstant.StatsType.ERROR);
         String string2 = parseUrl.getString("error_code");
         String string3 = parseUrl.getString("error_description");
         WbAuthListener wbAuthListener = null;

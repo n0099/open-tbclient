@@ -2,6 +2,8 @@ package com.baidu.adp.lib.stats;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -9,22 +11,22 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean BL;
-    private ArrayList<BasicNameValuePair> BM;
-    private StringBuilder BN;
     public long logID;
+    private ArrayList<BasicNameValuePair> mKvLists;
     private long mStartTime;
+    private StringBuilder mStringBuilder;
     public String mType;
     public long sequenceID;
+    boolean usedSequenceId;
 
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.BL = false;
+        this.usedSequenceId = false;
         this.mType = null;
-        this.BN = new StringBuilder(100);
+        this.mStringBuilder = new StringBuilder(100);
         this.mType = str;
-        this.BL = false;
+        this.usedSequenceId = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +34,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.BL = false;
+        this.usedSequenceId = false;
         this.mType = null;
-        this.BN = new StringBuilder(100);
+        this.mStringBuilder = new StringBuilder(100);
     }
 
-    public void c(Object obj, Object obj2) {
+    public void addValue(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.BM == null) {
-                this.BM = new ArrayList<>();
+            if (this.mKvLists == null) {
+                this.mKvLists = new ArrayList<>();
             }
-            this.BM.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.mKvLists.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.BN.length() > 0) {
-            sb.append((CharSequence) this.BN);
+        if (this.mStringBuilder.length() > 0) {
+            sb.append((CharSequence) this.mStringBuilder);
         }
-        if (this.BM != null) {
-            Iterator<BasicNameValuePair> it = this.BM.iterator();
+        if (this.mKvLists != null) {
+            Iterator<BasicNameValuePair> it = this.mKvLists.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -62,10 +64,10 @@ public class a {
                     sb.append(next.getName());
                     sb.append('=');
                     try {
-                        sb.append(URLEncoder.encode(aI(next.getValue()), "utf-8"));
+                        sb.append(URLEncoder.encode(valueEscapeSpace(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        sb.append(aI(next.getValue()));
+                        sb.append(valueEscapeSpace(next.getValue()));
                     }
                 }
             }
@@ -73,11 +75,11 @@ public class a {
         return sb.toString();
     }
 
-    public void c(Object... objArr) {
+    public void append(Object... objArr) {
         if (objArr != null) {
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
-                    c(objArr[i * 2], objArr[(i * 2) + 1]);
+                    addValue(objArr[i * 2], objArr[(i * 2) + 1]);
                 }
             }
         }
@@ -88,29 +90,29 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.BN.length() > 0) {
-                this.BN.append('&');
+            if (this.mStringBuilder.length() > 0) {
+                this.mStringBuilder.append('&');
             }
-            this.BN.append(str);
-            this.BN.append("=");
+            this.mStringBuilder.append(str);
+            this.mStringBuilder.append("=");
             try {
-                this.BN.append(URLEncoder.encode(aI(str2), "utf-8"));
+                this.mStringBuilder.append(URLEncoder.encode(valueEscapeSpace(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.BN.append(aI(str2));
+                this.mStringBuilder.append(valueEscapeSpace(str2));
             }
         }
     }
 
-    public void iO() {
+    public void startTimer() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long iP() {
+    public long getTimeCost() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String aI(String str) {
-        return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
+    public static String valueEscapeSpace(String str) {
+        return str.replace(HanziToPinyin.Token.SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

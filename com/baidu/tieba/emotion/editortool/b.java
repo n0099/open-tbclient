@@ -3,84 +3,84 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes2.dex */
 public class b {
-    private int KX;
-    private int cvQ;
-    private EmotionGroupType eWL;
-    private int eWM;
-    private int eWN;
-    private com.baidu.tbadk.editortools.emotiontool.c eWO;
-    private int eWP;
-    private int eWQ;
-    private int endIndex;
+    private int arh;
+    private int ari;
+    private int column;
+    private com.baidu.tbadk.editortools.emotiontool.c eZA;
+    private int eZB;
+    private int eZC;
+    private EmotionGroupType eZx;
+    private int eZy;
+    private int eZz;
     private int index;
-    private int startIndex;
+    private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.eWO = cVar;
+        this.eZA = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c bfu() {
-        return this.eWO;
+    public com.baidu.tbadk.editortools.emotiontool.c bdo() {
+        return this.eZA;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.eWL = emotionGroupType;
+        this.eZx = emotionGroupType;
     }
 
-    public EmotionGroupType bfv() {
-        return this.eWL;
+    public EmotionGroupType bdp() {
+        return this.eZx;
     }
 
-    public void kD(int i) {
-        this.cvQ = i;
+    public void jV(int i) {
+        this.row = i;
     }
 
-    public int atr() {
-        return this.cvQ;
+    public int getRow() {
+        return this.row;
     }
 
-    public void kC(int i) {
-        this.KX = i;
+    public void jU(int i) {
+        this.column = i;
     }
 
-    public int bfw() {
-        return this.KX;
+    public int bdq() {
+        return this.column;
     }
 
-    public void qr(int i) {
-        this.eWQ = i;
+    public void pm(int i) {
+        this.eZC = i;
     }
 
-    public int bfx() {
-        return this.eWQ;
+    public int bdr() {
+        return this.eZC;
     }
 
-    public void qs(int i) {
-        this.eWP = i;
+    public void po(int i) {
+        this.eZB = i;
     }
 
-    public int bfy() {
-        return this.eWP;
+    public int bds() {
+        return this.eZB;
     }
 
-    public void qt(int i) {
-        this.eWM = i;
+    public void pp(int i) {
+        this.eZy = i;
     }
 
-    public int bfz() {
-        return this.eWM;
+    public int bdt() {
+        return this.eZy;
     }
 
-    public void qu(int i) {
-        this.startIndex = i;
+    public void pq(int i) {
+        this.arh = i;
     }
 
-    public int bfA() {
-        return this.startIndex;
+    public int bdu() {
+        return this.arh;
     }
 
-    public void qv(int i) {
-        this.endIndex = i;
+    public void pr(int i) {
+        this.ari = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void qw(int i) {
-        this.eWN = i;
+    public void ps(int i) {
+        this.eZz = i;
     }
 
-    public int bfB() {
-        return this.eWN;
+    public int bdv() {
+        return this.eZz;
     }
 }

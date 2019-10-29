@@ -1,6 +1,5 @@
 package com.xiaomi.clientreport.data;
 
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.xiaomi.channel.commonutils.android.f;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +17,7 @@ public class a {
             jSONObject.put("production", this.production);
             jSONObject.put("reportType", this.reportType);
             jSONObject.put("clientInterfaceId", this.clientInterfaceId);
-            jSONObject.put(IXAdRequestInfo.OS, this.os);
+            jSONObject.put("os", this.os);
             jSONObject.put("miuiVersion", this.miuiVersion);
             return jSONObject;
         } catch (JSONException e) {

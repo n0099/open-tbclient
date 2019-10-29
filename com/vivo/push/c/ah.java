@@ -3,8 +3,8 @@ package com.vivo.push.c;
 import com.baidu.mapapi.UIMsg;
 /* loaded from: classes3.dex */
 public final class ah {
-    public static com.vivo.push.s a(com.vivo.push.v vVar) {
-        switch (vVar.b()) {
+    public static com.vivo.push.v a(com.vivo.push.y yVar) {
+        switch (yVar.b()) {
             case 0:
             case 2000:
             case 2001:
@@ -14,74 +14,75 @@ public final class ah {
             case 2005:
             case UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE /* 2008 */:
             case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
-            case UIMsg.m_AppUI.V_WM_PERMCHECK /* 2010 */:
+            case 2010:
             case 2011:
             case 2012:
             case 2013:
-                return new ai(vVar);
+            case 2014:
+                return new ai(yVar);
             case 1:
-                return new ab(vVar);
+                return new ab(yVar);
             case 2:
-                return new h(vVar);
+                return new h(yVar);
             case 3:
-                return new o(vVar);
+                return new o(yVar);
             case 4:
-                return new q(vVar);
+                return new q(yVar);
             case 5:
-                return new s(vVar);
+                return new s(yVar);
             case 6:
-                return new y(vVar);
+                return new y(yVar);
             case 7:
-                return new m(vVar);
+                return new m(yVar);
             case 8:
-                return new k(vVar);
+                return new k(yVar);
             case 9:
-                return new g(vVar);
+                return new g(yVar);
             case 10:
-                return new d(vVar);
+                return new d(yVar);
             case 11:
-                return new ae(vVar);
+                return new ae(yVar);
             case 12:
-                return new f(vVar);
+                return new f(yVar);
             case 20:
-                return new ag(vVar);
+                return new ag(yVar);
             case 100:
-                return new b(vVar);
+                return new b(yVar);
             case 101:
-                return new c(vVar);
+                return new c(yVar);
             case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND /* 2006 */:
-                return new a(vVar);
+                return new a(yVar);
             case UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE /* 2007 */:
-                return new aj(vVar);
+                return new aj(yVar);
             default:
                 return null;
         }
     }
 
-    public static aa b(com.vivo.push.v vVar) {
-        switch (vVar.b()) {
+    public static aa b(com.vivo.push.y yVar) {
+        switch (yVar.b()) {
             case 1:
-                return new ab(vVar);
+                return new ab(yVar);
             case 2:
-                return new h(vVar);
+                return new h(yVar);
             case 3:
-                return new o(vVar);
+                return new o(yVar);
             case 4:
-                return new q(vVar);
+                return new q(yVar);
             case 5:
-                return new s(vVar);
+                return new s(yVar);
             case 6:
-                return new y(vVar);
+                return new y(yVar);
             case 7:
-                return new m(vVar);
+                return new m(yVar);
             case 8:
-                return new k(vVar);
+                return new k(yVar);
             case 9:
-                return new g(vVar);
+                return new g(yVar);
             case 10:
-                return new d(vVar);
+                return new d(yVar);
             case 11:
-                return new ae(vVar);
+                return new ae(yVar);
             case 12:
             case 13:
             case 14:
@@ -93,7 +94,7 @@ public final class ah {
             default:
                 return null;
             case 20:
-                return new ag(vVar);
+                return new ag(yVar);
         }
     }
 }

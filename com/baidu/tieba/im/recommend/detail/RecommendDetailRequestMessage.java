@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.recommend.detail;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.Bigvip.BigvipReqIdl;
 import tbclient.Bigvip.DataReq;
@@ -10,7 +10,7 @@ public class RecommendDetailRequestMessage extends NetMessage {
     private long mUserId;
 
     public RecommendDetailRequestMessage() {
-        super(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025);
+        super(1001535, CmdConfigSocket.CMD_GET_RECOMMEND_DETAIL);
     }
 
     public void setUserId(long j) {
@@ -21,7 +21,7 @@ public class RecommendDetailRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         builder.user_id = Long.valueOf(this.mUserId);
         BigvipReqIdl.Builder builder2 = new BigvipReqIdl.Builder();

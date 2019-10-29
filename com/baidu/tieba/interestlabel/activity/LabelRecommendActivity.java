@@ -2,6 +2,8 @@ package com.baidu.tieba.interestlabel.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -15,33 +17,33 @@ import com.baidu.tieba.interestlabel.view.b;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
-    private LabelSettingModel hdn;
-    private b hdo;
-    private a hdp = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
+    private LabelSettingModel hbq;
+    private b hbr;
+    private a hbs = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void bKk() {
+        public void bGU() {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void di(List<Integer> list) {
+        public void dv(List<Integer> list) {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
         public void a(LabelRequestEnum labelRequestEnum, com.baidu.tieba.interestlabel.b.b bVar, int i) {
-            switch (AnonymousClass2.hdr[labelRequestEnum.ordinal()]) {
+            switch (AnonymousClass2.hbu[labelRequestEnum.ordinal()]) {
                 case 1:
-                    LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.hdo.getRootView());
-                    if (bVar == null || v.aa(bVar.bKn()) || v.aa(bVar.bKo())) {
-                        LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.hdo.getRootView(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+                    LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.hbr.getRootView());
+                    if (bVar == null || v.isEmpty(bVar.bGX()) || v.isEmpty(bVar.bGY())) {
+                        LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.hbr.getRootView(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                         return;
                     }
-                    LabelRecommendActivity.this.hideNetRefreshView(LabelRecommendActivity.this.hdo.getRootView());
-                    LabelRecommendActivity.this.hdo.setData(bVar);
+                    LabelRecommendActivity.this.hideNetRefreshView(LabelRecommendActivity.this.hbr.getRootView());
+                    LabelRecommendActivity.this.hbr.setData(bVar);
                     return;
                 case 2:
                     if (i == 0) {
-                        com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("set_recommend_label", true);
-                        LabelRecommendActivity.this.bKj();
+                        com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
+                        LabelRecommendActivity.this.bGT();
                         LabelRecommendActivity.this.finish();
                         return;
                     }
@@ -56,15 +58,15 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     /* renamed from: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity$2  reason: invalid class name */
     /* loaded from: classes5.dex */
     static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] hdr = new int[LabelRequestEnum.values().length];
+        static final /* synthetic */ int[] hbu = new int[LabelRequestEnum.values().length];
 
         static {
             try {
-                hdr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
+                hbu[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                hdr[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                hbu[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
         }
@@ -74,56 +76,56 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hdo = new b(this);
-        this.hdo.setOnClickListener(this);
-        this.hdn = new LabelSettingModel(getPageContext());
-        this.hdn.a(this.hdp);
+        this.hbr = new b(this);
+        this.hbr.setOnClickListener(this);
+        this.hbq = new LabelSettingModel(getPageContext());
+        this.hbq.a(this.hbs);
         if (getIntent() != null) {
             this.mFrom = getIntent().getIntExtra("from", -1);
         }
-        TiebaStatic.log(new an("c12243").P("obj_type", this.mFrom));
+        TiebaStatic.log(new an("c12243").O("obj_type", this.mFrom));
         loadData();
-        com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("show_recommend_label", true);
+        com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(SharedPrefConfig.SHOW_RECOMMEND_LABEL, true);
     }
 
     private void loadData() {
-        this.hdn.bKq();
-        showLoadingView(this.hdo.getRootView(), true);
+        this.hbq.bHa();
+        showLoadingView(this.hbr.getRootView(), true);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.hdo.bKw()) {
-            TiebaStatic.log(new an("c12245").P("obj_type", this.mFrom));
+        if (view == this.hbr.bHg()) {
+            TiebaStatic.log(new an("c12245").O("obj_type", this.mFrom));
             finish();
-        } else if (view == this.hdo.bKx()) {
-            this.hdn.dj(this.hdo.bKz());
+        } else if (view == this.hbr.bHh()) {
+            this.hbq.dw(this.hbr.bHj());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.hdo.getRootView());
+        hideNetRefreshView(this.hbr.getRootView());
         loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKj() {
-        List<Integer> bKz = this.hdo.bKz();
-        if (!v.aa(bKz)) {
+    public void bGT() {
+        List<Integer> bHj = this.hbr.bHj();
+        if (!v.isEmpty(bHj)) {
             StringBuilder sb = new StringBuilder();
-            int size = bKz.size();
+            int size = bHj.size();
             for (int i = 0; i < size; i++) {
-                if (bKz.get(i) != null) {
-                    sb.append(bKz.get(i));
+                if (bHj.get(i) != null) {
+                    sb.append(bHj.get(i));
                     if (i < size - 1) {
-                        sb.append("_");
+                        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                     }
                 }
             }
-            TiebaStatic.log(new an("c12244").P("obj_type", this.mFrom).bT("obj_name", sb.toString()));
+            TiebaStatic.log(new an("c12244").O("obj_type", this.mFrom).bS("obj_name", sb.toString()));
         }
     }
 }

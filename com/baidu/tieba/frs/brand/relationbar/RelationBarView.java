@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a fDv;
+    private a fCM;
     private RecyclerView mRecyclerView;
     private int mSkinType;
 
@@ -43,31 +43,31 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
-        this.fDv = new a(context);
-        this.mRecyclerView.setAdapter(this.fDv);
+        this.fCM = new a(context);
+        this.mRecyclerView.setAdapter(this.fCM);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        int g = l.g(context, R.dimen.tbds44);
-        this.mRecyclerView.addItemDecoration(new c(g, l.g(context, R.dimen.tbds26), g));
+        int dimens = l.getDimens(context, R.dimen.tbds44);
+        this.mRecyclerView.addItemDecoration(new c(dimens, l.getDimens(context, R.dimen.tbds26), dimens));
         onChangeSkinType();
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (v.aa(list)) {
+        if (v.isEmpty(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.fDv.setData(list);
-        this.fDv.notifyDataSetChanged();
+        this.fCM.setData(list);
+        this.fCM.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            am.l(this, R.color.cp_bg_line_e);
-            this.fDv.notifyDataSetChanged();
+            am.setBackgroundColor(this, R.color.cp_bg_line_e);
+            this.fCM.notifyDataSetChanged();
         }
     }
 }

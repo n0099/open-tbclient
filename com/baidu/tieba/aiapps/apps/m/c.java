@@ -4,7 +4,7 @@ import com.baidu.swan.apps.u.b.t;
 /* loaded from: classes4.dex */
 public class c implements t {
     @Override // com.baidu.swan.apps.u.b.t
-    public boolean j(String str, long j) {
+    public boolean l(String str, long j) {
         return false;
     }
 }

@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import com.vivo.push.PushClient;
 import com.vivo.push.cache.ClientConfigManagerImpl;
-import com.vivo.push.util.m;
+import com.vivo.push.util.p;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
@@ -27,7 +27,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 handlerThread.start();
                 b = new Handler(a.getLooper());
             }
-            m.d("PushServiceReceiver", context.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + b);
+            p.d("PushServiceReceiver", context.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + b);
             a.a(c, context, action);
             b.removeCallbacks(c);
             b.postDelayed(c, 2000L);
@@ -52,13 +52,13 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 z = false;
             }
             if (!z) {
-                m.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.b);
-                m.a(this.a, "触发静态广播:无网络(" + this.b + Constants.ACCEPT_TIME_SEPARATOR_SP + this.a.getPackageName() + ")");
+                p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.b);
+                p.a(this.a, "触发静态广播:无网络(" + this.b + Constants.ACCEPT_TIME_SEPARATOR_SP + this.a.getPackageName() + ")");
                 return;
             }
-            m.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.b);
-            m.a(this.a, "触发静态广播(" + this.b + Constants.ACCEPT_TIME_SEPARATOR_SP + this.a.getPackageName() + ")");
-            com.vivo.push.m.a().a(this.a);
+            p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.b);
+            p.a(this.a, "触发静态广播(" + this.b + Constants.ACCEPT_TIME_SEPARATOR_SP + this.a.getPackageName() + ")");
+            com.vivo.push.p.a().a(this.a);
             if (!ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
                 PushClient.getInstance(this.a).initialize();
             }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.frsgroup;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByFid.DataReq;
@@ -23,7 +24,7 @@ public class FrsGroupRequestMessage extends TbSocketMessage {
     private int type;
 
     public FrsGroupRequestMessage() {
-        super(103002);
+        super(CmdConfigSocket.CMD_REQUEST_GROUPS_BYFID);
         this.isNeedCache = false;
         this.mImageWidth = com.baidu.adp.lib.util.l.dip2px(TbadkApplication.getInst(), 70.0f);
         this.mImageHeight = com.baidu.adp.lib.util.l.dip2px(TbadkApplication.getInst(), 70.0f);
@@ -32,7 +33,7 @@ public class FrsGroupRequestMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     protected Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.forumId = Integer.valueOf(com.baidu.adp.lib.g.b.f(getForumId(), 0));
+        builder.forumId = Integer.valueOf(com.baidu.adp.lib.g.b.toInt(getForumId(), 0));
         builder.offset = Integer.valueOf(this.offset);
         builder.rn = Integer.valueOf(this.rn);
         builder.type = Integer.valueOf(this.type);

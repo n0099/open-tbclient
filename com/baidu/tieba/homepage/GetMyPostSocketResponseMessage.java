@@ -1,6 +1,7 @@
 package com.baidu.tieba.homepage;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
@@ -8,7 +9,7 @@ public class GetMyPostSocketResponseMessage extends SocketResponsedMessage {
     private GetMyPostResIdl mResponseData;
 
     public GetMyPostSocketResponseMessage() {
-        super(303111);
+        super(CmdConfigSocket.CMD_GET_MY_POST);
     }
 
     public GetMyPostResIdl getResponseData() {

@@ -3,6 +3,7 @@ package com.baidu.tieba.im.c.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
 import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
@@ -17,11 +18,11 @@ public class o implements CustomMessageTask.CustomRunnable<Object> {
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] bArr = com.baidu.tbadk.core.d.a.agL().mM("tb.im_entergroup").get("p_group_info" + str);
+        byte[] bArr = com.baidu.tbadk.core.d.a.akN().nk("tb.im_entergroup").get("p_group_info" + str);
         ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
         if (bArr != null) {
             try {
-                responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
+                responseGroupsByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_REQUEST_GROUP_BY_UID_LOCAL, bArr);
             } catch (Exception e) {
                 e.printStackTrace();
             }

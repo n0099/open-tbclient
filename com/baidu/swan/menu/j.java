@@ -4,21 +4,21 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class j {
-    public boolean MX;
-    public int bsg;
-    private int bsh = 0;
-    public e bsi;
+    public int bKR;
+    private int bKS = 0;
+    public e bKT;
+    public boolean mEnable;
     public int mIconResId;
     public int mId;
 
     public j(int i, int i2, int i3, boolean z) {
-        this.bsg = -1;
+        this.bKR = -1;
         this.mIconResId = -1;
-        this.MX = true;
+        this.mEnable = true;
         this.mId = i;
-        this.bsg = i2;
+        this.bKR = i2;
         this.mIconResId = i3;
-        this.MX = z;
+        this.mEnable = z;
     }
 
     public int getItemId() {
@@ -27,7 +27,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setTitle(int i) {
-        this.bsg = i;
+        this.bKR = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,25 +37,25 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(e eVar) {
-        this.bsi = eVar;
+        this.bKT = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isEnable() {
-        return this.MX;
+        return this.mEnable;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e VO() {
-        return this.bsi;
+    public e aaD() {
+        return this.bKT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String cb(Context context) {
-        if (this.bsg <= 0) {
+        if (this.bKR <= 0) {
             return null;
         }
-        return context.getResources().getString(this.bsg);
+        return context.getResources().getString(this.bKR);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,8 +67,8 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int VP() {
-        return this.bsh;
+    public int aaE() {
+        return this.bKS;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,6 +76,6 @@ public class j {
         if (jVar == null) {
             return null;
         }
-        return new j(jVar.mId, jVar.bsg, jVar.mIconResId, jVar.MX);
+        return new j(jVar.mId, jVar.bKR, jVar.mIconResId, jVar.mEnable);
     }
 }

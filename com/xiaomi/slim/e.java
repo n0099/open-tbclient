@@ -1,5 +1,6 @@
 package com.xiaomi.slim;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.xiaomi.smack.l;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
@@ -36,7 +37,7 @@ public class e {
                 return com.xiaomi.smack.util.a.b(this.a);
             }
             if (!this.a.getName().equals("stream")) {
-                if (this.a.getName().equals("error")) {
+                if (this.a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
                     throw new l(com.xiaomi.smack.util.a.c(this.a));
                 }
                 if (this.a.getName().equals("warning")) {

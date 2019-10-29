@@ -5,16 +5,16 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class aa implements l {
-    private final e kjr;
-    private final e kjs;
-    private final f kjt;
-    private final int kju;
+    private final e khC;
+    private final e khD;
+    private final f khE;
+    private final int khF;
 
     public aa(e eVar, e eVar2, f fVar, int i) {
-        this.kjr = eVar;
-        this.kjs = eVar2;
-        this.kjt = fVar;
-        this.kju = i;
+        this.khC = eVar;
+        this.khD = eVar2;
+        this.khE = fVar;
+        this.khF = i;
     }
 
     /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: bolts.g<TContinuationResult>, bolts.g<com.facebook.imagepipeline.f.d> */
@@ -23,15 +23,15 @@ public class aa implements l {
     public bolts.g<com.facebook.imagepipeline.f.d> a(ImageRequest imageRequest, Object obj, final AtomicBoolean atomicBoolean) {
         e eVar;
         final e eVar2;
-        final com.facebook.cache.common.b c = this.kjt.c(imageRequest, obj);
-        boolean i = this.kjs.i(c);
-        boolean i2 = this.kjr.i(c);
+        final com.facebook.cache.common.b c = this.khE.c(imageRequest, obj);
+        boolean i = this.khD.i(c);
+        boolean i2 = this.khC.i(c);
         if (i || !i2) {
-            eVar = this.kjs;
-            eVar2 = this.kjr;
+            eVar = this.khD;
+            eVar2 = this.khC;
         } else {
-            eVar = this.kjr;
-            eVar2 = this.kjs;
+            eVar = this.khC;
+            eVar2 = this.khD;
         }
         return eVar.a(c, atomicBoolean).b(new bolts.f<com.facebook.imagepipeline.f.d, bolts.g<com.facebook.imagepipeline.f.d>>() { // from class: com.facebook.imagepipeline.c.aa.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -41,20 +41,20 @@ public class aa implements l {
                 if (aa.c(gVar)) {
                     return gVar;
                 }
-                return (gVar.bi() || gVar.getResult() == null) ? eVar2.a(c, atomicBoolean) : gVar;
+                return (gVar.aL() || gVar.getResult() == null) ? eVar2.a(c, atomicBoolean) : gVar;
             }
         });
     }
 
     @Override // com.facebook.imagepipeline.c.l
     public void a(com.facebook.imagepipeline.f.d dVar, ImageRequest imageRequest, Object obj) {
-        com.facebook.cache.common.b c = this.kjt.c(imageRequest, obj);
+        com.facebook.cache.common.b c = this.khE.c(imageRequest, obj);
         switch (a(imageRequest, dVar)) {
             case DEFAULT:
-                this.kjr.a(c, dVar);
+                this.khC.a(c, dVar);
                 return;
             case SMALL:
-                this.kjs.a(c, dVar);
+                this.khD.a(c, dVar);
                 return;
             default:
                 return;
@@ -64,11 +64,11 @@ public class aa implements l {
     @Override // com.facebook.imagepipeline.c.l
     public ImageRequest.CacheChoice a(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar) {
         int size = dVar.getSize();
-        return (size < 0 || size >= this.kju) ? ImageRequest.CacheChoice.DEFAULT : ImageRequest.CacheChoice.SMALL;
+        return (size < 0 || size >= this.khF) ? ImageRequest.CacheChoice.DEFAULT : ImageRequest.CacheChoice.SMALL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean c(bolts.g<?> gVar) {
-        return gVar.isCancelled() || (gVar.bi() && (gVar.bj() instanceof CancellationException));
+        return gVar.isCancelled() || (gVar.aL() && (gVar.aM() instanceof CancellationException));
     }
 }

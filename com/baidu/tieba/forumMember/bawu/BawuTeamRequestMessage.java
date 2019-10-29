@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.GetBawuInfo.DataReq;
 import tbclient.GetBawuInfo.GetBawuInfoReqIdl;
@@ -10,7 +10,7 @@ public class BawuTeamRequestMessage extends NetMessage {
     private long forumId;
 
     public BawuTeamRequestMessage() {
-        super(CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
+        super(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -20,7 +20,7 @@ public class BawuTeamRequestMessage extends NetMessage {
         GetBawuInfoReqIdl.Builder builder2 = new GetBawuInfoReqIdl.Builder();
         builder2.data = builder.build(false);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         return builder2.build(false);
     }

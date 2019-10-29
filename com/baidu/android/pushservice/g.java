@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -155,7 +156,7 @@ public final class g {
                 k = property5;
             }
             if (e.a == 0) {
-                String property6 = properties.getProperty("api_key");
+                String property6 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty(PushConstants.PACKAGE_NAME), context.getPackageName()) && !TextUtils.isEmpty(property6)) {
                     e.b = property6;
                 }

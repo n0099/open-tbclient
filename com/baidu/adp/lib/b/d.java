@@ -7,47 +7,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d zn = null;
-    private HashMap<String, c> mSwitchs;
+    private static d ov = null;
+    private HashMap<String, c> ow;
 
     private d() {
-        this.mSwitchs = null;
-        this.mSwitchs = new HashMap<>();
+        this.ow = null;
+        this.ow = new HashMap<>();
     }
 
-    public static synchronized d hS() {
+    public static synchronized d ft() {
         d dVar;
         synchronized (d.class) {
-            if (zn == null) {
-                zn = new d();
+            if (ov == null) {
+                ov = new d();
             }
-            dVar = zn;
+            dVar = ov;
         }
         return dVar;
     }
 
     public void a(b bVar) {
-        if (bVar != null && !this.mSwitchs.containsKey(bVar.getName())) {
-            this.mSwitchs.put(bVar.getName(), new c(bVar));
+        if (bVar != null && !this.ow.containsKey(bVar.getName())) {
+            this.ow.put(bVar.getName(), new c(bVar));
         }
     }
 
     public void crash(String str) {
-        Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().ay(str)) {
+        Iterator<c> it = this.ow.values().iterator();
+        while (it.hasNext() && !it.next().ae(str)) {
         }
     }
 
     public boolean c(String str, int i) {
         c cVar;
-        if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.S(i);
+        if (i >= 0 && (cVar = this.ow.get(str)) != null) {
+            return cVar.D(i);
         }
         return false;
     }
 
-    public int az(String str) {
-        c cVar = this.mSwitchs.get(str);
+    public int af(String str) {
+        c cVar = this.ow.get(str);
         if (cVar != null) {
             return cVar.getType();
         }
@@ -55,20 +55,20 @@ public class d {
     }
 
     public void clear() {
-        if (this.mSwitchs != null) {
+        if (this.ow != null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            for (c cVar : this.mSwitchs.values()) {
+            for (c cVar : this.ow.values()) {
                 if (cVar != null) {
-                    cVar.V(0);
-                    edit.putInt(cVar.getName() + c.zi, 0);
-                    edit.putInt(cVar.getName() + c.zj, cVar.hJ());
+                    cVar.G(0);
+                    edit.putInt(cVar.getName() + c.oo, 0);
+                    edit.putInt(cVar.getName() + c.oq, cVar.fj());
                 }
             }
             edit.commit();
         }
     }
 
-    public void h(Class<?> cls) {
+    public void f(Class<?> cls) {
         try {
             cls.newInstance();
         } catch (IllegalAccessException e) {

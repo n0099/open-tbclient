@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
@@ -9,11 +10,11 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class HintMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "hmhd";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
     private long avgBitrate;
     private int avgPduSize;
     private long maxBitrate;
@@ -29,7 +30,7 @@ public class HintMediaHeaderBox extends AbstractMediaHeaderBox {
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getAvgPduSize", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "int"), 46);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getMaxBitrate", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "long"), 50);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getAvgBitrate", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "long"), 54);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "java.lang.String"), 84);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 84);
     }
 
     public HintMediaHeaderBox() {

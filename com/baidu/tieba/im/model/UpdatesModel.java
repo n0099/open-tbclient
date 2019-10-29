@@ -2,6 +2,7 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.util.j;
 import com.baidu.tbadk.util.y;
 import com.baidu.tbadk.util.z;
@@ -29,7 +30,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.y
                 public Boolean doInBackground() {
-                    return d.bDC().q(linkedList);
+                    return d.bAm().m(linkedList);
                 }
             }, jVar);
         }
@@ -42,7 +43,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.y
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.bDC().zr(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.bAm().xJ(UpdatesItemData.this.getNotice_id()));
                 }
             }, jVar);
         }
@@ -54,7 +55,7 @@ public class UpdatesModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.y
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.bDC().cT(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.bAm().dg(UpdatesModel.this.dataToDelete));
             }
         }, jVar);
     }
@@ -112,7 +113,7 @@ public class UpdatesModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.y
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.bDC().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.bAm().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, jVar);
     }
@@ -143,15 +144,15 @@ public class UpdatesModel {
             if (true == jSONObject.isNull("notice_id")) {
                 updatesItemData = new UpdatesItemData();
                 updatesItemData.setNotice_id(groupNewsPojo.getNotice_id());
-                updatesItemData.setContent(jSONObject.optString("userMsg"));
-                JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
+                updatesItemData.setContent(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG));
+                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
                 if (optJSONObject == null) {
                     updatesItemData = null;
                 } else {
                     updatesItemData.setUpdatesType(groupNewsPojo.getCmd());
-                    updatesItemData.setGroupHeadUrl(optJSONObject.optString("groupImage"));
-                    updatesItemData.setGroupId(optJSONObject.optString("groupId"));
-                    updatesItemData.setGroupName(optJSONObject.optString("groupName"));
+                    updatesItemData.setGroupHeadUrl(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_IMAGE));
+                    updatesItemData.setGroupId(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
+                    updatesItemData.setGroupName(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME));
                     updatesItemData.setAuthorId(optJSONObject.optString("                                                                                                                                                                   "));
                     updatesItemData.setAuthorName(optJSONObject.optString("authorName"));
                     updatesItemData.setTime(groupNewsPojo.getTime());

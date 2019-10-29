@@ -21,17 +21,17 @@ public enum CardLinkageManager {
             RecyclerView.LayoutManager layoutManager = ((BdTypeRecyclerView) rVar).getLayoutManager();
             if (layoutManager != null) {
                 List<com.baidu.adp.widget.ListView.m> data = rVar.getData();
-                Object c = com.baidu.tbadk.core.util.v.c(data, i);
-                if (c instanceof com.baidu.tieba.card.data.b) {
-                    com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) c;
+                Object item = com.baidu.tbadk.core.util.v.getItem(data, i);
+                if (item instanceof com.baidu.tieba.card.data.b) {
+                    com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) item;
                     int headerViewsCount = ((BdTypeRecyclerView) rVar).getHeaderViewsCount();
                     for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
-                        Object c2 = com.baidu.tbadk.core.util.v.c(data, i2 - headerViewsCount);
-                        if ((c2 instanceof com.baidu.tieba.card.data.b) && bVar.position == ((com.baidu.tieba.card.data.b) c2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
+                        Object item2 = com.baidu.tbadk.core.util.v.getItem(data, i2 - headerViewsCount);
+                        if ((item2 instanceof com.baidu.tieba.card.data.b) && bVar.position == ((com.baidu.tieba.card.data.b) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
                             if (z) {
-                                am.l(findViewByPosition, R.color.cp_bg_line_c);
+                                am.setBackgroundColor(findViewByPosition, R.color.cp_bg_line_c);
                             } else {
-                                am.l(findViewByPosition, R.color.cp_bg_line_e);
+                                am.setBackgroundColor(findViewByPosition, R.color.cp_bg_line_e);
                             }
                         }
                     }
@@ -50,16 +50,16 @@ public enum CardLinkageManager {
             if (layoutManager != null) {
                 int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
                 List<com.baidu.adp.widget.ListView.m> data = bdTypeRecyclerView.getData();
-                Object c = com.baidu.tbadk.core.util.v.c(data, i - headerViewsCount);
-                if (c instanceof com.baidu.tieba.card.data.b) {
-                    com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) c;
+                Object item = com.baidu.tbadk.core.util.v.getItem(data, i - headerViewsCount);
+                if (item instanceof com.baidu.tieba.card.data.b) {
+                    com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) item;
                     for (int i2 = firstVisiblePosition; i2 <= lastVisiblePosition; i2++) {
-                        Object c2 = com.baidu.tbadk.core.util.v.c(data, i2 - headerViewsCount);
-                        if (!(c2 instanceof com.baidu.tieba.card.data.b)) {
-                            if ((c2 instanceof com.baidu.adp.widget.ListView.m) && (findViewByPosition2 = layoutManager.findViewByPosition(i2)) != null) {
+                        Object item2 = com.baidu.tbadk.core.util.v.getItem(data, i2 - headerViewsCount);
+                        if (!(item2 instanceof com.baidu.tieba.card.data.b)) {
+                            if ((item2 instanceof com.baidu.adp.widget.ListView.m) && (findViewByPosition2 = layoutManager.findViewByPosition(i2)) != null) {
                                 findViewByPosition2.setTranslationY(f);
                             }
-                        } else if (bVar.position == ((com.baidu.tieba.card.data.b) c2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
+                        } else if (bVar.position == ((com.baidu.tieba.card.data.b) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
                             findViewByPosition.setTranslationY(f);
                         }
                     }

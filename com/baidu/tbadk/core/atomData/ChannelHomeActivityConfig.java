@@ -14,11 +14,11 @@ public class ChannelHomeActivityConfig extends IntentConfig {
     public ChannelHomeActivityConfig(Context context, long j, int i) {
         super(context);
         getIntent().putExtra("channel_id", j);
-        getIntent().putExtra(PARAM_OBJ_SOURCE, i);
+        getIntent().putExtra("obj_source", i);
     }
 
     public ChannelHomeActivityConfig(Context context, int i) {
         super(context);
-        getIntent().putExtra(PARAM_OBJ_SOURCE, i);
+        getIntent().putExtra("obj_source", i);
     }
 }

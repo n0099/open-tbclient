@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public abstract class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public void p(@Nullable List<String> list) {
+    public void O(@Nullable List<String> list) {
         if (list != null && !list.isEmpty()) {
             if (DEBUG) {
                 Log.d("AbsDefaultPurger", "resetAccredit");
@@ -34,9 +34,9 @@ public abstract class a {
             arrayMap.put("ma_ids", list);
             JSONObject jSONObject = new JSONObject();
             try {
-                com.baidu.swan.apps.setting.oauth.f Fj = com.baidu.swan.apps.u.a.EL().Fj();
+                com.baidu.swan.apps.setting.oauth.f Kd = com.baidu.swan.apps.u.a.JF().Kd();
                 jSONObject.put("accredit", new JSONObject(arrayMap));
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.u.a.EA().wR())).addParam("data", jSONObject.toString()).cookieManager(Fj)).build().executeAsyncOnUIBack(CR());
+                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.u.a.Ju().BL())).addParam("data", jSONObject.toString()).cookieManager(Kd)).build().executeAsyncOnUIBack(HL());
             } catch (JSONException e) {
                 e.printStackTrace();
                 if (DEBUG) {
@@ -46,15 +46,15 @@ public abstract class a {
         }
     }
 
-    public void q(List<String> list) {
+    public void P(List<String> list) {
         if (list != null && !list.isEmpty()) {
             if (DEBUG) {
                 Log.d("AbsDefaultPurger", "clearData");
             }
-            Set<String> s = c.s(list);
+            Set<String> R = c.R(list);
             HashSet<String> hashSet = new HashSet(list);
-            if (s != null) {
-                hashSet.removeAll(s);
+            if (R != null) {
+                hashSet.removeAll(R);
             }
             c.a("aiapp_setting_", hashSet, false);
             c.a("aiapp_", hashSet, false);
@@ -62,47 +62,47 @@ public abstract class a {
                 if (DEBUG) {
                     Log.d("AbsDefaultPurger", "clear storage files: " + str);
                 }
-                String hC = com.baidu.swan.apps.storage.b.hC(str);
-                if (!TextUtils.isEmpty(hC)) {
-                    com.baidu.swan.c.a.deleteFile(hC);
+                String ig = com.baidu.swan.apps.storage.b.ig(str);
+                if (!TextUtils.isEmpty(ig)) {
+                    com.baidu.swan.c.a.deleteFile(ig);
                 }
-                String hG = com.baidu.swan.apps.storage.b.hG(str);
-                if (!TextUtils.isEmpty(hG)) {
-                    com.baidu.swan.c.a.deleteFile(hG);
+                String ik = com.baidu.swan.apps.storage.b.ik(str);
+                if (!TextUtils.isEmpty(ik)) {
+                    com.baidu.swan.c.a.deleteFile(ik);
                 }
             }
         }
     }
 
-    public void ed(String str) {
+    public void eK(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AbsDefaultPurger", "删除包的APS记录: " + str);
             }
-            es(str);
-            et(str);
+            eZ(str);
+            fa(str);
         }
     }
 
-    public void er(String str) {
-        SwanAppDbControl.aX(AppRuntime.getAppContext()).o(str, false);
-        com.baidu.swan.pms.database.a.Wi().ks(str);
-        com.baidu.swan.pms.database.a.Wi().c(com.baidu.swan.pms.model.f.class, str);
+    public void eY(String str) {
+        SwanAppDbControl.aZ(AppRuntime.getAppContext()).r(str, false);
+        com.baidu.swan.pms.database.a.aaX().kU(str);
+        com.baidu.swan.pms.database.a.aaX().b(com.baidu.swan.pms.model.f.class, str);
     }
 
-    public void eq(String str) {
-        com.baidu.swan.apps.database.subpackage.a.CO().eq(str);
+    public void eX(String str) {
+        com.baidu.swan.apps.database.subpackage.a.HI().eX(str);
     }
 
-    private void es(String str) {
+    private void eZ(String str) {
         if (str != null) {
-            com.baidu.b.a.c.a.N(Constants.VIA_REPORT_TYPE_QQFAVORITES, str);
-            com.baidu.b.a.c.a.N("51", str);
+            com.baidu.a.a.c.a.F(Constants.VIA_REPORT_TYPE_QQFAVORITES, str);
+            com.baidu.a.a.c.a.F("51", str);
         }
     }
 
     @NonNull
-    private ResponseCallback<JSONObject> CR() {
+    private ResponseCallback<JSONObject> HL() {
         return new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.env.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -139,21 +139,21 @@ public abstract class a {
         };
     }
 
-    private void et(String str) {
-        List<String> eu;
-        if (!TextUtils.isEmpty(str) && (eu = eu(str)) != null && eu.size() > 0) {
-            for (String str2 : eu) {
+    private void fa(String str) {
+        List<String> fb;
+        if (!TextUtils.isEmpty(str) && (fb = fb(str)) != null && fb.size() > 0) {
+            for (String str2 : fb) {
                 if (!TextUtils.isEmpty(str2)) {
                     if (DEBUG) {
                         Log.d("AbsDefaultPurger", "删除分包的APS记录: " + str + " : " + str2);
                     }
-                    es(str2);
+                    eZ(str2);
                 }
             }
         }
     }
 
-    private List<String> eu(String str) {
+    private List<String> fb(String str) {
         Cursor cursor;
         Closeable closeable = null;
         ArrayList arrayList = new ArrayList();
@@ -162,11 +162,11 @@ public abstract class a {
         }
         try {
             try {
-                cursor = AppRuntime.getAppContext().getContentResolver().query(com.baidu.swan.apps.database.subpackage.b.awe, new String[]{SubPackageTable.Table.aps_package_name.toString()}, SubPackageTable.Table.app_id + " =? ", new String[]{str}, null);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(com.baidu.swan.apps.database.subpackage.b.aPt, new String[]{SubPackageTable.Table.aps_package_name.toString()}, SubPackageTable.Table.app_id + " =? ", new String[]{str}, null);
             } catch (Throwable th) {
                 th = th;
                 closeable = " =? ";
-                com.baidu.swan.c.a.c(closeable);
+                com.baidu.swan.c.a.b(closeable);
                 throw th;
             }
         } catch (Exception e) {
@@ -174,7 +174,7 @@ public abstract class a {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.swan.c.a.c(closeable);
+            com.baidu.swan.c.a.b(closeable);
             throw th;
         }
         if (cursor != null) {
@@ -186,18 +186,18 @@ public abstract class a {
                         arrayList.add(string);
                     }
                 }
-                com.baidu.swan.c.a.c(cursor);
+                com.baidu.swan.c.a.b(cursor);
             } catch (Exception e2) {
                 e = e2;
                 if (DEBUG) {
                     e.printStackTrace();
                 }
-                com.baidu.swan.c.a.c(cursor);
+                com.baidu.swan.c.a.b(cursor);
                 return arrayList;
             }
             return arrayList;
         }
-        com.baidu.swan.c.a.c(cursor);
+        com.baidu.swan.c.a.b(cursor);
         return arrayList;
     }
 }

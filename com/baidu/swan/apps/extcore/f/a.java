@@ -3,6 +3,7 @@ package com.baidu.swan.apps.extcore.f;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.storage.b.f;
 import java.io.File;
@@ -13,12 +14,12 @@ import java.util.Locale;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean Dp() {
-        return f.Ob().getBoolean("key_is_need_update_preset", false);
+    public static boolean Ij() {
+        return f.SR().getBoolean("key_is_need_update_preset", false);
     }
 
-    public static void bi(boolean z) {
-        f.Ob().putBoolean("key_is_need_update_preset", z);
+    public static void bA(boolean z) {
+        f.SR().putBoolean("key_is_need_update_preset", z);
     }
 
     public static void a(File file, List<Long> list) {
@@ -53,16 +54,16 @@ public class a {
         return false;
     }
 
-    public static long eD(@Nullable String str) {
-        String[] eE = eE(str);
-        if (eE == null) {
+    public static long fk(@Nullable String str) {
+        String[] fl = fl(str);
+        if (fl == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < eE.length ? Integer.valueOf(eE[i]).intValue() : 0L);
+                j = (j << 16) | (i < fl.length ? Integer.valueOf(fl[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -77,25 +78,25 @@ public class a {
         return j;
     }
 
-    public static String E(long j) {
+    public static String X(long j) {
         StringBuilder sb = new StringBuilder();
         for (int i = 2; i >= 0; i--) {
             sb.append(String.format(Locale.US, "%d", Long.valueOf((j >> (i * 16)) & 65535)));
             if (i > 0) {
-                sb.append(".");
+                sb.append(DefaultConfig.TOKEN_SEPARATOR);
             }
         }
         if (DEBUG) {
-            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == eD(sb.toString())));
+            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == fk(sb.toString())));
         }
         return sb.toString();
     }
 
-    public static boolean Dq() {
-        return DEBUG && com.baidu.swan.apps.ac.a.a.Jd();
+    public static boolean Ik() {
+        return DEBUG && com.baidu.swan.apps.ac.a.a.NX();
     }
 
-    private static String[] eE(@Nullable String str) {
+    private static String[] fl(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

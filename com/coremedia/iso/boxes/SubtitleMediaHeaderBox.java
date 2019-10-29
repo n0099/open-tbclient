@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
@@ -7,7 +8,7 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SubtitleMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "sthd";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();
@@ -15,7 +16,7 @@ public class SubtitleMediaHeaderBox extends AbstractMediaHeaderBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SubtitleMediaHeaderBox.java", SubtitleMediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SubtitleMediaHeaderBox", "", "", "", "java.lang.String"), 30);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SubtitleMediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 30);
     }
 
     public SubtitleMediaHeaderBox() {

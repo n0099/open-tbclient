@@ -64,18 +64,18 @@ public class y extends z {
                 a(context, callbackHandler, optString, c);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
-            } else if (com.baidu.swan.apps.an.aa.ir(optString2)) {
+            } else if (com.baidu.swan.apps.an.aa.iU(optString2)) {
                 c.put("linkUrl", optString2);
                 a(context, callbackHandler, optString, c);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
         }
-        bVar.Ml().a((Activity) context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+        bVar.Rd().a((Activity) context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
-            public void D(Boolean bool) {
+            public void B(Boolean bool) {
                 y.this.a(context, callbackHandler, optString, c, bool.booleanValue());
             }
         });
@@ -88,7 +88,7 @@ public class y extends z {
         String optString = jSONObject.optString("shareUrl");
         JSONArray optJSONArray = jSONObject.optJSONArray("defaultPannel");
         try {
-            if (!TextUtils.isEmpty(optString) && (com.baidu.swan.apps.an.aa.ir(optString) || z)) {
+            if (!TextUtils.isEmpty(optString) && (com.baidu.swan.apps.an.aa.iU(optString) || z)) {
                 jSONObject.put("linkUrl", optString);
             }
             if (optJSONArray != null && optJSONArray.length() > 0 && !z) {
@@ -105,14 +105,14 @@ public class y extends z {
     private void a(@NonNull Context context, final CallbackHandler callbackHandler, final String str, JSONObject jSONObject) {
         jSONObject.remove("defaultPannel");
         jSONObject.remove("shareUrl");
-        com.baidu.swan.apps.u.a.Ep().a(context, jSONObject, new u.a() { // from class: com.baidu.swan.apps.scheme.actions.y.2
+        com.baidu.swan.apps.u.a.Jj().a(context, jSONObject, new u.a() { // from class: com.baidu.swan.apps.scheme.actions.y.2
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void Fn() {
+            public void Kh() {
                 y.this.a(callbackHandler, str, true);
             }
 
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void Fo() {
+            public void Ki() {
                 y.this.a(callbackHandler, str, false);
             }
         });

@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsearch.b.b, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d>> {
-    private View.OnClickListener fue;
+    private View.OnClickListener ftr;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -14,26 +14,25 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
         this.mPageContext = tbPageContext;
     }
 
-    public void u(View.OnClickListener onClickListener) {
-        this.fue = onClickListener;
+    public void v(View.OnClickListener onClickListener) {
+        this.ftr = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: as */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d> b(ViewGroup viewGroup) {
         com.baidu.tieba.forumsearch.c.d dVar = new com.baidu.tieba.forumsearch.c.d(this.mPageContext);
-        dVar.u(this.fue);
+        dVar.v(this.ftr);
         return new com.baidu.tieba.card.a.a<>(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d> aVar) {
-        aVar.baX().a(bVar);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d> aVar) {
+        aVar.baZ().a(bVar);
         return aVar.getView();
     }
 }

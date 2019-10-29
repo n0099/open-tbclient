@@ -7,29 +7,29 @@ import com.baidu.adp.base.a.a;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class c extends SQLiteOpenHelper implements a {
-    private a.InterfaceC0012a sY;
-    private final String sZ;
+    private final String databaseName;
+    private a.InterfaceC0012a lf;
 
-    public abstract void d(SQLiteDatabase sQLiteDatabase);
+    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
 
-    public abstract void e(SQLiteDatabase sQLiteDatabase);
+    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
     public void a(a.InterfaceC0012a interfaceC0012a) {
-        this.sY = interfaceC0012a;
+        this.lf = interfaceC0012a;
     }
 
     public c(Context context, String str, int i) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-        this.sZ = str;
+        this.databaseName = str;
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean ac(Context context) {
-        return context.deleteDatabase(this.sZ);
+    public boolean dropDatabase(Context context) {
+        return context.deleteDatabase(this.databaseName);
     }
 
-    public boolean b(SQLiteDatabase sQLiteDatabase, String str) {
+    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
             return true;
@@ -41,19 +41,19 @@ public abstract class c extends SQLiteOpenHelper implements a {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        d(sQLiteDatabase);
-        f(sQLiteDatabase);
+        createAllTables(sQLiteDatabase);
+        exeCallback(sQLiteDatabase);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        e(sQLiteDatabase);
-        d(sQLiteDatabase);
+        clearAllTables(sQLiteDatabase);
+        createAllTables(sQLiteDatabase);
     }
 
-    private void f(SQLiteDatabase sQLiteDatabase) {
-        if (this.sY != null) {
-            this.sY.c(sQLiteDatabase);
+    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
+        if (this.lf != null) {
+            this.lf.onDatabaseCreated(sQLiteDatabase);
         }
     }
 }

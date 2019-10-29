@@ -29,14 +29,14 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         this.context = context;
     }
 
-    public void t(BdUniqueId bdUniqueId) {
+    public void u(BdUniqueId bdUniqueId) {
         this.pageId = bdUniqueId;
     }
 
     public void onDestroy() {
     }
 
-    public void ac(Intent intent) {
+    public void ai(Intent intent) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,47 +49,47 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return bdUniqueId;
     }
 
-    protected void EJ(String str) {
-        bp(str, R.drawable.icon_toast_game_error);
+    protected void Do(String str) {
+        bk(str, R.drawable.icon_toast_game_error);
     }
 
-    protected void EK(String str) {
-        bp(str, R.drawable.icon_toast_game_ok);
+    protected void Dp(String str) {
+        bk(str, R.drawable.icon_toast_game_ok);
     }
 
-    protected void bp(String str, int i) {
-        BdToast.b(getAppContext(), str, i, false).agW();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void Ax(int i) {
-        aE(i, null);
+    protected void bk(String str, int i) {
+        BdToast.b(getAppContext(), str, i, false).akT();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aE(int i, String str) {
+    public void zf(int i) {
+        aF(i, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void aF(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_success, new Object[0]);
             }
-            EK(str);
+            Dp(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_cancel, new Object[0]);
             }
-            EJ(str);
+            Do(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_failed, new Object[0]);
             }
-            EJ(str);
+            Do(str);
         }
         if (!TextUtils.isEmpty(this.tid)) {
-            Ay(i);
+            zg(i);
         }
     }
 
-    public void Ay(int i) {
+    public void zg(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("status", i);
         bundle.putString(IntentConfig.SHARE_THREAD_ID, this.tid);
@@ -106,27 +106,27 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap cmT() {
+    public Bitmap ckI() {
         return BitmapHelper.getCashBitmap(R.drawable.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap Az(int i) {
+    public Bitmap zh(int i) {
         return BitmapHelper.getCashBitmap(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap EL(String str) {
+    public Bitmap Dq(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap v(Uri uri) {
+    public Bitmap s(Uri uri) {
         return BitmapHelper.loadBitmap(uri.getPath());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean w(Uri uri) {
+    public boolean t(Uri uri) {
         if (uri == null) {
             return false;
         }
@@ -141,7 +141,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean pO(String str) {
+    public boolean oY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -149,7 +149,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return file.isFile() && file.exists();
     }
 
-    public Bitmap f(Bitmap bitmap, int i) {
+    public Bitmap e(Bitmap bitmap, int i) {
         return BitmapHelper.resizeBitmap(bitmap, i, i, false);
     }
 
@@ -158,10 +158,10 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     public com.baidu.adp.widget.ImageView.a a(ShareEntity shareEntity) {
-        if (shareEntity == null || shareEntity.clH == null) {
+        if (shareEntity == null || shareEntity.cyH == null) {
             return null;
         }
-        Bundle bundle = shareEntity.clH;
+        Bundle bundle = shareEntity.cyH;
         String string = bundle.getString("path");
         String string2 = bundle.getString("name");
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
@@ -173,12 +173,12 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         boolean z4 = bundle.getBoolean("formatData", true);
         com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(string, string2, DiskFileOperate.Action.READ);
         cVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        cVar.J(z);
-        cVar.K(z4);
-        cVar.L(z2);
-        cVar.M(z3);
-        if (com.baidu.adp.lib.Disk.d.gC().b(cVar) && cVar.isSuccess()) {
-            cVar.i(cVar.getData());
+        cVar.setSubFolder(z);
+        cVar.setIsFormatData(z4);
+        cVar.setSdCard(z2);
+        cVar.setSavedCache(z3);
+        if (com.baidu.adp.lib.Disk.d.eP().b(cVar) && cVar.isSuccess()) {
+            cVar.formatData(cVar.getData());
             Bitmap bitmap = cVar.getBitmap();
             if (bitmap != null) {
                 return new com.baidu.adp.widget.ImageView.a(bitmap, cVar.isGif());

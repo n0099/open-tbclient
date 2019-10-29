@@ -15,9 +15,9 @@ import java.lang.ref.WeakReference;
 public class CircleTextProgressbar extends AppCompatTextView {
     final Rect a;
     private int b;
-    private b beu;
-    private a bev;
-    private c bew;
+    private b bxo;
+    private a bxp;
+    private c bxq;
     private int c;
     private int d;
     private int e;
@@ -58,7 +58,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
         this.g = new Paint();
         this.h = new RectF();
         this.i = 100;
-        this.beu = b.COUNT;
+        this.bxo = b.COUNT;
         this.l = 3000L;
         this.a = new Rect();
         a(context, attributeSet);
@@ -108,17 +108,17 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     public void setProgressType(b bVar) {
-        this.beu = bVar;
+        this.bxo = bVar;
         b();
         invalidate();
     }
 
     public b getProgressType() {
-        return this.beu;
+        return this.bxo;
     }
 
     public void setCountdownProgressListener(a aVar) {
-        this.bev = aVar;
+        this.bxp = aVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -173,8 +173,8 @@ public class CircleTextProgressbar extends AppCompatTextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        removeCallbacks(this.bew);
-        switch (this.beu) {
+        removeCallbacks(this.bxq);
+        switch (this.bxo) {
             case COUNT:
                 this.j += 1.0f;
                 break;
@@ -183,27 +183,27 @@ public class CircleTextProgressbar extends AppCompatTextView {
                 break;
         }
         if (this.j >= 0.0f && this.j <= this.i) {
-            if (this.bev != null) {
-                this.bev.a(this.j);
+            if (this.bxp != null) {
+                this.bxp.a(this.j);
             }
             invalidate();
-            postDelayed(this.bew, this.l / this.i);
+            postDelayed(this.bxq, this.l / this.i);
             return;
         }
         this.j = a(this.j);
-        if (this.bev != null) {
-            this.bev.a();
+        if (this.bxp != null) {
+            this.bxp.a();
         }
     }
 
     private void a(Context context, AttributeSet attributeSet) {
         this.g.setAntiAlias(true);
         this.d = context.getResources().getColor(a.b.progress_circle_color);
-        this.bew = new c(this);
+        this.bxq = new c(this);
     }
 
     private void b() {
-        switch (this.beu) {
+        switch (this.bxo) {
             case COUNT:
                 this.j = 0.0f;
                 return;

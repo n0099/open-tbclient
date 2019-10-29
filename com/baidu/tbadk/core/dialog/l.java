@@ -15,26 +15,26 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private ArrayList<m> aIL = new ArrayList<>();
-    private TbPageContext<?> mContext;
+    private ArrayList<m> bbZ = new ArrayList<>();
+    private TbPageContext<?> cfl;
 
     public l(TbPageContext<?> tbPageContext) {
-        this.mContext = tbPageContext;
+        this.cfl = tbPageContext;
     }
 
     public void setData(ArrayList<m> arrayList) {
-        this.aIL = arrayList;
+        this.bbZ = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.aIL.size();
+        return this.bbZ.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.aIL.get(i);
+        return this.bbZ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,53 +45,53 @@ public class l extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        m mVar = this.aIL.get(i);
+        m mVar = this.bbZ.get(i);
         if (mVar == null) {
             return null;
         }
         if (view == null) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.dialog_rich_bdlist_item, viewGroup, false);
+            view = LayoutInflater.from(this.cfl.getPageActivity()).inflate(R.layout.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.bOT = (TextView) view.findViewById(R.id.text_tip);
-            aVar2.bOU = (TextView) view.findViewById(R.id.text_desc);
-            aVar2.bOV = (CheckBox) view.findViewById(R.id.checked_icon);
-            aVar2.divider = view.findViewById(R.id.line);
+            aVar2.mTipView = (TextView) view.findViewById(R.id.text_tip);
+            aVar2.mDescView = (TextView) view.findViewById(R.id.text_desc);
+            aVar2.cfX = (CheckBox) view.findViewById(R.id.checked_icon);
+            aVar2.cfY = view.findViewById(R.id.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.bOT.setText(mVar.ahi());
+        aVar.mTipView.setText(mVar.alf());
         if (StringUtils.isNull(mVar.getDesc())) {
-            aVar.bOU.setVisibility(8);
+            aVar.mDescView.setVisibility(8);
         } else {
-            aVar.bOU.setText(mVar.getDesc());
-            aVar.bOU.setVisibility(0);
+            aVar.mDescView.setText(mVar.getDesc());
+            aVar.mDescView.setVisibility(0);
         }
-        aVar.bOV.setChecked(mVar.isChecked());
-        aVar.bOV.setButtonDrawable(mVar.isChecked() ? am.getDrawable(R.drawable.icon_set_list_ok_s) : new ColorDrawable(R.color.common_color_10022));
-        if (hL(i)) {
-            aVar.divider.setVisibility(8);
-            am.k(view, R.drawable.dialog_single_button_bg_selector);
+        aVar.cfX.setChecked(mVar.isChecked());
+        aVar.cfX.setButtonDrawable(mVar.isChecked() ? am.getDrawable(R.drawable.icon_set_list_ok_s) : new ColorDrawable(R.color.common_color_10022));
+        if (ig(i)) {
+            aVar.cfY.setVisibility(8);
+            am.setBackgroundResource(view, R.drawable.dialog_single_button_bg_selector);
         } else {
-            aVar.divider.setVisibility(0);
-            am.k(view, R.drawable.dialg_alert_btn_bg);
+            aVar.cfY.setVisibility(0);
+            am.setBackgroundResource(view, R.drawable.dialg_alert_btn_bg);
         }
         view.setTag(aVar);
-        this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.mContext.getLayoutMode().onModeChanged(view);
+        this.cfl.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.cfl.getLayoutMode().onModeChanged(view);
         return view;
     }
 
-    private boolean hL(int i) {
-        return this.aIL != null && i == this.aIL.size() + (-1);
+    private boolean ig(int i) {
+        return this.bbZ != null && i == this.bbZ.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TextView bOT;
-        TextView bOU;
-        CheckBox bOV;
-        View divider;
+        CheckBox cfX;
+        View cfY;
+        TextView mDescView;
+        TextView mTipView;
 
         private a() {
         }

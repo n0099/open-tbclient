@@ -15,16 +15,15 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
-        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgActivityView bBz = aVar.bBz();
-        bBz.setPosition(i);
-        bBz.setData(chatMessage);
-        bBz.a(this.gBv);
-        bBz.setOnItemViewLongClickListener(this.gBw);
-        bBz.dE(this.gBC);
-        bBz.dD(chatMessage.getCacheData().getLastMsgTime());
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
+        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
+        MsgActivityView byk = aVar.byk();
+        byk.setPosition(i);
+        byk.setData(chatMessage);
+        byk.a(this.gzu);
+        byk.setOnItemViewLongClickListener(this.gzv);
+        byk.db(this.dHl);
+        byk.da(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -33,10 +32,10 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bt */
-    public e.a<MsgActivityView> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bv */
+    public e.a<MsgActivityView> b(ViewGroup viewGroup) {
         MsgActivityView msgActivityView = new MsgActivityView(this.mPageContext);
-        return new a(msgActivityView.eY(), msgActivityView);
+        return new a(msgActivityView.getConvertView(), msgActivityView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

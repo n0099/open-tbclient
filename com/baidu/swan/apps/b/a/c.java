@@ -17,17 +17,17 @@ public class c implements com.baidu.swan.apps.b.b.d {
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.b wE() {
+    public com.baidu.swan.apps.b.b.b By() {
         return new a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.a wF() {
+    public com.baidu.swan.apps.b.b.a Bz() {
         return new com.baidu.swan.apps.b.a.a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public OkHttpClient wG() {
+    public OkHttpClient BA() {
         return new OkHttpClient.Builder().build();
     }
 
@@ -37,32 +37,32 @@ public class c implements com.baidu.swan.apps.b.b.d {
         }
 
         @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.core.g.a h(Context context, int i) {
-            return new com.baidu.swan.apps.core.g.b().i(context, i);
+        public com.baidu.swan.apps.core.g.a f(Context context, int i) {
+            return new com.baidu.swan.apps.core.g.b().g(context, i);
         }
 
         @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.c aG(Context context) {
+        public com.baidu.swan.apps.b.c.c aI(Context context) {
             return new com.baidu.swan.apps.core.i.c(context);
         }
 
         @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.a aH(Context context) {
+        public com.baidu.swan.apps.b.c.a aJ(Context context) {
             return new com.baidu.swan.apps.core.c.d(context);
         }
 
         @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.a aI(Context context) {
+        public com.baidu.swan.apps.b.c.a aK(Context context) {
             return new com.baidu.swan.games.c.g(context);
         }
 
         @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.f aJ(Context context) {
+        public com.baidu.swan.apps.b.c.f aL(Context context) {
             return new com.baidu.swan.apps.view.c(context);
         }
 
         @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.f aK(Context context) {
+        public com.baidu.swan.apps.b.c.f aM(Context context) {
             return new com.baidu.swan.apps.d.d(context);
         }
     }
@@ -98,7 +98,7 @@ public class c implements com.baidu.swan.apps.b.b.d {
 
         @Override // com.baidu.swan.apps.b.b.b
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.d x(Activity activity) {
+        public com.baidu.swan.apps.setting.oauth.a.d w(Activity activity) {
             return new com.baidu.swan.apps.setting.oauth.a.d(activity);
         }
 

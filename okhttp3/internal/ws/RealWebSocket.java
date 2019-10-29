@@ -1,5 +1,6 @@
 package okhttp3.internal.ws;
 
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.tencent.connect.common.Constants;
 import java.io.Closeable;
 import java.io.IOException;
@@ -142,7 +143,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
 
     void checkResponse(Response response) throws ProtocolException {
         if (response.code() != 101) {
-            throw new ProtocolException("Expected HTTP 101 response but was '" + response.code() + " " + response.message() + "'");
+            throw new ProtocolException("Expected HTTP 101 response but was '" + response.code() + HanziToPinyin.Token.SEPARATOR + response.message() + "'");
         }
         String header = response.header(HTTP.CONN_DIRECTIVE);
         if (!"Upgrade".equalsIgnoreCase(header)) {

@@ -13,8 +13,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -31,7 +32,7 @@ public class KuangFloatingViewController {
     private static KuangFloatingViewController instance = null;
     private static String WRITE_PACKAGE = "com.baidu.tieba.write";
     private static String STORY_PACKAGE = "com.baidu.tieba.story";
-    private CustomMessageListener mBackGroundSwitchListener = new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.KuangFloatingViewController.1
+    private CustomMessageListener mBackGroundSwitchListener = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tbadk.KuangFloatingViewController.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -41,12 +42,12 @@ public class KuangFloatingViewController {
             }
         }
     };
-    CustomMessageListener writeListener = new CustomMessageListener(2002001) { // from class: com.baidu.tbadk.KuangFloatingViewController.2
+    CustomMessageListener writeListener = new CustomMessageListener(CmdConfigCustom.START_GO_ACTION) { // from class: com.baidu.tbadk.KuangFloatingViewController.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.ajh().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.amB().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -72,12 +73,12 @@ public class KuangFloatingViewController {
                     if (currentActivity != null) {
                         currentActivity.moveTaskToBack(true);
                     }
-                    TiebaStatic.log(new an("c12264").P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
+                    TiebaStatic.log(new an("c12264").O("obj_source", 1));
                     Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
                     if (launchIntentForPackage != null) {
                         launchIntentForPackage.addFlags(268435456);
                         TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
-                        TiebaStatic.log(new an("C12265").P("obj_type", 1));
+                        TiebaStatic.log(new an(TbadkCoreStatisticKey.FLOATING_VIEW_CLICK_KEY).O("obj_type", 1));
                     }
                 }
             });
@@ -96,11 +97,11 @@ public class KuangFloatingViewController {
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Cb(2002);
+        layoutParams.type = c.AH(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        layoutParams.y = l.g(TbadkCoreApplication.getInst(), R.dimen.ds260) + UtilHelper.getStatusBarHeight();
+        layoutParams.y = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds260) + UtilHelper.getStatusBarHeight();
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.gravity = 51;

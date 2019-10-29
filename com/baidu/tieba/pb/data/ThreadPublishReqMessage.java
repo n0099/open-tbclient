@@ -20,7 +20,7 @@ public class ThreadPublishReqMessage extends NetMessage {
         builder.forum_id = Long.valueOf(this.fid);
         builder.thread_id = Long.valueOf(this.tid);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         ThreadPublishReqIdl.Builder builder2 = new ThreadPublishReqIdl.Builder();
         builder2.data = builder.build(false);

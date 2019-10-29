@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -14,9 +15,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static final String TYPE = "subs";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
     private List<SampleEntry> entries;
     private long entryCount;
 
@@ -28,7 +29,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         b bVar = new b("SubSampleInformationBox.java", SubSampleInformationBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.util.List"), 51);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "java.util.List", "entries", "", "void"), 55);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.lang.String"), 115);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", FieldUtil.TYPE_STRING), 115);
     }
 
     public SubSampleInformationBox() {

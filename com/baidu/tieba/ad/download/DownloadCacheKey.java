@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import java.io.Serializable;
-import java.util.Objects;
 /* loaded from: classes3.dex */
 public class DownloadCacheKey implements Serializable {
     public final String mAdId;
@@ -22,7 +21,7 @@ public class DownloadCacheKey implements Serializable {
     }
 
     public int hashCode() {
-        return Objects.hash(this.mAdId);
+        return (this.mAdId == null ? 0 : this.mAdId.hashCode()) + 31;
     }
 
     public boolean equals(Object obj) {
@@ -41,15 +40,15 @@ public class DownloadCacheKey implements Serializable {
     }
 
     public boolean sameAd(String str) {
-        return Objects.equals(this.mAdId, str);
+        return TextUtils.equals(this.mAdId, str);
     }
 
     public boolean sameUrl(String str) {
-        return Objects.equals(this.mDownloadUrl, str);
+        return TextUtils.equals(this.mDownloadUrl, str);
     }
 
     public boolean samePackage(String str) {
-        return Objects.equals(this.mPackageName, str);
+        return TextUtils.equals(this.mPackageName, str);
     }
 
     public static DownloadCacheKey create(@NonNull String str, @Nullable String str2, @Nullable String str3) {

@@ -1,12 +1,13 @@
 package com.tencent.open.a;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class b {
-    private static SimpleDateFormat a = d.C0484d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat a = d.C0585d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
     private int c = Integer.MAX_VALUE;
@@ -14,7 +15,7 @@ public class b {
     private int e = 4096;
     private long f = 10000;
     private int h = 10;
-    private String i = ".log";
+    private String i = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     private long j = Long.MAX_VALUE;
 
     public b(File file, int i, int i2, int i3, String str, long j, int i4, String str2, long j2) {
@@ -50,7 +51,7 @@ public class b {
     }
 
     private String c(String str) {
-        return "com.tencent.mobileqq_connectSdk." + str + ".log";
+        return "com.tencent.mobileqq_connectSdk." + str + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     }
 
     public File b() {

@@ -4,6 +4,7 @@ import android.net.wifi.WifiConfiguration;
 import android.os.Handler;
 import android.os.Message;
 import com.baidu.android.bbalbs.common.security.Base64;
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.location.Jni;
 import com.baidu.location.g.g;
 import com.baidu.mobstat.Config;
@@ -370,7 +371,7 @@ public class f {
     }
 
     public void c() {
-        if (System.currentTimeMillis() - this.g <= 3600000 || this.c == null) {
+        if (System.currentTimeMillis() - this.g <= BdKVCache.MILLS_1Hour || this.c == null) {
             return;
         }
         this.c.sendEmptyMessage(1);

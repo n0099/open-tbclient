@@ -7,21 +7,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    public int bGk;
-    public int fHJ;
-    public List<m> fHK;
+    public int fGY;
+    public List<m> fGZ;
     public boolean hasMore;
     public String key;
+    public int labelId;
     public int pn;
 
-    public int cc(List<m> list) {
+    public int cp(List<m> list) {
         boolean z;
-        if (v.aa(list)) {
+        if (v.isEmpty(list)) {
             return 0;
         }
-        if (v.aa(this.fHK)) {
-            this.fHK = new LinkedList();
-            this.fHK.addAll(list);
+        if (v.isEmpty(this.fGZ)) {
+            this.fGZ = new LinkedList();
+            this.fGZ.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             m mVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.fHK.size()) {
+                if (i2 >= this.fGZ.size()) {
                     z = false;
                     break;
                 }
-                m mVar2 = this.fHK.get(i2);
+                m mVar2 = this.fGZ.get(i2);
                 if (mVar != null && (mVar instanceof b) && mVar2 != null && (mVar2 instanceof b)) {
-                    bh acC = ((b) mVar).acC();
-                    bh acC2 = ((b) mVar2).acC();
-                    if (acC != null && acC2 != null && acC.getTid() != null && acC2.getTid() != null && acC.getTid().equals(acC2.getTid())) {
+                    bh agI = ((b) mVar).agI();
+                    bh agI2 = ((b) mVar2).agI();
+                    if (agI != null && agI2 != null && agI.getTid() != null && agI2.getTid() != null && agI.getTid().equals(agI2.getTid())) {
                         z = true;
                         break;
                     }
@@ -45,11 +45,11 @@ public class c {
                 i2++;
             }
             if (!z) {
-                v.b(linkedList, mVar);
+                v.add(linkedList, mVar);
             }
         }
         if (linkedList.size() != 0) {
-            v.a((List) this.fHK, 0, (List) linkedList);
+            v.addAll(this.fGZ, 0, linkedList);
         }
         return linkedList.size();
     }

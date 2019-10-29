@@ -88,11 +88,11 @@ public class c {
         }
     }
 
-    public static byte[] J(Bitmap bitmap) {
+    public static byte[] H(Bitmap bitmap) {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
-    public static Bitmap l(byte[] bArr, int i, int i2) {
+    public static Bitmap j(byte[] bArr, int i, int i2) {
         Throwable th;
         Bitmap bitmap;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -123,7 +123,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void aS(Context context, String str) {
+    public static void aU(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
@@ -134,7 +134,7 @@ public class c {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.ArrayList<com.baidu.tieba.video.editvideo.b.c$a> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> K(Bitmap bitmap) {
+    public static ArrayList<a> I(Bitmap bitmap) {
         if (bitmap == null || bitmap.isRecycled()) {
             return new ArrayList<>();
         }
@@ -163,7 +163,7 @@ public class c {
         return arrayList;
     }
 
-    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
+    public static boolean b(Bitmap bitmap, ArrayList<a> arrayList) {
         if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
             return false;
         }

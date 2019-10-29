@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private int bDA;
-    private int bDB;
-    private int bDC;
-    private int bDD;
-    private int bDE;
-    private int bDF;
-    private int bDG;
-    private int bDH;
-    private int bDI;
-    private int bDJ;
-    private StringBuffer bDK = new StringBuffer();
-    private String bDp;
-    private int bDq;
-    private int bDr;
-    private int bDs;
-    private int bDt;
-    private int bDu;
-    private int bDv;
-    private int bDw;
-    private int bDx;
-    private int bDy;
-    private int bDz;
+    private StringBuffer TAG = new StringBuffer();
+    private int backgroundResID;
+    private int backgroundResID_;
+    private int divierResID;
+    private int divierResID_;
+    private int drawableLeftResID;
+    private int drawableLeftResID_;
+    private int drawableRightResID;
+    private int drawableRightResID_;
+    private int drawableTopResID;
+    private int drawableTopResID_;
     private String id;
+    private int imageResID;
+    private int imageResID_;
+    private int progressDrawableID;
+    private int progressDrawableID_;
+    private int styleResID;
+    private int styleResID_;
+    private int textColorHintResID;
+    private int textColorHintResID_;
+    private int textColorResID;
+    private int textColorResID_;
+    private String viewClassName;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.bDK.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.TAG.toString() + "]";
     }
 
-    public void mi(String str) {
-        this.bDK.append(str).append(" || ");
+    public void appendTag(String str) {
+        this.TAG.append(str).append(" || ");
     }
 
-    public int abI() {
-        return this.bDE;
+    public int getDrawableLeftResID() {
+        return this.drawableLeftResID;
     }
 
-    public void gu(int i) {
-        this.bDE = i;
+    public void setDrawableLeftResID(int i) {
+        this.drawableLeftResID = i;
     }
 
-    public int abJ() {
-        return this.bDF;
+    public int getDrawableLeftResID_() {
+        return this.drawableLeftResID_;
     }
 
-    public void gv(int i) {
-        this.bDF = i;
+    public void setDrawableLeftResID_(int i) {
+        this.drawableLeftResID_ = i;
     }
 
-    public int abK() {
-        return this.bDC;
+    public int getDrawableTopResID() {
+        return this.drawableTopResID;
     }
 
-    public void gw(int i) {
-        this.bDC = i;
+    public void setDrawableTopResID(int i) {
+        this.drawableTopResID = i;
     }
 
-    public int abL() {
-        return this.bDD;
+    public int getDrawableTopResID_() {
+        return this.drawableTopResID_;
     }
 
-    public void gx(int i) {
-        this.bDD = i;
+    public void setDrawableTopResID_(int i) {
+        this.drawableTopResID_ = i;
     }
 
-    public int abM() {
-        return this.bDA;
+    public int getDivierResID() {
+        return this.divierResID;
     }
 
-    public void gy(int i) {
-        this.bDA = i;
+    public void setDivierResID(int i) {
+        this.divierResID = i;
     }
 
-    public int abN() {
-        return this.bDB;
+    public int getDivierResID_() {
+        return this.divierResID_;
     }
 
-    public void gz(int i) {
-        this.bDB = i;
+    public void setDivierResID_(int i) {
+        this.divierResID_ = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int abO() {
-        return this.bDG;
+    public int getDrawableRightResID() {
+        return this.drawableRightResID;
     }
 
-    public void gA(int i) {
-        this.bDG = i;
+    public void setDrawableRightResID(int i) {
+        this.drawableRightResID = i;
     }
 
-    public int abP() {
-        return this.bDH;
+    public int getDrawableRightResID_() {
+        return this.drawableRightResID_;
     }
 
-    public void gB(int i) {
-        this.bDH = i;
+    public void setDrawableRightResID_(int i) {
+        this.drawableRightResID_ = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void mj(String str) {
-        this.bDp = str;
+    public void setViewClassName(String str) {
+        this.viewClassName = str;
     }
 
-    public int abQ() {
-        return this.bDq;
+    public int getBackgroundResID() {
+        return this.backgroundResID;
     }
 
-    public void gC(int i) {
-        this.bDq = i;
+    public void setBackgroundResID(int i) {
+        this.backgroundResID = i;
     }
 
-    public int abR() {
-        return this.bDr;
+    public int getBackgroundResID_() {
+        return this.backgroundResID_;
     }
 
-    public void gD(int i) {
-        this.bDr = i;
+    public void setBackgroundResID_(int i) {
+        this.backgroundResID_ = i;
     }
 
-    public int abS() {
-        return this.bDu;
+    public int getTextColorHintResID() {
+        return this.textColorHintResID;
     }
 
-    public void gE(int i) {
-        this.bDu = i;
+    public void setTextColorHintResID(int i) {
+        this.textColorHintResID = i;
     }
 
-    public int abT() {
-        return this.bDv;
+    public int getTextColorHintResID_() {
+        return this.textColorHintResID_;
     }
 
-    public void gF(int i) {
-        this.bDv = i;
+    public void setTextColorHintResID_(int i) {
+        this.textColorHintResID_ = i;
     }
 
-    public int abU() {
-        return this.bDs;
+    public int getTextColorResID() {
+        return this.textColorResID;
     }
 
-    public void gG(int i) {
-        this.bDs = i;
+    public void setTextColorResID(int i) {
+        this.textColorResID = i;
     }
 
-    public int abV() {
-        return this.bDt;
+    public int getTextColorResID_() {
+        return this.textColorResID_;
     }
 
-    public void gH(int i) {
-        this.bDt = i;
+    public void setTextColorResID_(int i) {
+        this.textColorResID_ = i;
     }
 
-    public int abW() {
-        return this.bDx;
+    public int getImageResID_() {
+        return this.imageResID_;
     }
 
-    public int abX() {
-        return this.bDw;
+    public int getImageResID() {
+        return this.imageResID;
     }
 
-    public void gI(int i) {
-        this.bDw = i;
+    public void setImageResID(int i) {
+        this.imageResID = i;
     }
 
-    public void gJ(int i) {
-        this.bDx = i;
+    public void setImageResID_(int i) {
+        this.imageResID_ = i;
     }
 
-    public int abY() {
-        return this.bDz;
+    public int getStyleResID_() {
+        return this.styleResID_;
     }
 
-    public void gK(int i) {
-        this.bDz = i;
+    public void setStyleResID_(int i) {
+        this.styleResID_ = i;
     }
 
-    public int abZ() {
-        return this.bDy;
+    public int getStyleResID() {
+        return this.styleResID;
     }
 
-    public void gL(int i) {
-        this.bDy = i;
+    public void setStyleResID(int i) {
+        this.styleResID = i;
     }
 
-    public int aca() {
-        return this.bDI;
+    public int getProgressDrawableID() {
+        return this.progressDrawableID;
     }
 
-    public void gM(int i) {
-        this.bDI = i;
+    public void setProgressDrawableID(int i) {
+        this.progressDrawableID = i;
     }
 
-    public int acb() {
-        return this.bDJ;
+    public int getProgressDrawableID_() {
+        return this.progressDrawableID_;
     }
 
-    public void gN(int i) {
-        this.bDJ = i;
+    public void setProgressDrawableID_(int i) {
+        this.progressDrawableID_ = i;
     }
 }

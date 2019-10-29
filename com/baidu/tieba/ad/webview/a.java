@@ -3,6 +3,8 @@ package com.baidu.tieba.ad.webview;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
@@ -12,11 +14,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a {
-    private static final Pattern baC;
-    private static HashMap<String, Integer> bay = new HashMap<>();
-    private static HashMap<String, Integer> baz = new HashMap<>();
-    private static HashMap<String, String> baA = new HashMap<>();
-    private static HashMap<String, String> baB = new HashMap<>();
+    private static final Pattern btB;
+    private static HashMap<String, Integer> btx = new HashMap<>();
+    private static HashMap<String, Integer> bty = new HashMap<>();
+    private static HashMap<String, String> btz = new HashMap<>();
+    private static HashMap<String, String> btA = new HashMap<>();
 
     static {
         e("application/andrew-inset", "ez", 5);
@@ -30,7 +32,7 @@ public final class a {
         e("application/oda", "oda", 5);
         e("application/ogg", "ogg", 1);
         e("application/pdf", "pdf", 4);
-        e("application/pgp-keys", "key", 5);
+        e("application/pgp-keys", TiebaInitialize.Params.KEY, 5);
         e("application/pgp-signature", "pgp", 5);
         e("application/pics-rules", "prf", 5);
         e("application/rar", "rar", 8);
@@ -337,26 +339,26 @@ public final class a {
         e("audio/aac", "aac", 1);
         e("application/vnd.rn-realmedia", "rm", 0);
         e("message/rfc822", "mht", 11);
-        baC = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        btB = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void e(String str, String str2, int i) {
-        bay.put(str2, Integer.valueOf(i));
-        baz.put(str, Integer.valueOf(i));
-        baA.put(str2, str);
-        if (!baB.containsKey(str)) {
-            baB.put(str, str2);
+        btx.put(str2, Integer.valueOf(i));
+        bty.put(str, Integer.valueOf(i));
+        btz.put(str2, str);
+        if (!btA.containsKey(str)) {
+            btA.put(str, str2);
         }
     }
 
-    public static int co(String str, String str2) {
-        return s(!TextUtils.isEmpty(str) ? str.toLowerCase() : "", str2, true);
+    public static int ch(String str, String str2) {
+        return u(!TextUtils.isEmpty(str) ? str.toLowerCase() : "", str2, true);
     }
 
-    public static int s(String str, String str2, boolean z) {
-        Integer num = baz.get(str2);
+    public static int u(String str, String str2, boolean z) {
+        Integer num = bty.get(str2);
         if (num == null) {
-            num = bay.get(str);
+            num = btx.get(str);
             if (num == null) {
                 num = 5;
             } else if (z && num.intValue() == 8) {
@@ -368,29 +370,29 @@ public final class a {
         return num.intValue();
     }
 
-    public static String sP(String str) {
+    public static String ry(String str) {
         int lastIndexOf;
-        if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
+        if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)) == -1 || lastIndexOf == str.length()) {
             return "";
         }
         return str.substring(lastIndexOf + 1);
     }
 
-    public static String sQ(String str) {
+    public static String rz(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return baA.get(str);
+        return btz.get(str);
     }
 
-    public static String sR(String str) {
+    public static String rA(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return baB.get(str);
+        return btA.get(str);
     }
 
-    public static String J(String str, String str2, String str3) {
+    public static String N(String str, String str2, String str3) {
         String str4;
         String str5;
         int lastIndexOf;
@@ -399,18 +401,18 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = sT(str2);
+            str4 = rC(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
         }
         if (TextUtils.isEmpty(str4)) {
-            str4 = sS(str);
+            str4 = rB(str);
         }
         if (TextUtils.isEmpty(str4)) {
             str4 = "downloadfile";
         }
-        int lastIndexOf3 = str4.lastIndexOf(".");
+        int lastIndexOf3 = str4.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
         if (lastIndexOf3 < 0) {
             if (str3 != null) {
                 str5 = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
@@ -419,7 +421,7 @@ public final class a {
                         str5 = ".jpg";
                     }
                 } else {
-                    str5 = "." + str5;
+                    str5 = DefaultConfig.TOKEN_SEPARATOR + str5;
                 }
             } else {
                 str5 = null;
@@ -433,41 +435,41 @@ public final class a {
                     str6 = ".txt";
                 }
             } else {
-                String sS = sS(str);
-                if (!TextUtils.isEmpty(sS) && (lastIndexOf = sS.lastIndexOf(".")) != -1) {
-                    str6 = sS.substring(lastIndexOf + 1);
+                String rB = rB(str);
+                if (!TextUtils.isEmpty(rB) && (lastIndexOf = rB.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR)) != -1) {
+                    str6 = rB.substring(lastIndexOf + 1);
                 }
                 if (!TextUtils.isEmpty(str6)) {
-                    str6 = "." + str6;
+                    str6 = DefaultConfig.TOKEN_SEPARATOR + str6;
                 } else {
                     str6 = ".bin";
                 }
             }
         } else {
             if (str3 != null) {
-                String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String sR = sR(str3);
+                String substring = str4.substring(str4.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR) + 1);
+                String rA = rA(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(sR) ? sR.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(rA) ? rA.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
-                String sQ = sQ(lowerCase);
+                String rz = rz(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
-                String lowerCase4 = !TextUtils.isEmpty(sQ) ? sQ.toLowerCase() : "";
+                String lowerCase4 = !TextUtils.isEmpty(rz) ? rz.toLowerCase() : "";
                 String lowerCase5 = !TextUtils.isEmpty(mimeTypeFromExtension) ? mimeTypeFromExtension.toLowerCase() : "";
                 if (TextUtils.equals(lowerCase4, lowerCase5)) {
                     if (!TextUtils.isEmpty(lowerCase2) && TextUtils.equals(lowerCase2, lowerCase3)) {
-                        str6 = "." + lowerCase2;
+                        str6 = DefaultConfig.TOKEN_SEPARATOR + lowerCase2;
                     }
                 } else if (TextUtils.isEmpty(lowerCase4)) {
                     if (!TextUtils.isEmpty(lowerCase3)) {
-                        str6 = "." + lowerCase3;
+                        str6 = DefaultConfig.TOKEN_SEPARATOR + lowerCase3;
                     }
                 } else if (TextUtils.isEmpty(lowerCase5)) {
                     if (!TextUtils.isEmpty(lowerCase4)) {
-                        str6 = "." + lowerCase;
+                        str6 = DefaultConfig.TOKEN_SEPARATOR + lowerCase;
                     } else if (!TextUtils.isEmpty(lowerCase2)) {
-                        str6 = "." + lowerCase2;
+                        str6 = DefaultConfig.TOKEN_SEPARATOR + lowerCase2;
                     }
                 }
             }
@@ -482,7 +484,7 @@ public final class a {
         return str4 + str6;
     }
 
-    public static String sS(String str) {
+    public static String rB(String str) {
         int lastIndexOf;
         String decode = Uri.decode(str);
         if (decode != null) {
@@ -497,9 +499,9 @@ public final class a {
         return null;
     }
 
-    static String sT(String str) {
+    static String rC(String str) {
         try {
-            Matcher matcher = baC.matcher(str);
+            Matcher matcher = btB.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

@@ -25,8 +25,8 @@ public final class f implements Runnable {
             hashSet.add((String) it.next());
         }
         iSubscribeAppTagManager = this.b.mSubscribeAppTagManager;
-        if (iSubscribeAppTagManager.delTags(hashSet)) {
-            m.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.a);
+        if (iSubscribeAppTagManager.setTags(hashSet)) {
+            p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.a);
         }
     }
 }

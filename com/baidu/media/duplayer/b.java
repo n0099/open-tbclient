@@ -48,7 +48,7 @@ public class b {
         return f.get(str);
     }
 
-    public static Set<String> bD(int i) {
+    public static Set<String> cz(int i) {
         switch (i) {
             case 1:
                 return a;

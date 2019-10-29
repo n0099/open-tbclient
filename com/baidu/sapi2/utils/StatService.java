@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.appsearchlib.Info;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
@@ -22,7 +21,7 @@ public final class StatService {
     private static List<String> b;
 
     static {
-        a.put(Info.kBaiduPIDKey, "111");
+        a.put("pid", "111");
         a.put("type", "1023");
         a.put(Config.DEVICE_PART, Build.MODEL);
         b = new ArrayList();

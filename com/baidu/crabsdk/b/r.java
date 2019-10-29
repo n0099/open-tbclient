@@ -46,7 +46,7 @@ public final class r {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.a("ThreadInfo Collector Interrupted!!", e);
+                com.baidu.crabsdk.c.a.f("ThreadInfo Collector Interrupted!!", e);
             }
         }
         return sb.toString();

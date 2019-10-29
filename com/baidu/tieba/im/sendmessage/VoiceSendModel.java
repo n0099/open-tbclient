@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private b gSA;
-    private a gSz;
+    private a gQA;
+    private b gQB;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.gSz = new a(str, chatMessage);
-        this.gSz.execute(new Object[0]);
+        this.gQA = new a(str, chatMessage);
+        this.gQA.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.gSA = bVar;
+        this.gQB = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String gSB;
-        private ChatMessage gSC;
-        private com.baidu.tieba.im.sendmessage.b gSD = new com.baidu.tieba.im.sendmessage.b();
+        private String aiq;
+        private ChatMessage gQC;
+        private com.baidu.tieba.im.sendmessage.b gQD = new com.baidu.tieba.im.sendmessage.b();
 
         public a(String str, ChatMessage chatMessage) {
-            this.gSB = str;
-            this.gSC = chatMessage;
+            this.aiq = str;
+            this.gQC = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
             try {
-                return this.gSD.zU(this.gSB);
+                return this.gQD.ym(this.aiq);
             } catch (Exception e) {
                 return null;
             }
@@ -65,8 +65,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.gSA != null) {
-                VoiceSendModel.this.gSA.a(str, this.gSC);
+            if (VoiceSendModel.this.gQB != null) {
+                VoiceSendModel.this.gQB.a(str, this.gQC);
             }
         }
     }

@@ -11,7 +11,7 @@ import java.io.Reader;
 import java.io.Writer;
 /* loaded from: classes.dex */
 public class n {
-    public static void g(InputStream inputStream) {
+    public static void close(InputStream inputStream) {
         if (inputStream != null) {
             try {
                 inputStream.close();
@@ -21,7 +21,7 @@ public class n {
         }
     }
 
-    public static void b(Closeable closeable) {
+    public static void close(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
@@ -31,7 +31,7 @@ public class n {
         }
     }
 
-    public static void c(OutputStream outputStream) {
+    public static void close(OutputStream outputStream) {
         if (outputStream != null) {
             try {
                 outputStream.close();
@@ -41,7 +41,7 @@ public class n {
         }
     }
 
-    public static void a(Writer writer) {
+    public static void close(Writer writer) {
         if (writer != null) {
             try {
                 writer.close();
@@ -51,7 +51,7 @@ public class n {
         }
     }
 
-    public static void b(Reader reader) {
+    public static void close(Reader reader) {
         if (reader != null) {
             try {
                 reader.close();
@@ -61,7 +61,7 @@ public class n {
         }
     }
 
-    public static void e(Cursor cursor) {
+    public static void close(Cursor cursor) {
         if (cursor != null) {
             try {
                 cursor.close();
@@ -71,7 +71,7 @@ public class n {
         }
     }
 
-    public static void i(SQLiteDatabase sQLiteDatabase) {
+    public static void close(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.close();
@@ -81,7 +81,7 @@ public class n {
         }
     }
 
-    public static void a(SQLiteStatement sQLiteStatement) {
+    public static void close(SQLiteStatement sQLiteStatement) {
         if (sQLiteStatement != null) {
             try {
                 sQLiteStatement.close();

@@ -1,7 +1,8 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.util.r;
 import tbclient.Userlike.DataReq;
@@ -11,7 +12,7 @@ public class ConcernPageRequestMessage extends NetMessage {
     private String pageTag;
 
     public ConcernPageRequestMessage() {
-        super(CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
+        super(1003343, CmdConfigSocket.CMD_CONCERN_PAGE);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -19,9 +20,9 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            builder.last_req_unix = Long.valueOf(b.ahU().getLong(b.getSharedPrefKeyWithAccount("concern_data_res_request_time"), 0L));
+            builder.last_req_unix = Long.valueOf(b.alR().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
             UserlikeReqIdl.Builder builder2 = new UserlikeReqIdl.Builder();
             builder2.data = builder.build(false);

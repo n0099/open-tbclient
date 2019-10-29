@@ -9,11 +9,11 @@ import com.baidu.tieba.play.g;
 public interface a extends MediaController.MediaPlayerControl {
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
-    void bMd();
+    void bIM();
 
-    void ceA();
+    void cbC();
 
-    boolean cfo();
+    boolean ccq();
 
     int getCurrentPositionSync();
 
@@ -40,7 +40,7 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void setOnPreparedListener(g.f fVar);
 
-    void setOnSeekCompleteListener(g.InterfaceC0404g interfaceC0404g);
+    void setOnSeekCompleteListener(g.InterfaceC0498g interfaceC0498g);
 
     void setOnSurfaceDestroyedListener(QuickVideoView.b bVar);
 

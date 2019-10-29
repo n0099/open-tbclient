@@ -15,7 +15,7 @@ public class SmartAppBrowseHistoryRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         HistorySwanReqIdl.Builder builder2 = new HistorySwanReqIdl.Builder();
         builder2.data = builder.build(false);

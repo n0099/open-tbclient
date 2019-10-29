@@ -4,10 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
@@ -36,11 +33,11 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("from", stringExtra2);
             } else if (stringExtra.equals("frs")) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 2);
-                intent2.putExtra(ImageViewerConfig.FORUM_NAME, intent.getStringExtra(ImageViewerConfig.FORUM_NAME));
+                intent2.putExtra("fname", intent.getStringExtra("fname"));
                 intent2.putExtra("from", stringExtra2);
             } else if (stringExtra.equals("groupinfo")) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 13);
-                intent2.putExtra(InviteFriendListActivityConfig.GROUP_ID, intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID));
+                intent2.putExtra("groupid", intent.getStringExtra("groupid"));
             } else if (stringExtra.equals("pay")) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 15);
                 intent2.putExtra("pay_type", intent.getStringExtra("pay_type"));
@@ -52,7 +49,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 22);
                 intent2.putExtra("barid", intent.getStringExtra("barid"));
                 intent2.putExtra("barname", intent.getStringExtra("barname"));
-                intent2.putExtra(IntentConfig.PORTRAIT, intent.getStringExtra(IntentConfig.PORTRAIT));
+                intent2.putExtra("portrait", intent.getStringExtra("portrait"));
             } else if (stringExtra.equals("recommendpb")) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 28);
                 intent2.putExtra(PbChosenActivityConfig.KEY_TID, intent.getStringExtra(PbChosenActivityConfig.KEY_TID));

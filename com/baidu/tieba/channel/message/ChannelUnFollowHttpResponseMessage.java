@@ -1,12 +1,11 @@
 package com.baidu.tieba.channel.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ChannelUnFollowHttpResponseMessage extends JsonHttpResponsedMessage {
     public ChannelUnFollowHttpResponseMessage() {
-        super(CmdConfigHttp.CMD_CHANNEL_UNFOLLOW);
+        super(1003309);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

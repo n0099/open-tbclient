@@ -10,16 +10,18 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] cCO = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] cNX = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tbadk.plugins.Static.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -28,8 +30,8 @@ public class Static {
                 }
             }
         });
-        avZ();
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2016301) { // from class: com.baidu.tbadk.plugins.Static.2
+        axe();
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tbadk.plugins.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,7 +40,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.cCO;
+                    String[] strArr = Static.cNX;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -49,21 +51,21 @@ public class Static {
                         if (exceptionData == null || exceptionData.info == null || !exceptionData.info.contains(str) || exceptionData.info.contains("java.lang.OutOfMemoryError")) {
                             i++;
                         } else {
-                            com.baidu.adp.plugin.b.a.mc().bB("plugin_crash_inflate");
+                            com.baidu.adp.plugin.b.a.iv().aI("plugin_crash_inflate");
                             z = false;
                             break;
                         }
                     }
                     if (exceptionData.mExcep != null && exceptionData.mExcep.getCause() != null && exceptionData.mExcep.getCause().getStackTrace() != null && z && exceptionData != null && exceptionData.info != null) {
                         try {
-                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.mW().mT().getPluginSettingsSortLoadPriorty();
+                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.jp().jm().getPluginSettingsSortLoadPriorty();
                             if (pluginSettingsSortLoadPriorty != null && !pluginSettingsSortLoadPriorty.isEmpty() && (stackTrace = exceptionData.mExcep.getCause().getStackTrace()) != null && stackTrace.length != 0) {
                                 for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
                                     if (pluginSetting.isPatch && pluginSetting.enable && (plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName)) != null && plugin2.getDexClassLoader() != null) {
                                         for (StackTraceElement stackTraceElement : stackTrace) {
                                             try {
                                                 plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                                com.baidu.tbadk.core.sharedPref.b.ahU().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.ahU().getInt("plugin_patch_hook_failed_count", 0) + 1);
+                                                com.baidu.tbadk.core.sharedPref.b.alR().putInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, com.baidu.tbadk.core.sharedPref.b.alR().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0) + 1);
                                                 break;
                                             } catch (ClassNotFoundException e) {
                                             }
@@ -80,12 +82,12 @@ public class Static {
         });
     }
 
-    private static void avZ() {
+    private static void axe() {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.a.b(0) { // from class: com.baidu.tbadk.plugins.Static.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.f
             /* renamed from: d */
-            public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            public CustomMessage<?> b(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 if (customMessage == null || !(customMessage.getData() instanceof IntentConfig)) {
                 }
                 return customMessage;

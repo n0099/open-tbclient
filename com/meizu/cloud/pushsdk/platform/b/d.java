@@ -3,6 +3,7 @@ package com.meizu.cloud.pushsdk.platform.b;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
@@ -37,7 +38,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     private void b(boolean z) {
-        this.m.put(this.h + "_" + this.b, Boolean.valueOf(z));
+        this.m.put(this.h + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b, Boolean.valueOf(z));
     }
 
     private void f(String str) {
@@ -49,7 +50,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     private boolean q() {
-        Boolean bool = this.m.get(this.h + "_" + this.b);
+        Boolean bool = this.m.get(this.h + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b);
         if (bool != null) {
             return bool.booleanValue();
         }

@@ -17,7 +17,7 @@ public class g extends ProviderDelegation {
         for (String str : keySet) {
             if (!TextUtils.isEmpty(str)) {
                 String string = bundle.getString(str, "");
-                bundle2.putString(str, c.o(getAgent().getContext(), str, TextUtils.isEmpty(string) ? "" : string));
+                bundle2.putString(str, c.p(getAgent().getContext(), str, TextUtils.isEmpty(string) ? "" : string));
             }
         }
         return bundle2;

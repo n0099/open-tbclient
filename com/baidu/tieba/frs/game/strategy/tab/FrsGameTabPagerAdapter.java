@@ -9,19 +9,19 @@ import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView;
 /* loaded from: classes4.dex */
 public class FrsGameTabPagerAdapter extends PagerAdapter {
-    private a fHX;
-    private c fHY;
-    private FrsGameStrategyItemListView fHZ;
+    private a fHn;
+    private c fHo;
+    private FrsGameStrategyItemListView fHp;
     private Context mContext;
     private BdUniqueId mPageId;
-    private final FrsGameStrategyItemListView[] fHW = new FrsGameStrategyItemListView[4];
+    private final FrsGameStrategyItemListView[] fHm = new FrsGameStrategyItemListView[4];
     private int mCount = 0;
     private int mCurrentPosition = -1;
 
     public FrsGameTabPagerAdapter(Context context, a aVar, c cVar) {
         this.mContext = context;
-        this.fHX = aVar;
-        this.fHY = cVar;
+        this.fHn = aVar;
+        this.fHo = cVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -32,34 +32,34 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         FrsGameStrategyItemListView frsGameStrategyItemListView;
-        e sk;
+        e rd;
         int i2 = i % 3;
-        FrsGameStrategyItemListView sj = sj(i2);
-        if (sj == null) {
+        FrsGameStrategyItemListView rc = rc(i2);
+        if (rc == null) {
             FrsGameStrategyItemListView frsGameStrategyItemListView2 = new FrsGameStrategyItemListView(this.mContext, this.mPageId);
-            frsGameStrategyItemListView2.setFrsGameTabDataLoadListener(this.fHX);
+            frsGameStrategyItemListView2.setFrsGameTabDataLoadListener(this.fHn);
             a(i2, frsGameStrategyItemListView2);
             frsGameStrategyItemListView = frsGameStrategyItemListView2;
         } else {
-            if (sj == bqw()) {
-                sj = sj(3);
-                if (sj == null) {
+            if (rc == bnB()) {
+                rc = rc(3);
+                if (rc == null) {
                     FrsGameStrategyItemListView frsGameStrategyItemListView3 = new FrsGameStrategyItemListView(this.mContext, this.mPageId);
-                    frsGameStrategyItemListView3.setFrsGameTabDataLoadListener(this.fHX);
+                    frsGameStrategyItemListView3.setFrsGameTabDataLoadListener(this.fHn);
                     a(3, frsGameStrategyItemListView3);
                     frsGameStrategyItemListView = frsGameStrategyItemListView3;
-                } else if (sj.getParent() != null) {
-                    viewGroup.removeView(sj);
-                    frsGameStrategyItemListView = sj;
+                } else if (rc.getParent() != null) {
+                    viewGroup.removeView(rc);
+                    frsGameStrategyItemListView = rc;
                 }
-            } else if (sj.getParent() != null) {
-                viewGroup.removeView(sj);
+            } else if (rc.getParent() != null) {
+                viewGroup.removeView(rc);
             }
-            frsGameStrategyItemListView = sj;
+            frsGameStrategyItemListView = rc;
         }
         viewGroup.addView(frsGameStrategyItemListView);
-        if (this.fHY != null && (sk = this.fHY.sk(i)) != null && (sk.extra instanceof LabelDataList)) {
-            frsGameStrategyItemListView.bB(sk.tabId, ((LabelDataList) sk.extra).getSelectedLabelId());
+        if (this.fHo != null && (rd = this.fHo.rd(i)) != null && (rd.extra instanceof LabelDataList)) {
+            frsGameStrategyItemListView.bx(rd.tabId, ((LabelDataList) rd.extra).getSelectedLabelId());
         }
         return frsGameStrategyItemListView;
     }
@@ -72,8 +72,8 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         if ((obj instanceof FrsGameStrategyItemListView) && this.mCurrentPosition != i) {
             this.mCurrentPosition = i;
-            this.fHZ = (FrsGameStrategyItemListView) obj;
-            this.fHZ.bqD();
+            this.fHp = (FrsGameStrategyItemListView) obj;
+            this.fHp.bnI();
         }
     }
 
@@ -86,16 +86,16 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         this.mPageId = bdUniqueId;
     }
 
-    private FrsGameStrategyItemListView sj(int i) {
-        if (i >= this.fHW.length) {
+    private FrsGameStrategyItemListView rc(int i) {
+        if (i >= this.fHm.length) {
             return null;
         }
-        return this.fHW[i];
+        return this.fHm[i];
     }
 
     private void a(int i, FrsGameStrategyItemListView frsGameStrategyItemListView) {
-        if (i < this.fHW.length) {
-            this.fHW[i] = frsGameStrategyItemListView;
+        if (i < this.fHm.length) {
+            this.fHm[i] = frsGameStrategyItemListView;
         }
     }
 
@@ -107,12 +107,12 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         notifyDataSetChanged();
     }
 
-    public FrsGameStrategyItemListView bA(int i, int i2) {
+    public FrsGameStrategyItemListView bw(int i, int i2) {
         FrsGameStrategyItemListView[] frsGameStrategyItemListViewArr;
         if (i == 0 && i2 == 0) {
-            return this.fHW[0];
+            return this.fHm[0];
         }
-        for (FrsGameStrategyItemListView frsGameStrategyItemListView : this.fHW) {
+        for (FrsGameStrategyItemListView frsGameStrategyItemListView : this.fHm) {
             if (frsGameStrategyItemListView != null && i == frsGameStrategyItemListView.getTabId() && i2 == frsGameStrategyItemListView.getLabelId()) {
                 return frsGameStrategyItemListView;
             }
@@ -120,13 +120,13 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         return null;
     }
 
-    public FrsGameStrategyItemListView bqw() {
-        return this.fHZ;
+    public FrsGameStrategyItemListView bnB() {
+        return this.fHp;
     }
 
     public void onChangeSkinType(int i) {
         FrsGameStrategyItemListView[] frsGameStrategyItemListViewArr;
-        for (FrsGameStrategyItemListView frsGameStrategyItemListView : this.fHW) {
+        for (FrsGameStrategyItemListView frsGameStrategyItemListView : this.fHm) {
             if (frsGameStrategyItemListView != null) {
                 frsGameStrategyItemListView.onChangeSkinType(i);
             }
@@ -135,7 +135,7 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
 
     public void onDestory() {
         FrsGameStrategyItemListView[] frsGameStrategyItemListViewArr;
-        for (FrsGameStrategyItemListView frsGameStrategyItemListView : this.fHW) {
+        for (FrsGameStrategyItemListView frsGameStrategyItemListView : this.fHm) {
             if (frsGameStrategyItemListView != null) {
                 frsGameStrategyItemListView.onDestory();
             }

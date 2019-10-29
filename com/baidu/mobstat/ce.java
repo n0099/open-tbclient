@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import android.support.v4.view.PointerIconCompat;
 import com.baidu.mobstat.by;
 import com.baidu.mobstat.cd;
 import com.baidu.mobstat.cq;
@@ -299,7 +298,7 @@ public class ce extends cd {
         allocate.flip();
         crVar.a(allocate);
         if (a2 == cq.a.TEXT && !dc.b(crVar.c())) {
-            throw new ch(PointerIconCompat.TYPE_CROSSHAIR);
+            throw new ch(1007);
         }
         return crVar;
     }

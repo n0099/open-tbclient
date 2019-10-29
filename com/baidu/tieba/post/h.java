@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class h {
-    private com.baidu.tbadk.m.h dqr;
-    private d iDW;
-    BdTypeListView iEj;
+    private com.baidu.tbadk.m.h dxB;
+    BdTypeListView iCF;
+    private d iCs;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener gKT = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener gIR = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (com.baidu.adp.lib.util.j.jQ()) {
-                if (h.this.dqr != null) {
-                    h.this.dqr.dettachView(h.this.mRootView);
-                    h.this.dqr = null;
+            if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
+                if (h.this.dxB != null) {
+                    h.this.dxB.dettachView(h.this.mRootView);
+                    h.this.dxB = null;
                 }
-                if (h.this.iDW != null) {
-                    h.this.iDW.cgx();
+                if (h.this.iCs != null) {
+                    h.this.iCs.cdx();
                 }
             }
         }
     };
 
-    public BdTypeListView cgJ() {
-        return this.iEj;
+    public BdTypeListView cdJ() {
+        return this.iCF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.iEj = (BdTypeListView) view.findViewById(R.id.list);
+        this.iCF = (BdTypeListView) view.findViewById(R.id.list);
     }
 
-    public d cgK() {
-        return this.iDW;
+    public d cdK() {
+        return this.iCs;
     }
 
     public void b(d dVar) {
-        this.iDW = dVar;
+        this.iCs = dVar;
     }
 
-    public void an(String str, boolean z) {
-        f.a(this.dqr, this.gKT, this.mContext, this.mRootView, str, z);
-        this.iEj.setVisibility(8);
+    public void aj(String str, boolean z) {
+        f.a(this.dxB, this.gIR, this.mContext, this.mRootView, str, z);
+        this.iCF.setVisibility(8);
     }
 }

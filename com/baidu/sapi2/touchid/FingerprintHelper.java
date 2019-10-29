@@ -7,6 +7,7 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
 import android.view.View;
+import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.sapi2.utils.Log;
 /* loaded from: classes.dex */
 public class FingerprintHelper extends FingerprintManager.AuthenticationCallback {
@@ -109,7 +110,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
 
     private void a() {
         a((Activity) this.i, (Dialog) this.n);
-        this.n.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setNegativeBtn("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.1
+        this.n.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setNegativeBtn(PayHelper.STATUS_CANCEL_DESC, new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 FingerprintHelper.this.stopAuthenticate();
@@ -120,7 +121,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
 
     private void b() {
         a((Activity) this.i, (Dialog) this.n);
-        this.n.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setNegativeBtn("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.2
+        this.n.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setNegativeBtn(PayHelper.STATUS_CANCEL_DESC, new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 FingerprintHelper.this.stopAuthenticate();
@@ -131,7 +132,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
 
     private void c() {
         a((Activity) this.i, (Dialog) this.n);
-        this.n.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.4
+        this.n.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn(PayHelper.STATUS_CANCEL_DESC, new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 FingerprintHelper.this.stopAuthenticate();

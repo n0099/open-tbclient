@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
@@ -20,21 +21,21 @@ import com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView;
 import com.baidu.tieba.tbadkCore.LikeModel;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recommend.b.c> {
-    private LikeModel cer;
-    private RecommendForumItemView fcv;
-    private RecommendForumItemView fcw;
-    private TbPageContext mContext;
+    private TbPageContext cfl;
+    private LikeModel csF;
+    private RecommendForumItemView ffg;
+    private RecommendForumItemView ffh;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.mContext = tbPageContext;
+        this.cfl = tbPageContext;
         initUI();
-        this.fcv.setForumItemClickListener(new RecommendForumItemView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.b.1
+        this.ffg.setForumItemClickListener(new RecommendForumItemView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.b.1
             @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
             public void d(com.baidu.tieba.enterForum.recommend.b.b bVar) {
-                b.this.a(bVar, b.this.fcv);
+                b.this.a(bVar, b.this.ffg);
             }
 
             @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
@@ -42,10 +43,10 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
                 b.this.c(bVar);
             }
         });
-        this.fcw.setForumItemClickListener(new RecommendForumItemView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.b.2
+        this.ffh.setForumItemClickListener(new RecommendForumItemView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.b.2
             @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
             public void d(com.baidu.tieba.enterForum.recommend.b.b bVar) {
-                b.this.a(bVar, b.this.fcw);
+                b.this.a(bVar, b.this.ffh);
             }
 
             @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
@@ -57,35 +58,35 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     private void initUI() {
         View view = getView();
-        this.fcv = (RecommendForumItemView) view.findViewById(R.id.reommend_forum_one);
-        this.fcw = (RecommendForumItemView) view.findViewById(R.id.reommend_forum_two);
+        this.ffg = (RecommendForumItemView) view.findViewById(R.id.reommend_forum_one);
+        this.ffh = (RecommendForumItemView) view.findViewById(R.id.reommend_forum_two);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         this.mSkinType = i;
-        this.fcv.onChangeSkinType();
-        this.fcw.onChangeSkinType();
-        am.l(getView(), R.color.cp_bg_line_e);
+        this.ffg.onChangeSkinType();
+        this.ffh.onChangeSkinType();
+        am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.enterForum.recommend.b.c cVar) {
         if (cVar != null) {
-            onChangeSkinType(this.mContext, this.mSkinType);
-            if (cVar.fbm != null) {
-                this.fcv.setVisibility(0);
-                this.fcv.f(cVar.fbm);
+            onChangeSkinType(this.cfl, this.mSkinType);
+            if (cVar.fdX != null) {
+                this.ffg.setVisibility(0);
+                this.ffg.f(cVar.fdX);
             } else {
-                this.fcv.setVisibility(4);
+                this.ffg.setVisibility(4);
             }
-            if (cVar.fbn != null) {
-                this.fcw.setVisibility(0);
-                this.fcw.f(cVar.fbn);
+            if (cVar.fdY != null) {
+                this.ffh.setVisibility(0);
+                this.ffh.f(cVar.fdY);
                 return;
             }
-            this.fcw.setVisibility(4);
+            this.ffh.setVisibility(4);
         }
     }
 
@@ -101,44 +102,44 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
         super.onDestroy();
-        if (this.cer != null) {
-            this.cer.cpO();
+        if (this.csF != null) {
+            this.csF.cnF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.enterForum.recommend.b.b bVar, final RecommendForumItemView recommendForumItemView) {
-        if (!l.kt()) {
+        if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (bVar != null && !StringUtils.isNull(bVar.forumName) && bVar.forumId > 0) {
-            if (!bc.cF(getContext())) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
+            if (!bc.checkUpIsLogin(getContext())) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                 return;
             }
-            if (this.cer == null) {
-                this.cer = new LikeModel(this.mContext);
+            if (this.csF == null) {
+                this.csF = new LikeModel(this.cfl);
             }
-            this.cer.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.enterForum.recommend.view.b.3
+            this.csF.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.enterForum.recommend.view.b.3
                 @Override // com.baidu.adp.base.d
-                public void m(Object obj) {
-                    if (b.this.cer.getErrorCode() == 22) {
-                        l.showToast(b.this.mContext.getPageActivity(), b.this.mContext.getString(R.string.had_liked_forum));
+                public void callback(Object obj) {
+                    if (b.this.csF.getErrorCode() == 22) {
+                        l.showToast(b.this.cfl.getPageActivity(), b.this.cfl.getString(R.string.had_liked_forum));
                     } else if (obj != null) {
-                        if (b.this.cer.getErrorCode() != 0) {
-                            l.showToast(b.this.mContext.getPageActivity(), b.this.cer.getErrorString());
+                        if (b.this.csF.getErrorCode() != 0) {
+                            l.showToast(b.this.cfl.getPageActivity(), b.this.csF.getErrorString());
                             return;
                         }
-                        if (recommendForumItemView == b.this.fcv) {
-                            b.this.fcv.jw(true);
+                        if (recommendForumItemView == b.this.ffg) {
+                            b.this.ffg.jl(true);
                         } else {
-                            b.this.fcw.jw(true);
+                            b.this.ffh.jl(true);
                         }
-                        l.showToast(b.this.mContext.getPageActivity(), b.this.mContext.getString(R.string.attention_success));
+                        l.showToast(b.this.cfl.getPageActivity(), b.this.cfl.getString(R.string.attention_success));
                     }
                 }
             });
-            if (aq.bg(bVar.forumName)) {
-                this.cer.em(bVar.forumName, String.valueOf(bVar.forumId));
+            if (aq.isForumName(bVar.forumName)) {
+                this.csF.dY(bVar.forumName, String.valueOf(bVar.forumId));
             }
             a(bVar, "1");
         }
@@ -146,17 +147,17 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tieba.enterForum.recommend.b.b bVar) {
-        this.mContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mContext.getPageActivity()).createNormalCfg(bVar.forumName, FrsActivityConfig.FRS_FROM_TAB_RECOMMEND_FORUM).setCallFrom(11)));
+        this.cfl.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.cfl.getPageActivity()).createNormalCfg(bVar.forumName, FrsActivityConfig.FRS_FROM_TAB_RECOMMEND_FORUM).setCallFrom(11)));
         a(bVar, "2");
     }
 
     private void a(com.baidu.tieba.enterForum.recommend.b.b bVar, String str) {
         if (bVar != null) {
             an anVar = new an("c13375");
-            anVar.bT("obj_type", String.valueOf(bVar.fbk));
-            anVar.n("fid", bVar.forumId);
-            anVar.n("uid", TbadkCoreApplication.getCurrentAccountId());
-            anVar.bT("obj_locate", str);
+            anVar.bS("obj_type", String.valueOf(bVar.fdV));
+            anVar.p("fid", bVar.forumId);
+            anVar.p("uid", TbadkCoreApplication.getCurrentAccountId());
+            anVar.bS("obj_locate", str);
             TiebaStatic.log(anVar);
         }
     }

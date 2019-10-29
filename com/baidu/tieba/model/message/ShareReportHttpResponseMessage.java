@@ -1,6 +1,5 @@
 package com.baidu.tieba.model.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Share.ShareResIdl;
@@ -9,7 +8,7 @@ public class ShareReportHttpResponseMessage extends TbHttpResponsedMessage {
     private ShareResIdl idl;
 
     public ShareReportHttpResponseMessage() {
-        super(CmdConfigHttp.CMD_SHARE_REPORT);
+        super(1003363);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

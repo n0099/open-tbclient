@@ -3,8 +3,6 @@ package com.baidu.tieba.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.v;
@@ -15,51 +13,51 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<an>> jfU;
-    private String[] jfV = {"obj_floor", "obj_isad", VideoPlayActivityConfig.OBJ_ID, "tid", Info.kBaiduPIDKey, "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate"};
+    private Map<BdUniqueId, ArrayList<an>> jfL;
+    private String[] jfM = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.jfU == null) {
-            this.jfU = new LinkedHashMap();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void u(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null) {
-            this.jfU.put(bdUniqueId, null);
+        if (this.jfL == null) {
+            this.jfL = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.jfU.remove(bdUniqueId);
+            this.jfL.put(bdUniqueId, null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void w(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null) {
+            this.jfL.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, an anVar) {
         if (anVar != null && bdUniqueId != null) {
-            ArrayList<an> arrayList = this.jfU.get(bdUniqueId);
+            ArrayList<an> arrayList = this.jfL.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.jfU.put(bdUniqueId, arrayList);
+                this.jfL.put(bdUniqueId, arrayList);
             }
             arrayList.add(anVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean w(BdUniqueId bdUniqueId) {
-        return this.jfU.containsKey(bdUniqueId);
+    public boolean x(BdUniqueId bdUniqueId) {
+        return this.jfL.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cps() {
-        if (this.jfU.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<an>> entry : this.jfU.entrySet()) {
+    public void cnj() {
+        if (this.jfL.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<an>> entry : this.jfL.entrySet()) {
                 ArrayList<an> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -71,19 +69,19 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<an> arrayList = this.jfU.get(bdUniqueId);
-            if (v.Z(arrayList) != 0) {
-                aF(arrayList);
+            ArrayList<an> arrayList = this.jfL.get(bdUniqueId);
+            if (v.getCount(arrayList) != 0) {
+                aJ(arrayList);
                 arrayList.clear();
             }
         }
     }
 
-    private void aF(ArrayList<an> arrayList) {
-        if (arrayList != null && v.Z(arrayList) != 0) {
+    private void aJ(ArrayList<an> arrayList) {
+        if (arrayList != null && v.getCount(arrayList) != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (v.Z(arrayList) == 1) {
-                TiebaStatic.log((an) v.c(arrayList, 0));
+            if (v.getCount(arrayList) == 1) {
+                TiebaStatic.log((an) v.getItem(arrayList, 0));
             } else {
                 HashMap hashMap = new HashMap();
                 for (int i = 0; i < arrayList.size(); i++) {
@@ -98,19 +96,19 @@ public class b {
                 }
                 for (Map.Entry entry : hashMap.entrySet()) {
                     List list = (List) entry.getValue();
-                    if (v.Z(list) != 0) {
+                    if (v.getCount(list) != 0) {
                         an anVar2 = (an) list.get(0);
-                        for (int i2 = 0; i2 < this.jfV.length; i2++) {
+                        for (int i2 = 0; i2 < this.jfM.length; i2++) {
                             StringBuilder sb = new StringBuilder();
                             for (int i3 = 0; i3 < list.size(); i3++) {
-                                sb.append(m(((an) list.get(i3)).getParams(), this.jfV[i2]));
+                                sb.append(k(((an) list.get(i3)).getParams(), this.jfM[i2]));
                                 sb.append("|");
                             }
                             if (sb.length() > 0) {
                                 sb.deleteCharAt(sb.length() - 1);
                             }
-                            anVar2.nX(this.jfV[i2]);
-                            anVar2.bT(this.jfV[i2] + "s", sb.toString());
+                            anVar2.delete(this.jfM[i2]);
+                            anVar2.bS(this.jfM[i2] + "s", sb.toString());
                         }
                         TiebaStatic.log(anVar2);
                     }
@@ -125,9 +123,9 @@ public class b {
         }
     }
 
-    private String m(List<Object> list, String str) {
+    private String k(List<Object> list, String str) {
         int indexOf;
-        if (v.Z(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
+        if (v.getCount(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
             String valueOf = String.valueOf(list.get(indexOf + 1));
             return StringUtils.isNull(valueOf, true) ? "" : valueOf;
         }

@@ -1,131 +1,132 @@
 package com.baidu.tieba.setting.im.more;
 
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class a {
-    private int crL;
-    private int crO;
-    private int iSL;
-    private int iSM;
-    private boolean iSN;
-    private int iSO;
-    private SimpleUser iSP;
-    private int iSQ;
+    private int cDV;
+    private int cDY;
+    private SimpleUser iSA;
+    private int iSB;
+    private int iSw;
+    private int iSx;
+    private boolean iSy;
+    private int iSz;
 
-    public boolean ckr() {
-        com.baidu.tbadk.core.sharedPref.b ahU = com.baidu.tbadk.core.sharedPref.b.ahU();
+    public boolean cid() {
+        com.baidu.tbadk.core.sharedPref.b alR = com.baidu.tbadk.core.sharedPref.b.alR();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.iSL = ahU.getInt("post" + currentAccount, 0);
-        this.iSM = ahU.getInt("like" + currentAccount, 0);
-        this.crL = ahU.getInt("group" + currentAccount, 0);
-        this.crO = ahU.getInt("live" + currentAccount, 0);
-        this.iSO = ahU.getInt("reply" + currentAccount, 1);
-        this.iSN = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.iSL == 0 && this.iSM == 0 && this.crL == 0 && this.crO == 0 && this.iSO == 1) ? false : true;
+        this.iSw = alR.getInt("post" + currentAccount, 0);
+        this.iSx = alR.getInt("like" + currentAccount, 0);
+        this.cDV = alR.getInt(TbEnum.ParamKey.GROUP + currentAccount, 0);
+        this.cDY = alR.getInt("live" + currentAccount, 0);
+        this.iSz = alR.getInt("reply" + currentAccount, 1);
+        this.iSy = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.iSw == 0 && this.iSx == 0 && this.cDV == 0 && this.cDY == 0 && this.iSz == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.iSL = aVar.iSL;
-            this.iSM = aVar.iSM;
-            this.crL = aVar.crL;
-            this.iSN = aVar.iSN;
-            this.crO = aVar.crO;
-            this.iSQ = aVar.iSQ;
-            this.iSO = aVar.iSO;
+            this.iSw = aVar.iSw;
+            this.iSx = aVar.iSx;
+            this.cDV = aVar.cDV;
+            this.iSy = aVar.iSy;
+            this.cDY = aVar.cDY;
+            this.iSB = aVar.iSB;
+            this.iSz = aVar.iSz;
         }
     }
 
-    public int cks() {
-        return this.iSL;
+    public int cie() {
+        return this.iSw;
     }
 
-    public void bm(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.ahU().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
+    public void bh(String str, int i) {
+        com.baidu.tbadk.core.sharedPref.b.alR().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void ckt() {
+    public void cif() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        com.baidu.tbadk.core.sharedPref.b ahU = com.baidu.tbadk.core.sharedPref.b.ahU();
-        ahU.putInt("post" + currentAccount, this.iSL);
-        ahU.putInt("like" + currentAccount, this.iSM);
-        ahU.putInt("group" + currentAccount, this.crL);
-        ahU.putInt("live" + currentAccount, this.crO);
-        ahU.putInt("reply" + currentAccount, this.iSO);
-        TbadkCoreApplication.getInst().setLocationShared(this.iSN);
+        com.baidu.tbadk.core.sharedPref.b alR = com.baidu.tbadk.core.sharedPref.b.alR();
+        alR.putInt("post" + currentAccount, this.iSw);
+        alR.putInt("like" + currentAccount, this.iSx);
+        alR.putInt(TbEnum.ParamKey.GROUP + currentAccount, this.cDV);
+        alR.putInt("live" + currentAccount, this.cDY);
+        alR.putInt("reply" + currentAccount, this.iSz);
+        TbadkCoreApplication.getInst().setLocationShared(this.iSy);
     }
 
-    public void Ac(int i) {
-        this.iSL = i;
+    public void yK(int i) {
+        this.iSw = i;
     }
 
-    public int cku() {
-        return this.iSM;
+    public int cig() {
+        return this.iSx;
     }
 
-    public void Ad(int i) {
+    public void yL(int i) {
         if (i <= 3 && i >= 1) {
-            this.iSM = i;
+            this.iSx = i;
         }
     }
 
-    public int arL() {
-        return this.crO;
+    public int atz() {
+        return this.cDY;
     }
 
-    public void Ae(int i) {
+    public void yM(int i) {
         if (i <= 3 && i >= 1) {
-            this.crO = i;
+            this.cDY = i;
         }
     }
 
-    public int ckv() {
-        return this.crL;
+    public int cih() {
+        return this.cDV;
     }
 
-    public void Af(int i) {
+    public void yN(int i) {
         if (i <= 3 && i >= 1) {
-            this.crL = i;
+            this.cDV = i;
         }
     }
 
-    public boolean ckw() {
-        return this.iSN;
+    public boolean cii() {
+        return this.iSy;
     }
 
-    public void Ag(int i) {
+    public void yO(int i) {
         switch (i) {
             case 1:
-                this.iSN = true;
+                this.iSy = true;
                 return;
             default:
-                this.iSN = false;
+                this.iSy = false;
                 return;
         }
     }
 
-    public SimpleUser aDn() {
-        return this.iSP;
+    public SimpleUser aDw() {
+        return this.iSA;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.iSP = simpleUser;
+        this.iSA = simpleUser;
     }
 
-    public void Ah(int i) {
-        this.iSQ = i;
+    public void yP(int i) {
+        this.iSB = i;
     }
 
-    public void Ai(int i) {
+    public void yQ(int i) {
         if (i == 0) {
-            this.iSO = 1;
+            this.iSz = 1;
         } else {
-            this.iSO = i;
+            this.iSz = i;
         }
     }
 
-    public int ckx() {
-        return this.iSO;
+    public int cij() {
+        return this.iSz;
     }
 }

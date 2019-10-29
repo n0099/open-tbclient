@@ -6,39 +6,39 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class l {
-    private static String kat;
-    private static String kau;
-    private final LinkedHashMap<String, Long> kav = new LinkedHashMap<>();
+    private static String jYt;
+    private static String jYu;
+    private final LinkedHashMap<String, Long> jYv = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void HE(String str) {
+    public final void FV(String str) {
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.kav) {
-                this.kav.put(str, Long.valueOf(System.currentTimeMillis()));
-                kat = str;
-                kau = String.valueOf(System.currentTimeMillis());
+            synchronized (this.jYv) {
+                this.jYv.put(str, Long.valueOf(System.currentTimeMillis()));
+                jYt = str;
+                jYu = String.valueOf(System.currentTimeMillis());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void HF(String str) {
+    public final void FW(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.kav) {
-                Long remove = this.kav.remove(str);
+            synchronized (this.jYv) {
+                Long remove = this.jYv.remove(str);
                 if (remove != null) {
                     try {
                         lVar.setStartTime(String.valueOf(remove));
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
-                        dVar = d.a.kai;
-                        lVar.setPath(dVar.cEA());
-                        lVar.x(m.cEK().I());
+                        dVar = d.a.jYh;
+                        lVar.setPath(dVar.cBl());
+                        lVar.x(m.cBv().I());
                     } catch (Exception e) {
-                        com.baidu.ubs.analytics.d.j.HV(e.toString());
-                        com.baidu.ubs.analytics.d.b.HO(e.toString());
+                        com.baidu.ubs.analytics.d.j.Gm(e.toString());
+                        com.baidu.ubs.analytics.d.b.Gf(e.toString());
                     }
                     com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.l.1
                         @Override // com.baidu.ubs.analytics.d.d

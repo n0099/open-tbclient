@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
@@ -40,8 +41,8 @@ public class MainSharedPrefProvider extends ContentProvider {
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
-                if (nb(lastPathSegment)) {
-                    bL(lastPathSegment, asString);
+                if (ny(lastPathSegment)) {
+                    bP(lastPathSegment, asString);
                     return null;
                 }
                 return null;
@@ -59,8 +60,8 @@ public class MainSharedPrefProvider extends ContentProvider {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.remove(lastPathSegment);
             edit.commit();
-            if (nb(lastPathSegment)) {
-                bL(lastPathSegment, null);
+            if (ny(lastPathSegment)) {
+                bP(lastPathSegment, null);
                 return 0;
             }
             return 0;
@@ -73,21 +74,21 @@ public class MainSharedPrefProvider extends ContentProvider {
         return 0;
     }
 
-    private void bL(String str, String str2) {
+    private void bP(String str, String str2) {
         Intent intent = new Intent();
         intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
-        intent.putExtra("intent_key", str);
-        intent.putExtra("intent_value", str2);
+        intent.putExtra(SharedPrefConfig.INTENT_KEY, str);
+        intent.putExtra(SharedPrefConfig.INTENT_VALUE, str2);
         TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
     }
 
-    private boolean nb(String str) {
+    private boolean ny(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.bQT.length;
+        int length = a.BROADCAST_KEYS.length;
         for (int i = 0; i < length; i++) {
-            if (a.bQT[i].equals(str)) {
+            if (a.BROADCAST_KEYS[i].equals(str)) {
                 return true;
             }
         }

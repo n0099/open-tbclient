@@ -22,7 +22,7 @@ public class c implements ISchemeIoc {
 
     @Override // com.baidu.searchbox.unitedscheme.ioc.ISchemeIoc
     public String getSchemeHead() {
-        return com.baidu.swan.apps.u.a.EA().wP();
+        return com.baidu.swan.apps.u.a.Ju().BJ();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.ioc.ISchemeIoc

@@ -7,13 +7,10 @@ import android.webkit.CookieManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.appsearchlib.Info;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Map;
 import org.apache.http.cookie.SM;
@@ -23,24 +20,24 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AfdSyncRequestMessage extends HttpMessage {
     private static String _ANDROID_ID = "";
-    private static final TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC, "http://afd.baidu.com/afd/entry");
+    private static final TbHttpMessageTask task = new TbHttpMessageTask(1003397, "http://afd.baidu.com/afd/entry");
 
     public AfdSyncRequestMessage(g gVar) {
-        super(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
+        super(1003397);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
-        addParam(Info.kBaiduPIDKey, "1517888290046");
+        addParam("pid", "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.pd());
+        addParam("ft", gVar.jY());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.pf()));
-        addParam("fc", String.valueOf(gVar.pf()));
+        addParam("flr", String.valueOf(gVar.ka()));
+        addParam("fc", String.valueOf(gVar.ka()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.pg().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.kb().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();
@@ -49,7 +46,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
     private void addCommonParams() {
         addParam("mod", Build.MODEL);
         addParam("ver", TbConfig.getVersion());
-        addParam(DpStatConstants.KEY_CUID, TbadkCoreApplication.getInst().getCuid());
+        addParam("cuid", TbadkCoreApplication.getInst().getCuid());
         addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         addParam("ov", Build.VERSION.RELEASE);
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
@@ -66,7 +63,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
     private static JSONObject create(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.APP_KEY, str);
+            jSONObject.put("k", str);
             jSONObject.put("v", str2);
             return jSONObject;
         } catch (JSONException e) {

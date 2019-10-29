@@ -8,6 +8,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tieba.tbadkCore.e.b;
@@ -15,12 +16,12 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     private int forumId;
-    private final String jgc = "signSuccess";
+    private final String jfT = "signSuccess";
     private final String INTERFACE_NAME = "SupplementSignInterface";
-    private int jgd = 0;
-    private int jge = 0;
-    private int jgf = 0;
-    private CustomMessageListener jgg = new CustomMessageListener(2001194) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
+    private int jfU = 0;
+    private int jfV = 0;
+    private int jfW = 0;
+    private CustomMessageListener jfX = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,9 +45,9 @@ public class SupplementSignActivity extends TbWebViewActivity {
                     if (!StringUtils.isNull(str3)) {
                         try {
                             JSONObject jSONObject = new JSONObject(str3);
-                            SupplementSignActivity.this.jgd = jSONObject.optInt("all");
-                            SupplementSignActivity.this.jge += jSONObject.optInt("signed", 0);
-                            SupplementSignActivity.this.jgf = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.jgf;
+                            SupplementSignActivity.this.jfU = jSONObject.optInt("all");
+                            SupplementSignActivity.this.jfV += jSONObject.optInt("signed", 0);
+                            SupplementSignActivity.this.jfW = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.jfW;
                         } catch (Throwable th) {
                             BdLog.e(th);
                         }
@@ -57,23 +58,23 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 return false;
             }
         });
-        this.mView.dB(false);
-        MessageManager.getInstance().registerListener(this.jgg);
+        this.mView.dS(false);
+        MessageManager.getInstance().registerListener(this.jfX);
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mView.abx();
+        this.mView.agd();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
         intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.jgd);
-        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.jge);
-        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.jgf);
+        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.jfU);
+        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.jfV);
+        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.jfW);
         super.finish(-1, intent);
     }
 
@@ -85,6 +86,6 @@ public class SupplementSignActivity extends TbWebViewActivity {
             this.mWebView.destroy();
             this.mWebView = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.jgg);
+        MessageManager.getInstance().unRegisterListener(this.jfX);
     }
 }

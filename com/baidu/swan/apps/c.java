@@ -1,6 +1,7 @@
 package com.baidu.swan.apps;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.swan.apps.an.ac;
 import com.xiaomi.mipush.sdk.Constants;
@@ -10,20 +11,20 @@ public final class c {
         return "2.3.0";
     }
 
-    public static String wa() {
+    public static String AU() {
         StringBuilder sb = new StringBuilder();
-        String hostName = com.baidu.swan.apps.u.a.EA().getHostName();
-        sb.append("swan").append("/").append("2.3.0").append(" ").append("swan").append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(hostName).append("/").append(ac.getVersionName()).append(" ").append(wb());
-        return dd(sb.toString());
+        String hostName = com.baidu.swan.apps.u.a.Ju().getHostName();
+        sb.append("swan").append("/").append("2.3.0").append(HanziToPinyin.Token.SEPARATOR).append("swan").append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(hostName).append("/").append(ac.getVersionName()).append(HanziToPinyin.Token.SEPARATOR).append(AV());
+        return dN(sb.toString());
     }
 
-    private static String wb() {
+    private static String AV() {
         return String.format("(%s; P1 %s)", "Baidu", com.baidu.swan.apps.al.b.getOSVersion());
     }
 
-    private static String dd(String str) {
-        if (TextUtils.equals(com.baidu.swan.apps.u.a.EA().getHostName(), SchemeConfig.DEFAULT_SCHEME_HEAD)) {
-            return str + " " + String.format("%s/%s", SchemeConfig.DEFAULT_SCHEME_HEAD, com.baidu.swan.apps.al.b.getVersionName());
+    private static String dN(String str) {
+        if (TextUtils.equals(com.baidu.swan.apps.u.a.Ju().getHostName(), SchemeConfig.DEFAULT_SCHEME_HEAD)) {
+            return str + HanziToPinyin.Token.SEPARATOR + String.format("%s/%s", SchemeConfig.DEFAULT_SCHEME_HEAD, com.baidu.swan.apps.al.b.getVersionName());
         }
         return str;
     }

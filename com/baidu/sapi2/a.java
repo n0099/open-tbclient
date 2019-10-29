@@ -7,9 +7,12 @@ import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.mobstat.Config;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.sapi2.callback.FillUsernameCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
@@ -48,12 +51,8 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.tencent.connect.common.Constants;
-import com.tencent.open.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -180,7 +179,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2, String str3, String str4, final boolean z, final SapiDataEncryptor sapiDataEncryptor) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException, CertificateException, JSONException {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put("crypttype", Constants.VIA_SHARE_TYPE_INFO);
+        httpHashMapWrap.put("crypttype", "6");
         String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.LOGIN_URI);
         if (!TextUtils.isEmpty(deviceInfo)) {
             httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
@@ -188,14 +187,14 @@ public final class a {
         httpHashMapWrap.put("cert_id", str2);
         httpHashMapWrap.put("isdpass", "1");
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(LoginActivity.EXTRA_PARAM_USERNAME, str3);
+        jSONObject.put("username", str3);
         jSONObject.put("isphone", "1");
         jSONObject.put("password", str4);
-        jSONObject.put("login_type", "3");
-        jSONObject.put("key", sapiDataEncryptor.getAESKey());
+        jSONObject.put(Constants.KEY_LOGIN_TYPE, "3");
+        jSONObject.put(TiebaInitialize.Params.KEY, sapiDataEncryptor.getAESKey());
         jSONObject.put(SapiContext.KEY_SDK_VERSION, "2");
         jSONObject.put("pinfo", SapiDeviceUtils.getBrandName());
-        httpHashMapWrap.put("userinfo", sapiDataEncryptor.encrypt(str, jSONObject.toString()));
+        httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt(str, jSONObject.toString()));
         new HttpClientWrap().post(SapiEnv.LOGIN_URI, httpHashMapWrap, null, u(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.11
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onSuccess(int i, String str5) {
@@ -219,12 +218,12 @@ public final class a {
         if (str != null) {
             SapiAccountResponse sapiAccountResponse = new SapiAccountResponse();
             try {
-                String optString = new JSONObject(str).optString("userinfo");
+                String optString = new JSONObject(str).optString(TableDefine.DB_TABLE_USERINFO);
                 JSONObject jSONObject = null;
                 if (!TextUtils.isEmpty(optString)) {
                     jSONObject = new JSONObject(sapiDataEncryptor.decrypt(optString));
                     sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-                    sapiAccountResponse.username = jSONObject.optString("uname");
+                    sapiAccountResponse.username = jSONObject.optString(BdStatsConstant.StatsKey.UNAME);
                     sapiAccountResponse.uid = jSONObject.optString("uid");
                     sapiAccountResponse.email = jSONObject.optString(NotificationCompat.CATEGORY_EMAIL);
                     sapiAccountResponse.bduss = jSONObject.optString("bduss");
@@ -238,7 +237,7 @@ public final class a {
                             if (z) {
                                 SapiAccount a2 = a(sapiAccountResponse);
                                 a2.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject).tplStokenMap);
-                                a2.putExtra("tpl", this.c.tpl);
+                                a2.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.c.tpl);
                                 com.baidu.sapi2.share.a.a().a(a2);
                             }
                             sapiCallBack.onSuccess(sapiAccountResponse);
@@ -302,12 +301,12 @@ public final class a {
                             JSONObject jSONObject = new JSONObject(str2);
                             getUserInfoResult.portraitSign = jSONObject.optString("portrait_tag");
                             getUserInfoResult.isInitialPortrait = "0".equals(getUserInfoResult.portraitSign);
-                            String optString = jSONObject.optString(IntentConfig.PORTRAIT);
+                            String optString = jSONObject.optString("portrait");
                             if (!TextUtils.isEmpty(optString)) {
                                 getUserInfoResult.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
                                 getUserInfoResult.portraitHttps = String.format("https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
                             }
-                            getUserInfoResult.username = jSONObject.optString(LoginActivity.EXTRA_PARAM_USERNAME);
+                            getUserInfoResult.username = jSONObject.optString("username");
                             getUserInfoResult.uid = jSONObject.optString("userid");
                             getUserInfoResult.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                             getUserInfoResult.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
@@ -359,9 +358,9 @@ public final class a {
             if (!TextUtils.isEmpty(this.c.clientIp)) {
                 jSONObject.put("clientip", this.c.clientIp);
             }
-            jSONObject.put(LoginActivity.EXTRA_PARAM_USERNAME, str2);
-            jSONObject.put("key", sapiDataEncryptor.getAESKey());
-            httpHashMapWrap.put("userinfo", sapiDataEncryptor.encrypt(SapiDataEncryptor.Cert1.CERT, jSONObject.toString()));
+            jSONObject.put("username", str2);
+            jSONObject.put(TiebaInitialize.Params.KEY, sapiDataEncryptor.getAESKey());
+            httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt(SapiDataEncryptor.Cert1.CERT, jSONObject.toString()));
             new HttpClientWrap().post(SapiEnv.FILL_UNAME, httpHashMapWrap, null, u(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.13
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
@@ -383,7 +382,7 @@ public final class a {
                     try {
                         JSONObject jSONObject2 = new JSONObject(str3);
                         fillUsernameResult.setResultMsg(jSONObject2.optString("errmsg"));
-                        JSONObject jSONObject3 = new JSONObject(sapiDataEncryptor.decrypt(jSONObject2.optString("userinfo")));
+                        JSONObject jSONObject3 = new JSONObject(sapiDataEncryptor.decrypt(jSONObject2.optString(TableDefine.DB_TABLE_USERINFO)));
                         switch (b2) {
                             case 0:
                             case 110000:
@@ -392,11 +391,11 @@ public final class a {
                                 sapiAccount.ptoken = jSONObject3.optString("ptoken");
                                 sapiAccount.stoken = jSONObject3.optString("stoken");
                                 sapiAccount.displayname = jSONObject3.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-                                sapiAccount.username = jSONObject3.optString("uname");
+                                sapiAccount.username = jSONObject3.optString(BdStatsConstant.StatsKey.UNAME);
                                 sapiAccount.uid = jSONObject3.optString("uid");
                                 sapiAccount.app = SapiUtils.getAppName(a.this.c.context);
                                 sapiAccount.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject3).tplStokenMap);
-                                sapiAccount.putExtra("tpl", a.this.c.tpl);
+                                sapiAccount.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, a.this.c.tpl);
                                 com.baidu.sapi2.share.a.a().a(sapiAccount);
                                 fillUsernameResult.session = sapiAccount;
                                 fillUsernameCallback.onSuccess(fillUsernameResult);
@@ -503,7 +502,7 @@ public final class a {
                 }
                 if (!getTplStokenResult.tplStokenMap.isEmpty()) {
                     getTplStokenResult.setResultCode(0);
-                    getTplStokenResult.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
+                    getTplStokenResult.setResultMsg("成功");
                     getTplStokenCallback.onSuccess(getTplStokenResult);
                     return getTplStokenResult.tplStokenMap;
                 }
@@ -705,7 +704,7 @@ public final class a {
             return false;
         } else {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put(LoginActivity.EXTRA_PARAM_USERNAME, str);
+            httpHashMapWrap.put("username", str);
             new HttpClientWrap().post(SapiEnv.GET_DYNAMIC_PWD_URI, httpHashMapWrap, null, u(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.16
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                 public void onSuccess(int i, String str2) {
@@ -847,8 +846,8 @@ public final class a {
         a2.put("osuid", iqiyiLoginDTO.openID);
         a2.put("json", "1");
         a2.put("type", SocialType.IQIYI.getType() + "");
-        a2.put(SocialConstants.PARAM_ACT, "special");
-        a2.put("display", "native");
+        a2.put("act", "special");
+        a2.put(LogConfig.KEY_DISPLAY, "native");
         new HttpClientWrap().get(p(), a2, null, u(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.2
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
@@ -879,10 +878,10 @@ public final class a {
                     } else {
                         SapiAccount a3 = a.this.a(b2);
                         a3.addSocialInfo(b2.socialType, b2.socialPortraitUrl);
-                        a3.putExtra(GiftTabActivityConfig.ACCOUNT_TYPE, Integer.valueOf(b2.accountType.getType()));
+                        a3.putExtra("account_type", Integer.valueOf(b2.accountType.getType()));
                         a3.addDispersionCertification(b2.tplStokenMap);
                         a3.addIsGuestAccount(b2.isGuestAccount);
-                        a3.putExtra("tpl", a.this.c.tpl);
+                        a3.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, a.this.c.tpl);
                         com.baidu.sapi2.share.a.a().a(a3);
                         iqiyiLoginCallback.onSuccess(iqiyiLoginResult);
                         return;
@@ -1141,7 +1140,7 @@ public final class a {
                         aVar2.setResultCode(parseInt);
                         aVar2.setResultMsg(jSONObject.optString("errmsg"));
                         if (parseInt == 0) {
-                            aVar2.a = jSONObject.optInt(Config.PUSH, 0) == 1;
+                            aVar2.a = jSONObject.optInt("push", 0) == 1;
                             aVar2.b = jSONObject.optString("url");
                             aVar2.c = jSONObject.optString("title");
                             aVar2.d = jSONObject.optString("msg");
@@ -1246,7 +1245,7 @@ public final class a {
         sapiAccount.uid = jSONObject.optString("uid");
         sapiAccount.bduss = jSONObject.optString("bduss");
         sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-        sapiAccount.username = jSONObject.optString("uname");
+        sapiAccount.username = jSONObject.optString(BdStatsConstant.StatsKey.UNAME);
         sapiAccount.stoken = jSONObject.optString("stoken");
         sapiAccount.ptoken = jSONObject.optString("ptoken");
         sapiAccount.extra = jSONObject.toString();

@@ -2,7 +2,6 @@ package com.xiaomi.push.service.awake.module;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -49,7 +48,7 @@ public final class c {
 
     public void a(Context context, String str, int i, String str2, String str3) {
         if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            com.xiaomi.push.service.awake.b.a(context, "" + str, PointerIconCompat.TYPE_TEXT, "A receive a incorrect message");
+            com.xiaomi.push.service.awake.b.a(context, "" + str, 1008, "A receive a incorrect message");
             return;
         }
         a(i);
@@ -60,7 +59,7 @@ public final class c {
         if (eVar != null) {
             this.c.get(eVar).a(context, intent, str);
         } else {
-            com.xiaomi.push.service.awake.b.a(context, "null", PointerIconCompat.TYPE_TEXT, "A receive a incorrect message with empty type");
+            com.xiaomi.push.service.awake.b.a(context, "null", 1008, "A receive a incorrect message with empty type");
         }
     }
 

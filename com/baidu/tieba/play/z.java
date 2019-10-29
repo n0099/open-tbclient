@@ -1,23 +1,22 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class z {
-    public String bHq;
-    public String bXN;
-    public String eHk;
-    public String eHo;
-    public String iAD;
-    public String iAE;
-    public String iAF;
-    public String iAG;
-    public String iAH;
-    public String iAI;
-    public String iAJ;
-    public String iAK;
+    public String bZb;
+    public String cmS;
+    public String din;
+    public String ePT;
+    public String iza;
+    public String izb;
+    public String izc;
+    public String izd;
+    public String ize;
+    public String izf;
+    public String izg;
+    public String izh;
     public String mFloor;
     public String mLocate;
     public String mSource;
@@ -27,79 +26,79 @@ public class z {
     public an d(an anVar) {
         if (anVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                anVar.bT("obj_locate", this.mLocate);
+                anVar.bS("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.bXN)) {
-                anVar.bT("tid", this.bXN);
+            if (!StringUtils.isNull(this.cmS)) {
+                anVar.bS("tid", this.cmS);
             }
-            if (!StringUtils.isNull(this.eHo)) {
-                anVar.bT("fid", this.eHo);
+            if (!StringUtils.isNull(this.ePT)) {
+                anVar.bS("fid", this.ePT);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                anVar.bT("uid", this.mUid);
+                anVar.bS("uid", this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
+                anVar.bS("obj_source", this.mSource);
             } else {
-                anVar.P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 0);
+                anVar.O("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.iAD)) {
-                anVar.bT("obj_param1", this.iAD);
+            if (!StringUtils.isNull(this.iza)) {
+                anVar.bS("obj_param1", this.iza);
             } else {
-                anVar.P("obj_param1", 0);
+                anVar.O("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.iAE)) {
-                anVar.bT("obj_param2", this.iAE);
+            if (!StringUtils.isNull(this.izb)) {
+                anVar.bS(TiebaInitialize.Params.OBJ_PARAM2, this.izb);
             }
-            if (!StringUtils.isNull(this.iAF)) {
-                anVar.bT("obj_param3", this.iAF);
+            if (!StringUtils.isNull(this.izc)) {
+                anVar.bS(TiebaInitialize.Params.OBJ_PARAM3, this.izc);
             }
-            if (!StringUtils.isNull(this.bHq)) {
-                anVar.bT(VideoPlayActivityConfig.OBJ_ID, this.bHq);
+            if (!StringUtils.isNull(this.bZb)) {
+                anVar.bS("obj_id", this.bZb);
             }
-            if (!StringUtils.isNull(this.iAG)) {
-                anVar.bT("ab_tag", this.iAG);
+            if (!StringUtils.isNull(this.izd)) {
+                anVar.bS(TiebaInitialize.Params.AB_TAG, this.izd);
             } else {
-                anVar.P("ab_tag", 0);
+                anVar.O(TiebaInitialize.Params.AB_TAG, 0);
             }
-            if (!StringUtils.isNull(this.iAI)) {
-                anVar.bT("topic_type", this.iAI);
+            if (!StringUtils.isNull(this.izf)) {
+                anVar.bS("topic_type", this.izf);
             }
-            if (!StringUtils.isNull(this.eHk)) {
-                anVar.bT("extra", this.eHk);
+            if (!StringUtils.isNull(this.din)) {
+                anVar.bS("extra", this.din);
             } else {
-                anVar.P("extra", 0);
+                anVar.O("extra", 0);
             }
-            if (!StringUtils.isNull(this.iAJ)) {
-                anVar.bT("is_vertical", this.iAJ);
+            if (!StringUtils.isNull(this.izg)) {
+                anVar.bS("is_vertical", this.izg);
             }
             if (!StringUtils.isNull(this.mFloor)) {
-                anVar.bT("obj_floor", this.mFloor);
+                anVar.bS("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.iAK)) {
-                anVar.bT("resource_id", this.iAK);
+            if (!StringUtils.isNull(this.izh)) {
+                anVar.bS("resource_id", this.izh);
             }
         }
         return anVar;
     }
 
-    public z cfT() {
+    public z ccU() {
         z zVar = new z();
         zVar.mLocate = this.mLocate;
         zVar.mType = this.mType;
-        zVar.bXN = this.bXN;
-        zVar.eHo = this.eHo;
+        zVar.cmS = this.cmS;
+        zVar.ePT = this.ePT;
         zVar.mUid = this.mUid;
         zVar.mSource = this.mSource;
-        zVar.iAD = this.iAD;
-        zVar.iAE = this.iAE;
-        zVar.iAF = this.iAF;
-        zVar.bHq = this.bHq;
-        zVar.iAG = this.iAG;
-        zVar.iAH = this.iAH;
-        zVar.iAI = this.iAI;
+        zVar.iza = this.iza;
+        zVar.izb = this.izb;
+        zVar.izc = this.izc;
+        zVar.bZb = this.bZb;
+        zVar.izd = this.izd;
+        zVar.ize = this.ize;
+        zVar.izf = this.izf;
         zVar.mFloor = this.mFloor;
-        zVar.iAK = this.iAK;
+        zVar.izh = this.izh;
         return zVar;
     }
 }

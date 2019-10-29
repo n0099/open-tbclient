@@ -2,6 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -85,7 +86,7 @@ public class w {
             aiVar.a("permission_to_location", com.xiaomi.push.service.ba.b);
         }
         az.a(this.c).a((az) aiVar, com.xiaomi.xmpush.thrift.a.Notification, true, (com.xiaomi.xmpush.thrift.u) null);
-        com.xiaomi.channel.commonutils.logger.b.c("GeoFenceRegMessageProcessor. report geo_fencing id:" + mVar.a() + " " + (z ? "geo_reg" : "geo_unreg") + "  isUnauthorized:" + z2);
+        com.xiaomi.channel.commonutils.logger.b.c("GeoFenceRegMessageProcessor. report geo_fencing id:" + mVar.a() + HanziToPinyin.Token.SEPARATOR + (z ? "geo_reg" : "geo_unreg") + "  isUnauthorized:" + z2);
     }
 
     public static boolean a(Map<String, String> map) {

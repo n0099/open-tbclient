@@ -14,9 +14,9 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.b {
-    private SelectorTextView asP;
-    private a asQ;
-    private TextView mContentView;
+    private TextView aMf;
+    private SelectorTextView aMg;
+    private a aMh;
     private View mView;
 
     protected c(Context context) {
@@ -24,98 +24,98 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
     }
 
     public void a(a aVar) {
-        this.asQ = aVar;
+        this.aMh = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
-    protected View f(ViewGroup viewGroup) {
+    protected View i(ViewGroup viewGroup) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
-        this.mContentView = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
-        this.mContentView.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.asP = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.asP.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        Ba();
+        this.aMf = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
+        this.aMf.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
+        this.aMg = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.aMg.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        FV();
         return this.mView;
     }
 
-    private void Ba() {
-        if (this.asQ == null) {
+    private void FV() {
+        if (this.aMh == null) {
             return;
         }
-        this.mContentView.setText(this.mContext.getText(this.asQ.akm));
-        this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
+        this.aMf.setText(this.mContext.getText(this.aMh.aDI));
+        this.aMf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.asQ.asV != null) {
-                    c.this.asQ.asV.W(view);
+                if (c.this.aMh.aMm != null) {
+                    c.this.aMh.aMm.ac(view);
                 }
             }
         });
-        if (this.asQ.asS > 0) {
-            this.asP.setVisibility(0);
-            this.asP.setText(this.mContext.getText(this.asQ.asS));
-            this.asP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
+        if (this.aMh.aMj > 0) {
+            this.aMg.setVisibility(0);
+            this.aMg.setText(this.mContext.getText(this.aMh.aMj));
+            this.aMg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.asQ.asU != null) {
-                        c.this.asQ.asU.W(view);
+                    if (c.this.aMh.aMl != null) {
+                        c.this.aMh.aMl.ac(view);
                     }
                 }
             });
         } else {
-            this.asP.setVisibility(8);
+            this.aMg.setVisibility(8);
         }
-        if (this.asQ.asT <= 0) {
+        if (this.aMh.aMk <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.asQ.asT);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.aMh.aMk);
         s.a(getContext(), drawable);
         drawable.setBounds(0, 0, z.dip2px(this.mContext, 12.0f), z.dip2px(this.mContext, 12.0f));
-        this.asP.setCompoundDrawables(drawable, null, null, null);
+        this.aMg.setCompoundDrawables(drawable, null, null, null);
     }
 
     /* loaded from: classes2.dex */
-    public static class a extends b.C0180b {
-        private int akm;
-        private int asS;
-        private int asT;
-        public b.c asU;
-        public b.c asV;
+    public static class a extends b.C0212b {
+        private int aDI;
+        private int aMj;
+        private int aMk;
+        public b.c aMl;
+        public b.c aMm;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0180b, com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g aU(Context context) {
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0212b, com.baidu.swan.apps.res.widget.dialog.g.a
+        protected g aW(Context context) {
             return new c(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: ck */
-        public a cn(int i) {
-            super.cn(i);
+        /* renamed from: dg */
+        public a dj(int i) {
+            super.dj(i);
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: cl */
-        public a cm(int i) {
-            this.akm = i;
+        /* renamed from: dh */
+        public a di(int i) {
+            this.aDI = i;
             return this;
         }
 
         public a a(int i, b.c cVar) {
-            this.akm = i;
-            this.asV = cVar;
+            this.aDI = i;
+            this.aMm = cVar;
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0180b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g Bb() {
-            c cVar = (c) super.Bb();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0212b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g FW() {
+            c cVar = (c) super.FW();
             cVar.a(this);
             return cVar;
         }

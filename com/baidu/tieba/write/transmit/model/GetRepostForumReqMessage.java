@@ -3,7 +3,7 @@ package com.baidu.tieba.write.transmit.model;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.g.b;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
@@ -15,7 +15,7 @@ public class GetRepostForumReqMessage extends NetMessage {
     private String threadTitle;
 
     public GetRepostForumReqMessage() {
-        super(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        super(1003323, CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM);
     }
 
     public void setRequestId(BdUniqueId bdUniqueId) {
@@ -31,7 +31,7 @@ public class GetRepostForumReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
             builder.title = this.threadTitle;
             builder.content = this.threadContent;
@@ -53,6 +53,6 @@ public class GetRepostForumReqMessage extends NetMessage {
     }
 
     public void setForumId(String str) {
-        this.forumId = b.e(str, 0L);
+        this.forumId = b.toLong(str, 0L);
     }
 }

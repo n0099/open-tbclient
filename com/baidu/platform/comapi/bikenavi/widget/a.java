@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
@@ -84,7 +85,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
         StringBuffer stringBuffer = new StringBuffer();
         com.baidu.platform.comapi.wnplatform.o.f.a((int) d, f.a.ZH, stringBuffer);
         StringBuilder sb = new StringBuilder();
-        sb.append("已骑行" + stringBuffer.toString() + " ");
+        sb.append("已骑行" + stringBuffer.toString() + HanziToPinyin.Token.SEPARATOR);
         sb.append(com.baidu.platform.comapi.wnplatform.o.f.a((int) j, 2));
         this.D.setText(sb.toString());
     }
@@ -100,7 +101,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
         this.z.setText(str2);
         StringBuilder sb = new StringBuilder();
         sb.append("全程剩余: ");
-        sb.append(str + " ");
+        sb.append(str + HanziToPinyin.Token.SEPARATOR);
         sb.append(str2);
         this.q.setText(sb.toString());
     }
@@ -130,9 +131,9 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0080a(this.n, true).execute(new Integer[0]);
+            new AsyncTaskC0112a(this.n, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0080a(this.n, false).execute(new Integer[0]);
+            new AsyncTaskC0112a(this.n, false).execute(new Integer[0]);
         }
     }
 
@@ -166,14 +167,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     public void a(int i) {
-        if (i == R.drawable.aiapps_favorite_guide_checkbox_selector) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_checkbox_selector));
+        if (i == R.drawable.aiapps_favorite_guide_checkbox_normal) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_checkbox_normal));
             this.e = 1;
-        } else if (i == R.drawable.aiapps_favorite_guide_close_selector) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_close_selector));
-            this.e = 2;
         } else if (i == R.drawable.aiapps_favorite_guide_close) {
             this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_close));
+            this.e = 2;
+        } else if (i == R.drawable.aiapps_favorite_guide_checkbox_selected) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_favorite_guide_checkbox_selected));
             this.e = 3;
         }
     }
@@ -277,12 +278,12 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class AsyncTaskC0080a extends AsyncTask<Integer, Integer, String> {
+    public class AsyncTaskC0112a extends AsyncTask<Integer, Integer, String> {
         private ScrollView b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0080a(ScrollView scrollView, boolean z) {
+        public AsyncTaskC0112a(ScrollView scrollView, boolean z) {
             this.b = scrollView;
             this.c = z;
         }

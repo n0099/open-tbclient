@@ -8,15 +8,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import com.vivo.push.util.m;
-import com.vivo.push.x;
+import com.vivo.push.aa;
+import com.vivo.push.util.p;
 import java.lang.reflect.Method;
 import java.util.List;
 /* loaded from: classes3.dex */
-public final class a extends x {
-    private static a b;
-    private Handler c = new Handler(Looper.getMainLooper());
-    private String d;
+public final class a extends aa {
+    private static a c;
+    private Handler d = new Handler(Looper.getMainLooper());
+    private String e;
 
     private a() {
     }
@@ -24,21 +24,21 @@ public final class a extends x {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (b == null) {
-                b = new a();
+            if (c == null) {
+                c = new a();
             }
-            aVar = b;
+            aVar = c;
         }
         return aVar;
     }
 
     public final void b() {
-        this.d = null;
+        this.e = null;
     }
 
     public final void a(Intent intent) {
         if (intent == null || this.a == null) {
-            m.d("CommandWorker", " sendMessage error: intent : " + intent + ", mContext: " + this.a);
+            p.d("CommandWorker", " sendMessage error: intent : " + intent + ", mContext: " + this.a);
             return;
         }
         Message obtain = Message.obtain();
@@ -46,32 +46,32 @@ public final class a extends x {
         a(obtain);
     }
 
-    @Override // com.vivo.push.x
+    @Override // com.vivo.push.aa
     public final void b(Message message) {
         Intent intent = (Intent) message.obj;
         if (intent == null || this.a == null) {
-            m.d("CommandWorker", " handleMessage error: intent : " + intent + ", mContext: " + this.a);
+            p.d("CommandWorker", " handleMessage error: intent : " + intent + ", mContext: " + this.a);
             return;
         }
         String action = intent.getAction();
         String packageName = this.a.getPackageName();
-        if (TextUtils.isEmpty(this.d)) {
-            this.d = a(this.a, packageName, action);
-            if (TextUtils.isEmpty(this.d)) {
-                m.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
+        if (TextUtils.isEmpty(this.e)) {
+            this.e = a(this.a, packageName, action);
+            if (TextUtils.isEmpty(this.e)) {
+                p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
                 intent.setPackage(packageName);
                 this.a.sendBroadcast(intent);
                 return;
             }
         }
         try {
-            Class<?> cls = Class.forName(this.d);
+            Class<?> cls = Class.forName(this.e);
             Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
             Method method = cls.getMethod("onReceive", Context.class, Intent.class);
-            intent.setClassName(packageName, this.d);
-            this.c.post(new b(this, method, newInstance, new Object[]{this.a.getApplicationContext(), intent}));
+            intent.setClassName(packageName, this.e);
+            this.d.post(new b(this, method, newInstance, new Object[]{this.a.getApplicationContext(), intent}));
         } catch (Exception e) {
-            m.b("CommandWorker", "reflect e: ", e);
+            p.b("CommandWorker", "reflect e: ", e);
         }
     }
 
@@ -86,7 +86,7 @@ public final class a extends x {
         try {
             packageManager = context.getPackageManager();
         } catch (Exception e) {
-            m.a("CommandWorker", "error  " + e.getMessage());
+            p.a("CommandWorker", "error  " + e.getMessage());
         }
         if (packageManager != null) {
             List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 64);

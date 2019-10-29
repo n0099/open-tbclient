@@ -4,24 +4,24 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.lang.reflect.Field;
 import tbclient.CommonReq;
 /* loaded from: classes.dex */
 public class r {
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z) {
-        bindCommonParamsToProtobufData(obj, z, false);
+    public static void a(Object obj, boolean z) {
+        a(obj, z, false);
     }
 
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2) {
-        bindCommonParamsToProtobufData(obj, z, z2, false);
+    public static void a(Object obj, boolean z, boolean z2) {
+        a(obj, z, z2, false);
     }
 
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2, boolean z3) {
+    public static void a(Object obj, boolean z, boolean z2, boolean z3) {
         AccountData currentAccountInfo;
         if (obj != null) {
             try {
@@ -59,9 +59,9 @@ public class r {
                 if (z3) {
                     builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
                 }
-                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+                builder.pversion = "1.0.3";
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.ahU().getInt("android_safe_sdk_open", 0) == 1) {
+                if (com.baidu.tbadk.core.sharedPref.b.alR().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
                     builder.z_id = FH.gz(TbadkCoreApplication.getInst());
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());

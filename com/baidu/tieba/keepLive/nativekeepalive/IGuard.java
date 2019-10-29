@@ -2,6 +2,7 @@ package com.baidu.tieba.keepLive.nativekeepalive;
 
 import android.content.Context;
 import android.os.Build;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardProxy;
 /* loaded from: classes.dex */
 public interface IGuard {
@@ -64,7 +65,7 @@ public interface IGuard {
 
         static boolean isXiaomiModel() {
             String lowerCase = Build.MODEL.toLowerCase();
-            return lowerCase.startsWith("mi") || lowerCase.startsWith("hm") || lowerCase.startsWith("redmi");
+            return lowerCase.startsWith(BdStatsConstant.StatsKey.MERGE_ITEM) || lowerCase.startsWith("hm") || lowerCase.startsWith("redmi");
         }
     }
 }

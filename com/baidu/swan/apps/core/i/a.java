@@ -15,14 +15,14 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class a implements g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> atV = h.M("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, SkiaImageDecoder.FILE_PREFIX);
+    private static final Set<String> aNm = h.J("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, SkiaImageDecoder.FILE_PREFIX);
 
     @Override // com.baidu.swan.apps.b.c.g
-    public boolean P(@NonNull Context context, String str) {
-        return !dY(str) && T(context, str);
+    public boolean O(@NonNull Context context, String str) {
+        return !eF(str) && S(context, str);
     }
 
-    private static boolean T(Context context, String str) {
+    private static boolean S(Context context, String str) {
         try {
             Intent parseUri = Intent.parseUri(str, 1);
             parseUri.addCategory("android.intent.category.BROWSABLE");
@@ -48,11 +48,11 @@ public class a implements g {
         }
     }
 
-    private static boolean dY(String str) {
+    private static boolean eF(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : atV) {
+        for (String str2 : aNm) {
             if (str.startsWith(str2)) {
                 return true;
             }

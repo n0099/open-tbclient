@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.Serializable;
 import java.util.BitSet;
 import org.apache.thrift.TFieldIdEnum;
@@ -11,7 +12,7 @@ public class s implements Serializable, Cloneable, org.apache.thrift.a<s, TField
     private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("", (byte) 2, 3);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b("", (byte) 8, 4);
     private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("", (byte) 10, 5);
-    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("", (byte) 11, 6);
+    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 6);
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("", (byte) 2, 7);
     public int a;
     public int b;

@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitReaderBuffer;
@@ -10,21 +11,21 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class AC3SpecificBox extends AbstractBox {
     public static final String TYPE = "dac3";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_9 = null;
     int acmod;
     int bitRateCode;
     int bsid;
@@ -45,7 +46,7 @@ public class AC3SpecificBox extends AbstractBox {
         ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setBitRateCode", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "bitRateCode", "", "void"), 99);
         ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 103);
         ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "reserved", "", "void"), 107);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "java.lang.String"), 112);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", FieldUtil.TYPE_STRING), 112);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getBsid", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 63);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setBsid", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "bsid", "", "void"), 67);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getBsmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 71);
@@ -95,7 +96,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setFscod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dl(i)));
         this.fscod = i;
     }
 
@@ -105,7 +106,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setBsid(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dl(i)));
         this.bsid = i;
     }
 
@@ -115,7 +116,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setBsmod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dl(i)));
         this.bsmod = i;
     }
 
@@ -125,7 +126,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setAcmod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dl(i)));
         this.acmod = i;
     }
 
@@ -135,7 +136,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setLfeon(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Dl(i)));
         this.lfeon = i;
     }
 
@@ -145,7 +146,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setBitRateCode(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.Dl(i)));
         this.bitRateCode = i;
     }
 
@@ -155,7 +156,7 @@ public class AC3SpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.Dl(i)));
         this.reserved = i;
     }
 

@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d kia;
-    private int kib;
+    private static d kgl;
+    private int kgm;
     @Nullable
-    private List<c.a> kic;
-    private final c.a kie = new a();
+    private List<c.a> kgn;
+    private final c.a kgo = new a();
 
     private d() {
-        cIo();
+        cFl();
     }
 
-    public void eF(@Nullable List<c.a> list) {
-        this.kic = list;
-        cIo();
+    public void eS(@Nullable List<c.a> list) {
+        this.kgn = list;
+        cFl();
     }
 
-    public c s(InputStream inputStream) throws IOException {
+    public c p(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.kib];
-        int a = a(this.kib, inputStream, bArr);
-        if (this.kic != null) {
-            for (c.a aVar : this.kic) {
+        byte[] bArr = new byte[this.kgm];
+        int a = a(this.kgm, inputStream, bArr);
+        if (this.kgn != null) {
+            for (c.a aVar : this.kgn) {
                 c l = aVar.l(bArr, a);
-                if (l != null && l != c.khY) {
+                if (l != null && l != c.kgj) {
                     return l;
                 }
             }
         }
-        c l2 = this.kie.l(bArr, a);
+        c l2 = this.kgo.l(bArr, a);
         if (l2 == null) {
-            return c.khY;
+            return c.kgj;
         }
         return l2;
     }
 
-    private void cIo() {
-        this.kib = this.kie.getHeaderSize();
-        if (this.kic != null) {
-            for (c.a aVar : this.kic) {
-                this.kib = Math.max(this.kib, aVar.getHeaderSize());
+    private void cFl() {
+        this.kgm = this.kgo.getHeaderSize();
+        if (this.kgn != null) {
+            for (c.a aVar : this.kgn) {
+                this.kgm = Math.max(this.kgm, aVar.getHeaderSize());
             }
         }
     }
@@ -67,26 +67,26 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d cIp() {
+    public static synchronized d cFm() {
         d dVar;
         synchronized (d.class) {
-            if (kia == null) {
-                kia = new d();
+            if (kgl == null) {
+                kgl = new d();
             }
-            dVar = kia;
+            dVar = kgl;
         }
         return dVar;
     }
 
-    public static c t(InputStream inputStream) throws IOException {
-        return cIp().s(inputStream);
+    public static c q(InputStream inputStream) throws IOException {
+        return cFm().p(inputStream);
     }
 
-    public static c u(InputStream inputStream) {
+    public static c r(InputStream inputStream) {
         try {
-            return t(inputStream);
+            return q(inputStream);
         } catch (IOException e) {
-            throw k.r(e);
+            throw k.q(e);
         }
     }
 }

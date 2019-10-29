@@ -17,7 +17,7 @@ public class e extends j {
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("action_name", this.d);
-        jSONObject.put(DpStatConstants.KEY_TIMESTAMP, this.e);
+        jSONObject.put("timestamp", this.e);
         jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, this.f);
         jSONObject.put("crash_stack", this.a);
         return jSONObject;

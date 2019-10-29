@@ -13,65 +13,65 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e {
-    private Toast El;
-    private View bZK;
-    private TextView bZL;
-    private ImageView bZM;
-    private Handler bZN;
     private Context mContext;
-    public long bZH = 3000;
-    private int bZI = -1;
-    private int bZJ = -1;
-    private Runnable bZO = new Runnable() { // from class: com.baidu.tbadk.core.view.e.1
+    private Toast mToast;
+    private Handler mToastHandler;
+    private ImageView tipImage;
+    private TextView tipText;
+    private View tipView;
+    public long toastTime = 3000;
+    private int imageID = -1;
+    private int stringID = -1;
+    private Runnable mToastRunnable = new Runnable() { // from class: com.baidu.tbadk.core.view.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.El != null) {
-                e.this.El.cancel();
+            if (e.this.mToast != null) {
+                e.this.mToast.cancel();
             }
         }
     };
 
     public e() {
         this.mContext = null;
-        this.bZK = null;
-        this.bZL = null;
-        this.bZM = null;
+        this.tipView = null;
+        this.tipText = null;
+        this.tipImage = null;
         this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.bZK = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
-        this.bZL = (TextView) this.bZK.findViewById(R.id.tip_text);
-        this.bZM = (ImageView) this.bZK.findViewById(R.id.tip_iamge);
-        this.bZK.setBackgroundDrawable(am.X(com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds32), am.getColor(R.color.cp_hud_a)));
-        am.j(this.bZL, R.color.cp_cont_a);
-        this.bZN = new Handler();
+        this.tipView = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
+        this.tipText = (TextView) this.tipView.findViewById(R.id.tip_text);
+        this.tipImage = (ImageView) this.tipView.findViewById(R.id.tip_iamge);
+        this.tipView.setBackgroundDrawable(am.ab(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), am.getColor(R.color.cp_hud_a)));
+        am.setViewTextColor(this.tipText, (int) R.color.cp_cont_a);
+        this.mToastHandler = new Handler();
     }
 
     public void showToast(int i, int i2) {
-        this.bZL.setText(i2);
-        this.bZM.setImageResource(i);
-        aO(this.bZK);
+        this.tipText.setText(i2);
+        this.tipImage.setImageResource(i);
+        showViewToast(this.tipView);
     }
 
-    public void aO(View view) {
-        this.bZN.removeCallbacks(this.bZO);
-        if (this.El == null) {
-            this.El = new Toast(this.mContext);
+    public void showViewToast(View view) {
+        this.mToastHandler.removeCallbacks(this.mToastRunnable);
+        if (this.mToast == null) {
+            this.mToast = new Toast(this.mContext);
         }
-        this.bZN.postDelayed(this.bZO, this.bZH);
-        this.El.setView(view);
-        this.El.setDuration(1);
-        this.El.setGravity(17, 0, 0);
-        this.El.show();
+        this.mToastHandler.postDelayed(this.mToastRunnable, this.toastTime);
+        this.mToast.setView(view);
+        this.mToast.setDuration(1);
+        this.mToast.setGravity(17, 0, 0);
+        this.mToast.show();
     }
 
-    public void i(CharSequence charSequence) {
-        this.bZL.setText(charSequence);
-        this.bZM.setImageResource(R.drawable.icon_toast_game_ok);
-        aO(this.bZK);
+    public void showSuccessToast(CharSequence charSequence) {
+        this.tipText.setText(charSequence);
+        this.tipImage.setImageResource(R.drawable.icon_toast_game_ok);
+        showViewToast(this.tipView);
     }
 
-    public void j(CharSequence charSequence) {
-        this.bZL.setText(charSequence);
-        this.bZM.setImageResource(R.drawable.icon_toast_game_error);
-        aO(this.bZK);
+    public void showFailToast(CharSequence charSequence) {
+        this.tipText.setText(charSequence);
+        this.tipImage.setImageResource(R.drawable.icon_toast_game_error);
+        showViewToast(this.tipView);
     }
 }

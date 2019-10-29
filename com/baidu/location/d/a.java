@@ -9,11 +9,11 @@ import android.net.wifi.ScanResult;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.a.j;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.result.AddressManageResult;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.List;
@@ -39,8 +39,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class AsyncTaskC0054a extends AsyncTask<Boolean, Void, Boolean> {
-        private AsyncTaskC0054a() {
+    public class AsyncTaskC0086a extends AsyncTask<Boolean, Void, Boolean> {
+        private AsyncTaskC0086a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -293,7 +293,7 @@ public final class a {
         String g = aVar.g();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int parseInt = Integer.parseInt(jSONObject.getJSONObject("result").getString("error"));
+            int parseInt = Integer.parseInt(jSONObject.getJSONObject("result").getString(BdStatsConstant.StatsType.ERROR));
             if (parseInt == 161) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("content");
                 if (jSONObject2.has("clf")) {
@@ -313,7 +313,7 @@ public final class a {
                         float f2 = 4326.0f + f;
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("time", Double.valueOf(d2 + 1235.4323d));
-                        contentValues.put(AddressManageResult.KEY_TAG, Float.valueOf(f2));
+                        contentValues.put("tag", Float.valueOf(f2));
                         contentValues.put("type", Double.valueOf(d + 2367.3217d));
                         contentValues.put("ac", Integer.valueOf(currentTimeMillis));
                         try {
@@ -578,7 +578,7 @@ public final class a {
             boolean z2 = queryNumEntries2 > 10000;
             sQLiteDatabase.close();
             if (z || z2) {
-                new AsyncTaskC0054a().execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+                new AsyncTaskC0086a().execute(Boolean.valueOf(z), Boolean.valueOf(z2));
             }
         } catch (Exception e2) {
         }

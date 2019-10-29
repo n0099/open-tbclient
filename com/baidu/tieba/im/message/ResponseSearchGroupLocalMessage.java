@@ -2,6 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.cache.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
     private List<BaseGroupData> searchResult;
 
     public ResponseSearchGroupLocalMessage() {
-        super(2001205);
+        super(CmdConfigCustom.CMD_CACHE_REQUEST_SEARCH_GROUP);
         this.searchResult = new ArrayList();
         this.cacheList = new ArrayList();
     }

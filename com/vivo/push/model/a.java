@@ -17,10 +17,6 @@ public final class a {
         return this.b;
     }
 
-    public final void a(String str) {
-        this.b = str;
-    }
-
     public final int hashCode() {
         return (this.a == null ? 0 : this.a.hashCode()) + 31;
     }

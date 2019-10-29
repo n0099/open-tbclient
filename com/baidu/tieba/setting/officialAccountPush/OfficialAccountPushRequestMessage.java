@@ -15,7 +15,7 @@ public class OfficialAccountPushRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         GetOfficialSwitchReqIdl.Builder builder2 = new GetOfficialSwitchReqIdl.Builder();
         builder2.data = builder.build(false);

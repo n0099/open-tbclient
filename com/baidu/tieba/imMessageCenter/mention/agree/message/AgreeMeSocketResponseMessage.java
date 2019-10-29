@@ -1,6 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.imMessageCenter.mention.base.a;
 import com.squareup.wire.Wire;
@@ -13,7 +14,7 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public boolean hasMore;
 
     public AgreeMeSocketResponseMessage() {
-        super(309593);
+        super(CmdConfigSocket.CMD_AGREE_ME);
         this.datas = new ArrayList<>();
     }
 
@@ -45,7 +46,7 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            com.baidu.tbadk.core.d.a.agL().bD("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).g("agree_me_cache_key", bArr);
+            com.baidu.tbadk.core.d.a.akN().bJ("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever("agree_me_cache_key", bArr);
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb.c;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.appsearchlib.Info;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.pb.data.d;
@@ -23,7 +23,7 @@ public class a {
         if (bdUniqueId != null && dVar != null) {
             an anVar = new an("common_exp");
             a(anVar, dVar, postData, i, i2, false, str);
-            c.cpt().a(bdUniqueId, str2, anVar);
+            c.cnk().a(bdUniqueId, str2, anVar);
         }
     }
 
@@ -51,7 +51,7 @@ public class a {
                 str = postData.getId();
             }
             a(anVar, dVar, postData, i, i2, false, str);
-            anVar.P("obj_locate", i3);
+            anVar.O("obj_locate", i3);
             TiebaStatic.log(anVar);
         }
     }
@@ -62,20 +62,20 @@ public class a {
         }
         an anVar = new an("common_click");
         a(anVar, dVar, postData, i, i2, false, postData != null ? postData.getId() : null);
-        anVar.P("obj_locate", i3);
+        anVar.O("obj_locate", i3);
         return anVar;
     }
 
     private static an a(an anVar, d dVar, PostData postData, int i, int i2, boolean z, String str) {
-        anVar.bT("page_type", "a005").P("obj_floor", i).P("obj_isad", z ? 1 : 0).bT("fid", dVar.getForumId() + "").bT("tid", dVar.getThreadId() + "").bT(VideoPlayActivityConfig.OBJ_ID, str + "").P("post_type", i2);
+        anVar.bS("page_type", PageStayDurationConstants.PageName.PB).O("obj_floor", i).O("obj_isad", z ? 1 : 0).bS("fid", dVar.getForumId() + "").bS("tid", dVar.getThreadId() + "").bS("obj_id", str + "").O("post_type", i2);
         if (postData != null) {
-            anVar.bT(Info.kBaiduPIDKey, postData.getId() + "");
+            anVar.bS("pid", postData.getId() + "");
         }
-        if (dVar.bTy() != null) {
-            anVar.P("thread_type", dVar.bTy().threadType);
+        if (dVar.bQz() != null) {
+            anVar.O("thread_type", dVar.bQz().threadType);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cgM);
+            anVar.bS(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().cuL);
         }
         return anVar;
     }

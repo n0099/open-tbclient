@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import java.util.List;
 import tbclient.AddMsgRecord.AddMsgRecordReqIdl;
@@ -17,7 +17,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
     private int type;
 
     private RequestAddMsgRecordMessage() {
-        super(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265);
+        super(1003071, CmdConfigSocket.CMD_ADD_MSG_RECORD);
         this.type = 1;
     }
 
@@ -27,7 +27,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
     }
 
     public RequestAddMsgRecordMessage(List<MsgRecord> list) {
-        super(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265);
+        super(1003071, CmdConfigSocket.CMD_ADD_MSG_RECORD);
         this.type = 1;
         this.msgRecords = list;
         if (list != null && list.size() > 0) {
@@ -40,7 +40,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.records = this.msgRecords;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
         builder2.data = builder.build(false);

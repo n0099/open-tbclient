@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.support.v4.util.LongSparseArray;
 import android.util.SparseIntArray;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.model.LatLng;
 import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
@@ -321,7 +322,7 @@ public class HeatMap {
             Bitmap a3 = a(a(dArr, this.m), this.l, this.n[i3 - 1]);
             Tile a4 = a(a3);
             a3.recycle();
-            a(i + "_" + i2 + "_" + i3, a4);
+            a(i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3, a4);
             if (this.o.size() > r) {
                 a();
             }
@@ -401,7 +402,7 @@ public class HeatMap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Tile a(int i, int i2, int i3) {
-        String str = i + "_" + i2 + "_" + i3;
+        String str = i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3;
         Tile c2 = c(str);
         if (c2 != null) {
             return c2;

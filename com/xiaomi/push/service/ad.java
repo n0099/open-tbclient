@@ -1,6 +1,8 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
@@ -24,8 +26,8 @@ public final class ad extends XMPushService.i {
     public void a() {
         try {
             com.xiaomi.xmpush.thrift.af a = x.a((Context) this.b, this.c);
-            a.h.a("error", this.d);
-            a.h.a("reason", this.e);
+            a.h.a(BdStatsConstant.StatsType.ERROR, this.d);
+            a.h.a(TiebaInitialize.LogFields.REASON, this.e);
             af.a(this.b, a);
         } catch (com.xiaomi.smack.l e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

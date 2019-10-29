@@ -1,6 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,7 +37,7 @@ public final class y implements Runnable {
         try {
             com.xiaomi.channel.commonutils.file.b.a(file2, logFile);
             if (file2.exists()) {
-                com.xiaomi.channel.commonutils.network.d.a((this.b ? "https://api.xmpush.xiaomi.com/upload/xmsf_log?file=" : "https://api.xmpush.xiaomi.com/upload/app_log?file=") + file2.getName(), a, file2, "file");
+                com.xiaomi.channel.commonutils.network.d.a((this.b ? "https://api.xmpush.xiaomi.com/upload/xmsf_log?file=" : "https://api.xmpush.xiaomi.com/upload/app_log?file=") + file2.getName(), a, file2, BdStatsConstant.OpSubType.FILE);
             } else {
                 com.xiaomi.channel.commonutils.logger.b.a("zip log file failed");
             }

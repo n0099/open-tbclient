@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.CheckMaskUser.CheckMaskUserResIdl;
 /* loaded from: classes.dex */
@@ -8,7 +9,7 @@ public class ResponseCheckUserMaskMessage extends SocketResponsedMessage {
     private boolean isMasked;
 
     public ResponseCheckUserMaskMessage() {
-        super(104104);
+        super(CmdConfigSocket.CMD_CHECK_USER_MASK);
         this.isMasked = false;
     }
 

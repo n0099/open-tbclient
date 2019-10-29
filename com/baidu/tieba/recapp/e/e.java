@@ -7,16 +7,16 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class e {
-    protected final String iPn;
-    protected com.baidu.tieba.recapp.report.b iPo;
-    protected AdvertAppInfo iPp;
-    protected com.baidu.tieba.lego.card.b.b iPq;
-    public TbPageContext mContext;
+    public TbPageContext cfl;
+    protected final String iOi;
+    protected com.baidu.tieba.recapp.report.b iOj;
+    protected AdvertAppInfo iOk;
+    protected com.baidu.tieba.lego.card.b.b iOl;
     protected final View mRootView;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.iPn = str;
+        this.iOi = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -26,32 +26,32 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T zQ(int i) {
+    public final <T> T yw(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void cjI() {
+    public void cgP() {
         this.mRootView.setVisibility(0);
-        if (this.iPo != null) {
-            this.iPo.zJ(303);
-            com.baidu.tieba.recapp.report.c.cjE().a(this.iPo);
+        if (this.iOj != null) {
+            this.iOj.yp(303);
+            com.baidu.tieba.recapp.report.c.cgI().a(this.iOj);
         }
     }
 
-    public void cjJ() {
+    public void cgQ() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.b bVar) {
-        this.iPo = bVar;
+        this.iOj = bVar;
     }
 
     public void c(com.baidu.tieba.lego.card.b.b bVar) {
-        this.iPq = bVar;
+        this.iOl = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.mContext = tbPageContext;
+        this.cfl = tbPageContext;
     }
 
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
@@ -60,10 +60,10 @@ public class e {
     public void setTimeoutListener(CountDownTextView.b bVar) {
     }
 
-    public void qx(boolean z) {
+    public void qg(boolean z) {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.iPp = advertAppInfo;
+        this.iOk = advertAppInfo;
     }
 }

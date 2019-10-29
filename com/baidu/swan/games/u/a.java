@@ -5,31 +5,31 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class a {
-    private static final ReentrantLock bmb = new ReentrantLock();
-    private static volatile a bmc;
-    private d bfW;
-    private List<c> bgN = new ArrayList(3);
+    private static final ReentrantLock bEO = new ReentrantLock();
+    private static volatile a bEP;
+    private d byP;
+    private List<c> bzF = new ArrayList(3);
 
     private a() {
     }
 
-    public static a Tw() {
-        if (bmc == null) {
+    public static a Yn() {
+        if (bEP == null) {
             synchronized (a.class) {
-                if (bmc == null) {
-                    bmc = new a();
+                if (bEP == null) {
+                    bEP = new a();
                 }
             }
         }
-        return bmc;
+        return bEP;
     }
 
     public void a(d dVar) {
-        this.bfW = dVar;
-        Tx();
+        this.byP = dVar;
+        Yo();
     }
 
-    public void G(String str, boolean z) {
+    public void J(String str, boolean z) {
         com.baidu.swan.apps.console.c.d("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
         c cVar = new c(str);
         cVar.hasUpdate = z;
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.bfW = null;
-        this.bgN.clear();
+        this.byP = null;
+        this.bzF.clear();
     }
 
     private void a(c cVar) {
-        bmb.lock();
+        bEO.lock();
         try {
-            if (this.bfW != null) {
-                this.bfW.c(cVar);
+            if (this.byP != null) {
+                this.byP.c(cVar);
             } else {
-                this.bgN.add(cVar);
+                this.bzF.add(cVar);
             }
         } finally {
-            bmb.unlock();
+            bEO.unlock();
         }
     }
 
-    private void Tx() {
-        if (!this.bgN.isEmpty() && this.bfW != null) {
-            bmb.lock();
+    private void Yo() {
+        if (!this.bzF.isEmpty() && this.byP != null) {
+            bEO.lock();
             try {
-                for (c cVar : this.bgN) {
-                    this.bfW.c(cVar);
+                for (c cVar : this.bzF) {
+                    this.byP.c(cVar);
                 }
-                this.bgN.clear();
+                this.bzF.clear();
             } finally {
-                bmb.unlock();
+                bEO.unlock();
             }
         }
     }

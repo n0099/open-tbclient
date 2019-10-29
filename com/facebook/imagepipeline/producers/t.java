@@ -13,14 +13,14 @@ import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes2.dex */
 public class t extends c<s> {
-    private final ExecutorService baT;
+    private final ExecutorService btS;
 
     public t() {
         this(Executors.newFixedThreadPool(3));
     }
 
     t(ExecutorService executorService) {
-        this.baT = executorService;
+        this.btS = executorService;
     }
 
     @Override // com.facebook.imagepipeline.producers.af
@@ -30,17 +30,17 @@ public class t extends c<s> {
 
     @Override // com.facebook.imagepipeline.producers.af
     public void a(final s sVar, final af.a aVar) {
-        final Future<?> submit = this.baT.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
+        final Future<?> submit = this.btS.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
             @Override // java.lang.Runnable
             public void run() {
                 t.this.b(sVar, aVar);
             }
         });
-        sVar.cLY().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
+        sVar.cIV().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cLR() {
+            public void cIO() {
                 if (submit.cancel(false)) {
-                    aVar.cFJ();
+                    aVar.cCH();
                 }
             }
         });
@@ -76,7 +76,7 @@ public class t extends c<s> {
                         inputStream = r1;
                     } catch (IOException e) {
                         e = e;
-                        aVar.B(e);
+                        aVar.A(e);
                         if (r1 != 0) {
                             try {
                                 r1.close();
@@ -126,34 +126,34 @@ public class t extends c<s> {
     }
 
     private HttpURLConnection b(Uri uri, int i) throws IOException {
-        HttpURLConnection P = P(uri);
-        int responseCode = P.getResponseCode();
-        if (!Et(responseCode)) {
-            if (Eu(responseCode)) {
-                String headerField = P.getHeaderField("Location");
-                P.disconnect();
+        HttpURLConnection M = M(uri);
+        int responseCode = M.getResponseCode();
+        if (!CP(responseCode)) {
+            if (CQ(responseCode)) {
+                String headerField = M.getHeaderField("Location");
+                M.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
                     return b(parse, i - 1);
                 }
-                throw new IOException(i == 0 ? m("URL %s follows too many redirects", uri.toString()) : m("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
+                throw new IOException(i == 0 ? l("URL %s follows too many redirects", uri.toString()) : l("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            P.disconnect();
+            M.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return P;
+        return M;
     }
 
-    static HttpURLConnection P(Uri uri) throws IOException {
+    static HttpURLConnection M(Uri uri) throws IOException {
         return (HttpURLConnection) new URL(uri.toString()).openConnection();
     }
 
-    private static boolean Et(int i) {
+    private static boolean CP(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean Eu(int i) {
+    private static boolean CQ(int i) {
         switch (i) {
             case 300:
             case 301:
@@ -170,7 +170,7 @@ public class t extends c<s> {
         }
     }
 
-    private static String m(String str, Object... objArr) {
+    private static String l(String str, Object... objArr) {
         return String.format(Locale.getDefault(), str, objArr);
     }
 }

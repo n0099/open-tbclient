@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void d(String str, String str2, boolean z) {
+    public static void g(String str, String str2, boolean z) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1330233754:
@@ -40,34 +40,34 @@ public class i {
         }
         switch (c) {
             case 0:
-                dD(str2);
+                el(str2);
                 return;
             case 1:
-                dE(str2);
+                em(str2);
                 return;
             case 2:
-                m(str2, z);
+                p(str2, z);
                 return;
             default:
                 return;
         }
     }
 
-    private static void dD(String str) {
+    private static void el(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         c("updateReady", str, null);
     }
 
-    private static void dE(String str) {
+    private static void em(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update failed msg");
         }
         c("updateFailed", str, null);
     }
 
-    private static void m(String str, boolean z) {
+    private static void p(String str, boolean z) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
         }
@@ -90,12 +90,12 @@ public class i {
         bundle.putString("eventType", str);
         SwanAppMessengerService serviceObject = SwanAppMessengerService.getServiceObject();
         if (serviceObject != null) {
-            a.b gq = com.baidu.swan.apps.process.messaging.service.a.JB().gq(str2);
+            a.b gV = com.baidu.swan.apps.process.messaging.service.a.Ov().gV(str2);
             if (DEBUG) {
-                Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + gq);
+                Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + gV);
             }
-            if (gq != null && gq.aIh && gq.aId.isSwanAppProcess()) {
-                serviceObject.sendMessageToClient(gq, 107, bundle);
+            if (gV != null && gV.bbv && gV.bbr.isSwanAppProcess()) {
+                serviceObject.sendMessageToClient(gV, 107, bundle);
                 return;
             }
         }
@@ -120,11 +120,11 @@ public class i {
             }
             hashMap.put("data", jSONObject.toString());
             com.baidu.swan.apps.m.a.b bVar = new com.baidu.swan.apps.m.a.b("updateStatusChange", hashMap);
-            SwanAppActivity Gv = com.baidu.swan.apps.w.e.GJ().Gv();
-            if (Gv != null && Gv.vH() == 1) {
-                com.baidu.swan.games.u.a.Tw().G(string, bundle.getBoolean("hasUpdate"));
+            SwanAppActivity Lp = com.baidu.swan.apps.w.e.LD().Lp();
+            if (Lp != null && Lp.AB() == 1) {
+                com.baidu.swan.games.u.a.Yn().J(string, bundle.getBoolean("hasUpdate"));
             } else {
-                com.baidu.swan.apps.w.e.GJ().a(bVar);
+                com.baidu.swan.apps.w.e.LD().a(bVar);
             }
         }
     }
@@ -142,13 +142,13 @@ public class i {
     public static boolean b(com.baidu.swan.apps.database.a aVar, boolean z) {
         boolean z2 = false;
         if (aVar != null && aVar.isValid()) {
-            SwanAppDbControl aX = SwanAppDbControl.aX(com.baidu.swan.apps.u.a.Eo());
-            if (z || aVar.Cx()) {
-                if (aVar.avE <= 0) {
-                    aVar.avE = 432000L;
+            SwanAppDbControl aZ = SwanAppDbControl.aZ(com.baidu.swan.apps.u.a.Ji());
+            if (z || aVar.Hr()) {
+                if (aVar.aOT <= 0) {
+                    aVar.aOT = 432000L;
                 }
                 aVar.createTime = System.currentTimeMillis();
-                z2 = aX.e(aVar, true);
+                z2 = aZ.e(aVar, true);
             }
             if (DEBUG) {
                 Log.d("SwanAppPkgUpdateManager", "updatePkgCreateTime: result=" + z2 + ", createTime=" + aVar.createTime);

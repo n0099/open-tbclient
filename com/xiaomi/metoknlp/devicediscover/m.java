@@ -3,6 +3,7 @@ package com.xiaomi.metoknlp.devicediscover;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -45,7 +46,7 @@ public class m extends Thread {
                 bufferedReader.readLine();
                 String[] strArr = new String[(i2 - i) + 1];
                 for (int i3 = 0; i3 < (i2 - i) + 1; i3++) {
-                    strArr[i3] = str + "." + i3;
+                    strArr[i3] = str + DefaultConfig.TOKEN_SEPARATOR + i3;
                 }
                 while (true) {
                     String readLine = bufferedReader.readLine();
@@ -122,12 +123,12 @@ public class m extends Thread {
         HashMap hashMap = new HashMap();
         String b = j.b(b());
         if (b != null) {
-            String substring = b.substring(0, b.lastIndexOf("."));
+            String substring = b.substring(0, b.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR));
             ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(40);
             try {
                 Runnable[] runnableArr = new Runnable[255];
                 for (int i = 1; i < 255; i++) {
-                    runnableArr[i] = new e(this, substring + "." + i);
+                    runnableArr[i] = new e(this, substring + DefaultConfig.TOKEN_SEPARATOR + i);
                 }
                 for (int i2 = 1; i2 < 255; i2++) {
                     newFixedThreadPool.execute(runnableArr[i2]);

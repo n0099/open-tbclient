@@ -1,32 +1,46 @@
 package com.vivo.push;
 
-import com.vivo.push.cache.ISubscribeAppTagManager;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import android.os.Handler;
+import android.os.Message;
+import java.util.concurrent.atomic.AtomicInteger;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public final class c implements Runnable {
-    final /* synthetic */ ArrayList a;
-    final /* synthetic */ LocalAliasTagsManager b;
+public final class c implements Handler.Callback {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(LocalAliasTagsManager localAliasTagsManager, ArrayList arrayList) {
-        this.b = localAliasTagsManager;
-        this.a = arrayList;
+    public c(b bVar) {
+        this.a = bVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        ISubscribeAppTagManager iSubscribeAppTagManager;
-        HashSet hashSet = new HashSet();
-        Iterator it = this.a.iterator();
-        while (it.hasNext()) {
-            hashSet.add((String) it.next());
+    @Override // android.os.Handler.Callback
+    public final boolean handleMessage(Message message) {
+        AtomicInteger atomicInteger;
+        AtomicInteger atomicInteger2;
+        if (message == null) {
+            com.vivo.push.util.p.a("AidlManager", "handleMessage error : msg is null");
+            return false;
         }
-        iSubscribeAppTagManager = this.b.mSubscribeAppTagManager;
-        if (iSubscribeAppTagManager.setTags(hashSet)) {
-            m.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.a);
+        switch (message.what) {
+            case 1:
+                com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
+                atomicInteger2 = this.a.f;
+                if (atomicInteger2.get() == 2) {
+                    this.a.a(1);
+                    break;
+                }
+                break;
+            case 2:
+                atomicInteger = this.a.f;
+                if (atomicInteger.get() == 4) {
+                    this.a.e();
+                }
+                this.a.a(1);
+                break;
+            default:
+                com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + "]");
+                break;
         }
+        return true;
     }
 }

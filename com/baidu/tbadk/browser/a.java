@@ -15,6 +15,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sofire.ac.FH;
@@ -29,10 +30,10 @@ import com.baidu.util.Base64Encoder;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String bCh;
+    public static String bUC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String bA(String str, String str2) {
+    public static String parseWebViewUrl(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             str = "http://".concat(str);
@@ -45,71 +46,71 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void lG(String str) {
-        bCh = str;
+    public static void mh(String str) {
+        bUC = str;
     }
 
-    public static void ae(Context context, String str) {
-        b(context, true, str);
+    public static void startWebActivity(Context context, String str) {
+        startWebActivity(context, true, str);
     }
 
-    public static void b(Context context, boolean z, String str) {
-        a(context, "", str, true, true, true, true, z);
+    public static void startWebActivity(Context context, boolean z, String str) {
+        startWebActivity(context, "", str, true, true, true, true, z);
     }
 
-    public static void b(Context context, boolean z, String str, String str2) {
-        a(context, str2, str, true, true, true, true, z);
+    public static void startWebActivity(Context context, boolean z, String str, String str2) {
+        startWebActivity(context, str2, str, true, true, true, true, z);
     }
 
-    public static void k(Context context, String str, String str2) {
-        a(context, str, str2, true, true, true, true, true);
+    public static void startWebActivity(Context context, String str, String str2) {
+        startWebActivity(context, str, str2, true, true, true, true, true);
     }
 
-    public static void a(boolean z, Context context, String str, String str2) {
-        a(context, str, str2, true, true, true, true, true, false, z);
+    public static void startWebActivity(boolean z, Context context, String str, String str2) {
+        startWebActivity(context, str, str2, true, true, true, true, true, false, z);
     }
 
-    public static void c(Context context, String str, String str2, boolean z) {
-        a(context, str, str2, true, z, true, true, true);
+    public static void startWebActivity(Context context, String str, String str2, boolean z) {
+        startWebActivity(context, str, str2, true, z, true, true, true);
     }
 
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
-        a(context, str, str2, z, z2, z3, true, true);
+    public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
+        startWebActivity(context, str, str2, z, z2, z3, true, true);
     }
 
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        aba();
+    public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
+        afH();
         try {
             if (!StringUtils.isNull(str2)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
-        a(context, str, str2, z, z2, z3, z4, z5, z6, false);
+    public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
+        startWebActivity(context, str, str2, z, z2, z3, z4, z5, z6, false);
     }
 
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        aba();
+    public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
+        afH();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
                 tbWebViewActivityConfig.setFixTitle(z7);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void af(Context context, String str) {
-        ae(context, str);
+    public static void startInternalWebActivity(Context context, String str) {
+        startWebActivity(context, str);
     }
 
-    public static void ag(Context context, String str) {
+    public static void startExternWebActivity(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -123,7 +124,7 @@ public class a {
         }
     }
 
-    public static String c(String str, List<Pair<String, String>> list) {
+    public static String appendParams(String str, List<Pair<String, String>> list) {
         if (!aq.isEmpty(str) && list != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
@@ -171,7 +172,7 @@ public class a {
         return (aq.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void cl(Context context) {
+    public static void initCookie(Context context) {
         CookieManager cookieManager = null;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -181,7 +182,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.acj().ml(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.agr().mJ(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -230,7 +231,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void aba() {
+    private static void afH() {
         new ag("open_webview", true).start();
     }
 }

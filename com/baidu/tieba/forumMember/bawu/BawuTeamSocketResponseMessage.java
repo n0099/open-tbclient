@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
@@ -14,7 +15,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
     private ManagerApplyInfo mManagerApplyInfo;
 
     public BawuTeamSocketResponseMessage() {
-        super(301007);
+        super(CmdConfigSocket.CMD_BAWU_TEAM_INFO);
         this.isNeedUpdateCache = false;
     }
 
@@ -45,7 +46,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
             if (bawuTeamRequestMessage != null) {
                 this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
             }
-            new d().j(this.cacheKey, bArr);
+            new d().i(this.cacheKey, bArr);
         }
     }
 

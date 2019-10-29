@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes4.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
-    private float fzR;
-    private float fzS;
-    private float fzT;
-    private float fzU;
-    private boolean fzV;
+    private float fzg;
+    private float fzh;
+    private float fzi;
+    private float fzj;
+    private boolean fzk;
     private float x;
     private float y;
 
@@ -30,16 +30,16 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.fzR = motionEvent.getRawX();
-                this.fzS = motionEvent.getRawY();
-                kk(true);
-                if (boB()) {
-                    this.fzV = false;
+                this.fzg = motionEvent.getRawX();
+                this.fzh = motionEvent.getRawY();
+                jY(true);
+                if (blF()) {
+                    this.fzk = false;
                     break;
                 }
                 break;
             case 1:
-                kk(false);
+                jY(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -51,18 +51,18 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 1:
-                kk(false);
+                jY(false);
                 break;
             case 2:
-                this.fzT = this.x - this.fzR;
-                this.fzU = this.y - this.fzS;
-                if (this.fzT < 0.0f && Math.abs(this.fzT) > Math.abs(this.fzU) && boB()) {
-                    eA(false);
-                    if (this.fzV) {
+                this.fzi = this.x - this.fzg;
+                this.fzj = this.y - this.fzh;
+                if (this.fzi < 0.0f && Math.abs(this.fzi) > Math.abs(this.fzj) && blF()) {
+                    requestParentInterceptTouchEvent(false);
+                    if (this.fzk) {
                         return false;
                     }
-                    kl(true);
-                    this.fzV = true;
+                    jZ(true);
+                    this.fzk = true;
                     return false;
                 }
                 break;
@@ -70,44 +70,44 @@ public class FrsTabViewPager extends BdBaseViewPager {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void kk(boolean z) {
+    public void jY(boolean z) {
         a aVar = new a();
-        aVar.km(boB());
-        aVar.kn(z);
+        aVar.ka(blF());
+        aVar.kb(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void boA() {
-        kk(false);
+    public void blE() {
+        jY(false);
     }
 
-    public void kl(boolean z) {
+    public void jZ(boolean z) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
     }
 
-    private boolean boB() {
+    private boolean blF() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private boolean fzW;
-        private boolean fzX;
+        private boolean fzl;
+        private boolean fzm;
 
-        public boolean boC() {
-            return this.fzW;
+        public boolean blG() {
+            return this.fzl;
         }
 
-        public void km(boolean z) {
-            this.fzW = z;
+        public void ka(boolean z) {
+            this.fzl = z;
         }
 
-        public boolean boD() {
-            return this.fzX;
+        public boolean blH() {
+            return this.fzm;
         }
 
-        public void kn(boolean z) {
-            this.fzX = z;
+        public void kb(boolean z) {
+            this.fzm = z;
         }
     }
 }

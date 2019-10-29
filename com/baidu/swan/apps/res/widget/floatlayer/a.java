@@ -8,41 +8,41 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes2.dex */
 public class a {
-    private final InterfaceC0181a aPI;
-    private final ViewGroup aPJ;
-    private int aPK;
+    private final InterfaceC0213a biR;
+    private final ViewGroup biS;
+    private int biT;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0181a {
-        a vJ();
+    public interface InterfaceC0213a {
+        a AD();
     }
 
-    public a(@NonNull InterfaceC0181a interfaceC0181a, @NonNull ViewGroup viewGroup, int i) {
-        this.aPI = interfaceC0181a;
-        this.aPJ = viewGroup;
-        this.aPK = i;
+    public a(@NonNull InterfaceC0213a interfaceC0213a, @NonNull ViewGroup viewGroup, int i) {
+        this.biR = interfaceC0213a;
+        this.biS = viewGroup;
+        this.biT = i;
     }
 
     public void setMask(boolean z) {
-        Container LF = LF();
-        if (LF != null) {
-            LF.setClickable(z);
+        Container Qy = Qy();
+        if (Qy != null) {
+            Qy.setClickable(z);
         }
     }
 
     private Context getContext() {
-        return this.aPJ.getContext();
+        return this.biS.getContext();
     }
 
     @Nullable
-    private Container LF() {
+    private Container Qy() {
         Container container;
-        synchronized (this.aPJ) {
+        synchronized (this.biS) {
             int i = 0;
             while (true) {
-                if (i < this.aPJ.getChildCount()) {
-                    View childAt = this.aPJ.getChildAt(i);
+                if (i < this.biS.getChildCount()) {
+                    View childAt = this.biS.getChildAt(i);
                     if (!(childAt instanceof Container)) {
                         i++;
                     } else {
@@ -59,20 +59,20 @@ public class a {
     }
 
     @NonNull
-    private Container LG() {
-        Container LF;
+    private Container Qz() {
+        Container Qy;
         int i;
         int i2;
         int i3 = -1;
-        synchronized (this.aPJ) {
-            LF = LF();
-            if (LF == null) {
-                LF = new Container(getContext());
-                int height = this.aPJ.getHeight() - this.aPK;
-                if (this.aPJ instanceof LinearLayout) {
+        synchronized (this.biS) {
+            Qy = Qy();
+            if (Qy == null) {
+                Qy = new Container(getContext());
+                int height = this.biS.getHeight() - this.biT;
+                if (this.biS instanceof LinearLayout) {
                     i = -height;
                 } else {
-                    i = this.aPK;
+                    i = this.biT;
                 }
                 if (height <= 0) {
                     i = 0;
@@ -80,16 +80,16 @@ public class a {
                 } else {
                     i2 = height;
                 }
-                if ((this.aPJ instanceof LinearLayout) || this.aPK != 0) {
+                if ((this.biS instanceof LinearLayout) || this.biT != 0) {
                     i3 = i2;
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i3);
                 layoutParams.setMargins(0, i, 0, 0);
-                LF.setLayoutParams(layoutParams);
-                this.aPJ.addView(LF);
+                Qy.setLayoutParams(layoutParams);
+                this.biS.addView(Qy);
             }
         }
-        return LF;
+        return Qy;
     }
 
     public void reset() {
@@ -97,39 +97,39 @@ public class a {
     }
 
     public void reset(boolean z) {
-        synchronized (this.aPJ) {
-            Container LF = LF();
-            if (!z || LF == null || LF.getChildCount() <= 0) {
-                if (LF != null) {
-                    this.aPJ.removeView(LF);
+        synchronized (this.biS) {
+            Container Qy = Qy();
+            if (!z || Qy == null || Qy.getChildCount() <= 0) {
+                if (Qy != null) {
+                    this.biS.removeView(Qy);
                 }
             }
         }
     }
 
     public View getView() {
-        Container LF = LF();
-        if (LF != null && LF.getChildCount() > 0) {
-            return LF.getChildAt(0);
+        Container Qy = Qy();
+        if (Qy != null && Qy.getChildCount() > 0) {
+            return Qy.getChildAt(0);
         }
         return null;
     }
 
-    public void ag(@NonNull View view) {
+    public void am(@NonNull View view) {
         if (view != getView()) {
             reset();
-            LG().addView(view);
+            Qz().addView(view);
         }
     }
 
-    public boolean LH() {
-        Container LF = LF();
-        if (LF == null) {
+    public boolean QA() {
+        Container Qy = Qy();
+        if (Qy == null) {
             return false;
         }
-        int childCount = LF.getChildCount();
+        int childCount = Qy.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = LF.getChildAt(i);
+            View childAt = Qy.getChildAt(i);
             if (childAt != null && childAt.getVisibility() == 0) {
                 return true;
             }

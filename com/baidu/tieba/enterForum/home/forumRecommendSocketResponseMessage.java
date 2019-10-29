@@ -1,6 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
@@ -23,7 +24,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     private Integer time;
 
     public forumRecommendSocketResponseMessage() {
-        super(303011);
+        super(CmdConfigSocket.CMD_FORUM_RECOMMEND);
     }
 
     public List<LikeForum> GetLikeForum() {
@@ -77,7 +78,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.d.a.agL().bD("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).g(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            com.baidu.tbadk.core.d.a.akN().bJ("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 

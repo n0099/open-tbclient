@@ -8,32 +8,32 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g implements b {
+    private final com.airbnb.lottie.model.a.b hq;
+    private final com.airbnb.lottie.model.a.b hr;
+    private final l hs;
     private final String name;
-    private final com.airbnb.lottie.model.a.b oW;
-    private final com.airbnb.lottie.model.a.b oX;
-    private final l oY;
 
     g(String str, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.oW = bVar;
-        this.oX = bVar2;
-        this.oY = lVar;
+        this.hq = bVar;
+        this.hr = bVar2;
+        this.hs = lVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.airbnb.lottie.model.a.b dx() {
-        return this.oW;
+    public com.airbnb.lottie.model.a.b cQ() {
+        return this.hq;
     }
 
-    public com.airbnb.lottie.model.a.b dy() {
-        return this.oX;
+    public com.airbnb.lottie.model.a.b cR() {
+        return this.hr;
     }
 
-    public l dz() {
-        return this.oY;
+    public l cS() {
+        return this.hs;
     }
 
     @Override // com.airbnb.lottie.model.content.b

@@ -4,41 +4,41 @@ public interface l<T> {
 
     /* loaded from: classes.dex */
     public interface a<T> {
-        void h(String str, T t);
+        void onItemGet(String str, T t);
     }
 
     /* loaded from: classes.dex */
     public static class b<T> {
         public String key;
+        public long lastSaveTime;
+        public long timeToExpire;
         public T value;
-        public long yM;
-        public long yz;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends l<T> {
-        String hC();
+        void clearAndClose();
 
-        k<T> hD();
+        k<T> fg();
 
-        void hE();
+        String getNameSpace();
     }
+
+    b<T> Y(String str);
 
     void a(String str, a<T> aVar);
 
-    void a(String str, T t, long j);
+    void asyncRemove(String str);
 
-    b<T> aq(String str);
+    void asyncSet(String str, T t, long j);
 
-    void ar(String str);
-
-    void b(String str, T t, long j);
-
-    void f(String str, T t);
-
-    void g(String str, T t);
+    void asyncSetForever(String str, T t);
 
     T get(String str);
 
     void remove(String str);
+
+    void set(String str, T t, long j);
+
+    void setForever(String str, T t);
 }

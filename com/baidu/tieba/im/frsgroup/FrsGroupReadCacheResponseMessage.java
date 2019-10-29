@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
@@ -15,7 +16,7 @@ public class FrsGroupReadCacheResponseMessage extends CustomResponsedMessage<Obj
     private List<GroupInfoData> groups;
 
     public FrsGroupReadCacheResponseMessage() {
-        super(2001204);
+        super(CmdConfigCustom.CMD_CACHE_GROUPS_BY_FID);
     }
 
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {

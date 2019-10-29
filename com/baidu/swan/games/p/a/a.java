@@ -3,7 +3,6 @@ package com.baidu.swan.games.p.a;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.ae.a.b;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,36 +13,36 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public b bkA;
-    public c bkB;
-    public String bkC;
-    public com.baidu.swan.games.inspector.a bkD;
-    public int bkv;
-    public boolean bkw;
-    public String bkx;
-    public b.a bky;
-    public String bkz;
+    public int bDj;
+    public boolean bDk;
+    public String bDl;
+    public b.a bDm;
+    public String bDn;
+    public b bDo;
+    public c bDp;
+    public String bDq;
+    public com.baidu.swan.games.inspector.a bDr;
 
-    public static a jS(String str) {
+    public static a ku(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         a aVar = new a();
-        aVar.bkx = str;
+        aVar.bDl = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            aVar.bky = b.a.M(jSONObject);
-            String optString = jSONObject.optString("deviceOrientation", IntentConfig.PORTRAIT);
-            aVar.bkv = 0;
+            aVar.bDm = b.a.ak(jSONObject);
+            String optString = jSONObject.optString("deviceOrientation", "portrait");
+            aVar.bDj = 0;
             if (TextUtils.equals(optString, "landscape")) {
-                aVar.bkv = 1;
+                aVar.bDj = 1;
             }
-            aVar.bkw = jSONObject.optBoolean("showStatusBar", false);
-            aVar.bkz = jSONObject.optString("workers");
-            aVar.bkA = b.av(jSONObject);
-            aVar.bkB = c.a(jSONObject, aVar.bkA);
-            aVar.bkC = jSONObject.optString("openDataContext");
-            aVar.bkD = new com.baidu.swan.games.inspector.a(jSONObject);
+            aVar.bDk = jSONObject.optBoolean("showStatusBar", false);
+            aVar.bDn = jSONObject.optString("workers");
+            aVar.bDo = b.aT(jSONObject);
+            aVar.bDp = c.a(jSONObject, aVar.bDo);
+            aVar.bDq = jSONObject.optString("openDataContext");
+            aVar.bDr = new com.baidu.swan.games.inspector.a(jSONObject);
             return aVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -56,108 +55,108 @@ public final class a {
 
     /* loaded from: classes2.dex */
     public static class b {
-        public List<C0225a> bkG;
-        public HashMap<String, Boolean> bkH;
+        public List<C0257a> bDu;
+        public HashMap<String, Boolean> bDv;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static b av(JSONObject jSONObject) {
+        public static b aT(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return SS();
+                return XJ();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return SS();
+                return XJ();
             }
             b bVar = new b();
-            bVar.bkG = new ArrayList();
-            bVar.bkH = new HashMap<>();
+            bVar.bDu = new ArrayList();
+            bVar.bDv = new HashMap<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    bVar.bkG.add(C0225a.at(optJSONObject));
+                    bVar.bDu.add(C0257a.aR(optJSONObject));
                 }
             }
             return bVar;
         }
 
-        private static b SS() {
+        private static b XJ() {
             b bVar = new b();
-            bVar.bkG = new ArrayList();
-            bVar.bkH = new HashMap<>();
+            bVar.bDu = new ArrayList();
+            bVar.bDv = new HashMap<>();
             return bVar;
         }
     }
 
     /* renamed from: com.baidu.swan.games.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0225a {
-        public String bkE;
-        public String bkF;
+    public static class C0257a {
+        public String bDs;
+        public String bDt;
         public String name;
         public String path;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static C0225a at(JSONObject jSONObject) {
+        public static C0257a aR(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return SR();
+                return XI();
             }
-            C0225a c0225a = new C0225a();
-            c0225a.bkE = jSONObject.optString("root");
-            c0225a.name = jSONObject.optString("name");
-            if (TextUtils.isEmpty(c0225a.bkE) || TextUtils.isEmpty(c0225a.name)) {
-                return SR();
+            C0257a c0257a = new C0257a();
+            c0257a.bDs = jSONObject.optString("root");
+            c0257a.name = jSONObject.optString("name");
+            if (TextUtils.isEmpty(c0257a.bDs) || TextUtils.isEmpty(c0257a.name)) {
+                return XI();
             }
-            if (c0225a.bkE.endsWith(".js")) {
-                String[] split = c0225a.bkE.split(File.separator);
+            if (c0257a.bDs.endsWith(".js")) {
+                String[] split = c0257a.bDs.split(File.separator);
                 if (split.length < 1) {
-                    return SR();
+                    return XI();
                 }
-                c0225a.bkF = split[split.length - 1];
-                c0225a.path = "";
+                c0257a.bDt = split[split.length - 1];
+                c0257a.path = "";
                 for (int i = 0; i < split.length - 1; i++) {
-                    c0225a.path += split[i] + File.separator;
+                    c0257a.path += split[i] + File.separator;
                 }
             } else {
-                c0225a.path = c0225a.bkE;
-                if (!c0225a.path.endsWith(File.separator)) {
-                    c0225a.path += File.separator;
+                c0257a.path = c0257a.bDs;
+                if (!c0257a.path.endsWith(File.separator)) {
+                    c0257a.path += File.separator;
                 }
-                c0225a.bkF = "index.js";
+                c0257a.bDt = "index.js";
             }
-            return c0225a;
+            return c0257a;
         }
 
-        private static C0225a SR() {
-            return new C0225a();
+        private static C0257a XI() {
+            return new C0257a();
         }
     }
 
     /* loaded from: classes2.dex */
     public static class c {
-        public HashMap<String, String> bkI;
+        public HashMap<String, String> bDw;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static c a(JSONObject jSONObject, b bVar) {
-            if (jSONObject == null || bVar == null || bVar.bkG == null || bVar.bkG.size() <= 0) {
-                return ST();
+            if (jSONObject == null || bVar == null || bVar.bDu == null || bVar.bDu.size() <= 0) {
+                return XK();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
             if (optJSONObject == null) {
-                return ST();
+                return XK();
             }
             c cVar = new c();
-            cVar.bkI = new HashMap<>();
-            for (C0225a c0225a : bVar.bkG) {
-                if (c0225a != null && !TextUtils.isEmpty(c0225a.bkE)) {
-                    cVar.bkI.put(c0225a.bkE, optJSONObject.optString(c0225a.bkE));
+            cVar.bDw = new HashMap<>();
+            for (C0257a c0257a : bVar.bDu) {
+                if (c0257a != null && !TextUtils.isEmpty(c0257a.bDs)) {
+                    cVar.bDw.put(c0257a.bDs, optJSONObject.optString(c0257a.bDs));
                 }
             }
             return cVar;
         }
 
-        private static c ST() {
+        private static c XK() {
             c cVar = new c();
-            cVar.bkI = new HashMap<>();
+            cVar.bDw = new HashMap<>();
             return cVar;
         }
     }

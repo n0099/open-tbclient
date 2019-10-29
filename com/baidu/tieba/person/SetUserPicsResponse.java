@@ -1,6 +1,5 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -8,7 +7,7 @@ public class SetUserPicsResponse extends JsonHttpResponsedMessage {
     private int errCode;
 
     public SetUserPicsResponse() {
-        super(CmdConfigHttp.CMD_SET_USER_PICS);
+        super(1003064);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

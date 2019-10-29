@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.HashMap;
@@ -8,34 +9,34 @@ import org.apache.thrift.TFieldIdEnum;
 /* loaded from: classes3.dex */
 public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, TFieldIdEnum> {
     private static final org.apache.thrift.protocol.j C = new org.apache.thrift.protocol.j("XmPushActionRegistration");
-    private static final org.apache.thrift.protocol.b D = new org.apache.thrift.protocol.b("", (byte) 11, 1);
+    private static final org.apache.thrift.protocol.b D = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 1);
     private static final org.apache.thrift.protocol.b E = new org.apache.thrift.protocol.b("", (byte) 12, 2);
-    private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b("", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b G = new org.apache.thrift.protocol.b("", (byte) 11, 4);
-    private static final org.apache.thrift.protocol.b H = new org.apache.thrift.protocol.b("", (byte) 11, 5);
-    private static final org.apache.thrift.protocol.b I = new org.apache.thrift.protocol.b("", (byte) 11, 6);
-    private static final org.apache.thrift.protocol.b J = new org.apache.thrift.protocol.b("", (byte) 11, 7);
-    private static final org.apache.thrift.protocol.b K = new org.apache.thrift.protocol.b("", (byte) 11, 8);
-    private static final org.apache.thrift.protocol.b L = new org.apache.thrift.protocol.b("", (byte) 11, 9);
-    private static final org.apache.thrift.protocol.b M = new org.apache.thrift.protocol.b("", (byte) 11, 10);
-    private static final org.apache.thrift.protocol.b N = new org.apache.thrift.protocol.b("", (byte) 11, 11);
-    private static final org.apache.thrift.protocol.b O = new org.apache.thrift.protocol.b("", (byte) 11, 12);
+    private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 3);
+    private static final org.apache.thrift.protocol.b G = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 4);
+    private static final org.apache.thrift.protocol.b H = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 5);
+    private static final org.apache.thrift.protocol.b I = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 6);
+    private static final org.apache.thrift.protocol.b J = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 7);
+    private static final org.apache.thrift.protocol.b K = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 8);
+    private static final org.apache.thrift.protocol.b L = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 9);
+    private static final org.apache.thrift.protocol.b M = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 10);
+    private static final org.apache.thrift.protocol.b N = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 11);
+    private static final org.apache.thrift.protocol.b O = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 12);
     private static final org.apache.thrift.protocol.b P = new org.apache.thrift.protocol.b("", (byte) 8, 13);
     private static final org.apache.thrift.protocol.b Q = new org.apache.thrift.protocol.b("", (byte) 8, 14);
-    private static final org.apache.thrift.protocol.b R = new org.apache.thrift.protocol.b("", (byte) 11, 15);
-    private static final org.apache.thrift.protocol.b S = new org.apache.thrift.protocol.b("", (byte) 11, 16);
-    private static final org.apache.thrift.protocol.b T = new org.apache.thrift.protocol.b("", (byte) 11, 17);
-    private static final org.apache.thrift.protocol.b U = new org.apache.thrift.protocol.b("", (byte) 11, 18);
+    private static final org.apache.thrift.protocol.b R = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 15);
+    private static final org.apache.thrift.protocol.b S = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 16);
+    private static final org.apache.thrift.protocol.b T = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 17);
+    private static final org.apache.thrift.protocol.b U = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 18);
     private static final org.apache.thrift.protocol.b V = new org.apache.thrift.protocol.b("", (byte) 8, 19);
     private static final org.apache.thrift.protocol.b W = new org.apache.thrift.protocol.b("", (byte) 8, 20);
     private static final org.apache.thrift.protocol.b X = new org.apache.thrift.protocol.b("", (byte) 2, 21);
     private static final org.apache.thrift.protocol.b Y = new org.apache.thrift.protocol.b("", (byte) 10, 22);
     private static final org.apache.thrift.protocol.b Z = new org.apache.thrift.protocol.b("", (byte) 10, 23);
-    private static final org.apache.thrift.protocol.b aa = new org.apache.thrift.protocol.b("", (byte) 11, 24);
-    private static final org.apache.thrift.protocol.b ab = new org.apache.thrift.protocol.b("", (byte) 11, 25);
+    private static final org.apache.thrift.protocol.b aa = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 24);
+    private static final org.apache.thrift.protocol.b ab = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 25);
     private static final org.apache.thrift.protocol.b ac = new org.apache.thrift.protocol.b("", (byte) 13, 100);
     private static final org.apache.thrift.protocol.b ad = new org.apache.thrift.protocol.b("", (byte) 2, 101);
-    private static final org.apache.thrift.protocol.b ae = new org.apache.thrift.protocol.b("", (byte) 11, 102);
+    private static final org.apache.thrift.protocol.b ae = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 102);
     public String B;
     public String a;
     public x b;
@@ -898,7 +899,7 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, TFie
         }
         if (this.z != null && C()) {
             eVar.a(ac);
-            eVar.a(new org.apache.thrift.protocol.d((byte) 11, (byte) 11, this.z.size()));
+            eVar.a(new org.apache.thrift.protocol.d(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.z.size()));
             for (Map.Entry<String, String> entry : this.z.entrySet()) {
                 eVar.a(entry.getKey());
                 eVar.a(entry.getValue());

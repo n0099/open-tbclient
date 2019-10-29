@@ -80,7 +80,7 @@ class b {
     }
 
     private void a(final Context context, final a aVar) {
-        CtSetting ctSetting = new CtSetting(8000, 8000, (int) f);
+        CtSetting ctSetting = new CtSetting(8000, 8000, 16000);
         final long currentTimeMillis = System.currentTimeMillis() / 1000;
         CtAuth.getInstance().requestPreLogin(ctSetting, new ResultListener() { // from class: com.baidu.sapi2.a.b.2
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [150=4] */
@@ -140,7 +140,7 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final SapiConfiguration sapiConfiguration, String str, final c.a aVar) {
-        CtAuth.getInstance().requestLogin(str, new CtSetting(8000, 8000, (int) f), new ResultListener() { // from class: com.baidu.sapi2.a.b.3
+        CtAuth.getInstance().requestLogin(str, new CtSetting(8000, 8000, 16000), new ResultListener() { // from class: com.baidu.sapi2.a.b.3
             public void onResult(String str2) {
                 Log.i(b.e, "requestLogin result = " + str2);
                 JSONObject jSONObject = new JSONObject();

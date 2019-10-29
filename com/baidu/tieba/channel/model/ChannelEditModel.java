@@ -3,7 +3,6 @@ package com.baidu.tieba.channel.model;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.channel.activity.ChannelEditActivity;
 import com.baidu.tieba.channel.c.c;
 import com.baidu.tieba.channel.data.ChannelInfo;
@@ -16,12 +15,12 @@ public class ChannelEditModel extends BdBaseModel<ChannelEditActivity> {
     }
 
     private void registerTask() {
-        c.a(CmdConfigHttp.CMD_CHANNEL_UPDATE_INFO, TbConfig.CMD_CHANNEL_UPDATE_INFO, ChannelUpdateInfoHttpResponsedMessage.class);
+        c.a(1003315, TbConfig.CMD_CHANNEL_UPDATE_INFO, ChannelUpdateInfoHttpResponsedMessage.class);
     }
 
     public void b(ChannelInfo channelInfo) {
         if (channelInfo != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANNEL_UPDATE_INFO);
+            HttpMessage httpMessage = new HttpMessage(1003315);
             httpMessage.addParam("channel_id", channelInfo.getChannelId());
             httpMessage.addParam("channel_cover", channelInfo.getChannelCover());
             httpMessage.addParam("channel_avatar", channelInfo.getChannelAvatar());

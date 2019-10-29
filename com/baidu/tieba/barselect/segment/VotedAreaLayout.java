@@ -14,7 +14,7 @@ import com.baidu.tieba.barselect.data.d;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes3.dex */
 public class VotedAreaLayout extends CardBasicLayout {
-    private TextView eAC;
+    private TextView eJk;
     private Context mContext;
 
     public VotedAreaLayout(Context context) {
@@ -33,37 +33,37 @@ public class VotedAreaLayout extends CardBasicLayout {
         setOrientation(0);
         setGravity(17);
         setBackgroundResource(R.drawable.bar_select_bg_voted_area_layout);
-        setMinimumHeight(l.g(getContext(), R.dimen.tbds62));
-        setMinimumWidth(l.g(getContext(), R.dimen.tbds172));
+        setMinimumHeight(l.getDimens(getContext(), R.dimen.tbds62));
+        setMinimumWidth(l.getDimens(getContext(), R.dimen.tbds172));
         setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.voted_area_layout, (ViewGroup) this, true);
-        qY();
+        md();
     }
 
-    private void qY() {
-        this.eAC = (TextView) findViewById(R.id.vote_num);
+    private void md() {
+        this.eJk = (TextView) findViewById(R.id.vote_num);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.ewD == null || this.eAt == null || this.status < 0) {
+        if (this.eFp == null || this.eJb == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.eAC.setText(aq.aO(this.eAt.aZi()) + "票");
-        nE(TbadkCoreApplication.getInst().getSkinType());
+        this.eJk.setText(aq.numFormatOverWan(this.eJb.aZm()) + "票");
+        mE(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.eAt = dVar;
-            this.eAC.setText(aq.aO(this.eAt.aZi()) + "票");
+            this.eJb = dVar;
+            this.eJk.setText(aq.numFormatOverWan(this.eJb.aZm()) + "票");
         }
     }
 
-    public void nE(int i) {
-        am.d(this.eAC, R.color.cp_cont_b, 1, i);
-        am.g(this, R.drawable.bar_select_bg_voted_area_layout, i);
+    public void mE(int i) {
+        am.setViewTextColor(this.eJk, R.color.cp_cont_b, 1, i);
+        am.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
     }
 }

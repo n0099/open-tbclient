@@ -1,4 +1,7 @@
 package org.aspectj.a.b;
+
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class e extends a implements org.aspectj.lang.reflect.c {
@@ -10,9 +13,9 @@ public class e extends a implements org.aspectj.lang.reflect.c {
         this.returnType = cls2;
     }
 
-    public Class cPi() {
+    public Class cNp() {
         if (this.returnType == null) {
-            this.returnType = ER(6);
+            this.returnType = Do(6);
         }
         return this.returnType;
     }
@@ -20,18 +23,18 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.ET(cPj()));
-        if (hVar.kwt) {
-            stringBuffer.append(hVar.G(cPi()));
+        stringBuffer.append(hVar.Dq(cNq()));
+        if (hVar.kxb) {
+            stringBuffer.append(hVar.E(cNp()));
         }
-        if (hVar.kwt) {
-            stringBuffer.append(" ");
+        if (hVar.kxb) {
+            stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
         }
-        stringBuffer.append(hVar.i(cPk(), cPl()));
-        stringBuffer.append(".");
+        stringBuffer.append(hVar.h(cNr(), cNs()));
+        stringBuffer.append(DefaultConfig.TOKEN_SEPARATOR);
         stringBuffer.append(getName());
-        hVar.b(stringBuffer, cPe());
-        hVar.c(stringBuffer, cPf());
+        hVar.b(stringBuffer, cNl());
+        hVar.c(stringBuffer, cNm());
         return stringBuffer.toString();
     }
 }

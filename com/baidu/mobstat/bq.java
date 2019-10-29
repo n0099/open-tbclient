@@ -3,7 +3,6 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 /* loaded from: classes6.dex */
 public class bq extends bn {
     private static final String a = "__Baidu_Stat_SDK_SendRem";
@@ -54,8 +53,8 @@ public class bq extends bn {
     }
 
     public void b(Context context, String str) {
-        if (a(context, DpStatConstants.KEY_CUID, (String) null) != null) {
-            c(context, DpStatConstants.KEY_CUID);
+        if (a(context, "cuid", (String) null) != null) {
+            c(context, "cuid");
         }
         b(context, "cuidsec_1", str);
         c(context, "cuidsec_1");

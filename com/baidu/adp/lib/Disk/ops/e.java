@@ -15,7 +15,7 @@ public class e extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
     }
 
     @Override // com.baidu.adp.lib.Disk.a
-    public boolean e(File file) {
+    public boolean compare(File file) {
         if (this.list == null) {
             return false;
         }

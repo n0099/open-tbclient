@@ -3,6 +3,8 @@ package com.baidu.tbadk.widget.lottie;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.k;
 import com.baidu.adp.lib.util.s;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.tbadk.core.hybrid.r;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
@@ -11,17 +13,17 @@ import com.baidu.tbadk.core.util.x;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private a cLw;
-    private x mNetWork;
+    private x bVP;
+    private a cUU;
+    private String mPath;
     private String mUrl;
-    private String wX;
 
     /* loaded from: classes.dex */
     public interface a {
-        void h(boolean z, String str);
+        void onLoaded(boolean z, String str);
     }
 
-    public static boolean rI(String str) {
+    public static boolean checkInternalTempDir(String str) {
         File file = new File(str);
         if (file.exists()) {
             return true;
@@ -29,37 +31,37 @@ public class b extends BdAsyncTask<Void, Void, String> {
         try {
             return file.mkdirs();
         } catch (Exception e) {
-            TiebaStatic.file(e, k.i("FileHelper", ".", "CheckTempDir", " ", str));
+            TiebaStatic.file(e, k.join("FileHelper", DefaultConfig.TOKEN_SEPARATOR, "CheckTempDir", HanziToPinyin.Token.SEPARATOR, str));
             return false;
         }
     }
 
     public b(String str, String str2, a aVar) {
-        this.wX = str;
+        this.mPath = str;
         this.mUrl = str2;
-        this.cLw = aVar;
+        this.cUU = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(Void... voidArr) {
-        if (aq.isEmpty(this.wX) || aq.isEmpty(this.mUrl) || !rI(this.wX)) {
+        if (aq.isEmpty(this.mPath) || aq.isEmpty(this.mUrl) || !checkInternalTempDir(this.mPath)) {
             return null;
         }
-        String bn = s.bn(this.mUrl);
-        String str = this.wX + bn + "/";
-        if (rK(str)) {
-            return bn;
+        String md5 = s.toMd5(this.mUrl);
+        String str = this.mPath + md5 + "/";
+        if (isExists(str)) {
+            return md5;
         }
-        this.mNetWork = new x();
-        this.mNetWork.setUrl(this.mUrl);
-        String str2 = this.wX + bn + ".zip";
-        if (this.mNetWork.a(str2, null, 0, 3, 0, true) && ch(str2, str)) {
-            rJ(str2);
-            return bn;
+        this.bVP = new x();
+        this.bVP.setUrl(this.mUrl);
+        String str2 = this.mPath + md5 + ".zip";
+        if (this.bVP.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
+            clearTemp(str2);
+            return md5;
         }
-        rJ(str2);
+        clearTemp(str2);
         return null;
     }
 
@@ -67,29 +69,29 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.cLw != null) {
+        if (this.cUU != null) {
             if (!aq.isEmpty(str)) {
-                this.cLw.h(true, str);
+                this.cUU.onLoaded(true, str);
             } else {
-                this.cLw.h(false, null);
+                this.cUU.onLoaded(false, null);
             }
         }
     }
 
-    private boolean ch(String str, String str2) {
+    private boolean unZip(String str, String str2) {
         if (aq.isEmpty(str) || aq.isEmpty(str2)) {
             return false;
         }
-        return r.bK(str, str2);
+        return r.unZipFiles(str, str2);
     }
 
-    private void rJ(String str) {
+    private void clearTemp(String str) {
         if (!aq.isEmpty(str)) {
-            m.A(new File(str));
+            m.deleteFileOrDir(new File(str));
         }
     }
 
-    private boolean rK(String str) {
+    private boolean isExists(String str) {
         return !aq.isEmpty(str) && new File(str).exists();
     }
 }

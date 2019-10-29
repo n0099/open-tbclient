@@ -7,7 +7,7 @@ import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class h implements n {
     @Override // com.baidu.swan.apps.b.b.n
-    public void a(String str, Object obj, int i) {
+    public void b(String str, Object obj, int i) {
     }
 
     @Override // com.baidu.swan.apps.b.b.n
@@ -19,7 +19,7 @@ public class h implements n {
     }
 
     @Override // com.baidu.swan.apps.b.b.n
-    public void c(String str, int i, String str2) {
+    public void e(String str, int i, String str2) {
     }
 
     @Override // com.baidu.swan.apps.b.b.n
@@ -36,7 +36,7 @@ public class h implements n {
     }
 
     @Override // com.baidu.swan.apps.b.b.n
-    public ExecutorService wK() {
+    public ExecutorService BE() {
         return null;
     }
 }

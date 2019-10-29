@@ -11,15 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements d, k, a.InterfaceC0007a {
-    private final com.airbnb.lottie.f kB;
-    private final Path lR;
+    private final com.airbnb.lottie.f dh;
+    private final List<b> eC;
+    @Nullable
+    private List<k> eD;
+    @Nullable
+    private com.airbnb.lottie.a.b.p eE;
     private final Matrix matrix;
-    private final List<b> mb;
-    @Nullable
-    private List<k> mc;
-    @Nullable
-    private com.airbnb.lottie.a.b.p md;
     private final String name;
+    private final Path path;
     private final RectF rect;
 
     private static List<b> a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, List<com.airbnb.lottie.model.content.b> list) {
@@ -64,15 +64,15 @@ public class c implements d, k, a.InterfaceC0007a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, String str, List<b> list, @Nullable com.airbnb.lottie.model.a.l lVar) {
         this.matrix = new Matrix();
-        this.lR = new Path();
+        this.path = new Path();
         this.rect = new RectF();
         this.name = str;
-        this.kB = fVar;
-        this.mb = list;
+        this.dh = fVar;
+        this.eC = list;
         if (lVar != null) {
-            this.md = lVar.cX();
-            this.md.a(aVar);
-            this.md.a(this);
+            this.eE = lVar.cq();
+            this.eE.a(aVar);
+            this.eE.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -87,8 +87,8 @@ public class c implements d, k, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void ca() {
-        this.kB.invalidateSelf();
+    public void bt() {
+        this.dh.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -101,8 +101,8 @@ public class c implements d, k, a.InterfaceC0007a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.mb.size()) {
-                b bVar = this.mb.get(i2);
+            if (i2 < this.eC.size()) {
+                b bVar = this.eC.get(i2);
                 if (bVar instanceof d) {
                     d dVar = (d) bVar;
                     if (str2 == null || str2.equals(bVar.getName())) {
@@ -120,69 +120,69 @@ public class c implements d, k, a.InterfaceC0007a {
 
     @Override // com.airbnb.lottie.a.a.b
     public void b(List<b> list, List<b> list2) {
-        ArrayList arrayList = new ArrayList(list.size() + this.mb.size());
+        ArrayList arrayList = new ArrayList(list.size() + this.eC.size());
         arrayList.addAll(list);
-        for (int size = this.mb.size() - 1; size >= 0; size--) {
-            b bVar = this.mb.get(size);
-            bVar.b(arrayList, this.mb.subList(0, size));
+        for (int size = this.eC.size() - 1; size >= 0; size--) {
+            b bVar = this.eC.get(size);
+            bVar.b(arrayList, this.eC.subList(0, size));
             arrayList.add(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<k> cb() {
-        if (this.mc == null) {
-            this.mc = new ArrayList();
+    public List<k> bu() {
+        if (this.eD == null) {
+            this.eD = new ArrayList();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.mb.size()) {
+                if (i2 >= this.eC.size()) {
                     break;
                 }
-                b bVar = this.mb.get(i2);
+                b bVar = this.eC.get(i2);
                 if (bVar instanceof k) {
-                    this.mc.add((k) bVar);
+                    this.eD.add((k) bVar);
                 }
                 i = i2 + 1;
             }
         }
-        return this.mc;
+        return this.eD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Matrix cc() {
-        if (this.md != null) {
-            return this.md.getMatrix();
+    public Matrix bv() {
+        if (this.eE != null) {
+            return this.eE.getMatrix();
         }
         this.matrix.reset();
         return this.matrix;
     }
 
     @Override // com.airbnb.lottie.a.a.k
-    public Path cd() {
+    public Path bw() {
         this.matrix.reset();
-        if (this.md != null) {
-            this.matrix.set(this.md.getMatrix());
+        if (this.eE != null) {
+            this.matrix.set(this.eE.getMatrix());
         }
-        this.lR.reset();
-        for (int size = this.mb.size() - 1; size >= 0; size--) {
-            b bVar = this.mb.get(size);
+        this.path.reset();
+        for (int size = this.eC.size() - 1; size >= 0; size--) {
+            b bVar = this.eC.get(size);
             if (bVar instanceof k) {
-                this.lR.addPath(((k) bVar).cd(), this.matrix);
+                this.path.addPath(((k) bVar).bw(), this.matrix);
             }
         }
-        return this.lR;
+        return this.path;
     }
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         this.matrix.set(matrix);
-        if (this.md != null) {
-            this.matrix.preConcat(this.md.getMatrix());
-            i = (int) ((((this.md.cw().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        if (this.eE != null) {
+            this.matrix.preConcat(this.eE.getMatrix());
+            i = (int) ((((this.eE.bP().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
-        for (int size = this.mb.size() - 1; size >= 0; size--) {
-            b bVar = this.mb.get(size);
+        for (int size = this.eC.size() - 1; size >= 0; size--) {
+            b bVar = this.eC.get(size);
             if (bVar instanceof d) {
                 ((d) bVar).a(canvas, this.matrix, i);
             }
@@ -192,12 +192,12 @@ public class c implements d, k, a.InterfaceC0007a {
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         this.matrix.set(matrix);
-        if (this.md != null) {
-            this.matrix.preConcat(this.md.getMatrix());
+        if (this.eE != null) {
+            this.matrix.preConcat(this.eE.getMatrix());
         }
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.mb.size() - 1; size >= 0; size--) {
-            b bVar = this.mb.get(size);
+        for (int size = this.eC.size() - 1; size >= 0; size--) {
+            b bVar = this.eC.get(size);
             if (bVar instanceof d) {
                 ((d) bVar).a(this.rect, this.matrix);
                 if (rectF.isEmpty()) {

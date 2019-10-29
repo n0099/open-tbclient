@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private static int aYS = 5;
-    private static int aYT = 0;
-    private ImageView aYP;
-    private TextView aYQ;
-    private boolean aYR;
+    private static int brT = 5;
+    private static int brU = 0;
+    private TextView brR;
+    private boolean brS;
     private ImageView mIconView;
+    private ImageView mRedDot;
     private TextView mTextView;
 
     public SwanAppBottomTabIconView(Context context) {
@@ -24,8 +24,8 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         LayoutInflater.from(context).inflate(a.g.aiapps_bottom_tab_icon, (ViewGroup) this, true);
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
-        this.aYP = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.aYQ = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
+        this.brR = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -41,8 +41,8 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setTextView(String str) {
-        if (str.length() > aYS) {
-            str = str.substring(aYT, aYS);
+        if (str.length() > brT) {
+            str = str.substring(brU, brT);
         }
         this.mTextView.setText(str);
     }
@@ -51,31 +51,31 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mTextView.setTextColor(i);
     }
 
-    public boolean OP() {
-        return this.aYR;
+    public boolean TF() {
+        return this.brS;
     }
 
     public void setmIsSelect(boolean z) {
-        this.aYR = z;
+        this.brS = z;
     }
 
     public void setBadgeText(String str) {
-        this.aYQ.setText(str);
+        this.brR.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
         if (z) {
-            this.aYP.setVisibility(0);
+            this.mRedDot.setVisibility(0);
         } else {
-            this.aYP.setVisibility(8);
+            this.mRedDot.setVisibility(8);
         }
     }
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.aYQ.setVisibility(0);
+            this.brR.setVisibility(0);
         } else {
-            this.aYQ.setVisibility(8);
+            this.brR.setVisibility(8);
         }
     }
 }

@@ -9,16 +9,16 @@ public class o<T> implements l<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public l.b<T> aq(String str) {
+    public l.b<T> Y(String str) {
         return null;
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void a(String str, T t, long j) {
+    public void set(String str, T t, long j) {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void f(String str, T t) {
+    public void setForever(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -30,14 +30,14 @@ public class o<T> implements l<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void b(String str, T t, long j) {
+    public void asyncSet(String str, T t, long j) {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void g(String str, T t) {
+    public void asyncSetForever(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void ar(String str) {
+    public void asyncRemove(String str) {
     }
 }

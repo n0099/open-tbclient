@@ -2,27 +2,27 @@ package com.baidu.tieba.homepage;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes3.dex */
 public class HomePageStatic {
-    public static boolean ged = false;
+    public static boolean gdA = false;
 
     static {
-        bvO();
+        bsT();
     }
 
-    private static void bvO() {
+    private static void bsT() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003010, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=" + CmdConfigSocket.CMD_GET_MY_POST);
         tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        b bVar = new b(303111);
+        b bVar = new b(CmdConfigSocket.CMD_GET_MY_POST);
         bVar.setResponsedClass(GetMyPostSocketResponseMessage.class);
-        bVar.D(true);
-        bVar.E(false);
+        bVar.setNeedAck(true);
+        bVar.setNeedCompress(false);
         bVar.a(SocketMessageTask.DupLicateMode.NONE);
         messageManager.registerTask(bVar);
     }

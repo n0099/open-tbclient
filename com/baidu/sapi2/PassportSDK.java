@@ -265,7 +265,7 @@ public final class PassportSDK {
         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, webLoginDTO.loginType);
         intent.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, webLoginDTO.finishActivityAfterSuc);
         if (!TextUtils.isEmpty(webLoginDTO.preSetUname)) {
-            intent.putExtra(LoginActivity.EXTRA_PARAM_USERNAME, webLoginDTO.preSetUname);
+            intent.putExtra("username", webLoginDTO.preSetUname);
         }
         if (context instanceof Activity) {
             context.startActivity(intent);

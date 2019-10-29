@@ -2,7 +2,7 @@ package com.vivo.push.cache;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.vivo.push.util.m;
+import com.vivo.push.util.p;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,6 +18,7 @@ public class ClientConfigManagerImpl implements e {
     private ClientConfigManagerImpl(Context context) {
         this.mContext = context.getApplicationContext();
         this.mAppConfigSettings = new a(this.mContext);
+        this.mPushConfigSettings = new f(this.mContext);
     }
 
     public static ClientConfigManagerImpl getInstance(Context context) {
@@ -32,45 +33,34 @@ public class ClientConfigManagerImpl implements e {
     }
 
     public boolean isEnablePush() {
-        com.vivo.push.model.a b = this.mAppConfigSettings.b(this.mContext.getPackageName());
-        if (b != null) {
-            return "1".equals(b.b());
+        prepareAppConfig();
+        com.vivo.push.model.a c = this.mAppConfigSettings.c(this.mContext.getPackageName());
+        if (c != null) {
+            return "1".equals(c.b());
         }
         return true;
     }
 
-    public void enablePush() {
-        com.vivo.push.model.a b = this.mAppConfigSettings.b(this.mContext.getPackageName());
-        if (b != null) {
-            b.a("1");
-            this.mAppConfigSettings.a(b);
-            return;
+    private void prepareAppConfig() {
+        if (this.mAppConfigSettings == null) {
+            this.mAppConfigSettings = new a(this.mContext);
+        } else {
+            this.mAppConfigSettings.c();
         }
-        this.mAppConfigSettings.a((a) new com.vivo.push.model.a(this.mContext.getPackageName(), "1"));
     }
 
     public void clearPush() {
         this.mAppConfigSettings.d();
     }
 
-    public void disablePush() {
-        com.vivo.push.model.a b = this.mAppConfigSettings.b(this.mContext.getPackageName());
-        if (b != null) {
-            b.a("0");
-            this.mAppConfigSettings.a(b);
-            return;
-        }
-        this.mAppConfigSettings.a((a) new com.vivo.push.model.a(this.mContext.getPackageName(), "0"));
-    }
-
     @Override // com.vivo.push.cache.e
     public boolean isInBlackList(long j) {
         String[] split;
-        String b = preparePushConfigSettings().b("BL");
-        if (TextUtils.isEmpty(b)) {
+        String c = preparePushConfigSettings().c("BL");
+        if (TextUtils.isEmpty(c)) {
             return false;
         }
-        for (String str : b.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+        for (String str : c.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
             try {
                 if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j) {
                     return true;
@@ -82,41 +72,14 @@ public class ClientConfigManagerImpl implements e {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0025 A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0018 A[ORIG_RETURN, RETURN] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean isShowBigPic() {
-        int i;
-        String b;
-        try {
-            b = preparePushConfigSettings().b("SBP");
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            i = 1;
-        }
-        if (!TextUtils.isEmpty(b)) {
-            try {
-                i = Integer.parseInt(b);
-            } catch (NumberFormatException e2) {
-                e2.printStackTrace();
-            }
-            return i != 1;
-        }
-        i = 1;
-        if (i != 1) {
-        }
-    }
-
     public int getNotifyStyle() {
         try {
-            String b = preparePushConfigSettings().b("DPL");
-            if (TextUtils.isEmpty(b)) {
+            String c = preparePushConfigSettings().c("DPL");
+            if (TextUtils.isEmpty(c)) {
                 return 0;
             }
             try {
-                return Integer.parseInt(b);
+                return Integer.parseInt(c);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 return 0;
@@ -134,10 +97,10 @@ public class ClientConfigManagerImpl implements e {
     */
     public boolean isCancleBroadcastReceiver() {
         int parseInt;
-        String b = preparePushConfigSettings().b("PSM");
-        if (!TextUtils.isEmpty(b)) {
+        String c = preparePushConfigSettings().c("PSM");
+        if (!TextUtils.isEmpty(c)) {
             try {
-                parseInt = Integer.parseInt(b);
+                parseInt = Integer.parseInt(c);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
@@ -159,7 +122,7 @@ public class ClientConfigManagerImpl implements e {
 
     @Override // com.vivo.push.cache.e
     public String getSuitTag() {
-        return preparePushConfigSettings().b("CSPT");
+        return preparePushConfigSettings().c("CSPT");
     }
 
     public boolean isDebug() {
@@ -176,7 +139,7 @@ public class ClientConfigManagerImpl implements e {
             return null;
         }
         this.mPushConfigSettings.c();
-        return this.mPushConfigSettings.b(str);
+        return this.mPushConfigSettings.c(str);
     }
 
     public Set<Long> getWhiteLogList() {
@@ -191,7 +154,11 @@ public class ClientConfigManagerImpl implements e {
                 }
             }
         }
-        m.d(TAG, " initWhiteLogList " + hashSet);
+        p.d(TAG, " initWhiteLogList " + hashSet);
         return hashSet;
+    }
+
+    public Set<String> getBlackEventList() {
+        return null;
     }
 }

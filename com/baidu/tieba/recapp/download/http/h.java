@@ -2,6 +2,7 @@ package com.baidu.tieba.recapp.download.http;
 
 import com.baidu.adp.lib.util.k;
 import java.io.DataOutputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,9 +13,9 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> AN = new HashMap();
-    protected LinkedList<BasicNameValuePair> AO = new LinkedList<>();
-    protected HashMap<String, byte[]> AP = new HashMap<>();
+    protected Map<String, String> pq = new HashMap();
+    protected LinkedList<BasicNameValuePair> pr = new LinkedList<>();
+    protected HashMap<String, byte[]> pu = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -28,14 +29,14 @@ public class h {
         }
     }
 
-    public boolean iy() {
-        return this.AP != null && this.AP.size() > 0;
+    public boolean fN() {
+        return this.pu != null && this.pu.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.AO.size() == 0) {
+        if (this.pr.size() == 0) {
             if (eVar != null) {
-                eVar.At = this.url.length();
+                eVar.oT = this.url.length();
             }
             return this.url;
         }
@@ -49,26 +50,26 @@ public class h {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.AO.size()) {
+            if (i2 >= this.pr.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.AO.get(i2).getName());
+            sb.append(this.pr.get(i2).getName());
             sb.append("=");
-            sb.append(k.bi(this.AO.get(i2).getValue()));
+            sb.append(k.getUrlEncode(this.pr.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.At = sb.length();
+            eVar.oT = sb.length();
         }
         return sb.toString();
     }
 
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.AN != null) {
-            for (Map.Entry<String, String> entry : this.AN.entrySet()) {
+        if (httpURLConnection != null && this.pq != null) {
+            for (Map.Entry<String, String> entry : this.pq.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -76,13 +77,13 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, e eVar) throws Exception {
-        iA();
+        fP();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.AO != null) {
-                    Iterator<BasicNameValuePair> it = this.AO.iterator();
+                if (this.pr != null) {
+                    Iterator<BasicNameValuePair> it = this.pr.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -99,8 +100,8 @@ public class h {
                         }
                     }
                 }
-                if (this.AP != null) {
-                    for (Map.Entry<String, byte[]> entry : this.AP.entrySet()) {
+                if (this.pu != null) {
+                    for (Map.Entry<String, byte[]> entry : this.pu.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -116,38 +117,38 @@ public class h {
                 dataOutputStream.flush();
                 i = dataOutputStream.size();
             } finally {
-                com.baidu.adp.lib.g.a.c(dataOutputStream);
+                com.baidu.adp.lib.g.a.close((OutputStream) dataOutputStream);
             }
         }
         if (eVar != null) {
-            eVar.At = i;
+            eVar.oT = i;
         }
     }
 
     public void a(HttpURLConnection httpURLConnection, e eVar) throws Exception {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = iz().toString();
+            String sb = fO().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
                 dataOutputStream.flush();
-                com.baidu.adp.lib.g.a.c(dataOutputStream);
+                com.baidu.adp.lib.g.a.close((OutputStream) dataOutputStream);
                 i = sb.length();
             } catch (Throwable th) {
-                com.baidu.adp.lib.g.a.c(dataOutputStream);
+                com.baidu.adp.lib.g.a.close((OutputStream) dataOutputStream);
                 throw th;
             }
         }
         if (eVar != null) {
-            eVar.At = i;
+            eVar.oT = i;
         }
     }
 
-    private StringBuilder iz() {
+    private StringBuilder fO() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.AO != null) {
-            Iterator<BasicNameValuePair> it = this.AO.iterator();
+        if (this.pr != null) {
+            Iterator<BasicNameValuePair> it = this.pr.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -158,7 +159,7 @@ public class h {
                         sb.append("&");
                     }
                     sb.append(name + "=");
-                    sb.append(k.bi(value));
+                    sb.append(k.getUrlEncode(value));
                     i++;
                 }
             }
@@ -166,23 +167,23 @@ public class h {
         return sb;
     }
 
-    protected void iA() {
+    protected void fP() {
     }
 
-    public String aB(String str) {
-        if (this.AN != null) {
-            return this.AN.get(str);
+    public String ah(String str) {
+        if (this.pq != null) {
+            return this.pq.get(str);
         }
         return null;
     }
 
-    public void a(BasicNameValuePair basicNameValuePair) {
-        this.AO.add(basicNameValuePair);
+    public void addPostData(BasicNameValuePair basicNameValuePair) {
+        this.pr.add(basicNameValuePair);
     }
 
-    public void q(String str, String str2) {
-        if (this.AN != null) {
-            this.AN.put(str, str2);
+    public void l(String str, String str2) {
+        if (this.pq != null) {
+            this.pq.put(str, str2);
         }
     }
 }

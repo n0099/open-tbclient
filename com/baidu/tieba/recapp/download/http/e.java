@@ -1,21 +1,21 @@
 package com.baidu.tieba.recapp.download.http;
 /* loaded from: classes3.dex */
 public class e {
-    public long At = -1;
-    public long Au = -1;
+    public long oT = -1;
+    public long downloadSize = -1;
     public long connectTime = -1;
-    public long Av = -1;
-    public int Aw = 0;
-    public long Ax = -1;
-    public long Ay = -1;
-    public String Az = "";
-    public int AA = -1;
+    public long oU = -1;
+    public int oV = 0;
+    public long oW = -1;
+    public long oX = -1;
+    public String exception = "";
+    public int oY = -1;
     public int errorCode = 0;
-    public int AB = 0;
-    public String AC = null;
-    public String AD = null;
+    public int oZ = 0;
+    public String pa = null;
+    public String pd = null;
     public String url = null;
-    public String AE = null;
-    public String AF = null;
-    public int AG = 0;
+    public String pf = null;
+    public String pg = null;
+    public int ph = 0;
 }

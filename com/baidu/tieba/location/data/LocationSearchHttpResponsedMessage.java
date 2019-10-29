@@ -2,7 +2,6 @@ package com.baidu.tieba.location.data;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes5.dex */
@@ -10,7 +9,7 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     private a mLocationData;
 
     public LocationSearchHttpResponsedMessage(int i) {
-        super(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME);
+        super(1003002);
     }
 
     public a getLocationData() {

@@ -12,7 +12,7 @@ public class VideoTopicActivityConfig extends IntentConfig {
     public VideoTopicActivityConfig createNormalCfg(int i, String str, String str2) {
         Intent intent = getIntent();
         intent.putExtra("topic_id", i);
-        intent.putExtra(IntentConfig.TOPIC_NAME, str);
+        intent.putExtra("topic_name", str);
         intent.putExtra("forum_id", str2);
         return this;
     }

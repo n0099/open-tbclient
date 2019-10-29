@@ -9,123 +9,123 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class g extends Drawable implements Drawable.Callback, c, o, p {
-    private static final Matrix kgc = new Matrix();
-    protected p kfH;
-    private final d kfI = new d();
-    private Drawable kgb;
+    private static final Matrix kek = new Matrix();
+    protected p kdP;
+    private final d kdQ = new d();
+    private Drawable kej;
 
     public g(Drawable drawable) {
-        this.kgb = drawable;
-        e.a(this.kgb, this, this);
+        this.kej = drawable;
+        e.a(this.kej, this, this);
     }
 
-    public Drawable j(Drawable drawable) {
-        Drawable k = k(drawable);
+    public Drawable h(Drawable drawable) {
+        Drawable i = i(drawable);
         invalidateSelf();
-        return k;
+        return i;
     }
 
-    protected Drawable k(Drawable drawable) {
-        Drawable drawable2 = this.kgb;
+    protected Drawable i(Drawable drawable) {
+        Drawable drawable2 = this.kej;
         e.a(drawable2, null, null);
         e.a(drawable, null, null);
-        e.a(drawable, this.kfI);
+        e.a(drawable, this.kdQ);
         e.c(drawable, this);
         e.a(drawable, this, this);
-        this.kgb = drawable;
+        this.kej = drawable;
         return drawable2;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.kgb.getOpacity();
+        return this.kej.getOpacity();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.kfI.setAlpha(i);
-        this.kgb.setAlpha(i);
+        this.kdQ.setAlpha(i);
+        this.kej.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.kfI.setColorFilter(colorFilter);
-        this.kgb.setColorFilter(colorFilter);
+        this.kdQ.setColorFilter(colorFilter);
+        this.kej.setColorFilter(colorFilter);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setDither(boolean z) {
-        this.kfI.setDither(z);
-        this.kgb.setDither(z);
+        this.kdQ.setDither(z);
+        this.kej.setDither(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
-        this.kfI.setFilterBitmap(z);
-        this.kgb.setFilterBitmap(z);
+        this.kdQ.setFilterBitmap(z);
+        this.kej.setFilterBitmap(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
         super.setVisible(z, z2);
-        return this.kgb.setVisible(z, z2);
+        return this.kej.setVisible(z, z2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
-        this.kgb.setBounds(rect);
+        this.kej.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        return this.kgb.isStateful();
+        return this.kej.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        return this.kgb.setState(iArr);
+        return this.kej.setState(iArr);
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
-        return this.kgb.setLevel(i);
+        return this.kej.setLevel(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        this.kgb.draw(canvas);
+        this.kej.draw(canvas);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.kgb.getIntrinsicWidth();
+        return this.kej.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.kgb.getIntrinsicHeight();
+        return this.kej.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
-        return this.kgb.getPadding(rect);
+        return this.kej.getPadding(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable mutate() {
-        this.kgb.mutate();
+        this.kej.mutate();
         return this;
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable getCurrent() {
-        return this.kgb;
+        return this.kej;
     }
 
     @Override // com.facebook.drawee.drawable.c
-    public Drawable h(Drawable drawable) {
-        return j(drawable);
+    public Drawable f(Drawable drawable) {
+        return h(drawable);
     }
 
     @Override // com.facebook.drawee.drawable.c
@@ -150,27 +150,27 @@ public class g extends Drawable implements Drawable.Callback, c, o, p {
 
     @Override // com.facebook.drawee.drawable.o
     public void a(p pVar) {
-        this.kfH = pVar;
+        this.kdP = pVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void f(Matrix matrix) {
-        if (this.kfH != null) {
-            this.kfH.e(matrix);
+    public void e(Matrix matrix) {
+        if (this.kdP != null) {
+            this.kdP.d(matrix);
         } else {
             matrix.reset();
         }
     }
 
     @Override // com.facebook.drawee.drawable.p
-    public void e(Matrix matrix) {
-        f(matrix);
+    public void d(Matrix matrix) {
+        e(matrix);
     }
 
     @Override // com.facebook.drawee.drawable.p
-    public void b(RectF rectF) {
-        if (this.kfH != null) {
-            this.kfH.b(rectF);
+    public void a(RectF rectF) {
+        if (this.kdP != null) {
+            this.kdP.a(rectF);
         } else {
             rectF.set(getBounds());
         }
@@ -179,6 +179,6 @@ public class g extends Drawable implements Drawable.Callback, c, o, p {
     @Override // android.graphics.drawable.Drawable
     @TargetApi(21)
     public void setHotspot(float f, float f2) {
-        this.kgb.setHotspot(f, f2);
+        this.kej.setHotspot(f, f2);
     }
 }

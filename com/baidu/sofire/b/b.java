@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
@@ -17,7 +18,7 @@ public final class b {
         long currentTimeMillis;
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            long t = 3600000 * eVar.t();
+            long t = BdKVCache.MILLS_1Hour * eVar.t();
             new StringBuilder("sjh-alarm gap ").append(eVar.t());
             com.baidu.sofire.b.a();
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);

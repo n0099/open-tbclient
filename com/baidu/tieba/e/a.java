@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eTR = BdUniqueId.gen();
-    private bh cdk;
+    public static final BdUniqueId eWG = BdUniqueId.gen();
+    private bh cry;
 
     public void setData(bh bhVar) {
-        this.cdk = bhVar;
+        this.cry = bhVar;
     }
 
-    public bh acC() {
-        return this.cdk;
+    public bh agI() {
+        return this.cry;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eTR;
+        return eWG;
     }
 }

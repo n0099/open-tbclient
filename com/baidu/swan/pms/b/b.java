@@ -14,38 +14,38 @@ public class b {
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", bVar.getBundleId());
-        hashMap.put("category", String.valueOf(bVar.BB()));
-        if (bVar.WO() == -1) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.Wi().kr(bVar.getBundleId());
+        hashMap.put("category", String.valueOf(bVar.getCategory()));
+        if (bVar.abD() == -1) {
+            pMSAppInfo = com.baidu.swan.pms.database.a.aaX().kT(bVar.getBundleId());
             if (pMSAppInfo != null) {
-                bVar.fM(pMSAppInfo.versionCode);
+                bVar.gH(pMSAppInfo.versionCode);
             } else {
-                bVar.fM(0);
+                bVar.gH(0);
             }
         }
-        hashMap.put("pkg_ver", String.valueOf(bVar.WO()));
-        if (bVar.WP() == -1) {
+        hashMap.put("pkg_ver", String.valueOf(bVar.abD()));
+        if (bVar.abE() == -1) {
             if (pMSAppInfo == null) {
-                pMSAppInfo = com.baidu.swan.pms.database.a.Wi().kr(bVar.getBundleId());
+                pMSAppInfo = com.baidu.swan.pms.database.a.aaX().kT(bVar.getBundleId());
             }
             if (pMSAppInfo != null) {
-                bVar.ah(pMSAppInfo.bte);
+                bVar.aA(pMSAppInfo.bLP);
             } else {
-                bVar.ah(0L);
+                bVar.aA(0L);
             }
         }
-        hashMap.put("app_sign", String.valueOf(bVar.WP()));
-        if (TextUtils.isEmpty(bVar.WQ())) {
-            bVar.ky(fJ(bVar.BB()));
+        hashMap.put("app_sign", String.valueOf(bVar.abE()));
+        if (TextUtils.isEmpty(bVar.abF())) {
+            bVar.la(gE(bVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(bVar.WQ())) {
-            hashMap.put("framework_ver", bVar.WQ());
+        if (!TextUtils.isEmpty(bVar.abF())) {
+            hashMap.put("framework_ver", bVar.abF());
         }
-        if (TextUtils.isEmpty(bVar.WR())) {
-            bVar.kz(fK(bVar.BB()));
+        if (TextUtils.isEmpty(bVar.abG())) {
+            bVar.lb(gF(bVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(bVar.WR())) {
-            hashMap.put("extension_ver", bVar.WR());
+        if (!TextUtils.isEmpty(bVar.abG())) {
+            hashMap.put("extension_ver", bVar.abG());
         }
         if (!TextUtils.isEmpty(bVar.getPath())) {
             hashMap.put("path", bVar.getPath());
@@ -62,20 +62,20 @@ public class b {
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", dVar.getBundleId());
-        hashMap.put("category", String.valueOf(dVar.BB()));
-        hashMap.put("pkg_ver", String.valueOf(dVar.WO()));
-        hashMap.put("sub_id", dVar.WU());
-        if (TextUtils.isEmpty(dVar.WQ())) {
-            dVar.kC(fJ(dVar.BB()));
+        hashMap.put("category", String.valueOf(dVar.getCategory()));
+        hashMap.put("pkg_ver", String.valueOf(dVar.abD()));
+        hashMap.put("sub_id", dVar.abJ());
+        if (TextUtils.isEmpty(dVar.abF())) {
+            dVar.le(gE(dVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(dVar.WQ())) {
-            hashMap.put("framework_ver", dVar.WQ());
+        if (!TextUtils.isEmpty(dVar.abF())) {
+            hashMap.put("framework_ver", dVar.abF());
         }
-        if (TextUtils.isEmpty(dVar.WR())) {
-            dVar.kD(fK(dVar.BB()));
+        if (TextUtils.isEmpty(dVar.abG())) {
+            dVar.lf(gF(dVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(dVar.WR())) {
-            hashMap.put("extension_ver", dVar.WR());
+        if (!TextUtils.isEmpty(dVar.abG())) {
+            hashMap.put("extension_ver", dVar.abG());
             return hashMap;
         }
         return hashMap;
@@ -86,12 +86,12 @@ public class b {
             return null;
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("bundle_id", cVar.WS());
-        hashMap.put("category", String.valueOf(cVar.BB()));
-        if (TextUtils.isEmpty(cVar.WT())) {
-            cVar.kB(String.valueOf(-1));
+        hashMap.put("bundle_id", cVar.abH());
+        hashMap.put("category", String.valueOf(cVar.getCategory()));
+        if (TextUtils.isEmpty(cVar.abI())) {
+            cVar.ld(String.valueOf(-1));
         }
-        hashMap.put("plugin_ver", cVar.WT());
+        hashMap.put("plugin_ver", cVar.abI());
         return hashMap;
     }
 
@@ -100,39 +100,39 @@ public class b {
             return null;
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("category", String.valueOf(fVar.BB()));
-        if (TextUtils.isEmpty(fVar.WQ())) {
-            fVar.kF(fJ(fVar.BB()));
+        hashMap.put("category", String.valueOf(fVar.getCategory()));
+        if (TextUtils.isEmpty(fVar.abF())) {
+            fVar.lh(gE(fVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(fVar.WQ())) {
-            hashMap.put("framework_ver", fVar.WQ());
+        if (!TextUtils.isEmpty(fVar.abF())) {
+            hashMap.put("framework_ver", fVar.abF());
         }
-        if (TextUtils.isEmpty(fVar.WR())) {
-            fVar.kG(fK(fVar.BB()));
+        if (TextUtils.isEmpty(fVar.abG())) {
+            fVar.li(gF(fVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(fVar.WR())) {
-            hashMap.put("extension_ver", fVar.WR());
+        if (!TextUtils.isEmpty(fVar.abG())) {
+            hashMap.put("extension_ver", fVar.abG());
             return hashMap;
         }
         return hashMap;
     }
 
-    private static String fJ(int i) {
+    private static String gE(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.e.Wd().Fd();
+            return com.baidu.swan.pms.e.aaS().JX();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.e.Wd().Fb();
+            return com.baidu.swan.pms.e.aaS().JV();
         }
         return null;
     }
 
-    private static String fK(int i) {
+    private static String gF(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.e.Wd().Fe();
+            return com.baidu.swan.pms.e.aaS().JY();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.e.Wd().Fc();
+            return com.baidu.swan.pms.e.aaS().JW();
         }
         return null;
     }

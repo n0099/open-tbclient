@@ -25,25 +25,25 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         boolean z;
-        List<Field> a;
+        List<Field> fieldsByType;
         super.decodeInBackGround(i, bArr);
         Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
-        List<Field> a2 = b.a(parseFrom, Error.class);
-        if (a2 == null || a2.size() <= 0) {
+        List<Field> fieldsByType2 = b.getFieldsByType(parseFrom, Error.class);
+        if (fieldsByType2 == null || fieldsByType2.size() <= 0) {
             z = false;
         } else {
-            Object a3 = p.a(parseFrom, a2.get(0));
-            if (a3 instanceof Error) {
-                Error error = (Error) a3;
+            Object forceGetProperty = p.forceGetProperty(parseFrom, fieldsByType2.get(0));
+            if (forceGetProperty instanceof Error) {
+                Error error = (Error) forceGetProperty;
                 setError(error.errorno.intValue());
                 setErrorString(error.usermsg);
             }
             z = true;
         }
-        if (!z && (a = b.a(parseFrom, tbclient.Error.class)) != null && a.size() > 0) {
-            Object a4 = p.a(parseFrom, a.get(0));
-            if (a4 instanceof tbclient.Error) {
-                tbclient.Error error2 = (tbclient.Error) a4;
+        if (!z && (fieldsByType = b.getFieldsByType(parseFrom, tbclient.Error.class)) != null && fieldsByType.size() > 0) {
+            Object forceGetProperty2 = p.forceGetProperty(parseFrom, fieldsByType.get(0));
+            if (forceGetProperty2 instanceof tbclient.Error) {
+                tbclient.Error error2 = (tbclient.Error) forceGetProperty2;
                 setError(error2.errorno.intValue());
                 setErrorString(error2.usermsg);
             }
@@ -66,7 +66,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         e eVar;
-        l<byte[]> bD;
+        l<byte[]> bJ;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
@@ -86,10 +86,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String aur = eVar.aur();
+                String avK = eVar.avK();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(aur) && bArr != null && (bD = a.agL().bD(aur, currentAccount)) != null) {
-                    bD.f(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(avK) && bArr != null && (bJ = a.akN().bJ(avK, currentAccount)) != null) {
+                    bJ.setForever(cacheKey, bArr);
                 }
             }
         }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
@@ -50,8 +51,8 @@ public class MaskMessageModel extends BdBaseModel {
     }
 
     public void registerMaskListener(MessageListener<?> messageListener) {
-        MessageManager.getInstance().registerListener(104103, messageListener);
-        MessageManager.getInstance().registerListener(104102, messageListener);
+        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_GET_MASK_INFO, messageListener);
+        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_UPDATE_MASK_INFO, messageListener);
     }
 
     public void unRegisterListener(MessageListener<?> messageListener) {

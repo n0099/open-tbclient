@@ -5,6 +5,9 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupMsgImageActivityConfig;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
@@ -38,30 +41,30 @@ public class TbLaunchStatic {
     }
 
     private static void initRegisterTask() {
-        c.b(202004, ResponseDelSystemMessage.class, false);
-        c.b(103112, ResponseRemoveMembersMessage.class, false);
-        c.b(202001, ResponseCommitGroupMessage.class, false);
-        c.b(103111, ResponseAddGroupUserMessage.class, false);
-        c.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
-        c.b(103008, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-        c.b(103102, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-        c.b(103104, ResponseDismissGroupMessage.class, false);
-        c.b(2001142, e.class);
-        c.b(2001145, g.class);
-        c.b(2001148, f.class);
+        c.b(CmdConfigSocket.CMD_DELETE_GROUP_MSG, ResponseDelSystemMessage.class, false);
+        c.b(CmdConfigSocket.CMD_REMOVE_MEMBERS, ResponseRemoveMembersMessage.class, false);
+        c.b(CmdConfigSocket.CMD_GROUP_CHAT_MSG, ResponseCommitGroupMessage.class, false);
+        c.b(CmdConfigSocket.CMD_ADD_GROUP_USER, ResponseAddGroupUserMessage.class, false);
+        c.b(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, ResponseUpgradeMemberGroupMessage.class, false);
+        c.b(CmdConfigSocket.CMD_GET_USER_PERMISSION, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        c.b(CmdConfigSocket.CMD_UPDATE_GROUP, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        c.b(CmdConfigSocket.CMD_DISSMISS_GROUP, ResponseDismissGroupMessage.class, false);
+        c.b(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, e.class);
+        c.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, g.class);
+        c.b(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, f.class);
     }
 
     private static void initRegisterListeners() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.TbLaunchStatic.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tbadk.TbLaunchStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    long j = b.ahU().getLong("clear_redundance_files_time", 0L);
+                    long j = b.alR().getLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.ms().mJ();
-                        b.ahU().putLong("clear_redundance_files_time", currentTimeMillis);
+                        PluginPackageManager.iL().jc();
+                        b.alR().putLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, currentTimeMillis);
                     }
                 }
             }

@@ -2,38 +2,39 @@ package com.baidu.adp.framework;
 
 import android.util.SparseArray;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a tA;
-    private SparseArray<String> tB;
+    private static volatile a lC;
+    private SparseArray<String> mCmdMap;
 
-    public static a fi() {
-        if (tA == null) {
+    public static a eu() {
+        if (lC == null) {
             synchronized (a.class) {
-                if (tA == null) {
-                    tA = new a();
+                if (lC == null) {
+                    lC = new a();
                 }
             }
         }
-        return tA;
+        return lC;
     }
 
     private a() {
-        this.tB = null;
-        this.tB = new SparseArray<>();
+        this.mCmdMap = null;
+        this.mCmdMap = new SparseArray<>();
     }
 
-    public void i(List<String> list) {
+    public void init(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                Q(str);
+                loadField(str);
             }
         }
     }
 
-    private void Q(String str) {
+    private void loadField(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +43,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.tB.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.tB.get(i) + " 重复");
+                    if (this.mCmdMap.get(i) != null) {
+                        throw new Error("cmd " + str + HanziToPinyin.Token.SEPARATOR + name + " 和 " + this.mCmdMap.get(i) + " 重复");
                     }
-                    this.tB.put(i, name);
+                    this.mCmdMap.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +60,8 @@ public class a {
         }
     }
 
-    public String A(int i) {
-        String str = this.tB.get(i);
+    public String getNameByCmd(int i) {
+        String str = this.mCmdMap.get(i);
         if (str != null) {
             return str;
         }

@@ -1,5 +1,7 @@
 package com.xiaomi.network;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -29,8 +31,8 @@ public class AccessHistory {
     }
 
     public AccessHistory a(JSONObject jSONObject) {
-        this.b = jSONObject.getLong("cost");
-        this.e = jSONObject.getLong("size");
+        this.b = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
+        this.e = jSONObject.getLong(TiebaInitialize.LogFields.SIZE);
         this.c = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.a = jSONObject.getInt("wt");
         this.d = jSONObject.optString("expt");
@@ -39,8 +41,8 @@ public class AccessHistory {
 
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("cost", this.b);
-        jSONObject.put("size", this.e);
+        jSONObject.put(BdStatsConstant.StatsKey.COST, this.b);
+        jSONObject.put(TiebaInitialize.LogFields.SIZE, this.e);
         jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.c);
         jSONObject.put("wt", this.a);
         jSONObject.put("expt", this.d);

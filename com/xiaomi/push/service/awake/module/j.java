@@ -3,8 +3,6 @@ package com.xiaomi.push.service.awake.module;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
@@ -14,15 +12,15 @@ public class j implements f {
             String stringExtra = intent.getStringExtra("waker_pkgname");
             String stringExtra2 = intent.getStringExtra("awake_info");
             if (TextUtils.isEmpty(stringExtra)) {
-                com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), NotificationCompat.CATEGORY_SERVICE, PointerIconCompat.TYPE_CROSSHAIR, "old version message");
+                com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), "service", 1007, "old version message");
             } else if (TextUtils.isEmpty(stringExtra2)) {
-                com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), stringExtra, PointerIconCompat.TYPE_CROSSHAIR, "play with service ");
+                com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), stringExtra, 1007, "play with service ");
             } else {
                 String b = com.xiaomi.push.service.awake.a.b(stringExtra2);
                 if (TextUtils.isEmpty(b)) {
-                    com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), NotificationCompat.CATEGORY_SERVICE, PointerIconCompat.TYPE_TEXT, "B get a incorrect message");
+                    com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
                 } else {
-                    com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), b, PointerIconCompat.TYPE_CROSSHAIR, "old version message ");
+                    com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), b, 1007, "old version message ");
                 }
             }
         }
@@ -31,9 +29,9 @@ public class j implements f {
     private void a(Context context, String str, String str2, String str3) {
         if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             if (TextUtils.isEmpty(str3)) {
-                com.xiaomi.push.service.awake.b.a(context, NotificationCompat.CATEGORY_SERVICE, PointerIconCompat.TYPE_TEXT, "argument error");
+                com.xiaomi.push.service.awake.b.a(context, "service", 1008, "argument error");
             } else {
-                com.xiaomi.push.service.awake.b.a(context, str3, PointerIconCompat.TYPE_TEXT, "argument error");
+                com.xiaomi.push.service.awake.b.a(context, str3, 1008, "argument error");
             }
         } else if (!com.xiaomi.push.service.awake.d.a(context, str)) {
             com.xiaomi.push.service.awake.b.a(context, str3, 1003, "B is not ready");
@@ -48,13 +46,13 @@ public class j implements f {
                 intent.putExtra("awake_info", com.xiaomi.push.service.awake.a.a(str3));
                 if (context.startService(intent) != null) {
                     com.xiaomi.push.service.awake.b.a(context, str3, 1005, "A is successful");
-                    com.xiaomi.push.service.awake.b.a(context, str3, PointerIconCompat.TYPE_CELL, "The job is finished");
+                    com.xiaomi.push.service.awake.b.a(context, str3, 1006, "The job is finished");
                 } else {
-                    com.xiaomi.push.service.awake.b.a(context, str3, PointerIconCompat.TYPE_TEXT, "A is fail to help B's service");
+                    com.xiaomi.push.service.awake.b.a(context, str3, 1008, "A is fail to help B's service");
                 }
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
-                com.xiaomi.push.service.awake.b.a(context, str3, PointerIconCompat.TYPE_TEXT, "A meet a exception when help B's service");
+                com.xiaomi.push.service.awake.b.a(context, str3, 1008, "A meet a exception when help B's service");
             }
         }
     }

@@ -60,7 +60,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
                     }
                 } while (!compareAndSet(j2, j3));
                 if (j2 == NOT_REQUESTED) {
-                    this.parent.eU(Long.MAX_VALUE);
+                    this.parent.ep(Long.MAX_VALUE);
                 }
                 emit();
             }
@@ -191,10 +191,10 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        private final LatestEmitter<T> kAR;
+        private final LatestEmitter<T> kBz;
 
         a(LatestEmitter<T> latestEmitter) {
-            this.kAR = latestEmitter;
+            this.kBz = latestEmitter;
         }
 
         @Override // rx.j
@@ -204,20 +204,20 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.kAR.onNext(t);
+            this.kBz.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.kAR.onError(th);
+            this.kBz.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.kAR.onCompleted();
+            this.kBz.onCompleted();
         }
 
-        void eU(long j) {
+        void ep(long j) {
             request(j);
         }
     }

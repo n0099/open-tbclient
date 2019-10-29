@@ -19,8 +19,8 @@ public class b extends h<x, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aS */
-    public c onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: aU */
+    public c b(ViewGroup viewGroup) {
         Log.e("Adapter", "Frs U9 Context:" + this.mContext + "   Resource:" + this.mContext.getResources() + "  Asset:" + this.mContext.getResources().getAssets());
         return new c(this.mPageContext, LayoutInflater.from(this.mContext).inflate(R.layout.u9_info_layout, (ViewGroup) null, true), this.mPageId);
     }
@@ -28,9 +28,8 @@ public class b extends h<x, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, x xVar, c cVar) {
-        super.onFillViewHolder(i, view, viewGroup, xVar, cVar);
+    public View a(int i, View view, ViewGroup viewGroup, x xVar, c cVar) {
+        super.a(i, view, viewGroup, (ViewGroup) xVar, (x) cVar);
         if (xVar == null || cVar == null) {
             return null;
         }

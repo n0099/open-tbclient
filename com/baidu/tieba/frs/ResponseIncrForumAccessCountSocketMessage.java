@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountResIdl;
 /* loaded from: classes4.dex */
@@ -8,7 +9,7 @@ public class ResponseIncrForumAccessCountSocketMessage extends SocketResponsedMe
     private IncrForumAccessCountResIdl mResponseData;
 
     public ResponseIncrForumAccessCountSocketMessage() {
-        super(309360);
+        super(CmdConfigSocket.INCREASE_FORUM_ACCESS_COUNT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

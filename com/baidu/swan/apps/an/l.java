@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.an;
 
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
@@ -7,12 +8,12 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class l {
-    private static final Pattern baC;
+    private static final Pattern btB;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static HashMap<String, Integer> bay = new HashMap<>();
-    private static HashMap<String, Integer> baz = new HashMap<>();
-    private static HashMap<String, String> baA = new HashMap<>();
-    public static HashMap<String, String> baB = new HashMap<>();
+    private static HashMap<String, Integer> btx = new HashMap<>();
+    private static HashMap<String, Integer> bty = new HashMap<>();
+    private static HashMap<String, String> btz = new HashMap<>();
+    public static HashMap<String, String> btA = new HashMap<>();
 
     static {
         e("application/andrew-inset", "ez", 5);
@@ -26,7 +27,7 @@ public final class l {
         e("application/oda", "oda", 5);
         e("application/ogg", "ogg", 1);
         e("application/pdf", "pdf", 4);
-        e("application/pgp-keys", "key", 5);
+        e("application/pgp-keys", TiebaInitialize.Params.KEY, 5);
         e("application/pgp-signature", "pgp", 5);
         e("application/pics-rules", "prf", 5);
         e("application/rar", "rar", 8);
@@ -333,15 +334,15 @@ public final class l {
         e("audio/aac", "aac", 1);
         e("application/vnd.rn-realmedia", "rm", 0);
         e("message/rfc822", "mht", 11);
-        baC = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        btB = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void e(String str, String str2, int i) {
-        bay.put(str2, Integer.valueOf(i));
-        baz.put(str, Integer.valueOf(i));
-        baA.put(str2, str);
-        if (!baB.containsKey(str)) {
-            baB.put(str, str2);
+        btx.put(str2, Integer.valueOf(i));
+        bty.put(str, Integer.valueOf(i));
+        btz.put(str2, str);
+        if (!btA.containsKey(str)) {
+            btA.put(str, str2);
         }
     }
 }

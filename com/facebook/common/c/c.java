@@ -9,7 +9,7 @@ public interface c {
 
     void e(String str, String str2, Throwable th);
 
-    void eA(String str, String str2);
+    void em(String str, String str2);
 
     void f(String str, String str2, Throwable th);
 

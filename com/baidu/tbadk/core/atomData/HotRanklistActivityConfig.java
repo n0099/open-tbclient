@@ -13,8 +13,8 @@ public class HotRanklistActivityConfig extends IntentConfig {
 
     public HotRanklistActivityConfig createNormalConfig(String str, String str2) {
         Intent intent = getIntent();
-        intent.putExtra(IntentConfig.CALL_FROM, str);
-        intent.putExtra(IntentConfig.LIST_TYPE, str2);
+        intent.putExtra("call_from", str);
+        intent.putExtra("list_type", str2);
         return this;
     }
 }

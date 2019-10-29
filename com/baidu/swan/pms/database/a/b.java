@@ -4,39 +4,41 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.text.TextUtils;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class b<T> {
-    public abstract ContentValues U(T t);
+    public abstract ContentValues S(T t);
 
-    public abstract <T> List<T> j(Cursor cursor) throws SQLException;
+    public abstract <T> List<T> i(Cursor cursor) throws SQLException;
 
-    public abstract <T> T l(Cursor cursor) throws SQLException;
+    public abstract <T> T k(Cursor cursor) throws SQLException;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(Cursor cursor, com.baidu.swan.pms.model.e eVar) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("bundle_id");
             int columnIndex2 = cursor.getColumnIndex("category");
-            int columnIndex3 = cursor.getColumnIndex("version_name");
+            int columnIndex3 = cursor.getColumnIndex(SharedPrefConfig.VERSION_NAME);
             int columnIndex4 = cursor.getColumnIndex("version_code");
-            int columnIndex5 = cursor.getColumnIndex("size");
+            int columnIndex5 = cursor.getColumnIndex(TiebaInitialize.LogFields.SIZE);
             int columnIndex6 = cursor.getColumnIndex("md5");
             int columnIndex7 = cursor.getColumnIndex("sign");
             int columnIndex8 = cursor.getColumnIndex("downloadUrl");
-            int columnIndex9 = cursor.getColumnIndex("_id");
+            int columnIndex9 = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
             int columnIndex10 = cursor.getColumnIndex("file_path");
             int columnIndex11 = cursor.getColumnIndex("current_size");
             int columnIndex12 = cursor.getColumnIndex("create_time");
             int columnIndex13 = cursor.getColumnIndex("update_time");
-            int columnIndex14 = cursor.getColumnIndex(WXLoginActivity.KEY_BASE_RESP_STATE);
+            int columnIndex14 = cursor.getColumnIndex("state");
             String string = cursor.getString(columnIndex);
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.btp = string;
-            eVar.avC = cursor.getInt(columnIndex2);
+            eVar.bMa = string;
+            eVar.category = cursor.getInt(columnIndex2);
             eVar.versionName = cursor.getString(columnIndex3);
             eVar.versionCode = cursor.getInt(columnIndex4);
             eVar.size = cursor.getLong(columnIndex5);
@@ -47,7 +49,7 @@ public abstract class b<T> {
             eVar.currentSize = cursor.getLong(columnIndex11);
             eVar.createTime = cursor.getLong(columnIndex12);
             eVar.updateTime = cursor.getLong(columnIndex13);
-            eVar.aaW = cursor.getLong(columnIndex9);
+            eVar.Lc = cursor.getLong(columnIndex9);
             eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -56,11 +58,11 @@ public abstract class b<T> {
 
     public ContentValues g(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.btp);
-        contentValues.put("category", Integer.valueOf(eVar.avC));
-        contentValues.put("version_name", eVar.versionName);
+        contentValues.put("bundle_id", eVar.bMa);
+        contentValues.put("category", Integer.valueOf(eVar.category));
+        contentValues.put(SharedPrefConfig.VERSION_NAME, eVar.versionName);
         contentValues.put("version_code", Integer.valueOf(eVar.versionCode));
-        contentValues.put("size", Long.valueOf(eVar.size));
+        contentValues.put(TiebaInitialize.LogFields.SIZE, Long.valueOf(eVar.size));
         contentValues.put("md5", eVar.md5);
         contentValues.put("sign", eVar.sign);
         contentValues.put("downloadUrl", eVar.downloadUrl);
@@ -68,7 +70,7 @@ public abstract class b<T> {
         contentValues.put("current_size", Long.valueOf(eVar.currentSize));
         contentValues.put("create_time", Long.valueOf(eVar.createTime));
         contentValues.put("update_time", Long.valueOf(eVar.updateTime));
-        contentValues.put(WXLoginActivity.KEY_BASE_RESP_STATE, Integer.valueOf(eVar.state));
+        contentValues.put("state", Integer.valueOf(eVar.state));
         return contentValues;
     }
 }

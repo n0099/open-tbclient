@@ -17,17 +17,16 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.game.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aU */
-    public d.a onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: aW */
+    public d.a b(ViewGroup viewGroup) {
         return new d.a(new d(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.game.strategy.data.b bVar, d.a aVar) {
-        aVar.fIH.a(bVar);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.game.strategy.data.b bVar, d.a aVar) {
+        aVar.fHY.a(bVar);
         return aVar.getView();
     }
 }

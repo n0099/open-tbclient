@@ -3,6 +3,7 @@ package com.baidu.tieba.ad.download;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.tieba.ad.download.mvp.IDownloadModel;
+import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.Serializable;
 import java.util.Objects;
 /* loaded from: classes3.dex */
@@ -23,6 +24,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         this.mExtra = new AdDownloadExtra(this);
     }
 
+    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
     public String adId() {
         return this.mAdId;
     }
@@ -65,6 +67,22 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         return Objects.equals(this.mAdId, ((DownloadCacheKey) obj).mAdId);
     }
 
+    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
+    public int getPercent() {
+        return this.mExtra.getPercent();
+    }
+
+    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
+    @NonNull
+    public DownloadStatus getCurrentState() {
+        return this.mExtra.getStatus();
+    }
+
+    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
+    public String getPkgName() {
+        return this.mPackageName;
+    }
+
     /* loaded from: classes3.dex */
     public static final class a {
         private final String mAdId;
@@ -80,7 +98,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         }
 
         @NonNull
-        public AdDownloadData aDz() {
+        public AdDownloadData aDH() {
             return new AdDownloadData(this);
         }
     }

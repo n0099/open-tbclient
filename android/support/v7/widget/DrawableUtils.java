@@ -14,7 +14,8 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.DrawableWrapper;
 import android.util.Log;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import java.lang.reflect.Field;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
@@ -49,25 +50,25 @@ public class DrawableUtils {
                         char c = 65535;
                         switch (name.hashCode()) {
                             case -1383228885:
-                                if (name.equals("bottom")) {
+                                if (name.equals(VerticalTranslateLayout.BOTTOM)) {
                                     c = 3;
                                     break;
                                 }
                                 break;
                             case 115029:
-                                if (name.equals("top")) {
+                                if (name.equals(VerticalTranslateLayout.TOP)) {
                                     c = 1;
                                     break;
                                 }
                                 break;
                             case 3317767:
-                                if (name.equals(CustomDialogData.POS_LEFT)) {
+                                if (name.equals("left")) {
                                     c = 0;
                                     break;
                                 }
                                 break;
                             case 108511772:
-                                if (name.equals("right")) {
+                                if (name.equals(HorizontalTranslateLayout.RIGHT)) {
                                     c = 2;
                                     break;
                                 }

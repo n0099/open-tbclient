@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes.dex */
 public interface d {
-    void eq(boolean z);
+    void et(boolean z);
 
     ClickableHeaderImageView getHeaderImg();
 

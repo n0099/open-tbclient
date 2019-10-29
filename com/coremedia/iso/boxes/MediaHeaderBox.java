@@ -1,6 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -14,17 +15,17 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class MediaHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mdhd";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_9 = null;
     private Date creationTime;
     private long duration;
     private String language;
@@ -37,17 +38,17 @@ public class MediaHeaderBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("MediaHeaderBox.java", MediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "java.util.Date"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "java.util.Date"), 50);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "java.lang.String"), 118);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_DATE), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_DATE), 50);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 118);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getTimescale", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "long"), 54);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "long"), 58);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "java.lang.String"), 62);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "java.util.Date", "creationTime", "", "void"), 79);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "java.util.Date", "modificationTime", "", "void"), 83);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 62);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_DATE, "creationTime", "", "void"), 79);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_DATE, "modificationTime", "", "void"), 83);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setTimescale", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "timescale", "", "void"), 87);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "duration", "", "void"), 91);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 95);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_STRING, IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 95);
     }
 
     public MediaHeaderBox() {
@@ -98,12 +99,12 @@ public class MediaHeaderBox extends AbstractFullBox {
     }
 
     public void setTimescale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.eS(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.en(j)));
         this.timescale = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.eS(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.en(j)));
         this.duration = j;
     }
 

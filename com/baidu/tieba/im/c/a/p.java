@@ -3,6 +3,7 @@ package com.baidu.tieba.im.c.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
 import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 /* loaded from: classes3.dex */
@@ -12,7 +13,7 @@ public class p implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        com.baidu.tbadk.core.d.a.agL().mO("tb.im_group_search_history");
-        return new ResponseSearchGroupLocalMessage(2001206);
+        com.baidu.tbadk.core.d.a.akN().clearStringCacheWithSapce("tb.im_group_search_history");
+        return new ResponseSearchGroupLocalMessage(CmdConfigCustom.CMD_CACHE_CLEAR_REQUEST_SEARCH_GROUP);
     }
 }

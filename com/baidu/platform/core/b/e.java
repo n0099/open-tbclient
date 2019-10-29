@@ -11,7 +11,6 @@ import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.result.AddressManageResult;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -28,7 +27,7 @@ public class e extends com.baidu.platform.base.d {
         parentPoiInfo.setParentPoiDirection(jSONObject.optString("direction"));
         parentPoiInfo.setParentPoiDistance(jSONObject.optInt("distance"));
         parentPoiInfo.setParentPoiName(jSONObject.optString("name"));
-        parentPoiInfo.setParentPoiTag(jSONObject.optString(AddressManageResult.KEY_TAG));
+        parentPoiInfo.setParentPoiTag(jSONObject.optString("tag"));
         parentPoiInfo.setParentPoiUid(jSONObject.optString("uid"));
         parentPoiInfo.setParentPoiLocation(c(jSONObject, Config.EVENT_HEAT_POINT));
         return parentPoiInfo;
@@ -148,7 +147,7 @@ public class e extends com.baidu.platform.base.d {
                 ReverseGeoCodeResult.PoiRegionsInfo poiRegionsInfo = new ReverseGeoCodeResult.PoiRegionsInfo();
                 poiRegionsInfo.setDirectionDesc(optJSONObject.optString("direction_desc"));
                 poiRegionsInfo.setRegionName(optJSONObject.optString("name"));
-                poiRegionsInfo.setRegionTag(optJSONObject.optString(AddressManageResult.KEY_TAG));
+                poiRegionsInfo.setRegionTag(optJSONObject.optString("tag"));
                 arrayList.add(poiRegionsInfo);
             }
         }

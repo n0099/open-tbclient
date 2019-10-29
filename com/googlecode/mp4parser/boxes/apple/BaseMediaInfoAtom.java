@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -10,19 +11,19 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class BaseMediaInfoAtom extends AbstractFullBox {
     public static final String TYPE = "gmin";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_9 = null;
     short balance;
     short graphicsMode;
     int opColorB;
@@ -40,7 +41,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "graphicsMode", "", "void"), 58);
         ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 94);
         ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "reserved", "", "void"), 98);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "java.lang.String"), 103);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", FieldUtil.TYPE_STRING), 103);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 62);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorR", "", "void"), 66);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 70);
@@ -102,7 +103,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorR(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dl(i)));
         this.opColorR = i;
     }
 
@@ -112,7 +113,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorG(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dl(i)));
         this.opColorG = i;
     }
 
@@ -122,7 +123,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dl(i)));
         this.opColorB = i;
     }
 

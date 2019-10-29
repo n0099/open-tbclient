@@ -56,6 +56,7 @@ import android.widget.ToggleButton;
 import android.widget.VideoView;
 import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher;
+import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import java.util.HashMap;
 import java.util.Locale;
 /* loaded from: classes6.dex */
@@ -170,17 +171,17 @@ public class ay {
                 a(th18);
             }
             try {
-                a(LinearLayout.class.getSimpleName(), "L0");
+                a(LinearLayout.class.getSimpleName(), AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT);
             } catch (Throwable th19) {
                 a(th19);
             }
             try {
-                a(ListView.class.getSimpleName(), "L1");
+                a(ListView.class.getSimpleName(), AlaLiveStreamSessionInfo.STREAM_LEVEL_LOW);
             } catch (Throwable th20) {
                 a(th20);
             }
             try {
-                a(ListFragment.class.getSimpleName(), "L2");
+                a(ListFragment.class.getSimpleName(), AlaLiveStreamSessionInfo.STREAM_LEVEL_MEDIUM);
             } catch (Throwable th21) {
                 a(th21);
             }

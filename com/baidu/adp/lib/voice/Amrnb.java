@@ -2,6 +2,8 @@ package com.baidu.adp.lib.voice;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.i;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.adp.lib.util.BdErrorInfo;
 /* loaded from: classes.dex */
 public class Amrnb {
     public static boolean bLoadLibrary;
@@ -28,9 +30,9 @@ public class Amrnb {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.h.jN().a("amrnb", 2, new i() { // from class: com.baidu.adp.lib.voice.Amrnb.1
+        bLoadLibrary = com.baidu.adp.lib.util.h.gX().a("amrnb", 2, new i() { // from class: com.baidu.adp.lib.voice.Amrnb.1
             @Override // com.baidu.adp.lib.util.i
-            public void G(boolean z) {
+            public void callback(boolean z) {
                 Amrnb.bLoadLibrary = z;
                 if (Amrnb.bLoadLibrary) {
                     try {
@@ -38,7 +40,7 @@ public class Amrnb {
                         Amrnb.bLoadLibrary = true;
                     } catch (Throwable th) {
                         Amrnb.bLoadLibrary = false;
-                        BdStatisticsManager.getInstance().error("so", "initAmrnb", "", -9104, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
+                        BdStatisticsManager.getInstance().error("so", "initAmrnb", "", BdErrorInfo.ERR_AMRSO_INIT, th.getClass().getName() + HanziToPinyin.Token.SEPARATOR + th.getMessage(), new Object[0]);
                     }
                 }
             }
@@ -49,7 +51,7 @@ public class Amrnb {
                 bLoadLibrary = true;
             } catch (Throwable th) {
                 bLoadLibrary = false;
-                BdStatisticsManager.getInstance().error("so", "initAmrnb", "", -9104, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
+                BdStatisticsManager.getInstance().error("so", "initAmrnb", "", BdErrorInfo.ERR_AMRSO_INIT, th.getClass().getName() + HanziToPinyin.Token.SEPARATOR + th.getMessage(), new Object[0]);
             }
         }
     }

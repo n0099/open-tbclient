@@ -3,6 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class g implements CustomMessageTask.CustomRunnable<String> {
@@ -15,11 +16,11 @@ public class g implements CustomMessageTask.CustomRunnable<String> {
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
-        String str2 = com.baidu.tbadk.core.d.a.agL().mN("tb.my_pages").get("personal_myfollow_" + str);
+        String str2 = com.baidu.tbadk.core.d.a.akN().nl("tb.my_pages").get("personal_myfollow_" + str);
         ResponsePersonFriendByUidLocalMessage responsePersonFriendByUidLocalMessage = new ResponsePersonFriendByUidLocalMessage();
         if (str2 != null) {
             try {
-                responsePersonFriendByUidLocalMessage.decodeInBackGround(2001182, str2);
+                responsePersonFriendByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY, str2);
             } catch (Exception e) {
                 e.printStackTrace();
             }

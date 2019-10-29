@@ -5,75 +5,75 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes2.dex */
 public class a {
-    float dCK;
-    float dCL;
-    InterfaceC0466a khr;
-    final float khs;
-    boolean kht;
-    boolean khu;
-    long khv;
+    InterfaceC0561a kfA;
+    final float kfB;
+    boolean kfC;
+    boolean kfD;
+    long kfE;
+    float kfF;
+    float kfG;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0466a {
-        boolean cHb();
+    public interface InterfaceC0561a {
+        boolean cDZ();
     }
 
     public a(Context context) {
-        this.khs = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.kfB = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
-    public static a eC(Context context) {
+    public static a er(Context context) {
         return new a(context);
     }
 
     public void init() {
-        this.khr = null;
+        this.kfA = null;
         reset();
     }
 
     public void reset() {
-        this.kht = false;
-        this.khu = false;
+        this.kfC = false;
+        this.kfD = false;
     }
 
-    public void a(InterfaceC0466a interfaceC0466a) {
-        this.khr = interfaceC0466a;
+    public void a(InterfaceC0561a interfaceC0561a) {
+        this.kfA = interfaceC0561a;
     }
 
-    public boolean cIh() {
-        return this.kht;
+    public boolean cFe() {
+        return this.kfC;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.kht = true;
-                this.khu = true;
-                this.khv = motionEvent.getEventTime();
-                this.dCK = motionEvent.getX();
-                this.dCL = motionEvent.getY();
+                this.kfC = true;
+                this.kfD = true;
+                this.kfE = motionEvent.getEventTime();
+                this.kfF = motionEvent.getX();
+                this.kfG = motionEvent.getY();
                 break;
             case 1:
-                this.kht = false;
-                if (Math.abs(motionEvent.getX() - this.dCK) > this.khs || Math.abs(motionEvent.getY() - this.dCL) > this.khs) {
-                    this.khu = false;
+                this.kfC = false;
+                if (Math.abs(motionEvent.getX() - this.kfF) > this.kfB || Math.abs(motionEvent.getY() - this.kfG) > this.kfB) {
+                    this.kfD = false;
                 }
-                if (this.khu && motionEvent.getEventTime() - this.khv <= ViewConfiguration.getLongPressTimeout() && this.khr != null) {
-                    this.khr.cHb();
+                if (this.kfD && motionEvent.getEventTime() - this.kfE <= ViewConfiguration.getLongPressTimeout() && this.kfA != null) {
+                    this.kfA.cDZ();
                 }
-                this.khu = false;
+                this.kfD = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.dCK) > this.khs || Math.abs(motionEvent.getY() - this.dCL) > this.khs) {
-                    this.khu = false;
+                if (Math.abs(motionEvent.getX() - this.kfF) > this.kfB || Math.abs(motionEvent.getY() - this.kfG) > this.kfB) {
+                    this.kfD = false;
                     break;
                 }
                 break;
             case 3:
-                this.kht = false;
-                this.khu = false;
+                this.kfC = false;
+                this.kfD = false;
                 break;
         }
         return true;

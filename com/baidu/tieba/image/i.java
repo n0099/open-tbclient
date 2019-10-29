@@ -2,9 +2,10 @@ package com.baidu.tieba.image;
 
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
@@ -13,100 +14,100 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class i {
-    private String hbV;
-    private int hbW;
-    private int hbX;
-    private int hbY;
-    private long hbU = 0;
-    private HashMap<String, Boolean> hbT = new HashMap<>();
+    private String gZY;
+    private int gZZ;
+    private int haa;
+    private int hab;
+    private long gZX = 0;
+    private HashMap<String, Boolean> gZW = new HashMap<>();
 
-    public void wq(int i) {
-        this.hbX = i;
+    public void uW(int i) {
+        this.haa = i;
     }
 
-    public int bKa() {
-        return this.hbX;
+    public int bGK() {
+        return this.haa;
     }
 
-    public void wr(int i) {
-        this.hbY = i;
+    public void uX(int i) {
+        this.hab = i;
     }
 
-    public int bKb() {
-        return this.hbY;
+    public int bGL() {
+        return this.hab;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.hbV = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.gZY = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.hbV = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.gZY = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.hbW = intExtra;
-            this.hbX = intExtra;
-            this.hbY = intExtra;
+            this.gZZ = intExtra;
+            this.haa = intExtra;
+            this.hab = intExtra;
         }
     }
 
-    public void Z(Bundle bundle) {
+    public void Y(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.hbV);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.gZY);
         }
     }
 
-    public void e(List<String> list, int i, int i2) {
-        synchronized (this.hbT) {
-            if (System.nanoTime() - this.hbU > 300000000 && list != null && i < list.size()) {
-                this.hbT.put(list.get(i), true);
+    public void d(List<String> list, int i, int i2) {
+        synchronized (this.gZW) {
+            if (System.nanoTime() - this.gZX > 300000000 && list != null && i < list.size()) {
+                this.gZW.put(list.get(i), true);
             }
-            this.hbU = System.nanoTime();
-            if (list != null && i2 < list.size() && this.hbT.get(list.get(i2)) == null) {
-                this.hbT.put(list.get(i2), false);
+            this.gZX = System.nanoTime();
+            if (list != null && i2 < list.size() && this.gZW.get(list.get(i2)) == null) {
+                this.gZW.put(list.get(i2), false);
             }
         }
-        if (this.hbT.size() >= 100) {
-            bKc();
+        if (this.gZW.size() >= 100) {
+            bGM();
         }
     }
 
-    public void bKc() {
-        if (this.hbT != null) {
-            synchronized (this.hbT) {
-                if (this.hbT.size() > 0) {
+    public void bGM() {
+        if (this.gZW != null) {
+            synchronized (this.gZW) {
+                if (this.gZW.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.hbT.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.gZW.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.hbT.size(), this.hbV, this.hbW + 1, this.hbX + 1);
-                    this.hbT.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.gZW.size(), this.gZY, this.gZZ + 1, this.haa + 1);
+                    this.gZW.clear();
                 }
             }
         }
     }
 
     public void as(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.hbU > 300000000) {
-            this.hbT.put(str, true);
+        if (i == 1 && System.nanoTime() - this.gZX > 300000000) {
+            this.gZW.put(str, true);
         }
     }
 
     public void e(int i, String str, String str2, String str3) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.hbY == this.hbX) {
-            sb.append(this.hbY + 1);
-            if (this.hbX == i - 1) {
+        if (this.hab == this.haa) {
+            sb.append(this.hab + 1);
+            if (this.haa == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.hbY; i2 <= this.hbX; i2++) {
-                if (i2 == this.hbX) {
+            for (int i2 = this.hab; i2 <= this.haa; i2++) {
+                if (i2 == this.haa) {
                     sb.append(i2 + 1);
-                    if (this.hbX == i - 1) {
+                    if (this.haa == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -120,25 +121,25 @@ public class i {
             }
         }
         an anVar = new an("common_exp");
-        anVar.bT("page_type", "a008");
+        anVar.bS("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
         if (!aq.isEmpty(str2)) {
-            anVar.bT("fid", str2);
+            anVar.bS("fid", str2);
         }
         if (!aq.isEmpty(str3)) {
-            anVar.bT("tid", str3);
+            anVar.bS("tid", str3);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.bT("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().cgM);
+            anVar.bS(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().cuL);
         }
-        anVar.P("pic_count", i);
-        anVar.bT("obj_floors", sb.toString());
-        anVar.bT("obj_isads", sb2.toString());
-        int i3 = (this.hbX - this.hbY) + 1;
+        anVar.O("pic_count", i);
+        anVar.bS("obj_floors", sb.toString());
+        anVar.bS("obj_isads", sb2.toString());
+        int i3 = (this.haa - this.hab) + 1;
         if (i3 == 1) {
-            if (this.hbX == i - 1) {
-                anVar.bT(VideoPlayActivityConfig.OBJ_ID, str);
+            if (this.haa == i - 1) {
+                anVar.bS("obj_id", str);
             } else {
-                anVar.bT(VideoPlayActivityConfig.OBJ_ID, "");
+                anVar.bS("obj_id", "");
             }
         }
         if (i3 > 1) {
@@ -146,10 +147,10 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.hbX == i - 1) {
+            if (this.haa == i - 1) {
                 sb3.append(str);
             }
-            anVar.bT("obj_ids", str);
+            anVar.bS("obj_ids", str);
         }
         TiebaStatic.log(anVar);
     }

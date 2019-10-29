@@ -28,7 +28,7 @@ public class w {
         boolean z = file == null;
         if (z || !file.exists() || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.baQ = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
+                cVar.btP = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
             }
             return false;
         }
@@ -42,7 +42,7 @@ public class w {
             }
             return false;
         } finally {
-            com.baidu.swan.c.a.c(readableByteChannel);
+            com.baidu.swan.c.a.b(readableByteChannel);
         }
     }
 
@@ -50,19 +50,19 @@ public class w {
         boolean z = readableByteChannel == null;
         if (z || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.baQ = "zipSource isNullIs=" + z;
+                cVar.btP = "zipSource isNullIs=" + z;
                 return false;
             }
             return false;
         }
         String a = com.baidu.swan.c.b.a(readableByteChannel, false);
         if (cVar != null) {
-            cVar.baQ = a;
+            cVar.btP = a;
         }
         try {
-            String str2 = new String(decryptByPublicKey(Base64.decode(str.getBytes("utf-8"), 8), io("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
+            String str2 = new String(decryptByPublicKey(Base64.decode(str.getBytes("utf-8"), 8), iR("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
             if (cVar != null) {
-                cVar.baR = str2;
+                cVar.btQ = str2;
             }
             return TextUtils.equals(str2, a);
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public class w {
                 e.printStackTrace();
             }
             if (cVar != null) {
-                cVar.baR = e.getLocalizedMessage();
+                cVar.btQ = e.getLocalizedMessage();
                 return false;
             }
             return false;
@@ -84,7 +84,7 @@ public class w {
         return cipher.doFinal(bArr);
     }
 
-    private static PublicKey io(String str) {
+    private static PublicKey iR(String str) {
         try {
             return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
         } catch (UnsupportedEncodingException e) {

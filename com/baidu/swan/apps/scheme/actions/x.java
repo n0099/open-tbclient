@@ -41,14 +41,14 @@ public class x extends z {
         try {
             File file2 = null;
             if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
-                String aE = com.baidu.swan.apps.storage.b.aE(optString, bVar.id);
-                if (!TextUtils.isEmpty(aE)) {
-                    file2 = new File(aE);
+                String aL = com.baidu.swan.apps.storage.b.aL(optString, bVar.id);
+                if (!TextUtils.isEmpty(aL)) {
+                    file2 = new File(aL);
                 }
                 file = file2;
             } else {
-                if (com.baidu.swan.apps.ac.a.a.l(bVar.vP())) {
-                    a = com.baidu.swan.apps.storage.b.hH(optString);
+                if (com.baidu.swan.apps.ac.a.a.l(bVar.AJ())) {
+                    a = com.baidu.swan.apps.storage.b.il(optString);
                 } else {
                     a = com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion());
                 }
@@ -73,11 +73,11 @@ public class x extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Ml().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.x.1
+                bVar.Rd().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.x.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
-                    public void D(Boolean bool) {
+                    public void B(Boolean bool) {
                         if (!bool.booleanValue()) {
                             com.baidu.swan.apps.console.c.i("SaveImage", "Permission denied");
                             callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(200301, "Permission denied").toString());
@@ -156,18 +156,18 @@ public class x extends z {
                         if (DEBUG) {
                             e.printStackTrace();
                         }
-                        com.baidu.swan.c.a.c(cursor);
+                        com.baidu.swan.c.a.b(cursor);
                         return null;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.swan.c.a.c(cursor);
+                    com.baidu.swan.c.a.b(cursor);
                     throw th;
                 }
             } else {
                 string = null;
             }
-            com.baidu.swan.c.a.c(cursor);
+            com.baidu.swan.c.a.b(cursor);
             return string;
         } catch (SQLException e2) {
             e = e2;
@@ -175,7 +175,7 @@ public class x extends z {
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            com.baidu.swan.c.a.c(cursor);
+            com.baidu.swan.c.a.b(cursor);
             throw th;
         }
     }

@@ -18,6 +18,6 @@ public class IdentityReviewActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra("fid", j);
         intent.putExtra(KEY_IS_START_FOR_RESULT, true);
-        intent.putExtra(IntentConfig.REQUEST_CODE, i);
+        intent.putExtra("request_code", i);
     }
 }

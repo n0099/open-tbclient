@@ -16,33 +16,33 @@ public class e extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = e.class.getSimpleName();
 
-    public static e UI() {
+    public static e Zx() {
         return new e();
     }
 
     private boolean d(final Context context, com.baidu.swan.apps.x.a.c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
         com.baidu.swan.apps.console.c.i("map", "MoveToLocationAction start");
-        com.baidu.swan.apps.b.c.e ea = com.baidu.swan.apps.w.e.GJ().ea(cVar.aEs);
-        if (!(ea instanceof com.baidu.swan.apps.b.c.c)) {
+        com.baidu.swan.apps.b.c.e eH = com.baidu.swan.apps.w.e.LD().eH(cVar.aXH);
+        if (!(eH instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        final com.baidu.swan.impl.map.b h = com.baidu.swan.impl.map.c.UA().h((com.baidu.swan.apps.b.c.c) ea);
-        final com.baidu.swan.impl.map.item.b kl = h.kl(cVar.id);
-        if (kl == null) {
+        final com.baidu.swan.impl.map.b h = com.baidu.swan.impl.map.c.Zp().h((com.baidu.swan.apps.b.c.c) eH);
+        final com.baidu.swan.impl.map.item.b kN = h.kN(cVar.id);
+        if (kN == null) {
             com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.id);
             return false;
-        } else if (!kl.isShowLocation) {
+        } else if (!kN.isShowLocation) {
             com.baidu.swan.apps.console.c.w("map", "can not move to location because showLocation is not set");
             return false;
         } else {
-            BDLocation Uz = h.Uz();
-            if (Uz == null || !h.Uy()) {
+            BDLocation Zo = h.Zo();
+            if (Zo == null || !h.Zn()) {
                 com.baidu.swan.impl.map.a.b.d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.a.a.e.1
                     @Override // com.baidu.swan.impl.map.a.b.d.a
                     public void onSuccess() {
                         com.baidu.swan.apps.console.c.w("map", "location permission success");
-                        e.this.a(context, kl, h);
+                        e.this.a(context, kN, h);
                     }
 
                     @Override // com.baidu.swan.impl.map.a.b.d.a
@@ -52,10 +52,10 @@ public class e extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
                 });
                 return true;
             }
-            kl.boD.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(Uz.getLatitude(), Uz.getLongitude())));
-            kl.boD.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-            kl.boD.getMap().setMyLocationEnabled(true);
-            kl.boD.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(Uz.getRadius()).latitude(Uz.getLatitude()).longitude(Uz.getLongitude()).build());
+            kN.bHp.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(Zo.getLatitude(), Zo.getLongitude())));
+            kN.bHp.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+            kN.bHp.getMap().setMyLocationEnabled(true);
+            kN.bHp.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(Zo.getRadius()).latitude(Zo.getLatitude()).longitude(Zo.getLongitude()).build());
             com.baidu.swan.apps.console.c.i("map", "MoveToLocationAction end");
             return true;
         }
@@ -63,20 +63,20 @@ public class e extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final com.baidu.swan.impl.map.item.b bVar, final com.baidu.swan.impl.map.b bVar2) {
-        com.baidu.swan.apps.u.a.EH().a(CoordinateType.GCJ02, true, false, new n.a() { // from class: com.baidu.swan.impl.map.a.a.e.2
+        com.baidu.swan.apps.u.a.JB().a(CoordinateType.GCJ02, true, false, new n.a() { // from class: com.baidu.swan.impl.map.a.a.e.2
             @Override // com.baidu.swan.apps.u.b.n.a
             public void a(com.baidu.swan.apps.scheme.actions.e.b bVar3) {
                 com.baidu.swan.apps.console.c.i("map", "get location " + bVar3.toJSON().toString());
-                BaiduMap map = bVar.boD.getMap();
+                BaiduMap map = bVar.bHp.getMap();
                 map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bVar3.latitude, bVar3.longitude)));
                 map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
                 map.setMyLocationEnabled(true);
-                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bVar3.aTU).latitude(bVar3.latitude).longitude(bVar3.longitude).build());
-                bVar2.cW(true);
+                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bVar3.bmZ).latitude(bVar3.latitude).longitude(bVar3.longitude).build());
+                bVar2.dn(true);
             }
 
             @Override // com.baidu.swan.apps.u.b.n.a
-            public void cD(int i) {
+            public void dy(int i) {
                 com.baidu.swan.apps.console.c.i("map", "get location error " + i);
             }
         });

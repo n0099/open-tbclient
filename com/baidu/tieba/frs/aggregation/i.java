@@ -5,27 +5,27 @@ import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class i {
-    private VideoAggregationModel.a fCI = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
+    private VideoAggregationModel.a fBZ = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
-        public void e(List<g> list, boolean z, boolean z2) {
-            if (i.this.fCO != null) {
-                i.this.fCO.hideLoadingView();
+        public void f(List<g> list, boolean z, boolean z2) {
+            if (i.this.fCf != null) {
+                i.this.fCf.hideLoadingView();
                 i.this.mHasMore = z2;
-                i.this.fCO.d(list, z, z2);
+                i.this.fCf.e(list, z, z2);
             }
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
-        public void xC(String str) {
-            if (i.this.fCO != null) {
-                i.this.fCO.hideLoadingView();
-                i.this.fCO.showMsg(str);
-                i.this.fCO.atw();
+        public void vU(String str) {
+            if (i.this.fCf != null) {
+                i.this.fCf.hideLoadingView();
+                i.this.fCf.showMsg(str);
+                i.this.fCf.avg();
             }
         }
     };
-    private d fCO;
-    private VideoAggregationModel fCP;
+    private d fCf;
+    private VideoAggregationModel fCg;
     private String mFrom;
     private boolean mHasMore;
     private String mId;
@@ -35,53 +35,53 @@ public class i {
 
     public i(TbPageContext tbPageContext, d dVar) {
         this.mPageContext = tbPageContext;
-        this.fCO = dVar;
-        this.fCP = new VideoAggregationModel(tbPageContext, this.fCI);
+        this.fCf = dVar;
+        this.fCg = new VideoAggregationModel(tbPageContext, this.fBZ);
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.fCP != null) {
-            this.fCP.setId(this.mId);
+        if (this.fCg != null) {
+            this.fCg.setId(this.mId);
         }
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.fCP != null) {
-            this.fCP.setFrom(str);
+        if (this.fCg != null) {
+            this.fCg.setFrom(str);
         }
     }
 
-    public void xB(String str) {
+    public void vT(String str) {
         this.st_type = str;
-        if (this.fCP != null) {
-            this.fCP.xB(str);
+        if (this.fCg != null) {
+            this.fCg.vT(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.fCP != null) {
-            this.fCP.setLocation(str);
+        if (this.fCg != null) {
+            this.fCg.setLocation(str);
         }
     }
 
-    public void bpp() {
-        if (this.fCP != null) {
-            this.fCP.bpp();
+    public void bmu() {
+        if (this.fCg != null) {
+            this.fCg.bmu();
         }
     }
 
-    public void bpr() {
-        if (this.fCP != null && this.mHasMore) {
-            this.fCP.LoadData();
+    public void bmw() {
+        if (this.fCg != null && this.mHasMore) {
+            this.fCg.LoadData();
         }
     }
 
-    public void bpq() {
-        if (this.fCP != null) {
-            this.fCP.cancelLoadData();
+    public void bmv() {
+        if (this.fCg != null) {
+            this.fCg.cancelLoadData();
         }
     }
 }

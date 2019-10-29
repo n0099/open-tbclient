@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.CheckMaskUser.CheckMaskUserReqIdl;
 import protobuf.CheckMaskUser.DataReq;
@@ -8,7 +9,7 @@ public class RequestCheckUserMaskMessage extends TbSocketMessage {
     private long userId;
 
     public RequestCheckUserMaskMessage() {
-        super(104104);
+        super(CmdConfigSocket.CMD_CHECK_USER_MASK);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

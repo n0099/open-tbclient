@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.b.b;
 /* loaded from: classes2.dex */
 public interface e {
-    void bM(int i);
+    int BF();
 
-    int wL();
+    boolean BG();
 
-    boolean wM();
+    boolean BH();
 
-    boolean wN();
+    int BI();
 
-    int wO();
+    void cI(int i);
 }

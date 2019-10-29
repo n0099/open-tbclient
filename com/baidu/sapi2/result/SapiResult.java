@@ -30,8 +30,8 @@ public class SapiResult {
     protected String resultMsg;
 
     public SapiResult() {
-        this.msgMap.put(0, RESULT_MSG_SUCCESS);
-        this.msgMap.put(110000, RESULT_MSG_SUCCESS);
+        this.msgMap.put(0, "成功");
+        this.msgMap.put(110000, "成功");
         this.msgMap.put(-201, ERROR_MSG_NETWORK_UNAVAILABLE);
         this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
         this.msgMap.put(-203, ERROR_MSG_SSL_PEER_UNVERIFIED);

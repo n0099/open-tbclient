@@ -1,5 +1,6 @@
 package com.xiaomi.clientreport.data;
 
+import com.baidu.live.tbadk.core.util.TbEnum;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -20,7 +21,7 @@ public class EventClientReport extends a {
             if (json == null) {
                 return null;
             }
-            json.put("eventId", this.eventId);
+            json.put(TbEnum.SystemMessage.KEY_EVENT_ID, this.eventId);
             json.put("eventType", this.eventType);
             json.put("eventTime", this.eventTime);
             json.put("eventContent", this.eventContent);

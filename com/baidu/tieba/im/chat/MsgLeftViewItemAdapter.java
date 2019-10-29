@@ -15,36 +15,35 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void lO(boolean z) {
+    public void lC(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bt */
-    public e.a<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bv */
+    public e.a<MsgleftView> b(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.mPageContext);
-        return new a(msgleftView.eY(), msgleftView);
+        return new a(msgleftView.getConvertView(), msgleftView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
-        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView bBz = aVar.bBz();
-        bBz.vj(this.gBF);
-        bBz.lO(this.mNeedShowName);
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
+        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
+        MsgleftView byk = aVar.byk();
+        byk.tO(this.gzD);
+        byk.lC(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        bBz.a(this.gBv);
-        bBz.setOnItemViewLongClickListener(this.gBw);
-        bBz.setPosition(i);
-        bBz.dE(this.gBC);
-        bBz.dD(chatMessage.getCacheData().getLastMsgTime());
-        bBz.a(viewGroup, chatMessage);
-        bBz.b(viewGroup, chatMessage);
+        byk.a(this.gzu);
+        byk.setOnItemViewLongClickListener(this.gzv);
+        byk.setPosition(i);
+        byk.db(this.dHl);
+        byk.da(chatMessage.getCacheData().getLastMsgTime());
+        byk.a(viewGroup, chatMessage);
+        byk.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

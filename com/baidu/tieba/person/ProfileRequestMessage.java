@@ -2,8 +2,8 @@ package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.i;
 import com.baidu.tbadk.util.r;
 import tbclient.Profile.DataReq;
@@ -26,7 +26,7 @@ public class ProfileRequestMessage extends NetMessage {
     private Long uid;
 
     public ProfileRequestMessage() {
-        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        super(1002700, CmdConfigSocket.CMD_PROFILE);
     }
 
     public boolean isSelf() {
@@ -143,16 +143,16 @@ public class ProfileRequestMessage extends NetMessage {
             builder.has_plist = get_has_plist();
             builder.is_from_usercenter = is_from_usercenter();
             builder.page = getPage();
-            double ai = l.ai(TbadkCoreApplication.getInst().getApp());
-            int af = l.af(TbadkCoreApplication.getInst().getApp());
-            int ah = l.ah(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = i.ace().getViewImageQuality();
-            builder.scr_w = Integer.valueOf(af);
-            builder.scr_h = Integer.valueOf(ah);
-            builder.scr_dip = Double.valueOf(ai);
+            double equipmentDensity = l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp());
+            int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
+            int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
+            int viewImageQuality = i.agq().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(equipmentWidth);
+            builder.scr_h = Integer.valueOf(equipmentHeight);
+            builder.scr_dip = Double.valueOf(equipmentDensity);
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
             ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
             builder2.data = builder.build(false);

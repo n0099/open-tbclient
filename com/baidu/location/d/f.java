@@ -2,6 +2,7 @@ package com.baidu.location.d;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.location.Jni;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
@@ -65,7 +66,7 @@ public final class f {
             if (z && this.j != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.j);
-                    if (jSONObject != null && jSONObject.has("error") && jSONObject.getInt("error") == 161) {
+                    if (jSONObject != null && jSONObject.has(BdStatsConstant.StatsType.ERROR) && jSONObject.getInt(BdStatsConstant.StatsType.ERROR) == 161) {
                         this.f = true;
                     }
                 } catch (Exception e) {

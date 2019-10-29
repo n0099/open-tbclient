@@ -11,7 +11,7 @@ public class PushClient {
     private static volatile PushClient sPushClient;
 
     private PushClient(Context context) {
-        m.a().a(context);
+        p.a().a(context);
     }
 
     public static PushClient getInstance(Context context) {
@@ -26,11 +26,11 @@ public class PushClient {
     }
 
     public void initialize() {
-        m.a().j();
+        p.a().i();
     }
 
     public void checkManifest() throws VivoPushException {
-        m.a().b();
+        p.a().b();
     }
 
     private void checkParam(String str) {
@@ -41,47 +41,55 @@ public class PushClient {
 
     public void bindAlias(String str, IPushActionListener iPushActionListener) {
         checkParam(str);
-        m.a().a(str, iPushActionListener);
+        p.a().a(str, iPushActionListener);
     }
 
     public void unBindAlias(String str, IPushActionListener iPushActionListener) {
         checkParam(str);
-        m.a().b(str, iPushActionListener);
+        p.a().b(str, iPushActionListener);
     }
 
     public void turnOnPush(IPushActionListener iPushActionListener) {
-        m.a().a(iPushActionListener);
+        p.a().a(iPushActionListener);
     }
 
     public void turnOffPush(IPushActionListener iPushActionListener) {
-        m.a().b(iPushActionListener);
+        p.a().b(iPushActionListener);
     }
 
     public String getAlias() {
-        return m.a().m();
+        return p.a().l();
     }
 
     public String getRegId() {
-        return m.a().g();
+        return p.a().f();
     }
 
     public String getVersion() {
-        return "2.1.0";
+        return "2.4.0";
     }
 
     public void setTopic(String str, IPushActionListener iPushActionListener) {
         ArrayList<String> arrayList = new ArrayList<>(1);
         arrayList.add(str);
-        m.a().a(arrayList, iPushActionListener);
+        p.a().a(arrayList, iPushActionListener);
     }
 
     public void delTopic(String str, IPushActionListener iPushActionListener) {
         ArrayList<String> arrayList = new ArrayList<>(1);
         arrayList.add(str);
-        m.a().b(arrayList, iPushActionListener);
+        p.a().b(arrayList, iPushActionListener);
     }
 
     public List<String> getTopics() {
-        return m.a().c();
+        return p.a().c();
+    }
+
+    public void setSystemModel(boolean z) {
+        p.a().a(z);
+    }
+
+    public boolean isSupport() {
+        return p.a().d();
     }
 }

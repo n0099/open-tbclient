@@ -8,53 +8,53 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.adp.widget.ListView.s;
 import com.baidu.adp.widget.ListView.v;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private s gnB;
+    private s gna;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.gnB = new s() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.gna = new s() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 TiebaStatic.log(new an("c11273"));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
             }
         };
         this.mPageContext = tbPageContext;
-        setOnAdapterItemClickListener(this.gnB);
+        a(this.gna);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bj */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bl */
+    public a b(ViewGroup viewGroup) {
         return new a(new com.baidu.tieba.homepage.personalize.b.a(this.mPageContext, viewGroup));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        t.bat().c(new an("c11272"));
-        aVar.gnD.a(cVar);
+    public View a(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
+        t.baw().c(new an("c11272"));
+        aVar.gnc.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public com.baidu.tieba.homepage.personalize.b.a gnD;
+        public com.baidu.tieba.homepage.personalize.b.a gnc;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.gnD = aVar;
+            this.gnc = aVar;
         }
     }
 }

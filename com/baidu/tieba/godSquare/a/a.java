@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private com.baidu.tieba.card.divider.a gcM;
-    private c gcN;
-    private b gcO;
-    private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private BdTypeListView mListView;
+    private List<com.baidu.adp.widget.ListView.a> agQ = new ArrayList();
+    private BdTypeListView dvB;
+    private com.baidu.tieba.card.divider.a gck;
+    private c gcl;
+    private b gcm;
 
-    public List<com.baidu.adp.widget.ListView.a> aJS() {
-        return this.mAdapters;
+    public List<com.baidu.adp.widget.ListView.a> aJs() {
+        return this.agQ;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.mListView = bdTypeListView;
-        this.gcM = new com.baidu.tieba.card.divider.a(tbPageContext);
-        this.gcN = new c(tbPageContext);
-        this.gcO = new b(tbPageContext);
-        this.mAdapters.add(this.gcM);
-        this.mAdapters.add(this.gcN);
-        this.mAdapters.add(this.gcO);
+        this.dvB = bdTypeListView;
+        this.gck = new com.baidu.tieba.card.divider.a(tbPageContext);
+        this.gcl = new c(tbPageContext);
+        this.gcm = new b(tbPageContext);
+        this.agQ.add(this.gck);
+        this.agQ.add(this.gcl);
+        this.agQ.add(this.gcm);
     }
 
     public void notifyDataSetChanged() {
-        if (this.mListView != null && (this.mListView.getAdapter() instanceof e)) {
-            this.mListView.getAdapter().notifyDataSetChanged();
+        if (this.dvB != null && (this.dvB.getAdapter() instanceof e)) {
+            this.dvB.getAdapter().notifyDataSetChanged();
         }
     }
 }

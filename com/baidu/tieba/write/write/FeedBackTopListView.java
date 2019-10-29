@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
@@ -20,7 +21,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private ArrayList<bh> jVA;
+    private ArrayList<bh> jTz;
     private Context mContext;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -32,7 +33,7 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.jVA = null;
+        this.jTz = null;
         this.mSkinType = 3;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
@@ -48,14 +49,14 @@ public class FeedBackTopListView extends LinearLayout {
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.jVA = new ArrayList<>(arrayList.subList(0, 3));
+            this.jTz = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.jVA = arrayList;
+            this.jTz = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.jVA.size()) {
-                addView(f(this.jVA.get(i2), i2));
+            if (i2 < this.jTz.size()) {
+                addView(f(this.jTz.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -76,7 +77,7 @@ public class FeedBackTopListView extends LinearLayout {
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(inflate);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(R.drawable.icon_notice);
-        am.k(linearLayout, R.drawable.bg_frs_top_middle_selector);
+        am.setBackgroundResource(linearLayout, R.drawable.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }
@@ -84,7 +85,7 @@ public class FeedBackTopListView extends LinearLayout {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.FeedBackTopListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(FeedBackTopListView.this.mContext).createNormalCfg(tid, null, WriteActivityConfig.FEED_BACK)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FeedBackTopListView.this.mContext).createNormalCfg(tid, null, WriteActivityConfig.FEED_BACK)));
             }
         });
         return inflate;

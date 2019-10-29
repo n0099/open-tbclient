@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.live.tbadk.pay.PayHelper;
 import com.sina.weibo.sdk.auth.BaseSsoHandler;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.ResourceManager;
@@ -323,7 +324,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 sslErrorHandler.proceed();
             }
         });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
+        builder.setNegativeButton(PayHelper.STATUS_CANCEL_DESC, new DialogInterface.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 sslErrorHandler.cancel();

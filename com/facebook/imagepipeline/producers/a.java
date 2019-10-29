@@ -1,21 +1,21 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public class a implements ai<com.facebook.imagepipeline.f.d> {
-    private final ai<com.facebook.imagepipeline.f.d> kmM;
+    private final ai<com.facebook.imagepipeline.f.d> kkY;
 
     public a(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        this.kmM = aiVar;
+        this.kkY = aiVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.kmM.a(new C0470a(jVar), ajVar);
+        this.kkY.a(new C0565a(jVar), ajVar);
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0470a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private C0470a(j<com.facebook.imagepipeline.f.d> jVar) {
+    private static class C0565a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
+        private C0565a(j<com.facebook.imagepipeline.f.d> jVar) {
             super(jVar);
         }
 
@@ -23,15 +23,15 @@ public class a implements ai<com.facebook.imagepipeline.f.d> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
-        public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
+        public void e(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar == null) {
-                cLX().e(null, z);
+                cIU().f(null, z);
                 return;
             }
             if (!com.facebook.imagepipeline.f.d.d(dVar)) {
-                dVar.cKU();
+                dVar.cHR();
             }
-            cLX().e(dVar, z);
+            cIU().f(dVar, z);
         }
     }
 }

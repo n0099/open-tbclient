@@ -3,39 +3,39 @@ package com.baidu.tbadk.p;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class b extends g {
-    private a cAE;
-    private boolean cAF;
-    private boolean cAG;
+    private a cLN;
+    private boolean cLO;
+    private boolean cLP;
 
-    public void avx() {
-        if (!this.cAF && m.avH().avI()) {
-            this.cAF = true;
+    public void awD() {
+        if (!this.cLO && m.awN().awO()) {
+            this.cLO = true;
             if (Build.VERSION.SDK_INT >= 16) {
-                if (this.cAE == null) {
-                    this.cAE = new a();
+                if (this.cLN == null) {
+                    this.cLN = new a();
                 }
-                this.cAE.start();
+                this.cLN.start();
             }
         }
     }
 
-    public void avy() {
-        if (Build.VERSION.SDK_INT >= 16 && this.cAE != null) {
-            this.cAE.stop();
+    public void awE() {
+        if (Build.VERSION.SDK_INT >= 16 && this.cLN != null) {
+            this.cLN.stop();
         }
     }
 
-    public void avz() {
+    public void awF() {
         o oVar;
-        if (!this.cAG && this.cAE != null && this.cAE.getFps() >= 0 && (oVar = (o) m.avH().kX(this.mSubType)) != null) {
+        if (!this.cLP && this.cLN != null && this.cLN.getFps() >= 0 && (oVar = (o) m.awN().ki(this.mSubType)) != null) {
             oVar.a(this);
-            this.cAG = true;
+            this.cLP = true;
         }
     }
 
     public int getFps() {
-        if (this.cAE != null) {
-            return this.cAE.getFps();
+        if (this.cLN != null) {
+            return this.cLN.getFps();
         }
         return -1;
     }

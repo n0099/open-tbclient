@@ -11,36 +11,36 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends Dialog {
-    private LinearLayout bOF;
-    private float bOG;
+    private float cfK;
     private Context context;
     private View mContentView;
+    private LinearLayout mRootView;
 
     public e(Context context, View view) {
         super(context, 16973835);
-        this.bOG = 0.3f;
+        this.cfK = 0.3f;
         this.context = context;
         this.mContentView = view;
     }
 
-    public void an(float f) {
-        this.bOG = f;
+    public void ab(float f) {
+        this.cfK = f;
     }
 
     @Override // android.app.Dialog
     public void setContentView(View view) {
         this.mContentView = view;
-        if (this.bOF != null) {
-            this.bOF.removeAllViews();
+        if (this.mRootView != null) {
+            this.mRootView.removeAllViews();
             if (this.mContentView.getParent() != null) {
                 if (this.mContentView.getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
-                    this.bOF.addView(this.mContentView);
+                    this.mRootView.addView(this.mContentView);
                     return;
                 }
                 return;
             }
-            this.bOF.addView(this.mContentView);
+            this.mRootView.addView(this.mContentView);
         }
     }
 
@@ -54,29 +54,29 @@ public class e extends Dialog {
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
-        getWindow().setDimAmount(this.bOG);
+        getWindow().setDimAmount(this.cfK);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(R.style.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.bOF = (LinearLayout) findViewById(R.id.root_view);
-        this.bOF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
+        this.mRootView = (LinearLayout) findViewById(R.id.root_view);
+        this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
             }
         });
         if (this.mContentView != null) {
-            this.bOF.removeAllViews();
+            this.mRootView.removeAllViews();
             if (this.mContentView.getParent() != null) {
                 if (this.mContentView.getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
-                    this.bOF.addView(this.mContentView);
+                    this.mRootView.addView(this.mContentView);
                     return;
                 }
                 return;
             }
-            this.bOF.addView(this.mContentView);
+            this.mRootView.addView(this.mContentView);
         }
     }
 }

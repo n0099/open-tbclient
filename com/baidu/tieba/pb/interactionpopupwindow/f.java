@@ -4,15 +4,13 @@ import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.g;
 /* loaded from: classes.dex */
 public interface f<V extends g, D extends IBaseDialogData> {
-    boolean aPb();
-
-    boolean aPc();
-
-    int agN();
-
     void dismiss();
 
-    boolean isShowing();
+    int getDialogMargin();
 
     void show();
+
+    boolean vq();
+
+    boolean vr();
 }

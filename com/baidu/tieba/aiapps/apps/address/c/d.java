@@ -1,6 +1,7 @@
 package com.baidu.tieba.aiapps.apps.address.c;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -8,11 +9,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public List<d> acU = new ArrayList();
+    public List<d> MT = new ArrayList();
     public String code;
     public String name;
 
-    public static d bg(JSONObject jSONObject) {
+    public static d bD(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -22,9 +23,9 @@ public class d {
         JSONArray optJSONArray = jSONObject.optJSONArray("children");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                d bg = bg(optJSONArray.optJSONObject(i));
-                if (bg != null) {
-                    dVar.acU.add(bg);
+                d bD = bD(optJSONArray.optJSONObject(i));
+                if (bD != null) {
+                    dVar.MT.add(bD);
                 }
             }
         }
@@ -46,11 +47,11 @@ public class d {
         }
     }
 
-    public boolean aFH() {
-        return this.acU.size() > 0;
+    public boolean aFT() {
+        return this.MT.size() > 0;
     }
 
-    public static String aI(List<d> list) {
+    public static String bb(List<d> list) {
         StringBuilder sb = new StringBuilder();
         if (list != null) {
             int i = 0;
@@ -61,7 +62,7 @@ public class d {
                 }
                 d dVar = list.get(i2);
                 if (i2 != 0) {
-                    sb.append(" ");
+                    sb.append(HanziToPinyin.Token.SEPARATOR);
                 }
                 sb.append(dVar.name);
                 i = i2 + 1;

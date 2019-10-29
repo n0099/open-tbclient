@@ -9,7 +9,6 @@ import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -486,7 +485,7 @@ public final class SapiContext {
         }
         try {
             JSONObject jSONObject = new JSONObject(decryptStr);
-            JSONArray optJSONArray = jSONObject.optJSONArray(IntentConfig.LIST);
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
             String[] deleteFaceLoginList = getDeleteFaceLoginList();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 for (String str : deleteFaceLoginList) {
@@ -495,7 +494,7 @@ public final class SapiContext {
                     }
                 }
             }
-            jSONObject.put(IntentConfig.LIST, optJSONArray);
+            jSONObject.put("list", optJSONArray);
             return jSONObject;
         } catch (Exception e2) {
             Log.e(e2);

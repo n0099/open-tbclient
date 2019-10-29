@@ -11,19 +11,19 @@ public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new Parcelable.Creator<FragmentState>() { // from class: com.baidu.swan.support.v4.app.FragmentState.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: u */
+        /* renamed from: C */
         public FragmentState createFromParcel(Parcel parcel) {
             return new FragmentState(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fV */
+        /* renamed from: gQ */
         public FragmentState[] newArray(int i) {
             return new FragmentState[i];
         }
     };
-    Fragment bvq;
+    Fragment bNZ;
     final Bundle mArguments;
     final String mClassName;
     final int mContainerId;
@@ -61,31 +61,31 @@ public final class FragmentState implements Parcelable {
     }
 
     public Fragment a(j jVar, Fragment fragment) {
-        if (this.bvq != null) {
-            return this.bvq;
+        if (this.bNZ != null) {
+            return this.bNZ;
         }
         Context context = jVar.getContext();
         if (this.mArguments != null) {
             this.mArguments.setClassLoader(context.getClassLoader());
         }
-        this.bvq = Fragment.b(context, this.mClassName, this.mArguments);
+        this.bNZ = Fragment.b(context, this.mClassName, this.mArguments);
         if (this.mSavedFragmentState != null) {
             this.mSavedFragmentState.setClassLoader(context.getClassLoader());
-            this.bvq.mSavedFragmentState = this.mSavedFragmentState;
+            this.bNZ.mSavedFragmentState = this.mSavedFragmentState;
         }
-        this.bvq.b(this.mIndex, fragment);
-        this.bvq.mFromLayout = this.mFromLayout;
-        this.bvq.mRestored = true;
-        this.bvq.mFragmentId = this.mFragmentId;
-        this.bvq.mContainerId = this.mContainerId;
-        this.bvq.mTag = this.mTag;
-        this.bvq.mRetainInstance = this.mRetainInstance;
-        this.bvq.mDetached = this.mDetached;
-        this.bvq.buQ = jVar.buQ;
+        this.bNZ.b(this.mIndex, fragment);
+        this.bNZ.mFromLayout = this.mFromLayout;
+        this.bNZ.mRestored = true;
+        this.bNZ.mFragmentId = this.mFragmentId;
+        this.bNZ.mContainerId = this.mContainerId;
+        this.bNZ.mTag = this.mTag;
+        this.bNZ.mRetainInstance = this.mRetainInstance;
+        this.bNZ.mDetached = this.mDetached;
+        this.bNZ.bNz = jVar.bNz;
         if (l.DEBUG) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.bvq);
+            Log.v("FragmentManager", "Instantiated fragment " + this.bNZ);
         }
-        return this.bvq;
+        return this.bNZ;
     }
 
     @Override // android.os.Parcelable

@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -10,9 +11,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class DataEntryUrnBox extends AbstractFullBox {
     public static final String TYPE = "urn ";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
     private String location;
     private String name;
 
@@ -22,9 +23,9 @@ public class DataEntryUrnBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("DataEntryUrnBox.java", DataEntryUrnBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getName", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 40);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getLocation", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 44);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 67);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getName", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", FieldUtil.TYPE_STRING), 40);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getLocation", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", FieldUtil.TYPE_STRING), 44);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", FieldUtil.TYPE_STRING), 67);
     }
 
     public DataEntryUrnBox() {

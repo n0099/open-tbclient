@@ -1,12 +1,13 @@
 package com.baidu.tieba.model.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.CheckRealName.CheckRealNameResIdl;
 /* loaded from: classes.dex */
 public class CheckRealNameSocketResponseMessage extends SocketResponsedMessage {
     public CheckRealNameSocketResponseMessage() {
-        super(309456);
+        super(CmdConfigSocket.CMD_CHECK_REAL_NAME);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

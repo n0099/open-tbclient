@@ -1,6 +1,5 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.person.b;
 import com.squareup.wire.Wire;
@@ -8,7 +7,7 @@ import tbclient.Personal.PersonalResIdl;
 /* loaded from: classes6.dex */
 public class PersonPolymericHttpResMsg extends TbHttpResponsedMessage {
     public PersonPolymericHttpResMsg() {
-        super(CmdConfigHttp.CMD_PERSON_POLYMERIC);
+        super(1003181);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

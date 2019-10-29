@@ -8,7 +8,7 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.aiapps.apps.media.videoplayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0298a {
+    public interface InterfaceC0330a {
         void a(b bVar);
 
         void a(b bVar, int i, int i2);
@@ -20,12 +20,12 @@ public interface a {
     public interface b {
         void a(g gVar);
 
-        a aHo();
+        a aHB();
     }
 
-    void a(InterfaceC0298a interfaceC0298a);
+    void a(InterfaceC0330a interfaceC0330a);
 
-    void b(InterfaceC0298a interfaceC0298a);
+    void b(InterfaceC0330a interfaceC0330a);
 
     Bitmap getBitmap();
 

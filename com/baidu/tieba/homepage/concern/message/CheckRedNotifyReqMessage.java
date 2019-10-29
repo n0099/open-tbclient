@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.RedNotify.DataReq;
 import tbclient.RedNotify.RedNotifyReqIdl;
@@ -10,7 +10,7 @@ public class CheckRedNotifyReqMessage extends NetMessage {
     public boolean reqUnreadTipAfterFinish;
 
     public CheckRedNotifyReqMessage() {
-        super(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
+        super(1003344, CmdConfigSocket.CMD_CONCERN_CHECK_RED_NOTIFY);
         this.reqUnreadTipAfterFinish = false;
     }
 
@@ -19,7 +19,7 @@ public class CheckRedNotifyReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
             RedNotifyReqIdl.Builder builder2 = new RedNotifyReqIdl.Builder();
             builder2.data = builder.build(false);

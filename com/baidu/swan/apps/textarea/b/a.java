@@ -1,37 +1,36 @@
 package com.baidu.swan.apps.textarea.b;
 
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.console.c;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.ubc.UBC;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.swan.apps.model.a.a.a {
-    public boolean aEy;
-    public int aZA;
-    public String aZg;
-    public int aZh;
-    public String aZi;
-    public String aZj;
-    public boolean aZk;
-    public boolean aZl;
-    public boolean aZm;
-    public int aZn;
-    public int aZo;
-    public int aZp;
-    public int aZq;
-    public int aZr;
-    public boolean aZs;
-    public String aZt;
-    public String aZu;
-    public int aZv;
-    public String aZw;
-    public boolean aZx;
-    public JSONArray aZy;
-    public int aZz;
+    public boolean aXN;
+    public int bsA;
+    public String bsh;
+    public int bsi;
+    public String bsj;
+    public String bsk;
+    public boolean bsl;
+    public boolean bsm;
+    public boolean bsn;
+    public int bso;
+    public int bsp;
+    public int bsq;
+    public int bsr;
+    public int bss;
+    public boolean bst;
+    public String bsu;
+    public int bsv;
+    public String bsw;
+    public boolean bsx;
+    public JSONArray bsy;
+    public int bsz;
+    public String mColor;
     public int mFontSize;
     public int mHeight;
     public int mLeft;
@@ -40,7 +39,7 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
     public String mValue;
     public int mWidth;
 
-    public static a al(JSONObject jSONObject) {
+    public static a aJ(JSONObject jSONObject) {
         a aVar = new a();
         try {
             aVar.parseFromJson(jSONObject);
@@ -57,94 +56,94 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
         a aVar2 = new a();
         if (aVar != null) {
             aVar2.a(jSONObject, aVar);
-            aVar2.aZA = aVar.aZA;
-            aVar2.mValue = jSONObject.optString(UBC.CONTENT_KEY_VALUE, aVar.mValue);
-            aVar2.aZg = jSONObject.optString("placeholder", aVar.aZg);
+            aVar2.bsA = aVar.bsA;
+            aVar2.mValue = jSONObject.optString("value", aVar.mValue);
+            aVar2.bsh = jSONObject.optString("placeholder", aVar.bsh);
             JSONObject optJSONObject = jSONObject.optJSONObject("placeholderStyle");
-            aVar2.aZh = optJSONObject.optInt("fontSize", aVar.aZh);
-            aVar2.aZi = optJSONObject.optString("fontWeight", aVar.aZi);
-            aVar2.aZj = optJSONObject.optString("color", aVar.aZj);
-            aVar2.aZk = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, aVar.aZk);
-            aVar2.aZl = jSONObject.optBoolean("autoHeight", aVar.aZl);
-            aVar2.aEy = jSONObject.optBoolean("fixed", aVar.aEy);
-            aVar2.aZm = jSONObject.optBoolean("showConfirmBar", aVar.aZm);
-            aVar2.aZn = jSONObject.optInt("maxLength", aVar.aZn);
-            aVar2.aZo = jSONObject.optInt("cursorSpacing", aVar.aZo);
-            aVar2.aZp = jSONObject.optInt("cursor", aVar.aZp);
-            aVar2.aZq = jSONObject.optInt("selectionStart", aVar.aZq);
-            aVar2.aZr = jSONObject.optInt("selectionEnd", aVar.aZr);
-            aVar2.aZs = jSONObject.optBoolean("adjustPosition", aVar.aZs);
-            JSONObject optJSONObject2 = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            aVar2.aZy = optJSONObject2.optJSONArray("padding");
+            aVar2.bsi = optJSONObject.optInt("fontSize", aVar.bsi);
+            aVar2.bsj = optJSONObject.optString("fontWeight", aVar.bsj);
+            aVar2.bsk = optJSONObject.optString("color", aVar.bsk);
+            aVar2.bsl = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, aVar.bsl);
+            aVar2.bsm = jSONObject.optBoolean("autoHeight", aVar.bsm);
+            aVar2.aXN = jSONObject.optBoolean("fixed", aVar.aXN);
+            aVar2.bsn = jSONObject.optBoolean("showConfirmBar", aVar.bsn);
+            aVar2.bso = jSONObject.optInt("maxLength", aVar.bso);
+            aVar2.bsp = jSONObject.optInt("cursorSpacing", aVar.bsp);
+            aVar2.bsq = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, aVar.bsq);
+            aVar2.bsr = jSONObject.optInt("selectionStart", aVar.bsr);
+            aVar2.bss = jSONObject.optInt("selectionEnd", aVar.bss);
+            aVar2.bst = jSONObject.optBoolean("adjustPosition", aVar.bst);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("style");
+            aVar2.bsy = optJSONObject2.optJSONArray("padding");
             aVar2.mFontSize = optJSONObject2.optInt("fontSize", aVar.mFontSize);
-            aVar2.aZt = optJSONObject2.optString("fontWeight", aVar.aZt);
-            aVar2.aZu = optJSONObject2.optString("color", aVar.aZu);
-            aVar2.aZw = optJSONObject2.optString("textAlign", aVar.aZw);
-            int ad = z.ad(a(optJSONObject2, "minHeight", z.af(aVar.aZz)));
-            if (ad < 0) {
-                ad = 0;
+            aVar2.bsu = optJSONObject2.optString("fontWeight", aVar.bsu);
+            aVar2.mColor = optJSONObject2.optString("color", aVar.mColor);
+            aVar2.bsw = optJSONObject2.optString("textAlign", aVar.bsw);
+            int S = z.S(a(optJSONObject2, "minHeight", z.U(aVar.bsz)));
+            if (S < 0) {
+                S = 0;
             }
-            aVar2.aZz = ad;
-            int ad2 = z.ad(a(optJSONObject2, "maxHeight", z.af(aVar.mMaxHeight)));
-            if (ad2 < 0) {
-                ad2 = Integer.MAX_VALUE;
+            aVar2.bsz = S;
+            int S2 = z.S(a(optJSONObject2, "maxHeight", z.U(aVar.mMaxHeight)));
+            if (S2 < 0) {
+                S2 = Integer.MAX_VALUE;
             }
-            aVar2.mMaxHeight = ad2;
-            aVar2.aZv = z.ad((float) optJSONObject2.optDouble("lineSpace", z.af(aVar.aZv)));
-            aVar2.aZx = jSONObject.optBoolean("disabled", aVar.aZx);
-            aVar2.mLeft = aVar2.aEu.getLeft();
-            aVar2.mTop = aVar2.aEu.Hz();
-            aVar2.mWidth = aVar2.aEu.getWidth();
-            aVar2.mHeight = aVar2.aEu.getHeight();
+            aVar2.mMaxHeight = S2;
+            aVar2.bsv = z.S((float) optJSONObject2.optDouble("lineSpace", z.U(aVar.bsv)));
+            aVar2.bsx = jSONObject.optBoolean("disabled", aVar.bsx);
+            aVar2.mLeft = aVar2.aXJ.getLeft();
+            aVar2.mTop = aVar2.aXJ.Mt();
+            aVar2.mWidth = aVar2.aXJ.getWidth();
+            aVar2.mHeight = aVar2.aXJ.getHeight();
         }
         return aVar2;
     }
 
     private a() {
         super("inputId", "textArea");
-        this.aZA = 1;
+        this.bsA = 1;
     }
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.mValue = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
-        this.aZg = jSONObject.optString("placeholder");
+        this.mValue = jSONObject.optString("value");
+        this.bsh = jSONObject.optString("placeholder");
         JSONObject optJSONObject = jSONObject.optJSONObject("placeholderStyle");
-        this.aZh = optJSONObject.optInt("fontSize");
-        this.aZi = optJSONObject.optString("fontWeight");
-        this.aZj = optJSONObject.optString("color");
-        this.aZk = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
-        this.aZl = jSONObject.optBoolean("autoHeight", false);
-        this.aEy = jSONObject.optBoolean("fixed");
-        this.aZm = jSONObject.optBoolean("showConfirmBar", true);
-        this.aZn = jSONObject.optInt("maxLength");
-        this.aZo = jSONObject.optInt("cursorSpacing");
-        this.aZp = jSONObject.optInt("cursor");
-        this.aZq = jSONObject.optInt("selectionStart");
-        this.aZr = jSONObject.optInt("selectionEnd");
-        this.aZs = jSONObject.optBoolean("adjustPosition", true);
-        JSONObject optJSONObject2 = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-        this.aZy = optJSONObject2.optJSONArray("padding");
+        this.bsi = optJSONObject.optInt("fontSize");
+        this.bsj = optJSONObject.optString("fontWeight");
+        this.bsk = optJSONObject.optString("color");
+        this.bsl = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+        this.bsm = jSONObject.optBoolean("autoHeight", false);
+        this.aXN = jSONObject.optBoolean("fixed");
+        this.bsn = jSONObject.optBoolean("showConfirmBar", true);
+        this.bso = jSONObject.optInt("maxLength");
+        this.bsp = jSONObject.optInt("cursorSpacing");
+        this.bsq = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+        this.bsr = jSONObject.optInt("selectionStart");
+        this.bss = jSONObject.optInt("selectionEnd");
+        this.bst = jSONObject.optBoolean("adjustPosition", true);
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("style");
+        this.bsy = optJSONObject2.optJSONArray("padding");
         this.mFontSize = optJSONObject2.optInt("fontSize");
-        this.aZt = optJSONObject2.optString("fontWeight");
-        this.aZu = optJSONObject2.optString("color");
-        this.aZw = optJSONObject2.optString("textAlign");
-        int ad = z.ad(a(optJSONObject2, "minHeight", 0.0f));
-        if (ad < 0) {
-            ad = 0;
+        this.bsu = optJSONObject2.optString("fontWeight");
+        this.mColor = optJSONObject2.optString("color");
+        this.bsw = optJSONObject2.optString("textAlign");
+        int S = z.S(a(optJSONObject2, "minHeight", 0.0f));
+        if (S < 0) {
+            S = 0;
         }
-        this.aZz = ad;
-        int ad2 = z.ad(a(optJSONObject2, "maxHeight", 2.1474836E9f));
-        if (ad2 < 0) {
-            ad2 = Integer.MAX_VALUE;
+        this.bsz = S;
+        int S2 = z.S(a(optJSONObject2, "maxHeight", 2.1474836E9f));
+        if (S2 < 0) {
+            S2 = Integer.MAX_VALUE;
         }
-        this.mMaxHeight = ad2;
-        this.aZv = z.ad((float) optJSONObject2.optDouble("lineSpace"));
-        this.aZx = jSONObject.optBoolean("disabled", false);
-        this.mLeft = this.aEu.getLeft();
-        this.mTop = this.aEu.Hz();
-        this.mWidth = this.aEu.getWidth();
-        this.mHeight = this.aEu.getHeight();
+        this.mMaxHeight = S2;
+        this.bsv = z.S((float) optJSONObject2.optDouble("lineSpace"));
+        this.bsx = jSONObject.optBoolean("disabled", false);
+        this.mLeft = this.aXJ.getLeft();
+        this.mTop = this.aXJ.Mt();
+        this.mWidth = this.aXJ.getWidth();
+        this.mHeight = this.aXJ.getHeight();
     }
 }

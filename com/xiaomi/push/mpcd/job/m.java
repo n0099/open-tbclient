@@ -5,7 +5,6 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Collections;
 import java.util.Comparator;
@@ -29,7 +28,7 @@ public class m extends g {
         WifiInfo connectionInfo;
         StringBuilder sb = new StringBuilder();
         try {
-            WifiManager wifiManager = (WifiManager) this.d.getSystemService(IXAdSystemUtils.NT_WIFI);
+            WifiManager wifiManager = (WifiManager) this.d.getSystemService("wifi");
             if (wifiManager.isWifiEnabled() && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                 sb.append(connectionInfo.getSSID()).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(com.xiaomi.channel.commonutils.string.d.g(connectionInfo.getBSSID())).append("|");
             }

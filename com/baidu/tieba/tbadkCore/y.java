@@ -5,6 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aq;
@@ -13,14 +14,14 @@ import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private a jhJ;
+    private a jhy;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
     public interface a {
-        void w(String str, long j);
+        void A(String str, long j);
 
-        void x(String str, long j);
+        void B(String str, long j);
     }
 
     public void setFrom(String str) {
@@ -28,11 +29,11 @@ public class y {
     }
 
     public void a(a aVar) {
-        this.jhJ = aVar;
+        this.jhy = aVar;
     }
 
-    public void E(String str, long j) {
-        new b(str, j, this.mFrom, this.jhJ, this, null).execute(new Integer[0]);
+    public void I(String str, long j) {
+        new b(str, j, this.mFrom, this.jhy, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -41,8 +42,8 @@ public class y {
         private String authSid;
         private int errorCode;
         private String errorMsg;
-        private WeakReference<a> jhK;
-        private WeakReference<y> jhL;
+        private WeakReference<y> jhA;
+        private WeakReference<a> jhz;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -52,11 +53,11 @@ public class y {
         public b(String str, long j, String str2, a aVar, y yVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.jhK = null;
-            this.jhL = new WeakReference<>(yVar);
+            this.jhz = null;
+            this.jhA = new WeakReference<>(yVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.jhK = new WeakReference<>(aVar);
+            this.jhz = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -65,25 +66,25 @@ public class y {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
+        /* renamed from: c */
         public Integer doInBackground(Integer... numArr) {
             JSONObject jSONObject;
             try {
                 if (this.mForumId != 0 && this.mForumName != null) {
                     this.mNetwork = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
-                    this.mNetwork.o("fid", String.valueOf(this.mForumId));
-                    this.mNetwork.o("kw", this.mForumName);
-                    this.mNetwork.o("favo_type", "1");
-                    this.mNetwork.o("st_type", this.mFrom);
-                    this.mNetwork.o("authsid", this.authSid);
-                    this.mNetwork.aiK().ajM().mIsNeedTbs = true;
-                    String aim = this.mNetwork.aim();
-                    if (!aq.isEmpty(aim) && (jSONObject = new JSONObject(aim)) != null) {
+                    this.mNetwork.addPostData("fid", String.valueOf(this.mForumId));
+                    this.mNetwork.addPostData("kw", this.mForumName);
+                    this.mNetwork.addPostData("favo_type", "1");
+                    this.mNetwork.addPostData("st_type", this.mFrom);
+                    this.mNetwork.addPostData("authsid", this.authSid);
+                    this.mNetwork.amr().amR().mIsNeedTbs = true;
+                    String postNetData = this.mNetwork.postNetData();
+                    if (!aq.isEmpty(postNetData) && (jSONObject = new JSONObject(postNetData)) != null) {
                         this.errorCode = jSONObject.optInt("error_code");
                         this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                         this.tokenData = AuthTokenData.parse(jSONObject);
                     }
-                    if (this.mNetwork.aiK().ajN().isRequestSuccess()) {
+                    if (this.mNetwork.amr().amS().isRequestSuccess()) {
                         return 1;
                     }
                 }
@@ -99,26 +100,26 @@ public class y {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.jhK != null) {
+            if (this.jhz != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.jhK.get();
+                a aVar2 = this.jhz.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.aiK().ajN().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.amr().amS().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
-                        aVar2.w(this.mForumName, this.mForumId);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.mForumId)));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.mForumName));
+                        aVar2.A(this.mForumName, this.mForumId);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM_NAME, this.mForumName));
                         aVar.isSuccess = true;
                     } else {
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            String errorString = this.mNetwork.aiN() ? this.mNetwork.getErrorString() : this.mNetwork.aiQ();
+                            String errorString = this.mNetwork.isNetSuccess() ? this.mNetwork.getErrorString() : this.mNetwork.ams();
                             aVar.errorMessage = errorString;
-                            aVar2.x(errorString, this.errorCode);
+                            aVar2.B(errorString, this.errorCode);
                         }
                     }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, aVar));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM, aVar));
                 }
             }
         }

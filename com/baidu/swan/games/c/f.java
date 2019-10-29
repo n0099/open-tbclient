@@ -1,5 +1,6 @@
 package com.baidu.swan.games.c;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
@@ -8,41 +9,41 @@ import java.util.List;
 public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
-    private static volatile boolean aoc = false;
-    private static volatile boolean bgo = false;
-    private static volatile List<com.baidu.swan.apps.m.a.b> bgp = new ArrayList();
+    private static volatile boolean aHt = false;
+    private static volatile boolean bzh = false;
+    private static volatile List<com.baidu.swan.apps.m.a.b> bzi = new ArrayList();
 
     private f() {
     }
 
-    public static void aW(boolean z) {
-        aoc = z;
-        com.baidu.swan.apps.console.c.aW(z);
+    public static void bo(boolean z) {
+        aHt = z;
+        com.baidu.swan.apps.console.c.bo(z);
     }
 
-    public static void Ro() {
+    public static void Wf() {
         synchronized (f.class) {
-            bgp = new ArrayList();
+            bzi = new ArrayList();
         }
-        bgo = false;
+        bzh = false;
     }
 
-    public static void Rp() {
-        if (aoc && !bgo) {
+    public static void Wg() {
+        if (aHt && !bzh) {
             synchronized (f.class) {
-                if (bgp != null) {
-                    for (int i = 0; i < bgp.size(); i++) {
-                        com.baidu.swan.apps.w.e.GJ().a("console", bgp.get(i));
+                if (bzi != null) {
+                    for (int i = 0; i < bzi.size(); i++) {
+                        com.baidu.swan.apps.w.e.LD().a("console", bzi.get(i));
                     }
-                    bgp.clear();
-                    bgp = null;
+                    bzi.clear();
+                    bzi = null;
                 }
             }
-            bgo = true;
+            bzh = true;
         }
     }
 
-    private static String eW(int i) {
+    private static String fR(int i) {
         switch (i) {
             case 1:
                 return TbConfig.TMP_LOG_DIR_NAME;
@@ -52,7 +53,7 @@ public class f {
             case 3:
                 return Config.LAUNCH_INFO;
             case 4:
-                return "error";
+                return BdStatsConstant.StatsType.ERROR;
             case 5:
                 return "warn";
             default:
@@ -60,31 +61,31 @@ public class f {
         }
     }
 
-    public static void u(int i, String str) {
-        aT(eW(i), str);
+    public static void y(int i, String str) {
+        ba(fR(i), str);
     }
 
-    public static void aT(String str, String str2) {
-        if (aoc) {
-            a(c.aR(str, str2));
+    public static void ba(String str, String str2) {
+        if (aHt) {
+            a(c.aY(str, str2));
         }
     }
 
-    public static void aU(String str, String str2) {
-        if (aoc) {
-            a(c.aS(str, str2));
+    public static void bb(String str, String str2) {
+        if (aHt) {
+            a(c.aZ(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.m.a.b bVar) {
-        if (!bgo) {
+        if (!bzh) {
             synchronized (f.class) {
-                if (bgp != null) {
-                    bgp.add(bVar);
+                if (bzi != null) {
+                    bzi.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.w.e.GJ().a("console", bVar);
+        com.baidu.swan.apps.w.e.LD().a("console", bVar);
     }
 }

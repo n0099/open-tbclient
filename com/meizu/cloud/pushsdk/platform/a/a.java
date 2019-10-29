@@ -2,6 +2,7 @@ package com.meizu.cloud.pushsdk.platform.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.b.a.c;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -96,7 +97,7 @@ public class a {
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, "4a2ca769d79f4856bb3bd982d30de790"));
         if (!TextUtils.isEmpty(str3)) {
-            linkedHashMap2.put("errorMsg", str3);
+            linkedHashMap2.put(TiebaInitialize.LogFields.ERROR_MESSAGE, str3);
         }
         com.meizu.cloud.a.a.i("PushAPI", "uploadLogFile post map " + linkedHashMap2);
         return com.meizu.cloud.pushsdk.b.a.c(this.o).a(linkedHashMap2).a("logFile", file).a().a();

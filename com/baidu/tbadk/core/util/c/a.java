@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.dialog.a;
@@ -14,45 +15,41 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> bWv = new ArrayList<>();
-    private b bWw;
-    private InterfaceC0252a bWx;
+    private b clB;
+    private InterfaceC0284a clC;
+    private ArrayList<String> requestPermissionList = new ArrayList<>();
 
     /* renamed from: com.baidu.tbadk.core.util.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0252a {
-        void akf();
+    public interface InterfaceC0284a {
+        void onPermissionsGranted();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void oH(String str);
+        void onDialogCaneled(String str);
 
-        void oI(String str);
+        void onDialogComfirmed(String str);
     }
 
-    public void a(b bVar) {
-        this.bWw = bVar;
-    }
-
-    public void ake() {
-        if (this.bWv != null) {
-            this.bWv.clear();
+    public void clearRequestPermissionList() {
+        if (this.requestPermissionList != null) {
+            this.requestPermissionList.clear();
         }
     }
 
-    public void e(Activity activity, String str) {
-        if (!TextUtils.isEmpty(str) && !f(activity, str)) {
-            this.bWv.add(str);
+    public void appendRequestPermission(Activity activity, String str) {
+        if (!TextUtils.isEmpty(str) && !checkPermissionGranted(activity, str)) {
+            this.requestPermissionList.add(str);
         }
     }
 
-    public boolean ad(Activity activity) {
-        if (!com.baidu.e.a.uH()) {
-            akf();
+    public boolean startRequestPermission(Activity activity) {
+        if (!com.baidu.e.a.zB()) {
+            onPermissionsGranted();
             return false;
-        } else if (v.aa(this.bWv)) {
-            akf();
+        } else if (v.isEmpty(this.requestPermissionList)) {
+            onPermissionsGranted();
             return false;
         } else {
             if (activity instanceof BaseFragmentActivity) {
@@ -60,26 +57,26 @@ public class a {
             } else if (activity instanceof BaseActivity) {
                 ((BaseActivity) activity).setCurrentPermissionJudgePolicy(this);
             }
-            ae(activity);
+            startRequestPermissionInternal(activity);
             return true;
         }
     }
 
-    private boolean f(Activity activity, String str) {
+    private boolean checkPermissionGranted(Activity activity, String str) {
         if (activity == null) {
             return false;
         }
-        return com.baidu.e.a.a.N(activity, str);
+        return com.baidu.e.a.a.L(activity, str);
     }
 
-    public boolean g(final Activity activity, final String str) {
+    public boolean checkPermissionForbidden(final Activity activity, final String str) {
         if (com.baidu.e.a.a.shouldShowRequestPermissionRationale(activity, str)) {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.dR(false);
-        aVar.hu(R.string.request_permission_default_title);
-        aVar.hv(oG(str));
+        aVar.eh(false);
+        aVar.hT(R.string.request_permission_default_title);
+        aVar.hU(getPermissionDescriptionId(str));
         aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.c.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -89,34 +86,34 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.bWw != null) {
-                    a.this.bWw.oI(str);
+                if (a.this.clB != null) {
+                    a.this.clB.onDialogComfirmed(str);
                 }
             }
         }).b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.c.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.bWw != null) {
-                    a.this.bWw.oH(str);
+                if (a.this.clB != null) {
+                    a.this.clB.onDialogCaneled(str);
                 }
             }
         }).b(i.ab(activity));
-        aVar.agO();
+        aVar.akO();
         return false;
     }
 
-    private void ae(Activity activity) {
+    private void startRequestPermissionInternal(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bWv.toArray(new String[this.bWv.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private int oG(String str) {
+    private int getPermissionDescriptionId(String str) {
         if (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
             return R.string.request_permission_default_text;
         }
@@ -138,13 +135,13 @@ public class a {
         return "android.permission.CALL_PHONE".equals(str) ? R.string.request_permission_cellphone : R.string.request_permission_default_text;
     }
 
-    public void a(InterfaceC0252a interfaceC0252a) {
-        this.bWx = interfaceC0252a;
+    public void a(InterfaceC0284a interfaceC0284a) {
+        this.clC = interfaceC0284a;
     }
 
-    public void akf() {
-        if (this.bWx != null) {
-            this.bWx.akf();
+    public void onPermissionsGranted() {
+        if (this.clC != null) {
+            this.clC.onPermissionsGranted();
         }
     }
 }

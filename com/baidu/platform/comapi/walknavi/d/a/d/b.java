@@ -8,7 +8,7 @@ import java.io.File;
 /* loaded from: classes5.dex */
 public class b {
     private final Context a;
-    private C0085b b;
+    private C0117b b;
     private a c;
     private g d;
 
@@ -95,7 +95,7 @@ public class b {
 
     private void d(String str) {
         b();
-        this.b = new C0085b(this.a, str);
+        this.b = new C0117b(this.a, str);
         this.b.start();
     }
 
@@ -154,12 +154,12 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0085b extends Thread {
+    public class C0117b extends Thread {
         private Context b;
         private String c;
         private volatile boolean d = false;
 
-        public C0085b(Context context, String str) {
+        public C0117b(Context context, String str) {
             this.b = context;
             this.c = str;
         }

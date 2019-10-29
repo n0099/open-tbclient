@@ -1,8 +1,8 @@
 package com.googlecode.mp4parser.boxes.piff;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
@@ -12,9 +12,9 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class TfrfBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     static {
@@ -25,11 +25,11 @@ public class TfrfBox extends AbstractFullBox {
         b bVar = new b("TfrfBox.java", TfrfBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFragmentCount", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "long"), 91);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.util.List"), 95);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.lang.String"), 100);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", FieldUtil.TYPE_STRING), 100);
     }
 
     public TfrfBox() {
-        super(UserBox.TYPE);
+        super("uuid");
         this.entries = new ArrayList();
     }
 

@@ -3,11 +3,11 @@ package com.baidu.tieba.write.write.sticker.a;
 import android.graphics.Bitmap;
 /* loaded from: classes3.dex */
 public interface c {
-    boolean P(Bitmap bitmap);
+    boolean N(Bitmap bitmap);
 
-    void cCA();
+    void czk();
 
-    void cCB();
+    void czl();
 
-    void cCC();
+    void czm();
 }

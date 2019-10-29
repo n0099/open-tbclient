@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.d.a.a;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -19,7 +20,6 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -131,8 +131,8 @@ public class ShareActivity extends BaseActivity {
             } else {
                 jSONObject.put("displayName", session.displayname);
             }
-            jSONObject.put(IntentConfig.PORTRAIT, getIntent().getStringExtra("android.intent.extra.TEXT"));
-            jSONObject.put("session_id", getIntent().getStringExtra(ShareCallPacking.EXTRA_SESSION_ID));
+            jSONObject.put("portrait", getIntent().getStringExtra("android.intent.extra.TEXT"));
+            jSONObject.put(LogConfig.LOG_SESSION_ID, getIntent().getStringExtra(ShareCallPacking.EXTRA_SESSION_ID));
             jSONObject.put("trace_id", getIntent().getStringExtra(ShareCallPacking.EXTRA_TRACE_ID));
         } catch (Exception e) {
             Log.e(e);

@@ -12,7 +12,7 @@ public class VideoCacheService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        j.am(TAG, "onCreate");
+        j.au(TAG, "onCreate");
         this.mHttpServer = new n(this);
     }
 
@@ -29,10 +29,10 @@ public class VideoCacheService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        j.am(TAG, "onDestroy");
+        j.au(TAG, "onDestroy");
         if (this.mHttpServer != null) {
             this.mHttpServer.destroy();
         }
-        l.aCC().destroy();
+        l.aCL().destroy();
     }
 }

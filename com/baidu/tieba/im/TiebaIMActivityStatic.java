@@ -8,7 +8,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.mobstat.Config;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
@@ -25,7 +27,6 @@ import com.baidu.tbadk.core.atomData.UpdatesActivityConfig;
 import com.baidu.tbadk.core.atomData.ValidateActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -96,31 +97,31 @@ public class TiebaIMActivityStatic {
         TbadkApplication.getInst().RegisterIntent(AddGroupActivityConfig.class, AddGroupActivity.class);
         TbadkApplication.getInst().RegisterIntent(ForumDetailActivityConfig.class, ForumDetailActivity.class);
         TbadkApplication.getInst().RegisterIntent(RecommendDetailActivityConfig.class, RecommendDetailActivity.class);
-        bAG();
-        bAH();
-        bAI();
-        bAJ();
-        bAK();
-        bAL();
-        bAM();
-        bAN();
-        bAO();
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2001275) { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
+        bxr();
+        bxs();
+        bxt();
+        bxu();
+        bxv();
+        bxw();
+        bxx();
+        bxy();
+        bxz();
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.gBB != null && aVar.context != null) {
+                    if (aVar.gzA != null && aVar.context != null) {
                         MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
-                        msgMultiImageTextViewItemAdapter.lM(true);
-                        aVar.gBB.add(msgMultiImageTextViewItemAdapter);
+                        msgMultiImageTextViewItemAdapter.lA(true);
+                        aVar.gzA.add(msgMultiImageTextViewItemAdapter);
                     }
                 }
             }
         });
         OfficalBarChatActivityConfig.IS_SUPPORT_OFFICIAL_CHAT = true;
-        CustomMessageTask customMessageTask = new CustomMessageTask(2002006, new CustomMessageTask.CustomRunnable<OfficalBarChatActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.8
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new CustomMessageTask.CustomRunnable<OfficalBarChatActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.8
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<OfficalBarChatActivityConfig> run(final CustomMessage<OfficalBarChatActivityConfig> customMessage) {
                 UserData userData;
@@ -130,9 +131,9 @@ public class TiebaIMActivityStatic {
                     z.b(new y<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.8.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.y
-                        /* renamed from: aDX */
+                        /* renamed from: aEg */
                         public Void doInBackground() {
-                            return l.bDS().p(linkedList);
+                            return l.bAD().l(linkedList);
                         }
                     }, new j<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.8.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -150,76 +151,76 @@ public class TiebaIMActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ba.ajK().a(new ba.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.9
+        ba.amQ().a(new ba.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.9
             @Override // com.baidu.tbadk.core.util.ba.a
-            public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
                 String str = strArr[0];
-                if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_official_chat=1")) {
-                    String cf = ad.cf(str, "barid=");
-                    String cf2 = ad.cf(str, "barname=");
-                    String cf3 = ad.cf(str, "portrait=");
-                    if (cf != null && cf.length() > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.e(cf, 0L), cf2, cf3, 0)));
+                if (str.contains("jump_tieba_native=1") && str.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
+                    String matchStringFromURL = ad.getMatchStringFromURL(str, "barid=");
+                    String matchStringFromURL2 = ad.getMatchStringFromURL(str, "barname=");
+                    String matchStringFromURL3 = ad.getMatchStringFromURL(str, "portrait=");
+                    if (matchStringFromURL != null && matchStringFromURL.length() > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.toLong(matchStringFromURL, 0L), matchStringFromURL2, matchStringFromURL3, 0)));
                     }
                     return 1;
                 }
                 return 3;
             }
         });
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2001289, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.10
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_OFFICIAL_MERGE_ICON, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.10
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-                return new CustomResponsedMessage<>(2001289, Integer.valueOf((int) R.drawable.icon_im_subscribe));
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_OFFICIAL_MERGE_ICON, Integer.valueOf((int) R.drawable.icon_im_subscribe));
             }
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2001290, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.11
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(CmdConfigCustom.CMD_OFFICIAL_ACCOUNT_ICON, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.11
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-                return new CustomResponsedMessage<>(2001290, Integer.valueOf((int) R.drawable.icon_im_tie));
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_OFFICIAL_ACCOUNT_ICON, Integer.valueOf((int) R.drawable.icon_im_tie));
             }
         });
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
-        CustomMessageTask customMessageTask4 = new CustomMessageTask(2001286, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.12
+        CustomMessageTask customMessageTask4 = new CustomMessageTask(CmdConfigCustom.CMD_UPDATES_ICON, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.12
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-                return new CustomResponsedMessage<>(2001286, Integer.valueOf((int) R.drawable.icon_new_trends));
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_UPDATES_ICON, Integer.valueOf((int) R.drawable.icon_new_trends));
             }
         });
         customMessageTask4.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask4);
-        CustomMessageTask customMessageTask5 = new CustomMessageTask(2001298, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.13
+        CustomMessageTask customMessageTask5 = new CustomMessageTask(CmdConfigCustom.CMD_UPDATES_MODEL, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.13
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-                return new CustomResponsedMessage<>(2001298, new a());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_UPDATES_MODEL, new a());
             }
         });
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2001275) { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.14
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.14
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.gBB != null && aVar.context != null) {
+                    if (aVar.gzA != null && aVar.context != null) {
                         MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(aVar.context, ChatMessage.TYPE_MSG_PHOTOLIVE);
-                        msgPhotoLiveItemAdapter.lN(true);
-                        aVar.gBB.add(msgPhotoLiveItemAdapter);
+                        msgPhotoLiveItemAdapter.lB(true);
+                        aVar.gzA.add(msgPhotoLiveItemAdapter);
                         MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
-                        msgActivityViewItemAdapter.lN(true);
-                        msgActivityViewItemAdapter.lM(true);
-                        aVar.gBB.add(msgActivityViewItemAdapter);
+                        msgActivityViewItemAdapter.lB(true);
+                        msgActivityViewItemAdapter.lA(true);
+                        aVar.gzA.add(msgActivityViewItemAdapter);
                     }
                 }
             }
         });
-        CustomMessageTask customMessageTask6 = new CustomMessageTask(2012110, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.15
+        CustomMessageTask customMessageTask6 = new CustomMessageTask(CmdConfigCustom.SEND_PV_TJ, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.15
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
@@ -230,7 +231,7 @@ public class TiebaIMActivityStatic {
         });
         customMessageTask6.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask6);
-        CustomMessageTask customMessageTask7 = new CustomMessageTask(2003004, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.2
+        CustomMessageTask customMessageTask7 = new CustomMessageTask(CmdConfigCustom.CMD_CANCLE_LIKE_FRS, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Boolean> run(CustomMessage<String> customMessage) {
                 if (customMessage != null) {
@@ -244,23 +245,23 @@ public class TiebaIMActivityStatic {
         });
         customMessageTask7.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask7);
-        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new com.baidu.tieba.im.recommend.detail.a());
+        CustomMessageTask customMessageTask8 = new CustomMessageTask(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL, new com.baidu.tieba.im.recommend.detail.a());
         customMessageTask8.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask8);
-        CustomMessageTask customMessageTask9 = new CustomMessageTask(2001299, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.3
+        CustomMessageTask customMessageTask9 = new CustomMessageTask(CmdConfigCustom.CMD_VALIDATE_MODEL, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-                return new CustomResponsedMessage<>(2001299, new b());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_VALIDATE_MODEL, new b());
             }
         });
         customMessageTask9.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask9);
     }
 
-    private static void bAG() {
-        ba.ajK().a(new ba.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.4
+    private static void bxr() {
+        ba.amQ().a(new ba.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.4
             @Override // com.baidu.tbadk.core.util.ba.a
-            public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
                 }
@@ -268,8 +269,8 @@ public class TiebaIMActivityStatic {
                 StringBuilder sb = new StringBuilder();
                 StringBuilder sb2 = new StringBuilder();
                 if (UtilHelper.parsePushMidPageUrl(lowerCase, sb, sb2)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016486));
-                    tbPageContext.sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(sb.toString(), sb2.toString(), Config.PUSH)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FINISH_VIDEO_MID_PAGE_ACTIVITY));
+                    tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoListActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(sb.toString(), sb2.toString(), "push")));
                     return 0;
                 }
                 return 3;
@@ -277,27 +278,27 @@ public class TiebaIMActivityStatic {
         });
     }
 
-    private static void bAH() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, com.baidu.tieba.tbadkCore.a.a.bq(TbConfig.GET_FORUM_DETAIL, 303021));
+    private static void bxs() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002509, com.baidu.tieba.tbadkCore.a.a.bl(TbConfig.GET_FORUM_DETAIL, CmdConfigSocket.CMD_FORUM_DETAIL));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(ForumDetailHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.a.a.c(303021, ForumDetailSocketResponse.class, false);
+        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_FORUM_DETAIL, ForumDetailSocketResponse.class, false);
     }
 
-    public static boolean bAI() {
-        b(103003, ResponseGroupsByUidMessage.class, false);
-        b(202101, ResponsePushCountMessage.class, false);
-        b(103101, ResponseAddGroupMessage.class, false);
-        b(208001, ResponseOfficialBarInfoMessage.class, false);
-        b(208002, ResponseHistoryMessage.class, false);
-        b(104001, ResponseSendPVTJMessage.class, false);
-        b(103007, ResponseSearchGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-        b(303006, ResponseOfficialBarMenuMessage.class, false);
-        b(208003, ResponseSendOfficialBarMenuMessage.class, false);
+    public static boolean bxt() {
+        b(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID, ResponseGroupsByUidMessage.class, false);
+        b(CmdConfigSocket.CMD_PUSH_COUNT, ResponsePushCountMessage.class, false);
+        b(CmdConfigSocket.CMD_ADD_GROUP, ResponseAddGroupMessage.class, false);
+        b(CmdConfigSocket.CMD_QUERY_OFFICIAL_BAR_INFO, ResponseOfficialBarInfoMessage.class, false);
+        b(CmdConfigSocket.CMD_QUERY_OFFICIAL_BAR_HISTORY, ResponseHistoryMessage.class, false);
+        b(CmdConfigSocket.CMD_SEND_PV_TJ, ResponseSendPVTJMessage.class, false);
+        b(CmdConfigSocket.CMD_REQUEST_SEARCH_GROUP, ResponseSearchGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        b(CmdConfigSocket.CMD_OFFICIAL_BAR_MENU, ResponseOfficialBarMenuMessage.class, false);
+        b(CmdConfigSocket.CMD_SEND_OFFICIAL_BAR_MENU, ResponseSendOfficialBarMenuMessage.class, false);
         return true;
     }
 
@@ -305,17 +306,17 @@ public class TiebaIMActivityStatic {
         return c.b(i, cls, z);
     }
 
-    private static boolean bAJ() {
-        b(2001106, o.class);
-        b(2001205, q.class);
-        b(2001206, p.class);
-        b(2001207, r.class);
-        b(2001144, i.class);
-        b(2001147, n.class);
-        b(2001150, com.baidu.tieba.im.c.a.j.class);
-        b(2001151, k.class);
-        b(2001152, com.baidu.tieba.im.c.a.l.class);
-        b(2001177, m.class);
+    private static boolean bxu() {
+        b(CmdConfigCustom.CMD_REQUEST_GROUP_BY_UID_LOCAL, o.class);
+        b(CmdConfigCustom.CMD_CACHE_REQUEST_SEARCH_GROUP, q.class);
+        b(CmdConfigCustom.CMD_CACHE_CLEAR_REQUEST_SEARCH_GROUP, p.class);
+        b(CmdConfigCustom.CMD_CACHE_ORDER_REQUEST_SEARCH_GROUP, r.class);
+        b(CmdConfigCustom.CMD_LOAD_DRAFT_OFFICIAL, i.class);
+        b(CmdConfigCustom.CMD_LOAD_HISTORY_OFFICICAL, n.class);
+        b(CmdConfigCustom.CMD_SAVE_DRAFT_OFFICIAL, com.baidu.tieba.im.c.a.j.class);
+        b(CmdConfigCustom.CMD_DEL_OFFICIAL_DB, k.class);
+        b(CmdConfigCustom.CMD_QUERY_OFFICIAL_LOCAL_HISTORY, com.baidu.tieba.im.c.a.l.class);
+        b(CmdConfigCustom.CMD_OFFICIAL_BAR_MENU_LOCAL, m.class);
         return true;
     }
 
@@ -323,14 +324,14 @@ public class TiebaIMActivityStatic {
         return c.b(i, cls);
     }
 
-    private static boolean bAK() {
+    private static boolean bxv() {
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.message.a());
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.message.b());
         return true;
     }
 
-    private static void bAL() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008022, new CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.5
+    private static void bxw() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START, new CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<OfficialBarTipActivityConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
@@ -343,8 +344,8 @@ public class TiebaIMActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bAM() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008013, new CustomMessageTask.CustomRunnable<UpdatesActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.6
+    private static void bxx() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_UPDATES_ACTIVITY_START, new CustomMessageTask.CustomRunnable<UpdatesActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<UpdatesActivityConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
@@ -358,19 +359,19 @@ public class TiebaIMActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bAN() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, com.baidu.tieba.tbadkCore.a.a.bq("c/u/user/bigvip", 303025));
+    private static void bxy() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001535, com.baidu.tieba.tbadkCore.a.a.bl("c/u/user/bigvip", CmdConfigSocket.CMD_GET_RECOMMEND_DETAIL));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(RecommendDetailHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.a.a.c(303025, RecommendDetailSocketResponseMessage.class, false);
+        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_GET_RECOMMEND_DETAIL, RecommendDetailSocketResponseMessage.class, false);
     }
 
-    private static void bAO() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008021, new CustomMessageTask.CustomRunnable<ValidateActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.7
+    private static void bxz() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_VALIDATE_ACTIVITY_START, new CustomMessageTask.CustomRunnable<ValidateActivityConfig>() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ValidateActivityConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {

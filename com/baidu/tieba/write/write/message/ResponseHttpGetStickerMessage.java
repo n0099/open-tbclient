@@ -1,7 +1,6 @@
 package com.baidu.tieba.write.write.message;
 
 import GetSticker.GetStickerResIdl;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -10,7 +9,7 @@ public class ResponseHttpGetStickerMessage extends TbHttpResponsedMessage {
     private List<String> mUrlList;
 
     public ResponseHttpGetStickerMessage() {
-        super(CmdConfigHttp.CMD_GET_STICKET_LIST);
+        super(1003341);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

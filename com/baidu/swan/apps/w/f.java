@@ -8,52 +8,52 @@ import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes2.dex */
 public class f implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f aAI;
-    private int aAJ;
-    private boolean asA = false;
+    private static volatile f aTW;
+    private boolean aLQ = false;
+    private int aTX;
 
-    public static f GM() {
-        if (aAI == null) {
+    public static f LG() {
+        if (aTW == null) {
             synchronized (f.class) {
-                if (aAI == null) {
-                    aAI = new f();
+                if (aTW == null) {
+                    aTW = new f();
                 }
             }
         }
-        return aAI;
+        return aTW;
     }
 
     private f() {
     }
 
-    public void GN() {
-        com.baidu.swan.apps.u.a.Eo().registerActivityLifecycleCallbacks(this);
+    public void LH() {
+        com.baidu.swan.apps.u.a.Ji().registerActivityLifecycleCallbacks(this);
     }
 
-    public void GO() {
-        com.baidu.swan.apps.u.a.Eo().unregisterActivityLifecycleCallbacks(this);
+    public void LI() {
+        com.baidu.swan.apps.u.a.Ji().unregisterActivityLifecycleCallbacks(this);
+    }
+
+    private void G(Activity activity) {
+        if (activity instanceof SwanAppActivity) {
+            if (DEBUG) {
+                Log.d("SwanAppLifecycle", "onBackgroundToForeground");
+            }
+            this.aLQ = true;
+        }
     }
 
     private void H(Activity activity) {
         if (activity instanceof SwanAppActivity) {
             if (DEBUG) {
-                Log.d("SwanAppLifecycle", "onBackgroundToForeground");
-            }
-            this.asA = true;
-        }
-    }
-
-    private void I(Activity activity) {
-        if (activity instanceof SwanAppActivity) {
-            if (DEBUG) {
                 Log.d("SwanAppLifecycle", "onForegroundToBackground");
             }
-            this.asA = false;
+            this.aLQ = false;
         }
     }
 
-    public boolean GP() {
-        return this.asA;
+    public boolean LJ() {
+        return this.aLQ;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -62,9 +62,9 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        this.aAJ++;
-        if (this.aAJ == 1) {
-            H(activity);
+        this.aTX++;
+        if (this.aTX == 1) {
+            G(activity);
         }
     }
 
@@ -78,9 +78,9 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
-        this.aAJ--;
-        if (this.aAJ == 0) {
-            I(activity);
+        this.aTX--;
+        if (this.aTX == 0) {
+            H(activity);
         }
     }
 

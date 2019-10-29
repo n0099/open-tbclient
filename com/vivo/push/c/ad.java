@@ -23,7 +23,7 @@ final class ad implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        PushMessageCallback pushMessageCallback = this.e.c;
+        PushMessageCallback pushMessageCallback = this.e.b;
         context = this.e.a;
         pushMessageCallback.onSetAlias(context, this.a, this.b, this.c, this.d);
     }

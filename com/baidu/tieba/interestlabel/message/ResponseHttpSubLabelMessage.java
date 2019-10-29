@@ -1,13 +1,12 @@
 package com.baidu.tieba.interestlabel.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.SubTagList.SubTagListResIdl;
 /* loaded from: classes5.dex */
 public class ResponseHttpSubLabelMessage extends TbHttpResponsedMessage {
     public ResponseHttpSubLabelMessage() {
-        super(CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST);
+        super(1003334);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

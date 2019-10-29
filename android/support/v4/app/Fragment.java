@@ -33,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
@@ -247,7 +248,7 @@ public class Fragment implements b, ComponentCallbacks, View.OnCreateContextMenu
             sb.append(Integer.toHexString(this.mFragmentId));
         }
         if (this.mTag != null) {
-            sb.append(" ");
+            sb.append(HanziToPinyin.Token.SEPARATOR);
             sb.append(this.mTag);
         }
         sb.append('}');

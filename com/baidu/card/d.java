@@ -7,10 +7,10 @@ import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class d extends b<com.baidu.tbadk.core.data.a> {
-    private CardUserInfoLayout VG;
-    private int VH;
-    private com.baidu.tbadk.core.data.a VI;
-    private a VJ;
+    private CardUserInfoLayout Fv;
+    private int Fw;
+    private com.baidu.tbadk.core.data.a Fx;
+    private a Fy;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -19,82 +19,82 @@ public class d extends b<com.baidu.tbadk.core.data.a> {
 
     public d(Context context) {
         super(context);
-        this.VH = 1285;
-        this.VG = new CardUserInfoLayout(context);
-        this.VG.setShowFlag(this.VH);
-        this.VG.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.d.1
+        this.Fw = 1285;
+        this.Fv = new CardUserInfoLayout(context);
+        this.Fv.setShowFlag(this.Fw);
+        this.Fv.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.VJ != null) {
-                    d.this.VJ.a(d.this.VI, view);
+                if (d.this.Fy != null) {
+                    d.this.Fy.a(d.this.Fx, view);
                 }
-                if (d.this.qC() != null) {
-                    d.this.qC().a(view, d.this.VI);
+                if (d.this.lH() != null) {
+                    d.this.lH().a(view, d.this.Fx);
                 }
             }
         });
     }
 
     @Override // com.baidu.card.b
-    public void bo(int i) {
-        this.VG.setShowFlag(this.VH);
+    public void aD(int i) {
+        this.Fv.setShowFlag(this.Fw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.VG;
+        return this.Fv;
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.VG.onChangeSkinType(tbPageContext, i);
+        this.Fv.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.card.b
-    public void bm(int i) {
-        this.VH |= i;
-        bo(this.VH);
+    public void aB(int i) {
+        this.Fw |= i;
+        aD(this.Fw);
     }
 
     @Override // com.baidu.card.b
-    public void bn(int i) {
-        this.VH &= i ^ (-1);
-        bo(this.VH);
+    public void aC(int i) {
+        this.Fw &= i ^ (-1);
+        aD(this.Fw);
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.VG.setPageUniqueId(bdUniqueId);
+        this.Fv.setPageUniqueId(bdUniqueId);
     }
 
     public void a(a aVar) {
-        this.VJ = aVar;
+        this.Fy = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
-    public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.VI = aVar;
-        this.VG.setData(aVar.acC());
+    public void z(com.baidu.tbadk.core.data.a aVar) {
+        this.Fx = aVar;
+        this.Fv.setData(aVar.agI());
     }
 
-    public void ay(boolean z) {
-        if (this.VG != null && this.VG.getAvatar() != null) {
-            this.VG.getAvatar().setClickable(z);
+    public void T(boolean z) {
+        if (this.Fv != null && this.Fv.getAvatar() != null) {
+            this.Fv.getAvatar().setClickable(z);
         }
     }
 
-    public void az(boolean z) {
-        if (this.VG != null && this.VG.getUserName() != null) {
-            this.VG.getUserName().setClickable(z);
+    public void U(boolean z) {
+        if (this.Fv != null && this.Fv.getUserName() != null) {
+            this.Fv.getUserName().setClickable(z);
         }
     }
 
-    public void aA(boolean z) {
-        if (this.VG != null && this.VG.getAvatar() != null) {
-            this.VG.getAvatar().aA(z);
+    public void V(boolean z) {
+        if (this.Fv != null && this.Fv.getAvatar() != null) {
+            this.Fv.getAvatar().V(z);
         }
     }
 }

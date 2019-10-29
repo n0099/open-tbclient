@@ -4,41 +4,41 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class aa {
-    private static ArrayList<a> bTc = new ArrayList<>();
-    public static AtomicInteger bTd = new AtomicInteger(0);
+    private static ArrayList<a> mStatisticsDatas = new ArrayList<>();
+    public static AtomicInteger mErrorNums = new AtomicInteger(0);
 
     /* loaded from: classes.dex */
     public static class a {
-        public long aWP;
-        public int bTe;
-        public int bTf;
+        public int mMethod;
         public int mMode;
+        public long mSize;
         public long mTime;
+        public int mTimesNum;
     }
 
-    public static int hZ(int i) {
-        return bTd.getAndSet(i);
+    public static int getErrorNumsAndSet(int i) {
+        return mErrorNums.getAndSet(i);
     }
 
-    public static int ia(int i) {
-        return bTd.addAndGet(i);
+    public static int addErrorNumsAndGet(int i) {
+        return mErrorNums.addAndGet(i);
     }
 
     public static synchronized void a(a aVar) {
         synchronized (aa.class) {
             if (aVar != null) {
-                if (bTc.size() <= 20) {
-                    bTc.add(aVar);
+                if (mStatisticsDatas.size() <= 20) {
+                    mStatisticsDatas.add(aVar);
                 }
             }
         }
     }
 
-    public static synchronized a aiV() {
+    public static synchronized a amw() {
         a remove;
         synchronized (aa.class) {
-            int size = bTc.size();
-            remove = size > 0 ? bTc.remove(size - 1) : null;
+            int size = mStatisticsDatas.size();
+            remove = size > 0 ? mStatisticsDatas.remove(size - 1) : null;
         }
         return remove;
     }

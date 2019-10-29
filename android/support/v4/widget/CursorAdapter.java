@@ -13,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.FilterQueryProvider;
 import android.widget.Filterable;
+import com.baidu.android.imsdk.IMConstants;
 /* loaded from: classes2.dex */
 public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.CursorFilterClient, Filterable {
     @Deprecated
@@ -70,7 +71,7 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
         this.mCursor = cursor;
         this.mDataValid = z;
         this.mContext = context;
-        this.mRowIDColumn = z ? cursor.getColumnIndexOrThrow("_id") : -1;
+        this.mRowIDColumn = z ? cursor.getColumnIndexOrThrow(IMConstants.MSG_ROW_ID) : -1;
         if ((i & 2) == 2) {
             this.mChangeObserver = new ChangeObserver();
             this.mDataSetObserver = new MyDataSetObserver();
@@ -184,7 +185,7 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
             if (this.mDataSetObserver != null) {
                 cursor.registerDataSetObserver(this.mDataSetObserver);
             }
-            this.mRowIDColumn = cursor.getColumnIndexOrThrow("_id");
+            this.mRowIDColumn = cursor.getColumnIndexOrThrow(IMConstants.MSG_ROW_ID);
             this.mDataValid = true;
             notifyDataSetChanged();
             return cursor2;

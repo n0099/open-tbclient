@@ -3,14 +3,14 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class r implements h {
-    private Set<Object> xx;
+    private Set<Object> nl;
 
     public r(Set<Object> set) {
-        this.xx = set;
+        this.nl = set;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.xx, cVar);
+        return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.nl, cVar);
     }
 }

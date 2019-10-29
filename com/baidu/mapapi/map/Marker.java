@@ -3,6 +3,7 @@ package com.baidu.mapapi.map;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
+import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
@@ -94,7 +95,7 @@ public final class Marker extends Overlay {
         bundle.putInt("perspective", this.e ? 1 : 0);
         bundle.putFloat("anchor_x", this.c);
         bundle.putFloat("anchor_y", this.d);
-        bundle.putFloat("rotate", this.g);
+        bundle.putFloat(RotateImageAction.ACTION_NAME, this.g);
         bundle.putInt("y_offset", this.i);
         bundle.putInt("isflat", this.j ? 1 : 0);
         bundle.putInt("istop", this.k ? 1 : 0);

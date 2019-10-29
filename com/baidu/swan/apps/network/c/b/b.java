@@ -5,11 +5,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class b {
     @NonNull
-    public abstract String Id();
+    public abstract String MX();
 
-    public abstract void Ie();
+    public abstract void MY();
 
-    public abstract void L(JSONObject jSONObject);
+    public abstract void aj(JSONObject jSONObject);
 
     public abstract void onFail();
 }

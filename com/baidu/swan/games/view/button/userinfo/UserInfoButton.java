@@ -20,13 +20,13 @@ public class UserInfoButton extends ApiButton {
     public void onClick(View view) {
         new c().a(new c.a() { // from class: com.baidu.swan.games.view.button.userinfo.UserInfoButton.1
             @Override // com.baidu.swan.games.view.button.userinfo.c.a
-            public void ay(JSONObject jSONObject) {
-                UserInfoButton.this.ax(jSONObject);
+            public void aW(JSONObject jSONObject) {
+                UserInfoButton.this.aV(jSONObject);
             }
         });
     }
 
-    public void ax(JSONObject jSONObject) {
+    public void aV(JSONObject jSONObject) {
         a aVar = new a();
         aVar.data = jSONObject;
         a(aVar);

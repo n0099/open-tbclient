@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.DelGroupMsgs.DelGroupMsgsResIdl;
 /* loaded from: classes3.dex */
@@ -8,7 +9,7 @@ public class ResponseDelSystemMessage extends SocketResponsedMessage {
     private long groupId;
 
     public ResponseDelSystemMessage() {
-        super(202004);
+        super(CmdConfigSocket.CMD_DELETE_GROUP_MSG);
     }
 
     public long getGroupId() {

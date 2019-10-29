@@ -1,6 +1,8 @@
 package com.xiaomi.network;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.channel.commonutils.string.d;
 import java.net.MalformedURLException;
@@ -56,7 +58,7 @@ public class Fallback {
         this.c = jSONObject.optString("prv");
         this.g = jSONObject.optString("cty");
         this.e = jSONObject.optString("isp");
-        this.f = jSONObject.optString("ip");
+        this.f = jSONObject.optString(TableDefine.UserInfoColumns.COLUMN_IP);
         this.b = jSONObject.optString("host");
         this.h = jSONObject.optString("xf");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
@@ -231,7 +233,7 @@ public class Fallback {
         } else if (TextUtils.isEmpty(this.e)) {
             str = "hardcode_isp";
         } else {
-            this.k = d.a(new String[]{this.e, this.c, this.d, this.g, this.f}, "_");
+            this.k = d.a(new String[]{this.e, this.c, this.d, this.g, this.f}, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             str = this.k;
         }
         return str;
@@ -248,7 +250,7 @@ public class Fallback {
         jSONObject.put("prv", this.c);
         jSONObject.put("cty", this.g);
         jSONObject.put("isp", this.e);
-        jSONObject.put("ip", this.f);
+        jSONObject.put(TableDefine.UserInfoColumns.COLUMN_IP, this.f);
         jSONObject.put("host", this.b);
         jSONObject.put("xf", this.h);
         JSONArray jSONArray = new JSONArray();

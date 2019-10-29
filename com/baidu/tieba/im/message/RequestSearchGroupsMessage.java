@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.SearchGroup.DataReq;
 import protobuf.SearchGroup.SearchGroupReqIdl;
@@ -8,7 +9,7 @@ public class RequestSearchGroupsMessage extends TbSocketMessage {
     private long groupId;
 
     public RequestSearchGroupsMessage() {
-        super(103007);
+        super(CmdConfigSocket.CMD_REQUEST_SEARCH_GROUP);
     }
 
     public long getGroupId() {

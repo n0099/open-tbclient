@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.net.DhcpInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,7 +15,7 @@ class j {
     public static DhcpInfo a(Context context) {
         WifiManager wifiManager;
         DhcpInfo dhcpInfo;
-        if (context == null || (wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)) == null || !wifiManager.isWifiEnabled()) {
+        if (context == null || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null || !wifiManager.isWifiEnabled()) {
             return null;
         }
         try {
@@ -31,7 +30,7 @@ class j {
         WifiInfo wifiInfo;
         String str = null;
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             if (wifiManager != null && wifiManager.isWifiEnabled()) {
                 try {
                     wifiInfo = context.getPackageManager().checkPermission("android.permission.ACCESS_WIFI_STATE", context.getPackageName()) == 0 ? wifiManager.getConnectionInfo() : null;

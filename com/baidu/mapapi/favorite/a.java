@@ -1,5 +1,6 @@
 package com.baidu.mapapi.favorite;
 
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
@@ -29,7 +30,7 @@ class a {
             return null;
         }
         FavoritePoiInfo favoritePoiInfo = new FavoritePoiInfo();
-        JSONObject optJSONObject = jSONObject.optJSONObject(Config.PLATFORM_TYPE);
+        JSONObject optJSONObject = jSONObject.optJSONObject("pt");
         if (optJSONObject != null) {
             favoritePoiInfo.c = new LatLng(optJSONObject.optInt("y") / 1000000.0d, optJSONObject.optInt(Config.EVENT_HEAT_X) / 1000000.0d);
         }
@@ -38,7 +39,7 @@ class a {
         favoritePoiInfo.d = jSONObject.optString("addr");
         favoritePoiInfo.f = jSONObject.optString("uspoiuid");
         favoritePoiInfo.e = jSONObject.optString("ncityid");
-        favoritePoiInfo.a = jSONObject.optString("key");
+        favoritePoiInfo.a = jSONObject.optString(TiebaInitialize.Params.KEY);
         return favoritePoiInfo;
     }
 

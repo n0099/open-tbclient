@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.gamerecommend.message;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.tbadk.core.data.bh;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.FeatureCardGod;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
@@ -19,7 +19,7 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
     private a mData;
 
     public AlaGameRecommendReponseMessage() {
-        super(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
+        super(1003401);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -28,7 +28,7 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && jSONObject.length() > 0) {
             this.mData = new a();
             this.mData.hasMore = jSONObject.optInt("recom_has_more") == 1;
-            this.mData.fJR = jSONObject.optInt("card_max_floor");
+            this.mData.fJk = jSONObject.optInt("card_max_floor");
             JSONArray optJSONArray = jSONObject.optJSONArray("recom_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -36,20 +36,20 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                     if (optJSONObject != null) {
                         bh bhVar = new bh();
                         bhVar.parserJson(optJSONObject);
-                        this.mData.fJS.add(bhVar);
+                        this.mData.fJl.add(bhVar);
                     }
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("score_card");
             if (optJSONObject2 != null) {
-                this.mData.fJT = (ScoreCardInfo) OrmObject.objectWithJson(optJSONObject2, ScoreCardInfo.class);
+                this.mData.fJm = (ScoreCardInfo) OrmObject.objectWithJson(optJSONObject2, ScoreCardInfo.class);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("hot");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        this.mData.fJU.add((FeatureCardHot) OrmObject.objectWithJson(optJSONObject3, FeatureCardHot.class));
+                        this.mData.fJn.add((FeatureCardHot) OrmObject.objectWithJson(optJSONObject3, FeatureCardHot.class));
                     }
                 }
             }
@@ -58,7 +58,7 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                 for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i4);
                     if (optJSONObject4 != null) {
-                        this.mData.fJV.add((FeatureCardTopic) OrmObject.objectWithJson(optJSONObject4, FeatureCardTopic.class));
+                        this.mData.fJo.add((FeatureCardTopic) OrmObject.objectWithJson(optJSONObject4, FeatureCardTopic.class));
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                                 }
                             }
                         }
-                        this.mData.fJW.add(bVar);
+                        this.mData.fJp.add(bVar);
                     }
                 }
             }
@@ -91,7 +91,7 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                 for (int i7 = 0; i7 < optJSONArray6.length(); i7++) {
                     JSONObject optJSONObject7 = optJSONArray6.optJSONObject(i7);
                     if (optJSONObject7 != null) {
-                        this.mData.fJX.add((FeatureCardCompetition) OrmObject.objectWithJson(optJSONObject7, FeatureCardCompetition.class));
+                        this.mData.fJq.add((FeatureCardCompetition) OrmObject.objectWithJson(optJSONObject7, FeatureCardCompetition.class));
                     }
                 }
             }
@@ -100,16 +100,16 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                 for (int i8 = 0; i8 < optJSONArray7.length(); i8++) {
                     JSONObject optJSONObject8 = optJSONArray7.optJSONObject(i8);
                     if (optJSONObject8 != null) {
-                        this.mData.fJY.add((FeatureCardGod) OrmObject.objectWithJson(optJSONObject8, FeatureCardGod.class));
+                        this.mData.fJr.add((FeatureCardGod) OrmObject.objectWithJson(optJSONObject8, FeatureCardGod.class));
                     }
                 }
             }
-            JSONArray optJSONArray8 = jSONObject.optJSONArray("game");
+            JSONArray optJSONArray8 = jSONObject.optJSONArray(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME);
             if (optJSONArray8 != null && optJSONArray8.length() > 0) {
                 for (int i9 = 0; i9 < optJSONArray8.length(); i9++) {
                     JSONObject optJSONObject9 = optJSONArray8.optJSONObject(i9);
                     if (optJSONObject9 != null) {
-                        this.mData.fJZ.add((FeatureCardGame) OrmObject.objectWithJson(optJSONObject9, FeatureCardGame.class));
+                        this.mData.fJs.add((FeatureCardGame) OrmObject.objectWithJson(optJSONObject9, FeatureCardGame.class));
                     }
                 }
             }

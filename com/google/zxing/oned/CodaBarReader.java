@@ -109,9 +109,9 @@ public final class CodaBarReader extends OneDReader {
         float[] fArr2 = new float[4];
         for (int i7 = 0; i7 < 2; i7++) {
             fArr2[i7] = 0.0f;
-            fArr2[i7 + 2] = ((iArr[i7] / iArr2[i7]) + (iArr[i7 + 2] / iArr2[i7 + 2])) / MAX_ACCEPTABLE;
+            fArr2[i7 + 2] = ((iArr[i7] / iArr2[i7]) + (iArr[i7 + 2] / iArr2[i7 + 2])) / 2.0f;
             fArr[i7] = fArr2[i7 + 2];
-            fArr[i7 + 2] = ((iArr[i7 + 2] * MAX_ACCEPTABLE) + PADDING) / iArr2[i7 + 2];
+            fArr[i7 + 2] = ((iArr[i7 + 2] * 2.0f) + PADDING) / iArr2[i7 + 2];
         }
         int i8 = 0;
         loop3: while (true) {

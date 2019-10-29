@@ -4,25 +4,25 @@ import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes4.dex */
 public interface a {
-    void N(View.OnClickListener onClickListener);
+    void O(View.OnClickListener onClickListener);
 
-    void ok(boolean z);
+    void cD(String str);
 
-    void ol(boolean z);
+    void nT(boolean z);
 
-    void om(boolean z);
+    void nU(boolean z);
+
+    void nV(boolean z);
 
     void setData(com.baidu.tieba.pb.data.d dVar);
 
     void setFromCDN(boolean z);
 
-    void setHostId(String str);
-
     void setOnImageClickListener(TbRichTextView.h hVar);
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
 
-    void v(View.OnClickListener onClickListener);
+    void w(View.OnClickListener onClickListener);
 
-    void xL(int i);
+    void wq(int i);
 }

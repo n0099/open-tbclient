@@ -1,5 +1,6 @@
 package com.baidu.tbadk.newFriends;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.PassFriend.PassFriendReqIdl;
 import tbclient.PassFriend.ReqData;
@@ -22,7 +23,7 @@ public class RequestPassFriendMessage extends TbSocketMessage {
     }
 
     public RequestPassFriendMessage() {
-        super(304101);
+        super(CmdConfigSocket.CMD_PASS_NEW_FRIEND);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

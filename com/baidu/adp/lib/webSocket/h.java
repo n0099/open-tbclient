@@ -11,57 +11,57 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class h {
-    private static h Fg = null;
-    private String[] Fj;
-    private g.a Fn;
-    private String Fh = null;
-    private List<BasicNameValuePair> Fi = null;
-    private String Fk = null;
-    private i Fl = null;
-    private ArrayList<g.a> Fm = new ArrayList<>();
+    private static h sq = null;
+    private String[] su;
+    private g.a sy;
+    private String sr = null;
+    private List<BasicNameValuePair> ss = null;
+    private String sv = null;
+    private i sw = null;
+    private ArrayList<g.a> sx = new ArrayList<>();
 
-    public static h kS() {
-        if (Fg == null) {
+    public static h hr() {
+        if (sq == null) {
             synchronized (h.class) {
-                if (Fg == null) {
-                    Fg = new h();
+                if (sq == null) {
+                    sq = new h();
                 }
             }
         }
-        return Fg;
+        return sq;
     }
 
     public void a(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        this.Fh = str;
-        this.Fk = str2;
-        this.Fj = strArr;
-        this.Fi = list;
+        this.sr = str;
+        this.sv = str2;
+        this.su = strArr;
+        this.ss = list;
         if (isDebug()) {
         }
     }
 
     private h() {
-        this.Fn = null;
-        this.Fn = new g.a() { // from class: com.baidu.adp.lib.webSocket.h.1
+        this.sy = null;
+        this.sy = new g.a() { // from class: com.baidu.adp.lib.webSocket.h.1
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void S(String str) {
-                Iterator it = h.this.Fm.iterator();
+            public void onTextMessage(String str) {
+                Iterator it = h.this.sx.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).S(str);
+                    ((g.a) it.next()).onTextMessage(str);
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void q(byte[] bArr) {
-                Iterator it = h.this.Fm.iterator();
+            public void i(byte[] bArr) {
+                Iterator it = h.this.sx.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).q(bArr);
+                    ((g.a) it.next()).i(bArr);
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void b(k.a aVar) {
-                Iterator it = h.this.Fm.iterator();
+                Iterator it = h.this.sx.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).b(aVar);
                 }
@@ -69,127 +69,127 @@ public class h {
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void onOpen(Map<String, String> map) {
-                Iterator it = h.this.Fm.iterator();
+                Iterator it = h.this.sx.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).onOpen(map);
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void f(int i, String str) {
-                h.this.Fl = null;
-                Iterator it = h.this.Fm.iterator();
+            public void e(int i, String str) {
+                h.this.sw = null;
+                Iterator it = h.this.sx.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).f(i, str);
+                    ((g.a) it.next()).e(i, str);
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void a(c cVar) {
-                Iterator it = h.this.Fm.iterator();
+                Iterator it = h.this.sx.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).a(cVar);
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void kR() {
-                Iterator it = h.this.Fm.iterator();
+            public void hq() {
+                Iterator it = h.this.sx.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).kR();
+                    ((g.a) it.next()).hq();
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void b(c cVar) {
                 if (cVar != null) {
-                    cVar.fx();
+                    cVar.onStartSend();
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void a(int i, c cVar) {
                 if (cVar != null) {
-                    cVar.G(i);
+                    cVar.onSendError(i);
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void c(c cVar) {
                 if (cVar != null) {
-                    cVar.fy();
+                    cVar.onFinishSend();
                 }
             }
         };
     }
 
-    public boolean kT() {
+    public boolean hs() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.kr();
+            com.baidu.adp.lib.util.l.checkMainThread();
         }
-        if (this.Fl != null) {
-            if (this.Fl.isConnecting() || this.Fl.isOpen()) {
+        if (this.sw != null) {
+            if (this.sw.isConnecting() || this.sw.isOpen()) {
                 if (isDebug()) {
                 }
                 return true;
             }
-            this.Fl.close(1, null);
-            this.Fl = null;
+            this.sw.close(1, null);
+            this.sw = null;
         }
-        this.Fl = new i();
+        this.sw = new i();
         try {
             l lVar = new l();
-            lVar.br(this.Fk);
-            this.Fl.a(this.Fh, this.Fj, this.Fn, lVar, this.Fi);
+            lVar.ay(this.sv);
+            this.sw.a(this.sr, this.su, this.sy, lVar, this.ss);
             return true;
         } catch (WebSocketException e) {
-            this.Fl = null;
+            this.sw = null;
             return false;
         }
     }
 
     public void close(int i, String str) {
-        if (this.Fl != null) {
-            i iVar = this.Fl;
-            this.Fl = null;
+        if (this.sw != null) {
+            i iVar = this.sw;
+            this.sw = null;
             iVar.close(i, str);
-            if (this.Fl != null) {
+            if (this.sw != null) {
                 BdLog.e("close is opened and thread is leaded!!!");
-                this.Fl = null;
+                this.sw = null;
             }
         }
     }
 
-    public boolean kU() {
+    public boolean ht() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.kr();
+            com.baidu.adp.lib.util.l.checkMainThread();
         }
-        return (this.Fl == null || !this.Fl.isOpen() || this.Fl.lc()) ? false : true;
+        return (this.sw == null || !this.sw.isOpen() || this.sw.hB()) ? false : true;
     }
 
-    public boolean kV() {
+    public boolean hu() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.kr();
+            com.baidu.adp.lib.util.l.checkMainThread();
         }
-        return this.Fl != null && this.Fl.isOpen();
+        return this.sw != null && this.sw.isOpen();
     }
 
     public boolean isConnecting() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.kr();
+            com.baidu.adp.lib.util.l.checkMainThread();
         }
-        return this.Fl != null && this.Fl.isConnecting();
+        return this.sw != null && this.sw.isConnecting();
     }
 
     public synchronized boolean sendMessage(c cVar) {
         boolean z = false;
         synchronized (this) {
             if (cVar != null) {
-                com.baidu.adp.lib.util.l.kr();
-                if (this.Fl != null) {
-                    z = this.Fl.sendMessage(cVar);
+                com.baidu.adp.lib.util.l.checkMainThread();
+                if (this.sw != null) {
+                    z = this.sw.sendMessage(cVar);
                 } else if (cVar != null) {
-                    cVar.G(1);
+                    cVar.onSendError(1);
                 }
             }
         }
@@ -199,8 +199,8 @@ public class h {
     public boolean a(g.a aVar) {
         if (aVar != null) {
             synchronized (h.class) {
-                if (!this.Fm.contains(aVar)) {
-                    return this.Fm.add(aVar);
+                if (!this.sx.contains(aVar)) {
+                    return this.sx.add(aVar);
                 }
             }
         }
@@ -211,68 +211,68 @@ public class h {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void kW() {
-        if (this.Fl != null) {
-            this.Fl.kW();
+    public void hv() {
+        if (this.sw != null) {
+            this.sw.hv();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.Fl != null) {
-            return this.Fl.getUpFlowSize();
+        if (this.sw != null) {
+            return this.sw.getUpFlowSize();
         }
         return -1L;
     }
 
-    public void kX() {
-        if (this.Fl != null) {
-            this.Fl.kX();
+    public void hw() {
+        if (this.sw != null) {
+            this.sw.hw();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.Fl != null) {
-            return this.Fl.getDownFlowSize();
+        if (this.sw != null) {
+            return this.sw.getDownFlowSize();
         }
         return -1L;
     }
 
-    public long kP() {
-        if (this.Fl != null) {
-            return this.Fl.ld();
+    public long ho() {
+        if (this.sw != null) {
+            return this.sw.hC();
         }
         return -1L;
     }
 
-    public String kO() {
-        if (this.Fl != null) {
-            return this.Fl.le();
+    public String hn() {
+        if (this.sw != null) {
+            return this.sw.hD();
         }
         return null;
     }
 
-    public long kY() {
-        if (this.Fl != null) {
-            return this.Fl.lf();
+    public long hx() {
+        if (this.sw != null) {
+            return this.sw.hE();
         }
         return -1L;
     }
 
-    public String ku() {
-        if (this.Fl != null) {
-            return this.Fl.ku();
+    public String getLocalDns() {
+        if (this.sw != null) {
+            return this.sw.getLocalDns();
         }
         return null;
     }
 
-    public String kv() {
-        if (this.Fl != null) {
-            return this.Fl.kv();
+    public String getLocalDnsBak() {
+        if (this.sw != null) {
+            return this.sw.getLocalDnsBak();
         }
         return null;
     }
 
     public String getUrl() {
-        return this.Fh;
+        return this.sr;
     }
 }

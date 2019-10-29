@@ -5,6 +5,9 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -540,7 +543,7 @@ public class TbConfig {
     public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
-    public static String SERVER_ADDRESS_WEB_VIEW = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
+    public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
     public static int ALPHA_80 = 80;
     public static long DEFALT_USE_TIME_INTERVAL = 1;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
@@ -548,7 +551,7 @@ public class TbConfig {
     public static final String FRS_LIVE_TIP_ADDRESS = SERVER_ADDRESS + "ala/live/getLiveRemindInFrs";
     private static String VERSION = "";
     private static String SUB_VERSION = "";
-    private static String LEGO_LIB_VERSION = "1.0.0";
+    private static String LEGO_LIB_VERSION = BuildConfig.VERSION_NAME;
     private static String CRIUS_LIB_VERSION = "1.0";
     private static String SUBAPP_TYPE = "";
     private static String FROM = null;
@@ -575,22 +578,22 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds54);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds40);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds11);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds9);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds40);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds9);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
-    public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds3);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds54);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds40);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds11);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds9);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds40);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds9);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds3);
     private static int MAX_PHOTO_MEMORY_CACHE = 60;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -638,7 +641,7 @@ public class TbConfig {
 
     public static String getFullVersion() {
         String version = getVersion();
-        return version + "." + getSubVersion();
+        return version + DefaultConfig.TOKEN_SEPARATOR + getSubVersion();
     }
 
     public static String getLegoLibVersion() {
@@ -728,7 +731,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.atK().kG(i);
+            c.avu().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -903,7 +906,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(l.af(context) * l.ah(context));
+            int sqrt = (int) Math.sqrt(l.getEquipmentWidth(context) * l.getEquipmentHeight(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }
@@ -938,7 +941,7 @@ public class TbConfig {
     }
 
     public static final String getBroadcastActionNewVersion() {
-        return BROADCAST_NEWVERSION;
+        return "com.baidu.tieba.broadcast.newversion";
     }
 
     public static String getBigPhotoAdress() {
@@ -959,33 +962,33 @@ public class TbConfig {
         }
 
         private static void collectSocketCmd() {
-            sInterruptCMDs.add(309541);
-            sInterruptCMDs.add(303024);
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_CONCERN_UNREAD_TIP));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_GET_USER_INFO));
             sInterruptCMDs.add(309609);
-            sInterruptCMDs.add(309476);
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_CONCERN_CHECK_RED_NOTIFY));
             sInterruptCMDs.add(309618);
-            sInterruptCMDs.add(303005);
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM));
             sInterruptCMDs.add(309615);
-            sInterruptCMDs.add(309485);
-            sInterruptCMDs.add(309117);
-            sInterruptCMDs.add(202101);
-            sInterruptCMDs.add(303017);
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.WEBVIEW_CACHE_INFO));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_GET_STORE_REMIND_TIME));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_PUSH_COUNT));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_GET_LOCATION));
         }
 
         private static void collectHttpCmd() {
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.PB_PLAY_STATISTICS_CMD));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.WEBVIEW_CACHE_INFO));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS));
+            sInterruptCMDs.add(1001804);
+            sInterruptCMDs.add(1003365);
+            sInterruptCMDs.add(1003359);
             sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_UEG_CANCEL));
             sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_BIGDAY_INFO));
             sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_RN_SYNC));
             sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_VR_LOGO));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CDN_IPLIST_CMD));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_STORE_REMIND_TIME));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_UNREAD_TIP));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_USER_INFO));
+            sInterruptCMDs.add(1003182);
+            sInterruptCMDs.add(1002600);
+            sInterruptCMDs.add(1003067);
+            sInterruptCMDs.add(1003344);
+            sInterruptCMDs.add(1003387);
+            sInterruptCMDs.add(1003001);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.chosen.unlike;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.Unlike.DataReq;
 import tbclient.Unlike.UnlikeReqIdl;
@@ -11,7 +11,7 @@ public class UnlikeRequest extends NetMessage {
     private int type;
 
     public UnlikeRequest() {
-        super(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
+        super(1003017, CmdConfigSocket.CMD_HOT_THREAD_UNLIKE);
     }
 
     public void setThreadId(long j) {
@@ -27,7 +27,7 @@ public class UnlikeRequest extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.thread_id = Long.valueOf(this.threadId);
         builder.type = Integer.valueOf(this.type);
-        r.bindCommonParamsToProtobufData(builder, true);
+        r.a(builder, true);
         UnlikeReqIdl.Builder builder2 = new UnlikeReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

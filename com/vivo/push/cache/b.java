@@ -1,8 +1,8 @@
 package com.vivo.push.cache;
 
 import android.content.Context;
-import com.vivo.push.util.m;
-import com.vivo.push.util.w;
+import com.vivo.push.util.p;
+import com.vivo.push.util.z;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 public final class b {
@@ -30,18 +30,18 @@ public final class b {
             return this.c;
         }
         try {
-            if (w.a(context)) {
+            if (z.a(context)) {
                 str = "com.vivo.push.cache.ServerConfigManagerImpl";
             } else {
                 str = "com.vivo.push.cache.ClientConfigManagerImpl";
             }
             Method method = Class.forName(str).getMethod("getInstance", Context.class);
-            m.d("ConfigManagerFactory", "createConfig success is " + str);
+            p.d("ConfigManagerFactory", "createConfig success is " + str);
             this.c = (e) method.invoke(null, context);
             return this.c;
         } catch (Exception e) {
             e.printStackTrace();
-            m.b("ConfigManagerFactory", "createConfig error", e);
+            p.b("ConfigManagerFactory", "createConfig error", e);
             return null;
         }
     }

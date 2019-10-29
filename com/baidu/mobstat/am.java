@@ -12,7 +12,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.webkit.WebView;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.aj;
 import com.baidu.mobstat.ak;
 import com.coloros.mcssdk.mode.CommandMessage;
@@ -460,7 +460,7 @@ public class am {
         arrayList.add(new Pair("deviceName", bw.m(context)));
         arrayList.add(new Pair("platform", "Android"));
         arrayList.add(new Pair("model", android.os.Build.MODEL));
-        arrayList.add(new Pair(DpStatConstants.KEY_CUID, CooperService.instance().getCUID(context, false)));
+        arrayList.add(new Pair("cuid", CooperService.instance().getCUID(context, false)));
         arrayList.add(new Pair("auto", "1"));
         if (!TextUtils.isEmpty(this.x)) {
             arrayList.add(new Pair("token", this.x));
@@ -663,7 +663,7 @@ public class am {
                 if (str == null) {
                     str = "";
                 }
-                this.F.put(i + "_" + System.currentTimeMillis() + "_" + ((bw.s(this.a) ? 1 : 0) + "|" + str));
+                this.F.put(i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ((bw.s(this.a) ? 1 : 0) + "|" + str));
                 bo.a(this.a, "trace_circle.data", this.F.toString(), false);
             }
         }

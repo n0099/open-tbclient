@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class i {
     public static h Z(Context context) {
-        Object a;
+        Object forceGetProperty;
         if (context == null) {
             return null;
         }
@@ -20,36 +20,36 @@ public class i {
                 return (h) orignalPage;
             }
         }
-        Field e = com.baidu.adp.lib.util.b.e(context.getClass(), h.class);
-        if (e == null && (e = com.baidu.adp.lib.util.b.e(context.getClass(), MAActivity.class)) == null) {
-            e = com.baidu.adp.lib.util.b.e(context.getClass(), MAFragmentActivity.class);
+        Field declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), h.class);
+        if (declaredField == null && (declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), MAActivity.class)) == null) {
+            declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), MAFragmentActivity.class);
         }
-        if (e == null || (a = com.baidu.adp.lib.util.b.a(context, e)) == null || !(a instanceof h)) {
+        if (declaredField == null || (forceGetProperty = com.baidu.adp.lib.util.b.forceGetProperty(context, declaredField)) == null || !(forceGetProperty instanceof h)) {
             return null;
         }
-        return (h) a;
+        return (h) forceGetProperty;
     }
 
     public static f<?> aa(Context context) {
-        Object a;
+        Object forceGetProperty;
         if (context == null) {
             return null;
         }
         if (context instanceof f) {
             return (f) context;
         }
-        Field e = com.baidu.adp.lib.util.b.e(context.getClass(), h.class);
-        if (e == null && (e = com.baidu.adp.lib.util.b.e(context.getClass(), MAActivity.class)) == null) {
-            e = com.baidu.adp.lib.util.b.e(context.getClass(), MAFragmentActivity.class);
+        Field declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), h.class);
+        if (declaredField == null && (declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), MAActivity.class)) == null) {
+            declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), MAFragmentActivity.class);
         }
-        if (e == null || (a = com.baidu.adp.lib.util.b.a(context, e)) == null || !(a instanceof h) || !(a instanceof f)) {
+        if (declaredField == null || (forceGetProperty = com.baidu.adp.lib.util.b.forceGetProperty(context, declaredField)) == null || !(forceGetProperty instanceof h) || !(forceGetProperty instanceof f)) {
             return null;
         }
-        return (f) a;
+        return (f) forceGetProperty;
     }
 
     public static e<?> ab(Context context) {
-        Object a;
+        Object forceGetProperty;
         if (context == null) {
             return null;
         }
@@ -59,13 +59,13 @@ public class i {
         if (context instanceof f) {
             return ((f) context).getPageContext();
         }
-        Field e = com.baidu.adp.lib.util.b.e(context.getClass(), h.class);
-        if (e == null && (e = com.baidu.adp.lib.util.b.e(context.getClass(), MAActivity.class)) == null) {
-            e = com.baidu.adp.lib.util.b.e(context.getClass(), MAFragmentActivity.class);
+        Field declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), h.class);
+        if (declaredField == null && (declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), MAActivity.class)) == null) {
+            declaredField = com.baidu.adp.lib.util.b.getDeclaredField(context.getClass(), MAFragmentActivity.class);
         }
-        if (e == null || (a = com.baidu.adp.lib.util.b.a(context, e)) == null || !(a instanceof h) || !(a instanceof f)) {
+        if (declaredField == null || (forceGetProperty = com.baidu.adp.lib.util.b.forceGetProperty(context, declaredField)) == null || !(forceGetProperty instanceof h) || !(forceGetProperty instanceof f)) {
             return null;
         }
-        return ((f) a).getPageContext();
+        return ((f) forceGetProperty).getPageContext();
     }
 }

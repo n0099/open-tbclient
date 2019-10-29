@@ -3,6 +3,7 @@ package com.baidu.tieba.recapp.view;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.c;
@@ -17,14 +18,14 @@ public class AdOperateBarCreator {
 
     public AdOperateBarHolder obtainHolder(AdPost adPost, RelativeLayout relativeLayout, AdOperateBarHolder adOperateBarHolder, c cVar) {
         if (adPost != null && adPost.adData != null) {
-            if (adOperateBarHolder != null && bl(adPost.adData.style, adOperateBarHolder.iPF)) {
+            if (adOperateBarHolder != null && bg(adPost.adData.style, adOperateBarHolder.iOB)) {
                 adOperateBarHolder.setDownloadAppCallback(cVar);
                 return adOperateBarHolder;
             } else if (relativeLayout == null) {
                 return null;
             } else {
                 relativeLayout.removeAllViews();
-                if ("jump".equals(adPost.adData.style)) {
+                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(adPost.adData.style)) {
                     return new AdOperateViewJumpHolder(this.mTbPageContext, 2, LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.ad_operate_view_layout, (ViewGroup) relativeLayout, true));
                 } else if ("apk_download".equals(adPost.adData.style)) {
                     AdOperateViewDownloadHolder adOperateViewDownloadHolder = new AdOperateViewDownloadHolder(this.mTbPageContext, 1, LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.ad_operate_view_download_layout, (ViewGroup) relativeLayout, true));
@@ -38,7 +39,7 @@ public class AdOperateBarCreator {
         return adOperateBarHolder;
     }
 
-    private boolean bl(String str, int i) {
-        return "apk_download".equals(str) ? i == 1 : "jump".equals(str) && i == 2;
+    private boolean bg(String str, int i) {
+        return "apk_download".equals(str) ? i == 1 : TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str) && i == 2;
     }
 }

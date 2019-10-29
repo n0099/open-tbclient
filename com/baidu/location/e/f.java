@@ -15,10 +15,12 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.imsdk.mcast.McastConfig;
+import com.baidu.live.adp.lib.util.BdFileHelper;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.location.a.j;
 import com.baidu.location.a.n;
 import com.baidu.location.a.q;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -64,7 +66,7 @@ public class f {
                         }
                     }
                 });
-            } else if (action.equals("android.net.wifi.STATE_CHANGE") && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.b >= 5000) {
+            } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.b >= 5000) {
                 this.b = System.currentTimeMillis();
                 if (this.c) {
                     return;
@@ -91,11 +93,11 @@ public class f {
     private String a(long j) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(String.valueOf((int) (j & 255)));
-        stringBuffer.append('.');
+        stringBuffer.append(BdFileHelper.EXTENSION_SEPARATOR);
         stringBuffer.append(String.valueOf((int) ((j >> 8) & 255)));
-        stringBuffer.append('.');
+        stringBuffer.append(BdFileHelper.EXTENSION_SEPARATOR);
         stringBuffer.append(String.valueOf((int) ((j >> 16) & 255)));
-        stringBuffer.append('.');
+        stringBuffer.append(BdFileHelper.EXTENSION_SEPARATOR);
         stringBuffer.append(String.valueOf((int) ((j >> 24) & 255)));
         return stringBuffer.toString();
     }
@@ -193,7 +195,7 @@ public class f {
 
     public synchronized void c() {
         if (!this.h && com.baidu.location.f.isServing) {
-            this.c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI);
+            this.c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
             this.d = new a();
             try {
                 com.baidu.location.f.getServiceContext().registerReceiver(this.d, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
@@ -360,7 +362,7 @@ public class f {
         stringBuffer.append("" + rssi + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         String ssid = l.getSSID();
         if (ssid != null && (ssid.contains("&") || ssid.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR))) {
-            ssid = ssid.replace("&", "_");
+            ssid = ssid.replace("&", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         }
         stringBuffer.append(ssid);
         stringBuffer.append("&wf_n=1");

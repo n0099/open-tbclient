@@ -1,6 +1,7 @@
 package com.baidu.swan.apps.swancore.c;
 
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.swan.apps.an.x;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.storage.b.f;
@@ -11,35 +12,35 @@ import org.json.JSONObject;
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static File De() {
-        return new File(x.PD().get(0).wX, "baidu/aiapps_debug_swan_core/");
+    public static File HY() {
+        return new File(x.Ut().get(0).mPath, "baidu/aiapps_debug_swan_core/");
     }
 
-    public static void Df() {
-        File De = De();
-        if (De.exists()) {
-            com.baidu.swan.c.a.deleteFile(De);
+    public static void HZ() {
+        File HY = HY();
+        if (HY.exists()) {
+            com.baidu.swan.c.a.deleteFile(HY);
         }
     }
 
-    public static File Dg() {
-        File De = De();
-        if (!De.exists()) {
-            De.mkdirs();
+    public static File Ia() {
+        File HY = HY();
+        if (!HY.exists()) {
+            HY.mkdirs();
         }
-        return new File(De, "debugSwanCore.zip");
+        return new File(HY, "debugSwanCore.zip");
     }
 
-    public static long Oi() {
-        return f.Ob().getLong("aiapps_cur_debug_ver_key", 0L);
+    public static long SY() {
+        return f.SR().getLong("aiapps_cur_debug_ver_key", 0L);
     }
 
-    public static void Oj() {
+    public static void SZ() {
         JSONObject jSONObject;
-        File file = new File(De().getPath(), "pkginfo.json");
+        File file = new File(HY().getPath(), "pkginfo.json");
         if (file.exists()) {
             try {
-                jSONObject = new JSONObject(com.baidu.swan.c.a.v(file));
+                jSONObject = new JSONObject(com.baidu.swan.c.a.l(file));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -47,9 +48,9 @@ public final class a {
                 jSONObject = null;
             }
             if (jSONObject != null) {
-                String optString = jSONObject.optString("version_name");
+                String optString = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
                 if (!TextUtils.isEmpty(optString)) {
-                    f.Ob().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.hQ(optString));
+                    f.SR().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.iu(optString));
                 }
             }
         }

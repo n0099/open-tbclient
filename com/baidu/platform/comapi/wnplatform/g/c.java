@@ -14,7 +14,6 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class c extends ItemizedOverlay {
@@ -53,7 +52,7 @@ public class c extends ItemizedOverlay {
         double d = bundle.getDouble(Config.EVENT_HEAT_X);
         double d2 = bundle.getDouble("y");
         int i = bundle.getInt("index");
-        com.baidu.platform.comapi.wnplatform.d.a.a(AddressManageResult.KEY_TAG, "addItem:lng:" + d + "lat:" + d2 + "index:" + i);
+        com.baidu.platform.comapi.wnplatform.d.a.a("tag", "addItem:lng:" + d + "lat:" + d2 + "index:" + i);
         new GeoPoint(d2, d);
         LatLng latLng = new LatLng(d2, d);
         MarkerOptions markerOptions = new MarkerOptions();

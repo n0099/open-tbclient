@@ -1,10 +1,10 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class av extends k {
-    private static av cDd = new av();
+    private static av cOm = new av();
 
-    public static boolean awe() {
-        return cDd.iN();
+    public static boolean axj() {
+        return cOm.isOn();
     }
 
     @Override // com.baidu.tbadk.t.k, com.baidu.adp.lib.b.a
@@ -14,7 +14,7 @@ public class av extends k {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.t.k, com.baidu.adp.lib.b.a
-    public int hJ() {
-        return super.hJ();
+    public int fj() {
+        return super.fj();
     }
 }

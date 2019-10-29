@@ -6,7 +6,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +115,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.g.b.e(this.userId, 0L);
+        return com.baidu.adp.lib.g.b.toLong(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -450,7 +449,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                     this.userName = null;
                 }
                 this.name_show = jSONObject.optString("name_show");
-                this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
+                this.portrait = jSONObject.optString("portrait");
                 this.portraith = jSONObject.optString("portraith");
                 this.fansNum = jSONObject.optInt(PersonInfoActivityConfig.FANS_NUM);
                 this.likeNum = jSONObject.optInt("my_like_num");

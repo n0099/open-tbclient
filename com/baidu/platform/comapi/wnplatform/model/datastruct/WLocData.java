@@ -1,7 +1,5 @@
 package com.baidu.platform.comapi.wnplatform.model.datastruct;
 
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.sapi2.result.AddressManageResult;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONObject;
@@ -31,7 +29,7 @@ public class WLocData implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public WLocData m12clone() {
+    public WLocData m15clone() {
         WLocData wLocData = new WLocData();
         synchronized (this) {
             wLocData.accuracy = this.accuracy;
@@ -64,8 +62,8 @@ public class WLocData implements Cloneable {
             jSONObject.put("bui", this.buildingId);
             jSONObject.put("floor", this.floorId);
             jSONObject.put("locType", getLocType());
-            jSONObject.put(DpStatConstants.KEY_TIMESTAMP, this.timeStamp);
-            jSONObject.put(AddressManageResult.KEY_TAG, this.tag);
+            jSONObject.put("timestamp", this.timeStamp);
+            jSONObject.put("tag", this.tag);
         } catch (Exception e) {
         }
         return jSONObject.toString();

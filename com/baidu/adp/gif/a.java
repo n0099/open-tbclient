@@ -1,56 +1,56 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public interface a {
-    com.baidu.adp.widget.ImageView.a W(String str);
+    com.baidu.adp.widget.ImageView.a R(String str);
 
-    com.baidu.adp.widget.ImageView.a g(byte[] bArr, int i, int i2);
+    com.baidu.adp.widget.ImageView.a e(byte[] bArr, int i, int i2);
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0013a implements a {
-        private static a wv;
-        private int ww;
-        private final d wx = new d();
+        private static a mD;
+        private int mE;
+        private final d mF = new d();
 
         public C0013a() {
-            this.ww = 0;
-            if (NSGif.wz) {
-                this.ww = 0;
+            this.mE = 0;
+            if (NSGif.mH) {
+                this.mE = 0;
             } else {
-                this.ww = 1;
+                this.mE = 1;
             }
         }
 
-        public static synchronized a gy() {
+        public static synchronized a eM() {
             a aVar;
             synchronized (C0013a.class) {
-                if (wv == null) {
-                    wv = new C0013a();
+                if (mD == null) {
+                    mD = new C0013a();
                 }
-                aVar = wv;
+                aVar = mD;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.ImageView.a W(String str) {
-            if (this.ww != 0) {
+        public com.baidu.adp.widget.ImageView.a R(String str) {
+            if (this.mE != 0) {
                 return null;
             }
             try {
-                return this.wx.W(str);
+                return this.mF.R(str);
             } catch (Exception e) {
                 return null;
             }
         }
 
         @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.ImageView.a g(byte[] bArr, int i, int i2) {
-            if (this.ww != 0) {
+        public com.baidu.adp.widget.ImageView.a e(byte[] bArr, int i, int i2) {
+            if (this.mE != 0) {
                 return null;
             }
             try {
-                return this.wx.g(bArr, i, i2);
+                return this.mF.e(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.GameForumGuideTab.DataReq;
 import tbclient.GameForumGuideTab.GameForumGuideTabReqIdl;
@@ -13,7 +13,7 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
     private int mTabId;
 
     public FrsGameStrategyRequestMessage(long j, int i, int i2, int i3) {
-        super(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, 309478);
+        super(1003362, CmdConfigSocket.CMD_FRS_GAME_STRATEGY);
         this.mPn = 0;
         this.mFid = j;
         this.mPn = i;
@@ -30,7 +30,7 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
         builder.sub_label_id = Integer.valueOf(this.mLabelId);
         builder.pn = Integer.valueOf(this.mPn);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         GameForumGuideTabReqIdl.Builder builder2 = new GameForumGuideTabReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -3,14 +3,15 @@ package com.baidu.tieba.enterForum.multiConcern;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class MultiConcernModel extends BdBaseModel {
-    com.baidu.adp.framework.listener.a faA;
-    private a faz;
+    private a fdk;
+    com.baidu.adp.framework.listener.a fdl;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -19,24 +20,24 @@ public class MultiConcernModel extends BdBaseModel {
 
     public MultiConcernModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.faA = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
+        this.fdl = new com.baidu.adp.framework.listener.a(1003337, CmdConfigSocket.CMD_FORUM_MULTI_CONCERN) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
-                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.faz != null) {
-                        MultiConcernModel.this.faz.ah(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.fdk != null) {
+                        MultiConcernModel.this.fdk.ah(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
         setUniqueId(BdUniqueId.gen());
-        com.baidu.tieba.tbadkCore.a.a.a(309470, MultiConcernSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(309470, CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, "c/f/recommtag/multiConcern", MultiConcernHttpResponseMessage.class, false, false, false, false);
-        registerListener(this.faA);
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FORUM_MULTI_CONCERN, MultiConcernSocketResponseMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FORUM_MULTI_CONCERN, 1003337, Config.FORUM_MULTI_CONCERN, MultiConcernHttpResponseMessage.class, false, false, false, false);
+        registerListener(this.fdl);
     }
 
-    public void O(ArrayList<Long> arrayList) {
-        if (!v.aa(arrayList)) {
+    public void T(ArrayList<Long> arrayList) {
+        if (!v.isEmpty(arrayList)) {
             cancelMessage();
             MultiConcernRequestMessage multiConcernRequestMessage = new MultiConcernRequestMessage();
             multiConcernRequestMessage.setIdList(arrayList);
@@ -45,7 +46,7 @@ public class MultiConcernModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.faz = aVar;
+        this.fdk = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

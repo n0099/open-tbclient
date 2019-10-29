@@ -1,0 +1,1273 @@
+package com.baidu.android.imsdk.chatmessage;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.ChatObject;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.account.AccountManagerImpl;
+import com.baidu.android.imsdk.account.IKickOutListener;
+import com.baidu.android.imsdk.account.TodoAfterLogin;
+import com.baidu.android.imsdk.account.TodoBeforeLogout;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.messages.MessageSyncMsg;
+import com.baidu.android.imsdk.chatmessage.messages.NotifyCustomerMsg;
+import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.chatmessage.request.IMBindPushMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMDelMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMFetchConfigMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMFetchMsgRequest;
+import com.baidu.android.imsdk.chatmessage.request.IMGenBosObjectUrlRequest;
+import com.baidu.android.imsdk.chatmessage.request.IMMarkMsgReadedMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMSendMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMSyncDialog;
+import com.baidu.android.imsdk.chatmessage.request.IMSyncPushMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMUnBindPushMsg;
+import com.baidu.android.imsdk.chatmessage.sync.DialogRecordDBManager;
+import com.baidu.android.imsdk.chatmessage.sync.Generator;
+import com.baidu.android.imsdk.chatuser.UpdateChatSessionNickNameTask;
+import com.baidu.android.imsdk.db.DBManager;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
+import com.baidu.android.imsdk.group.GroupInfo;
+import com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl;
+import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
+import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.Dispatcher;
+import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.internal.ListenerManager;
+import com.baidu.android.imsdk.internal.MessageFactory;
+import com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener;
+import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.android.imsdk.utils.HttpHelper;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+/* loaded from: classes6.dex */
+public class ChatMsgManagerImpl {
+    private static final String TAG = ChatMsgManagerImpl.class.getSimpleName();
+    private static final int USER_NICKNAME_UPDATE_TIME = 86400000;
+    public static Context mContext;
+    private static volatile ChatMsgManagerImpl mInstance;
+    private IKickOutListener mKickOutListener;
+    private ILiveMsgReceiveListener mReceiveStudioListener;
+    private ArrayList<IMessageReceiveListener> mReceiveListeners = new ArrayList<>();
+    private HashMap<String, ILiveMsgReceiveListener> mReceiveStudioListeners = new HashMap<>();
+    private List<IMessageSyncListener> mMessageSyncListener = new LinkedList();
+    Dispatcher.MsgListener listener = null;
+    Dispatcher.MsgListener onReceiveListener = new Dispatcher.MsgListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.3
+        @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+        public void dealMessage(int i, ChatMsg chatMsg) {
+        }
+
+        @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+        public void dealMessage(int i, ArrayList<ChatMsg> arrayList) {
+            LogUtils.d(ChatMsgManagerImpl.TAG, "dealMessage triggerReason : " + i);
+            ChatMsgManagerImpl.this.broadcastMessage(arrayList, true);
+        }
+    };
+    Dispatcher.MsgListener messageSyncListener = new Dispatcher.MsgListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.4
+        @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+        public void dealMessage(int i, ArrayList<ChatMsg> arrayList) {
+        }
+
+        @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+        public void dealMessage(int i, ChatMsg chatMsg) {
+            int i2;
+            if (chatMsg instanceof MessageSyncMsg) {
+                MessageSyncMsg messageSyncMsg = (MessageSyncMsg) chatMsg;
+                long changedMsgid = messageSyncMsg.getChangedMsgid();
+                int changedStatus = messageSyncMsg.getChangedStatus();
+                ChatMsg chatMsgByMsgId = ChatMessageDBManager.getInstance(ChatMsgManagerImpl.mContext).getChatMsgByMsgId(changedMsgid);
+                if (chatMsgByMsgId != null) {
+                    int category = chatMsgByMsgId.getCategory();
+                    long contacter = chatMsgByMsgId.getFromUser() == AccountManager.getUK(ChatMsgManagerImpl.mContext) ? chatMsgByMsgId.getContacter() : chatMsgByMsgId.getFromUser();
+                    if (changedStatus == 0) {
+                        int deleteMsgBatch = ChatMessageDBManager.getInstance(ChatMsgManagerImpl.mContext).deleteMsgBatch(ChatMsgManagerImpl.this.getChatObject(category, contacter, chatMsgByMsgId.getPaid()), new long[]{changedMsgid});
+                        if (deleteMsgBatch > 0 && ChatMsgManagerImpl.this.mMessageSyncListener != null && ChatMsgManagerImpl.this.mMessageSyncListener.size() != 0) {
+                            for (IMessageSyncListener iMessageSyncListener : ChatMsgManagerImpl.this.mMessageSyncListener) {
+                                if (iMessageSyncListener != null) {
+                                    iMessageSyncListener.onMsgDel(changedMsgid);
+                                }
+                            }
+                        }
+                        i2 = deleteMsgBatch;
+                    } else {
+                        int msgRead = ChatMessageDBManager.getInstance(ChatMsgManagerImpl.mContext).setMsgRead(ChatMsgManagerImpl.this.getChatObject(category, contacter, chatMsgByMsgId.getPaid()), changedMsgid);
+                        if (msgRead > 0 && ChatMsgManagerImpl.this.mMessageSyncListener != null && ChatMsgManagerImpl.this.mMessageSyncListener.size() != 0) {
+                            for (IMessageSyncListener iMessageSyncListener2 : ChatMsgManagerImpl.this.mMessageSyncListener) {
+                                if (iMessageSyncListener2 != null) {
+                                    iMessageSyncListener2.onMsgReaded(changedMsgid);
+                                }
+                            }
+                        }
+                        i2 = msgRead;
+                    }
+                    if (i2 > 0) {
+                        Intent intent = new Intent(IMConstants.SYNC_ACTION);
+                        intent.setPackage(ChatMsgManagerImpl.mContext.getApplicationContext().getPackageName());
+                        intent.putExtra(IMConstants.SYNC_MSGID, changedMsgid);
+                        intent.putExtra(IMConstants.SYNC_STATUS, changedStatus);
+                        intent.putExtra(IMConstants.SYNC_TYPE, 0);
+                        ChatMsgManagerImpl.mContext.sendBroadcast(intent);
+                    }
+                }
+            }
+        }
+    };
+    Dispatcher.MsgListener mInitCustomerListener = new Dispatcher.MsgListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.5
+        @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+        public void dealMessage(int i, ArrayList<ChatMsg> arrayList) {
+        }
+
+        @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+        public void dealMessage(int i, ChatMsg chatMsg) {
+            if (chatMsg instanceof NotifyCustomerMsg) {
+                ChatMsgManagerImpl.this.sendNoticeBroadcast(ChatMsgManagerImpl.mContext, (NotifyCustomerMsg) chatMsg);
+            }
+        }
+    };
+    Dispatcher.MsgListener mSwithcCustomerListener = new Dispatcher.MsgListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.6
+        @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+        public void dealMessage(int i, ArrayList<ChatMsg> arrayList) {
+        }
+
+        @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+        public void dealMessage(int i, ChatMsg chatMsg) {
+            if (chatMsg instanceof NotifyCustomerMsg) {
+                ChatMsgManagerImpl.this.sendNoticeBroadcast(ChatMsgManagerImpl.mContext, (NotifyCustomerMsg) chatMsg);
+            }
+        }
+    };
+
+    public ChatMsgManagerImpl() {
+        addMessageTypes();
+        registerListeners();
+    }
+
+    private void addMessageTypes() {
+        MessageFactory.getInstance().addType(57, IMDelMsg.class);
+        MessageFactory.getInstance().addType(67, IMMarkMsgReadedMsg.class);
+        MessageFactory.getInstance().addType(55, IMSendMsg.class);
+        MessageFactory.getInstance().addType(93, IMFetchMsgByIdMsg.class);
+        MessageFactory.getInstance().addType(94, IMSyncDialog.class);
+        MessageFactory.getInstance().addType(90, IMBindPushMsg.class);
+        MessageFactory.getInstance().addType(190, IMSyncPushMsg.class);
+        MessageFactory.getInstance().addType(92, IMUnBindPushMsg.class);
+        MessageFactory.getInstance().addType(Constants.METHOD_IM_FETCH_CONFIG_MSG, IMFetchConfigMsg.class);
+    }
+
+    private void registerListeners() {
+        Dispatcher.Event event = new Dispatcher.Event();
+        event.setCategory(-1);
+        event.setType(-1);
+        Dispatcher.registerListener(event, this.onReceiveListener);
+        Dispatcher.Event event2 = new Dispatcher.Event();
+        event2.setCategory(2);
+        event2.setType(21);
+        Dispatcher.registerListener(event2, this.messageSyncListener);
+        Dispatcher.Event event3 = new Dispatcher.Event();
+        event3.setCategory(2);
+        event3.setType(60);
+        Dispatcher.registerListener(event3, this.mInitCustomerListener);
+        Dispatcher.Event event4 = new Dispatcher.Event();
+        event4.setCategory(2);
+        event4.setType(62);
+        Dispatcher.registerListener(event4, this.mSwithcCustomerListener);
+        AccountManagerImpl.getInstance(mContext).registerToDoAfterLoginListener(new TodoAfterLogin() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.1
+            @Override // com.baidu.android.imsdk.account.TodoAfterLogin
+            public void todo(boolean z) {
+                LogUtils.d(ChatMsgManagerImpl.TAG, "start sync message after login sucess.");
+                BindStateManager.startBindPush(ChatMsgManagerImpl.mContext, null, null, null, null);
+                if (z) {
+                    Generator.generate(ChatMsgManagerImpl.mContext, 5).start(1);
+                } else {
+                    Generator.generate(ChatMsgManagerImpl.mContext, 5).start(0);
+                }
+                ChatSessionManagerImpl.getInstance(ChatMsgManagerImpl.mContext).syncDialog();
+                GroupInfoSyncManagerImpl.syncAllGroupList(ChatMsgManagerImpl.mContext);
+                TaskManager.getInstance(ChatMsgManagerImpl.mContext).submitForNetWork(new UnEffectiveMsgTask(ChatMsgManagerImpl.mContext));
+                ChatMsgManagerImpl.this.updateChatSessionNickName();
+                TaskManager.getInstance(ChatMsgManagerImpl.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.1.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        ChatMessageDBManager.getInstance(ChatMsgManagerImpl.mContext).deleteExpiredDupMsgs();
+                    }
+                });
+            }
+        });
+        AccountManagerImpl.getInstance(mContext).registerToDoBeforeLogoutListener(new TodoBeforeLogout() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.2
+            @Override // com.baidu.android.imsdk.account.TodoBeforeLogout
+            public void todo() {
+                ChatMsgManagerImpl.this.unRegisterNotify(null);
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void sendNoticeBroadcast(Context context, ChatMsg chatMsg) {
+        Intent intent = new Intent(IMConstants.CUSTOMER_CHANGE);
+        intent.setPackage(context.getApplicationContext().getPackageName());
+        intent.putExtra(IMConstants.MESSAGE, chatMsg);
+        context.sendBroadcast(intent);
+    }
+
+    public static ChatMsgManagerImpl getInstance(Context context) {
+        if (mInstance == null) {
+            synchronized (ChatMsgManagerImpl.class) {
+                if (mInstance == null) {
+                    mContext = context.getApplicationContext();
+                    mInstance = new ChatMsgManagerImpl();
+                }
+            }
+        }
+        return mInstance;
+    }
+
+    @Deprecated
+    public ArrayList<ChatMsg> fetchMessageSync(int i, long j, long j2, int i2) {
+        if (getPaid() == -2) {
+            return null;
+        }
+        return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i, j, getPaid()), j2, i2, -1L);
+    }
+
+    private void updateChatMsgStatus(ChatMsg chatMsg, int i) {
+        int i2;
+        if (i == 0) {
+            i2 = 0;
+        } else {
+            i2 = 2;
+        }
+        chatMsg.setStatus(i2);
+        ChatMessageDBManager.getInstance(mContext).updateMsgStatus(chatMsg);
+    }
+
+    public long deleteAllSmartMsgs() {
+        ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(mContext).queryPaIdByPaType(17);
+        long j = -1;
+        if (queryPaIdByPaType == null || queryPaIdByPaType.isEmpty()) {
+            return -1L;
+        }
+        Iterator<Long> it = queryPaIdByPaType.iterator();
+        while (it.hasNext()) {
+            long longValue = it.next().longValue();
+            long deleteAllMsg = ChatMessageDBManager.getInstance(mContext).deleteAllMsg(getChatObject(0, longValue, longValue));
+            if (deleteAllMsg < 0) {
+                return -1009L;
+            }
+            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 57);
+            creatMethodIntent.putExtra("category", 0);
+            creatMethodIntent.putExtra("contacter", longValue);
+            creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, deleteAllMsg);
+            creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
+            try {
+                mContext.startService(creatMethodIntent);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+            }
+            j = 0;
+        }
+        return j;
+    }
+
+    public long deleteAllMsgs(int i, long j, boolean z) {
+        LogUtils.d(TAG, String.format("delete all msg category=%d, contacter=%d", Integer.valueOf(i), Long.valueOf(j)));
+        if (i == 17) {
+            return deleteAllSmartMsgs();
+        }
+        if (i < 0 || j < 0) {
+            return -1005L;
+        }
+        if (getPaid() == -2) {
+            return -1017L;
+        }
+        if (AccountManager.isLogin(mContext)) {
+            long deleteAllMsg = ChatMessageDBManager.getInstance(mContext).deleteAllMsg(getChatObject(i, j, getPaid()));
+            if (deleteAllMsg < 0) {
+                return -1009L;
+            }
+            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 57);
+            creatMethodIntent.putExtra("category", i);
+            creatMethodIntent.putExtra("contacter", j);
+            creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, deleteAllMsg);
+            creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
+            tryPutPaid(creatMethodIntent);
+            try {
+                mContext.startService(creatMethodIntent);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+            }
+            return 0L;
+        }
+        return -1000L;
+    }
+
+    public int deleteMsgs(int i, long j, long[] jArr, boolean z) {
+        if (i < 0 || j < 0 || jArr == null || jArr.length <= 0) {
+            return -1005;
+        }
+        if (getPaid() == -2) {
+            return -1017;
+        }
+        if (AccountManager.isLogin(mContext)) {
+            int deleteMsgBatch = ChatMessageDBManager.getInstance(mContext).deleteMsgBatch(getChatObject(i, j, getPaid()), jArr);
+            if (deleteMsgBatch >= 0) {
+                Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 57);
+                creatMethodIntent.putExtra("category", i);
+                creatMethodIntent.putExtra("contacter", j);
+                creatMethodIntent.putExtra(Constants.EXTRA_DEL_MSG_IDS, jArr);
+                creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
+                tryPutPaid(creatMethodIntent);
+                try {
+                    mContext.startService(creatMethodIntent);
+                    return deleteMsgBatch;
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "Exception ", e);
+                    return deleteMsgBatch;
+                }
+            }
+            return deleteMsgBatch;
+        }
+        return -1000;
+    }
+
+    public void resendMsg(String str, String str2, int i, ISendMessageListener iSendMessageListener) {
+        LogUtils.d(TAG, "resendMsg " + str + HanziToPinyin.Token.SEPARATOR + str2 + " ---->");
+        if (i == 0) {
+            ArrayList<ChatMsg> fetchMsg = ChatMessageDBManager.getInstance(mContext).fetchMsg(str2, str);
+            if (fetchMsg == null || fetchMsg.size() == 0) {
+                LogUtils.d(TAG, "resendMsg get msg by rowid is null");
+                if (iSendMessageListener != null) {
+                    iSendMessageListener.onSendMessageResult(1005, null);
+                    return;
+                }
+                return;
+            }
+            ChatMsg chatMsg = fetchMsg.get(0);
+            LogUtils.d(TAG, "resendMsg " + chatMsg.getRowId() + "  " + str);
+            chatMsg.setStatus(1);
+            chatMsg.setReSend();
+            sendMessage(chatMsg, iSendMessageListener);
+        }
+    }
+
+    public void sendMessage(ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
+        if (chatMsg == null) {
+            if (iSendMessageListener != null) {
+                iSendMessageListener.onSendMessageResult(1005, null);
+            }
+        } else if (noSaveDB(chatMsg.getCategory())) {
+            sendHiddenMsg(chatMsg, iSendMessageListener);
+        } else if ((chatMsg.getCategory() != 0 && chatMsg.getCategory() != 1) || chatMsg.getContacter() <= 0) {
+            if (iSendMessageListener != null) {
+                iSendMessageListener.onSendMessageResult(1005, null);
+            }
+        } else {
+            String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
+            if (getPaid() == -2) {
+                onSendMessageResult(1017, chatMsg, -1L, addListener);
+            }
+            if (3 == IMConfigInternal.getInstance().getProductLine(mContext) && chatMsg.getCategory() == 1) {
+                chatMsg.setMinSdkVersion(2300000L);
+            }
+            if (AccountManager.isLogin(mContext)) {
+                if (saveMessage(chatMsg) == 1) {
+                    Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
+                    creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
+                    creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+                    try {
+                        mContext.startService(creatMethodIntent);
+                        return;
+                    } catch (Exception e) {
+                        onSendMessageResult(6, chatMsg, -1L, addListener);
+                        LogUtils.e(TAG, "Exception ", e);
+                        return;
+                    }
+                }
+                onSendMessageResult(6, chatMsg, -1L, addListener);
+                return;
+            }
+            onSendMessageResult(1000, chatMsg, -1L, addListener);
+        }
+    }
+
+    private boolean noSaveDB(int i) {
+        return i == 7 || i == 4;
+    }
+
+    private void sendHiddenMsg(@NonNull ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
+        if (chatMsg.getContacter() <= 0 && chatMsg.getCategory() == 4) {
+            if (iSendMessageListener != null) {
+                iSendMessageListener.onSendMessageResult(1005, null);
+                ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
+                return;
+            }
+            return;
+        }
+        String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
+        if (AccountManager.isLogin(mContext)) {
+            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
+            creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
+            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+            try {
+                mContext.startService(creatMethodIntent);
+                return;
+            } catch (Exception e) {
+                onSendMessageResult(6, chatMsg, -1L, addListener);
+                LogUtils.e(TAG, "Exception ", e);
+                return;
+            }
+        }
+        onSendMessageResult(1000, chatMsg, -1L, addListener);
+    }
+
+    public void onSendMessageResult(int i, ChatMsg chatMsg, long j, String str) {
+        try {
+            if (chatMsg == null) {
+                LogUtils.d(TAG, "onSendMessageResult----chatMsg is null");
+                IMListener removeListener = ListenerManager.getInstance().removeListener(str);
+                if (removeListener != null && (removeListener instanceof ISendMessageListener)) {
+                    ((ISendMessageListener) removeListener).onSendMessageResult(i, null);
+                } else {
+                    LogUtils.d(TAG, "ISendMessageListener is null");
+                }
+            } else if (chatMsg.getCategory() == 4) {
+                onSendStudioMsgResult(i, chatMsg, j, str);
+            } else {
+                LogUtils.d(TAG, "onSendMessageResult----errorCode: " + i);
+                try {
+                    int currentTimeMillis = (int) (System.currentTimeMillis() - Long.parseLong(str.substring(1, 14)));
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "get message receive time error", e);
+                    new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
+                }
+                if (j != -1) {
+                    chatMsg.setMsgTime(j);
+                }
+                DBManager.getInstance(mContext).deleteCmdMsg(getMsgUUid(chatMsg));
+                updateChatMsgStatus(chatMsg, i);
+                IMListener removeListener2 = ListenerManager.getInstance().removeListener(str);
+                if (removeListener2 != null && (removeListener2 instanceof ISendMessageListener)) {
+                    ((ISendMessageListener) removeListener2).onSendMessageResult(i, chatMsg);
+                } else {
+                    LogUtils.d(TAG, "ISendMessageListener is null");
+                }
+                if (chatMsg != null) {
+                    ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
+                }
+            }
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "onSendMessageResult exception " + e2.getMessage());
+        }
+    }
+
+    private void onSendStudioMsgResult(int i, ChatMsg chatMsg, long j, String str) {
+        IMListener removeListener = ListenerManager.getInstance().removeListener(str);
+        if (removeListener != null && (removeListener instanceof ISendMessageListener)) {
+            ((ISendMessageListener) removeListener).onSendMessageResult(i, chatMsg);
+        } else {
+            LogUtils.d(TAG, "ISendMessageListener is null");
+        }
+        updateChatMsgStatus(chatMsg, i);
+        if (i != 0) {
+            LogUtils.d(TAG, "onSendStudioMsgResult----errorCode: " + i);
+        }
+        if (chatMsg != null) {
+            ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
+        }
+    }
+
+    private int saveGroupMessage(ChatMsg chatMsg) {
+        chatMsg.setPaid(getPaid());
+        chatMsg.setMsgId(GroupMessageDAOImpl.getMaxMsgid(mContext, String.valueOf(chatMsg.getContacter())) + 1);
+        chatMsg.setIsClicked(true);
+        chatMsg.setMsgReaded(1);
+        chatMsg.setDeviceFlag(1);
+        long rowId = chatMsg.getRowId();
+        if (rowId == -1) {
+            chatMsg.createMsgKey(mContext);
+            rowId = ChatMessageDBManager.getInstance(mContext).addMsg(chatMsg, true);
+        } else {
+            GroupMessageDAOImpl.updateMsgStatus(mContext, chatMsg);
+        }
+        if (rowId < 0) {
+            return -1;
+        }
+        chatMsg.setRowId(rowId);
+        String str = "" + chatMsg.getRowId();
+        String msgUUid = getMsgUUid(chatMsg);
+        String chatObject = getChatObject(chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid()).toString();
+        if (!TextUtils.isEmpty(msgUUid) && DBManager.getInstance(mContext).getCmdQueueMsg(msgUUid, Constants.METHOD_SEND_USER_MSG) == null) {
+            DBManager.getInstance(mContext).saveCmdMsg(msgUUid, Constants.METHOD_SEND_USER_MSG, str, chatObject, 15, 2);
+        }
+        return 1;
+    }
+
+    public int saveMessage(ChatMsg chatMsg) {
+        if (chatMsg == null || !AccountManager.isLogin(mContext)) {
+            return -1;
+        }
+        if (1 == chatMsg.getCategory()) {
+            return saveGroupMessage(chatMsg);
+        }
+        return saveSingleMsg(chatMsg, -1);
+    }
+
+    private int saveSingleMsg(ChatMsg chatMsg, int i) {
+        chatMsg.setPaid(getPaid());
+        long maxMsgid = ChatMessageDBManager.getInstance(mContext).getMaxMsgid() + 1;
+        LogUtils.d(TAG, "saveSingleMsg msgid = " + maxMsgid);
+        chatMsg.setMsgId(maxMsgid);
+        chatMsg.setIsClicked(true);
+        chatMsg.setMsgReaded(1);
+        chatMsg.setDeviceFlag(1);
+        long rowId = chatMsg.getRowId();
+        if (rowId == -1) {
+            chatMsg.createMsgKey(mContext);
+            LogUtils.d("FFF saveSingleMsg msgkey ", HanziToPinyin.Token.SEPARATOR + chatMsg.getMsgKey());
+            rowId = ChatMessageDBManager.getInstance(mContext).addMsg(chatMsg, true);
+        } else {
+            ChatMessageDBManager.getInstance(mContext).updateMsgStatus(chatMsg);
+        }
+        if (rowId >= 0) {
+            chatMsg.setRowId(rowId);
+            String str = "" + chatMsg.getRowId();
+            String msgUUid = getMsgUUid(chatMsg);
+            String chatObject = getChatObject(chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid()).toString();
+            if (!TextUtils.isEmpty(msgUUid) && DBManager.getInstance(mContext).getCmdQueueMsg(msgUUid, Constants.METHOD_SEND_USER_MSG) == null) {
+                DBManager.getInstance(mContext).saveCmdMsg(msgUUid, Constants.METHOD_SEND_USER_MSG, str, chatObject, 15, 2);
+            }
+            return 1;
+        }
+        return i;
+    }
+
+    public boolean setBeforeMsgRead(int i, long j, long j2, boolean z) {
+        ChatObject chatObject;
+        if (getPaid() != -2 && AccountManager.isLogin(mContext)) {
+            if ((Constants.PAFLAG & j) != 0) {
+                chatObject = getChatObject(i, j, j);
+            } else {
+                chatObject = getChatObject(i, j, getPaid());
+            }
+            ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject);
+            if (chatRecord != null) {
+                long newMsgSum = chatRecord.getNewMsgSum();
+                if (newMsgSum < 0) {
+                    return false;
+                }
+                if (newMsgSum == 0) {
+                    return true;
+                }
+            }
+            if (ChatMessageDBManager.getInstance(mContext).setAllMsgReadWithMsgid(chatObject, j2)) {
+                Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 67);
+                creatMethodIntent.putExtra("category", i);
+                creatMethodIntent.putExtra("contacter", j);
+                creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j2);
+                creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
+                tryPutPaid(creatMethodIntent);
+                try {
+                    mContext.startService(creatMethodIntent);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "Exception ", e);
+                }
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public boolean setAllMsgRead(int i, long j, boolean z) {
+        if (i == 17) {
+            ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(mContext).queryPaIdByPaType(17);
+            if (queryPaIdByPaType == null || queryPaIdByPaType.isEmpty()) {
+                return false;
+            }
+            Iterator<Long> it = queryPaIdByPaType.iterator();
+            boolean z2 = false;
+            while (it.hasNext()) {
+                long longValue = it.next().longValue();
+                z2 = setBeforeMsgRead(0, longValue, ChatMessageDBManager.getInstance(mContext).getMaxMsgid(getChatObject(0, longValue, longValue)), z);
+            }
+            return z2;
+        }
+        return setBeforeMsgRead(i, j, ChatMessageDBManager.getInstance(mContext).getMaxMsgid(getChatObject(i, j, getPaid())), z);
+    }
+
+    public boolean setMsgRead(int i, long j, long j2, boolean z) {
+        if (getPaid() != -2 && AccountManager.isLogin(mContext) && ChatMessageDBManager.getInstance(mContext).setMsgRead(getChatObject(i, j, getPaid()), j2) >= 0) {
+            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 67);
+            creatMethodIntent.putExtra("category", i);
+            creatMethodIntent.putExtra("contacter", j);
+            creatMethodIntent.putExtra("msgid", j2);
+            creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
+            tryPutPaid(creatMethodIntent);
+            try {
+                mContext.startService(creatMethodIntent);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public void registerKillOutListener(IKickOutListener iKickOutListener) {
+        this.mKickOutListener = iKickOutListener;
+    }
+
+    public void clearKillOutListener() {
+        this.mKickOutListener = null;
+    }
+
+    public long getNewMsgNum(int i, long j) {
+        if (AccountManager.isLogin(mContext)) {
+            if (getPaid() == -2) {
+                return -1017L;
+            }
+            return ChatMessageDBManager.getInstance(mContext).getNewMsgNum(getChatObject(i, j, getPaid()));
+        }
+        return -1L;
+    }
+
+    public static List<ChatMsg> getPaMsgByChatType(int i, int i2) {
+        if (AccountManager.isLogin(mContext)) {
+            return ChatMessageDBManager.getInstance(mContext).fetchPaMsgByChatType(i, i2);
+        }
+        return null;
+    }
+
+    public void registerMessageReceiveListener(IMessageReceiveListener iMessageReceiveListener) {
+        LogUtils.e(TAG, "registerMessageReceiveListener : " + iMessageReceiveListener);
+        if (iMessageReceiveListener != null && !this.mReceiveListeners.contains(iMessageReceiveListener)) {
+            this.mReceiveListeners.add(iMessageReceiveListener);
+        }
+    }
+
+    public void unregisterMessageReceiveListener(Context context, IMessageReceiveListener iMessageReceiveListener) {
+        LogUtils.e(TAG, "unregisterMessageReceiveListener : " + iMessageReceiveListener);
+        if (iMessageReceiveListener != null && this.mReceiveListeners.contains(iMessageReceiveListener)) {
+            this.mReceiveListeners.remove(iMessageReceiveListener);
+        }
+    }
+
+    public void registerLiveMsgReceiveListener(ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        LogUtils.d(TAG, "registerLiveMsgReceiveListener : " + iLiveMsgReceiveListener);
+        if (iLiveMsgReceiveListener != null) {
+            this.mReceiveStudioListener = iLiveMsgReceiveListener;
+        }
+    }
+
+    public void registerLiveMsgReceiveListener(String str, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        LogUtils.d(TAG, "registerLiveMsgReceiveListener : " + iLiveMsgReceiveListener + ", mcastid = " + str);
+        if (iLiveMsgReceiveListener != null) {
+            this.mReceiveStudioListeners.put(str, iLiveMsgReceiveListener);
+        }
+    }
+
+    public void registerMessageSyncListener(Context context, IMessageSyncListener iMessageSyncListener) {
+        if (iMessageSyncListener != null && !this.mMessageSyncListener.contains(iMessageSyncListener)) {
+            this.mMessageSyncListener.add(iMessageSyncListener);
+        }
+    }
+
+    public void unregisterLiveMsgReceiveListener(ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        LogUtils.d(TAG, "unregisterLiveMsgReceiveListener : " + iLiveMsgReceiveListener);
+        this.mReceiveStudioListener = null;
+    }
+
+    public void unregisterLiveMsgReceiveListener(String str) {
+        LogUtils.d(TAG, "do unregisterLiveMsgReceiveListener, mcastid = " + str);
+        if (!TextUtils.isEmpty(str) && this.mReceiveStudioListeners.remove(str) != null) {
+            LogUtils.d(TAG, " do unregisterLiveMsgReceiveListener done!!! ");
+        }
+    }
+
+    public void unregisterMessageSyncListener(Context context, IMessageSyncListener iMessageSyncListener) {
+        if (iMessageSyncListener != null && this.mMessageSyncListener.contains(iMessageSyncListener)) {
+            this.mMessageSyncListener.remove(iMessageSyncListener);
+        }
+    }
+
+    public void broadDeleteGroupMsg(Context context, ArrayList<ChatMsg> arrayList) {
+        sendMessageBroadcast(context, arrayList);
+    }
+
+    private void sendMessageBroadcast(Context context, ArrayList<ChatMsg> arrayList) {
+        if (arrayList != null && arrayList.size() != 0) {
+            try {
+                Intent intent = new Intent(IMConstants.MESSAGE_ACTION);
+                intent.setPackage(context.getApplicationContext().getPackageName());
+                intent.putParcelableArrayListExtra(IMConstants.MESSAGE, arrayList);
+                mContext.sendBroadcast(intent);
+            } catch (Exception e) {
+                LogUtils.e(TAG, " sendMessageBoradcast exception ");
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
+            }
+        }
+    }
+
+    private ArrayList<ChatMsg> filtMsgs(ArrayList<ChatMsg> arrayList) {
+        if (arrayList == null) {
+            return null;
+        }
+        ArrayList<ChatMsg> arrayList2 = new ArrayList<>();
+        Iterator<ChatMsg> it = arrayList.iterator();
+        while (it.hasNext()) {
+            ChatMsg next = it.next();
+            if (!IMConfigInternal.getInstance().getIMConfig(mContext).isNeedPaid() || Utility.getPaid(mContext) == next.getPaid()) {
+                if (next.isSameDevice()) {
+                    LogUtils.d(TAG, "msg is same device." + next.getMsgId());
+                } else {
+                    arrayList2.add(next);
+                }
+            }
+        }
+        return arrayList2;
+    }
+
+    public void fetchMsgidByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, int i5) {
+        String addListener = ListenerManager.getInstance().addListener(iFetchMsgByIdListener);
+        LogUtils.i(TAG, " category: " + i + " contacter: " + j + " beginMsgid: " + j2 + " endMsgid: " + j3 + " count: " + i2 + " triggerReason: " + i3 + " jumpToRecentMsg: " + i4 + " key: " + addListener);
+        if (j2 < 0 || j3 < 0) {
+            onFetchMsgByIdResult(context, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, i, j, j2, j3, i2, -1, 0L, null, null, addListener);
+        } else if (AccountManager.isLogin(context)) {
+            Intent creatMethodIntent = Utility.creatMethodIntent(context, 93);
+            creatMethodIntent.putExtra("category", i);
+            creatMethodIntent.putExtra("contacter", j);
+            creatMethodIntent.putExtra(Constants.EXTRA_BEGIN_MSGID, j2);
+            creatMethodIntent.putExtra(Constants.EXTRA_END_MSGID, j3);
+            creatMethodIntent.putExtra("count", i2);
+            creatMethodIntent.putExtra(Constants.EXTRA_TRIGGER_REASON, i3);
+            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+            creatMethodIntent.putExtra(Constants.EXTRA_JUMP_MSG, i4);
+            creatMethodIntent.putExtra(Constants.EXTRA_RETRY_TIME, i5);
+            try {
+                context.startService(creatMethodIntent);
+            } catch (Exception e) {
+                onFetchMsgByIdResult(context, 6, "start service exception", i, j, j2, j3, i2, -1, 0L, null, null, addListener);
+                LogUtils.e(TAG, "Exception ", e);
+            }
+        } else {
+            LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+            onFetchMsgByIdResult(context, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, i, j, j2, j3, i2, -1, 0L, null, null, addListener);
+        }
+    }
+
+    public void fetchMsgidByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        fetchMsgidByMsgid(context, i, j, j2, j3, i2, i3, i4, iFetchMsgByIdListener, 0);
+    }
+
+    public void onFetchMsgByIdResult(Context context, int i, String str, int i2, long j, long j2, long j3, int i3, int i4, long j4, String str2, ArrayList<ChatMsg> arrayList, String str3) {
+        if (arrayList != null) {
+            LogUtils.d(TAG, "onFetchMsgByIdResult----errorCode: " + i + " msg:" + str + ", contacter:" + j + ",fetchedMsgs size " + arrayList.size());
+        } else {
+            LogUtils.d(TAG, "onFetchMsgByIdResult----errorCode: " + i + " msg:" + str + ", contacter:" + j + ",fetchedMsgs is null.");
+        }
+        if (arrayList != null && arrayList.size() == 1) {
+            try {
+                int currentTimeMillis = (int) (System.currentTimeMillis() - Long.parseLong(str3.substring(1, 14)));
+            } catch (Exception e) {
+                LogUtils.e(TAG, "get message receive time error", e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
+            }
+        }
+        IMListener removeListener = ListenerManager.getInstance().removeListener(str3);
+        if (removeListener != null && (removeListener instanceof IFetchMsgByIdListener)) {
+            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i, str, str2, i2, j, j2, j3, i3, i4, j4, arrayList);
+        } else {
+            LogUtils.i(TAG, "onFetchMsgByIdResult listener is null or error!!");
+        }
+    }
+
+    public void fetchConfigMsg(Context context, long j, long j2) {
+        LogUtils.i(TAG, " limit: " + j2 + " cursor: " + j);
+        Intent creatMethodIntent = Utility.creatMethodIntent(context, Constants.METHOD_IM_FETCH_CONFIG_MSG);
+        creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_CURSOR, j);
+        creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_LIMIT, j2);
+        try {
+            context.startService(creatMethodIntent);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "Exception ", e);
+        }
+    }
+
+    public int getNewMsgCount() {
+        if (getPaid() == -2) {
+            return -1017;
+        }
+        return ChatMessageDBManager.getInstance(mContext).getNewMsgCount(getPaid());
+    }
+
+    public int getNewMsgCountByPaid(long j) {
+        return ChatMessageDBManager.getInstance(mContext).getUnReadMsgCount(getChatObject(0, j, j));
+    }
+
+    public int saveAsDraftMsg(ChatMsg chatMsg) {
+        if (chatMsg == null) {
+            return -1;
+        }
+        if (getPaid() == -2) {
+            return -1017;
+        }
+        deleteDraftMsg(chatMsg.getCategory(), chatMsg.getContacter());
+        if (chatMsg instanceof TextMsg) {
+            TextMsg textMsg = (TextMsg) chatMsg;
+            if (TextUtils.isEmpty(chatMsg.getMsgContent()) || TextUtils.isEmpty(textMsg.getText())) {
+                return -1;
+            }
+            chatMsg.setPaid(getPaid());
+            chatMsg.setMsgId(IMConstants.DRAFT_MSGID);
+            chatMsg.setStatus(3);
+            chatMsg.setMsgReaded(1);
+            return ChatMessageDBManager.getInstance(mContext).addMsg(chatMsg, true) < 0 ? -1 : 0;
+        }
+        return -1;
+    }
+
+    public int deleteDraftMsg(int i, long j) {
+        if (getPaid() == -2) {
+            return -1017;
+        }
+        return ChatMessageDBManager.getInstance(mContext).deleteDraftMsg(getChatObject(i, j, getPaid()));
+    }
+
+    public ChatMsg getDraftMsg(int i, long j) {
+        return ChatMessageDBManager.getInstance(mContext).getDraftMsg(i, j);
+    }
+
+    public int deleteMsgs(ChatMsg chatMsg) {
+        if (chatMsg.getStatus() != 0) {
+            return ((long) ChatMessageDBManager.getInstance(mContext).deleteChatMsg(chatMsg)) < 0 ? -1009 : 0;
+        }
+        deleteMsgs(chatMsg.getCategory(), chatMsg.getContacter(), new long[]{chatMsg.getMsgId()}, chatMsg.isZhida());
+        return 0;
+    }
+
+    public void audioTrans(String str, String str2, String str3, int i, BIMValueCallBack bIMValueCallBack) {
+        LogUtils.d(TAG, "audioTrans filePath=" + str);
+        new IMAudioTransRequest(mContext, str, str2, str3, i, ListenerManager.getInstance().addListener(bIMValueCallBack)).execute();
+    }
+
+    public void onAudioTransCallBack(String str, int i, String str2, String str3) {
+        LogUtils.d(TAG, "onAudioTransCallBack----errorCode: " + i + " msg: " + str2);
+        BIMValueCallBack bIMValueCallBack = (BIMValueCallBack) ListenerManager.getInstance().removeListener(str);
+        if (bIMValueCallBack != null) {
+            bIMValueCallBack.onResult(i, str2, str3);
+        } else {
+            LogUtils.d(TAG, "onAudioTransCallBack listener is null");
+        }
+    }
+
+    public void genBosObjectUrl(String str, String str2, String str3, int i, int i2, int i3, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
+        LogUtils.d(TAG, "filePath=" + str);
+        IMGenBosObjectUrlRequest iMGenBosObjectUrlRequest = new IMGenBosObjectUrlRequest(mContext, str, str2, str3, i, i2, i3, ListenerManager.getInstance().addListener(iGenBosObjectUrlListener));
+        HttpHelper.executor(mContext, iMGenBosObjectUrlRequest, iMGenBosObjectUrlRequest);
+    }
+
+    public void onGenBosObjectUrl(String str, int i, String str2, String str3, String str4, Map<String, String> map) {
+        LogUtils.d(TAG, "onGenBosObjectUrl----errorCode: " + i + " msg: " + str2);
+        IGenBosObjectUrlListener iGenBosObjectUrlListener = (IGenBosObjectUrlListener) ListenerManager.getInstance().removeListener(str);
+        if (iGenBosObjectUrlListener != null) {
+            iGenBosObjectUrlListener.onGenBosObjectUrlListener(i, str2, str3, str4, map);
+        } else {
+            LogUtils.d(TAG, "onGenBosObjectUrl is null");
+        }
+    }
+
+    public int markMessageClicked(ChatMsg chatMsg) {
+        chatMsg.setIsClicked(true);
+        return ChatMessageDBManager.getInstance(mContext).markMsgClicked(chatMsg);
+    }
+
+    public long getPaid() {
+        if (IMConfigInternal.getInstance().getIMConfig(mContext).isNeedPaid()) {
+            long paid = Utility.getPaid(mContext);
+            if (paid == -1) {
+                return -2L;
+            }
+            return paid;
+        }
+        return -1L;
+    }
+
+    public ChatObject getChatObject(int i, long j, long j2) {
+        return new ChatObject(mContext, i, j, j2, -1);
+    }
+
+    public void tryPutPaid(Intent intent) {
+        if (IMConfigInternal.getInstance().getIMConfig(mContext).isNeedPaid()) {
+            intent.putExtra(Constants.EXTRA_PA_ID, getPaid());
+        }
+    }
+
+    public ArrayList<ChatMsg> fetchMessageSync(int i, long j, int i2, ChatMsg chatMsg) {
+        if (getPaid() == -2) {
+            return null;
+        }
+        if (1 == i) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(String.valueOf(j));
+            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
+            if (groupInfo != null && groupInfo.size() > 0 && groupInfo.get(0).getType() == 2) {
+                return GroupMessageDAOImpl.fetchLastChatMsg(mContext, String.valueOf(j), chatMsg, i2, true);
+            }
+            return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j), chatMsg, i2, true);
+        }
+        return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i, j, getPaid()), chatMsg == null ? 0L : chatMsg.getMsgId(), i2, chatMsg == null ? -1L : chatMsg.getRowId());
+    }
+
+    public ArrayList<ChatMsg> fetchMessageSync(int i, long j, int i2, ChatMsg chatMsg, long[] jArr) {
+        if (getPaid() == -2) {
+            return null;
+        }
+        return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j), chatMsg, i2, true, jArr);
+    }
+
+    public ArrayList<ChatMsg> fetchMessageSync(int i, long j, int i2, boolean z, ChatMsg chatMsg) {
+        if (getPaid() == -2) {
+            return null;
+        }
+        if (1 == i) {
+            return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j), chatMsg, i2, z);
+        }
+        return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i, j, getPaid()), chatMsg, i2, z);
+    }
+
+    public ArrayList<ChatMsg> fetchMessageSyncExceptSystemMsg(int i, long j, int i2, boolean z, ChatMsg chatMsg) {
+        if (getPaid() == -2) {
+            return null;
+        }
+        if (1 == i) {
+            return GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(mContext, String.valueOf(j), chatMsg, i2, z);
+        }
+        return ChatMessageDBManager.getInstance(mContext).fetchMsgsExceptGroupSystemMsgSync(getChatObject(i, j, getPaid()), chatMsg == null ? 0L : chatMsg.getMsgId(), i2, chatMsg == null ? -1L : chatMsg.getRowId(), z);
+    }
+
+    public int updateChatSeesionName(ChatSession chatSession) {
+        return ChatMessageDBManager.getInstance(mContext).updateChatSessionName(chatSession);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void broadcastMessage(ArrayList<ChatMsg> arrayList, boolean z) {
+        synchronized (this.mReceiveListeners) {
+            if (arrayList != null) {
+                if (arrayList.size() != 0) {
+                    LogUtils.d(TAG, " recive message before filter! " + arrayList.size());
+                    ArrayList<ChatMsg> filtMsgs = z ? filtMsgs(arrayList) : arrayList;
+                    if (filtMsgs != null && filtMsgs.size() != 0) {
+                        LogUtils.d(TAG, "you xiaoxi" + arrayList.size());
+                        Iterator<IMessageReceiveListener> it = this.mReceiveListeners.iterator();
+                        while (it.hasNext()) {
+                            IMessageReceiveListener next = it.next();
+                            if (next != null) {
+                                next.onReceiveMessage(0, 0, filtMsgs);
+                            }
+                        }
+                        int size = filtMsgs.size();
+                        int i = size / 20;
+                        int i2 = size % 20;
+                        for (int i3 = 0; i3 < i; i3++) {
+                            sendMessageBroadcast(mContext, new ArrayList<>(filtMsgs.subList(20 * i3, (i3 + 1) * 20)));
+                        }
+                        if (i2 > 0) {
+                            sendMessageBroadcast(mContext, new ArrayList<>(filtMsgs.subList(size - i2, size)));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    private String getMsgUUid(ChatMsg chatMsg) {
+        return chatMsg == null ? "" : String.format("send.user.msg.%d.%d", Long.valueOf(chatMsg.getRowId()), Integer.valueOf(chatMsg.getCategory()));
+    }
+
+    public void onSyncDialogResult(int i, String str, String str2, long j, List<ChatMsg> list) {
+        LogUtils.d(TAG, String.format("--onSyncDialogResult--errCode:%d--msg:%s--maxMsgid:%d", Integer.valueOf(i), str, Long.valueOf(j)));
+        IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
+        if (removeListener != null && (removeListener instanceof ISyncDialogListener)) {
+            ((ISyncDialogListener) removeListener).onSyncDialogResult(i, str, j, list);
+        } else {
+            LogUtils.d(TAG, "onSyncDialogResult listener is nul!");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public long getMaxMsgid() {
+        return Math.max(Utility.readLongData(mContext, "sync_max_msgid_" + Utility.getUK(mContext), 0L), DialogRecordDBManager.getInstance(mContext).getMaxMsgid());
+    }
+
+    public ArrayList<ChatMsg> fetchGroupNotifyMsgsSync(int i, long j, int i2, boolean z, ChatMsg chatMsg) {
+        if (1 == i) {
+            return GroupMessageDAOImpl.fetchGroupSystemMsg(mContext, String.valueOf(j), chatMsg, i2, z);
+        }
+        return ChatMessageDBManager.getInstance(mContext).fetchSpecifyMsgsSync(getChatObject(i, j, getPaid()), 101, chatMsg == null ? 0L : chatMsg.getMsgId(), i2, chatMsg == null ? -1L : chatMsg.getRowId(), z);
+    }
+
+    public boolean registerNotify(String str, String str2, String str3, IOnRegisterNotifyListener iOnRegisterNotifyListener) {
+        return BindStateManager.startBindPush(mContext, str, str2, str3, iOnRegisterNotifyListener);
+    }
+
+    public void unRegisterNotify(IOnRegisterNotifyListener iOnRegisterNotifyListener) {
+        String addListener = ListenerManager.getInstance().addListener(iOnRegisterNotifyListener);
+        if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
+            try {
+                BindStateManager.saveUnBindInfo(mContext, AccountManager.getToken(mContext), Utility.getIMDeviceId(mContext), Long.valueOf(AccountManager.getUK(mContext)));
+                Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 92);
+                creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+                mContext.startService(creatMethodIntent);
+                return;
+            } catch (Exception e) {
+                onUnRegisterNotifyResult(addListener, 6, "start service exception");
+                LogUtils.e(TAG, "Exception ", e);
+                return;
+            }
+        }
+        onUnRegisterNotifyResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+    }
+
+    public void onUnRegisterNotifyResult(String str, int i, String str2) {
+        LogUtils.d(TAG, "onUnRegisterNotifyResult----errorCode: " + i + " msg: " + str2);
+        if (i == 0) {
+            BindStateManager.setunBindPush(mContext);
+        }
+        IOnRegisterNotifyListener iOnRegisterNotifyListener = (IOnRegisterNotifyListener) ListenerManager.getInstance().removeListener(str);
+        if (iOnRegisterNotifyListener != null) {
+            iOnRegisterNotifyListener.onUnRegisterNotifyResult(i, str2);
+        }
+    }
+
+    public void deliverMcastMessage(JSONArray jSONArray) {
+        JSONArray jSONArray2;
+        if (jSONArray == null) {
+            LogUtils.e(TAG, "deliverMcastMessage msgObj is null");
+            return;
+        }
+        LogUtils.d(TAG, "deliverMcastMessage_size is " + jSONArray.length());
+        int length = jSONArray.length();
+        JSONArray jSONArray3 = new JSONArray();
+        int i = 1;
+        while (i <= length) {
+            try {
+                jSONArray3.put(jSONArray.getJSONObject(i - 1));
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
+            }
+            if (i % 10 == 0) {
+                if (this.mReceiveStudioListener != null) {
+                    this.mReceiveStudioListener.onReceiveMessage(0, jSONArray3);
+                } else {
+                    LogUtils.d(TAG, "mReceiveStudioListener is null");
+                }
+                jSONArray2 = new JSONArray();
+                i++;
+                jSONArray3 = jSONArray2;
+            }
+            jSONArray2 = jSONArray3;
+            i++;
+            jSONArray3 = jSONArray2;
+        }
+        if (jSONArray3.length() > 0) {
+            if (this.mReceiveStudioListener != null) {
+                this.mReceiveStudioListener.onReceiveMessage(0, jSONArray3);
+            } else {
+                LogUtils.d(TAG, "mReceiveStudioListener is null");
+            }
+        }
+    }
+
+    public void deliverMcastMessage(String str, JSONArray jSONArray) {
+        JSONArray jSONArray2;
+        if (jSONArray == null) {
+            LogUtils.e(TAG, "deliverMcastMessage msgObj is null");
+            return;
+        }
+        LogUtils.d(TAG, "deliverMcastMessage_size is " + jSONArray.length());
+        int length = jSONArray.length();
+        ILiveMsgReceiveListener iLiveMsgReceiveListener = this.mReceiveStudioListeners.get(str);
+        JSONArray jSONArray3 = new JSONArray();
+        int i = 1;
+        while (i <= length) {
+            try {
+                jSONArray3.put(jSONArray.getJSONObject(i - 1));
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
+            }
+            if (i % 10 == 0) {
+                if (iLiveMsgReceiveListener != null) {
+                    iLiveMsgReceiveListener.onReceiveMessage(0, jSONArray3);
+                } else {
+                    LogUtils.d(TAG, "mReceiveStudioListener is null");
+                }
+                jSONArray2 = new JSONArray();
+                i++;
+                jSONArray3 = jSONArray2;
+            }
+            jSONArray2 = jSONArray3;
+            i++;
+            jSONArray3 = jSONArray2;
+        }
+        if (jSONArray3.length() > 0) {
+            if (iLiveMsgReceiveListener != null) {
+                iLiveMsgReceiveListener.onReceiveMessage(0, jSONArray3);
+            } else {
+                LogUtils.d(TAG, "mReceiveStudioListener is null");
+            }
+        }
+        deliverMcastMessage(jSONArray);
+    }
+
+    public void fetchMsgRequst(long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        LogUtils.d(TAG, "fetchMsgRequst --->");
+        IMFetchMsgRequest iMFetchMsgRequest = new IMFetchMsgRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, j3, i, i2, j4, j5);
+        HttpHelper.executor(mContext, iMFetchMsgRequest, iMFetchMsgRequest);
+    }
+
+    public void deliverFetchedConfigMessage(final ArrayList<ChatMsg> arrayList) {
+        TaskManager.getInstance(mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.7
+            @Override // java.lang.Runnable
+            public void run() {
+                LogUtils.d(ChatMsgManagerImpl.TAG, "deliverFetchedConfigMessage ..... ");
+                ChatMsgManagerImpl.this.deliverConfigMessage(arrayList);
+            }
+        });
+    }
+
+    public void deliverConfigMessage(ArrayList<ChatMsg> arrayList) {
+        synchronized (this.mReceiveListeners) {
+            if (arrayList != null) {
+                if (arrayList.size() != 0) {
+                    Iterator<IMessageReceiveListener> it = this.mReceiveListeners.iterator();
+                    while (it.hasNext()) {
+                        IMessageReceiveListener next = it.next();
+                        if (next != null) {
+                            next.onReceiveMessage(0, 2, arrayList);
+                        }
+                    }
+                    return;
+                }
+            }
+            LogUtils.e(TAG, "deliverConfigMessage msgs is null");
+        }
+    }
+
+    public void configMsgsFilter(ArrayList<ChatMsg> arrayList) {
+        int i = 0;
+        ArrayList<Long> cachedConfigMsgIds = getInstance(mContext).getCachedConfigMsgIds();
+        int size = cachedConfigMsgIds.size();
+        LogUtils.d(TAG, "configMsgsFilter oldCachedIdsSize=" + size);
+        if (size > 0 && !arrayList.isEmpty()) {
+            long j = 0;
+            int i2 = 0;
+            while (i2 < arrayList.size()) {
+                long msgId = arrayList.get(i2).getMsgId();
+                if (cachedConfigMsgIds.contains(Long.valueOf(msgId))) {
+                    cachedConfigMsgIds.remove(Long.valueOf(msgId));
+                    arrayList.remove(i2);
+                    i2--;
+                }
+                if (msgId > j) {
+                    j = msgId;
+                }
+                i2++;
+            }
+            while (i < cachedConfigMsgIds.size()) {
+                long longValue = cachedConfigMsgIds.get(i).longValue();
+                if (longValue <= j) {
+                    cachedConfigMsgIds.remove(Long.valueOf(longValue));
+                    i--;
+                }
+                i++;
+            }
+            if (size != cachedConfigMsgIds.size()) {
+                configMsgIdsPersiser(cachedConfigMsgIds);
+            }
+        }
+    }
+
+    public void persisConfigMsgIds(ArrayList<ChatMsg> arrayList) {
+        if (arrayList != null && !arrayList.isEmpty()) {
+            ArrayList<Long> cachedConfigMsgIds = getCachedConfigMsgIds();
+            if (cachedConfigMsgIds.size() >= 1000) {
+                cachedConfigMsgIds.clear();
+            }
+            Iterator<ChatMsg> it = arrayList.iterator();
+            while (it.hasNext()) {
+                cachedConfigMsgIds.add(Long.valueOf(it.next().getMsgId()));
+            }
+            configMsgIdsPersiser(cachedConfigMsgIds);
+        }
+    }
+
+    private void configMsgIdsPersiser(ArrayList<Long> arrayList) {
+        if (arrayList != null) {
+            int size = arrayList.size();
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < size; i++) {
+                stringBuffer.append(arrayList.get(i));
+                if (i < size - 1) {
+                    stringBuffer.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+                }
+            }
+            LogUtils.d(TAG, "configMsgIdsPersiser ids = " + stringBuffer.toString());
+            Utility.writeConfigMsgIds(mContext, stringBuffer.toString());
+        }
+    }
+
+    public ArrayList<Long> getCachedConfigMsgIds() {
+        String configMsgIds = Utility.getConfigMsgIds(mContext);
+        LogUtils.d(TAG, "getCachedConfigMsgIds str = " + configMsgIds);
+        ArrayList<Long> arrayList = new ArrayList<>();
+        if (!TextUtils.isEmpty(configMsgIds)) {
+            try {
+                String[] split = configMsgIds.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+                if (split != null && split.length > 0) {
+                    for (String str : split) {
+                        arrayList.add(Long.valueOf(Long.parseLong(str)));
+                    }
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, e.getMessage());
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
+            }
+        }
+        LogUtils.d(TAG, "getCachedConfigMsgIds back arr size = " + arrayList.size());
+        return arrayList;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateChatSessionNickName() {
+        if (AccountManagerImpl.getInstance(mContext).getLoginType() == 1 && System.currentTimeMillis() - Utility.getLastUpdateNickNameTime(mContext) > 86400000) {
+            TaskManager.getInstance(mContext).submitForNetWork(new UpdateChatSessionNickNameTask(mContext));
+        }
+    }
+
+    public long getMaxReliableMsgId(long j) {
+        return ChatMessageDBManager.getInstance(mContext).getMaxReliableMsgId(j);
+    }
+}

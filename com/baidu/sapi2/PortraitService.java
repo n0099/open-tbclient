@@ -2,6 +2,7 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.callback.GetHistoryPortraitsCallback;
 import com.baidu.sapi2.callback.GetPopularPortraitsCallback;
 import com.baidu.sapi2.callback.SetPopularPortraitCallback;
@@ -18,7 +19,6 @@ import com.baidu.sapi2.result.SetPopularPortraitResult;
 import com.baidu.sapi2.result.SetPortraitResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -43,7 +43,7 @@ public class PortraitService extends AbstractService {
         if (TextUtils.isEmpty(str2)) {
             str2 = "image/jpeg";
         }
-        multipartHashMapWrap.put("file", new ByteArrayInputStream(bArr), "portrait.jpg", str2);
+        multipartHashMapWrap.put(BdStatsConstant.OpSubType.FILE, new ByteArrayInputStream(bArr), "portrait.jpg", str2);
         new HttpClientWrap().post(a(), multipartHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
@@ -67,7 +67,7 @@ public class PortraitService extends AbstractService {
                         try {
                             JSONObject jSONObject = new JSONObject(str3);
                             setPortraitResult.portraitSign = jSONObject.optString("portrait_tag");
-                            String optString = jSONObject.optString(IntentConfig.PORTRAIT);
+                            String optString = jSONObject.optString("portrait");
                             if (!TextUtils.isEmpty(optString)) {
                                 setPortraitResult.portraitHttps = String.format("https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/%s.jpg?%s", optString, setPortraitResult.portraitSign);
                             }
@@ -220,7 +220,7 @@ public class PortraitService extends AbstractService {
                     getPopularPortraitsInfoResult.setResultCode(optInt);
                     getPopularPortraitsInfoResult.setResultMsg(jSONObject.optString("errmsg"));
                     if (optInt == 0) {
-                        JSONArray optJSONArray = jSONObject.optJSONArray(IntentConfig.LIST);
+                        JSONArray optJSONArray = jSONObject.optJSONArray("list");
                         int length = optJSONArray.length();
                         getPopularPortraitsInfoResult.popularPortraitsInfoList = new ArrayList(length);
                         for (int i2 = 0; i2 < length; i2++) {

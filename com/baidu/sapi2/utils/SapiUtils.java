@@ -31,6 +31,7 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.gid.BaiduGIDManager;
@@ -467,7 +468,7 @@ public class SapiUtils {
         int i2 = 0;
         StringBuffer stringBuffer = new StringBuffer();
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo connectionInfo = wifiManager.getConnectionInfo();
             if (connectionInfo == null) {
                 i = 0;
@@ -753,9 +754,9 @@ public class SapiUtils {
         if (b(str)) {
             return true;
         }
-        if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains("sign") && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
+        if (!TextUtils.isEmpty(str) && str.contains("error") && str.contains("sign") && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
             Map<String, String> urlParamsToMap = urlParamsToMap(str);
-            return (TextUtils.isEmpty(urlParamsToMap.get(b)) || TextUtils.isEmpty(urlParamsToMap.get("sign")) || TextUtils.isEmpty(urlParamsToMap.get("cmd")) || TextUtils.isEmpty(urlParamsToMap.get(KEY_QR_LOGIN_LP))) ? false : true;
+            return (TextUtils.isEmpty(urlParamsToMap.get("error")) || TextUtils.isEmpty(urlParamsToMap.get("sign")) || TextUtils.isEmpty(urlParamsToMap.get("cmd")) || TextUtils.isEmpty(urlParamsToMap.get(KEY_QR_LOGIN_LP))) ? false : true;
         }
         return false;
     }
@@ -811,7 +812,7 @@ public class SapiUtils {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", "tpl"}) {
+        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", TableDefine.PaSubscribeColumns.COLUMN_TPL}) {
             if (!str.contains(str2)) {
                 return null;
             }
@@ -887,16 +888,16 @@ public class SapiUtils {
                 case 10006:
                     event = GIDEvent.SYSTEM_SCREEN_ON;
                     break;
-                case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE /* 11001 */:
+                case 11001:
                     event = GIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE;
                     break;
-                case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_MOB_TO_WIFI /* 11002 */:
+                case 11002:
                     event = GIDEvent.SYSTEM_NETWORK_CHANGE_MOB_TO_WIFI;
                     break;
-                case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_WIFI_TO_MOB /* 11003 */:
+                case 11003:
                     event = GIDEvent.SYSTEM_NETWORK_CHANGE_WIFI_TO_MOB;
                     break;
-                case SapiGIDEvent.TIME_FREQ /* 12001 */:
+                case 12001:
                     event = GIDEvent.TIME_FREQ;
                     break;
             }

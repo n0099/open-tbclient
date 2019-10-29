@@ -3,59 +3,59 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.e;
 /* loaded from: classes.dex */
 public class j<T> extends d<T> {
-    protected final c<T> yD;
+    protected final c<T> nS;
 
     public j(c<T> cVar, e eVar, boolean z) {
         super(eVar, z);
-        this.yD = cVar;
+        this.nS = cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    public g<T> aj(String str) {
-        return this.yD.ae(str);
+    public g<T> W(String str) {
+        return this.nS.V(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public void c(g<T> gVar) {
-        this.yD.b(gVar);
+        this.nS.b(gVar);
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    public void ak(String str) {
-        this.yD.af(str);
+    public void removeByUniqueKey(String str) {
+        this.nS.deleteCacheItem(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    protected void al(String str) {
-        this.yD.c(str, true);
+    protected void removeExpiredItem(String str) {
+        this.nS.addItemIdToDeleteList(str, true);
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public void an(String str) {
-        this.yD.ag(str);
+    public void clearAndClose(String str) {
+        this.nS.clearAllForNameSpace(str);
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public void ao(final String str) {
-        if (this.ys instanceof e.b) {
-            com.baidu.adp.lib.g.h.iL().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
+    public void startup(final String str) {
+        if (this.nR instanceof e.b) {
+            com.baidu.adp.lib.g.h.ga().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.yD.ai(str);
+                    j.this.nS.performPump(str);
                 }
             });
         }
-        if (this.ys instanceof e.a) {
-            com.baidu.adp.lib.g.h.iL().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
+        if (this.nR instanceof e.a) {
+            com.baidu.adp.lib.g.h.ga().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.yD.ah(str);
+                    j.this.nS.performEvict(str);
                 }
             });
         }
     }
 
-    public c<T> hz() {
-        return this.yD;
+    public c<T> fd() {
+        return this.nS;
     }
 }

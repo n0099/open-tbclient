@@ -1,7 +1,8 @@
 package com.baidu.tieba.personCenter;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.o.a;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
@@ -9,13 +10,13 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* loaded from: classes4.dex */
 public class PersonCenterFragmentStatic {
     static {
-        aJu();
-        a.cjV();
+        aIU();
+        a.chd();
     }
 
-    private static void aJu() {
-        com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.bq("c/u/user/profile", 303012));
+    private static void aIU() {
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PROFILE, ProfileSocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bl(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

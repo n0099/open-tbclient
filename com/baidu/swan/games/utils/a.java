@@ -11,24 +11,24 @@ public class a {
         if (z) {
             e.onSuccess(obj);
         } else {
-            e.L(obj);
+            e.J(obj);
         }
         e.onComplete(obj);
     }
 
     public static void a(com.baidu.swan.games.e.b bVar, JSTypeMismatchException jSTypeMismatchException) {
-        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, fi(jSTypeMismatchException.requiredType), fi(jSTypeMismatchException.actualType)));
+        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, gd(jSTypeMismatchException.requiredType), gd(jSTypeMismatchException.actualType)));
     }
 
     public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
-        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, fi(jSTypeMismatchException.requiredType), fi(jSTypeMismatchException.actualType));
+        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, gd(jSTypeMismatchException.requiredType), gd(jSTypeMismatchException.actualType));
     }
 
-    public static String bj(@NonNull String str, @NonNull String str2) {
+    public static String bq(@NonNull String str, @NonNull String str2) {
         return String.format("%s: %s", str, str2);
     }
 
-    private static String fi(int i) {
+    private static String gd(int i) {
         switch (i) {
             case 1:
                 return "boolean";

@@ -4,10 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.mobstat.Config;
-import com.tencent.connect.common.Constants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -18,11 +19,11 @@ public class y implements Runnable {
     private int b = 3;
     private int c;
     private boolean d;
-    private a.C0032a e;
+    private a.C0036a e;
 
-    public y(Context context, a.C0032a c0032a) {
+    public y(Context context, a.C0036a c0036a) {
         this.a = context.getApplicationContext();
-        this.e = c0032a;
+        this.e = c0036a;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.io.Closeable[] */
@@ -45,7 +46,7 @@ public class y implements Runnable {
                         if (jSONObject != null) {
                             String string = jSONObject.getString("channel_id");
                             String string2 = com.baidu.android.pushservice.g.f() ? jSONObject.getString("rsa_channel_token") : jSONObject.getString("channel_token");
-                            jSONObject.getString(Constants.PARAM_EXPIRES_TIME);
+                            jSONObject.getString("expires_time");
                             if (com.baidu.android.pushservice.b.d.b(this.a)) {
                                 str = jSONObject.optString("new_channel_id");
                                 str2 = com.baidu.android.pushservice.g.f() ? jSONObject.optString("new_rsa_channel_token") : jSONObject.optString("new_channel_token");
@@ -113,7 +114,7 @@ public class y implements Runnable {
         if (com.baidu.android.pushservice.g.f()) {
             hashMap.put("rsa_device_id", com.baidu.android.pushservice.j.b.a(BaiduAppSSOJni.encryptR(deviceID.getBytes(), 1), "utf-8"));
         } else {
-            hashMap.put("device_id", deviceID);
+            hashMap.put(Constants.KEY_DEVICE_ID, deviceID);
         }
         hashMap.put("device_name", Build.MODEL);
         int b = com.baidu.android.pushservice.i.i.b(this.a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", -1);
@@ -124,7 +125,7 @@ public class y implements Runnable {
         } else if (b == 1) {
             hashMap.put("access_token", a);
         } else {
-            hashMap.put("apikey", a);
+            hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, a);
         }
         if (com.baidu.android.pushservice.b.d.b(this.a)) {
             hashMap.put("mode", t.a(this.a) + "");

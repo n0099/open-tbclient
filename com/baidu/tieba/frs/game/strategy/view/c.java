@@ -8,40 +8,40 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private b fIz;
-    private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private BdTypeListView mListView;
-    private com.baidu.adp.base.e mPageContext;
+    private final List<com.baidu.adp.widget.ListView.a> agQ = new ArrayList();
+    private com.baidu.adp.base.e cfJ;
+    private BdTypeListView dvB;
+    private b fHQ;
 
     public c(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView) {
-        this.mPageContext = eVar;
-        this.mListView = bdTypeListView;
-        initAdapters();
+        this.cfJ = eVar;
+        this.dvB = bdTypeListView;
+        sX();
     }
 
-    private void initAdapters() {
-        this.fIz = new b((TbPageContext) this.mPageContext, com.baidu.tieba.frs.game.strategy.data.b.fHI);
-        this.mAdapters.add(this.fIz);
-        this.mListView.addAdapters(this.mAdapters);
+    private void sX() {
+        this.fHQ = new b((TbPageContext) this.cfJ, com.baidu.tieba.frs.game.strategy.data.b.fGX);
+        this.agQ.add(this.fHQ);
+        this.dvB.addAdapters(this.agQ);
     }
 
     public void setData(List<m> list) {
-        if (this.mListView != null) {
-            this.mListView.setData(list);
+        if (this.dvB != null) {
+            this.dvB.setData(list);
         }
     }
 
-    public void a(s sVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
+    public void b(s sVar) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.agQ) {
             if (aVar != null) {
-                aVar.setOnAdapterItemClickListener(sVar);
+                aVar.a(sVar);
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.mListView.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.mListView.getAdapter().notifyDataSetChanged();
+        if (this.dvB.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.dvB.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class y implements Iterator<Integer> {
-    public abstract int cOI();
+    public abstract int cMP();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class y implements Iterator<Integer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cOH */
+    /* renamed from: cMO */
     public final Integer next() {
-        return Integer.valueOf(cOI());
+        return Integer.valueOf(cMP());
     }
 }

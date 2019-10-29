@@ -1,5 +1,6 @@
 package com.meizu.cloud.pushsdk.b.c;
 
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
@@ -46,9 +47,9 @@ public class i {
                 throw new IllegalArgumentException("url == null");
             }
             if (str.regionMatches(true, 0, "ws:", 0, 3)) {
-                str = "http:" + str.substring(3);
+                str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
             } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
-                str = "https:" + str.substring(4);
+                str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
             }
             f c = f.c(str);
             if (c == null) {

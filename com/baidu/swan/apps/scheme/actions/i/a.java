@@ -15,11 +15,11 @@ import org.json.JSONObject;
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static JSONObject hj(String str) {
-        return ay(str, "");
+    public static JSONObject hM(String str) {
+        return aG(str, "");
     }
 
-    public static JSONObject ay(String str, String str2) {
+    public static JSONObject aG(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("wvID", str);
@@ -34,7 +34,7 @@ public final class a {
         return jSONObject;
     }
 
-    public static JSONObject s(String str, String str2, String str3) {
+    public static JSONObject y(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("wvID", str);
@@ -52,7 +52,7 @@ public final class a {
 
     public static void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar, String str, String str2, String str3) {
         if (bVar != null && !TextUtils.isEmpty(str3)) {
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(s(str, bVar.gL(aa.is(str2)), str2), 0).toString(), str3);
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(y(str, bVar.hp(aa.iV(str2)), str2), 0).toString(), str3);
         }
     }
 
@@ -83,35 +83,35 @@ public final class a {
     }
 
     public static void a(com.baidu.swan.apps.b.c.c cVar, com.baidu.swan.apps.model.b bVar) {
-        com.baidu.swan.apps.performance.e.am("route", "createAndLoadPage start.");
-        String x = ac.x(bVar.mBaseUrl, bVar.azQ, bVar.mParams);
-        com.baidu.swan.apps.ae.a.d ff = com.baidu.swan.apps.w.e.GJ().ff(bVar.azQ);
+        com.baidu.swan.apps.performance.e.au("route", "createAndLoadPage start.");
+        String B = ac.B(bVar.mBaseUrl, bVar.aTe, bVar.mParams);
+        com.baidu.swan.apps.ae.a.d fM = com.baidu.swan.apps.w.e.LD().fM(bVar.aTe);
         com.baidu.swan.apps.core.j.b bVar2 = new com.baidu.swan.apps.core.j.b();
-        bVar2.auA = bVar.mBaseUrl;
-        bVar2.auH = com.baidu.swan.apps.model.b.f(bVar);
-        bVar2.auI = ff.aRX;
-        bVar2.auE = String.valueOf(com.baidu.swan.apps.console.a.yh());
-        if (com.baidu.swan.apps.ae.b.Mh() != null) {
-            String gN = com.baidu.swan.apps.ae.b.Mh().gN(bVar.azQ);
-            if (!TextUtils.isEmpty(gN)) {
+        bVar2.aNR = bVar.mBaseUrl;
+        bVar2.aNY = com.baidu.swan.apps.model.b.f(bVar);
+        bVar2.aNZ = fM.blb;
+        bVar2.aNV = String.valueOf(com.baidu.swan.apps.console.a.Dc());
+        if (com.baidu.swan.apps.ae.b.QZ() != null) {
+            String hr = com.baidu.swan.apps.ae.b.QZ().hr(bVar.aTe);
+            if (!TextUtils.isEmpty(hr)) {
                 if (DEBUG) {
-                    Log.d("ActionUtils", "add initData: " + gN);
+                    Log.d("ActionUtils", "add initData: " + hr);
                 }
-                bVar2.auJ = gN;
+                bVar2.aOa = hr;
             }
         }
-        bVar2.auG = DEBUG || com.baidu.swan.apps.w.e.GJ().Gq();
-        com.baidu.swan.apps.w.e.GJ().a(cVar.xz(), com.baidu.swan.apps.core.j.b.b(bVar2));
-        com.baidu.swan.apps.core.i.b.a(x, cVar);
-        com.baidu.swan.apps.performance.e.am("route", "createAndLoadPage end.");
+        bVar2.aNX = DEBUG || com.baidu.swan.apps.w.e.LD().Lk();
+        com.baidu.swan.apps.w.e.LD().a(cVar.Ct(), com.baidu.swan.apps.core.j.b.b(bVar2));
+        com.baidu.swan.apps.core.i.b.a(B, cVar);
+        com.baidu.swan.apps.performance.e.au("route", "createAndLoadPage end.");
     }
 
-    public static void t(String str, String str2, @NonNull String str3) {
+    public static void z(String str, String str2, @NonNull String str3) {
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put("from", str2);
         }
         hashMap.put("url", str3);
-        com.baidu.swan.apps.w.e.GJ().a(new com.baidu.swan.apps.m.a.b(str, hashMap));
+        com.baidu.swan.apps.w.e.LD().a(new com.baidu.swan.apps.m.a.b(str, hashMap));
     }
 }

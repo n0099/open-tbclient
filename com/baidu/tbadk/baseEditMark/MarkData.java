@@ -1,8 +1,6 @@
 package com.baidu.tbadk.baseEditMark;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.appsearchlib.Info;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -297,7 +295,7 @@ public class MarkData implements Serializable {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.mThreadId);
-            jSONObject.put(Info.kBaiduPIDKey, this.mPostId);
+            jSONObject.put("pid", this.mPostId);
             if (this.mSequence) {
                 i = 1;
             } else {
@@ -326,7 +324,7 @@ public class MarkData implements Serializable {
             this.mUesrId = jSONObject.optJSONObject("author").optString("lz_uid");
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
-            this.mNewCounts = jSONObject.optInt(Config.TRACE_VISIT_RECENT_COUNT);
+            this.mNewCounts = jSONObject.optInt("count");
             this.isShareThread = jSONObject.optInt("is_share_thread", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("origin_thread_info");
             if (this.isShareThread) {
@@ -338,9 +336,9 @@ public class MarkData implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 String optString = optJSONArray.getJSONObject(0).optString("type");
-                if (aq.bV(optString, "pic")) {
+                if (aq.equals(optString, "pic")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("small_pic");
-                } else if (aq.bV(optString, "flash")) {
+                } else if (aq.equals(optString, "flash")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("vpic");
                 }
             }

@@ -5,41 +5,41 @@ import com.baidu.tbadk.core.data.bh;
 import tbclient.NewHottopic.TopicThread;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gos = BdUniqueId.gen();
-    public long got;
-    public int gou;
-    public boolean gov;
+    public static final BdUniqueId gnR = BdUniqueId.gen();
+    public bh cbq;
+    public long gnS;
+    public int gnT;
+    public boolean gnU;
     public int source;
-    public bh threadData;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gos;
+        return gnR;
     }
 
     public void a(TopicThread topicThread) {
         if (topicThread != null) {
-            this.got = topicThread.feed_id.longValue();
+            this.gnS = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.threadData = new bh();
-                this.threadData.a(topicThread.thread_info);
-                this.threadData.afs();
+                this.cbq = new bh();
+                this.cbq.a(topicThread.thread_info);
+                this.cbq.ajw();
             }
-            this.gou = topicThread.user_agree.intValue();
+            this.gnT = topicThread.user_agree.intValue();
             this.source = topicThread.source.intValue();
         }
     }
 
     public void a(tbclient.NewTopicThread.TopicThread topicThread) {
         if (topicThread != null) {
-            this.got = topicThread.feed_id.longValue();
+            this.gnS = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.threadData = new bh();
-                this.threadData.a(topicThread.thread_info);
-                this.threadData.afs();
+                this.cbq = new bh();
+                this.cbq.a(topicThread.thread_info);
+                this.cbq.ajw();
             }
-            this.gou = Integer.parseInt(topicThread.user_agree);
+            this.gnT = Integer.parseInt(topicThread.user_agree);
             this.source = topicThread.source.intValue();
         }
     }

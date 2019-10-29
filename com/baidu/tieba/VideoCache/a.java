@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<d> cVN = new ArrayList();
-    private long cVO = 0;
+    private List<d> dfi = new ArrayList();
+    private long dfj = 0;
 
-    public List<d> aCh() {
-        return this.cVN;
+    public List<d> aCq() {
+        return this.dfi;
     }
 
-    public long aCi() {
-        return this.cVO;
+    public long aCr() {
+        return this.dfj;
     }
 
     public void a(d dVar) {
-        if (this.cVN != null) {
-            this.cVN.add(dVar);
+        if (this.dfi != null) {
+            this.dfi.add(dVar);
             if (dVar != null) {
-                this.cVO += dVar.aCr();
+                this.dfj += dVar.aCA();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.cVN != null) {
-            this.cVN.remove(dVar);
+        if (this.dfi != null) {
+            this.dfi.remove(dVar);
             if (dVar != null) {
-                this.cVO -= dVar.aCr();
+                this.dfj -= dVar.aCA();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.cVN != null) {
-            d dVar = this.cVN.get(i);
+        if (this.dfi != null) {
+            d dVar = this.dfi.get(i);
             if (dVar != null) {
-                this.cVO -= dVar.aCr();
+                this.dfj -= dVar.aCA();
             }
-            this.cVN.remove(i);
+            this.dfi.remove(i);
         }
     }
 
-    public int aCj() {
-        if (this.cVN != null) {
-            return this.cVN.size();
+    public int aCs() {
+        if (this.dfi != null) {
+            return this.dfi.size();
         }
         return 0;
     }
 
-    public d mo(int i) {
-        if (this.cVN != null) {
-            return this.cVN.get(i);
+    public d lt(int i) {
+        if (this.dfi != null) {
+            return this.dfi.get(i);
         }
         return null;
     }

@@ -22,179 +22,179 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 /* loaded from: classes.dex */
 public class SwipeBackLayout extends FrameLayout {
-    private ViewGroup OR;
-    private int OT;
-    private boolean OU;
-    private boolean OV;
-    private boolean OW;
-    private boolean OX;
-    private boolean OY;
-    private int OZ;
-    private int Pa;
-    private Rect Pb;
-    private int Pc;
-    private float Pd;
-    private boolean Pe;
-    private boolean Pf;
-    private b Pg;
     private int mActivePointerId;
     private Activity mActivity;
+    private int mAlphaBgColor;
+    private Rect mColorRect;
     private View mContentView;
+    private int mCurMotionX;
     private float mDownX;
     private int mFlingDistance;
+    private boolean mIsFinish;
+    private boolean mIsScrolling;
+    private boolean mIsSilding;
+    private boolean mIsSupportNight;
+    private boolean mIsSwipeBackEnabled;
+    private boolean mIsTouchModeMargin;
     private float mLastMotionX;
     private float mLastMotionY;
+    private int mMarginThreshold;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
+    private int mMoveDistance;
+    private ViewGroup mRealContentView;
     private Scroller mScroller;
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
     private int mViewWidth;
+    private float mXVelocity;
+    private boolean zu;
+    private b zv;
 
     /* loaded from: classes.dex */
     public interface b {
-        void au(boolean z);
+        void onSlidingEnd(boolean z);
 
-        void oE();
+        void onSlidingStart();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void oF();
+        void disableSwipeBack();
 
-        void oG();
+        void enableSwipeBack();
     }
 
     public SwipeBackLayout(Context context) {
         super(context);
         this.mActivePointerId = -1;
-        this.OU = false;
-        this.OV = false;
-        this.OW = true;
-        this.OX = false;
-        this.OY = false;
-        this.Pa = 0;
-        this.Pb = new Rect();
-        this.Pe = false;
-        this.Pf = true;
+        this.mIsSilding = false;
+        this.mIsFinish = false;
+        this.mIsSwipeBackEnabled = true;
+        this.mIsScrolling = false;
+        this.mIsTouchModeMargin = false;
+        this.mAlphaBgColor = 0;
+        this.mColorRect = new Rect();
+        this.zu = false;
+        this.mIsSupportNight = true;
         init(context);
     }
 
     public SwipeBackLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mActivePointerId = -1;
-        this.OU = false;
-        this.OV = false;
-        this.OW = true;
-        this.OX = false;
-        this.OY = false;
-        this.Pa = 0;
-        this.Pb = new Rect();
-        this.Pe = false;
-        this.Pf = true;
+        this.mIsSilding = false;
+        this.mIsFinish = false;
+        this.mIsSwipeBackEnabled = true;
+        this.mIsScrolling = false;
+        this.mIsTouchModeMargin = false;
+        this.mAlphaBgColor = 0;
+        this.mColorRect = new Rect();
+        this.zu = false;
+        this.mIsSupportNight = true;
         init(context);
     }
 
     public SwipeBackLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mActivePointerId = -1;
-        this.OU = false;
-        this.OV = false;
-        this.OW = true;
-        this.OX = false;
-        this.OY = false;
-        this.Pa = 0;
-        this.Pb = new Rect();
-        this.Pe = false;
-        this.Pf = true;
+        this.mIsSilding = false;
+        this.mIsFinish = false;
+        this.mIsSwipeBackEnabled = true;
+        this.mIsScrolling = false;
+        this.mIsTouchModeMargin = false;
+        this.mAlphaBgColor = 0;
+        this.mColorRect = new Rect();
+        this.zu = false;
+        this.mIsSupportNight = true;
         init(context);
     }
 
     private void init(Context context) {
-        this.OZ = (int) TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
+        this.mMarginThreshold = (int) TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
         this.mScroller = new Scroller(context, new a(1.5f));
         this.mTouchSlop = ViewConfiguration.get(context.getApplicationContext()).getScaledTouchSlop() * 2;
         this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
-        this.Pc = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
-        this.mFlingDistance = l.af(context) / 4;
+        this.mMoveDistance = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
+        this.mFlingDistance = l.getEquipmentWidth(context) / 4;
     }
 
-    public void w(Activity activity) {
+    public void attachToActivity(Activity activity) {
         try {
             this.mActivity = activity;
             Window window = activity.getWindow();
             window.setBackgroundDrawable(new ColorDrawable(0));
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
-            this.OR = (ViewGroup) viewGroup.getChildAt(0);
-            viewGroup.removeView(this.OR);
-            this.OR.setClickable(true);
-            addView(this.OR);
-            this.mContentView = (View) this.OR.getParent();
+            this.mRealContentView = (ViewGroup) viewGroup.getChildAt(0);
+            viewGroup.removeView(this.mRealContentView);
+            this.mRealContentView.setClickable(true);
+            addView(this.mRealContentView);
+            this.mContentView = (View) this.mRealContentView.getParent();
             viewGroup.addView(this);
         } catch (Exception e) {
-            this.OW = false;
+            this.mIsSwipeBackEnabled = false;
             BdLog.e(e);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.OW) {
-            if (this.Pf && i == 1) {
-                this.OR.setBackgroundResource(R.color.swipe_layout_night_bg);
+        if (this.mIsSwipeBackEnabled) {
+            if (this.mIsSupportNight && i == 1) {
+                this.mRealContentView.setBackgroundResource(R.color.swipe_layout_night_bg);
             } else {
-                this.OR.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
             }
         }
     }
 
-    public void aT(int i) {
-        if (this.Pf && i == 1) {
-            this.OR.setBackgroundResource(R.color.swipe_layout_night_bg);
+    public void forceChangeSkinType(int i) {
+        if (this.mIsSupportNight && i == 1) {
+            this.mRealContentView.setBackgroundResource(R.color.swipe_layout_night_bg);
         } else {
-            this.OR.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
         }
     }
 
     public void setIsSupportNight(boolean z) {
         if (!z) {
-            this.OR.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
         }
-        this.Pf = z;
+        this.mIsSupportNight = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.mContentView != null) {
-            int i = this.OT;
+            int i = this.mCurMotionX;
             int bottom = this.mContentView.getBottom();
-            this.Pb.top = 0;
-            this.Pb.bottom = bottom;
-            this.Pb.left = 0;
-            this.Pb.right = i;
-            canvas.clipRect(this.Pb);
+            this.mColorRect.top = 0;
+            this.mColorRect.bottom = bottom;
+            this.mColorRect.left = 0;
+            this.mColorRect.right = i;
+            canvas.clipRect(this.mColorRect);
             if (this.mViewWidth != 0) {
-                this.Pa = 100 - ((int) (((-this.OT) / this.mViewWidth) * 120.0f));
+                this.mAlphaBgColor = 100 - ((int) (((-this.mCurMotionX) / this.mViewWidth) * 120.0f));
             }
-            if (this.Pa > 100) {
-                this.Pa = 100;
+            if (this.mAlphaBgColor > 100) {
+                this.mAlphaBgColor = 100;
             }
-            if (this.OV) {
-                this.Pa = 0;
+            if (this.mIsFinish) {
+                this.mAlphaBgColor = 0;
             }
-            if (this.Pa < 0) {
-                this.Pa = 0;
+            if (this.mAlphaBgColor < 0) {
+                this.mAlphaBgColor = 0;
             }
-            canvas.drawARGB(this.Pa, 0, 0, 0);
+            canvas.drawARGB(this.mAlphaBgColor, 0, 0, 0);
         }
     }
 
-    private boolean n(MotionEvent motionEvent) {
+    private boolean l(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & 255;
-        if ((action == 1 || action == 3) && this.Pe) {
-            this.Pe = false;
-            this.OW = true;
+        if ((action == 1 || action == 3) && this.zu) {
+            this.zu = false;
+            this.mIsSwipeBackEnabled = true;
             return true;
         }
         return false;
@@ -203,16 +203,16 @@ public class SwipeBackLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        n(motionEvent);
+        l(motionEvent);
         return dispatchTouchEvent;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.OW) {
+        if (!this.mIsSwipeBackEnabled) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.OV || this.OX) {
+        if (this.mIsFinish || this.mIsScrolling) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction() & 255;
@@ -224,7 +224,7 @@ public class SwipeBackLayout extends FrameLayout {
             case 0:
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
-                if (!a(motionEvent, actionIndex, this.mActivePointerId)) {
+                if (!isInvalidEvent(motionEvent, actionIndex, this.mActivePointerId)) {
                     this.mLastMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.mLastMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
                     this.mDownX = MotionEventCompat.getX(motionEvent, actionIndex);
@@ -232,15 +232,15 @@ public class SwipeBackLayout extends FrameLayout {
                 }
                 break;
             case 2:
-                o(motionEvent);
+                determineDrag(motionEvent);
                 break;
         }
-        return this.OU;
+        return this.mIsSilding;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.OV || this.OX) {
+        if (this.mIsFinish || this.mIsScrolling) {
             return super.onTouchEvent(motionEvent);
         }
         if (this.mVelocityTracker == null) {
@@ -249,7 +249,7 @@ public class SwipeBackLayout extends FrameLayout {
         this.mVelocityTracker.addMovement(motionEvent);
         switch (motionEvent.getAction() & 255) {
             case 0:
-                oD();
+                completeScroll();
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                 this.mLastMotionX = motionEvent.getX();
@@ -258,42 +258,42 @@ public class SwipeBackLayout extends FrameLayout {
             case 1:
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                this.Pd = velocityTracker.getXVelocity();
-                int p = p(motionEvent);
+                this.mXVelocity = velocityTracker.getXVelocity();
+                int diffX = getDiffX(motionEvent);
                 endDrag();
-                if (Math.abs(this.Pd) > this.mMinimumVelocity && p > this.mFlingDistance) {
-                    if (this.Pd > 0.0f) {
-                        this.OV = true;
-                        oB();
+                if (Math.abs(this.mXVelocity) > this.mMinimumVelocity && diffX > this.mFlingDistance) {
+                    if (this.mXVelocity > 0.0f) {
+                        this.mIsFinish = true;
+                        scrollRight();
                     } else {
-                        oC();
-                        this.OV = false;
+                        scrollOrigin();
+                        this.mIsFinish = false;
                     }
-                    if (this.Pg != null) {
-                        this.Pg.au(this.OV);
+                    if (this.zv != null) {
+                        this.zv.onSlidingEnd(this.mIsFinish);
                         return true;
                     }
                     return true;
                 }
                 if (this.mContentView.getScrollX() <= (-this.mViewWidth) / 2) {
-                    this.OV = true;
-                    oB();
+                    this.mIsFinish = true;
+                    scrollRight();
                 } else {
-                    oC();
-                    this.OV = false;
+                    scrollOrigin();
+                    this.mIsFinish = false;
                 }
-                if (this.Pg != null) {
-                    this.Pg.au(this.OV);
+                if (this.zv != null) {
+                    this.zv.onSlidingEnd(this.mIsFinish);
                     break;
                 }
                 break;
             case 2:
-                if (!this.OU) {
-                    o(motionEvent);
+                if (!this.mIsSilding) {
+                    determineDrag(motionEvent);
                 }
-                if (this.OU) {
+                if (this.mIsSilding) {
                     int pointerIndex = getPointerIndex(motionEvent, this.mActivePointerId);
-                    if (!a(motionEvent, pointerIndex, this.mActivePointerId)) {
+                    if (!isInvalidEvent(motionEvent, pointerIndex, this.mActivePointerId)) {
                         float x = MotionEventCompat.getX(motionEvent, pointerIndex);
                         this.mLastMotionX = x;
                         float scrollX = (this.mLastMotionX - x) + getScrollX();
@@ -302,7 +302,7 @@ public class SwipeBackLayout extends FrameLayout {
                             f = scrollX > 0.0f ? 0.0f : scrollX;
                         }
                         this.mLastMotionX += f - ((int) f);
-                        this.OT = (int) f;
+                        this.mCurMotionX = (int) f;
                         this.mContentView.scrollTo((int) f, getScrollY());
                         break;
                     }
@@ -315,19 +315,19 @@ public class SwipeBackLayout extends FrameLayout {
         return super.onTouchEvent(motionEvent);
     }
 
-    private void o(MotionEvent motionEvent) {
+    private void determineDrag(MotionEvent motionEvent) {
         int i = this.mActivePointerId;
         int pointerIndex = getPointerIndex(motionEvent, i);
-        if (!a(motionEvent, pointerIndex, i)) {
+        if (!isInvalidEvent(motionEvent, pointerIndex, i)) {
             float x = MotionEventCompat.getX(motionEvent, pointerIndex);
             float f = x - this.mLastMotionX;
             float abs = Math.abs(f);
             float y = MotionEventCompat.getY(motionEvent, pointerIndex);
             float abs2 = Math.abs(y - this.mLastMotionY);
-            if (f > 0.0f && abs > this.Pc && abs > abs2) {
-                this.OU = true;
-                if (this.Pg != null) {
-                    this.Pg.oE();
+            if (f > 0.0f && abs > this.mMoveDistance && abs > abs2) {
+                this.mIsSilding = true;
+                if (this.zv != null) {
+                    this.zv.onSlidingStart();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -335,22 +335,22 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    private int p(MotionEvent motionEvent) {
+    private int getDiffX(MotionEvent motionEvent) {
         int i = this.mActivePointerId;
         int pointerIndex = getPointerIndex(motionEvent, i);
-        if (a(motionEvent, pointerIndex, i)) {
+        if (isInvalidEvent(motionEvent, pointerIndex, i)) {
             return 0;
         }
         return (int) Math.abs(MotionEventCompat.getX(motionEvent, pointerIndex) - this.mDownX);
     }
 
     private void endDrag() {
-        this.OU = false;
+        this.mIsSilding = false;
         this.mActivePointerId = -1;
         releaseVelocityTracker();
     }
 
-    private boolean a(MotionEvent motionEvent, int i, int i2) {
+    private boolean isInvalidEvent(MotionEvent motionEvent, int i, int i2) {
         return motionEvent == null || i2 == -1 || i == -1 || i >= motionEvent.getPointerCount();
     }
 
@@ -370,20 +370,20 @@ public class SwipeBackLayout extends FrameLayout {
         return findPointerIndex;
     }
 
-    private void oB() {
-        this.OX = true;
+    private void scrollRight() {
+        this.mIsScrolling = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, (-(this.mViewWidth + this.mContentView.getScrollX())) + 1, 0);
         postInvalidate();
     }
 
-    private void oC() {
-        this.OX = true;
+    private void scrollOrigin() {
+        this.mIsScrolling = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0);
         postInvalidate();
     }
 
-    private void oD() {
-        if (this.OX) {
+    private void completeScroll() {
+        if (this.mIsScrolling) {
             this.mScroller.abortAnimation();
             int scrollX = getScrollX();
             int scrollY = getScrollY();
@@ -393,7 +393,7 @@ public class SwipeBackLayout extends FrameLayout {
                 this.mContentView.scrollTo(currX, currY);
             }
         }
-        this.OX = false;
+        this.mIsScrolling = false;
     }
 
     @Override // android.view.View
@@ -408,12 +408,12 @@ public class SwipeBackLayout extends FrameLayout {
             }
             invalidate();
         }
-        if (this.mScroller.isFinished() && this.OV) {
+        if (this.mScroller.isFinished() && this.mIsFinish) {
             this.mActivity.finish();
             this.mActivity.overridePendingTransition(0, 0);
         }
         if (this.mScroller.isFinished()) {
-            oD();
+            completeScroll();
         }
     }
 
@@ -426,36 +426,36 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void disableSwipeJustOnce() {
-        this.Pe = true;
-        this.OW = false;
+        this.zu = true;
+        this.mIsSwipeBackEnabled = false;
     }
 
     public boolean isSwipeBackEnabled() {
-        return this.OW;
+        return this.mIsSwipeBackEnabled;
     }
 
     public void setSwipeBackEnabled(boolean z) {
-        this.OW = z;
+        this.mIsSwipeBackEnabled = z;
     }
 
     public void setBgTransparent() {
-        if (this.OR != null) {
-            this.OR.setBackgroundResource(R.color.transparent);
+        if (this.mRealContentView != null) {
+            this.mRealContentView.setBackgroundResource(R.color.transparent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Interpolator {
-        private final float Ph;
+        private final float mFactor;
 
         public a(float f) {
-            this.Ph = f;
+            this.mFactor = f;
         }
 
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f) {
-            float f2 = this.Ph * f;
+            float f2 = this.mFactor * f;
             if (f2 > 0.9d) {
                 return 1.0f;
             }
@@ -464,6 +464,6 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setOnSlidingStateChangeListener(b bVar) {
-        this.Pg = bVar;
+        this.zv = bVar;
     }
 }

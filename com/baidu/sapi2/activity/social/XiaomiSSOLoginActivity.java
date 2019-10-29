@@ -3,6 +3,8 @@ package com.baidu.sapi2.activity.social;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.d.a.a.a.a;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
@@ -87,7 +89,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         JSONObject jSONObject;
         String optString;
         XiaomiOAuthFuture callOpenApi = new XiaomiOAuthorize().callOpenApi(sapiConfiguration.context, sapiConfiguration.xiaomiAppID.longValue(), str, xiaomiOAuthResults.getAccessToken(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm());
-        String str2 = "/user/profile".equals(str) ? "userId" : "phone";
+        String str2 = "/user/profile".equals(str) ? TbEnum.SystemMessage.KEY_USER_ID : "phone";
         try {
             jSONObject = new JSONObject((String) callOpenApi.getResult());
             optString = jSONObject.optString("result");
@@ -97,7 +99,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         if ("ok".equals(optString)) {
             return jSONObject.getJSONObject("data").optString(str2);
         }
-        if ("error".equals(optString)) {
+        if (BdStatsConstant.StatsType.ERROR.equals(optString)) {
             Log.e(jSONObject.optString("description") + "(" + jSONObject.optString("code") + ")", new Object[0]);
         }
         return null;

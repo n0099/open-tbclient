@@ -1,5 +1,6 @@
 package kotlin.io;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import java.io.IOException;
 import kotlin.jvm.internal.o;
@@ -33,7 +34,7 @@ public class FileSystemException extends IOException {
     public FileSystemException(File file, File file2, String str) {
         super(r0);
         String b;
-        p.k(file, "file");
+        p.i(file, BdStatsConstant.OpSubType.FILE);
         b = b.b(file, file2, str);
         this.file = file;
         this.other = file2;

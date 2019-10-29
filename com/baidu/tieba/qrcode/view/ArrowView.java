@@ -11,11 +11,11 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class ArrowView extends View {
-    private static int iHL = 20;
-    private static int iHM = 13;
+    private static int iGh = 20;
+    private static int iGi = 13;
     private int height;
-    private Path lR;
     private Paint paint;
+    private Path path;
     private int width;
 
     public ArrowView(Context context) {
@@ -29,12 +29,12 @@ public class ArrowView extends View {
     }
 
     private void init(Context context) {
-        iHL = l.g(context, R.dimen.tbds20);
-        iHM = l.g(context, R.dimen.tbds13);
+        iGh = l.getDimens(context, R.dimen.tbds20);
+        iGi = l.getDimens(context, R.dimen.tbds13);
         this.paint = new Paint();
         this.paint.setColor(context.getResources().getColor(R.color.cp_bg_line_d));
         this.paint.setAntiAlias(true);
-        this.lR = new Path();
+        this.path = new Path();
     }
 
     @Override // android.view.View
@@ -45,11 +45,11 @@ public class ArrowView extends View {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(iHL, iHM);
+            setMeasuredDimension(iGh, iGi);
         } else if (mode == Integer.MIN_VALUE) {
-            setMeasuredDimension(iHL, size2);
+            setMeasuredDimension(iGh, size2);
         } else if (mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(size, iHM);
+            setMeasuredDimension(size, iGi);
         }
     }
 
@@ -63,11 +63,11 @@ public class ArrowView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.lR.reset();
-        this.lR.moveTo(this.width / 2, 0.0f);
-        this.lR.lineTo(0.0f, this.height);
-        this.lR.lineTo(this.width, this.height);
-        this.lR.close();
-        canvas.drawPath(this.lR, this.paint);
+        this.path.reset();
+        this.path.moveTo(this.width / 2, 0.0f);
+        this.path.lineTo(0.0f, this.height);
+        this.path.lineTo(this.width, this.height);
+        this.path.close();
+        canvas.drawPath(this.path, this.paint);
     }
 }

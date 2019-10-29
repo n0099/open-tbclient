@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumMember.tbtitle.model.req;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes5.dex */
 public class GetLevelInfoReadCacheRequestMessage extends CustomMessage<Object> {
     private String cacheKey;
@@ -14,6 +15,6 @@ public class GetLevelInfoReadCacheRequestMessage extends CustomMessage<Object> {
     }
 
     public GetLevelInfoReadCacheRequestMessage() {
-        super(2003007);
+        super(CmdConfigCustom.CMD_GET_LEVEL_INFO_CACHE);
     }
 }

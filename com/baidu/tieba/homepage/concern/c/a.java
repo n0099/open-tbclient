@@ -14,7 +14,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes4.dex */
 public class a {
-    private final c gfL = new c();
+    private final c gfi = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         int i2;
@@ -35,121 +35,121 @@ public class a {
         for (ConcernData concernData : builder.thread_info) {
             if (concernData != null) {
                 bh bhVar = new bh();
-                bhVar.dP(true);
+                bhVar.ef(true);
                 bhVar.a(concernData.thread_list);
-                if ((k.X(bhVar) || l.X(bhVar)) && bhVar.getType() != bh.bKe) {
-                    int[] agv = bhVar.agv();
-                    k ar = d.ar(bhVar);
-                    if (ar != null) {
-                        ar.tid = bhVar.getTid();
-                        ar.position = i3;
-                        d.a(ar);
+                if ((k.V(bhVar) || l.V(bhVar)) && bhVar.getType() != bh.cbM) {
+                    int[] imageWidthAndHeight = bhVar.getImageWidthAndHeight();
+                    k ap = d.ap(bhVar);
+                    if (ap != null) {
+                        ap.tid = bhVar.getTid();
+                        ap.position = i3;
+                        d.a(ap);
                     }
-                    if (k.X(bhVar)) {
-                        ar.vZ("1");
-                    } else if (l.X(bhVar)) {
-                        ar.vZ("2");
+                    if (k.V(bhVar)) {
+                        ap.uC("1");
+                    } else if (l.V(bhVar)) {
+                        ap.uC("2");
                     }
-                    if (ar != null && ar.isValid()) {
-                        linkedList.add(ar);
+                    if (ap != null && ap.isValid()) {
+                        linkedList.add(ap);
                     }
-                    com.baidu.tieba.card.data.c aq = d.aq(bhVar);
-                    if (aq != null) {
-                        aq.tid = bhVar.getTid();
-                        aq.position = i3;
-                        if (aq instanceof k) {
-                            if (bhVar.afA() == 1) {
-                                d.b(aq);
-                                aq.bJJ = agv[0];
-                                aq.bJK = agv[1];
-                            } else if (bhVar.afA() >= 2) {
-                                d.c(aq);
+                    com.baidu.tieba.card.data.c ao = d.ao(bhVar);
+                    if (ao != null) {
+                        ao.tid = bhVar.getTid();
+                        ao.position = i3;
+                        if (ao instanceof k) {
+                            if (bhVar.ajE() == 1) {
+                                d.b(ao);
+                                ao.cbr = imageWidthAndHeight[0];
+                                ao.cbs = imageWidthAndHeight[1];
+                            } else if (bhVar.ajE() >= 2) {
+                                d.c(ao);
                             } else {
-                                d.d(aq);
+                                d.d(ao);
                             }
-                        } else if (aq instanceof l) {
-                            d.e(aq);
+                        } else if (ao instanceof l) {
+                            d.e(ao);
                         }
                     }
-                    if (k.X(bhVar)) {
-                        aq.vZ("1");
-                    } else if (l.X(bhVar)) {
-                        aq.vZ("2");
+                    if (k.V(bhVar)) {
+                        ao.uC("1");
+                    } else if (l.V(bhVar)) {
+                        ao.uC("2");
                     }
-                    if (aq != null && aq.isValid()) {
-                        linkedList.add(aq);
+                    if (ao != null && ao.isValid()) {
+                        linkedList.add(ao);
                     }
-                    k ar2 = d.ar(bhVar);
-                    if (ar2 != null) {
-                        ar2.tid = bhVar.getTid();
-                        ar2.position = i3;
-                        d.f(ar2);
+                    k ap2 = d.ap(bhVar);
+                    if (ap2 != null) {
+                        ap2.tid = bhVar.getTid();
+                        ap2.position = i3;
+                        d.f(ap2);
                     }
-                    if (k.X(bhVar)) {
-                        ar2.vZ("1");
-                    } else if (l.X(bhVar)) {
-                        ar2.vZ("2");
+                    if (k.V(bhVar)) {
+                        ap2.uC("1");
+                    } else if (l.V(bhVar)) {
+                        ap2.uC("2");
                     }
-                    if (ar2 != null && ar2.isValid()) {
-                        linkedList.add(ar2);
+                    if (ap2 != null && ap2.isValid()) {
+                        linkedList.add(ap2);
                     }
                     if (concernData.thread_list.top_agree_post != null) {
-                        k ar3 = d.ar(bhVar);
-                        if (ar3 != null) {
-                            ar3.tid = bhVar.getTid();
-                            ar3.position = i3;
-                            d.g(ar3);
+                        k ap3 = d.ap(bhVar);
+                        if (ap3 != null) {
+                            ap3.tid = bhVar.getTid();
+                            ap3.position = i3;
+                            d.g(ap3);
                         }
-                        if (k.X(bhVar)) {
-                            ar3.vZ("1");
-                        } else if (l.X(bhVar)) {
-                            ar3.vZ("2");
+                        if (k.V(bhVar)) {
+                            ap3.uC("1");
+                        } else if (l.V(bhVar)) {
+                            ap3.uC("2");
                         }
-                        if (ar3 != null && ar3.isValid()) {
-                            linkedList.add(ar3);
+                        if (ap3 != null && ap3.isValid()) {
+                            linkedList.add(ap3);
                         }
                     }
-                    k ar4 = d.ar(bhVar);
-                    if (ar4 != null) {
-                        ar4.tid = bhVar.getTid();
-                        ar4.position = i3;
-                        d.h(ar4);
+                    k ap4 = d.ap(bhVar);
+                    if (ap4 != null) {
+                        ap4.tid = bhVar.getTid();
+                        ap4.position = i3;
+                        d.h(ap4);
                     }
-                    if (bhVar.getType() == bh.bJM) {
-                        ar4.vZ("1");
-                    } else if (l.X(bhVar)) {
-                        ar4.vZ("2");
+                    if (bhVar.getType() == bh.cbu) {
+                        ap4.uC("1");
+                    } else if (l.V(bhVar)) {
+                        ap4.uC("2");
                     }
-                    if (ar4 != null && ar4.isValid()) {
-                        linkedList.add(ar4);
+                    if (ap4 != null && ap4.isValid()) {
+                        linkedList.add(ap4);
                     }
                 } else if (bhVar.isShareThread) {
                     k kVar = new k();
-                    kVar.threadData = bhVar;
+                    kVar.cbq = bhVar;
                     linkedList.add(kVar);
-                } else if (l.X(bhVar)) {
+                } else if (l.V(bhVar)) {
                     l lVar = new l(bhVar);
                     lVar.tid = bhVar.getTid();
-                    lVar.pO(concernData.source.intValue());
+                    lVar.oQ(concernData.source.intValue());
                     if (lVar.isValid()) {
                         linkedList.add(lVar);
                     }
-                } else if (j.X(bhVar)) {
+                } else if (j.V(bhVar)) {
                     j jVar = new j(bhVar);
                     if (jVar != null) {
                         jVar.tid = bhVar.getTid();
-                        jVar.vZ("3");
+                        jVar.uC("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
                     }
                 } else {
                     k kVar2 = new k();
-                    kVar2.threadData = bhVar;
-                    kVar2.vZ(kVar2.threadData.isLinkThread() ? "4" : "1");
+                    kVar2.cbq = bhVar;
+                    kVar2.uC(kVar2.cbq.isLinkThread() ? "4" : "1");
                     kVar2.isLinkThread = false;
-                    kVar2.pO(concernData.source.intValue());
-                    if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
+                    kVar2.oQ(concernData.source.intValue());
+                    if (kVar2.cbq != null && kVar2.isValid() && !StringUtils.isNull(kVar2.cbq.getId()) && !"0".equals(kVar2.cbq.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
@@ -159,8 +159,8 @@ public class a {
             }
             i3 = i2;
         }
-        this.gfL.cSs = linkedList;
-        return this.gfL;
+        this.gfi.dbM = linkedList;
+        return this.gfi;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -171,7 +171,7 @@ public class a {
 
     private void a(boolean z, List<ConcernData> list, List<ConcernData> list2, int i) {
         if (list != null && list2 != null) {
-            int Z = v.Z(list);
+            int count = v.getCount(list);
             if (i == 1) {
                 for (ConcernData concernData : list2) {
                     if (concernData != null && concernData.thread_list.tid != null) {
@@ -180,14 +180,14 @@ public class a {
                 }
             } else {
                 list.clear();
-                for (int Z2 = v.Z(list2) - 1; Z2 >= 0; Z2--) {
-                    ConcernData concernData2 = (ConcernData) v.c(list2, Z2);
+                for (int count2 = v.getCount(list2) - 1; count2 >= 0; count2--) {
+                    ConcernData concernData2 = (ConcernData) v.getItem(list2, count2);
                     if (concernData2 != null && concernData2.thread_list.tid != null) {
                         list.add(0, concernData2);
                     }
                 }
             }
-            this.gfL.gns = v.Z(list) - Z;
+            this.gfi.gmR = v.getCount(list) - count;
         }
     }
 

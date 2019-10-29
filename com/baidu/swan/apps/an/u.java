@@ -11,26 +11,26 @@ import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class u {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String baD;
-    private static String baE;
+    private static String btC;
+    private static String btD;
 
-    public static boolean bM(Context context) {
+    public static boolean bN(Context context) {
         if (context == null) {
             return false;
         }
-        if (PA()) {
-            return bN(context);
-        }
-        if (PB()) {
+        if (Uq()) {
             return bO(context);
         }
-        if (PC()) {
+        if (Ur()) {
             return bP(context);
+        }
+        if (Us()) {
+            return bQ(context);
         }
         return false;
     }
 
-    private static boolean bN(@NonNull Context context) {
+    private static boolean bO(@NonNull Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
             return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
@@ -42,7 +42,7 @@ public class u {
         }
     }
 
-    private static boolean bO(@NonNull Context context) {
+    private static boolean bP(@NonNull Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
             return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
@@ -54,67 +54,67 @@ public class u {
         }
     }
 
-    private static boolean bP(@NonNull Context context) {
+    private static boolean bQ(@NonNull Context context) {
         return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
     }
 
-    public static boolean PA() {
+    public static boolean Uq() {
         return check("EMUI");
     }
 
-    public static boolean PB() {
+    public static boolean Ur() {
         return check("VIVO");
     }
 
-    public static boolean PC() {
+    public static boolean Us() {
         return check("OPPO");
     }
 
     public static boolean check(String str) {
-        if (baD != null) {
-            return baD.equals(str);
+        if (btC != null) {
+            return btC.equals(str);
         }
-        String gG = gG("ro.miui.ui.version.name");
-        baE = gG;
-        if (!TextUtils.isEmpty(gG)) {
-            baD = "MIUI";
+        String hk = hk("ro.miui.ui.version.name");
+        btD = hk;
+        if (!TextUtils.isEmpty(hk)) {
+            btC = "MIUI";
         } else {
-            String gG2 = gG("ro.build.version.emui");
-            baE = gG2;
-            if (!TextUtils.isEmpty(gG2)) {
-                baD = "EMUI";
+            String hk2 = hk("ro.build.version.emui");
+            btD = hk2;
+            if (!TextUtils.isEmpty(hk2)) {
+                btC = "EMUI";
             } else {
-                String gG3 = gG("ro.build.version.opporom");
-                baE = gG3;
-                if (!TextUtils.isEmpty(gG3)) {
-                    baD = "OPPO";
+                String hk3 = hk("ro.build.version.opporom");
+                btD = hk3;
+                if (!TextUtils.isEmpty(hk3)) {
+                    btC = "OPPO";
                 } else {
-                    String gG4 = gG("ro.vivo.os.version");
-                    baE = gG4;
-                    if (!TextUtils.isEmpty(gG4)) {
-                        baD = "VIVO";
+                    String hk4 = hk("ro.vivo.os.version");
+                    btD = hk4;
+                    if (!TextUtils.isEmpty(hk4)) {
+                        btC = "VIVO";
                     } else {
-                        String gG5 = gG("ro.smartisan.version");
-                        baE = gG5;
-                        if (!TextUtils.isEmpty(gG5)) {
-                            baD = "SMARTISAN";
+                        String hk5 = hk("ro.smartisan.version");
+                        btD = hk5;
+                        if (!TextUtils.isEmpty(hk5)) {
+                            btC = "SMARTISAN";
                         } else {
-                            String gG6 = gG("ro.gn.sv.version");
-                            baE = gG6;
-                            if (!TextUtils.isEmpty(gG6)) {
-                                baD = "SMARTISAN";
+                            String hk6 = hk("ro.gn.sv.version");
+                            btD = hk6;
+                            if (!TextUtils.isEmpty(hk6)) {
+                                btC = "SMARTISAN";
                             } else {
-                                String gG7 = gG("ro.build.rom.id");
-                                baE = gG7;
-                                if (!TextUtils.isEmpty(gG7)) {
-                                    baD = "NUBIA";
+                                String hk7 = hk("ro.build.rom.id");
+                                btD = hk7;
+                                if (!TextUtils.isEmpty(hk7)) {
+                                    btC = "NUBIA";
                                 } else {
-                                    baE = Build.DISPLAY;
-                                    if (baE.toUpperCase().contains("FLYME")) {
-                                        baD = "FLYME";
+                                    btD = Build.DISPLAY;
+                                    if (btD.toUpperCase().contains("FLYME")) {
+                                        btC = "FLYME";
                                     } else {
-                                        baE = "unknown";
-                                        baD = Build.MANUFACTURER.toUpperCase();
+                                        btD = "unknown";
+                                        btC = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
                             }
@@ -123,7 +123,7 @@ public class u {
                 }
             }
         }
-        return baD.equals(str);
+        return btC.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */
@@ -131,7 +131,7 @@ public class u {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String gG(String str) {
+    public static String hk(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {

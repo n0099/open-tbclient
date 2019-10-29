@@ -1,15 +1,13 @@
 package com.baidu.tieba.pb.pb.report;
 
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes4.dex */
 public class UEGReportRequestMessage extends HttpMessage {
     private String mPid;
     private String mTUid;
 
     public UEGReportRequestMessage() {
-        super(CmdConfigHttp.CMD_UEG_REPORT);
+        super(1003402);
     }
 
     public String getPid() {
@@ -18,7 +16,7 @@ public class UEGReportRequestMessage extends HttpMessage {
 
     public void setPid(String str) {
         addParam("category", 1);
-        addParam(Info.kBaiduPIDKey, str);
+        addParam("pid", str);
         this.mPid = str;
     }
 

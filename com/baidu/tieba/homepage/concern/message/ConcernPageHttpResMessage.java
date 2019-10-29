@@ -1,7 +1,6 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.Userlike.DataRes;
 import tbclient.Userlike.UserlikeResIdl;
@@ -10,7 +9,7 @@ public class ConcernPageHttpResMessage extends HttpResponsedMessage {
     private DataRes resultData;
 
     public ConcernPageHttpResMessage() {
-        super(CmdConfigHttp.CMD_CONCERN_PAGE);
+        super(1003343);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

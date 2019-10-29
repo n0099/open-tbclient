@@ -3,6 +3,7 @@ package com.xiaomi.smack.packet;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -118,12 +119,12 @@ public class a implements e {
         StringBuilder sb = new StringBuilder();
         sb.append("<").append(this.a);
         if (!TextUtils.isEmpty(this.b)) {
-            sb.append(" ").append("xmlns=").append("\"").append(this.b).append("\"");
+            sb.append(HanziToPinyin.Token.SEPARATOR).append("xmlns=").append("\"").append(this.b).append("\"");
         }
         if (this.c != null && this.c.length > 0) {
             for (int i = 0; i < this.c.length; i++) {
                 if (!TextUtils.isEmpty(this.d[i])) {
-                    sb.append(" ").append(this.c[i]).append("=\"").append(com.xiaomi.smack.util.d.a(this.d[i])).append("\"");
+                    sb.append(HanziToPinyin.Token.SEPARATOR).append(this.c[i]).append("=\"").append(com.xiaomi.smack.util.d.a(this.d[i])).append("\"");
                 }
             }
         }

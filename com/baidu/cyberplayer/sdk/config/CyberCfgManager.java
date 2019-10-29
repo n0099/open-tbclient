@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
@@ -17,7 +18,6 @@ import com.baidu.cyberplayer.sdk.Utils;
 import com.baidu.cyberplayer.sdk.a.b;
 import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileWriter;
@@ -260,7 +260,7 @@ public class CyberCfgManager {
         Utils.a(sb, "dev_ver", Build.VERSION.SDK_INT);
         Utils.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(b));
         if (!TextUtils.isEmpty(this.d)) {
-            Utils.a(sb, DpStatConstants.KEY_CUID, this.d);
+            Utils.a(sb, "cuid", this.d);
         }
         try {
             Utils.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
@@ -314,7 +314,7 @@ public class CyberCfgManager {
                                 properties.setProperty(entry.getKey(), entry.getValue());
                                 CyberLog.d("CyberCfgManager", "update cloud cfg key:" + entry.getKey() + " value:" + entry.getValue());
                             }
-                            properties.store(fileWriter, "update");
+                            properties.store(fileWriter, IMTrack.DbBuilder.ACTION_UPDATE);
                             fileWriter.close();
                         }
                         if (!file2.renameTo(file) || TextUtils.isEmpty(a3) || a3.equals(CyberCfgManager.this.getPrefStr("cloud_cfg_data_md5", ""))) {

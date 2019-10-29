@@ -1,5 +1,7 @@
 package okhttp3;
 
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -739,12 +741,12 @@ public final class HttpUrl {
             int skipLeadingAsciiWhitespace = Util.skipLeadingAsciiWhitespace(str, 0, str.length());
             int skipTrailingAsciiWhitespace = Util.skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, str.length());
             if (schemeDelimiterOffset(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace) != -1) {
-                if (str.regionMatches(true, skipLeadingAsciiWhitespace, "https:", 0, 6)) {
+                if (str.regionMatches(true, skipLeadingAsciiWhitespace, UrlSchemaHelper.SCHEMA_TYPE_HTTPS, 0, 6)) {
                     this.scheme = "https";
-                    skipLeadingAsciiWhitespace += "https:".length();
-                } else if (str.regionMatches(true, skipLeadingAsciiWhitespace, "http:", 0, 5)) {
+                    skipLeadingAsciiWhitespace += UrlSchemaHelper.SCHEMA_TYPE_HTTPS.length();
+                } else if (str.regionMatches(true, skipLeadingAsciiWhitespace, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
                     this.scheme = HttpHost.DEFAULT_SCHEME_NAME;
-                    skipLeadingAsciiWhitespace += "http:".length();
+                    skipLeadingAsciiWhitespace += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
                 } else {
                     throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but was '" + str.substring(0, schemeDelimiterOffset) + "'");
                 }
@@ -884,7 +886,7 @@ public final class HttpUrl {
         }
 
         private boolean isDot(String str) {
-            return str.equals(".") || str.equalsIgnoreCase("%2e");
+            return str.equals(DefaultConfig.TOKEN_SEPARATOR) || str.equalsIgnoreCase("%2e");
         }
 
         private boolean isDotDot(String str) {

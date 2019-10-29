@@ -4,21 +4,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 /* loaded from: classes.dex */
 public class d implements m {
-    public static final BdUniqueId ilm = BdUniqueId.gen();
-    public int cyH;
-    public int ihD;
-    public int ihE;
+    public static final BdUniqueId ijW = BdUniqueId.gen();
+    public int backgroundId;
+    public int ign;
+    public int igo;
 
     public d() {
     }
 
     public d(int i, int i2) {
-        this.ihD = i;
-        this.ihE = i2;
+        this.ign = i;
+        this.igo = i2;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return ilm;
+        return ijW;
     }
 }

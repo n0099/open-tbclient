@@ -1,7 +1,6 @@
 package com.baidu.tieba.setting.usermutelist;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.UserMuteQuery.DataRes;
 import tbclient.UserMuteQuery.UserMuteQueryResIdl;
@@ -14,7 +13,7 @@ public class UserMuteQueryHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     public UserMuteQueryHttpResponsedMessage() {
-        super(CmdConfigHttp.CMD_USER_MUTE_QUERY);
+        super(1003026);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

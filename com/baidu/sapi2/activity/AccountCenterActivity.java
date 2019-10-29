@@ -144,7 +144,7 @@ public class AccountCenterActivity extends BaseActivity {
                 }
                 Intent intent = new Intent(AccountCenterActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                intent.putExtra(LoginActivity.EXTRA_PARAM_USERNAME, result.userName);
+                intent.putExtra("username", result.userName);
                 AccountCenterActivity.this.startActivityForResult(intent, 1004);
             }
         });

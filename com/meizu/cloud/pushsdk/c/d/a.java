@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -34,7 +35,7 @@ public class a implements d {
 
     private String a(Context context) {
         String processName = MzSystemUtils.getProcessName(context);
-        return TextUtils.isEmpty(processName) ? "PushEvents.db" : processName + "_PushEvents.db";
+        return TextUtils.isEmpty(processName) ? "PushEvents.db" : processName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "PushEvents.db";
     }
 
     public static Map<String, String> a(byte[] bArr) {

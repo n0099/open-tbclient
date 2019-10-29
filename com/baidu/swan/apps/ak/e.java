@@ -12,7 +12,7 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public final class e implements com.baidu.swan.apps.ak.b, d {
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private final Map<c<?>, Set<a>> bac = new HashMap();
+    private final Map<c<?>, Set<a>> btb = new HashMap();
 
     /* loaded from: classes2.dex */
     public interface a extends com.baidu.swan.apps.an.d.a<Set<c<?>>> {
@@ -20,11 +20,11 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     /* loaded from: classes2.dex */
     private static class b {
-        private static final e bag = new e();
+        private static final e btf = new e();
     }
 
-    public static e Pd() {
-        return b.bag;
+    public static e TT() {
+        return b.btf;
     }
 
     public e b(com.baidu.swan.apps.ak.a aVar) {
@@ -38,10 +38,10 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(c<?>... cVarArr) {
-        synchronized (this.bac) {
+        synchronized (this.btb) {
             for (c<?> cVar : cVarArr) {
-                if (!this.bac.containsKey(cVar)) {
-                    this.bac.put(cVar, new HashSet());
+                if (!this.btb.containsKey(cVar)) {
+                    this.btb.put(cVar, new HashSet());
                 }
             }
         }
@@ -50,24 +50,24 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     public e a(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.bac) {
-                HashSet keySet = l(cVarArr) ? this.bac.keySet() : h.M(cVarArr);
+            synchronized (this.btb) {
+                HashSet keySet = k(cVarArr) ? this.btb.keySet() : h.J(cVarArr);
                 for (c<?> cVar : keySet) {
                     if (cVar != null) {
                         a(cVar).add(aVar);
                     }
                 }
-                b(h.M(aVar), keySet);
+                b(h.J(aVar), keySet);
             }
         }
         return this;
     }
 
     private Set<a> a(@NonNull c<?> cVar) {
-        Set<a> set = this.bac.get(cVar);
+        Set<a> set = this.btb.get(cVar);
         if (set == null) {
             HashSet hashSet = new HashSet();
-            this.bac.put(cVar, hashSet);
+            this.btb.put(cVar, hashSet);
             return hashSet;
         }
         return set;
@@ -75,8 +75,8 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     public e b(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.bac) {
-                for (c<?> cVar : l(cVarArr) ? this.bac.keySet() : h.M(cVarArr)) {
+            synchronized (this.btb) {
+                for (c<?> cVar : k(cVarArr) ? this.btb.keySet() : h.J(cVarArr)) {
                     if (cVar != null) {
                         a(cVar).remove(aVar);
                     }
@@ -86,19 +86,19 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
         return this;
     }
 
-    private <T> boolean l(T... tArr) {
+    private <T> boolean k(T... tArr) {
         return tArr == null || tArr.length < 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e b(c<?>... cVarArr) {
-        return e(h.M(cVarArr));
+        return e(h.J(cVarArr));
     }
 
     protected e e(Set<c<?>> set) {
         if (!set.isEmpty()) {
             HashSet hashSet = new HashSet();
-            synchronized (this.bac) {
+            synchronized (this.btb) {
                 for (c<?> cVar : set) {
                     hashSet.addAll(a(cVar));
                 }
@@ -113,7 +113,7 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
             @Override // java.lang.Runnable
             public void run() {
                 for (a aVar : set) {
-                    aVar.D(set2);
+                    aVar.B(set2);
                 }
             }
         });

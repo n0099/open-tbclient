@@ -5,25 +5,26 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private static p bAf;
-    private b bAe;
-    private CustomMessageListener mLikeForumListener = new CustomMessageListener(2001437) { // from class: com.baidu.tbadk.BdToken.p.1
+    private static p bSL;
+    private b bSK;
+    private CustomMessageListener mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tbadk.BdToken.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (p.this.bAe != null && customResponsedMessage != null) {
+            if (p.this.bSK != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                    p.this.ZN();
+                    p.this.aeC();
                 }
             }
         }
     };
-    private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tbadk.BdToken.p.2
+    private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tbadk.BdToken.p.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -32,15 +33,15 @@ public class p {
         }
     };
 
-    public static p ZM() {
-        if (bAf == null) {
+    public static p aeB() {
+        if (bSL == null) {
             synchronized (p.class) {
-                if (bAf == null) {
-                    bAf = new p();
+                if (bSL == null) {
+                    bSL = new p();
                 }
             }
         }
-        return bAf;
+        return bSL;
     }
 
     public void h(BdUniqueId bdUniqueId) {
@@ -51,15 +52,15 @@ public class p {
     }
 
     public void q(b bVar) {
-        this.bAe = bVar;
+        this.bSK = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZN() {
-        if (this.bAe != null && this.bAe.getActivityId() != 0 && this.bAe.YU() != 0 && this.bAe.getTaskType() == 9) {
+    public void aeC() {
+        if (this.bSK != null && this.bSK.getActivityId() != 0 && this.bSK.adJ() != 0 && this.bSK.getTaskType() == 9) {
             try {
-                String valueOf = String.valueOf(this.bAe.getActivityId());
-                String valueOf2 = String.valueOf(this.bAe.YU());
+                String valueOf = String.valueOf(this.bSK.getActivityId());
+                String valueOf2 = String.valueOf(this.bSK.adJ());
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(valueOf, valueOf2);
                 CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);

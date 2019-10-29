@@ -26,139 +26,139 @@ import com.baidu.tieba.aiapps.apps.a.o;
 import com.baidu.tieba.aiapps.apps.share.e;
 /* loaded from: classes2.dex */
 public final class a {
-    public static Application Eo() {
+    public static Application Ji() {
         return AppRuntime.getApplication();
     }
 
-    public static u Ep() {
-        return e.aIh();
+    public static u Jj() {
+        return e.aIr();
     }
 
-    public static l Eq() {
+    public static l Jk() {
         return new g();
     }
 
-    public static c Er() {
+    public static c Jl() {
         return new b();
     }
 
-    public static com.baidu.swan.menu.c Es() {
+    public static com.baidu.swan.menu.c Jm() {
         return new com.baidu.swan.apps.b.a.e();
     }
 
-    public static com.baidu.swan.apps.u.b.c Et() {
-        return o.aFf();
+    public static com.baidu.swan.apps.u.b.c Jn() {
+        return o.aFr();
     }
 
-    public static f Eu() {
-        return com.baidu.tieba.aiapps.apps.address.b.aFq();
+    public static f Jo() {
+        return com.baidu.tieba.aiapps.apps.address.b.aFC();
     }
 
-    public static com.baidu.swan.apps.u.b.g Ev() {
-        return com.baidu.tieba.aiapps.apps.invoice.g.aGs();
+    public static com.baidu.swan.apps.u.b.g Jp() {
+        return com.baidu.tieba.aiapps.apps.invoice.g.aGF();
     }
 
-    public static s Ew() {
-        return com.baidu.tieba.aiapps.apps.barcode.c.aFL();
+    public static s Jq() {
+        return com.baidu.tieba.aiapps.apps.barcode.c.aFY();
     }
 
-    public static com.baidu.swan.apps.b.b.g Ex() {
-        return com.baidu.tieba.aiapps.apps.f.b.aGl();
+    public static com.baidu.swan.apps.b.b.g Jr() {
+        return com.baidu.tieba.aiapps.apps.f.b.aGy();
     }
 
-    public static d Ey() {
-        return com.baidu.tieba.aiapps.apps.k.b.aHC();
+    public static d Js() {
+        return com.baidu.tieba.aiapps.apps.k.b.aHP();
     }
 
-    public static com.baidu.swan.apps.u.b.o Ez() {
-        return com.baidu.tieba.aiapps.apps.i.b.aGI();
+    public static com.baidu.swan.apps.u.b.o Jt() {
+        return com.baidu.tieba.aiapps.apps.i.b.aGV();
     }
 
-    public static com.baidu.swan.apps.b.b.f EA() {
-        return com.baidu.tieba.aiapps.apps.c.c.aFR();
+    public static com.baidu.swan.apps.b.b.f Ju() {
+        return com.baidu.tieba.aiapps.apps.c.c.aGe();
     }
 
-    public static v EB() {
+    public static v Jv() {
         return new com.baidu.tieba.aiapps.apps.media.video.a();
     }
 
-    public static m EC() {
-        return com.baidu.tieba.aiapps.apps.media.b.e.aGL();
+    public static m Jw() {
+        return com.baidu.tieba.aiapps.apps.media.b.d.aGY();
     }
 
-    public static com.baidu.swan.apps.u.b.l ED() {
-        return com.baidu.tieba.aiapps.apps.media.a.b.aGJ();
+    public static com.baidu.swan.apps.u.b.l Jx() {
+        return com.baidu.tieba.aiapps.apps.media.a.b.aGW();
     }
 
-    public static q EE() {
-        return com.baidu.tieba.aiapps.apps.l.c.aIa();
+    public static q Jy() {
+        return com.baidu.tieba.aiapps.apps.l.c.aIk();
     }
 
-    public static h EF() {
-        return com.baidu.tieba.aiapps.apps.r.b.aIs();
+    public static h Jz() {
+        return com.baidu.tieba.aiapps.apps.r.b.aIC();
     }
 
-    public static j EG() {
-        return com.baidu.tieba.aiapps.apps.e.b.aGk();
+    public static j JA() {
+        return com.baidu.tieba.aiapps.apps.e.b.aGx();
     }
 
-    public static n EH() {
-        return com.baidu.tieba.aiapps.apps.h.b.aGH();
+    public static n JB() {
+        return com.baidu.tieba.aiapps.apps.h.b.aGU();
     }
 
-    public static com.baidu.swan.apps.b.b.h EI() {
+    public static com.baidu.swan.apps.b.b.h JC() {
         return new com.baidu.swan.apps.b.a.d();
     }
 
-    public static com.baidu.swan.apps.u.b.b EJ() {
-        return com.baidu.tieba.aiapps.apps.p.d.aIk();
+    public static com.baidu.swan.apps.u.b.b JD() {
+        return com.baidu.tieba.aiapps.apps.p.d.aIu();
     }
 
-    public static com.baidu.swan.apps.b.b.e EK() {
-        return com.baidu.tieba.aiapps.apps.abtest.b.aFb();
+    public static com.baidu.swan.apps.b.b.e JE() {
+        return com.baidu.tieba.aiapps.apps.abtest.b.aFn();
     }
 
-    public static i EL() {
-        return com.baidu.tieba.aiapps.apps.d.e.aGj();
+    public static i JF() {
+        return com.baidu.tieba.aiapps.apps.d.e.aGw();
     }
 
-    public static com.baidu.swan.apps.u.b.e EM() {
-        return com.baidu.tieba.aiapps.apps.bgmusic.a.aFM();
+    public static com.baidu.swan.apps.u.b.e JG() {
+        return com.baidu.tieba.aiapps.apps.bgmusic.a.aFZ();
     }
 
-    public static k EN() {
+    public static k JH() {
         return new com.baidu.swan.apps.b.a.f();
     }
 
-    public static com.baidu.swan.apps.u.b.k EO() {
-        return com.baidu.tieba.aiapps.apps.o.d.aId();
+    public static com.baidu.swan.apps.u.b.k JI() {
+        return com.baidu.tieba.aiapps.apps.o.d.aIn();
     }
 
-    public static com.baidu.swan.apps.b.b.o EP() {
-        return com.baidu.tieba.aiapps.apps.b.b.aFg();
+    public static com.baidu.swan.apps.b.b.o JJ() {
+        return com.baidu.tieba.aiapps.apps.b.b.aFs();
     }
 
-    public static com.baidu.swan.apps.b.b.i EQ() {
-        return com.baidu.tieba.aiapps.apps.g.b.aGG();
+    public static com.baidu.swan.apps.b.b.i JK() {
+        return com.baidu.tieba.aiapps.apps.g.b.aGT();
     }
 
-    public static r ER() {
+    public static r JL() {
         return new r.a();
     }
 
-    public static p ES() {
-        return com.baidu.tieba.aiapps.apps.openstat.c.aHD();
+    public static p JM() {
+        return com.baidu.tieba.aiapps.apps.openstat.c.aHQ();
     }
 
-    public static com.baidu.swan.apps.b.b.n ET() {
+    public static com.baidu.swan.apps.b.b.n JN() {
         return new com.baidu.swan.apps.b.a.h();
     }
 
-    public static t EU() {
-        return com.baidu.tieba.aiapps.apps.m.d.aIc();
+    public static t JO() {
+        return com.baidu.tieba.aiapps.apps.m.d.aIm();
     }
 
-    public static com.baidu.swan.apps.b.b.j EV() {
+    public static com.baidu.swan.apps.b.b.j JP() {
         return new j.a();
     }
 }

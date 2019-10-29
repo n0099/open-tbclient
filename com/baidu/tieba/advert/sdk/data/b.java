@@ -39,7 +39,7 @@ public class b {
         return bVar;
     }
 
-    public static b tm(String str) {
+    public static b rV(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -80,11 +80,11 @@ public class b {
         return jSONObject.toString();
     }
 
-    public boolean aEw() {
+    public boolean aEG() {
         return (System.currentTimeMillis() / 1000 >= this.startShowTime && System.currentTimeMillis() / 1000 <= this.endShowTime) || (this.startShowTime == 0 && this.endShowTime == 0);
     }
 
-    public boolean aEx() {
+    public boolean aEH() {
         return !TextUtils.isEmpty(this.videoLocalPath);
     }
 }

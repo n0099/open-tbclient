@@ -10,15 +10,13 @@ import com.vivo.push.sdk.PushMessageCallback;
 final class r implements Runnable {
     final /* synthetic */ InsideNotificationItem a;
     final /* synthetic */ com.vivo.push.b.q b;
-    final /* synthetic */ boolean c;
-    final /* synthetic */ q d;
+    final /* synthetic */ q c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(q qVar, InsideNotificationItem insideNotificationItem, com.vivo.push.b.q qVar2, boolean z) {
-        this.d = qVar;
+    public r(q qVar, InsideNotificationItem insideNotificationItem, com.vivo.push.b.q qVar2) {
+        this.c = qVar;
         this.a = insideNotificationItem;
         this.b = qVar2;
-        this.c = z;
     }
 
     @Override // java.lang.Runnable
@@ -30,23 +28,24 @@ final class r implements Runnable {
         Context context5;
         Context context6;
         char c;
-        PushMessageCallback pushMessageCallback = this.d.c;
-        context = this.d.a;
-        if (!pushMessageCallback.onNotificationMessageArrived(context, com.vivo.push.util.n.a(this.a))) {
-            context2 = this.d.a;
+        PushMessageCallback pushMessageCallback = this.c.b;
+        context = this.c.a;
+        if (!pushMessageCallback.onNotificationMessageArrived(context, com.vivo.push.util.q.a(this.a))) {
+            context2 = this.c.a;
             InsideNotificationItem insideNotificationItem = this.a;
             long f = this.b.f();
-            PushMessageCallback pushMessageCallback2 = this.d.c;
-            context3 = this.d.a;
-            com.vivo.push.util.i iVar = new com.vivo.push.util.i(context2, insideNotificationItem, f, pushMessageCallback2.isAllowNet(context3));
+            PushMessageCallback pushMessageCallback2 = this.c.b;
+            context3 = this.c.a;
+            com.vivo.push.util.l lVar = new com.vivo.push.util.l(context2, insideNotificationItem, f, pushMessageCallback2.isAllowNet(context3));
+            boolean isShowBigPicOnMobileNet = this.a.isShowBigPicOnMobileNet();
             String purePicUrl = this.a.getPurePicUrl();
             String coverUrl = TextUtils.isEmpty(purePicUrl) ? this.a.getCoverUrl() : purePicUrl;
             if (!TextUtils.isEmpty(coverUrl)) {
-                com.vivo.push.util.m.c("OnNotificationArrivedTask", "showCode=" + this.c);
-                if (!this.c) {
-                    context5 = this.d.a;
-                    com.vivo.push.util.m.a(context5, "mobile net unshow");
-                    context6 = this.d.a;
+                com.vivo.push.util.p.c("OnNotificationArrivedTask", "showCode=" + isShowBigPicOnMobileNet);
+                if (!isShowBigPicOnMobileNet) {
+                    context5 = this.c.a;
+                    com.vivo.push.util.p.a(context5, "mobile net unshow");
+                    context6 = this.c.a;
                     NetworkInfo activeNetworkInfo = ((ConnectivityManager) context6.getSystemService("connectivity")).getActiveNetworkInfo();
                     if (activeNetworkInfo == null) {
                         c = 0;
@@ -66,13 +65,13 @@ final class r implements Runnable {
                         this.a.clearPurePicUrl();
                     }
                 } else {
-                    context4 = this.d.a;
-                    com.vivo.push.util.m.a(context4, "mobile net show");
+                    context4 = this.c.a;
+                    com.vivo.push.util.p.a(context4, "mobile net show");
                 }
             }
-            iVar.execute(this.a.getIconUrl(), coverUrl);
+            lVar.execute(this.a.getIconUrl(), coverUrl);
             return;
         }
-        com.vivo.push.util.m.d("OnNotificationArrivedTask", "this notification has Intercept");
+        com.vivo.push.util.p.d("OnNotificationArrivedTask", "this notification has Intercept");
     }
 }

@@ -28,7 +28,6 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.vo.XAdInstanceInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -530,7 +529,7 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
                 return;
             }
             this.s.i("XAbstractAdProdTemplate", "processAllReadyOnUIThread(), mAdContainer be created");
-            this.p.put(IntentConfig.START, "" + this.t);
+            this.p.put("start", "" + this.t);
             this.p.put("container_before_created", "" + this.u);
             this.p.put("container_after_created", "" + this.v);
             this.h.setParameters(this.p);
@@ -641,7 +640,7 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
     public void stop() {
-        XAdSDKFoundationFacade.getInstance().getAdLogger().i("XAbstractAdProdTemplate", IntentConfig.STOP);
+        XAdSDKFoundationFacade.getInstance().getAdLogger().i("XAbstractAdProdTemplate", "stop");
         if (this.h != null) {
             this.h.stop();
             this.h = null;

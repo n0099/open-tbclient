@@ -3,24 +3,23 @@ package com.airbnb.lottie.model.a;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a;
 import com.airbnb.lottie.model.a.m;
-import com.baidu.mobstat.Config;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n<T> {
-    private final com.airbnb.lottie.e kI;
+    private final com.airbnb.lottie.e dk;
     @Nullable
-    private final JSONObject ov;
-    private final m.a<T> ow;
+    private final JSONObject gO;
+    private final m.a<T> gP;
     private final float scale;
 
     private n(@Nullable JSONObject jSONObject, float f, com.airbnb.lottie.e eVar, m.a<T> aVar) {
-        this.ov = jSONObject;
+        this.gO = jSONObject;
         this.scale = f;
-        this.kI = eVar;
-        this.ow = aVar;
+        this.dk = eVar;
+        this.gP = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,16 +28,16 @@ public class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a<T> cZ() {
-        List<com.airbnb.lottie.a.a<T>> da = da();
-        return new a<>(da, h(da));
+    public a<T> cs() {
+        List<com.airbnb.lottie.a.a<T>> ct = ct();
+        return new a<>(ct, h(ct));
     }
 
-    private List<com.airbnb.lottie.a.a<T>> da() {
-        if (this.ov != null) {
-            Object opt = this.ov.opt(Config.APP_KEY);
+    private List<com.airbnb.lottie.a.a<T>> ct() {
+        if (this.gO != null) {
+            Object opt = this.gO.opt("k");
             if (j(opt)) {
-                return a.C0005a.a((JSONArray) opt, this.kI, this.scale, this.ow);
+                return a.C0005a.a((JSONArray) opt, this.dk, this.scale, this.gP);
             }
             return Collections.emptyList();
         }
@@ -47,11 +46,11 @@ public class n<T> {
 
     @Nullable
     private T h(List<com.airbnb.lottie.a.a<T>> list) {
-        if (this.ov != null) {
+        if (this.gO != null) {
             if (!list.isEmpty()) {
-                return list.get(0).lI;
+                return list.get(0).ej;
             }
-            return this.ow.b(this.ov.opt(Config.APP_KEY), this.scale);
+            return this.gP.b(this.gO.opt("k"), this.scale);
         }
         return null;
     }
@@ -67,13 +66,13 @@ public class n<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a<T> {
-        final List<com.airbnb.lottie.a.a<T>> mV;
         @Nullable
-        final T nl;
+        final T fI;
+        final List<com.airbnb.lottie.a.a<T>> fu;
 
         a(List<com.airbnb.lottie.a.a<T>> list, @Nullable T t) {
-            this.mV = list;
-            this.nl = t;
+            this.fu = list;
+            this.fI = t;
         }
     }
 }

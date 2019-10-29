@@ -1,9 +1,10 @@
 package com.baidu.tieba.imMessageCenter;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.LoadHistoryMessage;
 /* loaded from: classes4.dex */
 public class LoadPersonalHistoryMessage extends LoadHistoryMessage {
     public LoadPersonalHistoryMessage(LoadHistoryMessage.a aVar) {
-        super(2001146, aVar);
+        super(CmdConfigCustom.CMD_LOAD_HISTORY_PERSONAL, aVar);
     }
 }

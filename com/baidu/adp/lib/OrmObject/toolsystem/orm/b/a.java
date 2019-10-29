@@ -21,7 +21,7 @@ public class a implements c {
         return this.bundle.keySet();
     }
 
-    public Object ab(String str) {
+    public Object U(String str) {
         return this.bundle.get(str);
     }
 
@@ -81,7 +81,7 @@ public class a implements c {
                 this.bundle.putShortArray(str, (short[]) obj);
             } else if (componentType == String.class) {
                 this.bundle.putStringArray(str, (String[]) obj);
-            } else if (com.baidu.adp.lib.OrmObject.a.a.d(componentType, Parcelable.class)) {
+            } else if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(componentType, Parcelable.class)) {
                 this.bundle.putParcelableArray(str, (Parcelable[]) obj);
             }
         } else if (obj instanceof CharSequence) {
@@ -97,12 +97,12 @@ public class a implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Object b(String str, Type type) {
-        Object ab = ab(str);
-        if (ab != null) {
+        Object U = U(str);
+        if (U != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h s = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(ab);
-            if (s != null) {
-                return s.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h q = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.q(U);
+            if (q != null) {
+                return q.g(cVar);
             }
         }
         return null;

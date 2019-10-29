@@ -1,11 +1,12 @@
 package com.baidu.tieba.chosen.posts.request;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.HotThread.HotThreadResIdl;
 /* loaded from: classes5.dex */
 public class ChosenPostSocketResponse extends MvcSocketResponsedMessage<b, HotThreadResIdl> {
     public ChosenPostSocketResponse() {
-        super(307008);
+        super(CmdConfigSocket.CMD_GET_HOT_THREAD);
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage

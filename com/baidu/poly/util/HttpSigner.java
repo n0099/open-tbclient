@@ -13,7 +13,7 @@ public class HttpSigner {
         System.loadLibrary("hs");
     }
 
-    public static void a(Map<String, String> map, int i) {
+    public static void b(Map<String, String> map, int i) {
         if (!map.containsKey("nop_appid")) {
             map.put("nop_appid", nativeGetAppId(i));
         }

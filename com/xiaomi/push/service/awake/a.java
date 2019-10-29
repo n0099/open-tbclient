@@ -3,6 +3,7 @@ package com.xiaomi.push.service.awake;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,7 +51,7 @@ public class a {
                     hashMap2.put("msg_id", String.valueOf(jSONObject.opt("msg_id")));
                     hashMap2.put("A", String.valueOf(jSONObject.opt("awake_app")));
                     hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
-                    hashMap2.put("module", String.valueOf(jSONObject.opt("awake_type")));
+                    hashMap2.put(BdStatsConstant.StatsKey.TYPE, String.valueOf(jSONObject.opt("awake_type")));
                 } catch (JSONException e) {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }

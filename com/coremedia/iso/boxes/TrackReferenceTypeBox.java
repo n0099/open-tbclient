@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
@@ -11,8 +12,8 @@ import org.aspectj.lang.a;
 public class TrackReferenceTypeBox extends AbstractBox {
     public static final String TYPE1 = "hint";
     public static final String TYPE2 = "cdsc";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
     private long[] trackIds;
 
     static {
@@ -22,7 +23,7 @@ public class TrackReferenceTypeBox extends AbstractBox {
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrackReferenceTypeBox.java", TrackReferenceTypeBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getTrackIds", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "[J"), 40);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "java.lang.String"), 65);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", FieldUtil.TYPE_STRING), 65);
     }
 
     public TrackReferenceTypeBox(String str) {

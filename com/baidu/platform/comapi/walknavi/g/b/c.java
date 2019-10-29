@@ -26,9 +26,7 @@ import com.baidu.mapapi.walknavi.adapter.IWMoreNPCModelOnClickListener;
 import com.baidu.mapapi.walknavi.adapter.IWNPCLoadAndInitListener;
 import com.baidu.mapapi.walknavi.model.BaseNpcModel;
 import com.baidu.platform.comapi.walknavi.d.g;
-import com.baidu.platform.comapi.walknavi.fsm.RGState;
 import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
-import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.tieba.R;
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -333,7 +331,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     public void c() {
         if (this.T) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0087c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0119c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -349,10 +347,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0087c implements g.a {
+    public static class C0119c implements g.a {
         private WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> a;
 
-        public C0087c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
+        public C0119c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
             this.a = null;
             this.a = new WeakReference<>(bVar);
         }
@@ -435,14 +433,14 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     public void c(int i) {
-        if (i == R.drawable.aiapps_favorite_guide_checkbox_selector) {
-            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_favorite_guide_checkbox_selector));
+        if (i == R.drawable.aiapps_favorite_guide_checkbox_normal) {
+            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_favorite_guide_checkbox_normal));
             this.v = 1;
-        } else if (i == R.drawable.aiapps_favorite_guide_close_selector) {
-            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_favorite_guide_close_selector));
-            this.v = 2;
         } else if (i == R.drawable.aiapps_favorite_guide_close) {
             this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_favorite_guide_close));
+            this.v = 2;
+        } else if (i == R.drawable.aiapps_favorite_guide_checkbox_selected) {
+            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_favorite_guide_checkbox_selected));
             this.v = 3;
         }
     }
@@ -573,7 +571,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
         if (TextUtils.isEmpty(a2)) {
             this.N.setVisibility(0);
-            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_location_ding));
+            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_loading_progress));
             return;
         }
         com.baidu.platform.comapi.walknavi.d.a a3 = com.baidu.platform.comapi.walknavi.b.a().a(a2);
@@ -585,13 +583,13 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 return;
             }
             this.N.setVisibility(0);
-            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_menu_add_bookmark_pressed));
+            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_location_selected));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str) {
-        com.baidu.platform.comapi.wnplatform.d.a.a(AddressManageResult.KEY_TAG, "call npcSwitchCase");
+        com.baidu.platform.comapi.wnplatform.d.a.a("tag", "call npcSwitchCase");
         com.baidu.platform.comapi.walknavi.d.e.c().a(str, this.k.getHeight(), this.k.getWidth());
         com.baidu.platform.comapi.walknavi.d.e.c().c(false);
     }
@@ -709,7 +707,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                     com.baidu.platform.comapi.walknavi.d.e.c().b();
                     k();
                     com.baidu.platform.comapi.walknavi.d.e.c().k();
-                    com.baidu.platform.comapi.walknavi.d.e.c().b("\npod_node:stop_action(id_play_music)\nid_play_music = pod_node:play_audio(\"res/media/start.mp3\", -1, 0)\n\nlocal token = dfk7fghdsf7d33e\nlocal pod_name = \"enter\"\nfunction run()\n    local cfg = an.ActionPriorityConfig:new()\n    cfg.forward_logic = 1\n    cfg.backward_logic = 1\n    local param = an.GpbAnimationParam:new()\n    param._speed = 1.0\n    param._repeat_count = 1\n    param._name = pod_name\n    local id_play_pod = pod_node:play_gpb_animation(param, cfg)\n    if id_play_pod == -1 then\n        local mapData = an.MapData:new()\n        mapData:put_string(\"action_type\", \"animation_failed\")\n        mapData:put_string(\"token\", token)\n        lua_handler:send_message_tosdk(mapData)\n        return\n    end\n    \n    local podFinishedHandlerId = lua_handler:register_handle(\"onEnterPlayPodFinished\")\n    pod_node:set_action_completion_handler(id_play_pod, podFinishedHandlerId)\nend\nrun()\n\nfunction onEnterPlayPodFinished(state, action_id)\n    local mapData = an.MapData:new()\n    mapData:put_string(\"action_id\", action_id)\n    mapData:put_string(\"action_type\", \"animation_end\")\n    mapData:put_string(\"action_name\", \"enter\")\n    mapData:put_string(\"token\", token)\n    mapData:put_int(\"state\", state)\n    lua_handler:send_message_tosdk(mapData)\nend\n", RGState.METHOD_NAME_ENTER);
+                    com.baidu.platform.comapi.walknavi.d.e.c().b("\npod_node:stop_action(id_play_music)\nid_play_music = pod_node:play_audio(\"res/media/start.mp3\", -1, 0)\n\nlocal token = dfk7fghdsf7d33e\nlocal pod_name = \"enter\"\nfunction run()\n    local cfg = an.ActionPriorityConfig:new()\n    cfg.forward_logic = 1\n    cfg.backward_logic = 1\n    local param = an.GpbAnimationParam:new()\n    param._speed = 1.0\n    param._repeat_count = 1\n    param._name = pod_name\n    local id_play_pod = pod_node:play_gpb_animation(param, cfg)\n    if id_play_pod == -1 then\n        local mapData = an.MapData:new()\n        mapData:put_string(\"action_type\", \"animation_failed\")\n        mapData:put_string(\"token\", token)\n        lua_handler:send_message_tosdk(mapData)\n        return\n    end\n    \n    local podFinishedHandlerId = lua_handler:register_handle(\"onEnterPlayPodFinished\")\n    pod_node:set_action_completion_handler(id_play_pod, podFinishedHandlerId)\nend\nrun()\n\nfunction onEnterPlayPodFinished(state, action_id)\n    local mapData = an.MapData:new()\n    mapData:put_string(\"action_id\", action_id)\n    mapData:put_string(\"action_type\", \"animation_end\")\n    mapData:put_string(\"action_name\", \"enter\")\n    mapData:put_string(\"token\", token)\n    mapData:put_int(\"state\", state)\n    lua_handler:send_message_tosdk(mapData)\nend\n", "enter");
                     return;
                 }
                 return;
@@ -782,7 +780,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                             c = 65535;
                             break;
                         case 96667352:
-                            if (str.equals(RGState.METHOD_NAME_ENTER)) {
+                            if (str.equals("enter")) {
                                 c = 2;
                                 break;
                             }

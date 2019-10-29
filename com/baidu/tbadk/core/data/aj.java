@@ -4,11 +4,9 @@ import android.util.SparseArray;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class aj {
-    private long bIj;
-    public SparseArray<String> bIk = null;
-    public SparseArray<String> bIl = null;
-    public int bIm;
-    public JSONArray bIn;
+    private long bZT;
+    public int bZV;
+    public JSONArray bZW;
     public String extra;
     private String fid;
     public String source;
@@ -16,6 +14,8 @@ public class aj {
     private String tid;
     private String type;
     public String weight;
+    public SparseArray<String> feedBackReasonMap = null;
+    public SparseArray<String> bZU = null;
 
     public String getTid() {
         return this.tid;
@@ -45,35 +45,35 @@ public class aj {
         this.type = str;
     }
 
-    public SparseArray<String> adl() {
-        return this.bIk;
+    public SparseArray<String> getFeedBackReasonMap() {
+        return this.feedBackReasonMap;
     }
 
-    public void b(SparseArray<String> sparseArray) {
-        this.bIk = sparseArray;
+    public void setFeedBackReasonMap(SparseArray<String> sparseArray) {
+        this.feedBackReasonMap = sparseArray;
     }
 
-    public void gX(int i) {
-        this.bIm = i;
+    public void hw(int i) {
+        this.bZV = i;
     }
 
-    public int adm() {
-        return this.bIm;
+    public int ahr() {
+        return this.bZV;
     }
 
-    public void x(JSONArray jSONArray) {
-        this.bIn = jSONArray;
+    public void F(JSONArray jSONArray) {
+        this.bZW = jSONArray;
     }
 
-    public JSONArray adn() {
-        return this.bIn;
+    public JSONArray ahs() {
+        return this.bZW;
     }
 
-    public long ado() {
-        return this.bIj;
+    public long aht() {
+        return this.bZT;
     }
 
-    public void ap(long j) {
-        this.bIj = j;
+    public void aI(long j) {
+        this.bZT = j;
     }
 }

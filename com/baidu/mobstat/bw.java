@@ -24,7 +24,6 @@ import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -180,7 +179,7 @@ public class bw {
     public static String l(Context context) {
         WifiInfo connectionInfo;
         try {
-            if (bo.e(context, "android.permission.ACCESS_WIFI_STATE") && (connectionInfo = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo()) != null) {
+            if (bo.e(context, "android.permission.ACCESS_WIFI_STATE") && (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) != null) {
                 String macAddress = connectionInfo.getMacAddress();
                 if (!TextUtils.isEmpty(macAddress)) {
                     return macAddress;
@@ -423,7 +422,7 @@ public class bw {
             z = false;
         }
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo connectionInfo = wifiManager.getConnectionInfo();
             try {
                 list = wifiManager.getScanResults();
@@ -697,7 +696,7 @@ public class bw {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
             ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Config.MODEL, memoryInfo.availMem);
+            jSONObject.put("m", memoryInfo.availMem);
             jSONObject.put("l", memoryInfo.lowMemory);
             jSONObject.put("t", memoryInfo.threshold);
             JSONArray jSONArray = new JSONArray();

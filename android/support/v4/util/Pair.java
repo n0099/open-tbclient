@@ -1,4 +1,6 @@
 package android.support.v4.util;
+
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* loaded from: classes2.dex */
 public class Pair<F, S> {
     public final F first;
@@ -26,7 +28,7 @@ public class Pair<F, S> {
     }
 
     public String toString() {
-        return "Pair{" + String.valueOf(this.first) + " " + String.valueOf(this.second) + "}";
+        return "Pair{" + String.valueOf(this.first) + HanziToPinyin.Token.SEPARATOR + String.valueOf(this.second) + "}";
     }
 
     public static <A, B> Pair<A, B> create(A a, B b) {

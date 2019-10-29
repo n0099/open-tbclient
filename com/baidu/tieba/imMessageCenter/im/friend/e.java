@@ -3,15 +3,14 @@ package com.baidu.tieba.imMessageCenter.im.friend;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 import com.baidu.tieba.imMessageCenter.RequestCommitInviteMessage;
 import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private long gBR;
-    private RequestCommitInviteMessage gWt;
-    private long gWu;
+    private RequestCommitInviteMessage gUt;
+    private long gUu;
+    private long gzP;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -24,26 +23,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.gBR = intent.getLongExtra("gid", -1L);
-            this.gWu = intent.getLongExtra(InviteFriendListActivityConfig.GROUP_ID, -1L);
+            this.gzP = intent.getLongExtra("gid", -1L);
+            this.gUu = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.gBR = bundle.getLong("gid", -1L);
-            this.gWu = bundle.getLong(InviteFriendListActivityConfig.GROUP_ID, -1L);
+            this.gzP = bundle.getLong("gid", -1L);
+            this.gUu = bundle.getLong("groupid", -1L);
         }
     }
 
-    public void Y(Bundle bundle) {
-        bundle.putLong("gid", this.gBR);
-        bundle.putLong(InviteFriendListActivityConfig.GROUP_ID, this.gWu);
+    public void X(Bundle bundle) {
+        bundle.putLong("gid", this.gzP);
+        bundle.putLong("groupid", this.gUu);
     }
 
-    public void Af(String str) {
-        this.gWt = b(this.gBR, this.gWu, str);
-        super.sendMessage(this.gWt);
+    public void yx(String str) {
+        this.gUt = b(this.gzP, this.gUu, str);
+        super.sendMessage(this.gUt);
     }
 
     private RequestCommitInviteMessage b(long j, long j2, String str) {

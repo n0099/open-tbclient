@@ -41,6 +41,10 @@ import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiJsInterpreters;
 import com.baidu.sapi2.a.c;
@@ -70,7 +74,6 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.ByteArrayInputStream;
@@ -938,7 +941,7 @@ public final class SapiWebView extends WebView {
                                 StatService.onEvent("sslerr_date_setting", null);
                             }
                         });
-                        builder.setNegativeButton(SapiWebView.z, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.2.5
+                        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiWebView.2.5
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
@@ -1075,9 +1078,9 @@ public final class SapiWebView extends WebView {
     }
 
     public String getUaInfo() {
-        String encode = URLEncoder.encode("Sapi_8.8.4_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + "_" + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
+        String encode = URLEncoder.encode("Sapi_8.8.4_Android_" + SapiUtils.getAppName(getContext()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + SapiUtils.getVersionName(getContext()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
         if (o() && !TextUtils.isEmpty(this.B.userAgent)) {
-            return encode + " " + this.B.userAgent;
+            return encode + HanziToPinyin.Token.SEPARATOR + this.B.userAgent;
         }
         return encode;
     }
@@ -1118,7 +1121,7 @@ public final class SapiWebView extends WebView {
         } catch (NullPointerException e2) {
             Log.e(e2);
         }
-        settings.setUserAgentString(settings.getUserAgentString() + " " + getUaInfo());
+        settings.setUserAgentString(settings.getUserAgentString() + HanziToPinyin.Token.SEPARATOR + getUaInfo());
         settings.setTextSize(WebSettings.TextSize.NORMAL);
         settings.setDomStorageEnabled(true);
         setScrollBarStyle(0);
@@ -1988,7 +1991,7 @@ public final class SapiWebView extends WebView {
                                         sapiAccountResponse.errorCode = Integer.parseInt(newPullParser.nextText());
                                         z3 = z2;
                                         continue;
-                                    } else if (name.equalsIgnoreCase("uname")) {
+                                    } else if (name.equalsIgnoreCase(BdStatsConstant.StatsKey.UNAME)) {
                                         sapiAccountResponse.username = newPullParser.nextText();
                                         z3 = z2;
                                         continue;
@@ -2586,9 +2589,9 @@ public final class SapiWebView extends WebView {
         if (SocialType.UNKNOWN != sapiAccountResponse.socialType) {
             SapiContext.getInstance(this.B.context).put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
             sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl);
-            sapiAccount.putExtra(GiftTabActivityConfig.ACCOUNT_TYPE, Integer.valueOf(sapiAccountResponse.accountType.getType()));
+            sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
         }
-        sapiAccount.putExtra("tpl", this.B.tpl);
+        sapiAccount.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.B.tpl);
         if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
             sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
         }

@@ -2,24 +2,24 @@ package com.baidu.tieba.channel.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tieba.channel.config.a;
 import java.util.List;
 import org.json.JSONObject;
 import tbclient.ChannelVideoInfo;
 /* loaded from: classes6.dex */
 public class h implements m {
-    private int cNI;
+    private int cXa;
     private long createTime;
-    private int eKA;
-    private int eKB;
-    private String eKC;
-    private int eKD;
-    private int eKx;
-    private long eKy;
-    private int eKz;
+    private int eTc;
+    private long eTd;
+    private int eTe;
+    private int eTf;
+    private int eTg;
+    private String eTh;
+    private int eTi;
     private int forumId;
     private String forumName;
-    private BdUniqueId mType;
     private long threadId;
     private String thumbnailUrl;
     private String title;
@@ -27,6 +27,7 @@ public class h implements m {
     private int videoHeight;
     private String videoUrl;
     private int videoWidth;
+    private BdUniqueId xL;
 
     public long getThreadId() {
         return this.threadId;
@@ -56,12 +57,12 @@ public class h implements m {
         this.title = str;
     }
 
-    public int bbn() {
-        return this.cNI;
+    public int bbr() {
+        return this.cXa;
     }
 
-    public void pV(int i) {
-        this.cNI = i;
+    public void oX(int i) {
+        this.cXa = i;
     }
 
     public void setVideoUrl(String str) {
@@ -84,12 +85,12 @@ public class h implements m {
         this.videoHeight = i;
     }
 
-    public void pW(int i) {
-        this.eKx = i;
+    public void oY(int i) {
+        this.eTc = i;
     }
 
-    public void cI(long j) {
-        this.eKy = j;
+    public void cw(long j) {
+        this.eTd = j;
     }
 
     public String getThumbnailUrl() {
@@ -100,20 +101,20 @@ public class h implements m {
         this.thumbnailUrl = str;
     }
 
-    public void pX(int i) {
-        this.eKz = i;
+    public void oZ(int i) {
+        this.eTe = i;
     }
 
-    public void pY(int i) {
-        this.eKA = i;
+    public void pa(int i) {
+        this.eTf = i;
     }
 
-    public boolean afj() {
-        return this.eKB == 1;
+    public boolean ajn() {
+        return this.eTg == 1;
     }
 
-    public void pZ(int i) {
-        this.eKB = i;
+    public void pb(int i) {
+        this.eTg = i;
     }
 
     public long getCreateTime() {
@@ -124,20 +125,20 @@ public class h implements m {
         this.createTime = j;
     }
 
-    public int bbo() {
-        return this.eKD;
+    public int bbs() {
+        return this.eTi;
     }
 
-    public void setType(BdUniqueId bdUniqueId) {
-        this.mType = bdUniqueId;
+    public void n(BdUniqueId bdUniqueId) {
+        this.xL = bdUniqueId;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.mType == null ? a.C0307a.eKk : this.mType;
+        return this.xL == null ? a.C0396a.eSP : this.xL;
     }
 
-    public static ChannelHomeVideoList<h> bz(List<ChannelVideoInfo> list) {
+    public static ChannelHomeVideoList<h> bM(List<ChannelVideoInfo> list) {
         if (list == null) {
             return null;
         }
@@ -160,17 +161,17 @@ public class h implements m {
         hVar.setForumId(channelVideoInfo.forum_id.intValue());
         hVar.setForumName(channelVideoInfo.forum_name);
         hVar.setTitle(channelVideoInfo.title);
-        hVar.pV(channelVideoInfo.play_count.intValue());
+        hVar.oX(channelVideoInfo.play_count.intValue());
         hVar.setVideoUrl(channelVideoInfo.video_url);
         hVar.setVideoDuration(channelVideoInfo.video_duration.intValue());
         hVar.setVideoWidth(channelVideoInfo.video_width.intValue());
         hVar.setVideoHeight(channelVideoInfo.video_height.intValue());
-        hVar.pW(channelVideoInfo.video_length.intValue());
-        hVar.cI(channelVideoInfo.video_type.longValue());
+        hVar.oY(channelVideoInfo.video_length.intValue());
+        hVar.cw(channelVideoInfo.video_type.longValue());
         hVar.setThumbnailUrl(channelVideoInfo.thumbnail_url);
-        hVar.pX(channelVideoInfo.thumbnail_width.intValue());
-        hVar.pY(channelVideoInfo.thumbnail_height.intValue());
-        hVar.pZ(channelVideoInfo.is_top.intValue());
+        hVar.oZ(channelVideoInfo.thumbnail_width.intValue());
+        hVar.pa(channelVideoInfo.thumbnail_height.intValue());
+        hVar.pb(channelVideoInfo.is_top.intValue());
         hVar.setCreateTime(channelVideoInfo.create_time.intValue());
         return hVar;
     }
@@ -181,17 +182,17 @@ public class h implements m {
         this.forumName = jSONObject.optString("forum_name");
         this.createTime = jSONObject.optLong("create_time");
         this.title = jSONObject.optString("title");
-        this.eKC = jSONObject.optString("play_time");
-        this.cNI = jSONObject.optInt("play_count");
+        this.eTh = jSONObject.optString("play_time");
+        this.cXa = jSONObject.optInt("play_count");
         this.videoUrl = jSONObject.optString("video_url");
         this.videoDuration = jSONObject.optInt("video_duration");
         this.videoWidth = jSONObject.optInt("video_width");
         this.videoHeight = jSONObject.optInt("video_height");
-        this.eKx = jSONObject.optInt("video_length");
-        this.eKy = jSONObject.optInt("video_type");
+        this.eTc = jSONObject.optInt("video_length");
+        this.eTd = jSONObject.optInt(LogConfig.LOG_VIDEO_TYPE);
         this.thumbnailUrl = jSONObject.optString("thumbnail_url");
-        this.eKz = jSONObject.optInt("thumbnail_width");
-        this.eKA = jSONObject.optInt("thumbnail_height");
-        this.eKD = jSONObject.optInt("already_add");
+        this.eTe = jSONObject.optInt("thumbnail_width");
+        this.eTf = jSONObject.optInt("thumbnail_height");
+        this.eTi = jSONObject.optInt("already_add");
     }
 }

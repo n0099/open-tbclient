@@ -8,34 +8,34 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void crE() {
+    public static void cpx() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
-            mainDBDatabaseManager.O("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
+            mainDBDatabaseManager.execSQLNoException("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
         }
     }
 
-    public static void FA(String str) {
+    public static void Ee(String str) {
         BdLog.e("deleteVieoChunkUploadData Called");
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
-                mainDBDatabaseManager.f("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+                mainDBDatabaseManager.execSQLNoException("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             }
         }
     }
 
-    public static boolean t(String str, String str2, int i) {
+    public static boolean r(String str, String str2, int i) {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
             return false;
         }
         Date date = new Date();
-        mainDBDatabaseManager.f("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.f("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.execSQLNoException("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.execSQLNoException("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static c FB(String str) {
+    public static c Ef(String str) {
         Cursor cursor;
         Exception e;
         c cVar;
@@ -44,31 +44,31 @@ public class b {
         }
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
-            cursor = mainDBDatabaseManager.b("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            cursor = mainDBDatabaseManager.rawQuery("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             try {
                 try {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.jlF = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.jlG = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.jlv = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.jlw = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                         } catch (Exception e2) {
                             e = e2;
-                            mainDBDatabaseManager.c(e, "getChunkUploadDataByMd5");
-                            com.baidu.adp.lib.g.a.e(cursor);
+                            mainDBDatabaseManager.notifySQLException(e, "getChunkUploadDataByMd5");
+                            com.baidu.adp.lib.g.a.close(cursor);
                             return cVar;
                         }
                     } else {
                         cVar = null;
                     }
-                    com.baidu.adp.lib.g.a.e(cursor);
+                    com.baidu.adp.lib.g.a.close(cursor);
                 } catch (Exception e3) {
                     cVar = null;
                     e = e3;
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.g.a.e(cursor);
+                com.baidu.adp.lib.g.a.close(cursor);
                 throw th;
             }
         } catch (Exception e4) {
@@ -78,7 +78,7 @@ public class b {
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            com.baidu.adp.lib.g.a.e(cursor);
+            com.baidu.adp.lib.g.a.close(cursor);
             throw th;
         }
         return cVar;

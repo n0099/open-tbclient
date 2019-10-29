@@ -1,6 +1,7 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes3.dex */
 public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
     private String content;
@@ -68,6 +69,6 @@ public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
     }
 
     public RequestApplyLocalMessage() {
-        super(2001216);
+        super(CmdConfigCustom.CMD_APPLY_MESSAGE);
     }
 }

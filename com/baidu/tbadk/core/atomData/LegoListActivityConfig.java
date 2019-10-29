@@ -9,11 +9,13 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class LegoListActivityConfig extends IntentConfig {
     public static final String AD_ID = "ad_id";
     public static final String ANIMATION_INFO = "animation_info";
+    public static final String DOWNLOAD_MIDDLE_KEY = "download_middle";
     public static final String HAS_ANIMATION = "has_animation";
     public static final String IS_FROM = "source";
     public static final String IS_IMMERSIVE = "is_immersive";
     public static final String IS_LANDINGPAGE = "is_landingpage";
     public static final String ITEM_ID = "item_id";
+    public static final String JUMP_NEW_WEB = "1";
     public static final String NEXT_PAGE = "next_page";
     public static final String PAGE_ID = "page_id";
     public static final int PAGE_TAB = 1;

@@ -1,6 +1,5 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
@@ -9,7 +8,7 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
     private a loadMoreData;
 
     public ScreenLockLoadMoreHttpResponseMessage() {
-        super(CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE);
+        super(1003194);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

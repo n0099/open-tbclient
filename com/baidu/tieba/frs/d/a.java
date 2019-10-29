@@ -3,9 +3,8 @@ package com.baidu.tieba.frs.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.m;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -15,7 +14,7 @@ import com.baidu.tbadk.core.util.v;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static BdUniqueId fRh;
+    private static BdUniqueId fQA;
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x005a  */
     /* JADX WARN: Removed duplicated region for block: B:32:0x006c  */
@@ -34,10 +33,10 @@ public class a {
         an a;
         boolean z2 = true;
         if (bhVar != null) {
-            boolean z3 = (bhVar.aeV() == null || bhVar.aeV().user_info == null || bhVar.aeV().user_info.is_official != 2) ? false : true;
-            boolean z4 = z3 && bhVar.aeV().frsLiveStageType == 0;
+            boolean z3 = (bhVar.aiZ() == null || bhVar.aiZ().user_info == null || bhVar.aiZ().user_info.is_official != 2) ? false : true;
+            boolean z4 = z3 && bhVar.aiZ().frsLiveStageType == 0;
             if (z4) {
-                str = String.valueOf(bhVar.aeV().live_id);
+                str = String.valueOf(bhVar.aiZ().live_id);
                 i2 = 4;
             } else {
                 i2 = 0;
@@ -46,27 +45,27 @@ public class a {
             if (!z4) {
                 z4 = bhVar.getThreadType() == 41;
                 if (z4) {
-                    if (bhVar.aei() != null) {
-                        str = bhVar.aei().getTaskId();
+                    if (bhVar.aim() != null) {
+                        str = bhVar.aim().getTaskId();
                     }
                     str2 = str;
                     z = z4;
                     i3 = 2;
-                    if (bhVar.bMT) {
+                    if (bhVar.ceC) {
                         z2 = z;
                         i4 = i3;
                     } else {
                         i4 = 14;
                     }
-                    a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_click", i, bhVar.bMQ, z2, str2, (String) null, i4);
+                    a = com.baidu.tieba.q.a.a(bhVar, PageStayDurationConstants.PageName.FRS, "common_click", i, bhVar.cez, z2, str2, (String) null, i4);
                     if (a == null) {
-                        a.P("list_order", c.bsF().a(bVar));
+                        a.O("list_order", c.bpJ().a(bVar));
                         if (z3) {
-                            a.P("obj_isofficial", bhVar.aeV().user_info.is_official);
-                            a.nX("thread_type");
-                            a.P("thread_type", bhVar.getThreadType());
+                            a.O("obj_isofficial", bhVar.aiZ().user_info.is_official);
+                            a.delete("thread_type");
+                            a.O("thread_type", bhVar.getThreadType());
                         }
-                        com.baidu.tieba.q.c.cpt().b(bdUniqueId, a);
+                        com.baidu.tieba.q.c.cnk().b(bdUniqueId, a);
                         return;
                     }
                     return;
@@ -75,9 +74,9 @@ public class a {
             str2 = str;
             z = z4;
             i3 = i2;
-            if (bhVar.bMT) {
+            if (bhVar.ceC) {
             }
-            a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_click", i, bhVar.bMQ, z2, str2, (String) null, i4);
+            a = com.baidu.tieba.q.a.a(bhVar, PageStayDurationConstants.PageName.FRS, "common_click", i, bhVar.cez, z2, str2, (String) null, i4);
             if (a == null) {
             }
         }
@@ -85,9 +84,9 @@ public class a {
 
     public static void a(bh bhVar, BdUniqueId bdUniqueId, b bVar, int i) {
         an a;
-        if (bhVar != null && (a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_exp", i, false, null, null)) != null) {
-            a.P("list_order", c.bsF().a(bVar));
-            com.baidu.tieba.q.c.cpt().a(bdUniqueId, bhVar.getId(), a);
+        if (bhVar != null && (a = com.baidu.tieba.q.a.a(bhVar, PageStayDurationConstants.PageName.FRS, "common_exp", i, false, null, null)) != null) {
+            a.O("list_order", c.bpJ().a(bVar));
+            com.baidu.tieba.q.c.cnk().a(bdUniqueId, bhVar.getId(), a);
         }
     }
 
@@ -108,10 +107,10 @@ public class a {
         an a;
         boolean z2 = true;
         if (bhVar != null) {
-            boolean z3 = (bhVar.aeV() == null || bhVar.aeV().user_info == null || bhVar.aeV().user_info.is_official != 2) ? false : true;
-            boolean z4 = z3 && bhVar.aeV().frsLiveStageType == 0;
+            boolean z3 = (bhVar.aiZ() == null || bhVar.aiZ().user_info == null || bhVar.aiZ().user_info.is_official != 2) ? false : true;
+            boolean z4 = z3 && bhVar.aiZ().frsLiveStageType == 0;
             if (z4) {
-                str = String.valueOf(bhVar.aeV().live_id);
+                str = String.valueOf(bhVar.aiZ().live_id);
                 i = 4;
             } else {
                 i = 0;
@@ -120,31 +119,31 @@ public class a {
             if (!z4) {
                 z4 = bhVar.getThreadType() == 41;
                 if (z4) {
-                    if (bhVar.aei() != null) {
-                        str = bhVar.aei().getTaskId();
+                    if (bhVar.aim() != null) {
+                        str = bhVar.aim().getTaskId();
                     }
                     str2 = str;
                     z = z4;
                     i2 = 2;
-                    if (bhVar.bMT) {
+                    if (bhVar.ceC) {
                         z2 = z;
                         i3 = i2;
                     } else {
                         i3 = 14;
                     }
-                    a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_exp", bhVar.bMQ, z2, str2, (String) null, i3);
+                    a = com.baidu.tieba.q.a.a(bhVar, PageStayDurationConstants.PageName.FRS, "common_exp", bhVar.cez, z2, str2, (String) null, i3);
                     if (a == null) {
-                        a.P("list_order", c.bsF().a(bVar));
+                        a.O("list_order", c.bpJ().a(bVar));
                         if (z3) {
-                            a.P("obj_isofficial", bhVar.aeV().user_info.is_official);
-                            a.nX("thread_type");
-                            a.P("thread_type", bhVar.getThreadType());
+                            a.O("obj_isofficial", bhVar.aiZ().user_info.is_official);
+                            a.delete("thread_type");
+                            a.O("thread_type", bhVar.getThreadType());
                         }
-                        if (bhVar.bMT) {
+                        if (bhVar.ceC) {
                             a(bhVar, bdUniqueId, a);
                             return;
                         } else {
-                            com.baidu.tieba.q.c.cpt().a(bdUniqueId, bhVar.getId(), a);
+                            com.baidu.tieba.q.c.cnk().a(bdUniqueId, bhVar.getId(), a);
                             return;
                         }
                     }
@@ -154,16 +153,16 @@ public class a {
             str2 = str;
             z = z4;
             i2 = i;
-            if (bhVar.bMT) {
+            if (bhVar.ceC) {
             }
-            a = com.baidu.tieba.q.a.a(bhVar, "a006", "common_exp", bhVar.bMQ, z2, str2, (String) null, i3);
+            a = com.baidu.tieba.q.a.a(bhVar, PageStayDurationConstants.PageName.FRS, "common_exp", bhVar.cez, z2, str2, (String) null, i3);
             if (a == null) {
             }
         }
     }
 
     public static void a(BdUniqueId bdUniqueId, List<m> list, ForumData forumData, int i) {
-        if (!v.aa(list)) {
+        if (!v.isEmpty(list)) {
             int i2 = 0;
             for (int i3 = 0; i3 < list.size(); i3++) {
                 if (list.get(i3) instanceof com.baidu.tieba.InjectPlugin.a) {
@@ -180,42 +179,42 @@ public class a {
 
     public static void a(BdUniqueId bdUniqueId, int i, ForumData forumData, int i2, int i3) {
         if (i > 0) {
-            an b = com.baidu.tieba.q.a.b("a006", "common_fill", true, i, i3);
+            an b = com.baidu.tieba.q.a.b(PageStayDurationConstants.PageName.FRS, "common_fill", true, i, i3);
             if (forumData != null) {
                 if (!aq.isEmpty(forumData.getId())) {
-                    b.bT("fid", forumData.getId());
+                    b.bS("fid", forumData.getId());
                 }
                 if (!aq.isEmpty(forumData.getName())) {
-                    b.bT(ImageViewerConfig.FORUM_NAME, forumData.getName());
+                    b.bS("fname", forumData.getName());
                 }
                 if (!aq.isEmpty(forumData.getFirst_class())) {
-                    b.bT("first_dir", forumData.getFirst_class());
+                    b.bS("first_dir", forumData.getFirst_class());
                 }
                 if (!aq.isEmpty(forumData.getSecond_class())) {
-                    b.bT("second_dir", forumData.getSecond_class());
+                    b.bS("second_dir", forumData.getSecond_class());
                 }
             }
-            b.P("list_order", i2);
-            com.baidu.tieba.q.c.cpt().b(bdUniqueId, b);
+            b.O("list_order", i2);
+            com.baidu.tieba.q.c.cnk().b(bdUniqueId, b);
         }
     }
 
-    public static void dd(String str, String str2) {
+    public static void cO(String str, String str2) {
         if (!StringUtils.isNull(str)) {
-            TiebaStatic.log(new an("common_click").bT("page_type", "a006").P("obj_isad", 1).P("obj_adlocate", 15).bT(VideoPlayActivityConfig.OBJ_ID, str).bT("fid", str2));
+            TiebaStatic.log(new an("common_click").bS("page_type", PageStayDurationConstants.PageName.FRS).O("obj_isad", 1).O("obj_adlocate", 15).bS("obj_id", str).bS("fid", str2));
         }
     }
 
     private static void a(bh bhVar, BdUniqueId bdUniqueId, an anVar) {
         if (bhVar != null && bdUniqueId != null && anVar != null) {
-            if (fRh != bdUniqueId) {
+            if (fQA != bdUniqueId) {
                 TiebaStatic.log(anVar);
-                boolean z = (bhVar.aeC() == null || bhVar.aeC().getUserId() == null || !bhVar.aeC().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-                if (bhVar.afL() && bhVar.adl() != null && !z) {
-                    TiebaStatic.log(new an("common_exp").bT("page_type", "a006").P("obj_isad", 1).P("obj_adlocate", 15).bT(VideoPlayActivityConfig.OBJ_ID, bhVar.getId()).n("fid", bhVar.getFid()));
+                boolean z = (bhVar.aiG() == null || bhVar.aiG().getUserId() == null || !bhVar.aiG().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+                if (bhVar.ajO() && bhVar.getFeedBackReasonMap() != null && !z) {
+                    TiebaStatic.log(new an("common_exp").bS("page_type", PageStayDurationConstants.PageName.FRS).O("obj_isad", 1).O("obj_adlocate", 15).bS("obj_id", bhVar.getId()).p("fid", bhVar.getFid()));
                 }
             }
-            fRh = bdUniqueId;
+            fQA = bdUniqueId;
         }
     }
 }

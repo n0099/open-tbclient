@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class y {
-    private static y iAA = null;
-    private LinkedHashMap<String, Integer> iAB = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
-    private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
+    private static y iyX = null;
+    private LinkedHashMap<String, Integer> iyY = new LinkedHashMap<>(150, 0.75f, true);
+    private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.y.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                y.this.iAB.clear();
+                y.this.iyY.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class y {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static y cfS() {
-        if (iAA == null) {
+    public static y ccT() {
+        if (iyX == null) {
             synchronized (y.class) {
-                if (iAA == null) {
-                    iAA = new y();
+                if (iyX == null) {
+                    iyX = new y();
                 }
             }
         }
-        return iAA;
+        return iyX;
     }
 
-    public void bi(String str, int i) {
-        if (i != 0 || !this.iAB.containsKey(str)) {
-            this.iAB.put(str, Integer.valueOf(i));
+    public void bd(String str, int i) {
+        if (i != 0 || !this.iyY.containsKey(str)) {
+            this.iyY.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.iAB.remove(str);
+            this.iyY.remove(str);
         }
     }
 
-    public int Dz(String str) {
-        Integer num = this.iAB.get(str);
+    public int BS(String str) {
+        Integer num = this.iyY.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class y {
     }
 
     public void clear() {
-        this.iAB.clear();
+        this.iyY.clear();
     }
 }

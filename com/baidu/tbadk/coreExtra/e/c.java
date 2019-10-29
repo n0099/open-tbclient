@@ -4,58 +4,57 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.c {
-    private static c cqy = new c();
-    private boolean cqt;
-    private int cqu;
-    private long cqv;
-    private final SparseArray<a> cqw;
-    private final HashSet<Integer> cqx;
-    private int cqz;
+    private static c cDf = new c();
+    private final SparseArray<a> availableAPIs;
+    private boolean closeLongConnectionAPI;
+    private int longConnectionFailedErrno;
+    private int maxErrorCount;
+    private long retryTimeInMills;
+    private final HashSet<Integer> unavailableAPIS;
 
-    public static c arn() {
-        return cqy;
+    public static c atf() {
+        return cDf;
     }
 
     private c() {
         super(1001);
-        this.cqu = 3;
-        this.cqv = ReportUserInfoModel.TIME_INTERVAL;
-        this.cqw = new SparseArray<>();
-        this.cqx = new HashSet<>();
-        this.cqz = 0;
+        this.maxErrorCount = 3;
+        this.retryTimeInMills = ReportUserInfoModel.TIME_INTERVAL;
+        this.availableAPIs = new SparseArray<>();
+        this.unavailableAPIS = new HashSet<>();
+        this.longConnectionFailedErrno = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
-    public boolean kf(int i) {
-        this.cqz = 0;
-        if (this.cqt) {
-            this.cqz = 3;
+    public boolean isAPIAvailableNow(int i) {
+        this.longConnectionFailedErrno = 0;
+        if (this.closeLongConnectionAPI) {
+            this.longConnectionFailedErrno = 3;
             return false;
-        } else if (this.cqx.contains(Integer.valueOf(i))) {
-            this.cqz = 6;
+        } else if (this.unavailableAPIS.contains(Integer.valueOf(i))) {
+            this.longConnectionFailedErrno = 6;
             return false;
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
-            this.cqz = 1;
+            this.longConnectionFailedErrno = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().fO() > e.arq().ars() + 20000) {
-            com.baidu.adp.framework.client.socket.i.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            this.cqz = 2;
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.ath().getForegroundInterval() + 20000) {
+            com.baidu.adp.framework.client.socket.i.debug("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
+            this.longConnectionFailedErrno = 2;
             return false;
-        } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
+        } else if (TextUtils.isEmpty("ws://im.tieba.baidu.com:8000")) {
             return false;
         } else {
-            a aVar = this.cqw.get(i);
-            if (aVar != null && aVar.cqB) {
-                if (Math.abs(System.currentTimeMillis() - aVar.cqC) > this.cqv) {
+            a aVar = this.availableAPIs.get(i);
+            if (aVar != null && aVar.startBlockOnErrorCount) {
+                if (Math.abs(System.currentTimeMillis() - aVar.startBlockTime) > this.retryTimeInMills) {
                     aVar.reset();
                 } else {
-                    this.cqz = 4;
+                    this.longConnectionFailedErrno = 4;
                     return false;
                 }
             }
@@ -67,8 +66,8 @@ public class c extends com.baidu.adp.framework.listener.c {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cqw.size()) {
-                this.cqw.valueAt(i2).reset();
+            if (i2 < this.availableAPIs.size()) {
+                this.availableAPIs.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -76,41 +75,41 @@ public class c extends com.baidu.adp.framework.listener.c {
         }
     }
 
-    public void kg(int i) {
-        a aVar = this.cqw.get(i);
+    public void onAPIFailed(int i) {
+        a aVar = this.availableAPIs.get(i);
         if (aVar == null) {
             aVar = new a();
-            this.cqw.append(i, aVar);
+            this.availableAPIs.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.cqu);
+            aVar.onError(this.maxErrorCount);
         }
-        this.cqz = 5;
+        this.longConnectionFailedErrno = 5;
     }
 
-    public void kh(int i) {
-        this.cqw.remove(i);
+    public void onAPISuccessed(int i) {
+        this.availableAPIs.remove(i);
     }
 
-    public void eZ(boolean z) {
-        this.cqt = z;
+    public void setCloseLongConnectionAPI(boolean z) {
+        this.closeLongConnectionAPI = z;
     }
 
-    public void i(int[] iArr) {
+    public void setUnAvailableAPIS(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.cqx.clear();
+            this.unavailableAPIS.clear();
             for (int i : iArr) {
-                this.cqx.add(Integer.valueOf(i));
+                this.unavailableAPIS.add(Integer.valueOf(i));
             }
         }
     }
 
-    public void ki(int i) {
-        this.cqu = i;
+    public void setMaxErrorCount(int i) {
+        this.maxErrorCount = i;
     }
 
-    public void bj(long j) {
-        this.cqv = j;
+    public void setRetryTimeInMills(long j) {
+        this.retryTimeInMills = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,31 +123,31 @@ public class c extends com.baidu.adp.framework.listener.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int cqA;
-        public boolean cqB;
-        public long cqC;
+        public int errorCount;
+        public boolean startBlockOnErrorCount;
+        public long startBlockTime;
 
         private a() {
         }
 
         public void reset() {
-            this.cqA = 0;
-            if (this.cqB) {
-                this.cqB = false;
-                this.cqC = 0L;
+            this.errorCount = 0;
+            if (this.startBlockOnErrorCount) {
+                this.startBlockOnErrorCount = false;
+                this.startBlockTime = 0L;
             }
         }
 
         public void onError(int i) {
-            this.cqA++;
-            if (!this.cqB && this.cqA >= i) {
-                this.cqB = true;
-                this.cqC = System.currentTimeMillis();
+            this.errorCount++;
+            if (!this.startBlockOnErrorCount && this.errorCount >= i) {
+                this.startBlockOnErrorCount = true;
+                this.startBlockTime = System.currentTimeMillis();
             }
         }
     }
 
-    public int aro() {
-        return this.cqz;
+    public int getLongConnectionFailedErrno() {
+        return this.longConnectionFailedErrno;
     }
 }

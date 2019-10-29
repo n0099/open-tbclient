@@ -3,7 +3,8 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -518,10 +519,10 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("tag_info");
                 if (optJSONObject2 != null) {
                     this.tag_name = optJSONObject2.optString("tag_name", null);
-                    this.tag_id = optJSONObject2.optString("tag_id", null);
+                    this.tag_id = optJSONObject2.optString(TiebaInitialize.Params.TAG_ID, null);
                     this.tag_color = optJSONObject2.optString("color", null);
                 }
-                this.image_url = jSONObject.optString("avatar", null);
+                this.image_url = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, null);
                 this.cur_score = jSONObject.optInt("cur_score", 0);
                 this.levelup_score = jSONObject.optInt("levelup_score", 0);
                 this.first_class = jSONObject.optString("first_class");
@@ -626,7 +627,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                     BdLog.e(e7.getMessage());
                 }
                 this.forumGameLabel = jSONObject.optString("forum_game_label");
-                this.special_forum_type = jSONObject.optString(AlaMasterLiveRoomActivityConfig.SPECIAL_FORIM_TYPE);
+                this.special_forum_type = jSONObject.optString("special_forum_type");
                 this.topic_special_icon = jSONObject.optString("topic_special_icon");
                 this.topic_special_icon_right = jSONObject.optString("topic_special_icon_right");
                 this.topIcon = jSONObject.optString("is_top_img");

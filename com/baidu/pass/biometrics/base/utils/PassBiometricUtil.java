@@ -11,6 +11,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
@@ -93,7 +94,7 @@ public class PassBiometricUtil {
             String[] split = readLine2.split("\\s+");
             Log.d(TAG, "getCpuType()str2:" + readLine2);
             for (int i = 2; i < split.length; i++) {
-                strArr[0] = strArr[0] + split[i] + " ";
+                strArr[0] = strArr[0] + split[i] + HanziToPinyin.Token.SEPARATOR;
             }
             Log.d(TAG, "getCpuType()str2" + bufferedReader.readLine());
             strArr[1] = strArr[1] + readLine.split("\\s+")[2];

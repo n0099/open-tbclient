@@ -1,5 +1,6 @@
 package com.baidu.tieba.godRecommends;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetRecommendGod.GetRecommendGodResIdl;
@@ -8,7 +9,7 @@ public class GodRecommendSocketMessage extends TbSocketReponsedMessage {
     private c godRecommendData;
 
     public GodRecommendSocketMessage() {
-        super(309471);
+        super(CmdConfigSocket.CMD_GET_GOD_RECOMMEND);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -33,14 +33,14 @@ public class a extends z {
             }
             com.baidu.swan.games.i.a.c(optString, new e.b() { // from class: com.baidu.swan.games.h.a.a.1
                 @Override // com.baidu.swan.apps.install.e.b
-                public void cw(int i) {
+                public void cr(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.install.e.b
                 public void onSuccess() {
-                    File Dg = b.Dg();
-                    File De = b.De();
-                    if (Dg.exists() && com.baidu.swan.c.a.bs(Dg.getPath(), De.getPath())) {
+                    File Ia = b.Ia();
+                    File HY = b.HY();
+                    if (Ia.exists() && com.baidu.swan.c.a.bz(Ia.getPath(), HY.getPath())) {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_success, 1).show();
                     } else {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();

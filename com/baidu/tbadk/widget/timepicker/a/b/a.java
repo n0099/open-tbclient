@@ -6,90 +6,90 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a cOU = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a cYm = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.cOU.context = context;
-        this.cOU.cOV = eVar;
+        this.cYm.context = context;
+        this.cYm.cYn = eVar;
     }
 
     public a b(boolean[] zArr) {
-        this.cOU.cPc = zArr;
+        this.cYm.cYu = zArr;
         return this;
     }
 
-    public a lP(int i) {
-        this.cOU.cPE = i;
+    public a kU(int i) {
+        this.cYm.cYW = i;
         return this;
     }
 
-    public a lQ(int i) {
-        this.cOU.cPI = i;
+    public a kV(int i) {
+        this.cYm.cZa = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.cOU.cPd = calendar;
+        this.cYm.cYv = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.cOU.cPw = i;
-        this.cOU.cOX = aVar;
+        this.cYm.cYO = i;
+        this.cYm.cYp = aVar;
         return this;
     }
 
-    public a av(float f) {
-        this.cOU.cPM = f;
+    public a ah(float f) {
+        this.cYm.cZe = f;
         return this;
     }
 
-    public a lR(int i) {
-        this.cOU.cPL = i;
+    public a kW(int i) {
+        this.cYm.cZd = i;
         return this;
     }
 
-    public a lS(int i) {
-        this.cOU.cyH = i;
+    public a kX(int i) {
+        this.cYm.backgroundId = i;
         return this;
     }
 
-    public a lT(int i) {
-        this.cOU.cPK = i;
+    public a kY(int i) {
+        this.cYm.cZc = i;
         return this;
     }
 
-    public a lU(int i) {
-        this.cOU.cPJ = i;
+    public a kZ(int i) {
+        this.cYm.cZb = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.cOU.cPk = str;
-        this.cOU.cPl = str2;
-        this.cOU.cPm = str3;
-        this.cOU.cPn = str4;
-        this.cOU.cPo = str5;
-        this.cOU.cPp = str6;
+        this.cYm.cYC = str;
+        this.cYm.cYD = str2;
+        this.cYm.cYE = str3;
+        this.cYm.cYF = str4;
+        this.cYm.cYG = str5;
+        this.cYm.cYH = str6;
         return this;
     }
 
     public a f(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.cOU.cPq = i;
-        this.cOU.cPr = i2;
-        this.cOU.cPs = i3;
-        this.cOU.cPt = i4;
-        this.cOU.cPu = i5;
-        this.cOU.cPv = i6;
+        this.cYm.cYI = i;
+        this.cYm.cYJ = i2;
+        this.cYm.cYK = i3;
+        this.cYm.cYL = i4;
+        this.cYm.cYM = i5;
+        this.cYm.cYN = i6;
         return this;
     }
 
-    public a fZ(boolean z) {
-        this.cOU.cPP = z;
+    public a fO(boolean z) {
+        this.cYm.cZh = z;
         return this;
     }
 
-    public b azX() {
-        return new b(this.cOU);
+    public b aAg() {
+        return new b(this.cYm);
     }
 }

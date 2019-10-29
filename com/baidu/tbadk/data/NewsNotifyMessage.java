@@ -1,121 +1,122 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     private a mData;
 
     /* loaded from: classes.dex */
     public class a {
-        private int ciM = 0;
-        private int ciN = 0;
-        private int ciO = 0;
-        private int ciP = 0;
-        private int ciR = 0;
-        private int ciQ = 0;
-        private int ciS = 0;
-        private int crE = 0;
-        private int crF = 0;
-        private int crG = 0;
+        private int mMsgAgreeme = 0;
+        private int mMsgReplyme = 0;
+        private int mMsgAtme = 0;
+        private int mMsgChat = 0;
+        private int mMsgFans = 0;
+        private int mMsgBookmark = 0;
+        private int mMsgGiftNum = 0;
+        private int mMsgPrivateChat = 0;
+        private int mMsgStrangerChat = 0;
+        private int mMsgOfficialMerge = 0;
 
         public a() {
         }
     }
 
     public NewsNotifyMessage() {
-        super(2001120);
+        super(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
         this.mData = new a();
     }
 
     public NewsNotifyMessage(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        super(2001120);
+        super(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
         this.mData = new a();
-        this.mData.ciM = i;
-        this.mData.ciN = i2;
-        this.mData.ciO = i3;
-        this.mData.ciP = i4;
-        this.mData.ciQ = i5;
-        this.mData.ciS = i6;
-        this.mData.crE = i7;
+        this.mData.mMsgAgreeme = i;
+        this.mData.mMsgReplyme = i2;
+        this.mData.mMsgAtme = i3;
+        this.mData.mMsgChat = i4;
+        this.mData.mMsgBookmark = i5;
+        this.mData.mMsgGiftNum = i6;
+        this.mData.mMsgPrivateChat = i7;
     }
 
     public int getMsgAgree() {
-        return this.mData.ciM;
+        return this.mData.mMsgAgreeme;
     }
 
     public void setMsgAgree(int i) {
-        this.mData.ciM = i;
+        this.mData.mMsgAgreeme = i;
     }
 
     public int getMsgReplyme() {
-        return this.mData.ciN;
+        return this.mData.mMsgReplyme;
     }
 
     public void setMsgReplyme(int i) {
-        this.mData.ciN = i;
+        this.mData.mMsgReplyme = i;
     }
 
     public int getMsgAtme() {
-        return this.mData.ciO;
+        return this.mData.mMsgAtme;
     }
 
     public void setMsgAtme(int i) {
-        this.mData.ciO = i;
+        this.mData.mMsgAtme = i;
     }
 
     public int getMsgChat() {
-        return this.mData.ciP;
+        return this.mData.mMsgChat;
     }
 
     public void setMsgChat(int i) {
-        this.mData.ciP = i;
+        this.mData.mMsgChat = i;
     }
 
     public void setMsgFans(int i) {
-        this.mData.ciR = i;
+        this.mData.mMsgFans = i;
     }
 
     public int getMsgFans() {
-        return this.mData.ciR;
+        return this.mData.mMsgFans;
     }
 
     public int getMsgBookmark() {
-        return this.mData.ciQ;
+        return this.mData.mMsgBookmark;
     }
 
     public void setMsgBookmark(int i) {
-        this.mData.ciQ = i;
+        this.mData.mMsgBookmark = i;
     }
 
     public int getMsgGiftNum() {
-        return this.mData.ciS;
+        return this.mData.mMsgGiftNum;
     }
 
     public void setMsgGiftNum(int i) {
-        this.mData.ciS = i;
+        this.mData.mMsgGiftNum = i;
     }
 
     public void setMsgPrivateChat(int i) {
-        this.mData.crE = i;
+        this.mData.mMsgPrivateChat = i;
     }
 
     public int getMsgPrivateChat() {
-        return this.mData.crE;
+        return this.mData.mMsgPrivateChat;
     }
 
     public void setMsgStrangerChat(int i) {
-        this.mData.crF = i;
+        this.mData.mMsgStrangerChat = i;
     }
 
     public int getMsgStrangerChat() {
-        return this.mData.crF;
+        return this.mData.mMsgStrangerChat;
     }
 
     public void setMsgOfficialMerge(int i) {
-        this.mData.crG = i;
+        this.mData.mMsgOfficialMerge = i;
     }
 
     public int getMsgOfficialMerge() {
-        return this.mData.crG;
+        return this.mData.mMsgOfficialMerge;
     }
 }

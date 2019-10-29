@@ -17,36 +17,36 @@ import com.baidu.adp.lib.util.BdLog;
 import java.sql.SQLException;
 /* loaded from: classes.dex */
 public class b {
-    private SQLiteDatabase sV = null;
-    private a.InterfaceC0012a sW = null;
-    private a sX;
+    private SQLiteDatabase database = null;
+    private a.InterfaceC0012a ld = null;
+    private a le;
 
     public b(a aVar) {
-        this.sX = aVar;
+        this.le = aVar;
     }
 
     public void a(a.InterfaceC0012a interfaceC0012a) {
-        this.sW = interfaceC0012a;
+        this.ld = interfaceC0012a;
     }
 
-    public SQLiteDatabase fa() {
-        return B(true);
+    public SQLiteDatabase getOpenedDatabase() {
+        return getOpenedDatabase(true);
     }
 
-    protected SQLiteDatabase B(boolean z) {
-        C(z);
-        return this.sV;
+    protected SQLiteDatabase getOpenedDatabase(boolean z) {
+        ensureDatabaseReady(z);
+        return this.database;
     }
 
-    private void C(boolean z) {
+    private void ensureDatabaseReady(boolean z) {
         synchronized (b.class) {
-            if (this.sV == null || !this.sV.isOpen()) {
+            if (this.database == null || !this.database.isOpen()) {
                 try {
-                    this.sX.a(this.sW);
-                    this.sV = this.sX.getWritableDatabase();
+                    this.le.a(this.ld);
+                    this.database = this.le.getWritableDatabase();
                 } catch (RuntimeException e) {
                     if (z) {
-                        c(e, "ensureDatabaseReady");
+                        notifySQLException(e, "ensureDatabaseReady");
                     } else {
                         throw e;
                     }
@@ -55,104 +55,104 @@ public class b {
         }
     }
 
-    public boolean O(String str) {
-        SQLiteDatabase fa = fa();
-        if (fa != null) {
+    public boolean execSQLNoException(String str) {
+        SQLiteDatabase openedDatabase = getOpenedDatabase();
+        if (openedDatabase != null) {
             try {
-                fa.execSQL(str);
+                openedDatabase.execSQL(str);
                 return true;
             } catch (Throwable th) {
-                c(th, "execSQLNoException:" + str);
+                notifySQLException(th, "execSQLNoException:" + str);
                 return false;
             }
         }
         return false;
     }
 
-    public boolean f(String str, Object[] objArr) {
-        SQLiteDatabase fa = fa();
-        if (fa != null) {
+    public boolean execSQLNoException(String str, Object[] objArr) {
+        SQLiteDatabase openedDatabase = getOpenedDatabase();
+        if (openedDatabase != null) {
             try {
-                fa.execSQL(str, objArr);
+                openedDatabase.execSQL(str, objArr);
                 return true;
             } catch (Throwable th) {
-                c(th, "execSQLNoException:" + str);
+                notifySQLException(th, "execSQLNoException:" + str);
                 return false;
             }
         }
         return false;
     }
 
-    public Cursor b(String str, String[] strArr) throws Exception {
-        SQLiteDatabase B = B(false);
-        if (B != null) {
-            return B.rawQuery(str, strArr);
+    public Cursor rawQuery(String str, String[] strArr) throws Exception {
+        SQLiteDatabase openedDatabase = getOpenedDatabase(false);
+        if (openedDatabase != null) {
+            return openedDatabase.rawQuery(str, strArr);
         }
         throw new SQLException("unable to open database.");
     }
 
-    public void fb() {
+    public void closeDatabase() {
         try {
-            if (this.sV != null) {
-                this.sV.close();
-                this.sV = null;
+            if (this.database != null) {
+                this.database.close();
+                this.database = null;
             }
         } catch (Exception e) {
             BdLog.e("closeDatabase：" + e.getMessage());
         }
     }
 
-    public boolean fc() {
-        boolean ac;
+    public boolean deleteDatabase() {
+        boolean dropDatabase;
         synchronized (b.class) {
-            fb();
+            closeDatabase();
             try {
-                ac = this.sX.ac(BdBaseApplication.getInst().getContext());
+                dropDatabase = this.le.dropDatabase(BdBaseApplication.getInst().getContext());
             } catch (Exception e) {
                 BdLog.e("deleteDatabase：" + e.getMessage());
-                this.sV = null;
+                this.database = null;
                 return false;
             }
         }
-        return ac;
+        return dropDatabase;
     }
 
-    public void c(Throwable th, String str) {
+    public void notifySQLException(Throwable th, String str) {
         int i;
         if (th != null && (th instanceof SQLiteException)) {
             if (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException) {
                 BdLog.w("database corrupted. recreate!");
                 try {
-                    fc();
+                    deleteDatabase();
                 } catch (Throwable th2) {
                     BdLog.detailException("failed to drop database. msg:", th2);
                 }
                 i = -14;
-                this.sV = null;
+                this.database = null;
             } else if (th instanceof SQLiteAbortException) {
                 i = -11;
             } else if (th instanceof SQLiteConstraintException) {
                 i = -12;
             } else if (th instanceof SQLiteDiskIOException) {
                 i = -15;
-                this.sV = null;
+                this.database = null;
             } else if (th instanceof SQLiteFullException) {
                 i = -16;
-                this.sV = null;
+                this.database = null;
             } else if (th instanceof SQLiteDoneException) {
                 i = -19;
-                this.sV = null;
+                this.database = null;
             } else if (th instanceof SQLiteMisuseException) {
                 i = -17;
             } else {
-                this.sV = null;
+                this.database = null;
                 i = -17;
             }
-            a(str, i, th.getMessage(), new Object[0]);
+            logDBException(str, i, th.getMessage(), new Object[0]);
         }
     }
 
-    protected void a(String str, int i, String str2, Object... objArr) {
+    protected void logDBException(String str, int i, String str2, Object... objArr) {
         try {
             BdStatisticsManager.getInstance().db(str, "", i, str2, objArr);
         } catch (Exception e) {

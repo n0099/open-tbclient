@@ -1,7 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
@@ -12,23 +13,23 @@ public class ReplyMeNetModel extends NetAutoModel<k, l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> auL() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> awe() {
         return ReplyMeHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> auM() {
+    protected Class<? extends MvcSocketResponsedMessage> awf() {
         return ReplyMeSocketResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int auN() {
-        return CmdConfigHttp.REPLYME_HTTP_CMD;
+    protected int awg() {
+        return 1002200;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String auP() {
-        return "c/u/feed/replyme";
+    protected String awi() {
+        return Config.REPLYME_ADDRESS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
@@ -37,7 +38,7 @@ public class ReplyMeNetModel extends NetAutoModel<k, l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int auO() {
-        return 303007;
+    protected int awh() {
+        return CmdConfigSocket.CMD_REPLY_ME;
     }
 }

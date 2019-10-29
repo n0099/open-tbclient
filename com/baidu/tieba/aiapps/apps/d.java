@@ -18,8 +18,6 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.BdToken.g;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.an;
@@ -30,15 +28,15 @@ import java.lang.reflect.Field;
 public final class d {
     public static PopupWindow a(final g gVar) {
         View.OnClickListener onClickListener;
-        Activity eU = com.baidu.adp.base.a.eT().eU();
-        if (eU == null || gVar == null) {
+        Activity currentActivity = com.baidu.adp.base.a.em().currentActivity();
+        if (currentActivity == null || gVar == null) {
             return null;
         }
         final String url = gVar.getUrl();
         if (StringUtils.isNull(url)) {
             return null;
         }
-        View inflate = LayoutInflater.from(eU).inflate(R.layout.aiapps_token_layout, (ViewGroup) null, true);
+        View inflate = LayoutInflater.from(currentActivity).inflate(R.layout.aiapps_token_layout, (ViewGroup) null, true);
         TextView textView = (TextView) inflate.findViewById(R.id.go_to_aiapps_go);
         TextView textView2 = (TextView) inflate.findViewById(R.id.go_to_aiapps_cancel);
         TextView textView3 = (TextView) inflate.findViewById(R.id.token_title);
@@ -46,25 +44,25 @@ public final class d {
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.token_top_cover);
         tbImageView.setDefaultResource(R.drawable.toastpic);
         tbImageView.setAutoChangeStyle(false);
-        final PopupWindow popupWindow = new PopupWindow(eU);
-        switch (gVar.ZF()) {
+        final PopupWindow popupWindow = new PopupWindow(currentActivity);
+        switch (gVar.aeu()) {
             case 3:
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
                 onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
-                            if (com.baidu.adp.base.a.eT().eU() != null && !StringUtils.isNull(g.this.getUrl())) {
+                            if (com.baidu.adp.base.a.em().currentActivity() != null && !StringUtils.isNull(g.this.getUrl())) {
                                 Uri parse = Uri.parse(g.this.getUrl());
-                                if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) != null) {
-                                    TiebaStatic.log(new an("c13391").bT("obj_type", parse.getQueryParameter("obj_type")).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
+                                if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
+                                    TiebaStatic.log(new an("c13391").bS("obj_type", parse.getQueryParameter("obj_type")).bS("obj_source", parse.getQueryParameter("obj_source")));
                                 }
-                                if (g.this.getUrl().startsWith(f.bzB)) {
+                                if (g.this.getUrl().startsWith(f.bSh)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.bzL, f.bzP);
+                                    buildUpon.appendQueryParameter(f.bSr, f.bSv);
                                     parse = buildUpon.build();
                                 }
-                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.eT().eU(), parse.toString());
+                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.em().currentActivity(), parse.toString());
                             }
                             try {
                                 popupWindow.dismiss();
@@ -87,7 +85,7 @@ public final class d {
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                            TiebaStatic.log(new an("c13274").bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(VideoPlayActivityConfig.OBJ_ID, gVar.bzV).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "tb_password").bT("obj_name", gVar.appName).P("obj_param1", gVar.bzW.intValue()));
+                            TiebaStatic.log(new an("c13274").bS("uid", TbadkCoreApplication.getCurrentAccount()).bS("obj_id", gVar.bSB).bS("obj_source", "tb_password").bS("obj_name", gVar.appName).O("obj_param1", gVar.bSC.intValue()));
                             try {
                                 popupWindow.dismiss();
                             } catch (Throwable th) {
@@ -102,8 +100,8 @@ public final class d {
                         }
                     }
                 };
-                if (!StringUtils.isNull(gVar.ZC())) {
-                    tbImageView.startLoad(gVar.ZC(), 10, false);
+                if (!StringUtils.isNull(gVar.aer())) {
+                    tbImageView.startLoad(gVar.aer(), 10, false);
                     onClickListener = onClickListener2;
                     break;
                 } else {
@@ -114,15 +112,15 @@ public final class d {
         }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        textView.setText(gVar.ZD());
-        textView2.setText(gVar.ZE());
+        textView.setText(gVar.aes());
+        textView2.setText(gVar.aet());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setColor(Color.argb(178, 0, 0, 0));
         popupWindow.setBackgroundDrawable(colorDrawable);
-        popupWindow.setWidth(l.af(eU));
-        popupWindow.setHeight(l.ah(eU));
+        popupWindow.setWidth(l.getEquipmentWidth(currentActivity));
+        popupWindow.setHeight(l.getEquipmentHeight(currentActivity));
         popupWindow.setContentView(inflate);
         popupWindow.setOutsideTouchable(true);
         if (Build.VERSION.SDK_INT >= 21) {

@@ -7,6 +7,7 @@ import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
@@ -114,7 +115,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
                 if (bundle2 == null) {
                     bundle2 = new Bundle();
                 }
-                this.mFragmentManager.putFragment(bundle2, "f" + i, fragment);
+                this.mFragmentManager.putFragment(bundle2, BdStatsConstant.StatsKey.FROM + i, fragment);
             }
         }
         return bundle2;
@@ -134,7 +135,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
                 }
             }
             for (String str : bundle.keySet()) {
-                if (str.startsWith("f")) {
+                if (str.startsWith(BdStatsConstant.StatsKey.FROM)) {
                     int parseInt = Integer.parseInt(str.substring(1));
                     Fragment fragment = this.mFragmentManager.getFragment(bundle, str);
                     if (fragment != null) {

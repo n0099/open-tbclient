@@ -1,21 +1,22 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class i extends BdAsyncTask<Void, Void, Void> {
-    private a dbH;
+    private a dle;
 
     public i(a aVar) {
-        this.dbH = aVar;
+        this.dle = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        if (!f.aEn().a(this.dbH)) {
-            com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+        if (!f.aEx().a(this.dle)) {
+            com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
             return null;
         }
         return null;

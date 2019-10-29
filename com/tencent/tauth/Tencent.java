@@ -296,7 +296,7 @@ public class Tencent {
             String string = loadSession.getString("access_token");
             String string2 = loadSession.getString("expires_in");
             String string3 = loadSession.getString("openid");
-            String string4 = loadSession.getString(Constants.PARAM_EXPIRES_TIME);
+            String string4 = loadSession.getString("expires_time");
             if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2) || TextUtils.isEmpty(string3) || TextUtils.isEmpty(string4)) {
                 return false;
             }

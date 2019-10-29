@@ -10,50 +10,50 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.e.m;
 /* loaded from: classes.dex */
 public class a implements c {
-    public static final String cLt = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m cLu;
-    private boolean cLv = false;
-    private String wX;
+    public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    private m cUT;
+    private boolean isFirstLoadInternal = false;
+    private String mPath;
 
     @Override // com.airbnb.lottie.c
     public Bitmap a(g gVar) {
-        if (aq.isEmpty(this.wX)) {
+        if (aq.isEmpty(this.mPath)) {
             return null;
         }
-        String str = this.wX + gVar.bU().replace("/", "") + "/" + gVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.iE().b(str, 36, new Object[0]);
+        String str = this.mPath + gVar.bn().replace("/", "") + "/" + gVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.fT().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.cLu == null) {
-                this.cLu = new m();
+            if (this.cUT == null) {
+                this.cUT = new m();
             }
-            aVar = this.cLu.n(str, 0, 0);
+            aVar = this.cUT.m(str, 0, 0);
         }
-        if (aVar != null && aVar.nK() != null) {
-            Bitmap nK = aVar.nK();
+        if (aVar != null && aVar.getRawBitmap() != null) {
+            Bitmap rawBitmap = aVar.getRawBitmap();
             try {
-                return nK.copy(nK.getConfig(), false);
+                return rawBitmap.copy(rawBitmap.getConfig(), false);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.f.c.iE().a(str, 36, null, null);
+        com.baidu.adp.lib.f.c.fT().a(str, 36, null, null);
         return null;
     }
 
     public void setPath(String str) {
-        this.wX = getAnimationPath() + str + "/";
+        this.mPath = getAnimationPath() + str + "/";
     }
 
     public static String getAnimationPath() {
-        return cLt + "/" + TbConfig.getTempDirName() + "/animation/";
+        return INTERNEL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
     public void setFirstLoadInternal(boolean z) {
-        this.cLv = z;
+        this.isFirstLoadInternal = z;
     }
 
     public boolean getFristLoadInternal() {
-        return this.cLv;
+        return this.isFirstLoadInternal;
     }
 }

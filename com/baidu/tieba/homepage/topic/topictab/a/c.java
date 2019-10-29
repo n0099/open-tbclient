@@ -9,15 +9,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.c.gpW);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.c.gpv);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: as */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> b(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.topic.topictab.view.b bVar = new com.baidu.tieba.homepage.topic.topictab.view.b(this.mPageContext);
         bVar.setTag(this.mPageId);
         return new com.baidu.tieba.card.a.a<>(bVar);
@@ -26,13 +26,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topictab.b.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> aVar) {
-        if (cVar == null || aVar == null || aVar.baX() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topictab.b.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topictab.view.b> aVar) {
+        if (cVar == null || aVar == null || aVar.baZ() == null) {
             return null;
         }
-        aVar.baX().a(cVar);
-        aVar.baX().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.baZ().a(cVar);
+        aVar.baZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

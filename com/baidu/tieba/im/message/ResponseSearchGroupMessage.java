@@ -2,6 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.cache.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
     private List<BaseGroupData> searchResult;
 
     public ResponseSearchGroupMessage() {
-        super(103007);
+        super(CmdConfigSocket.CMD_REQUEST_SEARCH_GROUP);
         this.searchResult = new ArrayList();
         this.cacheList = new ArrayList();
     }

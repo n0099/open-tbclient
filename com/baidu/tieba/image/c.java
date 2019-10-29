@@ -1,13 +1,11 @@
 package com.baidu.tieba.image;
 
 import android.content.Context;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class c {
-    private AdvertAppInfo haf;
+    private AdvertAppInfo gYi;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -19,34 +17,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.haf = advertAppInfo;
+        this.gYi = advertAppInfo;
     }
 
-    public void bJz() {
-        Al("click");
-        com.baidu.tieba.recapp.report.c.cjE().a(com.baidu.tieba.recapp.report.f.c(this.haf, 2, 0));
+    public void bGj() {
+        yD("click");
+        com.baidu.tieba.recapp.report.c.cgI().a(com.baidu.tieba.recapp.report.f.c(this.gYi, 2, 0));
     }
 
-    public void bJA() {
-        Al("click");
-        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.haf, 2, 0);
-        c.ED("title");
-        com.baidu.tieba.recapp.report.c.cjE().a(c);
+    public void bGk() {
+        yD("click");
+        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.gYi, 2, 0);
+        c.CY("title");
+        com.baidu.tieba.recapp.report.c.cgI().a(c);
     }
 
-    public void bJB() {
-        Al(SmsLoginView.StatEvent.LOGIN_SHOW);
-        com.baidu.tieba.recapp.report.c.cjE().a(com.baidu.tieba.recapp.report.f.c(this.haf, 3, 0));
+    public void bGl() {
+        yD("show");
+        com.baidu.tieba.recapp.report.c.cgI().a(com.baidu.tieba.recapp.report.f.c(this.gYi, 3, 0));
     }
 
-    public void bJC() {
+    public void bGm() {
     }
 
-    public void Ak(String str) {
-        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, DpStatConstants.KEY_APP_NAME, str);
+    public void yC(String str) {
+        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
     }
 
-    public void Al(String str) {
-        com.baidu.tbadk.distribute.a.arZ().a(this.haf, this.mForumId, com.baidu.adp.lib.g.b.e(this.mPostId, 0L), "PB", str, 1);
+    public void yD(String str) {
+        com.baidu.tbadk.distribute.a.atN().a(this.gYi, this.mForumId, com.baidu.adp.lib.g.b.toLong(this.mPostId, 0L), "PB", str, 1);
     }
 }

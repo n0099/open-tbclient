@@ -8,22 +8,22 @@ import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private f aes;
-    private MediaMuxer afq;
-    private volatile boolean afr = false;
+    private f axQ;
+    private MediaMuxer ayO;
+    private volatile boolean ayP = false;
 
-    public boolean uf() {
-        return this.afr;
+    public boolean yZ() {
+        return this.ayP;
     }
 
     public boolean a(String str, int i, f fVar) {
-        if (!com.baidu.mario.b.c.a.cH(str)) {
-            com.baidu.mario.b.c.a.cG(str);
+        if (!com.baidu.mario.b.c.a.ds(str)) {
+            com.baidu.mario.b.c.a.dr(str);
         }
         try {
-            this.afq = new MediaMuxer(str, i);
-            this.aes = fVar;
-            this.afr = false;
+            this.ayO = new MediaMuxer(str, i);
+            this.axQ = fVar;
+            this.ayP = false;
             return true;
         } catch (Exception e) {
             Log.e(TAG, "initMovieMuxer init error!!!");
@@ -41,7 +41,7 @@ public class e {
     public synchronized int b(MediaFormat mediaFormat) {
         int i;
         try {
-            i = this.afq.addTrack(mediaFormat);
+            i = this.ayO.addTrack(mediaFormat);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,18 +51,18 @@ public class e {
         return i;
     }
 
-    public synchronized void ug() {
+    public synchronized void za() {
         boolean z = true;
         synchronized (this) {
             try {
-                this.afq.start();
-                this.afr = true;
+                this.ayO.start();
+                this.ayP = true;
             } catch (Exception e) {
                 Log.e(TAG, "startMuxer error!!!");
                 z = false;
             }
-            if (this.aes != null) {
-                this.aes.aM(z);
+            if (this.axQ != null) {
+                this.axQ.be(z);
             }
         }
     }
@@ -70,7 +70,7 @@ public class e {
     public boolean b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (i != -1) {
             try {
-                this.afq.writeSampleData(i, byteBuffer, bufferInfo);
+                this.ayO.writeSampleData(i, byteBuffer, bufferInfo);
                 return true;
             } catch (Exception e) {
                 Log.e(TAG, "startMuxer error!!!");
@@ -79,26 +79,26 @@ public class e {
         return false;
     }
 
-    public synchronized void uh() {
+    public synchronized void zb() {
         boolean z = false;
         synchronized (this) {
             try {
-                this.afq.stop();
-                this.afr = false;
+                this.ayO.stop();
+                this.ayP = false;
                 z = true;
             } catch (Exception e) {
                 Log.e(TAG, "stopMuxer error!!!");
             }
-            if (this.aes != null) {
-                this.aes.aN(z);
+            if (this.axQ != null) {
+                this.axQ.bf(z);
             }
         }
     }
 
-    public void ui() {
-        if (!this.afr) {
-            this.afq.release();
-            this.afq = null;
+    public void zc() {
+        if (!this.ayP) {
+            this.ayO.release();
+            this.ayO = null;
         }
     }
 }

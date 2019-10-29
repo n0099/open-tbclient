@@ -6,13 +6,13 @@ import android.text.TextUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a {
-    public static void p(Context context, String str, String str2) {
+    public static void q(Context context, String str, String str2) {
         if (context != null) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = context.getResources().getString(R.string.invoice_error_operation_failed);
             }
             com.baidu.swan.apps.console.c.e("chooseInvoiceTitle", "网络请求错误：" + str2);
-            com.baidu.swan.apps.res.widget.b.d.a(context, str2).LU();
+            com.baidu.swan.apps.res.widget.b.d.a(context, str2).QN();
         }
     }
 

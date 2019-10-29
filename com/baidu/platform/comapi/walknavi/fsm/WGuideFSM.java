@@ -1,6 +1,7 @@
 package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.platform.comapi.walknavi.b;
 /* loaded from: classes5.dex */
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
@@ -52,7 +53,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
                 queryDestState = getBackState(str2);
             }
             stateReflection(str2, RGState.METHOD_NAME_EXIT);
-            stateReflection(queryDestState, RGState.METHOD_NAME_ENTER);
+            stateReflection(queryDestState, "enter");
             stateReflection(queryDestState, RGState.METHOD_NAME_EXCUTE);
             this.a = queryDestState;
             cacheBackState(queryDestState);
@@ -87,7 +88,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
 
     private void stateReflection(String str, String str2) {
         try {
-            Class<?> cls = Class.forName(RGState.PACKAGE_NAME + "." + RGState.CLASS_PREFIX + str);
+            Class<?> cls = Class.forName(RGState.PACKAGE_NAME + DefaultConfig.TOKEN_SEPARATOR + RGState.CLASS_PREFIX + str);
             cls.getMethod(str2, new Class[0]).invoke(cls.newInstance(), new Object[0]);
         } catch (Exception e) {
             Log.e(WGuideFSM.class.getName(), e.toString());

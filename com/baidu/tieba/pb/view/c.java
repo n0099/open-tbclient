@@ -10,7 +10,7 @@ public class c extends i {
     }
 
     @Override // com.baidu.tbadk.core.view.h, com.baidu.adp.widget.ListView.c
-    public View nZ() {
-        return super.nZ();
+    public View createView() {
+        return super.createView();
     }
 }

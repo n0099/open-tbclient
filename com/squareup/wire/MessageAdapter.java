@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.io.IOException;
@@ -249,7 +250,7 @@ public final class MessageAdapter<M extends Message> {
         try {
             return this.builderType.getDeclaredField(str);
         } catch (Exception e) {
-            throw new AssertionError("No builder Field " + this.builderType.getName() + "." + str + "(" + cls.getName() + ")");
+            throw new AssertionError("No builder Field " + this.builderType.getName() + DefaultConfig.TOKEN_SEPARATOR + str + "(" + cls.getName() + ")");
         }
     }
 

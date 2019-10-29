@@ -22,6 +22,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.utils.IBase64;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
@@ -207,7 +210,7 @@ public class e implements IXAdCommonUtils {
     public void makeCall(Context context, String str) {
         try {
             if (TextUtils.isEmpty(str)) {
-                Intent intent = new Intent("android.intent.action.CALL", Uri.parse(("tel:" + str).toString()));
+                Intent intent = new Intent("android.intent.action.CALL", Uri.parse((UrlSchemaHelper.SCHEMA_TYPE_PONE + str).toString()));
                 intent.addFlags(268435456);
                 a(context, intent);
             }
@@ -281,7 +284,7 @@ public class e implements IXAdCommonUtils {
     }
 
     private String d(Context context, String str) {
-        String str2 = "error";
+        String str2 = BdStatsConstant.StatsType.ERROR;
         try {
             str2 = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).metaData.get(str) + "";
             if (str2.trim().equals("")) {
@@ -633,7 +636,7 @@ public class e implements IXAdCommonUtils {
     public void browserOutside(Context context, String str) {
         Intent intent;
         if (str.startsWith("wtai://wp/mc;")) {
-            str = "tel:" + str.substring("wtai://wp/mc;".length());
+            str = UrlSchemaHelper.SCHEMA_TYPE_PONE + str.substring("wtai://wp/mc;".length());
         }
         try {
             Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(str));
@@ -818,7 +821,7 @@ public class e implements IXAdCommonUtils {
             sb.append("&mac=" + base64.encode(systemUtils.getMacAddress(context)));
             sb.append("&cuid=" + systemUtils.getCUID(context));
             sb.append("&pack=" + context.getPackageName());
-            sb.append("&v=" + ("android_" + com.baidu.mobads.a.a.c + "_4.1.30"));
+            sb.append("&v=" + ("android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30"));
             com.baidu.mobads.openad.d.c cVar = new com.baidu.mobads.openad.d.c(uRIUitls.addParameters(vdUrl(sb.toString(), i), null), "");
             cVar.e = 1;
             new com.baidu.mobads.openad.d.a().a(cVar);

@@ -9,13 +9,13 @@ import com.baidu.swan.apps.a;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class b {
-    public View bnp;
-    public SimpleDraweeView bnq;
-    public TextView bnr;
+    public View bGb;
+    public SimpleDraweeView bGc;
+    public TextView bGd;
 
     public b(Context context) {
-        this.bnp = LayoutInflater.from(context).inflate(a.g.swangame_recommend_button, (ViewGroup) null);
-        this.bnq = (SimpleDraweeView) this.bnp.findViewById(a.f.swangame_recommend_button_icon);
-        this.bnr = (TextView) this.bnp.findViewById(a.f.swangame_recommend_button_name);
+        this.bGb = LayoutInflater.from(context).inflate(a.g.swangame_recommend_button, (ViewGroup) null);
+        this.bGc = (SimpleDraweeView) this.bGb.findViewById(a.f.swangame_recommend_button_icon);
+        this.bGd = (TextView) this.bGb.findViewById(a.f.swangame_recommend_button_name);
     }
 }

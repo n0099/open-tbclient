@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.sofire.b.v;
 import com.baidu.sofire.core.ApkInfo;
 import com.xiaomi.mipush.sdk.Constants;
@@ -26,7 +28,7 @@ public class MyService extends Service {
         if (bundleExtra != null) {
             b.a();
             String[] stringArray = bundleExtra.getStringArray("appkey");
-            int[] intArray = bundleExtra.getIntArray("key");
+            int[] intArray = bundleExtra.getIntArray(TiebaInitialize.Params.KEY);
             int i3 = bundleExtra.getInt("delay");
             if (stringArray != null && stringArray.length == 2 && !TextUtils.isEmpty(stringArray[0]) && !TextUtils.isEmpty(stringArray[1])) {
                 com.baidu.sofire.core.e.a(getApplicationContext(), i3, stringArray[0], stringArray[1], intArray);
@@ -35,7 +37,7 @@ public class MyService extends Service {
         }
         this.a++;
         final String stringExtra = intent.getStringExtra("from_plugin_package");
-        new StringBuilder().append(intent.getAction()).append(" ").append(stringExtra);
+        new StringBuilder().append(intent.getAction()).append(HanziToPinyin.Token.SEPARATOR).append(stringExtra);
         b.a();
         v.a().a(new Runnable() { // from class: com.baidu.sofire.MyService.1
             @Override // java.lang.Runnable

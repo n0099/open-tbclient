@@ -1,5 +1,6 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.DeleteFriend.DeleteFriendReqIdl;
 import tbclient.DeleteFriend.ReqData;
@@ -16,7 +17,7 @@ public class RequestDeleteFriendMessage extends TbSocketMessage {
     }
 
     public RequestDeleteFriendMessage() {
-        super(304102);
+        super(CmdConfigSocket.CMD_DELETE_NEW_FRIEND);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

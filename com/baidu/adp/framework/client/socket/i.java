@@ -5,16 +5,11 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.Plugin;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.tencent.open.SocialConstants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.LinkedList;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class i {
-    public static void a(String str, int i, long j, int i2, String str2, int i3, String str3) {
+    public static void debug(String str, int i, long j, int i2, String str2, int i3, String str3) {
         StringBuilder sb = new StringBuilder(50);
         if (i != 0 && i2 != 0) {
             sb.append("cmd = ");
@@ -27,14 +22,14 @@ public class i {
         sb.append(str3);
         try {
             LinkedList linkedList = new LinkedList();
-            linkedList.add(Plugin.SO_LIB_DIR_NAME);
+            linkedList.add("lib");
             linkedList.add(str);
             if (i != 0) {
-                linkedList.add(IntentConfig.CMD);
+                linkedList.add("cmd");
                 linkedList.add(Integer.valueOf(i));
             }
             if (!TextUtils.isEmpty(str2)) {
-                linkedList.add(SocialConstants.PARAM_ACT);
+                linkedList.add("act");
                 linkedList.add(str2);
             }
             if (i3 != 0) {
@@ -42,7 +37,7 @@ public class i {
                 linkedList.add(Integer.valueOf(i3));
             }
             if (!TextUtils.isEmpty(str3)) {
-                linkedList.add(ClientCookie.COMMENT_ATTR);
+                linkedList.add("comment");
                 linkedList.add(str3);
             }
             BdStatisticsManager.getInstance().newDebug("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
@@ -51,25 +46,25 @@ public class i {
         }
     }
 
-    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
-        a(str, i, -1L, i2, str2, i3, str3);
+    public static void debug(String str, int i, int i2, String str2, int i3, String str3) {
+        debug(str, i, -1L, i2, str2, i3, str3);
     }
 
-    public static void fU() {
+    public static void debugWebSocketInfo() {
         try {
-            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.kS().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.kS().kP()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.kS().kY()), "remote_ip", com.baidu.adp.lib.webSocket.h.kS().kO(), "local_dns", com.baidu.adp.lib.webSocket.h.kS().ku(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.kS().kv(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
+            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.hr().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.hr().ho()), "con_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.hr().hx()), "remote_ip", com.baidu.adp.lib.webSocket.h.hr().hn(), "local_dns", com.baidu.adp.lib.webSocket.h.hr().getLocalDns(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.hr().getLocalDnsBak(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void fV() {
+    public static void perfWebSocketConTime() {
         try {
-            com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+            com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem(BdStatsConstant.StatsType.PERFORMANCE);
             statsItem.append("action", "imconn");
-            statsItem.append(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.kS().kY()));
+            statsItem.append("con_cost", String.valueOf(com.baidu.adp.lib.webSocket.h.hr().hx()));
             statsItem.append("nettype", com.baidu.adp.lib.stats.d.getNetType(BdBaseApplication.getInst()));
-            BdStatisticsManager.getInstance().performance(IXAdRequestInfo.IMSI, statsItem);
+            BdStatisticsManager.getInstance().performance("im", statsItem);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -82,6 +77,6 @@ public class i {
             i3 = message.getCmd();
             j = message.getClientLogID();
         }
-        a(str, i3, j, i, str2, i2, str3);
+        debug(str, i3, j, i, str2, i2, str3);
     }
 }

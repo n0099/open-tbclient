@@ -2,7 +2,6 @@ package com.baidu.mobads.openad.e;
 
 import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
@@ -45,14 +44,14 @@ public class a implements IOAdTimer {
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer
     public void start() {
-        XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, IntentConfig.START);
+        XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "start");
         this.h.set(0);
         this.g.scheduleAtFixedRate(new b(this), 0L, this.a);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer
     public void stop() {
-        XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, IntentConfig.STOP);
+        XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "stop");
         this.h.set(2);
         synchronized (this) {
             if (this.g != null) {

@@ -1,6 +1,7 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.UnreadTip.UnreadTipResIdl;
 /* loaded from: classes4.dex */
@@ -8,7 +9,7 @@ public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
     public e mData;
 
     public ConcernUnreadTipSocketResMsg() {
-        super(309541);
+        super(CmdConfigSocket.CMD_CONCERN_UNREAD_TIP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

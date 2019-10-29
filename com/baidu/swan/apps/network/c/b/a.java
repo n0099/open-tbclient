@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
 import com.baidu.swan.apps.setting.oauth.e;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
@@ -17,23 +16,23 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.network.c.b.b
     @NonNull
-    public String Id() {
+    public String MX() {
         return "accredit";
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void L(JSONObject jSONObject) {
-        com.baidu.swan.apps.ae.b Mh;
+    public void aj(JSONObject jSONObject) {
+        com.baidu.swan.apps.ae.b QZ;
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onUpdate: ");
         }
-        if (jSONObject != null && (Mh = com.baidu.swan.apps.ae.b.Mh()) != null) {
-            Mh.Ml().putString("node_data_accredit_list", jSONObject.toString());
+        if (jSONObject != null && (QZ = com.baidu.swan.apps.ae.b.QZ()) != null) {
+            QZ.Rd().putString("node_data_accredit_list", jSONObject.toString());
         }
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void Ie() {
+    public void MY() {
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onFiltered: ");
         }
@@ -47,17 +46,17 @@ public class a extends b {
     }
 
     public static void e(@NonNull final com.baidu.swan.apps.an.d.a<Map<String, e>> aVar) {
-        com.baidu.swan.apps.network.c.a.HX().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
+        com.baidu.swan.apps.network.c.a.MR().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void Ib() {
-                Map Ig = a.Ig();
-                if (Ig.size() > 0) {
-                    com.baidu.swan.apps.an.d.a.this.D(Ig);
+            public void MV() {
+                Map Na = a.Na();
+                if (Na.size() > 0) {
+                    com.baidu.swan.apps.an.d.a.this.B(Na);
                 } else {
-                    com.baidu.swan.apps.network.c.a.HX().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
+                    com.baidu.swan.apps.network.c.a.MR().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void Ib() {
-                            com.baidu.swan.apps.an.d.a.this.D(a.Ig());
+                        public void MV() {
+                            com.baidu.swan.apps.an.d.a.this.B(a.Na());
                         }
                     });
                 }
@@ -66,17 +65,17 @@ public class a extends b {
     }
 
     public static void a(final String str, @NonNull final com.baidu.swan.apps.an.d.a<e> aVar) {
-        com.baidu.swan.apps.network.c.a.HX().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
+        com.baidu.swan.apps.network.c.a.MR().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void Ib() {
-                e eVar = (e) a.Ig().get(str);
+            public void MV() {
+                e eVar = (e) a.Na().get(str);
                 if (eVar != null) {
-                    aVar.D(eVar);
+                    aVar.B(eVar);
                 } else {
-                    com.baidu.swan.apps.network.c.a.HX().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
+                    com.baidu.swan.apps.network.c.a.MR().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void Ib() {
-                            aVar.D(a.Ig().get(str));
+                        public void MV() {
+                            aVar.B(a.Na().get(str));
                         }
                     });
                 }
@@ -85,34 +84,34 @@ public class a extends b {
     }
 
     @Nullable
-    public static e fP(String str) {
-        return Ig().get(str);
+    public static e gu(String str) {
+        return Na().get(str);
     }
 
-    public static void If() {
-        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
-        if (Mh != null) {
-            com.baidu.swan.apps.network.c.a.HX().a(new a());
-            Mh.Ml().putString("node_data_accredit_list", "");
-            com.baidu.swan.apps.network.c.a.HX().update();
+    public static void MZ() {
+        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+        if (QZ != null) {
+            com.baidu.swan.apps.network.c.a.MR().a(new a());
+            QZ.Rd().putString("node_data_accredit_list", "");
+            com.baidu.swan.apps.network.c.a.MR().update();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public static Map<String, e> Ig() {
+    public static Map<String, e> Na() {
         JSONObject optJSONObject;
         ArrayMap arrayMap = new ArrayMap();
-        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
-        if (Mh == null) {
+        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+        if (QZ == null) {
             return arrayMap;
         }
-        String string = Mh.Ml().getString("node_data_accredit_list", "");
+        String string = QZ.Rd().getString("node_data_accredit_list", "");
         if (TextUtils.isEmpty(string)) {
             return arrayMap;
         }
         try {
-            JSONObject optJSONObject2 = new JSONObject(string).optJSONObject(IntentConfig.LIST);
+            JSONObject optJSONObject2 = new JSONObject(string).optJSONObject("list");
             if (optJSONObject2 == null) {
                 return arrayMap;
             }

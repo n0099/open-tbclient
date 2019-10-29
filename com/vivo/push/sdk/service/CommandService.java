@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.vivo.push.sdk.a;
-import com.vivo.push.util.m;
+import com.vivo.push.util.p;
 /* loaded from: classes3.dex */
 public class CommandService extends Service {
     @Override // android.app.Service
     public void onCreate() {
-        m.c("CommandService", getClass().getSimpleName() + " -- oncreate " + getPackageName());
+        p.c("CommandService", getClass().getSimpleName() + " -- oncreate " + getPackageName());
         super.onCreate();
         a.a().a(getApplicationContext());
     }
@@ -19,6 +19,9 @@ public class CommandService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent == null) {
             stopSelf();
+        } else if (!a(intent.getAction())) {
+            p.a("CommandService", getPackageName() + " receive invalid action " + intent.getAction());
+            stopSelf();
         } else {
             try {
                 String stringExtra = intent.getStringExtra("command_type");
@@ -26,11 +29,15 @@ public class CommandService extends Service {
                     a.a().a(intent);
                 }
             } catch (Exception e) {
-                m.a("CommandService", "onStartCommand -- error", e);
+                p.a("CommandService", "onStartCommand -- error", e);
             }
             stopSelf();
         }
         return 2;
+    }
+
+    protected boolean a(String str) {
+        return "com.vivo.pushservice.action.RECEIVE".equals(str);
     }
 
     @Override // android.app.Service
@@ -40,7 +47,7 @@ public class CommandService extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        m.c("CommandService", "onBind initSuc: ");
+        p.c("CommandService", "onBind initSuc: ");
         return null;
     }
 

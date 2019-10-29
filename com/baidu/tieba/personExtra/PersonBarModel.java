@@ -4,16 +4,16 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes6.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String dbi = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, dbi);
-    private int ipI;
+    private static final String dkF = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, dkF);
+    private int ioh;
     private b mData;
     private String mId;
     private boolean mIsHost;
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean bGN() {
+    public boolean bDy() {
         return this.mIsHost;
     }
 
     public void setCurrentPageIndex(int i) {
-        this.ipI = i;
+        this.ioh = i;
     }
 
-    public b cdd() {
+    public b cae() {
         return this.mData;
     }
 
-    public void cdb() {
+    public void cac() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
+        HttpMessage httpMessage = new HttpMessage(1002002);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!bGN()) {
+        if (!bDy()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -81,17 +81,17 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void Dj(String str) {
-        if (this.ipI == 1 && this.mIsHost) {
+    public void BC(String str) {
+        if (this.ioh == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    l<String> mN = com.baidu.tbadk.core.d.a.agL().mN("tb.my_pages");
-                    if (mN != null) {
-                        mN.a(str2, str, 604800000L);
+                    l<String> nl = com.baidu.tbadk.core.d.a.akN().nl("tb.my_pages");
+                    if (nl != null) {
+                        nl.set(str2, str, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

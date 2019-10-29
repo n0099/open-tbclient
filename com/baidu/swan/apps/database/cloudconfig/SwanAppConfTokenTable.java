@@ -12,15 +12,15 @@ public final class SwanAppConfTokenTable {
         ext
     }
 
-    public static void C(SQLiteDatabase sQLiteDatabase) {
+    public static void v(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL(CB());
+            sQLiteDatabase.execSQL(Hv());
         } catch (Exception e) {
             e.getStackTrace();
         }
     }
 
-    public static String CB() {
+    public static String Hv() {
         return "CREATE TABLE ai_apps_cloud_config_tokens (" + Table.app_id + " TEXT NOT NULL," + Table.action + " TEXT," + Table.token + " TEXT," + Table.ext + " TEXT, PRIMARY KEY (" + Table.app_id + ", " + Table.action + "));";
     }
 }

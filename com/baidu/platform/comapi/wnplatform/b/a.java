@@ -1,6 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.b;
 
 import android.os.Bundle;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comjni.bikenavi.JNIGuidanceControl;
@@ -139,7 +140,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean a(int[] iArr, int[] iArr2) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getShowPoint", "" + iArr.toString() + " " + iArr2.toString());
+        com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getShowPoint", "" + iArr.toString() + HanziToPinyin.Token.SEPARATOR + iArr2.toString());
         if (this.b != null) {
             return this.b.GetCarPoint(this.c, iArr, iArr2);
         }
@@ -274,7 +275,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(int i, int i2, int i3) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.setVehiclePos", " " + i + " " + i2 + " " + i3);
+        com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.setVehiclePos", HanziToPinyin.Token.SEPARATOR + i + HanziToPinyin.Token.SEPARATOR + i2 + HanziToPinyin.Token.SEPARATOR + i3);
         if (this.b != null) {
             this.b.SetVehiclePos(this.c, i, i2, i3);
         }

@@ -1,17 +1,17 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes2.dex */
 public class u {
-    public final int kjl;
-    public final int kjm;
-    public final int kjn;
-    public final int kjo;
-    public final int kjp;
+    public final int khA;
+    public final int khw;
+    public final int khx;
+    public final int khy;
+    public final int khz;
 
     public u(int i, int i2, int i3, int i4, int i5) {
-        this.kjl = i;
-        this.kjm = i2;
-        this.kjn = i3;
-        this.kjo = i4;
-        this.kjp = i5;
+        this.khw = i;
+        this.khx = i2;
+        this.khy = i3;
+        this.khz = i4;
+        this.khA = i5;
     }
 }

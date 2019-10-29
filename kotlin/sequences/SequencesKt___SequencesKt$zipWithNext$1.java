@@ -13,6 +13,6 @@ final class SequencesKt___SequencesKt$zipWithNext$1 extends Lambda implements ko
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.c
     public final Pair<T, T> invoke(T t, T t2) {
-        return kotlin.c.g(t, t2);
+        return kotlin.c.e(t, t2);
     }
 }

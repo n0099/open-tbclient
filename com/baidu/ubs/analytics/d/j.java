@@ -5,32 +5,32 @@ import android.util.Log;
 /* loaded from: classes3.dex */
 public final class j {
     private static int bn = 1000;
-    private static boolean kaW = true;
+    private static boolean jYW = true;
 
     public static void c(boolean z) {
-        kaW = z;
+        jYW = z;
     }
 
-    public static void HO(String str) {
-        if (kaW) {
+    public static void Gf(String str) {
+        if (jYW) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (kaW) {
+        if (jYW) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
-    public static void HV(String str) {
-        if (kaW) {
+    public static void Gm(String str) {
+        if (jYW) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (kaW) {
+        if (jYW) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }

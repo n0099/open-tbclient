@@ -6,39 +6,39 @@ import com.baidu.tbadk.editortools.k;
 public class b extends k {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.ctO = false;
-        this.ctN = 3;
-        this.csV = new EditorInfoContainer(context, str);
-        this.ctP = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
+        this.cFX = false;
+        this.cFW = 3;
+        this.cFe = new EditorInfoContainer(context, str);
+        this.cFY = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
     }
 
     public void setFrom(String str) {
-        if (this.csV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.csV).setFrom(str);
+        if (this.cFe instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.cFe).setFrom(str);
         }
     }
 
-    public void bv(String str, int i) {
-        if (this.csV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.csV).bv(str, i);
+    public void bq(String str, int i) {
+        if (this.cFe instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.cFe).bq(str, i);
         }
     }
 
-    public void bgP() {
-        if (this.csV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.csV).bgP();
+    public void beI() {
+        if (this.cFe instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.cFe).beI();
         }
     }
 
-    public void cBH() {
-        if (this.csV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.csV).cBH();
+    public void cyr() {
+        if (this.cFe instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.cFe).cyr();
         }
     }
 
-    public void cBL() {
-        if (this.csV instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.csV).hide();
+    public void cyv() {
+        if (this.cFe instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.cFe).hide();
         }
     }
 }

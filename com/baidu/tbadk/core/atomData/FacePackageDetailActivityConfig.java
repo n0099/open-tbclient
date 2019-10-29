@@ -9,7 +9,7 @@ public class FacePackageDetailActivityConfig extends IntentConfig {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("st_type", str2);
-        intent.putExtra(IntentConfig.PKG_ID, str);
-        intent.putExtra(IntentConfig.IS_DOWNLOADING, z);
+        intent.putExtra("pkg_id", str);
+        intent.putExtra("is_downloading", z);
     }
 }

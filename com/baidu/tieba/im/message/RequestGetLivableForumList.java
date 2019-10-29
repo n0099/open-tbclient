@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.GetLivableForumList.DataReq;
 import protobuf.GetLivableForumList.GetLivableForumListReqIdl;
@@ -12,7 +13,7 @@ public class RequestGetLivableForumList extends TbSocketMessage {
     long userId;
 
     public RequestGetLivableForumList() {
-        super(107129);
+        super(CmdConfigSocket.CMD_GET_LIVABLE_FORUM_LIST);
     }
 
     public void setUserId(long j) {

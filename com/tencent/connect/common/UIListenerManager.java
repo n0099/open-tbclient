@@ -1,6 +1,7 @@
 package com.tencent.connect.common;
 
 import android.content.Intent;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobads.openad.c.b;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
@@ -120,7 +121,7 @@ public class UIListenerManager {
             String stringExtra4 = intent.getStringExtra("response");
             if ("cancel".equals(stringExtra3)) {
                 iUiListener.onCancel();
-            } else if ("error".equals(stringExtra3)) {
+            } else if (BdStatsConstant.StatsType.ERROR.equals(stringExtra3)) {
                 iUiListener.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
             } else if (b.COMPLETE.equals(stringExtra3)) {
                 try {
@@ -186,7 +187,7 @@ public class UIListenerManager {
                 String stringExtra4 = intent.getStringExtra("response");
                 if ("cancel".equals(stringExtra3)) {
                     iUiListener2.onCancel();
-                } else if ("error".equals(stringExtra3)) {
+                } else if (BdStatsConstant.StatsType.ERROR.equals(stringExtra3)) {
                     iUiListener2.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
                 } else if (b.COMPLETE.equals(stringExtra3)) {
                     try {

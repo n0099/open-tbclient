@@ -6,12 +6,12 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private UnitedSchemeEntity aAL;
-    private CallbackHandler aAM;
+    private UnitedSchemeEntity aTZ;
+    private CallbackHandler aUa;
 
     private b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        this.aAL = unitedSchemeEntity;
-        this.aAM = callbackHandler;
+        this.aTZ = unitedSchemeEntity;
+        this.aUa = callbackHandler;
     }
 
     public static b a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -19,18 +19,18 @@ public class b {
     }
 
     public void onError(int i) {
-        this.aAL.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        this.aTZ.result = UnitedSchemeUtility.wrapCallbackParams(i);
     }
 
-    public void F(JSONObject jSONObject) {
-        this.aAL.result = UnitedSchemeUtility.callCallback(this.aAM, this.aAL, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+    public void ad(JSONObject jSONObject) {
+        this.aTZ.result = UnitedSchemeUtility.callCallback(this.aUa, this.aTZ, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
     }
 
-    public void d(String str, int i, String str2) {
-        UnitedSchemeUtility.safeCallback(this.aAM, this.aAL, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+    public void f(String str, int i, String str2) {
+        UnitedSchemeUtility.safeCallback(this.aUa, this.aTZ, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
     }
 
     public void e(String str, JSONObject jSONObject) {
-        UnitedSchemeUtility.safeCallback(this.aAM, this.aAL, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.aUa, this.aTZ, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
     }
 }

@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes5.dex */
 class b {
-    private float jDq;
-    private int jDr;
-    private i jDs;
+    private float jDi;
+    private int jDj;
+    private i jDk;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,40 +15,40 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.jDs = iVar;
+        this.jDk = iVar;
     }
 
     public boolean j(MotionEvent motionEvent) {
-        if (this.jDs == null || !this.jDs.alO()) {
+        if (this.jDk == null || !this.jDk.aoC()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
                     break;
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
-                        float x = x(motionEvent);
-                        int i = (int) ((x - this.jDq) / 10.0f);
+                        float spacing = spacing(motionEvent);
+                        int i = (int) ((spacing - this.jDi) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.jDr;
+                            int i2 = i + this.jDj;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.jDq = x;
+                            this.jDi = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.jDq = x(motionEvent);
+                    this.jDi = spacing(motionEvent);
                     break;
             }
         }
         return true;
     }
 
-    private float x(MotionEvent motionEvent) {
+    private float spacing(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.jDr = i;
+                this.jDj = i;
             }
         }
     }

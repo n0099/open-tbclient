@@ -1,5 +1,6 @@
 package com.baidu.sapi2;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.Log;
@@ -41,7 +42,7 @@ public abstract class AbstractService {
         sapiAccount.uid = jSONObject.optString("uid");
         sapiAccount.bduss = jSONObject.optString("bduss");
         sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-        sapiAccount.username = jSONObject.optString("uname");
+        sapiAccount.username = jSONObject.optString(BdStatsConstant.StatsKey.UNAME);
         sapiAccount.stoken = jSONObject.optString("stoken");
         sapiAccount.ptoken = jSONObject.optString("ptoken");
         sapiAccount.extra = jSONObject.toString();

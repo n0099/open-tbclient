@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import com.baidu.live.tbadk.core.util.NetWorkErr;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 /* loaded from: classes3.dex */
 public final class PushConstants {
@@ -63,7 +64,7 @@ public final class PushConstants {
                 return "Number Of Tag For App Too Many";
             case 30699:
                 return "Requests Are Too Frequent To Be Temporarily Rejected";
-            case 110001:
+            case NetWorkErr.GET_FORUM_LIST_ERROR /* 110001 */:
                 return "User blacked this app";
             default:
                 return "Unknown";

@@ -1,6 +1,7 @@
 package com.baidu.tieba.usermute.response;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.UserMuteCheck.DataRes;
 import tbclient.UserMuteCheck.UserMuteCheckResIdl;
@@ -9,7 +10,7 @@ public class UserMuteCheckSocketResponsedMessage extends SocketResponsedMessage 
     private DataRes mResult;
 
     public UserMuteCheckSocketResponsedMessage() {
-        super(303040);
+        super(CmdConfigSocket.CMD_USER_MUTE_CHECK);
     }
 
     public DataRes getResult() {

@@ -3,6 +3,7 @@ package com.baidu.swan.apps.view.container.b;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.an.z;
 import java.util.ArrayList;
@@ -13,36 +14,36 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bcH;
-    private long bcI;
-    private List<C0202a> bcJ;
-    private List<C0202a> bcK;
-    private int[] bcL;
+    private String bvG;
+    private List<C0234a> bvH;
+    private List<C0234a> bvI;
+    private int[] bvJ;
+    private long mTimeStamp;
 
     public a(MotionEvent motionEvent) {
-        this.bcH = "error";
-        this.bcI = 0L;
-        this.bcJ = new ArrayList();
-        this.bcK = new ArrayList();
-        this.bcL = new int[2];
+        this.bvG = BdStatsConstant.StatsType.ERROR;
+        this.mTimeStamp = 0L;
+        this.bvH = new ArrayList();
+        this.bvI = new ArrayList();
+        this.bvJ = new int[2];
         a(motionEvent, "");
     }
 
     public a(MotionEvent motionEvent, String str) {
-        this.bcH = "error";
-        this.bcI = 0L;
-        this.bcJ = new ArrayList();
-        this.bcK = new ArrayList();
-        this.bcL = new int[2];
+        this.bvG = BdStatsConstant.StatsType.ERROR;
+        this.mTimeStamp = 0L;
+        this.bvH = new ArrayList();
+        this.bvI = new ArrayList();
+        this.bvJ = new int[2];
         a(motionEvent, str);
     }
 
-    public String Qp() {
-        return this.bcH;
+    public String Vf() {
+        return this.bvG;
     }
 
-    public void g(int[] iArr) {
-        this.bcL = iArr;
+    public void f(int[] iArr) {
+        this.bvJ = iArr;
         if (DEBUG) {
             Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
         }
@@ -51,54 +52,54 @@ public class a {
     private void a(MotionEvent motionEvent, String str) {
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.bcH = "touchstart";
-                q(motionEvent);
+                this.bvG = "touchstart";
+                m(motionEvent);
                 break;
             case 1:
-                this.bcH = "touchend";
-                q(motionEvent);
+                this.bvG = "touchend";
+                m(motionEvent);
                 break;
             case 2:
-                this.bcH = "touchmove";
-                q(motionEvent);
+                this.bvG = "touchmove";
+                m(motionEvent);
                 break;
             case 3:
-                this.bcH = "touchcancel";
-                q(motionEvent);
+                this.bvG = "touchcancel";
+                m(motionEvent);
                 break;
             case 4:
             default:
-                this.bcH = "error";
+                this.bvG = BdStatsConstant.StatsType.ERROR;
                 break;
             case 5:
-                this.bcH = "touchpointerdown";
-                q(motionEvent);
+                this.bvG = "touchpointerdown";
+                m(motionEvent);
                 break;
             case 6:
-                this.bcH = "touchpointerup";
-                q(motionEvent);
+                this.bvG = "touchpointerup";
+                m(motionEvent);
                 break;
         }
-        this.bcI = motionEvent.getEventTime();
+        this.mTimeStamp = motionEvent.getEventTime();
         if (!TextUtils.isEmpty(str)) {
-            this.bcH = str;
+            this.bvG = str;
         }
         onTouch(motionEvent);
-        if (TextUtils.equals(this.bcH, "touchpointerdown")) {
-            this.bcH = "touchstart";
+        if (TextUtils.equals(this.bvG, "touchpointerdown")) {
+            this.bvG = "touchstart";
         }
-        if (TextUtils.equals(this.bcH, "touchpointerup")) {
-            this.bcH = "touchend";
+        if (TextUtils.equals(this.bvG, "touchpointerup")) {
+            this.bvG = "touchend";
         }
     }
 
     private void onTouch(MotionEvent motionEvent) {
-        if (!TextUtils.equals(this.bcH, "touchend") && !TextUtils.equals(this.bcH, "touchcancel")) {
+        if (!TextUtils.equals(this.bvG, "touchend") && !TextUtils.equals(this.bvG, "touchcancel")) {
             try {
                 int pointerCount = motionEvent.getPointerCount();
                 for (int i = 0; i < pointerCount; i++) {
                     if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i) {
-                        this.bcJ.add(b(motionEvent, i));
+                        this.bvH.add(b(motionEvent, i));
                     }
                 }
             } catch (Exception e) {
@@ -109,15 +110,15 @@ public class a {
         }
     }
 
-    private void q(MotionEvent motionEvent) {
+    private void m(MotionEvent motionEvent) {
         try {
             if (!(motionEvent.getActionMasked() == 2)) {
-                this.bcK.add(b(motionEvent, motionEvent.getActionIndex()));
+                this.bvI.add(b(motionEvent, motionEvent.getActionIndex()));
                 return;
             }
             int pointerCount = motionEvent.getPointerCount();
             for (int i = 0; i < pointerCount; i++) {
-                this.bcK.add(b(motionEvent, i));
+                this.bvI.add(b(motionEvent, i));
             }
         } catch (Exception e) {
             if (DEBUG) {
@@ -126,38 +127,38 @@ public class a {
         }
     }
 
-    public C0202a b(MotionEvent motionEvent, int i) {
+    public C0234a b(MotionEvent motionEvent, int i) {
         int pointerId = motionEvent.getPointerId(i);
-        C0202a c0202a = new C0202a();
-        c0202a.identifier = pointerId;
-        c0202a.x = motionEvent.getX(i);
-        c0202a.y = motionEvent.getY(i);
-        c0202a.bcM = (motionEvent.getRawX() + c0202a.x) - motionEvent.getX();
-        c0202a.bcN = (motionEvent.getRawY() + c0202a.y) - motionEvent.getY();
-        c0202a.bcO = motionEvent.getPressure(i);
-        return c0202a;
+        C0234a c0234a = new C0234a();
+        c0234a.identifier = pointerId;
+        c0234a.x = motionEvent.getX(i);
+        c0234a.y = motionEvent.getY(i);
+        c0234a.bvK = (motionEvent.getRawX() + c0234a.x) - motionEvent.getX();
+        c0234a.bvL = (motionEvent.getRawY() + c0234a.y) - motionEvent.getY();
+        c0234a.bvM = motionEvent.getPressure(i);
+        return c0234a;
     }
 
-    public JSONObject Qq() {
+    public JSONObject Vg() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!this.bcJ.isEmpty()) {
-                for (C0202a c0202a : this.bcJ) {
-                    if (c0202a != null) {
-                        jSONArray.put(c0202a.Qr());
+            if (!this.bvH.isEmpty()) {
+                for (C0234a c0234a : this.bvH) {
+                    if (c0234a != null) {
+                        jSONArray.put(c0234a.Vh());
                     }
                 }
             }
             JSONArray jSONArray2 = new JSONArray();
-            if (!this.bcK.isEmpty()) {
-                for (C0202a c0202a2 : this.bcK) {
-                    if (c0202a2 != null) {
-                        jSONArray2.put(c0202a2.Qr());
+            if (!this.bvI.isEmpty()) {
+                for (C0234a c0234a2 : this.bvI) {
+                    if (c0234a2 != null) {
+                        jSONArray2.put(c0234a2.Vh());
                     }
                 }
             }
-            jSONObject.put("timeStamp", this.bcI);
+            jSONObject.put("timeStamp", this.mTimeStamp);
             jSONObject.put("touches", jSONArray);
             jSONObject.put("changedTouches", jSONArray2);
         } catch (JSONException e) {
@@ -171,26 +172,26 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.container.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0202a {
-        private float bcM;
-        private float bcN;
-        private float bcO;
+    public class C0234a {
+        private float bvK;
+        private float bvL;
+        private float bvM;
         private int identifier;
         private float x;
         private float y;
 
-        private C0202a() {
+        private C0234a() {
         }
 
-        JSONObject Qr() {
+        JSONObject Vh() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(Config.EVENT_HEAT_X, z.ag(this.x));
-                jSONObject.put("y", z.ag(this.y));
-                jSONObject.put("clientX", z.ag(this.bcM - a.this.bcL[0]));
-                jSONObject.put("clientY", z.ag(this.bcN - a.this.bcL[1]));
+                jSONObject.put(Config.EVENT_HEAT_X, z.V(this.x));
+                jSONObject.put("y", z.V(this.y));
+                jSONObject.put("clientX", z.V(this.bvK - a.this.bvJ[0]));
+                jSONObject.put("clientY", z.V(this.bvL - a.this.bvJ[1]));
                 jSONObject.put("identifier", this.identifier);
-                jSONObject.put("force", this.bcO);
+                jSONObject.put("force", this.bvM);
             } catch (JSONException e) {
                 if (a.DEBUG) {
                     e.printStackTrace();

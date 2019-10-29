@@ -6,17 +6,17 @@ import java.util.Locale;
 import java.util.concurrent.ScheduledFuture;
 /* loaded from: classes2.dex */
 public class e implements Closeable {
+    private final List<d> cC;
+    private ScheduledFuture<?> cD;
+    private boolean cE;
     private boolean closed;
-    private final List<d> jR;
-    private ScheduledFuture<?> jS;
-    private boolean jT;
     private final Object lock;
 
-    public boolean bd() {
+    public boolean aG() {
         boolean z;
         synchronized (this.lock) {
-            be();
-            z = this.jT;
+            aH();
+            z = this.cE;
         }
         return z;
     }
@@ -25,11 +25,11 @@ public class e implements Closeable {
     public void close() {
         synchronized (this.lock) {
             if (!this.closed) {
-                bf();
-                for (d dVar : this.jR) {
+                aI();
+                for (d dVar : this.cC) {
                     dVar.close();
                 }
-                this.jR.clear();
+                this.cC.clear();
                 this.closed = true;
             }
         }
@@ -38,25 +38,25 @@ public class e implements Closeable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d dVar) {
         synchronized (this.lock) {
-            be();
-            this.jR.remove(dVar);
+            aH();
+            this.cC.remove(dVar);
         }
     }
 
     public String toString() {
-        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(bd()));
+        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(aG()));
     }
 
-    private void be() {
+    private void aH() {
         if (this.closed) {
             throw new IllegalStateException("Object already closed");
         }
     }
 
-    private void bf() {
-        if (this.jS != null) {
-            this.jS.cancel(true);
-            this.jS = null;
+    private void aI() {
+        if (this.cD != null) {
+            this.cD.cancel(true);
+            this.cD = null;
         }
     }
 }

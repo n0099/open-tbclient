@@ -68,7 +68,7 @@ public class d {
         }
     }
 
-    public static Bitmap cR(String str) {
+    public static Bitmap dB(String str) {
         BufferedInputStream bufferedInputStream;
         BufferedInputStream bufferedInputStream2 = null;
         try {

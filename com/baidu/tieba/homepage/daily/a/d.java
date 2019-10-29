@@ -28,44 +28,43 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bg */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bi */
+    public a b(ViewGroup viewGroup) {
         Context context = viewGroup.getContext();
-        this.tbds42 = l.g(context, R.dimen.tbds42);
-        this.tbds34 = l.g(context, R.dimen.tbds34);
+        this.tbds42 = l.getDimens(context, R.dimen.tbds42);
+        this.tbds34 = l.getDimens(context, R.dimen.tbds34);
         View inflate = LayoutInflater.from(context).inflate(R.layout.daily_title_view, (ViewGroup) null);
         inflate.setLayoutParams(generateLayoutParamsByParent(viewGroup));
         a aVar = new a(inflate);
-        aVar.cVw = inflate.findViewById(R.id.divider_line);
-        aVar.ggq = (TextView) inflate.findViewById(R.id.daily_title);
+        aVar.deR = inflate.findViewById(R.id.divider_line);
+        aVar.gfN = (TextView) inflate.findViewById(R.id.daily_title);
         return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.d dVar, a aVar) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.d dVar, a aVar) {
         if (aVar != null && dVar != null) {
-            String bwh = !StringUtils.isNull(dVar.bwh()) ? dVar.bwh() : this.mContext.getString(R.string.daily_default_title);
-            String bwg = !StringUtils.isNull(dVar.bwg()) ? dVar.bwg() : "";
-            int length = bwh.length();
-            int length2 = bwg.length();
+            String btm = !StringUtils.isNull(dVar.btm()) ? dVar.btm() : this.mContext.getString(R.string.daily_default_title);
+            String btl = !StringUtils.isNull(dVar.btl()) ? dVar.btl() : "";
+            int length = btm.length();
+            int length2 = btl.length();
             int color = am.getColor(R.color.cp_cont_b);
             int color2 = am.getColor(R.color.cp_cont_d);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(bwh + bwg);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(btm + btl);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds42), 0, length, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, length, 33);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds34), length, length + length2, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color2), length, length + length2, 33);
-            aVar.ggq.setText(spannableStringBuilder);
-            am.j(aVar.ggq, R.color.cp_cont_b);
-            am.l(aVar.ggq, R.color.cp_bg_line_d);
-            if (dVar.bwi()) {
-                aVar.cVw.setVisibility(0);
-                am.l(aVar.cVw, R.color.cp_bg_line_e);
+            aVar.gfN.setText(spannableStringBuilder);
+            am.setViewTextColor(aVar.gfN, (int) R.color.cp_cont_b);
+            am.setBackgroundColor(aVar.gfN, R.color.cp_bg_line_d);
+            if (dVar.btn()) {
+                aVar.deR.setVisibility(0);
+                am.setBackgroundColor(aVar.deR, R.color.cp_bg_line_e);
             } else {
-                aVar.cVw.setVisibility(8);
+                aVar.deR.setVisibility(8);
             }
             return aVar.getView();
         }
@@ -75,8 +74,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public View cVw;
-        public TextView ggq;
+        public View deR;
+        public TextView gfN;
 
         public a(View view) {
             super(view);

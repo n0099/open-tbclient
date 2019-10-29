@@ -18,7 +18,7 @@ public class d extends a {
         if (shareEntity == null || TextUtils.isEmpty(shareEntity.getContent())) {
             l.showToast(getAppContext(), (int) R.string.share_empty_tip);
             if (bVar != null) {
-                bVar.cs(0, 2);
+                bVar.cl(0, 2);
                 return;
             }
             return;
@@ -32,12 +32,12 @@ public class d extends a {
         intent.setAction("android.intent.action.SEND");
         intent.putExtra("android.intent.extra.TEXT", str);
         intent.setType("text/plain");
-        if (com.baidu.tieba.sharesdk.c.a.i(this.context, Intent.createChooser(intent, this.context.getString(R.string.share_to)))) {
+        if (com.baidu.tieba.sharesdk.c.a.startActivity(this.context, Intent.createChooser(intent, this.context.getString(R.string.share_to)))) {
             if (bVar != null) {
-                bVar.cs(0, 1);
+                bVar.cl(0, 1);
             }
         } else if (bVar != null) {
-            bVar.cs(0, 2);
+            bVar.cl(0, 2);
         }
     }
 }

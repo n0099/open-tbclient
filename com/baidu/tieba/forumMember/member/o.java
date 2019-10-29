@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private com.baidu.tbadk.coreExtra.view.c cfZ;
+    private com.baidu.tbadk.coreExtra.view.c cul;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -28,7 +28,7 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    ba.ajK().c((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
+                    ba.amQ().b((TbPageContext) com.baidu.adp.base.i.ab(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -37,39 +37,38 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aF */
-    public q onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: aH */
+    public q b(ViewGroup viewGroup) {
         return new q(LayoutInflater.from(this.mContext).inflate(R.layout.frs_member_manager_apply, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, p pVar, q qVar) {
-        super.onFillViewHolder(i, view, viewGroup, pVar, qVar);
+    public View a(int i, View view, ViewGroup viewGroup, p pVar, q qVar) {
+        super.a(i, view, viewGroup, (ViewGroup) pVar, (p) qVar);
         if (pVar != null && !pVar.isEmpty() && qVar != null) {
             if (pVar.isEmpty()) {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    am.f(qVar.fts, R.color.cp_cont_d, 1);
-                    am.f(qVar.ftr, R.color.cp_cont_b, 1);
-                    am.k(qVar.ftt, R.drawable.frs_member_manito_bg);
+                    am.setViewTextColor(qVar.fsF, R.color.cp_cont_d, 1);
+                    am.setViewTextColor(qVar.fsE, R.color.cp_cont_b, 1);
+                    am.setBackgroundResource(qVar.fsG, R.drawable.frs_member_manito_bg);
                 }
-                int blu = pVar.blu();
-                if (blu > 0) {
-                    qVar.fts.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.aH(blu)));
-                    qVar.ftt.setTag(R.id.assist_apply_tip, pVar.blv());
-                    qVar.ftt.setOnClickListener(this.mClickListener);
-                    qVar.ftt.setEnabled(true);
-                    qVar.ftt.setClickable(true);
+                int biA = pVar.biA();
+                if (biA > 0) {
+                    qVar.fsF.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(biA)));
+                    qVar.fsG.setTag(R.id.assist_apply_tip, pVar.biB());
+                    qVar.fsG.setOnClickListener(this.mClickListener);
+                    qVar.fsG.setEnabled(true);
+                    qVar.fsG.setClickable(true);
                 } else {
-                    qVar.fts.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.ftt.setEnabled(false);
-                    qVar.ftt.setClickable(false);
+                    qVar.fsF.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.fsG.setEnabled(false);
+                    qVar.fsG.setClickable(false);
                 }
-                qVar.fts.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.fsF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -85,17 +84,17 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         } else {
             activity = ((TbPageContext) ab).getPageActivity();
         }
-        if (this.cfZ == null) {
-            this.cfZ = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.cul == null) {
+            this.cul = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.cfZ.aqF();
-        this.cfZ.setAccountData(accountData);
-        this.cfZ.jX(1);
+        this.cul.asz();
+        this.cul.setAccountData(accountData);
+        this.cul.ju(1);
     }
 
     public void onDestroy() {
-        if (this.cfZ != null) {
-            this.cfZ.onDestroy();
+        if (this.cul != null) {
+            this.cul.onDestroy();
         }
     }
 }

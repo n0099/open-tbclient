@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.handler.a.a;
 
 import android.os.Environment;
-import com.baidu.mobstat.Config;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -30,7 +29,7 @@ public class b {
             return;
         }
         com.meizu.cloud.a.a.i("ZipTask", "current file " + str2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
-        if (file.length() >= Config.FULL_TRACE_LOG_LIMIT) {
+        if (file.length() >= 10485760) {
             return;
         }
         byte[] bArr = new byte[1048576];

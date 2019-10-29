@@ -4,41 +4,51 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Map;
 /* loaded from: classes3.dex */
-public final class s extends aa {
+final class s extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(com.vivo.push.v vVar) {
-        super(vVar);
+    public s(com.vivo.push.y yVar) {
+        super(yVar);
     }
 
-    @Override // com.vivo.push.s
-    protected final void a(com.vivo.push.v vVar) {
+    @Override // com.vivo.push.v
+    protected final void a(com.vivo.push.y yVar) {
         Intent parseUri;
         String str;
         boolean z = true;
-        com.vivo.push.b.p pVar = (com.vivo.push.b.p) vVar;
-        UPSNotificationMessage a = com.vivo.push.util.n.a(pVar.f());
+        com.vivo.push.b.p pVar = (com.vivo.push.b.p) yVar;
+        InsideNotificationItem f = pVar.f();
+        if (f == null) {
+            com.vivo.push.util.p.d("OnNotificationClickTask", "current notification item is null");
+            return;
+        }
+        UPSNotificationMessage a = com.vivo.push.util.q.a(f);
         boolean equals = this.a.getPackageName().equals(pVar.d());
         if (equals) {
             NotifyAdapterUtil.cancelNotify(this.a);
         }
         if (equals) {
-            com.vivo.push.b.x xVar = new com.vivo.push.b.x(1030L);
+            com.vivo.push.b.y yVar2 = new com.vivo.push.b.y(1030L);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("type", "2");
             hashMap.put("messageID", String.valueOf(pVar.e()));
             hashMap.put("platform", this.a.getPackageName());
-            xVar.a(hashMap);
-            com.vivo.push.m.a().a(xVar);
-            com.vivo.push.util.m.d("OnNotificationArrivedTask", "notification is clicked by skip type[" + a.getSkipType() + "]");
+            String b = com.vivo.push.util.z.b(this.a, this.a.getPackageName());
+            if (!TextUtils.isEmpty(b)) {
+                hashMap.put("remoteAppId", b);
+            }
+            yVar2.a(hashMap);
+            com.vivo.push.p.a().a(yVar2);
+            com.vivo.push.util.p.d("OnNotificationClickTask", "notification is clicked by skip type[" + a.getSkipType() + "]");
             switch (a.getSkipType()) {
                 case 1:
-                    new Thread(new x(this, this.a)).start();
-                    b.post(new t(this, a));
+                    new Thread(new x(this, this.a, a.getParams())).start();
+                    com.vivo.push.w.b(new t(this, a));
                     return;
                 case 2:
                     String skipContent = a.getSkipContent();
@@ -49,18 +59,19 @@ public final class s extends aa {
                         Uri parse = Uri.parse(skipContent);
                         Intent intent = new Intent("android.intent.action.VIEW", parse);
                         intent.setFlags(268435456);
+                        b(intent, a.getParams());
                         try {
                             this.a.startActivity(intent);
                         } catch (Exception e) {
-                            com.vivo.push.util.m.a("OnNotificationArrivedTask", "startActivity error : " + parse);
+                            com.vivo.push.util.p.a("OnNotificationClickTask", "startActivity error : " + parse);
                         }
                     } else {
-                        com.vivo.push.util.m.a("OnNotificationArrivedTask", "url not legal");
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "url not legal");
                     }
-                    b.post(new u(this, a));
+                    com.vivo.push.w.b(new u(this, a));
                     return;
                 case 3:
-                    b.post(new v(this, a));
+                    com.vivo.push.w.b(new v(this, a));
                     return;
                 case 4:
                     String skipContent2 = a.getSkipContent();
@@ -68,27 +79,40 @@ public final class s extends aa {
                         parseUri = Intent.parseUri(skipContent2, 1);
                         str = parseUri.getPackage();
                     } catch (Exception e2) {
-                        com.vivo.push.util.m.a("OnNotificationArrivedTask", "open activity error : " + skipContent2, e2);
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : " + skipContent2, e2);
                     }
                     if (!TextUtils.isEmpty(str) && !this.a.getPackageName().equals(str)) {
-                        com.vivo.push.util.m.a("OnNotificationArrivedTask", "open activity error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
                         return;
                     }
                     String packageName = parseUri.getComponent() == null ? null : parseUri.getComponent().getPackageName();
                     if (!TextUtils.isEmpty(packageName) && !this.a.getPackageName().equals(packageName)) {
-                        com.vivo.push.util.m.a("OnNotificationArrivedTask", "open activity component error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
                         return;
                     }
                     parseUri.setPackage(this.a.getPackageName());
                     parseUri.addFlags(268435456);
+                    b(parseUri, a.getParams());
                     this.a.startActivity(parseUri);
-                    b.post(new w(this, a));
+                    com.vivo.push.w.b(new w(this, a));
                     return;
                 default:
-                    com.vivo.push.util.m.a("OnNotificationArrivedTask", "illegitmacy skip type error : " + a.getSkipType());
+                    com.vivo.push.util.p.a("OnNotificationClickTask", "illegitmacy skip type error : " + a.getSkipType());
                     return;
             }
         }
-        com.vivo.push.util.m.a("OnNotificationArrivedTask", "notify is " + a + " ; isMatch is " + equals);
+        com.vivo.push.util.p.a("OnNotificationClickTask", "notify is " + a + " ; isMatch is " + equals);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static Intent b(Intent intent, Map<String, String> map) {
+        if (map != null && map.entrySet() != null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                if (entry != null && entry.getKey() != null) {
+                    intent.putExtra(entry.getKey(), entry.getValue());
+                }
+            }
+        }
+        return intent;
     }
 }

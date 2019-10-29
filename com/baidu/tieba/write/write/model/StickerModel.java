@@ -3,21 +3,21 @@ package com.baidu.tieba.write.write.model;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.j;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class StickerModel extends BdBaseModel {
-    private a jYW;
-    private com.baidu.adp.framework.listener.a jYX;
+    private a jWV;
+    private com.baidu.adp.framework.listener.a jWW;
 
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.jYX = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
+        this.jWW = new com.baidu.adp.framework.listener.a(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -28,25 +28,25 @@ public class StickerModel extends BdBaseModel {
                         } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                             list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                         }
-                        if (StickerModel.this.jYW != null) {
-                            StickerModel.this.jYW.eB(list);
+                        if (StickerModel.this.jWV != null) {
+                            StickerModel.this.jWV.eO(list);
                         }
                     }
                 }
             }
         };
-        registerListener(this.jYX);
+        registerListener(this.jWW);
     }
 
     public void a(a aVar) {
-        this.jYW = aVar;
+        this.jWV = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (j.jQ()) {
-            com.baidu.tieba.tbadkCore.a.a.a(309475, ResponseSocketGetStickerMessage.class, false, false);
-            com.baidu.tieba.tbadkCore.a.a.a(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+        if (j.isNetworkAvailableForImmediately()) {
+            com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_STICKET_LIST, ResponseSocketGetStickerMessage.class, false, false);
+            com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_STICKET_LIST, 1003341, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
             RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
             requestGetStickerMessage.setTag(this.unique_id);
             sendMessage(requestGetStickerMessage);

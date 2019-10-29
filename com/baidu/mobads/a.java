@@ -3,15 +3,15 @@ package com.baidu.mobads;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface a {
+    void L(JSONObject jSONObject);
+
+    void M(JSONObject jSONObject);
+
+    void N(JSONObject jSONObject);
+
     void b(AdView adView);
 
-    void cO(String str);
+    void dy(String str);
 
-    void n(JSONObject jSONObject);
-
-    void o(JSONObject jSONObject);
-
-    void p(JSONObject jSONObject);
-
-    void uu();
+    void zo();
 }

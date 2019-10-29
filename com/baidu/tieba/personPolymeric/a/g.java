@@ -17,24 +17,23 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.f> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: as */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.f> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.f(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.f> aVar) {
-        if (aVar == null || aVar.baX() == null || hVar == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.f> aVar) {
+        if (aVar == null || aVar.baZ() == null || hVar == null) {
             return null;
         }
-        aVar.baX().a(hVar);
-        if (aVar.baX().getView() != null) {
-            aVar.baX().getView().setOnClickListener(this.mOnClickListener);
+        aVar.baZ().a(hVar);
+        if (aVar.baZ().getView() != null) {
+            aVar.baZ().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.baX().getView();
+        return aVar.baZ().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

@@ -2,6 +2,8 @@ package com.baidu.tbadk.core.hybrid.a;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.hybrid.l;
@@ -18,21 +20,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends n {
-    private l bQt;
+    private l chw;
 
     public c(l lVar) {
         super(lVar);
-        this.bQt = lVar;
+        this.chw = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String abp() {
+    public String afV() {
         return "TBHY_COMMON_Image";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @o(ahG = false, value = "scanBigImages")
+    @o(alD = false, value = "scanBigImages")
     public void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
@@ -56,7 +58,7 @@ public class c extends n {
                     }
                 }
             }
-            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.bQt.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.chw.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 
@@ -81,8 +83,8 @@ public class c extends n {
         writeImagesInfo.setChosedFiles(linkedList);
         writeImagesInfo.setMaxImagesAllowed(9);
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
-        albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
-        albumActivityConfig.setRequestCode(12015);
-        sendMessage(new CustomMessage(2002001, albumActivityConfig));
+        albumActivityConfig.getIntent().putExtra("camera_request_from", 5);
+        albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_WEBVIEW);
+        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
     }
 }

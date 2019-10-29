@@ -4,66 +4,78 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.vivo.push.cache.b;
+import com.vivo.push.b;
 import com.vivo.push.cache.e;
 import com.vivo.push.sdk.LinkProxyClientActivity;
 import com.vivo.push.sdk.service.LinkProxyActivity;
-import com.vivo.push.util.h;
-import com.vivo.push.util.m;
+import com.vivo.push.util.k;
 import com.vivo.push.util.p;
-import com.vivo.push.util.w;
-import com.vivo.push.v;
+import com.vivo.push.util.s;
+import com.vivo.push.util.z;
+import com.vivo.push.y;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class a {
-    public static void a(Context context, String str, v vVar) {
-        Intent intent = new Intent();
-        intent.setPackage(str);
-        intent.setClassName(str, vVar.c() ? "com.vivo.push.sdk.service.UpstageService" : "com.vivo.push.sdk.service.PushService");
-        if (TextUtils.isEmpty(vVar.a())) {
-            vVar.a(context.getPackageName());
+    public static void a(Context context, String str, y yVar) {
+        boolean c = yVar.c();
+        b a = b.a(context, c ? "com.vivo.vms.upstageservice" : "com.vivo.vms.aidlservice");
+        boolean a2 = a.a();
+        if (TextUtils.isEmpty(yVar.a())) {
+            yVar.a(context.getPackageName());
         }
-        vVar.a(intent);
+        if (a2 && !"com.vivo.pushservice".equals(context.getPackageName())) {
+            com.vivo.push.a aVar = new com.vivo.push.a(yVar.a(), str, new Bundle());
+            yVar.a(aVar);
+            if (!a.a(aVar.b())) {
+                p.b("CommandBridge", "send command error by aidl");
+                p.c(context, "send command error by aidl");
+            } else {
+                return;
+            }
+        }
+        Intent intent = new Intent("com.vivo.pushservice.action.METHOD");
+        intent.setPackage(str);
+        intent.setClassName(str, c ? "com.vivo.push.sdk.service.UpstageService" : "com.vivo.push.sdk.service.PushService");
+        yVar.a(intent);
         try {
             a(context, intent, false);
         } catch (Exception e) {
-            m.a("CommandBridge", "CommandBridge startService exception: ", e);
+            p.a("CommandBridge", "CommandBridge startService exception: ", e);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0054  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x004f  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static void a(Context context, Intent intent, boolean z) throws Exception {
-        boolean z2;
         ComponentName componentName;
         String str;
         if (context == null) {
-            m.d("CommandBridge", "enter startLinkProxyActivityOrService context is null");
+            p.d("CommandBridge", "enter startLinkProxyActivityOrService context is null");
             throw new Exception("context is null");
         }
         String str2 = intent.getPackage();
-        if (context.getPackageName().equals(str2)) {
-            z2 = true;
-        } else {
-            e a = b.a().a(context);
+        boolean z2 = true;
+        if (!context.getPackageName().equals(str2)) {
+            e a = com.vivo.push.cache.b.a().a(context);
             if (a != null) {
                 str = a.getSuitTag();
-                m.d("CommandBridge", "get app suit Tag success");
+                p.d("CommandBridge", "get app suit Tag success");
             } else {
-                m.d("CommandBridge", "get app suit Tag is null");
+                p.d("CommandBridge", "get app suit Tag is null");
                 str = null;
             }
             if (!"1".equals(str)) {
                 if ("0".equals(str)) {
                     z2 = true;
-                } else if ((h.b() && w.b(context, str2)) || h.c()) {
+                } else if ((k.b() && z.c(context, str2)) || k.c()) {
                     z2 = true;
                 }
                 if (!z2) {
-                    long a2 = w.a(context, str2);
+                    long a2 = z.a(context, str2);
                     if (a2 >= 100 && a2 < 200) {
                         a2 -= 100;
                     } else if ((a2 / 1000) % 2 == 1) {
@@ -83,7 +95,9 @@ public final class a {
                 context.startService(intent);
                 return;
             } catch (Exception e) {
-                m.a("CommandBridge", "start service error", e);
+                p.a("CommandBridge", "start service error", e);
+                intent.setComponent(null);
+                context.sendBroadcast(intent);
                 return;
             }
         }
@@ -99,41 +113,43 @@ public final class a {
             intent2.putExtra("previous_intent", intent);
             context.startActivity(intent2);
         } catch (Exception e2) {
-            m.d("CommandBridge", "start activity error");
+            p.d("CommandBridge", "start activity error");
             try {
                 context.startService(intent);
             } catch (Exception e3) {
-                m.a("CommandBridge", "start service error", e3);
+                p.a("CommandBridge", "start service error", e3);
+                intent.setComponent(null);
+                context.sendBroadcast(intent);
             }
         }
     }
 
-    public static void a(Context context, v vVar, String str) {
+    public static void a(Context context, y yVar, String str) {
         try {
-            boolean b = p.b(context, str);
+            boolean b = s.b(context, str);
             String str2 = b ? "com.vivo.pushclient.action.RECEIVE" : "com.vivo.pushservice.action.RECEIVE";
             if (TextUtils.isEmpty(str)) {
-                m.c(context, "消息接受者包名为空！");
+                p.c(context, "消息接受者包名为空！");
                 throw new Exception("消息接受者包名为空！");
             } else if (!a(context, str2, str)) {
                 throw new Exception("校验action异常");
             } else {
+                if (TextUtils.isEmpty(yVar.a())) {
+                    yVar.a(context.getPackageName());
+                }
                 Intent intent = new Intent();
                 intent.setFlags(1048576);
                 if (!TextUtils.isEmpty(str2)) {
                     intent.setAction(str2);
                 }
                 intent.setPackage(str);
-                if (TextUtils.isEmpty(vVar.a())) {
-                    vVar.a(context.getPackageName());
-                }
-                vVar.b(intent);
-                intent.putExtra("command_type", "reflect_receiver");
                 intent.setClassName(str, b ? "com.vivo.push.sdk.service.CommandClientService" : "com.vivo.push.sdk.service.CommandService");
+                yVar.b(intent);
+                intent.putExtra("command_type", "reflect_receiver");
                 a(context, intent, b);
             }
         } catch (Exception e) {
-            m.a("CommandBridge", "CommandBridge sendCommandToClient exception", e);
+            p.a("CommandBridge", "CommandBridge sendCommandToClient exception", e);
         }
     }
 
@@ -143,12 +159,12 @@ public final class a {
         try {
             List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 576);
             if (queryBroadcastReceivers == null || queryBroadcastReceivers.size() <= 0) {
-                m.b("CommandBridge", "action check error：action>>" + str + ";pkgname>>" + str2);
+                p.b("CommandBridge", "action check error：action>>" + str + ";pkgname>>" + str2);
                 return false;
             }
             return true;
         } catch (Exception e) {
-            m.b("CommandBridge", "queryBroadcastReceivers error");
+            p.b("CommandBridge", "queryBroadcastReceivers error");
             return false;
         }
     }

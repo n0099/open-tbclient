@@ -15,7 +15,7 @@ public class ActiveConfigReqMsg extends NetMessage {
     protected Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            r.bindCommonParamsToProtobufData(builder, true, true, false);
+            r.a(builder, true, true, false);
             ActiveConfigReqIdl.Builder builder2 = new ActiveConfigReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

@@ -26,33 +26,33 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        final a caH;
-        final a caI;
-        final int caJ;
+        final a cpl;
+        final a cpm;
+        final int cpn;
 
         private b(a aVar) {
-            this.caH = aVar.caH;
-            this.caI = aVar.caI;
-            this.caJ = aVar.caJ;
+            this.cpl = aVar.cpl;
+            this.cpm = aVar.cpm;
+            this.cpn = aVar.cpn;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a caH = null;
-            private a caI = null;
-            private int caJ = -1;
+            private a cpl = null;
+            private a cpm = null;
+            private int cpn = -1;
 
             public a b(a aVar) {
-                this.caH = aVar;
+                this.cpl = aVar;
                 return this;
             }
 
-            public a iL(int i) {
-                this.caJ = i;
+            public a iG(int i) {
+                this.cpn = i;
                 return this;
             }
 
-            public b akJ() {
+            public b anH() {
                 return new b(this);
             }
         }
@@ -60,78 +60,78 @@ public class NoDataViewFactory {
         public static b a(a aVar) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            return aVar2.akJ();
+            return aVar2.anH();
         }
 
         public static b a(a aVar, int i) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            aVar2.iL(i);
-            return aVar2.akJ();
+            aVar2.iG(i);
+            return aVar2.anH();
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String anb;
-        View.OnClickListener caG;
+        View.OnClickListener cpk;
+        String mText;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.anb = str;
-            this.caG = onClickListener;
+            this.mText = str;
+            this.cpk = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        final int aPK;
-        final int caE;
-        final ImgType caK;
+        final int biT;
+        final int cpi;
+        final ImgType cpo;
         final int mHeight;
         final int mWidth;
 
         private c(a aVar) {
-            this.caK = aVar.caK;
-            this.aPK = aVar.aPK;
-            this.caE = aVar.caE;
+            this.cpo = aVar.cpo;
+            this.biT = aVar.biT;
+            this.cpi = aVar.cpi;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType caK = ImgType.NONE;
-            private int aPK = -1;
-            private int caE = -1;
+            private ImgType cpo = ImgType.NONE;
+            private int biT = -1;
+            private int cpi = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.caK = imgType;
+                this.cpo = imgType;
                 return this;
             }
 
-            public a iM(int i) {
-                this.aPK = i;
+            public a iH(int i) {
+                this.biT = i;
                 return this;
             }
 
-            public a iN(int i) {
-                this.caE = i;
+            public a iI(int i) {
+                this.cpi = i;
                 return this;
             }
 
-            public a iO(int i) {
+            public a iJ(int i) {
                 this.mHeight = i;
                 return this;
             }
 
-            public a iP(int i) {
+            public a iK(int i) {
                 this.mWidth = i;
                 return this;
             }
 
-            public c akK() {
+            public c anI() {
                 return new c(this);
             }
         }
@@ -139,97 +139,97 @@ public class NoDataViewFactory {
         public static c a(ImgType imgType, int i) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.iM(i);
-            return aVar.akK();
+            aVar.iH(i);
+            return aVar.anI();
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.iN(i);
-            aVar.iM(i2);
-            aVar.iO(i3);
-            aVar.iP(i4);
-            return aVar.akK();
+            aVar.iI(i);
+            aVar.iH(i2);
+            aVar.iJ(i3);
+            aVar.iK(i4);
+            return aVar.anI();
         }
 
         public static c a(ImgType imgType) {
             a aVar = new a();
             aVar.b(imgType);
-            return aVar.akK();
+            return aVar.anI();
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        final String bHa;
-        final String caL;
-        final int caM;
-        final int caN;
+        final String bYL;
+        final String cpp;
+        final int cpq;
+        final int cpr;
         final String mTitle;
 
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
-            this.bHa = aVar.bHa;
-            this.caL = aVar.caL;
-            this.caM = aVar.caO;
-            this.caN = aVar.caN;
+            this.bYL = aVar.bYL;
+            this.cpp = aVar.cpp;
+            this.cpq = aVar.cps;
+            this.cpr = aVar.cpr;
         }
 
         /* loaded from: classes.dex */
         public static class a {
             private String mTitle = null;
-            private String bHa = null;
-            private String caL = null;
-            private int caO = -1;
-            private int caN = 0;
+            private String bYL = null;
+            private String cpp = null;
+            private int cps = -1;
+            private int cpr = 0;
 
-            public a oY(String str) {
+            public a ox(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a oZ(String str) {
-                this.bHa = str;
+            public a oy(String str) {
+                this.bYL = str;
                 return this;
             }
 
-            public a iR(int i) {
-                this.caO = i;
+            public a iM(int i) {
+                this.cps = i;
                 return this;
             }
 
-            public d akL() {
+            public d anJ() {
                 return new d(this);
             }
         }
 
-        public static d af(int i, int i2) {
+        public static d aj(int i, int i2) {
             a aVar = new a();
-            aVar.oZ(TbadkCoreApplication.getInst().getResources().getString(i));
-            aVar.iR(i2);
-            return aVar.akL();
+            aVar.oy(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.iM(i2);
+            return aVar.anJ();
         }
 
-        public static d iQ(int i) {
-            return oX(TbadkCoreApplication.getInst().getResources().getString(i));
+        public static d iL(int i) {
+            return ow(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
-        public static d ag(int i, int i2) {
-            return bX(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
+        public static d ak(int i, int i2) {
+            return bU(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d oX(String str) {
+        public static d ow(String str) {
             a aVar = new a();
-            aVar.oZ(str);
-            return aVar.akL();
+            aVar.oy(str);
+            return aVar.anJ();
         }
 
-        public static d bX(String str, String str2) {
+        public static d bU(String str, String str2) {
             a aVar = new a();
-            aVar.oZ(str);
-            aVar.oY(str2);
-            return aVar.akL();
+            aVar.oy(str);
+            aVar.ox(str2);
+            return aVar.anJ();
         }
     }
 

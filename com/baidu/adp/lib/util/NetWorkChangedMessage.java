@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.util;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.framework.MessageConfig;
 /* loaded from: classes.dex */
 public class NetWorkChangedMessage extends CustomResponsedMessage<NetworkState> {
     public final long mCurChangedTime;
@@ -9,7 +10,7 @@ public class NetWorkChangedMessage extends CustomResponsedMessage<NetworkState> 
     public final long mlastChangedTime;
 
     public NetWorkChangedMessage(NetworkState networkState) {
-        super(2000994);
+        super(MessageConfig.CMD_NETWORK_CHANGED);
         if (networkState == null) {
             throw new NullPointerException("NetworkState is Null");
         }

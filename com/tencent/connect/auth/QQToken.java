@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.tencent.connect.common.Constants;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.d;
 import com.tencent.open.utils.e;
@@ -128,7 +127,7 @@ public class QQToken {
                 try {
                     String string = jSONObject.getString("expires_in");
                     if (!TextUtils.isEmpty(string)) {
-                        jSONObject.put(Constants.PARAM_EXPIRES_TIME, System.currentTimeMillis() + (Long.parseLong(string) * 1000));
+                        jSONObject.put("expires_time", System.currentTimeMillis() + (Long.parseLong(string) * 1000));
                         String encodeToString = Base64.encodeToString(j.i(str), 2);
                         String a = d.a(jSONObject.toString(), "asdfghjk");
                         if (encodeToString != null && a != null) {

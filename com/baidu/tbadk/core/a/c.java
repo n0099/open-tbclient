@@ -22,10 +22,10 @@ public class c {
 
     public c() {
         this.mKey = "kf1t9tsczk16vc8z";
-        this.mKey = acp();
+        this.mKey = agw();
     }
 
-    private byte[] c(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+    private byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, key);
         return cipher.doFinal(bArr);
@@ -46,22 +46,22 @@ public class c {
         }
         for (int i = 0; i < length; i++) {
             if (1 == length) {
-                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(c(publicKey, bytes)));
+                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(b(publicKey, bytes)));
             } else if (i != length - 1) {
                 byte[] bArr = new byte[116];
                 System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(c(publicKey, bArr)));
+                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(b(publicKey, bArr)));
             } else {
                 int length2 = bytes.length - (i * 116);
                 byte[] bArr2 = new byte[length2];
                 System.arraycopy(bytes, i * 116, bArr2, 0, length2);
-                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(c(publicKey, bArr2)));
+                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(b(publicKey, bArr2)));
             }
         }
         return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes(HTTP.UTF_8));
     }
 
-    private String acp() {
+    private String agw() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 16; i++) {

@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.CommitPusherCount.CommitPusherCountResIdl;
 /* loaded from: classes3.dex */
@@ -16,7 +17,7 @@ public class ResponsePushCountMessage extends SocketResponsedMessage {
     }
 
     public ResponsePushCountMessage() {
-        super(202101);
+        super(CmdConfigSocket.CMD_PUSH_COUNT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

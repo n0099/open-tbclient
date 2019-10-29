@@ -10,65 +10,65 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g sR = null;
-    private Resources sS = null;
-    private ArrayList<String> sT = null;
-    private HashSet<String> sU = null;
+    private static g la = null;
+    private Resources mCurrentResources = null;
+    private ArrayList<String> lb = null;
+    private HashSet<String> lc = null;
 
-    public static g eZ() {
-        if (sR == null) {
+    public static g eo() {
+        if (la == null) {
             synchronized (g.class) {
-                if (sR == null) {
-                    sR = new g();
+                if (la == null) {
+                    la = new g();
                 }
             }
         }
-        return sR;
+        return la;
     }
 
-    public synchronized void a(Resources resources) {
-        this.sS = resources;
+    public synchronized void setHostResources(Resources resources) {
+        this.mCurrentResources = resources;
     }
 
     public synchronized void h(String str, String str2) throws IllegalAccessException, InstantiationException, SecurityException, IllegalArgumentException, NoSuchMethodException, InvocationTargetException {
         if (TextUtils.isEmpty(str2)) {
             throw new IllegalArgumentException("param resPath is null");
         }
-        if (this.sS == null) {
+        if (this.mCurrentResources == null) {
             throw new RuntimeException("hostResources is null");
         }
         if (!TextUtils.isEmpty(str)) {
-            if (this.sU == null) {
-                this.sU = new HashSet<>();
+            if (this.lc == null) {
+                this.lc = new HashSet<>();
             }
-            if (this.sU.contains(str)) {
-                com.baidu.adp.plugin.b.a.mc().f("plugin_load", "repeat_inject_res", str, str2);
+            if (this.lc.contains(str)) {
+                com.baidu.adp.plugin.b.a.iv().f("plugin_load", "repeat_inject_res", str, str2);
             }
-            this.sU.add(str);
+            this.lc.add(str);
         }
-        if (this.sT == null) {
-            this.sT = new ArrayList<>();
+        if (this.lb == null) {
+            this.lb = new ArrayList<>();
         }
-        if (!this.sT.contains(str2)) {
+        if (!this.lb.contains(str2)) {
             if (Build.VERSION.SDK_INT >= 20) {
-                com.baidu.adp.plugin.util.d.c(this.sS.getAssets(), "addAssetPath", new Object[]{str2});
+                com.baidu.adp.plugin.util.d.callMethod(this.mCurrentResources.getAssets(), "addAssetPath", new Object[]{str2});
             } else {
                 AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                if (this.sT.size() > 0) {
-                    Iterator<String> it = this.sT.iterator();
+                if (this.lb.size() > 0) {
+                    Iterator<String> it = this.lb.iterator();
                     while (it.hasNext()) {
-                        com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{it.next()});
+                        com.baidu.adp.plugin.util.d.callMethod(assetManager, "addAssetPath", new Object[]{it.next()});
                     }
                 }
-                com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{str2});
-                com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
-                this.sS = new Resources(assetManager, this.sS.getDisplayMetrics(), this.sS.getConfiguration());
+                com.baidu.adp.plugin.util.d.callMethod(assetManager, "addAssetPath", new Object[]{str2});
+                com.baidu.adp.plugin.util.d.callMethod(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
+                this.mCurrentResources = new Resources(assetManager, this.mCurrentResources.getDisplayMetrics(), this.mCurrentResources.getConfiguration());
             }
-            this.sT.add(str2);
+            this.lb.add(str2);
         }
     }
 
     public synchronized Resources getResources() {
-        return this.sS;
+        return this.mCurrentResources;
     }
 }

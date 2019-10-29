@@ -1,38 +1,39 @@
 package com.baidu.tbadk.core.util.b;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String FI;
-    private List<String> bWj;
-    private long bWk;
+    private List<String> clp;
+    private long clq;
     private long mStartTime = System.currentTimeMillis();
+    private String sT;
 
-    public a oA(String str) {
+    public a ob(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.bWk = jSONObject.optLong("ttl");
+            this.clq = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
                 return null;
             }
-            this.FI = optJSONObject.keys().next();
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.FI);
-            if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.bWj = new ArrayList();
+            this.sT = optJSONObject.keys().next();
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.sT);
+            if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null && optJSONArray.length() > 0) {
+                this.clp = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.bWj.add((String) optJSONArray.get(i2));
+                        this.clp.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -48,8 +49,8 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bd(long j) {
-        this.bWk = j;
+    public void aV(long j) {
+        this.clq = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -57,11 +58,11 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> ajY() {
-        return this.bWj;
+    public List<String> anc() {
+        return this.clp;
     }
 
-    public boolean be(long j) {
-        return j - this.mStartTime > this.bWk * 1000;
+    public boolean aW(long j) {
+        return j - this.mStartTime > this.clq * 1000;
     }
 }

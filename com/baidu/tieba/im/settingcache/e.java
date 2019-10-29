@@ -11,26 +11,26 @@ import com.baidu.tbadk.util.z;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class e extends a {
-    private static e gSP = new e();
+    private static e gQP = new e();
 
     private e() {
     }
 
-    public static e bHv() {
-        return gSP;
+    public static e bEg() {
+        return gQP;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: du */
-    public PersonalSettingItemData dq(String str, String str2) {
+    /* renamed from: df */
+    public PersonalSettingItemData db(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.gSF) {
-            ChatSetting chatSetting = this.gSF.get(str3);
+        synchronized (this.gQF) {
+            ChatSetting chatSetting = this.gQF.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -43,22 +43,22 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void bDA() {
-        super.t(PersonalSettingItemData.class);
+    public void bAk() {
+        super.q(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData dq;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (dq = dq(str, str2)) != null) {
-            dq.setToPortrait(userData.getPortrait());
-            dq.setToName(userData.getUserName());
-            a(dq);
+        PersonalSettingItemData db;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (db = db(str, str2)) != null) {
+            db.setToPortrait(userData.getPortrait());
+            db.setToName(userData.getUserName());
+            a(db);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> bHr() {
-        return com.baidu.tbadk.core.d.a.agL().mN("tb.im_personal_chat_setting");
+    protected l<String> bEc() {
+        return com.baidu.tbadk.core.d.a.akN().nl("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> bHr = bHr();
+            l<String> bEc = bEc();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.gSF) {
-                this.gSF.put(str, personalSettingItemData);
+            synchronized (this.gQF) {
+                this.gQF.put(str, personalSettingItemData);
             }
-            bHr.f(str, jsonStrWithObject);
+            bEc.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class e extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.gSF) {
-                this.gSF.put(str, personalSettingItemData);
+            synchronized (this.gQF) {
+                this.gQF.put(str, personalSettingItemData);
             }
             z.b(new y<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.y
-                /* renamed from: aDX */
+                /* renamed from: aEg */
                 public Void doInBackground() {
-                    e.this.bHr().f(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.bEc().setForever(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, jVar);

@@ -2,119 +2,34 @@ package com.baidu.tbadk.core.util.e;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
-public class v extends a {
-    private boolean Yd;
-    private int procType;
-
+public class v extends x {
     public v(boolean z, int i) {
-        this.Yd = true;
-        this.procType = 0;
-        this.Yd = z;
-        this.procType = i;
+        super(z, i);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.e.a
-    public int aki() {
-        return this.procType;
-    }
-
-    @Override // com.baidu.tbadk.core.util.e.a
-    public int getWidth() {
-        return com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst().getApp());
-    }
-
-    @Override // com.baidu.tbadk.core.util.e.a
-    public int getHeight() {
-        return com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getApp());
-    }
-
-    @Override // com.baidu.tbadk.core.util.e.a
-    public boolean isFromCDN() {
-        return this.Yd;
-    }
-
-    @Override // com.baidu.tbadk.core.util.e.a
-    public boolean akg() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.e.a
-    public boolean akh() {
-        return false;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.e.a, com.baidu.adp.lib.f.e
-    /* renamed from: b */
-    public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a aVar2;
-        com.baidu.adp.lib.stats.a iF = com.baidu.tbadk.core.util.s.iF();
-        iF.iO();
-        byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c oJ = oJ(as.ol(str2));
-        if (oJ == null) {
-            return null;
-        }
-        oJ.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        oJ.J(true);
-        oJ.K(false);
-        oJ.q(bArr);
-        oJ.L(false);
-        if (aVar != null) {
-            e eVar = new e();
-            eVar.f(oJ);
-            aVar.Bk = eVar;
-        }
-        boolean kd = com.baidu.adp.lib.util.j.kd();
-        if (!com.baidu.adp.lib.Disk.d.gC().c(oJ)) {
-            com.baidu.tbadk.core.util.s.a(iF, str2, false, iF.iP(), kd);
-            return null;
-        }
-        int i3 = 2000;
-        if (kd) {
-            i3 = 300;
-        }
-        synchronized (bArr) {
-            try {
-                bArr.wait(i3);
-            } catch (InterruptedException e) {
+    public Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
+        Bitmap a = super.a(bArr, rect, sb);
+        if (a != null) {
+            Bitmap fastblur = BitmapHelper.fastblur(a, 10, 0.25f);
+            if (fastblur != a) {
+                a.recycle();
             }
+            return fastblur;
         }
-        if (!oJ.isSuccess()) {
-            aVar2 = null;
-        } else {
-            aVar2 = a(oJ, str2, i, i2);
-        }
-        if (aVar2 != null) {
-            com.baidu.tbadk.core.util.s.a(iF, str2, true, iF.iP(), kd);
-            return aVar2;
-        }
-        com.baidu.tbadk.core.util.s.a(iF, str2, false, iF.iP(), kd);
-        return aVar2;
+        return a;
     }
 
-    @Override // com.baidu.tbadk.core.util.e.a
-    protected com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
-        if (m(bitmap)) {
-            aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.ol(str2), DiskFileOperate.Action.WRITE);
-            cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-            cVar.J(true);
-            cVar.setData(bArr);
-            cVar.O(z);
-            cVar.L(false);
-            com.baidu.adp.lib.Disk.d.gC().c(cVar);
-            if (aVar != null) {
-                e eVar = new e();
-                eVar.f(cVar);
-                aVar.Bk = eVar;
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.util.e.x, com.baidu.tbadk.core.util.e.a
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
+        byte[] bArr2;
+        if (bitmap == null || (bArr2 = BitmapHelper.Bitmap2Bytes(bitmap, 100)) == null) {
+            bArr2 = bArr;
         }
-        return aVar2;
+        return super.a(str, str2, aVar, aVar2, bitmap, z, iVar, bArr2, rect);
     }
 }

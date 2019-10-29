@@ -12,7 +12,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.data.ContriInfo;
@@ -23,10 +22,10 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener bTM;
-    private a iXD;
-    private ContriInfo iXE;
-    private Runnable iXF;
+    private HttpMessageListener cjO;
+    private a iXs;
+    private ContriInfo iXt;
+    private Runnable iXu;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,51 +34,51 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.iXF = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.iXu = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.iXD != null) {
-                    AddExperiencedModel.this.iXD.a(AddExperiencedModel.this.iXE);
+                if (AddExperiencedModel.this.iXs != null) {
+                    AddExperiencedModel.this.iXs.a(AddExperiencedModel.this.iXt);
                 }
             }
         };
-        this.bTM = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.cjO = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.iXE = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.iK().postDelayed(AddExperiencedModel.this.iXF, 2000L);
+                    AddExperiencedModel.this.iXt = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.fZ().postDelayed(AddExperiencedModel.this.iXu, 2000L);
                 }
             }
         };
         registerTask();
-        registerListener(this.bTM);
+        registerListener(this.cjO);
     }
 
     private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_EXPERIENCED, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003332, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
         tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void ef(String str, String str2) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
+    public void dR(String str, String str2) {
+        HttpMessage httpMessage = new HttpMessage(1003332);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean EG(String str) {
-        return b.e(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
+    public static boolean Dl(String str) {
+        return b.toLong(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean EH(String str) {
+    public static boolean Dm(String str) {
         String str2;
         boolean z;
-        l<String> bE = com.baidu.tbadk.core.d.a.agL().bE("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
-        if (bE != null) {
-            String str3 = bE.get(str);
+        l<String> bK = com.baidu.tbadk.core.d.a.akN().bK("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        if (bK != null) {
+            String str3 = bK.get(str);
             String currentDay = UtilHelper.getCurrentDay();
             if (!StringUtils.isNull(str3)) {
                 String[] split = str3.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -87,12 +86,12 @@ public class AddExperiencedModel extends BdBaseModel {
                     String trim = split[0].trim();
                     String trim2 = split[1].trim();
                     if (currentDay.equals(trim)) {
-                        int f = b.f(trim2, 0) + 1;
-                        String str4 = trim + Constants.ACCEPT_TIME_SEPARATOR_SP + f;
+                        int i = b.toInt(trim2, 0) + 1;
+                        String str4 = trim + Constants.ACCEPT_TIME_SEPARATOR_SP + i;
                         if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
-                            z = f <= MAX_ADD_ADVANCED;
+                            z = i <= MAX_ADD_ADVANCED;
                         } else {
-                            z = f <= MAX_ADD_NORMAL;
+                            z = i <= MAX_ADD_NORMAL;
                         }
                         str2 = str4;
                     } else {
@@ -107,7 +106,7 @@ public class AddExperiencedModel extends BdBaseModel {
                 str2 = currentDay + Constants.ACCEPT_TIME_SEPARATOR_SP + "1";
                 z = true;
             }
-            bE.f(str, str2);
+            bK.setForever(str, str2);
             return z;
         }
         return false;
@@ -124,10 +123,10 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.iXD = aVar;
+        this.iXs = aVar;
     }
 
     public void onDestroy() {
-        e.iK().removeCallbacks(this.iXF);
+        e.fZ().removeCallbacks(this.iXu);
     }
 }

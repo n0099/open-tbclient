@@ -32,6 +32,7 @@ import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -532,7 +533,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                     vectorDrawableCompatState.mChangingConfigurations |= vClipPath.mChangingConfigurations;
                     z = z2;
                 } else {
-                    if (SHAPE_GROUP.equals(name)) {
+                    if ("group".equals(name)) {
                         VGroup vGroup2 = new VGroup();
                         vGroup2.inflate(resources, attributeSet, theme, xmlPullParser);
                         vGroup.mChildren.add(vGroup2);
@@ -545,7 +546,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                     z = z2;
                 }
                 z2 = z;
-            } else if (eventType == 3 && SHAPE_GROUP.equals(xmlPullParser.getName())) {
+            } else if (eventType == 3 && "group".equals(xmlPullParser.getName())) {
                 stack.pop();
             }
             eventType = xmlPullParser.next();
@@ -1205,7 +1206,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
         public String nodesToString(PathParser.PathDataNode[] pathDataNodeArr) {
             float[] fArr;
-            String str = " ";
+            String str = HanziToPinyin.Token.SEPARATOR;
             for (int i = 0; i < pathDataNodeArr.length; i++) {
                 str = str + pathDataNodeArr[i].mType + ":";
                 for (int i2 = 0; i2 < pathDataNodeArr[i].mParams.length; i2++) {

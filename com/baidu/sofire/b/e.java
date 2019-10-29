@@ -20,8 +20,10 @@ import android.os.Process;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.sofire.MyActivity;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
@@ -336,7 +338,7 @@ public final class e {
         }
         if (resolveInfo == null) {
             try {
-                if (str.equals(a(context, str, NotificationCompat.CATEGORY_SERVICE))) {
+                if (str.equals(a(context, str, "service"))) {
                     z3 = true;
                 }
             } catch (Throwable th2) {
@@ -424,7 +426,7 @@ public final class e {
                     }
                     if (str2.equals("provider")) {
                         canonicalName = MyProvider.class.getCanonicalName();
-                    } else if (str2.equals(NotificationCompat.CATEGORY_SERVICE)) {
+                    } else if (str2.equals("service")) {
                         canonicalName = MyService.class.getCanonicalName();
                     } else {
                         canonicalName = str2.equals(SocialConstants.PARAM_RECEIVER) ? MyReceiver.class.getCanonicalName() : null;
@@ -458,7 +460,7 @@ public final class e {
                                             }
                                             return null;
                                         }
-                                    } else if (NotificationCompat.CATEGORY_SERVICE.equals(name)) {
+                                    } else if ("service".equals(name)) {
                                         String attributeValue5 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
                                         if (!TextUtils.isEmpty(attributeValue5) && attributeValue5.equals(canonicalName)) {
                                             String attributeValue6 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "process");
@@ -747,7 +749,7 @@ public final class e {
             return false;
         }
         try {
-            Runtime.getRuntime().exec("chmod " + str + " " + str2 + "\n").waitFor();
+            Runtime.getRuntime().exec("chmod " + str + HanziToPinyin.Token.SEPARATOR + str2 + "\n").waitFor();
             return true;
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
@@ -842,7 +844,7 @@ public final class e {
                 jSONObject2.put("3", str2);
                 jSONObject2.put("4", 0);
                 jSONObject2.put("5", 0);
-                jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, 1);
+                jSONObject2.put("6", 1);
                 jSONObject2.put("7", 0);
                 jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "sofire");
                 jSONObject2.put("9", "3.3.9");
@@ -1161,7 +1163,7 @@ public final class e {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
-            return "1.0.0";
+            return BuildConfig.VERSION_NAME;
         }
     }
 
@@ -1215,7 +1217,7 @@ public final class e {
             if (str8 == null) {
                 str8 = "";
             }
-            jSONObject.put(Constants.VIA_SHARE_TYPE_INFO, str8);
+            jSONObject.put("6", str8);
             String str9 = Build.VERSION.INCREMENTAL;
             if (str9 == null) {
                 str9 = "";
@@ -1404,7 +1406,7 @@ public final class e {
             jSONObject2.put("3", q(context));
             jSONObject2.put("4", h.a(context));
             jSONObject2.put("5", str5);
-            jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, j2);
+            jSONObject2.put("6", j2);
             jSONObject2.put("7", str4);
             jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, str3);
             jSONObject2.put("9", str2);
@@ -1516,7 +1518,7 @@ public final class e {
             long optLong = optJSONObject.optLong("0");
             String optString = optJSONObject.optString(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
             int optInt = optJSONObject.optInt("5");
-            int optInt2 = optJSONObject.optInt(Constants.VIA_SHARE_TYPE_INFO);
+            int optInt2 = optJSONObject.optInt("6");
             int optInt3 = optJSONObject.optInt("7");
             int optInt4 = optJSONObject.optInt(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
             int i2 = optInt2 != 0 ? optInt2 : 1;
@@ -1619,7 +1621,7 @@ public final class e {
             }
             jSONObject2.put("4", 0);
             jSONObject2.put("5", 0);
-            jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, 1);
+            jSONObject2.put("6", 1);
             jSONObject2.put("7", 0);
             jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, str);
             jSONObject2.put("9", str2);
@@ -1707,7 +1709,7 @@ public final class e {
             PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 64);
             if (packageInfo != null) {
                 jSONObject2.put("5", f(packageInfo.applicationInfo.loadLabel(packageManager).toString()));
-                jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, packageName);
+                jSONObject2.put("6", packageName);
                 PublicKey a2 = a(packageInfo, packageInfo.applicationInfo.sourceDir);
                 if (a2 != null) {
                     byte[] encoded = a2.getEncoded();
@@ -1922,7 +1924,7 @@ public final class e {
                         for (ApkInfo apkInfo2 : f.values()) {
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("pk", apkInfo2.packageName);
-                            jSONObject.put(Config.MODEL, apkInfo2.apkMD5);
+                            jSONObject.put("m", apkInfo2.apkMD5);
                             jSONObject.put("l", apkInfo2.key);
                             jSONObject.put("v", apkInfo2.versionName);
                             jSONArray3.put(jSONObject);

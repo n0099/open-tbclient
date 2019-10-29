@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
     String address;
-    float eUQ;
+    float eXG;
     private List<Integer> data = new ArrayList();
-    boolean eUR = false;
-    boolean eUS = false;
+    boolean eXH = false;
+    boolean eXI = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -21,7 +21,7 @@ public class b {
         for (int i = 0; i < dnsIpData.data.size(); i++) {
             bVar.data.add(dnsIpData.data.get(i));
         }
-        bVar.nu();
+        bVar.compute();
         return bVar;
     }
 
@@ -38,24 +38,24 @@ public class b {
         return builder.build(true);
     }
 
-    public void qn(int i) {
+    public void pi(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
         }
-        nu();
+        compute();
     }
 
-    private void nu() {
+    private void compute() {
         float f;
         int i;
         int i2 = 0;
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.eUQ = 0.0f;
+            this.eXG = 0.0f;
         } else if (size == 1) {
-            this.eUQ = this.data.get(0).intValue();
+            this.eXG = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.eUQ = ((i * f3) / size) + f;
-            if (this.eUQ < 0.05d) {
-                if (!this.eUR) {
-                    com.baidu.tieba.dnsproxy.d.beO().T("ip_weight_lower", this.address, String.valueOf(this.eUQ));
-                    this.eUR = true;
+            this.eXG = ((i * f3) / size) + f;
+            if (this.eXG < 0.05d) {
+                if (!this.eXH) {
+                    com.baidu.tieba.dnsproxy.d.bcJ().U("ip_weight_lower", this.address, String.valueOf(this.eXG));
+                    this.eXH = true;
                 }
-            } else if (this.eUR && this.eUQ > 0.5d && !this.eUS) {
-                com.baidu.tieba.dnsproxy.d.beO().T("ip_weight_lower_recover", this.address, String.valueOf(this.eUQ));
-                this.eUS = true;
+            } else if (this.eXH && this.eXG > 0.5d && !this.eXI) {
+                com.baidu.tieba.dnsproxy.d.bcJ().U("ip_weight_lower_recover", this.address, String.valueOf(this.eXG));
+                this.eXI = true;
             }
         }
     }

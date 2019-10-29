@@ -43,7 +43,7 @@ public class a {
         return false;
     }
 
-    public static boolean as(Context context, String str) {
+    public static boolean ap(Context context, String str) {
         ResolveInfo next;
         if (TextUtils.isEmpty(str) || context == null) {
             return false;
@@ -86,7 +86,7 @@ public class a {
         return false;
     }
 
-    public static String at(Context context, String str) {
+    public static String aq(Context context, String str) {
         PackageInfo packageArchiveInfo;
         if (context == null || TextUtils.isEmpty(str) || (packageArchiveInfo = context.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
             return null;

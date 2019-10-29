@@ -13,10 +13,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout cbk;
-    TbRichTextView gCW;
-    TextView gCX;
-    ChatImageWithTailView gCY;
+    TbRichTextView gAV;
+    TextView gAW;
+    ChatImageWithTailView gAX;
+    LinearLayout mContainer;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -36,31 +36,31 @@ public class HistoryItemView extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.cbk = (LinearLayout) findViewById(R.id.history_container);
-        this.gCX = (TextView) findViewById(R.id.history_send_time);
-        this.gCW = (TbRichTextView) findViewById(R.id.history_txt);
-        this.gCY = (ChatImageWithTailView) findViewById(R.id.history_pic);
-        am.k(this.cbk, R.drawable.selector_history_multi_single_bg);
-        am.f(this.gCX, R.color.common_color_10067, 1);
-        this.gCW.setTextColor(am.getColor(R.color.cp_cont_c));
-        this.gCY.setIsSupportNight(true);
+        this.mContainer = (LinearLayout) findViewById(R.id.history_container);
+        this.gAW = (TextView) findViewById(R.id.history_send_time);
+        this.gAV = (TbRichTextView) findViewById(R.id.history_txt);
+        this.gAX = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        am.setBackgroundResource(this.mContainer, R.drawable.selector_history_multi_single_bg);
+        am.setViewTextColor(this.gAW, R.color.common_color_10067, 1);
+        this.gAV.setTextColor(am.getColor(R.color.cp_cont_c));
+        this.gAX.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.gCX.setText(str);
+        this.gAW.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.gCW;
+        return this.gAV;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.gCY;
+        return this.gAX;
     }
 
-    public void cf(View view) {
-        this.cbk.setBackgroundDrawable(null);
-        this.cbk.removeAllViews();
-        this.cbk.addView(view);
+    public void cc(View view) {
+        this.mContainer.setBackgroundDrawable(null);
+        this.mContainer.removeAllViews();
+        this.mContainer.addView(view);
     }
 }

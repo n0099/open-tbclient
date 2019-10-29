@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
+    protected void C(int i) {
         TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i == 1);
     }
 
@@ -14,22 +14,22 @@ public class n extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hI() {
+    protected String[] fi() {
         return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hJ() {
+    protected int fj() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hK() {
+    protected int fk() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hL() {
+    protected int fl() {
         return 10;
     }
 }

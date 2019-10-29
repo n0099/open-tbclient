@@ -15,20 +15,20 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
 public class h implements c {
-    private Set<String> xB = new HashSet();
-    private Element xF;
+    private Set<String> np = new HashSet();
+    private Element nt;
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.xF = element;
+        this.nt = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i = 0; i < length; i++) {
                 Node item = attributes.item(i);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.xB.add(nodeName2);
+                    this.np.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -36,7 +36,7 @@ public class h implements c {
             for (int i2 = 0; i2 < length2; i2++) {
                 Node item2 = childNodes.item(i2);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.xB.add(nodeName);
+                    this.np.add(nodeName);
                 }
             }
         }
@@ -44,7 +44,7 @@ public class h implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.xB;
+        return this.np;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0036 */
@@ -52,11 +52,11 @@ public class h implements c {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.CharSequence, java.lang.String] */
     /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List, java.util.ArrayList] */
-    public Object ab(String str) {
+    public Object U(String str) {
         String nodeName;
-        Object attribute = this.xF.getAttribute(str);
+        Object attribute = this.nt.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.xF.getChildNodes();
+            NodeList childNodes = this.nt.getChildNodes();
             int length = childNodes.getLength();
             attribute = new ArrayList(length);
             for (int i = 0; i < length; i++) {
@@ -71,41 +71,41 @@ public class h implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Object b(String str, Type type) {
-        Object ab = ab(str);
-        if (ab != null) {
+        Object U = U(str);
+        if (U != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h s = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(ab);
-            if (s != null) {
-                return s.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h q = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.q(U);
+            if (q != null) {
+                return q.g(cVar);
             }
-            return ab;
+            return U;
         }
-        return ab;
+        return U;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void e(String str, Object obj) {
         if (obj != null && str != null) {
             if (obj instanceof Boolean) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Byte) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Character) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Short) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Integer) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Long) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Float) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Double) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
-                this.xF.setAttribute(str, String.valueOf(obj));
+                this.nt.setAttribute(str, String.valueOf(obj));
             } else {
-                if (obj.getClass().isArray() || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), List.class) || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), Queue.class) || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), Set.class) || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), Map.class) || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), SparseArray.class)) {
+                if (obj.getClass().isArray() || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), List.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Queue.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Set.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Map.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), SparseArray.class)) {
                 }
             }
         }

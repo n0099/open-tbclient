@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     private List<SmallSortedMap<K, V>.Entry> entryList;
     private boolean isImmutable;
@@ -246,7 +246,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class Entry implements Comparable<SmallSortedMap<K, V>.Entry>, Map.Entry<K, V> {
         private final K key;
         private V value;
@@ -314,7 +314,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         private EntrySet() {
         }
@@ -366,7 +366,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class EntryIterator implements Iterator<Map.Entry<K, V>> {
         private Iterator<Map.Entry<K, V>> lazyOverflowIterator;
         private boolean nextCalledBeforeRemove;
@@ -416,7 +416,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class EmptySet {
         private static final Iterator<Object> ITERATOR = new Iterator<Object>() { // from class: com.google.protobuf.SmallSortedMap.EmptySet.1
             @Override // java.util.Iterator

@@ -1,5 +1,6 @@
 package com.baidu.platform.core.d;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.core.CityInfo;
 import com.baidu.mapapi.search.core.PoiInfo;
@@ -10,7 +11,6 @@ import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.baidu.platform.base.SearchType;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -50,14 +50,14 @@ public class k extends com.baidu.platform.base.d {
                         if (!zArr2[i2]) {
                             if (zArr[i2]) {
                                 if (i2 == 0) {
-                                    suggestAddrInfo.setSuggestStartCity(a(optJSONObject3.optJSONArray(IntentConfig.START)));
+                                    suggestAddrInfo.setSuggestStartCity(a(optJSONObject3.optJSONArray("start")));
                                 } else if (i2 != length - 1 || i2 <= 0) {
                                     suggestAddrInfo.setSuggestWpCity(a(optJSONObject3, "multi_waypoints"));
                                 } else {
                                     suggestAddrInfo.setSuggestEndCity(a(optJSONObject3.optJSONArray("end")));
                                 }
                             } else if (i2 == 0) {
-                                suggestAddrInfo.setSuggestStartNode(a(optJSONObject3.optJSONArray(IntentConfig.START), optString));
+                                suggestAddrInfo.setSuggestStartNode(a(optJSONObject3.optJSONArray("start"), optString));
                             } else if (i2 != length - 1 || i2 <= 0) {
                                 suggestAddrInfo.setSuggestWpNode(b(optJSONObject3, "multi_waypoints"));
                             } else {
@@ -169,7 +169,7 @@ public class k extends com.baidu.platform.base.d {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null || optJSONObject.optInt("type") != 23 || optJSONObject.optInt("error") != 0) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null || optJSONObject.optInt("type") != 23 || optJSONObject.optInt(BdStatsConstant.StatsType.ERROR) != 0) {
                 return false;
             }
             this.b = a(jSONObject);

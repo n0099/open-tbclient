@@ -3,6 +3,7 @@ package com.baidu.platform.comapi.wnplatform.f;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Message;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.mapapi.bikenavi.adapter.IBRouteGuidanceListener;
 import com.baidu.mapapi.walknavi.adapter.IWRouteGuidanceListener;
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
@@ -116,7 +117,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
                     StringBuilder sb = new StringBuilder();
                     StringBuilder sb2 = new StringBuilder();
                     if (string.contains("@")) {
-                        string = string.replace("@", "...");
+                        string = string.replace("@", StringHelper.STRING_MORE);
                     }
                     if (intArray.length != 0) {
                         int i3 = intArray2[0];

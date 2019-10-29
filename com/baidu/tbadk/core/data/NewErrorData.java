@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -21,7 +22,7 @@ public class NewErrorData implements Serializable {
     public void parserJson(String str) {
         if (str != null) {
             try {
-                parserJson(new JSONObject(str).optJSONObject("error"));
+                parserJson(new JSONObject(str).optJSONObject(BdStatsConstant.StatsType.ERROR));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

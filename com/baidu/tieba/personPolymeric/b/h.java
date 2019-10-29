@@ -5,7 +5,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.data.m;
 import java.util.ArrayList;
@@ -24,9 +23,9 @@ public class h {
     }
 
     public static void a(m mVar, BdUniqueId bdUniqueId) {
-        if (mVar != null && !StringUtils.isNull(mVar.arR()) && v.aa(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", mVar.arR());
+        if (mVar != null && !StringUtils.isNull(mVar.atF()) && v.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+            HttpMessage httpMessage = new HttpMessage(1003063);
+            httpMessage.addParam("pic_url", mVar.atF());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,16 +33,16 @@ public class h {
 
     public static void a(m mVar, List<com.baidu.adp.widget.ListView.m> list) {
         m mVar2;
-        if (mVar != null && !v.aa(list) && !StringUtils.isNull(mVar.arR())) {
+        if (mVar != null && !v.isEmpty(list) && !StringUtils.isNull(mVar.atF())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.m mVar3 = list.get(i);
-                if ((mVar3 instanceof m) && (mVar2 = (m) mVar3) != mVar && !mVar2.arS()) {
-                    jSONArray.put(mVar2.arR());
+                if ((mVar3 instanceof m) && (mVar2 = (m) mVar3) != mVar && !mVar2.atG()) {
+                    jSONArray.put(mVar2.atF());
                 }
             }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+            HttpMessage httpMessage = new HttpMessage(1003064);
             httpMessage.addParam("pic_list", jSONArray.toString());
             if (jSONArray.length() <= 0) {
                 httpMessage.addParam("truncat", 1);
@@ -54,7 +53,7 @@ public class h {
         }
     }
 
-    public static void p(String str, List<com.baidu.adp.widget.ListView.m> list) {
+    public static void q(String str, List<com.baidu.adp.widget.ListView.m> list) {
         if (!StringUtils.isNull(str)) {
             if (list == null) {
                 list = new ArrayList<>();
@@ -65,13 +64,13 @@ public class h {
                 com.baidu.adp.widget.ListView.m mVar = list.get(i);
                 if (mVar instanceof m) {
                     m mVar2 = (m) mVar;
-                    if (!mVar2.arS()) {
-                        jSONArray.put(mVar2.arR());
+                    if (!mVar2.atG()) {
+                        jSONArray.put(mVar2.atF());
                     }
                 }
             }
             jSONArray.put(str);
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+            HttpMessage httpMessage = new HttpMessage(1003064);
             httpMessage.addParam("pic_list", jSONArray.toString());
             MessageManager.getInstance().sendMessage(httpMessage);
         }

@@ -24,11 +24,11 @@ public class f implements com.baidu.swan.apps.u.b.g {
                 @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                 public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
                     if (i == -1 && intent2 != null) {
-                        bVar.r(o.df(intent2.getStringExtra("invoiceInfo")));
+                        bVar.P(o.dP(intent2.getStringExtra("invoiceInfo")));
                     } else if (i == 0) {
-                        bVar.bP(1);
+                        bVar.cL(1);
                     } else {
-                        bVar.bP(0);
+                        bVar.cL(0);
                     }
                     return true;
                 }

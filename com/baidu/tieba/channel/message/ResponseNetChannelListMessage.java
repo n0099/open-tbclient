@@ -1,7 +1,6 @@
 package com.baidu.tieba.channel.message;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.channel.data.e;
 import org.json.JSONObject;
@@ -12,7 +11,7 @@ public class ResponseNetChannelListMessage extends JsonHttpResponsedMessage {
     private String mErrMsg;
 
     public ResponseNetChannelListMessage(int i) {
-        super(CmdConfigHttp.CMD_GET_SUBSCRIBE_CHANNEL_LIST);
+        super(1003304);
         this.mErrCode = 0;
         this.mErrMsg = "";
     }

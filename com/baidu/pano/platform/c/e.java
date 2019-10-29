@@ -5,7 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes5.dex */
 public class e {
     public static boolean a = false;
@@ -67,7 +66,7 @@ public class e {
     }
 
     public static boolean c(Context context) {
-        if (((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getWifiState() == 3) {
+        if (((WifiManager) context.getSystemService("wifi")).getWifiState() == 3) {
             return true;
         }
         if (((TelephonyManager) context.getSystemService("phone")).getSimState() != 5) {

@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.sapi2.activity.LoginActivity;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -13,7 +14,6 @@ import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.a.g;
 import com.baidu.swan.apps.setting.oauth.a.e;
-import com.sina.weibo.BuildConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -39,17 +39,17 @@ public class c extends z {
             return false;
         }
         final String optString2 = optParamsAsJo.optString("type", "");
-        int tq = tq(optString2);
+        int rZ = rZ(optString2);
         final g.a aVar = new g.a(optParamsAsJo);
         final Bundle bundle = new Bundle();
-        bundle.putInt("key_login_mode", tq);
-        bVar.Ml().a((Activity) context, "mapp_i_login", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.1
+        bundle.putInt("key_login_mode", rZ);
+        bVar.Rd().a((Activity) context, "mapp_i_login", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
-            public void D(Boolean bool) {
+            public void B(Boolean bool) {
                 if (bool.booleanValue()) {
-                    if (c.this.az(context, optString2)) {
+                    if (c.this.aw(context, optString2)) {
                         c.this.a(bVar, (Activity) context, aVar, callbackHandler, optString, bundle);
                         return;
                     }
@@ -66,13 +66,13 @@ public class c extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.ae.b bVar, Activity activity, final g.a aVar, final CallbackHandler callbackHandler, final String str, Bundle bundle) {
-        bVar.Ml().a(activity, aVar, bundle, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.2
+        bVar.Rd().a(activity, aVar, bundle, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.tieba.aiapps.apps.a.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
-            public void D(com.baidu.swan.apps.setting.oauth.g<e.c> gVar) {
+            public void B(com.baidu.swan.apps.setting.oauth.g<e.c> gVar) {
                 if (!gVar.isOk()) {
-                    com.baidu.swan.apps.console.c.w("ThirdPartyLoginAction", gVar.getErrorCode() + " " + aVar.toString());
+                    com.baidu.swan.apps.console.c.w("ThirdPartyLoginAction", gVar.getErrorCode() + HanziToPinyin.Token.SEPARATOR + aVar.toString());
                     String errMessage = com.baidu.swan.apps.setting.oauth.c.getErrMessage(gVar.getErrorCode());
                     if (!TextUtils.isEmpty(errMessage)) {
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(gVar.getErrorCode(), errMessage).toString());
@@ -97,23 +97,23 @@ public class c extends z {
         });
     }
 
-    private int tq(String str) {
+    private int rZ(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:
-                if (str.equals("weixin")) {
+                if (str.equals(LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND)) {
                     c = 2;
                     break;
                 }
                 break;
             case -265713450:
-                if (str.equals(LoginActivity.EXTRA_PARAM_USERNAME)) {
+                if (str.equals("username")) {
                     c = 0;
                     break;
                 }
                 break;
             case 3616:
-                if (str.equals("qq")) {
+                if (str.equals(LogConfig.LIVE_SHARE_HK_QQ_FRIEND)) {
                     c = 3;
                     break;
                 }
@@ -125,7 +125,7 @@ public class c extends z {
                 }
                 break;
             case 113011944:
-                if (str.equals("weibo")) {
+                if (str.equals(LogConfig.LIVE_SHARE_HK_WEIBO)) {
                     c = 4;
                     break;
                 }
@@ -148,23 +148,23 @@ public class c extends z {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean az(Context context, String str) {
+    public boolean aw(Context context, String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:
-                if (str.equals("weixin")) {
+                if (str.equals(LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND)) {
                     c = 0;
                     break;
                 }
                 break;
             case -265713450:
-                if (str.equals(LoginActivity.EXTRA_PARAM_USERNAME)) {
+                if (str.equals("username")) {
                     c = 4;
                     break;
                 }
                 break;
             case 3616:
-                if (str.equals("qq")) {
+                if (str.equals(LogConfig.LIVE_SHARE_HK_QQ_FRIEND)) {
                     c = 1;
                     break;
                 }
@@ -176,7 +176,7 @@ public class c extends z {
                 }
                 break;
             case 113011944:
-                if (str.equals("weibo")) {
+                if (str.equals(LogConfig.LIVE_SHARE_HK_WEIBO)) {
                     c = 2;
                     break;
                 }
@@ -188,7 +188,7 @@ public class c extends z {
             case 1:
                 return ac.isAppInstalled(context, "com.tencent.mobileqq");
             case 2:
-                return ac.isAppInstalled(context, BuildConfig.APPLICATION_ID);
+                return ac.isAppInstalled(context, "com.sina.weibo");
             case 3:
             case 4:
                 return true;

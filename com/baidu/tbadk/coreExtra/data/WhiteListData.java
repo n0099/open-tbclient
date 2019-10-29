@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -28,9 +29,9 @@ public class WhiteListData extends LinkedList<String> {
 
     public void saveJson(JSONArray jSONArray) {
         if (jSONArray == null) {
-            pu(null);
+            save(null);
         } else {
-            pu(jSONArray.toString());
+            save(jSONArray.toString());
         }
     }
 
@@ -58,13 +59,13 @@ public class WhiteListData extends LinkedList<String> {
         return false;
     }
 
-    private void pu(String str) {
-        com.baidu.tbadk.core.sharedPref.b.ahU().putString("key_white_list", str);
+    private void save(String str) {
+        com.baidu.tbadk.core.sharedPref.b.alR().putString(SharedPrefConfig.KEY_WHITE_LIST, str);
     }
 
     public static WhiteListData createBySP() {
         WhiteListData whiteListData = new WhiteListData();
-        String string = com.baidu.tbadk.core.sharedPref.b.ahU().getString("key_white_list", null);
+        String string = com.baidu.tbadk.core.sharedPref.b.alR().getString(SharedPrefConfig.KEY_WHITE_LIST, null);
         if (!TextUtils.isEmpty(string)) {
             whiteListData.parserJson(string);
         }

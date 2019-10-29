@@ -21,7 +21,7 @@ public class DailyPageRequetMessage extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
             DailyPageReqIdl.Builder builder2 = new DailyPageReqIdl.Builder();
             builder2.data = builder.build(false);

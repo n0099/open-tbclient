@@ -4,20 +4,21 @@ import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Utils;
 import com.baidu.cyberplayer.sdk.a.b;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a implements b.a {
     private static final String a = Boolean.toString(true);
-    private InterfaceC0042a b;
+    private InterfaceC0048a b;
     private String c;
     private String d;
     private ArrayList<String> e = null;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0042a {
+    public interface InterfaceC0048a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -113,7 +114,7 @@ public class a implements b.a {
                                 if (!file2.exists()) {
                                     return "file not found:" + file2.getAbsolutePath();
                                 }
-                                if (!file2.renameTo(new File(parent, name.substring("md5_".length() + 32 + "_".length(), name.length())))) {
+                                if (!file2.renameTo(new File(parent, name.substring("md5_".length() + 32 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS.length(), name.length())))) {
                                     return "rename fail";
                                 }
                                 CyberLog.d("CyberFileDownloader", "rename " + file2.getName() + "(" + file2.exists() + ") to " + file.getName() + "(" + file.exists() + ")");
@@ -143,12 +144,12 @@ public class a implements b.a {
         this.b.a(str, j, -1, str2 + ",networkstatus:" + Utils.h() + ",url:" + str);
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0042a interfaceC0042a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0042a == null) {
+    public void a(String str, String str2, String str3, InterfaceC0048a interfaceC0048a) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0048a == null) {
             return;
         }
         this.c = str2;
-        this.b = interfaceC0042a;
+        this.b = interfaceC0048a;
         this.d = str3;
         Utils.b(this.d);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);

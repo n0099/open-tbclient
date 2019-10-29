@@ -1,10 +1,10 @@
 package com.baidu.tieba.interestlabel.statics;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LabelRecommendActivityConfig;
 import com.baidu.tbadk.core.atomData.LabelSettingActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.interestlabel.activity.LabelRecommendActivity;
 import com.baidu.tieba.interestlabel.activity.LabelSettingActivity;
 import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
@@ -17,17 +17,17 @@ public class InterestLabelStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LabelSettingActivityConfig.class, LabelSettingActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(LabelRecommendActivityConfig.class, LabelRecommendActivity.class);
-        bKr();
-        bKs();
+        bHb();
+        bHc();
     }
 
-    private static void bKr() {
-        a.a(309467, ResponseSocketGetLabelMessage.class, false, false);
-        a.a(309467, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, TbConfig.URL_GET_INTEREST_LABEL_LIST, ResponseHttpGetLabelMessage.class, false, false, true, false);
+    private static void bHb() {
+        a.a(CmdConfigSocket.CMD_GET_INTEREST_LABEL_LIST, ResponseSocketGetLabelMessage.class, false, false);
+        a.a(CmdConfigSocket.CMD_GET_INTEREST_LABEL_LIST, 1003333, TbConfig.URL_GET_INTEREST_LABEL_LIST, ResponseHttpGetLabelMessage.class, false, false, true, false);
     }
 
-    private static void bKs() {
-        a.a(309468, ResponseSocketSubLabelMessage.class, false, false);
-        a.a(309468, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, TbConfig.URL_SUB_INTEREST_LABEL_LIST, ResponseHttpSubLabelMessage.class, false, false, true, false);
+    private static void bHc() {
+        a.a(CmdConfigSocket.CMD_SUB_INTEREST_LABEL_LIST, ResponseSocketSubLabelMessage.class, false, false);
+        a.a(CmdConfigSocket.CMD_SUB_INTEREST_LABEL_LIST, 1003334, TbConfig.URL_SUB_INTEREST_LABEL_LIST, ResponseHttpSubLabelMessage.class, false, false, true, false);
     }
 }

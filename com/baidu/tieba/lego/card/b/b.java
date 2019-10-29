@@ -10,22 +10,22 @@ public interface b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String hgN;
-        public String hgO;
-        public ArrayList<String> hgP = new ArrayList<>();
-        public ArrayList<String> hgQ = new ArrayList<>();
+        public String heS;
+        public String heT;
+        public ArrayList<String> heU = new ArrayList<>();
+        public ArrayList<String> heV = new ArrayList<>();
 
         public void parseFromJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.hgN = jSONObject.optString("charge_click_url");
-                this.hgO = jSONObject.optString("charge_show_url");
+                this.heS = jSONObject.optString("charge_click_url");
+                this.heT = jSONObject.optString("charge_show_url");
                 JSONArray optJSONArray = jSONObject.optJSONArray("monitor_show_url");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         String optString = optJSONArray.optString(i);
                         if (!TextUtils.isEmpty(optString)) {
-                            this.hgP.add(optString);
+                            this.heU.add(optString);
                         }
                     }
                 }
@@ -35,7 +35,23 @@ public interface b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String optString2 = optJSONArray2.optString(i2);
                         if (!TextUtils.isEmpty(optString2)) {
-                            this.hgQ.add(optString2);
+                            this.heV.add(optString2);
+                        }
+                    }
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("ad_monitor_url");
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        JSONObject optJSONObject = optJSONArray3.optJSONObject(i3);
+                        if (optJSONObject != null) {
+                            String optString3 = optJSONObject.optString("show_url");
+                            if (!TextUtils.isEmpty(optString3)) {
+                                this.heU.add(optString3);
+                            }
+                            String optString4 = optJSONObject.optString("click_url");
+                            if (!TextUtils.isEmpty(optString4)) {
+                                this.heV.add(optString4);
+                            }
                         }
                     }
                 }

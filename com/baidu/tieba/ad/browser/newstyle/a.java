@@ -2,7 +2,6 @@ package com.baidu.tieba.ad.browser.newstyle;
 
 import android.os.Build;
 import com.baidu.adp.lib.util.j;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.l;
@@ -20,32 +19,32 @@ class a extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String abp() {
+    public String afV() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(ahG = false, value = "showToast")
+    @o(alD = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).agW();
+            BdToast.b(getContext(), jSONObject.optString("message")).akT();
         }
     }
 
-    @o(ahG = false, value = "showNetStatus")
+    @o(alD = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (j.kd()) {
+        if (j.isWifiNet()) {
             i = 1;
             str = "WIFI";
-        } else if (j.kh()) {
+        } else if (j.is2GNet()) {
             i = 3;
             str = "2G";
-        } else if (j.kg()) {
+        } else if (j.is3GNet()) {
             i = 4;
             str = "3G";
-        } else if (j.kf()) {
+        } else if (j.is4GNet()) {
             i = 5;
             str = "4G";
         }
@@ -57,19 +56,19 @@ class a extends n {
         return jSONObject;
     }
 
-    @o(ahG = false, value = "showDeviceInfo")
+    @o(alD = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(com.baidu.adp.lib.util.l.af(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(com.baidu.adp.lib.util.l.ah(getContext()));
+        String str3 = String.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", "android");
             jSONObject.put("systemVersion", str);
             jSONObject.put("model", str2);
-            jSONObject.put(DpStatConstants.KEY_CUID, cuid);
+            jSONObject.put("cuid", cuid);
             jSONObject.put("resolution", str3);
             jSONObject.put("appVersion", versionName);
         } catch (JSONException e) {

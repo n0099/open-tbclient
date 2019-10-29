@@ -1,12 +1,11 @@
 package com.baidu.tieba.channel.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ChannelAddVideoResponseMessage extends JsonHttpResponsedMessage {
     public ChannelAddVideoResponseMessage() {
-        super(CmdConfigHttp.CMD_CHANNEL_ADD_VIDEOS);
+        super(1003313);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

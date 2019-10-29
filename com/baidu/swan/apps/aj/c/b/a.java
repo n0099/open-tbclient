@@ -13,12 +13,12 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public int aYd;
-    public List<byte[]> aYe;
-    public List<ParcelUuid> aYf;
-    public String aYg;
-    public Map<ParcelUuid, byte[]> aYh;
-    public BluetoothDevice aYi;
+    public int brf;
+    public List<byte[]> brg;
+    public List<ParcelUuid> brh;
+    public String bri;
+    public Map<ParcelUuid, byte[]> brj;
+    public BluetoothDevice brk;
     public String deviceId;
     public String name = "";
 
@@ -28,14 +28,14 @@ public class a {
         try {
             jSONObject.putOpt("name", this.name);
             jSONObject.putOpt("deviceId", this.deviceId);
-            jSONObject.putOpt("RSSI", Integer.valueOf(this.aYd));
+            jSONObject.putOpt("RSSI", Integer.valueOf(this.brf));
             JSONArray jSONArray = new JSONArray();
-            if (this.aYe != null) {
-                int size = this.aYe.size();
+            if (this.brg != null) {
+                int size = this.brg.size();
                 int i = 0;
                 byte[] bArr = new byte[0];
                 while (i < size) {
-                    byte[] bArr2 = this.aYe.get(i);
+                    byte[] bArr2 = this.brg.get(i);
                     byte[] bArr3 = new byte[bArr2.length + bArr.length];
                     System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
                     System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
@@ -53,20 +53,20 @@ public class a {
             }
             jSONObject.putOpt("advertiseData", jSONArray);
             JSONArray jSONArray2 = new JSONArray();
-            if (this.aYf != null) {
-                int size2 = this.aYf.size();
+            if (this.brh != null) {
+                int size2 = this.brh.size();
                 for (int i2 = 0; i2 < size2; i2++) {
-                    ParcelUuid parcelUuid = this.aYf.get(i2);
+                    ParcelUuid parcelUuid = this.brh.get(i2);
                     if (parcelUuid != null && !TextUtils.isEmpty(parcelUuid.toString())) {
                         jSONArray2.put(parcelUuid.toString());
                     }
                 }
             }
             jSONObject.putOpt("advertiseServiceUUIDs", jSONArray2);
-            jSONObject.putOpt("localName", this.aYg);
+            jSONObject.putOpt("localName", this.bri);
             JSONObject jSONObject2 = new JSONObject();
-            if (this.aYh != null) {
-                for (Map.Entry<ParcelUuid, byte[]> entry : this.aYh.entrySet()) {
+            if (this.brj != null) {
+                for (Map.Entry<ParcelUuid, byte[]> entry : this.brj.entrySet()) {
                     if ((entry.getValue() instanceof byte[]) && (entry.getKey() instanceof ParcelUuid)) {
                         byte[] value = entry.getValue();
                         ParcelUuid key = entry.getKey();

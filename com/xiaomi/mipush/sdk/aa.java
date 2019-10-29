@@ -1,6 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class aa implements Runnable {
                 File file4 = new File(sb.append(context4.getFilesDir()).append("/crash").append("/").append(file3.getName()).append(".zip").toString());
                 com.xiaomi.channel.commonutils.file.b.a(file4, file3);
                 if (file4.exists()) {
-                    com.xiaomi.channel.commonutils.network.d.a("https://api.xmpush.xiaomi.com/upload/crash_log?file=" + file4.getName(), a2, file4, "file");
+                    com.xiaomi.channel.commonutils.network.d.a("https://api.xmpush.xiaomi.com/upload/crash_log?file=" + file4.getName(), a2, file4, BdStatsConstant.OpSubType.FILE);
                     StringBuilder sb2 = new StringBuilder();
                     context5 = this.a.c;
                     file3.renameTo(new File(sb2.append(context5.getFilesDir()).append("/crash").toString(), a3 + ":0"));

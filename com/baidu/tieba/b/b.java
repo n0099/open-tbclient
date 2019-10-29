@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private HTypeListView cZC;
-    private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> agQ = new ArrayList();
+    private HTypeListView djb;
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.cZC = hTypeListView;
-        initAdapters();
+        this.djb = hTypeListView;
+        sX();
     }
 
-    private void initAdapters() {
-        this.mAdapters.add(new c(this.mTbPageContext, com.baidu.tbadk.data.a.crk));
-        this.cZC.addAdapters(this.mAdapters);
+    private void sX() {
+        this.agQ.add(new c(this.mTbPageContext, com.baidu.tbadk.data.a.cDI));
+        this.djb.addAdapters(this.agQ);
     }
 
     public void setDatas(List<m> list) {
-        if (!v.aa(list)) {
-            this.cZC.setData(list);
+        if (!v.isEmpty(list)) {
+            this.djb.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.cZC != null && (this.cZC.getAdapter() instanceof com.baidu.adp.widget.ListView.v)) {
-            ((com.baidu.adp.widget.ListView.v) this.cZC.getAdapter()).notifyDataSetChanged();
+        if (this.djb != null && (this.djb.getAdapter() instanceof com.baidu.adp.widget.ListView.v)) {
+            ((com.baidu.adp.widget.ListView.v) this.djb.getAdapter()).notifyDataSetChanged();
         }
     }
 }

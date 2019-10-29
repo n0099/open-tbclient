@@ -1,7 +1,8 @@
 package com.sina.weibo.sdk.utils;
 
 import android.content.Context;
-import com.baidu.poly.bean.PayChannel;
+import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 /* loaded from: classes2.dex */
 public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
@@ -12,12 +13,12 @@ public class NetworkHelper {
         StringBuilder sb = new StringBuilder();
         sb.append("Android");
         sb.append("__");
-        sb.append("weibo");
+        sb.append(LogConfig.LIVE_SHARE_HK_WEIBO);
         sb.append("__");
-        sb.append(PayChannel.ACTION_TYPE_SDK);
+        sb.append("sdk");
         sb.append("__");
         try {
-            sb.append(context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName.replaceAll("\\s+", "_"));
+            sb.append(context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName.replaceAll("\\s+", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS));
         } catch (Exception e) {
             sb.append("unknown");
         }

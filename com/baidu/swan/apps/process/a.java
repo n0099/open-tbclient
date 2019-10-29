@@ -10,53 +10,53 @@ import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a aHy;
-    private SwanAppMessengerService aHz;
+    private static volatile a baM;
+    private SwanAppMessengerService baN;
 
     /* renamed from: com.baidu.swan.apps.process.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0167a {
+    public interface InterfaceC0199a {
         void onReady();
     }
 
     private a() {
     }
 
-    public static a Jl() {
-        if (aHy == null) {
+    public static a Of() {
+        if (baM == null) {
             synchronized (a.class) {
-                if (aHy == null) {
-                    aHy = new a();
+                if (baM == null) {
+                    baM = new a();
                 }
             }
         }
-        return aHy;
+        return baM;
     }
 
-    private void a(final InterfaceC0167a interfaceC0167a) {
+    private void a(final InterfaceC0199a interfaceC0199a) {
         Context appContext = AppRuntime.getAppContext();
         appContext.bindService(new Intent(appContext, SwanAppMessengerService.class), new ServiceConnection() { // from class: com.baidu.swan.apps.process.a.1
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.aHz = SwanAppMessengerService.getServiceObject();
-                if (interfaceC0167a != null) {
-                    interfaceC0167a.onReady();
+                a.this.baN = SwanAppMessengerService.getServiceObject();
+                if (interfaceC0199a != null) {
+                    interfaceC0199a.onReady();
                 }
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceDisconnected(ComponentName componentName) {
-                a.this.aHz = null;
+                a.this.baN = null;
             }
         }, 1);
     }
 
-    public void b(InterfaceC0167a interfaceC0167a) {
-        if (interfaceC0167a != null) {
-            if (this.aHz == null) {
-                a(interfaceC0167a);
+    public void b(InterfaceC0199a interfaceC0199a) {
+        if (interfaceC0199a != null) {
+            if (this.baN == null) {
+                a(interfaceC0199a);
             } else {
-                interfaceC0167a.onReady();
+                interfaceC0199a.onReady();
             }
         }
     }

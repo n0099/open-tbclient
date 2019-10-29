@@ -1,6 +1,5 @@
 package com.baidu.tieba.home;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoResIdl;
@@ -10,7 +9,7 @@ public class BfbInfoHttpResponseMessage extends TbHttpResponsedMessage {
     private UserBfbInfo bfbInfo;
 
     public BfbInfoHttpResponseMessage() {
-        super(CmdConfigHttp.CMD_GET_BFB_INFO);
+        super(1003100);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

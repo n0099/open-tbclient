@@ -1,46 +1,46 @@
 package com.facebook.imagepipeline.common;
 /* loaded from: classes2.dex */
 public class d {
-    private static final d kjP = new d(-1, false);
-    private static final d kjQ = new d(-2, false);
-    private static final d kjR = new d(-1, true);
-    private final boolean kjO;
+    private static final d kia = new d(-1, false);
+    private static final d kib = new d(-2, false);
+    private static final d kic = new d(-1, true);
+    private final boolean khZ;
     private final int mRotation;
 
-    public static d cJb() {
-        return kjP;
+    public static d cFY() {
+        return kia;
     }
 
-    public static d cJc() {
-        return kjR;
+    public static d cFZ() {
+        return kic;
     }
 
     private d(int i, boolean z) {
         this.mRotation = i;
-        this.kjO = z;
+        this.khZ = z;
     }
 
-    public boolean cJd() {
+    public boolean cGa() {
         return this.mRotation == -1;
     }
 
-    public boolean cJe() {
+    public boolean cGb() {
         return this.mRotation != -2;
     }
 
-    public int cJf() {
-        if (cJd()) {
+    public int cGc() {
+        if (cGa()) {
             throw new IllegalStateException("Rotation is set to use EXIF");
         }
         return this.mRotation;
     }
 
-    public boolean cJg() {
-        return this.kjO;
+    public boolean cGd() {
+        return this.khZ;
     }
 
     public int hashCode() {
-        return com.facebook.common.util.a.f(Integer.valueOf(this.mRotation), Boolean.valueOf(this.kjO));
+        return com.facebook.common.util.a.d(Integer.valueOf(this.mRotation), Boolean.valueOf(this.khZ));
     }
 
     public boolean equals(Object obj) {
@@ -49,12 +49,12 @@ public class d {
         }
         if (obj instanceof d) {
             d dVar = (d) obj;
-            return this.mRotation == dVar.mRotation && this.kjO == dVar.kjO;
+            return this.mRotation == dVar.mRotation && this.khZ == dVar.khZ;
         }
         return false;
     }
 
     public String toString() {
-        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.kjO));
+        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.khZ));
     }
 }

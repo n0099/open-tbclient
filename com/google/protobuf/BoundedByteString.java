@@ -4,7 +4,7 @@ import com.google.protobuf.ByteString;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BoundedByteString extends LiteralByteString {
     private final int bytesLength;
     private final int bytesOffset;
@@ -61,7 +61,7 @@ public class BoundedByteString extends LiteralByteString {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class BoundedByteIterator implements ByteString.ByteIterator {
         private final int limit;
         private int position;

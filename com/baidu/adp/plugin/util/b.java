@@ -17,35 +17,35 @@ public class b {
             z = false;
         }
         if (!z) {
-            Object a = a(classLoader, DexClassLoader.class, "mDexs");
-            if (a == null) {
+            Object field = getField(classLoader, DexClassLoader.class, "mDexs");
+            if (field == null) {
                 return null;
             }
             try {
-                return (DexFile) Array.get(a, 0);
+                return (DexFile) Array.get(field, 0);
             } catch (Exception e2) {
             }
         } else {
-            Object A = A(z(classLoader));
-            if (A == null) {
+            Object x = x(w(classLoader));
+            if (x == null) {
                 return null;
             }
             try {
-                return (DexFile) a(Array.get(A, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
+                return (DexFile) getField(Array.get(x, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
             } catch (Exception e3) {
             }
         }
         return null;
     }
 
-    private static Object A(Object obj) {
+    private static Object x(Object obj) {
         if (obj == null) {
             return null;
         }
-        return a(obj, obj.getClass(), "dexElements");
+        return getField(obj, obj.getClass(), "dexElements");
     }
 
-    private static Object a(Object obj, Class<?> cls, String str) {
+    private static Object getField(Object obj, Class<?> cls, String str) {
         try {
             Field declaredField = cls.getDeclaredField(str);
             declaredField.setAccessible(true);
@@ -55,9 +55,9 @@ public class b {
         }
     }
 
-    private static Object z(Object obj) {
+    private static Object w(Object obj) {
         try {
-            return a(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
+            return getField(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
         } catch (ClassNotFoundException | Exception e) {
             return null;
         }

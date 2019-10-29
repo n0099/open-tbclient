@@ -1,6 +1,7 @@
 package com.baidu.tieba.home;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoResIdl;
 import tbclient.UserBfbInfo;
@@ -9,7 +10,7 @@ public class BfbInfoSocketResponseMessage extends SocketResponsedMessage {
     private UserBfbInfo bfbInfo;
 
     public BfbInfoSocketResponseMessage() {
-        super(309366);
+        super(CmdConfigSocket.CMD_GET_BFB_INFO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

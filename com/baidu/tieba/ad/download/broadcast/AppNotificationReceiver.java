@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import com.baidu.tieba.ad.download.c;
+import com.baidu.tieba.ad.download.d;
 /* loaded from: classes3.dex */
 public class AppNotificationReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -14,10 +14,10 @@ public class AppNotificationReceiver extends BroadcastReceiver {
             if ("android.intent.action.PACKAGE_ADDED".equals(intent.getAction())) {
                 String extractPackageName2 = extractPackageName(intent);
                 if (extractPackageName2 != null) {
-                    c.aDA().aw(context, extractPackageName2);
+                    d.aDI().at(context, extractPackageName2);
                 }
             } else if ("android.intent.action.PACKAGE_REMOVED".equals(intent.getAction()) && (extractPackageName = extractPackageName(intent)) != null) {
-                c.aDA().ay(context, extractPackageName);
+                d.aDI().av(context, extractPackageName);
             }
         }
     }

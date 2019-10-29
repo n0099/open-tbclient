@@ -1,6 +1,6 @@
 package com.vivo.push.sdk;
 
-import com.vivo.push.util.m;
+import com.vivo.push.util.p;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 final class b implements Runnable {
@@ -22,7 +22,7 @@ final class b implements Runnable {
         try {
             this.a.invoke(this.b, this.c);
         } catch (Exception e) {
-            m.b("CommandWorker", "reflect e: ", e);
+            p.b("CommandWorker", "reflect e: ", e);
         }
     }
 }

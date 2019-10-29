@@ -1,5 +1,6 @@
 package com.xiaomi.smack;
 
+import com.baidu.live.tbadk.TbConfig;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.net.URL;
@@ -73,7 +74,7 @@ public final class g {
     }
 
     public static String a() {
-        return "3.1.0";
+        return TbConfig.SDK_VERSION;
     }
 
     private static void a(XmlPullParser xmlPullParser) {

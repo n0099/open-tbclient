@@ -12,8 +12,8 @@ import java.io.IOException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends a {
-    private int amS;
-    private int amT;
+    private int aGl;
+    private int aGm;
     private int mHeight;
     private int mWidth;
 
@@ -21,10 +21,10 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.amS = z.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.amT = z.ad((float) jSONObject.optDouble("y"));
-            this.mWidth = z.ad((float) jSONObject.optDouble("width"));
-            this.mHeight = z.ad((float) jSONObject.optDouble("height"));
+            this.aGl = z.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.aGm = z.S((float) jSONObject.optDouble("y"));
+            this.mWidth = z.S((float) jSONObject.optDouble("width"));
+            this.mHeight = z.S((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -33,22 +33,22 @@ public class c extends a {
         }
     }
 
-    public JSONObject P(@NonNull View view) {
+    public JSONObject V(@NonNull View view) {
         String str;
         int measuredWidth = view.getMeasuredWidth();
         int measuredHeight = view.getMeasuredHeight();
-        if (this.amS >= measuredWidth || this.amT >= measuredHeight) {
+        if (this.aGl >= measuredWidth || this.aGm >= measuredHeight) {
             com.baidu.swan.apps.console.c.d("canvasGetImageData", "x or y is out of canvas.");
             str = "";
         } else {
-            this.amS = this.amS < 0 ? 0 : this.amS;
-            this.amT = this.amT < 0 ? 0 : this.amT;
-            this.mWidth = (this.mWidth <= 0 || this.amS + this.mWidth > measuredWidth) ? measuredWidth - this.amS : this.mWidth;
-            this.mHeight = (this.mHeight <= 0 || this.amT + this.mHeight > measuredHeight) ? measuredHeight - this.amT : this.mHeight;
+            this.aGl = this.aGl < 0 ? 0 : this.aGl;
+            this.aGm = this.aGm < 0 ? 0 : this.aGm;
+            this.mWidth = (this.mWidth <= 0 || this.aGl + this.mWidth > measuredWidth) ? measuredWidth - this.aGl : this.mWidth;
+            this.mHeight = (this.mHeight <= 0 || this.aGm + this.mHeight > measuredHeight) ? measuredHeight - this.aGm : this.mHeight;
             Bitmap createBitmap = Bitmap.createBitmap(this.mWidth, this.mHeight, Bitmap.Config.ARGB_4444);
             Canvas canvas = new Canvas(createBitmap);
             canvas.drawARGB(0, 0, 0, 0);
-            canvas.translate(-this.amS, -this.amT);
+            canvas.translate(-this.aGl, -this.aGm);
             view.draw(canvas);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -64,8 +64,8 @@ public class c extends a {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("width", z.af(this.mWidth));
-            jSONObject.put("height", z.af(this.mHeight));
+            jSONObject.put("width", z.U(this.mWidth));
+            jSONObject.put("height", z.U(this.mHeight));
             jSONObject.put("data", str);
         } catch (Exception e2) {
             if (DEBUG) {

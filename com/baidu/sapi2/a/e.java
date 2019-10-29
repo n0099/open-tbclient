@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
@@ -40,7 +39,7 @@ public class e {
         }
         ArrayList arrayList = new ArrayList();
         if (Build.VERSION.SDK_INT >= 9) {
-            HttpCookie httpCookie = new HttpCookie(DpStatConstants.KEY_CUID, SapiUtils.getClientId(sapiConfiguration.context));
+            HttpCookie httpCookie = new HttpCookie("cuid", SapiUtils.getClientId(sapiConfiguration.context));
             httpCookie.setDomain(sapiConfiguration.environment.getURL().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""));
             httpCookie.setPath("/");
             arrayList.add(httpCookie);

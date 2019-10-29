@@ -1,9 +1,9 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public interface n {
-    void G(int i);
+    void onFinishSend();
 
-    void fx();
+    void onSendError(int i);
 
-    void fy();
+    void onStartSend();
 }

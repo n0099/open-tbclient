@@ -1,5 +1,6 @@
 package com.xiaomi.push.thrift;
 
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +12,8 @@ import org.apache.thrift.protocol.j;
 /* loaded from: classes3.dex */
 public class c implements Serializable, Cloneable, org.apache.thrift.a<c, TFieldIdEnum> {
     private static final j d = new j("StatsEvents");
-    private static final org.apache.thrift.protocol.b e = new org.apache.thrift.protocol.b("", (byte) 11, 1);
-    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b("", (byte) 11, 2);
+    private static final org.apache.thrift.protocol.b e = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 1);
+    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 2);
     private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("", (byte) 15, 3);
     public String a;
     public String b;

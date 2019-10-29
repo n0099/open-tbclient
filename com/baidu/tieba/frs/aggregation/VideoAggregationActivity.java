@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
-    private VideoAggregationFragment fCc;
+    private VideoAggregationFragment fBt;
     private String mFrom;
     private String mId;
 
@@ -26,16 +27,16 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.fCc = VideoAggregationFragment.q(this.mId, this.mFrom, stringExtra, stringExtra2);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.fCc).commit();
+        this.fBt = VideoAggregationFragment.s(this.mId, this.mFrom, stringExtra, stringExtra2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.fBt).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.fCc != null) {
+        if (this.fBt != null) {
             getLayoutMode().setNightMode(i == 1);
-            getLayoutMode().onModeChanged(this.fCc.getView());
-            this.fCc.onChangeSkinType(i);
+            getLayoutMode().onModeChanged(this.fBt.getView());
+            this.fBt.onChangeSkinType(i);
         }
     }
 
@@ -51,10 +52,10 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.fCc == null) {
+        if (keyEvent == null || this.fBt == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.fCc.rW(i)) {
+        if (this.fBt.qP(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -62,14 +63,14 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.o.a
     public String getCurrentPageKey() {
-        return VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom) ? "a023" : "";
+        return VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom) ? PageStayDurationConstants.PageName.VIDEO_LIST : "";
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public com.baidu.tbadk.o.d getPageStayDurationItem() {
         com.baidu.tbadk.o.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null && StringUtils.isNull(this.mId) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom)) {
-            pageStayDurationItem.setTid(com.baidu.adp.lib.g.b.e(this.mId, 0L));
+            pageStayDurationItem.setTid(com.baidu.adp.lib.g.b.toLong(this.mId, 0L));
         }
         return pageStayDurationItem;
     }

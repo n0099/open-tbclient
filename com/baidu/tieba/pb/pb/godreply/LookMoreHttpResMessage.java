@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.pb.godreply;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
     public List<PostData> list;
 
     public LookMoreHttpResMessage() {
-        super(CmdConfigHttp.CMD_PB_GOD_MORE);
+        super(1001603);
         this.list = new ArrayList();
     }
 
@@ -31,7 +30,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             for (Post post : list) {
                 PostData postData = new PostData();
                 postData.a(post, TbadkCoreApplication.getInst());
-                postData.jji = 102;
+                postData.jiW = 102;
                 this.list.add(postData);
             }
         }

@@ -14,12 +14,12 @@ public class b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a.InterfaceC0089a interfaceC0089a;
-        a.InterfaceC0089a interfaceC0089a2;
-        interfaceC0089a = this.a.g;
-        if (interfaceC0089a != null) {
-            interfaceC0089a2 = this.a.g;
-            interfaceC0089a2.a();
+        a.InterfaceC0121a interfaceC0121a;
+        a.InterfaceC0121a interfaceC0121a2;
+        interfaceC0121a = this.a.g;
+        if (interfaceC0121a != null) {
+            interfaceC0121a2 = this.a.g;
+            interfaceC0121a2.a();
         }
         this.a.dismiss();
     }

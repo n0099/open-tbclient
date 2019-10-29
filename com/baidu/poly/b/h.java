@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class h implements Runnable {
-    private ImageView ahO;
-    private Handler ahR;
-    private int ahS;
-    private int ahT;
+    private ImageView aBm;
+    private Handler aBp;
+    private int aBq;
+    private int aBr;
     private Context context;
     private String url;
 
     public h(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.ahR = handler;
+        this.aBp = handler;
         this.url = str;
-        this.ahO = imageView;
-        this.ahS = i;
-        this.ahT = i2;
+        this.aBm = imageView;
+        this.aBq = i;
+        this.aBr = i2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap i = i(this.url, this.ahS, this.ahT);
-        if (this.ahR != null) {
-            this.ahR.obtainMessage(1, new f(this.ahO, this.url, i)).sendToTarget();
+        Bitmap i = i(this.url, this.aBq, this.aBr);
+        if (this.aBp != null) {
+            this.aBp.obtainMessage(1, new f(this.aBm, this.url, i)).sendToTarget();
         }
     }
 
@@ -41,7 +41,7 @@ public class h implements Runnable {
         Bitmap j;
         Bitmap bitmap2 = null;
         try {
-            j = a.aB(this.context).j(str, i, i2);
+            j = a.aF(this.context).j(str, i, i2);
             try {
             } catch (IOException e) {
                 bitmap2 = j;
@@ -55,13 +55,13 @@ public class h implements Runnable {
             e = e2;
         }
         if (j != null) {
-            a.uM().b(str, j);
+            a.zG().c(str, j);
             return j;
         }
-        a.aB(this.context).cS(str);
-        bitmap = a.aB(this.context).j(str, i, i2);
+        a.aF(this.context).dC(str);
+        bitmap = a.aF(this.context).j(str, i, i2);
         if (bitmap != null) {
-            return d.cR(str);
+            return d.dB(str);
         }
         return bitmap;
     }

@@ -6,6 +6,7 @@ import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
@@ -30,7 +31,7 @@ class g {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.mTbPageContext.getPageActivity())));
+        TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mTbPageContext.getPageActivity())));
     }
 
     @JavascriptInterface
@@ -42,7 +43,7 @@ class g {
         if (!aq.isEmpty(str3)) {
             eVar.imageUri = Uri.parse(str3);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), eVar, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), eVar, true)));
     }
 
     @JavascriptInterface
@@ -54,6 +55,6 @@ class g {
         intent.putExtra("quan_num", str3);
         intent.putExtra("is_left", str4);
         intent.putExtra("props_mon", str5);
-        com.baidu.adp.lib.g.f.e(this.mTbPageContext.getPageActivity(), intent);
+        com.baidu.adp.lib.g.f.startService(this.mTbPageContext.getPageActivity(), intent);
     }
 }

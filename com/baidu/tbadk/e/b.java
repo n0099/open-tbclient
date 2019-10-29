@@ -2,6 +2,7 @@ package com.baidu.tbadk.e;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.lang.ref.WeakReference;
@@ -9,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> bCb = null;
-    protected static boolean bCd = false;
-    protected String bBZ = "183322726";
-    protected boolean bCc = true;
-    protected transient List<String> bCa = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> bUw = null;
+    protected static boolean bUy = false;
+    protected String bUu = "183322726";
+    protected boolean bUx = true;
+    protected transient List<String> bUv = new ArrayList(5);
 
     /* loaded from: classes6.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaL();
+    public abstract void afA();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaQ();
+    public abstract void afs();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaR();
+    public abstract void afx();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaS();
+    public abstract void afy();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaT();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aaU();
+    public abstract void afz();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void gr(int i);
+    public abstract void hm(int i);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void removeCallBack();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b c(BaseFragmentActivity baseFragmentActivity) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, b.class, baseFragmentActivity);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOTOLIVE_MANAGER_FRAGMENTACTIVITY, b.class, baseFragmentActivity);
         if (runTask == null || runTask.getData() == null) {
             return null;
         }
@@ -54,29 +55,29 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (bCb == null) {
-            bCb = new WeakReference<>(tbPageContext);
+        if (bUw == null) {
+            bUw = new WeakReference<>(tbPageContext);
             return;
         }
-        bCb.clear();
-        bCb = null;
-        bCb = new WeakReference<>(tbPageContext);
+        bUw.clear();
+        bUw = null;
+        bUw = new WeakReference<>(tbPageContext);
     }
 
-    public boolean aaP() {
-        return bCd;
+    public boolean afw() {
+        return bUy;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dy(boolean z) {
-        this.bCc = z;
+    public void dP(boolean z) {
+        this.bUx = z;
     }
 
-    public void aaM() {
-        if (bCb != null) {
-            bCb.get();
-            bCb.clear();
-            bCb = null;
+    public void aft() {
+        if (bUw != null) {
+            bUw.get();
+            bUw.clear();
+            bUw = null;
         }
     }
 }

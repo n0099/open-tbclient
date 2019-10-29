@@ -15,11 +15,11 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class d implements j {
-    public int fDZ;
-    public String fEa;
-    public String fEb;
-    public boolean fEc;
-    public SportScheduleInfo fEd;
+    public int fDq;
+    public String fDr;
+    public String fDs;
+    public boolean fDt;
+    public SportScheduleInfo fDu;
     public boolean hasMore;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<m> threadList = new ArrayList<>();
@@ -27,7 +27,7 @@ public class d implements j {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.hasMore = dataRes.has_more.intValue() == 1;
-            if (!v.aa(dataRes.user_list)) {
+            if (!v.isEmpty(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -39,25 +39,25 @@ public class d implements j {
                     }
                 }
             }
-            if (!v.aa(dataRes.general_list)) {
+            if (!v.isEmpty(dataRes.general_list)) {
                 for (ThreadInfo threadInfo : dataRes.general_list) {
                     if (threadInfo != null) {
                         bh bhVar = new bh();
                         bhVar.setUserMap(this.userMap);
                         bhVar.a(threadInfo);
                         bhVar.setCurrentPage(3);
-                        bhVar.afs();
+                        bhVar.ajw();
                         this.threadList.add(bhVar);
                     }
                 }
             }
-            this.fDZ = dataRes.new_thread_num.intValue();
+            this.fDq = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.fEa = dataRes.sport_head_info.head_url;
-                this.fEb = dataRes.sport_head_info.jump_url;
-                this.fEc = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.fDr = dataRes.sport_head_info.head_url;
+                this.fDs = dataRes.sport_head_info.jump_url;
+                this.fDt = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.fEd = dataRes.sport_schedule_info;
+            this.fDu = dataRes.sport_schedule_info;
         }
     }
 

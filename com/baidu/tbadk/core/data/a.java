@@ -3,22 +3,22 @@ package com.baidu.tbadk.core.data;
 public abstract class a extends com.baidu.tieba.card.data.b {
     public int objType = 1;
 
-    public abstract bh acC();
+    public abstract bh agI();
 
-    public abstract aj acE();
+    public abstract aj agK();
 
-    public String acD() {
-        if (acC() == null) {
+    public String agJ() {
+        if (agI() == null) {
             return null;
         }
-        return acC().acD();
+        return agI().agJ();
     }
 
     public boolean isSelf() {
-        return com.baidu.tbadk.core.util.au.o(acC());
+        return com.baidu.tbadk.core.util.au.o(agI());
     }
 
-    public String acF() {
+    public String agL() {
         return null;
     }
 }

@@ -1,18 +1,19 @@
 package com.baidu.tieba.video.record;
 
 import android.media.AudioRecord;
+import com.baidu.ala.livePlayer.StreamConfig;
 /* loaded from: classes5.dex */
 public class c {
-    public static boolean cwO() {
-        return cwP() != -2;
+    public static boolean cuC() {
+        return cuD() != -2;
     }
 
-    private static int cwP() {
+    private static int cuD() {
         AudioRecord audioRecord;
-        int minBufferSize = AudioRecord.getMinBufferSize(44100, 16, 2);
+        int minBufferSize = AudioRecord.getMinBufferSize(StreamConfig.Audio.AUDIO_FREQUENCY, 16, 2);
         short[] sArr = new short[minBufferSize];
         try {
-            audioRecord = new AudioRecord(0, 44100, 16, 2, minBufferSize * 100);
+            audioRecord = new AudioRecord(0, StreamConfig.Audio.AUDIO_FREQUENCY, 16, 2, minBufferSize * 100);
             try {
                 audioRecord.startRecording();
                 if (audioRecord.getRecordingState() != 3) {

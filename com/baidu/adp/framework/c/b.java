@@ -1,30 +1,30 @@
 package com.baidu.adp.framework.c;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.live.adp.framework.MessageConfig;
 /* loaded from: classes.dex */
 public class b extends d {
-    private static b wk = null;
-    private e wl;
+    private static b mw = null;
+    private e mx;
 
-    public static b gn() {
-        if (wk == null) {
+    public static b eH() {
+        if (mw == null) {
             synchronized (b.class) {
-                if (wk == null) {
-                    wk = new b();
+                if (mw == null) {
+                    mw = new b();
                 }
             }
         }
-        return wk;
+        return mw;
     }
 
     private b() {
-        this.wl = null;
-        this.wo = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.wl = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
+        this.mx = null;
+        this.mz = new e(MessageConfig.HTTP_TIME_OUT_MS_2G, 18000, 10000);
+        this.mx = new e(18000, 10000, 5000);
         this.mRetryCount = 3;
     }
 
-    public e go() {
-        return this.wl;
+    public e eI() {
+        return this.mx;
     }
 }

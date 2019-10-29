@@ -1,28 +1,38 @@
 package com.vivo.push.b;
 
-import android.content.Intent;
-import com.baidu.mapapi.UIMsg;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public final class y extends com.vivo.push.v {
+public final class y extends com.vivo.push.y {
+    private HashMap<String, String> a;
+    private long b;
+
     public y() {
-        super(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE);
+        super(2012);
     }
 
-    @Override // com.vivo.push.v
-    protected final void d(Intent intent) {
+    public y(long j) {
+        this();
+        this.b = j;
     }
 
-    @Override // com.vivo.push.v
-    protected final void e(Intent intent) {
+    public final void a(HashMap<String, String> hashMap) {
+        this.a = hashMap;
     }
 
-    @Override // com.vivo.push.v
+    @Override // com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
+        aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
+    }
+
+    @Override // com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        this.a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
+        this.b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
+    }
+
+    @Override // com.vivo.push.y
     public final String toString() {
-        return "ResetCommand";
-    }
-
-    @Override // com.vivo.push.v
-    public final boolean c() {
-        return true;
+        return "ReporterCommand（" + this.b + ")";
     }
 }

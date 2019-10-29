@@ -15,11 +15,11 @@ import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 /* loaded from: classes3.dex */
 public class ApkDownloadBannerView extends LinearLayout implements b {
-    private int cYC;
-    private BannerDownloadProgressBar cYD;
-    private BannerDownloadStateBar cYE;
-    private BannerDownloadStateBar cYF;
-    private int cYG;
+    private int dhV;
+    private BannerDownloadProgressBar dhW;
+    private BannerDownloadStateBar dhX;
+    private BannerDownloadStateBar dhY;
+    private int dhZ;
     private View mRootView;
 
     public ApkDownloadBannerView(Context context) {
@@ -32,8 +32,8 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
 
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cYC = 100;
-        this.cYG = 1;
+        this.dhV = 100;
+        this.dhZ = 1;
         initView(context);
         setDownloadStateBarPosition(1);
     }
@@ -44,72 +44,81 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         setGravity(16);
         int dip2px = l.dip2px(getContext(), 22.0f);
         setPadding(dip2px, 0, dip2px, 0);
-        this.cYD = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
-        this.cYE = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
-        this.cYF = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
-        this.cYD.setTextColor(Color.parseColor("#999999"));
-    }
-
-    public boolean isShowing() {
-        return getVisibility() == 0;
+        this.dhW = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
+        this.dhX = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
+        this.dhY = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
+        this.dhW.setTextColor(Color.parseColor("#999999"));
     }
 
     public void setDownloadStateBarPosition(int i) {
-        this.cYG = i;
-        switch (this.cYG) {
+        this.dhZ = i;
+        switch (this.dhZ) {
             case 0:
-                this.cYE.setVisibility(0);
-                this.cYF.setVisibility(8);
+                this.dhX.setVisibility(0);
+                this.dhY.setVisibility(8);
                 return;
             case 1:
-                this.cYE.setVisibility(8);
-                this.cYF.setVisibility(0);
+                this.dhX.setVisibility(8);
+                this.dhY.setVisibility(0);
                 return;
             default:
-                this.cYE.setVisibility(0);
-                this.cYF.setVisibility(8);
+                this.dhX.setVisibility(0);
+                this.dhY.setVisibility(8);
                 return;
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ad.download.mvp.b
     public BannerDownloadStateBar getActionBar() {
-        return this.cYE.getVisibility() == 0 ? this.cYE : this.cYF;
+        return this.dhX.getVisibility() == 0 ? this.dhX : this.dhY;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public void b(@NonNull DownloadStatus downloadStatus) {
-        getActionBar().setState(c(downloadStatus));
+    public void bo(View view) {
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public void cw(int i) {
-        this.cYD.setProgress(i);
+    public void a(@NonNull DownloadStatus downloadStatus) {
+        getActionBar().setState(b(downloadStatus));
     }
 
+    @Override // com.baidu.tieba.ad.download.mvp.b
+    public void cr(int i) {
+        this.dhW.setProgress(i);
+    }
+
+    @Override // com.baidu.tieba.ad.download.mvp.b
     public void a(DownloadStatus downloadStatus, int i) {
         switch (downloadStatus) {
             case STATUS_NONE:
-                cw(0);
-                this.cYD.setText("");
+                cr(0);
+                this.dhW.setText("");
                 break;
             case STATUS_SUCCESS:
             case STATUS_INSTALL_SUCCESS:
-                cw(this.cYC);
-                this.cYD.setText("");
+                cr(this.dhV);
+                this.dhW.setText("");
                 break;
             case STATUS_DOWNLOADING:
             case STATUS_PAUSED:
-                cw(i);
+                cr(i);
                 break;
             default:
-                cw(0);
-                this.cYD.setText("");
+                cr(0);
+                this.dhW.setText("");
                 break;
         }
-        b(downloadStatus);
+        a(downloadStatus);
     }
 
-    private int c(DownloadStatus downloadStatus) {
+    @Override // com.baidu.tieba.ad.download.mvp.b
+    @NonNull
+    public View getRealView() {
+        return this;
+    }
+
+    private int b(DownloadStatus downloadStatus) {
         switch (downloadStatus) {
             case STATUS_NONE:
             default:

@@ -60,7 +60,7 @@ public class ArBridge {
 
     /* loaded from: classes2.dex */
     public interface c {
-        void e(Bitmap bitmap);
+        void g(Bitmap bitmap);
     }
 
     /* loaded from: classes2.dex */
@@ -70,7 +70,7 @@ public class ArBridge {
 
     /* loaded from: classes2.dex */
     public interface e {
-        void b(String str, int i, String str2);
+        void d(String str, int i, String str2);
     }
 
     public static native boolean libraryHasLoaded();
@@ -193,7 +193,7 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.bB(getScreenTextureId());
+            this.mGameRecorder.cx(getScreenTextureId());
         }
     }
 
@@ -224,7 +224,7 @@ public class ArBridge {
     @Deprecated
     public void surfaceViewCapture(c cVar) {
         if (cVar != null) {
-            cVar.e(null);
+            cVar.g(null);
         }
     }
 
@@ -244,7 +244,7 @@ public class ArBridge {
                 if (ArBridge.this.mMsgHandlers != null) {
                     Iterator it = ArBridge.this.mMsgHandlers.iterator();
                     while (it.hasNext()) {
-                        if (((a) it.next()).akn == dVar) {
+                        if (((a) it.next()).aDJ == dVar) {
                             it.remove();
                         }
                     }
@@ -260,7 +260,7 @@ public class ArBridge {
     public void updateVideoFrame(String str, int i, String str2) {
         Log.i(TAG, "updateVideoFrame:" + i + "     ;avideoPath:" + str2);
         if (this.mVideoCallback != null) {
-            this.mVideoCallback.b(str, i, str2);
+            this.mVideoCallback.d(str, i, str2);
         }
     }
 
@@ -272,8 +272,8 @@ public class ArBridge {
     public void processIncomingMessage(b bVar) {
         for (a aVar : this.mMsgHandlers) {
             if (aVar.mMessageType == 0 || bVar.mMessageType == aVar.mMessageType) {
-                if (-1 == aVar.akm || bVar.akq == aVar.akm) {
-                    aVar.akn.b(bVar.mMessageType, bVar.ako, bVar.akp);
+                if (-1 == aVar.aDI || bVar.aDM == aVar.aDI) {
+                    aVar.aDJ.b(bVar.mMessageType, bVar.aDK, bVar.aDL);
                 }
             }
         }
@@ -282,30 +282,30 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b {
-        public int ako;
-        public HashMap<String, Object> akp;
-        public int akq;
+        public int aDK;
+        public HashMap<String, Object> aDL;
+        public int aDM;
         public int mMessageType;
 
         public b(int i, int i2, HashMap<String, Object> hashMap, int i3) {
             this.mMessageType = i;
-            this.ako = i2;
-            this.akp = hashMap;
-            this.akq = i3;
+            this.aDK = i2;
+            this.aDL = hashMap;
+            this.aDM = i3;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        public int akm;
-        public d akn;
+        public int aDI;
+        public d aDJ;
         public int mMessageType;
 
         public a(int i, int i2, d dVar) {
             this.mMessageType = i;
-            this.akm = i2;
-            this.akn = dVar;
+            this.aDI = i2;
+            this.aDJ = dVar;
         }
     }
 

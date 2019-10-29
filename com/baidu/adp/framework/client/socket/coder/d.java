@@ -6,46 +6,46 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d vw = null;
-    private SecretKey vx = null;
-    private byte[] vy = null;
+    private static d mh = null;
+    private SecretKey mSecretKey = null;
+    private byte[] mSecretKeyBytes = null;
 
-    public static d ge() {
-        if (vw == null) {
+    public static d eE() {
+        if (mh == null) {
             synchronized (d.class) {
-                if (vw == null) {
-                    vw = new d();
+                if (mh == null) {
+                    mh = new d();
                 }
             }
         }
-        return vw;
+        return mh;
     }
 
-    public void h(byte[] bArr) {
+    public void initial(byte[] bArr) {
         try {
-            PublicKey o = u.o(bArr);
-            String at = u.at(32);
-            byte[] bArr2 = new byte[at.length()];
-            for (int i = 0; i < at.length(); i++) {
-                bArr2[i] = (byte) at.charAt(i);
+            PublicKey loadRSAPublicKey = u.loadRSAPublicKey(bArr);
+            String newRandomString = u.newRandomString(32);
+            byte[] bArr2 = new byte[newRandomString.length()];
+            for (int i = 0; i < newRandomString.length(); i++) {
+                bArr2[i] = (byte) newRandomString.charAt(i);
             }
-            this.vx = u.bo(at);
-            this.vy = u.b(o, bArr2);
+            this.mSecretKey = u.newAESKey(newRandomString);
+            this.mSecretKeyBytes = u.encryptWithRSA(loadRSAPublicKey, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.vx = null;
-            this.vy = new byte[0];
+            this.mSecretKey = null;
+            this.mSecretKeyBytes = new byte[0];
         }
     }
 
     private d() {
     }
 
-    public byte[] gf() {
-        return this.vy;
+    public byte[] getSecretKeyBytes() {
+        return this.mSecretKeyBytes;
     }
 
-    public SecretKey gg() {
-        return this.vx;
+    public SecretKey getSecretKey() {
+        return this.mSecretKey;
     }
 }

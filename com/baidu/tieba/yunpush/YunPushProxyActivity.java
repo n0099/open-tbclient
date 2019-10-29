@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ba;
@@ -35,22 +37,22 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         str2 = jSONObject.getString("jump_scheme");
                     }
                     if (!StringUtils.isNull(str2)) {
-                        if (str2.equals("http://tieba.baidu.com/mo/q/chat") || str2.equals("https://tieba.baidu.com/mo/q/chat")) {
+                        if (str2.equals(UrlSchemaHelper.JUMP_TO_CHAT) || str2.equals(UrlSchemaHelper.HTTPS_JUMP_TO_CHAT)) {
                             i = 1;
-                        } else if (!str2.contains("jump_official_chat=1")) {
-                            if (str2.contains("jump_chat=1")) {
+                        } else if (!str2.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
+                            if (str2.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
                                 i = 3;
                             }
                         }
-                        TiebaStatic.log(new an("c11703").P("obj_type", 2).bT("task_id", str).bT("obj_to", str2).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
+                        TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).O("obj_type", 2).bS("task_id", str).bS(TiebaInitialize.Params.OBJ_TO, str2).O("obj_source", i));
                         if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https") || str2.startsWith("com.baidu.tieba://deeplink?jump=new_hot_topic_list"))) {
-                            ba.ajK().c(getPageContext(), new String[]{str2});
+                            ba.amQ().b(getPageContext(), new String[]{str2});
                         }
                     }
                     i = 0;
-                    TiebaStatic.log(new an("c11703").P("obj_type", 2).bT("task_id", str).bT("obj_to", str2).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).O("obj_type", 2).bS("task_id", str).bS(TiebaInitialize.Params.OBJ_TO, str2).O("obj_source", i));
                     if (!TextUtils.isEmpty(str2)) {
-                        ba.ajK().c(getPageContext(), new String[]{str2});
+                        ba.amQ().b(getPageContext(), new String[]{str2});
                     }
                 }
             }

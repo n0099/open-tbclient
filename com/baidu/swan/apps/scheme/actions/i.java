@@ -4,11 +4,11 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.media.ExifInterface;
 import android.text.TextUtils;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,17 +25,17 @@ public class i extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        String optString = com.baidu.swan.apps.an.o.df(unitedSchemeEntity.getParam("params")).optString("src");
+        String optString = com.baidu.swan.apps.an.o.dP(unitedSchemeEntity.getParam("params")).optString("src");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "path null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.hI(optString) == PathType.BD_FILE) {
-            jSONObject = aw(com.baidu.swan.apps.storage.b.aE(optString, bVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.hI(optString) == PathType.RELATIVE) {
-            jSONObject = aw(com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion()), optString);
+        if (com.baidu.swan.apps.storage.b.im(optString) == PathType.BD_FILE) {
+            jSONObject = aE(com.baidu.swan.apps.storage.b.aL(optString, bVar.id), optString);
+        } else if (com.baidu.swan.apps.storage.b.im(optString) == PathType.RELATIVE) {
+            jSONObject = aE(com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion()), optString);
         }
         if (jSONObject != null) {
             com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo success");
@@ -46,7 +46,7 @@ public class i extends z {
         return false;
     }
 
-    private JSONObject aw(String str, String str2) {
+    private JSONObject aE(String str, String str2) {
         int i = 1;
         com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo start");
         if (TextUtils.isEmpty(str)) {
@@ -64,18 +64,18 @@ public class i extends z {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface hg = hg(str);
-            if (hg == null) {
+            ExifInterface hJ = hJ(str);
+            if (hJ == null) {
                 return null;
             }
-            i = hg.getAttributeInt("Orientation", 1);
+            i = hJ.getAttributeInt("Orientation", 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", dN(i));
+            jSONObject.put("orientation", eI(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -87,7 +87,7 @@ public class i extends z {
         return jSONObject;
     }
 
-    private String dN(int i) {
+    private String eI(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -101,17 +101,17 @@ public class i extends z {
             case 5:
                 return "left-mirrored";
             case 6:
-                return CustomDialogData.POS_LEFT;
+                return "left";
             case 7:
                 return "right-mirrored";
             case 8:
-                return "right";
+                return HorizontalTranslateLayout.RIGHT;
             default:
                 return "";
         }
     }
 
-    private ExifInterface hg(String str) {
+    private ExifInterface hJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

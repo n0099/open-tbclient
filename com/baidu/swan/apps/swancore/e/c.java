@@ -3,56 +3,56 @@ package com.baidu.swan.apps.swancore.e;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public boolean aXt;
-    public boolean aXu;
+    public String bqA;
+    public boolean bqx;
+    public boolean bqy;
     @Nullable
-    public com.baidu.swan.apps.v.b.c aXv;
-    public String aXw;
+    public com.baidu.swan.apps.v.b.c bqz;
 
     private c() {
-        this.aXt = false;
-        this.aXu = false;
-        this.aXv = null;
-        this.aXw = "";
+        this.bqx = false;
+        this.bqy = false;
+        this.bqz = null;
+        this.bqA = "";
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private boolean aXt = false;
-        private boolean aXu = false;
+        private boolean bqx = false;
+        private boolean bqy = false;
         @Nullable
-        private com.baidu.swan.apps.v.b.c aXv = null;
-        private String aXw = "";
+        private com.baidu.swan.apps.v.b.c bqz = null;
+        private String bqA = "";
 
-        public static a Oo() {
+        public static a Te() {
             return new a();
         }
 
-        public a cA(boolean z) {
-            this.aXt = z;
+        public a cR(boolean z) {
+            this.bqx = z;
             return this;
         }
 
-        public a hT(String str) {
-            this.aXw = str;
+        public a ix(String str) {
+            this.bqA = str;
             return this;
         }
 
-        public c Op() {
+        public c Tf() {
             c cVar = new c();
-            cVar.aXt = this.aXt;
-            cVar.aXu = this.aXu;
-            cVar.aXv = this.aXv;
-            cVar.aXw = this.aXw;
+            cVar.bqx = this.bqx;
+            cVar.bqy = this.bqy;
+            cVar.bqz = this.bqz;
+            cVar.bqA = this.bqA;
             return cVar;
         }
 
-        public c Oq() {
-            this.aXt = false;
-            this.aXu = false;
-            this.aXv = null;
-            this.aXw = "";
-            return Op();
+        public c Tg() {
+            this.bqx = false;
+            this.bqy = false;
+            this.bqz = null;
+            this.bqA = "";
+            return Tf();
         }
     }
 }

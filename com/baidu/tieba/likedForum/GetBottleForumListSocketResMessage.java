@@ -1,6 +1,7 @@
 package com.baidu.tieba.likedForum;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
@@ -10,7 +11,7 @@ public class GetBottleForumListSocketResMessage extends SocketResponsedMessage {
     public List<ForumInfo> mBottleForumList;
 
     public GetBottleForumListSocketResMessage() {
-        super(309440);
+        super(CmdConfigSocket.CMD_GET_BOTTLE_FORUM_LIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

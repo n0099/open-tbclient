@@ -2,20 +2,21 @@ package com.baidu.ubs.analytics.a;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 final class k {
-    private SQLiteDatabase jZU = f.cEv().cEw();
+    private SQLiteDatabase jXT = f.cBf().cBg();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {
-        this.jZU.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        this.jXT.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<l> cEu() {
-        Cursor rawQuery = this.jZU.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+    public final List<l> cBe() {
+        Cursor rawQuery = this.jXT.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             l lVar = new l();
@@ -24,7 +25,7 @@ final class k {
             lVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
             lVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
             lVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-            lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+            lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex(IMConstants.MSG_ROW_ID)));
             arrayList.add(lVar);
         }
         rawQuery.close();
@@ -33,6 +34,6 @@ final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.jZU.execSQL("delete from tb_ab_page_log where _id <= " + i);
+        this.jXT.execSQL("delete from tb_ab_page_log where _id <= " + i);
     }
 }

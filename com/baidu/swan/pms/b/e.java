@@ -1,69 +1,70 @@
 package com.baidu.swan.pms.b;
 
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class e {
-    public static String Wv() {
-        return String.format("%s/getpkg", Wy());
+    public static String abk() {
+        return String.format("%s/getpkg", abn());
     }
 
-    public static String Ww() {
-        return String.format("%s/updatecore", Wy());
+    public static String abl() {
+        return String.format("%s/updatecore", abn());
     }
 
-    public static String Wx() {
-        return String.format("%s/getplugin", Wy());
+    public static String abm() {
+        return String.format("%s/getplugin", abn());
     }
 
-    private static String Wy() {
-        return com.baidu.swan.pms.e.Wd().EW();
+    private static String abn() {
+        return com.baidu.swan.pms.e.aaS().JQ();
     }
 
     public static String f(String str, Map<String, String> map) {
-        return g(kv(str), map);
+        return g(kX(str), map);
     }
 
     public static String g(String str, Map<String, String> map) {
         if (map != null) {
             for (String str2 : map.keySet()) {
                 if (!TextUtils.isEmpty(map.get(str2))) {
-                    str = B(str, str2, map.get(str2));
+                    str = F(str, str2, map.get(str2));
                 }
             }
         }
         return str;
     }
 
-    private static String kv(String str) {
-        String B = B(B(B(B(B(B(B(B(B(str, DpStatConstants.KEY_CUID, com.baidu.swan.pms.e.Wd().EX()), "ua", Wz()), "host_app", com.baidu.swan.pms.e.Wd().EY()), "host_app_ver", com.baidu.swan.pms.e.Wd().EZ()), "host_os", com.baidu.swan.pms.e.a.WV()), "host_os_ver", com.baidu.swan.pms.e.a.getOsVersion()), DpStatConstants.KEY_NETWORK, com.baidu.swan.pms.e.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.e.Wd().Fa()), "cfrom", com.baidu.swan.c.c.YF());
-        String Wc = com.baidu.swan.pms.e.We().Wc();
-        if (!TextUtils.isEmpty(Wc)) {
-            return B(B, "extension_rule", Wc);
+    private static String kX(String str) {
+        String F = F(F(F(F(F(F(F(F(F(str, "cuid", com.baidu.swan.pms.e.aaS().JR()), "ua", abo()), "host_app", com.baidu.swan.pms.e.aaS().JS()), "host_app_ver", com.baidu.swan.pms.e.aaS().JT()), "host_os", com.baidu.swan.pms.e.a.abK()), "host_os_ver", com.baidu.swan.pms.e.a.getOsVersion()), "network", com.baidu.swan.pms.e.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.e.aaS().JU()), BdStatsConstant.StatsKey.CURRENT_CHANNEL, com.baidu.swan.c.c.adu());
+        String aaR = com.baidu.swan.pms.e.aaT().aaR();
+        if (!TextUtils.isEmpty(aaR)) {
+            return F(F, "extension_rule", aaR);
         }
-        return B;
+        return F;
     }
 
-    private static String Wz() {
-        int WW = com.baidu.swan.pms.e.a.WW();
-        int WX = com.baidu.swan.pms.e.a.WX();
+    private static String abo() {
+        int abL = com.baidu.swan.pms.e.a.abL();
+        int abM = com.baidu.swan.pms.e.a.abM();
         int densityDpi = com.baidu.swan.pms.e.a.getDensityDpi();
-        String WV = com.baidu.swan.pms.e.a.WV();
+        String abK = com.baidu.swan.pms.e.a.abK();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(WW);
-        stringBuffer.append("_");
-        stringBuffer.append(WX);
-        stringBuffer.append("_");
-        stringBuffer.append(WV);
-        stringBuffer.append("_");
-        stringBuffer.append(com.baidu.swan.pms.e.Wd().EZ());
-        stringBuffer.append("_");
+        stringBuffer.append(abL);
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(abM);
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(abK);
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(com.baidu.swan.pms.e.aaS().JT());
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(densityDpi);
         return stringBuffer.toString();
     }
 
-    private static String B(String str, String str2, String str3) {
+    private static String F(String str, String str2, String str3) {
         StringBuilder sb;
         StringBuilder sb2;
         String str4 = null;

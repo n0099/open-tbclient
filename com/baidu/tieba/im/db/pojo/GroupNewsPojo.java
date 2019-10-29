@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.data.ValidateItemData;
@@ -32,62 +33,62 @@ public class GroupNewsPojo implements Serializable {
         if (chatMessage != null && !TextUtils.isEmpty(str)) {
             String str2 = "000";
             setContent_status(1);
-            if (str.equals("001")) {
+            if (str.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_VERIFY)) {
                 str2 = "apply_join_group";
-            } else if (str.equals("002")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
                 str2 = "apply_join_success";
-            } else if (str.equals("003")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
                 str2 = "kick_out";
-            } else if (str.equals("101")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY)) {
                 str2 = "group_name_change";
-            } else if (str.equals("102")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY)) {
                 str2 = "group_notice_change";
-            } else if (str.equals("103")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY)) {
                 str2 = "group_intro_change";
-            } else if (str.equals("104")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE)) {
                 str2 = "group_level_up";
             } else if (str.equals("108")) {
                 str2 = "group_head_change";
-            } else if (str.equals("107")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP)) {
                 str2 = "dismiss_group";
-            } else if (str.equals("121")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
                 str2 = "hide_group_warn";
-            } else if (str.equals("122")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP)) {
                 str2 = "hide_group";
-            } else if (str.equals("109")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP)) {
                 str2 = "group_event_info";
             } else if (str.equals("124")) {
                 str2 = "group_activitys_change";
-            } else if (str.equals("401")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND)) {
                 str2 = "apply_new_friend";
-            } else if (str.equals("402")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_PASSED_FRIEND)) {
                 str2 = "passed_new_friend";
-            } else if (str.equals("405")) {
+            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_DELETE_FRIEND)) {
                 str2 = "delete_new_friend";
-            } else if ("412".equals(str)) {
+            } else if (TbEnum.SystemMessage.EVENT_ID_APPLY_REPLY_MESSAGE.equals(str)) {
                 str2 = "apply_reply_message";
-            } else if ("410".equals(str)) {
+            } else if (TbEnum.SystemMessage.EVENT_ID_APPLY_ADD_FRIEND.equals(str)) {
                 str2 = "apply_add_friend";
-            } else if ("411".equals(str)) {
+            } else if (TbEnum.SystemMessage.EVENT_ID_APPLY_PASS_FRIEND.equals(str)) {
                 str2 = "apply_pass_friend";
-            } else if ("501".equals(str)) {
+            } else if (TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT.equals(str)) {
                 str2 = "upload_stat";
-            } else if ("502".equals(str)) {
+            } else if (TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC.equals(str)) {
                 str2 = "plugin_config_sync";
-            } else if ("503".equals(str)) {
+            } else if (TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG.equals(str)) {
                 str2 = "offline_debug";
             }
             setCmd(str2);
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            bDZ();
+            bAK();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
-                    JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
+                    JSONObject optJSONObject = new JSONObject(content).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
                     if (optJSONObject != null) {
-                        setGid(optJSONObject.optString("groupId"));
+                        setGid(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -99,7 +100,7 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    private void bDZ() {
+    private void bAK() {
         UpdatesItemData convertToUpdatesItem;
         if (!TextUtils.isEmpty(getCmd())) {
             if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) != null) {

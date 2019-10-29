@@ -8,45 +8,45 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private Canvas aLj;
-    private final C0272a cJk;
-    private final Rect cJl;
-    private final Rect cJm;
-    private final Rect cJn;
-    private int cJo;
+    private final C0304a cTp;
     private Bitmap mBitmap;
+    private int mBlockSize;
+    private Canvas mCanvas;
+    private final Rect mDst;
+    private final Rect mPositionInOriginBitmap;
+    private final Rect mSrc;
 
     public a(int i) {
-        this.cJk = new C0272a();
-        this.cJl = new Rect();
-        this.cJm = new Rect();
-        this.cJn = new Rect();
+        this.cTp = new C0304a();
+        this.mSrc = new Rect();
+        this.mDst = new Rect();
+        this.mPositionInOriginBitmap = new Rect();
         this.mBitmap = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
-        this.cJo = i;
-        this.aLj = new Canvas();
+        this.mBlockSize = i;
+        this.mCanvas = new Canvas();
     }
 
     public a(Bitmap bitmap) {
-        this.cJk = new C0272a();
-        this.cJl = new Rect();
-        this.cJm = new Rect();
-        this.cJn = new Rect();
+        this.cTp = new C0304a();
+        this.mSrc = new Rect();
+        this.mDst = new Rect();
+        this.mPositionInOriginBitmap = new Rect();
         if (bitmap != null) {
             this.mBitmap = bitmap;
-            this.cJl.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
+            this.mSrc.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
         }
-        this.aLj = new Canvas();
+        this.mCanvas = new Canvas();
     }
 
-    public void axY() {
+    public void clearBitmap() {
         if (this.mBitmap != null && !this.mBitmap.isRecycled() && this.mBitmap.isMutable()) {
-            this.aLj.setBitmap(this.mBitmap);
-            this.aLj.drawColor(-1, PorterDuff.Mode.CLEAR);
+            this.mCanvas.setBitmap(this.mBitmap);
+            this.mCanvas.drawColor(-1, PorterDuff.Mode.CLEAR);
         }
     }
 
-    public boolean g(Rect rect) {
-        return rect != null && rect.right - rect.left == this.cJo && rect.bottom - rect.top == this.cJo;
+    public boolean isSizeEqual(Rect rect) {
+        return rect != null && rect.right - rect.left == this.mBlockSize && rect.bottom - rect.top == this.mBlockSize;
     }
 
     public void setBitmap(Bitmap bitmap) {
@@ -57,81 +57,81 @@ public class a {
         return this.mBitmap;
     }
 
-    public Rect axZ() {
-        return this.cJl;
+    public Rect getSrc() {
+        return this.mSrc;
     }
 
-    public Rect aya() {
-        return this.cJm;
+    public Rect getDst() {
+        return this.mDst;
     }
 
-    public void q(int i, int i2, int i3, int i4) {
-        this.cJm.set(i, i2, i3, i4);
+    public void setDstRect(int i, int i2, int i3, int i4) {
+        this.mDst.set(i, i2, i3, i4);
     }
 
-    public void r(int i, int i2, int i3, int i4) {
-        this.cJl.set(i, i2, i3, i4);
+    public void setSrcRect(int i, int i2, int i3, int i4) {
+        this.mSrc.set(i, i2, i3, i4);
     }
 
-    public void v(int i, int i2, int i3) {
-        this.cJk.cvQ = i;
-        this.cJk.KX = i2;
-        this.cJk.cJp = i3;
+    public void setPosition(int i, int i2, int i3) {
+        this.cTp.row = i;
+        this.cTp.column = i2;
+        this.cTp.sampleScale = i3;
     }
 
-    public C0272a ayb() {
-        return this.cJk;
+    public C0304a ayI() {
+        return this.cTp;
     }
 
-    public Rect ayc() {
-        int i = this.cJo * this.cJk.KX * this.cJk.cJp;
-        int i2 = this.cJo * this.cJk.cvQ * this.cJk.cJp;
-        this.cJn.set(i, i2, (this.cJo * this.cJk.cJp) + i, (this.cJo * this.cJk.cJp) + i2);
-        return this.cJn;
+    public Rect getPositionInOriginBitmap() {
+        int i = this.mBlockSize * this.cTp.column * this.cTp.sampleScale;
+        int i2 = this.mBlockSize * this.cTp.row * this.cTp.sampleScale;
+        this.mPositionInOriginBitmap.set(i, i2, (this.mBlockSize * this.cTp.sampleScale) + i, (this.mBlockSize * this.cTp.sampleScale) + i2);
+        return this.mPositionInOriginBitmap;
     }
 
     /* renamed from: com.baidu.tbadk.widget.largeImage.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0272a {
-        int KX;
-        int cJp;
-        int cvQ;
+    public static class C0304a {
+        int column;
+        int row;
+        int sampleScale;
 
-        public C0272a() {
+        public C0304a() {
         }
 
-        public C0272a(int i, int i2, int i3) {
-            this.cvQ = i;
-            this.KX = i2;
-            this.cJp = i3;
+        public C0304a(int i, int i2, int i3) {
+            this.row = i;
+            this.column = i2;
+            this.sampleScale = i3;
         }
 
         public String toString() {
-            return "Position{row=" + this.cvQ + ", column=" + this.KX + ", sampleScale=" + this.cJp + '}';
+            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.sampleScale + '}';
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof C0272a) {
-                C0272a c0272a = (C0272a) obj;
-                return this.cvQ == c0272a.atr() && this.KX == c0272a.atq() && this.cJp == c0272a.ayd();
+            if (obj instanceof C0304a) {
+                C0304a c0304a = (C0304a) obj;
+                return this.row == c0304a.getRow() && this.column == c0304a.getColumn() && this.sampleScale == c0304a.getSampleScale();
             }
             return false;
         }
 
         public int hashCode() {
-            return (17 * (((this.cvQ + 119) * 17) + this.KX)) + (this.cJp * 100);
+            return (17 * (((this.row + 119) * 17) + this.column)) + (this.sampleScale * 100);
         }
 
-        public int atr() {
-            return this.cvQ;
+        public int getRow() {
+            return this.row;
         }
 
-        public int atq() {
-            return this.KX;
+        public int getColumn() {
+            return this.column;
         }
 
-        public int ayd() {
-            return this.cJp;
+        public int getSampleScale() {
+            return this.sampleScale;
         }
     }
 }

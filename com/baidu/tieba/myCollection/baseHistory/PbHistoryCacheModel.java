@@ -1,5 +1,6 @@
 package com.baidu.tieba.myCollection.baseHistory;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
 /* loaded from: classes.dex */
@@ -9,22 +10,22 @@ public class PbHistoryCacheModel extends CacheModel<a, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<a> auI() {
+    public Class<a> awb() {
         return a.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int auJ() {
-        return 2001186;
+    public int awc() {
+        return CmdConfigCustom.CMD_READ_PB_HISTORY_LIST;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int auK() {
-        return 2001187;
+    public int awd() {
+        return CmdConfigCustom.CMD_WRITE_PB_HISTORY;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String aur() {
+    public String avK() {
         return "tb.pb_history";
     }
 }

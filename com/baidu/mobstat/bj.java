@@ -31,6 +31,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.au;
 import com.baidu.mobstat.bt;
 import java.io.ByteArrayOutputStream;
@@ -1059,7 +1060,7 @@ public class bj {
                 }
                 if (!TextUtils.isEmpty(str)) {
                     if (!TextUtils.isEmpty(sb.toString())) {
-                        sb.append("_");
+                        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                     }
                     sb.append(str);
                 }

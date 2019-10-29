@@ -145,7 +145,7 @@ public class BaseWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
-        com.baidu.tbadk.browser.a.cl(getContext());
+        com.baidu.tbadk.browser.a.initCookie(getContext());
         if (Build.VERSION.SDK_INT >= 21) {
             setAcceptThirdPartyCookies(true);
             getSettings().setMixedContentMode(0);
@@ -189,7 +189,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.t((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.isActivityCanShowDialogOrPopupWindow((Activity) BaseWebView.this.getContext())) {
                 return super.onJsAlert(webView, str, str2, jsResult);
             }
             return true;
@@ -197,7 +197,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.t((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.isActivityCanShowDialogOrPopupWindow((Activity) BaseWebView.this.getContext())) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -205,7 +205,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.t((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.isActivityCanShowDialogOrPopupWindow((Activity) BaseWebView.this.getContext())) {
                 return super.onJsConfirm(webView, str, str2, jsResult);
             }
             return true;
@@ -319,7 +319,7 @@ public class BaseWebView extends WebView {
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (str != null) {
                     try {
-                        com.baidu.tbadk.browser.a.ag(BaseWebView.this.mContext, str);
+                        com.baidu.tbadk.browser.a.startExternWebActivity(BaseWebView.this.mContext, str);
                     } catch (Exception e2) {
                         BdLog.e(e2.toString());
                     }

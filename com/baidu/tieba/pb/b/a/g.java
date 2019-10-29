@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder ieO;
-    private int ieP;
+    private SpannableStringBuilder idw;
+    private int idx;
     private int textSize;
 
     public g() {
-        this.ieP = 0;
+        this.idx = 0;
         this.textSize = -1;
-        this.ieO = new SpannableStringBuilder();
+        this.idw = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.ieP = 0;
+        this.idx = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.ieO = new SpannableStringBuilder();
+            this.idw = new SpannableStringBuilder();
             if (excContent != null) {
-                this.ieO.append((CharSequence) excContent.text);
+                this.idw.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.ieP = excContent.align.intValue();
+                this.idx = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -40,9 +40,9 @@ public class g implements c {
         }
     }
 
-    public void l(CharSequence charSequence) {
+    public void j(CharSequence charSequence) {
         if (charSequence != null) {
-            this.ieO.append(charSequence);
+            this.idw.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence caI() {
-        return this.ieO;
+    public CharSequence bXL() {
+        return this.idw;
     }
 
-    public int caK() {
-        return this.ieP;
+    public int bXN() {
+        return this.idx;
     }
 
-    public String caL() {
+    public String bXO() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean caJ() {
-        return (this.ieP > 0 && this.ieP < 3) || !StringUtils.isNull(this.color);
+    public boolean bXM() {
+        return (this.idx > 0 && this.idx < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

@@ -4,10 +4,12 @@ import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -671,7 +673,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         this.y = jSONObject;
         try {
             this.Z = System.currentTimeMillis();
-            this.N = jSONObject.optInt(SocialConstants.PARAM_ACT);
+            this.N = jSONObject.optInt("act");
             this.z = jSONObject.optString("html", null);
             this.b = jSONObject.optString("id", LivenessStat.TYPE_STRING_DEFAULT);
             this.c = jSONObject.optString("src", "");
@@ -680,7 +682,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             this.f = jSONObject.optString("surl", "");
             this.h = jSONObject.optString("phone", "");
             this.i = jSONObject.optString("w_picurl", "");
-            this.j = jSONObject.optString("icon", "");
+            this.j = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, "");
             this.k = jSONObject.optString("exp2", "{}");
             this.l = jSONObject.optInt("anti_tag");
             this.n = jSONObject.optString("vurl", "");
@@ -729,7 +731,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             if (!optString2.equals("")) {
                 this.D.add(optString2);
             }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("mon");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray(BdStatsConstant.FILE_MON);
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
@@ -795,7 +797,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             this.O = true;
             this.P = jSONObject.optString("cf", "");
             this.Q = jSONObject.optString("qk", "");
-            this.R = this.Q + "_" + new Random().nextLong() + System.currentTimeMillis() + "|";
+            this.R = this.Q + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + new Random().nextLong() + System.currentTimeMillis() + "|";
             this.T = jSONObject.optString("appname", "");
             this.S = jSONObject.optString("pk", "");
             this.U = jSONObject.optLong("sz", 0L);

@@ -6,33 +6,33 @@ import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.view.coverview.b.c;
 import com.baidu.swan.apps.view.coverview.subview.CoverViewHelper;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TextCoverView extends TextView implements a {
     private static final boolean DEBUG = b.DEBUG;
-    private CoverViewHelper bdm;
-    private com.baidu.swan.apps.view.coverview.b.a bdn;
+    private CoverViewHelper bwk;
+    private com.baidu.swan.apps.view.coverview.b.a bwl;
 
     public TextCoverView(Context context) {
         super(context);
-        this.bdm = new CoverViewHelper();
+        this.bwk = new CoverViewHelper();
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void a(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
         if (aVar != null) {
-            this.bdn = aVar;
-            this.bdm.ar(this);
-            JSONObject jSONObject = aVar.aly;
+            this.bwl = aVar;
+            this.bwk.ax(this);
+            JSONObject jSONObject = aVar.aET;
             if (jSONObject != null) {
-                this.bdm.a(this, jSONObject);
+                this.bwk.a(this, jSONObject);
                 if (getParent() != null && (getParent() instanceof View)) {
-                    this.bdm.c((View) getParent(), jSONObject);
+                    this.bwk.c((View) getParent(), jSONObject);
                 }
                 c(aVar);
             }
@@ -41,32 +41,32 @@ public class TextCoverView extends TextView implements a {
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setAlpha(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
-        if (aVar.aly != null && getParent() != null && (getParent() instanceof View)) {
-            this.bdm.b((View) getParent(), aVar.aly);
+        if (aVar.aET != null && getParent() != null && (getParent() instanceof View)) {
+            this.bwk.b((View) getParent(), aVar.aET);
         }
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setModel(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
         if (aVar != null) {
-            this.bdn = aVar;
-            this.bdm.ar(this);
+            this.bwl = aVar;
+            this.bwk.ax(this);
         }
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setOnActionCallback(com.baidu.swan.apps.view.coverview.a aVar) {
-        this.bdm.setOnActionCallback(aVar);
+        this.bwk.setOnActionCallback(aVar);
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public CoverViewHelper.a getClickPosition() {
-        return this.bdm.getClickPosition();
+        return this.bwk.getClickPosition();
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public com.baidu.swan.apps.view.coverview.b.a getModel() {
-        return this.bdn;
+        return this.bwl;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -75,7 +75,7 @@ public class TextCoverView extends TextView implements a {
         int i;
         boolean z;
         boolean z2;
-        JSONObject jSONObject = aVar.aly;
+        JSONObject jSONObject = aVar.aET;
         if (jSONObject != null) {
             if (aVar instanceof c) {
                 setText(((c) aVar).text);
@@ -89,10 +89,10 @@ public class TextCoverView extends TextView implements a {
             if (optInt > 0) {
                 setTextSize(1, optInt);
             }
-            int ad = z.ad((float) jSONObject.optDouble("lineSpace", 0.0d));
-            if (ad > 0) {
-                setPadding(getPaddingLeft(), getPaddingTop() + (ad / 2), getPaddingRight(), getPaddingBottom());
-                setLineSpacing(ad, 1.0f);
+            int S = z.S((float) jSONObject.optDouble("lineSpace", 0.0d));
+            if (S > 0) {
+                setPadding(getPaddingLeft(), getPaddingTop() + (S / 2), getPaddingRight(), getPaddingBottom());
+                setLineSpacing(S, 1.0f);
             }
             String optString = jSONObject.optString("textAlign");
             switch (optString.hashCode()) {
@@ -104,14 +104,14 @@ public class TextCoverView extends TextView implements a {
                     c = 65535;
                     break;
                 case 3317767:
-                    if (optString.equals(CustomDialogData.POS_LEFT)) {
+                    if (optString.equals("left")) {
                         c = 2;
                         break;
                     }
                     c = 65535;
                     break;
                 case 108511772:
-                    if (optString.equals("right")) {
+                    if (optString.equals(HorizontalTranslateLayout.RIGHT)) {
                         c = 0;
                         break;
                     }

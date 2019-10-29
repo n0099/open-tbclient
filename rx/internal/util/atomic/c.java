@@ -5,10 +5,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes2.dex */
 public final class c<E> extends a<E> {
-    private static final Integer kDV = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    private static final Integer kEC = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
-    long kDW;
-    final int kDX;
+    long kED;
+    final int kEE;
     final AtomicLong producerIndex;
 
     @Override // rx.internal.util.atomic.a, java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
@@ -25,7 +25,7 @@ public final class c<E> extends a<E> {
         super(i);
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
-        this.kDX = Math.min(i / 4, kDV.intValue());
+        this.kEE = Math.min(i / 4, kEC.intValue());
     }
 
     @Override // java.util.Queue
@@ -33,73 +33,73 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.kDS;
+        AtomicReferenceArray<E> atomicReferenceArray = this.kEz;
         int i = this.mask;
         long j = this.producerIndex.get();
-        int w = w(j, i);
-        if (j >= this.kDW) {
-            int i2 = this.kDX;
-            if (a(atomicReferenceArray, w(i2 + j, i)) == null) {
-                this.kDW = i2 + j;
-            } else if (a(atomicReferenceArray, w) != null) {
+        int x = x(j, i);
+        if (j >= this.kED) {
+            int i2 = this.kEE;
+            if (a(atomicReferenceArray, x(i2 + j, i)) == null) {
+                this.kED = i2 + j;
+            } else if (a(atomicReferenceArray, x) != null) {
                 return false;
             }
         }
-        a(atomicReferenceArray, w, e);
-        fa(1 + j);
+        a(atomicReferenceArray, x, e);
+        ev(1 + j);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex.get();
-        int eZ = eZ(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.kDS;
-        E a = a(atomicReferenceArray, eZ);
+        int eu = eu(j);
+        AtomicReferenceArray<E> atomicReferenceArray = this.kEz;
+        E a = a(atomicReferenceArray, eu);
         if (a == null) {
             return null;
         }
-        a(atomicReferenceArray, eZ, null);
-        fb(j + 1);
+        a(atomicReferenceArray, eu, null);
+        ew(j + 1);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return EY(eZ(this.consumerIndex.get()));
+        return Dv(eu(this.consumerIndex.get()));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cRi = cRi();
+        long cPn = cPn();
         while (true) {
-            long cRj = cRj();
-            long cRi2 = cRi();
-            if (cRi == cRi2) {
-                return (int) (cRj - cRi2);
+            long cPo = cPo();
+            long cPn2 = cPn();
+            if (cPn == cPn2) {
+                return (int) (cPo - cPn2);
             }
-            cRi = cRi2;
+            cPn = cPn2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cRj() == cRi();
+        return cPo() == cPn();
     }
 
-    private void fa(long j) {
+    private void ev(long j) {
         this.producerIndex.lazySet(j);
     }
 
-    private void fb(long j) {
+    private void ew(long j) {
         this.consumerIndex.lazySet(j);
     }
 
-    private long cRi() {
+    private long cPn() {
         return this.consumerIndex.get();
     }
 
-    private long cRj() {
+    private long cPo() {
         return this.producerIndex.get();
     }
 }

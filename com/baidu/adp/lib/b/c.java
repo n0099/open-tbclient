@@ -6,87 +6,87 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String zi = "_crashtime";
-    public static String zj = "_crashtype";
-    private int zk;
-    private int zl;
-    private b zm;
+    public static String oo = "_crashtime";
+    public static String oq = "_crashtype";
+    private int or;
+    private int ot;
+    private b ou;
 
     public c(b bVar) {
-        this.zk = 0;
-        this.zl = 0;
-        this.zm = null;
+        this.or = 0;
+        this.ot = 0;
+        this.ou = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.zm = bVar;
-        if (this.zm.hL() > 0 && this.zm.hP() != null) {
-            this.zk = hR();
-            if (this.zk == -1) {
+        this.ou = bVar;
+        if (this.ou.fl() > 0 && this.ou.fp() != null) {
+            this.or = fs();
+            if (this.or == -1) {
                 reset();
             }
         }
-        if (!bVar.hO()) {
-            this.zl = hQ();
+        if (!bVar.fo()) {
+            this.ot = fq();
         }
-        this.zm.f(this.zl, true);
+        this.ou.f(this.ot, true);
     }
 
     public String getName() {
-        return this.zm.getName();
+        return this.ou.getName();
     }
 
-    public int hJ() {
-        return this.zm.hJ();
+    public int fj() {
+        return this.ou.fj();
     }
 
     public int getType() {
-        return this.zl;
+        return this.ot;
     }
 
-    public boolean S(int i) {
-        if (this.zm.hL() >= 0 && this.zk >= this.zm.hL() + 2) {
-            i = this.zm.hK();
+    public boolean D(int i) {
+        if (this.ou.fl() >= 0 && this.or >= this.ou.fl() + 2) {
+            i = this.ou.fk();
         }
-        if (i == this.zl) {
+        if (i == this.ot) {
             return false;
         }
-        this.zl = i;
-        this.zm.f(this.zl, false);
-        T(i);
+        this.ot = i;
+        this.ou.f(this.ot, false);
+        E(i);
         return true;
     }
 
-    public boolean ay(String str) {
-        String[] hM;
-        String[] hP;
-        if (str == null || this.zm.hL() <= 0) {
+    public boolean ae(String str) {
+        String[] fm;
+        String[] fp;
+        if (str == null || this.ou.fl() <= 0) {
             return false;
         }
-        if (this.zm.hP() != null) {
-            for (String str2 : this.zm.hP()) {
+        if (this.ou.fp() != null) {
+            for (String str2 : this.ou.fp()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.zk++;
-                    U(this.zk);
-                    if (this.zk >= this.zm.hL()) {
-                        T(this.zm.hK());
-                        this.zl = this.zm.hK();
-                        this.zm.f(this.zm.hK(), false);
+                    this.or++;
+                    F(this.or);
+                    if (this.or >= this.ou.fl()) {
+                        E(this.ou.fk());
+                        this.ot = this.ou.fk();
+                        this.ou.f(this.ou.fk(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.zm.hM() != null) {
-            for (String str3 : this.zm.hM()) {
+        if (this.ou.fm() != null) {
+            for (String str3 : this.ou.fm()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.zk++;
-                    U(this.zk);
-                    if (this.zk >= this.zm.hL()) {
-                        T(this.zm.hK());
-                        this.zl = this.zm.hK();
-                        this.zm.f(this.zm.hK(), false);
+                    this.or++;
+                    F(this.or);
+                    if (this.or >= this.ou.fl()) {
+                        E(this.ou.fk());
+                        this.ot = this.ou.fk();
+                        this.ou.f(this.ou.fk(), false);
                         return true;
                     }
                     return true;
@@ -96,31 +96,31 @@ public class c {
         return false;
     }
 
-    private void T(int i) {
+    private void E(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.zm.getName() + zj, i);
+        edit.putInt(this.ou.getName() + oq, i);
         edit.commit();
     }
 
-    private int hQ() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.zm.getName() + zj, this.zm.hJ());
+    private int fq() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ou.getName() + oq, this.ou.fj());
     }
 
-    private int hR() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.zm.getName() + zi, -1);
+    private int fs() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ou.getName() + oo, -1);
     }
 
-    private void U(int i) {
+    private void F(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.zm.getName() + zi, i);
+        edit.putInt(this.ou.getName() + oo, i);
         edit.commit();
     }
 
     public void reset() {
-        this.zk = 0;
+        this.or = 0;
     }
 
-    public void V(int i) {
-        this.zk = i;
+    public void G(int i) {
+        this.or = i;
     }
 }

@@ -14,8 +14,8 @@ final class CombinedContext$toString$1 extends Lambda implements kotlin.jvm.a.c<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.c
     public final String invoke(String str, d.b bVar) {
-        p.k(str, "acc");
-        p.k(bVar, "element");
+        p.i(str, "acc");
+        p.i(bVar, "element");
         return str.length() == 0 ? bVar.toString() : str + ", " + bVar;
     }
 }

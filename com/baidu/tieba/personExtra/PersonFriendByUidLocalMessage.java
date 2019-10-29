@@ -1,9 +1,10 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes6.dex */
 public class PersonFriendByUidLocalMessage extends CustomMessage<String> {
     public PersonFriendByUidLocalMessage() {
-        super(2001182);
+        super(CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY);
     }
 }

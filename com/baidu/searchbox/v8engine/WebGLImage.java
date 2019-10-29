@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Base64;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.v8engine.bean.ImageBean;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
@@ -182,7 +184,7 @@ public class WebGLImage extends EventTargetImpl {
     public void onLoadFailed(int i, String str) {
         V8Engine v8Engine;
         this.mErrorMsg = str;
-        JSEvent jSEvent = new JSEvent("error", this, null);
+        JSEvent jSEvent = new JSEvent(BdStatsConstant.StatsType.ERROR, this, null);
         dispatchEvent(jSEvent);
         try {
             v8Engine = V8Engine.getInstance(this.mEnginePtr);
@@ -268,7 +270,7 @@ public class WebGLImage extends EventTargetImpl {
             if (!file.exists()) {
                 file.mkdirs();
             }
-            createTempFile = File.createTempFile("tmp_", "." + str, file);
+            createTempFile = File.createTempFile("tmp_", DefaultConfig.TOKEN_SEPARATOR + str, file);
             Log.e("V8", "saveTempFilePath--file : " + createTempFile);
             fileOutputStream = new FileOutputStream(createTempFile);
         } catch (Throwable th) {
@@ -295,7 +297,7 @@ public class WebGLImage extends EventTargetImpl {
     private static void saveBitmapData(byte[] bArr, String str) {
         FileOutputStream fileOutputStream;
         try {
-            File createTempFile = File.createTempFile("tmp_", "." + str, new File("/sdcard"));
+            File createTempFile = File.createTempFile("tmp_", DefaultConfig.TOKEN_SEPARATOR + str, new File("/sdcard"));
             Log.e("V8", "saveBitmapData--file : " + createTempFile);
             fileOutputStream = new FileOutputStream(createTempFile);
         } catch (Throwable th) {

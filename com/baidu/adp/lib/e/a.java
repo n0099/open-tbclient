@@ -52,7 +52,7 @@ public class a<K, V> {
         return put;
     }
 
-    public synchronized boolean ad(int i) {
+    public synchronized boolean freeMemory(int i) {
         if (this.size + i > this.maxSize * 0.8d) {
             trimToSize(this.size - i);
         }
@@ -135,11 +135,11 @@ public class a<K, V> {
         return this.size;
     }
 
-    public final synchronized int hs() {
+    public final synchronized int getMaxSize() {
         return this.maxSize;
     }
 
-    public final void ae(int i) {
+    public final void setMaxSize(int i) {
         synchronized (this) {
             this.maxSize = i;
             trimToSize(i);

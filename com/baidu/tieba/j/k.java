@@ -1,68 +1,66 @@
 package com.baidu.tieba.j;
 
 import android.os.SystemClock;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.util.ac;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long hyT;
-    private long hyU;
-    private long hyV;
-    private boolean hyW;
-    private String hyX = "";
+    private long hxG;
+    private long hxH;
+    private long hxI;
+    private boolean hxJ;
+    private String hxK = "";
 
-    public void bPV() {
-        this.hyW = true;
-        this.hyT = SystemClock.elapsedRealtime();
+    public void bMV() {
+        this.hxJ = true;
+        this.hxG = SystemClock.elapsedRealtime();
     }
 
-    public void bPW() {
-        this.hyU = SystemClock.elapsedRealtime();
+    public void bMW() {
+        this.hxH = SystemClock.elapsedRealtime();
     }
 
-    public void bPX() {
-        this.hyV = SystemClock.elapsedRealtime();
+    public void bMX() {
+        this.hxI = SystemClock.elapsedRealtime();
     }
 
     public void a(String str, long j, long j2, com.baidu.tieba.play.a.a aVar) {
-        a(str, j, j2, this.hyX, aVar);
+        a(str, j, j2, this.hxK, aVar);
     }
 
     public void a(String str, long j, long j2, String str2, com.baidu.tieba.play.a.a aVar) {
-        if (this.hyW) {
-            this.hyW = false;
+        if (this.hxJ) {
+            this.hxJ = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.hyU - this.hyT;
-            long j4 = elapsedRealtime - this.hyV;
+            long j3 = this.hxH - this.hxG;
+            long j4 = elapsedRealtime - this.hxI;
             long j5 = j4 + j3;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 an anVar = new an("c13171");
-                anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);
-                anVar.n("obj_param1", j3);
-                anVar.n("obj_param2", j4);
-                anVar.n("obj_param3", j5);
-                anVar.n("obj_duration", j2);
-                anVar.n("resource_id", j);
-                anVar.P("ptype", com.baidu.adp.lib.util.j.netType());
-                anVar.bT("tid", str);
-                anVar.bT(DpStatConstants.KEY_CUID, TbadkCoreApplication.getInst().getCuid());
-                anVar.P(VideoPlayActivityConfig.OBJ_ID, ac.ld(BG(str2)) ? 1 : 0);
-                anVar.n("time_stamp", System.currentTimeMillis());
+                anVar.bS("obj_source", str2);
+                anVar.p("obj_param1", j3);
+                anVar.p(TiebaInitialize.Params.OBJ_PARAM2, j4);
+                anVar.p(TiebaInitialize.Params.OBJ_PARAM3, j5);
+                anVar.p("obj_duration", j2);
+                anVar.p("resource_id", j);
+                anVar.O("ptype", com.baidu.adp.lib.util.j.netType());
+                anVar.bS("tid", str);
+                anVar.bS("cuid", TbadkCoreApplication.getInst().getCuid());
+                anVar.O("obj_id", ac.ko(Aa(str2)) ? 1 : 0);
+                anVar.p("time_stamp", System.currentTimeMillis());
                 TiebaStatic.log(anVar);
                 if (aVar != null) {
-                    aVar.a(str2, j3, j4, j5, j2, j, str, ac.ld(BG(str2)) ? 1 : 0);
+                    aVar.a(str2, j3, j4, j5, j2, j, str, ac.ko(Aa(str2)) ? 1 : 0);
                 }
             }
         }
     }
 
-    private int BG(String str) {
+    private int Aa(String str) {
         if ("frs".equals(str)) {
             return 2;
         }
@@ -79,6 +77,6 @@ public class k {
     }
 
     public void setPageTypeForPerfStat(String str) {
-        this.hyX = str;
+        this.hxK = str;
     }
 }

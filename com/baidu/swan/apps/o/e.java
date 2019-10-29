@@ -16,7 +16,7 @@ public class e {
         }
     }
 
-    public static int E(Intent intent) {
+    public static int K(Intent intent) {
         return n.a(intent, "aiapps_app_frame_type", 0);
     }
 }

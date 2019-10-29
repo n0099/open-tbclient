@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
@@ -18,7 +19,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
     private List<GroupInfoData> groups;
 
     public ResponseGroupsByUidLocalMessage() {
-        super(2001106);
+        super(CmdConfigCustom.CMD_REQUEST_GROUP_BY_UID_LOCAL);
     }
 
     public ResponseGroupsByUidLocalMessage(int i) {

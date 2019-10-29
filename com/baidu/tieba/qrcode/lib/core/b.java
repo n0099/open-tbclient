@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 final class b {
-    private static final Pattern iGt = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point iGu;
-    private Point iGv;
-    private Point iGw;
+    private static final Pattern iEP = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private Point iEQ;
+    private Point iER;
+    private Point iES;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.iGu = a.ei(this.mContext);
+        this.iEQ = a.dU(this.mContext);
         Point point = new Point();
-        point.x = this.iGu.x;
-        point.y = this.iGu.y;
-        int eh = a.eh(this.mContext);
-        if (eh == 0) {
-            point.x = this.iGu.y;
-            point.y = this.iGu.x;
+        point.x = this.iEQ.x;
+        point.y = this.iEQ.y;
+        int dT = a.dT(this.mContext);
+        if (dT == 0) {
+            point.x = this.iEQ.y;
+            point.y = this.iEQ.x;
         }
-        this.iGw = a(parameters, point);
-        if (eh == 0) {
-            this.iGv = new Point(this.iGw.y, this.iGw.x);
+        this.iES = a(parameters, point);
+        if (dT == 0) {
+            this.iER = new Point(this.iES.y, this.iES.x);
         } else {
-            this.iGv = this.iGw;
+            this.iER = this.iES;
         }
     }
 
@@ -48,15 +48,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point chU() {
-        return this.iGv;
+    public Point ceT() {
+        return this.iER;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.iGw.x, this.iGw.y);
-        a(parameters);
-        camera.setDisplayOrientation(chV());
+        parameters.setPreviewSize(this.iES.x, this.iES.y);
+        b(parameters);
+        camera.setDisplayOrientation(ceU());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int chV() {
+    public int ceU() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -146,8 +146,8 @@ final class b {
         return null;
     }
 
-    private static int b(CharSequence charSequence, int i) {
-        String[] split = iGt.split(charSequence);
+    private static int a(CharSequence charSequence, int i) {
+        String[] split = iEP.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;
@@ -167,7 +167,7 @@ final class b {
         return i3;
     }
 
-    private void a(Camera.Parameters parameters) {
+    private void b(Camera.Parameters parameters) {
         String str = parameters.get("zoom-supported");
         if (str == null || Boolean.parseBoolean(str)) {
             int i = 27;
@@ -194,7 +194,7 @@ final class b {
             }
             String str4 = parameters.get("mot-zoom-values");
             if (str4 != null) {
-                i = b(str4, i);
+                i = a(str4, i);
             }
             String str5 = parameters.get("mot-zoom-step");
             if (str5 != null) {

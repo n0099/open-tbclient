@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final Object f(Class<?> cls) {
+    public static final Object newEmptyParamsInstance(Class<?> cls) {
         Object obj = null;
         try {
             Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
@@ -41,7 +41,7 @@ public class a {
         return obj;
     }
 
-    public static final Object b(Class<?> cls, int i) {
+    public static final Object newOneIntParamsInstance(Class<?> cls, int i) {
         Object obj = null;
         try {
             Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
@@ -73,7 +73,7 @@ public class a {
         return obj;
     }
 
-    public static final boolean d(Class<?> cls, Class<?> cls2) {
+    public static final boolean isClassIsSubClassForClazz(Class<?> cls, Class<?> cls2) {
         if (cls == null || cls2 == null) {
             return false;
         }
@@ -83,7 +83,7 @@ public class a {
         return cls2.isAssignableFrom(cls);
     }
 
-    public static final Object a(Method method, Object obj, Class<?> cls, Object... objArr) {
+    public static final Object invokeMethodParam(Method method, Object obj, Class<?> cls, Object... objArr) {
         if (method == null) {
             return null;
         }
@@ -102,7 +102,7 @@ public class a {
         }
     }
 
-    public static final Object a(Method method, Object obj, Class<?> cls) {
+    public static final Object invokeMethodNoParam(Method method, Object obj, Class<?> cls) {
         if (method == null) {
             return null;
         }
@@ -121,7 +121,7 @@ public class a {
         }
     }
 
-    public static final Method b(Class<?> cls, String str, Object... objArr) {
+    public static final Method findMethod(Class<?> cls, String str, Object... objArr) {
         Method method;
         Method method2 = null;
         while (cls != Object.class && method2 == null) {
@@ -161,7 +161,7 @@ public class a {
         return method2;
     }
 
-    public static final List<Field> g(Class<?> cls) {
+    public static final List<Field> findFields(Class<?> cls) {
         LinkedList linkedList = new LinkedList();
         while (cls != Object.class) {
             Field[] declaredFields = cls.getDeclaredFields();
@@ -177,7 +177,7 @@ public class a {
         return linkedList;
     }
 
-    public static final Field b(Class<?> cls, String str) {
+    public static final Field findField(Class<?> cls, String str) {
         Field field = null;
         while (cls != Object.class && field == null) {
             try {
@@ -189,12 +189,12 @@ public class a {
         return field;
     }
 
-    public static final Object c(Object obj, String str) {
-        Field b = b(obj.getClass(), str);
-        if (b != null) {
+    public static final Object getValueForField(Object obj, String str) {
+        Field findField = findField(obj.getClass(), str);
+        if (findField != null) {
             try {
-                b.setAccessible(true);
-                return b.get(obj);
+                findField.setAccessible(true);
+                return findField.get(obj);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (IllegalArgumentException e2) {
@@ -204,12 +204,12 @@ public class a {
         return null;
     }
 
-    public static final boolean a(Object obj, String str, Object obj2) {
-        Field b = b(obj.getClass(), str);
-        if (b != null) {
+    public static final boolean setValueForField(Object obj, String str, Object obj2) {
+        Field findField = findField(obj.getClass(), str);
+        if (findField != null) {
             try {
-                b.setAccessible(true);
-                b.set(obj, obj2);
+                findField.setAccessible(true);
+                findField.set(obj, obj2);
                 return true;
             } catch (IllegalAccessException e) {
                 e.printStackTrace();

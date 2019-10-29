@@ -7,28 +7,28 @@ import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class c implements BdSwipeRefreshLayout.b {
-    protected a Na;
     private Context mContext;
+    protected a xS;
     private View mView = null;
-    private boolean MX = true;
-    private int MY = 0;
-    private int MZ = 0;
-    private boolean Nb = false;
+    private boolean mEnable = true;
+    private int mHeadContentHeight = 0;
+    private int mHeadContentWidth = 0;
+    private boolean xT = false;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(c cVar, int i, int i2, int i3, int i4);
     }
 
-    public abstract void ar(boolean z);
+    public abstract View createView();
 
-    public abstract void as(boolean z);
+    public abstract void done(boolean z);
 
-    public abstract void at(boolean z);
+    public abstract void onCompletePullRefresh();
 
-    public abstract View nZ();
+    public abstract void onRefresh(boolean z);
 
-    public abstract void oa();
+    public abstract void pullToRefresh(boolean z);
 
     public abstract void refreshing();
 
@@ -49,48 +49,48 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public final View getView() {
         if (this.mView == null) {
-            this.mView = nZ();
+            this.mView = createView();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
-            A(this.mView);
-            this.MY = this.mView.getMeasuredHeight();
-            this.MZ = this.mView.getMeasuredWidth();
+            measureView(this.mView);
+            this.mHeadContentHeight = this.mView.getMeasuredHeight();
+            this.mHeadContentWidth = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean ob() {
-        return this.Nb;
+    public boolean jG() {
+        return this.xT;
     }
 
     public void pause() {
-        this.Nb = true;
+        this.xT = true;
     }
 
     public void resume() {
-        this.Nb = false;
+        this.xT = false;
     }
 
     public void setPadding(int i, int i2, int i3, int i4) {
-        if (this.mView != null && !this.Nb) {
+        if (this.mView != null && !this.xT) {
             this.mView.setPadding(i, i2, i3, i4);
-            if (this.Na != null) {
-                this.Na.a(this, i, i3, i2 + oc(), i4);
+            if (this.xS != null) {
+                this.xS.a(this, i, i3, i2 + getHeadContentHeight(), i4);
             }
         }
     }
 
     public boolean isEnable() {
-        return this.MX;
+        return this.mEnable;
     }
 
     public void setEnable(boolean z) {
-        this.MX = z;
+        this.mEnable = z;
     }
 
-    private void A(View view) {
+    private void measureView(View view) {
         int makeMeasureSpec;
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
@@ -106,48 +106,48 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int oc() {
-        return this.MY;
+    public int getHeadContentHeight() {
+        return this.mHeadContentHeight;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onPullToRefresh() {
-        if (!this.Nb) {
-            ar(false);
+        if (!this.xT) {
+            pullToRefresh(false);
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onReleaseToRefresh() {
-        if (!this.Nb) {
+        if (!this.xT) {
             releaseToRefresh();
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onRefreshing() {
-        if (!this.Nb) {
+        if (!this.xT) {
             refreshing();
-            at(true);
+            onRefresh(true);
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void od() {
-        if (!this.Nb) {
-            oa();
+    public void onCompleteRefresh() {
+        if (!this.xT) {
+            onCompletePullRefresh();
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onFinish() {
-        if (!this.Nb) {
-            as(true);
+        if (!this.xT) {
+            done(true);
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void n(float f, float f2) {
+    public void onPullPercentChange(float f, float f2) {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -156,6 +156,6 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     public void a(a aVar) {
-        this.Na = aVar;
+        this.xS = aVar;
     }
 }

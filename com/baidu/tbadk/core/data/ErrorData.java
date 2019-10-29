@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -46,7 +47,7 @@ public class ErrorData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject == null) {
                     this.error_code = jSONObject.optInt("error_code", 0);
                     this.error_msg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);

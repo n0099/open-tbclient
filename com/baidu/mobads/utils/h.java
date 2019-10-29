@@ -1,6 +1,6 @@
 package com.baidu.mobads.utils;
 
-import android.support.v4.app.NotificationCompat;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainerFactory;
 import com.baidu.mobads.interfaces.utils.IXAdConstants;
@@ -35,7 +35,7 @@ public class h implements IXAdConstants {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
     public String feedsTrackerParameterKeyProgress() {
-        return NotificationCompat.CATEGORY_PROGRESS;
+        return "progress";
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
@@ -180,7 +180,7 @@ public class h implements IXAdConstants {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
     public String getProductionTypeIcon() {
-        return "icon";
+        return AlaStaticKeys.ALA_STATIC_VALUE_ICON;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants

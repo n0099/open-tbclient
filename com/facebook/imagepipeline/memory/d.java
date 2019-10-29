@@ -7,9 +7,9 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 class d<V> {
-    public final int aZn;
-    final Queue kmd;
-    private int kme;
+    public final int bso;
+    final Queue kkp;
+    private int kkq;
     public final int mItemSize;
 
     public d(int i, int i2, int i3) {
@@ -17,50 +17,50 @@ class d<V> {
         com.facebook.common.internal.g.checkState(i2 >= 0);
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
-        this.aZn = i2;
-        this.kmd = new LinkedList();
-        this.kme = i3;
+        this.bso = i2;
+        this.kkp = new LinkedList();
+        this.kkq = i3;
     }
 
-    public boolean cLg() {
-        return this.kme + cLh() > this.aZn;
+    public boolean cId() {
+        return this.kkq + cIe() > this.bso;
     }
 
-    int cLh() {
-        return this.kmd.size();
+    int cIe() {
+        return this.kkp.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.kme++;
+            this.kkq++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.kmd.poll();
+        return (V) this.kkp.poll();
     }
 
-    public void cLi() {
-        this.kme++;
+    public void cIf() {
+        this.kkq++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        com.facebook.common.internal.g.checkState(this.kme > 0);
-        this.kme--;
-        aZ(v);
+        com.facebook.common.internal.g.checkState(this.kkq > 0);
+        this.kkq--;
+        aU(v);
     }
 
-    void aZ(V v) {
-        this.kmd.add(v);
+    void aU(V v) {
+        this.kkp.add(v);
     }
 
-    public void cLj() {
-        com.facebook.common.internal.g.checkState(this.kme > 0);
-        this.kme--;
+    public void cIg() {
+        com.facebook.common.internal.g.checkState(this.kkq > 0);
+        this.kkq--;
     }
 }

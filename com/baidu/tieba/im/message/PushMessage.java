@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 /* loaded from: classes.dex */
 public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
@@ -12,51 +13,51 @@ public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
         int i;
         String cmd = groupNewsPojo.getCmd();
         if (cmd.equals("apply_join_group")) {
-            i = 2001125;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP;
         } else if (cmd.equals("apply_join_success")) {
-            i = 2001126;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS;
         } else if (cmd.equals("apply_join_fail")) {
-            i = 2001127;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_FAIL;
         } else if (cmd.equals("kick_out")) {
-            i = 2001128;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT;
         } else if (cmd.equals("group_notice_change")) {
-            i = 2001129;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NOTICE_CHANGE;
         } else if (cmd.equals("group_name_change")) {
-            i = 2001130;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE;
         } else if (cmd.equals("group_event_info")) {
-            i = 2001131;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_EVENT_INFO;
         } else if (cmd.equals("group_intro_change")) {
-            i = 2001132;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE;
         } else if (cmd.equals("group_level_up")) {
-            i = 2001133;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP;
         } else if (cmd.equals("group_head_change")) {
-            i = 2001134;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE;
         } else if (cmd.equals("group_activitys_change")) {
-            i = 2001135;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE;
         } else if (cmd.equals("dismiss_group")) {
-            i = 2001137;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP;
         } else if (cmd.equals("hide_group_warn")) {
-            i = 2001138;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP_WARN;
         } else if (cmd.equals("hide_group")) {
-            i = 2001139;
+            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP;
         } else if (cmd.equals("apply_new_friend")) {
-            i = 2001172;
+            i = CmdConfigCustom.CMD_APPLY_NEW_FRIEND_LOCAL;
         } else if (cmd.equals("passed_new_friend")) {
-            i = 2001173;
+            i = CmdConfigCustom.CMD_PASSED_NEW_FRIEND_LOCAL;
         } else if (cmd.equals("delete_new_friend")) {
-            i = 2001209;
+            i = CmdConfigCustom.CMD_DELETED_NEW_FRIEND_LOCAL;
         } else if (cmd.equals("apply_reply_message")) {
-            i = 2001219;
+            i = CmdConfigCustom.CMD_APPLY_REPLY_MESSAGE;
         } else if (cmd.equals("apply_add_friend")) {
-            i = 2001220;
+            i = CmdConfigCustom.CMD_APPLY_ADDFRIEND;
         } else if (cmd.equals("apply_pass_friend")) {
-            i = 2001221;
+            i = CmdConfigCustom.CMD_APPLY_PASSFRIEND;
         } else if (cmd.equals("upload_stat")) {
-            i = 2001320;
+            i = CmdConfigCustom.CMD_UPLOAD_STAT;
         } else if (cmd.equals("plugin_config_sync")) {
-            i = 2001401;
+            i = CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC;
         } else if (cmd.equals("offline_debug")) {
-            i = 2001413;
+            i = CmdConfigCustom.CMD_OFFLINE_DEBUG;
         } else {
             return null;
         }

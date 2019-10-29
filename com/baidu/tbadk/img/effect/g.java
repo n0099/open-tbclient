@@ -2,15 +2,16 @@ package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.img.effect.StickerAction;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class g extends b {
-    public String cxW = "";
+    public String mStickerPath = "";
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
-        return "sticker";
+        return StickerAction.ACTION_NAME;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
@@ -18,20 +19,20 @@ public class g extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+    public Bitmap processImage(Bitmap bitmap, boolean z) throws Exception {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.atK().kJ(BitmapHelper.getBitmapSize(bitmap) * 2);
-        return BitmapHelper.loadResizedBitmap(this.cxW, l.af(TbadkCoreApplication.getInst()), l.ah(TbadkCoreApplication.getInst()));
+        com.baidu.tbadk.imageManager.c.avu().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        return BitmapHelper.loadResizedBitmap(this.mStickerPath, l.getEquipmentWidth(TbadkCoreApplication.getInst()), l.getEquipmentHeight(TbadkCoreApplication.getInst()));
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap qX(String str) throws Exception {
-        return b(BitmapHelper.loadResizedBitmap(str, l.af(TbadkCoreApplication.getInst()), l.ah(TbadkCoreApplication.getInst())), true);
+    public Bitmap processImage(String str) throws Exception {
+        return processImage(BitmapHelper.loadResizedBitmap(str, l.getEquipmentWidth(TbadkCoreApplication.getInst()), l.getEquipmentHeight(TbadkCoreApplication.getInst())), true);
     }
 
     public void setPath(String str) {
-        this.cxW = str;
+        this.mStickerPath = str;
     }
 }

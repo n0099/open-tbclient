@@ -94,7 +94,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 NormalizeGuestAccountActivity.this.result.isAccountMerge = z;
                 NormalizeGuestAccountActivity.this.result.setNormalizeWay(str2);
                 NormalizeGuestAccountActivity.this.result.setResultCode(0);
-                NormalizeGuestAccountActivity.this.result.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
+                NormalizeGuestAccountActivity.this.result.setResultMsg("成功");
                 NormalizeGuestAccountActivity.this.normalizeSucess();
                 new PtokenStat().onEvent(PtokenStat.NORMAL_GUEST);
             }

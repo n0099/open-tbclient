@@ -1,21 +1,21 @@
 package com.vivo.push.util;
 
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import android.content.Context;
+import android.text.TextUtils;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
 public final class d {
-    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes("utf-8"), "AES");
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes("utf-8")));
-        return cipher.doFinal(bArr);
-    }
-
-    public static byte[] b(String str, String str2, byte[] bArr) throws Exception {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes("utf-8"), "AES");
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes("utf-8")));
-        return cipher.doFinal(bArr);
+    public static boolean a(Context context, long j, long j2) {
+        p.d("ClientReportUtil", "report message: " + j + ", reportType: " + j2);
+        com.vivo.push.b.y yVar = new com.vivo.push.b.y(j2);
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("messageID", String.valueOf(j));
+        String b = z.b(context, context.getPackageName());
+        if (!TextUtils.isEmpty(b)) {
+            hashMap.put("remoteAppId", b);
+        }
+        yVar.a(hashMap);
+        com.vivo.push.p.a().a(yVar);
+        return true;
     }
 }

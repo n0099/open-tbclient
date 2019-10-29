@@ -23,8 +23,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView fQy = null;
-    private a iWW = null;
+    private BdListView fPR = null;
+    private a iWK = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -36,34 +36,34 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.official_account_push_activity);
-        aMa();
-        aCX();
-        aCW();
+        aLf();
+        aDg();
+        aDf();
     }
 
-    private void aCW() {
-        if (!j.kc() && v.aa(this.list)) {
-            cmL();
-        } else if (v.aa(this.list)) {
-            brN();
-        } else if (this.iWW == null) {
-            this.iWW = new a(getPageContext());
-            this.iWW.setData(this.list);
-            this.fQy.setAdapter((ListAdapter) this.iWW);
-            this.iWW.setSwitchStateChangeListener(this);
+    private void aDf() {
+        if (!j.isNetWorkAvailable() && v.isEmpty(this.list)) {
+            cky();
+        } else if (v.isEmpty(this.list)) {
+            boR();
+        } else if (this.iWK == null) {
+            this.iWK = new a(getPageContext());
+            this.iWK.setData(this.list);
+            this.fPR.setAdapter((ListAdapter) this.iWK);
+            this.iWK.setSwitchStateChangeListener(this);
         } else {
-            this.iWW.setData(this.list);
-            this.iWW.notifyDataSetChanged();
+            this.iWK.setData(this.list);
+            this.iWK.notifyDataSetChanged();
         }
     }
 
-    private void aCX() {
+    private void aDg() {
         this.mRootView = (ViewGroup) findViewById(R.id.official_account_push_container);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
-        this.fQy = (BdListView) findViewById(R.id.list);
-        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.d.iQ(R.string.no_data_text), null);
+        this.fPR = (BdListView) findViewById(R.id.list);
+        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.d.iL(R.string.no_data_text), null);
         this.mNoDataView.setVisibility(0);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
     }
@@ -72,30 +72,30 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.h(this.mRootView, R.color.cp_bg_line_e, i);
+        am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e, i);
         this.mNoDataView.onChangeSkinType(getPageContext(), i);
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void aMa() {
+    private void aLf() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
         }
     }
 
-    public void brN() {
-        this.fQy.setVisibility(8);
+    public void boR() {
+        this.fPR.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.iQ(R.string.no_data_text));
-        am.l(this.mRootView, R.color.cp_bg_line_d);
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.iL(R.string.no_data_text));
+        am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void cmL() {
-        this.fQy.setVisibility(8);
+    public void cky() {
+        this.fPR.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.iQ(R.string.refresh_view_title_text));
-        am.l(this.mRootView, R.color.cp_bg_line_d);
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.iL(R.string.refresh_view_title_text));
+        am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
@@ -103,11 +103,11 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         boolean z = BdSwitchView.SwitchState.ON == switchState;
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) view.getTag();
         if (officialAccountPushInfo != null) {
-            b(z, officialAccountPushInfo.uid);
+            c(z, officialAccountPushInfo.uid);
         }
     }
 
-    public void b(boolean z, long j) {
+    public void c(boolean z, long j) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(6);
         requestUpdateMaskInfoMessage.setG_id(j);
@@ -118,25 +118,25 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         }
         requestUpdateMaskInfoMessage.setCallFrom(5);
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
-        c(z, j);
+        d(z, j);
     }
 
-    private void c(boolean z, long j) {
-        if (this.list != null && this.iWW != null) {
-            if (!j.kc()) {
-                this.iWW.notifyDataSetChanged();
+    private void d(boolean z, long j) {
+        if (this.list != null && this.iWK != null) {
+            if (!j.isNetWorkAvailable()) {
+                this.iWK.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).iWZ = 1;
+                        this.list.get(i).iWO = 1;
                     } else {
-                        this.list.get(i).iWZ = 0;
+                        this.list.get(i).iWO = 0;
                     }
                 }
             }
-            this.iWW.notifyDataSetChanged();
+            this.iWK.notifyDataSetChanged();
         }
     }
 

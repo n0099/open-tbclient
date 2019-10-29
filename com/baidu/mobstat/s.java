@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.mobstat.bm;
 import java.io.BufferedReader;
 import java.io.File;
@@ -146,7 +147,7 @@ public class s {
 
     private String a(Context context, String str, String str2) throws IOException {
         byte[] bytes;
-        boolean z = !str.startsWith("https:");
+        boolean z = !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
         HttpURLConnection d = bo.d(context, str);
         d.setDoOutput(true);
         d.setInstanceFollowRedirects(false);

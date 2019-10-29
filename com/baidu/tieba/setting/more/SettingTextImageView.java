@@ -14,84 +14,83 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SettingTextImageView extends FrameLayout {
-    private ImageView ahO;
-    private TextView ajd;
-    private LinearLayout cpd;
-    private HeadImageView iWH;
+    private ImageView aBm;
+    private LinearLayout cBY;
+    private HeadImageView iWu;
     private Context mContext;
+    private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aqJ();
+        asD();
         c(attributeSet);
-        kd(TbadkCoreApplication.getInst().getSkinType());
+        jA(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        aqJ();
-        kd(TbadkCoreApplication.getInst().getSkinType());
+        asD();
+        jA(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void kd(int i) {
-        setBackgroundDrawable(am.io(R.color.cp_bg_line_e));
-        am.f(this.ajd, R.color.common_color_10039, 1);
-        SvgManager.ajv().a(this.ahO, R.drawable.icon_pure_list_arrow16_right_tint_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        this.iWH.invalidate();
+    public void jA(int i) {
+        setBackgroundDrawable(am.it(R.color.cp_bg_line_e));
+        am.setViewTextColor(this.textView, R.color.common_color_10039, 1);
+        SvgManager.amN().a(this.aBm, R.drawable.icon_pure_list_arrow16_right_tint_n_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        this.iWu.invalidate();
     }
 
-    public void cmE() {
-        if (this.iWH != null) {
-            this.iWH.setVisibility(8);
+    public void ckr() {
+        if (this.iWu != null) {
+            this.iWu.setVisibility(8);
         }
     }
 
-    public void cmF() {
-        if (this.iWH != null) {
-            this.iWH.setVisibility(0);
+    public void cks() {
+        if (this.iWu != null) {
+            this.iWu.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.ajd.setText(str);
+        this.textView.setText(str);
     }
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.iWH.startLoad(str, 26, false);
+            this.iWu.startLoad(str, 26, false);
         } else {
-            this.iWH.startLoad(str, 12, false);
+            this.iWu.startLoad(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void aqJ() {
+    private void asD() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-        this.cpd = (LinearLayout) findViewById(R.id.container);
-        this.ajd = (TextView) findViewById(R.id.text);
-        this.iWH = (HeadImageView) findViewById(R.id.icon);
-        this.ahO = (ImageView) findViewById(R.id.arrow);
+        this.cBY = (LinearLayout) findViewById(R.id.container);
+        this.textView = (TextView) findViewById(R.id.text);
+        this.iWu = (HeadImageView) findViewById(R.id.icon);
+        this.aBm = (ImageView) findViewById(R.id.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, d.a.TbSettingView);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R.styleable.TbSettingView);
         String string = obtainStyledAttributes.getString(5);
         int color = obtainStyledAttributes.getColor(3, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.ajd.setText(string);
+            this.textView.setText(string);
         }
         if (color > -1) {
-            this.ajd.setTextColor(color);
+            this.textView.setTextColor(color);
         }
-        this.cpd.setClickable(false);
-        this.cpd.setFocusable(false);
+        this.cBY.setClickable(false);
+        this.cBY.setFocusable(false);
     }
 }

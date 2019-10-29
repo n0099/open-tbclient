@@ -1,13 +1,14 @@
 package com.baidu.tieba.im.message.chat;
 
 import com.baidu.adp.lib.g.b;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
 /* loaded from: classes.dex */
 public class OfficialChatMessage extends ChatMessage {
     public OfficialChatMessage() {
-        super(205001);
+        super(CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -19,7 +20,7 @@ public class OfficialChatMessage extends ChatMessage {
             builder.toUid = Long.valueOf(getToUserId());
             builder.msgType = Integer.valueOf(getMsgType());
             builder.recordId = Long.valueOf(getRecordId());
-            if (b.e(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
+            if (b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
                 userType = getUserInfo().getUserType();
             } else {
                 userType = getToUserInfo().getUserType();

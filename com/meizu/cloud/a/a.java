@@ -15,7 +15,7 @@ public class a {
         h.b().d(str, str2);
     }
 
-    public static void eI(Context context) {
+    public static void ex(Context context) {
         h.b().a(context);
         h.b().a(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
     }

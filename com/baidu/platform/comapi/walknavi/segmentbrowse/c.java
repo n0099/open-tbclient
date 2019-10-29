@@ -3,6 +3,7 @@ package com.baidu.platform.comapi.walknavi.segmentbrowse;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -17,7 +18,7 @@ public class c {
     private static int g = -1;
     public static int b = -1;
     public static int c = -1;
-    public static int d = 99999;
+    public static int d = BdStatsConstant.ErrorCode.ERR_LOG_FAST;
     public static b e = b.FIRST_GUIDANCE;
     private static HashMap<Integer, a> h = new HashMap<>();
 
@@ -209,7 +210,7 @@ public class c {
     public static void r() {
         g = -1;
         c = -1;
-        d = 99999;
+        d = BdStatsConstant.ErrorCode.ERR_LOG_FAST;
         e = b.FIRST_GUIDANCE;
         b = -1;
         if (h != null) {

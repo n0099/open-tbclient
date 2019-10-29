@@ -7,23 +7,23 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public final class e {
-    private static final Set<Integer> ban = new HashSet();
-    private static final Set<Integer> bao = new HashSet();
-    private static final Set<Integer> bap = new HashSet();
+    private static final Set<Integer> btm = new HashSet();
+    private static final Set<Integer> btn = new HashSet();
+    private static final Set<Integer> bto = new HashSet();
 
     static {
-        ban.add(2);
-        ban.add(3);
-        ban.add(4);
-        ban.add(5);
-        ban.add(6);
-        bao.add(7);
-        bao.add(1);
-        bap.addAll(ban);
-        bap.addAll(bao);
+        btm.add(2);
+        btm.add(3);
+        btm.add(4);
+        btm.add(5);
+        btm.add(6);
+        btn.add(7);
+        btn.add(1);
+        bto.addAll(btm);
+        bto.addAll(btn);
     }
 
-    public static Date Po() {
+    public static Date Ue() {
         return new Date();
     }
 
@@ -43,7 +43,7 @@ public final class e {
         }
     }
 
-    public static Date aM(String str, String str2) {
+    public static Date aT(String str, String str2) {
         if (str == null) {
             return null;
         }
@@ -59,7 +59,7 @@ public final class e {
         }
     }
 
-    public static Date f(String str, String[] strArr) {
+    public static Date e(String str, String[] strArr) {
         Date date = null;
         if (!TextUtils.isEmpty(str) && strArr != null) {
             for (String str2 : strArr) {

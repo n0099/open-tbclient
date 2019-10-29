@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -42,7 +43,7 @@ public class h extends SQLiteOpenHelper {
                 if (i != 0) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
-                sb.append(f[i]).append(" ").append(f[i + 1]);
+                sb.append(f[i]).append(HanziToPinyin.Token.SEPARATOR).append(f[i + 1]);
             }
             sb.append(");");
             sQLiteDatabase.execSQL(sb.toString());
@@ -58,7 +59,7 @@ public class h extends SQLiteOpenHelper {
                 if (i != 0) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
-                sb.append(g[i]).append(" ").append(f[i + 1]);
+                sb.append(g[i]).append(HanziToPinyin.Token.SEPARATOR).append(f[i + 1]);
             }
             sb.append(",PRIMARY KEY(message_id,geo_id));");
             sQLiteDatabase.execSQL(sb.toString());

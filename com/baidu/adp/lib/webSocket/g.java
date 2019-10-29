@@ -7,8 +7,6 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface a {
-        void S(String str);
-
         void a(int i, c cVar);
 
         void a(c cVar);
@@ -19,12 +17,14 @@ public interface g {
 
         void c(c cVar);
 
-        void f(int i, String str);
+        void e(int i, String str);
 
-        void kR();
+        void hq();
+
+        void i(byte[] bArr);
 
         void onOpen(Map<String, String> map);
 
-        void q(byte[] bArr);
+        void onTextMessage(String str);
     }
 }

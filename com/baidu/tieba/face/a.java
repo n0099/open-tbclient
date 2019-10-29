@@ -2,17 +2,18 @@ package com.baidu.tieba.face;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.imageManager.d;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern feL = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern feM = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern fhv = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern fhw = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String wA(String str) {
-        String replaceAll = str.replaceAll(d.cxk, "meme,");
+    public static String uY(String str) {
+        String replaceAll = str.replaceAll(d.SHARP_TEXT_PREFIX_SHORT, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;
@@ -39,21 +40,21 @@ public class a {
         return sb.toString();
     }
 
-    public static int wB(String str) {
+    public static int uZ(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = feL.matcher(str);
+        Matcher matcher = fhv.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {
                 break;
             }
             String group = matcher.group();
-            if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+            if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_VALID) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_VALID, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
                 i++;
             }
             i2 = i;

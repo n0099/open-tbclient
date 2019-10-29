@@ -1,6 +1,5 @@
 package com.vivo.push.b;
 
-import android.content.Intent;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public final class j extends s {
@@ -21,24 +20,24 @@ public final class j extends s {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.v
-    public final void d(Intent intent) {
-        super.d(intent);
-        intent.putExtra(Constants.APP_ID, this.a);
-        intent.putExtra("client_id", this.b);
-        intent.putExtra("client_token", this.c);
+    @Override // com.vivo.push.b.s, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a(Constants.APP_ID, this.a);
+        aVar.a("client_id", this.b);
+        aVar.a("client_token", this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.v
-    public final void e(Intent intent) {
-        super.e(intent);
-        this.a = intent.getStringExtra(Constants.APP_ID);
-        this.b = intent.getStringExtra("client_id");
-        this.c = intent.getStringExtra("client_token");
+    @Override // com.vivo.push.b.s, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.a = aVar.a(Constants.APP_ID);
+        this.b = aVar.a("client_id");
+        this.c = aVar.a("client_token");
     }
 
-    @Override // com.vivo.push.b.s, com.vivo.push.v
+    @Override // com.vivo.push.b.s, com.vivo.push.y
     public final String toString() {
         return "OnBindCommand";
     }

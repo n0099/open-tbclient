@@ -1,5 +1,6 @@
 package okhttp3.internal;
 
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -495,7 +496,7 @@ public final class Util {
                         if (str.regionMatches(i5, ":", 0, 1)) {
                             i5++;
                         } else {
-                            if (str.regionMatches(i5, ".", 0, 1) && decodeIpv4Suffix(str, i6, i2, bArr, i8 - 2)) {
+                            if (str.regionMatches(i5, DefaultConfig.TOKEN_SEPARATOR, 0, 1) && decodeIpv4Suffix(str, i6, i2, bArr, i8 - 2)) {
                                 i8 += 2;
                             }
                             return null;

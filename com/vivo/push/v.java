@@ -1,64 +1,37 @@
 package com.vivo.push;
 
-import android.content.Intent;
-import com.coloros.mcssdk.mode.CommandMessage;
+import android.content.Context;
 /* loaded from: classes3.dex */
-public abstract class v {
-    private int a;
-    private String b;
+public abstract class v implements Runnable {
+    protected Context a;
+    private int b;
+    private y c;
 
-    protected abstract void d(Intent intent);
+    protected abstract void a(y yVar);
 
-    protected abstract void e(Intent intent);
-
-    public v(int i) {
-        this.a = -1;
-        if (i < 0) {
-            throw new IllegalArgumentException("PushCommand: the value of command must > 0.");
+    public v(y yVar) {
+        this.b = -1;
+        this.c = yVar;
+        this.b = yVar.b();
+        if (this.b < 0) {
+            throw new IllegalArgumentException("PushTask need a > 0 task id.");
         }
-        this.a = i;
+        this.a = p.a().h();
     }
 
-    public final String a() {
+    public final int a() {
         return this.b;
     }
 
-    public final void a(String str) {
-        this.b = str;
-    }
-
-    public final int b() {
-        return this.a;
-    }
-
-    public final void a(Intent intent) {
-        intent.putExtra(CommandMessage.COMMAND, this.a);
-        String a = w.a(this.a);
-        if (a == null) {
-            a = "";
+    @Override // java.lang.Runnable
+    public final void run() {
+        if (this.a != null && !(this.c instanceof com.vivo.push.b.n)) {
+            com.vivo.push.util.p.a(this.a, "[执行指令]" + this.c);
         }
-        intent.putExtra("method", a);
-        intent.putExtra("client_pkgname", this.b);
-        d(intent);
-    }
-
-    public final void b(Intent intent) {
-        intent.putExtra(CommandMessage.COMMAND, this.a);
-        intent.putExtra("method", this.a);
-        intent.putExtra("client_pkgname", this.b);
-        d(intent);
-    }
-
-    public final void c(Intent intent) {
-        this.b = intent.getStringExtra("client_pkgname");
-        e(intent);
-    }
-
-    public boolean c() {
-        return false;
+        a(this.c);
     }
 
     public String toString() {
-        return getClass().getSimpleName();
+        return getClass().getSimpleName() + "{" + (this.c == null ? "[null]" : this.c.toString()) + "}";
     }
 }

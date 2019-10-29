@@ -1,6 +1,4 @@
 package com.vivo.push.b;
-
-import android.content.Intent;
 /* loaded from: classes3.dex */
 public final class n extends s {
     private String a;
@@ -38,24 +36,24 @@ public final class n extends s {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.v
-    public final void d(Intent intent) {
-        super.d(intent);
-        intent.putExtra("content", this.a);
-        intent.putExtra("log_level", this.b);
-        intent.putExtra("is_server_log", this.c);
+    @Override // com.vivo.push.b.s, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a("content", this.a);
+        aVar.a("log_level", this.b);
+        aVar.a("is_server_log", this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.v
-    public final void e(Intent intent) {
-        super.e(intent);
-        this.a = intent.getStringExtra("content");
-        this.b = intent.getIntExtra("log_level", 0);
-        this.c = intent.getBooleanExtra("is_server_log", false);
+    @Override // com.vivo.push.b.s, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.a = aVar.a("content");
+        this.b = aVar.b("log_level", 0);
+        this.c = aVar.d("is_server_log");
     }
 
-    @Override // com.vivo.push.b.s, com.vivo.push.v
+    @Override // com.vivo.push.b.s, com.vivo.push.y
     public final String toString() {
         return "OnLogCommand";
     }

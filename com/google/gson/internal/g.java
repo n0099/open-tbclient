@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier;
 public abstract class g {
     public abstract <T> T newInstance(Class<T> cls) throws Exception;
 
-    public static g cNz() {
+    public static g cKw() {
         try {
             Class<?> cls = Class.forName("sun.misc.Unsafe");
             Field declaredField = cls.getDeclaredField("theUnsafe");
@@ -19,7 +19,7 @@ public abstract class g {
             return new g() { // from class: com.google.gson.internal.g.1
                 @Override // com.google.gson.internal.g
                 public <T> T newInstance(Class<T> cls2) throws Exception {
-                    g.C(cls2);
+                    g.z(cls2);
                     return (T) method.invoke(obj, cls2);
                 }
             };
@@ -33,7 +33,7 @@ public abstract class g {
                 return new g() { // from class: com.google.gson.internal.g.2
                     @Override // com.google.gson.internal.g
                     public <T> T newInstance(Class<T> cls2) throws Exception {
-                        g.C(cls2);
+                        g.z(cls2);
                         return (T) declaredMethod2.invoke(null, cls2, Integer.valueOf(intValue));
                     }
                 };
@@ -44,7 +44,7 @@ public abstract class g {
                     return new g() { // from class: com.google.gson.internal.g.3
                         @Override // com.google.gson.internal.g
                         public <T> T newInstance(Class<T> cls2) throws Exception {
-                            g.C(cls2);
+                            g.z(cls2);
                             return (T) declaredMethod3.invoke(null, cls2, Object.class);
                         }
                     };
@@ -61,7 +61,7 @@ public abstract class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void C(Class<?> cls) {
+    public static void z(Class<?> cls) {
         int modifiers = cls.getModifiers();
         if (Modifier.isInterface(modifiers)) {
             throw new UnsupportedOperationException("Interface can't be instantiated! Interface name: " + cls.getName());

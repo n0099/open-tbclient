@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class CodedInputStream {
     private static final int BUFFER_SIZE = 4096;
     private static final int DEFAULT_RECURSION_LIMIT = 64;

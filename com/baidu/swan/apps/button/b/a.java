@@ -2,7 +2,6 @@ package com.baidu.swan.apps.button.b;
 
 import android.graphics.Color;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.an.o;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.button.b.a;
@@ -13,13 +12,13 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a<M extends a> extends com.baidu.swan.apps.model.a.a.a {
     private static final boolean DEBUG = b.DEBUG;
-    public double acm;
-    public double acn;
-    public double aco;
-    public double acp;
-    public float alA;
-    public JSONObject aly;
-    public int alz;
+    public double Ml;
+    public double Mm;
+    public double Mn;
+    public double Mo;
+    public JSONObject aET;
+    public int aEU;
+    public float aEV;
     public int backgroundColor;
     public int borderColor;
     public int borderWidth;
@@ -33,48 +32,48 @@ public class a<M extends a> extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.aly = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-        if (this.aly != null) {
+        this.aET = jSONObject.optJSONObject("style");
+        if (this.aET != null) {
             try {
-                this.backgroundColor = Color.parseColor(this.aly.optString("bgColor"));
+                this.backgroundColor = Color.parseColor(this.aET.optString("bgColor"));
             } catch (Exception e) {
                 c.e("SwanAppNativeViewModel", "bgColor occurs exception", e);
                 this.backgroundColor = 0;
             }
-            this.alz = this.aly.optInt("borderRadius");
-            this.borderWidth = this.aly.optInt("borderWidth");
+            this.aEU = this.aET.optInt("borderRadius");
+            this.borderWidth = this.aET.optInt("borderWidth");
             try {
-                this.borderColor = Color.parseColor(this.aly.optString("borderColor"));
+                this.borderColor = Color.parseColor(this.aET.optString("borderColor"));
             } catch (Exception e2) {
                 c.e("SwanAppNativeViewModel", "borderColor occurs exception", e2);
                 this.borderColor = 0;
             }
-            JSONArray optJSONArray = this.aly.optJSONArray("padding");
+            JSONArray optJSONArray = this.aET.optJSONArray("padding");
             if (optJSONArray != null && optJSONArray.length() == 4) {
-                this.acm = optJSONArray.optDouble(3, 0.0d);
-                this.acn = optJSONArray.optDouble(0, 0.0d);
-                this.aco = optJSONArray.optDouble(1, 0.0d);
-                this.acp = optJSONArray.optDouble(2, 0.0d);
+                this.Ml = optJSONArray.optDouble(3, 0.0d);
+                this.Mm = optJSONArray.optDouble(0, 0.0d);
+                this.Mn = optJSONArray.optDouble(1, 0.0d);
+                this.Mo = optJSONArray.optDouble(2, 0.0d);
             }
-            this.alA = o.a(this.aly, "opacity", -1.0f);
+            this.aEV = o.a(this.aET, "opacity", -1.0f);
         }
     }
 
     public void a(M m, com.baidu.swan.apps.view.container.c.a aVar) {
         if (m != null && aVar != null) {
             if (!TextUtils.equals(this.id, m.id)) {
-                aVar.eM(63);
+                aVar.fH(63);
                 return;
             }
-            if (this.aEu != null && !this.aEu.equals(m.aEu)) {
-                aVar.eM(1);
+            if (this.aXJ != null && !this.aXJ.equals(m.aXJ)) {
+                aVar.fH(1);
             }
             if (m.hidden != this.hidden) {
-                aVar.eM(8);
+                aVar.fH(8);
             }
-            if (m.aly != null) {
-                if (this.aly == null || !TextUtils.equals(this.aly.toString(), m.aly.toString())) {
-                    aVar.eM(2);
+            if (m.aET != null) {
+                if (this.aET == null || !TextUtils.equals(this.aET.toString(), m.aET.toString())) {
+                    aVar.fH(2);
                 }
             }
         }

@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class c {
     private static c d = null;
@@ -46,7 +45,7 @@ public class c {
                     }
                     switch (intExtra2) {
                         case 1:
-                            c.this.b = Constants.VIA_SHARE_TYPE_INFO;
+                            c.this.b = "6";
                             c.this.a = true;
                             return;
                         case 2:

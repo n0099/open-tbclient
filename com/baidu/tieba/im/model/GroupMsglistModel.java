@@ -3,6 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.d;
 import com.baidu.tieba.im.message.GroupSaveDraftMessage;
@@ -34,7 +35,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001145) {
                         boolean processHistory = GroupMsglistModel.this.processHistory(customResponsedMessage);
                         if ((customResponsedMessage.getOrginalMessage() instanceof LoadGroupHistoryMessage) && processHistory && (callback = ((LoadGroupHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                            callback.bBv();
+                            callback.byg();
                         }
                     }
                 }
@@ -57,8 +58,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 20;
-        aVar.gPQ = null;
-        aVar.gPR = null;
+        aVar.gNR = null;
+        aVar.gNS = null;
         aVar.id = this.mGroup.getGroupId() + "";
         LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
         loadGroupHistoryMessage.setCallback(dVar);
@@ -79,8 +80,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 j = this.mDatas.getChatMessages().get(0).getMsgId();
                 j2 = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.gPQ = String.valueOf(j);
-            aVar.gPR = String.valueOf(j2);
+            aVar.gNR = String.valueOf(j);
+            aVar.gNS = String.valueOf(j2);
             aVar.id = this.mGroup.getGroupId() + "";
             super.sendMessage(new LoadGroupHistoryMessage(aVar));
         }
@@ -111,9 +112,9 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(2012125, this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(2001142, this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(2001145, this.mCustomMessageListener);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_GROUP_CMD, this.mCustomMessageListener);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, this.mCustomMessageListener);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, this.mCustomMessageListener);
     }
 
     protected void unRegisterListener() {

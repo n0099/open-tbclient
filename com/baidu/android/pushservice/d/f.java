@@ -6,7 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushSettings;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
@@ -56,7 +55,7 @@ public class f extends d {
         if (com.baidu.android.pushservice.b.d.b(this.a)) {
             String cuid = DeviceId.getCUID(this.a);
             if (!TextUtils.isEmpty(cuid)) {
-                hashMap.put(DpStatConstants.KEY_CUID, cuid);
+                hashMap.put("cuid", cuid);
             }
             hashMap.put("new_channel_id", com.baidu.android.pushservice.i.a(this.a).c());
         }

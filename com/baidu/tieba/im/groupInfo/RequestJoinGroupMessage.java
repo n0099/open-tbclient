@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.groupInfo;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.ApplyJoinGroup.ApplyJoinGroupReqIdl;
 import protobuf.ApplyJoinGroup.DataReq;
@@ -11,7 +12,7 @@ public class RequestJoinGroupMessage extends TbSocketMessage {
     private String userMsg;
 
     public RequestJoinGroupMessage() {
-        super(103110);
+        super(CmdConfigSocket.CMD_JOIN_GROUP);
     }
 
     public int getJoinType() {

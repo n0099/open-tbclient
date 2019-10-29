@@ -5,8 +5,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.an.z;
@@ -16,113 +16,113 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class d {
-    public static String deS = "https://mbd.baidu.com";
+    public static String don = "https://mbd.baidu.com";
 
-    public static String aFS() {
-        return String.format("%s/ma/invoice/create", deS);
+    public static String aGf() {
+        return String.format("%s/ma/invoice/create", don);
     }
 
-    public static String aFT() {
-        return String.format("%s/ma/invoice/list", deS);
+    public static String aGg() {
+        return String.format("%s/ma/invoice/list", don);
     }
 
-    public static String aFU() {
-        return String.format("%s/ma/invoice/oa_list", deS);
+    public static String aGh() {
+        return String.format("%s/ma/invoice/oa_list", don);
     }
 
-    public static String aFV() {
-        return String.format("%s/ma/invoice/modify", deS);
+    public static String aGi() {
+        return String.format("%s/ma/invoice/modify", don);
     }
 
-    public static String aFW() {
-        return String.format("%s/ma/invoice/modify_default", deS);
+    public static String aGj() {
+        return String.format("%s/ma/invoice/modify_default", don);
     }
 
-    public static String aFX() {
-        return String.format("%s/ma/invoice/del", deS);
+    public static String aGk() {
+        return String.format("%s/ma/invoice/del", don);
     }
 
-    public static String aFY() {
-        return String.format("%s/ma/address", deS);
+    public static String aGl() {
+        return String.format("%s/ma/address", don);
     }
 
-    public static String ty(String str) {
-        String du = du(aGc());
-        String du2 = du(getUid());
-        return B(B(B(B(B(B(B(B(str, "uid", du2), "ua", du(Wz())), "ut", du), "osbranch", aGa()), "pkgname", nb()), DpStatConstants.KEY_NETWORK, aFZ()), "appname", getAppName()), "cfrom", aGg());
+    public static String sh(String str) {
+        String ed = ed(aGp());
+        String ed2 = ed(getUid());
+        return F(F(F(F(F(F(F(F(str, "uid", ed2), "ua", ed(abo())), "ut", ed), "osbranch", aGn()), "pkgname", getPkgName()), "network", aGm()), "appname", getAppName()), BdStatsConstant.StatsKey.CURRENT_CHANNEL, aGt());
     }
 
-    public static String aFZ() {
-        return aGi() + "_" + aGh();
+    public static String aGm() {
+        return aGv() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + aGu();
     }
 
-    public static String aGa() {
+    public static String aGn() {
         return "a0";
     }
 
     public static String getUid() {
-        return com.baidu.swan.apps.u.a.Et().bd(AppRuntime.getAppContext());
+        return com.baidu.swan.apps.u.a.Jn().bf(AppRuntime.getAppContext());
     }
 
-    public static String Wz() {
+    public static String abo() {
         Context appContext = AppRuntime.getAppContext();
         int displayWidth = z.getDisplayWidth(appContext);
         int displayHeight = z.getDisplayHeight(appContext);
         int bU = z.bU(appContext);
-        String aGb = aGb();
+        String aGo = aGo();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
-        stringBuffer.append("_");
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(displayHeight);
-        stringBuffer.append("_");
-        stringBuffer.append(aGb);
-        stringBuffer.append("_");
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(aGo);
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(ac.getVersionName());
-        stringBuffer.append("_");
+        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(bU);
         return stringBuffer.toString();
     }
 
-    public static String aGb() {
+    public static String aGo() {
         return "android";
     }
 
-    public static String nb() {
+    public static String getPkgName() {
         return AppRuntime.getApplication().getPackageName();
     }
 
-    public static String aGc() {
-        String aGf = aGf();
-        String aGe = aGe();
+    public static String aGp() {
+        String aGs = aGs();
+        String aGr = aGr();
         int i = Build.VERSION.SDK_INT;
-        return aGf + "_" + aGe + "_" + i + "_" + aGd();
+        return aGs + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + aGr + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + aGq();
     }
 
-    public static String aGd() {
+    public static String aGq() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
         }
-        return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String aGe() {
+    public static String aGr() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
         }
-        return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String aGf() {
+    public static String aGs() {
         String str = Build.MODEL;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
         }
-        return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String B(String str, String str2, String str3) {
+    public static String F(String str, String str2, String str3) {
         StringBuilder sb;
         StringBuilder sb2;
         String str4 = null;
@@ -166,7 +166,7 @@ public class d {
         return str;
     }
 
-    public static String du(String str) {
+    public static String ed(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -179,31 +179,31 @@ public class d {
     }
 
     private static String getAppName() {
-        return com.baidu.swan.apps.u.a.EA().getHostName();
+        return com.baidu.swan.apps.u.a.Ju().getHostName();
     }
 
-    private static String aGg() {
-        return com.baidu.swan.c.c.YF();
+    private static String aGt() {
+        return com.baidu.swan.c.c.adu();
     }
 
-    private static int aGh() {
-        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.u.a.Eo());
+    private static int aGu() {
+        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.u.a.Ji());
         if (activeNetworkInfo == null) {
             return 0;
         }
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int aGi() {
+    private static int aGv() {
         NetworkInfo networkInfo;
         String str = null;
         try {
-            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.u.a.Eo().getSystemService("connectivity")).getActiveNetworkInfo();
+            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.u.a.Ji().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (NullPointerException e) {
             networkInfo = null;
         }
         if (networkInfo != null) {
-            if (IXAdSystemUtils.NT_WIFI.equals(networkInfo.getTypeName().toLowerCase())) {
+            if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
                 str = "WIFI";
             } else {
                 str = networkInfo.getExtraInfo();

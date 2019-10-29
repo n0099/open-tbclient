@@ -26,11 +26,11 @@ public class c {
                             String optString = jSONObject2.optString("name");
                             Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
                             if ("switch_login_passv6".equals(optString)) {
-                                com.baidu.adp.lib.b.d.hS().c(optString, valueOf.intValue());
+                                com.baidu.adp.lib.b.d.ft().c(optString, valueOf.intValue());
                                 com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
                             }
                             if (TextUtils.equals("switch_low_version_login_passv6", optString)) {
-                                com.baidu.adp.lib.b.d.hS().c(optString, valueOf.intValue());
+                                com.baidu.adp.lib.b.d.ft().c(optString, valueOf.intValue());
                                 com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
                             }
                         }

@@ -1,6 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.util.Log;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.common.Logger;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -48,7 +49,7 @@ public final class TileOverlay {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Tile a(int i, int i2, int i3) {
-        String str = i + "_" + i2 + "_" + i3;
+        String str = i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3;
         Tile a = a(str);
         if (a != null) {
             return a;

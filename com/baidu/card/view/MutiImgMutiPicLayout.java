@@ -35,30 +35,30 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a VI;
-    public TextView VV;
-    private ab<com.baidu.tbadk.core.data.a> WN;
-    public RelativeLayout YA;
-    public TbImageView YB;
-    public TbImageView YC;
-    public TbImageView YD;
-    private TextView YF;
-    protected boolean YG;
-    private boolean Yd;
-    public PlayVoiceBntNew Ym;
-    private boolean Yo;
-    private boolean Yp;
-    private LinkedList<MediaData> Yq;
-    private int Yw;
-    private d Yx;
+    public TextView FK;
+    private com.baidu.tbadk.core.data.a Fx;
+    private ab<com.baidu.tbadk.core.data.a> GD;
+    private boolean HY;
+    private TextView IB;
+    protected boolean IC;
+    private TbImageView.b Id;
+    public PlayVoiceBntNew Ii;
+    private boolean Ik;
+    private boolean Il;
+    private LinkedList<MediaData> Im;
+    private int Is;
+    private d It;
+    public RelativeLayout Iw;
+    public TbImageView Ix;
+    public TbImageView Iy;
+    public TbImageView Iz;
     private String mFrom;
     private int mLastScreenWidth;
-    private TbImageView.b mOnDrawListener;
     public TextView mTitle;
-    private static final int Yj = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-    private static final int Yk = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-    private static final int Yl = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds7);
-    private static final int VT = l.af(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+    private static final int If = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    private static final int Ig = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+    private static final int Ih = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7);
+    private static final int FI = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
 
     public void setFrom(String str) {
         this.mFrom = str;
@@ -70,14 +70,14 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
 
     public MutiImgMutiPicLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Yd = true;
-        this.VI = null;
-        this.Yo = false;
-        this.Yp = false;
-        this.Yw = 0;
-        this.YG = false;
+        this.HY = true;
+        this.Fx = null;
+        this.Ik = false;
+        this.Il = false;
+        this.Is = 0;
+        this.IC = false;
         this.mLastScreenWidth = 0;
-        this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.card.view.MutiImgMutiPicLayout.3
+        this.Id = new TbImageView.b() { // from class: com.baidu.card.view.MutiImgMutiPicLayout.3
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -90,10 +90,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a qS = c.atK().qS(com.baidu.adp.lib.f.c.iE().e(tbImageView.getUrl(), MutiImgMutiPicLayout.this.Yd ? 13 : 14));
-                    if (qS != null) {
-                        int width = qS.getWidth();
-                        i = qS.getHeight();
+                    com.baidu.adp.widget.ImageView.a pY = c.avu().pY(com.baidu.adp.lib.f.c.fT().genCacheKey(tbImageView.getUrl(), MutiImgMutiPicLayout.this.HY ? 13 : 14));
+                    if (pY != null) {
+                        int width = pY.getWidth();
+                        i = pY.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -153,7 +153,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f2, f2);
-                            if (MutiImgMutiPicLayout.this.YG && i > i2) {
+                            if (MutiImgMutiPicLayout.this.IC && i > i2) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f);
@@ -174,125 +174,125 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_more_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.VV = (TextView) findViewById(R.id.thread_card_abstract);
+        this.FK = (TextView) findViewById(R.id.thread_card_abstract);
         this.mTitle = (TextView) findViewById(R.id.thread_card_title);
-        this.Ym = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.Ym.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.MutiImgMutiPicLayout.1
+        this.Ii = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
+        this.Ii.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.MutiImgMutiPicLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ab<com.baidu.tbadk.core.data.a> subClickListener = MutiImgMutiPicLayout.this.getSubClickListener();
                 if (subClickListener != null) {
                     view.setTag("2");
-                    subClickListener.a(view, MutiImgMutiPicLayout.this.VI);
+                    subClickListener.a(view, MutiImgMutiPicLayout.this.Fx);
                 }
             }
         });
-        this.YA = (RelativeLayout) findViewById(R.id.thread_card_img_more_container);
-        this.YB = (TbImageView) findViewById(R.id.thread_card_img_more_one);
-        this.YB.setDrawCorner(true);
-        this.YB.setRadius(l.g(getContext(), R.dimen.tbds20));
-        this.YB.setDefaultBgResource(e.Qv());
-        this.YB.setConrers(5);
-        this.YC = (TbImageView) findViewById(R.id.thread_card_img_more_two);
-        this.YC.setDrawCorner(false);
-        this.YC.setDefaultBgResource(e.Qv());
-        this.YC.setRadius(0);
-        this.YC.setConrers(0);
-        this.YD = (TbImageView) findViewById(R.id.thread_card_img_more_three);
-        this.YD.setDrawCorner(true);
-        this.YD.setDefaultBgResource(e.Qv());
-        this.YD.setRadius(l.g(getContext(), R.dimen.tbds20));
-        this.YD.setConrers(10);
-        this.YF = (TextView) findViewById(R.id.thread_card_img_more_label);
-        this.Yx = new d() { // from class: com.baidu.card.view.MutiImgMutiPicLayout.2
+        this.Iw = (RelativeLayout) findViewById(R.id.thread_card_img_more_container);
+        this.Ix = (TbImageView) findViewById(R.id.thread_card_img_more_one);
+        this.Ix.setDrawCorner(true);
+        this.Ix.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
+        this.Ix.setDefaultBgResource(e.Vl());
+        this.Ix.setConrers(5);
+        this.Iy = (TbImageView) findViewById(R.id.thread_card_img_more_two);
+        this.Iy.setDrawCorner(false);
+        this.Iy.setDefaultBgResource(e.Vl());
+        this.Iy.setRadius(0);
+        this.Iy.setConrers(0);
+        this.Iz = (TbImageView) findViewById(R.id.thread_card_img_more_three);
+        this.Iz.setDrawCorner(true);
+        this.Iz.setDefaultBgResource(e.Vl());
+        this.Iz.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
+        this.Iz.setConrers(10);
+        this.IB = (TextView) findViewById(R.id.thread_card_img_more_label);
+        this.It = new d() { // from class: com.baidu.card.view.MutiImgMutiPicLayout.2
             @Override // com.baidu.tbadk.widget.layout.d
-            public void a(View view, int i, boolean z) {
+            public void b(View view, int i, boolean z) {
                 ab<com.baidu.tbadk.core.data.a> subClickListener = MutiImgMutiPicLayout.this.getSubClickListener();
                 if (subClickListener != null) {
                     view.setTag("1");
-                    MutiImgMutiPicLayout.this.VI.objType = 2;
-                    subClickListener.XI = Boolean.valueOf(z);
-                    subClickListener.a(view, MutiImgMutiPicLayout.this.VI);
+                    MutiImgMutiPicLayout.this.Fx.objType = 2;
+                    subClickListener.HC = Boolean.valueOf(z);
+                    subClickListener.a(view, MutiImgMutiPicLayout.this.Fx);
                 }
-                if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().cgL) {
-                    au.a(view, MutiImgMutiPicLayout.this.Yd, MutiImgMutiPicLayout.this.Yq, i, MutiImgMutiPicLayout.this.VI.acC(), MutiImgMutiPicLayout.this.mFrom);
+                if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().cuK) {
+                    au.a(view, MutiImgMutiPicLayout.this.HY, MutiImgMutiPicLayout.this.Im, i, MutiImgMutiPicLayout.this.Fx.agI(), MutiImgMutiPicLayout.this.mFrom);
                 } else if ("index".equals(MutiImgMutiPicLayout.this.mFrom)) {
-                    au.a(MutiImgMutiPicLayout.this.VI, view.getContext(), 2, false);
+                    au.a(MutiImgMutiPicLayout.this.Fx, view.getContext(), 2, false);
                 } else if ("frs".equals(MutiImgMutiPicLayout.this.mFrom)) {
-                    au.a(MutiImgMutiPicLayout.this.VI, view.getContext(), 3, false);
+                    au.a(MutiImgMutiPicLayout.this.Fx, view.getContext(), 3, false);
                 } else {
-                    au.a(view, MutiImgMutiPicLayout.this.Yd, MutiImgMutiPicLayout.this.Yq, i, MutiImgMutiPicLayout.this.VI.acC(), MutiImgMutiPicLayout.this.mFrom);
+                    au.a(view, MutiImgMutiPicLayout.this.HY, MutiImgMutiPicLayout.this.Im, i, MutiImgMutiPicLayout.this.Fx.agI(), MutiImgMutiPicLayout.this.mFrom);
                 }
             }
         };
     }
 
     private void setVoiceData(bh bhVar) {
-        ArrayList<VoiceData.VoiceModel> aeQ = bhVar.aeQ();
-        if (v.aa(aeQ)) {
-            this.Ym.setVisibility(8);
-            this.Yp = false;
+        ArrayList<VoiceData.VoiceModel> aiU = bhVar.aiU();
+        if (v.isEmpty(aiU)) {
+            this.Ii.setVisibility(8);
+            this.Il = false;
             return;
         }
-        this.Ym.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = aeQ.get(0);
-        this.Ym.setVoiceModel(voiceModel);
-        this.Ym.setTag(voiceModel);
-        this.Ym.bql();
+        this.Ii.setVisibility(0);
+        VoiceData.VoiceModel voiceModel = aiU.get(0);
+        this.Ii.setVoiceModel(voiceModel);
+        this.Ii.setTag(voiceModel);
+        this.Ii.bnq();
         if (voiceModel != null) {
-            this.Ym.we(voiceModel.voice_status.intValue());
+            this.Ii.uK(voiceModel.voice_status.intValue());
         }
-        this.Ym.crJ();
-        this.Yp = true;
+        this.Ii.cpC();
+        this.Il = true;
     }
 
     private void setImageData(bh bhVar) {
         boolean z;
-        ArrayList<MediaData> aeM = bhVar.aeM();
-        if (com.baidu.tbadk.core.i.ace().aci() && v.Z(aeM) != 0) {
+        ArrayList<MediaData> aiQ = bhVar.aiQ();
+        if (com.baidu.tbadk.core.i.agq().isShowImages() && v.getCount(aiQ) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < aeM.size(); i++) {
-                MediaData mediaData = (MediaData) v.c(aeM, i);
+            for (int i = 0; i < aiQ.size(); i++) {
+                MediaData mediaData = (MediaData) v.getItem(aiQ, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
-            this.Yq = linkedList;
-            this.Yo = true;
+            this.Im = linkedList;
+            this.Ik = true;
             if (linkedList.size() > 3) {
-                this.YF.setText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(linkedList.size() - 3)}));
-                this.YF.setVisibility(0);
+                this.IB.setText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(linkedList.size() - 3)}));
+                this.IB.setVisibility(0);
                 z = true;
             } else {
-                this.YF.setVisibility(8);
+                this.IB.setVisibility(8);
                 z = false;
             }
-            this.YA.setVisibility(8);
-            if (v.Z(linkedList) == 2) {
-                this.YA.setVisibility(0);
-                a((MediaData) v.c(aeM, 0), this.YB, z, false, 0);
-                this.YC.setVisibility(8);
-                a((MediaData) v.c(aeM, 1), this.YD, z, false, 1);
+            this.Iw.setVisibility(8);
+            if (v.getCount(linkedList) == 2) {
+                this.Iw.setVisibility(0);
+                a((MediaData) v.getItem(aiQ, 0), this.Ix, z, false, 0);
+                this.Iy.setVisibility(8);
+                a((MediaData) v.getItem(aiQ, 1), this.Iz, z, false, 1);
                 return;
-            } else if (v.Z(linkedList) >= 3) {
-                this.YA.setVisibility(0);
-                this.YC.setVisibility(0);
-                a((MediaData) v.c(aeM, 0), this.YB, z, false, 0);
-                a((MediaData) v.c(aeM, 1), this.YC, z, false, 1);
-                a((MediaData) v.c(aeM, 2), this.YD, z, true, 2);
+            } else if (v.getCount(linkedList) >= 3) {
+                this.Iw.setVisibility(0);
+                this.Iy.setVisibility(0);
+                a((MediaData) v.getItem(aiQ, 0), this.Ix, z, false, 0);
+                a((MediaData) v.getItem(aiQ, 1), this.Iy, z, false, 1);
+                a((MediaData) v.getItem(aiQ, 2), this.Iz, z, true, 2);
                 return;
             } else {
-                this.YA.setVisibility(8);
-                this.Yo = false;
+                this.Iw.setVisibility(8);
+                this.Ik = false;
                 return;
             }
         }
-        this.YA.setVisibility(8);
-        this.Yo = false;
+        this.Iw.setVisibility(8);
+        this.Ik = false;
     }
 
     public void setFromCDN(boolean z) {
-        this.Yd = z;
+        this.HY = z;
     }
 
     public void setPreloadSizeReadyCallback(b bVar) {
@@ -301,28 +301,28 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
-    public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.VI = aVar;
-        bh acC = aVar.acC();
-        au.a(this.mTitle, acC);
-        au.a(this.VV, this.mTitle, acC, VT);
-        setImageData(acC);
-        setVoiceData(acC);
-        qU();
+    public void z(com.baidu.tbadk.core.data.a aVar) {
+        this.Fx = aVar;
+        bh agI = aVar.agI();
+        au.a(this.mTitle, agI);
+        au.a(this.FK, this.mTitle, agI, FI);
+        setImageData(agI);
+        setVoiceData(agI);
+        lZ();
     }
 
-    private void qU() {
-        if (this.VV.getVisibility() != 0 && this.mTitle.getVisibility() != 0) {
-            if (this.Yo) {
-                setMarginsTop(this.Ym, Yj);
-            } else if (this.Yp) {
-                setMarginsTop(this.Ym, Yl);
+    private void lZ() {
+        if (this.FK.getVisibility() != 0 && this.mTitle.getVisibility() != 0) {
+            if (this.Ik) {
+                setMarginsTop(this.Ii, If);
+            } else if (this.Il) {
+                setMarginsTop(this.Ii, Ih);
             }
-        } else if (this.Ym != null && this.Ym.getLayoutParams() != null) {
-            if (this.Yo) {
-                setMarginsTop(this.Ym, Yj);
-            } else if (this.Yp) {
-                setMarginsTop(this.Ym, Yk);
+        } else if (this.Ii != null && this.Ii.getLayoutParams() != null) {
+            if (this.Ik) {
+                setMarginsTop(this.Ii, If);
+            } else if (this.Il) {
+                setMarginsTop(this.Ii, Ig);
             }
         }
     }
@@ -338,53 +338,53 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
     }
 
     public ab<com.baidu.tbadk.core.data.a> getSubClickListener() {
-        return this.WN;
+        return this.GD;
     }
 
     public void setSubClickListener(ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.WN = abVar;
+        this.GD = abVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        int bz = bz(i);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.YB.getLayoutParams();
-        layoutParams.width = bz;
-        layoutParams.height = bz;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.YC.getLayoutParams();
-        layoutParams2.width = bz;
-        layoutParams2.height = bz;
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.YD.getLayoutParams();
-        layoutParams3.width = bz;
-        layoutParams3.height = bz;
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.YF.getLayoutParams();
-        layoutParams4.width = bz;
-        layoutParams4.height = bz;
-        if (this.YA.getVisibility() != 8) {
-            this.YB.setLayoutParams(layoutParams);
-            this.YC.setLayoutParams(layoutParams2);
-            this.YD.setLayoutParams(layoutParams3);
-            this.YF.setLayoutParams(layoutParams4);
+        int aO = aO(i);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Ix.getLayoutParams();
+        layoutParams.width = aO;
+        layoutParams.height = aO;
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.Iy.getLayoutParams();
+        layoutParams2.width = aO;
+        layoutParams2.height = aO;
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.Iz.getLayoutParams();
+        layoutParams3.width = aO;
+        layoutParams3.height = aO;
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.IB.getLayoutParams();
+        layoutParams4.width = aO;
+        layoutParams4.height = aO;
+        if (this.Iw.getVisibility() != 8) {
+            this.Ix.setLayoutParams(layoutParams);
+            this.Iy.setLayoutParams(layoutParams2);
+            this.Iz.setLayoutParams(layoutParams3);
+            this.IB.setLayoutParams(layoutParams4);
         }
     }
 
-    private int bz(int i) {
-        if (this.Yw > 0) {
-            int af = l.af(getContext());
-            if (af == this.mLastScreenWidth) {
-                return this.Yw;
+    private int aO(int i) {
+        if (this.Is > 0) {
+            int equipmentWidth = l.getEquipmentWidth(getContext());
+            if (equipmentWidth == this.mLastScreenWidth) {
+                return this.Is;
             }
-            this.mLastScreenWidth = af;
+            this.mLastScreenWidth = equipmentWidth;
         }
-        this.Yw = (View.MeasureSpec.getSize(i) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10) * 2)) / 3;
-        return this.Yw;
+        this.Is = (View.MeasureSpec.getSize(i) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10) * 2)) / 3;
+        return this.Is;
     }
 
     private void a(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, int i) {
         String a2 = a(mediaData);
-        int i2 = this.Yd ? 13 : 14;
-        if (!aq.bV(a2, tbImageView.getUrl())) {
+        int i2 = this.HY ? 13 : 14;
+        if (!aq.equals(a2, tbImageView.getUrl())) {
             tbImageView.reset();
         }
         setCanCenterStart(false);
@@ -400,7 +400,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
         tbImageView.setBorderColor(am.getColor(R.color.black_alpha8));
         tbImageView.setBorderSurroundContent(true);
         tbImageView.setDrawBorder(true);
-        tbImageView.setOnDrawListener(this.mOnDrawListener);
+        tbImageView.setOnDrawListener(this.Id);
         if (z2 && z) {
             tbImageView.setLongIconSupport(false);
             tbImageView.setGifIconSupport(false);
@@ -430,18 +430,18 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
     }
 
     public void setCanCenterStart(boolean z) {
-        this.YG = z;
+        this.IC = z;
     }
 
     private void a(TbImageView tbImageView, int i, boolean z, boolean z2) {
-        if (this.Yx != null && tbImageView != null) {
+        if (this.It != null && tbImageView != null) {
             View.OnClickListener onClickListener = tbImageView.getOnClickListener();
             if (onClickListener instanceof a) {
                 ((a) onClickListener).b(i, z, z2);
             } else {
                 tbImageView.setOnClickListener(new a(i, z, z2));
             }
-        } else if (this.Yx == null && tbImageView != null) {
+        } else if (this.It == null && tbImageView != null) {
             tbImageView.setClickable(false);
         }
     }
@@ -449,7 +449,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
-        private boolean Yz;
+        private boolean Iv;
         private int currentIndex;
         private boolean hasMore;
 
@@ -460,13 +460,13 @@ public class MutiImgMutiPicLayout extends LinearLayout implements i<com.baidu.tb
         public void b(int i, boolean z, boolean z2) {
             this.currentIndex = i;
             this.hasMore = z;
-            this.Yz = z2;
+            this.Iv = z2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (MutiImgMutiPicLayout.this.Yx != null) {
-                MutiImgMutiPicLayout.this.Yx.a(view, this.currentIndex, this.hasMore && this.Yz);
+            if (MutiImgMutiPicLayout.this.It != null) {
+                MutiImgMutiPicLayout.this.It.b(view, this.currentIndex, this.hasMore && this.Iv);
             }
         }
     }

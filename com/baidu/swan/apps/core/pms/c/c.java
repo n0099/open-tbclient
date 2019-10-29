@@ -12,22 +12,22 @@ public class c {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void g(Bitmap bitmap);
+        void i(Bitmap bitmap);
     }
 
     public static void a(String str, final a aVar) {
-        Uri iy = ac.iy(str);
-        if (iy == null) {
-            e.Pd().b(new com.baidu.swan.apps.ak.a().Z(4L).aa(10L).ii("download icon fail: icon url is null"));
+        Uri jb = ac.jb(str);
+        if (jb == null) {
+            e.TT().b(new com.baidu.swan.apps.ak.a().as(4L).at(10L).iL("download icon fail: icon url is null"));
             if (aVar != null) {
-                aVar.g(null);
+                aVar.i(null);
                 return;
             }
             return;
         }
-        com.facebook.drawee.a.a.c.cGF().e(ImageRequestBuilder.U(iy).cML(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.c.c.1
+        com.facebook.drawee.a.a.c.cDD().e(ImageRequestBuilder.R(jb).cJI(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.c.c.1
             @Override // com.facebook.imagepipeline.e.b
-            protected void f(Bitmap bitmap) {
+            protected void h(Bitmap bitmap) {
                 Bitmap copy;
                 if (bitmap != null && !bitmap.isRecycled()) {
                     try {
@@ -37,22 +37,22 @@ public class c {
                             copy = bitmap.copy(bitmap.getConfig(), true);
                         }
                         if (a.this != null) {
-                            a.this.g(copy);
+                            a.this.i(copy);
                         }
                     } catch (Exception e) {
                         if (a.this != null) {
-                            a.this.g(null);
+                            a.this.i(null);
                         }
                     }
                 } else if (a.this != null) {
-                    a.this.g(null);
+                    a.this.i(null);
                 }
             }
 
             @Override // com.facebook.datasource.a
             protected void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bVar) {
                 if (a.this != null) {
-                    a.this.g(null);
+                    a.this.i(null);
                 }
             }
 
@@ -60,9 +60,9 @@ public class c {
             public void b(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bVar) {
                 super.b(bVar);
                 if (a.this != null) {
-                    a.this.g(null);
+                    a.this.i(null);
                 }
             }
-        }, f.cFK());
+        }, f.cCI());
     }
 }

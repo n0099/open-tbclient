@@ -1,80 +1,81 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.lib.cache.l;
+import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes4.dex */
 public class g {
-    private static g hQc;
-    private com.baidu.adp.lib.cache.l<byte[]> hQd = null;
-    private com.baidu.adp.lib.cache.l<byte[]> hQe = null;
+    private static g hOH;
+    private com.baidu.adp.lib.cache.l<byte[]> hOI = null;
+    private com.baidu.adp.lib.cache.l<byte[]> hOJ = null;
 
-    public static synchronized g bWi() {
+    public static synchronized g bTk() {
         g gVar;
         synchronized (g.class) {
-            if (hQc == null) {
-                hQc = new g();
+            if (hOH == null) {
+                hOH = new g();
             }
-            gVar = hQc;
+            gVar = hOH;
         }
         return gVar;
     }
 
     private g() {
-        Xv();
+        ack();
     }
 
-    private void Xv() {
-        if (this.hQd == null) {
-            this.hQd = com.baidu.tbadk.core.d.a.agL().mM("tb.pb_mark");
+    private void ack() {
+        if (this.hOI == null) {
+            this.hOI = com.baidu.tbadk.core.d.a.akN().nk("tb.pb_mark");
         }
-        if (this.hQe == null) {
-            this.hQe = com.baidu.tbadk.core.d.a.agL().mM("tb.pb_normal");
+        if (this.hOJ == null) {
+            this.hOJ = com.baidu.tbadk.core.d.a.akN().nk("tb.pb_normal");
         }
     }
 
-    public void as(String str, boolean z) {
+    public void an(String str, boolean z) {
         if (z) {
-            if (this.hQd != null && str != null) {
-                this.hQd.b(str, new byte[0], 0L);
+            if (this.hOI != null && str != null) {
+                this.hOI.asyncSet(str, new byte[0], 0L);
             }
-        } else if (this.hQe != null && str != null) {
-            this.hQe.b(str, new byte[0], 0L);
+        } else if (this.hOJ != null && str != null) {
+            this.hOJ.asyncSet(str, new byte[0], 0L);
         }
     }
 
-    public byte[] at(String str, boolean z) {
-        l.b<byte[]> aq;
+    public byte[] ao(String str, boolean z) {
+        l.b<byte[]> Y;
         if (z) {
-            if (this.hQd != null && str != null) {
-                aq = this.hQd.aq(str);
+            if (this.hOI != null && str != null) {
+                Y = this.hOI.Y(str);
             }
-            aq = null;
+            Y = null;
         } else {
-            if (this.hQe != null && str != null) {
-                aq = this.hQe.aq(str);
+            if (this.hOJ != null && str != null) {
+                Y = this.hOJ.Y(str);
             }
-            aq = null;
+            Y = null;
         }
-        if (aq == null || aq.value == null) {
+        if (Y == null || Y.value == null) {
             return null;
         }
-        return aq.value;
+        return Y.value;
     }
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
-            Xv();
+            ack();
             if (z) {
-                this.hQd.a(str, bArr, 604800000L);
+                this.hOI.set(str, bArr, 604800000L);
             } else {
-                this.hQe.a(str, bArr, 86400000L);
+                this.hOJ.set(str, bArr, 86400000L);
             }
         }
     }
 
-    public void l(String str, byte[] bArr) {
+    public void k(String str, byte[] bArr) {
         if (bArr != null && str != null) {
-            Xv();
-            this.hQd.a(str, bArr, 2592000000L);
+            ack();
+            this.hOI.set(str, bArr, BdKVCache.MILLS_30Days);
         }
     }
 }

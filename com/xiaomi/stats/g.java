@@ -13,9 +13,9 @@ public class g extends bh.a {
     }
 
     @Override // com.xiaomi.push.service.bh.a
-    public void a(b.C0498b c0498b) {
-        if (c0498b.k()) {
-            f.a().a(c0498b.j());
+    public void a(b.C0599b c0599b) {
+        if (c0599b.k()) {
+            f.a().a(c0599b.j());
         }
     }
 }

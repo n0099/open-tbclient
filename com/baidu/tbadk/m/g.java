@@ -12,19 +12,19 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g extends a {
-    private TextView ajd;
+    private final int arrayLength;
+    private ContinuousAnimationView cJU;
     private int currentIndex;
-    private ContinuousAnimationView cyh;
-    private String[] cyi;
-    private TextView cyj;
-    private final int cyk;
-    private Runnable cyl;
+    private TextView loadingTextView;
     private int mSkinType;
+    private Runnable runnable;
+    private String[] textArray;
+    private TextView textView;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int atY() {
+    public int getNextIndex() {
         this.currentIndex++;
-        if (this.currentIndex >= this.cyk) {
+        if (this.currentIndex >= this.arrayLength) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -38,41 +38,41 @@ public class g extends a {
         super(LayoutInflater.from(context).inflate(R.layout.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
         this.mSkinType = -1;
-        this.cyl = new Runnable() { // from class: com.baidu.tbadk.m.g.1
+        this.runnable = new Runnable() { // from class: com.baidu.tbadk.m.g.1
             @Override // java.lang.Runnable
             public void run() {
                 if (!g.this.isViewAttached()) {
-                    TbadkCoreApplication.getInst().handler.removeCallbacks(g.this.cyl);
+                    TbadkCoreApplication.getInst().handler.removeCallbacks(g.this.runnable);
                     return;
                 }
-                g.this.ajd.setText(g.this.cyi[g.this.atY()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(g.this.cyl, 200L);
+                g.this.textView.setText(g.this.textArray[g.this.getNextIndex()]);
+                TbadkCoreApplication.getInst().handler.postDelayed(g.this.runnable, 200L);
             }
         };
-        this.cyh = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
+        this.cJU = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.cyh.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.cJU.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.cyh.setLayoutParams(marginLayoutParams);
+                this.cJU.setLayoutParams(marginLayoutParams);
             }
         }
-        this.ajd = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
-        this.cyj = (TextView) this.attachedView.findViewById(R.id.loading_text);
-        this.cyi = context.getResources().getStringArray(R.array.loading_anim_text_array);
-        this.cyk = this.cyi.length;
+        this.textView = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
+        this.loadingTextView = (TextView) this.attachedView.findViewById(R.id.loading_text);
+        this.textArray = context.getResources().getStringArray(R.array.loading_anim_text_array);
+        this.arrayLength = this.textArray.length;
     }
 
-    private void atZ() {
-        if (this.cyh != null) {
-            this.cyh.br();
+    private void startLoadingAnimation() {
+        if (this.cJU != null) {
+            this.cJU.playAnimation();
         }
     }
 
-    private void aua() {
-        if (this.cyh != null) {
-            this.cyh.bt();
+    private void stopLoadingAnimation() {
+        if (this.cJU != null) {
+            this.cJU.pauseAnimation();
         }
     }
 
@@ -86,13 +86,13 @@ public class g extends a {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        atZ();
-        am.d(this.ajd, R.color.cp_cont_c, 1, this.mSkinType);
-        am.d(this.cyj, R.color.cp_cont_c, 1, this.mSkinType);
-        am.h(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
-        this.ajd.setText(this.cyi[0]);
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cyl);
-        TbadkCoreApplication.getInst().handler.postDelayed(this.cyl, 200L);
+        startLoadingAnimation();
+        am.setViewTextColor(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
+        am.setViewTextColor(this.loadingTextView, R.color.cp_cont_c, 1, this.mSkinType);
+        am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
+        this.textView.setText(this.textArray[0]);
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, 200L);
         this.attachedView.setClickable(true);
     }
 
@@ -103,8 +103,8 @@ public class g extends a {
     }
 
     public void release() {
-        aua();
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cyl);
+        stopLoadingAnimation();
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -113,44 +113,38 @@ public class g extends a {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
         if (isViewAttached()) {
-            atZ();
-            am.d(this.ajd, R.color.cp_cont_c, 1, this.mSkinType);
-            am.d(this.cyj, R.color.cp_cont_c, 1, this.mSkinType);
-            am.h(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
+            startLoadingAnimation();
+            am.setViewTextColor(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
+            am.setViewTextColor(this.loadingTextView, R.color.cp_cont_c, 1, this.mSkinType);
+            am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d, this.mSkinType);
         }
     }
 
-    public View atX() {
+    public View getAttachedView() {
         return this.attachedView;
     }
 
     @Override // com.baidu.tbadk.m.a
     public void dettachView(View view) {
-        if (this.cyh != null) {
-            this.cyh.cancelAnimation();
+        if (this.cJU != null) {
+            this.cJU.cancelAnimation();
         }
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.cyl);
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         super.dettachView(view);
     }
 
-    public void iV(int i) {
-        if (this.attachedView != null) {
-            this.attachedView.setBackgroundColor(i);
-        }
-    }
-
     public void setTopMargin(int i) {
-        if (this.cyh != null) {
-            ViewGroup.LayoutParams layoutParams = this.cyh.getLayoutParams();
+        if (this.cJU != null) {
+            ViewGroup.LayoutParams layoutParams = this.cJU.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.cyh.setLayoutParams(marginLayoutParams);
+                this.cJU.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public TextView aub() {
-        return this.cyj;
+    public TextView getLoadingTextView() {
+        return this.loadingTextView;
     }
 }

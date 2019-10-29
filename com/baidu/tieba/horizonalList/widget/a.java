@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> grY = new ArrayList<>(5);
-    public int gsc;
-    public int gsd;
-    int gse;
+    private static ArrayList<a> amT = new ArrayList<>(5);
+    public int amX;
+    public int amY;
+    int amZ;
     public int type;
 
-    private void aBH() {
-        this.gsc = 0;
-        this.gsd = 0;
-        this.gse = 0;
+    private void vf() {
+        this.amX = 0;
+        this.amY = 0;
+        this.amZ = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long byS() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.gsc, this.gsd) : ExpandableListView.getPackedPositionForGroup(this.gsc);
+    public long vi() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.amX, this.amY) : ExpandableListView.getPackedPositionForGroup(this.amX);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a uA(int i) {
-        return A(2, i, 0, 0);
+    public static a tn(int i) {
+        return w(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a A(int i, int i2, int i3, int i4) {
-        a byT = byT();
-        byT.type = i;
-        byT.gsc = i2;
-        byT.gsd = i3;
-        byT.gse = i4;
-        return byT;
+    public static a w(int i, int i2, int i3, int i4) {
+        a bvJ = bvJ();
+        bvJ.type = i;
+        bvJ.amX = i2;
+        bvJ.amY = i3;
+        bvJ.amZ = i4;
+        return bvJ;
     }
 
-    private static a byT() {
+    private static a bvJ() {
         a aVar;
-        synchronized (grY) {
-            if (grY.size() > 0) {
-                aVar = grY.remove(0);
-                aVar.aBH();
+        synchronized (amT) {
+            if (amT.size() > 0) {
+                aVar = amT.remove(0);
+                aVar.vf();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (grY) {
-            if (grY.size() < 5) {
-                grY.add(this);
+        synchronized (amT) {
+            if (amT.size() < 5) {
+                amT.add(this);
             }
         }
     }

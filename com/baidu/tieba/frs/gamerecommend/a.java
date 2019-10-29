@@ -10,11 +10,11 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a extends b {
-    private FrsGameRecommendFragment fJl;
+    private FrsGameRecommendFragment fID;
 
     public a(String str, String str2) {
-        this.fJl = FrsGameRecommendFragment.cZ(str, str2);
-        aug().cyG = this.fJl;
+        this.fID = FrsGameRecommendFragment.cK(str, str2);
+        avz().frag = this.fID;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,18 +23,18 @@ public class a extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c auf() {
+    public c avy() {
         c cVar = new c();
         cVar.type = 11;
-        cVar.bXX = R.string.frs_game_recommend_tab_title;
-        cVar.cyM = c.cyJ;
+        cVar.textResId = R.string.frs_game_recommend_tab_title;
+        cVar.showIconType = c.SHOWTEXT;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator cP(Context context) {
-        this.cys = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.cys.setTextSize(2.0f);
-        return this.cys;
+    public TbFragmentTabIndicator cB(Context context) {
+        this.cKb = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.cKb.setTextSize(2.0f);
+        return this.cKb;
     }
 }

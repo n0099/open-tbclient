@@ -1,5 +1,6 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.AddFriend.AddFriendReqIdl;
 import tbclient.AddFriend.ReqData;
@@ -34,7 +35,7 @@ public class RequestAddFriendMessage extends TbSocketMessage {
     }
 
     public RequestAddFriendMessage() {
-        super(304100);
+        super(CmdConfigSocket.CMD_ADD_NEW_FRIEND);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

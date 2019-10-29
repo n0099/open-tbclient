@@ -3,7 +3,6 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.vivo.push.PushClientConstants;
 import java.util.HashMap;
@@ -29,7 +28,7 @@ class al {
             hashMap.put(PushClientConstants.TAG_PKG_NAME, context.getPackageName());
             hashMap.put(CommandMessage.SDK_VERSION, "3_6_9");
             hashMap.put("androidVersion", String.valueOf(Build.VERSION.SDK_INT));
-            hashMap.put(IXAdRequestInfo.OS, Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
+            hashMap.put("os", Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
             hashMap.put("andId", com.xiaomi.channel.commonutils.android.d.d(context));
             if (!TextUtils.isEmpty(str)) {
                 hashMap.put("clientInterfaceId", str);

@@ -23,7 +23,7 @@ public class AddFriendActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("user_id", str);
         getIntent().putExtra("name_show", str2);
-        getIntent().putExtra(IntentConfig.PORTRAIT, str3);
+        getIntent().putExtra("portrait", str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra(IS_USER_CLIENT_LOWER, z);
         getIntent().putExtra("st_type", str5);
@@ -33,7 +33,7 @@ public class AddFriendActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("user_id", str);
         getIntent().putExtra("name_show", str2);
-        getIntent().putExtra(IntentConfig.PORTRAIT, str3);
+        getIntent().putExtra("portrait", str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra(IS_USER_CLIENT_LOWER, z);
         getIntent().putExtra("st_type", str5);

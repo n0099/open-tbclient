@@ -7,23 +7,23 @@ import java.util.Set;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class b implements k {
-    private Set<k> kFL;
-    private volatile boolean kyh;
+    private Set<k> kGs;
+    private volatile boolean kyP;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.kyh;
+        return this.kyP;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.kyh) {
+            if (!this.kyP) {
                 synchronized (this) {
-                    if (!this.kyh) {
-                        if (this.kFL == null) {
-                            this.kFL = new HashSet(4);
+                    if (!this.kyP) {
+                        if (this.kGs == null) {
+                            this.kGs = new HashSet(4);
                         }
-                        this.kFL.add(kVar);
+                        this.kGs.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.kyh) {
+        if (!this.kyP) {
             synchronized (this) {
-                if (!this.kyh && this.kFL != null) {
-                    boolean remove = this.kFL.remove(kVar);
+                if (!this.kyP && this.kGs != null) {
+                    boolean remove = this.kGs.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,19 +47,19 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.kyh) {
+        if (!this.kyP) {
             synchronized (this) {
-                if (!this.kyh) {
-                    this.kyh = true;
-                    Set<k> set = this.kFL;
-                    this.kFL = null;
-                    n(set);
+                if (!this.kyP) {
+                    this.kyP = true;
+                    Set<k> set = this.kGs;
+                    this.kGs = null;
+                    l(set);
                 }
             }
         }
     }
 
-    private static void n(Collection<k> collection) {
+    private static void l(Collection<k> collection) {
         if (collection != null) {
             ArrayList arrayList = null;
             for (k kVar : collection) {
@@ -71,7 +71,7 @@ public final class b implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.eM(arrayList);
+            rx.exceptions.a.fa(arrayList);
         }
     }
 }

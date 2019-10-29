@@ -20,74 +20,74 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> gee = new ArrayList();
-    private BdTypeRecyclerView gef;
-    private com.baidu.tieba.b.a geg;
-    private j geh;
-    private e gei;
-    private h gej;
-    private n gek;
-    private n gel;
-    private com.baidu.tieba.homepage.concern.a.a gem;
-    private k gen;
-    private l gep;
-    private f geq;
-    private g ger;
-    private i ges;
-    private d get;
-    private com.baidu.tieba.homepage.concern.a.c geu;
-    private com.baidu.tieba.homepage.concern.a.b gev;
-    private m gew;
+    private List<com.baidu.adp.widget.ListView.a> gdB = new ArrayList();
+    private BdTypeRecyclerView gdC;
+    private com.baidu.tieba.b.a gdD;
+    private j gdE;
+    private e gdF;
+    private h gdG;
+    private n gdH;
+    private n gdI;
+    private com.baidu.tieba.homepage.concern.a.a gdJ;
+    private k gdK;
+    private l gdL;
+    private f gdM;
+    private g gdN;
+    private i gdO;
+    private d gdP;
+    private com.baidu.tieba.homepage.concern.a.c gdQ;
+    private com.baidu.tieba.homepage.concern.a.b gdR;
+    private m gdS;
     private List<com.baidu.adp.widget.ListView.m> mDataList;
     private TbPageContext<?> mPageContext;
 
     public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.gef = bdTypeRecyclerView;
+        this.gdC = bdTypeRecyclerView;
         this.mPageContext = (TbPageContext) com.baidu.adp.base.i.ab(context);
-        dG(context);
+        dt(context);
         b(bdTypeRecyclerView);
-        bdTypeRecyclerView.addAdapters(this.gee);
+        bdTypeRecyclerView.addAdapters(this.gdB);
     }
 
-    private void dG(Context context) {
-        this.gep = new l(this.mPageContext, com.baidu.tieba.card.data.k.eHK);
-        this.geq = new f(this.mPageContext, com.baidu.tieba.card.data.k.eHP);
-        this.ger = new g(this.mPageContext, com.baidu.tieba.card.data.k.eHQ);
-        this.ges = new i(this.mPageContext, com.baidu.tieba.card.data.k.eHR);
-        this.get = new d(this.mPageContext, com.baidu.tieba.card.data.k.eHL);
-        this.geu = new com.baidu.tieba.homepage.concern.a.c(this.mPageContext, com.baidu.tieba.card.data.k.eHN);
-        this.gev = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.card.data.k.eHO);
-        this.gew = new m(this.mPageContext, com.baidu.tieba.card.data.l.bKa);
-        this.gee.add(this.gep);
-        this.gee.add(this.geq);
-        this.gee.add(this.ger);
-        this.gee.add(this.ges);
-        this.gee.add(this.get);
-        this.gee.add(this.geu);
-        this.gee.add(this.gev);
-        this.gee.add(this.gew);
-        this.geg = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.crp);
-        this.gej = new h(this.mPageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.gek = new n(this.mPageContext, com.baidu.tieba.card.data.l.eHX);
-        this.gel = new n(this.mPageContext, com.baidu.tieba.card.data.l.eHY);
-        this.geh = new j(this.mPageContext.getContext());
-        this.gei = new e(this.mPageContext.getContext());
-        this.gem = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.card.data.j.TYPE);
-        this.gen = new k(this.mPageContext, com.baidu.tieba.card.data.k.bKe);
-        this.gee.add(this.geg);
-        this.gee.add(this.gej);
-        this.gee.add(this.gek);
-        this.gee.add(this.gel);
-        this.gee.add(this.geh);
-        this.gee.add(this.gei);
-        this.gee.add(this.gem);
-        this.gee.add(this.gen);
-        sy("page_concern");
+    private void dt(Context context) {
+        this.gdL = new l(this.mPageContext, com.baidu.tieba.card.data.k.eQp);
+        this.gdM = new f(this.mPageContext, com.baidu.tieba.card.data.k.eQu);
+        this.gdN = new g(this.mPageContext, com.baidu.tieba.card.data.k.eQv);
+        this.gdO = new i(this.mPageContext, com.baidu.tieba.card.data.k.eQw);
+        this.gdP = new d(this.mPageContext, com.baidu.tieba.card.data.k.eQq);
+        this.gdQ = new com.baidu.tieba.homepage.concern.a.c(this.mPageContext, com.baidu.tieba.card.data.k.eQs);
+        this.gdR = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.card.data.k.eQt);
+        this.gdS = new m(this.mPageContext, com.baidu.tieba.card.data.l.cbI);
+        this.gdB.add(this.gdL);
+        this.gdB.add(this.gdM);
+        this.gdB.add(this.gdN);
+        this.gdB.add(this.gdO);
+        this.gdB.add(this.gdP);
+        this.gdB.add(this.gdQ);
+        this.gdB.add(this.gdR);
+        this.gdB.add(this.gdS);
+        this.gdD = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.cDN);
+        this.gdG = new h(this.mPageContext, com.baidu.tieba.card.data.k.TYPE);
+        this.gdH = new n(this.mPageContext, com.baidu.tieba.card.data.l.eQC);
+        this.gdI = new n(this.mPageContext, com.baidu.tieba.card.data.l.eQD);
+        this.gdE = new j(this.mPageContext.getContext());
+        this.gdF = new e(this.mPageContext.getContext());
+        this.gdJ = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.card.data.j.TYPE);
+        this.gdK = new k(this.mPageContext, com.baidu.tieba.card.data.k.cbM);
+        this.gdB.add(this.gdD);
+        this.gdB.add(this.gdG);
+        this.gdB.add(this.gdH);
+        this.gdB.add(this.gdI);
+        this.gdB.add(this.gdE);
+        this.gdB.add(this.gdF);
+        this.gdB.add(this.gdJ);
+        this.gdB.add(this.gdK);
+        rh("page_concern");
     }
 
-    public void aF(List<com.baidu.adp.widget.ListView.m> list) {
+    public void aY(List<com.baidu.adp.widget.ListView.m> list) {
         this.mDataList = list;
-        this.gef.setData(list);
+        this.gdC.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -95,39 +95,39 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.gef != null) {
-            this.gef.getListAdapter().notifyDataSetChanged();
+        if (this.gdC != null) {
+            this.gdC.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.gem.cyA = bdUniqueId;
-        this.gej.cyA = bdUniqueId;
-        this.gek.cyA = bdUniqueId;
-        this.gel.cyA = bdUniqueId;
-        this.gem.cyA = bdUniqueId;
-        this.gen.cyA = bdUniqueId;
+        this.gdJ.cKf = bdUniqueId;
+        this.gdG.cKf = bdUniqueId;
+        this.gdH.cKf = bdUniqueId;
+        this.gdI.cKf = bdUniqueId;
+        this.gdJ.cKf = bdUniqueId;
+        this.gdK.cKf = bdUniqueId;
     }
 
-    private void sy(String str) {
-        if (this.gee != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.gee) {
+    private void rh(String str) {
+        if (this.gdB != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.gdB) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).sy(str);
+                    ((com.baidu.tieba.a.f) aVar).rh(str);
                 }
             }
         }
     }
 
     private void b(r rVar) {
-        this.gep.b(rVar);
-        this.geq.b(rVar);
-        this.ger.b(rVar);
-        this.ges.b(rVar);
-        this.get.b(rVar);
-        this.geu.b(rVar);
-        this.gev.b(rVar);
-        this.gew.b(rVar);
+        this.gdL.b(rVar);
+        this.gdM.b(rVar);
+        this.gdN.b(rVar);
+        this.gdO.b(rVar);
+        this.gdP.b(rVar);
+        this.gdQ.b(rVar);
+        this.gdR.b(rVar);
+        this.gdS.b(rVar);
     }
 
     public List<com.baidu.adp.widget.ListView.m> getDataList() {

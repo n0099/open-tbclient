@@ -79,11 +79,11 @@ public class a {
         }
     }
 
-    public static void I(View view, int i) {
+    public static void x(View view, int i) {
         b(view, i, null);
     }
 
-    public static void J(View view, int i) {
+    public static void y(View view, int i) {
         a(view, i, null);
     }
 }

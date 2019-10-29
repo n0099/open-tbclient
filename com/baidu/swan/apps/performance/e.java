@@ -5,7 +5,7 @@ import android.util.Log;
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void am(String str, String str2) {
+    public static void au(String str, String str2) {
         if (DEBUG) {
             Log.d(str, str2);
         }

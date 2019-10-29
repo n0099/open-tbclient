@@ -6,17 +6,17 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class j implements IOAdEventListener {
-    final /* synthetic */ d ahg;
+    final /* synthetic */ d aAE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(d dVar) {
-        this.ahg = dVar;
+        this.aAE = dVar;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
     public void run(IOAdEvent iOAdEvent) {
         e eVar;
-        eVar = this.ahg.aha;
+        eVar = this.aAE.aAy;
         if (eVar != null) {
             XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new k(this, iOAdEvent));
         }

@@ -31,7 +31,7 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         if (newTopicListResIdl != null) {
             setError(newTopicListResIdl.error.errorno.intValue());
             setErrorString(newTopicListResIdl.error.usermsg);
-            if (getError() == 0 && newTopicListResIdl.data != null && !v.aa(newTopicListResIdl.data.topic_list)) {
+            if (getError() == 0 && newTopicListResIdl.data != null && !v.isEmpty(newTopicListResIdl.data.topic_list)) {
                 this.mTopicDataList = new ArrayList();
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
@@ -41,12 +41,12 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.fbt = R.dimen.tbds16;
+                        cVar.fee = R.dimen.tbds16;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).fbt = 0;
+                ((c) v.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).fee = 0;
             }
         }
     }

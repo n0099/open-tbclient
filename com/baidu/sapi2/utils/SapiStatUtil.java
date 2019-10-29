@@ -3,7 +3,7 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -97,14 +97,14 @@ public class SapiStatUtil {
 
     public static void statShareV2OpenMax(Context context, int i, int i2, int i3, int i4, ShareStorage shareStorage, List<ShareStorage.StorageModel> list) {
         HashMap hashMap = new HashMap();
-        hashMap.put(DpStatConstants.KEY_CUID, SapiUtils.getClientId(context));
+        hashMap.put("cuid", SapiUtils.getClientId(context));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put("read_failure_count", i + "");
         hashMap.put("read_sp_count", i2 + "");
         hashMap.put("read_sd_count", i3 + "");
         hashMap.put("app_count", i4 + "");
         hashMap.put("share_count", list.size() + "");
-        hashMap.put("os_version", Build.VERSION.RELEASE);
+        hashMap.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
         hashMap.put("chmod", shareStorage.readSpFromChmodFile ? "1" : "0");
         StatService.onEvent("share_read", hashMap);
     }
@@ -192,9 +192,9 @@ public class SapiStatUtil {
 
     public static void statSmsCodeClip(Context context, String str) {
         HashMap hashMap = new HashMap();
-        hashMap.put(DpStatConstants.KEY_CUID, SapiUtils.getClientId(context));
+        hashMap.put("cuid", SapiUtils.getClientId(context));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
-        hashMap.put("os_version", Build.VERSION.RELEASE);
+        hashMap.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
         hashMap.put("success", str);
         StatService.onEvent("get_sms_check_code_from_clip", hashMap);
     }

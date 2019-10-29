@@ -44,11 +44,11 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Ml().a((Activity) context, "mapp_choose_invoice", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.s.a.1
+                bVar.Rd().a((Activity) context, "mapp_choose_invoice", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.s.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
-                    public void D(Boolean bool) {
+                    public void B(Boolean bool) {
                         if (bool.booleanValue()) {
                             c.i("chooseInvoiceTitle", OAuthResult.RESULT_MSG_SUCCESS);
                             a.this.a(context, callbackHandler, unitedSchemeEntity, bVar, optString);
@@ -66,15 +66,15 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, com.baidu.swan.apps.ae.b bVar, final String str) {
-        com.baidu.swan.apps.u.a.Ev().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.s.a.2
+        com.baidu.swan.apps.u.a.Jp().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.s.a.2
             @Override // com.baidu.swan.apps.s.b
-            public void r(JSONObject jSONObject) {
+            public void P(JSONObject jSONObject) {
                 c.i("chooseInvoiceTitle", "选择成功");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), str);
             }
 
             @Override // com.baidu.swan.apps.s.b
-            public void bP(int i) {
+            public void cL(int i) {
                 String jSONObject;
                 if (i == 1) {
                     c.i("chooseInvoiceTitle", "取消选择");

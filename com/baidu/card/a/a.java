@@ -7,32 +7,32 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private SparseArray<List<b>> XG = new SparseArray<>();
+    private SparseArray<List<b>> HA = new SparseArray<>();
 
     /* loaded from: classes3.dex */
     public interface b {
-        boolean a(C0038a c0038a);
+        boolean a(C0044a c0044a);
     }
 
     public void c(int i, b bVar) {
-        if (this.XG == null) {
-            this.XG = new SparseArray<>();
+        if (this.HA == null) {
+            this.HA = new SparseArray<>();
         }
-        List<b> list = this.XG.get(i);
+        List<b> list = this.HA.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.XG.put(i, list);
+            this.HA.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.XG.remove(i);
+            this.HA.remove(i);
             return;
         }
-        List<b> list = this.XG.get(i);
-        if (!v.aa(list)) {
+        List<b> list = this.HA.get(i);
+        if (!v.isEmpty(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
                 if (it.next() == bVar) {
@@ -42,13 +42,13 @@ public class a {
         }
     }
 
-    public boolean b(C0038a c0038a) {
-        List<b> list = this.XG.get(c0038a.XH);
-        if (v.aa(list)) {
+    public boolean b(C0044a c0044a) {
+        List<b> list = this.HA.get(c0044a.HB);
+        if (v.isEmpty(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c0038a)) {
+            if (bVar != null && bVar.a(c0044a)) {
                 return true;
             }
         }
@@ -57,29 +57,29 @@ public class a {
 
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0038a {
-        private int XH;
-        private Object XI;
+    public static class C0044a {
+        private int HB;
+        private Object HC;
 
-        public C0038a(int i, Object obj) {
-            this.XH = i;
-            this.XI = obj;
+        public C0044a(int i, Object obj) {
+            this.HB = i;
+            this.HC = obj;
         }
 
-        public C0038a(int i) {
-            this.XH = i;
+        public C0044a(int i) {
+            this.HB = i;
         }
 
         public int getActionType() {
-            return this.XH;
+            return this.HB;
         }
 
         public void setExtraData(Object obj) {
-            this.XI = obj;
+            this.HC = obj;
         }
 
-        public Object qW() {
-            return this.XI;
+        public Object mb() {
+            return this.HC;
         }
     }
 }

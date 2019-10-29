@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.util.Log;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,11 +34,11 @@ public class b implements g {
 
         public a(String str, String str2, String str3) {
             StringBuffer stringBuffer = new StringBuffer(b.this.a.format(new Date()));
-            stringBuffer.append(" ");
+            stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
             stringBuffer.append(b.this.h);
             stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             stringBuffer.append(String.valueOf(Thread.currentThread().getId()));
-            stringBuffer.append(" ");
+            stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
             stringBuffer.append(str);
             stringBuffer.append("/");
             this.a = stringBuffer.toString();

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
@@ -28,7 +29,7 @@ public class SingleSquareActivityConfig extends IntentConfig {
             e.printStackTrace();
             sb.append("|");
         }
-        sb.append(str + "_" + str2);
+        sb.append(str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2);
         return sb.toString();
     }
 }

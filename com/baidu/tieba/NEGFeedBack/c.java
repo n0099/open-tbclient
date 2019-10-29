@@ -18,6 +18,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.aj;
@@ -33,16 +34,16 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    private int cTA;
-    private int cTB;
-    private int cTC;
-    private PopupWindow cTE;
-    private TextView cTF;
-    private TextView cTG;
-    private b cTH;
-    private boolean cTI;
-    private NEGFeedBackView cTJ;
-    private int cTz;
+    private int dcU;
+    private int dcV;
+    private int dcW;
+    private int dcX;
+    private PopupWindow dcZ;
+    private TextView dda;
+    private TextView ddb;
+    private b ddc;
+    private boolean ddd;
+    private NEGFeedBackView dde;
     private View mAnchor;
     private int mArrowHeight;
     private ViewGroup mContentView;
@@ -52,76 +53,76 @@ public class c {
     private int mWindowHeight;
     private int mXOffset;
     private int mYOffset;
-    private PopupWindow aPS = null;
-    private aj cTx = null;
-    private SparseArray<String> cTj = null;
-    private List<b.a> cTy = new ArrayList();
-    private NEGFeedBackView.a cTD = null;
+    private PopupWindow mPopupWindow = null;
+    private aj dcS = null;
+    private SparseArray<String> dcE = null;
+    private List<b.a> dcT = new ArrayList();
+    private NEGFeedBackView.a dcY = null;
     private int mSkinType = 3;
-    private CompoundButton.OnCheckedChangeListener cTm = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
+    private CompoundButton.OnCheckedChangeListener dcH = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            if (c.this.cTD != null) {
-                c.this.cTD.a(c.this.cTx, compoundButton, z);
+            if (c.this.dcY != null) {
+                c.this.dcY.a(c.this.dcS, compoundButton, z);
             }
             if (compoundButton.getTag() instanceof b.a) {
                 b.a aVar = (b.a) compoundButton.getTag();
                 if (z) {
-                    if (!c.this.cTy.contains(aVar)) {
-                        c.this.cTy.add(aVar);
+                    if (!c.this.dcT.contains(aVar)) {
+                        c.this.dcT.add(aVar);
                     }
                 } else {
-                    c.this.cTy.remove(aVar);
+                    c.this.dcT.remove(aVar);
                 }
             }
-            c.this.aBG();
+            c.this.aBR();
         }
     };
-    private View.OnClickListener cTK = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.2
+    private View.OnClickListener ddf = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.cTx != null && c.this.aPS != null) {
+            if (c.this.dcS != null && c.this.mPopupWindow != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
-                JSONObject H = c.this.H(arrayList);
-                if (!StringUtils.isNull(c.this.cTx.getType())) {
-                    CustomMessage customMessage = new CustomMessage(2921324, c.this.mPageContext.getUniqueId());
-                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921324, H);
+                JSONObject J = c.this.J(arrayList);
+                if (!StringUtils.isNull(c.this.dcS.getType())) {
+                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE, c.this.mPageContext.getUniqueId());
+                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE, J);
                     customResponsedMessage.setOrginalMessage(customMessage);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 } else {
-                    CustomMessage customMessage2 = new CustomMessage(2016488, c.this.mPageContext.getUniqueId());
-                    CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2016488, H);
+                    CustomMessage customMessage2 = new CustomMessage((int) CmdConfigCustom.NEG_FEED_BACK_DELETE, c.this.mPageContext.getUniqueId());
+                    CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(CmdConfigCustom.NEG_FEED_BACK_DELETE, J);
                     customResponsedMessage2.setOrginalMessage(customMessage2);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                 }
-                c.this.aBD();
+                c.this.aBO();
                 com.baidu.tbadk.core.view.e eVar = new com.baidu.tbadk.core.view.e();
-                eVar.bZH = 1500L;
-                eVar.j(c.this.mContext.getResources().getString(R.string.reduce_related_thread_recommend));
-                if (c.this.cTD != null) {
-                    c.this.cTD.a(arrayList, c.this.aBF(), c.this.cTx);
+                eVar.toastTime = 1500L;
+                eVar.showFailToast(c.this.mContext.getResources().getString(R.string.reduce_related_thread_recommend));
+                if (c.this.dcY != null) {
+                    c.this.dcY.a(arrayList, c.this.aBQ(), c.this.dcS);
                 }
             }
         }
     };
-    private PopupWindow.OnDismissListener cTL = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.NEGFeedBack.c.3
+    private PopupWindow.OnDismissListener ddg = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.NEGFeedBack.c.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (c.this.cTJ != null) {
-                c.this.cTJ.setACRotateAnimation();
-                c.this.cTJ = null;
+            if (c.this.dde != null) {
+                c.this.dde.setACRotateAnimation();
+                c.this.dde = null;
             }
-            if (c.this.cTE != null) {
-                c.this.cTE.dismiss();
-                c.this.cTE = null;
+            if (c.this.dcZ != null) {
+                c.this.dcZ.dismiss();
+                c.this.dcZ = null;
             }
         }
     };
-    private CustomMessageListener cTM = new CustomMessageListener(2016524) { // from class: com.baidu.tieba.NEGFeedBack.c.4
+    private CustomMessageListener ddh = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tieba.NEGFeedBack.c.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.aBD();
+            c.this.aBO();
         }
     };
 
@@ -134,59 +135,59 @@ public class c {
     }
 
     private void init() {
-        this.mXOffset = l.g(this.mContext, R.dimen.tbds44);
-        this.mYOffset = l.g(this.mContext, R.dimen.tbds28);
-        this.mMargin = l.g(this.mContext, R.dimen.tbds44);
-        this.cTC = l.g(this.mContext, R.dimen.tbds14);
-        this.mArrowHeight = l.g(this.mContext, R.dimen.tbds39);
-        this.cTz = l.af(this.mContext) - (this.mXOffset * 2);
-        this.cTB = l.g(this.mContext, R.dimen.tbds160);
-        this.cTH = new b(this.mPageContext);
-        this.cTH.a(this.cTm);
-        this.mPageContext.registerListener(this.cTM);
+        this.mXOffset = l.getDimens(this.mContext, R.dimen.tbds44);
+        this.mYOffset = l.getDimens(this.mContext, R.dimen.tbds28);
+        this.mMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        this.dcX = l.getDimens(this.mContext, R.dimen.tbds14);
+        this.mArrowHeight = l.getDimens(this.mContext, R.dimen.tbds39);
+        this.dcU = l.getEquipmentWidth(this.mContext) - (this.mXOffset * 2);
+        this.dcW = l.getDimens(this.mContext, R.dimen.tbds160);
+        this.ddc = new b(this.mPageContext);
+        this.ddc.a(this.dcH);
+        this.mPageContext.registerListener(this.ddh);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            if (this.cTM != null) {
-                this.cTM.setTag(bdUniqueId);
+            if (this.ddh != null) {
+                this.ddh.setTag(bdUniqueId);
             }
-            MessageManager.getInstance().registerListener(this.cTM);
+            MessageManager.getInstance().registerListener(this.ddh);
         }
     }
 
-    public void bo(View view) {
-        if (this.mContext != null && this.cTj != null && this.cTj.size() != 0) {
-            this.cTJ = (NEGFeedBackView) view;
-            this.cTJ.setCWRotateAnimation();
+    public void O(View view) {
+        if (this.mContext != null && this.dcE != null && this.dcE.size() != 0) {
+            this.dde = (NEGFeedBackView) view;
+            this.dde.setCWRotateAnimation();
             View contentView = getContentView();
-            this.cTz = l.af(this.mContext) - (this.mXOffset * 2);
+            this.dcU = l.getEquipmentWidth(this.mContext) - (this.mXOffset * 2);
             this.mWindowHeight = getWindowMeasuredHeight();
             int[] iArr = new int[2];
-            boolean a = a(this.mContext, this.mAnchor, this.mWindowHeight, this.cTz, this.cTB, this.mYOffset, iArr);
-            this.aPS = new PopupWindow(contentView, this.cTz, getWindowMeasuredHeight());
-            this.aPS.setFocusable(true);
-            this.aPS.setTouchable(true);
-            this.aPS.setOnDismissListener(this.cTL);
-            aBH();
-            this.cTE = new PopupWindow(LayoutInflater.from(this.mContext).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+            boolean a = a(this.mContext, this.mAnchor, this.mWindowHeight, this.dcU, this.dcW, this.mYOffset, iArr);
+            this.mPopupWindow = new PopupWindow(contentView, this.dcU, getWindowMeasuredHeight());
+            this.mPopupWindow.setFocusable(true);
+            this.mPopupWindow.setTouchable(true);
+            this.mPopupWindow.setOnDismissListener(this.ddg);
+            vf();
+            this.dcZ = new PopupWindow(LayoutInflater.from(this.mContext).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
             if (Build.VERSION.SDK_INT >= 22) {
-                this.cTE.setAttachedInDecor(false);
+                this.dcZ.setAttachedInDecor(false);
             }
-            this.cTE.showAtLocation(this.mAnchor, 0, 0, 0);
+            this.dcZ.showAtLocation(this.mAnchor, 0, 0, 0);
             if (iArr[0] != 0 || iArr[1] != 0) {
                 if (a) {
-                    this.aPS.setAnimationStyle(R.style.scale_rb2lt_anim);
-                    am.a(this.aPS, (int) R.drawable.bg_tost_feedback_down);
+                    this.mPopupWindow.setAnimationStyle(R.style.scale_rb2lt_anim);
+                    am.setBackgroundDrawable(this.mPopupWindow, R.drawable.bg_tost_feedback_down);
                 } else {
-                    this.aPS.setAnimationStyle(R.style.scale_rt2lb_anim);
-                    am.a(this.aPS, (int) R.drawable.bg_tost_feedback_up);
+                    this.mPopupWindow.setAnimationStyle(R.style.scale_rt2lb_anim);
+                    am.setBackgroundDrawable(this.mPopupWindow, R.drawable.bg_tost_feedback_up);
                 }
-                this.aPS.showAtLocation(this.mAnchor, 0, iArr[0] - this.mXOffset, iArr[1]);
-                if (this.cTD != null) {
-                    this.cTD.b(this.cTx);
+                this.mPopupWindow.showAtLocation(this.mAnchor, 0, iArr[0] - this.mXOffset, iArr[1]);
+                if (this.dcY != null) {
+                    this.dcY.b(this.dcS);
                 }
-                this.cTI = true;
+                this.ddd = true;
             }
         }
     }
@@ -197,13 +198,13 @@ public class c {
         }
         if (this.mContentView == null) {
             this.mContentView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.neg_feedback_popupwindow, (ViewGroup) null);
-            this.cTF = (TextView) this.mContentView.findViewById(R.id.head_text);
-            this.cTG = (TextView) this.mContentView.findViewById(R.id.uninterested_text);
-            this.cTG.setOnClickListener(this.cTK);
-            this.mContentView.setPadding(this.cTC, this.mMargin, this.cTC, this.cTC + this.mArrowHeight);
+            this.dda = (TextView) this.mContentView.findViewById(R.id.head_text);
+            this.ddb = (TextView) this.mContentView.findViewById(R.id.uninterested_text);
+            this.ddb.setOnClickListener(this.ddf);
+            this.mContentView.setPadding(this.dcX, this.mMargin, this.dcX, this.dcX + this.mArrowHeight);
         }
-        akZ();
-        View view = this.cTH.getView();
+        anO();
+        View view = this.ddc.getView();
         if (view != null && view.getParent() == null) {
             this.mContentView.addView(view);
         }
@@ -215,8 +216,8 @@ public class c {
             return 0;
         }
         this.mContentView.measure(0, 0);
-        this.cTA = this.mContentView.getMeasuredHeight() + this.mArrowHeight;
-        return this.cTA;
+        this.dcV = this.mContentView.getMeasuredHeight() + this.mArrowHeight;
+        return this.dcV;
     }
 
     private boolean a(Context context, View view, int i, int i2, int i3, int i4, int[] iArr) {
@@ -226,31 +227,31 @@ public class c {
         int[] iArr2 = new int[2];
         view.getLocationOnScreen(iArr2);
         int height = view.getHeight();
-        int ah = l.ah(context);
-        int af = l.af(context);
-        boolean z = ((ah - iArr2[1]) - height) - i3 < i;
-        iArr[0] = af - i2;
+        int equipmentHeight = l.getEquipmentHeight(context);
+        int equipmentWidth = l.getEquipmentWidth(context);
+        boolean z = ((equipmentHeight - iArr2[1]) - height) - i3 < i;
+        iArr[0] = equipmentWidth - i2;
         if (z) {
-            this.mContentView.setPadding(this.cTC, this.mMargin, this.cTC, this.cTC + this.mArrowHeight);
+            this.mContentView.setPadding(this.dcX, this.mMargin, this.dcX, this.dcX + this.mArrowHeight);
             iArr[1] = (iArr2[1] - i) + i4;
             iArr[1] = Math.max(UtilHelper.getStatusBarHeight(), iArr[1]);
             return z;
         }
-        this.mContentView.setPadding(this.cTC, this.mMargin + this.mArrowHeight, this.cTC, this.cTC);
+        this.mContentView.setPadding(this.dcX, this.mMargin + this.mArrowHeight, this.dcX, this.dcX);
         iArr[1] = (iArr2[1] + height) - i4;
         return z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject H(ArrayList<Integer> arrayList) {
+    public JSONObject J(ArrayList<Integer> arrayList) {
         JSONObject jSONObject = new JSONObject();
-        if (this.cTx == null || arrayList == null) {
+        if (this.dcS == null || arrayList == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (!v.aa(this.cTy)) {
-            for (b.a aVar : this.cTy) {
+        if (!v.isEmpty(this.dcT)) {
+            for (b.a aVar : this.dcT) {
                 if (aVar != null) {
                     arrayList.add(Integer.valueOf(aVar.id));
                     if (sb.length() != 0) {
@@ -265,17 +266,17 @@ public class c {
             }
         }
         try {
-            jSONObject.put("tid", this.cTx.getTid());
+            jSONObject.put("tid", this.dcS.getTid());
             if (sb.length() != 0) {
                 jSONObject.put("dislike_ids", sb.toString());
             }
-            jSONObject.put("fid", this.cTx.getFid());
+            jSONObject.put("fid", this.dcS.getFid());
             jSONObject.put("click_time", System.currentTimeMillis());
-            if (!StringUtils.isNull(this.cTx.getType())) {
-                jSONObject.put("type", this.cTx.getType());
+            if (!StringUtils.isNull(this.dcS.getType())) {
+                jSONObject.put("type", this.dcS.getType());
             }
-            if (this.cTx.ado() != 0) {
-                jSONObject.put("topic_id", this.cTx.ado());
+            if (this.dcS.aht() != 0) {
+                jSONObject.put("topic_id", this.dcS.aht());
             }
             jSONObject.put("extra", sb2.toString());
         } catch (Exception e) {
@@ -285,12 +286,12 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aBF() {
-        if (v.aa(this.cTy)) {
+    public String aBQ() {
+        if (v.isEmpty(this.dcT)) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (b.a aVar : this.cTy) {
+        for (b.a aVar : this.dcT) {
             if (aVar != null) {
                 if (sb.length() != 0) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -302,84 +303,84 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBG() {
-        int size = this.cTy.size();
+    public void aBR() {
+        int size = this.dcT.size();
         if (size > 0) {
             String string = this.mContext.getResources().getString(R.string.feedback_selected_reason, Integer.valueOf(size));
             SpannableString spannableString = new SpannableString(string);
             UtilHelper.setSpan(spannableString, string, String.valueOf(size), new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_a)));
-            if (this.cTF != null) {
-                this.cTF.setText(spannableString);
+            if (this.dda != null) {
+                this.dda.setText(spannableString);
             }
-            if (this.cTG != null) {
-                this.cTG.setText(this.mContext.getResources().getString(R.string.confirm));
+            if (this.ddb != null) {
+                this.ddb.setText(this.mContext.getResources().getString(R.string.confirm));
                 return;
             }
             return;
         }
-        if (this.cTF != null) {
-            this.cTF.setText(this.mContext.getResources().getString(R.string.tell_us_reason));
+        if (this.dda != null) {
+            this.dda.setText(this.mContext.getResources().getString(R.string.tell_us_reason));
         }
-        if (this.cTG != null) {
-            this.cTG.setText(this.mContext.getResources().getString(R.string.not_interested));
+        if (this.ddb != null) {
+            this.ddb.setText(this.mContext.getResources().getString(R.string.not_interested));
         }
     }
 
     public void setData(aj ajVar) {
         if (ajVar != null) {
-            this.cTx = ajVar;
-            this.cTj = ajVar.adl();
-            if (this.cTj != null && this.cTj.size() > 9) {
-                for (int size = this.cTj.size() - 1; size >= 9; size--) {
-                    this.cTj.removeAt(size);
+            this.dcS = ajVar;
+            this.dcE = ajVar.getFeedBackReasonMap();
+            if (this.dcE != null && this.dcE.size() > 9) {
+                for (int size = this.dcE.size() - 1; size >= 9; size--) {
+                    this.dcE.removeAt(size);
                 }
             }
-            this.cTH.setData(ajVar);
+            this.ddc.setData(ajVar);
         }
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.cTH.setFirstRowSingleColumn(z);
+        this.ddc.setFirstRowSingleColumn(z);
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.cTD = aVar;
+        this.dcY = aVar;
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.cTH.setDefaultReasonArray(strArr);
+        this.ddc.setDefaultReasonArray(strArr);
     }
 
-    public void aBD() {
-        if (this.aPS != null) {
-            this.aPS.dismiss();
-            this.aPS = null;
+    public void aBO() {
+        if (this.mPopupWindow != null) {
+            this.mPopupWindow.dismiss();
+            this.mPopupWindow = null;
         }
-        if (this.cTE != null) {
-            this.cTE.dismiss();
-            this.cTE = null;
+        if (this.dcZ != null) {
+            this.dcZ.dismiss();
+            this.dcZ = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDetachedFromWindow() {
-        MessageManager.getInstance().unRegisterListener(this.cTM);
-        aBD();
+        MessageManager.getInstance().unRegisterListener(this.ddh);
+        aBO();
     }
 
-    private void aBH() {
-        if (this.cTI && this.cTy.size() != 0) {
-            this.cTy.clear();
-            aBG();
+    private void vf() {
+        if (this.ddd && this.dcT.size() != 0) {
+            this.dcT.clear();
+            aBR();
         }
     }
 
-    private void akZ() {
+    private void anO() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            am.f(this.cTF, R.color.cp_cont_b, 1);
-            am.f(this.cTG, R.color.cp_cont_a, 1);
-            am.k(this.cTG, R.drawable.bg_blue_rec_n);
+            am.setViewTextColor(this.dda, R.color.cp_cont_b, 1);
+            am.setViewTextColor(this.ddb, R.color.cp_cont_a, 1);
+            am.setBackgroundResource(this.ddb, R.drawable.bg_blue_rec_n);
             this.mSkinType = skinType;
         }
     }

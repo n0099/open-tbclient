@@ -3,6 +3,7 @@ package android.support.v4.provider;
 import android.net.Uri;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ class RawDocumentFile extends DocumentFile {
     public DocumentFile createFile(String str, String str2) {
         String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str);
         if (extensionFromMimeType != null) {
-            str2 = str2 + "." + extensionFromMimeType;
+            str2 = str2 + DefaultConfig.TOKEN_SEPARATOR + extensionFromMimeType;
         }
         File file = new File(this.mFile, str2);
         try {

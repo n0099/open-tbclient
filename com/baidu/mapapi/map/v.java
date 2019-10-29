@@ -1,6 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.util.Log;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
@@ -32,7 +33,7 @@ public class v implements Runnable {
             str = TileOverlay.b;
             Log.e(str, "FileTile pic is null");
         } else if (tile.width == 256 && tile.height == 256) {
-            this.e.a(this.a + "_" + this.b + "_" + this.c, tile);
+            this.e.a(this.a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, tile);
         } else {
             str2 = TileOverlay.b;
             Log.e(str2, "FileTile pic must be 256 * 256");

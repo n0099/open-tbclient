@@ -78,19 +78,19 @@ public class n {
         }
     }
 
-    public static boolean R(Activity activity) {
-        if (activity == null || !M(activity.getIntent())) {
+    public static boolean Q(Activity activity) {
+        if (activity == null || !S(activity.getIntent())) {
             return false;
         }
         try {
-            b.O(activity);
+            b.N(activity);
             return true;
         } catch (Exception e) {
             return true;
         }
     }
 
-    public static boolean M(Intent intent) {
+    public static boolean S(Intent intent) {
         if (intent != null) {
             try {
                 Bundle extras = intent.getExtras();

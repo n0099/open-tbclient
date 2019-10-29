@@ -8,7 +8,7 @@ import rx.k;
 public final class b implements rx.c, k {
     final rx.c actual;
     boolean done;
-    k kEv;
+    k kFc;
 
     public b(rx.c cVar) {
         this.actual = cVar;
@@ -21,7 +21,7 @@ public final class b implements rx.c, k {
             try {
                 this.actual.onCompleted();
             } catch (Throwable th) {
-                rx.exceptions.a.K(th);
+                rx.exceptions.a.J(th);
                 throw new OnCompletedFailedException(th);
             }
         }
@@ -35,7 +35,7 @@ public final class b implements rx.c, k {
             try {
                 this.actual.onError(th);
             } catch (Throwable th2) {
-                rx.exceptions.a.K(th2);
+                rx.exceptions.a.J(th2);
                 throw new OnErrorFailedException(new CompositeException(th, th2));
             }
         }
@@ -43,11 +43,11 @@ public final class b implements rx.c, k {
 
     @Override // rx.c
     public void onSubscribe(k kVar) {
-        this.kEv = kVar;
+        this.kFc = kVar;
         try {
             this.actual.onSubscribe(this);
         } catch (Throwable th) {
-            rx.exceptions.a.K(th);
+            rx.exceptions.a.J(th);
             kVar.unsubscribe();
             onError(th);
         }
@@ -55,11 +55,11 @@ public final class b implements rx.c, k {
 
     @Override // rx.k
     public void unsubscribe() {
-        this.kEv.unsubscribe();
+        this.kFc.unsubscribe();
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.done || this.kEv.isUnsubscribed();
+        return this.done || this.kFc.isUnsubscribed();
     }
 }

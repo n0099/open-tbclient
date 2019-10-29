@@ -5,31 +5,31 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b<T> {
-    private int Bg;
-    private int Bh;
-    private LinkedList<T> Bi;
-    private c<T> Bj;
+    private int _maxIdle;
+    private int _minIdle;
+    private LinkedList<T> _pool;
+    private c<T> pL;
 
     public b(c<T> cVar, int i, int i2) {
-        this.Bg = 10;
-        this.Bh = 0;
-        this.Bi = null;
-        this.Bj = null;
+        this._maxIdle = 10;
+        this._minIdle = 0;
+        this._pool = null;
+        this.pL = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.Bj = cVar;
-        this.Bg = i;
-        this.Bh = i2;
-        this.Bi = new LinkedList<>();
-        ag(this.Bh);
+        this.pL = cVar;
+        this._maxIdle = i;
+        this._minIdle = i2;
+        this._pool = new LinkedList<>();
+        addItems(this._minIdle);
     }
 
-    private void af(int i) {
+    private void deleteItems(int i) {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    this.Bj.destroyObject(this.Bi.poll());
+                    this.pL.destroyObject(this._pool.poll());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -37,54 +37,54 @@ public class b<T> {
         }
     }
 
-    private void ag(int i) {
+    private void addItems(int i) {
         T t;
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.Bj.activateObject(this.Bj.makeObject());
+                    t = this.pL.activateObject(this.pL.makeObject());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
-                    this.Bi.offer(t);
+                    this._pool.offer(t);
                 }
             }
         }
     }
 
-    public void ah(int i) {
+    public void setMaxIdle(int i) {
         synchronized (this) {
-            int i2 = i < this.Bh ? this.Bh : i;
+            int i2 = i < this._minIdle ? this._minIdle : i;
             if (i2 <= 0) {
                 i2 = 1;
             }
-            this.Bg = i2;
-            af(this.Bi.size() - this.Bg);
+            this._maxIdle = i2;
+            deleteItems(this._pool.size() - this._maxIdle);
         }
     }
 
-    public void ai(int i) {
+    public void setMinIdle(int i) {
         synchronized (this) {
-            if (i > this.Bg) {
-                i = this.Bg;
+            if (i > this._maxIdle) {
+                i = this._maxIdle;
             }
-            this.Bh = i;
-            ag(this.Bh - this.Bi.size());
+            this._minIdle = i;
+            addItems(this._minIdle - this._pool.size());
         }
     }
 
-    public T iD() {
+    public T borrowObject() {
         T t = null;
         synchronized (this) {
             try {
-                if (this.Bi.size() > 0) {
-                    t = this.Bj.activateObject(this.Bi.poll());
+                if (this._pool.size() > 0) {
+                    t = this.pL.activateObject(this._pool.poll());
                 } else {
-                    t = this.Bj.activateObject(this.Bj.makeObject());
+                    t = this.pL.activateObject(this.pL.makeObject());
                 }
-                ag(this.Bh - this.Bi.size());
+                addItems(this._minIdle - this._pool.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -92,28 +92,28 @@ public class b<T> {
         return t;
     }
 
-    public void t(T t) {
+    public void returnObject(T t) {
         T t2;
         synchronized (this) {
-            if (this.Bi.size() < this.Bg) {
+            if (this._pool.size() < this._maxIdle) {
                 try {
-                    t2 = this.Bj.passivateObject(t);
+                    t2 = this.pL.passivateObject(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
-                    this.Bi.offer(t2);
+                    this._pool.offer(t2);
                 }
             } else {
-                this.Bj.destroyObject(t);
+                this.pL.destroyObject(t);
             }
         }
     }
 
     public void clear() {
         synchronized (this) {
-            this.Bi.clear();
+            this._pool.clear();
         }
     }
 }

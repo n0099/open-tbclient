@@ -30,7 +30,7 @@ public final class j<T> implements d.b<T, T> {
                 try {
                     jVar.onError(th);
                 } finally {
-                    cQy();
+                    cOD();
                 }
             }
 
@@ -39,15 +39,15 @@ public final class j<T> implements d.b<T, T> {
                 try {
                     jVar.onCompleted();
                 } finally {
-                    cQy();
+                    cOD();
                 }
             }
 
-            void cQy() {
+            void cOD() {
                 try {
                     j.this.action.call();
                 } catch (Throwable th) {
-                    rx.exceptions.a.K(th);
+                    rx.exceptions.a.J(th);
                     rx.c.c.onError(th);
                 }
             }

@@ -5,9 +5,9 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class GameRecorderController {
-    private AREngineDelegate bkO;
-    private com.baidu.mario.b.b bkP;
-    private RecorderState bkQ;
+    private AREngineDelegate bDC;
+    private com.baidu.mario.b.b bDD;
+    private RecorderState bDE;
 
     /* loaded from: classes2.dex */
     public enum RecorderState {
@@ -18,62 +18,62 @@ public class GameRecorderController {
     }
 
     public GameRecorderController(AREngineDelegate aREngineDelegate) {
-        this.bkO = aREngineDelegate;
-        if (this.bkO != null) {
-            this.bkQ = RecorderState.IDLE;
-            this.bkO.setGameRecordCallback(new a());
+        this.bDC = aREngineDelegate;
+        if (this.bDC != null) {
+            this.bDE = RecorderState.IDLE;
+            this.bDC.setGameRecordCallback(new a());
         }
     }
 
     public void a(boolean z, int i, String str) {
-        if (this.bkO != null) {
-            SwanAppActivity Gv = e.GJ().Gv();
-            this.bkO.startRecord(z, i, str, Gv != null && Gv.isLandScape());
+        if (this.bDC != null) {
+            SwanAppActivity Lp = e.LD().Lp();
+            this.bDC.startRecord(z, i, str, Lp != null && Lp.isLandScape());
         }
     }
 
     public void pauseRecord() {
-        if (this.bkO != null) {
-            this.bkO.pauseRecord();
+        if (this.bDC != null) {
+            this.bDC.pauseRecord();
         }
     }
 
     public void resumeRecord() {
-        if (this.bkO != null) {
-            this.bkO.resumeRecord();
+        if (this.bDC != null) {
+            this.bDC.resumeRecord();
         }
     }
 
     public void stopRecord() {
-        if (this.bkO != null) {
-            this.bkO.stopRecord();
+        if (this.bDC != null) {
+            this.bDC.stopRecord();
         }
     }
 
     public long getCurrentRecordProcess() {
-        if (this.bkO != null) {
-            return this.bkO.getCurrentRecordProcess();
+        if (this.bDC != null) {
+            return this.bDC.getCurrentRecordProcess();
         }
         return 0L;
     }
 
     public void setGameRecordCallback(com.baidu.mario.b.b bVar) {
-        this.bkP = bVar;
+        this.bDD = bVar;
     }
 
-    public RecorderState SV() {
-        return this.bkQ;
+    public RecorderState XM() {
+        return this.bDE;
     }
 
     public void release() {
-        if (this.bkO != null && this.bkP != null && (SV() == RecorderState.RECORDING || SV() == RecorderState.PAUSE)) {
-            this.bkP.onError(-1);
+        if (this.bDC != null && this.bDD != null && (XM() == RecorderState.RECORDING || XM() == RecorderState.PAUSE)) {
+            this.bDD.onError(-1);
         }
         setGameRecordCallback(null);
-        this.bkQ = RecorderState.IDLE;
+        this.bDE = RecorderState.IDLE;
     }
 
-    public static GameRecorderController SW() {
+    public static GameRecorderController XN() {
         return new GameRecorderController(null);
     }
 
@@ -84,41 +84,41 @@ public class GameRecorderController {
 
         @Override // com.baidu.mario.b.b
         public void onStart() {
-            GameRecorderController.this.bkQ = RecorderState.RECORDING;
-            if (GameRecorderController.this.bkP != null) {
-                GameRecorderController.this.bkP.onStart();
+            GameRecorderController.this.bDE = RecorderState.RECORDING;
+            if (GameRecorderController.this.bDD != null) {
+                GameRecorderController.this.bDD.onStart();
             }
         }
 
         @Override // com.baidu.mario.b.b
-        public void h(int i, String str) {
-            GameRecorderController.this.bkQ = RecorderState.STOP;
-            if (GameRecorderController.this.bkP != null) {
-                GameRecorderController.this.bkP.h(i, str);
+        public void l(int i, String str) {
+            GameRecorderController.this.bDE = RecorderState.STOP;
+            if (GameRecorderController.this.bDD != null) {
+                GameRecorderController.this.bDD.l(i, str);
             }
         }
 
         @Override // com.baidu.mario.b.b
         public void onPause() {
-            GameRecorderController.this.bkQ = RecorderState.PAUSE;
-            if (GameRecorderController.this.bkP != null) {
-                GameRecorderController.this.bkP.onPause();
+            GameRecorderController.this.bDE = RecorderState.PAUSE;
+            if (GameRecorderController.this.bDD != null) {
+                GameRecorderController.this.bDD.onPause();
             }
         }
 
         @Override // com.baidu.mario.b.b
         public void onResume() {
-            GameRecorderController.this.bkQ = RecorderState.RECORDING;
-            if (GameRecorderController.this.bkP != null) {
-                GameRecorderController.this.bkP.onResume();
+            GameRecorderController.this.bDE = RecorderState.RECORDING;
+            if (GameRecorderController.this.bDD != null) {
+                GameRecorderController.this.bDD.onResume();
             }
         }
 
         @Override // com.baidu.mario.b.b
         public void onError(int i) {
-            GameRecorderController.this.bkQ = RecorderState.IDLE;
-            if (GameRecorderController.this.bkP != null) {
-                GameRecorderController.this.bkP.onError(i);
+            GameRecorderController.this.bDE = RecorderState.IDLE;
+            if (GameRecorderController.this.bDD != null) {
+                GameRecorderController.this.bDD.onError(i);
             }
         }
     }

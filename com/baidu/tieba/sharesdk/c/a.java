@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes6.dex */
 public class a {
-    public static boolean i(Context context, Intent intent) {
+    public static boolean startActivity(Context context, Intent intent) {
         try {
             if (!(context instanceof Activity) && intent != null) {
                 intent.addFlags(268435456);

@@ -19,11 +19,11 @@ import java.util.Map;
 public class r {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void bH(Context context) {
+    public static void bI(Context context) {
         if (context != null) {
             String str = Build.MANUFACTURER;
             if (TextUtils.isEmpty(str)) {
-                bK(context);
+                bL(context);
                 return;
             }
             String lowerCase = str.toLowerCase();
@@ -31,26 +31,26 @@ public class r {
                 Log.d("SwanAppPermissionHelper", "goPermissionPage : " + lowerCase);
             }
             if (TextUtils.equals(lowerCase, "xiaomi")) {
-                bI(context);
-            } else if (TextUtils.equals(lowerCase, "meizu")) {
                 bJ(context);
+            } else if (TextUtils.equals(lowerCase, "meizu")) {
+                bK(context);
             } else {
-                Map<String, ComponentName> Pw = Pw();
-                if (Pw.containsKey(lowerCase)) {
-                    a(context, Pw.get(lowerCase));
+                Map<String, ComponentName> Um = Um();
+                if (Um.containsKey(lowerCase)) {
+                    a(context, Um.get(lowerCase));
                     return;
                 }
-                Map<String, String> Px = Px();
-                if (Px.containsKey(lowerCase)) {
-                    W(context, Px.get(lowerCase));
+                Map<String, String> Un = Un();
+                if (Un.containsKey(lowerCase)) {
+                    V(context, Un.get(lowerCase));
                 } else {
-                    bK(context);
+                    bL(context);
                 }
             }
         }
     }
 
-    private static Map<String, ComponentName> Pw() {
+    private static Map<String, ComponentName> Um() {
         HashMap hashMap = new HashMap();
         hashMap.put("huawei", new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -59,7 +59,7 @@ public class r {
         return hashMap;
     }
 
-    private static Map<String, String> Px() {
+    private static Map<String, String> Un() {
         HashMap hashMap = new HashMap();
         hashMap.put("oppo", "com.coloros.safecenter");
         hashMap.put("vivo", "com.bairenkeji.icaller");
@@ -67,24 +67,24 @@ public class r {
         return hashMap;
     }
 
-    private static void bI(Context context) {
-        String Py = Py();
+    private static void bJ(Context context) {
+        String Uo = Uo();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + Py);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + Uo);
         }
         Intent intent = new Intent();
-        if ("V10".equals(Py) || "V9".equals(Py) || "V8".equals(Py)) {
+        if ("V10".equals(Uo) || "V9".equals(Uo) || "V8".equals(Uo)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             context.startActivity(intent);
-        } else if ("V7".equals(Py) || "V6".equals(Py)) {
+        } else if ("V7".equals(Uo) || "V6".equals(Uo)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             context.startActivity(intent);
         } else {
-            bK(context);
+            bL(context);
         }
     }
 
@@ -92,7 +92,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String Py() {
+    private static String Uo() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -152,7 +152,7 @@ public class r {
         return str;
     }
 
-    private static void bJ(Context context) {
+    private static void bK(Context context) {
         try {
             Intent intent = new Intent("com.meizu.safe.security.SHOW_APPSEC");
             intent.addCategory("android.intent.category.DEFAULT");
@@ -162,7 +162,7 @@ public class r {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            bK(context);
+            bL(context);
         }
     }
 
@@ -175,19 +175,19 @@ public class r {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            bK(context);
+            bL(context);
         }
     }
 
-    private static void W(Context context, String str) {
-        PackageInfo X = X(context, str);
-        if (X == null) {
-            bK(context);
+    private static void V(Context context, String str) {
+        PackageInfo W = W(context, str);
+        if (W == null) {
+            bL(context);
             return;
         }
-        ResolveInfo e = e(context, X);
+        ResolveInfo e = e(context, W);
         if (e == null) {
-            bK(context);
+            bL(context);
             return;
         }
         try {
@@ -199,11 +199,11 @@ public class r {
             if (DEBUG) {
                 e2.printStackTrace();
             }
-            bK(context);
+            bL(context);
         }
     }
 
-    private static PackageInfo X(Context context, String str) {
+    private static PackageInfo W(Context context, String str) {
         try {
             return context.getPackageManager().getPackageInfo(str, 0);
         } catch (Exception e) {
@@ -234,7 +234,7 @@ public class r {
         return list.get(0);
     }
 
-    private static void bK(Context context) {
+    private static void bL(Context context) {
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.setData(Uri.fromParts("package", context.getPackageName(), null));
         try {

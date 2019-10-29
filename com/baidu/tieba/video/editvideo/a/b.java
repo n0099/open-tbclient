@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a jyZ;
+    private com.baidu.tieba.video.editvideo.data.a jyR;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.jyZ = this.mList.get(0);
+                this.jyR = this.mList.get(0);
             }
         }
     }
@@ -50,16 +50,16 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_filter, (ViewGroup) null);
-            aVar.jza = (TbImageView) view.findViewById(R.id.iv_effect);
-            aVar.jza.setIsRound(true);
-            aVar.jza.setDrawerType(1);
-            aVar.jza.setDefaultBgResource(R.color.transparent);
-            aVar.jza.setBorderWidth(l.g(viewGroup.getContext(), R.dimen.ds4));
-            aVar.jza.setBorderColor(am.getColor(R.color.cp_link_tip_a));
-            aVar.jza.setConrers(15);
-            aVar.hRO = (TextView) view.findViewById(R.id.tv_name);
-            am.j(aVar.hRO, R.color.cp_cont_j);
-            aVar.hRO = (TextView) view.findViewById(R.id.tv_name);
+            aVar.jyS = (TbImageView) view.findViewById(R.id.iv_effect);
+            aVar.jyS.setIsRound(true);
+            aVar.jyS.setDrawerType(1);
+            aVar.jyS.setDefaultBgResource(R.color.transparent);
+            aVar.jyS.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
+            aVar.jyS.setBorderColor(am.getColor(R.color.cp_link_tip_a));
+            aVar.jyS.setConrers(15);
+            aVar.hQt = (TextView) view.findViewById(R.id.tv_name);
+            am.setViewTextColor(aVar.hQt, (int) R.color.cp_cont_j);
+            aVar.hQt = (TextView) view.findViewById(R.id.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -67,15 +67,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.jza.setTag(aVar2);
-                aVar.jza.setOnClickListener(this);
-                aVar.jza.startLoad(String.valueOf(aVar2.jzC), 24, false);
-                aVar.hRO.setText(aVar2.name);
+                aVar.jyS.setTag(aVar2);
+                aVar.jyS.setOnClickListener(this);
+                aVar.jyS.startLoad(String.valueOf(aVar2.jzu), 24, false);
+                aVar.hQt.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.jyZ != null && TextUtils.equals(aVar2.name, this.jyZ.name)) {
-                aVar.jza.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.jyR != null && TextUtils.equals(aVar2.name, this.jyR.name)) {
+                aVar.jyS.setDrawBorder(true);
             } else {
-                aVar.jza.setDrawBorder(false);
+                aVar.jyS.setDrawBorder(false);
             }
         }
         return view;
@@ -84,15 +84,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.jyZ = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.jyR = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes5.dex */
     class a {
-        TextView hRO;
-        TbImageView jza;
+        TextView hQt;
+        TbImageView jyS;
 
         a() {
         }

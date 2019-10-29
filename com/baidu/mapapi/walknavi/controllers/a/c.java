@@ -2,8 +2,9 @@ package com.baidu.mapapi.walknavi.controllers.a;
 
 import com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-class c implements com.baidu.platform.comapi.wnplatform.i.a {
+public class c implements com.baidu.platform.comapi.wnplatform.i.a {
     final /* synthetic */ IWRoutePlanListener a;
     final /* synthetic */ a b;
 

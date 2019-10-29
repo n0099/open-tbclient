@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a jzf;
-    private b jzg;
-    b.a jzh;
+    private com.baidu.tieba.video.editvideo.data.a jyX;
+    private b jyY;
+    b.a jyZ;
     private Context mContext;
 
     public a(Context context) {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.jzf = aVar;
+        this.jyX = aVar;
     }
 
-    public boolean cvs() {
-        return (this.jzf == null || "normal".equalsIgnoreCase(this.jzf.value)) ? false : true;
+    public boolean ctg() {
+        return (this.jyX == null || "normal".equalsIgnoreCase(this.jyX.value)) ? false : true;
     }
 
-    public void Gm(String str) {
-        if ((this.jzg == null || !this.jzg.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String cvv = cvv();
+    public void EO(String str) {
+        if ((this.jyY == null || !this.jyY.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String ctj = ctj();
             String str2 = "normal";
-            if (this.jzf != null) {
-                str2 = this.jzf.value;
+            if (this.jyX != null) {
+                str2 = this.jyX.value;
             }
-            this.jzg = new b(this.mContext, str, cvv, str2);
-            if (this.jzh != null) {
-                this.jzg.a(this.jzh);
+            this.jyY = new b(this.mContext, str, ctj, str2);
+            if (this.jyZ != null) {
+                this.jyY.a(this.jyZ);
             }
-            this.jzg.cvw();
+            this.jyY.ctk();
         }
     }
 
-    public boolean cvt() {
-        if (this.jzg != null) {
-            return this.jzg.isRunning();
+    public boolean cth() {
+        if (this.jyY != null) {
+            return this.jyY.isRunning();
         }
         return false;
     }
 
-    public void cvu() {
-        if (this.jzg != null) {
-            this.jzg.cvx();
+    public void cti() {
+        if (this.jyY != null) {
+            this.jyY.ctl();
         }
     }
 
     public void a(b.a aVar) {
-        this.jzh = aVar;
-        if (this.jzg != null) {
-            this.jzg.a(this.jzh);
+        this.jyZ = aVar;
+        if (this.jyY != null) {
+            this.jyY.a(this.jyZ);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> er(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> eg(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String cvv() {
-        return com.baidu.tieba.video.c.jxc + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String ctj() {
+        return com.baidu.tieba.video.c.jwU + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

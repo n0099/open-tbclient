@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.android.imsdk.db.TableDefine;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.FrsPage.RecommendForum;
@@ -18,8 +18,8 @@ public class RecommendForumData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mForumName = jSONObject.optString("name");
-            this.mForumImageUrl = jSONObject.optString("avatar");
-            this.mForumLink = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
+            this.mForumImageUrl = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+            this.mForumLink = jSONObject.optString("link");
             this.mParam = jSONObject.optString("st_param");
             this.mMemberNum = jSONObject.optInt("member_num");
             this.mThreadNum = jSONObject.optInt("thread_num");

@@ -32,13 +32,13 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.media.duplayer.DuplayerCore;
 import com.baidu.media.duplayer.Keep;
 import com.baidu.media.duplayer.Utils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.tencent.connect.common.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -162,7 +162,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                 hashMap.put("dns", "3");
                 hashMap.put("first_connect", "4");
                 hashMap.put("first_response", "5");
-                hashMap.put("find_st_info", Constants.VIA_SHARE_TYPE_INFO);
+                hashMap.put("find_st_info", "6");
                 hashMap.put("init_audio", "7");
                 hashMap.put("init_video", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
                 hashMap.put(DpStatConstants.KEY_PREPARED, "9");
@@ -432,8 +432,8 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                 case 22:
                     Bundle data = message.getData();
                     if (data != null) {
-                        float f = data.getFloat(CustomDialogData.POS_LEFT);
-                        float f2 = data.getFloat("right");
+                        float f = data.getFloat("left");
+                        float f2 = data.getFloat(HorizontalTranslateLayout.RIGHT);
                         CyberLog.i("IjkMediaPlayer", "_setVolume leftVolume:" + f + " rightVolume:" + f2);
                         ijkMediaPlayer._setVolume(f, f2);
                         return;
@@ -761,7 +761,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                         String extraInfo = activeNetworkInfo.getExtraInfo();
                         str = TextUtils.isEmpty(extraInfo) ? "Disconnect" : "mobile_" + extraInfo;
                     } else if (type == 1) {
-                        WifiManager wifiManager = (WifiManager) applicationContext.getSystemService(IXAdSystemUtils.NT_WIFI);
+                        WifiManager wifiManager = (WifiManager) applicationContext.getSystemService("wifi");
                         if (wifiManager != null) {
                             WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                             if (connectionInfo != null) {
@@ -943,7 +943,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
         this.p = false;
         if (Thread.currentThread() == Looper.getMainLooper().getThread() || !Utils.d(CyberPlayerManager.getApplicationContext()) || CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_THREAD, true)) {
-            this.n = com.baidu.media.duplayer.a.b.un().up();
+            this.n = com.baidu.media.duplayer.a.b.zh().zj();
             this.o = new f(this, this.n.getLooper());
             CyberLog.i("IjkMediaPlayer", "create player in main thread, use request handler. thread:" + Thread.currentThread().getName() + " request thread:" + this.n.getName() + " mRequestHandler:" + this.o);
             this.p = true;
@@ -981,7 +981,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     private synchronized void y() {
         if (this.p) {
-            com.baidu.media.duplayer.a.b.un().a(this.n);
+            com.baidu.media.duplayer.a.b.zh().a(this.n);
             this.n = null;
         }
     }
@@ -1011,8 +1011,8 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putFloat(CustomDialogData.POS_LEFT, f2);
-        bundle.putFloat("right", f3);
+        bundle.putFloat("left", f2);
+        bundle.putFloat(HorizontalTranslateLayout.RIGHT, f3);
         Message obtainMessage = this.o.obtainMessage(22);
         obtainMessage.setData(bundle);
         this.o.sendMessage(obtainMessage);
@@ -1083,7 +1083,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     @TargetApi(14)
     public void a(Context context, Uri uri, Map<String, String> map) {
         String scheme = uri.getScheme();
-        if ("file".equals(scheme)) {
+        if (BdStatsConstant.OpSubType.FILE.equals(scheme)) {
             a(uri.getPath());
         } else if ("content".equals(scheme) && TbConfig.SETTINGFILE.equals(uri.getAuthority()) && (uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.getDefaultType(uri))) == null) {
             throw new FileNotFoundException("Failed to resolve default ringtone");

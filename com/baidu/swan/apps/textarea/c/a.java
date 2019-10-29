@@ -5,46 +5,46 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a aZB;
-    private HashMap<String, b> jk = new HashMap<>();
+    private static volatile a bsB;
+    private HashMap<String, b> bS = new HashMap<>();
 
     private a() {
     }
 
-    public static a OS() {
-        if (aZB == null) {
+    public static a TI() {
+        if (bsB == null) {
             synchronized (a.class) {
-                if (aZB == null) {
-                    aZB = new a();
+                if (bsB == null) {
+                    bsB = new a();
                 }
             }
         }
-        return aZB;
+        return bsB;
     }
 
-    private b ia(String str) {
+    private b iE(String str) {
         c.d("TextAreaBaseParser", "createTextAreaSecondaryParser slaveId:" + str);
         b bVar = new b();
-        this.jk.put(str, bVar);
+        this.bS.put(str, bVar);
         return bVar;
     }
 
-    public b ib(String str) {
+    public b iF(String str) {
         c.d("TextAreaBaseParser", "getOrCreateSecondaryParser slaveId:" + str);
-        b ic = ic(str);
-        if (ic == null) {
-            return ia(str);
+        b iG = iG(str);
+        if (iG == null) {
+            return iE(str);
         }
-        return ic;
+        return iG;
     }
 
-    public b ic(String str) {
+    public b iG(String str) {
         c.d("TextAreaBaseParser", "getTextAreaSecondaryParser slaveId:" + str);
-        return this.jk.get(str);
+        return this.bS.get(str);
     }
 
-    public void ie(String str) {
+    public void iH(String str) {
         c.d("TextAreaBaseParser", "destroyTextAreaSecondaryParser slaveId:" + str);
-        this.jk.remove(str);
+        this.bS.remove(str);
     }
 }

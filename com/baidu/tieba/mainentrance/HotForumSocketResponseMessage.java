@@ -2,6 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     private String mTopicInfoTitle;
 
     public HotForumSocketResponseMessage() {
-        super(303116);
+        super(CmdConfigSocket.CMD_GET_HOTFORUM);
     }
 
     public List<b> getForumInfoList() {

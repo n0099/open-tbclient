@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> jQH = new HashMap();
-    private AlbumActivity jQx;
+    private Map<Integer, Boolean> apT = new HashMap();
+    private AlbumActivity jOC;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.jQx = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jQx.getPageContext().getPageActivity());
+        this.jOC = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jOC.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -31,7 +31,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return v.Z(this.mList);
+        return v.getCount(this.mList);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -44,15 +44,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo xy(int i) {
-        return (ImageFileInfo) v.c(this.mList, i);
+    public ImageFileInfo we(int i) {
+        return (ImageFileInfo) v.getItem(this.mList, i);
     }
 
-    public boolean CZ(int i) {
-        if (this.jQH.get(Integer.valueOf(i)) == null) {
+    public boolean ch(int i) {
+        if (this.apT.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.jQH.get(Integer.valueOf(i)).booleanValue();
+        return this.apT.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -72,14 +72,14 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView2.setDefaultErrorResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo xy = xy(i);
-        if (xy != null) {
-            tbImageView2.startLoad(xy.getFilePath(), 35, false, true);
-            tbImageView.startLoad(xy.getFilePath(), 36, false);
-            this.jQH.put(Integer.valueOf(i), true);
+        ImageFileInfo we = we(i);
+        if (we != null) {
+            tbImageView2.startLoad(we.getFilePath(), 35, false, true);
+            tbImageView.startLoad(we.getFilePath(), 36, false);
+            this.apT.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        am.l(inflate, R.color.cp_bg_line_d);
+        am.setBackgroundColor(inflate, R.color.cp_bg_line_d);
         return inflate;
     }
 }

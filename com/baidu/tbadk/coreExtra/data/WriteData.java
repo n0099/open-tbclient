@@ -250,7 +250,7 @@ public class WriteData extends OrmObject implements Serializable {
                 jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
             }
             if (this.mVideoInfo != null) {
-                jSONObject.put(VideoInfo.DRAFT_JSON_NAME, VideoInfo.jsonWithObject(this.mVideoInfo));
+                jSONObject.put("new_video_info", VideoInfo.jsonWithObject(this.mVideoInfo));
             }
             if (this.mTaskId != null) {
                 jSONObject.put("mTaskId", this.mTaskId);
@@ -281,7 +281,7 @@ public class WriteData extends OrmObject implements Serializable {
             writeData.mThreadId = jSONObject.optString("mThreadId", null);
             writeData.mIsInterviewLivew = jSONObject.optBoolean("mIsInterviewLive");
             writeData.mCategoryTo = jSONObject.optInt("mCategoryTo", -1);
-            JSONObject optJSONObject = jSONObject.optJSONObject(VideoInfo.DRAFT_JSON_NAME);
+            JSONObject optJSONObject = jSONObject.optJSONObject("new_video_info");
             if (optJSONObject != null) {
                 writeData.mVideoInfo = (VideoInfo) VideoInfo.objectWithJson(optJSONObject, VideoInfo.class);
             }

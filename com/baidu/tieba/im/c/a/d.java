@@ -3,12 +3,13 @@ package com.baidu.tieba.im.c.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.ResponseGetGroupActivityLocalMessage;
 /* loaded from: classes5.dex */
 public class d implements CustomMessageTask.CustomRunnable<Integer> {
-    private ResponseGetGroupActivityLocalMessage bHA() {
+    private ResponseGetGroupActivityLocalMessage bEl() {
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         responseGetGroupActivityLocalMessage.setError(-18);
         return responseGetGroupActivityLocalMessage;
@@ -17,23 +18,23 @@ public class d implements CustomMessageTask.CustomRunnable<Integer> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
         if (customMessage == null || !(customMessage instanceof RequestGetGroupActivityLocalMessage)) {
-            return bHA();
+            return bEl();
         }
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = (RequestGetGroupActivityLocalMessage) customMessage;
         String str = "";
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] bArr = com.baidu.tbadk.core.d.a.agL().mM("tb.im_groupactivity").get("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
+        byte[] bArr = com.baidu.tbadk.core.d.a.akN().nk("tb.im_groupactivity").get("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         if (bArr != null) {
             try {
-                responseGetGroupActivityLocalMessage.decodeInBackGround(2001123, bArr);
+                responseGetGroupActivityLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL, bArr);
                 return responseGetGroupActivityLocalMessage;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return bHA();
+        return bEl();
     }
 }

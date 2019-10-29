@@ -1,21 +1,21 @@
 package com.baidu.tieba.home;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.GetUserBfbInfo.DataReq;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoReqIdl;
 /* loaded from: classes6.dex */
 public class BfbInfoRequestMessage extends NetMessage {
     public BfbInfoRequestMessage() {
-        super(CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
+        super(1003100, CmdConfigSocket.CMD_GET_BFB_INFO);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         GetUserBfbInfoReqIdl.Builder builder2 = new GetUserBfbInfoReqIdl.Builder();
         builder2.data = builder.build(false);

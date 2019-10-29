@@ -6,30 +6,30 @@ import android.os.Message;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class f extends g {
-    public long Ak;
-    public long Me;
-    public long cAH;
-    public long cAI;
-    public long cAJ;
-    public int cAK;
-    public int cAL;
-    private a cAM = null;
-    private final Handler cAN = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.p.f.1
+    public long cLQ;
+    public long cLR;
+    public long cLS;
+    public int cLT;
+    public int cLU;
+    private a cLV = null;
+    private final Handler cLW = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.p.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f.this.cAM = new a();
-            f.this.cAM.setSelfExecute(true);
-            f.this.cAM.execute(new String[0]);
+            f.this.cLV = new a();
+            f.this.cLV.setSelfExecute(true);
+            f.this.cLV.execute(new String[0]);
         }
     };
+    public long costTime;
+    public long oK;
 
-    public void avA() {
-        this.cAN.sendEmptyMessage(0);
+    public void awG() {
+        this.cLW.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avB() {
-        j jVar = (j) m.avH().kX(this.mSubType);
+    public void awH() {
+        j jVar = (j) m.awN().ki(this.mSubType);
         if (jVar != null) {
             jVar.c(this);
         }
@@ -44,8 +44,8 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.cAL = m.avH().avK();
-            f.this.avB();
+            f.this.cLU = m.awN().getCpuUsageStatistic();
+            f.this.awH();
             return Boolean.TRUE;
         }
 

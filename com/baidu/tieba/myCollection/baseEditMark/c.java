@@ -2,6 +2,7 @@ package com.baidu.tieba.myCollection.baseEditMark;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
@@ -19,7 +20,7 @@ public class c {
     public void parserJson(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                parserJson(new JSONObject(str).optJSONObject("error"));
+                parserJson(new JSONObject(str).optJSONObject(BdStatsConstant.StatsType.ERROR));
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

@@ -5,54 +5,54 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.swan.games.c.f;
 /* loaded from: classes2.dex */
 public class b implements V8Engine.V8EngineConsole {
-    private com.baidu.swan.games.e.a asZ;
-    private boolean bgU = true;
+    private com.baidu.swan.games.e.a aMq;
+    private boolean bzM = true;
 
     public b(com.baidu.swan.games.e.a aVar) {
-        this.asZ = aVar;
+        this.aMq = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
     public void onLogConsole(String str) {
-        if (this.bgU) {
-            Log.v("V8Console", this.asZ.HJ() + str);
+        if (this.bzM) {
+            Log.v("V8Console", this.aMq.MD() + str);
         }
-        f.u(1, str);
+        f.y(1, str);
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
     public void onDebugConsole(String str) {
-        if (this.bgU) {
-            Log.d("V8Console", this.asZ.HJ() + str);
+        if (this.bzM) {
+            Log.d("V8Console", this.aMq.MD() + str);
         }
-        f.u(2, str);
+        f.y(2, str);
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
     public void onInfoConsole(String str) {
-        if (this.bgU) {
-            Log.i("V8Console", this.asZ.HJ() + str);
+        if (this.bzM) {
+            Log.i("V8Console", this.aMq.MD() + str);
         }
-        f.u(3, str);
+        f.y(3, str);
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
     public void onErrorConsole(String str) {
-        Log.e("V8Console", this.asZ.HJ() + str);
-        f.u(4, str);
+        Log.e("V8Console", this.aMq.MD() + str);
+        f.y(4, str);
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
     public void onWarnConsole(String str) {
-        Log.w("V8Console", this.asZ.HJ() + str);
-        f.u(5, str);
+        Log.w("V8Console", this.aMq.MD() + str);
+        f.y(5, str);
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
     public void onTraceConsole(String str) {
-        if (this.bgU) {
-            Log.d("V8Console", this.asZ.HJ() + str);
+        if (this.bzM) {
+            Log.d("V8Console", this.aMq.MD() + str);
         }
-        f.u(6, str);
+        f.y(6, str);
     }
 }

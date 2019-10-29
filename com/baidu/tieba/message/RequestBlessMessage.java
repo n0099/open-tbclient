@@ -1,7 +1,7 @@
 package com.baidu.tieba.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.CommonReq;
 import tbclient.UserPk.DataReq;
@@ -17,7 +17,7 @@ public class RequestBlessMessage extends NetMessage {
     private long user_pk_id;
 
     public RequestBlessMessage() {
-        super(CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
+        super(1003065, CmdConfigSocket.CMD_TOPIC_BLESS);
     }
 
     public void setCommon(CommonReq commonReq) {
@@ -59,7 +59,7 @@ public class RequestBlessMessage extends NetMessage {
         builder.pk_type = Integer.valueOf(this.pk_type);
         builder.user_pk_id = Long.valueOf(this.user_pk_id);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         UserPkReqIdl.Builder builder2 = new UserPkReqIdl.Builder();
         builder2.data = builder.build(false);

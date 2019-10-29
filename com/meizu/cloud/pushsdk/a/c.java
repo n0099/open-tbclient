@@ -8,6 +8,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
@@ -120,7 +121,7 @@ public class c {
     }
 
     public void a(int i, int i2) {
-        this.c.put(b.l, Integer.toString(i) + "." + Integer.toString(i2));
+        this.c.put(b.l, Integer.toString(i) + DefaultConfig.TOKEN_SEPARATOR + Integer.toString(i2));
     }
 
     public void a(Context context) {

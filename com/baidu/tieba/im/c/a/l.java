@@ -20,7 +20,7 @@ public class l implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof RequestLocalHistoryMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.d.a.agL().mM("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+        byte[] bArr = com.baidu.tbadk.core.d.a.akN().nk("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
         if (bArr == null) {
             return null;
         }
@@ -33,7 +33,7 @@ public class l implements CustomMessageTask.CustomRunnable<String> {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.time = aq.c(date);
+                        aVar.time = aq.getDateStringMouth(date);
                         aVar.type = msgInfo.type.intValue();
                         aVar.content = msgInfo.content;
                         aVar.id = msgInfo.id.intValue();

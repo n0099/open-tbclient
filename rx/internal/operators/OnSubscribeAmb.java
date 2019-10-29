@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> kyC;
+    final Iterable<? extends rx.d<? extends T>> kzk;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -16,18 +16,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> kyH;
-        private boolean kyI;
+        private final Selection<T> kzp;
+        private boolean kzq;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.kyH = selection;
+            this.kzp = selection;
             request(j);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void eU(long j) {
+        public void ep(long j) {
             request(j);
         }
 
@@ -53,18 +53,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.kyI) {
+            if (this.kzq) {
                 return true;
             }
-            if (this.kyH.get() == this) {
-                this.kyI = true;
+            if (this.kzp.get() == this) {
+                this.kzq = true;
                 return true;
-            } else if (this.kyH.compareAndSet(null, this)) {
-                this.kyH.unsubscribeOthers(this);
-                this.kyI = true;
+            } else if (this.kzp.compareAndSet(null, this)) {
+                this.kzp.unsubscribeOthers(this);
+                this.kzq = true;
                 return true;
             } else {
-                this.kyH.unsubscribeLosers();
+                this.kzp.unsubscribeLosers();
                 return false;
             }
         }
@@ -104,10 +104,10 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 if (aVar != null) {
                     aVar.unsubscribe();
                 }
-                OnSubscribeAmb.m(selection.ambSubscribers);
+                OnSubscribeAmb.k(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.kyC) {
+        for (rx.d<? extends T> dVar : this.kzk) {
             if (jVar.isUnsubscribed()) {
                 break;
             }
@@ -121,30 +121,30 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
             dVar.a((rx.j<? super Object>) aVar);
         }
         if (jVar.isUnsubscribed()) {
-            m(selection.ambSubscribers);
+            k(selection.ambSubscribers);
         }
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.OnSubscribeAmb.2
             @Override // rx.f
             public void request(long j) {
                 a<T> aVar3 = selection.get();
                 if (aVar3 != null) {
-                    aVar3.eU(j);
+                    aVar3.ep(j);
                     return;
                 }
                 for (a<T> aVar4 : selection.ambSubscribers) {
                     if (!aVar4.isUnsubscribed()) {
                         if (selection.get() == aVar4) {
-                            aVar4.eU(j);
+                            aVar4.ep(j);
                             return;
                         }
-                        aVar4.eU(j);
+                        aVar4.ep(j);
                     }
                 }
             }
         });
     }
 
-    static <T> void m(Collection<a<T>> collection) {
+    static <T> void k(Collection<a<T>> collection) {
         if (!collection.isEmpty()) {
             for (a<T> aVar : collection) {
                 aVar.unsubscribe();

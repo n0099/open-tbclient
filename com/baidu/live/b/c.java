@@ -1,0 +1,10 @@
+package com.baidu.live.b;
+
+import android.content.Context;
+import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
+/* loaded from: classes6.dex */
+public class c extends IntentConfig {
+    public c(Context context) {
+        super(context);
+    }
+}

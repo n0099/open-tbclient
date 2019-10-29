@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b {
-    private View ddM;
-    private HeadImageView ikH;
-    private TextView ikI;
-    private TextView ikJ;
-    private ImageView ikK;
+    private View dng;
+    private HeadImageView ijr;
+    private TextView ijs;
+    private TextView ijt;
+    private ImageView iju;
 
-    public static b d(Context context, View view) {
+    public static b b(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
             return new b(context);
         }
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.ddM = null;
-        this.ikH = null;
-        this.ikI = null;
-        this.ikJ = null;
-        this.ikK = null;
-        this.ddM = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.ikH = (HeadImageView) this.ddM.findViewById(R.id.zan_list_item_head);
-        this.ikI = (TextView) this.ddM.findViewById(R.id.zan_list_item_name);
-        this.ikJ = (TextView) this.ddM.findViewById(R.id.zan_list_item_time);
-        this.ikK = (ImageView) this.ddM.findViewById(R.id.zan_list_item_line_bottom);
-        this.ikK.setVisibility(0);
-        this.ddM.setTag(this);
+        this.dng = null;
+        this.ijr = null;
+        this.ijs = null;
+        this.ijt = null;
+        this.iju = null;
+        this.dng = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.ijr = (HeadImageView) this.dng.findViewById(R.id.zan_list_item_head);
+        this.ijs = (TextView) this.dng.findViewById(R.id.zan_list_item_name);
+        this.ijt = (TextView) this.dng.findViewById(R.id.zan_list_item_time);
+        this.iju = (ImageView) this.dng.findViewById(R.id.zan_list_item_line_bottom);
+        this.iju.setVisibility(0);
+        this.dng.setTag(this);
     }
 
     public View getView() {
-        return this.ddM;
+        return this.dng;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.ikI.setText(str);
-        this.ikH.setImageDrawable(null);
-        this.ikJ.setText(aq.aD(j));
-        this.ikH.startLoad(str2, 28, false);
+        this.ijs.setText(str);
+        this.ijr.setImageDrawable(null);
+        this.ijt.setText(aq.getFormatTime(j));
+        this.ijr.startLoad(str2, 28, false);
     }
 }

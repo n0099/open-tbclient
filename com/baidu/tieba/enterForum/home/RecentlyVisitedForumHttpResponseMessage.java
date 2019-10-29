@@ -1,7 +1,6 @@
 package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
@@ -12,7 +11,7 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
     private LinkedList<VisitedForumData> mForumData;
 
     public RecentlyVisitedForumHttpResponseMessage() {
-        super(CmdConfigHttp.CMD_GET_HISTORY_FORUM);
+        super(1003394);
     }
 
     public LinkedList<VisitedForumData> getForumData() {

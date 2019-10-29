@@ -5,16 +5,13 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.result.AddressManageResult;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteShareActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.j;
 import com.baidu.tbadk.core.util.m;
@@ -39,45 +36,45 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final String jjL = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS;
-    private static final String jjM = TbConfig.SERVER_ADDRESS + TbConfig.REPLY_THREAD_ADDRESS;
-    public static final String jjN = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
-    private f cxp;
-    private AntiData jjO;
-    private com.baidu.tieba.tbadkCore.videoupload.a jjP;
-    private InterfaceC0424a jjQ;
-    private h jjR;
-    private ErrorData mErrorData;
+    private f cJr;
+    private ErrorData jjC;
+    private AntiData jjD;
+    private com.baidu.tieba.tbadkCore.videoupload.a jjE;
+    private InterfaceC0519a jjF;
+    private h jjG;
+    private static final String jjz = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS;
+    private static final String jjA = TbConfig.SERVER_ADDRESS + TbConfig.REPLY_THREAD_ADDRESS;
+    public static final String jjB = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
     private x mNetwork = null;
     private boolean isCancelled = false;
 
     /* renamed from: com.baidu.tieba.tbadkCore.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0424a {
-        void onUploadProgress(int i);
+    public interface InterfaceC0519a {
+        void zT(int i);
     }
 
     public a() {
-        this.mErrorData = null;
-        this.mErrorData = new ErrorData();
+        this.jjC = null;
+        this.jjC = new ErrorData();
     }
 
     public void a(h hVar) {
-        this.jjR = hVar;
+        this.jjG = hVar;
     }
 
-    public void a(InterfaceC0424a interfaceC0424a) {
-        this.jjQ = interfaceC0424a;
+    public void a(InterfaceC0519a interfaceC0519a) {
+        this.jjF = interfaceC0519a;
     }
 
     public ImageUploadResult e(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.cxp == null) {
-            this.cxp = new f("HTTPWriteService.postImageData");
+        if (this.cJr == null) {
+            this.cJr = new f("HTTPWriteService.postImageData");
         }
-        return this.cxp.d(imageFileInfo, z);
+        return this.cJr.d(imageFileInfo, z);
     }
 
     public String a(WriteData writeData, boolean z) {
@@ -91,9 +88,9 @@ public class a {
             return null;
         }
         this.mNetwork = new x();
-        this.mNetwork.aiK().ajM().mIsNeedTbs = true;
-        this.mNetwork.eb(true);
-        this.mNetwork.o("authsid", writeData.getAuthSid());
+        this.mNetwork.amr().amR().mIsNeedTbs = true;
+        this.mNetwork.ek(true);
+        this.mNetwork.addPostData("authsid", writeData.getAuthSid());
         if (writeData.getSubPbReplyPrefix() != null) {
             content = writeData.getSubPbReplyPrefix() + writeData.getContent();
         } else {
@@ -101,46 +98,46 @@ public class a {
         }
         if (writeData.getType() == 3) {
             if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
-                this.mNetwork.o("vcode", writeData.getVcode());
+                this.mNetwork.addPostData("vcode", writeData.getVcode());
             }
             if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
-                this.mNetwork.o(AddressManageResult.KEY_TAG, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+                this.mNetwork.addPostData("tag", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
             }
-            this.mNetwork.o("newVcode", "1");
-            this.mNetwork.o("content", content);
-            this.mNetwork.setUrl(jjN);
-            this.mNetwork.o(ImageViewerConfig.FORUM_NAME, writeData.getForumName());
-            this.mNetwork.o("title", writeData.getTitle());
+            this.mNetwork.addPostData("newVcode", "1");
+            this.mNetwork.addPostData("content", content);
+            this.mNetwork.setUrl(jjB);
+            this.mNetwork.addPostData("fname", writeData.getForumName());
+            this.mNetwork.addPostData("title", writeData.getTitle());
             if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                this.mNetwork.o("post_prefix", writeData.getPostPrefix());
+                this.mNetwork.addPostData("post_prefix", writeData.getPostPrefix());
             }
-            this.mNetwork.o("apiKey", writeData.getShareApiKey());
-            this.mNetwork.o("appName", writeData.getShareAppName());
-            this.mNetwork.o("signKey", writeData.getShareSignKey());
-            this.mNetwork.o("summary_title", writeData.getShareSummaryTitle());
-            this.mNetwork.o("summary_content", writeData.getShareSummaryContent());
-            this.mNetwork.o("summary_img", writeData.getShareSummaryImg());
-            this.mNetwork.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(writeData.getShareSummaryImgWidth()));
-            this.mNetwork.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(writeData.getShareSummaryImgHeight()));
-            this.mNetwork.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, writeData.getShareSummaryImgType());
-            this.mNetwork.o("referUrl", writeData.getShareReferUrl());
+            this.mNetwork.addPostData("apiKey", writeData.getShareApiKey());
+            this.mNetwork.addPostData("appName", writeData.getShareAppName());
+            this.mNetwork.addPostData("signKey", writeData.getShareSignKey());
+            this.mNetwork.addPostData("summary_title", writeData.getShareSummaryTitle());
+            this.mNetwork.addPostData("summary_content", writeData.getShareSummaryContent());
+            this.mNetwork.addPostData("summary_img", writeData.getShareSummaryImg());
+            this.mNetwork.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(writeData.getShareSummaryImgWidth()));
+            this.mNetwork.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(writeData.getShareSummaryImgHeight()));
+            this.mNetwork.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, writeData.getShareSummaryImgType());
+            this.mNetwork.addPostData("referUrl", writeData.getShareReferUrl());
             str3 = null;
         } else {
             if (z && writeData.isHasImages()) {
-                if (this.cxp == null) {
-                    this.cxp = new f("HTTPWriteService.postWriteData");
+                if (this.cJr == null) {
+                    this.cJr = new f("HTTPWriteService.postWriteData");
                 }
                 if (writeData.getType() == 6) {
-                    if (this.cxp.b(writeData.getWriteImagesInfo(), true) != null) {
-                        this.mErrorData.setError_code(-53);
-                        this.mErrorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
+                    if (this.cJr.b(writeData.getWriteImagesInfo(), true) != null) {
+                        this.jjC.setError_code(-53);
+                        this.jjC.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
                         return null;
                     }
                 } else {
-                    ErrorData b = this.cxp.b(writeData.getWriteImagesInfo(), true);
+                    ErrorData b = this.cJr.b(writeData.getWriteImagesInfo(), true);
                     if (b != null) {
-                        this.mErrorData.setError_code(-53);
-                        this.mErrorData.setError_msg(b.getError_msg());
+                        this.jjC.setError_code(-53);
+                        this.jjC.setError_msg(b.getError_msg());
                         return null;
                     }
                 }
@@ -162,30 +159,30 @@ public class a {
             } else {
                 b bVar = new b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
                 bVar.addPostParam("type", 1);
-                String O = m.O(voice, 1);
-                l ph = bVar.ph(O);
-                if (ph != null && ph.isSuccess()) {
-                    k amE = ph.amE();
-                    if (amE != null) {
-                        String amC = amE.amC();
-                        com.baidu.tbadk.core.voice.a.b.renameFile(writeData.getVoice(), amC);
-                        writeData.setReturnVoiceMd5(amC);
-                        str = amC;
+                String storeFile = m.getStoreFile(voice, 1);
+                l oG = bVar.oG(storeFile);
+                if (oG != null && oG.isSuccess()) {
+                    k aph = oG.aph();
+                    if (aph != null) {
+                        String md5 = aph.getMd5();
+                        com.baidu.tbadk.core.voice.a.b.renameFile(writeData.getVoice(), md5);
+                        writeData.setReturnVoiceMd5(md5);
+                        str = md5;
                     } else {
                         com.baidu.tbadk.core.util.l lVar = new com.baidu.tbadk.core.util.l();
-                        lVar.o("ErrCode", Integer.valueOf(ph.getErrorCode()));
-                        lVar.o("ErrMsg", ph.getErrorString());
-                        TiebaStatic.voiceError(TbErrInfo.ERR_VOI_SEND, "audioUploadData is null", lVar.toString());
-                        this.mErrorData.setError_code(ph.getErrorCode());
-                        this.mErrorData.setError_msg(ph.getErrorString());
+                        lVar.append("ErrCode", Integer.valueOf(oG.getErrorCode()));
+                        lVar.append("ErrMsg", oG.getErrorString());
+                        TiebaStatic.voiceError(-1113, "audioUploadData is null", lVar.toString());
+                        this.jjC.setError_code(oG.getErrorCode());
+                        this.jjC.setError_msg(oG.getErrorString());
                         return null;
                     }
                 } else {
                     com.baidu.tbadk.core.util.l lVar2 = new com.baidu.tbadk.core.util.l();
-                    lVar2.o("audioFile", O);
-                    TiebaStatic.voiceError(TbErrInfo.ERR_VOI_SEND, "uploadService.upload null or fail", lVar2.toString());
-                    this.mErrorData.setError_code(ph.getErrorCode());
-                    this.mErrorData.setError_msg(ph.getErrorString());
+                    lVar2.append("audioFile", storeFile);
+                    TiebaStatic.voiceError(-1113, "uploadService.upload null or fail", lVar2.toString());
+                    this.jjC.setError_code(oG.getErrorCode());
+                    this.jjC.setError_msg(oG.getErrorString());
                     return null;
                 }
             }
@@ -195,65 +192,65 @@ public class a {
             VideoInfo videoInfo = writeData.getVideoInfo();
             if (videoInfo != null) {
                 if (videoInfo.needUploadVideo()) {
-                    this.jjP = new com.baidu.tieba.tbadkCore.videoupload.a(this.jjR);
-                    VideoFinishResult a = this.jjP.a(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new e() { // from class: com.baidu.tieba.tbadkCore.c.a.1
-                        int jjS = 0;
+                    this.jjE = new com.baidu.tieba.tbadkCore.videoupload.a(this.jjG);
+                    VideoFinishResult a = this.jjE.a(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new e() { // from class: com.baidu.tieba.tbadkCore.c.a.1
+                        int jjH = 0;
 
                         @Override // com.baidu.tieba.tbadkCore.videoupload.a.e
-                        public void aS(float f) {
+                        public void av(float f) {
                             int i = (int) (90.0f * f);
-                            if (i != this.jjS) {
-                                this.jjS = i;
-                                a.this.notifyUploadProgress(i);
+                            if (i != this.jjH) {
+                                this.jjH = i;
+                                a.this.zS(i);
                             }
                         }
                     });
                     if (a == null) {
-                        this.mErrorData.setError_code(-53);
-                        this.mErrorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
+                        this.jjC.setError_code(-53);
+                        this.jjC.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
                         return null;
                     } else if (a.isSuccess()) {
                         videoInfo.setVideoMd5(a.getVideoMd5());
                         videoInfo.setVideoUrl(a.getVideoUrl());
                     } else {
-                        this.mErrorData.setError_code(a.getErrorNo());
-                        this.mErrorData.setError_msg(a.getUserMessage());
+                        this.jjC.setError_code(a.getErrorNo());
+                        this.jjC.setError_msg(a.getUserMessage());
                         return null;
                     }
                 }
                 if (videoInfo.needUploadThunmb()) {
-                    if (this.cxp == null) {
-                        this.cxp = new f("HTTPWriteService.postWriteData");
+                    if (this.cJr == null) {
+                        this.cJr = new f("HTTPWriteService.postWriteData");
                     }
-                    ImageUploadResult T = this.cxp.T(videoInfo.getThumbPath(), false);
-                    if (T != null) {
-                        videoInfo.setThumbId(T.picId);
+                    ImageUploadResult Q = this.cJr.Q(videoInfo.getThumbPath(), false);
+                    if (Q != null) {
+                        videoInfo.setThumbId(Q.picId);
                     }
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    if (!v.aa(videoInfo.getStickListInfo())) {
+                    if (!v.isEmpty(videoInfo.getStickListInfo())) {
                         JSONArray jSONArray = new JSONArray();
                         for (String str4 : videoInfo.getStickListInfo()) {
                             jSONArray.put(str4);
                         }
                         jSONObject.put("sticker_id", jSONArray);
                     }
-                    if (!v.aa(videoInfo.getBeautifyListInfo())) {
+                    if (!v.isEmpty(videoInfo.getBeautifyListInfo())) {
                         JSONArray jSONArray2 = new JSONArray();
                         for (String str5 : videoInfo.getBeautifyListInfo()) {
                             jSONArray2.put(str5);
                         }
                         jSONObject.put("beautify_level", jSONArray2);
                     }
-                    if (!v.aa(videoInfo.getFilterListInfo())) {
+                    if (!v.isEmpty(videoInfo.getFilterListInfo())) {
                         JSONArray jSONArray3 = new JSONArray();
                         for (String str6 : videoInfo.getFilterListInfo()) {
                             jSONArray3.put(str6);
                         }
                         jSONObject.put("filter_id", jSONArray3);
                     }
-                    if (!v.aa(videoInfo.getMusicListInfo())) {
+                    if (!v.isEmpty(videoInfo.getMusicListInfo())) {
                         JSONArray jSONArray4 = new JSONArray();
                         for (String str7 : videoInfo.getMusicListInfo()) {
                             jSONArray4.put(str7);
@@ -263,172 +260,172 @@ public class a {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                this.mNetwork.o("video_other", jSONObject.toString());
+                this.mNetwork.addPostData("video_other", jSONObject.toString());
             }
             if (this.isCancelled) {
                 return null;
             }
-            this.mNetwork.o("anonymous", "1");
-            this.mNetwork.o("can_no_forum", writeData.isCanNoForum() ? "1" : "0");
-            this.mNetwork.o("is_feedback", writeData.isUserFeedback() ? "1" : "0");
-            this.mNetwork.o("takephoto_num", String.valueOf(writeData.getTakePhotoNum()));
-            this.mNetwork.o("entrance_type", String.valueOf(writeData.getEntranceType()));
+            this.mNetwork.addPostData("anonymous", "1");
+            this.mNetwork.addPostData("can_no_forum", writeData.isCanNoForum() ? "1" : "0");
+            this.mNetwork.addPostData("is_feedback", writeData.isUserFeedback() ? "1" : "0");
+            this.mNetwork.addPostData("takephoto_num", String.valueOf(writeData.getTakePhotoNum()));
+            this.mNetwork.addPostData("entrance_type", String.valueOf(writeData.getEntranceType()));
             if (str != null) {
-                this.mNetwork.o("voice_md5", str);
-                this.mNetwork.o("during_time", String.valueOf(voiceDuringTime));
+                this.mNetwork.addPostData("voice_md5", str);
+                this.mNetwork.addPostData("during_time", String.valueOf(voiceDuringTime));
             }
             String imagesCodeForPost = writeData.getImagesCodeForPost();
             if (writeData.getType() != 6) {
                 if (writeData.getType() == 7 && TextUtils.isEmpty(writeData.getTitle()) && TextUtils.isEmpty(str) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(content) && writeData.getVideoInfo() == null) {
-                    this.mErrorData.setError_code(-53);
-                    this.mErrorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
+                    this.jjC.setError_code(-53);
+                    this.jjC.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
                     return null;
                 }
                 if ((!(writeData.getType() == 0 || writeData.getType() == 9) || TextUtils.isEmpty(writeData.getTitle())) && TextUtils.isEmpty(str) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(content) && writeData.getVideoInfo() == null && writeData.getType() != 7 && !writeData.isLinkThread()) {
-                    this.mErrorData.setError_code(-53);
-                    this.mErrorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
+                    this.jjC.setError_code(-53);
+                    this.jjC.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
                     return null;
                 }
             }
             if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
-                this.mNetwork.o("vcode", writeData.getVcode());
+                this.mNetwork.addPostData("vcode", writeData.getVcode());
             }
             if (!StringUtils.isNull(writeData.getVcodeMD5())) {
-                this.mNetwork.o("vcode_md5", writeData.getVcodeMD5());
+                this.mNetwork.addPostData("vcode_md5", writeData.getVcodeMD5());
             }
             if (!StringUtils.isNull(writeData.getVcodeType())) {
-                this.mNetwork.o("vcode_type", writeData.getVcodeType());
+                this.mNetwork.addPostData("vcode_type", writeData.getVcodeType());
             }
             if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
-                this.mNetwork.o("vcode_tag", Constants.VIA_REPORT_TYPE_SET_AVATAR);
+                this.mNetwork.addPostData("vcode_tag", Constants.VIA_REPORT_TYPE_SET_AVATAR);
             }
-            Address X = com.baidu.adp.lib.d.a.hY().X(false);
+            Address address = com.baidu.adp.lib.d.a.fw().getAddress(false);
             if (!TextUtils.isEmpty(writeData.getTopicId())) {
-                this.mNetwork.o("topic_id", writeData.getTopicId());
+                this.mNetwork.addPostData("topic_id", writeData.getTopicId());
             }
-            this.mNetwork.o("new_vcode", "1");
+            this.mNetwork.addPostData("new_vcode", "1");
             if (writeData.getVideoInfo() == null || !writeData.getVideoInfo().hasUpload()) {
                 str2 = content + imagesCodeForPost;
             } else {
                 str2 = content + writeData.getVideoInfo().buildContent() + imagesCodeForPost;
             }
-            j.ni(str2);
-            this.mNetwork.o("content", com.baidu.tieba.face.a.wA(str2));
-            this.mNetwork.o("reply_uid", writeData.getReplyId());
+            j.nE(str2);
+            this.mNetwork.addPostData("content", com.baidu.tieba.face.a.uY(str2));
+            this.mNetwork.addPostData("reply_uid", writeData.getReplyId());
             if (!TextUtils.isEmpty(writeData.getMemeText())) {
-                this.mNetwork.o("meme_text", writeData.getMemeText());
+                this.mNetwork.addPostData("meme_text", writeData.getMemeText());
             }
             if (!TextUtils.isEmpty(writeData.getMemeContSign())) {
-                this.mNetwork.o("meme_cont_sign", writeData.getMemeContSign());
+                this.mNetwork.addPostData("meme_cont_sign", writeData.getMemeContSign());
             }
             switch (writeData.getType()) {
                 case 0:
                 case 7:
                 case 9:
-                    this.mNetwork.setUrl(jjL);
+                    this.mNetwork.setUrl(jjz);
                     if (writeData.isCanNoForum()) {
-                        this.mNetwork.o("fid", "0");
-                        this.mNetwork.o("kw", "");
-                        this.mNetwork.o("transform_forums", writeData.getTransmitForumData());
+                        this.mNetwork.addPostData("fid", "0");
+                        this.mNetwork.addPostData("kw", "");
+                        this.mNetwork.addPostData("transform_forums", writeData.getTransmitForumData());
                     } else {
-                        this.mNetwork.o("fid", writeData.getForumId());
-                        this.mNetwork.o("kw", writeData.getForumName());
+                        this.mNetwork.addPostData("fid", writeData.getForumId());
+                        this.mNetwork.addPostData("kw", writeData.getForumName());
                     }
-                    this.mNetwork.o("is_hide", writeData.isPrivacy() ? "1" : "0");
+                    this.mNetwork.addPostData("is_hide", writeData.isPrivacy() ? "1" : "0");
                     if (writeData.getVideoId() != null) {
-                        this.mNetwork.o("video_id", writeData.getVideoId());
+                        this.mNetwork.addPostData("video_id", writeData.getVideoId());
                         if (writeData.getOriginalVideoCover() != null) {
-                            this.mNetwork.o("origin_video_cover", writeData.getOriginalVideoCover());
+                            this.mNetwork.addPostData("origin_video_cover", writeData.getOriginalVideoCover());
                         }
                         if (writeData.getOriginalVideoTitle() != null) {
-                            this.mNetwork.o("origin_video_title", writeData.getOriginalVideoTitle());
+                            this.mNetwork.addPostData("origin_video_title", writeData.getOriginalVideoTitle());
                         }
                     }
                     if (writeData.isShareThread()) {
-                        this.mNetwork.o("is_share", "1");
-                        this.mNetwork.o("from_tid", writeData.getOriginalThreadId());
+                        this.mNetwork.addPostData("is_share", "1");
+                        this.mNetwork.addPostData("from_tid", writeData.getOriginalThreadId());
                     }
                     if (writeData.getProZone() >= 0) {
-                        this.mNetwork.o("pro_zone", String.valueOf(writeData.getProZone()));
+                        this.mNetwork.addPostData("pro_zone", String.valueOf(writeData.getProZone()));
                     }
-                    this.mNetwork.o(IntentConfig.CALL_FROM, writeData.getCallFrom());
-                    this.mNetwork.o("title", writeData.getTitle());
+                    this.mNetwork.addPostData("call_from", writeData.getCallFrom());
+                    this.mNetwork.addPostData("title", writeData.getTitle());
                     if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                        this.mNetwork.o("post_prefix", writeData.getPostPrefix());
+                        this.mNetwork.addPostData("post_prefix", writeData.getPostPrefix());
                     }
-                    this.mNetwork.o("is_ntitle", writeData.isNoTitle() ? "1" : "0");
+                    this.mNetwork.addPostData("is_ntitle", writeData.isNoTitle() ? "1" : "0");
                     if (writeData.isNoTitle()) {
-                        this.mNetwork.o("st_type", "notitle");
+                        this.mNetwork.addPostData("st_type", "notitle");
                     }
-                    if (X != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(writeData.getForumId())) {
-                        this.mNetwork.o("lbs", String.valueOf(X.getLatitude()) + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(X.getLongitude()));
+                    if (address != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(writeData.getForumId())) {
+                        this.mNetwork.addPostData("lbs", String.valueOf(address.getLatitude()) + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(address.getLongitude()));
                     }
                     c.a(this.mNetwork, writeData);
                     if (writeData.getCategoryFrom() >= 0) {
-                        this.mNetwork.o("fromCategoryId", String.valueOf(writeData.getCategoryFrom()));
+                        this.mNetwork.addPostData("fromCategoryId", String.valueOf(writeData.getCategoryFrom()));
                     }
                     if (writeData.getCategoryTo() >= 0) {
-                        this.mNetwork.o("toCategoryId", String.valueOf(writeData.getCategoryTo()));
+                        this.mNetwork.addPostData("toCategoryId", String.valueOf(writeData.getCategoryTo()));
                     }
                     if (writeData.getType() == 7) {
-                        this.mNetwork.o("is_bottle", String.valueOf(1));
+                        this.mNetwork.addPostData("is_bottle", String.valueOf(1));
                     }
                     if (writeData.getRecommendExt() != null) {
-                        this.mNetwork.o("recommend_ext", writeData.getRecommendExt());
+                        this.mNetwork.addPostData("recommend_ext", writeData.getRecommendExt());
                     }
                     if (writeData.isLinkThread()) {
-                        this.mNetwork.o("link_url", writeData.getLinkUrl());
-                        this.mNetwork.o("link_url_code", writeData.getLinkUrlCode() == null ? "" : writeData.getLinkUrlCode());
+                        this.mNetwork.addPostData("link_url", writeData.getLinkUrl());
+                        this.mNetwork.addPostData("link_url_code", writeData.getLinkUrlCode() == null ? "" : writeData.getLinkUrlCode());
                     }
-                    this.mNetwork.o("is_link_thread", writeData.isLinkThread() ? "1" : "0");
+                    this.mNetwork.addPostData("is_link_thread", writeData.isLinkThread() ? "1" : "0");
                     str3 = imagesCodeForPost;
                     break;
                 case 1:
-                    this.mNetwork.setUrl(jjM);
-                    this.mNetwork.o("fid", writeData.getForumId());
-                    this.mNetwork.o("from_fourm_id", writeData.getFromForumId());
-                    this.mNetwork.o("v_fid", writeData.getVForumId());
-                    this.mNetwork.o("v_fname", writeData.getVForumName());
-                    this.mNetwork.o("tid", writeData.getThreadId());
-                    this.mNetwork.o("kw", writeData.getForumName());
-                    this.mNetwork.o("is_ad", writeData.getIsAd() ? "1" : "0");
-                    this.mNetwork.o("is_barrage", writeData.isBarrage() ? "1" : "0");
-                    this.mNetwork.o("barrage_time", String.valueOf(writeData.getBarrageTime()));
+                    this.mNetwork.setUrl(jjA);
+                    this.mNetwork.addPostData("fid", writeData.getForumId());
+                    this.mNetwork.addPostData("from_fourm_id", writeData.getFromForumId());
+                    this.mNetwork.addPostData("v_fid", writeData.getVForumId());
+                    this.mNetwork.addPostData("v_fname", writeData.getVForumName());
+                    this.mNetwork.addPostData("tid", writeData.getThreadId());
+                    this.mNetwork.addPostData("kw", writeData.getForumName());
+                    this.mNetwork.addPostData("is_ad", writeData.getIsAd() ? "1" : "0");
+                    this.mNetwork.addPostData("is_barrage", writeData.isBarrage() ? "1" : "0");
+                    this.mNetwork.addPostData("barrage_time", String.valueOf(writeData.getBarrageTime()));
                     if (writeData.isFrsReply()) {
-                        this.mNetwork.o("st_param", "frs");
+                        this.mNetwork.addPostData("st_param", "frs");
                     }
-                    if (com.baidu.tbadk.editortools.pb.a.asJ().getStatus() == 1) {
-                        this.mNetwork.o("ptype", "4");
+                    if (com.baidu.tbadk.editortools.pb.a.auv().getStatus() == 1) {
+                        this.mNetwork.addPostData("ptype", "4");
                     }
                     if (!StringUtils.isNull(writeData.sourceFrom)) {
-                        this.mNetwork.o("post_from", writeData.sourceFrom);
+                        this.mNetwork.addPostData("post_from", writeData.sourceFrom);
                     }
                     c.a(this.mNetwork, writeData);
                     str3 = imagesCodeForPost;
                     break;
                 case 2:
-                    this.mNetwork.setUrl(jjM);
-                    this.mNetwork.o("fid", writeData.getForumId());
-                    this.mNetwork.o("from_fourm_id", writeData.getFromForumId());
-                    this.mNetwork.o("v_fid", writeData.getVForumId());
-                    this.mNetwork.o("v_fname", writeData.getVForumName());
-                    this.mNetwork.o("tid", writeData.getThreadId());
-                    this.mNetwork.o("kw", writeData.getForumName());
-                    this.mNetwork.o("quote_id", String.valueOf(writeData.getFloor()));
-                    this.mNetwork.o("is_twzhibo_thread", String.valueOf(0));
-                    this.mNetwork.o("floor_num", String.valueOf(writeData.getFloorNum()));
+                    this.mNetwork.setUrl(jjA);
+                    this.mNetwork.addPostData("fid", writeData.getForumId());
+                    this.mNetwork.addPostData("from_fourm_id", writeData.getFromForumId());
+                    this.mNetwork.addPostData("v_fid", writeData.getVForumId());
+                    this.mNetwork.addPostData("v_fname", writeData.getVForumName());
+                    this.mNetwork.addPostData("tid", writeData.getThreadId());
+                    this.mNetwork.addPostData("kw", writeData.getForumName());
+                    this.mNetwork.addPostData("quote_id", String.valueOf(writeData.getFloor()));
+                    this.mNetwork.addPostData("is_twzhibo_thread", String.valueOf(0));
+                    this.mNetwork.addPostData("floor_num", String.valueOf(writeData.getFloorNum()));
                     if (writeData.getRepostId() != null) {
-                        this.mNetwork.o("repostid", writeData.getRepostId());
+                        this.mNetwork.addPostData("repostid", writeData.getRepostId());
                     }
-                    this.mNetwork.o("is_ad", writeData.getIsAd() ? "1" : "0");
-                    this.mNetwork.o(WriteActivityConfig.IS_ADDITION, writeData.isAddition() ? "1" : "0");
-                    this.mNetwork.o("is_giftpost", writeData.isGiftPost() ? "1" : "0");
-                    this.mNetwork.o("is_giftpost", writeData.isGiftPost() ? "1" : "0");
+                    this.mNetwork.addPostData("is_ad", writeData.getIsAd() ? "1" : "0");
+                    this.mNetwork.addPostData(WriteActivityConfig.IS_ADDITION, writeData.isAddition() ? "1" : "0");
+                    this.mNetwork.addPostData("is_giftpost", writeData.isGiftPost() ? "1" : "0");
+                    this.mNetwork.addPostData("is_giftpost", writeData.isGiftPost() ? "1" : "0");
                     if (writeData.isAddition()) {
-                        this.mNetwork.o("st_type", "conadd");
+                        this.mNetwork.addPostData("st_type", "conadd");
                     }
                     if (!StringUtils.isNull(writeData.sourceFrom)) {
-                        this.mNetwork.o("post_from", writeData.sourceFrom);
+                        this.mNetwork.addPostData("post_from", writeData.sourceFrom);
                         str3 = imagesCodeForPost;
                         break;
                     }
@@ -438,50 +435,50 @@ public class a {
                 case 8:
                 default:
                     if (writeData.isCanNoForum()) {
-                        this.mNetwork.o("fid", "0");
-                        this.mNetwork.o("kw", "");
-                        this.mNetwork.o("transform_forums", writeData.getTransmitForumData());
+                        this.mNetwork.addPostData("fid", "0");
+                        this.mNetwork.addPostData("kw", "");
+                        this.mNetwork.addPostData("transform_forums", writeData.getTransmitForumData());
                         str3 = imagesCodeForPost;
                         break;
                     } else {
-                        this.mNetwork.o("fid", writeData.getForumId());
-                        this.mNetwork.o("kw", writeData.getForumName());
+                        this.mNetwork.addPostData("fid", writeData.getForumId());
+                        this.mNetwork.addPostData("kw", writeData.getForumName());
                         str3 = imagesCodeForPost;
                         break;
                     }
                 case 4:
-                    this.mNetwork.setUrl(jjL);
-                    this.mNetwork.o("fid", writeData.getForumId());
-                    this.mNetwork.o("kw", writeData.getForumName());
-                    this.mNetwork.o("title", writeData.getTitle());
+                    this.mNetwork.setUrl(jjz);
+                    this.mNetwork.addPostData("fid", writeData.getForumId());
+                    this.mNetwork.addPostData("kw", writeData.getForumName());
+                    this.mNetwork.addPostData("title", writeData.getTitle());
                     if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                        this.mNetwork.o("post_prefix", writeData.getPostPrefix());
+                        this.mNetwork.addPostData("post_prefix", writeData.getPostPrefix());
                     }
-                    this.mNetwork.o("thread_type", "33");
+                    this.mNetwork.addPostData("thread_type", "33");
                     c.a(this.mNetwork, writeData);
                     str3 = imagesCodeForPost;
                     break;
                 case 5:
-                    this.mNetwork.setUrl(jjM);
-                    this.mNetwork.o("fid", writeData.getForumId());
-                    this.mNetwork.o("tid", writeData.getThreadId());
-                    this.mNetwork.o("kw", writeData.getForumName());
-                    this.mNetwork.o("is_twzhibo_thread", String.valueOf(1));
+                    this.mNetwork.setUrl(jjA);
+                    this.mNetwork.addPostData("fid", writeData.getForumId());
+                    this.mNetwork.addPostData("tid", writeData.getThreadId());
+                    this.mNetwork.addPostData("kw", writeData.getForumName());
+                    this.mNetwork.addPostData("is_twzhibo_thread", String.valueOf(1));
                     c.a(this.mNetwork, writeData);
                     str3 = imagesCodeForPost;
                     break;
                 case 6:
-                    this.mNetwork.setUrl(jjL);
-                    this.mNetwork.o("fid", writeData.getForumId());
-                    this.mNetwork.o("kw", writeData.getForumName());
-                    this.mNetwork.o("thread_type", String.valueOf(36));
-                    this.mNetwork.o("title", writeData.getTitle());
+                    this.mNetwork.setUrl(jjz);
+                    this.mNetwork.addPostData("fid", writeData.getForumId());
+                    this.mNetwork.addPostData("kw", writeData.getForumName());
+                    this.mNetwork.addPostData("thread_type", String.valueOf(36));
+                    this.mNetwork.addPostData("title", writeData.getTitle());
                     if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                        this.mNetwork.o("post_prefix", writeData.getPostPrefix());
+                        this.mNetwork.addPostData("post_prefix", writeData.getPostPrefix());
                     }
-                    this.mNetwork.o("is_ntitle", writeData.isNoTitle() ? "1" : "0");
+                    this.mNetwork.addPostData("is_ntitle", writeData.isNoTitle() ? "1" : "0");
                     if (writeData.isNoTitle()) {
-                        this.mNetwork.o("st_type", "notitle");
+                        this.mNetwork.addPostData("st_type", "notitle");
                     }
                     c.a(this.mNetwork, writeData);
                     str3 = imagesCodeForPost;
@@ -491,41 +488,41 @@ public class a {
         if (writeData.isPostLatLng()) {
             String lat = writeData.getLat() == null ? "" : writeData.getLat();
             String lng = writeData.getLng() == null ? "" : writeData.getLng();
-            this.mNetwork.o("real_lat", lat);
-            this.mNetwork.o("real_lng", lng);
+            this.mNetwork.addPostData("real_lat", lat);
+            this.mNetwork.addPostData("real_lng", lng);
         }
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-            this.mNetwork.o("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+            this.mNetwork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
         }
-        String aim = this.mNetwork.aim();
-        notifyUploadProgress(95);
-        if (this.mNetwork.aiK().ajN().isRequestSuccess()) {
-            this.mErrorData.parserJson(aim);
+        String postNetData = this.mNetwork.postNetData();
+        zS(95);
+        if (this.mNetwork.amr().amS().isRequestSuccess()) {
+            this.jjC.parserJson(postNetData);
         } else {
-            this.mErrorData.setError_code(this.mNetwork.aiN() ? this.mNetwork.aiO() : this.mNetwork.aiP());
-            this.mErrorData.setError_msg(this.mNetwork.getErrorString());
+            this.jjC.setError_code(this.mNetwork.isNetSuccess() ? this.mNetwork.getServerErrorCode() : this.mNetwork.getNetErrorCode());
+            this.jjC.setError_msg(this.mNetwork.getErrorString());
         }
-        if (this.mErrorData.error_code != 0 && !com.baidu.adp.lib.util.j.kc()) {
-            this.mErrorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
-        } else if (this.mErrorData.error_code != 0 && writeData.isHasImages() && com.baidu.adp.lib.util.k.isEmpty(content + str3)) {
-            this.mErrorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.img_upload_error));
+        if (this.jjC.error_code != 0 && !com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
+            this.jjC.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
+        } else if (this.jjC.error_code != 0 && writeData.isHasImages() && com.baidu.adp.lib.util.k.isEmpty(content + str3)) {
+            this.jjC.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.img_upload_error));
         }
         try {
-            this.jjO = new AntiData();
-            this.jjO.parserJson(new JSONObject(aim).optJSONObject("anti_stat"));
+            this.jjD = new AntiData();
+            this.jjD.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
         } catch (Exception e2) {
         }
-        if (this.jjO.getBlock_stat() == 0 && this.mErrorData.error_code == 0 && this.mNetwork.aiK() != null && this.mNetwork.aiK().ajM() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921344, this.mNetwork.aiK().ajM().ajP()));
+        if (this.jjD.getBlock_stat() == 0 && this.jjC.error_code == 0 && this.mNetwork.amr() != null && this.mNetwork.amr().amR() != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO, this.mNetwork.amr().amR().amU()));
         }
-        notifyUploadProgress(100);
-        return aim;
+        zS(100);
+        return postNetData;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyUploadProgress(int i) {
-        if (this.jjQ != null) {
-            this.jjQ.onUploadProgress(i);
+    public void zS(int i) {
+        if (this.jjF != null) {
+            this.jjF.zT(i);
         }
     }
 
@@ -533,27 +530,27 @@ public class a {
         if (this.mNetwork == null) {
             return false;
         }
-        return this.mNetwork.aiK().ajN().isRequestSuccess();
+        return this.mNetwork.amr().amS().isRequestSuccess();
     }
 
     public void cancel() {
         this.isCancelled = true;
         if (this.mNetwork != null) {
-            this.mNetwork.ik();
+            this.mNetwork.cancelNetConnect();
         }
-        if (this.cxp != null) {
-            this.cxp.cancel();
+        if (this.cJr != null) {
+            this.cJr.cancel();
         }
-        if (this.jjP != null) {
-            this.jjP.crD();
+        if (this.jjE != null) {
+            this.jjE.cpw();
         }
     }
 
-    public AntiData cqQ() {
-        return this.jjO;
+    public AntiData coG() {
+        return this.jjD;
     }
 
-    public ErrorData getErrorData() {
-        return this.mErrorData;
+    public ErrorData coH() {
+        return this.jjC;
     }
 }

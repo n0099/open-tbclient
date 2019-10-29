@@ -6,36 +6,36 @@ import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static Toast El;
+    private static Toast mToast;
     private static Handler mHandler = new Handler();
-    private static String anb = null;
+    private static String mText = null;
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.El.cancel();
+            f.mToast.cancel();
         }
     };
 
-    public static void d(Context context, String str, int i) {
+    public static void showToast(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
             mHandler.removeCallbacks(r);
-            if (El != null) {
-                if (!str.equals(anb)) {
-                    anb = str;
-                    El.setText(str);
+            if (mToast != null) {
+                if (!str.equals(mText)) {
+                    mText = str;
+                    mToast.setText(str);
                 }
             } else {
-                anb = str;
-                El = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
-                El.setGravity(17, 0, com.baidu.adp.lib.util.l.dip2px(context, 100.0f));
+                mText = str;
+                mToast = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
+                mToast.setGravity(17, 0, com.baidu.adp.lib.util.l.dip2px(context, 100.0f));
             }
             mHandler.postDelayed(r, i);
-            El.show();
+            mToast.show();
         }
     }
 
     public static void showToast(Context context, String str) {
-        d(context, str, 2000);
+        showToast(context, str, 2000);
     }
 
     public static void showToast(Context context, int i) {

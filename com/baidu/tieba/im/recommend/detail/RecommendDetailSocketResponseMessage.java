@@ -2,6 +2,7 @@ package com.baidu.tieba.im.recommend.detail;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.cache.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
@@ -10,7 +11,7 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
     private UserInfoBigVip mDetailInfo;
 
     public RecommendDetailSocketResponseMessage() {
-        super(303025);
+        super(CmdConfigSocket.CMD_GET_RECOMMEND_DETAIL);
     }
 
     public UserInfoBigVip getDetailInfo() {
@@ -31,9 +32,9 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> mM = com.baidu.tbadk.core.d.a.agL().mM("tb.im_recommend_detail");
-        if (mM != null && bArr != null && this.mDetailInfo != null && this.mDetailInfo.user_id != null) {
-            mM.f(this.mDetailInfo.user_id + "", bArr);
+        l<byte[]> nk = com.baidu.tbadk.core.d.a.akN().nk("tb.im_recommend_detail");
+        if (nk != null && bArr != null && this.mDetailInfo != null && this.mDetailInfo.user_id != null) {
+            nk.setForever(this.mDetailInfo.user_id + "", bArr);
         }
     }
 }

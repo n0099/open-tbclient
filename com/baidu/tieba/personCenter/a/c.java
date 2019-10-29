@@ -8,8 +8,8 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.personCenter.data.g;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f>> {
+    private ab<g> fIL;
     private TbPageContext mPageContext;
-    private ab<g> sH;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -19,23 +19,22 @@ public class c extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: as */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> b(ViewGroup viewGroup) {
         com.baidu.tieba.personCenter.view.f fVar = new com.baidu.tieba.personCenter.view.f(this.mPageContext);
-        fVar.d(this.sH);
+        fVar.d(this.fIL);
         return new com.baidu.tieba.card.a.a<>(fVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> aVar) {
-        aVar.baX().a(gVar);
+    public View a(int i, View view, ViewGroup viewGroup, g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> aVar) {
+        aVar.baZ().a(gVar);
         return aVar.getView();
     }
 
     public void d(ab<g> abVar) {
-        this.sH = abVar;
+        this.fIL = abVar;
     }
 }

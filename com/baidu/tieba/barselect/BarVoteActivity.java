@@ -7,7 +7,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
@@ -18,24 +17,24 @@ public class BarVoteActivity extends BaseActivity {
     public long fid;
     public int source;
     public BdUniqueId mPageId = BdUniqueId.gen();
-    private BarVoteModel ewy = null;
-    private com.baidu.tieba.barselect.a ewz = null;
-    BarVoteModel.a ewA = new BarVoteModel.a() { // from class: com.baidu.tieba.barselect.BarVoteActivity.1
+    private BarVoteModel eFk = null;
+    private com.baidu.tieba.barselect.a eFl = null;
+    BarVoteModel.a eFm = new BarVoteModel.a() { // from class: com.baidu.tieba.barselect.BarVoteActivity.1
         @Override // com.baidu.tieba.barselect.BarVoteModel.a
         public void a(int i, String str, f fVar) {
-            if (BarVoteActivity.this.ewz != null && BarVoteActivity.this.ewz.getRootView() != null) {
-                BarVoteActivity.this.hideLoadingView(BarVoteActivity.this.ewz.getRootView());
+            if (BarVoteActivity.this.eFl != null && BarVoteActivity.this.eFl.getRootView() != null) {
+                BarVoteActivity.this.hideLoadingView(BarVoteActivity.this.eFl.getRootView());
                 if (i == 0) {
-                    if (fVar == null || fVar.aZv() == null || fVar.aZv().getStatus() < 1 || fVar.aZv().getStatus() > 2) {
-                        if (BarVoteActivity.this.ewy != null && BarVoteActivity.this.ewy.mPn == 0) {
-                            if (BarVoteActivity.this.ewz.getListView() != null) {
-                                BarVoteActivity.this.ewz.getListView().setVisibility(8);
+                    if (fVar == null || fVar.aZy() == null || fVar.aZy().getStatus() < 1 || fVar.aZy().getStatus() > 2) {
+                        if (BarVoteActivity.this.eFk != null && BarVoteActivity.this.eFk.mPn == 0) {
+                            if (BarVoteActivity.this.eFl.getListView() != null) {
+                                BarVoteActivity.this.eFl.getListView().setVisibility(8);
                             }
-                            if (fVar == null || fVar.aZv() == null) {
-                                BarVoteActivity.this.ewz.vP(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
+                            if (fVar == null || fVar.aZy() == null) {
+                                BarVoteActivity.this.eFl.us(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
                                 return;
-                            } else if (fVar.aZv().getStatus() < 1 || fVar.aZv().getStatus() > 2) {
-                                BarVoteActivity.this.ewz.vP(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                            } else if (fVar.aZy().getStatus() < 1 || fVar.aZy().getStatus() > 2) {
+                                BarVoteActivity.this.eFl.us(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             } else {
                                 return;
@@ -43,8 +42,8 @@ public class BarVoteActivity extends BaseActivity {
                         }
                         return;
                     }
-                    if (BarVoteActivity.this.ewz.getListView() != null) {
-                        BarVoteActivity.this.ewz.getListView().setVisibility(0);
+                    if (BarVoteActivity.this.eFl.getListView() != null) {
+                        BarVoteActivity.this.eFl.getListView().setVisibility(0);
                     }
                     if (BarVoteActivity.this.fid != 0) {
                         fVar.setFid(BarVoteActivity.this.fid);
@@ -52,19 +51,19 @@ public class BarVoteActivity extends BaseActivity {
                     if (fVar.getUniqueId() == null) {
                         fVar.setUniqueId(BarVoteActivity.this.mPageId);
                     }
-                    BarVoteActivity.this.ewz.setData(fVar);
+                    BarVoteActivity.this.eFl.setData(fVar);
                 } else if (i == 2430005) {
-                    if (BarVoteActivity.this.ewy != null && BarVoteActivity.this.ewy.mPn == 0) {
-                        if (BarVoteActivity.this.ewz.getListView() != null) {
-                            BarVoteActivity.this.ewz.getListView().setVisibility(8);
+                    if (BarVoteActivity.this.eFk != null && BarVoteActivity.this.eFk.mPn == 0) {
+                        if (BarVoteActivity.this.eFl.getListView() != null) {
+                            BarVoteActivity.this.eFl.getListView().setVisibility(8);
                         }
-                        BarVoteActivity.this.ewz.vP(str);
+                        BarVoteActivity.this.eFl.us(str);
                     }
-                } else if (BarVoteActivity.this.ewy != null && BarVoteActivity.this.ewy.mPn == 0) {
-                    if (BarVoteActivity.this.ewz.getListView() != null) {
-                        BarVoteActivity.this.ewz.getListView().setVisibility(8);
+                } else if (BarVoteActivity.this.eFk != null && BarVoteActivity.this.eFk.mPn == 0) {
+                    if (BarVoteActivity.this.eFl.getListView() != null) {
+                        BarVoteActivity.this.eFl.getListView().setVisibility(8);
                     }
-                    BarVoteActivity.this.ewz.vP(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                    BarVoteActivity.this.eFl.us(TbadkCoreApplication.getInst().getString(R.string.error_status));
                 }
             }
         }
@@ -74,13 +73,13 @@ public class BarVoteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ewz = new com.baidu.tieba.barselect.a(this);
+        this.eFl = new com.baidu.tieba.barselect.a(this);
         this.fid = getIntent().getLongExtra("fid", 0L);
         this.source = getIntent().getIntExtra("source", 0);
-        this.ewy = new BarVoteModel(this);
-        this.ewy.a(this.ewA);
-        this.ewz.d(new a());
-        new an("c13440").P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.source).ajq();
+        this.eFk = new BarVoteModel(this);
+        this.eFk.a(this.eFm);
+        this.eFl.e(new a());
+        new an("c13440").O("obj_source", this.source).amK();
     }
 
     @Override // android.app.Activity
@@ -90,36 +89,36 @@ public class BarVoteActivity extends BaseActivity {
         this.fid = intent.getLongExtra("fid", 0L);
         this.source = intent.getIntExtra("source", 0);
         reload();
-        new an("c13440").P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.source).ajq();
+        new an("c13440").O("obj_source", this.source).amK();
     }
 
-    public void aYU() {
-        if (this.ewy != null) {
-            this.ewy.aJw();
+    public void aYY() {
+        if (this.eFk != null) {
+            this.eFk.aIW();
         }
     }
 
     public void reload() {
-        if (this.ewy != null) {
-            this.ewy.refresh();
+        if (this.eFk != null) {
+            this.eFk.refresh();
         }
     }
 
     public void refresh() {
-        if (this.ewy != null) {
-            this.ewy.aZc();
+        if (this.eFk != null) {
+            this.eFk.aZg();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.right_textview) {
-            ba.ajK().c(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
+            ba.amQ().b(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
         } else if (view.getId() == R.id.pb_more) {
-            if (this.ewz != null && this.ewz.aZe() != null) {
-                this.ewz.aZe().showLoading();
+            if (this.eFl != null && this.eFl.aZi() != null) {
+                this.eFl.aZi().showLoading();
             }
-            aYU();
+            aYY();
         }
     }
 
@@ -127,25 +126,25 @@ public class BarVoteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ewz != null) {
-            this.ewz.nE(i);
+        if (this.eFl != null) {
+            this.eFl.mE(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.ewz != null) {
-            this.ewz.onDestroy();
+        if (this.eFl != null) {
+            this.eFl.onDestroy();
         }
-        if (this.ewy != null) {
-            this.ewy.onDestroy();
+        if (this.eFk != null) {
+            this.eFk.onDestroy();
         }
         super.onDestroy();
     }
 
-    public void aJM() {
-        this.ewz.aJM();
+    public void aJn() {
+        this.eFl.aJn();
     }
 
     /* loaded from: classes3.dex */
@@ -155,9 +154,9 @@ public class BarVoteActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (l.kt()) {
-                BarVoteActivity.this.ewz.hideNoDataView();
-                BarVoteActivity.this.showLoadingView(BarVoteActivity.this.ewz.getRootView());
+            if (l.isNetOk()) {
+                BarVoteActivity.this.eFl.hideNoDataView();
+                BarVoteActivity.this.showLoadingView(BarVoteActivity.this.eFl.getRootView());
                 BarVoteActivity.this.reload();
             }
         }

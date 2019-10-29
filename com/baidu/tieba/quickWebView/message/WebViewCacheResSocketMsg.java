@@ -1,5 +1,6 @@
 package com.baidu.tieba.quickWebView.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
@@ -10,7 +11,7 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     private String mVersion;
 
     public WebViewCacheResSocketMsg() {
-        super(309485);
+        super(CmdConfigSocket.WEBVIEW_CACHE_INFO);
     }
 
     public String getCacheDownloadUrl() {

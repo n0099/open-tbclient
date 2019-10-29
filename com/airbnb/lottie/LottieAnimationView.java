@@ -28,24 +28,24 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LottieAnimationView extends AppCompatImageView {
-    private static final String TAG = LottieAnimationView.class.getSimpleName();
-    private static final SparseArray<e> ku = new SparseArray<>();
-    private static final SparseArray<WeakReference<e>> kv = new SparseArray<>();
-    private static final Map<String, e> kx = new HashMap();
-    private static final Map<String, WeakReference<e>> ky = new HashMap();
-    private boolean autoPlay;
-    private final h kA;
-    private final f kB;
-    private CacheStrategy kC;
-    private String kD;
+    private String animationName;
     @RawRes
-    private int kE;
-    private boolean kF;
-    private boolean kG;
+    private int animationResId;
+    private boolean autoPlay;
+    private final h dg;
+    private final f dh;
+    private CacheStrategy di;
     @Nullable
-    private a kH;
+    private a dj;
     @Nullable
-    private e kI;
+    private e dk;
+    private boolean useHardwareLayer;
+    private boolean wasAnimatingWhenDetached;
+    private static final String TAG = LottieAnimationView.class.getSimpleName();
+    private static final SparseArray<e> RAW_RES_STRONG_REF_CACHE = new SparseArray<>();
+    private static final SparseArray<WeakReference<e>> RAW_RES_WEAK_REF_CACHE = new SparseArray<>();
+    private static final Map<String, e> ASSET_STRONG_REF_CACHE = new HashMap();
+    private static final Map<String, WeakReference<e>> ASSET_WEAK_REF_CACHE = new HashMap();
 
     /* loaded from: classes2.dex */
     public enum CacheStrategy {
@@ -56,62 +56,62 @@ public class LottieAnimationView extends AppCompatImageView {
 
     public LottieAnimationView(Context context) {
         super(context);
-        this.kA = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
+        this.dg = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
             @Override // com.airbnb.lottie.h
             public void a(@Nullable e eVar) {
                 if (eVar != null) {
                     LottieAnimationView.this.setComposition(eVar);
                 }
-                LottieAnimationView.this.kH = null;
+                LottieAnimationView.this.dj = null;
             }
         };
-        this.kB = new f();
-        this.kF = false;
+        this.dh = new f();
+        this.wasAnimatingWhenDetached = false;
         this.autoPlay = false;
-        this.kG = false;
+        this.useHardwareLayer = false;
         init(null);
     }
 
     public LottieAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kA = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
+        this.dg = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
             @Override // com.airbnb.lottie.h
             public void a(@Nullable e eVar) {
                 if (eVar != null) {
                     LottieAnimationView.this.setComposition(eVar);
                 }
-                LottieAnimationView.this.kH = null;
+                LottieAnimationView.this.dj = null;
             }
         };
-        this.kB = new f();
-        this.kF = false;
+        this.dh = new f();
+        this.wasAnimatingWhenDetached = false;
         this.autoPlay = false;
-        this.kG = false;
+        this.useHardwareLayer = false;
         init(attributeSet);
     }
 
     public LottieAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kA = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
+        this.dg = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
             @Override // com.airbnb.lottie.h
             public void a(@Nullable e eVar) {
                 if (eVar != null) {
                     LottieAnimationView.this.setComposition(eVar);
                 }
-                LottieAnimationView.this.kH = null;
+                LottieAnimationView.this.dj = null;
             }
         };
-        this.kB = new f();
-        this.kF = false;
+        this.dh = new f();
+        this.wasAnimatingWhenDetached = false;
         this.autoPlay = false;
-        this.kG = false;
+        this.useHardwareLayer = false;
         init(attributeSet);
     }
 
     private void init(@Nullable AttributeSet attributeSet) {
         String string;
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, j.a.LottieAnimationView);
-        this.kC = CacheStrategy.values()[obtainStyledAttributes.getInt(j.a.LottieAnimationView_lottie_cacheStrategy, CacheStrategy.Weak.ordinal())];
+        this.di = CacheStrategy.values()[obtainStyledAttributes.getInt(j.a.LottieAnimationView_lottie_cacheStrategy, CacheStrategy.Weak.ordinal())];
         if (!isInEditMode()) {
             boolean hasValue = obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_rawRes);
             boolean hasValue2 = obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_fileName);
@@ -128,57 +128,57 @@ public class LottieAnimationView extends AppCompatImageView {
             }
         }
         if (obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_autoPlay, false)) {
-            this.kB.br();
+            this.dh.playAnimation();
             this.autoPlay = true;
         }
-        this.kB.y(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_loop, false));
+        this.dh.loop(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_loop, false));
         setImageAssetsFolder(obtainStyledAttributes.getString(j.a.LottieAnimationView_lottie_imageAssetsFolder));
         setProgress(obtainStyledAttributes.getFloat(j.a.LottieAnimationView_lottie_progress, 0.0f));
-        w(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
+        enableMergePathsForKitKatAndAbove(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
         if (obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_colorFilter)) {
-            a(new k(obtainStyledAttributes.getColor(j.a.LottieAnimationView_lottie_colorFilter, 0)));
+            addColorFilter(new k(obtainStyledAttributes.getColor(j.a.LottieAnimationView_lottie_colorFilter, 0)));
         }
         if (obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_scale)) {
-            this.kB.setScale(obtainStyledAttributes.getFloat(j.a.LottieAnimationView_lottie_scale, 1.0f));
+            this.dh.setScale(obtainStyledAttributes.getFloat(j.a.LottieAnimationView_lottie_scale, 1.0f));
         }
         obtainStyledAttributes.recycle();
         if (com.airbnb.lottie.c.f.Q(getContext()) == 0.0f) {
-            this.kB.bN();
+            this.dh.bg();
         }
-        bu();
+        enableOrDisableHardwareLayer();
     }
 
     @Override // android.support.v7.widget.AppCompatImageView, android.widget.ImageView
     public void setImageResource(int i) {
-        bp();
-        bq();
+        recycleBitmaps();
+        cancelLoaderTask();
         super.setImageResource(i);
     }
 
     @Override // android.support.v7.widget.AppCompatImageView, android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
-        if (drawable != this.kB) {
-            bp();
+        if (drawable != this.dh) {
+            recycleBitmaps();
         }
-        bq();
+        cancelLoaderTask();
         super.setImageDrawable(drawable);
     }
 
     @Override // android.support.v7.widget.AppCompatImageView, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        bp();
-        bq();
+        recycleBitmaps();
+        cancelLoaderTask();
         super.setImageBitmap(bitmap);
     }
 
-    public void a(@Nullable ColorFilter colorFilter) {
-        this.kB.a(colorFilter);
+    public void addColorFilter(@Nullable ColorFilter colorFilter) {
+        this.dh.addColorFilter(colorFilter);
     }
 
     @Override // android.widget.ImageView, android.view.View, android.graphics.drawable.Drawable.Callback
     public void invalidateDrawable(@NonNull Drawable drawable) {
-        if (getDrawable() == this.kB) {
-            super.invalidateDrawable(this.kB);
+        if (getDrawable() == this.dh) {
+            super.invalidateDrawable(this.dh);
         } else {
             super.invalidateDrawable(drawable);
         }
@@ -187,12 +187,12 @@ public class LottieAnimationView extends AppCompatImageView {
     @Override // android.view.View
     protected Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.kD = this.kD;
-        savedState.kE = this.kE;
-        savedState.progress = this.kB.getProgress();
-        savedState.kN = this.kB.isAnimating();
-        savedState.kO = this.kB.isLooping();
-        savedState.kP = this.kB.getImageAssetsFolder();
+        savedState.animationName = this.animationName;
+        savedState.animationResId = this.animationResId;
+        savedState.progress = this.dh.getProgress();
+        savedState.dr = this.dh.isAnimating();
+        savedState.ds = this.dh.isLooping();
+        savedState.dt = this.dh.getImageAssetsFolder();
         return savedState;
     }
 
@@ -205,82 +205,84 @@ public class LottieAnimationView extends AppCompatImageView {
         }
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        this.kD = savedState.kD;
-        if (!TextUtils.isEmpty(this.kD)) {
-            setAnimation(this.kD);
+        this.animationName = savedState.animationName;
+        if (!TextUtils.isEmpty(this.animationName)) {
+            setAnimation(this.animationName);
         }
-        this.kE = savedState.kE;
-        if (this.kE != 0) {
-            setAnimation(this.kE);
+        this.animationResId = savedState.animationResId;
+        if (this.animationResId != 0) {
+            setAnimation(this.animationResId);
         }
         setProgress(savedState.progress);
-        y(savedState.kO);
-        if (savedState.kN) {
-            br();
+        loop(savedState.ds);
+        if (savedState.dr) {
+            playAnimation();
         }
-        this.kB.G(savedState.kP);
+        this.dh.G(savedState.dt);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.autoPlay && this.kF) {
-            br();
+        if (this.autoPlay && this.wasAnimatingWhenDetached) {
+            playAnimation();
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         if (isAnimating()) {
             cancelAnimation();
-            this.kF = true;
+            this.wasAnimatingWhenDetached = true;
         }
-        bp();
+        recycleBitmaps();
         super.onDetachedFromWindow();
     }
 
     @VisibleForTesting
-    void bp() {
-        if (this.kB != null) {
-            this.kB.bp();
+    void recycleBitmaps() {
+        if (this.dh != null) {
+            this.dh.recycleBitmaps();
         }
     }
 
-    public void w(boolean z) {
-        this.kB.w(z);
+    public void enableMergePathsForKitKatAndAbove(boolean z) {
+        this.dh.enableMergePathsForKitKatAndAbove(z);
     }
 
-    public void x(boolean z) {
-        this.kG = z;
-        bu();
+    public void useHardwareAcceleration(boolean z) {
+        this.useHardwareLayer = z;
+        enableOrDisableHardwareLayer();
     }
 
     public void setAnimation(@RawRes int i) {
-        setAnimation(i, this.kC);
+        setAnimation(i, this.di);
     }
 
     public void setAnimation(@RawRes final int i, final CacheStrategy cacheStrategy) {
-        this.kE = i;
-        this.kD = null;
-        if (kv.indexOfKey(i) > 0) {
-            e eVar = kv.get(i).get();
+        this.animationResId = i;
+        this.animationName = null;
+        if (RAW_RES_WEAK_REF_CACHE.indexOfKey(i) > 0) {
+            e eVar = RAW_RES_WEAK_REF_CACHE.get(i).get();
             if (eVar != null) {
                 setComposition(eVar);
                 return;
             }
-        } else if (ku.indexOfKey(i) > 0) {
-            setComposition(ku.get(i));
+        } else if (RAW_RES_STRONG_REF_CACHE.indexOfKey(i) > 0) {
+            setComposition(RAW_RES_STRONG_REF_CACHE.get(i));
             return;
         }
-        this.kB.cancelAnimation();
-        bq();
-        this.kH = e.a.a(getContext(), i, new h() { // from class: com.airbnb.lottie.LottieAnimationView.2
+        this.dh.cancelAnimation();
+        cancelLoaderTask();
+        this.dj = e.a.a(getContext(), i, new h() { // from class: com.airbnb.lottie.LottieAnimationView.2
             @Override // com.airbnb.lottie.h
             public void a(e eVar2) {
                 if (cacheStrategy == CacheStrategy.Strong) {
-                    LottieAnimationView.ku.put(i, eVar2);
+                    LottieAnimationView.RAW_RES_STRONG_REF_CACHE.put(i, eVar2);
                 } else if (cacheStrategy == CacheStrategy.Weak) {
-                    LottieAnimationView.kv.put(i, new WeakReference(eVar2));
+                    LottieAnimationView.RAW_RES_WEAK_REF_CACHE.put(i, new WeakReference(eVar2));
                 }
                 LottieAnimationView.this.setComposition(eVar2);
             }
@@ -288,31 +290,31 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     public void setAnimation(String str) {
-        setAnimation(str, this.kC);
+        setAnimation(str, this.di);
     }
 
     public void setAnimation(final String str, final CacheStrategy cacheStrategy) {
-        this.kD = str;
-        this.kE = 0;
-        if (ky.containsKey(str)) {
-            e eVar = ky.get(str).get();
+        this.animationName = str;
+        this.animationResId = 0;
+        if (ASSET_WEAK_REF_CACHE.containsKey(str)) {
+            e eVar = ASSET_WEAK_REF_CACHE.get(str).get();
             if (eVar != null) {
                 setComposition(eVar);
                 return;
             }
-        } else if (kx.containsKey(str)) {
-            setComposition(kx.get(str));
+        } else if (ASSET_STRONG_REF_CACHE.containsKey(str)) {
+            setComposition(ASSET_STRONG_REF_CACHE.get(str));
             return;
         }
-        this.kB.cancelAnimation();
-        bq();
-        this.kH = e.a.a(getContext(), str, new h() { // from class: com.airbnb.lottie.LottieAnimationView.3
+        this.dh.cancelAnimation();
+        cancelLoaderTask();
+        this.dj = e.a.a(getContext(), str, new h() { // from class: com.airbnb.lottie.LottieAnimationView.3
             @Override // com.airbnb.lottie.h
             public void a(e eVar2) {
                 if (cacheStrategy == CacheStrategy.Strong) {
-                    LottieAnimationView.kx.put(str, eVar2);
+                    LottieAnimationView.ASSET_STRONG_REF_CACHE.put(str, eVar2);
                 } else if (cacheStrategy == CacheStrategy.Weak) {
-                    LottieAnimationView.ky.put(str, new WeakReference(eVar2));
+                    LottieAnimationView.ASSET_WEAK_REF_CACHE.put(str, new WeakReference(eVar2));
                 }
                 LottieAnimationView.this.setComposition(eVar2);
             }
@@ -320,173 +322,173 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     public void setAnimation(JSONObject jSONObject) {
-        bq();
-        this.kH = e.a.a(getResources(), jSONObject, this.kA);
+        cancelLoaderTask();
+        this.dj = e.a.a(getResources(), jSONObject, this.dg);
     }
 
-    private void bq() {
-        if (this.kH != null) {
-            this.kH.cancel();
-            this.kH = null;
+    private void cancelLoaderTask() {
+        if (this.dj != null) {
+            this.dj.cancel();
+            this.dj = null;
         }
     }
 
     public void setComposition(@NonNull e eVar) {
-        this.kB.setCallback(this);
-        boolean h = this.kB.h(eVar);
-        bu();
+        this.dh.setCallback(this);
+        boolean h = this.dh.h(eVar);
+        enableOrDisableHardwareLayer();
         if (h) {
             setImageDrawable(null);
-            setImageDrawable(this.kB);
-            this.kI = eVar;
+            setImageDrawable(this.dh);
+            this.dk = eVar;
             requestLayout();
         }
     }
 
-    public void br() {
-        this.kB.br();
-        bu();
+    public void playAnimation() {
+        this.dh.playAnimation();
+        enableOrDisableHardwareLayer();
     }
 
-    public void bs() {
-        this.kB.bs();
-        bu();
+    public void resumeAnimation() {
+        this.dh.resumeAnimation();
+        enableOrDisableHardwareLayer();
     }
 
     public void setMinFrame(int i) {
-        this.kB.setMinFrame(i);
+        this.dh.setMinFrame(i);
     }
 
     public void setMinProgress(float f) {
-        this.kB.setMinProgress(f);
+        this.dh.setMinProgress(f);
     }
 
     public void setMaxFrame(int i) {
-        this.kB.setMaxFrame(i);
+        this.dh.setMaxFrame(i);
     }
 
     public void setMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.kB.setMaxProgress(f);
+        this.dh.setMaxProgress(f);
     }
 
     public void setMinAndMaxFrame(int i, int i2) {
-        this.kB.setMinAndMaxFrame(i, i2);
+        this.dh.setMinAndMaxFrame(i, i2);
     }
 
     public void setMinAndMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.kB.setMinAndMaxProgress(f, f2);
+        this.dh.setMinAndMaxProgress(f, f2);
     }
 
     public void setSpeed(float f) {
-        this.kB.setSpeed(f);
+        this.dh.setSpeed(f);
     }
 
     public float getSpeed() {
-        return this.kB.getSpeed();
+        return this.dh.getSpeed();
     }
 
-    public void a(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.kB.a(animatorUpdateListener);
+    public void addAnimatorUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
+        this.dh.addAnimatorUpdateListener(animatorUpdateListener);
     }
 
-    public void b(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.kB.c(animatorUpdateListener);
+    public void removeUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
+        this.dh.a(animatorUpdateListener);
     }
 
-    public void a(Animator.AnimatorListener animatorListener) {
-        this.kB.a(animatorListener);
+    public void addAnimatorListener(Animator.AnimatorListener animatorListener) {
+        this.dh.addAnimatorListener(animatorListener);
     }
 
-    public void b(Animator.AnimatorListener animatorListener) {
-        this.kB.b(animatorListener);
+    public void removeAnimatorListener(Animator.AnimatorListener animatorListener) {
+        this.dh.removeAnimatorListener(animatorListener);
     }
 
-    public void y(boolean z) {
-        this.kB.y(z);
+    public void loop(boolean z) {
+        this.dh.loop(z);
     }
 
     public boolean isAnimating() {
-        return this.kB.isAnimating();
+        return this.dh.isAnimating();
     }
 
     public void setImageAssetsFolder(String str) {
-        this.kB.G(str);
+        this.dh.G(str);
     }
 
     @Nullable
     public String getImageAssetsFolder() {
-        return this.kB.getImageAssetsFolder();
+        return this.dh.getImageAssetsFolder();
     }
 
     public void setImageAssetDelegate(c cVar) {
-        this.kB.setImageAssetDelegate(cVar);
+        this.dh.setImageAssetDelegate(cVar);
     }
 
     public void setFontAssetDelegate(b bVar) {
-        this.kB.setFontAssetDelegate(bVar);
+        this.dh.setFontAssetDelegate(bVar);
     }
 
     public void setTextDelegate(l lVar) {
-        this.kB.setTextDelegate(lVar);
+        this.dh.setTextDelegate(lVar);
     }
 
     public void setScale(float f) {
-        this.kB.setScale(f);
-        if (getDrawable() == this.kB) {
+        this.dh.setScale(f);
+        if (getDrawable() == this.dh) {
             setImageDrawable(null);
-            setImageDrawable(this.kB);
+            setImageDrawable(this.dh);
         }
     }
 
     public float getScale() {
-        return this.kB.getScale();
+        return this.dh.getScale();
     }
 
     public void cancelAnimation() {
-        this.kB.cancelAnimation();
-        bu();
+        this.dh.cancelAnimation();
+        enableOrDisableHardwareLayer();
     }
 
-    public void bt() {
-        this.kB.bt();
-        bu();
+    public void pauseAnimation() {
+        this.dh.pauseAnimation();
+        enableOrDisableHardwareLayer();
     }
 
     public void setFrame(int i) {
-        this.kB.setFrame(i);
+        this.dh.setFrame(i);
     }
 
     public int getFrame() {
-        return this.kB.getFrame();
+        return this.dh.getFrame();
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.kB.setProgress(f);
+        this.dh.setProgress(f);
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
-        return this.kB.getProgress();
+        return this.dh.getProgress();
     }
 
     public long getDuration() {
-        if (this.kI != null) {
-            return this.kI.getDuration();
+        if (this.dk != null) {
+            return this.dk.getDuration();
         }
         return 0L;
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.kB.setPerformanceTrackingEnabled(z);
+        this.dh.setPerformanceTrackingEnabled(z);
     }
 
     @Nullable
     public i getPerformanceTracker() {
-        return this.kB.getPerformanceTracker();
+        return this.dh.getPerformanceTracker();
     }
 
-    private void bu() {
-        setLayerType(this.kG && this.kB.isAnimating() ? 2 : 1, null);
+    private void enableOrDisableHardwareLayer() {
+        setLayerType(this.useHardwareLayer && this.dh.isAnimating() ? 2 : 1, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -507,11 +509,11 @@ public class LottieAnimationView extends AppCompatImageView {
                 return new SavedState[i];
             }
         };
-        String kD;
-        int kE;
-        boolean kN;
-        boolean kO;
-        String kP;
+        String animationName;
+        int animationResId;
+        boolean dr;
+        boolean ds;
+        String dt;
         float progress;
 
         SavedState(Parcelable parcelable) {
@@ -520,21 +522,21 @@ public class LottieAnimationView extends AppCompatImageView {
 
         private SavedState(Parcel parcel) {
             super(parcel);
-            this.kD = parcel.readString();
+            this.animationName = parcel.readString();
             this.progress = parcel.readFloat();
-            this.kN = parcel.readInt() == 1;
-            this.kO = parcel.readInt() == 1;
-            this.kP = parcel.readString();
+            this.dr = parcel.readInt() == 1;
+            this.ds = parcel.readInt() == 1;
+            this.dt = parcel.readString();
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeString(this.kD);
+            parcel.writeString(this.animationName);
             parcel.writeFloat(this.progress);
-            parcel.writeInt(this.kN ? 1 : 0);
-            parcel.writeInt(this.kO ? 1 : 0);
-            parcel.writeString(this.kP);
+            parcel.writeInt(this.dr ? 1 : 0);
+            parcel.writeInt(this.ds ? 1 : 0);
+            parcel.writeString(this.dt);
         }
     }
 }

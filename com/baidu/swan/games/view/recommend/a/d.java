@@ -5,9 +5,9 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class d {
-    private float bnj;
-    private float bnk;
-    private a bnl;
+    private float bFV;
+    private float bFW;
+    private a bFX;
     @V8JavascriptField
     public volatile float height;
     @V8JavascriptField
@@ -19,35 +19,35 @@ public class d {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void iM(String str);
+        void jp(String str);
     }
 
     public d() {
-        Resources resources = com.baidu.swan.apps.u.a.Eo() != null ? com.baidu.swan.apps.u.a.Eo().getResources() : null;
+        Resources resources = com.baidu.swan.apps.u.a.Ji() != null ? com.baidu.swan.apps.u.a.Ji().getResources() : null;
         this.left = a(resources, a.d.swangame_recommend_button_default_left);
         this.top = a(resources, a.d.swangame_recommend_button_default_top);
         this.width = a(resources, a.d.swangame_recommend_button_default_width);
         this.height = a(resources, a.d.swangame_recommend_button_default_height);
-        this.bnj = this.width;
-        this.bnk = this.height;
+        this.bFV = this.width;
+        this.bFW = this.height;
     }
 
     private float a(Resources resources, int i) {
         if (resources == null || i == 0) {
             return 0.0f;
         }
-        return com.baidu.swan.games.utils.b.aj(resources.getDimension(i));
+        return com.baidu.swan.games.utils.b.Y(resources.getDimension(i));
     }
 
     public void a(a aVar) {
-        this.bnl = aVar;
+        this.bFX = aVar;
     }
 
     public void onFieldChangedCallback(String str) {
-        this.width = this.bnj;
-        this.height = this.bnk;
-        if (this.bnl != null) {
-            this.bnl.iM(str);
+        this.width = this.bFV;
+        this.height = this.bFW;
+        if (this.bFX != null) {
+            this.bFX.jp(str);
         }
     }
 

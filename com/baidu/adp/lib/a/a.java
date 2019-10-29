@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.tieba.compatible.EditorHelper;
 import java.net.InetAddress;
 import java.net.URL;
@@ -12,36 +13,36 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a yU = null;
-    private final String yV = "c.tieba.baidu.com";
-    private long yW;
-    private String yX;
-    private long yY;
+    private static a nZ = null;
+    private final String oa = "c.tieba.baidu.com";
+    private long ob;
+    private String oc;
+    private long od;
 
-    public static final a hH() {
-        if (yU == null) {
+    public static final a fh() {
+        if (nZ == null) {
             synchronized (a.class) {
-                if (yU == null) {
-                    yU = new a();
+                if (nZ == null) {
+                    nZ = new a();
                 }
             }
         }
-        return yU;
+        return nZ;
     }
 
     private a() {
-        this.yW = 0L;
-        this.yX = null;
-        this.yY = 0L;
+        this.ob = 0L;
+        this.oc = null;
+        this.od = 0L;
         SharedPreferences config = getConfig();
-        this.yW = config.getLong(av("c.tieba.baidu.com"), 0L);
-        this.yX = config.getString(aw("c.tieba.baidu.com"), null);
-        this.yY = config.getLong(ax("c.tieba.baidu.com"), 0L);
+        this.ob = config.getLong(ab("c.tieba.baidu.com"), 0L);
+        this.oc = config.getString(ac("c.tieba.baidu.com"), null);
+        this.od = config.getLong(ad("c.tieba.baidu.com"), 0L);
     }
 
     public void a(String str, String str2, boolean z, boolean z2) {
         String host;
-        if (!TextUtils.isEmpty(str) && j.kc()) {
+        if (!TextUtils.isEmpty(str) && j.isNetWorkAvailable()) {
             try {
                 URL url = new URL(str);
                 String host2 = url.getHost();
@@ -53,9 +54,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.yW;
-                    long j2 = this.yY;
-                    String str3 = this.yX;
+                    long j = this.ob;
+                    long j2 = this.od;
+                    String str3 = this.oc;
                     if (currentTimeMillis - j > 43200000) {
                         a(host, host2, z, "12hour", z2);
                         return;
@@ -66,14 +67,14 @@ public class a {
                     calendar.setTimeInMillis(j);
                     if (i != calendar.get(6)) {
                         a(host, host2, z, "newday", z2);
-                    } else if (System.currentTimeMillis() - j2 > 3600000) {
+                    } else if (System.currentTimeMillis() - j2 > BdKVCache.MILLS_1Hour) {
                         if (TextUtils.isEmpty(host2)) {
-                            host2 = au(host);
+                            host2 = aa(host);
                         }
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             a(host, host2, z, "ipchange", z2);
                         } else {
-                            this.yY = System.currentTimeMillis();
+                            this.od = System.currentTimeMillis();
                         }
                     }
                 }
@@ -85,7 +86,7 @@ public class a {
     private void a(String str, String str2, boolean z, String str3, boolean z2) {
         if (!TextUtils.isEmpty(str)) {
             if (str2 == null) {
-                str2 = au(str);
+                str2 = aa(str);
             }
             if (str2 != null) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -93,21 +94,21 @@ public class a {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.append("host", str);
                 statsItem.append("hostip", str2);
-                statsItem.c("issuc", Boolean.valueOf(z));
-                statsItem.c("isuseip", Boolean.valueOf(z2));
+                statsItem.append("issuc", Boolean.valueOf(z));
+                statsItem.append("isuseip", Boolean.valueOf(z2));
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                 SharedPreferences config = getConfig();
-                EditorHelper.putLong(config, av(str), currentTimeMillis);
-                EditorHelper.putString(config, aw(str), str2);
-                EditorHelper.putLong(config, ax(str), currentTimeMillis2);
-                this.yW = currentTimeMillis;
-                this.yY = currentTimeMillis2;
-                this.yX = str2;
+                EditorHelper.putLong(config, ab(str), currentTimeMillis);
+                EditorHelper.putString(config, ac(str), str2);
+                EditorHelper.putLong(config, ad(str), currentTimeMillis2);
+                this.ob = currentTimeMillis;
+                this.od = currentTimeMillis2;
+                this.oc = str2;
             }
         }
     }
 
-    private String au(String str) {
+    private String aa(String str) {
         try {
             return InetAddress.getByName(str).getHostAddress();
         } catch (UnknownHostException e) {
@@ -121,15 +122,15 @@ public class a {
         return BdBaseApplication.getInst().getSharedPreferences("adp", 0);
     }
 
-    private String av(String str) {
+    private String ab(String str) {
         return str + "-lastLogTime";
     }
 
-    private String aw(String str) {
+    private String ac(String str) {
         return str + "-lastIpAddress";
     }
 
-    private String ax(String str) {
+    private String ad(String str) {
         return str + "-lastGetIpTime";
     }
 }

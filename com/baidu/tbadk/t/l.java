@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbSingleton;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
+    protected void C(int i) {
         TbSingleton.getInstance().setEnableBenchmark(i != 0);
     }
 
@@ -14,22 +14,22 @@ public class l extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hI() {
+    protected String[] fi() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hJ() {
+    protected int fj() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hK() {
+    protected int fk() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hL() {
+    protected int fl() {
         return 10;
     }
 }

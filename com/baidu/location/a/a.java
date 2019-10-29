@@ -13,15 +13,12 @@ import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
-import com.baidu.sapi2.result.AddressManageResult;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private ArrayList<C0050a> f;
+    private ArrayList<C0082a> f;
     private static a e = null;
     public static long c = 0;
     private boolean g = false;
@@ -38,14 +35,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0050a {
+    public class C0082a {
         public String a;
         public Messenger b;
         public LocationClientOption c = new LocationClientOption();
         public int d = 0;
         final /* synthetic */ a e;
 
-        public C0050a(a aVar, Message message) {
+        public C0082a(a aVar, Message message) {
             boolean z = false;
             this.e = aVar;
             this.a = null;
@@ -207,13 +204,13 @@ public class a {
         this.f = new ArrayList<>();
     }
 
-    private C0050a a(Messenger messenger) {
+    private C0082a a(Messenger messenger) {
         if (this.f == null) {
             return null;
         }
-        Iterator<C0050a> it = this.f.iterator();
+        Iterator<C0082a> it = this.f.iterator();
         while (it.hasNext()) {
-            C0050a next = it.next();
+            C0082a next = it.next();
             if (next.b.equals(messenger)) {
                 return next;
             }
@@ -228,16 +225,16 @@ public class a {
         return e;
     }
 
-    private void a(C0050a c0050a) {
-        if (c0050a == null) {
+    private void a(C0082a c0082a) {
+        if (c0082a == null) {
             return;
         }
-        if (a(c0050a.b) != null) {
-            c0050a.a(14);
+        if (a(c0082a.b) != null) {
+            c0082a.a(14);
             return;
         }
-        this.f.add(c0050a);
-        c0050a.a(13);
+        this.f.add(c0082a);
+        c0082a.a(13);
     }
 
     private void b(String str) {
@@ -245,7 +242,7 @@ public class a {
         intent.setPackage("com.baidu.baidulocationdemo");
         intent.putExtra("data", str);
         intent.putExtra("pack", com.baidu.location.g.b.d);
-        intent.putExtra(AddressManageResult.KEY_TAG, WXLoginActivity.KEY_BASE_RESP_STATE);
+        intent.putExtra("tag", "state");
         com.baidu.location.f.getServiceContext().sendBroadcast(intent);
     }
 
@@ -255,11 +252,11 @@ public class a {
     }
 
     private void f() {
-        Iterator<C0050a> it = this.f.iterator();
+        Iterator<C0082a> it = this.f.iterator();
         boolean z = false;
         boolean z2 = false;
         while (it.hasNext()) {
-            C0050a next = it.next();
+            C0082a next = it.next();
             if (next.c.openGps) {
                 z2 = true;
             }
@@ -273,10 +270,10 @@ public class a {
     }
 
     public void a(Bundle bundle, int i) {
-        Iterator<C0050a> it = this.f.iterator();
+        Iterator<C0082a> it = this.f.iterator();
         while (it.hasNext()) {
             try {
-                C0050a next = it.next();
+                C0082a next = it.next();
                 next.a(i, bundle);
                 if (next.d > 4) {
                     it.remove();
@@ -294,10 +291,10 @@ public class a {
         c = System.currentTimeMillis();
         this.a = true;
         com.baidu.location.e.f.a().b();
-        a(new C0050a(this, message));
+        a(new C0082a(this, message));
         e();
         if (this.k) {
-            b(IntentConfig.START);
+            b("start");
             this.d = 0;
         }
     }
@@ -323,14 +320,14 @@ public class a {
     }
 
     public void b(Message message) {
-        C0050a a = a(message.replyTo);
+        C0082a a = a(message.replyTo);
         if (a != null) {
             this.f.remove(a);
         }
         l.a().c();
         e();
         if (this.k) {
-            b(IntentConfig.STOP);
+            b("stop");
             this.d = 0;
         }
     }
@@ -347,10 +344,10 @@ public class a {
             if (bDLocation.getLocType() == 61) {
                 bDLocation.setGpsAccuracyStatus(com.baidu.location.b.a.a().a(bDLocation));
             }
-            Iterator<C0050a> it = this.f.iterator();
+            Iterator<C0082a> it = this.f.iterator();
             while (it.hasNext()) {
                 try {
-                    C0050a next = it.next();
+                    C0082a next = it.next();
                     next.a(bDLocation);
                     if (next.d > 4) {
                         it.remove();
@@ -363,10 +360,10 @@ public class a {
                 this.i = new BDLocation();
                 this.i.setLocType(505);
             }
-            Iterator<C0050a> it2 = this.f.iterator();
+            Iterator<C0082a> it2 = this.f.iterator();
             while (it2.hasNext()) {
                 try {
-                    C0050a next2 = it2.next();
+                    C0082a next2 = it2.next();
                     next2.a(this.i);
                     if (next2.d > 4) {
                         it2.remove();
@@ -400,13 +397,13 @@ public class a {
         if (this.f.isEmpty()) {
             return "&prod=" + com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d;
         }
-        C0050a c0050a = this.f.get(0);
-        if (c0050a.c.prodName != null) {
-            stringBuffer.append(c0050a.c.prodName);
+        C0082a c0082a = this.f.get(0);
+        if (c0082a.c.prodName != null) {
+            stringBuffer.append(c0082a.c.prodName);
         }
-        if (c0050a.a != null) {
+        if (c0082a.a != null) {
             stringBuffer.append(":");
-            stringBuffer.append(c0050a.a);
+            stringBuffer.append(c0082a.a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -435,7 +432,7 @@ public class a {
 
     public boolean c(Message message) {
         boolean z = false;
-        C0050a a = a(message.replyTo);
+        C0082a a = a(message.replyTo);
         if (a != null) {
             int i = a.c.scanSpan;
             a.c.scanSpan = message.getData().getInt("scanSpan", a.c.scanSpan);
@@ -485,7 +482,7 @@ public class a {
     }
 
     public int d(Message message) {
-        C0050a a;
+        C0082a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.c == null) {
             return 1;
         }
@@ -493,7 +490,7 @@ public class a {
     }
 
     public void d() {
-        Iterator<C0050a> it = this.f.iterator();
+        Iterator<C0082a> it = this.f.iterator();
         while (it.hasNext()) {
             it.next().a();
         }

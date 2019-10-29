@@ -14,8 +14,8 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.media.d.a.g
     public boolean a(com.baidu.swan.apps.media.d.a aVar, com.baidu.swan.apps.media.d.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.console.c.i("video", "fullscreen, video id:" + cVar.aBA + " slave id: " + cVar.aEs);
-        a(aVar, cVar.aDH, unitedSchemeEntity, callbackHandler);
+        com.baidu.swan.apps.console.c.i("video", "fullscreen, video id:" + cVar.aUO + " slave id: " + cVar.aXH);
+        a(aVar, cVar.aWW, unitedSchemeEntity, callbackHandler);
         return true;
     }
 

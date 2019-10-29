@@ -1,12 +1,11 @@
 package com.baidu.tieba.channel.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ChannelUpdatePushHttpResponseMessage extends JsonHttpResponsedMessage {
     public ChannelUpdatePushHttpResponseMessage() {
-        super(CmdConfigHttp.CMD_CHANNEL_UPDATE_PUSH);
+        super(1003310);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

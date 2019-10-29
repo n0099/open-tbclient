@@ -3,23 +3,24 @@ package com.baidu.tbadk.n;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
 public class a {
     private static String bduss;
-    private static boolean cze = false;
+    private static boolean cKw = false;
     private static String stoken;
     private static String tbs;
 
-    public static void fy(boolean z) {
-        cze = z;
+    public static void fp(boolean z) {
+        cKw = z;
     }
 
     public static boolean isLogin() {
-        return cze;
+        return cKw;
     }
 
-    public static void rb(String str) {
+    public static void dj(String str) {
         bduss = str;
     }
 
@@ -43,16 +44,16 @@ public class a {
         return tbs;
     }
 
-    public static boolean cF(Context context) {
-        if (!cze) {
-            cE(context);
+    public static boolean checkUpIsLogin(Context context) {
+        if (!cKw) {
+            skipToLoginActivity(context);
         }
-        return cze;
+        return cKw;
     }
 
-    public static void cE(Context context) {
+    public static void skipToLoginActivity(Context context) {
         if (context != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true)));
         }
     }
 }

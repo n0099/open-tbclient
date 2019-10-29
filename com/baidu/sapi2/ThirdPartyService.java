@@ -83,7 +83,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         Intent intent = new Intent(activity, WXLoginActivity.class);
         intent.putExtra(WXLoginActivity.KEY_FROM_WX_AUTH, true);
         intent.putExtra("error_code", i);
-        intent.putExtra(WXLoginActivity.KEY_BASE_RESP_STATE, str);
+        intent.putExtra("state", str);
         intent.putExtra("code", str2);
         activity.startActivity(intent);
     }

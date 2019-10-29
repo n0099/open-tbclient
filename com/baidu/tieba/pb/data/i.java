@@ -3,23 +3,23 @@ package com.baidu.tieba.pb.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public class i implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId hLb = BdUniqueId.gen();
-    public static final BdUniqueId hLc = BdUniqueId.gen();
-    public long hLd;
-    public String hLe;
-    public BdUniqueId mType;
+    public static final BdUniqueId hJH = BdUniqueId.gen();
+    public static final BdUniqueId hJI = BdUniqueId.gen();
+    public long hJJ;
+    public String hJK;
+    public BdUniqueId xL;
     public boolean isNew = true;
     public int sortType = 0;
-    public String hLf = "";
-    public boolean hLg = false;
+    public String hJL = "";
+    public boolean hJM = false;
 
     public i(BdUniqueId bdUniqueId) {
-        this.mType = hLc;
-        this.mType = bdUniqueId;
+        this.xL = hJI;
+        this.xL = bdUniqueId;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.mType;
+        return this.xL;
     }
 }

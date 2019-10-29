@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class i implements d {
     @Override // com.baidu.tbadk.m.d
-    public void a(View view, View view2, boolean z) {
+    public void attachView(View view, View view2, boolean z) {
         RelativeLayout relativeLayout = (RelativeLayout) view;
         if (z) {
             relativeLayout.addView(view2, 0);

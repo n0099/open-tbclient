@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
@@ -20,7 +21,7 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     private List<GroupInfoData> groups;
 
     public ResponseGroupsByUidMessage() {
-        super(103003);
+        super(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID);
     }
 
     public ResponseGroupsByUidMessage(int i) {
@@ -117,7 +118,7 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
             if (groupsByUidMessage != null && groupsByUidMessage.getFriendUid() == 0) {
-                saveProtocolBufferDataToCache(com.baidu.tbadk.core.d.a.agL().mM("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
+                saveProtocolBufferDataToCache(com.baidu.tbadk.core.d.a.akN().nk("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
             }
         }
     }

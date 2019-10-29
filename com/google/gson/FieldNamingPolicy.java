@@ -1,5 +1,7 @@
 package com.google.gson;
 
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Field;
 import java.util.Locale;
@@ -20,13 +22,13 @@ public enum FieldNamingPolicy implements c {
     UPPER_CAMEL_CASE_WITH_SPACES { // from class: com.google.gson.FieldNamingPolicy.3
         @Override // com.google.gson.c
         public String translateName(Field field) {
-            return upperCaseFirstLetter(separateCamelCase(field.getName(), " "));
+            return upperCaseFirstLetter(separateCamelCase(field.getName(), HanziToPinyin.Token.SEPARATOR));
         }
     },
     LOWER_CASE_WITH_UNDERSCORES { // from class: com.google.gson.FieldNamingPolicy.4
         @Override // com.google.gson.c
         public String translateName(Field field) {
-            return separateCamelCase(field.getName(), "_").toLowerCase(Locale.ENGLISH);
+            return separateCamelCase(field.getName(), PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).toLowerCase(Locale.ENGLISH);
         }
     },
     LOWER_CASE_WITH_DASHES { // from class: com.google.gson.FieldNamingPolicy.5

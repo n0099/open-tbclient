@@ -5,19 +5,17 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes4.dex */
 public class m {
-    private BaseActivity cXM;
-    private PbModel hNp;
-    private a hOI = null;
-    protected final HttpMessageListener hQU = new HttpMessageListener(CmdConfigHttp.CMD_APPLY_COPY_THREAD) { // from class: com.baidu.tieba.pb.pb.main.m.1
+    private PbModel hLS;
+    private a hNm = null;
+    protected final HttpMessageListener hPz = new HttpMessageListener(1003066) { // from class: com.baidu.tieba.pb.pb.main.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    m.this.hOI.n(-1, null, null);
+                    m.this.hNm.o(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -27,30 +25,31 @@ public class m {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                m.this.hOI.n(errorCode, errorMessage, tid);
+                m.this.hNm.o(errorCode, errorMessage, tid);
             }
         }
     };
+    private BaseActivity mActivity;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void n(int i, String str, String str2);
+        void o(int i, String str, String str2);
     }
 
     public m(PbModel pbModel, BaseActivity baseActivity) {
-        this.hNp = pbModel;
-        this.cXM = baseActivity;
-        this.cXM.registerListener(this.hQU);
+        this.hLS = pbModel;
+        this.mActivity = baseActivity;
+        this.mActivity.registerListener(this.hPz);
     }
 
     public void a(a aVar) {
-        this.hOI = aVar;
+        this.hNm = aVar;
     }
 
-    public void xU(int i) {
-        if (this.hNp != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.hNp.bWy());
+    public void wz(int i) {
+        if (this.hLS != null) {
+            HttpMessage httpMessage = new HttpMessage(1003066);
+            httpMessage.addParam("thread_id", this.hLS.bTA());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

@@ -1,167 +1,167 @@
 package com.facebook.common.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static c kcO = b.cFO();
+    private static c kaX = b.cCM();
 
     public static boolean isLoggable(int i) {
-        return kcO.isLoggable(i);
+        return kaX.isLoggable(i);
     }
 
-    public static void d(Class<?> cls, String str) {
-        if (kcO.isLoggable(2)) {
-            kcO.v(v(cls), str);
+    public static void c(Class<?> cls, String str) {
+        if (kaX.isLoggable(2)) {
+            kaX.v(s(cls), str);
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj) {
-        if (kcO.isLoggable(2)) {
-            kcO.v(v(cls), l(str, obj));
+        if (kaX.isLoggable(2)) {
+            kaX.v(s(cls), k(str, obj));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2) {
-        if (kcO.isLoggable(2)) {
-            kcO.v(v(cls), l(str, obj, obj2));
+        if (kaX.isLoggable(2)) {
+            kaX.v(s(cls), k(str, obj, obj2));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2, Object obj3) {
         if (isLoggable(2)) {
-            d(cls, l(str, obj, obj2, obj3));
+            c(cls, k(str, obj, obj2, obj3));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
-        if (kcO.isLoggable(2)) {
-            kcO.v(v(cls), l(str, obj, obj2, obj3, obj4));
+        if (kaX.isLoggable(2)) {
+            kaX.v(s(cls), k(str, obj, obj2, obj3, obj4));
         }
     }
 
-    public static void v(String str, String str2, Object... objArr) {
-        if (kcO.isLoggable(2)) {
-            kcO.v(str, l(str2, objArr));
+    public static void f(String str, String str2, Object... objArr) {
+        if (kaX.isLoggable(2)) {
+            kaX.v(str, k(str2, objArr));
         }
     }
 
-    public static void c(Class<?> cls, String str, Object... objArr) {
-        if (kcO.isLoggable(2)) {
-            kcO.v(v(cls), l(str, objArr));
+    public static void b(Class<?> cls, String str, Object... objArr) {
+        if (kaX.isLoggable(2)) {
+            kaX.v(s(cls), k(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, String str, Object obj) {
-        if (kcO.isLoggable(3)) {
-            kcO.d(v(cls), l(str, obj));
+        if (kaX.isLoggable(3)) {
+            kaX.d(s(cls), k(str, obj));
+        }
+    }
+
+    public static void d(Class<?> cls, String str) {
+        if (kaX.isLoggable(4)) {
+            kaX.i(s(cls), str);
         }
     }
 
     public static void e(Class<?> cls, String str) {
-        if (kcO.isLoggable(4)) {
-            kcO.i(v(cls), str);
+        if (kaX.isLoggable(5)) {
+            kaX.w(s(cls), str);
         }
     }
 
-    public static void f(Class<?> cls, String str) {
-        if (kcO.isLoggable(5)) {
-            kcO.w(v(cls), str);
-        }
-    }
-
-    public static void w(String str, String str2, Object... objArr) {
-        if (kcO.isLoggable(5)) {
-            kcO.w(str, l(str2, objArr));
+    public static void g(String str, String str2, Object... objArr) {
+        if (kaX.isLoggable(5)) {
+            kaX.w(str, k(str2, objArr));
         }
     }
 
     public static void a(String str, Throwable th, String str2, Object... objArr) {
-        if (kcO.isLoggable(5)) {
-            kcO.c(str, l(str2, objArr), th);
+        if (kaX.isLoggable(5)) {
+            kaX.c(str, k(str2, objArr), th);
         }
     }
 
-    public static void d(Class<?> cls, String str, Object... objArr) {
-        if (kcO.isLoggable(5)) {
-            kcO.w(v(cls), l(str, objArr));
+    public static void c(Class<?> cls, String str, Object... objArr) {
+        if (kaX.isLoggable(5)) {
+            kaX.w(s(cls), k(str, objArr));
         }
     }
 
     public static void a(Class<?> cls, Throwable th, String str, Object... objArr) {
         if (isLoggable(5)) {
-            a(cls, l(str, objArr), th);
+            a(cls, k(str, objArr), th);
         }
     }
 
     public static void a(Class<?> cls, String str, Throwable th) {
-        if (kcO.isLoggable(5)) {
-            kcO.c(v(cls), str, th);
+        if (kaX.isLoggable(5)) {
+            kaX.c(s(cls), str, th);
         }
     }
 
     public static void e(String str, String str2) {
-        if (kcO.isLoggable(6)) {
-            kcO.e(str, str2);
+        if (kaX.isLoggable(6)) {
+            kaX.e(str, str2);
         }
     }
 
-    public static void g(Class<?> cls, String str) {
-        if (kcO.isLoggable(6)) {
-            kcO.e(v(cls), str);
+    public static void f(Class<?> cls, String str) {
+        if (kaX.isLoggable(6)) {
+            kaX.e(s(cls), str);
         }
     }
 
     public static void b(String str, Throwable th, String str2, Object... objArr) {
-        if (kcO.isLoggable(6)) {
-            kcO.e(str, l(str2, objArr), th);
+        if (kaX.isLoggable(6)) {
+            kaX.e(str, k(str2, objArr), th);
         }
     }
 
-    public static void e(Class<?> cls, String str, Object... objArr) {
-        if (kcO.isLoggable(6)) {
-            kcO.e(v(cls), l(str, objArr));
+    public static void d(Class<?> cls, String str, Object... objArr) {
+        if (kaX.isLoggable(6)) {
+            kaX.e(s(cls), k(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, Throwable th, String str, Object... objArr) {
-        if (kcO.isLoggable(6)) {
-            kcO.e(v(cls), l(str, objArr), th);
+        if (kaX.isLoggable(6)) {
+            kaX.e(s(cls), k(str, objArr), th);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (kcO.isLoggable(6)) {
-            kcO.e(str, str2, th);
+        if (kaX.isLoggable(6)) {
+            kaX.e(str, str2, th);
         }
     }
 
     public static void b(Class<?> cls, String str, Throwable th) {
-        if (kcO.isLoggable(6)) {
-            kcO.e(v(cls), str, th);
+        if (kaX.isLoggable(6)) {
+            kaX.e(s(cls), str, th);
         }
     }
 
-    public static void f(String str, String str2, Object... objArr) {
-        if (kcO.isLoggable(6)) {
-            kcO.eA(str, l(str2, objArr));
+    public static void h(String str, String str2, Object... objArr) {
+        if (kaX.isLoggable(6)) {
+            kaX.em(str, k(str2, objArr));
         }
     }
 
-    public static void f(Class<?> cls, String str, Object... objArr) {
-        if (kcO.isLoggable(6)) {
-            kcO.eA(v(cls), l(str, objArr));
+    public static void e(Class<?> cls, String str, Object... objArr) {
+        if (kaX.isLoggable(6)) {
+            kaX.em(s(cls), k(str, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Throwable th) {
-        if (kcO.isLoggable(6)) {
-            kcO.f(v(cls), str, th);
+        if (kaX.isLoggable(6)) {
+            kaX.f(s(cls), str, th);
         }
     }
 
-    private static String l(String str, Object... objArr) {
+    private static String k(String str, Object... objArr) {
         return String.format(null, str, objArr);
     }
 
-    private static String v(Class<?> cls) {
+    private static String s(Class<?> cls) {
         return cls.getSimpleName();
     }
 }

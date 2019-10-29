@@ -3,7 +3,6 @@ package com.baidu.tieba.imMessageCenter;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.coreExtra.relationship.a;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.LinkedList;
@@ -14,7 +13,7 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     private LinkedList<a> friendList;
 
     public ResponseFriendListMessage(int i) {
-        super(CmdConfigHttp.CMD_GET_FRIEND_LIST);
+        super(1003004);
         this.friendList = new LinkedList<>();
     }
 
@@ -31,8 +30,8 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
                             a aVar = new a();
                             aVar.setUserName(metaData.getUserName());
-                            aVar.pM(metaData.getName_show());
-                            aVar.pK(metaData.getPortrait());
+                            aVar.oW(metaData.getName_show());
+                            aVar.bU(metaData.getPortrait());
                             aVar.setUserId(metaData.getUserIdLong());
                             this.friendList.add(aVar);
                         }

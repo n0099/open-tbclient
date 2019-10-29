@@ -1,5 +1,7 @@
 package com.coremedia.iso.boxes;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -14,12 +16,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
     public static final String TYPE = "saio";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
     private String auxInfoType;
     private String auxInfoTypeParameter;
     private List<Long> offsets;
@@ -30,11 +32,11 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SampleAuxiliaryInformationOffsetsBox.java", SampleAuxiliaryInformationOffsetsBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", "java.lang.String"), 109);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "java.lang.String", "auxInfoType", "", "void"), 113);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", "java.lang.String"), 117);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "java.lang.String", "auxInfoTypeParameter", "", "void"), 121);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getOffsets", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", "java.util.List"), 125);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", FieldUtil.TYPE_STRING), 109);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", FieldUtil.TYPE_STRING, "auxInfoType", "", "void"), 113);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", FieldUtil.TYPE_STRING), 117);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", FieldUtil.TYPE_STRING, "auxInfoTypeParameter", "", "void"), Constants.METHOD_IM_FRIEND_GROUP_DROP);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getOffsets", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", "java.util.List"), Constants.METHOD_IM_FRIEND_GROUP_ASSIGN);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setOffsets", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "java.util.List", "offsets", "", "void"), 129);
     }
 

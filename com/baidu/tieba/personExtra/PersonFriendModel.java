@@ -3,15 +3,15 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ar;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes6.dex */
 public class PersonFriendModel extends BdBaseModel {
-    private static final String dbi = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, dbi);
+    private static final String dkF = TbConfig.SERVER_ADDRESS + Config.GET_FRIEND_LIST_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002001, dkF);
     private ar mData;
     private String mId;
     private boolean mIsHost;
@@ -44,16 +44,16 @@ public class PersonFriendModel extends BdBaseModel {
         this.mData = arVar;
     }
 
-    public ar cdB() {
+    public ar caC() {
         return this.mData;
     }
 
-    public void cdb() {
+    public void cac() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_FRIEND_CMD);
+        HttpMessage httpMessage = new HttpMessage(1002001);
         if (!z) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -38,13 +39,13 @@ public class g extends z {
             return false;
         }
         final a aVar = new a(optParamsAsJo);
-        bVar.Ml().a((Activity) context, aVar, null, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.swan.apps.setting.a.g.1
+        bVar.Rd().a((Activity) context, aVar, null, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.swan.apps.setting.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
-            public void D(com.baidu.swan.apps.setting.oauth.g<e.c> gVar) {
+            public void B(com.baidu.swan.apps.setting.oauth.g<e.c> gVar) {
                 if (!gVar.isOk()) {
-                    com.baidu.swan.apps.console.c.w("LoginAction", gVar.getErrorCode() + " " + aVar.toString());
+                    com.baidu.swan.apps.console.c.w("LoginAction", gVar.getErrorCode() + HanziToPinyin.Token.SEPARATOR + aVar.toString());
                     String errMessage = com.baidu.swan.apps.setting.oauth.c.getErrMessage(gVar.getErrorCode());
                     if (!TextUtils.isEmpty(errMessage)) {
                         callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(gVar.getErrorCode(), errMessage).toString());
@@ -77,19 +78,19 @@ public class g extends z {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public final boolean aUW;
-        public final long aUX;
+        public final boolean boa;
+        public final long bob;
 
         public a(@NonNull JSONObject jSONObject) {
-            this.aUW = jSONObject.has("timeout");
-            this.aUX = jSONObject.optLong("timeout", 0L);
-            if (this.aUX < 0) {
+            this.boa = jSONObject.has("timeout");
+            this.bob = jSONObject.optLong("timeout", 0L);
+            if (this.bob < 0) {
                 com.baidu.swan.apps.console.c.w("LoginAction", "timeout is a minus：" + toString());
             }
         }
 
         public String toString() {
-            return "LoginTimeoutConfig{enableTimeout=" + this.aUW + ", timeoutMills=" + this.aUX + '}';
+            return "LoginTimeoutConfig{enableTimeout=" + this.boa + ", timeoutMills=" + this.bob + '}';
         }
     }
 }

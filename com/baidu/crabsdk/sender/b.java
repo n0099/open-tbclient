@@ -3,8 +3,8 @@ package com.baidu.crabsdk.sender;
 import android.content.Context;
 import android.os.Build;
 import android.os.Looper;
-import com.baidu.appsearchlib.Info;
 import com.baidu.crabsdk.b.r;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,12 +19,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class b extends a {
-    private static int bw = 5;
-    private boolean aax;
+    private static int KC = 5;
+    private boolean KB;
 
     public b(Context context) {
         super(context);
-        this.aax = false;
+        this.KB = false;
     }
 
     private static void a(Map<String, Object> map) {
@@ -68,7 +68,7 @@ public final class b extends a {
                 if (readLine.contains("Reason:")) {
                     String[] split = readLine.split("Reason:");
                     if (split.length == 2) {
-                        map.put("reason", split[1].trim());
+                        map.put(TiebaInitialize.LogFields.REASON, split[1].trim());
                         if (split[1].trim().contains("(") && (indexOf = split[1].trim().indexOf("(")) > 0) {
                             map.put("type", split[1].trim().substring(0, indexOf));
                         }
@@ -80,13 +80,13 @@ public final class b extends a {
                 i = i2;
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("putAnrLogcat error!", e);
+            com.baidu.crabsdk.c.a.f("putAnrLogcat error!", e);
         } catch (OutOfMemoryError e2) {
-            com.baidu.crabsdk.c.a.a("putAnrLogcat oom!", e2);
+            com.baidu.crabsdk.c.a.f("putAnrLogcat oom!", e2);
         }
     }
 
-    private static Map<String, Object> cq(String str) {
+    private static Map<String, Object> bD(String str) {
         String str2;
         String str3;
         HashMap hashMap = new HashMap();
@@ -105,7 +105,7 @@ public final class b extends a {
                 }
                 if (readLine.startsWith("-----") && readLine.endsWith("-----") && readLine.contains(" pid ") && readLine.contains(" at ")) {
                     i++;
-                    if (i > bw) {
+                    if (i > KC) {
                         bufferedReader.close();
                         return null;
                     }
@@ -118,7 +118,7 @@ public final class b extends a {
                 if (readLine.contains(F)) {
                     hashMap.put("apiType", "ANR");
                     hashMap.put("errorType", "ANR");
-                    hashMap.put(Info.kBaiduPIDKey, str4);
+                    hashMap.put("pid", str4);
                     hashMap.put("time", str5);
                     StringBuilder sb = new StringBuilder();
                     while (readLine != null && !readLine.contains("DALVIK THREADS")) {
@@ -225,7 +225,7 @@ public final class b extends a {
             bufferedReader.close();
             a(hashMap);
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("读取traces.txt文件失败!", e);
+            com.baidu.crabsdk.c.a.f("读取traces.txt文件失败!", e);
             try {
                 StackTraceElement[] stackTrace = Looper.getMainLooper().getThread().getStackTrace();
                 if (stackTrace != null && stackTrace.length > 0) {
@@ -235,7 +235,7 @@ public final class b extends a {
                     }
                     hashMap.put("apiType", "ANR");
                     hashMap.put("errorType", "ANR");
-                    hashMap.put(Info.kBaiduPIDKey, "N/A");
+                    hashMap.put("pid", "N/A");
                     hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
                     hashMap.put("anrMsg", "N/A");
                     hashMap.put("threadList", r.L());
@@ -245,10 +245,10 @@ public final class b extends a {
                     hashMap.put("errorOriLine", stackTrace[0].toString());
                 }
             } catch (Exception e2) {
-                com.baidu.crabsdk.c.a.a("7.0+封装anr数据失败!", e2);
+                com.baidu.crabsdk.c.a.f("7.0+封装anr数据失败!", e2);
             }
         } catch (OutOfMemoryError e3) {
-            com.baidu.crabsdk.c.a.a("内存溢出了！", e3);
+            com.baidu.crabsdk.c.a.f("内存溢出了！", e3);
         }
         return hashMap;
     }
@@ -265,7 +265,7 @@ public final class b extends a {
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0080, code lost:
         com.baidu.crabsdk.c.a.v("===line.contains(tracesWroteLog)===");
-        r0 = cq(r14);
+        r0 = bD(r14);
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x008c, code lost:
         if (com.baidu.crabsdk.a.N == null) goto L26;
@@ -274,7 +274,7 @@ public final class b extends a {
         com.baidu.crabsdk.a.N.onAnrStarted(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        r1 = com.baidu.crabsdk.sender.g.a(r13.aaw, (java.lang.Throwable) null, false);
+        r1 = com.baidu.crabsdk.sender.g.a(r13.KA, (java.lang.Throwable) null, false);
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x009b, code lost:
         if (r0 == null) goto L37;
@@ -285,15 +285,15 @@ public final class b extends a {
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a3, code lost:
         r1.putAll(r0);
         com.baidu.crabsdk.sender.g.b(r1);
-        com.baidu.crabsdk.sender.i.a(r13.aaw, com.baidu.crabsdk.sender.i.i(r1));
+        com.baidu.crabsdk.sender.i.a(r13.KA, com.baidu.crabsdk.sender.i.g(r1));
         com.baidu.crabsdk.sender.h.ab();
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00b9, code lost:
-        if (com.baidu.crabsdk.sender.h.ru() == false) goto L34;
+        if (com.baidu.crabsdk.sender.h.mz() == false) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00bb, code lost:
         com.baidu.crabsdk.c.a.v("===uploadAnr===");
-        com.baidu.crabsdk.sender.k.a(false, r13.aaw);
+        com.baidu.crabsdk.sender.k.a(false, r13.KA);
      */
     /* JADX WARN: Code restructure failed: missing block: B:45:?, code lost:
         return;
@@ -308,10 +308,10 @@ public final class b extends a {
     public final void d(String str) {
         String readLine;
         com.baidu.crabsdk.c.a.v("===readLog()===");
-        if (this.aax) {
+        if (this.KB) {
             return;
         }
-        this.aax = true;
+        this.KB = true;
         try {
             com.baidu.crabsdk.c.a.v("===readingTrace===");
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
@@ -327,10 +327,10 @@ public final class b extends a {
                 }
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("ANR Log", e);
+            com.baidu.crabsdk.c.a.f("ANR Log", e);
         } catch (OutOfMemoryError e2) {
-            com.baidu.crabsdk.c.a.a("内存溢出了！", e2);
+            com.baidu.crabsdk.c.a.f("内存溢出了！", e2);
         }
-        this.aax = false;
+        this.KB = false;
     }
 }

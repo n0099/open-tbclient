@@ -13,7 +13,7 @@ final class StringsKt___StringsKt$windowedSequence$1 extends Lambda implements k
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(CharSequence charSequence) {
-        kotlin.jvm.internal.p.k(charSequence, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.p.i(charSequence, AdvanceSetting.NETWORK_TYPE);
         return charSequence.toString();
     }
 }

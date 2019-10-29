@@ -1,4 +1,6 @@
 package com.xiaomi.push.service;
+
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* loaded from: classes3.dex */
 public class bb {
     private static int a = 8;
@@ -30,7 +32,7 @@ public class bb {
             StringBuilder sb = new StringBuilder();
             sb.append("S_").append(i - 1).append(":");
             for (int i3 = 0; i3 <= i; i3++) {
-                sb.append(" ").append(a(this.b[i3]));
+                sb.append(HanziToPinyin.Token.SEPARATOR).append(a(this.b[i3]));
             }
             sb.append("   j_").append(i - 1).append("=").append(this.d);
             sb.append("   j_").append(i).append("=").append(this.e);

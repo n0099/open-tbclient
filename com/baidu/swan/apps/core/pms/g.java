@@ -10,7 +10,7 @@ public abstract class g extends com.baidu.swan.pms.a.f {
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle a = super.a(bundle, set);
         if (set.contains("swan_pms_buffer")) {
-            a.putInt("swan_pms_buffer", a.Bk());
+            a.putInt("swan_pms_buffer", a.Gf());
         }
         return a;
     }

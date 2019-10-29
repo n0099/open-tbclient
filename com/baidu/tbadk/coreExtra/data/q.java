@@ -7,24 +7,24 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q {
-    public static final List<String> chm = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
-    private static List<String> chn;
+    public static final List<String> cvk = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+    private static List<String> cvl;
 
-    public static boolean pn(String str) {
+    public static boolean oL(String str) {
         String string;
         if (aq.isEmpty(str)) {
             return false;
         }
-        if (chn == null && (string = com.baidu.tbadk.core.sharedPref.b.ahU().getString("js_host_white_list", null)) != null) {
-            chn = pp(string);
+        if (cvl == null && (string = com.baidu.tbadk.core.sharedPref.b.alR().getString("js_host_white_list", null)) != null) {
+            cvl = oN(string);
         }
-        if (chn == null) {
-            chn = chm;
+        if (cvl == null) {
+            cvl = cvk;
         }
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String host = parse.getHost();
-            for (String str2 : chn) {
+            for (String str2 : cvl) {
                 if (host.endsWith(str2)) {
                     return true;
                 }
@@ -33,16 +33,16 @@ public class q {
         return false;
     }
 
-    public static void po(String str) {
+    public static void oM(String str) {
         if (str == null) {
-            com.baidu.tbadk.core.sharedPref.b.ahU().putString("js_host_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.alR().putString("js_host_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.ahU().putString("js_host_white_list", str);
+            com.baidu.tbadk.core.sharedPref.b.alR().putString("js_host_white_list", str);
         }
-        chn = pp(str);
+        cvl = oN(str);
     }
 
-    private static List<String> pp(String str) {
+    private static List<String> oN(String str) {
         if (aq.isEmpty(str)) {
             return null;
         }

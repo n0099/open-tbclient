@@ -35,7 +35,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
         builder.topic_id = Long.valueOf(this.topicId);
         builder.call_from = this.callFrom;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         NewHottopicReqIdl.Builder builder2 = new NewHottopicReqIdl.Builder();
         builder2.data = builder.build(false);

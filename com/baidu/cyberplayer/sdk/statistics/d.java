@@ -4,10 +4,11 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.Utils;
-import com.baidu.mobstat.Config;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -56,7 +57,7 @@ public class d {
             randomAccessFile = new RandomAccessFile(str, "rw");
             try {
                 try {
-                    if (randomAccessFile.length() > Config.FULL_TRACE_LOG_LIMIT) {
+                    if (randomAccessFile.length() > 10485760) {
                         if (0 != 0) {
                             try {
                                 fileLock2.release();
@@ -153,16 +154,16 @@ public class d {
     }
 
     private void b(Context context) {
-        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + BuildConfig.FLAVOR + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         String str2 = context != null ? context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer" : str;
-        if (Utils.e() < Config.FULL_TRACE_LOG_LIMIT) {
+        if (Utils.e() < 10485760) {
             str = str2;
         }
         this.d = str;
         new File(str).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
         this.c = str + File.separator + "video_session_" + coreVersion + ".bak";
-        this.b = str + File.separator + "video_session_log_" + coreVersion + ".log";
+        this.b = str + File.separator + "video_session_log_" + coreVersion + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     }
 
     private static boolean b(String str) {

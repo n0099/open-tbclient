@@ -12,8 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class a extends BdAsyncTask<Void, Void, Boolean> {
-    public static final String dcb = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-    public static final String dcc = File.separator;
+    public static final String dly = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String dlz = File.separator;
     private final String TAG = a.class.getSimpleName();
     private AdInfo adInfo;
 
@@ -23,13 +23,13 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
     public Boolean doInBackground(Void... voidArr) {
         FileNotFoundException e;
         boolean z;
-        String str = dcb + dcc + "advideo.temp";
+        String str = dly + dlz + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         try {
-            new File(dcb).mkdirs();
+            new File(dly).mkdirs();
             if (!file.createNewFile()) {
                 a(false, null);
                 return false;
@@ -38,7 +38,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
             e2.printStackTrace();
         }
         e eVar = new e();
-        eVar.iu().setUrl(this.adInfo.adVideoUrl);
+        eVar.fJ().setUrl(this.adInfo.adVideoUrl);
         boolean a = new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true);
         try {
         } catch (FileNotFoundException e3) {
@@ -49,10 +49,10 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
             a(a, file);
             return Boolean.valueOf(a);
         }
-        String h = s.h(new FileInputStream(str));
-        z = TextUtils.isEmpty(h) ? false : a;
+        String md5 = s.toMd5(new FileInputStream(str));
+        z = TextUtils.isEmpty(md5) ? false : a;
         try {
-            if (!h.equalsIgnoreCase(this.adInfo.videoMd5)) {
+            if (!md5.equalsIgnoreCase(this.adInfo.videoMd5)) {
                 z = false;
             }
         } catch (FileNotFoundException e4) {
@@ -71,7 +71,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     private void a(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(dcb + dcc + (s.bn(this.adInfo.adVideoUrl) + ".mp4"));
+            File file2 = new File(dly + dlz + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }

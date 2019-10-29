@@ -1,6 +1,5 @@
 package com.baidu.tieba.channel.data;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -9,18 +8,18 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     private boolean hasMore = true;
-    private List<b> aPP = new ArrayList();
+    private List<b> mItems = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray(IntentConfig.LIST);
+                JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         b bVar = new b();
                         bVar.parserJson(optJSONArray.getJSONObject(i));
-                        bVar.iM(false);
-                        this.aPP.add(bVar);
+                        bVar.iP(false);
+                        this.mItems.add(bVar);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("page");
@@ -46,6 +45,6 @@ public class a {
     }
 
     public List<b> getItems() {
-        return this.aPP;
+        return this.mItems;
     }
 }

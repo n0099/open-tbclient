@@ -8,6 +8,7 @@ import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.net.HttpCookie;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -168,7 +169,7 @@ class b {
         if (str.equals(str2)) {
             return true;
         }
-        return (str.endsWith(str2) && str.charAt((str.length() - str2.length()) + (-1)) == '.' && !c.b(str)) || str.endsWith(str2) || str2.startsWith(".") || !c.b(str);
+        return (str.endsWith(str2) && str.charAt((str.length() - str2.length()) + (-1)) == '.' && !c.b(str)) || str.endsWith(str2) || str2.startsWith(DefaultConfig.TOKEN_SEPARATOR) || !c.b(str);
     }
 
     private static boolean b(String str, String str2) {

@@ -7,7 +7,6 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.s;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,7 +27,8 @@ public class c extends com.baidu.adp.framework.a.d {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
-    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    /* renamed from: d */
+    public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
             TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
             a(httpMessage, tbHttpMessageTask);
@@ -50,10 +50,10 @@ public class c extends com.baidu.adp.framework.a.d {
             c(httpMessage);
         }
         if (tbHttpMessageTask.isNeedAddStatisticsParam()) {
-            e(httpMessage);
+            f(httpMessage);
         }
         if (tbHttpMessageTask.getMethod() == HttpMessageTask.HTTP_METHOD.POST && tbHttpMessageTask.isBaiduServer()) {
-            addSign(httpMessage);
+            e(httpMessage);
         }
     }
 
@@ -75,7 +75,7 @@ public class c extends com.baidu.adp.framework.a.d {
             httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
         }
         int netType = j.netType();
-        if (!aq.iN()) {
+        if (!aq.isOn()) {
             httpMessage.addHeader("net", String.valueOf(netType));
         }
         if (1 != netType ? TbadkCoreApplication.getInst().getKeepaliveNonWifi() != 1 : TbadkCoreApplication.getInst().getKeepaliveWifi() != 1) {
@@ -87,7 +87,7 @@ public class c extends com.baidu.adp.framework.a.d {
             httpMessage.addHeader(HTTP.CONN_DIRECTIVE, "close");
         }
         httpMessage.addHeader("client_logid", String.valueOf(httpMessage.getClientLogID()));
-        httpMessage.addHeader(DpStatConstants.KEY_CUID, TbadkCoreApplication.getInst().getCuid());
+        httpMessage.addHeader("cuid", TbadkCoreApplication.getInst().getCuid());
         httpMessage.addHeader("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         httpMessage.addHeader("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
     }
@@ -116,16 +116,16 @@ public class c extends com.baidu.adp.framework.a.d {
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
         }
-        httpMessage.addParam(DpStatConstants.KEY_CUID, TbadkCoreApplication.getInst().getCuid());
+        httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
         httpMessage.addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         httpMessage.addParam("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
-        httpMessage.addParam(DpStatConstants.KEY_TIMESTAMP, Long.toString(System.currentTimeMillis()));
+        httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
         httpMessage.addParam("model", Build.MODEL);
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.alY().alZ()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.alY().ama()));
+        if (com.baidu.tbadk.coreExtra.b.a.aoL().aoM()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aoL().aoN()));
         }
         if (1 == j.netType()) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -154,7 +154,7 @@ public class c extends com.baidu.adp.framework.a.d {
         }
     }
 
-    private void addSign(HttpMessage httpMessage) {
+    private void e(HttpMessage httpMessage) {
         StringBuffer stringBuffer = new StringBuffer(1024);
         List<Map.Entry<String, Object>> encodeInBackGround = httpMessage.encodeInBackGround();
         for (int i = 0; encodeInBackGround != null && i < encodeInBackGround.size(); i++) {
@@ -169,26 +169,26 @@ public class c extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam("sign", s.bn(stringBuffer.toString()));
-        if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && w.iN()) {
-            httpMessage.addParam("sig", StringU.rV(stringBuffer.toString()));
+        httpMessage.addParam("sign", s.toMd5(stringBuffer.toString()));
+        if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && w.isOn()) {
+            httpMessage.addParam("sig", StringU.qF(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
 
-    private void e(HttpMessage httpMessage) {
-        aa.a aiV = aa.aiV();
-        if (aiV != null) {
-            httpMessage.addParam("stTime", String.valueOf(aiV.mTime));
-            httpMessage.addParam("stSize", String.valueOf(aiV.aWP));
-            httpMessage.addParam("stTimesNum", String.valueOf(aiV.bTf));
-            httpMessage.addParam("stMode", String.valueOf(aiV.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(aiV.bTe));
+    private void f(HttpMessage httpMessage) {
+        aa.a amw = aa.amw();
+        if (amw != null) {
+            httpMessage.addParam("stTime", String.valueOf(amw.mTime));
+            httpMessage.addParam("stSize", String.valueOf(amw.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(amw.mTimesNum));
+            httpMessage.addParam("stMode", String.valueOf(amw.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(amw.mMethod));
         }
-        int hZ = aa.hZ(0);
-        if (hZ == 0 && aiV != null) {
-            hZ = aiV.bTf;
+        int errorNumsAndSet = aa.getErrorNumsAndSet(0);
+        if (errorNumsAndSet == 0 && amw != null) {
+            errorNumsAndSet = amw.mTimesNum;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(hZ));
+        httpMessage.addParam("stErrorNums", String.valueOf(errorNumsAndSet));
     }
 }

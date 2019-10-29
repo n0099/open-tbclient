@@ -19,13 +19,13 @@ import com.baidu.swan.game.ad.component.CircleTextProgressbar;
 import com.baidu.swan.game.ad.component.RewardVideoView;
 /* loaded from: classes2.dex */
 public abstract class c {
-    private Button bdR;
-    private RewardVideoView beb;
-    private com.baidu.swan.apps.media.d.a bec;
-    private CircleTextProgressbar bed;
-    private com.baidu.swan.game.ad.a.a bee;
-    private a.b bef;
-    private a.c beh;
+    private Button bwM;
+    private RewardVideoView bwW;
+    private com.baidu.swan.apps.media.d.a bwX;
+    private CircleTextProgressbar bwY;
+    private com.baidu.swan.game.ad.a.a bwZ;
+    private a.b bxb;
+    private a.c bxc;
     public Context c;
     private RelativeLayout d;
     private View e;
@@ -34,97 +34,97 @@ public abstract class c {
     private ImageView k;
     private TextView l;
     private RelativeLayout m;
-    private final Handler p = new Handler();
+    private final Handler bxa = new Handler();
     private Runnable s = new Runnable() { // from class: com.baidu.swan.game.ad.c.2
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.bec != null) {
-                int currentPosition = c.this.bec.getCurrentPosition();
-                c.this.h = c.this.bec.getDuration();
+            if (c.this.bwX != null) {
+                int currentPosition = c.this.bwX.getCurrentPosition();
+                c.this.h = c.this.bwX.getDuration();
                 int i = 0;
                 if (c.this.h > 0 && currentPosition <= c.this.h && currentPosition >= 0) {
                     i = (int) Math.round((c.this.h - currentPosition) / 1000.0d);
                 }
                 int min = Math.min(currentPosition + 1000, c.this.h);
-                c.this.bed.a(c.this.h, min);
-                c.this.bed.setText(String.valueOf(i));
+                c.this.bwY.a(c.this.h, min);
+                c.this.bwY.setText(String.valueOf(i));
                 if (min < c.this.h) {
-                    c.this.p.postDelayed(c.this.s, 100L);
+                    c.this.bxa.postDelayed(c.this.s, 100L);
                 }
             }
         }
     };
-    private View.OnClickListener bei = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.3
+    private View.OnClickListener bxd = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.beb != null) {
-                if (c.this.beb.a()) {
+            if (c.this.bwW != null) {
+                if (c.this.bwW.a()) {
                     c.this.k.setImageResource(a.c.ng_game_vol_open);
-                    c.this.beb.a(false);
+                    c.this.bwW.a(false);
                     return;
                 }
                 c.this.k.setImageResource(a.c.ng_game_vol_close);
-                c.this.beb.a(true);
+                c.this.bwW.a(true);
             }
         }
     };
-    private View.OnClickListener bej = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.4
+    private View.OnClickListener bxe = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.bef != null) {
-                c.this.bef.a();
+            if (c.this.bxb != null) {
+                c.this.bxb.a();
             }
         }
     };
-    private View.OnClickListener bek = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.5
+    private View.OnClickListener bxf = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.beh != null) {
-                c.this.beh.b();
+            if (c.this.bxc != null) {
+                c.this.bxc.b();
             }
         }
     };
-    public int a = com.baidu.swan.games.view.a.c.TF();
-    public int b = com.baidu.swan.games.view.a.c.TG();
+    public int a = com.baidu.swan.games.view.a.c.Yw();
+    public int b = com.baidu.swan.games.view.a.c.Yx();
 
-    public abstract View QN();
+    public abstract View VD();
 
     public c(Context context, com.baidu.swan.game.ad.a.a aVar) {
         this.c = context;
-        this.bee = aVar;
+        this.bwZ = aVar;
         j();
     }
 
     private void j() {
         Resources resources = this.c.getResources();
-        this.e = QN();
+        this.e = VD();
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.a, this.b);
         this.e.setLayoutParams(layoutParams);
         this.d = (RelativeLayout) this.e.findViewById(a.d.reward_relative);
-        this.beb = (RewardVideoView) this.e.findViewById(a.d.video_view);
-        this.beb.setLayoutParams(layoutParams);
-        this.bed = (CircleTextProgressbar) this.e.findViewById(a.d.progress);
-        this.bed.setVisibility(4);
-        this.bed.setOutLineColor(resources.getColor(a.b.out_line_color));
-        this.bed.setProgressColor(resources.getColor(a.b.progress_color));
-        this.bed.setProgressLineWidth(z.dip2px(this.c, 2.0f));
-        this.bed.setTextColor(resources.getColor(a.b.progress_text_color));
-        this.bed.setProgressType(CircleTextProgressbar.b.COUNT);
+        this.bwW = (RewardVideoView) this.e.findViewById(a.d.video_view);
+        this.bwW.setLayoutParams(layoutParams);
+        this.bwY = (CircleTextProgressbar) this.e.findViewById(a.d.progress);
+        this.bwY.setVisibility(4);
+        this.bwY.setOutLineColor(resources.getColor(a.b.out_line_color));
+        this.bwY.setProgressColor(resources.getColor(a.b.progress_color));
+        this.bwY.setProgressLineWidth(z.dip2px(this.c, 2.0f));
+        this.bwY.setTextColor(resources.getColor(a.b.progress_text_color));
+        this.bwY.setProgressType(CircleTextProgressbar.b.COUNT);
         this.j = (LinearLayout) this.e.findViewById(a.d.vol_clo);
         this.k = (ImageView) this.e.findViewById(a.d.volume);
         this.l = (TextView) this.e.findViewById(a.d.close_ad);
         this.m = (RelativeLayout) this.e.findViewById(a.d.banner);
-        ((AdImageVIew) this.e.findViewById(a.d.reward_icon)).setImageUrl(this.bee.d());
-        ((TextView) this.e.findViewById(a.d.title)).setText(this.bee.a());
-        ((TextView) this.e.findViewById(a.d.desc)).setText(this.bee.b());
-        this.bdR = (Button) this.e.findViewById(a.d.download);
-        if (this.bee.g() == 1) {
-            this.bdR.setText(resources.getString(a.f.see_detail));
+        ((AdImageVIew) this.e.findViewById(a.d.reward_icon)).setImageUrl(this.bwZ.d());
+        ((TextView) this.e.findViewById(a.d.title)).setText(this.bwZ.a());
+        ((TextView) this.e.findViewById(a.d.desc)).setText(this.bwZ.b());
+        this.bwM = (Button) this.e.findViewById(a.d.download);
+        if (this.bwZ.g() == 1) {
+            this.bwM.setText(resources.getString(a.f.see_detail));
         }
-        if (this.bee.g() == 2) {
-            this.bdR.setText(resources.getString(a.f.down_immediately));
+        if (this.bwZ.g() == 2) {
+            this.bwM.setText(resources.getString(a.f.down_immediately));
         }
-        this.bec = this.beb.getPlayer();
+        this.bwX = this.bwW.getPlayer();
         k();
     }
 
@@ -135,18 +135,18 @@ public abstract class c {
                 return true;
             }
         });
-        this.k.setOnClickListener(this.bei);
-        this.l.setOnClickListener(this.bej);
-        this.m.setOnClickListener(this.bek);
-        this.bdR.setOnClickListener(this.bek);
+        this.k.setOnClickListener(this.bxd);
+        this.l.setOnClickListener(this.bxe);
+        this.m.setOnClickListener(this.bxf);
+        this.bwM.setOnClickListener(this.bxf);
     }
 
     public void a(a.c cVar) {
-        this.beh = cVar;
+        this.bxc = cVar;
     }
 
     public void a(a.b bVar) {
-        this.bef = bVar;
+        this.bxb = bVar;
     }
 
     public View a() {
@@ -154,49 +154,49 @@ public abstract class c {
     }
 
     public void a(String str) {
-        if (this.beb != null) {
-            this.beb.a(str);
+        if (this.bwW != null) {
+            this.bwW.a(str);
         }
     }
 
-    public com.baidu.swan.apps.media.d.a QM() {
-        if (this.beb != null) {
-            return this.beb.getPlayer();
+    public com.baidu.swan.apps.media.d.a VC() {
+        if (this.bwW != null) {
+            return this.bwW.getPlayer();
         }
         return null;
     }
 
     private void l() {
-        if (this.bed != null) {
-            this.p.removeCallbacksAndMessages(null);
-            this.p.postDelayed(this.s, 0L);
+        if (this.bwY != null) {
+            this.bxa.removeCallbacksAndMessages(null);
+            this.bxa.postDelayed(this.s, 0L);
         }
     }
 
     private void m() {
-        if (this.bed != null) {
-            this.p.removeCallbacksAndMessages(null);
+        if (this.bwY != null) {
+            this.bxa.removeCallbacksAndMessages(null);
         }
     }
 
     public void c() {
         l();
-        if (this.bed.getVisibility() != 0) {
-            this.bed.setVisibility(0);
-            this.bed.setTimeMillis(this.h);
+        if (this.bwY.getVisibility() != 0) {
+            this.bwY.setVisibility(0);
+            this.bwY.setTimeMillis(this.h);
         }
         if (this.j.getVisibility() != 0) {
             this.j.setVisibility(0);
         }
         if (this.m.getVisibility() != 0) {
-            this.m.setAnimation(AnimationUtils.loadAnimation(this.c, a.C0207a.ng_game_ad_open));
+            this.m.setAnimation(AnimationUtils.loadAnimation(this.c, a.C0239a.ng_game_ad_open));
             this.m.setVisibility(0);
         }
     }
 
     public void d() {
-        if (this.bec != null) {
-            this.h = this.bec.getDuration();
+        if (this.bwX != null) {
+            this.h = this.bwX.getDuration();
         }
     }
 
@@ -213,8 +213,8 @@ public abstract class c {
     }
 
     public void h() {
-        if (this.bed != null) {
-            this.bed.setVisibility(4);
+        if (this.bwY != null) {
+            this.bwY.setVisibility(4);
         }
         m();
     }

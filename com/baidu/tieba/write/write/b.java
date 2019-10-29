@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private String bto;
-    private ArrayList<String> jOJ;
+    private String bLZ;
+    private ArrayList<String> jMP;
 
-    public void m(EditText editText) {
+    public void k(EditText editText) {
         Editable text;
         Object[] spans;
         if (editText != null && (text = editText.getText()) != null) {
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.aa(this.jOJ)) {
+        if (spannable != null && !v.isEmpty(this.jMP)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.jOJ.iterator();
+                Iterator<String> it = this.jMP.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -68,7 +68,7 @@ public class b {
         return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? spanned.length() : spanned.getSpanEnd(backgroundColorSpanArr[0]);
     }
 
-    public boolean n(EditText editText) {
+    public boolean l(EditText editText) {
         Editable text;
         if (editText == null || (text = editText.getText()) == null) {
             return false;
@@ -84,15 +84,15 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.aa(cAn())) {
+        if (v.isEmpty(cxy())) {
             return false;
         }
-        return n(editText) || n(editText2);
+        return l(editText) || l(editText2);
     }
 
     public void b(EditText editText, EditText editText2) {
-        o(editText);
-        o(editText2);
+        m(editText);
+        m(editText2);
         a(editText, editText2);
     }
 
@@ -100,25 +100,25 @@ public class b {
         b(editText, editText2);
     }
 
-    public void o(EditText editText) {
+    public void m(EditText editText) {
         if (editText != null) {
-            m(editText);
+            k(editText);
         }
     }
 
-    public void aI(ArrayList<String> arrayList) {
-        this.jOJ = arrayList;
+    public void aM(ArrayList<String> arrayList) {
+        this.jMP = arrayList;
     }
 
-    public ArrayList<String> cAn() {
-        return this.jOJ;
+    public ArrayList<String> cxy() {
+        return this.jMP;
     }
 
-    public void Hb(String str) {
-        this.bto = str;
+    public void Fv(String str) {
+        this.bLZ = str;
     }
 
-    public String cAr() {
-        return this.bto;
+    public String cxC() {
+        return this.bLZ;
     }
 }

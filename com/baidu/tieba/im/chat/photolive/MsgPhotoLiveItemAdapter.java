@@ -16,22 +16,21 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bt */
-    public e.a<MsgPhotoLiveCardVew> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bv */
+    public e.a<MsgPhotoLiveCardVew> b(ViewGroup viewGroup) {
         MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.mPageContext);
-        return new a(msgPhotoLiveCardVew.eY(), msgPhotoLiveCardVew);
+        return new a(msgPhotoLiveCardVew.getConvertView(), msgPhotoLiveCardVew);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgPhotoLiveCardVew> aVar) {
-        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgPhotoLiveCardVew bBz = aVar.bBz();
-        bBz.a(this.mPageContext, chatMessage, viewGroup);
-        bBz.a(this.gBv);
-        bBz.setPosition(i);
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgPhotoLiveCardVew> aVar) {
+        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
+        MsgPhotoLiveCardVew byk = aVar.byk();
+        byk.a(this.mPageContext, chatMessage, viewGroup);
+        byk.a(this.gzu);
+        byk.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

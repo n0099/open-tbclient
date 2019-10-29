@@ -11,13 +11,13 @@ import java.security.MessageDigest;
 public class as {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static String d(PackageInfo packageInfo) throws NumberFormatException {
+    public static String creatSignInt(PackageInfo packageInfo) throws NumberFormatException {
         long j = 0;
-        String e = e(packageInfo);
-        if (e == null || e.length() < 32) {
+        String signMd5 = getSignMd5(packageInfo);
+        if (signMd5 == null || signMd5.length() < 32) {
             return LivenessStat.TYPE_STRING_DEFAULT;
         }
-        String substring = e.substring(8, 24);
+        String substring = signMd5.substring(8, 24);
         long j2 = 0;
         for (int i = 0; i < 8; i++) {
             j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
@@ -28,19 +28,19 @@ public class as {
         return String.valueOf((j + j2) & 4294967295L);
     }
 
-    private static String e(PackageInfo packageInfo) {
+    private static String getSignMd5(PackageInfo packageInfo) {
         if (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length == 0 || packageInfo.signatures[0] == null) {
             return null;
         }
         try {
-            return com.baidu.adp.lib.util.s.m(packageInfo.signatures[0].toCharsString().getBytes());
+            return com.baidu.adp.lib.util.s.toMd5(packageInfo.signatures[0].toCharsString().getBytes());
         } catch (Exception e) {
             BdLog.detailException(e);
             return null;
         }
     }
 
-    public static String G(byte[] bArr) {
+    public static String getAPKHexMD5(byte[] bArr) {
         int i = 0;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -61,14 +61,14 @@ public class as {
         }
     }
 
-    public static String f(PackageInfo packageInfo) {
+    public static String getAPKMd5(PackageInfo packageInfo) {
         if (packageInfo == null) {
             return null;
         }
         File file = new File(packageInfo.applicationInfo.publicSourceDir);
         if (file.exists()) {
             try {
-                return com.baidu.adp.lib.util.s.h(new FileInputStream(file));
+                return com.baidu.adp.lib.util.s.toMd5(new FileInputStream(file));
             } catch (FileNotFoundException e) {
                 BdLog.detailException(e);
                 return null;
@@ -77,7 +77,7 @@ public class as {
         return null;
     }
 
-    public static String ol(String str) {
-        return com.baidu.adp.lib.util.s.bn(str);
+    public static String getNameMd5FromUrl(String str) {
+        return com.baidu.adp.lib.util.s.toMd5(str);
     }
 }

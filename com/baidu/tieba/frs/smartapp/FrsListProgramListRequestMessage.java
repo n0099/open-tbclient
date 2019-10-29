@@ -38,7 +38,7 @@ public class FrsListProgramListRequestMessage extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = this.rn;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         SmartAppListReqIdl.Builder builder2 = new SmartAppListReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -10,46 +10,46 @@ import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements m {
-    public static final BdUniqueId fZa = BdUniqueId.gen();
-    private int eHh;
-    private List<a> fZb;
-    private String fZc;
-    private String fZd;
+    public static final BdUniqueId fYv = BdUniqueId.gen();
+    private int ePN;
+    private List<a> fYw;
+    private String fYx;
+    private String fYy;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.eHh = esport.floor_no.intValue();
+            this.ePN = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.fZc = esport._static.img;
-                this.fZd = esport._static.url;
+                this.fYx = esport._static.img;
+                this.fYy = esport._static.url;
             }
-            this.fZb = new ArrayList();
-            if (!StringUtils.isNull(this.fZc)) {
+            this.fYw = new ArrayList();
+            if (!StringUtils.isNull(this.fYx)) {
                 a aVar = new a();
-                aVar.yn(this.fZc);
-                aVar.yo(this.fZd);
-                this.fZb.add(aVar);
+                aVar.wF(this.fYx);
+                aVar.wG(this.fYy);
+                this.fYw.add(aVar);
             }
-            if (!v.aa(esport.billboard)) {
+            if (!v.isEmpty(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.fZb.add(aVar2);
+                    this.fYw.add(aVar2);
                 }
             }
         }
     }
 
-    public int buP() {
-        return this.eHh;
+    public int brR() {
+        return this.ePN;
     }
 
-    public List<a> buQ() {
-        return this.fZb;
+    public List<a> brS() {
+        return this.fYw;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fZa;
+        return fYv;
     }
 }

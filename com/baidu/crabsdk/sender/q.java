@@ -58,16 +58,16 @@ public final class q {
                     httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, (String) null));
                 } else {
                     com.baidu.crabsdk.c.a.v("*** apiType != Block ***");
-                    String ct = h.ct(str3);
-                    if (ct.startsWith("NoEncrypt_")) {
+                    String bG = h.bG(str3);
+                    if (bG.startsWith("NoEncrypt_")) {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES2");
-                        ct = ct.substring(10);
-                        com.baidu.crabsdk.c.a.v("real rsaAesKey is: " + ct);
+                        bG = bG.substring(10);
+                        com.baidu.crabsdk.c.a.v("real rsaAesKey is: " + bG);
                     } else {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     }
-                    httpURLConnection3.setRequestProperty("EncryptData", ct);
-                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, h.cs(str3)));
+                    httpURLConnection3.setRequestProperty("EncryptData", bG);
+                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, h.bF(str3)));
                 }
                 httpURLConnection3.setConnectTimeout(3000);
                 httpURLConnection3.setReadTimeout(3000);
@@ -77,7 +77,7 @@ public final class q {
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
-                    com.baidu.crabsdk.c.a.ch("response code is " + httpURLConnection3.getResponseCode());
+                    com.baidu.crabsdk.c.a.bu("response code is " + httpURLConnection3.getResponseCode());
                     if (httpURLConnection3.getResponseCode() == 200) {
                         inputStreamReader = new InputStreamReader(httpURLConnection3.getInputStream());
                         try {

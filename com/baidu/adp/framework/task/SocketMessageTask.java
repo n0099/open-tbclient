@@ -4,11 +4,11 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
+    private DupLicateMode mA;
+    private boolean mCanRetry;
+    private boolean mNeedAck;
+    private boolean mNeedCompress;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean wr;
-    private boolean ws;
-    private boolean wt;
-    private DupLicateMode wu;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,31 +20,31 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.wr = false;
-        this.ws = false;
-        this.wt = true;
-        this.wu = DupLicateMode.NONE;
+        this.mNeedAck = false;
+        this.mNeedCompress = false;
+        this.mCanRetry = true;
+        this.mA = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.D(this.mCmd);
+        return FrameHelper.checkSocketCmd(this.mCmd);
     }
 
-    public void D(boolean z) {
-        this.wr = z;
+    public void setNeedAck(boolean z) {
+        this.mNeedAck = z;
     }
 
-    public boolean gu() {
-        return this.wr;
+    public boolean getNeedAck() {
+        return this.mNeedAck;
     }
 
-    public boolean gv() {
-        return this.ws;
+    public boolean getNeedCompress() {
+        return this.mNeedCompress;
     }
 
-    public void E(boolean z) {
-        this.ws = z;
+    public void setNeedCompress(boolean z) {
+        this.mNeedCompress = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -55,19 +55,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean gw() {
-        return this.wt;
+    public boolean isCanRetry() {
+        return this.mCanRetry;
     }
 
-    public void F(boolean z) {
-        this.wt = z;
+    public void setCanRetry(boolean z) {
+        this.mCanRetry = z;
     }
 
-    public DupLicateMode gx() {
-        return this.wu;
+    public DupLicateMode eL() {
+        return this.mA;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.wu = dupLicateMode;
+        this.mA = dupLicateMode;
     }
 }

@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.apple;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -13,9 +14,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class AppleDataReferenceBox extends AbstractFullBox {
     public static final String TYPE = "rdrf";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
     private String dataReference;
     private int dataReferenceSize;
     private String dataReferenceType;
@@ -27,8 +28,8 @@ public class AppleDataReferenceBox extends AbstractFullBox {
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleDataReferenceBox.java", AppleDataReferenceBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getDataReferenceSize", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "long"), 63);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getDataReferenceType", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 67);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getDataReference", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 71);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getDataReferenceType", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", FieldUtil.TYPE_STRING), 67);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getDataReference", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", FieldUtil.TYPE_STRING), 71);
     }
 
     public AppleDataReferenceBox() {

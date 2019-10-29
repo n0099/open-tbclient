@@ -1,0 +1,489 @@
+package com.baidu.ala.liveRecorder.video.camera;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.graphics.SurfaceTexture;
+import android.os.Looper;
+import android.view.Surface;
+import android.view.TextureView;
+import android.view.View;
+import com.baidu.ala.helper.AlaLiveUtilHelper;
+import com.baidu.ala.liveRecorder.IFaceUnityOperator;
+import com.baidu.ala.liveRecorder.RecorderCallback;
+import com.baidu.ala.liveRecorder.video.AlaLiveVideoConfig;
+import com.baidu.ala.liveRecorder.video.IVideoRecorder;
+import com.baidu.ala.liveRecorder.video.RecorderHandler;
+import com.baidu.ala.liveRecorder.video.VideoBeautyType;
+import com.baidu.ala.liveRecorder.video.VideoFormat;
+import com.baidu.live.adp.lib.stats.BdStatisticsManager;
+import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+/* loaded from: classes6.dex */
+public class AlaCameraRecorder extends TextureView implements TextureView.SurfaceTextureListener, IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
+    private static final String LOG_TAG = "ala_camera_recorder";
+    private static final int MIN_SURFACE_CHANGE = 10;
+    private boolean bStartAndSurfaceChanged;
+    private Activity mActivity;
+    private VideoBeautyType mBeautyType;
+    private Looper mCameraLooper;
+    private AlaCameraManager mCameraMgr;
+    private IVideoRecorder.IVideoDataCallBack mExternVideoDataCallback;
+    private RecorderHandler mHandler;
+    private boolean mIsPreviewStoped;
+    private volatile boolean mIsVideoThreadRun;
+    private boolean mNeedBeauty;
+    private Surface mSurface;
+    private boolean mSurfaceCreated;
+    private int mSurfaceHeight;
+    private SurfaceHolder mSurfaceHolder;
+    private SurfaceTexture mSurfaceTexture;
+    private int mSurfaceWidth;
+    private AlaLiveVideoConfig mVideoConfig;
+    private IVideoRecorder.IVideoDataCallBack mVideoDataCallback;
+
+    /* loaded from: classes6.dex */
+    public interface SurfaceHolder {
+        Surface getSurface();
+
+        SurfaceTexture getSurfaceTexture();
+    }
+
+    public AlaCameraRecorder(Context context, RecorderHandler recorderHandler, boolean z, VideoBeautyType videoBeautyType) {
+        super(context);
+        this.mIsVideoThreadRun = false;
+        this.mCameraMgr = null;
+        this.mCameraLooper = null;
+        this.mSurfaceHolder = new SurfaceHolder() { // from class: com.baidu.ala.liveRecorder.video.camera.AlaCameraRecorder.1
+            @Override // com.baidu.ala.liveRecorder.video.camera.AlaCameraRecorder.SurfaceHolder
+            public Surface getSurface() {
+                return AlaCameraRecorder.this.mSurface;
+            }
+
+            @Override // com.baidu.ala.liveRecorder.video.camera.AlaCameraRecorder.SurfaceHolder
+            public SurfaceTexture getSurfaceTexture() {
+                return AlaCameraRecorder.this.mSurfaceTexture;
+            }
+        };
+        this.mActivity = null;
+        this.mIsPreviewStoped = false;
+        this.mHandler = null;
+        this.bStartAndSurfaceChanged = false;
+        this.mNeedBeauty = false;
+        this.mSurfaceCreated = false;
+        this.mBeautyType = VideoBeautyType.BEAUTY_FACEUNITY;
+        this.mSurfaceWidth = 0;
+        this.mSurfaceHeight = 0;
+        this.mVideoDataCallback = new IVideoRecorder.IVideoDataCallBack() { // from class: com.baidu.ala.liveRecorder.video.camera.AlaCameraRecorder.2
+            @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder.IVideoDataCallBack
+            public void onRawVideoFrameReceived(byte[] bArr, int i, int i2, int i3) {
+                if (AlaCameraRecorder.this.mExternVideoDataCallback != null) {
+                    AlaCameraRecorder.this.mExternVideoDataCallback.onRawVideoFrameReceived(bArr, i, i2, i3);
+                }
+            }
+
+            @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder.IVideoDataCallBack
+            public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j) {
+                if (AlaCameraRecorder.this.mExternVideoDataCallback != null) {
+                    AlaCameraRecorder.this.mExternVideoDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3, j);
+                }
+            }
+
+            @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder.IVideoDataCallBack
+            public void onError(int i) {
+                if (AlaCameraRecorder.this.mExternVideoDataCallback != null) {
+                    AlaCameraRecorder.this.mExternVideoDataCallback.onError(i);
+                }
+            }
+        };
+        if (context instanceof Activity) {
+            this.mActivity = (Activity) context;
+            this.mHandler = recorderHandler;
+            this.mNeedBeauty = z;
+            this.mBeautyType = videoBeautyType;
+            setSurfaceTextureListener(this);
+            this.mCameraMgr = new AlaCameraManager(this.mActivity, this.mSurfaceHolder, this.mHandler, this.mVideoDataCallback, this.mNeedBeauty, this.mBeautyType);
+            return;
+        }
+        throw new IllegalArgumentException("context must be Activity");
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public void startRecord() {
+        this.mIsPreviewStoped = false;
+        if (this.mSurfaceCreated) {
+            if (this.mActivity == null) {
+                BdLog.e("mActivity is null.");
+            } else if (!this.mIsVideoThreadRun) {
+                this.mIsVideoThreadRun = true;
+                if (this.mCameraMgr == null) {
+                    this.mCameraMgr = new AlaCameraManager(this.mActivity, this.mSurfaceHolder, this.mHandler, this.mVideoDataCallback, this.mNeedBeauty, this.mBeautyType);
+                    this.mCameraMgr.setVideoConfig(this.mVideoConfig);
+                    this.mCameraMgr.setCameraLooper(this.mCameraLooper);
+                }
+                if (this.mActivity.getResources().getConfiguration().orientation == 2) {
+                    this.mCameraMgr.setDisplayRotateOffset(SubsamplingScaleImageView.ORIENTATION_180);
+                }
+                this.mCameraMgr.prepStartCamera();
+                int i = this.mActivity.getResources().getConfiguration().orientation;
+                if (this.bStartAndSurfaceChanged && i == 2) {
+                    onSurfaceTextureSizeChanged(this.mSurfaceTexture, this.mSurfaceWidth, this.mSurfaceHeight);
+                }
+                log("action", "startpreview");
+            }
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public void stopRecord() {
+        this.mIsPreviewStoped = true;
+        this.mIsVideoThreadRun = false;
+        if (this.mCameraMgr != null) {
+            this.mCameraMgr.prepStopCamera();
+            this.mCameraMgr = null;
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public void setVideoDataCallback(IVideoRecorder.IVideoDataCallBack iVideoDataCallBack) {
+        this.mExternVideoDataCallback = iVideoDataCallBack;
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public void setRecorderCallback(RecorderCallback recorderCallback) {
+        this.mHandler.setRecorderCallback(recorderCallback);
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public VideoFormat getVideoFormat() {
+        return (this.mCameraMgr == null || this.mCameraMgr.getCameraOperator() == null) ? VideoFormat.RGBA : this.mCameraMgr.getCameraOperator().getVideoFormat();
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public int getOutputWidth() {
+        if (this.mCameraMgr == null || this.mCameraMgr.getCameraOperator() == null) {
+            return 0;
+        }
+        return this.mCameraMgr.getOutputWidth();
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public int getOutputHeight() {
+        if (this.mCameraMgr == null || this.mCameraMgr.getCameraOperator() == null) {
+            return 0;
+        }
+        return this.mCameraMgr.getOutputHeight();
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public boolean isVideoThreadRun() {
+        return this.mIsVideoThreadRun;
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public boolean isForeBackgroundSwitchEnable() {
+        return true;
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public View getPreview() {
+        return this;
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public void release() {
+        stopRecord();
+        try {
+            if (this.mSurface != null) {
+                this.mSurface.release();
+            }
+            if (this.mSurfaceTexture != null) {
+                this.mSurfaceTexture.release();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public synchronized void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public synchronized void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+        if (this.mSurfaceTexture != null) {
+            setSurfaceTexture(this.mSurfaceTexture);
+            if (this.mSurface == null) {
+                this.mSurface = new Surface(this.mSurfaceTexture);
+            }
+        } else {
+            this.mSurfaceTexture = surfaceTexture;
+            this.mSurface = new Surface(surfaceTexture);
+        }
+        this.mSurfaceCreated = true;
+        if (!this.mIsPreviewStoped) {
+            startRecord();
+        }
+    }
+
+    @Override // android.view.View
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        if (this.mCameraMgr != null && getLayoutParams() != null && this.mSurfaceHeight > 0 && this.mSurfaceWidth > 0) {
+            if (configuration.orientation == 2 && this.mSurfaceWidth < this.mSurfaceHeight) {
+                int i = this.mSurfaceHeight;
+                this.mSurfaceHeight = this.mSurfaceWidth;
+                this.mSurfaceWidth = i;
+                if (this.mSurfaceTexture != null) {
+                    onSurfaceTextureSizeChanged(this.mSurfaceTexture, this.mSurfaceWidth, this.mSurfaceHeight);
+                }
+            }
+            if (configuration.orientation == 1 && this.mSurfaceHeight < this.mSurfaceWidth) {
+                int i2 = this.mSurfaceHeight;
+                this.mSurfaceHeight = this.mSurfaceWidth;
+                this.mSurfaceWidth = i2;
+                if (this.mSurfaceTexture != null) {
+                    onSurfaceTextureSizeChanged(this.mSurfaceTexture, this.mSurfaceWidth, this.mSurfaceHeight);
+                }
+            }
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public synchronized void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+        int realScreenOrientation = AlaLiveUtilHelper.getRealScreenOrientation(this.mActivity);
+        this.bStartAndSurfaceChanged = false;
+        if (i == 0 || i2 == 0 || this.mIsPreviewStoped) {
+            this.bStartAndSurfaceChanged = this.mIsPreviewStoped;
+        } else if (i == this.mSurfaceWidth && i2 == this.mSurfaceHeight) {
+            resetCamera();
+        } else {
+            if (this.mCameraMgr != null && realScreenOrientation == 2 && i < i2) {
+                i = i2;
+                i2 = i;
+            }
+            if (this.mCameraMgr != null && this.mCameraMgr.getHandler() != null) {
+                this.mSurfaceWidth = i;
+                this.mSurfaceHeight = i2;
+                this.mCameraMgr.getHandler().sendSurfaceChanged(i, i2);
+            }
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public synchronized boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+        stopRecord();
+        return this.mSurfaceTexture == null;
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public void switchCamera() {
+        CameraHandler handler;
+        if (this.mCameraMgr != null && (handler = this.mCameraMgr.getHandler()) != null) {
+            handler.sendSwitchCarema();
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public boolean isBackCamera() {
+        if (this.mCameraMgr != null) {
+            return this.mCameraMgr.isBackCamera();
+        }
+        this.mCameraMgr = new AlaCameraManager(this.mActivity, this.mSurfaceHolder, this.mHandler, this.mVideoDataCallback, this.mNeedBeauty, this.mBeautyType);
+        this.mCameraMgr.setVideoConfig(this.mVideoConfig);
+        this.mCameraMgr.setCameraLooper(this.mCameraLooper);
+        return this.mCameraMgr.isBackCamera();
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public void switchFlashingLight() {
+        CameraHandler handler;
+        if (this.mCameraMgr != null && (handler = this.mCameraMgr.getHandler()) != null) {
+            handler.sendSwitchFlashLight();
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public boolean isFlashingLightOpen() {
+        if (this.mCameraMgr != null) {
+            return this.mCameraMgr.isFlashingLightOpen();
+        }
+        this.mCameraMgr = new AlaCameraManager(this.mActivity, this.mSurfaceHolder, this.mHandler, this.mVideoDataCallback, this.mNeedBeauty, this.mBeautyType);
+        this.mCameraMgr.setVideoConfig(this.mVideoConfig);
+        return this.mCameraMgr.isFlashingLightOpen();
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public void setBeauty(int i) {
+        CameraHandler handler;
+        if (this.mCameraMgr != null && (handler = this.mCameraMgr.getHandler()) != null) {
+            handler.sendBeauty(i);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public int hasBeauty() {
+        if (this.mCameraMgr != null) {
+            return this.mCameraMgr.hasBeauty();
+        }
+        this.mCameraMgr = new AlaCameraManager(this.mActivity, this.mSurfaceHolder, this.mHandler, this.mVideoDataCallback, this.mNeedBeauty, this.mBeautyType);
+        this.mCameraMgr.setVideoConfig(this.mVideoConfig);
+        this.mCameraMgr.setCameraLooper(this.mCameraLooper);
+        return this.mCameraMgr.hasBeauty();
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public int getDisplayRotate() {
+        if (this.mCameraMgr != null) {
+            return this.mCameraMgr.getDisplayRotate();
+        }
+        return 0;
+    }
+
+    protected static void log(Object... objArr) {
+        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+            BdStatisticsManager.getInstance().newDebug(LOG_TAG, 0L, null, objArr);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder, com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public void setVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
+        this.mVideoConfig = new AlaLiveVideoConfig(alaLiveVideoConfig);
+        if (this.mCameraMgr != null) {
+            this.mCameraMgr.setVideoConfig(this.mVideoConfig);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public int getBitRate() {
+        if (this.mVideoConfig != null) {
+            return this.mVideoConfig.getBitStream();
+        }
+        return 0;
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.IVideoRecorder
+    public void startGetDataToSend() {
+        if (this.mCameraMgr != null) {
+            if (this.mCameraMgr.getHandler() != null) {
+                this.mCameraMgr.getHandler().sendStartSendData();
+            } else {
+                this.mCameraMgr.setSendDataFlag(true);
+            }
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onEffectItemSelected(String str) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onEffectItemSelected(str);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onGiftEffectItemSelected(String str) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onGiftEffectItemSelected(str);
+        } else if (this.mHandler != null) {
+            this.mHandler.sendError(7, str);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onFilterSelected(String str) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onFilterSelected(str);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onBlurLevelSelected(int i) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onBlurLevelSelected(i);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onColorLevelSelected(float f) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onColorLevelSelected(f);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onCheekThinSelected(float f) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onCheekThinSelected(f);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onEnlargeEyeSelected(float f) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onEnlargeEyeSelected(f);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onFaceShapeSelected(int i) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onFaceShapeSelected(i);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onFaceShapeLevelSelected(float f) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onFaceShapeLevelSelected(f);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.IFaceUnityOperator
+    public void onRedLevelSelected(float f) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onRedLevelSelected(f);
+        }
+    }
+
+    @Override // com.baidu.ala.liveRecorder.video.camera.ICameraStatusHandler
+    public boolean hasAdvancedBeauty() {
+        if (this.mCameraMgr != null) {
+            return this.mCameraMgr.hasAdvancedBeauty();
+        }
+        return false;
+    }
+
+    public void setPushMirror(boolean z) {
+        if (this.mCameraMgr != null) {
+            this.mCameraMgr.setPushMirror(z);
+        }
+    }
+
+    public boolean isPushMirror() {
+        if (this.mCameraMgr != null) {
+            return this.mCameraMgr.isPushMirror();
+        }
+        return false;
+    }
+
+    public void setCameraLooper(Looper looper) {
+        if (this.mCameraMgr != null) {
+            this.mCameraMgr.setCameraLooper(looper);
+            this.mCameraLooper = looper;
+        }
+    }
+
+    public void setPreviewFps(int i) {
+        if (this.mCameraMgr != null) {
+            this.mCameraMgr.setPreviewFps(i);
+        }
+    }
+
+    private void resetCamera() {
+        CameraHandler handler;
+        if (this.mCameraMgr != null && (handler = this.mCameraMgr.getHandler()) != null) {
+            handler.sendResetCamera();
+        }
+    }
+}

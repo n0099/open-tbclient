@@ -41,8 +41,8 @@ public class d extends z {
         com.baidu.swan.apps.network.c.b.a.e(new com.baidu.swan.apps.an.d.a<Map<String, com.baidu.swan.apps.setting.oauth.e>>() { // from class: com.baidu.swan.apps.setting.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
-            /* renamed from: m */
-            public void D(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
+            /* renamed from: n */
+            public void B(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
                 if (map == null) {
                     CallbackHandler.this.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                     return;
@@ -52,8 +52,8 @@ public class d extends z {
                     for (Map.Entry<String, com.baidu.swan.apps.setting.oauth.e> entry : map.entrySet()) {
                         String key = entry.getKey();
                         com.baidu.swan.apps.setting.oauth.e value = entry.getValue();
-                        if (!TextUtils.isEmpty(key) && value != null && value.Nz()) {
-                            jSONObject.put(key, value.Ny() ? "1" : "0");
+                        if (!TextUtils.isEmpty(key) && value != null && value.Sp()) {
+                            jSONObject.put(key, value.So() ? "1" : "0");
                         }
                     }
                     CallbackHandler.this.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());

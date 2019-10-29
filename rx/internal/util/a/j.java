@@ -2,7 +2,7 @@ package rx.internal.util.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class j<E> extends l<E> {
-    protected static final long kEl = ae.j(j.class, "consumerIndex");
+    protected static final long kES = ae.i(j.class, "consumerIndex");
     private volatile long consumerIndex;
 
     public j(int i) {
@@ -10,12 +10,12 @@ public abstract class j<E> extends l<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long cRi() {
+    public final long cPn() {
         return this.consumerIndex;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean A(long j, long j2) {
-        return ae.kEs.compareAndSwapLong(this, kEl, j, j2);
+    public final boolean G(long j, long j2) {
+        return ae.kEZ.compareAndSwapLong(this, kES, j, j2);
     }
 }

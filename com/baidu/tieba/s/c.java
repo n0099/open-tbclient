@@ -1,26 +1,27 @@
 package com.baidu.tieba.s;
 
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class c {
-    public static boolean h(byte[] bArr, String str) {
+    public static boolean f(byte[] bArr, String str) {
         if (bArr == null) {
             return false;
         }
         com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.iu().setUrl(str);
-        eVar.iu().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.iu().d("", bArr);
-        new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
-        int i = eVar.iv().responseCode;
-        byte[] bArr2 = eVar.iv().AU;
+        eVar.fJ().setUrl(str);
+        eVar.fJ().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        eVar.fJ().addPostData("", bArr);
+        new com.baidu.adp.lib.network.http.c(eVar).e(3, -1, -1);
+        int i = eVar.fK().responseCode;
+        byte[] bArr2 = eVar.fK().retBytes;
         if (bArr2 == null || i != 200) {
             return false;
         }
         try {
-            if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject("error").optInt("errno") != 0) {
+            if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject(BdStatsConstant.StatsType.ERROR).optInt("errno") != 0) {
                 return false;
             }
             return true;
@@ -30,7 +31,7 @@ public class c {
         }
     }
 
-    public static byte[] em(List<String> list) {
+    public static byte[] ez(List<String> list) {
         if (list == null) {
             return null;
         }
@@ -43,7 +44,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] bS(JSONObject jSONObject) {
+    public static byte[] cr(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

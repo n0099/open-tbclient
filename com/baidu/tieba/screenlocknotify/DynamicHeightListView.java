@@ -13,17 +13,17 @@ public class DynamicHeightListView extends BdListView {
 
     public DynamicHeightListView(Context context) {
         super(context);
-        this.maxHeight = l.g(TbadkCoreApplication.getInst(), R.dimen.ds484);
+        this.maxHeight = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.maxHeight = l.g(TbadkCoreApplication.getInst(), R.dimen.ds484);
+        this.maxHeight = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.maxHeight = l.g(TbadkCoreApplication.getInst(), R.dimen.ds484);
+        this.maxHeight = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds484);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

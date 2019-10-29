@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int FX;
-    private int FY;
-    private boolean FZ;
-    private String Fk;
-    private boolean Ga;
-    private int Gb;
-    private int Gc;
-    private boolean Gd;
-    private boolean Ge;
+    private String sv;
+    private int ti;
+    private int tj;
+    private boolean tk;
+    private boolean tl;
+    private int tm;
+    private int tp;
+    private boolean tq;
+    private boolean tr;
 
     public l() {
-        this.Fk = null;
-        this.FX = 32768;
-        this.FY = 131072;
-        this.FZ = false;
-        this.Ga = true;
-        this.Gb = 30000;
-        this.Gc = 30000;
-        this.Gd = true;
-        this.Ge = true;
-        this.Fk = null;
+        this.sv = null;
+        this.ti = 32768;
+        this.tj = 131072;
+        this.tk = false;
+        this.tl = true;
+        this.tm = 30000;
+        this.tp = 30000;
+        this.tq = true;
+        this.tr = true;
+        this.sv = null;
     }
 
     public l(l lVar) {
-        this.Fk = null;
-        this.FX = lVar.FX;
-        this.FY = lVar.FY;
-        this.FZ = lVar.FZ;
-        this.Ga = lVar.Ga;
-        this.Gb = lVar.Gb;
-        this.Gc = lVar.Gc;
-        this.Gd = lVar.Gd;
-        this.Ge = lVar.Ge;
-        this.Fk = lVar.Fk;
+        this.sv = null;
+        this.ti = lVar.ti;
+        this.tj = lVar.tj;
+        this.tk = lVar.tk;
+        this.tl = lVar.tl;
+        this.tm = lVar.tm;
+        this.tp = lVar.tp;
+        this.tq = lVar.tq;
+        this.tr = lVar.tr;
+        this.sv = lVar.sv;
     }
 
-    public boolean lg() {
-        return this.FZ;
+    public boolean hF() {
+        return this.tk;
     }
 
-    public int lh() {
-        return this.FX;
+    public int hG() {
+        return this.ti;
     }
 
-    public int li() {
-        return this.FY;
+    public int hH() {
+        return this.tj;
     }
 
-    public boolean lj() {
-        return this.Ga;
+    public boolean hI() {
+        return this.tl;
     }
 
-    public int lk() {
-        return this.Gb;
+    public int hJ() {
+        return this.tm;
     }
 
-    public int ll() {
-        return this.Gc;
+    public int hK() {
+        return this.tp;
     }
 
-    public boolean lm() {
-        return this.Gd;
+    public boolean hL() {
+        return this.tq;
     }
 
-    public boolean ln() {
-        return this.Ge;
+    public boolean hM() {
+        return this.tr;
     }
 
-    public String lo() {
-        return this.Fk;
+    public String hN() {
+        return this.sv;
     }
 
-    public void br(String str) {
-        this.Fk = str;
+    public void ay(String str) {
+        this.sv = str;
     }
 }

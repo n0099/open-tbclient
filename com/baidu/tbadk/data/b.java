@@ -4,6 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
@@ -13,7 +14,7 @@ import tbclient.AlaLiveInfo;
 import tbclient.BannerFollowLive;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId crp = BdUniqueId.gen();
+    public static final BdUniqueId cDN = BdUniqueId.gen();
     private List<com.baidu.adp.widget.ListView.m> mList;
 
     public List<com.baidu.adp.widget.ListView.m> getList() {
@@ -28,8 +29,8 @@ public class b implements com.baidu.adp.widget.ListView.m {
                 this.mList.clear();
             }
             List<AlaLiveInfo> list = bannerFollowLive.ala_live_list;
-            if (!v.aa(list)) {
-                arD();
+            if (!v.isEmpty(list)) {
+                ats();
                 for (AlaLiveInfo alaLiveInfo : list) {
                     if (alaLiveInfo != null) {
                         a aVar = new a();
@@ -41,23 +42,23 @@ public class b implements com.baidu.adp.widget.ListView.m {
         }
     }
 
-    private void arD() {
+    private void ats() {
         String string;
         a aVar = new a();
-        aVar.crm = -100;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911008, String.class);
+        aVar.cDK = -100;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ALA_START_SYNC, String.class);
         if (runTask != null && !StringUtils.isNull((String) runTask.getData())) {
             string = (String) runTask.getData();
         } else {
             string = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_follow_live_enter_live_square_txt);
         }
-        aVar.crn = string;
-        aVar.cro = R.drawable.icon_follow_live_recommend;
+        aVar.cDL = string;
+        aVar.cDM = R.drawable.icon_follow_live_recommend;
         this.mList.add(aVar);
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return crp;
+        return cDN;
     }
 }

@@ -12,34 +12,34 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.pms.e;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes2.dex */
 public class b {
     private Context mContext;
-    public static final String awd = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri bsZ = Uri.parse("content://" + awd + "/framework");
-    public static final Uri bta = Uri.parse("content://" + awd + "/swan_app");
-    public static final Uri btb = Uri.parse("content://" + awd + "/pkg_main");
-    public static final Uri awe = Uri.parse("content://" + awd + "/pkg_sub");
-    public static final Uri btc = Uri.parse("content://" + awd + "/extension");
-    private static UriMatcher awf = new UriMatcher(-1);
+    public static final String aPs = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+    public static final Uri bLK = Uri.parse("content://" + aPs + "/framework");
+    public static final Uri bLL = Uri.parse("content://" + aPs + "/swan_app");
+    public static final Uri bLM = Uri.parse("content://" + aPs + "/pkg_main");
+    public static final Uri aPt = Uri.parse("content://" + aPs + "/pkg_sub");
+    public static final Uri bLN = Uri.parse("content://" + aPs + "/extension");
+    private static UriMatcher aPu = new UriMatcher(-1);
 
     static {
-        awf.addURI(awd, "framework", 2);
-        awf.addURI(awd, "pkg_main", 0);
-        awf.addURI(awd, "pkg_sub", 1);
-        awf.addURI(awd, "extension", 3);
-        awf.addURI(awd, "swan_app", 4);
+        aPu.addURI(aPs, "framework", 2);
+        aPu.addURI(aPs, "pkg_main", 0);
+        aPu.addURI(aPs, "pkg_sub", 1);
+        aPu.addURI(aPs, "extension", 3);
+        aPu.addURI(aPs, "swan_app", 4);
     }
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    private String e(Uri uri) {
-        switch (awf.match(uri)) {
+    private String c(Uri uri) {
+        switch (aPu.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:
@@ -62,16 +62,16 @@ public class b {
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        String e = e(uri);
-        if (!TextUtils.isEmpty(e)) {
+        String c = c(uri);
+        if (!TextUtils.isEmpty(c)) {
             if (e.DEBUG) {
                 Log.e("PMSDBProvider", "query");
             }
             try {
-                return Ct().getReadableDatabase().query(e, strArr, str, strArr2, null, null, str2, null);
-            } catch (SQLException e2) {
+                return Hn().getReadableDatabase().query(c, strArr, str, strArr2, null, null, str2, null);
+            } catch (SQLException e) {
                 if (e.DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -81,22 +81,22 @@ public class b {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         Log.e("PMSDBProvider", "name:" + Thread.currentThread().getName());
-        String e = e(uri);
-        if (!TextUtils.isEmpty(e) && contentValues != null) {
+        String c = c(uri);
+        if (!TextUtils.isEmpty(c) && contentValues != null) {
             if (e.DEBUG) {
                 Log.e("PMSDBProvider", "insert:" + contentValues.toString());
             }
             try {
-                long insertWithOnConflict = Ct().getWritableDatabase().insertWithOnConflict(e, null, contentValues, 5);
+                long insertWithOnConflict = Hn().getWritableDatabase().insertWithOnConflict(c, null, contentValues, 5);
                 if (insertWithOnConflict > 0) {
                     Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
                     this.mContext.getContentResolver().notifyChange(withAppendedId, null);
                     return withAppendedId;
                 }
                 return uri;
-            } catch (SQLException e2) {
+            } catch (SQLException e) {
                 if (e.DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -104,21 +104,21 @@ public class b {
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        String e = e(uri);
-        if (!TextUtils.isEmpty(e)) {
+        String c = c(uri);
+        if (!TextUtils.isEmpty(c)) {
             if (e.DEBUG) {
-                Log.e("PMSDBProvider", WriteImageActivityConfig.DELET_FLAG);
+                Log.e("PMSDBProvider", "delete");
             }
             try {
-                int delete = Ct().getWritableDatabase().delete(e, str, strArr);
+                int delete = Hn().getWritableDatabase().delete(c, str, strArr);
                 if (delete > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return delete;
                 }
                 return delete;
-            } catch (SQLException e2) {
+            } catch (SQLException e) {
                 if (e.DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -126,21 +126,21 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        String e = e(uri);
-        if (!TextUtils.isEmpty(e)) {
+        String c = c(uri);
+        if (!TextUtils.isEmpty(c)) {
             if (e.DEBUG) {
-                Log.e("PMSDBProvider", "update");
+                Log.e("PMSDBProvider", IMTrack.DbBuilder.ACTION_UPDATE);
             }
             try {
-                int update = Ct().getWritableDatabase().update(e, contentValues, str, strArr);
+                int update = Hn().getWritableDatabase().update(c, contentValues, str, strArr);
                 if (update > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return update;
                 }
                 return update;
-            } catch (SQLException e2) {
+            } catch (SQLException e) {
                 if (e.DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -148,7 +148,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteOpenHelper Ct() {
-        return a.Wo();
+    public SQLiteOpenHelper Hn() {
+        return a.abd();
     }
 }

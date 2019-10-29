@@ -15,7 +15,7 @@ public class b implements com.baidu.tbadk.mvc.b.b, j {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> bbL() {
+    public List<tinfo> bbQ() {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }

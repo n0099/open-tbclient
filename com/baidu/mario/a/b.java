@@ -8,24 +8,24 @@ import android.util.Log;
 /* loaded from: classes2.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private static volatile b ade;
-    private c adc;
+    private static volatile b awC;
+    private c awB;
     private Handler mAudioHandler;
     private HandlerThread mAudioThread;
 
-    public static b sq() {
-        if (ade == null) {
+    public static b xl() {
+        if (awC == null) {
             synchronized (b.class) {
-                if (ade == null) {
-                    ade = new b();
+                if (awC == null) {
+                    awC = new b();
                 }
             }
         }
-        return ade;
+        return awC;
     }
 
     private static void releaseInstance() {
-        ade = null;
+        awC = null;
     }
 
     private b() {
@@ -42,10 +42,10 @@ public class b {
             Log.e(TAG, "setupAudio error! As last audio thread is alive!");
             return false;
         }
-        if (this.adc == null) {
-            this.adc = new c();
+        if (this.awB == null) {
+            this.awB = new c();
         }
-        this.adc.a(aVar);
+        this.awB.a(aVar);
         startAudioThread();
         this.mAudioHandler.sendMessage(this.mAudioHandler.obtainMessage(1001, eVar));
         return true;
@@ -73,9 +73,9 @@ public class b {
         return this.mAudioThread != null && this.mAudioThread.isAlive();
     }
 
-    public e sr() {
-        if (this.adc != null) {
-            return this.adc.sr();
+    public e xm() {
+        if (this.awB != null) {
+            return this.awB.xm();
         }
         return null;
     }
@@ -113,31 +113,31 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e eVar) {
-        if (this.adc != null) {
-            this.adc.b(eVar);
+        if (this.awB != null) {
+            this.awB.b(eVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleStartAudioEngine() {
-        if (this.adc != null) {
-            this.adc.ss();
+        if (this.awB != null) {
+            this.awB.xn();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleStopAudioEngine() {
-        if (this.adc != null) {
-            this.adc.st();
+        if (this.awB != null) {
+            this.awB.xo();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleReleaseAudioEngine() {
-        if (this.adc != null) {
-            this.adc.su();
+        if (this.awB != null) {
+            this.awB.xp();
         }
-        this.adc = null;
+        this.awB = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

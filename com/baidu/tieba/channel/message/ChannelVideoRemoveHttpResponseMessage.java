@@ -1,12 +1,11 @@
 package com.baidu.tieba.channel.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ChannelVideoRemoveHttpResponseMessage extends JsonHttpResponsedMessage {
     public ChannelVideoRemoveHttpResponseMessage() {
-        super(CmdConfigHttp.CMD_CHANNEL_REMOVE_VIDEO);
+        super(1003306);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

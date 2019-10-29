@@ -17,25 +17,24 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class EmotionButton extends View {
-    private static final int jKo = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-    private static int jKp = 1;
-    private int cFD;
-    private int cFE;
-    private int cFF;
+    private static final int jKd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+    private static int jKe = 1;
+    private RectF Ol;
+    private float asq;
+    private int cPS;
+    private int endColor;
     private int height;
-    private int jKq;
-    private int jKr;
-    private int jKs;
-    private LinearGradient jKt;
-    private LinearGradient jKu;
+    private int jKf;
+    private int jKg;
+    private int jKh;
+    private LinearGradient jKi;
+    private LinearGradient jKj;
     private Paint mPaint;
-    private RectF mRect;
     private TextPaint mTextPaint;
+    private int startColor;
     private String text;
-    private float textSize;
     private int width;
 
     public EmotionButton(Context context) {
@@ -45,33 +44,33 @@ public class EmotionButton extends View {
 
     public EmotionButton(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.a.EmotionButton);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.EmotionButton);
         this.text = obtainStyledAttributes.getString(1);
-        this.textSize = obtainStyledAttributes.getDimension(0, l.g(context, R.dimen.tbds44));
+        this.asq = obtainStyledAttributes.getDimension(0, l.getDimens(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         init(context);
     }
 
     public EmotionButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.a.EmotionButton);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.EmotionButton);
         this.text = obtainStyledAttributes.getString(1);
-        this.textSize = obtainStyledAttributes.getDimension(0, l.g(context, R.dimen.tbds44));
+        this.asq = obtainStyledAttributes.getDimension(0, l.getDimens(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         init(context);
     }
 
     private void init(Context context) {
-        this.cFF = am.getColor(R.color.cp_link_tip_a_alpha50);
-        this.cFD = am.getColor(R.color.cp_link_tip_a);
-        this.cFE = am.getColor(R.color.cp_link_tip_b);
-        this.jKq = am.getColor(R.color.cp_link_tip_a_alpha50);
-        this.jKr = am.getColor(R.color.cp_link_tip_a_alpha50);
-        this.jKs = am.getColor(R.color.cp_link_tip_b_alpha50);
+        this.cPS = am.getColor(R.color.cp_link_tip_a_alpha50);
+        this.startColor = am.getColor(R.color.cp_link_tip_a);
+        this.endColor = am.getColor(R.color.cp_link_tip_b);
+        this.jKf = am.getColor(R.color.cp_link_tip_a_alpha50);
+        this.jKg = am.getColor(R.color.cp_link_tip_a_alpha50);
+        this.jKh = am.getColor(R.color.cp_link_tip_b_alpha50);
         this.mPaint = new Paint();
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mTextPaint = new TextPaint(1);
-        this.mTextPaint.setTextSize(this.textSize);
+        this.mTextPaint.setTextSize(this.asq);
         this.mTextPaint.setStyle(Paint.Style.FILL);
         this.mTextPaint.setTextAlign(Paint.Align.CENTER);
         this.mTextPaint.setColor(am.getColor(R.color.cp_cont_a));
@@ -79,7 +78,7 @@ public class EmotionButton extends View {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 1) {
-                    int unused = EmotionButton.jKp = motionEvent.getAction();
+                    int unused = EmotionButton.jKe = motionEvent.getAction();
                     EmotionButton.this.invalidate();
                     return false;
                 }
@@ -109,50 +108,50 @@ public class EmotionButton extends View {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = i;
         this.height = i2;
-        this.jKt = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.cFE, this.cFD, Shader.TileMode.MIRROR);
-        this.jKu = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.jKs, this.jKr, Shader.TileMode.MIRROR);
+        this.jKi = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.endColor, this.startColor, Shader.TileMode.MIRROR);
+        this.jKj = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.jKh, this.jKg, Shader.TileMode.MIRROR);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (jKp == 0) {
-            ae(canvas);
+        if (jKe == 0) {
+            ac(canvas);
         } else {
-            ad(canvas);
+            ab(canvas);
         }
     }
 
-    private void ad(Canvas canvas) {
-        this.mPaint.setShader(this.jKt);
-        this.mPaint.setShadowLayer(jKo, 2.0f, 2.0f, this.cFF);
-        if (this.mRect == null) {
-            this.mRect = new RectF();
+    private void ab(Canvas canvas) {
+        this.mPaint.setShader(this.jKi);
+        this.mPaint.setShadowLayer(jKd, 2.0f, 2.0f, this.cPS);
+        if (this.Ol == null) {
+            this.Ol = new RectF();
         }
-        this.mRect.left = 5.0f;
-        this.mRect.top = 10.0f;
-        this.mRect.right = this.width - 5;
-        this.mRect.bottom = this.height - 10;
-        canvas.drawRoundRect(this.mRect, 15.0f, 15.0f, this.mPaint);
+        this.Ol.left = 5.0f;
+        this.Ol.top = 10.0f;
+        this.Ol.right = this.width - 5;
+        this.Ol.bottom = this.height - 10;
+        canvas.drawRoundRect(this.Ol, 15.0f, 15.0f, this.mPaint);
         if (!TextUtils.isEmpty(this.text)) {
             Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
-            canvas.drawText(this.text, this.mRect.centerX(), (int) ((this.mRect.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.mTextPaint);
+            canvas.drawText(this.text, this.Ol.centerX(), (int) ((this.Ol.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.mTextPaint);
         }
     }
 
-    private void ae(Canvas canvas) {
-        this.mPaint.setShader(this.jKu);
-        this.mPaint.setShadowLayer(jKo, 2.0f, 2.0f, this.jKq);
-        if (this.mRect == null) {
-            this.mRect = new RectF();
+    private void ac(Canvas canvas) {
+        this.mPaint.setShader(this.jKj);
+        this.mPaint.setShadowLayer(jKd, 2.0f, 2.0f, this.jKf);
+        if (this.Ol == null) {
+            this.Ol = new RectF();
         }
-        this.mRect.left = 5.0f;
-        this.mRect.top = 10.0f;
-        this.mRect.right = this.width - 5;
-        this.mRect.bottom = this.height - 10;
-        canvas.drawRoundRect(this.mRect, 15.0f, 15.0f, this.mPaint);
+        this.Ol.left = 5.0f;
+        this.Ol.top = 10.0f;
+        this.Ol.right = this.width - 5;
+        this.Ol.bottom = this.height - 10;
+        canvas.drawRoundRect(this.Ol, 15.0f, 15.0f, this.mPaint);
         if (!TextUtils.isEmpty(this.text)) {
             Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
-            canvas.drawText(this.text, this.mRect.centerX(), (int) ((this.mRect.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.mTextPaint);
+            canvas.drawText(this.text, this.Ol.centerX(), (int) ((this.Ol.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.mTextPaint);
         }
     }
 

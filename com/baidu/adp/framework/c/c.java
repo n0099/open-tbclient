@@ -1,25 +1,27 @@
 package com.baidu.adp.framework.c;
+
+import com.baidu.live.adp.framework.MessageConfig;
 /* loaded from: classes.dex */
 public class c extends d {
-    private static c wn = null;
+    private static c my = null;
 
-    public static c gp() {
-        if (wn == null) {
+    public static c eJ() {
+        if (my == null) {
             synchronized (c.class) {
-                if (wn == null) {
-                    wn = new c();
+                if (my == null) {
+                    my = new c();
                 }
             }
         }
-        return wn;
+        return my;
     }
 
     private c() {
-        this.wo = new e(20000, 10000, 5000);
+        this.mz = new e(MessageConfig.SOCKET_TIME_OUT_MS_2G, 10000, 5000);
         this.mRetryCount = 3;
     }
 
-    public void c(int i, int i2, int i3) {
+    public void setTimeOutData(int i, int i2, int i3) {
         if (i < 3000) {
             i = 3000;
         }
@@ -29,6 +31,6 @@ public class c extends d {
         if (i3 < 3000) {
             i3 = 3000;
         }
-        this.wo = new e(i, i2, i3);
+        this.mz = new e(i, i2, i3);
     }
 }

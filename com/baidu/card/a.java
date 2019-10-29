@@ -4,81 +4,81 @@ import android.view.View;
 import com.baidu.tbadk.core.data.a;
 /* loaded from: classes3.dex */
 public class a<T extends com.baidu.tbadk.core.data.a> extends z<T> implements com.baidu.tieba.play.f {
-    private ac Vz;
+    private ac Fo;
 
     public a(x<T> xVar) {
         super(xVar);
-        this.Vz = null;
-        if (xVar.qJ() instanceof ac) {
-            this.Vz = (ac) xVar.qJ();
+        this.Fo = null;
+        if (xVar.lO() instanceof ac) {
+            this.Fo = (ac) xVar.lO();
         }
     }
 
     public void setVideoStatsData(com.baidu.tieba.play.z zVar) {
-        if (this.Vz != null) {
-            this.Vz.a(zVar);
+        if (this.Fo != null) {
+            this.Fo.a(zVar);
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.Vz == null) {
+        if (this.Fo == null) {
             return false;
         }
-        return this.Vz.isPlayStarted();
+        return this.Fo.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.Vz == null) {
+        if (this.Fo == null) {
             return false;
         }
-        return this.Vz.isPlaying();
+        return this.Fo.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isFullScreen() {
-        if (this.Vz == null) {
+        if (this.Fo == null) {
             return false;
         }
-        return this.Vz.isFullScreen();
+        return this.Fo.isFullScreen();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.Vz != null) {
-            this.Vz.startPlay();
+        if (this.Fo != null) {
+            this.Fo.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.Vz != null) {
-            this.Vz.stopPlay();
+        if (this.Fo != null) {
+            this.Fo.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.Vz == null) {
+        if (this.Fo == null) {
             return null;
         }
-        return this.Vz.getVideoContainer();
+        return this.Fo.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.Vz == null) {
+        if (this.Fo == null) {
             return null;
         }
-        return this.Vz.getPlayUrl();
+        return this.Fo.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.Vz == null) {
+        if (this.Fo == null) {
             return 0;
         }
-        return this.Vz.getCurrentPosition();
+        return this.Fo.getCurrentPosition();
     }
 }

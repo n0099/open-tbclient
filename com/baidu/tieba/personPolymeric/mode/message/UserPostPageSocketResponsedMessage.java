@@ -3,6 +3,7 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import UserPost.UserPostResIdl;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* loaded from: classes6.dex */
 public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
@@ -12,7 +13,7 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     private PersonPostModel personPostModel;
 
     public UserPostPageSocketResponsedMessage() {
-        super(303002);
+        super(CmdConfigSocket.CMD_USER_POST_PAGE);
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage

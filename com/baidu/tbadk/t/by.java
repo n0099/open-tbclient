@@ -1,32 +1,40 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class by extends com.baidu.adp.lib.b.a {
+    public static final String[] cOp = {"com.baidu.tieba.voice"};
+
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
+    protected void C(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected void initData() {
+        this.mName = "voice";
+        this.oe = cOp;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "baidu_wallet_enable";
+        return "voice";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hJ() {
-        return 1;
+    protected String[] fi() {
+        return cOp;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hK() {
+    protected int fj() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hI() {
-        return null;
+    protected int fk() {
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hL() {
+    protected int fl() {
         return 10;
     }
 }

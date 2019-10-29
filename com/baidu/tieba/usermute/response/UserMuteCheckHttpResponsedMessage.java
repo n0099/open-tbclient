@@ -1,7 +1,6 @@
 package com.baidu.tieba.usermute.response;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.UserMuteCheck.DataRes;
 import tbclient.UserMuteCheck.UserMuteCheckResIdl;
@@ -10,7 +9,7 @@ public class UserMuteCheckHttpResponsedMessage extends HttpResponsedMessage {
     private DataRes mResult;
 
     public UserMuteCheckHttpResponsedMessage() {
-        super(CmdConfigHttp.CMD_USER_MUTE_CHECK);
+        super(1003025);
     }
 
     public DataRes getResult() {

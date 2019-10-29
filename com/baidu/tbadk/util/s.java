@@ -6,69 +6,69 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class s {
-    private static final byte[] cDZ = new byte[1];
-    private static s cEa = null;
-    private CustomMessageListener mNetworkChangedListener;
+    private CustomMessageListener ri;
+    private static final byte[] mlock = new byte[1];
+    private static s cPg = null;
 
-    public static s awD() {
-        if (cEa == null) {
-            synchronized (cDZ) {
-                if (cEa == null) {
-                    cEa = new s();
+    public static s axH() {
+        if (cPg == null) {
+            synchronized (mlock) {
+                if (cPg == null) {
+                    cPg = new s();
                 }
             }
         }
-        return cEa;
+        return cPg;
     }
 
     private s() {
         com.baidu.adp.lib.util.j.init();
     }
 
-    public void aaB() {
+    public void registerNetworkChangedListener() {
         try {
-            if (this.mNetworkChangedListener == null) {
-                this.mNetworkChangedListener = awE();
-                MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
+            if (this.ri == null) {
+                this.ri = axI();
+                MessageManager.getInstance().registerListener(this.ri);
             }
         } catch (Exception e) {
-            this.mNetworkChangedListener = null;
+            this.ri = null;
             BdLog.e(e.getMessage());
         }
     }
 
-    private CustomMessageListener awE() {
-        return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.s.1
+    private CustomMessageListener axI() {
+        return new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.util.s.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    s.this.awF();
+                    s.this.handleNetworkState();
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awF() {
+    public void handleNetworkState() {
         try {
-            boolean kc = com.baidu.adp.lib.util.j.kc();
-            if (kc) {
-                if (com.baidu.adp.lib.util.j.kd()) {
-                    ar.ajw().ee(true);
-                    com.baidu.tieba.recapp.d.a.cjz().Er(((WifiManager) TbadkCoreApplication.getInst().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getBSSID());
-                } else if (com.baidu.adp.lib.util.j.ke()) {
-                    ar.ajw().ee(false);
+            boolean isNetWorkAvailable = com.baidu.adp.lib.util.j.isNetWorkAvailable();
+            if (isNetWorkAvailable) {
+                if (com.baidu.adp.lib.util.j.isWifiNet()) {
+                    ar.amO().setNetworkIsWifi(true);
+                    com.baidu.tieba.recapp.d.a.cgD().CM(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
+                    ar.amO().setNetworkIsWifi(false);
                 }
             }
-            NoNetworkView.setIsHasNetwork(kc);
+            NoNetworkView.setIsHasNetwork(isNetWorkAvailable);
             CompatibleUtile.dealWebView(null);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

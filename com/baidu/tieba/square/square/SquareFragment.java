@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import com.baidu.adp.lib.util.j;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -17,66 +18,66 @@ import com.baidu.tieba.square.square.SquareModel;
 /* loaded from: classes5.dex */
 public class SquareFragment extends BaseFragment {
     public static boolean needRefresh = false;
-    private TbPageContext<?> mContext;
+    private TbPageContext<?> cfl;
     private View mRootView;
-    private h jet = null;
-    private SquareModel jeu = null;
-    private boolean jev = false;
-    private boolean jew = false;
-    private long eZc = -1;
-    private final SquareModel.a jex = new SquareModel.a() { // from class: com.baidu.tieba.square.square.SquareFragment.1
+    private h jek = null;
+    private SquareModel jel = null;
+    private boolean jem = false;
+    private boolean jen = false;
+    private long fbN = -1;
+    private final SquareModel.a jeo = new SquareModel.a() { // from class: com.baidu.tieba.square.square.SquareFragment.1
         @Override // com.baidu.tieba.square.square.SquareModel.a
         public void a(boolean z, String str, f fVar) {
-            SquareFragment.this.jet.y(true, "");
-            SquareFragment.this.hideLoadingView(SquareFragment.this.jet.getRootView());
+            SquareFragment.this.jek.y(true, "");
+            SquareFragment.this.hideLoadingView(SquareFragment.this.jek.getRootView());
             if (z && fVar != null && !fVar.isEmpty()) {
-                SquareFragment.this.jet.c(SquareFragment.this.jeu.cpl());
-                SquareFragment.this.jev = true;
-                SquareFragment.this.jet.hideNoDataView();
-                SquareFragment.this.biE();
+                SquareFragment.this.jek.c(SquareFragment.this.jel.cnc());
+                SquareFragment.this.jem = true;
+                SquareFragment.this.jek.hideNoDataView();
+                SquareFragment.this.bgw();
             }
-            if (SquareFragment.this.jew) {
-                SquareFragment.this.jew = false;
-                SquareFragment.this.qZ(true);
-                if (!SquareFragment.this.jev) {
-                    SquareFragment.this.jet.hideNoDataView();
-                    SquareFragment.this.showLoadingView(SquareFragment.this.jet.getRootView());
+            if (SquareFragment.this.jen) {
+                SquareFragment.this.jen = false;
+                SquareFragment.this.qI(true);
+                if (!SquareFragment.this.jem) {
+                    SquareFragment.this.jek.hideNoDataView();
+                    SquareFragment.this.showLoadingView(SquareFragment.this.jek.getRootView());
                 }
             } else {
-                if (SquareFragment.this.eZc > -1) {
+                if (SquareFragment.this.fbN > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page("op_square_enter", currentTimeMillis - SquareFragment.this.eZc, SquareFragment.this.jeu.bgV() - SquareFragment.this.eZc, SquareFragment.this.jeu.bgT(), SquareFragment.this.jeu.bgU(), currentTimeMillis - SquareFragment.this.jeu.bgS());
-                    SquareFragment.this.eZc = -1L;
+                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareFragment.this.fbN, SquareFragment.this.jel.beO() - SquareFragment.this.fbN, SquareFragment.this.jel.beM(), SquareFragment.this.jel.beN(), currentTimeMillis - SquareFragment.this.jel.beL());
+                    SquareFragment.this.fbN = -1L;
                 }
-                if (!SquareFragment.this.jev) {
-                    if (j.kc()) {
-                        SquareFragment.this.jet.pb(R.string.no_data_text);
+                if (!SquareFragment.this.jem) {
+                    if (j.isNetWorkAvailable()) {
+                        SquareFragment.this.jek.uc(R.string.no_data_text);
                     } else {
-                        SquareFragment.this.jet.pb(R.string.game_index_no_network_text);
+                        SquareFragment.this.jek.uc(R.string.game_index_no_network_text);
                     }
                 }
             }
-            if (!j.kc()) {
-                SquareFragment.this.jet.cpo();
-                if (!SquareFragment.this.jev) {
-                    SquareFragment.this.biD();
+            if (!j.isNetWorkAvailable()) {
+                SquareFragment.this.jek.cnf();
+                if (!SquareFragment.this.jem) {
+                    SquareFragment.this.bgv();
                     return;
                 }
                 return;
             }
-            SquareFragment.this.mContext.showToast(str);
-            SquareFragment.this.jet.cpp();
+            SquareFragment.this.cfl.showToast(str);
+            SquareFragment.this.jek.cng();
         }
     };
-    private final NoNetworkView.a eIX = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.SquareFragment.2
+    private final NoNetworkView.a eRC = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.SquareFragment.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void es(boolean z) {
+        public void onNetworkChange(boolean z) {
             if (z) {
-                SquareFragment.this.qZ(true);
+                SquareFragment.this.qI(true);
             }
         }
     };
-    private final View.OnKeyListener jey = new View.OnKeyListener() { // from class: com.baidu.tieba.square.square.SquareFragment.3
+    private final View.OnKeyListener jep = new View.OnKeyListener() { // from class: com.baidu.tieba.square.square.SquareFragment.3
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (view instanceof ListView) {
@@ -100,10 +101,10 @@ public class SquareFragment extends BaseFragment {
             return false;
         }
     };
-    private final h.c cbC = new h.c() { // from class: com.baidu.tieba.square.square.SquareFragment.4
+    private final h.c cpS = new h.c() { // from class: com.baidu.tieba.square.square.SquareFragment.4
         @Override // com.baidu.tbadk.core.view.h.c
-        public void eu(boolean z) {
-            SquareFragment.this.qZ(true);
+        public void onListPullRefresh(boolean z) {
+            SquareFragment.this.qI(true);
         }
     };
 
@@ -116,8 +117,8 @@ public class SquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.mContext = getPageContext();
-        this.eZc = System.currentTimeMillis();
+        this.cfl = getPageContext();
+        this.fbN = System.currentTimeMillis();
         initUI();
         initData();
     }
@@ -125,85 +126,85 @@ public class SquareFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        qZ(this.jew);
+        qI(this.jen);
     }
 
     private void initUI() {
-        this.jet = new h(this.mContext, getUniqueId(), this.mRootView, this.jey);
-        this.jet.setListPullRefreshListener(this.cbC);
+        this.jek = new h(this.cfl, getUniqueId(), this.mRootView, this.jep);
+        this.jek.setListPullRefreshListener(this.cpS);
     }
 
     private void initData() {
-        this.jeu = new SquareModel(this.mContext);
-        this.jeu.a(this.jex);
-        this.jew = true;
+        this.jel = new SquareModel(this.cfl);
+        this.jel.a(this.jeo);
+        this.jen = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void biD() {
-        this.jet.d(this.eIX);
+    public void bgv() {
+        this.jek.d(this.eRC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void biE() {
-        this.jet.e(this.eIX);
+    public void bgw() {
+        this.jek.e(this.eRC);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (needRefresh) {
-            qZ(true);
+            qI(true);
             needRefresh = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        atU();
+        cancelAllAsyncTask();
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jet != null) {
-            this.jet.onChangeSkinType(i);
+        if (this.jek != null) {
+            this.jek.onChangeSkinType(i);
         }
     }
 
-    private void atU() {
-        this.jeu.cancelLoadData();
+    private void cancelAllAsyncTask() {
+        this.jel.cancelLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qZ(boolean z) {
+    public void qI(boolean z) {
         boolean z2;
         boolean z3;
         boolean z4 = false;
-        if (this.jeu != null) {
-            boolean z5 = this.jeu.cpl() == null || this.jeu.cpl().isEmpty();
+        if (this.jel != null) {
+            boolean z5 = this.jel.cnc() == null || this.jel.cnc().isEmpty();
             boolean z6 = z;
-            if (j.kc()) {
+            if (j.isNetWorkAvailable()) {
                 boolean z7 = z5;
                 z2 = z6;
                 z3 = z7;
             } else {
-                this.jew = false;
+                this.jen = false;
                 z3 = true;
                 z2 = false;
             }
-            if (this.jew) {
+            if (this.jen) {
                 z3 = true;
             } else {
                 z4 = z2;
             }
             if (z3 || z4) {
-                atU();
+                cancelAllAsyncTask();
                 if (z4) {
-                    this.jeu.cpm();
+                    this.jel.cnd();
                 } else {
-                    this.jeu.cpn();
+                    this.jel.cne();
                 }
             }
         }

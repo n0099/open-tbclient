@@ -24,6 +24,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import android.text.format.Formatter;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -325,7 +326,7 @@ public class p implements IXAdSystemUtils {
             IXAdLogger adLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
             e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
             try {
-                WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (commonUtils.hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
                     this.g = XAdSDKFoundationFacade.getInstance().getCommonUtils().b(wifiManager.getConnectionInfo().getMacAddress());
                 } else {
@@ -348,7 +349,7 @@ public class p implements IXAdSystemUtils {
             return "";
         }
         try {
-            str2 = Formatter.formatIpAddress(((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getIpAddress());
+            str2 = Formatter.formatIpAddress(((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getIpAddress());
         } catch (SocketException e) {
         } catch (Exception e2) {
         }
@@ -463,7 +464,7 @@ public class p implements IXAdSystemUtils {
                         return "";
                     }
                 }
-                sb.append("_");
+                sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 String simOperator = telephonyManager.getSimOperator();
                 if (!TextUtils.isEmpty(simOperator)) {
                     sb.append(simOperator);
@@ -506,7 +507,7 @@ public class p implements IXAdSystemUtils {
                 return IXAdSystemUtils.NT_NONE;
             }
             if (activeNetworkInfo.getType() == 1) {
-                return IXAdSystemUtils.NT_WIFI;
+                return "wifi";
             }
             try {
                 if (activeNetworkInfo.getSubtypeName() == null) {
@@ -528,14 +529,14 @@ public class p implements IXAdSystemUtils {
         String str;
         String str2 = "";
         try {
-            str2 = "_" + ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
+            str2 = PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
             if (networkInfo != null && networkInfo.isAvailable()) {
                 str = networkInfo.getExtraInfo() + str2;
             } else {
-                str = (networkInfo2 == null || !networkInfo2.isAvailable()) ? str2 : IXAdSystemUtils.NT_WIFI + str2;
+                str = (networkInfo2 == null || !networkInfo2.isAvailable()) ? str2 : "wifi" + str2;
             }
             return str;
         } catch (Exception e) {
@@ -695,7 +696,7 @@ public class p implements IXAdSystemUtils {
     public List<String[]> getWIFI(Context context) {
         e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         try {
-            Object a = commonUtils.a(IXAdSystemUtils.NT_WIFI);
+            Object a = commonUtils.a("wifi");
             if (a != null) {
                 return (List) a;
             }
@@ -705,7 +706,7 @@ public class p implements IXAdSystemUtils {
         ArrayList arrayList = new ArrayList();
         try {
             if (commonUtils.hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
-                WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager.isWifiEnabled()) {
                     List<ScanResult> scanResults = wifiManager.getScanResults();
                     Collections.sort(scanResults, new r(this));
@@ -718,7 +719,7 @@ public class p implements IXAdSystemUtils {
         } catch (Exception e2) {
             m.a().e(e2);
         }
-        commonUtils.a(IXAdSystemUtils.NT_WIFI, arrayList);
+        commonUtils.a("wifi", arrayList);
         return arrayList;
     }
 
@@ -745,7 +746,7 @@ public class p implements IXAdSystemUtils {
     public String getWifiConnected(Context context) {
         try {
             if (XAdSDKFoundationFacade.getInstance().getCommonUtils().hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
-                WifiInfo connectionInfo = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo();
+                WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
                 String ssid = connectionInfo.getSSID();
                 if (ssid != null) {
                     if (ssid.length() > 2 && ssid.startsWith("\"") && ssid.endsWith("\"")) {
@@ -775,7 +776,7 @@ public class p implements IXAdSystemUtils {
         JSONArray jSONArray = new JSONArray();
         try {
             if (XAdSDKFoundationFacade.getInstance().getCommonUtils().hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
-                WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager.isWifiEnabled()) {
                     List<ScanResult> scanResults = wifiManager.getScanResults();
                     Collections.sort(scanResults, new s(this));

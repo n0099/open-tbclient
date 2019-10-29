@@ -18,7 +18,7 @@ public class VideoEasterEggActivityConfig extends IntentConfig {
     public VideoEasterEggActivityConfig createNormalConfig(String str, VideoEasterEggData videoEasterEggData) {
         Intent intent = getIntent();
         intent.putExtra("from", str);
-        intent.putExtra(IntentConfig.VIDEO_EASTER_EGG_DATA, videoEasterEggData);
+        intent.putExtra("video_easter_egg_data", videoEasterEggData);
         return this;
     }
 }

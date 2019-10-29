@@ -3,6 +3,7 @@ package com.baidu.swan.apps.storage.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -19,7 +20,7 @@ public class c extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (context == null || callbackHandler == null || bVar == null || bVar.Mk() == null) {
+        if (context == null || callbackHandler == null || bVar == null || bVar.Rc() == null) {
             com.baidu.swan.apps.console.c.e("fileInfo", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -32,9 +33,9 @@ public class c extends z {
         }
         String optString = optParamsAsJo.optString("filePath");
         String str = "";
-        if (com.baidu.swan.apps.storage.b.hI(optString) == PathType.BD_FILE) {
-            str = com.baidu.swan.apps.storage.b.aE(optString, com.baidu.swan.apps.ae.b.Ms());
-        } else if (com.baidu.swan.apps.storage.b.hI(optString) == PathType.RELATIVE) {
+        if (com.baidu.swan.apps.storage.b.im(optString) == PathType.BD_FILE) {
+            str = com.baidu.swan.apps.storage.b.aL(optString, com.baidu.swan.apps.ae.b.Rk());
+        } else if (com.baidu.swan.apps.storage.b.im(optString) == PathType.RELATIVE) {
             str = com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion());
         }
         if (DEBUG) {
@@ -59,7 +60,7 @@ public class c extends z {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("digest", a);
-            jSONObject.put("size", file.length());
+            jSONObject.put(TiebaInitialize.LogFields.SIZE, file.length());
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         } catch (JSONException e) {

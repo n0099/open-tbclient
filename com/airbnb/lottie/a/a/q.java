@@ -6,34 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class q implements b, a.InterfaceC0007a {
-    private final List<a.InterfaceC0007a> mP = new ArrayList();
-    private final ShapeTrimPath.Type mQ;
-    private final com.airbnb.lottie.a.b.a<?, Float> mR;
-    private final com.airbnb.lottie.a.b.a<?, Float> mS;
-    private final com.airbnb.lottie.a.b.a<?, Float> mT;
+    private final ShapeTrimPath.Type fn;
+    private final com.airbnb.lottie.a.b.a<?, Float> fo;
+    private final com.airbnb.lottie.a.b.a<?, Float> fq;
+    private final com.airbnb.lottie.a.b.a<?, Float> fs;
+    private final List<a.InterfaceC0007a> listeners = new ArrayList();
     private String name;
 
     public q(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.mQ = shapeTrimPath.ck();
-        this.mR = shapeTrimPath.dF().cF();
-        this.mS = shapeTrimPath.dE().cF();
-        this.mT = shapeTrimPath.dy().cF();
-        aVar.a(this.mR);
-        aVar.a(this.mS);
-        aVar.a(this.mT);
-        this.mR.b(this);
-        this.mS.b(this);
-        this.mT.b(this);
+        this.fn = shapeTrimPath.bD();
+        this.fo = shapeTrimPath.cY().bY();
+        this.fq = shapeTrimPath.cX().bY();
+        this.fs = shapeTrimPath.cR().bY();
+        aVar.a(this.fo);
+        aVar.a(this.fq);
+        aVar.a(this.fs);
+        this.fo.b(this);
+        this.fq.b(this);
+        this.fs.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void ca() {
+    public void bt() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.mP.size()) {
-                this.mP.get(i2).ca();
+            if (i2 < this.listeners.size()) {
+                this.listeners.get(i2).bt();
                 i = i2 + 1;
             } else {
                 return;
@@ -52,23 +52,23 @@ public class q implements b, a.InterfaceC0007a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(a.InterfaceC0007a interfaceC0007a) {
-        this.mP.add(interfaceC0007a);
+        this.listeners.add(interfaceC0007a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type ck() {
-        return this.mQ;
+    public ShapeTrimPath.Type bD() {
+        return this.fn;
     }
 
-    public com.airbnb.lottie.a.b.a<?, Float> cl() {
-        return this.mR;
+    public com.airbnb.lottie.a.b.a<?, Float> bE() {
+        return this.fo;
     }
 
-    public com.airbnb.lottie.a.b.a<?, Float> cm() {
-        return this.mS;
+    public com.airbnb.lottie.a.b.a<?, Float> bF() {
+        return this.fq;
     }
 
-    public com.airbnb.lottie.a.b.a<?, Float> cn() {
-        return this.mT;
+    public com.airbnb.lottie.a.b.a<?, Float> bG() {
+        return this.fs;
     }
 }

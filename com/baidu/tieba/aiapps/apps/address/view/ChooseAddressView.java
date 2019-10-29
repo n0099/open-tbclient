@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.res.ui.CommonEmptyView;
@@ -19,13 +20,13 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class ChooseAddressView extends FrameLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private RecyclerView deo;
-    private com.baidu.tieba.aiapps.apps.address.a.a dep;
-    private View deq;
-    private TextView der;
-    private CommonEmptyView det;
-    private View deu;
-    private a.b dev;
+    private RecyclerView dnJ;
+    private com.baidu.tieba.aiapps.apps.address.a.a dnK;
+    private View dnL;
+    private TextView dnM;
+    private CommonEmptyView dnN;
+    private View dnO;
+    private a.b dnP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -47,95 +48,95 @@ public class ChooseAddressView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.delivery_choose_layout, this);
-        this.deo = (RecyclerView) findViewById(R.id.delivery_list);
-        this.deq = findViewById(R.id.delivery_add);
-        this.deu = findViewById(R.id.delivery_add_line);
-        this.det = (CommonEmptyView) findViewById(R.id.delivery_empty);
-        this.der = (TextView) findViewById(R.id.delivery_add_txt);
+        this.dnJ = (RecyclerView) findViewById(R.id.delivery_list);
+        this.dnL = findViewById(R.id.delivery_add);
+        this.dnO = findViewById(R.id.delivery_add_line);
+        this.dnN = (CommonEmptyView) findViewById(R.id.delivery_empty);
+        this.dnM = (TextView) findViewById(R.id.delivery_add_txt);
         a(PageState.Normal);
-        gv(com.baidu.swan.apps.u.a.EJ().Fi());
-        this.dep = new com.baidu.tieba.aiapps.apps.address.a.a(context);
-        this.deo.setLayoutManager(new LinearLayoutManager(context));
-        this.deo.addItemDecoration(new a(0, z.dip2px(context, 7.0f)));
-        this.deo.setAdapter(this.dep);
-        this.deq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.ChooseAddressView.1
+        gk(com.baidu.swan.apps.u.a.JD().Kc());
+        this.dnK = new com.baidu.tieba.aiapps.apps.address.a.a(context);
+        this.dnJ.setLayoutManager(new LinearLayoutManager(context));
+        this.dnJ.addItemDecoration(new a(0, z.dip2px(context, 7.0f)));
+        this.dnJ.setAdapter(this.dnK);
+        this.dnL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.ChooseAddressView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ChooseAddressView.this.dev != null) {
-                    ChooseAddressView.this.dev.b(new com.baidu.tieba.aiapps.apps.address.c.b(), "add");
+                if (ChooseAddressView.this.dnP != null) {
+                    ChooseAddressView.this.dnP.b(new com.baidu.tieba.aiapps.apps.address.c.b(), IMTrack.DbBuilder.ACTION_ADD);
                 }
             }
         });
     }
 
-    public void gv(boolean z) {
+    public void gk(boolean z) {
         if (z) {
-            this.deo.setBackgroundColor(Color.parseColor("#161616"));
-            this.deu.setBackgroundColor(Color.parseColor("#303030"));
-            this.deq.setBackgroundColor(Color.parseColor("#191919"));
-            this.der.setBackgroundColor(Color.parseColor("#803C76FF"));
-            this.der.setTextColor(Color.parseColor("#80ffffff"));
+            this.dnJ.setBackgroundColor(Color.parseColor("#161616"));
+            this.dnO.setBackgroundColor(Color.parseColor("#303030"));
+            this.dnL.setBackgroundColor(Color.parseColor("#191919"));
+            this.dnM.setBackgroundColor(Color.parseColor("#803C76FF"));
+            this.dnM.setTextColor(Color.parseColor("#80ffffff"));
         }
     }
 
-    public void showEmptyView() {
+    public void aFU() {
         a(PageState.EMPTY_DATA);
-        this.det.setTitle(getResources().getString(R.string.delivery_empty_title));
-        this.det.setIcon(getResources().getDrawable(R.drawable.empty_icon_document));
+        this.dnN.setTitle(getResources().getString(R.string.delivery_empty_title));
+        this.dnN.setIcon(getResources().getDrawable(R.drawable.empty_icon_document));
     }
 
-    public void i(View.OnClickListener onClickListener) {
+    public void j(View.OnClickListener onClickListener) {
         a(PageState.NET_ERROR);
-        this.det.setTitle(getResources().getString(R.string.net_error));
-        this.det.setIcon(getResources().getDrawable(R.drawable.aiapps_empty_icon_network));
-        this.det.setTextButtonClickListener(onClickListener);
+        this.dnN.setTitle(getResources().getString(R.string.net_error));
+        this.dnN.setIcon(getResources().getDrawable(R.drawable.aiapps_empty_icon_network));
+        this.dnN.setTextButtonClickListener(onClickListener);
     }
 
     private void a(PageState pageState) {
         boolean z = pageState == PageState.Normal;
-        this.det.setVisibility(z ? 8 : 0);
-        this.deo.setVisibility(z ? 0 : 8);
+        this.dnN.setVisibility(z ? 8 : 0);
+        this.dnJ.setVisibility(z ? 0 : 8);
     }
 
     public com.baidu.tieba.aiapps.apps.address.a.a getDeliveryAdapter() {
-        return this.dep;
+        return this.dnK;
     }
 
     public void setDeliveryChooseListener(a.b bVar) {
-        this.dev = bVar;
-        this.dep.setDeliveryChooseListener(this.dev);
+        this.dnP = bVar;
+        this.dnK.setDeliveryChooseListener(this.dnP);
     }
 
-    public void aJ(List<com.baidu.tieba.aiapps.apps.address.c.b> list) {
+    public void bc(List<com.baidu.tieba.aiapps.apps.address.c.b> list) {
         if (list != null && list.size() > 0) {
-            this.dep.aF(list);
+            this.dnK.aY(list);
             a(PageState.Normal);
-            JW();
+            updateUI();
             return;
         }
-        showEmptyView();
+        aFU();
     }
 
-    public void JW() {
-        this.dep.notifyDataSetChanged();
+    public void updateUI() {
+        this.dnK.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends RecyclerView.ItemDecoration {
-        private int dex;
-        private int dey;
+        private int dnR;
+        private int dnS;
 
         public a(int i, int i2) {
-            this.dex = i;
-            this.dey = i2;
+            this.dnR = i;
+            this.dnS = i2;
         }
 
         @Override // android.support.v7.widget.RecyclerView.ItemDecoration
         public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-            rect.top = this.dey;
-            rect.left = this.dex;
-            rect.right = this.dex;
+            rect.top = this.dnS;
+            rect.left = this.dnR;
+            rect.right = this.dnR;
         }
     }
 }

@@ -1,0 +1,33 @@
+package com.baidu.tieba.ala.live.personcenter.forbidden.d;
+
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import com.baidu.live.k.a;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.util.SkinManager;
+/* loaded from: classes6.dex */
+public class a {
+    private TextView aMf;
+    private FrameLayout bEW;
+    private TbPageContext mPageContext;
+
+    public a(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
+        this.bEW = (FrameLayout) tbPageContext.getPageActivity().getLayoutInflater().inflate(a.h.sdk_prc_person_forbiddenlist_header, (ViewGroup) null);
+        this.aMf = (TextView) this.bEW.findViewById(a.g.text_user_name);
+    }
+
+    public void mU(int i) {
+        this.aMf.setText(this.mPageContext.getResources().getString(a.i.sdk_prc_person_forbiddenlist_header, Integer.valueOf(i)));
+    }
+
+    public void onChangeSkinType(int i) {
+        SkinManager.setViewTextColor(this.aMf, a.d.sdk_cp_cont_d);
+        SkinManager.setBackgroundColor(this.bEW, a.d.sdk_cp_bg_line_e);
+    }
+
+    public FrameLayout Yt() {
+        return this.bEW;
+    }
+}

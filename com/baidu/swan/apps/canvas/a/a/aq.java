@@ -4,22 +4,22 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class aq extends a {
-    private int amS;
-    private int amT;
+    private int aGl;
+    private int aGm;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void e(JSONArray jSONArray) {
+    public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.amS = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(0));
-            this.amT = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
+            this.aGl = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(0));
+            this.aGm = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.xX() == 0) {
-            bVar.bR(canvas.save());
+        if (bVar.CS() == 0) {
+            bVar.cN(canvas.save());
         }
-        canvas.translate(this.amS, this.amT);
+        canvas.translate(this.aGl, this.aGm);
     }
 }

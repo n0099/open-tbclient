@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    public static Object a(Object obj, Field field) {
+    public static Object forceGetProperty(Object obj, Field field) {
         Object obj2 = null;
         if (obj == null || field == null) {
             return null;
@@ -21,7 +21,7 @@ public class b {
         }
     }
 
-    public static List<Field> a(Object obj, Class<?> cls) {
+    public static List<Field> getFieldsByType(Object obj, Class<?> cls) {
         Field[] declaredFields;
         ArrayList arrayList = new ArrayList();
         for (Field field : obj.getClass().getDeclaredFields()) {
@@ -32,7 +32,7 @@ public class b {
         return arrayList;
     }
 
-    public static Field e(Class<?> cls, Class<?> cls2) {
+    public static Field getDeclaredField(Class<?> cls, Class<?> cls2) {
         Field[] declaredFields;
         if (cls == null) {
             return null;

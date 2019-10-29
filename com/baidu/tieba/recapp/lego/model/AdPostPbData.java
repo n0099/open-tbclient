@@ -1,9 +1,7 @@
 package com.baidu.tieba.recapp.lego.model;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import org.json.JSONObject;
@@ -33,7 +31,7 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         this.id = jSONObject.optString("id");
         this.fid = jSONObject.optLong("fid", 0L);
         this.name = jSONObject.optString("name");
-        this.style = jSONObject.optString(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+        this.style = jSONObject.optString("style");
         this.scheme = jSONObject.optString("scheme");
         this.buttonText = jSONObject.optString("button_text");
         this.tagName = jSONObject.optString("tag_name");
@@ -41,47 +39,47 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         this.desc = jSONObject.optString("desc");
         this.recommend = jSONObject.optString("recommend");
         this.extInfo = jSONObject.optString("ext_info");
-        this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
+        this.portrait = jSONObject.optString("portrait");
         this.price = jSONObject.optString("price");
         JSONObject optJSONObject = jSONObject.optJSONObject("button_click");
         if (optJSONObject != null) {
             this.buttonClick = new PostAdBaseData.a.b();
             this.buttonClick.scheme = optJSONObject.optString("scheme");
-            this.buttonClick.abI = optJSONObject.optString("als_stat");
-            this.buttonClick.abJ = optJSONObject.optString("url_stat");
+            this.buttonClick.LE = optJSONObject.optString("als_stat");
+            this.buttonClick.LG = optJSONObject.optString("url_stat");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
         if (optJSONObject2 != null) {
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.iKL = new PostAdBaseData.a.C0414a();
-                this.extraData.iKL.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.iKL.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.iJC = new PostAdBaseData.a.C0508a();
+                this.extraData.iJC.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.iJC.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.iKL == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.iJC == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.iKL == null) {
+        if (this.extraData == null || this.extraData.iJC == null) {
             return null;
         }
-        return this.extraData.iKL.downloadUrl;
+        return this.extraData.iJC.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.iKL == null) {
+        if (this.extraData == null || this.extraData.iJC == null) {
             return null;
         }
-        return this.extraData.iKL.packageName;
+        return this.extraData.iJC.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.iKL == null) {
+        if (this.extraData == null || this.extraData.iJC == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
@@ -92,23 +90,23 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
     private void h(AdvertAppInfo advertAppInfo) {
         if (advertAppInfo != null) {
             if ("apk_download".equals(this.style)) {
-                advertAppInfo.SA = 3;
+                advertAppInfo.BV = 3;
             }
-            if (TextUtils.isEmpty(advertAppInfo.bFs)) {
-                advertAppInfo.bFs = this.id;
+            if (TextUtils.isEmpty(advertAppInfo.bXk)) {
+                advertAppInfo.bXk = this.id;
             }
             if (advertAppInfo.getFid() == 0) {
                 advertAppInfo.setFid(this.fid);
             }
-            advertAppInfo.bFv = apkDownloadUrl();
+            advertAppInfo.bXn = apkDownloadUrl();
             advertAppInfo.extensionInfo = this.extInfo;
-            advertAppInfo.bFw = apkDownloadPackage();
-            advertAppInfo.bFt = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
-            if (advertAppInfo.bFC == null) {
-                advertAppInfo.bFC = new AdvertAppInfo.a();
+            advertAppInfo.bXo = apkDownloadPackage();
+            advertAppInfo.bXl = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
+            if (advertAppInfo.bXu == null) {
+                advertAppInfo.bXu = new AdvertAppInfo.a();
             }
-            advertAppInfo.bFC.userPortrait = this.portrait;
-            advertAppInfo.bFC.userName = this.title;
+            advertAppInfo.bXu.userPortrait = this.portrait;
+            advertAppInfo.bXu.userName = this.title;
         }
     }
 

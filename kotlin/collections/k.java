@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class k implements Iterator<Boolean> {
-    public abstract boolean cOx();
+    public abstract boolean cME();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class k implements Iterator<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cOw */
+    /* renamed from: cMD */
     public final Boolean next() {
-        return Boolean.valueOf(cOx());
+        return Boolean.valueOf(cME());
     }
 }

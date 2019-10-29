@@ -15,8 +15,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CoverViewHelper {
     private static final boolean DEBUG = b.DEBUG;
-    protected com.baidu.swan.apps.view.coverview.a bdj;
-    private a bdk = new a();
+    protected com.baidu.swan.apps.view.coverview.a bwh;
+    private a bwi = new a();
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -31,13 +31,13 @@ public class CoverViewHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ar(final View view) {
-        if (!com.baidu.swan.apps.view.container.b.b.Qs()) {
+    public void ax(final View view) {
+        if (!com.baidu.swan.apps.view.container.b.b.Vi()) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.coverview.subview.CoverViewHelper.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (CoverViewHelper.this.bdj != null) {
-                        CoverViewHelper.this.bdj.a(2, view, null);
+                    if (CoverViewHelper.this.bwh != null) {
+                        CoverViewHelper.this.bwh.a(2, view, null);
                     }
                 }
             });
@@ -46,8 +46,8 @@ public class CoverViewHelper {
                 @SuppressLint({"ClickableViewAccessibility"})
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 1) {
-                        CoverViewHelper.this.bdk.x = motionEvent.getRawX();
-                        CoverViewHelper.this.bdk.y = motionEvent.getRawY();
+                        CoverViewHelper.this.bwi.x = motionEvent.getRawX();
+                        CoverViewHelper.this.bwi.y = motionEvent.getRawY();
                         return false;
                     }
                     return false;
@@ -57,19 +57,19 @@ public class CoverViewHelper {
     }
 
     public void setOnActionCallback(com.baidu.swan.apps.view.coverview.a aVar) {
-        if (this.bdj != aVar) {
-            this.bdj = aVar;
+        if (this.bwh != aVar) {
+            this.bwh = aVar;
         }
     }
 
-    public com.baidu.swan.apps.view.coverview.a Qw() {
-        return this.bdj;
+    public com.baidu.swan.apps.view.coverview.a Vm() {
+        return this.bwh;
     }
 
     public void a(@NonNull View view, @NonNull JSONObject jSONObject) {
         JSONArray optJSONArray = jSONObject.optJSONArray("padding");
         if (optJSONArray != null && optJSONArray.length() == 4) {
-            view.setPadding(z.ad((float) optJSONArray.optDouble(3, 0.0d)), z.ad((float) optJSONArray.optDouble(0, 0.0d)), z.ad((float) optJSONArray.optDouble(1, 0.0d)), z.ad((float) optJSONArray.optDouble(2, 0.0d)));
+            view.setPadding(z.S((float) optJSONArray.optDouble(3, 0.0d)), z.S((float) optJSONArray.optDouble(0, 0.0d)), z.S((float) optJSONArray.optDouble(1, 0.0d)), z.S((float) optJSONArray.optDouble(2, 0.0d)));
         }
     }
 
@@ -97,16 +97,16 @@ public class CoverViewHelper {
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(i);
-        gradientDrawable.setCornerRadius(ap(jSONObject));
+        gradientDrawable.setCornerRadius(aN(jSONObject));
         gradientDrawable.setStroke(optInt, i2);
         view.setBackground(gradientDrawable);
     }
 
-    public int ap(@NonNull JSONObject jSONObject) {
-        return z.ad(jSONObject.optInt("borderRadius"));
+    public int aN(@NonNull JSONObject jSONObject) {
+        return z.S(jSONObject.optInt("borderRadius"));
     }
 
     public a getClickPosition() {
-        return this.bdk;
+        return this.bwi;
     }
 }

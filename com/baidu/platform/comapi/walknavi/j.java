@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class j extends BroadcastReceiver {
@@ -18,7 +17,7 @@ public class j extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        String stringExtra = intent.getStringExtra(WXLoginActivity.KEY_BASE_RESP_STATE);
+        String stringExtra = intent.getStringExtra("state");
         if (TelephonyManager.EXTRA_STATE_RINGING.equals(stringExtra)) {
             a(context);
         } else if (TelephonyManager.EXTRA_STATE_OFFHOOK.equals(stringExtra)) {

@@ -48,7 +48,7 @@ public class as {
         private boolean u = false;
         private XMPushService.b v = new XMPushService.b(this);
         IBinder.DeathRecipient p = null;
-        final C0500b q = new C0500b();
+        final C0601b q = new C0601b();
 
         /* loaded from: classes3.dex */
         public interface a {
@@ -58,13 +58,13 @@ public class as {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.xiaomi.push.service.as$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0500b extends XMPushService.i {
+        public class C0601b extends XMPushService.i {
             int b;
             int c;
             String d;
             String e;
 
-            public C0500b() {
+            public C0601b() {
                 super(0);
             }
 

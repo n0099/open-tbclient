@@ -29,7 +29,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        String optString = o.df(unitedSchemeEntity.getParam("params")).optString("cb");
+        String optString = o.dP(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -43,8 +43,8 @@ public class a extends z {
         com.baidu.swan.apps.network.c.b.a.e(new com.baidu.swan.apps.an.d.a<Map<String, e>>() { // from class: com.baidu.swan.apps.h.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
-            /* renamed from: m */
-            public void D(Map<String, e> map) {
+            /* renamed from: n */
+            public void B(Map<String, e> map) {
                 if (map != null) {
                     a.this.a(str, callbackHandler, map);
                 } else {
@@ -62,21 +62,21 @@ public class a extends z {
             return;
         }
         boolean z = eVar.forbidden;
-        int PI = ab.PI();
-        long PJ = ab.PJ();
-        List<String> list = eVar.aVp;
+        int Uy = ab.Uy();
+        long Uz = ab.Uz();
+        List<String> list = eVar.bot;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", PI);
-            jSONObject.put("visitDuration", PJ);
+            jSONObject.put("launchCount", Uy);
+            jSONObject.put("visitDuration", Uz);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + PI + " visitDuration:" + PJ + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + Uy + " visitDuration:" + Uz + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

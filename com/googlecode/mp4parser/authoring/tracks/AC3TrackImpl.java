@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
+import com.baidu.ala.livePlayer.StreamConfig;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -109,13 +110,13 @@ public class AC3TrackImpl extends AbstractTrack {
         int readBits = bitReaderBuffer.readBits(2);
         switch (readBits) {
             case 0:
-                i = 48000;
+                i = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
                 break;
             case 1:
-                i = 44100;
+                i = StreamConfig.Audio.AUDIO_FREQUENCY;
                 break;
             case 2:
-                i = 32000;
+                i = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;
                 break;
             default:
                 throw new RuntimeException("Unsupported Sample Rate");
@@ -185,19 +186,19 @@ public class AC3TrackImpl extends AbstractTrack {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public class a implements Sample {
-        private final long bkY;
+        private final long bDM;
         private final DataSource dataSource;
         private final long size;
 
         public a(long j, long j2, DataSource dataSource) {
-            this.bkY = j;
+            this.bDM = j;
             this.size = j2;
             this.dataSource = dataSource;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            this.dataSource.transferTo(this.bkY, this.size, writableByteChannel);
+            this.dataSource.transferTo(this.bDM, this.size, writableByteChannel);
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
@@ -208,7 +209,7 @@ public class AC3TrackImpl extends AbstractTrack {
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return this.dataSource.map(this.bkY, this.size);
+                return this.dataSource.map(this.bDM, this.size);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

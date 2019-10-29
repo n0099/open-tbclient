@@ -22,7 +22,8 @@ import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -59,7 +60,7 @@ public class VDeviceAPI {
             return null;
         }
         CellLocation cellLocation = telephonyManager.getCellLocation();
-        return cellLocation instanceof GsmCellLocation ? " " + ((GsmCellLocation) cellLocation).getCid() : " ";
+        return cellLocation instanceof GsmCellLocation ? HanziToPinyin.Token.SEPARATOR + ((GsmCellLocation) cellLocation).getCid() : HanziToPinyin.Token.SEPARATOR;
     }
 
     public static int getCurrentNetworkType() {
@@ -240,7 +241,7 @@ public class VDeviceAPI {
     }
 
     public static ScanResult[] getWifiHotpot() {
-        List<ScanResult> scanResults = ((WifiManager) b.a().getSystemService(IXAdSystemUtils.NT_WIFI)).getScanResults();
+        List<ScanResult> scanResults = ((WifiManager) b.a().getSystemService("wifi")).getScanResults();
         return (ScanResult[]) scanResults.toArray(new ScanResult[scanResults.size()]);
     }
 
@@ -253,7 +254,7 @@ public class VDeviceAPI {
     }
 
     public static void makeCall(String str) {
-        b.a().startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)));
+        b.a().startActivity(new Intent("android.intent.action.DIAL", Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_PONE + str)));
     }
 
     public static native void onNetworkStateChanged();

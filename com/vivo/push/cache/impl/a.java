@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.vivo.push.cache.c;
 import com.vivo.push.model.SubscribeAppInfo;
-import com.vivo.push.util.m;
+import com.vivo.push.util.p;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -55,7 +55,7 @@ public abstract class a extends c<SubscribeAppInfo> {
                     try {
                         hashSet.add(new SubscribeAppInfo(split[0], Integer.parseInt(split[1]), Integer.parseInt(split[2])));
                     } catch (Exception e) {
-                        m.d(TAG, "str2Clients E: " + e);
+                        p.d(TAG, "str2Clients E: " + e);
                     }
                 }
             }

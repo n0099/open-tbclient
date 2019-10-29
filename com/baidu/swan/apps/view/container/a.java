@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.swan.apps.model.a.a.b;
 /* loaded from: classes2.dex */
 public interface a {
-    com.baidu.swan.apps.view.container.a.a Ql();
+    com.baidu.swan.apps.view.container.a.a Vb();
 
     boolean a(View view, b bVar);
 
-    boolean an(View view);
+    boolean at(View view);
 
     boolean b(View view, b bVar);
 }

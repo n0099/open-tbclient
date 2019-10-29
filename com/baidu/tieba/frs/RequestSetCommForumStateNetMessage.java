@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.SetCommonForumState.DataReq;
 import tbclient.SetCommonForumState.SetCommonForumStateReqIdl;
 /* loaded from: classes4.dex */
@@ -18,7 +18,7 @@ public class RequestSetCommForumStateNetMessage extends NetMessage {
     }
 
     public RequestSetCommForumStateNetMessage() {
-        super(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, 309365);
+        super(1003151, CmdConfigSocket.SET_COMMON_FORUM_STATE);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -27,7 +27,7 @@ public class RequestSetCommForumStateNetMessage extends NetMessage {
         builder.forum_id = Long.valueOf(this.mForumId);
         builder.operation = Integer.valueOf(this.operation);
         if (z) {
-            com.baidu.tbadk.util.r.bindCommonParamsToProtobufData(builder, true);
+            com.baidu.tbadk.util.r.a(builder, true);
         }
         SetCommonForumStateReqIdl.Builder builder2 = new SetCommonForumStateReqIdl.Builder();
         builder2.data = builder.build(false);

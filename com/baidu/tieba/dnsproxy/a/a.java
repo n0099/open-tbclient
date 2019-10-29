@@ -6,7 +6,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.dnsproxy.pbdata.ConnectPointData;
 import com.baidu.tieba.dnsproxy.pbdata.DnsIpData;
@@ -15,13 +15,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
-    HashMap<String, b> eUM = new HashMap<>();
-    HashMap<String, b> eUN = new HashMap<>();
-    long eUO;
-    long eUP;
+    HashMap<String, b> eXC = new HashMap<>();
+    HashMap<String, b> eXD = new HashMap<>();
+    long eXE;
+    long eXF;
     String name;
 
-    public static final String beX() {
+    public static final String bcS() {
         String str;
         WifiInfo connectionInfo;
         try {
@@ -32,16 +32,16 @@ public class a {
                 if (TextUtils.isEmpty(typeName)) {
                     str = extraInfo;
                 } else {
-                    str = (TextUtils.isEmpty(extraInfo) && typeName.equalsIgnoreCase("WIFI") && (connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getContext().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo()) != null) ? connectionInfo.getBSSID() : extraInfo;
+                    str = (TextUtils.isEmpty(extraInfo) && typeName.equalsIgnoreCase("WIFI") && (connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getContext().getSystemService("wifi")).getConnectionInfo()) != null) ? connectionInfo.getBSSID() : extraInfo;
                     if (!TextUtils.isEmpty(str)) {
-                        return typeName + "_" + str;
+                        return typeName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
                     }
                 }
-                com.baidu.tieba.dnsproxy.d.beO().cp("get_connectpoint_null", typeName + "_" + str);
+                com.baidu.tieba.dnsproxy.d.bcJ().ci("get_connectpoint_null", typeName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str);
             }
         } catch (Throwable th) {
             BdLog.detailException(th);
-            com.baidu.tieba.dnsproxy.d.beO().cp("get_connectpoint_name", th.getMessage());
+            com.baidu.tieba.dnsproxy.d.bcJ().ci("get_connectpoint_name", th.getMessage());
         }
         return null;
     }
@@ -52,18 +52,18 @@ public class a {
         }
         a aVar = new a();
         aVar.name = connectPointData.name;
-        aVar.eUO = connectPointData.last_connect_rate_update_time.longValue();
-        aVar.eUP = connectPointData.last_speed_data_update_time.longValue();
+        aVar.eXE = connectPointData.last_connect_rate_update_time.longValue();
+        aVar.eXF = connectPointData.last_speed_data_update_time.longValue();
         for (DnsIpData dnsIpData : connectPointData.dns_ip_connect_rate) {
             b a = b.a(dnsIpData);
             if (a != null) {
-                aVar.eUM.put(a.address, a);
+                aVar.eXC.put(a.address, a);
             }
         }
         for (DnsIpData dnsIpData2 : connectPointData.dns_ip_speed_data) {
             b a2 = b.a(dnsIpData2);
             if (a2 != null) {
-                aVar.eUN.put(a2.address, a2);
+                aVar.eXD.put(a2.address, a2);
             }
         }
         return aVar;
@@ -75,17 +75,17 @@ public class a {
         }
         ConnectPointData.Builder builder = new ConnectPointData.Builder();
         builder.name = aVar.name;
-        builder.last_connect_rate_update_time = Long.valueOf(aVar.eUO);
-        builder.last_speed_data_update_time = Long.valueOf(aVar.eUP);
+        builder.last_connect_rate_update_time = Long.valueOf(aVar.eXE);
+        builder.last_speed_data_update_time = Long.valueOf(aVar.eXF);
         builder.dns_ip_connect_rate = new ArrayList();
         builder.dns_ip_speed_data = new ArrayList();
-        for (Map.Entry<String, b> entry : aVar.eUM.entrySet()) {
+        for (Map.Entry<String, b> entry : aVar.eXC.entrySet()) {
             DnsIpData a = b.a(entry.getValue());
             if (a != null) {
                 builder.dns_ip_connect_rate.add(a);
             }
         }
-        for (Map.Entry<String, b> entry2 : aVar.eUN.entrySet()) {
+        for (Map.Entry<String, b> entry2 : aVar.eXD.entrySet()) {
             DnsIpData a2 = b.a(entry2.getValue());
             if (a2 != null) {
                 builder.dns_ip_speed_data.add(a2);

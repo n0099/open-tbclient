@@ -5,42 +5,42 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes3.dex */
 public class c {
-    private q bSL = null;
-    private com.baidu.tbadk.core.util.a.a bSK = null;
+    private q cjh = null;
+    private com.baidu.tbadk.core.util.a.a cjg = null;
 
     public c() {
-        aiJ();
+        initNetWork();
     }
 
-    public void in() {
-        if (this.bSL != null) {
-            this.bSL.in();
+    public void setCancel() {
+        if (this.cjh != null) {
+            this.cjh.setCancel();
         }
     }
 
     public void setUrl(String str) {
-        this.bSK.ajM().ajP().mUrl = str;
+        this.cjg.amR().amU().mUrl = str;
     }
 
-    private void aiJ() {
-        this.bSK = new com.baidu.tbadk.core.util.a.a();
-        this.bSL = new d(this.bSK);
-        this.bSK.ajM().ajP().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
-        com.baidu.adp.lib.network.a.a.aD(TbadkCoreApplication.getInst().getCuid());
-        com.baidu.adp.lib.network.a.a.aE(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        com.baidu.adp.lib.network.a.a.aF(TbadkCoreApplication.getInst().getCuidGid());
+    private void initNetWork() {
+        this.cjg = new com.baidu.tbadk.core.util.a.a();
+        this.cjh = new d(this.cjg);
+        this.cjg.amR().amU().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.getInst().getCuid());
+        com.baidu.adp.lib.network.a.a.aj(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        com.baidu.adp.lib.network.a.a.ak(TbadkCoreApplication.getInst().getCuidGid());
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3) {
-        return a(str, handler, i, i2, i3, false);
+        return downloadFile(str, handler, i, i2, i3, false);
     }
 
-    public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        aiK().ajM().a(this.bSL);
-        return this.bSL.a(str, handler, i, i2, i3, z);
+    public boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z) {
+        amr().amR().a(this.cjh);
+        return this.cjh.downloadFile(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a aiK() {
-        return this.bSK;
+    public com.baidu.tbadk.core.util.a.a amr() {
+        return this.cjg;
     }
 }

@@ -10,7 +10,7 @@ public class MyBookrackActivityConfig extends IntentConfig {
 
     public MyBookrackActivityConfig(Context context, int i, String str) {
         super(context);
-        getIntent().putExtra(TAB_ID, i);
+        getIntent().putExtra("tab_id", i);
         getIntent().putExtra(BOOK_TOWN_URL, str);
     }
 }

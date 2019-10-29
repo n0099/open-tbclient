@@ -14,16 +14,16 @@ public class a implements n {
     @Override // com.baidu.swan.apps.u.b.n
     public void a(final String str, boolean z, boolean z2, final n.a aVar) {
         if (aVar != null) {
-            com.baidu.adp.lib.d.a.hY().a(!z, z2, new a.InterfaceC0015a() { // from class: com.baidu.tieba.aiapps.apps.h.a.1
+            com.baidu.adp.lib.d.a.fw().a(!z, z2, new a.InterfaceC0015a() { // from class: com.baidu.tieba.aiapps.apps.h.a.1
                 @Override // com.baidu.adp.lib.d.a.InterfaceC0015a
-                public void b(int i, String str2, Address address) {
+                public void onLocationGeted(int i, String str2, Address address) {
                     if ("bd09ll".equals(str)) {
                         aVar.a(a.this.a(str, address));
                         return;
                     }
                     CustomMessageTask customMessageTask = (CustomMessageTask) MessageManager.getInstance().findTask(2921363);
                     if (customMessageTask == null) {
-                        aVar.cD(-1);
+                        aVar.dy(-1);
                         return;
                     }
                     try {
@@ -33,12 +33,12 @@ public class a implements n {
                         bundle.putParcelable(Headers.LOCATION, address);
                         CustomResponsedMessage<?> run = runnable.run(new CustomMessage<>(2921363, bundle));
                         if (run == null) {
-                            aVar.cD(-1);
+                            aVar.dy(-1);
                         } else {
                             aVar.a(a.this.a(str, (Address) run.getData()));
                         }
                     } catch (Exception e) {
-                        aVar.cD(-1);
+                        aVar.dy(-1);
                     }
                 }
             });
@@ -46,12 +46,12 @@ public class a implements n {
     }
 
     @Override // com.baidu.swan.apps.u.b.n
-    public com.baidu.swan.apps.scheme.actions.e.b Fk() {
+    public com.baidu.swan.apps.scheme.actions.e.b Ke() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.u.b.n
-    public void Fl() {
+    public void Kf() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */

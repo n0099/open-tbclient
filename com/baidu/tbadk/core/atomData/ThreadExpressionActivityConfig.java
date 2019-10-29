@@ -13,9 +13,9 @@ public class ThreadExpressionActivityConfig extends IntentConfig {
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
         getIntent().putExtra("thread_id", str);
-        getIntent().putExtra(IS_HOST, z);
+        getIntent().putExtra("is_host", z);
         getIntent().putExtra(IS_LIKED, z2);
-        getIntent().putExtra(IntentConfig.PORTRAIT, str3);
+        getIntent().putExtra("portrait", str3);
         getIntent().putExtra("user_id", str2);
         getIntent().putExtra("forum_id", j);
     }

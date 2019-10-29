@@ -1,8 +1,7 @@
 package com.baidu.searchbox.v8engine;
 
 import android.util.Xml;
-import com.baidu.sapi2.result.AddressManageResult;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.smallgame.sdk.Log;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.File;
@@ -215,9 +214,9 @@ public class FontParser {
         String attributeValue = xmlPullParser.getAttributeValue(null, "index");
         int parseInt = attributeValue == null ? 0 : Integer.parseInt(attributeValue);
         ArrayList arrayList = new ArrayList();
-        String attributeValue2 = xmlPullParser.getAttributeValue(null, "weight");
+        String attributeValue2 = xmlPullParser.getAttributeValue(null, TableDefine.SessionColumns.COLUMN_WEIGHT);
         int parseInt2 = attributeValue2 == null ? 400 : Integer.parseInt(attributeValue2);
-        boolean equals = "italic".equals(xmlPullParser.getAttributeValue(null, UnitedSchemeConstants.UNITED_SCHEME_STYLE));
+        boolean equals = "italic".equals(xmlPullParser.getAttributeValue(null, "style"));
         StringBuilder sb = new StringBuilder();
         while (xmlPullParser.next() != 3) {
             if (xmlPullParser.getEventType() == 4) {
@@ -235,7 +234,7 @@ public class FontParser {
     }
 
     private static Axis readAxis(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
-        String attributeValue = xmlPullParser.getAttributeValue(null, AddressManageResult.KEY_TAG);
+        String attributeValue = xmlPullParser.getAttributeValue(null, "tag");
         if (attributeValue != null && TAG_PATTERN.matcher(attributeValue).matches()) {
             int charAt = attributeValue.charAt(3) + (attributeValue.charAt(0) << 24) + (attributeValue.charAt(1) << 16) + (attributeValue.charAt(2) << '\b');
             String attributeValue2 = xmlPullParser.getAttributeValue(null, "stylevalue");
@@ -253,7 +252,7 @@ public class FontParser {
         Alias alias = new Alias();
         alias.name = xmlPullParser.getAttributeValue(null, "name");
         alias.toName = xmlPullParser.getAttributeValue(null, "to");
-        String attributeValue = xmlPullParser.getAttributeValue(null, "weight");
+        String attributeValue = xmlPullParser.getAttributeValue(null, TableDefine.SessionColumns.COLUMN_WEIGHT);
         if (attributeValue == null) {
             alias.weight = 400;
         } else {

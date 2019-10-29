@@ -2,7 +2,7 @@ package com.baidu.tieba.likedForum;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.RecommendForumListForBottle.DataReq;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleReqIdl;
@@ -11,7 +11,7 @@ public class GetBottleForumListReqMessage extends NetMessage {
     private BdUniqueId mRequestId;
 
     public GetBottleForumListReqMessage() {
-        super(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440);
+        super(1003316, CmdConfigSocket.CMD_GET_BOTTLE_FORUM_LIST);
     }
 
     public void setRequestId(BdUniqueId bdUniqueId) {
@@ -27,7 +27,7 @@ public class GetBottleForumListReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
             RecommendForumListForBottleReqIdl.Builder builder2 = new RecommendForumListForBottleReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -10,6 +10,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,7 +27,7 @@ public final class Util {
         GREATER
     }
 
-    public static boolean ng() {
+    public static boolean jy() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -38,7 +39,7 @@ public final class Util {
         }
     }
 
-    public static f i(InputStream inputStream) throws IOException {
+    public static f g(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -60,17 +61,17 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean p(long j) {
-        long ni = ni();
+    public static final boolean o(long j) {
+        long jA = jA();
         if (j <= 0) {
-            return ni <= 0 || ni >= 31457280;
+            return jA <= 0 || jA >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < ni;
+        return (j2 <= 31457280 ? j2 : 31457280L) < jA;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
@@ -142,9 +143,9 @@ public final class Util {
         }
     }
 
-    public static void m(File file) {
+    public static void deleteDirectory(File file) {
         if (file != null && file.exists()) {
-            k(file);
+            cleanDirectory(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -153,14 +154,14 @@ public final class Util {
         }
     }
 
-    public static void k(File file) {
+    public static void cleanDirectory(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            l(file2);
+                            forceDelete(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -172,10 +173,10 @@ public final class Util {
         }
     }
 
-    public static void l(File file) {
+    public static void forceDelete(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                m(file);
+                deleteDirectory(file);
             } else if (file.exists()) {
                 try {
                     file.delete();
@@ -204,15 +205,15 @@ public final class Util {
         }
     }
 
-    public static File cc(String str) {
-        PluginSetting bG = PluginPackageManager.ms().bG(str);
-        if (bG == null || bG.apkPath == null || bG.apkPath.length() <= ".apk".length()) {
+    public static File bk(String str) {
+        PluginSetting aN = PluginPackageManager.iL().aN(str);
+        if (aN == null || aN.apkPath == null || aN.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bG.apkPath.substring(0, bG.apkPath.length() - ".apk".length()));
+        return new File(aN.apkPath.substring(0, aN.apkPath.length() - ".apk".length()));
     }
 
-    public static File nh() {
+    public static File jz() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -294,7 +295,7 @@ public final class Util {
         return applicationInfo.metaData.getString("replace_method_classes", null);
     }
 
-    public static VersionCompare J(String str, String str2) {
+    public static VersionCompare A(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -310,12 +311,12 @@ public final class Util {
         int length2 = split2.length;
         int i = length < length2 ? length : length2;
         for (int i2 = 0; i2 < i; i2++) {
-            int f = com.baidu.adp.lib.g.b.f(split[i2], 0);
-            int f2 = com.baidu.adp.lib.g.b.f(split2[i2], 0);
-            if (f > f2) {
+            int i3 = com.baidu.adp.lib.g.b.toInt(split[i2], 0);
+            int i4 = com.baidu.adp.lib.g.b.toInt(split2[i2], 0);
+            if (i3 > i4) {
                 return VersionCompare.GREATER;
             }
-            if (f < f2) {
+            if (i3 < i4) {
                 return VersionCompare.LESS;
             }
         }
@@ -332,10 +333,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
+        return pluginSetting.packageName + ".apk" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + pluginSetting.tempVersionCode;
     }
 
-    public static String cd(String str) {
+    public static String bl(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -346,10 +347,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return nh() + File.separator + e(pluginSetting);
+        return jz() + File.separator + e(pluginSetting);
     }
 
-    public static long ni() {
+    public static long jA() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
@@ -359,7 +360,7 @@ public final class Util {
         }
     }
 
-    public static boolean nj() {
+    public static boolean jB() {
         try {
             return Build.VERSION.class.getField("PREVIEW_SDK_INT").getInt(null) > 0;
         } catch (Exception e) {

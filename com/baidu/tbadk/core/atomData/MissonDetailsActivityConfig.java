@@ -20,8 +20,8 @@ public class MissonDetailsActivityConfig extends IntentConfig {
         super(context);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra(CURRENT_LEVEL, i2);
-        getIntent().putExtra(IntentConfig.PORTRAIT, str);
+        getIntent().putExtra("current_level", i2);
+        getIntent().putExtra("portrait", str);
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra("from", str3);
         getIntent().putExtra("thread_id", str4);

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
@@ -23,12 +24,12 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean isShowing = false;
+    private static boolean abS = false;
 
     public static void a(Context context, @NonNull com.baidu.swan.apps.ak.a aVar, int i, c cVar) {
-        File Pp;
+        File Uf;
         if (context != null) {
-            if ((context instanceof SwanAppLauncherActivity) && SwanAppLauncherActivity.aC(context)) {
+            if ((context instanceof SwanAppLauncherActivity) && SwanAppLauncherActivity.aG(context)) {
                 if (DEBUG) {
                     Log.d("LaunchError", "launcher activity closed, ignore launch err");
                     return;
@@ -36,41 +37,41 @@ public class a {
                 return;
             }
             if (DEBUG) {
-                Log.d("LaunchError", "start handleLaunchError with isShowing: " + isShowing + " errCode: " + aVar.toString());
+                Log.d("LaunchError", "start handleLaunchError with isShowing: " + abS + " errCode: " + aVar.toString());
             }
-            String a = com.baidu.swan.apps.swancore.b.a(e.GJ().Go(), i);
-            String format = String.format(context.getResources().getString(a.h.aiapps_open_failed_msg), ac.getVersionName(), a, String.valueOf(aVar.OZ()));
+            String a = com.baidu.swan.apps.swancore.b.a(e.LD().Li(), i);
+            String format = String.format(context.getResources().getString(a.h.aiapps_open_failed_msg), ac.getVersionName(), a, String.valueOf(aVar.TP()));
             if (a(context, cVar)) {
                 if (DEBUG) {
                     Log.d("LaunchError", "show network err toast");
                 }
-                if (q.bG(context)) {
-                    d.k(AppRuntime.getAppContext(), a.h.aiapps_net_error).LU();
+                if (q.bH(context)) {
+                    d.i(AppRuntime.getAppContext(), a.h.aiapps_net_error).QN();
                 } else {
                     if (DEBUG) {
                         Log.w("LaunchError", "show network err toast: areNotificationsEnabled false");
                     }
-                    eK(format);
+                    fr(format);
                 }
             } else if (b.a(cVar)) {
                 if (DEBUG) {
                     Log.d("LaunchError", "execute swan new year h5 downgrade  => h5 downgrade");
                 }
-                SchemeRouter.invoke(AppRuntime.getAppContext(), b.Fu());
-            } else if (q.bG(context)) {
+                SchemeRouter.invoke(AppRuntime.getAppContext(), b.Ko());
+            } else if (q.bH(context)) {
                 b(context, a, aVar);
             } else {
                 if (DEBUG) {
                     Log.w("LaunchError", "handleLaunchError: areNotificationsEnabled false");
                 }
-                if (!isShowing) {
-                    eK(format);
+                if (!abS) {
+                    fr(format);
                     return;
                 }
                 return;
             }
             StringBuilder sb = new StringBuilder();
-            String a2 = com.baidu.swan.apps.an.e.a(com.baidu.swan.apps.an.e.Po(), "yyyy-MM-dd HH:mm:ss");
+            String a2 = com.baidu.swan.apps.an.e.a(com.baidu.swan.apps.an.e.Ue(), "yyyy-MM-dd HH:mm:ss");
             if (cVar != null) {
                 String str = cVar.mAppId;
                 if (!TextUtils.isEmpty(str)) {
@@ -78,19 +79,19 @@ public class a {
                 }
             }
             sb.append(a2).append(": ").append(format).append("\r\n");
-            k.x(sb.toString(), false);
+            k.A(sb.toString(), false);
             com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
-            com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a("error", String.valueOf(System.currentTimeMillis()), String.valueOf(aVar.OZ())));
+            com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a(BdStatsConstant.StatsType.ERROR, String.valueOf(System.currentTimeMillis()), String.valueOf(aVar.TP())));
             if (com.baidu.swan.apps.b.DEBUG) {
-                String PN = ac.PN();
-                if (!TextUtils.isEmpty(PN) && (Pp = f.Pp()) != null) {
-                    File file = new File(Pp.getPath(), "error_dialog_info.txt");
+                String UD = ac.UD();
+                if (!TextUtils.isEmpty(UD) && (Uf = f.Uf()) != null) {
+                    File file = new File(Uf.getPath(), "error_dialog_info.txt");
                     com.baidu.swan.c.a.deleteFile(file);
                     StringBuilder sb2 = new StringBuilder("");
                     if (!TextUtils.isEmpty(format)) {
                         sb2.append(format).append("\n");
                     }
-                    sb2.append(PN).append("\n");
+                    sb2.append(UD).append("\n");
                     com.baidu.swan.c.a.b(sb2.toString(), file);
                 }
             }
@@ -98,29 +99,29 @@ public class a {
     }
 
     private static boolean a(@NonNull Context context, @Nullable c cVar) {
-        return (cVar == null || TextUtils.isEmpty(cVar.mAppId) || SwanAppNetworkUtils.isNetworkConnected(context) || com.baidu.swan.apps.v.d.a.R(context, cVar.mAppId)) ? false : true;
+        return (cVar == null || TextUtils.isEmpty(cVar.mAppId) || SwanAppNetworkUtils.isNetworkConnected(context) || com.baidu.swan.apps.v.d.a.Q(context, cVar.mAppId)) ? false : true;
     }
 
-    private static void eK(@NonNull String str) {
-        if (!isShowing) {
+    private static void fr(@NonNull String str) {
+        if (!abS) {
             if (DEBUG) {
                 Log.d("LaunchError", "show normal err dialog");
             }
-            SwanAppErrorDialog.Qh().ds(a.h.aiapps_open_failed_title).a(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.v.a.a.1
+            SwanAppErrorDialog.UX().en(a.h.aiapps_open_failed_title).a(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.v.a.a.1
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    boolean unused = a.isShowing = false;
+                    boolean unused = a.abS = false;
                 }
-            }).gB(str).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
-            isShowing = true;
+            }).hf(str).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
+            abS = true;
         }
     }
 
     private static void b(@NonNull Context context, @NonNull String str, @NonNull com.baidu.swan.apps.ak.a aVar) {
-        String format = String.format(context.getResources().getString(a.h.swanapp_launch_err_tip), ac.getVersionName(), str, String.valueOf(aVar.OZ()));
+        String format = String.format(context.getResources().getString(a.h.swanapp_launch_err_tip), ac.getVersionName(), str, String.valueOf(aVar.TP()));
         if (DEBUG) {
             Log.d("LaunchError", "show normal err toast: " + format);
         }
-        d.a(AppRuntime.getAppContext(), format).LV();
+        d.a(AppRuntime.getAppContext(), format).QO();
     }
 }

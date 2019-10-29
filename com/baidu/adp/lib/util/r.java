@@ -25,8 +25,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.yM = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.yz = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.lastSaveTime = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.timeToExpire = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -36,11 +36,11 @@ public class r {
                     Collections.sort(linkedList, new a());
                     return linkedList;
                 } finally {
-                    com.baidu.adp.lib.g.a.e(cursor);
+                    com.baidu.adp.lib.g.a.close(cursor);
                 }
             }
         }
-        com.baidu.adp.lib.g.a.e(cursor);
+        com.baidu.adp.lib.g.a.close(cursor);
         Collections.sort(linkedList, new a());
         return linkedList;
     }
@@ -62,8 +62,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.yM = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.yz = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.lastSaveTime = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.timeToExpire = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -73,11 +73,11 @@ public class r {
                     Collections.sort(linkedList, new a());
                     return linkedList;
                 } finally {
-                    com.baidu.adp.lib.g.a.e(cursor);
+                    com.baidu.adp.lib.g.a.close(cursor);
                 }
             }
         }
-        com.baidu.adp.lib.g.a.e(cursor);
+        com.baidu.adp.lib.g.a.close(cursor);
         Collections.sort(linkedList, new a());
         return linkedList;
     }
@@ -85,9 +85,9 @@ public class r {
     private static Cursor d(com.baidu.adp.lib.cache.l<?> lVar) {
         if (lVar != null && (lVar instanceof l.c)) {
             l.c cVar = (l.c) lVar;
-            if (cVar.hD() instanceof com.baidu.adp.lib.cache.j) {
-                com.baidu.adp.lib.cache.c hz = ((com.baidu.adp.lib.cache.j) cVar.hD()).hz();
-                return hz.d(hz.hq().fa(), cVar.hC());
+            if (cVar.fg() instanceof com.baidu.adp.lib.cache.j) {
+                com.baidu.adp.lib.cache.c fd = ((com.baidu.adp.lib.cache.j) cVar.fg()).fd();
+                return fd.queryAllForNameSpace(fd.fa().getOpenedDatabase(), cVar.getNameSpace());
             }
             return null;
         }
@@ -104,10 +104,10 @@ public class r {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(l.b<?> bVar, l.b<?> bVar2) {
-            if (bVar.yM == bVar2.yM) {
+            if (bVar.lastSaveTime == bVar2.lastSaveTime) {
                 return 0;
             }
-            return bVar.yM > bVar2.yM ? -1 : 1;
+            return bVar.lastSaveTime > bVar2.lastSaveTime ? -1 : 1;
         }
     }
 }

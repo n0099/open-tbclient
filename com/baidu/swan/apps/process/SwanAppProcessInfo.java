@@ -32,7 +32,7 @@ public enum SwanAppProcessInfo {
     public final int id;
     public final Class<? extends SwanAppLocalService> service;
     private static SwanAppProcessInfo sCurrent = UNKNOWN;
-    public static final int PROCESS_ID_END = (int) (((b.bo(AppRuntime.getAppContext()) * 5.0f) + 0.0f) + 0.5d);
+    public static final int PROCESS_ID_END = (int) (((b.bq(AppRuntime.getAppContext()) * 5.0f) + 0.0f) + 0.5d);
 
     public static SwanAppProcessInfo getById(int i) {
         return (i <= UNKNOWN.id || i >= indexById().length || indexById()[i] == null) ? UNKNOWN : indexById()[i];

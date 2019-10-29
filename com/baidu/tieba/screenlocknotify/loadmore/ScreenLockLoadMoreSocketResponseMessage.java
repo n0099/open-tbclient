@@ -1,6 +1,7 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
 /* loaded from: classes3.dex */
@@ -8,7 +9,7 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
     private a loadMoreData;
 
     public ScreenLockLoadMoreSocketResponseMessage() {
-        super(309420);
+        super(CmdConfigSocket.CMD_SCREEN_LOCK_MESSAGE_MORE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.forumsearch.b.c;
 import com.squareup.wire.Wire;
 import tbclient.SearchPostForum.SearchPostForumResIdl;
@@ -9,7 +10,7 @@ public class SearchPostForumSocketResponseMessage extends SocketResponsedMessage
     private c mSearchData;
 
     public SearchPostForumSocketResponseMessage() {
-        super(309466);
+        super(CmdConfigSocket.CMD_SEARCH_POST_FORUM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

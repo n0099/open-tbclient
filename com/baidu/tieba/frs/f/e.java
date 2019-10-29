@@ -4,6 +4,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.k;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
@@ -31,13 +32,13 @@ public class e {
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
             frsShareCardView.setData(h);
-            aVar.hy(1);
-            aVar.aH(frsShareCardView);
+            aVar.hX(1);
+            aVar.aM(frsShareCardView);
             aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.frs.f.e.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     FrsFragment.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), frsShareCardView.getChatMsgView());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(FrsFragment.this.getTbPageContext().getPageActivity(), j, str, j2, "from_share", frsShareCardView.getLeaveMsg(), h.toChatMessageContent())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(FrsFragment.this.getTbPageContext().getPageActivity(), j, str, j2, "from_share", frsShareCardView.getLeaveMsg(), h.toChatMessageContent())));
                     aVar2.dismiss();
                 }
             });
@@ -48,10 +49,10 @@ public class e {
                     aVar2.dismiss();
                 }
             });
-            aVar.dR(true);
-            aVar.b(frsFragment.getPageContext()).agO();
+            aVar.eh(true);
+            aVar.b(frsFragment.getPageContext()).akO();
             if (!k.isEmpty(h.getImageUrl())) {
-                frsShareCardView.am(h.getImageUrl(), false);
+                frsShareCardView.ai(h.getImageUrl(), false);
             }
         }
     }

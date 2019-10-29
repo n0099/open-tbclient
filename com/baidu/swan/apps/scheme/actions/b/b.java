@@ -66,11 +66,11 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            bVar.Ml().a((Activity) context, "mapp_i_delete_history", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
+            bVar.Rd().a((Activity) context, "mapp_i_delete_history", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
-                public void D(Boolean bool) {
+                public void B(Boolean bool) {
                     if (bool.booleanValue()) {
                         b.this.a(unitedSchemeEntity, callbackHandler, optString2, optString);
                         return;
@@ -90,23 +90,23 @@ public class b extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, final String str2) {
         c.i("history", "start remove history");
-        d.bm(str).b(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.3
+        d.bh(str).b(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
-            /* renamed from: fs */
+            /* renamed from: fY */
             public Boolean call(String str3) {
                 return Boolean.valueOf(com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver(), str3, false));
             }
-        }).a(rx.a.b.a.cQm()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.2
+        }).a(rx.a.b.a.cOs()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: c */
             public void call(Boolean bool) {
-                com.baidu.swan.apps.ae.b Mh;
-                com.baidu.swan.apps.process.messaging.client.a DE;
+                com.baidu.swan.apps.ae.b QZ;
+                com.baidu.swan.apps.process.messaging.client.a Iy;
                 if (bool.booleanValue()) {
-                    if (!TextUtils.isEmpty(str) && (Mh = com.baidu.swan.apps.ae.b.Mh()) != null && (DE = Mh.DE()) != null) {
-                        DE.a(8, new SwanAppDeleteInfo(str));
+                    if (!TextUtils.isEmpty(str) && (QZ = com.baidu.swan.apps.ae.b.QZ()) != null && (Iy = QZ.Iy()) != null) {
+                        Iy.a(8, new SwanAppDeleteInfo(str));
                     }
                     c.i("history", "remove success");
                     if (b.DEBUG) {

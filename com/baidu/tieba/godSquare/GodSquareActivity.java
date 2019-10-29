@@ -8,6 +8,8 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.m;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.NoNetworkView;
@@ -17,66 +19,66 @@ import com.baidu.tieba.godSquare.model.b;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class GodSquareActivity extends BaseActivity<GodSquareActivity> implements BdListView.e, h.c {
-    private a gcG;
-    private b gcH;
+    private a gce;
+    private b gcf;
     private boolean mHasMore = true;
-    private boolean gcI = false;
-    private b.a gcJ = new b.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.1
+    private boolean gcg = false;
+    private b.a gch = new b.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.1
         @Override // com.baidu.tieba.godSquare.model.b.a
         public void a(List<m> list, boolean z, boolean z2, String str) {
             GodSquareActivity.this.mHasMore = z2;
-            GodSquareActivity.this.gcG.getListView().completePullRefreshPostDelayed(0L);
-            GodSquareActivity.this.gcG.hideLoadingView();
-            if (v.aa(list)) {
-                GodSquareActivity.this.gcG.bvu();
-                if (v.aa(GodSquareActivity.this.gcH.fsx)) {
-                    GodSquareActivity.this.gcG.xo(str);
+            GodSquareActivity.this.gce.getListView().completePullRefreshPostDelayed(0L);
+            GodSquareActivity.this.gce.hideLoadingView();
+            if (v.isEmpty(list)) {
+                GodSquareActivity.this.gce.bsz();
+                if (v.isEmpty(GodSquareActivity.this.gcf.frK)) {
+                    GodSquareActivity.this.gce.vG(str);
                     return;
                 }
                 GodSquareActivity.this.mHasMore = true;
-                if (l.kt()) {
+                if (l.isNetOk()) {
                     GodSquareActivity.this.showToast(str);
                     return;
                 }
                 return;
             }
-            GodSquareActivity.this.gcG.aJN();
+            GodSquareActivity.this.gce.aJo();
             if (z) {
-                GodSquareActivity.this.gcH.fsx = list;
-                GodSquareActivity.this.gcG.cx(GodSquareActivity.this.gcH.fsx);
+                GodSquareActivity.this.gcf.frK = list;
+                GodSquareActivity.this.gce.cK(GodSquareActivity.this.gcf.frK);
             } else {
-                GodSquareActivity.this.gcH.fsx.addAll(list);
-                GodSquareActivity.this.gcG.notifyDataSetChanged();
+                GodSquareActivity.this.gcf.frK.addAll(list);
+                GodSquareActivity.this.gce.notifyDataSetChanged();
             }
             if (z2) {
-                GodSquareActivity.this.gcG.bvt();
+                GodSquareActivity.this.gce.bsy();
             } else {
-                GodSquareActivity.this.gcG.bvv();
+                GodSquareActivity.this.gce.bsA();
             }
         }
     };
-    private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.godSquare.GodSquareActivity.2
+    private CustomMessageListener cjZ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.godSquare.GodSquareActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                    if (GodSquareActivity.this.gcH.dr(com.baidu.adp.lib.g.b.e(updateAttentionMessage.getData().toUid, 0L))) {
-                        GodSquareActivity.this.gcI = true;
+                    if (GodSquareActivity.this.gcf.cR(com.baidu.adp.lib.g.b.toLong(updateAttentionMessage.getData().toUid, 0L))) {
+                        GodSquareActivity.this.gcg = true;
                     }
                 }
             }
         }
     };
-    private NoNetworkView.a eIX = new NoNetworkView.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.3
+    private NoNetworkView.a eRC = new NoNetworkView.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.3
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void es(boolean z) {
+        public void onNetworkChange(boolean z) {
             if (z) {
-                if (v.aa(GodSquareActivity.this.gcH.fsx)) {
-                    GodSquareActivity.this.bvs();
+                if (v.isEmpty(GodSquareActivity.this.gcf.frK)) {
+                    GodSquareActivity.this.bsx();
                 } else {
-                    GodSquareActivity.this.gcG.startPullRefresh();
+                    GodSquareActivity.this.gce.startPullRefresh();
                 }
             }
         }
@@ -86,34 +88,34 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gcG = new a(this);
-        this.gcG.g(this.eIX);
-        this.gcH = new b(this.gcJ, this);
-        registerListener(this.mAttentionListener);
-        bvs();
+        this.gce = new a(this);
+        this.gce.g(this.eRC);
+        this.gcf = new b(this.gch, this);
+        registerListener(this.cjZ);
+        bsx();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.gcG.notifyDataSetChanged();
-        if (this.gcI) {
-            this.gcG.startPullRefresh();
+        this.gce.notifyDataSetChanged();
+        if (this.gcg) {
+            this.gce.startPullRefresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvs() {
-        this.gcG.showLoadingView();
-        this.gcH.update();
+    public void bsx() {
+        this.gce.showLoadingView();
+        this.gcf.update();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (j.jQ()) {
-            bvs();
+        if (j.isNetworkAvailableForImmediately()) {
+            bsx();
         }
     }
 
@@ -121,25 +123,25 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gcG.onChangeSkinType(i);
+        this.gce.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.core.view.h.c
-    public void eu(boolean z) {
-        this.gcI = false;
-        this.gcH.update();
+    public void onListPullRefresh(boolean z) {
+        this.gcg = false;
+        this.gcf.update();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.mHasMore) {
-            this.gcH.aJw();
-            this.gcG.bvt();
+            this.gcf.aIW();
+            this.gce.bsy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.o.a
     public String getCurrentPageKey() {
-        return "a009";
+        return PageStayDurationConstants.PageName.GOD_SQUARE;
     }
 }

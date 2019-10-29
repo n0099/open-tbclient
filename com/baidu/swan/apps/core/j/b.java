@@ -6,32 +6,32 @@ import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String auA;
-    public String auE;
-    public boolean auG;
-    public String auH;
-    public String auI;
-    public String auJ;
+    public String aNR;
+    public String aNV;
+    public boolean aNX;
+    public String aNY;
+    public String aNZ;
+    public String aOa;
 
     public static com.baidu.swan.apps.m.a.b b(b bVar) {
         TreeMap treeMap = new TreeMap();
-        treeMap.put("appPath", bVar.auA);
-        treeMap.put("pagePath", bVar.auH);
-        treeMap.put("devhook", bVar.auE);
-        if (!TextUtils.isEmpty(bVar.auJ)) {
+        treeMap.put("appPath", bVar.aNR);
+        treeMap.put("pagePath", bVar.aNY);
+        treeMap.put("devhook", bVar.aNV);
+        if (!TextUtils.isEmpty(bVar.aOa)) {
             if (DEBUG) {
-                Log.d("PageReadyEvent", "add initData: " + bVar.auJ);
+                Log.d("PageReadyEvent", "add initData: " + bVar.aOa);
             }
-            treeMap.put("initData", bVar.auJ);
+            treeMap.put("initData", bVar.aOa);
         }
-        if (!TextUtils.isEmpty(bVar.auI)) {
-            treeMap.put("onReachBottomDistance", bVar.auI);
+        if (!TextUtils.isEmpty(bVar.aNZ)) {
+            treeMap.put("onReachBottomDistance", bVar.aNZ);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(bVar.auG));
+        treeMap.put("showPerformancePanel", String.valueOf(bVar.aNX));
         return new com.baidu.swan.apps.m.a.b("PageReady", treeMap);
     }
 
     public String toString() {
-        return "PageReadyEvent{appPath='" + this.auA + "', pagePath='" + this.auH + "', onReachBottomDistance='" + this.auI + "'}";
+        return "PageReadyEvent{appPath='" + this.aNR + "', pagePath='" + this.aNY + "', onReachBottomDistance='" + this.aNZ + "'}";
     }
 }

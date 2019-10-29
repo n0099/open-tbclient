@@ -3,6 +3,8 @@ package com.baidu.sofire.b;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
 import org.json.JSONArray;
@@ -72,7 +74,7 @@ public final class j {
             JSONArray jSONArray = new JSONArray();
             long j = 0;
             for (File file : filesDir.listFiles()) {
-                if (file.isDirectory() && file.getName().startsWith(".")) {
+                if (file.isDirectory() && file.getName().startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
                     j += a(file, jSONArray);
                 }
             }
@@ -92,7 +94,7 @@ public final class j {
                 } else if (file2.exists()) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("path", file2.getAbsolutePath());
-                    jSONObject.put("size", file2.length());
+                    jSONObject.put(TiebaInitialize.LogFields.SIZE, file2.length());
                     jSONArray.put(jSONObject);
                     j += file2.length();
                 }

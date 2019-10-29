@@ -3,6 +3,7 @@ package com.baidu.tieba.aiapps.apps.openstat.imupload;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
 import com.baidu.tieba.aiapps.apps.openstat.imupload.log.model.BIMLogPb;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -26,14 +27,14 @@ import okio.Okio;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class b {
-    private static b diV;
-    private OkHttpClient diU = aHF();
+    private static b dsp;
+    private OkHttpClient mOkHttpClient = createOkHttpClient();
 
-    public static b aHE() {
-        if (diV == null) {
-            diV = new b();
+    public static b aHR() {
+        if (dsp == null) {
+            dsp = new b();
         }
-        return diV;
+        return dsp;
     }
 
     private b() {
@@ -42,16 +43,16 @@ public class b {
     public void a(@NonNull Map<String, String> map, @NonNull byte[] bArr, String str, c cVar) {
         if (cVar != null) {
             Request a2 = a(map, bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 10000.0d)));
-            if (this.diU == null) {
-                this.diU = aHF();
+            if (this.mOkHttpClient == null) {
+                this.mOkHttpClient = createOkHttpClient();
             }
             try {
-                Response execute = this.diU.newCall(a2).execute();
+                Response execute = this.mOkHttpClient.newCall(a2).execute();
                 try {
                     if (execute.body() != null) {
-                        String[] J = J(execute.body().bytes());
-                        cVar.errorCode = Integer.valueOf(J[0]).intValue();
-                        cVar.errMsg = J[1];
+                        String[] parseResponse = parseResponse(execute.body().bytes());
+                        cVar.errorCode = Integer.valueOf(parseResponse[0]).intValue();
+                        cVar.errMsg = parseResponse[1];
                     }
                 } catch (IOException e) {
                 }
@@ -67,7 +68,7 @@ public class b {
     }
 
     @NonNull
-    private OkHttpClient aHF() {
+    private OkHttpClient createOkHttpClient() {
         return new OkHttpClient.Builder().protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1)).pingInterval(1000L, TimeUnit.MILLISECONDS).addInterceptor(new a()).connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).connectionPool(new ConnectionPool()).build();
     }
 
@@ -77,33 +78,33 @@ public class b {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             arrayMap.put("ls-" + entry.getKey(), entry.getValue());
         }
-        arrayMap.put("log-id", str2);
-        return new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").headers(Headers.of(arrayMap)).url("https://pimlog.baidu.com/LogService/Log").post(d(bArr, str)).build();
+        arrayMap.put(IMPushUploadConstants.BIM_LOG_ID, str2);
+        return new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").headers(Headers.of(arrayMap)).url("https://pimlog.baidu.com/LogService/Log").post(convertRequestBody(bArr, str)).build();
     }
 
     @NonNull
-    private RequestBody d(@NonNull byte[] bArr, @NonNull String str) {
-        return RequestBody.create(MediaType.parse("application/proto"), e(bArr, str));
+    private RequestBody convertRequestBody(@NonNull byte[] bArr, @NonNull String str) {
+        return RequestBody.create(MediaType.parse("application/proto"), createLogRequestContent(bArr, str));
     }
 
     @NonNull
-    private byte[] e(@NonNull byte[] bArr, String str) {
+    private byte[] createLogRequestContent(@NonNull byte[] bArr, String str) {
         BIMLogPb.LogRequest.AuthInfo.a newBuilder = BIMLogPb.LogRequest.AuthInfo.newBuilder();
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        BIMLogPb.LogRequest.AuthInfo build = newBuilder.tK(str).build();
+        BIMLogPb.LogRequest.AuthInfo build = newBuilder.su(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return BIMLogPb.LogRequest.newBuilder().cd(1L).tL("smart_app").b(build).ce(currentTimeMillis).tM(com.baidu.tieba.aiapps.apps.openstat.imupload.a.r("smart_app", currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+        return BIMLogPb.LogRequest.newBuilder().bS(1L).sv("smart_app").b(build).bT(currentTimeMillis).sw(com.baidu.tieba.aiapps.apps.openstat.imupload.a.t("smart_app", currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     @NonNull
-    private String[] J(@NonNull byte[] bArr) {
+    private String[] parseResponse(@NonNull byte[] bArr) {
         try {
             BIMLogPb.LogResponse parseFrom = BIMLogPb.LogResponse.parseFrom(bArr);
-            if (this.diU.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
-                this.diU.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
-                this.diU = this.diU.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
+            if (this.mOkHttpClient.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
+                this.mOkHttpClient.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
+                this.mOkHttpClient = this.mOkHttpClient.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
         } catch (InvalidProtocolBufferException e) {
@@ -122,10 +123,10 @@ public class b {
             if (request.body() == null || request.header(HTTP.CONTENT_ENCODING) != null) {
                 return chain.proceed(request);
             }
-            return chain.proceed(request.newBuilder().header(HTTP.CONTENT_ENCODING, "gzip").method(request.method(), a(request.body())).build());
+            return chain.proceed(request.newBuilder().header(HTTP.CONTENT_ENCODING, "gzip").method(request.method(), gzip(request.body())).build());
         }
 
-        private RequestBody a(final RequestBody requestBody) {
+        private RequestBody gzip(final RequestBody requestBody) {
             return new RequestBody() { // from class: com.baidu.tieba.aiapps.apps.openstat.imupload.b.a.1
                 @Override // okhttp3.RequestBody
                 public MediaType contentType() {

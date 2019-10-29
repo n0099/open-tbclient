@@ -11,6 +11,8 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class FileUtils {
@@ -49,7 +51,7 @@ public class FileUtils {
                 return uri.getLastPathSegment();
             }
             return getDataColumn(context, uri, null, null);
-        } else if ("file".equalsIgnoreCase(uri.getScheme())) {
+        } else if (BdStatsConstant.OpSubType.FILE.equalsIgnoreCase(uri.getScheme())) {
             return uri.getPath();
         } else {
             return null;
@@ -126,7 +128,7 @@ public class FileUtils {
 
     private static String getMIMEType(File file) {
         String name = file.getName();
-        int lastIndexOf = name.lastIndexOf(".");
+        int lastIndexOf = name.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
         if (lastIndexOf < 0) {
             return "*/*";
         }

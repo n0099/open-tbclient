@@ -2,7 +2,6 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.vivo.push.util.NotifyAdapterUtil;
 /* loaded from: classes3.dex */
 public final class a {
     public static short a() {
@@ -45,7 +44,7 @@ public final class a {
     }
 
     public static String c(Context context) {
-        return context.getSharedPreferences("pst", 4).getString("s_e", NotifyAdapterUtil.PRIMARY_CHANNEL);
+        return context.getSharedPreferences("pst", 4).getString("s_e", "default");
     }
 
     public static void c(Context context, boolean z) {

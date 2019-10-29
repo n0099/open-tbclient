@@ -6,9 +6,9 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class Mask {
-    private final MaskMode oN;
-    private final com.airbnb.lottie.model.a.h oO;
-    private final com.airbnb.lottie.model.a.d or;
+    private final com.airbnb.lottie.model.a.d gL;
+    private final MaskMode hh;
+    private final com.airbnb.lottie.model.a.h hi;
 
     /* loaded from: classes2.dex */
     public enum MaskMode {
@@ -19,9 +19,9 @@ public class Mask {
     }
 
     private Mask(MaskMode maskMode, com.airbnb.lottie.model.a.h hVar, com.airbnb.lottie.model.a.d dVar) {
-        this.oN = maskMode;
-        this.oO = hVar;
-        this.or = dVar;
+        this.hh = maskMode;
+        this.hi = hVar;
+        this.gL = dVar;
     }
 
     /* loaded from: classes2.dex */
@@ -64,20 +64,19 @@ public class Mask {
                     maskMode = MaskMode.MaskModeUnknown;
                     break;
             }
-            return new Mask(maskMode, h.a.k(jSONObject.optJSONObject(Config.PLATFORM_TYPE), eVar), d.a.g(jSONObject.optJSONObject(Config.OS), eVar));
+            return new Mask(maskMode, h.a.k(jSONObject.optJSONObject("pt"), eVar), d.a.g(jSONObject.optJSONObject(Config.OS), eVar));
         }
     }
 
-    public MaskMode dn() {
-        return this.oN;
+    public MaskMode cG() {
+        return this.hh;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public com.airbnb.lottie.model.a.h m6do() {
-        return this.oO;
+    public com.airbnb.lottie.model.a.h cH() {
+        return this.hi;
     }
 
-    public com.airbnb.lottie.model.a.d cU() {
-        return this.or;
+    public com.airbnb.lottie.model.a.d cn() {
+        return this.gL;
     }
 }

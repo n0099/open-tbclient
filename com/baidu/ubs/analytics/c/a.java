@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 final class a {
-    private static final a kad = new a();
+    private static final a jYc = new a();
     private boolean ac;
-    private final Set<InterfaceC0456a> kae = new LinkedHashSet();
+    private final Set<InterfaceC0551a> jYd = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0456a {
+    public interface InterfaceC0551a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cEx() {
-        return kad;
+    public static a cBh() {
+        return jYc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0456a> cEy() {
-        return this.kae;
+    public final Set<InterfaceC0551a> cBi() {
+        return this.jYd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0456a interfaceC0456a) {
-        synchronized (this.kae) {
-            this.kae.add(interfaceC0456a);
+    public final void a(InterfaceC0551a interfaceC0551a) {
+        synchronized (this.jYd) {
+            this.jYd.add(interfaceC0551a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void S() {
-        synchronized (this.kae) {
-            this.kae.clear();
+    public final void cBj() {
+        synchronized (this.jYd) {
+            this.jYd.clear();
         }
     }
 
@@ -59,7 +59,7 @@ final class a {
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.HO("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.Gf("registerActivityLifecycleCallbacks encounter exception");
         }
         this.ac = true;
     }

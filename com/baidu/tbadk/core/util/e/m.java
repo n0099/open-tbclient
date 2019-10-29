@@ -14,7 +14,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     public m() {
         this.width = 0;
         this.height = 0;
-        akm();
+        ano();
     }
 
     public m(int i, int i2) {
@@ -25,16 +25,16 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             this.height = i2;
             return;
         }
-        akm();
+        ano();
     }
 
-    private void akm() {
-        this.width = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst());
-        this.height = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst());
+    private void ano() {
+        this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+        this.height = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public boolean iH() {
+    public boolean fW() {
         return true;
     }
 
@@ -42,8 +42,8 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(oO(str), com.baidu.tbadk.imageManager.c.atK().qS(oO(str)), i, i2);
-        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.nK() == null || checkIsValidPicMemoryCache.nK().isRecycled()) {
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(oo(str), com.baidu.tbadk.imageManager.c.avu().pY(oo(str)), i, i2);
+        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
         return checkIsValidPicMemoryCache;
@@ -56,16 +56,16 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return n(str, i, i2);
+        return m(str, i, i2);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
-            aVar.aG(i);
-            aVar.aH(i2);
-            com.baidu.tbadk.imageManager.c.atK().c(oO(str), aVar);
+            aVar.ac(i);
+            aVar.ad(i2);
+            com.baidu.tbadk.imageManager.c.avu().c(oo(str), aVar);
         }
     }
 
@@ -77,16 +77,16 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel iI() {
+    public BdAsyncTaskParallel fX() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int iJ() {
+    public int fY() {
         return 1;
     }
 
-    public com.baidu.adp.widget.ImageView.a n(String str, int i, int i2) {
+    public com.baidu.adp.widget.ImageView.a m(String str, int i, int i2) {
         com.baidu.adp.widget.ImageView.a aVar;
         try {
             if (str.toLowerCase().endsWith(".gif")) {
@@ -100,12 +100,12 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         }
     }
 
-    public String oO(String str) {
-        ImageOperation al = com.baidu.tbadk.img.effect.d.al(this.width, this.height);
+    public String oo(String str) {
+        ImageOperation ao = com.baidu.tbadk.img.effect.d.ao(this.width, this.height);
         StringBuilder sb = new StringBuilder();
         sb.append("image_");
         sb.append(str);
-        sb.append(':').append(al.actionName).append('=').append(al.actionParam);
+        sb.append(':').append(ao.actionName).append('=').append(ao.actionParam);
         return sb.toString();
     }
 }

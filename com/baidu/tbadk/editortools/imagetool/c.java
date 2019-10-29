@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static l r(Context context, int i) {
+    public static l p(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(R.layout.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
@@ -31,13 +31,13 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        am.f(multiImgToolView.getMutiImageTips(), R.color.cp_cont_c, 1);
+        am.setViewTextColor(multiImgToolView.getMutiImageTips(), R.color.cp_cont_c, 1);
         return multiImgToolView;
     }
 
     private static View a(Context context, final l lVar) {
         ImageView imageView = new ImageView(context);
-        am.c(imageView, (int) R.drawable.btn_add_photo_selector);
+        am.setImageResource(imageView, R.drawable.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(R.string.add));

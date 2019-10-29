@@ -1,7 +1,7 @@
 package com.baidu.tieba.godSquare.model.req;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.GetHotGod.DataReq;
 import tbclient.GetHotGod.GetHotGodReqIdl;
@@ -11,7 +11,7 @@ public class GodSquareRequestMsg extends NetMessage {
     public int pn;
 
     public GodSquareRequestMsg() {
-        super(CmdConfigHttp.CMD_GET_HOT_GOD, 309315);
+        super(1003099, CmdConfigSocket.CMD_GET_HOT_GOD);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -20,7 +20,7 @@ public class GodSquareRequestMsg extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = 30;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         GetHotGodReqIdl.Builder builder2 = new GetHotGodReqIdl.Builder();
         builder2.data = builder.build(false);

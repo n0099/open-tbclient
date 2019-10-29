@@ -1,4 +1,6 @@
 package com.google.zxing.client.result;
+
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 /* loaded from: classes5.dex */
 public final class SMSParsedResult extends ParsedResult {
     private final String body;
@@ -24,7 +26,7 @@ public final class SMSParsedResult extends ParsedResult {
 
     public String getSMSURI() {
         StringBuilder sb = new StringBuilder();
-        sb.append("sms:");
+        sb.append(UrlSchemaHelper.SCHEMA_TYPE_SMS);
         boolean z = true;
         for (int i = 0; i < this.numbers.length; i++) {
             if (z) {

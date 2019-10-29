@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.d.a.a;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
@@ -285,10 +286,10 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if (webDTO != null && webDTO.closeExitAnimId != 0) {
             i2 = webDTO.closeExitAnimId;
         }
-        int i3 = i == 0 ? a.C0047a.sapi_sdk_slide_right_in : i;
-        int i4 = i2 == 0 ? a.C0047a.sapi_sdk_slide_right_out : i2;
+        int i3 = i == 0 ? a.C0053a.sapi_sdk_slide_right_in : i;
+        int i4 = i2 == 0 ? a.C0053a.sapi_sdk_slide_right_out : i2;
         if (z) {
-            int i5 = a.C0047a.sapi_sdk_hold;
+            int i5 = a.C0053a.sapi_sdk_hold;
             if (webDTO != null && webDTO.openExitAnimId != 0) {
                 i5 = webDTO.openExitAnimId;
             }
@@ -305,9 +306,9 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     /* JADX INFO: Access modifiers changed from: protected */
     public void reportWebviewError(Throwable th) {
         HashMap hashMap = new HashMap();
-        hashMap.put("error", Log.getStackTraceString(th));
+        hashMap.put(BdStatsConstant.StatsType.ERROR, Log.getStackTraceString(th));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
-        hashMap.put("os_version", Build.VERSION.RELEASE);
+        hashMap.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
         StatService.onEvent("webview_init_error", hashMap);
     }
 

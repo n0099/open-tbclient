@@ -6,30 +6,30 @@ import android.widget.ImageView;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes2.dex */
 public class a implements c {
-    private static a ahI;
-    private static ThreadPoolExecutor ahJ;
-    private static e ahK;
-    private static com.baidu.poly.b.a.b ahL;
-    private static com.baidu.poly.b.a.a ahM;
+    private static a aBg;
+    private static ThreadPoolExecutor aBh;
+    private static e aBi;
+    private static com.baidu.poly.b.a.b aBj;
+    private static com.baidu.poly.b.a.a aBk;
     private Context context;
 
     private a(Context context) {
         this.context = context.getApplicationContext();
-        ahJ = g.uO();
-        ahL = new com.baidu.poly.b.a.b();
-        ahM = new com.baidu.poly.b.a.a(context);
-        ahK = new e();
+        aBh = g.zI();
+        aBj = new com.baidu.poly.b.a.b();
+        aBk = new com.baidu.poly.b.a.a(context);
+        aBi = new e();
     }
 
-    public static a aA(Context context) {
-        if (ahI == null) {
+    public static a aE(Context context) {
+        if (aBg == null) {
             synchronized (a.class) {
-                if (ahI == null) {
-                    ahI = new a(context);
+                if (aBg == null) {
+                    aBg = new a(context);
                 }
             }
         }
-        return ahI;
+        return aBg;
     }
 
     @Override // com.baidu.poly.b.c
@@ -39,25 +39,25 @@ public class a implements c {
 
     public void a(ImageView imageView, String str, int i, int i2) {
         imageView.setTag(str);
-        Bitmap cT = ahL.cT(str);
-        if (cT != null) {
-            imageView.setImageBitmap(cT);
+        Bitmap dD = aBj.dD(str);
+        if (dD != null) {
+            imageView.setImageBitmap(dD);
             return;
         }
-        ahJ.execute(new h(this.context, ahK, str, imageView, i, i2));
+        aBh.execute(new h(this.context, aBi, str, imageView, i, i2));
     }
 
-    public static com.baidu.poly.b.a.b uM() {
-        if (ahL == null) {
-            ahL = new com.baidu.poly.b.a.b();
+    public static com.baidu.poly.b.a.b zG() {
+        if (aBj == null) {
+            aBj = new com.baidu.poly.b.a.b();
         }
-        return ahL;
+        return aBj;
     }
 
-    public static com.baidu.poly.b.a.a aB(Context context) {
-        if (ahM == null) {
-            ahM = new com.baidu.poly.b.a.a(context);
+    public static com.baidu.poly.b.a.a aF(Context context) {
+        if (aBk == null) {
+            aBk = new com.baidu.poly.b.a.a(context);
         }
-        return ahM;
+        return aBk;
     }
 }

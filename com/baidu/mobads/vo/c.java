@@ -54,7 +54,7 @@ public class c implements IXAdResponseInfo {
         this.a = jSONObject.optInt("n", 0);
         this.d = jSONObject.optInt(Config.EVENT_HEAT_X, 0);
         this.e = jSONObject.optInt("y", 0);
-        this.b = Boolean.valueOf(jSONObject.optInt(Config.MODEL, 0) == 1);
+        this.b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
         this.c = jSONObject.optString("u", "");
         this.f = jSONObject.optString("exp2", "{}");
         this.g = jSONObject.optString("ext_act", "{}");

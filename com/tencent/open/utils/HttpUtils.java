@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.j;
 import com.tencent.tauth.IRequestListener;
@@ -566,7 +567,7 @@ public class HttpUtils {
         HttpConnectionParams.setSoTimeout(basicHttpParams, i2);
         HttpProtocolParams.setVersion(basicHttpParams, HttpVersion.HTTP_1_1);
         HttpProtocolParams.setContentCharset(basicHttpParams, HTTP.UTF_8);
-        HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + "_" + Build.DEVICE + "_" + Build.VERSION.RELEASE);
+        HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.DEVICE + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.VERSION.RELEASE);
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
         c proxy = getProxy(context);
         if (proxy != null) {

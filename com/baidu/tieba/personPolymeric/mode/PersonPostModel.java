@@ -12,11 +12,11 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.m;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.aq;
@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int iuC = 0;
-    private static int iuD = 1;
-    private static String iuE = "";
+    private static int itd = 0;
+    private static int ite = 1;
+    private static String itf = "";
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -75,7 +75,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.hide_post = 0;
         this.mIsReset = false;
         this.mLastChooseStyle = -1;
-        this.pageSocketListener = new c(303002) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.1
+        this.pageSocketListener = new c(CmdConfigSocket.CMD_USER_POST_PAGE) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -93,7 +93,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 }
             }
         };
-        this.pageHttpListener = new HttpMessageListener(CmdConfigHttp.USER_POST_HTTP_CMD) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.2
+        this.pageHttpListener = new HttpMessageListener(1001503) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -125,7 +125,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.hide_post = 0;
         this.mIsReset = false;
         this.mLastChooseStyle = -1;
-        this.pageSocketListener = new c(303002) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.1
+        this.pageSocketListener = new c(CmdConfigSocket.CMD_USER_POST_PAGE) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -143,7 +143,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 }
             }
         };
-        this.pageHttpListener = new HttpMessageListener(CmdConfigHttp.USER_POST_HTTP_CMD) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.2
+        this.pageHttpListener = new HttpMessageListener(1001503) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        iuD = 1;
+        ite = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(iuE)) {
-                iuC = 1;
-                iuE = str;
+            if (z || !str.equals(itf)) {
+                itd = 1;
+                itf = str;
             } else {
-                iuC++;
+                itd++;
             }
         } else {
-            if (z || !str.equals(iuE)) {
+            if (z || !str.equals(itf)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    iuD = 1;
+                    ite = 1;
                 } else {
-                    iuD = 0;
+                    ite = 0;
                 }
-                iuE = str;
+                itf = str;
             }
-            iuD++;
+            ite++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(iuE);
+        userPostPageRequestMessage.setUid(itf);
         if (z3) {
-            userPostPageRequestMessage.setPn(iuC);
+            userPostPageRequestMessage.setPn(itd);
         } else {
-            userPostPageRequestMessage.setPn(iuD);
+            userPostPageRequestMessage.setPn(ite);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -219,12 +219,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
         userPostPageRequestMessage.setFrom(this.mFrom);
-        int af = l.af(TbadkCoreApplication.getInst().getApp());
-        int ah = l.ah(TbadkCoreApplication.getInst().getApp());
+        int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
+        int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = ar.ajw().ajy() ? 2 : 1;
-        userPostPageRequestMessage.set_scr_w(af);
-        userPostPageRequestMessage.set_scr_h(ah);
+        int i2 = ar.amO().isFrsShowBigImage() ? 2 : 1;
+        userPostPageRequestMessage.set_scr_w(equipmentWidth);
+        userPostPageRequestMessage.set_scr_h(equipmentHeight);
         userPostPageRequestMessage.set_scr_dip(f);
         userPostPageRequestMessage.set_q_type(i2);
         userPostPageRequestMessage.setCallback(aVar);
@@ -246,7 +246,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             } else {
                 z = true;
             }
-            if (v.aa(dataRes.post_list) && z) {
+            if (v.isEmpty(dataRes.post_list) && z) {
                 this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.eIn != 33) {
+                if (cardPersonDynamicThreadData.eQS != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -483,7 +483,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 if (labelInfoArr[i] != null) {
                     int random = getRandom(3, -1);
                     if (random == i2 || random == i3) {
-                        random = H(length, i2, i3);
+                        random = G(length, i2, i3);
                     }
                     if (i == 0) {
                         i2 = random;
@@ -503,45 +503,45 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         String str;
         String str2;
         String str3;
-        String aY = aq.aY(System.currentTimeMillis());
+        String yearBytime = aq.getYearBytime(System.currentTimeMillis());
         String str4 = "";
         String str5 = "";
         Iterator<m> it = arrayList.iterator();
         while (it.hasNext()) {
             m next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).eIz = true;
-                ((CardPersonDynamicThreadData) next).eIy = true;
-                long j = ((CardPersonDynamicThreadData) next).eIl * 1000;
-                String aY2 = aq.aY(j);
-                String bb = aq.bb(j);
-                String ba = aq.ba(j);
-                if (aq.bV(aY2, aY)) {
-                    ((CardPersonDynamicThreadData) next).eIz = false;
+                ((CardPersonDynamicThreadData) next).eRe = true;
+                ((CardPersonDynamicThreadData) next).eRd = true;
+                long j = ((CardPersonDynamicThreadData) next).eQQ * 1000;
+                String yearBytime2 = aq.getYearBytime(j);
+                String chineseMonthBytime = aq.getChineseMonthBytime(j);
+                String dateBytime = aq.getDateBytime(j);
+                if (aq.equals(yearBytime2, yearBytime)) {
+                    ((CardPersonDynamicThreadData) next).eRe = false;
                 }
-                if (aq.bV(ba, str5) && aq.bV(bb, str4) && aq.bV(aY2, aY)) {
-                    ((CardPersonDynamicThreadData) next).eIy = false;
+                if (aq.equals(dateBytime, str5) && aq.equals(chineseMonthBytime, str4) && aq.equals(yearBytime2, yearBytime)) {
+                    ((CardPersonDynamicThreadData) next).eRd = false;
                     str = str5;
                     str2 = str4;
-                    str3 = aY;
+                    str3 = yearBytime;
                 } else {
-                    str = ba;
-                    str2 = bb;
-                    str3 = aY2;
+                    str = dateBytime;
+                    str2 = chineseMonthBytime;
+                    str3 = yearBytime2;
                 }
             } else {
                 str = str5;
                 str2 = str4;
-                str3 = aY;
+                str3 = yearBytime;
             }
             str4 = str2;
-            aY = str3;
+            yearBytime = str3;
             str5 = str;
         }
         return arrayList;
     }
 
-    private static int H(int i, int i2, int i3) {
+    private static int G(int i, int i2, int i3) {
         for (int i4 = 0; i4 < i && i4 < 3; i4++) {
             if (i4 != i2 && i4 != i3) {
                 return i4;

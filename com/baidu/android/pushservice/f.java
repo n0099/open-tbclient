@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.PushSocket;
@@ -281,7 +282,7 @@ public class f {
 
     private PendingIntent s() {
         Intent intent = new Intent();
-        intent.putExtra("AlarmAlert", "OK");
+        intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
         intent.setFlags(32);
         intent.setClass(this.h, PushService.class);
         return PendingIntent.getService(this.h.getApplicationContext(), 0, intent, 134217728);
@@ -346,7 +347,7 @@ public class f {
                         return c().a(intent);
                     }
                     return true;
-                } else if (intent.getStringExtra("AlarmAlert") != null) {
+                } else if (intent.getStringExtra(Constants.EXTRA_ALARM_ALERT) != null) {
                     return o();
                 } else {
                     if (("pushservice_restart_v2".equals(intent.getStringExtra("method")) || "pushservice_restart_v3".equals(intent.getStringExtra("method"))) && e != null) {

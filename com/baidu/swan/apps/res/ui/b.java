@@ -10,12 +10,12 @@ public class b {
         if (context == null || viewGroup == null) {
             return null;
         }
-        FullScreenFloatView j = j(context, i);
-        viewGroup.addView(j);
-        return j;
+        FullScreenFloatView h = h(context, i);
+        viewGroup.addView(h);
+        return h;
     }
 
-    private static FullScreenFloatView j(Context context, int i) {
+    private static FullScreenFloatView h(Context context, int i) {
         if (context == null) {
             return null;
         }

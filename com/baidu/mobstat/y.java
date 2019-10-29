@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
@@ -116,7 +117,7 @@ public class y {
                     bb.c().b(e4);
                 }
                 try {
-                    this.d = jSONObject.getLong("f");
+                    this.d = jSONObject.getLong(BdStatsConstant.StatsKey.FROM);
                 } catch (JSONException e5) {
                     bb.c().b(e5);
                 }

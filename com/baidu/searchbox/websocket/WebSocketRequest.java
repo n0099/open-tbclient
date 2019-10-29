@@ -1,6 +1,6 @@
 package com.baidu.searchbox.websocket;
 
-import com.baidu.ubc.UBC;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -32,7 +32,7 @@ public final class WebSocketRequest {
     }
 
     public WebSocketRequest(String str) {
-        p.k(str, "url");
+        p.i(str, "url");
         this.url = str;
         this.method = "GET";
     }
@@ -46,7 +46,7 @@ public final class WebSocketRequest {
     }
 
     public final void setMethod(String str) {
-        p.k(str, "<set-?>");
+        p.i(str, "<set-?>");
         this.method = str;
     }
 
@@ -82,7 +82,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            p.cOR();
+            p.cMY();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -100,7 +100,7 @@ public final class WebSocketRequest {
         }
 
         public final WebSocketRequest build(b<? super Builder, e> bVar) {
-            p.k(bVar, "block");
+            p.i(bVar, "block");
             Builder builder = new Builder();
             bVar.invoke(builder);
             return builder.build();
@@ -109,24 +109,24 @@ public final class WebSocketRequest {
         /* JADX WARN: Type inference failed for: r0v12, types: [T, org.json.JSONArray] */
         /* JADX WARN: Type inference failed for: r0v15, types: [T, org.json.JSONArray] */
         public final WebSocketRequest fromJSON(JSONObject jSONObject) {
-            p.k(jSONObject, "params");
+            p.i(jSONObject, "params");
             Companion companion = WebSocketRequest.Companion;
             Builder builder = new Builder();
             builder.setUrl(jSONObject.getString("url"));
             if (jSONObject.has("method")) {
                 String string = jSONObject.getString("method");
-                p.j(string, "params.getString(PARAM_KEY_METHOD)");
+                p.h(string, "params.getString(PARAM_KEY_METHOD)");
                 builder.setMethod(string);
             }
             if (jSONObject.has(WebSocketRequest.PARAM_KEY_HEADER)) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
                 Iterator<String> keys = jSONObject2.keys();
-                p.j(keys, "headers.keys()");
+                p.h(keys, "headers.keys()");
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    p.j(next, "key");
+                    p.h(next, TiebaInitialize.Params.KEY);
                     String string2 = jSONObject2.getString(next);
-                    p.j(string2, "headers.getString(key)");
+                    p.h(string2, "headers.getString(key)");
                     builder.addHeader(next, string2);
                 }
             }
@@ -137,7 +137,7 @@ public final class WebSocketRequest {
                     objectRef.element = new JSONArray();
                     ((JSONArray) objectRef.element).put("");
                 }
-                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.cU(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.cN(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
             }
             return builder.build();
         }
@@ -164,7 +164,7 @@ public final class WebSocketRequest {
         }
 
         public final void setMethod(String str) {
-            p.k(str, "<set-?>");
+            p.i(str, "<set-?>");
             this.method = str;
         }
 
@@ -193,8 +193,8 @@ public final class WebSocketRequest {
         }
 
         public final void addHeader(String str, String str2) {
-            p.k(str, "key");
-            p.k(str2, UBC.CONTENT_KEY_VALUE);
+            p.i(str, TiebaInitialize.Params.KEY);
+            p.i(str2, "value");
             Builder builder = this;
             if (builder.headers == null) {
                 builder.headers = new HashMap();

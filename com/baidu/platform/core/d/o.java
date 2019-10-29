@@ -1,13 +1,12 @@
 package com.baidu.platform.core.d;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.WalkingRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +44,7 @@ public class o extends k {
         RouteNode routeNode = new RouteNode();
         routeNode.setTitle(jSONObject.optString(ActVideoSetting.WIFI_DISPLAY));
         routeNode.setUid(jSONObject.optString("uid"));
-        routeNode.setLocation(CoordUtil.decodeLocation(jSONObject.optString(Config.PLATFORM_TYPE)));
+        routeNode.setLocation(CoordUtil.decodeLocation(jSONObject.optString("pt")));
         return routeNode;
     }
 
@@ -115,7 +114,7 @@ public class o extends k {
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject != null) {
-                    switch (optJSONObject.optInt("error")) {
+                    switch (optJSONObject.optInt(BdStatsConstant.StatsType.ERROR)) {
                         case 0:
                             JSONObject optJSONObject2 = jSONObject.optJSONObject("walk");
                             if (optJSONObject2 != null) {
@@ -124,7 +123,7 @@ public class o extends k {
                                 if (optJSONObject3 == null || optJSONArray2 == null) {
                                     return false;
                                 }
-                                RouteNode a = a(optJSONObject3.optJSONObject(IntentConfig.START));
+                                RouteNode a = a(optJSONObject3.optJSONObject("start"));
                                 RouteNode a2 = a(optJSONObject3.optJSONArray("end"), (List<RouteNode>) null);
                                 ArrayList arrayList = new ArrayList();
                                 for (int i = 0; i < optJSONArray2.length(); i++) {

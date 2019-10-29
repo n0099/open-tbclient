@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -58,10 +59,10 @@ public class a extends z {
                 return false;
             }
             c.i("accelerometer", " init ");
-            com.baidu.swan.apps.aj.a.a Or = com.baidu.swan.apps.aj.a.a.Or();
-            Or.m(context, C0123a.hU(optParamsAsJo.optString("interval")));
-            Or.a(new a.InterfaceC0122a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
-                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0122a
+            com.baidu.swan.apps.aj.a.a Th = com.baidu.swan.apps.aj.a.a.Th();
+            Th.k(context, C0155a.iy(optParamsAsJo.optString("interval")));
+            Th.a(new a.InterfaceC0154a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
+                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0154a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -75,7 +76,7 @@ public class a extends z {
                     }
                 }
             });
-            Or.Os();
+            Th.Ti();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -97,17 +98,17 @@ public class a extends z {
 
     /* renamed from: com.baidu.swan.apps.aj.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0123a {
-        private static ArrayMap<String, Integer> aXI = new ArrayMap<>(3);
+    private static class C0155a {
+        private static ArrayMap<String, Integer> bqL = new ArrayMap<>(3);
 
         static {
-            aXI.put("ui", 60);
-            aXI.put("game", 20);
-            aXI.put("normal", 200);
+            bqL.put("ui", 60);
+            bqL.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            bqL.put("normal", 200);
         }
 
-        public static int hU(String str) {
-            Integer num = aXI.get(str);
+        public static int iy(String str) {
+            Integer num = bqL.get(str);
             if (num != null) {
                 return num.intValue();
             }

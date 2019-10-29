@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,7 +13,7 @@ public class ResponseRequestGroupLocMessage extends SocketResponsedMessage {
     private String position;
 
     public ResponseRequestGroupLocMessage() {
-        super(103010);
+        super(CmdConfigSocket.CMD_QUERY_GROUPLOC);
         this.position = "";
         this.businessAreaList = new ArrayList();
     }

@@ -8,7 +8,7 @@ import java.util.List;
 public interface a {
     void a(Context context, e eVar);
 
-    int bsI();
+    int bpM();
 
     View getView();
 

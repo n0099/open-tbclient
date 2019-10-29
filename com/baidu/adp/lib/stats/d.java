@@ -8,13 +8,13 @@ public class d {
         if (context == null) {
             return null;
         }
-        if (j.kd()) {
+        if (j.isWifiNet()) {
             return "WIFI";
         }
-        if (j.ke()) {
-            int kk = j.kk();
+        if (j.isMobileNet()) {
+            int curOperatorType = j.curOperatorType();
             StringBuilder sb = new StringBuilder();
-            switch (kk) {
+            switch (curOperatorType) {
                 case 1:
                     sb.append('M');
                     break;
@@ -28,16 +28,16 @@ public class d {
                     sb.append('N');
                     break;
             }
-            if (j.ko()) {
+            if (j.isWap()) {
                 sb.append("_WAP_");
             } else {
                 sb.append("_NET_");
             }
-            if (j.kg()) {
+            if (j.is3GNet()) {
                 sb.append("3G");
-            } else if (j.kf()) {
+            } else if (j.is4GNet()) {
                 sb.append("4G");
-            } else if (j.kh()) {
+            } else if (j.is2GNet()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

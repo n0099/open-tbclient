@@ -5,7 +5,7 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 public class l extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
-        if (!this.mParams.getBoolean("key_login_force", false) && c.aD(getAgent())) {
+        if (!this.mParams.getBoolean("key_login_force", false) && c.isLogin(getAgent())) {
             this.mResult.putInt("result_code", 0);
             finish();
             return true;

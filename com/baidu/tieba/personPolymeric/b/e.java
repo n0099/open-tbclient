@@ -7,6 +7,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -23,191 +24,191 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class e implements com.baidu.tieba.personPolymeric.mode.b {
-    private final BaseFragmentActivity dmS;
-    private com.baidu.tieba.c.f fOv;
-    private BaseFragment isB;
-    private final boolean isC;
-    private d isD;
-    private final PersonPolymericModel isE;
-    private final c isF;
-    private final BlackListModel isG;
-    private a isH;
+    private TbPageContext cfl;
+    private com.baidu.tieba.c.f fNP;
+    private final BaseFragmentActivity fyM;
+    private BaseFragment irb;
+    private final boolean irc;
+    private d ird;
+    private final PersonPolymericModel ire;
+    private final c irf;
+    private final BlackListModel irg;
+    private a irh;
+    private g iri;
+    private boolean irk;
     private final boolean isHost;
-    private g isI;
-    private boolean isK;
-    private TbPageContext mContext;
     private final BdUniqueId mPageId;
     public final View mRootView;
     private final long mUserId;
     private int mSkinType = 3;
-    private boolean isJ = false;
-    private final d.b isL = new d.b() { // from class: com.baidu.tieba.personPolymeric.b.e.1
+    private boolean irj = false;
+    private final d.b irl = new d.b() { // from class: com.baidu.tieba.personPolymeric.b.e.1
         @Override // com.baidu.tieba.personPolymeric.b.d.b
-        public void cL(View view) {
+        public void cH(View view) {
             e.this.loadData();
         }
     };
 
     public e(BaseFragment baseFragment, View view, BdUniqueId bdUniqueId, long j, boolean z, boolean z2, boolean z3) {
-        this.isB = baseFragment;
-        this.dmS = this.isB.getBaseFragmentActivity();
+        this.irb = baseFragment;
+        this.fyM = this.irb.getBaseFragmentActivity();
         this.mRootView = view;
         this.mPageId = bdUniqueId;
         this.mUserId = j;
-        this.isK = z3;
+        this.irk = z3;
         this.isHost = z;
-        this.isC = z2;
-        this.mContext = this.dmS.getPageContext();
-        this.isF = new c(this.isB.getPageContext(), bdUniqueId);
-        this.isD = new d(this.isB.getPageContext(), view);
-        this.isD.a(this.isL);
-        this.isE = new PersonPolymericModel(this.dmS, bdUniqueId, z);
-        this.isE.a(this);
-        this.isE.a(this.isF);
-        this.isG = new BlackListModel(this.dmS.getPageContext(), bdUniqueId);
-        this.isI = new g(this.dmS.getPageContext(), bdUniqueId, z);
-        this.isI.a(this.isE);
-        cdS();
+        this.irc = z2;
+        this.cfl = this.fyM.getPageContext();
+        this.irf = new c(this.irb.getPageContext(), bdUniqueId);
+        this.ird = new d(this.irb.getPageContext(), view);
+        this.ird.a(this.irl);
+        this.ire = new PersonPolymericModel(this.fyM, bdUniqueId, z);
+        this.ire.a(this);
+        this.ire.a(this.irf);
+        this.irg = new BlackListModel(this.fyM.getPageContext(), bdUniqueId);
+        this.iri = new g(this.fyM.getPageContext(), bdUniqueId, z);
+        this.iri.a(this.ire);
+        caT();
         loadData();
     }
 
-    public a cdM() {
-        return this.isH;
+    public a caN() {
+        return this.irh;
     }
 
-    public g cdN() {
-        return this.isI;
+    public g caO() {
+        return this.iri;
     }
 
-    public PersonPolymericModel cdO() {
-        return this.isE;
+    public PersonPolymericModel caP() {
+        return this.ire;
     }
 
-    public BlackListModel cdP() {
-        return this.isG;
+    public BlackListModel caQ() {
+        return this.irg;
     }
 
-    public c cdQ() {
-        return this.isF;
+    public c caR() {
+        return this.irf;
     }
 
-    public d cdR() {
-        return this.isD;
+    public d caS() {
+        return this.ird;
     }
 
     public void loadData() {
         if (!TbadkCoreApplication.isLogin() && this.isHost) {
-            this.isD.bvS();
-        } else if (j.jQ()) {
-            this.isD.o(false, -1);
-            this.isD.pQ(true);
-            this.isE.es(this.mUserId);
-            this.isE.er(this.mUserId);
+            this.ird.bsX();
+        } else if (j.isNetworkAvailableForImmediately()) {
+            this.ird.p(false, -1);
+            this.ird.py(true);
+            this.ire.dN(this.mUserId);
+            this.ire.dM(this.mUserId);
         } else {
-            this.isD.hideLoadingView();
-            this.isD.yT(8);
-            this.isD.an(this.isB.getString(R.string.neterror), true);
+            this.ird.hideLoadingView();
+            this.ird.xy(8);
+            this.ird.aj(this.irb.getString(R.string.neterror), true);
         }
     }
 
     public void refreshData() {
         if (!TbadkCoreApplication.isLogin() && this.isHost) {
-            this.isD.bvS();
-        } else if (j.jQ()) {
-            this.isE.er(this.mUserId);
+            this.ird.bsX();
+        } else if (j.isNetworkAvailableForImmediately()) {
+            this.ire.dM(this.mUserId);
         } else {
-            this.isD.hideLoadingView();
-            l.showToast(this.mContext.getContext(), this.mContext.getString(R.string.data_load_error));
+            this.ird.hideLoadingView();
+            l.showToast(this.cfl.getContext(), this.cfl.getString(R.string.data_load_error));
             ArrayList arrayList = new ArrayList();
             com.baidu.tieba.personPolymeric.c.i iVar = new com.baidu.tieba.personPolymeric.c.i();
             iVar.isHost = this.isHost;
             arrayList.add(iVar);
-            this.isD.aKQ();
-            this.isD.dR(arrayList);
-            this.isD.cdL();
+            this.ird.aKk();
+            this.ird.ee(arrayList);
+            this.ird.caM();
         }
     }
 
-    public com.baidu.tieba.personPolymeric.c.a pR(boolean z) {
+    public com.baidu.tieba.personPolymeric.c.a pz(boolean z) {
         if (z) {
-            this.isJ = z;
-            if (j.jQ()) {
-                this.isE.er(this.mUserId);
+            this.irj = z;
+            if (j.isNetworkAvailableForImmediately()) {
+                this.ire.dM(this.mUserId);
             }
         }
-        return this.isE.ceo();
+        return this.ire.cbq();
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.b
     public void b(com.baidu.tieba.personPolymeric.c.a aVar) {
-        this.isD.hideLoadingView();
-        if (this.isH != null) {
-            this.isH.a(aVar);
+        this.ird.hideLoadingView();
+        if (this.irh != null) {
+            this.irh.a(aVar);
         }
-        if (this.isJ && aVar != null && aVar.itR != null && aVar.itR.left_days != null && aVar.getUserData() != null) {
+        if (this.irj && aVar != null && aVar.isr != null && aVar.isr.left_days != null && aVar.getUserData() != null) {
             PersonChangeData personChangeData = new PersonChangeData();
             personChangeData.setMem(aVar.getUserData().getIsMem());
-            personChangeData.setNickNameLeftDays(aVar.itR.left_days.intValue());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921061, personChangeData));
+            personChangeData.setNickNameLeftDays(aVar.isr.left_days.intValue());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NOTIFY_PERSON_CHANGE_MEMBER, personChangeData));
         }
         if (aVar != null) {
-            this.isD.e(aVar.getUserData());
+            this.ird.d(aVar.getUserData());
         }
     }
 
-    private void cdS() {
-        this.isH = new i();
-        this.isH.a(this.dmS, this, this.mPageId, this.mUserId, this.isHost, this.isC);
-        this.isH.pO(this.isK);
-        this.isH.b(this.isB);
-        this.isH.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    private void caT() {
+        this.irh = new i();
+        this.irh.a(this.fyM, this, this.mPageId, this.mUserId, this.isHost, this.irc);
+        this.irh.pw(this.irk);
+        this.irh.b(this.irb);
+        this.irh.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public boolean d(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || aq.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
             return false;
         }
-        if (com.baidu.tbadk.core.sharedPref.b.ahU().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.dmS).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+        if (com.baidu.tbadk.core.sharedPref.b.alR().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoEasterEggActivityConfig(this.fyM).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }
         return false;
     }
 
     public void b(PostWriteCallBackData postWriteCallBackData) {
-        if (this.fOv == null) {
-            this.fOv = new com.baidu.tieba.c.f(this.dmS.getPageContext(), (NavigationBarCoverTip) this.dmS.findViewById(R.id.navigation_cover_tip));
+        if (this.fNP == null) {
+            this.fNP = new com.baidu.tieba.c.f(this.fyM.getPageContext(), (NavigationBarCoverTip) this.fyM.findViewById(R.id.navigation_cover_tip));
         }
-        this.fOv.b(postWriteCallBackData);
+        this.fNP.b(postWriteCallBackData);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.isH != null) {
-                this.isH.onChangeSkinType(i);
+            if (this.irh != null) {
+                this.irh.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
     }
 
     public void onDestroy() {
-        if (this.isH != null) {
-            this.isH.onDestroy();
+        if (this.irh != null) {
+            this.irh.onDestroy();
         }
-        if (this.isE != null) {
-            this.isE.destroy();
+        if (this.ire != null) {
+            this.ire.destroy();
         }
     }
 
-    public void jV(boolean z) {
-        if (this.isH != null) {
-            this.isH.jV(z);
+    public void jJ(boolean z) {
+        if (this.irh != null) {
+            this.irh.jJ(z);
         }
     }
 
     public void onResume() {
-        if (this.isH != null) {
-            this.isH.onResume();
+        if (this.irh != null) {
+            this.irh.onResume();
         }
     }
 }

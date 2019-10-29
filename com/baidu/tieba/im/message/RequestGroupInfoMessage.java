@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupDetail.DataReq;
 import protobuf.QueryGroupDetail.QueryGroupDetailReqIdl;
@@ -13,7 +14,7 @@ public class RequestGroupInfoMessage extends TbSocketMessage {
     private int smallWidth;
 
     public RequestGroupInfoMessage() {
-        super(103004);
+        super(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID);
     }
 
     public long getGroupId() {

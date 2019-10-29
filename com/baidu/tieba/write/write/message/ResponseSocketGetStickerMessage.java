@@ -2,6 +2,7 @@ package com.baidu.tieba.write.write.message;
 
 import GetSticker.GetStickerResIdl;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -9,7 +10,7 @@ public class ResponseSocketGetStickerMessage extends SocketResponsedMessage {
     private List<String> mUrlList;
 
     public ResponseSocketGetStickerMessage() {
-        super(309475);
+        super(CmdConfigSocket.CMD_GET_STICKET_LIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

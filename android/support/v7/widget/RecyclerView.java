@@ -54,6 +54,9 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.OverScroller;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.mapapi.UIMsg;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -370,7 +373,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
     }
 
     String exceptionLabel() {
-        return " " + super.toString() + ", adapter:" + this.mAdapter + ", layout:" + this.mLayout + ", context:" + getContext();
+        return HanziToPinyin.Token.SEPARATOR + super.toString() + ", adapter:" + this.mAdapter + ", layout:" + this.mLayout + ", context:" + getContext();
     }
 
     public RecyclerViewAccessibilityDelegate getCompatAccessibilityDelegate() {
@@ -431,7 +434,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         if (str.charAt(0) == '.') {
             return context.getPackageName() + str;
         }
-        return !str.contains(".") ? RecyclerView.class.getPackage().getName() + '.' + str : str;
+        return !str.contains(DefaultConfig.TOKEN_SEPARATOR) ? RecyclerView.class.getPackage().getName() + BdFileHelper.EXTENSION_SEPARATOR + str : str;
     }
 
     private void initChildrenHelper() {

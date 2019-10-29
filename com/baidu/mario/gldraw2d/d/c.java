@@ -21,7 +21,7 @@ public class c implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: sH */
+    /* renamed from: xC */
     public c clone() {
         try {
             return (c) super.clone();

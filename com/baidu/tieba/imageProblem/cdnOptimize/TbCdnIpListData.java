@@ -1,38 +1,40 @@
 package com.baidu.tieba.imageProblem.cdnOptimize;
 
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> hce;
-    public int hcc = 0;
+    public ArrayList<ArrayList<String>> hah;
+    public int haf = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String hcd = null;
-    boolean hcf = false;
-    public String hcg = null;
+    public String hag = null;
+    boolean hai = false;
+    public String haj = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null) {
             try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
-                    this.hcc = optJSONObject.optInt("errorno");
+                    this.haf = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.hcf = true;
+                    this.hai = true;
                 } else {
-                    this.hcf = false;
+                    this.hai = false;
                 }
-                this.hcg = jSONObject.optString("cdn_domain");
+                this.haj = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.hcd = optJSONObject2.optString("img_md5");
+                    this.hag = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -40,7 +42,7 @@ public class TbCdnIpListData {
                     ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray2.getJSONObject(i);
-                        if (jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray("ip")) != null) {
+                        if (jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null) {
                             int length2 = optJSONArray.length();
                             ArrayList<String> arrayList2 = new ArrayList<>();
                             for (int i2 = 0; i2 < length2; i2++) {
@@ -55,7 +57,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.hce = arrayList;
+                        this.hah = arrayList;
                     }
                 }
             } catch (Exception e) {

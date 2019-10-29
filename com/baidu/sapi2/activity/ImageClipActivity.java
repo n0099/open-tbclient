@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import com.baidu.d.a.a;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.ZoomImageView;
 import java.io.ByteArrayOutputStream;
@@ -145,7 +146,7 @@ public class ImageClipActivity extends Activity {
             }
         } else if ("content".equalsIgnoreCase(data.getScheme())) {
             str = getImgePath(data, null);
-        } else if ("file".equalsIgnoreCase(data.getScheme())) {
+        } else if (BdStatsConstant.OpSubType.FILE.equalsIgnoreCase(data.getScheme())) {
             str = data.getPath();
         }
         loadImage(str);

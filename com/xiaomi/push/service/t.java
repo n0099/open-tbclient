@@ -5,9 +5,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.TreeMap;
 import org.json.JSONObject;
@@ -28,17 +27,17 @@ public class t {
                 sVar = a;
             } else {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_account", 0);
-                String string = sharedPreferences.getString(UserBox.TYPE, null);
+                String string = sharedPreferences.getString("uuid", null);
                 String string2 = sharedPreferences.getString("token", null);
                 String string3 = sharedPreferences.getString("security", null);
                 String string4 = sharedPreferences.getString(Constants.APP_ID, null);
                 String string5 = sharedPreferences.getString("app_token", null);
                 String string6 = sharedPreferences.getString(Constants.PACKAGE_NAME, null);
-                String string7 = sharedPreferences.getString("device_id", null);
+                String string7 = sharedPreferences.getString(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, null);
                 int i = sharedPreferences.getInt("env_type", 1);
                 if (!TextUtils.isEmpty(string7) && string7.startsWith("a-")) {
                     string7 = com.xiaomi.channel.commonutils.android.d.k(context);
-                    sharedPreferences.edit().putString("device_id", string7).commit();
+                    sharedPreferences.edit().putString(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, string7).commit();
                 }
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
                     String k = com.xiaomi.channel.commonutils.android.d.k(context);
@@ -93,7 +92,7 @@ public class t {
             treeMap.put("devid", com.xiaomi.channel.commonutils.android.d.a(context, false));
             treeMap.put("devid1", com.xiaomi.channel.commonutils.android.d.a(context));
             if (a != null && !TextUtils.isEmpty(a.a)) {
-                treeMap.put(UserBox.TYPE, a.a);
+                treeMap.put("uuid", a.a);
                 int lastIndexOf = a.a.lastIndexOf("/");
                 if (lastIndexOf != -1) {
                     str4 = a.a.substring(lastIndexOf + 1);
@@ -122,7 +121,7 @@ public class t {
                             treeMap.put(Constants.EXTRA_KEY_IMEI_MD5, str8);
                         }
                     }
-                    treeMap.put(IXAdRequestInfo.OS, Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
+                    treeMap.put("os", Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
                     b3 = com.xiaomi.channel.commonutils.android.d.b();
                     if (b3 >= 0) {
                         treeMap.put("space_id", Integer.toString(b3));
@@ -139,7 +138,7 @@ public class t {
                         JSONObject jSONObject = new JSONObject(a2);
                         if (jSONObject.getInt("code") == 0) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                            sVar = new s(jSONObject2.getString("userId") + "@xiaomi.com/" + (TextUtils.isEmpty(str4) ? "an" + com.xiaomi.channel.commonutils.string.d.a(6) : str4), jSONObject2.getString("token"), jSONObject2.getString("ssecurity"), str5, str6, str7, com.xiaomi.channel.commonutils.misc.a.c());
+                            sVar = new s(jSONObject2.getString(TbEnum.SystemMessage.KEY_USER_ID) + "@xiaomi.com/" + (TextUtils.isEmpty(str4) ? "an" + com.xiaomi.channel.commonutils.string.d.a(6) : str4), jSONObject2.getString("token"), jSONObject2.getString("ssecurity"), str5, str6, str7, com.xiaomi.channel.commonutils.misc.a.c());
                             a(context, sVar);
                             com.xiaomi.channel.commonutils.android.d.a(context, jSONObject2.optString("vdevid"));
                             a = sVar;
@@ -170,7 +169,7 @@ public class t {
             treeMap.put("board", Build.BOARD);
             if (!com.xiaomi.channel.commonutils.android.f.g()) {
             }
-            treeMap.put(IXAdRequestInfo.OS, Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
+            treeMap.put("os", Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
             b3 = com.xiaomi.channel.commonutils.android.d.b();
             if (b3 >= 0) {
             }
@@ -196,13 +195,13 @@ public class t {
 
     public static void a(Context context, s sVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-        edit.putString(UserBox.TYPE, sVar.a);
+        edit.putString("uuid", sVar.a);
         edit.putString("security", sVar.c);
         edit.putString("token", sVar.b);
         edit.putString(Constants.APP_ID, sVar.d);
         edit.putString(Constants.PACKAGE_NAME, sVar.f);
         edit.putString("app_token", sVar.e);
-        edit.putString("device_id", com.xiaomi.channel.commonutils.android.d.k(context));
+        edit.putString(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, com.xiaomi.channel.commonutils.android.d.k(context));
         edit.putInt("env_type", sVar.g);
         edit.commit();
         a();

@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
 /* loaded from: classes.dex */
@@ -16,7 +16,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
     private int proZone;
 
     public RequestGetMyPostNetMessage() {
-        super(CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        super(1003010, CmdConfigSocket.CMD_GET_MY_POST);
     }
 
     public void setParams(long j, long j2, long j3, int i, int i2, double d, int i3) {

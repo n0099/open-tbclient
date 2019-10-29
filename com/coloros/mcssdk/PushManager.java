@@ -180,7 +180,7 @@ public class PushManager {
 
     public void getPushStatus() {
         checkAll();
-        startMcsService(CommandMessage.COMMAND_GET_PUSH_STATUS);
+        startMcsService(12306);
     }
 
     public void getPushTime() {

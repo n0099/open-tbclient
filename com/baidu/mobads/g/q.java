@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.Thread;
 /* loaded from: classes5.dex */
@@ -92,7 +93,7 @@ public class q implements Thread.UncaughtExceptionHandler {
                     return "vr";
                 }
                 if (className.startsWith("com.baidu.mobads")) {
-                    return "proxy";
+                    return IMTrack.AckBuilder.PROXY_TYPE;
                 }
             }
         }

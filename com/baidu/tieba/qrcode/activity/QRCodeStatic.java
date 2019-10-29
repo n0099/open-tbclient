@@ -14,22 +14,22 @@ import com.baidu.tieba.tbadkCore.data.n;
 public class QRCodeStatic {
     static {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QRCodeScanActivityConfig.class, QRCodeScanActivity.class);
-        chS();
-        chT();
+        ceR();
+        ceS();
     }
 
-    private static void chS() {
+    private static void ceR() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921388, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
-                return new CustomResponsedMessage<>(2921388, com.baidu.tieba.qrcode.lib.zxing.b.bk(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+                return new CustomResponsedMessage<>(2921388, com.baidu.tieba.qrcode.lib.zxing.b.bf(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void chT() {
+    private static void ceS() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921403, new CustomMessageTask.CustomRunnable<n>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<n> customMessage) {
@@ -39,14 +39,14 @@ public class QRCodeStatic {
                 }
                 n data = customMessage.getData();
                 if (data.type == 0) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.E(data.jjG);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.C(data.jju);
                 } else if (data.type == 1) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.DW(data.jjH);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.Cp(data.jjv);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.jjI = "qr_none";
+                    data.jjw = "qr_none";
                 } else {
-                    data.jjI = str;
+                    data.jjw = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }

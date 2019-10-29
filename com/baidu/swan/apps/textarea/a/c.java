@@ -25,16 +25,16 @@ public class c extends z {
             return false;
         }
         com.baidu.swan.apps.console.c.d("UpdateTextAreaAction", "UpdateTextAreaAction paramsJson: " + optParamsAsJo);
-        com.baidu.swan.apps.textarea.c.b ic = com.baidu.swan.apps.textarea.c.a.OS().ic(optParamsAsJo.optString("slaveId"));
-        if (ic == null) {
+        com.baidu.swan.apps.textarea.c.b iG = com.baidu.swan.apps.textarea.c.a.TI().iG(optParamsAsJo.optString("slaveId"));
+        if (iG == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!ic.am(optParamsAsJo)) {
+        } else if (!iG.aK(optParamsAsJo)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            ic.ig(optParamsAsJo.optString("inputId"));
+            iG.iJ(optParamsAsJo.optString("inputId"));
             return true;
         }
     }

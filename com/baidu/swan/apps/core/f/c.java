@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.core.f;
 /* loaded from: classes2.dex */
 public interface c {
-    boolean dW(String str);
+    void dc(String str);
 
-    void dg(String str);
+    boolean dd(String str);
 
     void goBack();
 }

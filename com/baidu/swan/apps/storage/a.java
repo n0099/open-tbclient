@@ -1,31 +1,31 @@
 package com.baidu.swan.apps.storage;
 /* loaded from: classes2.dex */
 public class a {
-    private long aWP;
-    private long aWQ;
-    private String wX;
+    private long bpT;
+    private String mPath;
+    private long mSize;
 
     public String getPath() {
-        return this.wX;
+        return this.mPath;
     }
 
     public void setPath(String str) {
-        this.wX = str;
+        this.mPath = str;
     }
 
     public long getSize() {
-        return this.aWP;
+        return this.mSize;
     }
 
     public void setSize(long j) {
-        this.aWP = j;
+        this.mSize = j;
     }
 
-    public long NT() {
-        return this.aWQ;
+    public long SJ() {
+        return this.bpT;
     }
 
-    public void V(long j) {
-        this.aWQ = j;
+    public void ao(long j) {
+        this.bpT = j;
     }
 }

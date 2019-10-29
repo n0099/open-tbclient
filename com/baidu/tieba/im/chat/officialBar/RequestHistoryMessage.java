@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryHistoryMsg.DataReq;
@@ -15,7 +16,7 @@ public class RequestHistoryMessage extends TbSocketMessage {
     private int width;
 
     public RequestHistoryMessage(int i, long j, int i2) {
-        super(208002);
+        super(CmdConfigSocket.CMD_QUERY_OFFICIAL_BAR_HISTORY);
         this.forum_id = 0;
         this.user_id = 0L;
         this.id = 0;
@@ -26,12 +27,12 @@ public class RequestHistoryMessage extends TbSocketMessage {
         this.forum_id = i;
         this.user_id = j;
         this.id = i2;
-        LocalViewSize.ImageSize aiG = LocalViewSize.aiD().aiG();
-        this.width = aiG.width;
-        this.height = aiG.height;
-        LocalViewSize.ImageSize aiF = LocalViewSize.aiD().aiF();
-        this.sWidth = aiF.width;
-        this.sHeight = aiF.height;
+        LocalViewSize.ImageSize amq = LocalViewSize.amo().amq();
+        this.width = amq.width;
+        this.height = amq.height;
+        LocalViewSize.ImageSize amp = LocalViewSize.amo().amp();
+        this.sWidth = amp.width;
+        this.sHeight = amp.height;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

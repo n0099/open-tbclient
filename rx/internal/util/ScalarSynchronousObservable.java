@@ -8,24 +8,24 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class ScalarSynchronousObservable<T> extends rx.d<T> {
-    static final boolean kDI = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
-    final T kDH;
+    static final boolean kEp = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
+    final T t;
 
     static <T> rx.f b(j<? super T> jVar, T t) {
-        return kDI ? new SingleProducer(jVar, t) : new c(jVar, t);
+        return kEp ? new SingleProducer(jVar, t) : new c(jVar, t);
     }
 
-    public static <T> ScalarSynchronousObservable<T> bB(T t) {
+    public static <T> ScalarSynchronousObservable<T> bw(T t) {
         return new ScalarSynchronousObservable<>(t);
     }
 
     protected ScalarSynchronousObservable(T t) {
         super(rx.c.c.b(new a(t)));
-        this.kDH = t;
+        this.t = t;
     }
 
     public T get() {
-        return this.kDH;
+        return this.t;
     }
 
     public rx.d<T> e(final rx.g gVar) {
@@ -61,7 +61,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
                 }
             };
         }
-        return a((d.a) new b(this.kDH, fVar));
+        return a((d.a) new b(this.t, fVar));
     }
 
     /* loaded from: classes2.dex */
@@ -154,9 +154,9 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(j<? super R> jVar) {
-                rx.d dVar = (rx.d) fVar.call(ScalarSynchronousObservable.this.kDH);
+                rx.d dVar = (rx.d) fVar.call(ScalarSynchronousObservable.this.t);
                 if (dVar instanceof ScalarSynchronousObservable) {
-                    jVar.setProducer(ScalarSynchronousObservable.b(jVar, ((ScalarSynchronousObservable) dVar).kDH));
+                    jVar.setProducer(ScalarSynchronousObservable.b(jVar, ((ScalarSynchronousObservable) dVar).t));
                 } else {
                     dVar.a((j) rx.b.f.d(jVar));
                 }

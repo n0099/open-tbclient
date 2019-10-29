@@ -43,7 +43,7 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
             if (bawuTeamRequestMessage != null) {
                 this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
             }
-            new d().j(this.cacheKey, bArr);
+            new d().i(this.cacheKey, bArr);
         }
     }
 

@@ -3,8 +3,6 @@ package com.baidu.android.pushservice.i;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-import com.baidu.sapi2.result.AddressManageResult;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class g {
@@ -45,9 +43,9 @@ public class g {
             NetworkInfo c = c(context);
             switch (c != null ? c.getType() : -1) {
                 case 0:
-                    return AddressManageResult.KEY_MOBILE;
+                    return "mobile";
                 case 1:
-                    return IXAdSystemUtils.NT_WIFI;
+                    return "wifi";
                 case 2:
                     return "mobile_mms";
                 case 3:

@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class f implements d {
     @Override // com.baidu.tbadk.m.d
-    public void a(View view, View view2, boolean z) {
+    public void attachView(View view, View view2, boolean z) {
         LinearLayout linearLayout = (LinearLayout) view;
         if (z) {
             linearLayout.addView(view2, 0);

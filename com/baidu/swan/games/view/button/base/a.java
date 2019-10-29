@@ -6,15 +6,15 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.HashSet;
 /* loaded from: classes2.dex */
 public class a {
+    private InterfaceC0260a bFe;
     @V8JavascriptField
     public String backgroundColor;
-    private InterfaceC0228a bms;
     @V8JavascriptField
     public String borderColor;
     @V8JavascriptField
@@ -43,12 +43,12 @@ public class a {
     public double fontSize = 16.0d;
     @V8JavascriptField
     public double opacity = 1.0d;
-    public HashSet<String> bmr = new HashSet<>();
+    public HashSet<String> bFd = new HashSet<>();
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0228a {
-        void TS();
+    public interface InterfaceC0260a {
+        void YJ();
     }
 
     public a(@NonNull JsObject jsObject) {
@@ -98,13 +98,13 @@ public class a {
                         }
                         break;
                     case 115029:
-                        if (propertyName.equals("top")) {
+                        if (propertyName.equals(VerticalTranslateLayout.TOP)) {
                             c = 1;
                             break;
                         }
                         break;
                     case 3317767:
-                        if (propertyName.equals(CustomDialogData.POS_LEFT)) {
+                        if (propertyName.equals("left")) {
                             c = 0;
                             break;
                         }
@@ -199,7 +199,7 @@ public class a {
                         this.color = jsObject.toString(i);
                         break;
                 }
-                this.bmr.add(propertyName);
+                this.bFd.add(propertyName);
             }
         }
         if (com.baidu.swan.apps.b.DEBUG) {
@@ -212,16 +212,16 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.bms != null) {
-            this.bms.TS();
+        if (this.bFe != null) {
+            this.bFe.YJ();
         }
     }
 
-    public void a(InterfaceC0228a interfaceC0228a) {
-        this.bms = interfaceC0228a;
+    public void a(InterfaceC0260a interfaceC0260a) {
+        this.bFe = interfaceC0260a;
     }
 
-    public static int fk(@ColorInt int i) {
+    public static int gf(@ColorInt int i) {
         int i2 = (16711680 & i) >> 16;
         int i3 = (65280 & i) >> 8;
         int i4 = i & 255;

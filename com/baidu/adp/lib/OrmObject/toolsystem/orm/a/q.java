@@ -7,23 +7,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q implements h {
-    private SparseArray<?> xy;
+    private SparseArray<?> nm;
 
     public q(SparseArray<?> sparseArray) {
-        this.xy = sparseArray;
+        this.nm = sparseArray;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] ha = cVar.ha();
+        Type[] eU = cVar.eU();
         JSONObject jSONObject = new JSONObject();
-        int size = this.xy.size();
+        int size = this.nm.size();
         for (int i = 0; i < size; i++) {
-            int keyAt = this.xy.keyAt(i);
-            Object obj = this.xy.get(keyAt);
+            int keyAt = this.nm.keyAt(i);
+            Object obj = this.nm.get(keyAt);
             if (obj != null) {
-                if (ha != null && ha.length >= 1) {
-                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(ha[0]));
+                if (eU != null && eU.length >= 1) {
+                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.p(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(eU[0]));
                     if (a != null) {
                         try {
                             jSONObject.put(String.valueOf(keyAt), a);
@@ -31,7 +31,7 @@ public class q implements h {
                         }
                     }
                 } else {
-                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.hb()));
+                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.p(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.eV()));
                     if (a2 != null) {
                         try {
                             jSONObject.put(String.valueOf(keyAt), a2);
@@ -60,7 +60,7 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.xy;
+        return this.nm;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -80,6 +80,6 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.xy;
+        return this.nm;
     }
 }

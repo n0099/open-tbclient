@@ -4,6 +4,9 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.xiaomi.mipush.sdk.Constants;
@@ -11,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void ni(String str) {
+    public static void nE(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -22,7 +25,7 @@ public class j {
                 break;
             }
             String group = matcher.group();
-            if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && !((Boolean) runTask.getData()).booleanValue()) {
+            if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && !((Boolean) runTask.getData()).booleanValue()) {
                 i++;
             }
             i2 = i;
@@ -32,19 +35,19 @@ public class j {
             String[] split = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split != null && split.length == 5) {
                 String str2 = split[1];
-                if (!TextUtils.isEmpty(str2) && str2.contains("_") && !str2.contains("collect_")) {
+                if (!TextUtils.isEmpty(str2) && str2.contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) && !str2.contains("collect_")) {
                     i++;
                 }
             }
         }
         if (i > 0) {
-            an anVar = new an("c12231");
-            anVar.P("obj_param1", i);
+            an anVar = new an(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            anVar.O("obj_param1", i);
             TiebaStatic.log(anVar);
         }
     }
 
-    public static void aig() {
+    public static void ama() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -53,7 +56,7 @@ public class j {
                 int i;
                 com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
                 try {
-                    cursor = mainDBDatabaseManager.fa().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    cursor = mainDBDatabaseManager.getOpenedDatabase().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
                     i = 0;
                     while (cursor.moveToNext()) {
                         try {
@@ -61,27 +64,27 @@ public class j {
                         } catch (Throwable th2) {
                             th = th2;
                             try {
-                                mainDBDatabaseManager.c(th, "EmotionsDBManager.listMyEmotions");
-                                com.baidu.adp.lib.util.n.e(cursor);
-                                an anVar = new an("c12232");
-                                anVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
-                                anVar.P("obj_param1", i);
+                                mainDBDatabaseManager.notifySQLException(th, "EmotionsDBManager.listMyEmotions");
+                                com.baidu.adp.lib.util.n.close(cursor);
+                                an anVar = new an(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+                                anVar.bS("uid", TbadkCoreApplication.getCurrentAccount());
+                                anVar.O("obj_param1", i);
                                 TiebaStatic.log(anVar);
                             } catch (Throwable th3) {
-                                com.baidu.adp.lib.util.n.e(cursor);
+                                com.baidu.adp.lib.util.n.close(cursor);
                                 throw th3;
                             }
                         }
                     }
-                    com.baidu.adp.lib.util.n.e(cursor);
+                    com.baidu.adp.lib.util.n.close(cursor);
                 } catch (Throwable th4) {
                     cursor = null;
                     th = th4;
                     i = 0;
                 }
-                an anVar2 = new an("c12232");
-                anVar2.bT("uid", TbadkCoreApplication.getCurrentAccount());
-                anVar2.P("obj_param1", i);
+                an anVar2 = new an(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+                anVar2.bS("uid", TbadkCoreApplication.getCurrentAccount());
+                anVar2.O("obj_param1", i);
                 TiebaStatic.log(anVar2);
             }
         }).start();

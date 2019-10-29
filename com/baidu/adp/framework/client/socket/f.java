@@ -5,41 +5,41 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class f {
-    private static f ug = null;
-    private int tQ = 0;
+    private static f lY = null;
+    private int mSequenceId = 0;
 
-    public static f fK() {
-        if (ug == null) {
+    public static f eB() {
+        if (lY == null) {
             synchronized (f.class) {
-                if (ug == null) {
-                    ug = new f();
+                if (lY == null) {
+                    lY = new f();
                 }
             }
         }
-        return ug;
+        return lY;
     }
 
-    public synchronized void g(Map<String, String> map) {
+    public synchronized void setSequenceId(Map<String, String> map) {
         if (map != null) {
             try {
-                this.tQ = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.mSequenceId = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                i.a("SequenceManager", 0, 0, "setSequenceId", h.uX, "parser Seq-Id error");
-                if (this.tQ == 0) {
-                    this.tQ = new Random().nextInt();
+                i.debug("SequenceManager", 0, 0, "setSequenceId", h.QUEUE_SERVER_INIT_SEQID_ERROR, "parser Seq-Id error");
+                if (this.mSequenceId == 0) {
+                    this.mSequenceId = new Random().nextInt();
                 }
             }
         }
     }
 
-    public synchronized int fE() {
+    public synchronized int getSequenceId() {
         int i;
-        if (this.tQ == 0) {
-            this.tQ++;
+        if (this.mSequenceId == 0) {
+            this.mSequenceId++;
         }
-        i = this.tQ;
-        this.tQ = i + 1;
+        i = this.mSequenceId;
+        this.mSequenceId = i + 1;
         return i;
     }
 }

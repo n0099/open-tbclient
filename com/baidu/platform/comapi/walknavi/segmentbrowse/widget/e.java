@@ -1,6 +1,7 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse.widget;
 
 import android.os.Bundle;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class e {
         int[] intArray3 = bundle.getIntArray("unLineNo");
         boolean[] booleanArray = bundle.getBooleanArray("bHighLight");
         a(intArray, intArray2, intArray3, booleanArray);
-        String replace = string.contains("@") ? string.replace("@", "...") : string;
+        String replace = string.contains("@") ? string.replace("@", StringHelper.STRING_MORE) : string;
         if (intArray.length == 0) {
             return arrayList;
         }
@@ -129,7 +130,7 @@ public class e {
         int[] intArray3 = bundle.getIntArray("unPOILineNo");
         boolean[] booleanArray = bundle.getBooleanArray("bPOIHighLight");
         a(intArray, intArray2, intArray3, booleanArray);
-        String replace = string.contains("@") ? string.replace("@", "...") : string;
+        String replace = string.contains("@") ? string.replace("@", StringHelper.STRING_MORE) : string;
         if (intArray.length == 0) {
             return arrayList;
         }

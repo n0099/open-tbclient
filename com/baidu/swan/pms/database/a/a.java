@@ -2,7 +2,7 @@ package com.baidu.swan.pms.database.a;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -11,20 +11,20 @@ import java.util.List;
 public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: i */
-    public PMSAppInfo l(Cursor cursor) {
+    /* renamed from: h */
+    public PMSAppInfo k(Cursor cursor) {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
-        return k(cursor);
+        return j(cursor);
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<PMSAppInfo> j(Cursor cursor) {
+    public List<PMSAppInfo> i(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
-                arrayList.add(k(cursor));
+                arrayList.add(j(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -34,53 +34,53 @@ public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: g */
-    public ContentValues U(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
+    public ContentValues S(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (pMSAppInfo != null) {
             contentValues.put(Constants.APP_ID, pMSAppInfo.appId);
             contentValues.put("app_key", pMSAppInfo.appKey);
-            contentValues.put("app_sign", Long.valueOf(pMSAppInfo.bte));
+            contentValues.put("app_sign", Long.valueOf(pMSAppInfo.bLP));
             contentValues.put("version_code", Integer.valueOf(pMSAppInfo.versionCode));
-            contentValues.put("version_name", pMSAppInfo.versionName);
+            contentValues.put(SharedPrefConfig.VERSION_NAME, pMSAppInfo.versionName);
             contentValues.put("description", pMSAppInfo.description);
             contentValues.put("app_status", Integer.valueOf(pMSAppInfo.appStatus));
-            contentValues.put("status_detail", pMSAppInfo.btf);
-            contentValues.put("status_desc", pMSAppInfo.btg);
-            contentValues.put("resume_date", pMSAppInfo.avq);
+            contentValues.put("status_detail", pMSAppInfo.bLQ);
+            contentValues.put("status_desc", pMSAppInfo.bLR);
+            contentValues.put("resume_date", pMSAppInfo.aOG);
             contentValues.put("icon_url", pMSAppInfo.iconUrl);
-            contentValues.put(DpStatConstants.KEY_APP_NAME, pMSAppInfo.appName);
-            contentValues.put("service_category", pMSAppInfo.avt);
-            contentValues.put("subject_info", pMSAppInfo.avu);
+            contentValues.put("app_name", pMSAppInfo.appName);
+            contentValues.put("service_category", pMSAppInfo.aOJ);
+            contentValues.put("subject_info", pMSAppInfo.aOK);
             contentValues.put("type", Integer.valueOf(pMSAppInfo.type));
-            contentValues.put("pkg_size", Long.valueOf(pMSAppInfo.bth));
-            contentValues.put("pending_err_code", Integer.valueOf(pMSAppInfo.bti));
-            contentValues.put("app_category", Integer.valueOf(pMSAppInfo.btj));
+            contentValues.put("pkg_size", Long.valueOf(pMSAppInfo.bLS));
+            contentValues.put("pending_err_code", Integer.valueOf(pMSAppInfo.bLT));
+            contentValues.put("app_category", Integer.valueOf(pMSAppInfo.bLU));
             contentValues.put("orientation", Integer.valueOf(pMSAppInfo.orientation));
-            contentValues.put("max_age", Long.valueOf(pMSAppInfo.avE));
+            contentValues.put("max_age", Long.valueOf(pMSAppInfo.aOT));
             contentValues.put("create_time", Long.valueOf(pMSAppInfo.createTime));
-            contentValues.put("webview_domains", pMSAppInfo.btk);
-            contentValues.put("web_action", pMSAppInfo.btl);
-            contentValues.put("domains", pMSAppInfo.btm);
-            contentValues.put("bear_info", pMSAppInfo.avv);
-            contentValues.put("server_ext", pMSAppInfo.btn);
+            contentValues.put("webview_domains", pMSAppInfo.bLV);
+            contentValues.put("web_action", pMSAppInfo.bLW);
+            contentValues.put("domains", pMSAppInfo.bLX);
+            contentValues.put("bear_info", pMSAppInfo.aOL);
+            contentValues.put("server_ext", pMSAppInfo.bLY);
         }
         return contentValues;
     }
 
-    private PMSAppInfo k(Cursor cursor) {
+    private PMSAppInfo j(Cursor cursor) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex(Constants.APP_ID);
             int columnIndex2 = cursor.getColumnIndex("app_key");
             int columnIndex3 = cursor.getColumnIndex("app_sign");
             int columnIndex4 = cursor.getColumnIndex("version_code");
-            int columnIndex5 = cursor.getColumnIndex("version_name");
+            int columnIndex5 = cursor.getColumnIndex(SharedPrefConfig.VERSION_NAME);
             int columnIndex6 = cursor.getColumnIndex("description");
             int columnIndex7 = cursor.getColumnIndex("app_status");
             int columnIndex8 = cursor.getColumnIndex("status_detail");
             int columnIndex9 = cursor.getColumnIndex("status_desc");
             int columnIndex10 = cursor.getColumnIndex("resume_date");
             int columnIndex11 = cursor.getColumnIndex("icon_url");
-            int columnIndex12 = cursor.getColumnIndex(DpStatConstants.KEY_APP_NAME);
+            int columnIndex12 = cursor.getColumnIndex("app_name");
             int columnIndex13 = cursor.getColumnIndex("service_category");
             int columnIndex14 = cursor.getColumnIndex("subject_info");
             int columnIndex15 = cursor.getColumnIndex("type");
@@ -98,30 +98,30 @@ public class a extends b<PMSAppInfo> {
             PMSAppInfo pMSAppInfo = new PMSAppInfo();
             pMSAppInfo.appId = cursor.getString(columnIndex);
             pMSAppInfo.appKey = cursor.getString(columnIndex2);
-            pMSAppInfo.bte = cursor.getLong(columnIndex3);
+            pMSAppInfo.bLP = cursor.getLong(columnIndex3);
             pMSAppInfo.versionCode = cursor.getInt(columnIndex4);
             pMSAppInfo.versionName = cursor.getString(columnIndex5);
             pMSAppInfo.description = cursor.getString(columnIndex6);
             pMSAppInfo.appStatus = cursor.getInt(columnIndex7);
-            pMSAppInfo.btf = cursor.getString(columnIndex8);
-            pMSAppInfo.btg = cursor.getString(columnIndex9);
-            pMSAppInfo.avq = cursor.getString(columnIndex10);
+            pMSAppInfo.bLQ = cursor.getString(columnIndex8);
+            pMSAppInfo.bLR = cursor.getString(columnIndex9);
+            pMSAppInfo.aOG = cursor.getString(columnIndex10);
             pMSAppInfo.iconUrl = cursor.getString(columnIndex11);
             pMSAppInfo.appName = cursor.getString(columnIndex12);
-            pMSAppInfo.avt = cursor.getString(columnIndex13);
-            pMSAppInfo.avu = cursor.getString(columnIndex14);
+            pMSAppInfo.aOJ = cursor.getString(columnIndex13);
+            pMSAppInfo.aOK = cursor.getString(columnIndex14);
             pMSAppInfo.type = cursor.getInt(columnIndex15);
-            pMSAppInfo.bth = cursor.getLong(columnIndex16);
-            pMSAppInfo.bti = cursor.getInt(columnIndex17);
-            pMSAppInfo.btj = cursor.getInt(columnIndex18);
+            pMSAppInfo.bLS = cursor.getLong(columnIndex16);
+            pMSAppInfo.bLT = cursor.getInt(columnIndex17);
+            pMSAppInfo.bLU = cursor.getInt(columnIndex18);
             pMSAppInfo.orientation = cursor.getInt(columnIndex19);
-            pMSAppInfo.avE = cursor.getLong(columnIndex20);
+            pMSAppInfo.aOT = cursor.getLong(columnIndex20);
             pMSAppInfo.createTime = cursor.getLong(columnIndex21);
-            pMSAppInfo.btk = cursor.getString(columnIndex22);
-            pMSAppInfo.btl = cursor.getString(columnIndex23);
-            pMSAppInfo.btm = cursor.getString(columnIndex24);
-            pMSAppInfo.avv = cursor.getString(columnIndex25);
-            pMSAppInfo.btn = cursor.getString(columnIndex26);
+            pMSAppInfo.bLV = cursor.getString(columnIndex22);
+            pMSAppInfo.bLW = cursor.getString(columnIndex23);
+            pMSAppInfo.bLX = cursor.getString(columnIndex24);
+            pMSAppInfo.aOL = cursor.getString(columnIndex25);
+            pMSAppInfo.bLY = cursor.getString(columnIndex26);
             return pMSAppInfo;
         }
         return null;

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -15,7 +16,7 @@ public class QRCodeScanActivityConfig extends IntentConfig {
     public QRCodeScanActivityConfig(Context context, boolean z) {
         super(context);
         getIntent().putExtra(IS_AIAPP, z);
-        setRequestCode(25043);
+        setRequestCode(RequestResponseCode.REQUEST_GUARD_CLUB_INFO);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.util.SecureHelper;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -18,7 +19,7 @@ public final class bm {
                 return new byte[0];
             }
             SecretKeySpec secretKeySpec = new SecretKeySpec(br.a[i2].getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
             cipher.init(1, secretKeySpec);
             return cipher.doFinal(bArr);
         }
@@ -29,7 +30,7 @@ public final class bm {
                 return new byte[0];
             }
             SecretKeySpec secretKeySpec = new SecretKeySpec(br.a[i2].getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
             cipher.init(2, secretKeySpec);
             return cipher.doFinal(bArr);
         }

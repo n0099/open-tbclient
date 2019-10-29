@@ -1,5 +1,6 @@
 package com.baidu.poly.bean;
 
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -26,12 +27,12 @@ public class PayChannel implements Serializable {
         this.payChannel = jSONObject.optString("pay_channel");
         this.payText = jSONObject.optString("pay_text");
         this.errorText = jSONObject.optString("error_text");
-        this.icon = jSONObject.optString("icon");
+        this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
         this.isFold = jSONObject.optInt("is_fold", 0) == 1;
         this.isSelected = jSONObject.optInt("is_selected", 0) == 1;
         this.freePay = jSONObject.optInt("free_pay");
         this.enable = jSONObject.optInt("enable", 1) == 1;
-        this.actionType = jSONObject.optString("action_type", ACTION_TYPE_SDK);
+        this.actionType = jSONObject.optString("action_type", "sdk");
     }
 
     public String getDisplayName() {

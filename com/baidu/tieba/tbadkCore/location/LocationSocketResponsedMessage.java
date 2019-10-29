@@ -2,6 +2,7 @@ package com.baidu.tieba.tbadkCore.location;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetPoisByLocation.GetPoisByLocationResIdl;
 /* loaded from: classes.dex */
@@ -9,7 +10,7 @@ public class LocationSocketResponsedMessage extends SocketResponsedMessage {
     private a mLocationData;
 
     public LocationSocketResponsedMessage() {
-        super(303017);
+        super(CmdConfigSocket.CMD_GET_LOCATION);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

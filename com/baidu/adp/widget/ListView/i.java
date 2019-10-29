@@ -1,67 +1,65 @@
 package com.baidu.adp.widget.ListView;
-
-import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class i {
-    private float NU = 8.0f;
-    private float NV = 15.0f;
-    private float NW = 4.0f;
-    private float NX = 60.0f;
-    private int NY = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-    private int NZ = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-    private int Oa = 500;
-    private float Ob = 0.4f;
-    private float Oc = 1.0f;
-    private float Od = 20.0f;
-    private float Oe = 10.0f;
-    private int Of = 360;
-    private float Og = 5.0f;
+    private float yP = 8.0f;
+    private float yQ = 15.0f;
+    private float yR = 4.0f;
+    private float yS = 60.0f;
+    private int yT = 150;
+    private int yU = 150;
+    private int yV = 500;
+    private float yW = 0.4f;
+    private float yX = 1.0f;
+    private float yY = 20.0f;
+    private float yZ = 10.0f;
+    private int za = 360;
+    private float zb = 5.0f;
 
-    public float ol() {
-        return this.NU;
+    public float jI() {
+        return this.yP;
     }
 
-    public float om() {
-        return this.NV;
+    public float jJ() {
+        return this.yQ;
     }
 
-    public float on() {
-        return this.NW;
+    public float jK() {
+        return this.yR;
     }
 
-    public float oo() {
-        return this.NX;
+    public float jL() {
+        return this.yS;
     }
 
-    public int op() {
-        return this.NY;
+    public int jM() {
+        return this.yT;
     }
 
-    public int oq() {
-        return this.NZ;
+    public int jN() {
+        return this.yU;
     }
 
-    public int or() {
-        return this.Oa;
+    public int jO() {
+        return this.yV;
     }
 
-    public float os() {
-        return this.Ob;
+    public float jP() {
+        return this.yW;
     }
 
-    public float ot() {
-        return this.Oc;
+    public float jQ() {
+        return this.yX;
     }
 
-    public float ou() {
-        return this.Od;
+    public float jR() {
+        return this.yY;
     }
 
-    public float ov() {
-        return this.Oe;
+    public float jS() {
+        return this.yZ;
     }
 
-    public int ow() {
-        return this.Of;
+    public int jT() {
+        return this.za;
     }
 }
