@@ -2,6 +2,7 @@ package com.xiaomi.smack.packet;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -171,7 +172,7 @@ public class h {
         }
         sb.append("(").append(this.a).append(")");
         if (this.e != null) {
-            sb.append(" ").append(this.e);
+            sb.append(HanziToPinyin.Token.SEPARATOR).append(this.e);
         }
         return sb.toString();
     }

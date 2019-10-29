@@ -1,6 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
@@ -13,13 +14,13 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class AlbumBox extends AbstractFullBox {
     public static final String TYPE = "albm";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_6 = null;
     private String albumTitle;
     private String language;
     private int trackNumber;
@@ -30,13 +31,13 @@ public class AlbumBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AlbumBox.java", AlbumBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "java.lang.String"), 51);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "java.lang.String"), 55);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 51);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 55);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getTrackNumber", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "int"), 59);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.AlbumBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 63);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", "java.lang.String", "albumTitle", "", "void"), 67);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.AlbumBox", FieldUtil.TYPE_STRING, IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 63);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", FieldUtil.TYPE_STRING, "albumTitle", "", "void"), 67);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setTrackNumber", "com.coremedia.iso.boxes.AlbumBox", "int", "trackNumber", "", "void"), 71);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "java.lang.String"), 103);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 103);
     }
 
     public AlbumBox() {
@@ -69,7 +70,7 @@ public class AlbumBox extends AbstractFullBox {
     }
 
     public void setTrackNumber(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dl(i)));
         this.trackNumber = i;
     }
 

@@ -22,7 +22,7 @@ public class CommitCardInfoReqMsg extends NetMessage {
         builder.card_type = Integer.valueOf(this.card_type);
         builder.image_info = this.image_info;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         CommitCardInfoReqIdl.Builder builder2 = new CommitCardInfoReqIdl.Builder();
         builder2.data = builder.build(false);

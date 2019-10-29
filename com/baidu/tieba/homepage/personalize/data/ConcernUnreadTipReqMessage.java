@@ -1,14 +1,14 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.UnreadTip.DataReq;
 import tbclient.UnreadTip.UnreadTipReqIdl;
 /* loaded from: classes4.dex */
 public class ConcernUnreadTipReqMessage extends NetMessage {
     public ConcernUnreadTipReqMessage() {
-        super(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
+        super(1003387, CmdConfigSocket.CMD_CONCERN_UNREAD_TIP);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -16,7 +16,7 @@ public class ConcernUnreadTipReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
             UnreadTipReqIdl.Builder builder2 = new UnreadTipReqIdl.Builder();
             builder2.data = builder.build(false);

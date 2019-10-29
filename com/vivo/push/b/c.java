@@ -1,11 +1,10 @@
 package com.vivo.push.b;
 
-import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiContext;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
-public class c extends com.vivo.push.v {
+public class c extends com.vivo.push.y {
     private String a;
     private String b;
     private long c;
@@ -42,28 +41,28 @@ public class c extends com.vivo.push.v {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.v
-    public void d(Intent intent) {
-        intent.putExtra("req_id", this.a);
-        intent.putExtra(Constants.PACKAGE_NAME, this.b);
-        intent.putExtra(SapiContext.KEY_SDK_VERSION, 225L);
-        intent.putExtra("PUSH_APP_STATUS", this.d);
+    @Override // com.vivo.push.y
+    public void c(com.vivo.push.a aVar) {
+        aVar.a("req_id", this.a);
+        aVar.a(Constants.PACKAGE_NAME, this.b);
+        aVar.a(SapiContext.KEY_SDK_VERSION, 280L);
+        aVar.a("PUSH_APP_STATUS", this.d);
         if (!TextUtils.isEmpty(this.f)) {
-            intent.putExtra("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f);
+            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.v
-    public void e(Intent intent) {
-        this.a = intent.getStringExtra("req_id");
-        this.b = intent.getStringExtra(Constants.PACKAGE_NAME);
-        this.c = intent.getLongExtra(SapiContext.KEY_SDK_VERSION, 0L);
-        this.d = intent.getIntExtra("PUSH_APP_STATUS", 0);
-        this.f = intent.getStringExtra("BaseAppCommand.EXTRA__HYBRIDVERSION");
+    @Override // com.vivo.push.y
+    public void d(com.vivo.push.a aVar) {
+        this.a = aVar.a("req_id");
+        this.b = aVar.a(Constants.PACKAGE_NAME);
+        this.c = aVar.b(SapiContext.KEY_SDK_VERSION, 0L);
+        this.d = aVar.b("PUSH_APP_STATUS", 0);
+        this.f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
     }
 
-    @Override // com.vivo.push.v
+    @Override // com.vivo.push.y
     public String toString() {
         return "BaseAppCommand";
     }

@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -77,7 +78,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (PageType.PERSON_INFO.toString().equals(this.mPageType)) {
             TbadkCoreApplication.setRefreshFlag(true);
         } else if (PageType.FRS.toString().equals(this.mPageType)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003003, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH, null));
         }
         finish();
     }

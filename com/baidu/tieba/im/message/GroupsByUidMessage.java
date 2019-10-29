@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByUid.DataReq;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidReqIdl;
@@ -11,7 +12,7 @@ public class GroupsByUidMessage extends TbSocketMessage {
     private int width;
 
     public GroupsByUidMessage(int i, int i2) {
-        super(103003);
+        super(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID);
         this.width = i;
         this.height = i2;
         this.friendUid = 0L;
@@ -19,7 +20,7 @@ public class GroupsByUidMessage extends TbSocketMessage {
     }
 
     public GroupsByUidMessage(long j, int i, int i2) {
-        super(103003);
+        super(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID);
         this.width = i;
         this.height = i2;
         this.friendUid = j;

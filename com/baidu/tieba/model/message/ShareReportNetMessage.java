@@ -1,7 +1,7 @@
 package com.baidu.tieba.model.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
@@ -14,7 +14,7 @@ public class ShareReportNetMessage extends NetMessage {
     private long tid;
 
     public ShareReportNetMessage() {
-        super(CmdConfigHttp.CMD_SHARE_REPORT, 309480);
+        super(1003363, CmdConfigSocket.CMD_SHARE_REPORT);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -25,7 +25,7 @@ public class ShareReportNetMessage extends NetMessage {
         builder.tid = Long.valueOf(getTid());
         builder.from = Integer.valueOf(getFrom());
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         ShareReqIdl.Builder builder2 = new ShareReqIdl.Builder();
         builder2.data = builder.build(false);

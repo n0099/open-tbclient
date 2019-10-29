@@ -69,11 +69,11 @@ public class SwanAppDownloadAction extends z {
             return true;
         } else {
             if (bVar != null) {
-                bVar.Ml().a((Activity) context, "mapp_i_app_download", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
+                bVar.Rd().a((Activity) context, "mapp_i_app_download", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
-                    public void D(Boolean bool) {
+                    public void B(Boolean bool) {
                         com.baidu.swan.apps.console.c.w("SwanAppDownloadAction", "checkOrAuthorize:" + bool);
                         if (bool.booleanValue()) {
                             if (!SwanAppDownloadAction.this.a(context, unitedSchemeEntity, callbackHandler, c, find)) {
@@ -95,7 +95,7 @@ public class SwanAppDownloadAction extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
-        boolean a = com.baidu.swan.apps.u.a.Ey().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
+        boolean a = com.baidu.swan.apps.u.a.Js().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
         if (a) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0, "success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, unitedSchemeEntity.result);

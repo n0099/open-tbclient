@@ -19,15 +19,15 @@ public final class s {
 
     public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
         if (context != null && drawable != null) {
-            int bL = bL(context);
+            int bM = bM(context);
             if (i >= 0 && i < 255) {
-                bL = Color.argb((Color.alpha(bL) * i) / 255, Color.red(bL), Color.green(bL), Color.blue(bL));
+                bM = Color.argb((Color.alpha(bM) * i) / 255, Color.red(bM), Color.green(bM), Color.blue(bM));
             }
-            drawable.setColorFilter(bL, mode);
+            drawable.setColorFilter(bM, mode);
         }
     }
 
-    public static int bL(Context context) {
+    public static int bM(Context context) {
         return context.getResources().getColor(a.c.aiapps_ui_cover_layer_color);
     }
 }

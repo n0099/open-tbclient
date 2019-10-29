@@ -1,6 +1,5 @@
 package com.baidu.tieba.homepage;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetMyPost.GetMyPostResIdl;
@@ -9,7 +8,7 @@ public class GetMyPostHttpResponseMessage extends TbHttpResponsedMessage {
     private GetMyPostResIdl mResponseData;
 
     public GetMyPostHttpResponseMessage(int i) {
-        super(CmdConfigHttp.CMD_GET_MY_POST);
+        super(1003010);
     }
 
     public GetMyPostResIdl getResponseData() {

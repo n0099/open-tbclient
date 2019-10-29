@@ -13,15 +13,15 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class MaskView extends ViewGroup {
+    private final RectF mChildTmpRect;
+    private boolean mCustomFullingRect;
+    private final Paint mFullingPaint;
+    private final RectF mFullingRect;
+    private final Path mOutPath;
     private final Paint mPaint;
-    private boolean zB;
-    private final RectF zH;
-    private final RectF zI;
-    private final RectF zJ;
-    private final Paint zK;
-    private final Path zL;
-    private boolean zM;
-    private final Paint zN;
+    private final Paint mTargetPaint;
+    private final RectF mTargetRect;
+    private boolean mUseDirectOffset;
 
     public MaskView(Context context) {
         this(context, null, 0);
@@ -33,23 +33,23 @@ public class MaskView extends ViewGroup {
 
     public MaskView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.zH = new RectF();
-        this.zI = new RectF();
-        this.zJ = new RectF();
-        this.zK = new Paint();
-        this.zL = new Path();
-        this.zB = false;
-        this.zN = new Paint();
+        this.mTargetRect = new RectF();
+        this.mFullingRect = new RectF();
+        this.mChildTmpRect = new RectF();
+        this.mFullingPaint = new Paint();
+        this.mOutPath = new Path();
+        this.mUseDirectOffset = false;
+        this.mTargetPaint = new Paint();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.zN.setColor(SupportMenu.CATEGORY_MASK);
-        this.zN.setStrokeWidth(10.0f);
+        this.mTargetPaint.setColor(SupportMenu.CATEGORY_MASK);
+        this.mTargetPaint.setStrokeWidth(10.0f);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
-        this.zL.setFillType(Path.FillType.EVEN_ODD);
-        hW();
+        this.mOutPath.setFillType(Path.FillType.EVEN_ODD);
+        resetOutPath();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -67,9 +67,9 @@ public class MaskView extends ViewGroup {
         int i3 = i & 1073741823;
         int i4 = i2 & 1073741823;
         setMeasuredDimension(i3, i4);
-        if (!this.zM) {
-            this.zI.set(0.0f, 0.0f, i3, i4);
-            hW();
+        if (!this.mCustomFullingRect) {
+            this.mFullingRect.set(0.0f, 0.0f, i3, i4);
+            resetOutPath();
         }
         int childCount = getChildCount();
         for (int i5 = 0; i5 < childCount; i5++) {
@@ -92,62 +92,62 @@ public class MaskView extends ViewGroup {
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt != null && (aVar = (a) childAt.getLayoutParams()) != null) {
-                switch (aVar.zO) {
+                switch (aVar.targetAnchor) {
                     case 1:
-                        this.zJ.right = this.zH.left;
-                        this.zJ.left = this.zJ.right - childAt.getMeasuredWidth();
-                        b(childAt, this.zJ, aVar.zP);
+                        this.mChildTmpRect.right = this.mTargetRect.left;
+                        this.mChildTmpRect.left = this.mChildTmpRect.right - childAt.getMeasuredWidth();
+                        verticalChildPositionLayout(childAt, this.mChildTmpRect, aVar.targetParentPosition);
                         break;
                     case 2:
-                        this.zJ.bottom = this.zH.top;
-                        this.zJ.top = this.zJ.bottom - childAt.getMeasuredHeight();
-                        a(childAt, this.zJ, aVar.zP);
+                        this.mChildTmpRect.bottom = this.mTargetRect.top;
+                        this.mChildTmpRect.top = this.mChildTmpRect.bottom - childAt.getMeasuredHeight();
+                        horizontalChildPositionLayout(childAt, this.mChildTmpRect, aVar.targetParentPosition);
                         break;
                     case 3:
-                        this.zJ.left = this.zH.right;
-                        this.zJ.right = this.zJ.left + childAt.getMeasuredWidth();
-                        b(childAt, this.zJ, aVar.zP);
+                        this.mChildTmpRect.left = this.mTargetRect.right;
+                        this.mChildTmpRect.right = this.mChildTmpRect.left + childAt.getMeasuredWidth();
+                        verticalChildPositionLayout(childAt, this.mChildTmpRect, aVar.targetParentPosition);
                         break;
                     case 4:
-                        this.zJ.top = this.zH.bottom;
-                        this.zJ.bottom = this.zJ.top + childAt.getMeasuredHeight();
-                        a(childAt, this.zJ, aVar.zP);
+                        this.mChildTmpRect.top = this.mTargetRect.bottom;
+                        this.mChildTmpRect.bottom = this.mChildTmpRect.top + childAt.getMeasuredHeight();
+                        horizontalChildPositionLayout(childAt, this.mChildTmpRect, aVar.targetParentPosition);
                         break;
                     case 5:
-                        this.zJ.left = (((int) this.zH.width()) - childAt.getMeasuredWidth()) >> 1;
-                        this.zJ.top = (((int) this.zH.height()) - childAt.getMeasuredHeight()) >> 1;
-                        this.zJ.right = (((int) this.zH.width()) + childAt.getMeasuredWidth()) >> 1;
-                        this.zJ.bottom = (((int) this.zH.height()) + childAt.getMeasuredHeight()) >> 1;
-                        this.zJ.offset(this.zH.left, this.zH.top);
+                        this.mChildTmpRect.left = (((int) this.mTargetRect.width()) - childAt.getMeasuredWidth()) >> 1;
+                        this.mChildTmpRect.top = (((int) this.mTargetRect.height()) - childAt.getMeasuredHeight()) >> 1;
+                        this.mChildTmpRect.right = (((int) this.mTargetRect.width()) + childAt.getMeasuredWidth()) >> 1;
+                        this.mChildTmpRect.bottom = (((int) this.mTargetRect.height()) + childAt.getMeasuredHeight()) >> 1;
+                        this.mChildTmpRect.offset(this.mTargetRect.left, this.mTargetRect.top);
                         break;
                 }
-                if (this.zB) {
-                    this.zJ.offset(aVar.zQ, aVar.zR);
+                if (this.mUseDirectOffset) {
+                    this.mChildTmpRect.offset(aVar.offsetX, aVar.offsetY);
                 } else {
-                    this.zJ.offset((int) ((aVar.zQ * f) + 0.5f), (int) ((aVar.zR * f) + 0.5f));
+                    this.mChildTmpRect.offset((int) ((aVar.offsetX * f) + 0.5f), (int) ((aVar.offsetY * f) + 0.5f));
                 }
-                childAt.layout((int) this.zJ.left, (int) this.zJ.top, (int) this.zJ.right, (int) this.zJ.bottom);
+                childAt.layout((int) this.mChildTmpRect.left, (int) this.mChildTmpRect.top, (int) this.mChildTmpRect.right, (int) this.mChildTmpRect.bottom);
             }
         }
     }
 
-    public void S(boolean z) {
-        this.zB = z;
+    public void setUseDirectOffset(boolean z) {
+        this.mUseDirectOffset = z;
     }
 
-    private void a(View view, RectF rectF, int i) {
+    private void horizontalChildPositionLayout(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.left = this.zH.left;
+                rectF.left = this.mTargetRect.left;
                 rectF.right = rectF.left + view.getMeasuredWidth();
                 return;
             case 32:
-                rectF.left = (this.zH.width() - view.getMeasuredWidth()) / 2.0f;
-                rectF.right = (this.zH.width() + view.getMeasuredWidth()) / 2.0f;
-                rectF.offset(this.zH.left, 0.0f);
+                rectF.left = (this.mTargetRect.width() - view.getMeasuredWidth()) / 2.0f;
+                rectF.right = (this.mTargetRect.width() + view.getMeasuredWidth()) / 2.0f;
+                rectF.offset(this.mTargetRect.left, 0.0f);
                 return;
             case 48:
-                rectF.right = this.zH.right;
+                rectF.right = this.mTargetRect.right;
                 rectF.left = rectF.right - view.getMeasuredWidth();
                 return;
             default:
@@ -155,62 +155,62 @@ public class MaskView extends ViewGroup {
         }
     }
 
-    private void b(View view, RectF rectF, int i) {
+    private void verticalChildPositionLayout(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.top = this.zH.top;
+                rectF.top = this.mTargetRect.top;
                 rectF.bottom = rectF.top + view.getMeasuredHeight();
                 return;
             case 32:
-                rectF.top = (this.zH.width() - view.getMeasuredHeight()) / 2.0f;
-                rectF.bottom = (this.zH.width() + view.getMeasuredHeight()) / 2.0f;
-                rectF.offset(0.0f, this.zH.top);
+                rectF.top = (this.mTargetRect.width() - view.getMeasuredHeight()) / 2.0f;
+                rectF.bottom = (this.mTargetRect.width() + view.getMeasuredHeight()) / 2.0f;
+                rectF.offset(0.0f, this.mTargetRect.top);
                 return;
             case 48:
-                rectF.bottom = this.zH.bottom;
-                rectF.top = this.zH.bottom - view.getMeasuredHeight();
+                rectF.bottom = this.mTargetRect.bottom;
+                rectF.top = this.mTargetRect.bottom - view.getMeasuredHeight();
                 return;
             default:
                 return;
         }
     }
 
-    private void hW() {
-        this.zL.reset();
-        this.zL.addRect(this.zH, Path.Direction.CW);
-        this.zL.addRect(this.zI, Path.Direction.CW);
+    private void resetOutPath() {
+        this.mOutPath.reset();
+        this.mOutPath.addRect(this.mTargetRect, Path.Direction.CW);
+        this.mOutPath.addRect(this.mFullingRect, Path.Direction.CW);
     }
 
-    public void b(Rect rect) {
-        this.zH.set(rect);
-        hW();
+    public void setTargetRect(Rect rect) {
+        this.mTargetRect.set(rect);
+        resetOutPath();
         invalidate();
     }
 
-    public void c(Rect rect) {
-        this.zI.set(rect);
-        hW();
-        this.zM = true;
+    public void setFullingRect(Rect rect) {
+        this.mFullingRect.set(rect);
+        resetOutPath();
+        this.mCustomFullingRect = true;
         invalidate();
     }
 
-    public void Z(int i) {
-        this.zK.setAlpha(i);
+    public void setFullingAlpha(int i) {
+        this.mFullingPaint.setAlpha(i);
         invalidate();
     }
 
-    public void aa(int i) {
-        this.zK.setColor(i);
+    public void setFullingColor(int i) {
+        this.mFullingPaint.setColor(i);
         invalidate();
     }
 
-    public void W(boolean z) {
+    public void setOverlayTarget(boolean z) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: hX */
+    /* renamed from: fv */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2);
     }
@@ -219,7 +219,7 @@ public class MaskView extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
         canvas.save();
-        canvas.drawRect(this.zI, this.zK);
+        canvas.drawRect(this.mFullingRect, this.mFullingPaint);
         canvas.restore();
         for (int i = 0; i < getChildCount(); i++) {
             try {
@@ -233,17 +233,17 @@ public class MaskView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a extends ViewGroup.LayoutParams {
-        public int zO;
-        public int zP;
-        public int zQ;
-        public int zR;
+        public int offsetX;
+        public int offsetY;
+        public int targetAnchor;
+        public int targetParentPosition;
 
         public a(int i, int i2) {
             super(i, i2);
-            this.zO = 4;
-            this.zP = 32;
-            this.zQ = 0;
-            this.zR = 0;
+            this.targetAnchor = 4;
+            this.targetParentPosition = 32;
+            this.offsetX = 0;
+            this.offsetY = 0;
         }
     }
 }

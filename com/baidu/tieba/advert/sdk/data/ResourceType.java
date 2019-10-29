@@ -1,12 +1,10 @@
 package com.baidu.tieba.advert.sdk.data;
-
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 /* loaded from: classes5.dex */
 public enum ResourceType {
     ID("id"),
     ARRAY("array"),
     LAYOUT("layout"),
-    STYLE(UnitedSchemeConstants.UNITED_SCHEME_STYLE),
+    STYLE("style"),
     STRING("string"),
     DRAWABLE("drawable");
     

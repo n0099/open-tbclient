@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.AddGroupUsers.AddGroupUsersResIdl;
 /* loaded from: classes3.dex */
@@ -8,7 +9,7 @@ public class ResponseAddGroupUserMessage extends SocketResponsedMessage {
     private long groupId;
 
     public ResponseAddGroupUserMessage() {
-        super(103111);
+        super(CmdConfigSocket.CMD_ADD_GROUP_USER);
     }
 
     public long getGroupId() {

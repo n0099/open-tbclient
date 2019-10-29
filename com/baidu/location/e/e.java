@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.location.g.g;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class e {
     }
 
     private String b(String str) {
-        return str != null ? (str.contains("&") || str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) ? str.replace("&", "_").replace(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "_") : str : str;
+        return str != null ? (str.contains("&") || str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) ? str.replace("&", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) : str : str;
     }
 
     private int m() {

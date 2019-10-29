@@ -14,6 +14,6 @@ final class StringsKt___StringsKt$withIndex$1 extends Lambda implements kotlin.j
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
     public final kotlin.collections.m invoke() {
-        return k.o(this.receiver$0);
+        return k.n(this.receiver$0);
     }
 }

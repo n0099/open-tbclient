@@ -6,27 +6,27 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class k extends BasePool<NativeMemoryChunk> {
-    private final int[] kmj;
+    private final int[] kkv;
 
     public k(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
-        SparseIntArray sparseIntArray = rVar.kmA;
-        this.kmj = new int[sparseIntArray.size()];
-        for (int i = 0; i < this.kmj.length; i++) {
-            this.kmj[i] = sparseIntArray.keyAt(i);
+        SparseIntArray sparseIntArray = rVar.kkM;
+        this.kkv = new int[sparseIntArray.size()];
+        for (int i = 0; i < this.kkv.length; i++) {
+            this.kkv[i] = sparseIntArray.keyAt(i);
         }
         initialize();
     }
 
-    public int cLm() {
-        return this.kmj[0];
+    public int cIj() {
+        return this.kkv[0];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: El */
-    public NativeMemoryChunk Ea(int i) {
+    /* renamed from: CH */
+    public NativeMemoryChunk Cw(int i) {
         return new NativeMemoryChunk(i);
     }
 
@@ -34,23 +34,23 @@ public class k extends BasePool<NativeMemoryChunk> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: a */
-    public void aW(NativeMemoryChunk nativeMemoryChunk) {
+    public void aR(NativeMemoryChunk nativeMemoryChunk) {
         com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
         nativeMemoryChunk.close();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Ec(int i) {
+    protected int Cy(int i) {
         return i;
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Eb(int i) {
+    protected int Cx(int i) {
         int[] iArr;
         if (i <= 0) {
             throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
-        for (int i2 : this.kmj) {
+        for (int i2 : this.kkv) {
             if (i2 >= i) {
                 return i2;
             }
@@ -62,7 +62,7 @@ public class k extends BasePool<NativeMemoryChunk> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: b */
-    public int aX(NativeMemoryChunk nativeMemoryChunk) {
+    public int aS(NativeMemoryChunk nativeMemoryChunk) {
         com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
         return nativeMemoryChunk.getSize();
     }
@@ -71,7 +71,7 @@ public class k extends BasePool<NativeMemoryChunk> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: c */
-    public boolean aY(NativeMemoryChunk nativeMemoryChunk) {
+    public boolean aT(NativeMemoryChunk nativeMemoryChunk) {
         com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
         return !nativeMemoryChunk.isClosed();
     }

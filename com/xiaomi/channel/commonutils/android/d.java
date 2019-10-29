@@ -8,7 +8,7 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.IOException;
@@ -254,7 +254,7 @@ public class d {
             com.xiaomi.channel.commonutils.logger.b.a("vid changed, need sync");
             return str;
         }
-        com.xiaomi.channel.commonutils.logger.b.c("vdevid = " + e + " " + str);
+        com.xiaomi.channel.commonutils.logger.b.c("vdevid = " + e + HanziToPinyin.Token.SEPARATOR + str);
         return null;
     }
 
@@ -437,7 +437,7 @@ public class d {
             return "";
         }
         try {
-            String macAddress = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getMacAddress();
+            String macAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
             return b(macAddress) ? com.xiaomi.channel.commonutils.string.d.g(macAddress) : "";
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.a(e2);

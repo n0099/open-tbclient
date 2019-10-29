@@ -14,76 +14,76 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e implements b {
-    private final String name;
-    private final GradientType oB;
-    private final com.airbnb.lottie.model.a.c oD;
-    private final com.airbnb.lottie.model.a.f oE;
-    private final com.airbnb.lottie.model.a.f oF;
-    private final com.airbnb.lottie.model.a.b oI;
-    private final ShapeStroke.LineCapType oJ;
-    private final ShapeStroke.LineJoinType oK;
-    private final List<com.airbnb.lottie.model.a.b> oL;
+    private final com.airbnb.lottie.model.a.d gL;
+    private final GradientType gU;
+    private final com.airbnb.lottie.model.a.c gW;
+    private final com.airbnb.lottie.model.a.f gX;
+    private final com.airbnb.lottie.model.a.f gY;
+    private final com.airbnb.lottie.model.a.b hb;
+    private final ShapeStroke.LineCapType hc;
+    private final ShapeStroke.LineJoinType hd;
+    private final List<com.airbnb.lottie.model.a.b> hf;
     @Nullable
-    private final com.airbnb.lottie.model.a.b oM;
-    private final com.airbnb.lottie.model.a.d or;
+    private final com.airbnb.lottie.model.a.b hg;
+    private final String name;
 
     private e(String str, GradientType gradientType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, List<com.airbnb.lottie.model.a.b> list, @Nullable com.airbnb.lottie.model.a.b bVar2) {
         this.name = str;
-        this.oB = gradientType;
-        this.oD = cVar;
-        this.or = dVar;
-        this.oE = fVar;
-        this.oF = fVar2;
-        this.oI = bVar;
-        this.oJ = lineCapType;
-        this.oK = lineJoinType;
-        this.oL = list;
-        this.oM = bVar2;
+        this.gU = gradientType;
+        this.gW = cVar;
+        this.gL = dVar;
+        this.gX = fVar;
+        this.gY = fVar2;
+        this.hb = bVar;
+        this.hc = lineCapType;
+        this.hd = lineJoinType;
+        this.hf = list;
+        this.hg = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType dd() {
-        return this.oB;
+    public GradientType cw() {
+        return this.gU;
     }
 
-    public com.airbnb.lottie.model.a.c df() {
-        return this.oD;
+    public com.airbnb.lottie.model.a.c cy() {
+        return this.gW;
     }
 
-    public com.airbnb.lottie.model.a.d cU() {
-        return this.or;
+    public com.airbnb.lottie.model.a.d cn() {
+        return this.gL;
     }
 
-    public com.airbnb.lottie.model.a.f dg() {
-        return this.oE;
+    public com.airbnb.lottie.model.a.f cz() {
+        return this.gX;
     }
 
-    public com.airbnb.lottie.model.a.f dh() {
-        return this.oF;
+    public com.airbnb.lottie.model.a.f cA() {
+        return this.gY;
     }
 
-    public com.airbnb.lottie.model.a.b di() {
-        return this.oI;
+    public com.airbnb.lottie.model.a.b cB() {
+        return this.hb;
     }
 
-    public ShapeStroke.LineCapType dj() {
-        return this.oJ;
+    public ShapeStroke.LineCapType cC() {
+        return this.hc;
     }
 
-    public ShapeStroke.LineJoinType dk() {
-        return this.oK;
+    public ShapeStroke.LineJoinType cD() {
+        return this.hd;
     }
 
-    public List<com.airbnb.lottie.model.a.b> dl() {
-        return this.oL;
+    public List<com.airbnb.lottie.model.a.b> cE() {
+        return this.hf;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.b dm() {
-        return this.oM;
+    public com.airbnb.lottie.model.a.b cF() {
+        return this.hg;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -98,8 +98,8 @@ public class e implements b {
         public static e q(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
             JSONObject optJSONObject = jSONObject.optJSONObject(IXAdRequestInfo.GPS);
-            if (optJSONObject != null && optJSONObject.has(Config.APP_KEY)) {
-                optJSONObject = optJSONObject.optJSONObject(Config.APP_KEY);
+            if (optJSONObject != null && optJSONObject.has("k")) {
+                optJSONObject = optJSONObject.optJSONObject("k");
             }
             com.airbnb.lottie.model.a.c cVar = null;
             if (optJSONObject != null) {

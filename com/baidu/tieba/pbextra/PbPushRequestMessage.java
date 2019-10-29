@@ -1,7 +1,7 @@
 package com.baidu.tieba.pbextra;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.PushThread.DataReq;
 import tbclient.PushThread.PushThreadReqIdl;
@@ -13,7 +13,7 @@ public class PbPushRequestMessage extends NetMessage {
     private long mUserId;
 
     public PbPushRequestMessage(long j, long j2, int i, long j3) {
-        super(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD, 309325);
+        super(1001806, CmdConfigSocket.CMD_PUSH_THREAD);
         this.mForumId = j;
         this.mThreadId = j2;
         this.mPushType = i;
@@ -45,7 +45,7 @@ public class PbPushRequestMessage extends NetMessage {
         builder.push_type = Integer.valueOf(this.mPushType);
         builder.user_id = Long.valueOf(this.mUserId);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         PushThreadReqIdl.Builder builder2 = new PushThreadReqIdl.Builder();
         builder2.data = builder.build(false);

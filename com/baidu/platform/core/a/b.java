@@ -1,5 +1,6 @@
 package com.baidu.platform.core.a;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -32,7 +33,7 @@ public class b extends com.baidu.platform.base.d {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("result");
             JSONObject optJSONObject3 = jSONObject.optJSONObject("city_result");
-            if (optJSONObject2 == null || optJSONObject3 == null || optJSONObject2.optInt("error") != 0 || (optJSONObject = optJSONObject3.optJSONObject("content")) == null) {
+            if (optJSONObject2 == null || optJSONObject3 == null || optJSONObject2.optInt(BdStatsConstant.StatsType.ERROR) != 0 || (optJSONObject = optJSONObject3.optJSONObject("content")) == null) {
                 return false;
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("sgeo");
@@ -91,7 +92,7 @@ public class b extends com.baidu.platform.base.d {
             if (jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("content");
-                if (optJSONObject == null || optJSONObject2 == null || optJSONObject.optInt("error") != 0) {
+                if (optJSONObject == null || optJSONObject2 == null || optJSONObject.optInt(BdStatsConstant.StatsType.ERROR) != 0) {
                     return false;
                 }
                 ArrayList arrayList = new ArrayList();

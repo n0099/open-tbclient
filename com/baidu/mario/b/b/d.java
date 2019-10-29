@@ -1,47 +1,49 @@
 package com.baidu.mario.b.b;
+
+import com.baidu.ala.livePlayer.StreamConfig;
 /* loaded from: classes2.dex */
 public class d {
-    private String afc = "/sdcard/AR/video/arvideo.mp4";
-    private int afd = 0;
-    private long afe = 0;
-    private boolean aff = true;
+    private String ayA = "/sdcard/AR/video/arvideo.mp4";
+    private int ayB = 0;
+    private long ayC = 0;
+    private boolean ayD = true;
     private int mVideoWidth = 720;
     private int mVideoHeight = 1280;
-    private String afg = "video/avc";
-    private int afh = 8294400;
-    private int afi = 30;
-    private int afj = 1;
-    private boolean afk = false;
-    private String afl = "audio/mp4a-latm";
-    private int afm = 1;
-    private int afn = 128000;
-    private int afo = 16000;
-    private int afp = 1024;
+    private String ayE = "video/avc";
+    private int ayF = 8294400;
+    private int ayG = 30;
+    private int ayH = 1;
+    private boolean ayI = false;
+    private String ayJ = "audio/mp4a-latm";
+    private int ayK = 1;
+    private int ayL = 128000;
+    private int ayM = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_16K;
+    private int ayN = 1024;
 
-    public String tR() {
-        return this.afc;
+    public String yL() {
+        return this.ayA;
     }
 
-    public void cF(String str) {
+    public void dq(String str) {
         if (str != null && !str.isEmpty()) {
-            this.afc = str;
+            this.ayA = str;
         }
     }
 
-    public int tS() {
-        return this.afd;
+    public int yM() {
+        return this.ayB;
     }
 
-    public long tT() {
-        return this.afe;
+    public long yN() {
+        return this.ayC;
     }
 
-    public void z(long j) {
-        this.afe = j;
+    public void S(long j) {
+        this.ayC = j;
     }
 
-    public boolean tU() {
-        return this.aff;
+    public boolean yO() {
+        return this.ayD;
     }
 
     public int getVideoWidth() {
@@ -60,47 +62,47 @@ public class d {
         this.mVideoHeight = i;
     }
 
-    public String tV() {
-        return this.afg;
+    public String yP() {
+        return this.ayE;
     }
 
-    public int tW() {
-        return this.afh;
+    public int yQ() {
+        return this.ayF;
     }
 
-    public int tX() {
-        return this.afi;
+    public int yR() {
+        return this.ayG;
     }
 
-    public int tY() {
-        return this.afj;
+    public int yS() {
+        return this.ayH;
     }
 
-    public boolean tZ() {
-        return this.afk;
+    public boolean yT() {
+        return this.ayI;
     }
 
-    public void aP(boolean z) {
-        this.afk = z;
+    public void bh(boolean z) {
+        this.ayI = z;
     }
 
-    public String ua() {
-        return this.afl;
+    public String yU() {
+        return this.ayJ;
     }
 
-    public int ub() {
-        return this.afm;
+    public int yV() {
+        return this.ayK;
     }
 
-    public int uc() {
-        return this.afn;
+    public int yW() {
+        return this.ayL;
     }
 
-    public int ud() {
-        return this.afo;
+    public int yX() {
+        return this.ayM;
     }
 
-    public int ue() {
-        return this.afp;
+    public int yY() {
+        return this.ayN;
     }
 }

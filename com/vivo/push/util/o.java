@@ -1,20 +1,27 @@
 package com.vivo.push.util;
+
+import android.content.Context;
 /* loaded from: classes3.dex */
-public final class o {
-    public static int a(com.vivo.push.b.c cVar) {
-        t b = t.b();
-        int b2 = cVar.b();
-        long currentTimeMillis = System.currentTimeMillis();
-        int b3 = b.b("com.vivo.push_preferences.operate." + b2 + "OPERATE_COUNT");
-        long b4 = b.b("com.vivo.push_preferences.operate." + b2 + "START_TIME", 0L);
-        if (currentTimeMillis - b4 > 86400000 || currentTimeMillis - b4 < 0) {
-            b.a("com.vivo.push_preferences.operate." + b2 + "START_TIME", System.currentTimeMillis());
-            b.a("com.vivo.push_preferences.operate." + b2 + "OPERATE_COUNT", 1);
-        } else if (b3 >= cVar.f()) {
-            return 1001;
-        } else {
-            b.a("com.vivo.push_preferences.operate." + b2 + "OPERATE_COUNT", b3 + 1);
-        }
-        return 0;
-    }
+public interface o {
+    int a(String str, String str2);
+
+    int a(String str, String str2, Throwable th);
+
+    String a(Throwable th);
+
+    void a(Context context, String str);
+
+    int b(String str, String str2);
+
+    int b(String str, String str2, Throwable th);
+
+    void b(Context context, String str);
+
+    int c(String str, String str2);
+
+    void c(Context context, String str);
+
+    int d(String str, String str2);
+
+    int e(String str, String str2);
 }

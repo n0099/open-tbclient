@@ -15,13 +15,19 @@ import android.os.Build;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.DatePicker;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.live.tbadk.pay.PayHelper;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.a.c;
 import com.baidu.sapi2.a.e;
-import com.baidu.sapi2.activity.LoginActivity;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.callback.GetContactCallback;
 import com.baidu.sapi2.callback.RequestSMSCallback;
 import com.baidu.sapi2.callback.SsoHashCallback;
@@ -52,7 +58,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -105,7 +110,7 @@ public class SapiJsInterpreters {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String c(String str) {
-        String[] split = str.split("_");
+        String[] split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         StringBuilder sb = new StringBuilder();
         sb.append("com.baidu.sapi2.SapiJsInterpreters$");
         for (String str2 : split) {
@@ -356,7 +361,7 @@ public class SapiJsInterpreters {
                 String optString2 = jSONObject.optString("u");
                 SapiAccount sapiAccount = new SapiAccount();
                 sapiAccount.uid = jSONObject.optString("passuid");
-                sapiAccount.username = jSONObject.optString(LoginActivity.EXTRA_PARAM_USERNAME);
+                sapiAccount.username = jSONObject.optString("username");
                 sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                 sapiAccount.bduss = jSONObject.optString("bduss");
                 sapiAccount.ptoken = jSONObject.optString("ptoken");
@@ -581,7 +586,7 @@ public class SapiJsInterpreters {
                 try {
                     JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
                     i4 = jSONObject.optInt("sence", 1);
-                    i2 = jSONObject.optInt("size", 512);
+                    i2 = jSONObject.optInt(TiebaInitialize.LogFields.SIZE, 512);
                     i = i4;
                 } catch (JSONException e2) {
                     Log.e(e2);
@@ -940,7 +945,7 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                String optString = jSONObject.optString(LoginActivity.EXTRA_PARAM_USERNAME);
+                String optString = jSONObject.optString("username");
                 boolean equals = jSONObject.optString("close", "0").equals("1");
                 SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new SapiWebView.PreFillUserNameCallback.PreFillUserNameResult();
                 preFillUserNameResult.userName = optString;
@@ -1047,7 +1052,7 @@ public class SapiJsInterpreters {
                     String optString = jSONObject.optString(Config.INPUT_DEF_PKG);
                     String optString2 = jSONObject.optString("url");
                     String optString3 = jSONObject.optString("trace_id");
-                    String optString4 = jSONObject.optString("session_id");
+                    String optString4 = jSONObject.optString(LogConfig.LOG_SESSION_ID);
                     SapiJsInterpreters.this.c.K.confirm("finish");
                     SapiJsInterpreters.this.c.t.onClick(optString, optString2, optString3, optString4);
                 } catch (Exception e) {
@@ -1119,7 +1124,7 @@ public class SapiJsInterpreters {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                 if (SapiJsInterpreters.this.c.u != null) {
-                    int optInt = jSONObject.optInt("relogin", -1);
+                    int optInt = jSONObject.optInt(LogConfig.RELOGIN, -1);
                     if (optInt == 1) {
                         SapiAccount session = SapiAccountManager.getInstance().getSession();
                         String optString = jSONObject.optString("bduss");
@@ -1166,7 +1171,7 @@ public class SapiJsInterpreters {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("error", SapiWebView.ErrorCode.WEIXIN_NOT_INTALL);
+                jSONObject.put(BdStatsConstant.StatsType.ERROR, SapiWebView.ErrorCode.WEIXIN_NOT_INTALL);
                 jSONObject.put("errmsg", SapiWebView.DEFAULT_WEIXIN_NOT_INSTALL_ERROR);
             } catch (JSONException e) {
                 Log.e(e);
@@ -1299,7 +1304,7 @@ public class SapiJsInterpreters {
             JSONObject jSONObject = new JSONObject();
             try {
                 Object[] pkgIconAndName = SapiUtils.getPkgIconAndName(SapiJsInterpreters.this.d, SapiJsInterpreters.this.d.getPackageName());
-                jSONObject.put("icon", pkgIconAndName[0]);
+                jSONObject.put(AlaStaticKeys.ALA_STATIC_VALUE_ICON, pkgIconAndName[0]);
                 jSONObject.put("name", pkgIconAndName[1]);
                 List<ShareStorage.StorageModel> a = com.baidu.sapi2.share.a.a().a(SapiJsInterpreters.this.b.context);
                 if (SapiJsInterpreters.this.c.t != null && a != null && a.size() > 0) {
@@ -1425,7 +1430,7 @@ public class SapiJsInterpreters {
                 jSONObject.optString("action");
                 String optString = jSONObject.optString("minver");
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(WXLoginActivity.KEY_BASE_RESP_STATE, new SapiScheme().getInvokeScState(SapiJsInterpreters.this.d, optString, SapiJsInterpreters.this.c.w));
+                jSONObject2.put("state", new SapiScheme().getInvokeScState(SapiJsInterpreters.this.d, optString, SapiJsInterpreters.this.c.w));
                 return jSONObject2.toString();
             } catch (JSONException e) {
                 Log.e(e);
@@ -1950,13 +1955,13 @@ public class SapiJsInterpreters {
                     i = 1;
                 }
                 jSONObject.put("errno", 0);
-                jSONObject.put("guide", i);
+                jSONObject.put(AlaStaticKeys.ALA_STATIC_VALUE_GUIDE, i);
                 if (TextUtils.isEmpty(optString)) {
                     str = "100";
                 } else if (fingerPrintState == 101 || fingerPrintState == 102) {
                     str = fingerPrintState + "";
                 } else if (contains) {
-                    str = "103";
+                    str = TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY;
                 } else {
                     str = fingerPrintState + "";
                 }
@@ -1992,7 +1997,7 @@ public class SapiJsInterpreters {
                         if (i == 0) {
                             try {
                                 JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
-                                String optString = jSONObject2.optString(IntentConfig.PORTRAIT);
+                                String optString = jSONObject2.optString("portrait");
                                 String optString2 = jSONObject2.optString("portraitSign");
                                 if (TextUtils.isEmpty(optString)) {
                                     SapiJsInterpreters.this.c.I[0] = SapiJsInterpreters.this.b.environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;
@@ -2073,7 +2078,7 @@ public class SapiJsInterpreters {
                 JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
                 str3 = jSONObject2.optString("handle");
                 try {
-                    str4 = jSONObject2.optString(IntentConfig.PORTRAIT);
+                    str4 = jSONObject2.optString("portrait");
                     try {
                         str5 = jSONObject2.optString("portraitSign");
                     } catch (JSONException e) {
@@ -2195,12 +2200,12 @@ public class SapiJsInterpreters {
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     SapiContext.getInstance(SapiJsInterpreters.this.d).markAsDeleteFaceLogin(optJSONArray);
                 }
-                String optString2 = jSONObject2.optString(IntentConfig.PORTRAIT);
+                String optString2 = jSONObject2.optString("portrait");
                 if (!TextUtils.isEmpty(optString2)) {
                     String[] split = optString2.split("/");
                     String str = split[split.length - 1];
-                    if (str.contains(".")) {
-                        str = str.substring(0, str.lastIndexOf("."));
+                    if (str.contains(DefaultConfig.TOKEN_SEPARATOR)) {
+                        str = str.substring(0, str.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR));
                     }
                     SapiContext.getInstance(SapiJsInterpreters.this.d).markAsDeleteShareLogin(str);
                 }
@@ -2249,7 +2254,7 @@ public class SapiJsInterpreters {
                     if (!TextUtils.isEmpty(sapiAccount.phone) && sapiAccount.phone.contains("http://")) {
                         sapiAccount.phone = sapiAccount.phone.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
                     }
-                    jSONObject2.put(IntentConfig.PORTRAIT, sapiAccount.phone);
+                    jSONObject2.put("portrait", sapiAccount.phone);
                     if (!z) {
                         jSONObject2.put("touchCode", "1");
                     } else {
@@ -2397,7 +2402,7 @@ public class SapiJsInterpreters {
                     });
                 }
             });
-            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SendUpwardSms.4
+            builder.setNegativeButton(PayHelper.STATUS_CANCEL_DESC, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SendUpwardSms.4
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     SendUpwardSms.this.k.onResult(false, false, true);

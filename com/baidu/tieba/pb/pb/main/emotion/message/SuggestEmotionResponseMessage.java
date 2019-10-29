@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.pb.main.emotion.message;
 
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
@@ -25,8 +24,8 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null) {
             this.mData = new a();
-            this.mData.bL(parseImageData(jSONObject.optJSONArray("memes")));
-            this.mData.dL(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+            this.mData.bY(parseImageData(jSONObject.optJSONArray("memes")));
+            this.mData.dY(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.a(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
@@ -75,7 +74,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             return null;
         }
         SingleBarEmotionRecommendData singleBarEmotionRecommendData = new SingleBarEmotionRecommendData();
-        singleBarEmotionRecommendData.pkg_id = jSONObject.optString(IntentConfig.PKG_ID);
+        singleBarEmotionRecommendData.pkg_id = jSONObject.optString("pkg_id");
         singleBarEmotionRecommendData.cover = jSONObject.optString("cover");
         return singleBarEmotionRecommendData;
     }

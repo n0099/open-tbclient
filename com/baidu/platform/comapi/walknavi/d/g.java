@@ -2,7 +2,6 @@ package com.baidu.platform.comapi.walknavi.d;
 
 import android.text.TextUtils;
 import com.baidu.ar.npc.BaiduArView;
-import com.baidu.platform.comapi.walknavi.fsm.RGState;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
@@ -187,7 +186,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
 
     public boolean b(String str) {
         if (TextUtils.isEmpty(this.i)) {
-            return TextUtils.equals(str, RGState.METHOD_NAME_ENTER);
+            return TextUtils.equals(str, "enter");
         }
         return TextUtils.equals(str, "withoutGPS") || TextUtils.equals(str, "turnRight") || TextUtils.equals(str, "turnLeft") || TextUtils.equals(str, "helpless") || TextUtils.equals(str, "turnAndCry");
     }

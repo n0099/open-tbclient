@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.QueryForumDetail.QueryForumDetailResIdl;
@@ -17,7 +18,7 @@ public class ResponseOfficialBarInfoMessage extends TbSocketReponsedMessage {
     }
 
     public ResponseOfficialBarInfoMessage() {
-        super(208001);
+        super(CmdConfigSocket.CMD_QUERY_OFFICIAL_BAR_INFO);
         this.portrait = null;
         this.authen = null;
     }

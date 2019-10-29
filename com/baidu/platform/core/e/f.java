@@ -3,7 +3,6 @@ package com.baidu.platform.core.e;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.share.OnGetShareUrlResultListener;
 import com.baidu.mapapi.search.share.ShareUrlResult;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -37,7 +36,7 @@ public class f extends com.baidu.platform.base.d {
                     try {
                         JSONObject jSONObject2 = new JSONObject(str);
                         if (jSONObject2 != null) {
-                            if (jSONObject2.optString(WXLoginActivity.KEY_BASE_RESP_STATE).equals("success")) {
+                            if (jSONObject2.optString("state").equals("success")) {
                                 shareUrlResult.setUrl(jSONObject2.optString("url"));
                                 shareUrlResult.setType(a().ordinal());
                                 shareUrlResult.error = SearchResult.ERRORNO.NO_ERROR;

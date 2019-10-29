@@ -1,48 +1,48 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class r {
-    private boolean izR;
-    private boolean izS;
-    private Runnable izT = new Runnable() { // from class: com.baidu.tieba.play.r.1
+    private boolean iyo;
+    private boolean iyp;
+    private Runnable iyq = new Runnable() { // from class: com.baidu.tieba.play.r.1
         @Override // java.lang.Runnable
         public void run() {
-            r.this.izR = false;
+            r.this.iyo = false;
         }
     };
-    private Runnable izU = new Runnable() { // from class: com.baidu.tieba.play.r.2
+    private Runnable iyr = new Runnable() { // from class: com.baidu.tieba.play.r.2
         @Override // java.lang.Runnable
         public void run() {
-            r.this.izS = false;
+            r.this.iyp = false;
         }
     };
 
     public void onPrepared() {
-        this.izS = true;
-        com.baidu.adp.lib.g.e.iK().postDelayed(this.izU, 500L);
+        this.iyp = true;
+        com.baidu.adp.lib.g.e.fZ().postDelayed(this.iyr, 500L);
     }
 
-    public void cfB() {
-        this.izR = true;
+    public void ccC() {
+        this.iyo = true;
     }
 
-    public void cfC() {
-        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.izT);
-        com.baidu.adp.lib.g.e.iK().postDelayed(this.izT, 500L);
+    public void ccD() {
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.iyq);
+        com.baidu.adp.lib.g.e.fZ().postDelayed(this.iyq, 500L);
     }
 
     public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
-        if ((i == 701 || i2 == 701) && iVar != null && !this.izR && !this.izS) {
-            iVar.bPI();
-        } else if ((i == 702 || i2 == 702) && iVar != null && !this.izR && !this.izS) {
-            iVar.bPJ();
-            this.izR = false;
-            this.izS = false;
-            cfD();
+        if ((i == 701 || i2 == 701) && iVar != null && !this.iyo && !this.iyp) {
+            iVar.bMI();
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.iyo && !this.iyp) {
+            iVar.bMJ();
+            this.iyo = false;
+            this.iyp = false;
+            ccE();
         }
     }
 
-    public void cfD() {
-        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.izT);
-        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.izU);
+    public void ccE() {
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.iyq);
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.iyr);
     }
 }

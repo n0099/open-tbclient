@@ -1,0 +1,47 @@
+package com.baidu.tieba.livesdk.f;
+
+import android.location.Address;
+import com.baidu.adp.lib.d.a;
+import com.baidu.live.tbadk.location.LocationInfo;
+import com.baidu.live.tbadk.location.interfaces.ILocation;
+import com.baidu.live.tbadk.location.interfaces.LocationCallback;
+/* loaded from: classes6.dex */
+public class b implements ILocation {
+    @Override // com.baidu.live.tbadk.location.interfaces.ILocation
+    public LocationInfo getLocationInfo() {
+        return a(com.baidu.adp.lib.d.a.fw().getAddress(false));
+    }
+
+    @Override // com.baidu.live.tbadk.location.interfaces.ILocation
+    public void getLocation(final LocationCallback locationCallback) {
+        if (locationCallback != null) {
+            com.baidu.adp.lib.d.a.fw().a(false, new a.InterfaceC0015a() { // from class: com.baidu.tieba.livesdk.f.b.1
+                @Override // com.baidu.adp.lib.d.a.InterfaceC0015a
+                public void onLocationGeted(int i, String str, Address address) {
+                    locationCallback.onGetLocationInfo(b.this.a(address));
+                }
+            });
+        }
+    }
+
+    @Override // com.baidu.live.tbadk.location.interfaces.ILocation
+    public void requestLocate() {
+        com.baidu.adp.lib.d.a.fw().getAddress(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public LocationInfo a(Address address) {
+        if (address == null) {
+            return null;
+        }
+        LocationInfo locationInfo = new LocationInfo();
+        locationInfo.city = address.getLocality();
+        locationInfo.county = address.getCountryName();
+        locationInfo.latitude = address.getLatitude();
+        locationInfo.longitude = address.getLongitude();
+        locationInfo.prov = address.getAdminArea();
+        locationInfo.cityCode = address.getPostalCode();
+        locationInfo.street = address.getSubAdminArea();
+        return locationInfo;
+    }
+}

@@ -22,24 +22,24 @@ public class c {
                 map = d;
             } else {
                 d = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                d.put("OMX.Nvidia.h264.decode", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
+                d.put("OMX.Nvidia.h264.decode", 800);
                 d.put("OMX.Nvidia.h264.decode.secure", 300);
                 d.put("OMX.Intel.hw_vd.h264", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_NOT_SEEKABLE));
-                d.put("OMX.Intel.VideoDecoder.AVC", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
-                d.put("OMX.qcom.video.decoder.avc", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
+                d.put("OMX.Intel.VideoDecoder.AVC", 800);
+                d.put("OMX.qcom.video.decoder.avc", 800);
                 d.put("OMX.ittiam.video.decoder.avc", 0);
-                d.put("OMX.SEC.avc.dec", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
+                d.put("OMX.SEC.avc.dec", 800);
                 d.put("OMX.SEC.AVC.Decoder", 799);
                 d.put("OMX.SEC.avcdec", 798);
                 d.put("OMX.SEC.avc.sw.dec", 200);
-                d.put("OMX.Exynos.avc.dec", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
+                d.put("OMX.Exynos.avc.dec", 800);
                 d.put("OMX.Exynos.AVC.Decoder", 799);
-                d.put("OMX.k3.video.decoder.avc", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
-                d.put("OMX.IMG.MSVDX.Decoder.AVC", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
-                d.put("OMX.TI.DUCATI1.VIDEO.DECODER", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
-                d.put("OMX.rk.video_decoder.avc", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
-                d.put("OMX.amlogic.avc.decoder.awesome", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
-                d.put("OMX.MARVELL.VIDEO.HW.CODA7542DECODER", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING));
+                d.put("OMX.k3.video.decoder.avc", 800);
+                d.put("OMX.IMG.MSVDX.Decoder.AVC", 800);
+                d.put("OMX.TI.DUCATI1.VIDEO.DECODER", 800);
+                d.put("OMX.rk.video_decoder.avc", 800);
+                d.put("OMX.amlogic.avc.decoder.awesome", 800);
+                d.put("OMX.MARVELL.VIDEO.HW.CODA7542DECODER", 800);
                 d.put("OMX.MARVELL.VIDEO.H264DECODER", 200);
                 d.remove("OMX.Action.Video.Decoder");
                 d.remove("OMX.allwinner.video.decoder.avc");
@@ -88,7 +88,7 @@ public class c {
             if (lowerCase.startsWith("omx.ittiam.")) {
                 i = 0;
             } else if (lowerCase.startsWith("omx.mtk.")) {
-                i = Build.VERSION.SDK_INT < 18 ? 0 : CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING;
+                i = Build.VERSION.SDK_INT < 18 ? 0 : 800;
             } else {
                 Integer num = a().get(lowerCase);
                 if (num != null) {

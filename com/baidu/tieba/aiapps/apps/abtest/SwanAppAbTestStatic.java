@@ -19,8 +19,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AiAppGuideActivityConfig;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
@@ -35,7 +33,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class SwanAppAbTestStatic {
     static {
-        aFa();
+        aFm();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(final CustomMessage<String> customMessage) {
@@ -43,23 +41,23 @@ public class SwanAppAbTestStatic {
                     if (Build.VERSION.SDK_INT <= 21) {
                         l.showToast(TbadkCoreApplication.getInst(), (int) R.string.ai_apps_not_support);
                     } else {
-                        Activity eU = com.baidu.adp.base.a.eT().eU();
-                        if (eU != null) {
+                        Activity currentActivity = com.baidu.adp.base.a.em().currentActivity();
+                        if (currentActivity != null) {
                             com.baidu.tbadk.core.util.c.a aVar = new com.baidu.tbadk.core.util.c.a();
-                            aVar.ake();
-                            aVar.e(eU, "android.permission.WRITE_EXTERNAL_STORAGE");
-                            aVar.a(new a.InterfaceC0252a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1.1
-                                @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0252a
-                                public void akf() {
+                            aVar.clearRequestPermissionList();
+                            aVar.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                            aVar.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1.1
+                                @Override // com.baidu.tbadk.core.util.c.a.InterfaceC0284a
+                                public void onPermissionsGranted() {
                                     Uri parse = Uri.parse((String) customMessage.getData());
-                                    SwanAppAbTestStatic.r(parse);
+                                    SwanAppAbTestStatic.o(parse);
                                     SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), parse);
                                 }
                             });
-                            aVar.ad(eU);
+                            aVar.startRequestPermission(currentActivity);
                         } else {
                             Uri parse = Uri.parse(customMessage.getData());
-                            SwanAppAbTestStatic.r(parse);
+                            SwanAppAbTestStatic.o(parse);
                             SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), parse);
                         }
                     }
@@ -79,18 +77,18 @@ public class SwanAppAbTestStatic {
             /* renamed from: onMessage  reason: avoid collision after fix types in other method */
             public void onMessage2(CustomResponsedMessage customResponsedMessage) {
                 PopupWindow a;
-                Activity eU;
-                if ((customResponsedMessage.getData() instanceof g) && (a = d.a((g) customResponsedMessage.getData())) != null && (eU = com.baidu.adp.base.a.eT().eU()) != null && eU.getWindow() != null) {
+                Activity currentActivity;
+                if ((customResponsedMessage.getData() instanceof g) && (a = d.a((g) customResponsedMessage.getData())) != null && (currentActivity = com.baidu.adp.base.a.em().currentActivity()) != null && currentActivity.getWindow() != null) {
                     try {
-                        a.showAtLocation(eU.getWindow().getDecorView(), 17, 0, 0);
+                        a.showAtLocation(currentActivity.getWindow().getDecorView(), 17, 0, 0);
                     } catch (Exception e) {
                     }
                 }
             }
         });
-        ba.ajK().a(new ba.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.3
+        ba.amQ().a(new ba.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
-            public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 String str;
                 Exception e;
                 if (strArr == null || strArr.length == 0) {
@@ -113,7 +111,7 @@ public class SwanAppAbTestStatic {
                             } catch (Exception e2) {
                                 e = e2;
                                 e.printStackTrace();
-                                TiebaStatic.log(new an("c13274").bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(VideoPlayActivityConfig.OBJ_ID, str).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "web_search").bT("obj_name", str3));
+                                TiebaStatic.log(new an("c13274").bS("uid", TbadkCoreApplication.getCurrentAccount()).bS("obj_id", str).bS("obj_source", "web_search").bS("obj_name", str3));
                                 return 0;
                             }
                         }
@@ -121,7 +119,7 @@ public class SwanAppAbTestStatic {
                         str = "";
                         e = e3;
                     }
-                    TiebaStatic.log(new an("c13274").bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(VideoPlayActivityConfig.OBJ_ID, str).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "web_search").bT("obj_name", str3));
+                    TiebaStatic.log(new an("c13274").bS("uid", TbadkCoreApplication.getCurrentAccount()).bS("obj_id", str).bS("obj_source", "web_search").bS("obj_name", str3));
                 }
                 return 0;
             }
@@ -130,17 +128,17 @@ public class SwanAppAbTestStatic {
         MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_BROWSE_HISTORY));
     }
 
-    private static void aFa() {
+    private static void aFm() {
         c.a(TbadkCoreApplication.getInst(), true);
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            com.baidu.tieba.aiapps.apps.b.aEV();
-            com.baidu.tieba.aiapps.apps.a.a.aFc().init(TbadkCoreApplication.getInst());
-            com.baidu.tieba.aiapps.apps.share.c.aIg().dz(TbadkCoreApplication.getInst());
+            com.baidu.tieba.aiapps.apps.b.aFg();
+            com.baidu.tieba.aiapps.apps.a.a.aFo().init(TbadkCoreApplication.getInst());
+            com.baidu.tieba.aiapps.apps.share.c.aIq().di(TbadkCoreApplication.getInst());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void r(Uri uri) {
+    public static void o(Uri uri) {
         List<String> pathSegments;
         if (uri != null && (pathSegments = uri.getPathSegments()) != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY);

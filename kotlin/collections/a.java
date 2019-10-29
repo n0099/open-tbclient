@@ -1,5 +1,6 @@
 package kotlin.collections;
 
+import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.Collection;
 /* loaded from: classes2.dex */
 public abstract class a<E> implements Collection<E> {
@@ -42,7 +43,7 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public boolean containsAll(Collection<? extends Object> collection) {
-        kotlin.jvm.internal.p.k(collection, "elements");
+        kotlin.jvm.internal.p.i(collection, "elements");
         Collection<? extends Object> collection2 = collection;
         if (collection2.isEmpty()) {
             return true;
@@ -62,22 +63,22 @@ public abstract class a<E> implements Collection<E> {
 
     public String toString() {
         String a;
-        a = n.a(this, (r14 & 1) != 0 ? ", " : ", ", (r14 & 2) != 0 ? "" : "[", (r14 & 4) != 0 ? "" : "]", (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? "..." : null, (r14 & 32) != 0 ? null : new AbstractCollection$toString$1(this));
+        a = n.a(this, (r14 & 1) != 0 ? ", " : ", ", (r14 & 2) != 0 ? "" : "[", (r14 & 4) != 0 ? "" : "]", (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : new AbstractCollection$toString$1(this));
         return a;
     }
 
     @Override // java.util.Collection
     public Object[] toArray() {
-        Object[] k = kotlin.jvm.internal.n.k(this);
-        kotlin.jvm.internal.p.j(k, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
-        return k;
+        Object[] i = kotlin.jvm.internal.n.i(this);
+        kotlin.jvm.internal.p.h(i, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
+        return i;
     }
 
     @Override // java.util.Collection
     public <T> T[] toArray(T[] tArr) {
-        kotlin.jvm.internal.p.k(tArr, "array");
+        kotlin.jvm.internal.p.i(tArr, "array");
         T[] tArr2 = (T[]) kotlin.jvm.internal.n.a(this, tArr);
-        kotlin.jvm.internal.p.j(tArr2, "kotlin.jvm.internal.Coll…oArray(collection, array)");
+        kotlin.jvm.internal.p.h(tArr2, "kotlin.jvm.internal.Coll…oArray(collection, array)");
         return tArr2;
     }
 
@@ -87,7 +88,7 @@ public abstract class a<E> implements Collection<E> {
             return false;
         }
         for (E e : this) {
-            if (kotlin.jvm.internal.p.h(e, obj)) {
+            if (kotlin.jvm.internal.p.f(e, obj)) {
                 return true;
             }
         }

@@ -11,11 +11,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0255a clq;
+    private InterfaceC0287a cyq;
 
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0255a {
+    public interface InterfaceC0287a {
         void d(e eVar);
     }
 
@@ -34,18 +34,18 @@ public class a {
                 String str2 = eVar2.tid;
                 x xVar = new x();
                 xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
-                xVar.o("thread_id", str2);
-                xVar.o("type", "3");
-                String aim = xVar.aim();
-                if (aq.isEmpty(aim)) {
+                xVar.addPostData("thread_id", str2);
+                xVar.addPostData("type", "3");
+                String postNetData = xVar.postNetData();
+                if (aq.isEmpty(postNetData)) {
                     return eVar2;
                 }
                 try {
-                    str = new JSONObject(aim).optString(BigdayActivityConfig.IMG_URL);
+                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
-                eVar2.cmb = str;
+                eVar2.czb = str;
                 eVar2.imageUri = Uri.parse(str);
                 return eVar2;
             }
@@ -56,14 +56,14 @@ public class a {
             /* renamed from: c */
             public void onPostExecute(e eVar2) {
                 super.onPostExecute(eVar2);
-                if (a.this.clq != null) {
-                    a.this.clq.d(eVar2);
+                if (a.this.cyq != null) {
+                    a.this.cyq.d(eVar2);
                 }
             }
         }.execute(eVar);
     }
 
-    public void a(InterfaceC0255a interfaceC0255a) {
-        this.clq = interfaceC0255a;
+    public void a(InterfaceC0287a interfaceC0287a) {
+        this.cyq = interfaceC0287a;
     }
 }

@@ -7,13 +7,13 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class f implements i<e> {
-    private final Set<com.facebook.drawee.controller.c> keB;
-    private final g ken;
-    private final com.facebook.imagepipeline.d.g kez;
+    private final com.facebook.imagepipeline.d.g kcH;
+    private final Set<com.facebook.drawee.controller.c> kcJ;
+    private final g kcw;
     private final Context mContext;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, j.cJV(), bVar);
+        this(context, j.cGS(), bVar);
     }
 
     public f(Context context, j jVar, @Nullable b bVar) {
@@ -22,22 +22,22 @@ public class f implements i<e> {
 
     public f(Context context, j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.kez = jVar.cGF();
-        com.facebook.imagepipeline.a.a.b cJW = jVar.cJW();
-        com.facebook.imagepipeline.a.a.a eE = cJW != null ? cJW.eE(context) : null;
-        if (bVar != null && bVar.cGB() != null) {
-            this.ken = bVar.cGB();
+        this.kcH = jVar.cDD();
+        com.facebook.imagepipeline.a.a.b cGT = jVar.cGT();
+        com.facebook.imagepipeline.a.a.a et = cGT != null ? cGT.et(context) : null;
+        if (bVar != null && bVar.cDz() != null) {
+            this.kcw = bVar.cDz();
         } else {
-            this.ken = new g();
+            this.kcw = new g();
         }
-        this.ken.a(context.getResources(), com.facebook.drawee.components.a.cGP(), eE, com.facebook.common.b.f.cFK(), this.kez.cJn(), bVar != null ? bVar.cGA() : null, bVar != null ? bVar.cGC() : null);
-        this.keB = set;
+        this.kcw.a(context.getResources(), com.facebook.drawee.components.a.cDN(), et, com.facebook.common.b.f.cCI(), this.kcH.cGk(), bVar != null ? bVar.cDy() : null, bVar != null ? bVar.cDA() : null);
+        this.kcJ = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.i
-    /* renamed from: cGO */
+    /* renamed from: cDM */
     public e get() {
-        return new e(this.mContext, this.ken, this.kez, this.keB);
+        return new e(this.mContext, this.kcw, this.kcH, this.kcJ);
     }
 }

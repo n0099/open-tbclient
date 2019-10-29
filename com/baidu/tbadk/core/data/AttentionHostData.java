@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -28,7 +27,7 @@ public class AttentionHostData implements Serializable {
         try {
             jSONObject.put("is_attention", this.isAttention);
             jSONObject.put("uid", this.uid);
-            jSONObject.put(IntentConfig.PORTRAIT, this.portrait);
+            jSONObject.put("portrait", this.portrait);
             jSONObject.put("like_status", this.likeStatus);
             jSONObject.put("is_god", this.isGod);
             return jSONObject.toString();
@@ -44,7 +43,7 @@ public class AttentionHostData implements Serializable {
                 if (jSONObject != null) {
                     this.isAttention = jSONObject.optBoolean("is_attention", false);
                     this.uid = jSONObject.optString("uid");
-                    this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
+                    this.portrait = jSONObject.optString("portrait");
                     this.likeStatus = jSONObject.optInt("like_status", 0);
                     this.isGod = jSONObject.optBoolean("is_god", false);
                 }

@@ -18,8 +18,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bT */
-    public b onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bV */
+    public b b(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);
         return new b(view);
@@ -28,11 +28,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, b bVar) {
-        AdvertAppInfo baL = dVar.baL();
-        if (baL != null) {
-            com.baidu.tbadk.core.data.c.c(baL.advertAppContext, baL.bFx, baL.bFC.bFP == -1001);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, b bVar) {
+        AdvertAppInfo baN = dVar.baN();
+        if (baN != null) {
+            com.baidu.tbadk.core.data.c.c(baN.advertAppContext, baN.bXp, baN.bXu.bXH == -1001);
         }
         return bVar.getView();
     }

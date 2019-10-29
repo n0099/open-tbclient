@@ -11,11 +11,11 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.process.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0168a {
-        void Jq();
+    public interface InterfaceC0200a {
+        void Ok();
     }
 
-    public static boolean a(final IBinder iBinder, final InterfaceC0168a interfaceC0168a) {
+    public static boolean a(final IBinder iBinder, final InterfaceC0200a interfaceC0200a) {
         if (iBinder == null) {
             return false;
         }
@@ -27,8 +27,8 @@ public final class a {
                         Log.d("BinderStatusHelper", "binder died pid: " + Process.myPid());
                     }
                     iBinder.unlinkToDeath(this, 0);
-                    if (interfaceC0168a != null) {
-                        interfaceC0168a.Jq();
+                    if (interfaceC0200a != null) {
+                        interfaceC0200a.Ok();
                     }
                 }
             }, 0);

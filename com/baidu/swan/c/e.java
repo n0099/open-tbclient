@@ -12,7 +12,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes2.dex */
 public class e {
-    public static String k(InputStream inputStream) {
+    public static String i(InputStream inputStream) {
         return c(inputStream, Xml.Encoding.UTF_8.toString());
     }
 
@@ -31,9 +31,9 @@ public class e {
                     }
                     sb.append(readLine);
                 }
-                a.c(inputStream);
+                a.b(inputStream);
             } finally {
-                a.c(inputStream);
+                a.b(inputStream);
             }
         } catch (Exception | OutOfMemoryError e) {
             e.printStackTrace();
@@ -69,8 +69,8 @@ public class e {
                         int read = inputStream.read(bArr);
                         if (read == -1) {
                             fileOutputStream.flush();
-                            a.c(fileOutputStream);
-                            a.c(inputStream);
+                            a.b(fileOutputStream);
+                            a.b(inputStream);
                             return true;
                         }
                         fileOutputStream.write(bArr, 0, read);
@@ -78,14 +78,14 @@ public class e {
                 } catch (Exception e) {
                     e = e;
                     e.printStackTrace();
-                    a.c(fileOutputStream);
-                    a.c(inputStream);
+                    a.b(fileOutputStream);
+                    a.b(inputStream);
                     return false;
                 }
             } catch (Throwable th) {
                 th = th;
-                a.c(exists);
-                a.c(inputStream);
+                a.b(exists);
+                a.b(inputStream);
                 throw th;
             }
         } catch (Exception e2) {
@@ -94,8 +94,8 @@ public class e {
         } catch (Throwable th2) {
             th = th2;
             exists = 0;
-            a.c(exists);
-            a.c(inputStream);
+            a.b(exists);
+            a.b(inputStream);
             throw th;
         }
     }
@@ -138,11 +138,11 @@ public class e {
                                 }
                                 fileOutputStream.write(bArr, 0, read);
                             } catch (Throwable th) {
-                                a.c(fileOutputStream);
+                                a.b(fileOutputStream);
                                 throw th;
                             }
                         }
-                        a.c(fileOutputStream);
+                        a.b(fileOutputStream);
                     }
                 } else {
                     return true;
@@ -150,7 +150,7 @@ public class e {
             } catch (IOException e) {
                 return false;
             } finally {
-                a.c(zipInputStream);
+                a.b(zipInputStream);
             }
         }
     }

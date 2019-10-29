@@ -4,22 +4,22 @@ import android.util.Log;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class g implements Runnable {
-    private AtomicBoolean btF;
-    private b btU;
-    private a btV;
+    private b bMF;
+    private a bMG;
+    private AtomicBoolean bMq;
 
     public g(AtomicBoolean atomicBoolean, b bVar, a aVar) {
-        this.btF = atomicBoolean;
-        this.btU = bVar;
-        this.btV = aVar;
+        this.bMq = atomicBoolean;
+        this.bMF = bVar;
+        this.bMG = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Runnable dn;
-        while (!this.btF.get() && (dn = this.btV.dn(true)) != null && (dn instanceof f)) {
+        Runnable dE;
+        while (!this.bMq.get() && (dE = this.bMG.dE(true)) != null && (dE instanceof f)) {
             try {
-                i((f) dn);
+                i((f) dE);
             } catch (Throwable th) {
                 if (com.baidu.swan.pms.e.DEBUG) {
                     Log.e("PMSTaskExecutor", "runTask error:" + th.toString());
@@ -29,7 +29,7 @@ public class g implements Runnable {
     }
 
     private <T> void i(f<T> fVar) {
-        this.btU.d(fVar);
+        this.bMF.d(fVar);
         try {
             fVar.run();
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class g implements Runnable {
                 Log.e("PMSTaskExecutor", "run task error:" + e.toString());
             }
         } finally {
-            this.btU.e(fVar);
+            this.bMF.e(fVar);
         }
     }
 }

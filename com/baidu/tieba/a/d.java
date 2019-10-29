@@ -1,5 +1,6 @@
 package com.baidu.tieba.a;
 
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
@@ -8,57 +9,57 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private static volatile d cWY;
-    private ArrayList<Integer> cWU = new ArrayList<>();
-    private c cWV;
-    private a cWZ;
-    private List<an> cXa;
+    private static volatile d dgu;
+    private ArrayList<Integer> dgq = new ArrayList<>();
+    private c dgr;
+    private a dgv;
+    private List<an> dgw;
 
-    public static d aCV() {
-        if (cWY == null) {
+    public static d aDe() {
+        if (dgu == null) {
             synchronized (c.class) {
-                if (cWY == null) {
-                    cWY = new d();
+                if (dgu == null) {
+                    dgu = new d();
                 }
             }
         }
-        return cWY;
+        return dgu;
     }
 
     private d() {
-        this.cWU.add(1);
-        this.cWU.add(2);
-        this.cWV = new c();
-        this.cWZ = new a(this.cWV, this.cWU);
-        my(com.baidu.tbadk.core.sharedPref.b.ahU().getInt("key_abtest_channel", 0));
+        this.dgq.add(1);
+        this.dgq.add(2);
+        this.dgr = new c();
+        this.dgv = new a(this.dgr, this.dgq);
+        lD(com.baidu.tbadk.core.sharedPref.b.alR().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
-    public int ag(String str, int i) {
-        if (this.cWZ == null) {
+    public int X(String str, int i) {
+        if (this.dgv == null) {
             return 0;
         }
-        return this.cWZ.ag(str, i);
+        return this.dgv.X(str, i);
     }
 
-    public void sx(String str) {
-        if (this.cWZ != null) {
-            this.cWZ.sw(str);
+    public void rg(String str) {
+        if (this.dgv != null) {
+            this.dgv.rf(str);
         }
     }
 
     public void c(an anVar) {
         if (anVar != null) {
-            if (this.cXa == null) {
-                this.cXa = new ArrayList();
+            if (this.dgw == null) {
+                this.dgw = new ArrayList();
             }
-            this.cXa.add(anVar);
+            this.dgw.add(anVar);
         }
     }
 
-    public void bJ(String str, String str2) {
-        if (!v.aa(this.cXa) && this.cWV != null && this.cWV.aCT()) {
+    public void bO(String str, String str2) {
+        if (!v.isEmpty(this.dgw) && this.dgr != null && this.dgr.aDc()) {
             int i = -1;
-            for (an anVar : this.cXa) {
+            for (an anVar : this.dgw) {
                 if (anVar != null) {
                     if (anVar.getPosition() == 0) {
                         a(str, str2, anVar);
@@ -69,12 +70,12 @@ public class d {
                     i = i;
                 }
             }
-            this.cXa.clear();
+            this.dgw.clear();
         }
     }
 
     public void a(String str, String str2, an anVar) {
-        if (anVar != null && this.cWV != null && this.cWV.aCT()) {
+        if (anVar != null && this.dgr != null && this.dgr.aDc()) {
             HashMap hashMap = new HashMap();
             List<Object> params = anVar.getParams();
             if (params != null) {
@@ -98,20 +99,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (aq.isEmpty(str) || this.cWV == null || !this.cWV.aCT()) {
-            com.baidu.ubs.analytics.a.HE(str);
+        if (aq.isEmpty(str) || this.dgr == null || !this.dgr.aDc()) {
+            com.baidu.ubs.analytics.a.FV(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (aq.isEmpty(str) || this.cWV == null || !this.cWV.aCT()) {
-            com.baidu.ubs.analytics.a.HF(str);
+        if (aq.isEmpty(str) || this.dgr == null || !this.dgr.aDc()) {
+            com.baidu.ubs.analytics.a.FW(str);
         }
     }
 
-    public void my(int i) {
-        if (this.cWV != null) {
-            this.cWV.my(i);
+    public void lD(int i) {
+        if (this.dgr != null) {
+            this.dgr.lD(i);
         }
     }
 }

@@ -15,22 +15,22 @@ public final class a {
 
     public static void a(final com.baidu.swan.apps.core.container.a aVar, com.baidu.swan.apps.m.a.a aVar2) {
         String format;
-        String n;
+        String r;
         if (aVar != null && aVar2 != null) {
-            e.am("postMessage", "dispatchJSEvent start.");
-            if (aVar.zu()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.awJ);
-                n = "";
+            e.au("postMessage", "dispatchJSEvent start.");
+            if (aVar.Ep()) {
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.aPY);
+                r = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                n = n(NotificationCompat.CATEGORY_EVENT, "type", aVar2.awJ);
+                r = r(NotificationCompat.CATEGORY_EVENT, "type", aVar2.aPY);
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, n + aVar2.ex(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
-            e.am("postMessage", "dispatchJSEvent buildEvent");
+            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, r + aVar2.fe(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
+            e.au("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
             }
-            if (aVar.zu()) {
+            if (aVar.Ep()) {
                 ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.m.a.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -50,17 +50,17 @@ public final class a {
             return;
         }
         aVar.evaluateJavascript(str, null);
-        e.am("postMessage", "dispatchJSEvent evaluateJavascript");
+        e.au("postMessage", "dispatchJSEvent evaluateJavascript");
     }
 
     private static String a(com.baidu.swan.apps.core.container.a aVar) {
-        if (aVar.zu()) {
+        if (aVar.Ep()) {
             return "document";
         }
         return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
     }
 
-    public static String n(String str, String str2, String str3) {
+    public static String r(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return "";
         }

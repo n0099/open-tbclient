@@ -1,5 +1,6 @@
 package kotlin.collections;
 
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
@@ -80,7 +81,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
 
     @Override // java.util.List, java.util.Collection
     public Object[] toArray() {
-        return kotlin.jvm.internal.n.k(this);
+        return kotlin.jvm.internal.n.i(this);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -144,40 +145,40 @@ public final class EmptyList implements Serializable, List, RandomAccess {
     }
 
     public boolean contains(Void r2) {
-        kotlin.jvm.internal.p.k(r2, "element");
+        kotlin.jvm.internal.p.i(r2, "element");
         return false;
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean containsAll(Collection collection) {
-        kotlin.jvm.internal.p.k(collection, "elements");
+        kotlin.jvm.internal.p.i(collection, "elements");
         return collection.isEmpty();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.List
     public Void get(int i) {
-        throw new IndexOutOfBoundsException("Empty list doesn't contain element at index " + i + '.');
+        throw new IndexOutOfBoundsException("Empty list doesn't contain element at index " + i + BdFileHelper.EXTENSION_SEPARATOR);
     }
 
     public int indexOf(Void r2) {
-        kotlin.jvm.internal.p.k(r2, "element");
+        kotlin.jvm.internal.p.i(r2, "element");
         return -1;
     }
 
     public int lastIndexOf(Void r2) {
-        kotlin.jvm.internal.p.k(r2, "element");
+        kotlin.jvm.internal.p.i(r2, "element");
         return -1;
     }
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return v.kuX;
+        return v.kvF;
     }
 
     @Override // java.util.List
     public ListIterator listIterator() {
-        return v.kuX;
+        return v.kvF;
     }
 
     @Override // java.util.List
@@ -185,7 +186,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
         if (i != 0) {
             throw new IndexOutOfBoundsException("Index: " + i);
         }
-        return v.kuX;
+        return v.kvF;
     }
 
     @Override // java.util.List

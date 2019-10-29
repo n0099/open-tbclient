@@ -1,7 +1,6 @@
 package com.baidu.tieba.share;
 
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.data.ContriInfo;
 import org.json.JSONObject;
@@ -10,7 +9,7 @@ public class AddExperiencedResponseMessage extends JsonHttpResponsedMessage {
     private ContriInfo mContriInfo;
 
     public AddExperiencedResponseMessage(int i) {
-        super(CmdConfigHttp.CMD_ADD_EXPERIENCED);
+        super(1003332);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

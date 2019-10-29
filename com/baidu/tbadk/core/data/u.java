@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes.dex */
@@ -20,7 +21,7 @@ public class u {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.mIcon = jSONObject.optString("icon");
+                this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
                 this.mName = jSONObject.optString("name");
                 this.mUrl = jSONObject.optString("url");
             } catch (Exception e) {

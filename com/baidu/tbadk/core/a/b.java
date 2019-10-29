@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean mn(String str) {
-        return TiebaDatabase.getInstance().getMainDBDatabaseManager().f("delete from account_data where id=?", new String[]{str});
+    public static boolean mK(String str) {
+        return TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("delete from account_data where id=?", new String[]{str});
     }
 
     private static boolean a(AccountData accountData, com.baidu.adp.base.a.b bVar) {
-        return bVar.f("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
+        return bVar.execSQLNoException("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
     }
 
     public static void b(AccountData accountData) {
@@ -28,24 +28,24 @@ public class b {
             }
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, str, 0, "", new Object[0]);
             if (accountData.getIsActive() == 1) {
-                acl();
+                ags();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!mn(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
-                if (!mainDBDatabaseManager.O("DROP TABLE IF EXISTS account_data")) {
-                    mainDBDatabaseManager.fc();
+            if (!mK(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
+                if (!mainDBDatabaseManager.execSQLNoException("DROP TABLE IF EXISTS account_data")) {
+                    mainDBDatabaseManager.deleteDatabase();
                 }
-                mainDBDatabaseManager.O("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
+                mainDBDatabaseManager.execSQLNoException("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
                 a(accountData, mainDBDatabaseManager);
             }
         }
     }
 
-    public static void acl() {
-        TiebaDatabase.getInstance().getMainDBDatabaseManager().O("update account_data set isactive=0 where isactive=1");
+    public static void ags() {
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("update account_data set isactive=0 where isactive=1");
     }
 
-    public static int acm() {
+    public static int agt() {
         Cursor cursor;
         Exception exc;
         Cursor cursor2 = null;
@@ -54,7 +54,7 @@ public class b {
         if (mainDBDatabaseManager != null) {
             try {
                 try {
-                    cursor2 = mainDBDatabaseManager.b("select count(*) from account_data", null);
+                    cursor2 = mainDBDatabaseManager.rawQuery("select count(*) from account_data", null);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.moveToFirst()) {
@@ -64,20 +64,20 @@ public class b {
                             cursor = cursor2;
                             exc = e;
                             try {
-                                mainDBDatabaseManager.c(exc, "getAccountNum");
-                                com.baidu.adp.lib.g.a.e(cursor);
+                                mainDBDatabaseManager.notifySQLException(exc, "getAccountNum");
+                                com.baidu.adp.lib.g.a.close(cursor);
                                 return i;
                             } catch (Throwable th) {
                                 th = th;
                                 cursor2 = cursor;
-                                com.baidu.adp.lib.g.a.e(cursor2);
+                                com.baidu.adp.lib.g.a.close(cursor2);
                                 throw th;
                             }
                         }
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    com.baidu.adp.lib.g.a.e(cursor2);
+                    com.baidu.adp.lib.g.a.close(cursor2);
                     throw th;
                 }
             } catch (Exception e2) {
@@ -85,7 +85,7 @@ public class b {
                 exc = e2;
             }
         }
-        com.baidu.adp.lib.g.a.e(cursor2);
+        com.baidu.adp.lib.g.a.close(cursor2);
         return i;
     }
 
@@ -94,59 +94,59 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v37, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData acn() {
+    public static AccountData agu() {
         Cursor cursor;
-        Cursor b;
+        Cursor rawQuery;
         AccountData accountData;
         Cursor cursor2 = null;
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
             try {
-                b = mainDBDatabaseManager.b("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
-                if (b != null) {
+                rawQuery = mainDBDatabaseManager.rawQuery("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
+                if (rawQuery != null) {
                     try {
                         try {
-                            if (b.moveToFirst()) {
+                            if (rawQuery.moveToFirst()) {
                                 AccountData accountData2 = new AccountData();
                                 try {
-                                    accountData2.setID(b.getString(0));
-                                    accountData2.setAccount(b.getString(1));
-                                    accountData2.setPassword(b.getString(2));
-                                    accountData2.setBDUSS(b.getString(3));
-                                    accountData2.setIsActive(b.getInt(4));
-                                    accountData2.setTbs(b.getString(5));
-                                    accountData2.setTime(b.getLong(6));
-                                    accountData2.setPortrait(b.getString(7));
-                                    accountData2.setSex(b.getInt(9));
-                                    accountData2.setMemberIconUrl(b.getString(10));
-                                    accountData2.setStoken(b.getString(b.getColumnIndex("stoken")));
-                                    accountData2.setNameShow(b.getString(b.getColumnIndex("name_show")));
+                                    accountData2.setID(rawQuery.getString(0));
+                                    accountData2.setAccount(rawQuery.getString(1));
+                                    accountData2.setPassword(rawQuery.getString(2));
+                                    accountData2.setBDUSS(rawQuery.getString(3));
+                                    accountData2.setIsActive(rawQuery.getInt(4));
+                                    accountData2.setTbs(rawQuery.getString(5));
+                                    accountData2.setTime(rawQuery.getLong(6));
+                                    accountData2.setPortrait(rawQuery.getString(7));
+                                    accountData2.setSex(rawQuery.getInt(9));
+                                    accountData2.setMemberIconUrl(rawQuery.getString(10));
+                                    accountData2.setStoken(rawQuery.getString(rawQuery.getColumnIndex("stoken")));
+                                    accountData2.setNameShow(rawQuery.getString(rawQuery.getColumnIndex("name_show")));
                                     cursor2 = accountData2;
                                 } catch (Exception e) {
                                     cursor2 = accountData2;
-                                    cursor = b;
+                                    cursor = rawQuery;
                                     e = e;
                                     try {
-                                        mainDBDatabaseManager.c(e, "getActiveAccountData");
-                                        com.baidu.adp.lib.g.a.e(cursor);
+                                        mainDBDatabaseManager.notifySQLException(e, "getActiveAccountData");
+                                        com.baidu.adp.lib.g.a.close(cursor);
                                         accountData = cursor2;
                                         return accountData;
                                     } catch (Throwable th) {
                                         th = th;
                                         cursor2 = cursor;
-                                        com.baidu.adp.lib.g.a.e(cursor2);
+                                        com.baidu.adp.lib.g.a.close(cursor2);
                                         throw th;
                                     }
                                 }
                             }
                         } catch (Exception e2) {
-                            cursor = b;
+                            cursor = rawQuery;
                             e = e2;
                         }
                     } catch (Throwable th2) {
-                        cursor2 = b;
+                        cursor2 = rawQuery;
                         th = th2;
-                        com.baidu.adp.lib.g.a.e(cursor2);
+                        com.baidu.adp.lib.g.a.close(cursor2);
                         throw th;
                     }
                 }
@@ -157,9 +157,9 @@ public class b {
                 th = th3;
             }
         } else {
-            b = null;
+            rawQuery = null;
         }
-        com.baidu.adp.lib.g.a.e(b);
+        com.baidu.adp.lib.g.a.close(rawQuery);
         accountData = cursor2;
         return accountData;
     }
@@ -169,58 +169,58 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v37, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData mo(String str) {
+    public static AccountData mL(String str) {
         Cursor cursor;
-        Cursor b;
+        Cursor rawQuery;
         AccountData accountData;
         Cursor cursor2 = null;
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
             try {
-                b = mainDBDatabaseManager.b("select * from account_data where account=?", new String[]{str});
+                rawQuery = mainDBDatabaseManager.rawQuery("select * from account_data where account=?", new String[]{str});
                 try {
                     try {
-                        if (b.moveToFirst()) {
+                        if (rawQuery.moveToFirst()) {
                             AccountData accountData2 = new AccountData();
                             try {
-                                accountData2.setID(b.getString(0));
-                                accountData2.setAccount(b.getString(1));
-                                accountData2.setPassword(b.getString(2));
-                                accountData2.setBDUSS(b.getString(3));
-                                accountData2.setIsActive(b.getInt(4));
-                                accountData2.setTbs(b.getString(5));
-                                accountData2.setTime(b.getLong(6));
-                                accountData2.setPortrait(b.getString(7));
-                                accountData2.setSex(b.getInt(9));
-                                accountData2.setMemberIconUrl(b.getString(10));
-                                accountData2.setStoken(b.getString(b.getColumnIndex("stoken")));
-                                accountData2.setNameShow(b.getString(b.getColumnIndex("name_show")));
+                                accountData2.setID(rawQuery.getString(0));
+                                accountData2.setAccount(rawQuery.getString(1));
+                                accountData2.setPassword(rawQuery.getString(2));
+                                accountData2.setBDUSS(rawQuery.getString(3));
+                                accountData2.setIsActive(rawQuery.getInt(4));
+                                accountData2.setTbs(rawQuery.getString(5));
+                                accountData2.setTime(rawQuery.getLong(6));
+                                accountData2.setPortrait(rawQuery.getString(7));
+                                accountData2.setSex(rawQuery.getInt(9));
+                                accountData2.setMemberIconUrl(rawQuery.getString(10));
+                                accountData2.setStoken(rawQuery.getString(rawQuery.getColumnIndex("stoken")));
+                                accountData2.setNameShow(rawQuery.getString(rawQuery.getColumnIndex("name_show")));
                                 cursor2 = accountData2;
                             } catch (Exception e) {
                                 cursor2 = accountData2;
-                                cursor = b;
+                                cursor = rawQuery;
                                 e = e;
                                 try {
-                                    mainDBDatabaseManager.c(e, "getAccountData");
-                                    com.baidu.adp.lib.g.a.e(cursor);
+                                    mainDBDatabaseManager.notifySQLException(e, "getAccountData");
+                                    com.baidu.adp.lib.g.a.close(cursor);
                                     accountData = cursor2;
                                     return accountData;
                                 } catch (Throwable th) {
                                     th = th;
                                     cursor2 = cursor;
-                                    com.baidu.adp.lib.g.a.e(cursor2);
+                                    com.baidu.adp.lib.g.a.close(cursor2);
                                     throw th;
                                 }
                             }
                         }
                     } catch (Exception e2) {
-                        cursor = b;
+                        cursor = rawQuery;
                         e = e2;
                     }
                 } catch (Throwable th2) {
-                    cursor2 = b;
+                    cursor2 = rawQuery;
                     th = th2;
-                    com.baidu.adp.lib.g.a.e(cursor2);
+                    com.baidu.adp.lib.g.a.close(cursor2);
                     throw th;
                 }
             } catch (Exception e3) {
@@ -230,14 +230,14 @@ public class b {
                 th = th3;
             }
         } else {
-            b = null;
+            rawQuery = null;
         }
-        com.baidu.adp.lib.g.a.e(b);
+        com.baidu.adp.lib.g.a.close(rawQuery);
         accountData = cursor2;
         return accountData;
     }
 
-    public static ArrayList<AccountData> aco() {
+    public static ArrayList<AccountData> agv() {
         Cursor cursor;
         Throwable th;
         Exception exc;
@@ -246,7 +246,7 @@ public class b {
         ArrayList<AccountData> arrayList = new ArrayList<>();
         if (mainDBDatabaseManager != null) {
             try {
-                cursor2 = mainDBDatabaseManager.b("select * from account_data order by time desc", null);
+                cursor2 = mainDBDatabaseManager.rawQuery("select * from account_data order by time desc", null);
                 while (cursor2.moveToNext()) {
                     try {
                         AccountData accountData = new AccountData();
@@ -267,18 +267,18 @@ public class b {
                         cursor = cursor2;
                         exc = e;
                         try {
-                            mainDBDatabaseManager.c(exc, "getAllAccountData");
-                            com.baidu.adp.lib.g.a.e(cursor);
+                            mainDBDatabaseManager.notifySQLException(exc, "getAllAccountData");
+                            com.baidu.adp.lib.g.a.close(cursor);
                             return arrayList;
                         } catch (Throwable th2) {
                             th = th2;
-                            com.baidu.adp.lib.g.a.e(cursor);
+                            com.baidu.adp.lib.g.a.close(cursor);
                             throw th;
                         }
                     } catch (Throwable th3) {
                         cursor = cursor2;
                         th = th3;
-                        com.baidu.adp.lib.g.a.e(cursor);
+                        com.baidu.adp.lib.g.a.close(cursor);
                         throw th;
                     }
                 }
@@ -290,7 +290,7 @@ public class b {
                 th = th4;
             }
         }
-        com.baidu.adp.lib.g.a.e(cursor2);
+        com.baidu.adp.lib.g.a.close(cursor2);
         return arrayList;
     }
 }

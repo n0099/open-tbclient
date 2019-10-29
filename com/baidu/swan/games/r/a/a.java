@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends d {
-    public int blG;
+    public int bEu;
     public int errCode;
     public String url;
 
@@ -14,7 +14,7 @@ public class a extends d {
         try {
             jSONObject.put("url", this.url);
             jSONObject.put("errCode", this.errCode);
-            jSONObject.put("net", this.blG);
+            jSONObject.put("net", this.bEu);
             jSONObject.put("errMsg", this.errMsg);
         } catch (JSONException e) {
         }

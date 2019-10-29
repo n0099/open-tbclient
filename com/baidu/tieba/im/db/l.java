@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
-    public static String gGW = "tb_oficial_msg_";
-    private static a gHu;
+    public static String gEU = "tb_oficial_msg_";
+    private static a gFs;
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized l bDS() {
+    public static synchronized l bAD() {
         l lVar;
         synchronized (l.class) {
-            if (gHu == null) {
-                gHu = new l();
+            if (gFs == null) {
+                gFs = new l();
             }
-            lVar = (l) gHu;
+            lVar = (l) gFs;
         }
         return lVar;
     }
 
-    public static List<String> bDT() {
+    public static List<String> bAE() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.bDI().b("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+            cursor = h.bAs().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
@@ -39,7 +39,7 @@ public class l extends a {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
         } finally {
-            com.baidu.adp.lib.util.n.e(cursor);
+            com.baidu.adp.lib.util.n.close(cursor);
         }
         return arrayList;
     }

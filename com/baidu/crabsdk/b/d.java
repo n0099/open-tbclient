@@ -11,38 +11,38 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> ZQ = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float ZR = 0.0f;
-    private static float ZS = 0.0f;
-    private static float ZT = 0.0f;
-    private static float ZU = 0.0f;
-    private static String ZV = "";
-    private static long ZW = 0;
-    private static long ZX = 0;
-    private static Rect ZY = null;
+    private static com.baidu.crabsdk.c.b<List> JT = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float JU = 0.0f;
+    private static float JV = 0.0f;
+    private static float JW = 0.0f;
+    private static float JX = 0.0f;
+    private static String JY = "";
+    private static long JZ = 0;
+    private static long Ka = 0;
+    private static Rect Kb = null;
 
-    private static List<View> L(View view) {
+    private static List<View> G(View view) {
         ArrayList arrayList = new ArrayList();
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) ZR;
-                    int i3 = (int) ZS;
-                    if (ZY == null) {
-                        ZY = new Rect();
+                    int i2 = (int) JU;
+                    int i3 = (int) JV;
+                    if (Kb == null) {
+                        Kb = new Rect();
                     }
-                    childAt.getDrawingRect(ZY);
+                    childAt.getDrawingRect(Kb);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    ZY.left = iArr[0];
-                    ZY.top = iArr[1];
-                    ZY.right += iArr[0];
-                    ZY.bottom = iArr[1] + ZY.bottom;
-                    if (ZY.contains(i2, i3)) {
+                    Kb.left = iArr[0];
+                    Kb.top = iArr[1];
+                    Kb.right += iArr[0];
+                    Kb.bottom = iArr[1] + Kb.bottom;
+                    if (Kb.contains(i2, i3)) {
                         arrayList.add(childAt);
-                        arrayList.addAll(L(childAt));
+                        arrayList.addAll(G(childAt));
                     }
                 }
             }
@@ -56,9 +56,9 @@ public final class d {
         arrayList.add(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
         StringBuilder sb = new StringBuilder();
         if (activity != null && (decorView = activity.getWindow().getDecorView()) != null) {
-            List<View> L = L(decorView);
+            List<View> G = G(decorView);
             String str = "";
-            for (View view : L) {
+            for (View view : G) {
                 str = view.getClass().getName() + ", id=" + view.getId();
             }
             sb.append(str);
@@ -67,51 +67,51 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + ZR + ", " + ZS + ")");
+                arrayList.add("(" + JU + ", " + JV + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + ZR + ", " + ZS + ")");
+                arrayList.add("(" + JU + ", " + JV + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + ZR + ", " + ZS + ")");
+                arrayList.add("(" + JU + ", " + JV + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + ZR + ", " + ZS + ") to:(" + ZT + ", " + ZU + ")");
+                arrayList.add("from:(" + JU + ", " + JV + ") to:(" + JW + ", " + JX + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + ZR + ", " + ZS + ") to:(" + ZT + ", " + ZU + ")");
+                arrayList.add("from:(" + JU + ", " + JV + ") to:(" + JW + ", " + JX + ")");
                 break;
         }
-        arrayList.add(ZV);
-        ZQ.add(arrayList);
+        arrayList.add(JY);
+        JT.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        ZV = activity.getClass().getName();
+        JY = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                ZR = motionEvent.getX();
-                ZS = motionEvent.getY();
-                ZW = System.currentTimeMillis();
+                JU = motionEvent.getX();
+                JV = motionEvent.getY();
+                JZ = System.currentTimeMillis();
                 return;
             case 1:
-                ZT = motionEvent.getX();
-                ZU = motionEvent.getY();
-                ZX = System.currentTimeMillis();
-                if (Math.abs(ZU - ZS) > 30.0f) {
+                JW = motionEvent.getX();
+                JX = motionEvent.getY();
+                Ka = System.currentTimeMillis();
+                if (Math.abs(JX - JV) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(ZT - ZR) > 30.0f && Math.abs(ZU - ZS) < 30.0f) {
+                } else if (Math.abs(JW - JU) > 30.0f && Math.abs(JX - JV) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (ZX - ZW > 300) {
+                } else if (Ka - JZ > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -126,9 +126,9 @@ public final class d {
 
     public static String t() {
         StringBuilder sb = new StringBuilder();
-        int size = ZQ.size();
+        int size = JT.size();
         for (int i = 0; i < size; i++) {
-            List list = ZQ.get(i);
+            List list = JT.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

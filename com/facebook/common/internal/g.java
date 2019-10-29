@@ -27,7 +27,7 @@ public final class g {
         }
     }
 
-    public static void c(boolean z, @Nullable Object obj) {
+    public static void d(boolean z, @Nullable Object obj) {
         if (!z) {
             throw new IllegalStateException(String.valueOf(obj));
         }
@@ -47,7 +47,7 @@ public final class g {
         return t;
     }
 
-    public static int cK(int i, int i2) {
+    public static int cD(int i, int i2) {
         return k(i, i2, "index");
     }
 

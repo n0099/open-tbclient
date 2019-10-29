@@ -1,14 +1,16 @@
 package com.baidu.tbadk.util;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.net.MalformedURLException;
@@ -18,7 +20,7 @@ import java.net.URLDecoder;
 public class ad {
     private static BaseWebView mBaseWebView;
 
-    public static void awW() {
+    public static void axW() {
         try {
             if (mBaseWebView == null) {
                 mBaseWebView = new BaseWebView(TbadkCoreApplication.getInst());
@@ -29,14 +31,14 @@ public class ad {
     }
 
     public static String getUserAgent() {
-        awW();
+        axW();
         if (mBaseWebView == null || mBaseWebView.getSettings() == null) {
             return null;
         }
         return mBaseWebView.getSettings().getUserAgentString();
     }
 
-    public static String cf(String str, String str2) {
+    public static String getMatchStringFromURL(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -54,7 +56,7 @@ public class ad {
         return "";
     }
 
-    public static String cg(String str, String str2) {
+    public static String getParamFromURL(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
@@ -87,7 +89,7 @@ public class ad {
         return str3;
     }
 
-    public static Bundle rC(String str) {
+    public static Bundle parserQuery(String str) {
         URL url;
         String query;
         String[] split;
@@ -117,17 +119,17 @@ public class ad {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String cEs;
+        public String PTOKEN;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.cEs = "";
+            this.PTOKEN = "";
             this.BDUSS = str;
-            this.cEs = str2;
+            this.PTOKEN = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.cEs != null ? this.cEs.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.PTOKEN != null ? this.PTOKEN.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -143,7 +145,7 @@ public class ad {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.cEs == null ? aVar.cEs == null : this.cEs.equals(aVar.cEs);
+                return this.PTOKEN == null ? aVar.PTOKEN == null : this.PTOKEN.equals(aVar.PTOKEN);
             }
             return false;
         }
@@ -151,7 +153,7 @@ public class ad {
 
     public static void a(final BaseWebView baseWebView, BdUniqueId bdUniqueId) {
         if (baseWebView != null) {
-            CustomMessageListener customMessageListener = new CustomMessageListener(2921024) { // from class: com.baidu.tbadk.util.ad.1
+            CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_WEBVIEW_LOGIN) { // from class: com.baidu.tbadk.util.ad.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -167,7 +169,7 @@ public class ad {
         }
     }
 
-    public static String rD(String str) {
+    public static String addParamsForPageTranslucent(String str) {
         if (!aq.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {
@@ -177,9 +179,16 @@ public class ad {
             }
             sb.append("page_type");
             sb.append("=");
-            sb.append(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            sb.append("open_full_screen_opacity_web_page");
             return sb.toString();
         }
         return str;
+    }
+
+    public static boolean qt(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return str.toLowerCase().startsWith("http://") || str.toLowerCase().startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 }

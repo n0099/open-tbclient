@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 class d {
-    private static final Class<?> kbD = d.class;
+    private static final Class<?> jZN = d.class;
 
     d() {
     }
 
-    public static int Ey(int i) {
+    public static int CU(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -20,7 +20,7 @@ class d {
             case 5:
             case 7:
             default:
-                com.facebook.common.c.a.e(kbD, "Unsupported orientation");
+                com.facebook.common.c.a.d(jZN, "Unsupported orientation");
                 return 0;
             case 3:
                 return SubsamplingScaleImageView.ORIENTATION_180;
@@ -34,20 +34,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.kpd - 8;
+        int i2 = aVar.knp - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.kpb, 274), aVar.kpb);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.knn, 274), aVar.knn);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        boolean kpb;
-        int kpc;
-        int kpd;
+        boolean knn;
+        int kno;
+        int knp;
 
         private a() {
         }
@@ -57,17 +57,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.kpc = c.a(inputStream, 4, false);
+        aVar.kno = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.kpc != 1229531648 && aVar.kpc != 1296891946) {
-            com.facebook.common.c.a.g(kbD, "Invalid TIFF header");
+        if (aVar.kno != 1229531648 && aVar.kno != 1296891946) {
+            com.facebook.common.c.a.f(jZN, "Invalid TIFF header");
             return 0;
         }
-        aVar.kpb = aVar.kpc == 1229531648;
-        aVar.kpd = c.a(inputStream, 4, aVar.kpb);
+        aVar.knn = aVar.kno == 1229531648;
+        aVar.knp = c.a(inputStream, 4, aVar.knn);
         int i3 = i2 - 4;
-        if (aVar.kpd < 8 || aVar.kpd - 8 > i3) {
-            com.facebook.common.c.a.g(kbD, "Invalid offset");
+        if (aVar.knp < 8 || aVar.knp - 8 > i3) {
+            com.facebook.common.c.a.f(jZN, "Invalid offset");
             return 0;
         }
         return i3;

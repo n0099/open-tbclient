@@ -22,16 +22,16 @@ import com.baidu.tbadk.m.h;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class LabelSettingView extends RelativeLayout implements View.OnClickListener {
-    private View bCC;
-    private g dly;
-    private NoNetworkView dpy;
-    private NoNetworkView.a eIX;
-    private com.baidu.tbadk.core.dialog.a eLo;
-    private com.baidu.tieba.interestlabel.model.a hdX;
-    private TextView hdY;
-    private GridLineView hdZ;
-    private com.baidu.tieba.interestlabel.a.b hea;
-    private boolean heb;
+    private View bUX;
+    private g dEq;
+    private NoNetworkView dwI;
+    private NoNetworkView.a eRC;
+    private com.baidu.tbadk.core.dialog.a eTU;
+    private com.baidu.tieba.interestlabel.model.a hca;
+    private TextView hcb;
+    private GridLineView hcc;
+    private com.baidu.tieba.interestlabel.a.b hcd;
+    private boolean hce;
     private NavigationBar mNavigationBar;
     private TbPageContext<?> mPageContext;
     private h mRefreshView;
@@ -40,16 +40,16 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     public LabelSettingView(TbPageContext<?> tbPageContext, com.baidu.tieba.interestlabel.model.a aVar) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.eIX = new NoNetworkView.a() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.1
+        this.eRC = new NoNetworkView.a() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-            public void es(boolean z) {
-                if (z && LabelSettingView.this.hea.getCount() == 0 && LabelSettingView.this.hdX != null) {
-                    LabelSettingView.this.hdX.bKk();
+            public void onNetworkChange(boolean z) {
+                if (z && LabelSettingView.this.hcd.getCount() == 0 && LabelSettingView.this.hca != null) {
+                    LabelSettingView.this.hca.bGU();
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.hdX = aVar;
+        this.hca = aVar;
         init(tbPageContext.getPageActivity());
         onChangeSkinType();
     }
@@ -57,51 +57,51 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.activity_label_setting_layout, (ViewGroup) this, true);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.label_setting_navigation_bar_view);
-        this.dpy = (NoNetworkView) findViewById(R.id.label_setting_no_network_view);
-        this.hdZ = (GridLineView) findViewById(R.id.label_setting_gridview);
+        this.dwI = (NoNetworkView) findViewById(R.id.label_setting_no_network_view);
+        this.hcc = (GridLineView) findViewById(R.id.label_setting_gridview);
         this.mNavigationBar.setTitleText(context.getString(R.string.choose_interest_label));
-        this.bCC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
-        this.hdY = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.item_label_setting_nav_complete, this);
-        this.dpy.a(this.eIX);
-        this.eLo = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        this.eLo.mQ(this.mPageContext.getString(R.string.confirm_give_up_label));
-        this.eLo.a(this.mPageContext.getString(R.string.alert_yes_button), new a.b() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.2
+        this.bUX = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
+        this.hcb = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.item_label_setting_nav_complete, this);
+        this.dwI.a(this.eRC);
+        this.eTU = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+        this.eTU.nn(this.mPageContext.getString(R.string.confirm_give_up_label));
+        this.eTU.a(this.mPageContext.getString(R.string.alert_yes_button), new a.b() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
                 LabelSettingView.this.mPageContext.getPageActivity().finish();
             }
         });
-        this.eLo.b(this.mPageContext.getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.3
+        this.eTU.b(this.mPageContext.getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
             }
         });
-        this.eLo.b(this.mPageContext);
-        this.hea = new com.baidu.tieba.interestlabel.a.b(this);
-        this.hdZ.setAdapter((ListAdapter) this.hea);
+        this.eTU.b(this.mPageContext);
+        this.hcd = new com.baidu.tieba.interestlabel.a.b(this);
+        this.hcc.setAdapter((ListAdapter) this.hcd);
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.aa(bVar.bKo())) {
-            this.hdZ.setVisibility(0);
-            this.hea.setData(bVar);
-            this.hea.notifyDataSetChanged();
+        if (bVar != null && !v.isEmpty(bVar.bGY())) {
+            this.hcc.setVisibility(0);
+            this.hcd.setData(bVar);
+            this.hcd.notifyDataSetChanged();
         }
     }
 
-    public void mZ(boolean z) {
-        this.heb = z;
-        this.hdY.setSelected(z);
+    public void mN(boolean z) {
+        this.hce = z;
+        this.hcb.setSelected(z);
     }
 
-    public boolean bKA() {
-        return (this.hea == null || v.c(this.hea.bKl(), this.hea.bKm())) ? false : true;
+    public boolean bHk() {
+        return (this.hcd == null || v.equalList(this.hcd.bGV(), this.hcd.bGW())) ? false : true;
     }
 
     public void showDialog() {
-        this.eLo.agO();
+        this.eTU.akO();
     }
 
     public void onChangeSkinType() {
@@ -111,23 +111,23 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
             if (this.mPageContext != null && this.mNavigationBar != null) {
                 this.mNavigationBar.onChangeSkinType(this.mPageContext, this.mSkinType);
             }
-            if (this.hdY != null) {
-                am.j(this.hdY, R.drawable.color_nav_complete_selector);
+            if (this.hcb != null) {
+                am.setViewTextColor(this.hcb, (int) R.drawable.color_nav_complete_selector);
             }
-            if (this.mPageContext != null && this.dpy != null) {
-                this.dpy.onChangeSkinType(this.mPageContext, this.mSkinType);
+            if (this.mPageContext != null && this.dwI != null) {
+                this.dwI.onChangeSkinType(this.mPageContext, this.mSkinType);
             }
-            if (this.hdZ != null) {
-                this.hdZ.onChangeSkinType();
+            if (this.hcc != null) {
+                this.hcc.onChangeSkinType();
             }
-            if (this.dly != null) {
-                this.dly.onChangeSkinType();
+            if (this.dEq != null) {
+                this.dEq.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            if (this.hea != null) {
-                this.hea.notifyDataSetChanged();
+            if (this.hcd != null) {
+                this.hcd.notifyDataSetChanged();
             }
             setBackgroundColor(am.getColor(this.mSkinType, R.color.cp_bg_line_e));
         }
@@ -135,69 +135,69 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bCC) {
-            if (bKA()) {
+        if (view == this.bUX) {
+            if (bHk()) {
                 showDialog();
             } else {
                 this.mPageContext.getPageActivity().finish();
             }
-        } else if (view == this.hdY && this.hdX != null && this.heb) {
-            TiebaStatic.log(new an("c12237").bT("uid", TbadkCoreApplication.getCurrentAccount()));
-            this.hdX.di(this.hea.bKm());
+        } else if (view == this.hcb && this.hca != null && this.hce) {
+            TiebaStatic.log(new an("c12237").bS("uid", TbadkCoreApplication.getCurrentAccount()));
+            this.hca.dv(this.hcd.bGW());
         }
     }
 
-    public void cY(boolean z) {
-        if (!bhr()) {
-            if (this.dly == null) {
-                this.dly = new g(getContext());
-                this.dly.onChangeSkinType();
+    public void dp(boolean z) {
+        if (!bfl()) {
+            if (this.dEq == null) {
+                this.dEq = new g(getContext());
+                this.dEq.onChangeSkinType();
             }
-            this.dly.attachView(this, z);
+            this.dEq.attachView(this, z);
         }
     }
 
     public void hideLoadingView() {
-        if (this.dly != null) {
-            this.dly.dettachView(this);
-            this.dly = null;
+        if (this.dEq != null) {
+            this.dEq.dettachView(this);
+            this.dEq = null;
         }
     }
 
-    public boolean bhr() {
-        if (this.dly != null) {
-            return this.dly.isViewAttached();
+    public boolean bfl() {
+        if (this.dEq != null) {
+            return this.dEq.isViewAttached();
         }
         return false;
     }
 
-    public void jx(boolean z) {
-        if (!bhs()) {
+    public void jm(boolean z) {
+        if (!bfm()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.jQ() && LabelSettingView.this.hdX != null) {
-                            LabelSettingView.this.hdX.bKk();
+                        if (j.isNetworkAvailableForImmediately() && LabelSettingView.this.hca != null) {
+                            LabelSettingView.this.hca.bGU();
                         }
                     }
                 });
             }
-            this.mRefreshView.kO(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds380));
+            this.mRefreshView.setLayoutMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds380));
             this.mRefreshView.attachView(this, z);
-            this.mRefreshView.atW();
-            this.hdZ.setVisibility(8);
+            this.mRefreshView.showRefreshButton();
+            this.hcc.setVisibility(8);
         }
     }
 
-    public void aJN() {
+    public void aJo() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean bhs() {
+    public boolean bfm() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -211,11 +211,11 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
     }
 
     public void destroy() {
-        if (this.dpy != null) {
-            this.dpy.b(this.eIX);
+        if (this.dwI != null) {
+            this.dwI.b(this.eRC);
         }
-        this.eLo.dismiss();
+        this.eTU.dismiss();
         hideLoadingView();
-        aJN();
+        aJo();
     }
 }

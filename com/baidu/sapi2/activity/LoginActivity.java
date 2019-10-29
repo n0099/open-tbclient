@@ -28,7 +28,6 @@ import com.baidu.sapi2.utils.PtokenStat;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -168,7 +167,7 @@ public class LoginActivity extends BaseActivity {
         WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
         this.extraParams = webLoginDTO != null ? webLoginDTO.extraParams : new ArrayList<>();
         this.businessType = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-        this.userName = getIntent().getStringExtra(EXTRA_PARAM_USERNAME);
+        this.userName = getIntent().getStringExtra("username");
         this.loginType = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
         this.sapiWebView = (SapiWebView) findViewById(a.e.sapi_webview);
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.3
@@ -355,14 +354,14 @@ public class LoginActivity extends BaseActivity {
                 String str2 = "";
                 if (intent != null) {
                     str = intent.getStringExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
-                    str2 = intent.getStringExtra(EXTRA_PARAM_USERNAME);
+                    str2 = intent.getStringExtra("username");
                 }
                 if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME.equals(str)) {
                     this.sapiWebView.preSetUserName(str2);
                 } else if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE.equals(str)) {
                     this.webAuthResult.isAccountFreeze = true;
                 } else {
-                    loginSucces(AccountType.getAccountType(intent == null ? AccountType.UNKNOWN.getType() : intent.getIntExtra(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType())), false);
+                    loginSucces(AccountType.getAccountType(intent == null ? AccountType.UNKNOWN.getType() : intent.getIntExtra("account_type", AccountType.UNKNOWN.getType())), false);
                 }
             }
         } else if (i == 2004 && this.result != null) {

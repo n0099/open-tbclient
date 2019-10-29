@@ -10,9 +10,9 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
@@ -22,10 +22,10 @@ import com.baidu.tieba.R;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
 public class RelationBarCellView extends RelativeLayout implements View.OnClickListener {
-    private TextView fDr;
-    private TextView fDs;
-    private OriForumInfo fDt;
-    private TbImageView fby;
+    private TextView fCI;
+    private TextView fCJ;
+    private OriForumInfo fCK;
+    private TbImageView fej;
     private int mHeight;
     private int mSkinType;
     private int mWidth;
@@ -50,16 +50,16 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
-        this.fby = (TbImageView) findViewById(R.id.frs_brand_bar_cell_img);
-        this.fDr = (TextView) findViewById(R.id.frs_brand_bar_cell_name);
-        this.fDs = (TextView) findViewById(R.id.frs_brand_bar_cell_attention);
-        this.fby.setDefaultResource(17170445);
-        this.fby.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.fby.setBorderColor(0);
-        this.fby.setRadius(l.g(getContext(), R.dimen.tbds20));
-        this.fby.setConrers(5);
-        this.mWidth = l.g(context, R.dimen.tbds471);
-        this.mHeight = l.g(context, R.dimen.tbds164);
+        this.fej = (TbImageView) findViewById(R.id.frs_brand_bar_cell_img);
+        this.fCI = (TextView) findViewById(R.id.frs_brand_bar_cell_name);
+        this.fCJ = (TextView) findViewById(R.id.frs_brand_bar_cell_attention);
+        this.fej.setDefaultResource(17170445);
+        this.fej.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fej.setBorderColor(0);
+        this.fej.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
+        this.fej.setConrers(5);
+        this.mWidth = l.getDimens(context, R.dimen.tbds471);
+        this.mHeight = l.getDimens(context, R.dimen.tbds164);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -76,25 +76,25 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
             return;
         }
         setVisibility(0);
-        this.fDt = oriForumInfo;
-        this.fby.startLoad(oriForumInfo.ori_avatar, 10, false);
-        this.fDr.setText(oriForumInfo.ori_fname);
-        this.fDs.setText(String.format(getContext().getString(R.string.frs_brand_relation_bar_attention), aq.aN(oriForumInfo.ori_member_num.longValue())));
+        this.fCK = oriForumInfo;
+        this.fej.startLoad(oriForumInfo.ori_avatar, 10, false);
+        this.fCI.setText(oriForumInfo.ori_fname);
+        this.fCJ.setText(String.format(getContext().getString(R.string.frs_brand_relation_bar_attention), aq.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new an("c13110").n(VideoPlayActivityConfig.OBJ_ID, this.fDt.ori_fid.longValue()));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.fDt.ori_fname, "")));
+        TiebaStatic.log(new an("c13110").p("obj_id", this.fCK.ori_fid.longValue()));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getContext()).createNormalCfg(this.fCK.ori_fname, "")));
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            am.k(this, R.drawable.cp_bg_line_d_e_selector);
-            am.j(this.fDr, R.color.cp_cont_f);
-            am.j(this.fDs, R.color.cp_cont_d);
+            am.setBackgroundResource(this, R.drawable.cp_bg_line_d_e_selector);
+            am.setViewTextColor(this.fCI, (int) R.color.cp_cont_f);
+            am.setViewTextColor(this.fCJ, (int) R.color.cp_cont_d);
         }
     }
 }

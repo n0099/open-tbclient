@@ -1,25 +1,25 @@
 package com.baidu.crabsdk.a;
 /* loaded from: classes3.dex */
 final class m implements Runnable {
-    final /* synthetic */ long ZA;
-    final /* synthetic */ long ZB;
-    final /* synthetic */ long ZC;
-    final /* synthetic */ l ZD;
-    final /* synthetic */ long Zz;
+    final /* synthetic */ long JA;
+    final /* synthetic */ long JB;
+    final /* synthetic */ long JC;
+    final /* synthetic */ long JD;
+    final /* synthetic */ l JE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, long j, long j2, long j3, long j4) {
-        this.ZD = lVar;
-        this.Zz = j;
-        this.ZA = j2;
-        this.ZB = j3;
-        this.ZC = j4;
+        this.JE = lVar;
+        this.JA = j;
+        this.JB = j2;
+        this.JC = j3;
+        this.JD = j4;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         i iVar;
-        iVar = this.ZD.Zx;
-        iVar.c(this.Zz, this.ZA, this.ZB, this.ZC);
+        iVar = this.JE.Jy;
+        iVar.c(this.JA, this.JB, this.JC, this.JD);
     }
 }

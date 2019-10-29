@@ -13,13 +13,13 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Hs;
-    protected ArrayList<FeedData> gYp = new ArrayList<>();
+    protected boolean isSucc;
+    protected ArrayList<FeedData> gWq = new ArrayList<>();
     protected an page = new an();
-    protected h gYq = new h();
+    protected h gWr = new h();
 
-    public ArrayList<FeedData> bJe() {
-        return this.gYp;
+    public ArrayList<FeedData> bFO() {
+        return this.gWq;
     }
 
     public an getPage() {
@@ -35,17 +35,17 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.gYp.add(feedData);
-                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.Z(feedData.getPraiseList()) == 0) {
-                        this.gYp.remove(feedData);
+                    this.gWq.add(feedData);
+                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.getCount(feedData.getPraiseList()) == 0) {
+                        this.gWq.remove(feedData);
                     }
                 }
             }
-            this.gYq.parserJson(jSONObject.optJSONObject("message"));
+            this.gWr.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
-            this.Hs = true;
+            this.isSucc = true;
         } catch (Exception e) {
-            this.Hs = false;
+            this.isSucc = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -60,16 +60,16 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.gYp.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.Z(feedData.getPraiseList()) == 0) {
-                            this.gYp.remove(feedData);
+                        this.gWq.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.getCount(feedData.getPraiseList()) == 0) {
+                            this.gWq.remove(feedData);
                         }
                     }
                 }
                 this.page.a(dataRes.page);
-                this.Hs = true;
+                this.isSucc = true;
             } catch (Exception e) {
-                this.Hs = false;
+                this.isSucc = false;
                 BdLog.e(e.getMessage());
             }
         }

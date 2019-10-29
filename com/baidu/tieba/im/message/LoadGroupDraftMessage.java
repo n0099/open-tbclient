@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.LoadDraftMessage;
 /* loaded from: classes3.dex */
 public class LoadGroupDraftMessage extends LoadDraftMessage {
     public LoadGroupDraftMessage(LoadDraftMessage.a aVar) {
-        super(2001142, aVar);
+        super(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, aVar);
     }
 }

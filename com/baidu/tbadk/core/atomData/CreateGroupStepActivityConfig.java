@@ -24,7 +24,7 @@ public class CreateGroupStepActivityConfig extends IntentConfig {
     public CreateGroupStepActivityConfig(Context context, int i, int i2, int i3, int i4, int i5, int i6) {
         super(context);
         Intent intent = getIntent();
-        intent.putExtra(GROUP_TYPE, i);
+        intent.putExtra("group_type", i);
         intent.putExtra("forumid", i2);
         intent.putExtra(INTENT_SOURCE_FROM, i3);
         intent.putExtra("num_create_group_normal", i4);

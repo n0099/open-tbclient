@@ -13,31 +13,30 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
     public e(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.gfB);
+        super(context, com.baidu.tieba.homepage.concern.b.a.geY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bd */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bf */
+    public a b(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.concern_emotion_tip_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        if (aVar.bYl != null) {
-            aVar2.bZL.setText(aVar.bYl);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
+        if (aVar.tipString != null) {
+            aVar2.tipText.setText(aVar.tipString);
         }
-        switch (aVar.gfC) {
+        switch (aVar.geZ) {
             case 2:
-                aVar2.bG(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
+                aVar2.bC(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
             case 3:
-                aVar2.bG(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
+                aVar2.bC(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
                 break;
         }
         return aVar2.getView();
@@ -45,25 +44,25 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public TextView bZL;
-        private int ceL;
-        public ViewGroup gfg;
-        public ImageView gfh;
+        private int csX;
+        public ViewGroup geD;
+        public ImageView geE;
+        public TextView tipText;
 
         public a(View view) {
             super(view);
-            this.ceL = 3;
-            this.gfg = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.gfh = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
-            this.bZL = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
+            this.csX = 3;
+            this.geD = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.geE = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
-        protected void bG(int i, int i2) {
-            if (this.ceL != i) {
-                am.j(this.bZL, R.color.cp_cont_b);
+        protected void bC(int i, int i2) {
+            if (this.csX != i) {
+                am.setViewTextColor(this.tipText, (int) R.color.cp_cont_b);
             }
-            am.c(this.gfh, i2);
-            this.ceL = i;
+            am.setImageResource(this.geE, i2);
+            this.csX = i;
         }
     }
 }

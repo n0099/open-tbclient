@@ -13,20 +13,20 @@ import java.text.ParseException;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class b extends a implements View.OnClickListener {
-    private c cQo;
+    private c cZG;
 
     public b(com.baidu.tbadk.widget.timepicker.a.c.a aVar) {
         super(aVar.context);
-        this.cOU = aVar;
+        this.cYm = aVar;
         initView(aVar.context);
     }
 
     private void initView(Context context) {
-        aAc();
+        aAl();
         initViews();
-        initAnim();
-        if (this.cOU.cOX == null) {
-            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.cQc);
+        rJ();
+        if (this.cYm.cYp == null) {
+            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.cZu);
             TextView textView = (TextView) findViewById(R.id.tvTitle);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.rv_topbar);
             Button button = (Button) findViewById(R.id.btnSubmit);
@@ -35,96 +35,96 @@ public class b extends a implements View.OnClickListener {
             button2.setTag("cancel");
             button.setOnClickListener(this);
             button2.setOnClickListener(this);
-            button.setText(TextUtils.isEmpty(this.cOU.cPy) ? context.getResources().getString(R.string.pickerview_submit) : this.cOU.cPy);
-            button2.setText(TextUtils.isEmpty(this.cOU.cPz) ? context.getResources().getString(R.string.pickerview_cancel) : this.cOU.cPz);
-            textView.setText(TextUtils.isEmpty(this.cOU.cPA) ? "" : this.cOU.cPA);
-            button.setTextColor(this.cOU.cPB);
-            button2.setTextColor(this.cOU.cPC);
-            textView.setTextColor(this.cOU.cPD);
-            relativeLayout.setBackgroundColor(this.cOU.cPF);
-            button.setTextSize(this.cOU.cPG);
-            button2.setTextSize(this.cOU.cPG);
-            textView.setTextSize(this.cOU.cPH);
+            button.setText(TextUtils.isEmpty(this.cYm.cYQ) ? context.getResources().getString(R.string.pickerview_submit) : this.cYm.cYQ);
+            button2.setText(TextUtils.isEmpty(this.cYm.cYR) ? context.getResources().getString(R.string.pickerview_cancel) : this.cYm.cYR);
+            textView.setText(TextUtils.isEmpty(this.cYm.cYS) ? "" : this.cYm.cYS);
+            button.setTextColor(this.cYm.cYT);
+            button2.setTextColor(this.cYm.cYU);
+            textView.setTextColor(this.cYm.cYV);
+            relativeLayout.setBackgroundColor(this.cYm.cYX);
+            button.setTextSize(this.cYm.cYY);
+            button2.setTextSize(this.cYm.cYY);
+            textView.setTextSize(this.cYm.cYZ);
         } else {
-            this.cOU.cOX.bb(LayoutInflater.from(context).inflate(this.cOU.cPw, this.cQc));
+            this.cYm.cYp.bb(LayoutInflater.from(context).inflate(this.cYm.cYO, this.cZu));
         }
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.timepicker);
-        linearLayout.setBackgroundColor(this.cOU.cPE);
+        linearLayout.setBackgroundColor(this.cYm.cYW);
         b(linearLayout);
     }
 
     private void b(LinearLayout linearLayout) {
-        this.cQo = new c(linearLayout, this.cOU.cPc, this.cOU.cPx, this.cOU.cPI);
-        if (this.cOU.cOW != null) {
-            this.cQo.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
+        this.cZG = new c(linearLayout, this.cYm.cYu, this.cYm.cYP, this.cYm.cZa);
+        if (this.cYm.cYo != null) {
+            this.cZG.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
-                public void azY() {
+                public void aAh() {
                     try {
-                        b.this.cOU.cOW.p(c.cQq.parse(b.this.cQo.getTime()));
+                        b.this.cYm.cYo.k(c.cZI.parse(b.this.cZG.getTime()));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
             });
         }
-        this.cQo.gc(this.cOU.cPj);
-        if (this.cOU.cPg != 0 && this.cOU.cPh != 0 && this.cOU.cPg <= this.cOU.cPh) {
-            aAf();
+        this.cZG.fR(this.cYm.cYB);
+        if (this.cYm.cYy != 0 && this.cYm.cYz != 0 && this.cYm.cYy <= this.cYm.cYz) {
+            aAo();
         }
-        if (this.cOU.cPe != null && this.cOU.cPf != null) {
-            if (this.cOU.cPe.getTimeInMillis() > this.cOU.cPf.getTimeInMillis()) {
+        if (this.cYm.cYw != null && this.cYm.cYx != null) {
+            if (this.cYm.cYw.getTimeInMillis() > this.cYm.cYx.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
-            aAg();
-        } else if (this.cOU.cPe != null) {
-            if (this.cOU.cPe.get(1) < 1900) {
+            aAp();
+        } else if (this.cYm.cYw != null) {
+            if (this.cYm.cYw.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
-            aAg();
-        } else if (this.cOU.cPf != null) {
-            if (this.cOU.cPf.get(1) > 2100) {
+            aAp();
+        } else if (this.cYm.cYx != null) {
+            if (this.cYm.cYx.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
-            aAg();
+            aAp();
         } else {
-            aAg();
+            aAp();
         }
-        aAi();
-        this.cQo.c(this.cOU.cPk, this.cOU.cPl, this.cOU.cPm, this.cOU.cPn, this.cOU.cPo, this.cOU.cPp);
-        this.cQo.i(this.cOU.cPq, this.cOU.cPr, this.cOU.cPs, this.cOU.cPt, this.cOU.cPu, this.cOU.cPv);
-        gb(this.cOU.cPO);
-        this.cQo.setCyclic(this.cOU.cPi);
-        this.cQo.setDividerColor(this.cOU.cPL);
-        this.cQo.setDividerType(this.cOU.cPR);
-        this.cQo.setLineSpacingMultiplier(this.cOU.cPM);
-        this.cQo.setTextColorOut(this.cOU.cPJ);
-        this.cQo.setTextColorCenter(this.cOU.cPK);
-        this.cQo.gd(this.cOU.cPP);
+        aAr();
+        this.cZG.c(this.cYm.cYC, this.cYm.cYD, this.cYm.cYE, this.cYm.cYF, this.cYm.cYG, this.cYm.cYH);
+        this.cZG.i(this.cYm.cYI, this.cYm.cYJ, this.cYm.cYK, this.cYm.cYL, this.cYm.cYM, this.cYm.cYN);
+        fQ(this.cYm.cZg);
+        this.cZG.setCyclic(this.cYm.cYA);
+        this.cZG.setDividerColor(this.cYm.cZd);
+        this.cZG.setDividerType(this.cYm.cZj);
+        this.cZG.setLineSpacingMultiplier(this.cYm.cZe);
+        this.cZG.setTextColorOut(this.cYm.cZb);
+        this.cZG.setTextColorCenter(this.cYm.cZc);
+        this.cZG.fS(this.cYm.cZh);
     }
 
-    private void aAf() {
-        this.cQo.mb(this.cOU.cPg);
-        this.cQo.mc(this.cOU.cPh);
+    private void aAo() {
+        this.cZG.lg(this.cYm.cYy);
+        this.cZG.lh(this.cYm.cYz);
     }
 
-    private void aAg() {
-        this.cQo.a(this.cOU.cPe, this.cOU.cPf);
-        aAh();
+    private void aAp() {
+        this.cZG.a(this.cYm.cYw, this.cYm.cYx);
+        aAq();
     }
 
-    private void aAh() {
-        if (this.cOU.cPe != null && this.cOU.cPf != null) {
-            if (this.cOU.cPd == null || this.cOU.cPd.getTimeInMillis() < this.cOU.cPe.getTimeInMillis() || this.cOU.cPd.getTimeInMillis() > this.cOU.cPf.getTimeInMillis()) {
-                this.cOU.cPd = this.cOU.cPe;
+    private void aAq() {
+        if (this.cYm.cYw != null && this.cYm.cYx != null) {
+            if (this.cYm.cYv == null || this.cYm.cYv.getTimeInMillis() < this.cYm.cYw.getTimeInMillis() || this.cYm.cYv.getTimeInMillis() > this.cYm.cYx.getTimeInMillis()) {
+                this.cYm.cYv = this.cYm.cYw;
             }
-        } else if (this.cOU.cPe != null) {
-            this.cOU.cPd = this.cOU.cPe;
-        } else if (this.cOU.cPf != null) {
-            this.cOU.cPd = this.cOU.cPf;
+        } else if (this.cYm.cYw != null) {
+            this.cYm.cYv = this.cYm.cYw;
+        } else if (this.cYm.cYx != null) {
+            this.cYm.cYv = this.cYm.cYx;
         }
     }
 
-    private void aAi() {
+    private void aAr() {
         int i;
         int i2;
         int i3;
@@ -132,7 +132,7 @@ public class b extends a implements View.OnClickListener {
         int i5;
         int i6;
         Calendar calendar = Calendar.getInstance();
-        if (this.cOU.cPd == null) {
+        if (this.cYm.cYv == null) {
             calendar.setTimeInMillis(System.currentTimeMillis());
             i = calendar.get(1);
             i2 = calendar.get(2);
@@ -141,28 +141,28 @@ public class b extends a implements View.OnClickListener {
             i5 = calendar.get(12);
             i6 = calendar.get(13);
         } else {
-            i = this.cOU.cPd.get(1);
-            i2 = this.cOU.cPd.get(2);
-            i3 = this.cOU.cPd.get(5);
-            i4 = this.cOU.cPd.get(11);
-            i5 = this.cOU.cPd.get(12);
-            i6 = this.cOU.cPd.get(13);
+            i = this.cYm.cYv.get(1);
+            i2 = this.cYm.cYv.get(2);
+            i3 = this.cYm.cYv.get(5);
+            i4 = this.cYm.cYv.get(11);
+            i5 = this.cYm.cYv.get(12);
+            i6 = this.cYm.cYv.get(13);
         }
-        this.cQo.g(i, i2, i3, i4, i5, i6);
+        this.cZG.g(i, i2, i3, i4, i5, i6);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (((String) view.getTag()).equals("submit")) {
-            aAj();
+            aAs();
         }
         dismiss();
     }
 
-    public void aAj() {
-        if (this.cOU.cOV != null) {
+    public void aAs() {
+        if (this.cYm.cYn != null) {
             try {
-                this.cOU.cOV.a(c.cQq.parse(this.cQo.getTime()), this.cQj);
+                this.cYm.cYn.a(c.cZI.parse(this.cZG.getTime()), this.cZB);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -170,7 +170,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
-    public boolean aAe() {
-        return this.cOU.cPN;
+    public boolean aAn() {
+        return this.cYm.cZf;
     }
 }

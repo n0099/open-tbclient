@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -130,7 +129,7 @@ public class AnchorInfoData extends OrmObject implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.portrait = jSONObject.getString(IntentConfig.PORTRAIT);
+                this.portrait = jSONObject.getString("portrait");
                 this.name = jSONObject.getString("name");
                 this.startTime = jSONObject.getInt("start_time");
                 this.status = jSONObject.getInt("status");

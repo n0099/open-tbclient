@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -19,7 +20,7 @@ public class RecordVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("video_title", str);
         getIntent().putExtra(ENTRANCE_FLAG, i);
         getIntent().putExtra("from_type", i2);
-        setRequestCode(13010);
+        setRequestCode(RequestResponseCode.REQUEST_RECORDER_VIDEO);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

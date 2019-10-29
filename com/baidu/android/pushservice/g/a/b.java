@@ -9,7 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.i.g;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -281,7 +281,7 @@ public class b {
         try {
             jSONObject.put("os_name", "Android");
             jSONObject.put("manufacture", Build.MANUFACTURER);
-            jSONObject.put("os_version", Build.VERSION.RELEASE);
+            jSONObject.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("firmware", Build.FINGERPRINT);
             jSONObject.put("mem_size", String.valueOf(b()));
@@ -298,7 +298,7 @@ public class b {
             String string = context.getSharedPreferences("pst", 0).getString("push_mac_id", null);
             if (string == null || string.length() == 0) {
                 try {
-                    str = ((WifiManager) context.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getMacAddress();
+                    str = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
                     if (str != null) {
                         try {
                             if (str.length() > 0) {

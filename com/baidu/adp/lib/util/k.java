@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.util;
 
 import android.annotation.SuppressLint;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -9,52 +10,52 @@ import java.util.Date;
 @SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
 public class k {
-    protected static SimpleDateFormat DX = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat DY = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat DZ = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat Ea = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat Eb = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat Ec = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat Ed = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat Ee = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat Ef = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat Eg = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat FORMATE_DATE_ALL = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat FORMATE_DATE_YEAR = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat FORMATE_DATE_TIME = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat FORMATE_DATE_MOUTH = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat FORMATE_DATE_MOUTH_TIME = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat FORMATE_DATE_DAY = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat FORMATE_DATE_DAY_WEEK = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat FORMATE_DATE_DAY_1 = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat FORMATE_DATE_MS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat FORMATE_DATE_DAY_NO_YEAR = new SimpleDateFormat("MM-dd");
 
-    public static String a(CharSequence charSequence, String str) {
+    public static String charSequence2String(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
             return (String) charSequence;
         }
         return charSequence != null ? charSequence.toString() : str;
     }
 
-    public static String a(Date date) {
+    public static String getDateStringMdHm(Date date) {
         String format;
-        synchronized (Eb) {
-            format = Eb.format(date);
+        synchronized (FORMATE_DATE_MOUTH_TIME) {
+            format = FORMATE_DATE_MOUTH_TIME.format(date);
         }
         return format;
     }
 
-    public static String b(Date date) {
+    public static String getDateStringHm(Date date) {
         String format;
-        synchronized (DZ) {
-            format = DZ.format(date);
+        synchronized (FORMATE_DATE_TIME) {
+            format = FORMATE_DATE_TIME.format(date);
         }
         return format;
     }
 
-    public static String c(Date date) {
+    public static String getDateStringMouth(Date date) {
         String format;
-        synchronized (Ea) {
-            format = Ea.format(date);
+        synchronized (FORMATE_DATE_MOUTH) {
+            format = FORMATE_DATE_MOUTH.format(date);
         }
         return format;
     }
 
-    public static String d(Date date) {
+    public static String getDateStringDay(Date date) {
         String format;
-        synchronized (Ec) {
-            format = Ec.format(date);
+        synchronized (FORMATE_DATE_DAY) {
+            format = FORMATE_DATE_DAY.format(date);
         }
         return format;
     }
@@ -64,7 +65,7 @@ public class k {
         return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
     }
 
-    public static boolean bg(String str) {
+    public static boolean isForumName(String str) {
         return str != null && str.length() > 0;
     }
 
@@ -72,11 +73,11 @@ public class k {
         return str == null || str.length() == 0 || str.equals("null");
     }
 
-    public static boolean bh(String str) {
+    public static boolean isEmptyStringAfterTrim(String str) {
         return str == null || str.trim().length() == 0;
     }
 
-    public static String bi(String str) {
+    public static String getUrlEncode(String str) {
         if (str == null) {
             return null;
         }
@@ -88,7 +89,7 @@ public class k {
         }
     }
 
-    public static String bj(String str) {
+    public static String getUrlDecode(String str) {
         try {
             return URLDecoder.decode(str, "utf-8");
         } catch (Exception e) {
@@ -97,7 +98,7 @@ public class k {
         }
     }
 
-    public static int bk(String str) {
+    public static int byteLength(String str) {
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
             if (Integer.toHexString(str.charAt(i2)).length() == 4) {
@@ -109,7 +110,7 @@ public class k {
         return i;
     }
 
-    public static String i(String str, int i) {
+    public static String cutString(String str, int i) {
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
@@ -128,12 +129,12 @@ public class k {
             i2++;
         }
         if (i2 < length - 1) {
-            return str.substring(0, i2 + 1) + "...";
+            return str.substring(0, i2 + 1) + StringHelper.STRING_MORE;
         }
         return str;
     }
 
-    public static String i(String... strArr) {
+    public static String join(String... strArr) {
         if (strArr == null || strArr.length == 0) {
             return "";
         }

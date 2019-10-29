@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.vodafone;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -10,9 +11,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class LyricsUriBox extends AbstractFullBox {
     public static final String TYPE = "lrcu";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
     private String lyricsUri;
 
     static {
@@ -21,9 +22,9 @@ public class LyricsUriBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("LyricsUriBox.java", LyricsUriBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLyricsUri", "com.coremedia.iso.boxes.vodafone.LyricsUriBox", "", "", "", "java.lang.String"), 39);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setLyricsUri", "com.coremedia.iso.boxes.vodafone.LyricsUriBox", "java.lang.String", "lyricsUri", "", "void"), 43);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.vodafone.LyricsUriBox", "", "", "", "java.lang.String"), 64);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLyricsUri", "com.coremedia.iso.boxes.vodafone.LyricsUriBox", "", "", "", FieldUtil.TYPE_STRING), 39);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setLyricsUri", "com.coremedia.iso.boxes.vodafone.LyricsUriBox", FieldUtil.TYPE_STRING, "lyricsUri", "", "void"), 43);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.vodafone.LyricsUriBox", "", "", "", FieldUtil.TYPE_STRING), 64);
     }
 
     public LyricsUriBox() {

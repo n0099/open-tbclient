@@ -3,8 +3,8 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.aq;
 import java.io.Serializable;
@@ -26,7 +26,6 @@ import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
-    private static final int USER_PICS_MAX_COUNT = 9;
     private static final long serialVersionUID = -1871115639893992930L;
     private String BDUSS;
     private int anchorLevel;
@@ -269,17 +268,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             m mVar = new m();
-            mVar.qh(getPortraitH());
-            mVar.qi(getPortrait());
-            mVar.fd(true);
+            mVar.pr(getPortraitH());
+            mVar.ps(getPortrait());
+            mVar.eX(true);
             this.mPhotoAlbum.add(mVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         m mVar2 = new m();
-                        mVar2.qh(userPics.big);
-                        mVar2.qi(userPics.small);
-                        mVar2.fd(false);
+                        mVar2.pr(userPics.big);
+                        mVar2.ps(userPics.small);
+                        mVar2.eX(false);
                         this.mPhotoAlbum.add(mVar2);
                     }
                 }
@@ -386,7 +385,7 @@ public class UserData extends MetaData {
                     if (this.sex != 2 && this.sex != 1) {
                         this.sex = 1;
                     }
-                    this.alaUserData.sex = aq.is(this.sex);
+                    this.alaUserData.sex = aq.getUserDescByGender(this.sex);
                 }
             }
             this.isGodInvited = user.is_invited.intValue() == 1;
@@ -414,9 +413,9 @@ public class UserData extends MetaData {
         try {
             super.parserJson(jSONObject);
             if (jSONObject != null) {
-                this.ip = jSONObject.optString("ip");
+                this.ip = jSONObject.optString(TableDefine.UserInfoColumns.COLUMN_IP);
                 this.BDUSS = jSONObject.optString("BDUSS");
-                this.sex = jSONObject.optInt(MyGiftListActivityConfig.USER_SEX, 1);
+                this.sex = jSONObject.optInt("sex", 1);
                 if (this.sex != 2 && this.sex != 1) {
                     this.sex = 1;
                 }
@@ -478,9 +477,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 m mVar = new m();
-                mVar.qh(getPortraitH());
-                mVar.qi(getPortrait());
-                mVar.fd(true);
+                mVar.pr(getPortraitH());
+                mVar.ps(getPortrait());
+                mVar.eX(true);
                 this.mPhotoAlbum.add(mVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -489,9 +488,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             m mVar2 = new m();
-                            mVar2.qh(jSONObject2.optString("big"));
-                            mVar2.qi(jSONObject2.optString("small"));
-                            mVar2.fd(false);
+                            mVar2.pr(jSONObject2.optString("big"));
+                            mVar2.ps(jSONObject2.optString("small"));
+                            mVar2.eX(false);
                             this.mPhotoAlbum.add(mVar2);
                         }
                     }
@@ -540,7 +539,7 @@ public class UserData extends MetaData {
                     this.liveId = optJSONObject9.optString("live_id");
                     this.alaUserData = (AlaUserInfoData) OrmObject.objectWithJson(jSONObject.optJSONObject("ala_info"), AlaUserInfoData.class);
                     if (StringUtils.isNull(this.alaUserData.sex)) {
-                        this.alaUserData.sex = aq.is(this.sex);
+                        this.alaUserData.sex = aq.getUserDescByGender(this.sex);
                     }
                 }
             }

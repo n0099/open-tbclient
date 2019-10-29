@@ -5,18 +5,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.i;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c gRt = null;
-    private long gBR = 0;
-    private List<Long> gRu = new ArrayList();
-    private final CustomMessageListener gQt = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
+    private static c gPu = null;
+    private long gzP = 0;
+    private List<Long> gPv = new ArrayList();
+    private final CustomMessageListener gOu = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,32 +27,31 @@ public class c {
     };
 
     private c() {
-        MessageManager.getInstance().registerListener(this.gQt);
+        MessageManager.getInstance().registerListener(this.gOu);
     }
 
-    public static c bGU() {
-        if (gRt == null) {
+    public static c bDF() {
+        if (gPu == null) {
             synchronized (c.class) {
-                if (gRt == null) {
-                    gRt = new c();
+                if (gPu == null) {
+                    gPu = new c();
                 }
             }
         }
-        return gRt;
+        return gPu;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public synchronized void m22do(String str, String str2) {
+    public synchronized void cZ(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.gBR = com.baidu.adp.lib.g.b.e(str, 0L);
+                this.gzP = com.baidu.adp.lib.g.b.toLong(str, 0L);
                 try {
                     String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.gRu.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.gPv.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -66,46 +65,46 @@ public class c {
     }
 
     public synchronized void clear() {
-        this.gBR = 0L;
-        this.gRu.clear();
+        this.gzP = 0L;
+        this.gPv.clear();
     }
 
     public long getGid() {
-        return this.gBR;
+        return this.gzP;
     }
 
-    public Long bGV() {
-        return com.baidu.tieba.im.memorycache.b.bGb().bGm().get(this.gBR);
+    public Long bDG() {
+        return com.baidu.tieba.im.memorycache.b.bCM().bCX().get(this.gzP);
     }
 
-    public synchronized List<Long> bGW() {
+    public synchronized List<Long> bDH() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.gRu) {
+        for (Long l : this.gPv) {
             if (l != null) {
-                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.dX(l.longValue())));
+                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.dt(l.longValue())));
             }
         }
         return arrayList;
     }
 
-    public synchronized void bGX() {
-        this.gRu.clear();
+    public synchronized void bDI() {
+        this.gPv.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0061, code lost:
-        r9.gRu.add(java.lang.Long.valueOf(r12));
+        r9.gPv.add(java.lang.Long.valueOf(r12));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void q(long j, long j2) {
-        if (this.gBR != 0 && this.gBR != j) {
-            this.gRu.clear();
-            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.gBR);
+    public synchronized void w(long j, long j2) {
+        if (this.gzP != 0 && this.gzP != j) {
+            this.gPv.clear();
+            i.a("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.gzP);
         }
-        this.gBR = j;
-        Iterator<Long> it = this.gRu.iterator();
+        this.gzP = j;
+        Iterator<Long> it = this.gPv.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -117,17 +116,18 @@ public class c {
         }
     }
 
-    public synchronized boolean bGY() {
+    public synchronized boolean bDJ() {
         boolean z;
-        if (this.gBR > 0) {
-            z = this.gRu.size() > 0;
+        if (this.gzP > 0) {
+            z = this.gPv.size() > 0;
         }
         return z;
     }
 
-    public synchronized boolean dR(long j) {
+    /* renamed from: do  reason: not valid java name */
+    public synchronized boolean m26do(long j) {
         boolean z;
-        Iterator<Long> it = this.gRu.iterator();
+        Iterator<Long> it = this.gPv.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -142,10 +142,10 @@ public class c {
         return z;
     }
 
-    public synchronized String bGZ() {
+    public synchronized String bDK() {
         String str;
         str = "";
-        for (Long l : this.gRu) {
+        for (Long l : this.gPv) {
             str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + Constants.ACCEPT_TIME_SEPARATOR_SP;
         }
         return str;

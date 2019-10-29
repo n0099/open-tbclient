@@ -6,17 +6,18 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String cNC;
-    private int cND;
+    private String cWU;
+    private int cWV;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,8 +44,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void lK(int i) {
-        this.cND = i;
+    public void kP(int i) {
+        this.cWV = i;
     }
 
     public void setColor(int i) {
@@ -55,12 +56,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void lL(int i) {
+    public void kQ(int i) {
         this.urlType = i;
     }
 
-    public void rM(String str) {
-        this.cNC = str;
+    public void qw(String str) {
+        this.cWU = str;
     }
 
     public String getLink() {
@@ -79,13 +80,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.cND == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.cWV == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.cND == 2) {
+        } else if (this.cWV == 2) {
             textPaint.bgColor = am.getColor(R.color.transparent);
         }
     }
@@ -94,7 +95,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.cNC));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.cWU));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -104,7 +105,7 @@ public class c extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new an("c11972").P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).P("obj_type", i));
+            TiebaStatic.log(new an(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).O("obj_source", i2).O("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -116,25 +117,25 @@ public class c extends ClickableSpan {
                     eVar.d(context, str, false);
                     return;
                 case 16:
-                    eVar.al(context, str);
+                    eVar.ai(context, str);
                     return;
                 case 18:
                     eVar.d(context, str, true);
                     return;
                 case 32:
-                    eVar.am(context, str);
+                    eVar.aj(context, str);
                     return;
                 case 64:
-                    eVar.an(context, str);
+                    eVar.ak(context, str);
                     return;
                 case 128:
-                    eVar.ao(context, str);
+                    eVar.al(context, str);
                     return;
                 case 256:
-                    eVar.n(context, str, str2);
+                    eVar.o(context, str, str2);
                     return;
                 case 1024:
-                    eVar.ap(context, str);
+                    eVar.am(context, str);
                     return;
                 default:
                     return;

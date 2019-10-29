@@ -2,6 +2,7 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ModelHelper {
     private static volatile ModelHelper sInstance;
@@ -20,11 +21,11 @@ public class ModelHelper {
     }
 
     private void init() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001299, IValidateModel.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_VALIDATE_MODEL, IValidateModel.class);
         if (runTask != null) {
             this.mValidateModel = (IValidateModel) runTask.getData();
         }
-        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2001298, IUpdatesModel.class);
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_UPDATES_MODEL, IUpdatesModel.class);
         if (runTask2 != null) {
             this.mUpdatesModel = (IUpdatesModel) runTask2.getData();
         }

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.AddFriend.AddFriendResIdl;
 /* loaded from: classes.dex */
@@ -8,7 +9,7 @@ public class ResponseAddFriendMessage extends SocketResponsedMessage {
     private long friendId;
 
     public ResponseAddFriendMessage() {
-        super(304100);
+        super(CmdConfigSocket.CMD_ADD_NEW_FRIEND);
     }
 
     public long getFriendId() {

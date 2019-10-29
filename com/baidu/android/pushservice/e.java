@@ -10,6 +10,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.pushservice.PushManager;
 import com.baidu.android.pushservice.b.d;
 import com.baidu.android.pushservice.i.j;
@@ -289,7 +290,7 @@ public class e {
         SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.switch_sync", 0).edit();
         edit.putString("base_url", str);
         edit.putBoolean("switch_enable", z);
-        edit.putInt("sync_type", i2);
+        edit.putInt(IMConstants.SYNC_TYPE, i2);
         edit.putLong("target_time", j2);
         edit.apply();
     }
@@ -741,7 +742,7 @@ public class e {
             SharedPreferences sharedPreferences = context.getSharedPreferences("com.baidu.pushservice.switch_sync", 0);
             String string = sharedPreferences.getString("base_url", "");
             boolean z = sharedPreferences.getBoolean("switch_enable", true);
-            int i2 = sharedPreferences.getInt("sync_type", 1);
+            int i2 = sharedPreferences.getInt(IMConstants.SYNC_TYPE, 1);
             long j2 = sharedPreferences.getLong("target_time", 0L);
             if (TextUtils.isEmpty(string) || j2 == 0 || System.currentTimeMillis() < j2) {
                 return;

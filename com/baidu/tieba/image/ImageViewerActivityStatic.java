@@ -5,17 +5,19 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.t.ae;
 /* loaded from: classes3.dex */
 public class ImageViewerActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010000, new CustomMessageTask.CustomRunnable<ImageViewerConfig>() { // from class: com.baidu.tieba.image.ImageViewerActivityStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<ImageViewerConfig>() { // from class: com.baidu.tieba.image.ImageViewerActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ImageViewerConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
                     ImageViewerConfig data = customMessage.getData();
-                    if (ae.iN()) {
+                    if (ae.isOn()) {
                         data.setIsIdentifyImage(true);
                     } else {
                         data.setIsIdentifyImage(false);
@@ -25,7 +27,7 @@ public class ImageViewerActivityStatic {
                         if (ImageViewerConfig.START_ACTIVITY_NORMAL.equals(intent.getStringExtra(ImageViewerConfig.START_ACTIVITY_TYPE))) {
                             data.startActivityForRemote(ImageViewerActivity.class);
                         } else {
-                            data.startActivityForResultForRemote(14001, ImageViewerActivity.class);
+                            data.startActivityForResultForRemote(RequestResponseCode.REQUEST_PB_BIG_IMAGE, ImageViewerActivity.class);
                         }
                     }
                 }

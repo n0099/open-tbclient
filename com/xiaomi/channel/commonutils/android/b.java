@@ -1,4 +1,6 @@
 package com.xiaomi.channel.commonutils.android;
+
+import com.baidu.android.imsdk.internal.Constants;
 /* loaded from: classes3.dex */
 public enum b {
     INTERNET(0),
@@ -122,11 +124,11 @@ public enum b {
     REQUEST_INSTALL_PACKAGES(118),
     RESTART_PACKAGES(119),
     SEND_RESPOND_VIA_MESSAGE(120),
-    SET_ALARM(121),
+    SET_ALARM(Constants.METHOD_IM_FRIEND_GROUP_DROP),
     SET_ALWAYS_FINISH(122),
-    SET_ANIMATION_SCALE(123),
-    SET_DEBUG_APP(124),
-    SET_PREFERRED_APPLICATIONS(125),
+    SET_ANIMATION_SCALE(Constants.METHOD_IM_FRIEND_GROUP_QUERY),
+    SET_DEBUG_APP(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER),
+    SET_PREFERRED_APPLICATIONS(Constants.METHOD_IM_FRIEND_GROUP_ASSIGN),
     SET_PROCESS_LIMIT(126),
     SET_WALLPAPER_HINTS(127),
     SIGNAL_PERSISTENT_PROCESSES(128),

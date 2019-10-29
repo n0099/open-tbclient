@@ -1,6 +1,7 @@
 package com.baidu.tieba.myCollection.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.QueryCollectUpdateNum.QueryCollectUpdateNumResIdl;
 /* loaded from: classes6.dex */
@@ -8,7 +9,7 @@ public class ResponseQueryCollectUpdateNumMessage extends SocketResponsedMessage
     private int mCollectUpdateNum;
 
     public ResponseQueryCollectUpdateNumMessage() {
-        super(303005);
+        super(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM);
         this.mCollectUpdateNum = 0;
     }
 

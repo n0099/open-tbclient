@@ -14,10 +14,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes3.dex */
 public class ShareSmartAppLayout extends LinearLayout implements i<a> {
-    private a VI;
-    private ab<a> WN;
-    public AppletsCellView YV;
-    private boolean Yd;
+    private a Fx;
+    private ab<a> GD;
+    private boolean HY;
+    public AppletsCellView IU;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -25,8 +25,8 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Yd = true;
-        this.VI = null;
+        this.HY = true;
+        this.Fx = null;
         initUI();
     }
 
@@ -34,36 +34,36 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
         LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.YV = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        this.IU = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
     public void setFromCDN(boolean z) {
-        this.Yd = z;
+        this.HY = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
-    public void C(a aVar) {
-        if (aVar == null || aVar.acC() == null || aVar.acC().afo() == null) {
+    public void z(a aVar) {
+        if (aVar == null || aVar.agI() == null || aVar.agI().ajs() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.VI = aVar;
-        bh acC = aVar.acC();
-        this.YV.setData(acC.afo());
-        this.YV.setForumId(String.valueOf(acC.getFid()));
-        AppletsCellView appletsCellView = this.YV;
-        AppletsCellView appletsCellView2 = this.YV;
+        this.Fx = aVar;
+        bh agI = aVar.agI();
+        this.IU.setData(agI.ajs());
+        this.IU.setForumId(String.valueOf(agI.getFid()));
+        AppletsCellView appletsCellView = this.IU;
+        AppletsCellView appletsCellView2 = this.IU;
         appletsCellView.setFrom("frs_card");
     }
 
     public ab<a> getSubClickListener() {
-        return this.WN;
+        return this.GD;
     }
 
     public void setSubClickListener(ab<a> abVar) {
-        this.WN = abVar;
+        this.GD = abVar;
     }
 }

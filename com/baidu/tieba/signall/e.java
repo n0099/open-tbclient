@@ -1,60 +1,61 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes6.dex */
 public class e {
-    private static final String jaq = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    private static final String jai = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private x bVP = null;
     private String mAuthSid;
-    private x mNetWork = null;
 
     public void setAuthSid(String str) {
         this.mAuthSid = str;
     }
 
-    public String coi() {
-        this.mNetWork = new x(jaq);
-        this.mNetWork.o("authsid", this.mAuthSid);
-        this.mNetWork.aiK().ajM().bVp = true;
-        this.mNetWork.aiK().ajM().mIsNeedTbs = true;
-        this.mNetWork.eb(true);
-        return this.mNetWork.aim();
+    public String clY() {
+        this.bVP = new x(jai);
+        this.bVP.addPostData("authsid", this.mAuthSid);
+        this.bVP.amr().amR().mNeedBackgroundLogin = true;
+        this.bVP.amr().amR().mIsNeedTbs = true;
+        this.bVP.ek(true);
+        return this.bVP.postNetData();
     }
 
-    public String ER(String str) {
+    public String Dw(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.mNetWork = new x(jaq);
-        this.mNetWork.o("user_id", str2);
-        this.mNetWork.o("forum_ids", str);
-        this.mNetWork.o("authsid", this.mAuthSid);
-        this.mNetWork.aiK().ajM().bVp = true;
-        this.mNetWork.aiK().ajM().mIsNeedTbs = true;
-        this.mNetWork.eb(true);
-        return this.mNetWork.aim();
+        this.bVP = new x(jai);
+        this.bVP.addPostData("user_id", str2);
+        this.bVP.addPostData("forum_ids", str);
+        this.bVP.addPostData("authsid", this.mAuthSid);
+        this.bVP.amr().amR().mNeedBackgroundLogin = true;
+        this.bVP.amr().amR().mIsNeedTbs = true;
+        this.bVP.ek(true);
+        return this.bVP.postNetData();
     }
 
     public void cancel() {
-        if (this.mNetWork != null) {
-            this.mNetWork.ik();
+        if (this.bVP != null) {
+            this.bVP.cancelNetConnect();
         }
     }
 
     public boolean isRequestSuccess() {
-        if (this.mNetWork != null) {
-            return this.mNetWork.aiK().ajN().isRequestSuccess();
+        if (this.bVP != null) {
+            return this.bVP.amr().amS().isRequestSuccess();
         }
         return false;
     }
 
-    public String acc() {
-        if (this.mNetWork != null) {
-            return this.mNetWork.getErrorString();
+    public String ago() {
+        if (this.bVP != null) {
+            return this.bVP.getErrorString();
         }
         return null;
     }

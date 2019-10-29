@@ -7,7 +7,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.Closeable;
@@ -544,7 +543,7 @@ public class d {
 
     public static String k(Context context) {
         if (e(context)) {
-            return IXAdSystemUtils.NT_WIFI;
+            return "wifi";
         }
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");

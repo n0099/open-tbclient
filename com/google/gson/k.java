@@ -4,7 +4,7 @@ import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigInteger;
 /* loaded from: classes2.dex */
 public final class k extends h {
-    private static final Class<?>[] kql = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+    private static final Class<?>[] kox = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
     public k(Boolean bool) {
@@ -24,54 +24,54 @@ public final class k extends h {
             this.value = String.valueOf(((Character) obj).charValue());
             return;
         }
-        com.google.gson.internal.a.checkArgument((obj instanceof Number) || bd(obj));
+        com.google.gson.internal.a.checkArgument((obj instanceof Number) || aY(obj));
         this.value = obj;
     }
 
-    public boolean cNf() {
+    public boolean cKc() {
         return this.value instanceof Boolean;
     }
 
     @Override // com.google.gson.h
-    Boolean cNe() {
+    Boolean cKb() {
         return (Boolean) this.value;
     }
 
     @Override // com.google.gson.h
-    public boolean cMW() {
-        return cNf() ? cNe().booleanValue() : Boolean.parseBoolean(cMV());
+    public boolean cJT() {
+        return cKc() ? cKb().booleanValue() : Boolean.parseBoolean(cJS());
     }
 
-    public boolean cNg() {
+    public boolean cKd() {
         return this.value instanceof Number;
     }
 
     @Override // com.google.gson.h
-    public Number cMU() {
+    public Number cJR() {
         return this.value instanceof String ? new LazilyParsedNumber((String) this.value) : (Number) this.value;
     }
 
-    public boolean cNh() {
+    public boolean cKe() {
         return this.value instanceof String;
     }
 
     @Override // com.google.gson.h
-    public String cMV() {
-        if (cNg()) {
-            return cMU().toString();
+    public String cJS() {
+        if (cKd()) {
+            return cJR().toString();
         }
-        if (cNf()) {
-            return cNe().toString();
+        if (cKc()) {
+            return cKb().toString();
         }
         return (String) this.value;
     }
 
-    private static boolean bd(Object obj) {
+    private static boolean aY(Object obj) {
         if (obj instanceof String) {
             return true;
         }
         Class<?> cls = obj.getClass();
-        for (Class<?> cls2 : kql) {
+        for (Class<?> cls2 : kox) {
             if (cls2.isAssignableFrom(cls)) {
                 return true;
             }
@@ -84,10 +84,10 @@ public final class k extends h {
             return 31;
         }
         if (a(this)) {
-            long longValue = cMU().longValue();
+            long longValue = cJR().longValue();
             return (int) (longValue ^ (longValue >>> 32));
         } else if (this.value instanceof Number) {
-            long doubleToLongBits = Double.doubleToLongBits(cMU().doubleValue());
+            long doubleToLongBits = Double.doubleToLongBits(cJR().doubleValue());
             return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
         } else {
             return this.value.hashCode();
@@ -106,10 +106,10 @@ public final class k extends h {
         if (this.value == null) {
             return kVar.value == null;
         } else if (a(this) && a(kVar)) {
-            return cMU().longValue() == kVar.cMU().longValue();
+            return cJR().longValue() == kVar.cJR().longValue();
         } else if ((this.value instanceof Number) && (kVar.value instanceof Number)) {
-            double doubleValue = cMU().doubleValue();
-            double doubleValue2 = kVar.cMU().doubleValue();
+            double doubleValue = cJR().doubleValue();
+            double doubleValue2 = kVar.cJR().doubleValue();
             if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
                 z = true;
             }

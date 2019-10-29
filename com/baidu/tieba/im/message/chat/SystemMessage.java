@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.message.chat;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import protobuf.CommitGroupMsg.CommitGroupMsgReqIdl;
 import protobuf.CommitGroupMsg.DataReq;
 /* loaded from: classes.dex */
 public class SystemMessage extends CommonGroupChatMessage {
     public SystemMessage() {
-        super(202001);
+        super(CmdConfigSocket.CMD_GROUP_CHAT_MSG);
     }
 
     public SystemMessage(int i) {

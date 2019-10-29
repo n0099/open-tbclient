@@ -3,6 +3,7 @@ package com.baidu.tieba.addresslist.im.searchfriend.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.addresslist.relationship.f;
 /* loaded from: classes3.dex */
 public class a implements CustomMessageTask.CustomRunnable<Object> {
@@ -11,6 +12,6 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2001265, f.aEn().aEp());
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_OFFICIAL_ACCOUNT, f.aEx().aEz());
     }
 }

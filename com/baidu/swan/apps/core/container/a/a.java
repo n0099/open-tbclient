@@ -8,15 +8,15 @@ public class a implements i {
 
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0143a {
-        public static final a aqT = new a();
+    private static class C0175a {
+        public static final a aKj = new a();
     }
 
     private a() {
     }
 
-    public static a zv() {
-        return C0143a.aqT;
+    public static a Eq() {
+        return C0175a.aKj;
     }
 
     @Override // com.baidu.swan.apps.b.c.i
@@ -25,7 +25,7 @@ public class a implements i {
             Log.d("SysWebViewInitHelper", "addInitListener");
         }
         if (bVar != null) {
-            bVar.zw();
+            bVar.Er();
         }
     }
 

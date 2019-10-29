@@ -1,20 +1,19 @@
 package com.baidu.swan.apps.r;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.model.a.a.a {
-    public boolean ayq;
-    public int ayr;
-    public int ays;
-    public int ayt;
-    public int ayu;
-    public String ayv;
-    public boolean ayw;
-    public boolean ayx;
+    public boolean aRG;
+    public int aRH;
+    public int aRI;
+    public int aRJ;
+    public int aRK;
+    public String aRL;
+    public boolean aRM;
+    public boolean aRN;
     public String color;
     public int fontSize;
     public String fontWeight;
@@ -30,28 +29,28 @@ public class d extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        if (this.aEu == null) {
-            this.aEu = new com.baidu.swan.apps.model.a.a.b();
+        if (this.aXJ == null) {
+            this.aXJ = new com.baidu.swan.apps.model.a.a.b();
         }
-        this.value = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
+        this.value = jSONObject.optString("value");
         this.type = jSONObject.optString("type");
         this.maxLength = jSONObject.optInt("maxLength");
-        this.ayr = jSONObject.optInt("cursorSpacing");
-        this.ays = jSONObject.optInt("cursor");
-        this.ayt = jSONObject.optInt("selectionStart");
-        this.ayu = jSONObject.optInt("selectionEnd");
-        this.ayv = jSONObject.optString("confirmType");
-        JSONObject optJSONObject = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+        this.aRH = jSONObject.optInt("cursorSpacing");
+        this.aRI = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+        this.aRJ = jSONObject.optInt("selectionStart");
+        this.aRK = jSONObject.optInt("selectionEnd");
+        this.aRL = jSONObject.optString("confirmType");
+        JSONObject optJSONObject = jSONObject.optJSONObject("style");
         this.fontSize = optJSONObject.optInt("fontSize");
         this.fontWeight = optJSONObject.optString("fontWeight");
         this.color = optJSONObject.optString("color");
         this.textAlign = optJSONObject.optString("textAlign");
-        this.ayq = jSONObject.optInt("password") == 1;
-        this.ayw = jSONObject.optInt("confirmHold") == 1;
-        this.ayx = jSONObject.optInt("adjustPosition", 1) == 1;
+        this.aRG = jSONObject.optInt("password") == 1;
+        this.aRM = jSONObject.optInt("confirmHold") == 1;
+        this.aRN = jSONObject.optInt("adjustPosition", 1) == 1;
     }
 
-    public void D(JSONObject jSONObject) {
+    public void ab(JSONObject jSONObject) {
         try {
             super.parseFromJson(jSONObject);
         } catch (JSONException e) {

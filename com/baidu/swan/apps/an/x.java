@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,16 +24,16 @@ public final class x {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public final boolean baF;
-        public final boolean baG;
-        public final int baH;
-        public final String wX;
+        public final boolean btE;
+        public final boolean btF;
+        public final int btG;
+        public final String mPath;
 
         a(String str, boolean z, boolean z2, int i) {
-            this.wX = str;
-            this.baF = z;
-            this.baG = z2;
-            this.baH = i;
+            this.mPath = str;
+            this.btE = z;
+            this.btF = z2;
+            this.btG = i;
         }
     }
 
@@ -42,7 +43,7 @@ public final class x {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<a> PD() {
+    public static List<a> Ut() {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2;
         BufferedReader bufferedReader3;
@@ -73,7 +74,7 @@ public final class x {
                         if (DEBUG) {
                             Log.d("StorageUtils", readLine);
                         }
-                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
+                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, HanziToPinyin.Token.SEPARATOR);
                         String nextToken = stringTokenizer.nextToken();
                         String nextToken2 = stringTokenizer.nextToken();
                         if (!hashSet.contains(nextToken2)) {
@@ -99,7 +100,7 @@ public final class x {
                                             break;
                                         }
                                         str = (String) it.next();
-                                        if (TextUtils.equals(((a) hashMap.get(str)).wX, nextToken)) {
+                                        if (TextUtils.equals(((a) hashMap.get(str)).mPath, nextToken)) {
                                             break;
                                         }
                                     }
@@ -113,9 +114,9 @@ public final class x {
                                     }
                                     i2 = i;
                                 }
-                            } else if (aN(nextToken, nextToken2)) {
+                            } else if (aU(nextToken, nextToken2)) {
                                 hashSet.add(nextToken2);
-                                if (ip(nextToken2)) {
+                                if (iS(nextToken2)) {
                                     arrayList.add(new a(nextToken2, false, contains, i2));
                                     i2++;
                                 }
@@ -123,7 +124,7 @@ public final class x {
                         }
                     }
                     for (a aVar : hashMap.values()) {
-                        if (ip(aVar.wX)) {
+                        if (iS(aVar.mPath)) {
                             arrayList.add(aVar);
                         }
                     }
@@ -196,14 +197,14 @@ public final class x {
         return arrayList;
     }
 
-    private static boolean ip(String str) {
+    private static boolean iS(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return new File(str).canRead();
     }
 
-    private static boolean aN(String str, String str2) {
+    private static boolean aU(String str, String str2) {
         if (str != null && str.contains("/dev/fuse") && str2 != null && !str2.startsWith("/storage/emulated/legacy") && !str2.contains("/Android/obb")) {
             if (str2.startsWith("/storage/")) {
                 return true;

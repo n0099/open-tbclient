@@ -1,6 +1,5 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,14 +46,14 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     aVar.setId(jSONObject2.optLong("user_id"));
                     aVar.setName(jSONObject2.optString("user_name"));
-                    aVar.setPortrait(jSONObject2.optString(IntentConfig.PORTRAIT));
+                    aVar.setPortrait(jSONObject2.optString("portrait"));
                     aVar.setContent(jSONObject2.optString("message"));
                     if (jSONObject2.optInt("type") == 0) {
                         aVar.setStatus(0);
                     } else {
                         aVar.setStatus(1);
                     }
-                    aVar.vr(1);
+                    aVar.tW(1);
                     this.mDatas.add(aVar);
                 }
             }

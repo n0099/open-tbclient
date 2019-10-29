@@ -25,35 +25,35 @@ public class a {
     public static void a(SubPackageAPSInfo subPackageAPSInfo, int i) {
         if (subPackageAPSInfo != null) {
             if (g(subPackageAPSInfo)) {
-                subPackageAPSInfo.azi = i;
+                subPackageAPSInfo.aSy = i;
                 c(subPackageAPSInfo);
                 return;
             }
             subPackageAPSInfo.mResultCode = 2101;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.azi, 104, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.aSy, 104, bundle);
         }
     }
 
     private static void c(SubPackageAPSInfo subPackageAPSInfo) {
-        if (com.baidu.swan.apps.core.pms.a.cp(0)) {
+        if (com.baidu.swan.apps.core.pms.a.dl(0)) {
             c.a(new d(subPackageAPSInfo.mAppId, Integer.valueOf(subPackageAPSInfo.mAppVersion).intValue(), subPackageAPSInfo.mKey, 0), new com.baidu.swan.apps.core.pms.b.a(subPackageAPSInfo));
             return;
         }
-        if (subPackageAPSInfo.azn) {
+        if (subPackageAPSInfo.aSC) {
             if (DEBUG) {
                 Log.i("GetSubPackageHelper", "命中分包强制下载策略");
             }
-            com.baidu.b.a.c.a.N(Constants.VIA_REPORT_TYPE_QQFAVORITES, subPackageAPSInfo.mKey);
+            com.baidu.a.a.c.a.F(Constants.VIA_REPORT_TYPE_QQFAVORITES, subPackageAPSInfo.mKey);
         }
         Context appContext = AppRuntime.getAppContext();
-        com.baidu.b.a.d.a.a.putParams(subPackageAPSInfo.mKey, subPackageAPSInfo.mAppVersion);
+        com.baidu.a.a.d.a.a.putParams(subPackageAPSInfo.mKey, subPackageAPSInfo.mAppVersion);
         ArrayList arrayList = new ArrayList();
         arrayList.add(new b(appContext, subPackageAPSInfo));
-        com.baidu.b.a.a.init(appContext, ProcessUtils.isMainProcess());
-        com.baidu.b.a.c.a.a(appContext, com.baidu.swan.apps.u.a.EL().Fj());
-        com.baidu.b.a.c.a.b((List<Object>) arrayList, true);
+        com.baidu.a.a.a.init(appContext, ProcessUtils.isMainProcess());
+        com.baidu.a.a.c.a.a(appContext, com.baidu.swan.apps.u.a.JF().Kd());
+        com.baidu.a.a.c.a.b((List<Object>) arrayList, true);
     }
 
     public static void b(SubPackageAPSInfo subPackageAPSInfo, int i) {
@@ -61,7 +61,7 @@ public class a {
             subPackageAPSInfo.mResultCode = i;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.azi, 104, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.aSy, 104, bundle);
         }
     }
 
@@ -70,7 +70,7 @@ public class a {
             subPackageAPSInfo.mResultCode = PushConstants.BROADCAST_MESSAGE_ARRIVE;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.azi, 105, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.aSy, 105, bundle);
         }
     }
 
@@ -87,11 +87,11 @@ public class a {
                 if (DEBUG) {
                     Log.e("GetSubPackageHelper", "解压成功");
                 }
-                com.baidu.swan.apps.database.subpackage.a.CO().j(subPackageAPSInfo.mAppId, subPackageAPSInfo.mAppVersion, subPackageAPSInfo.azk, subPackageAPSInfo.mKey);
+                com.baidu.swan.apps.database.subpackage.a.HI().m(subPackageAPSInfo.mAppId, subPackageAPSInfo.mAppVersion, subPackageAPSInfo.aSA, subPackageAPSInfo.mKey);
                 if (z) {
                     d(subPackageAPSInfo);
                 }
-                com.baidu.swan.apps.core.a.d.zf().a(subPackageAPSInfo);
+                com.baidu.swan.apps.core.a.d.Ea().a(subPackageAPSInfo);
             } else {
                 if (DEBUG) {
                     Log.e("GetSubPackageHelper", "解压失败");
@@ -107,16 +107,16 @@ public class a {
         if (subPackageAPSInfo == null) {
             return null;
         }
-        String str = subPackageAPSInfo.azj;
+        String str = subPackageAPSInfo.aSz;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (str.endsWith(File.separator)) {
             str = str.substring(0, str.length() - 1);
         }
-        File dH = dH(str);
-        if (dH != null) {
-            return dH.getPath();
+        File ep = ep(str);
+        if (ep != null) {
+            return ep.getPath();
         }
         return null;
     }
@@ -129,9 +129,9 @@ public class a {
         if (subPackageAPSInfo == null) {
             return false;
         }
-        String dG = dG(subPackageAPSInfo.mKey);
+        String eo = eo(subPackageAPSInfo.mKey);
         String e = e(subPackageAPSInfo);
-        if (e == null || TextUtils.isEmpty(dG)) {
+        if (e == null || TextUtils.isEmpty(eo)) {
             if (DEBUG) {
                 Log.e("GetSubPackageHelper", "ZIP文件夹或名称为空");
                 return false;
@@ -141,15 +141,15 @@ public class a {
         if (DEBUG) {
             Log.e("GetSubPackageHelper", "准备重命名小程序子包");
             Log.e("GetSubPackageHelper", "zipFolder:" + e);
-            Log.e("GetSubPackageHelper", "zipName:" + dG);
+            Log.e("GetSubPackageHelper", "zipName:" + eo);
         }
-        File file = new File(e, dG);
+        File file = new File(e, eo);
         File file2 = new File(str);
         if (file2.renameTo(file)) {
             if (DEBUG) {
                 Log.i("GetSubPackageHelper", "重命名成功");
             }
-            subPackageAPSInfo.azl = file.getAbsolutePath();
+            subPackageAPSInfo.aSB = file.getAbsolutePath();
             return true;
         }
         if (DEBUG) {
@@ -159,11 +159,11 @@ public class a {
         return false;
     }
 
-    private static String dG(String str) {
+    private static String eo(String str) {
         return !TextUtils.isEmpty(str) ? Base64.encodeToString(str.getBytes(), 2) + ".aiapps" : "";
     }
 
-    private static File dH(String str) {
+    private static File ep(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -178,6 +178,6 @@ public class a {
         if (DEBUG && subPackageAPSInfo != null) {
             Log.e("GetSubPackageHelper", subPackageAPSInfo.toString());
         }
-        return (subPackageAPSInfo == null || TextUtils.isEmpty(subPackageAPSInfo.mAppVersion) || TextUtils.isEmpty(subPackageAPSInfo.mKey) || TextUtils.isEmpty(subPackageAPSInfo.azj) || TextUtils.isEmpty(subPackageAPSInfo.azk) || TextUtils.isEmpty(subPackageAPSInfo.azm)) ? false : true;
+        return (subPackageAPSInfo == null || TextUtils.isEmpty(subPackageAPSInfo.mAppVersion) || TextUtils.isEmpty(subPackageAPSInfo.mKey) || TextUtils.isEmpty(subPackageAPSInfo.aSz) || TextUtils.isEmpty(subPackageAPSInfo.aSA) || TextUtils.isEmpty(subPackageAPSInfo.mCallbackKey)) ? false : true;
     }
 }

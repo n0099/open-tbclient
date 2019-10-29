@@ -6,36 +6,36 @@ import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
     private int height;
-    private String jin;
-    private String jio;
-    private String jip;
-    private String jiq;
+    private String jia;
+    private String jib;
+    private String jic;
+    private String jie;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.jin = null;
+        this.jia = null;
         this.urlFlag = 0;
-        this.jio = null;
-        this.jip = null;
-        this.jiq = null;
+        this.jib = null;
+        this.jic = null;
+        this.jie = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.jin = timgs.img_url;
+            this.jia = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.jio = timgs.url;
-            this.jip = timgs.big_cdn_url;
-            this.jiq = timgs.des_main;
+            this.jib = timgs.url;
+            this.jic = timgs.big_cdn_url;
+            this.jie = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.width = com.baidu.adp.lib.g.b.f(split[0], 1);
-                    this.height = com.baidu.adp.lib.g.b.f(split[1], 1);
+                    this.width = com.baidu.adp.lib.g.b.toInt(split[0], 1);
+                    this.height = com.baidu.adp.lib.g.b.toInt(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -51,19 +51,19 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.jin;
+        return this.jia;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String acU() {
-        return this.jio;
+    public String aha() {
+        return this.jib;
     }
 
-    public String cqh() {
-        return this.jin;
+    public String cnX() {
+        return this.jia;
     }
 
-    public String cqi() {
-        return this.jip;
+    public String cnY() {
+        return this.jic;
     }
 }

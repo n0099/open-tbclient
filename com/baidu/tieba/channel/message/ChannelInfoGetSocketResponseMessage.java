@@ -1,6 +1,7 @@
 package com.baidu.tieba.channel.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.channel.data.d;
 import com.squareup.wire.Wire;
 import tbclient.GetChannelInfo.GetChannelInfoResIdl;
@@ -9,7 +10,7 @@ public class ChannelInfoGetSocketResponseMessage extends SocketResponsedMessage 
     private d channelHomeData;
 
     public ChannelInfoGetSocketResponseMessage() {
-        super(309437);
+        super(CmdConfigSocket.CMD_CHANNEL_GET_INFO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

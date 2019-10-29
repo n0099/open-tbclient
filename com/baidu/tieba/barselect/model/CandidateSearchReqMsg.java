@@ -20,7 +20,7 @@ public class CandidateSearchReqMsg extends NetMessage {
         builder.apply_id = Integer.valueOf(this.applyId);
         builder.fid = Long.valueOf(this.fid);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         SearchReqIdl.Builder builder2 = new SearchReqIdl.Builder();
         builder2.data = builder.build(false);

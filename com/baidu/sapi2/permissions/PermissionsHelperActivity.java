@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import com.baidu.live.tbadk.pay.PayHelper;
 /* loaded from: classes.dex */
 public class PermissionsHelperActivity extends Activity {
     private static final int a = 8000;
@@ -38,7 +39,7 @@ public class PermissionsHelperActivity extends Activity {
                     }
                     dialog.setTitleText(this.c.dialogTitle);
                     dialog.setMessageText(this.c.dialogMsg);
-                    dialog.setNegativeBtn("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.permissions.PermissionsHelperActivity.1
+                    dialog.setNegativeBtn(PayHelper.STATUS_CANCEL_DESC, new View.OnClickListener() { // from class: com.baidu.sapi2.permissions.PermissionsHelperActivity.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             PermissionsHelperActivity.this.d.onFailure();

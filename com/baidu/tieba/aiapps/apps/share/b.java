@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import org.json.JSONException;
@@ -21,42 +20,42 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        aIe();
-        aC(getAgent(), this.mParams.getString("options"));
+        aIo();
+        az(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        aIf();
+        aIp();
     }
 
-    private void aIe() {
+    private void aIo() {
     }
 
-    private void aIf() {
+    private void aIp() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gG(boolean z) {
+    public void gv(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        aIf();
+        aIp();
         finish();
     }
 
-    private void aC(Context context, String str) {
+    private void az(Context context, String str) {
         if (context == null) {
-            gG(false);
+            gv(false);
             return;
         }
         a aVar = new a();
         try {
-            aVar.bi(new JSONObject(str));
-            TiebaStatic.log(new an("c13530").bT(VideoPlayActivityConfig.OBJ_ID, aVar.cmf).P("obj_type", aVar.cmg).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aVar.cmh));
+            aVar.bF(new JSONObject(str));
+            TiebaStatic.log(new an("c13530").bS("obj_id", aVar.cze).O("obj_type", aVar.czf).bS("obj_source", aVar.czg));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.this.gG(false);
+                    b.this.gv(false);
                 }
             };
             shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
@@ -64,9 +63,9 @@ public class b extends ActivityDelegation {
                 public void onDismiss(DialogInterface dialogInterface) {
                 }
             };
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         } catch (JSONException e) {
-            gG(false);
+            gv(false);
         }
     }
 }

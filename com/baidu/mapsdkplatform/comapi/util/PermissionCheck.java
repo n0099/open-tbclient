@@ -5,10 +5,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.Hashtable;
 import org.json.JSONException;
@@ -122,7 +120,7 @@ public class PermissionCheck {
         Bundle b2 = f.b();
         if (b2 != null) {
             d.put("mb", b2.getString("mb"));
-            d.put(IXAdRequestInfo.OS, b2.getString(IXAdRequestInfo.OS));
+            d.put("os", b2.getString("os"));
             d.put("sv", b2.getString("sv"));
             d.put("imt", "1");
             d.put("net", b2.getString("net"));
@@ -135,7 +133,7 @@ public class PermissionCheck {
             d.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
             d.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
             d.put("pcn", b2.getString("pcn"));
-            d.put(DpStatConstants.KEY_CUID, b2.getString(DpStatConstants.KEY_CUID));
+            d.put("cuid", b2.getString("cuid"));
             d.put("name", str);
         }
     }

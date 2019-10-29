@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 public class a {
     private static ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    public static void e(Runnable runnable) {
+    public static void c(Runnable runnable) {
         executorService.submit(runnable);
     }
 }

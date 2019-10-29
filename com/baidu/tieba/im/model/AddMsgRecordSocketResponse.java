@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.AddMsgRecord.AddMsgRecordResIdl;
 import tbclient.AddMsgRecord.DataRes;
@@ -9,7 +10,7 @@ public class AddMsgRecordSocketResponse extends SocketResponsedMessage {
     private DataRes mData;
 
     public AddMsgRecordSocketResponse() {
-        super(309265);
+        super(CmdConfigSocket.CMD_ADD_MSG_RECORD);
     }
 
     public DataRes getData() {

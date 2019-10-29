@@ -4,40 +4,40 @@ import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes2.dex */
 public class b {
-    private com.baidu.swan.games.e.b bjv;
+    private com.baidu.swan.games.e.b bCj;
 
     public b(com.baidu.swan.games.e.b bVar) {
-        this.bjv = bVar;
+        this.bCj = bVar;
     }
 
-    public void jK(String str) {
+    public void km(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        be(str, "keyboardinput");
+        bl(str, "keyboardinput");
     }
 
-    public void jL(String str) {
+    public void kn(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        be(str, "keyboardconfirm");
+        bl(str, "keyboardconfirm");
     }
 
-    public void jM(String str) {
+    public void ko(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        be(str, "keyboardcomplete");
+        bl(str, "keyboardcomplete");
     }
 
-    private void be(String str, String str2) {
-        if (this.bjv != null && this.bjv.RK() != null && this.bjv.RK().hasEventListener(str2)) {
+    private void bl(String str, String str2) {
+        if (this.bCj != null && this.bCj.WB() != null && this.bCj.WB().hasEventListener(str2)) {
             com.baidu.swan.games.k.a.a aVar = new com.baidu.swan.games.k.a.a();
             aVar.value = str;
             JSEvent jSEvent = new JSEvent(str2);
             jSEvent.data = aVar;
-            this.bjv.RK().dispatchEvent(jSEvent);
+            this.bCj.WB().dispatchEvent(jSEvent);
         }
     }
 }

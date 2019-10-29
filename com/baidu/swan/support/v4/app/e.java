@@ -7,6 +7,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.swan.support.v4.app.n;
 import java.io.Closeable;
 import java.io.FileDescriptor;
@@ -17,10 +18,10 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class e extends m implements Runnable {
     static final boolean SUPPORTS_TRANSITIONS;
-    final l but;
-    a buu;
-    a buv;
-    int buw;
+    final l bNc;
+    a bNd;
+    a bNe;
+    int bNf;
     boolean mAddToBackStack;
     int mBreadCrumbShortTitleRes;
     CharSequence mBreadCrumbShortTitleText;
@@ -42,10 +43,10 @@ public final class e extends m implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        a buG;
-        a buH;
-        Fragment buI;
-        ArrayList<Fragment> buJ;
+        a bNp;
+        a bNq;
+        Fragment bNr;
+        ArrayList<Fragment> bNs;
         int cmd;
         int enterAnim;
         int exitAnim;
@@ -66,7 +67,7 @@ public final class e extends m implements Runnable {
             sb.append(this.mIndex);
         }
         if (this.mName != null) {
-            sb.append(" ");
+            sb.append(HanziToPinyin.Token.SEPARATOR);
             sb.append(this.mName);
         }
         sb.append("}");
@@ -123,12 +124,12 @@ public final class e extends m implements Runnable {
                 printWriter.println(this.mBreadCrumbShortTitleText);
             }
         }
-        if (this.buu != null) {
+        if (this.bNd != null) {
             printWriter.print(str);
             printWriter.println("Operations:");
             String str3 = str + "    ";
             int i = 0;
-            a aVar = this.buu;
+            a aVar = this.bNd;
             while (aVar != null) {
                 switch (aVar.cmd) {
                     case 0:
@@ -164,8 +165,8 @@ public final class e extends m implements Runnable {
                 printWriter.print(i);
                 printWriter.print(": ");
                 printWriter.print(str2);
-                printWriter.print(" ");
-                printWriter.println(aVar.buI);
+                printWriter.print(HanziToPinyin.Token.SEPARATOR);
+                printWriter.println(aVar.bNr);
                 if (z) {
                     if (aVar.enterAnim != 0 || aVar.exitAnim != 0) {
                         printWriter.print(str);
@@ -182,10 +183,10 @@ public final class e extends m implements Runnable {
                         printWriter.println(Integer.toHexString(aVar.popExitAnim));
                     }
                 }
-                if (aVar.buJ != null && aVar.buJ.size() > 0) {
-                    for (int i2 = 0; i2 < aVar.buJ.size(); i2++) {
+                if (aVar.bNs != null && aVar.bNs.size() > 0) {
+                    for (int i2 = 0; i2 < aVar.bNs.size(); i2++) {
                         printWriter.print(str3);
-                        if (aVar.buJ.size() == 1) {
+                        if (aVar.bNs.size() == 1) {
                             printWriter.print("Removed: ");
                         } else {
                             if (i2 == 0) {
@@ -196,34 +197,34 @@ public final class e extends m implements Runnable {
                             printWriter.print(i2);
                             printWriter.print(": ");
                         }
-                        printWriter.println(aVar.buJ.get(i2));
+                        printWriter.println(aVar.bNs.get(i2));
                     }
                 }
-                aVar = aVar.buG;
+                aVar = aVar.bNp;
                 i++;
             }
         }
     }
 
     public e(l lVar) {
-        this.but = lVar;
+        this.bNc = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(a aVar) {
-        if (this.buu == null) {
-            this.buv = aVar;
-            this.buu = aVar;
+        if (this.bNd == null) {
+            this.bNe = aVar;
+            this.bNd = aVar;
         } else {
-            aVar.buH = this.buv;
-            this.buv.buG = aVar;
-            this.buv = aVar;
+            aVar.bNq = this.bNe;
+            this.bNe.bNp = aVar;
+            this.bNe = aVar;
         }
         aVar.enterAnim = this.mEnterAnim;
         aVar.exitAnim = this.mExitAnim;
         aVar.popEnterAnim = this.mPopEnterAnim;
         aVar.popExitAnim = this.mPopExitAnim;
-        this.buw++;
+        this.bNf++;
     }
 
     @Override // com.baidu.swan.support.v4.app.m
@@ -239,7 +240,7 @@ public final class e extends m implements Runnable {
     }
 
     private void a(int i, Fragment fragment, String str, int i2) {
-        fragment.buQ = this.but;
+        fragment.bNz = this.bNc;
         if (str != null) {
             if (fragment.mTag != null && !str.equals(fragment.mTag)) {
                 throw new IllegalStateException("Can't change tag of fragment " + fragment + ": was " + fragment.mTag + " now " + str);
@@ -255,7 +256,7 @@ public final class e extends m implements Runnable {
         }
         a aVar = new a();
         aVar.cmd = i2;
-        aVar.buI = fragment;
+        aVar.bNr = fragment;
         a(aVar);
     }
 
@@ -263,7 +264,7 @@ public final class e extends m implements Runnable {
     public m a(Fragment fragment) {
         a aVar = new a();
         aVar.cmd = 3;
-        aVar.buI = fragment;
+        aVar.bNr = fragment;
         a(aVar);
         return this;
     }
@@ -272,7 +273,7 @@ public final class e extends m implements Runnable {
     public m b(Fragment fragment) {
         a aVar = new a();
         aVar.cmd = 4;
-        aVar.buI = fragment;
+        aVar.bNr = fragment;
         a(aVar);
         return this;
     }
@@ -281,17 +282,17 @@ public final class e extends m implements Runnable {
     public m c(Fragment fragment) {
         a aVar = new a();
         aVar.cmd = 5;
-        aVar.buI = fragment;
+        aVar.bNr = fragment;
         a(aVar);
         return this;
     }
 
     @Override // com.baidu.swan.support.v4.app.m
-    public m P(int i, int i2) {
-        return k(i, i2, 0, 0);
+    public m V(int i, int i2) {
+        return l(i, i2, 0, 0);
     }
 
-    public m k(int i, int i2, int i3, int i4) {
+    public m l(int i, int i2, int i3, int i4) {
         this.mEnterAnim = i;
         this.mExitAnim = i2;
         this.mPopEnterAnim = i3;
@@ -305,16 +306,16 @@ public final class e extends m implements Runnable {
             if (l.DEBUG) {
                 Log.v("FragmentManager", "Bump nesting in " + this + " by " + i);
             }
-            for (a aVar = this.buu; aVar != null; aVar = aVar.buG) {
-                if (aVar.buI != null) {
-                    aVar.buI.mBackStackNesting += i;
+            for (a aVar = this.bNd; aVar != null; aVar = aVar.bNp) {
+                if (aVar.bNr != null) {
+                    aVar.bNr.mBackStackNesting += i;
                     if (l.DEBUG) {
-                        Log.v("FragmentManager", "Bump nesting of " + aVar.buI + " to " + aVar.buI.mBackStackNesting);
+                        Log.v("FragmentManager", "Bump nesting of " + aVar.bNr + " to " + aVar.bNr.mBackStackNesting);
                     }
                 }
-                if (aVar.buJ != null) {
-                    for (int size = aVar.buJ.size() - 1; size >= 0; size--) {
-                        Fragment fragment = aVar.buJ.get(size);
+                if (aVar.bNs != null) {
+                    for (int size = aVar.bNs.size() - 1; size >= 0; size--) {
+                        Fragment fragment = aVar.bNs.get(size);
                         fragment.mBackStackNesting += i;
                         if (l.DEBUG) {
                             Log.v("FragmentManager", "Bump nesting of " + fragment + " to " + fragment.mBackStackNesting);
@@ -344,16 +345,16 @@ public final class e extends m implements Runnable {
             com.baidu.swan.support.v4.b.d dVar = new com.baidu.swan.support.v4.b.d("FragmentManager");
             PrintWriter printWriter = new PrintWriter(dVar);
             dump("  ", null, printWriter, null);
-            c(printWriter);
-            c(dVar);
+            b(printWriter);
+            b(dVar);
         }
         this.mCommitted = true;
         if (this.mAddToBackStack) {
-            this.mIndex = this.but.a(this);
+            this.mIndex = this.bNc.a(this);
         } else {
             this.mIndex = -1;
         }
-        this.but.a(this, z);
+        this.bNc.a(this, z);
         return this.mIndex;
     }
 
@@ -378,37 +379,37 @@ public final class e extends m implements Runnable {
         }
         int i = bVar != null ? 0 : this.mTransitionStyle;
         int i2 = bVar != null ? 0 : this.mTransition;
-        for (a aVar = this.buu; aVar != null; aVar = aVar.buG) {
+        for (a aVar = this.bNd; aVar != null; aVar = aVar.bNp) {
             int i3 = bVar != null ? 0 : aVar.enterAnim;
             int i4 = bVar != null ? 0 : aVar.exitAnim;
             switch (aVar.cmd) {
                 case 1:
-                    Fragment fragment2 = aVar.buI;
+                    Fragment fragment2 = aVar.bNr;
                     fragment2.mNextAnim = i3;
-                    this.but.c(fragment2, false);
+                    this.bNc.c(fragment2, false);
                     break;
                 case 2:
-                    Fragment fragment3 = aVar.buI;
+                    Fragment fragment3 = aVar.bNr;
                     int i5 = fragment3.mContainerId;
-                    if (this.but.mAdded != null) {
+                    if (this.bNc.mAdded != null) {
                         int i6 = 0;
                         fragment = fragment3;
                         while (true) {
                             int i7 = i6;
-                            if (i7 < this.but.mAdded.size()) {
-                                Fragment fragment4 = this.but.mAdded.get(i7);
+                            if (i7 < this.bNc.mAdded.size()) {
+                                Fragment fragment4 = this.bNc.mAdded.get(i7);
                                 if (l.DEBUG) {
                                     Log.v("FragmentManager", "OP_REPLACE: adding=" + fragment + " old=" + fragment4);
                                 }
                                 if (fragment4.mContainerId == i5) {
                                     if (fragment4 == fragment) {
                                         fragment = null;
-                                        aVar.buI = null;
+                                        aVar.bNr = null;
                                     } else {
-                                        if (aVar.buJ == null) {
-                                            aVar.buJ = new ArrayList<>();
+                                        if (aVar.bNs == null) {
+                                            aVar.bNs = new ArrayList<>();
                                         }
-                                        aVar.buJ.add(fragment4);
+                                        aVar.bNs.add(fragment4);
                                         fragment4.mNextAnim = i4;
                                         if (this.mAddToBackStack) {
                                             fragment4.mBackStackNesting++;
@@ -416,7 +417,7 @@ public final class e extends m implements Runnable {
                                                 Log.v("FragmentManager", "Bump nesting of " + fragment4 + " to " + fragment4.mBackStackNesting);
                                             }
                                         }
-                                        this.but.a(fragment4, i2, i);
+                                        this.bNc.a(fragment4, i2, i);
                                     }
                                 }
                                 i6 = i7 + 1;
@@ -427,43 +428,43 @@ public final class e extends m implements Runnable {
                     }
                     if (fragment != null) {
                         fragment.mNextAnim = i3;
-                        this.but.c(fragment, false);
+                        this.bNc.c(fragment, false);
                         break;
                     } else {
                         break;
                     }
                 case 3:
-                    Fragment fragment5 = aVar.buI;
+                    Fragment fragment5 = aVar.bNr;
                     fragment5.mNextAnim = i4;
-                    this.but.a(fragment5, i2, i);
+                    this.bNc.a(fragment5, i2, i);
                     break;
                 case 4:
-                    Fragment fragment6 = aVar.buI;
+                    Fragment fragment6 = aVar.bNr;
                     fragment6.mNextAnim = i4;
-                    this.but.b(fragment6, i2, i);
+                    this.bNc.b(fragment6, i2, i);
                     break;
                 case 5:
-                    Fragment fragment7 = aVar.buI;
+                    Fragment fragment7 = aVar.bNr;
                     fragment7.mNextAnim = i3;
-                    this.but.c(fragment7, i2, i);
+                    this.bNc.c(fragment7, i2, i);
                     break;
                 case 6:
-                    Fragment fragment8 = aVar.buI;
+                    Fragment fragment8 = aVar.bNr;
                     fragment8.mNextAnim = i4;
-                    this.but.d(fragment8, i2, i);
+                    this.bNc.d(fragment8, i2, i);
                     break;
                 case 7:
-                    Fragment fragment9 = aVar.buI;
+                    Fragment fragment9 = aVar.bNr;
                     fragment9.mNextAnim = i3;
-                    this.but.e(fragment9, i2, i);
+                    this.bNc.e(fragment9, i2, i);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown cmd: " + aVar.cmd);
             }
         }
-        this.but.c(this.but.mCurState, i2, i, true);
+        this.bNc.c(this.bNc.mCurState, i2, i, true);
         if (this.mAddToBackStack) {
-            this.but.b(this);
+            this.bNc.b(this);
         }
     }
 
@@ -483,21 +484,21 @@ public final class e extends m implements Runnable {
 
     private void a(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
         Fragment fragment;
-        if (this.but.bvi.onHasView()) {
-            for (a aVar = this.buu; aVar != null; aVar = aVar.buG) {
+        if (this.bNc.bNR.onHasView()) {
+            for (a aVar = this.bNd; aVar != null; aVar = aVar.bNp) {
                 switch (aVar.cmd) {
                     case 1:
-                        b(sparseArray2, aVar.buI);
+                        b(sparseArray2, aVar.bNr);
                         break;
                     case 2:
-                        Fragment fragment2 = aVar.buI;
-                        if (this.but.mAdded != null) {
+                        Fragment fragment2 = aVar.bNr;
+                        if (this.bNc.mAdded != null) {
                             int i = 0;
                             fragment = fragment2;
                             while (true) {
                                 int i2 = i;
-                                if (i2 < this.but.mAdded.size()) {
-                                    Fragment fragment3 = this.but.mAdded.get(i2);
+                                if (i2 < this.bNc.mAdded.size()) {
+                                    Fragment fragment3 = this.bNc.mAdded.get(i2);
                                     if (fragment == null || fragment3.mContainerId == fragment.mContainerId) {
                                         if (fragment3 == fragment) {
                                             fragment = null;
@@ -514,19 +515,19 @@ public final class e extends m implements Runnable {
                         b(sparseArray2, fragment);
                         break;
                     case 3:
-                        a(sparseArray, aVar.buI);
+                        a(sparseArray, aVar.bNr);
                         break;
                     case 4:
-                        a(sparseArray, aVar.buI);
+                        a(sparseArray, aVar.bNr);
                         break;
                     case 5:
-                        b(sparseArray2, aVar.buI);
+                        b(sparseArray2, aVar.bNr);
                         break;
                     case 6:
-                        a(sparseArray, aVar.buI);
+                        a(sparseArray, aVar.bNr);
                         break;
                     case 7:
-                        b(sparseArray2, aVar.buI);
+                        b(sparseArray2, aVar.bNr);
                         break;
                 }
             }
@@ -534,34 +535,34 @@ public final class e extends m implements Runnable {
     }
 
     public void b(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
-        if (this.but.bvi.onHasView()) {
-            for (a aVar = this.buu; aVar != null; aVar = aVar.buG) {
+        if (this.bNc.bNR.onHasView()) {
+            for (a aVar = this.bNd; aVar != null; aVar = aVar.bNp) {
                 switch (aVar.cmd) {
                     case 1:
-                        a(sparseArray, aVar.buI);
+                        a(sparseArray, aVar.bNr);
                         break;
                     case 2:
-                        if (aVar.buJ != null) {
-                            for (int size = aVar.buJ.size() - 1; size >= 0; size--) {
-                                b(sparseArray2, aVar.buJ.get(size));
+                        if (aVar.bNs != null) {
+                            for (int size = aVar.bNs.size() - 1; size >= 0; size--) {
+                                b(sparseArray2, aVar.bNs.get(size));
                             }
                         }
-                        a(sparseArray, aVar.buI);
+                        a(sparseArray, aVar.bNr);
                         break;
                     case 3:
-                        b(sparseArray2, aVar.buI);
+                        b(sparseArray2, aVar.bNr);
                         break;
                     case 4:
-                        b(sparseArray2, aVar.buI);
+                        b(sparseArray2, aVar.bNr);
                         break;
                     case 5:
-                        a(sparseArray, aVar.buI);
+                        a(sparseArray, aVar.bNr);
                         break;
                     case 6:
-                        b(sparseArray2, aVar.buI);
+                        b(sparseArray2, aVar.bNr);
                         break;
                     case 7:
-                        a(sparseArray, aVar.buI);
+                        a(sparseArray, aVar.bNr);
                         break;
                 }
             }
@@ -574,8 +575,8 @@ public final class e extends m implements Runnable {
             com.baidu.swan.support.v4.b.d dVar = new com.baidu.swan.support.v4.b.d("FragmentManager");
             PrintWriter printWriter = new PrintWriter(dVar);
             dump("  ", null, printWriter, null);
-            c(printWriter);
-            c(dVar);
+            b(printWriter);
+            b(dVar);
         }
         if (SUPPORTS_TRANSITIONS) {
             if (bVar == null) {
@@ -589,66 +590,66 @@ public final class e extends m implements Runnable {
         bumpBackStackNesting(-1);
         int i = bVar != null ? 0 : this.mTransitionStyle;
         int i2 = bVar != null ? 0 : this.mTransition;
-        for (a aVar = this.buv; aVar != null; aVar = aVar.buH) {
+        for (a aVar = this.bNe; aVar != null; aVar = aVar.bNq) {
             int i3 = bVar != null ? 0 : aVar.popEnterAnim;
             int i4 = bVar != null ? 0 : aVar.popExitAnim;
             switch (aVar.cmd) {
                 case 1:
-                    Fragment fragment = aVar.buI;
+                    Fragment fragment = aVar.bNr;
                     fragment.mNextAnim = i4;
-                    this.but.a(fragment, l.reverseTransit(i2), i);
+                    this.bNc.a(fragment, l.reverseTransit(i2), i);
                     break;
                 case 2:
-                    Fragment fragment2 = aVar.buI;
+                    Fragment fragment2 = aVar.bNr;
                     if (fragment2 != null) {
                         fragment2.mNextAnim = i4;
-                        this.but.a(fragment2, l.reverseTransit(i2), i);
+                        this.bNc.a(fragment2, l.reverseTransit(i2), i);
                     }
-                    if (aVar.buJ != null) {
-                        for (int i5 = 0; i5 < aVar.buJ.size(); i5++) {
-                            Fragment fragment3 = aVar.buJ.get(i5);
+                    if (aVar.bNs != null) {
+                        for (int i5 = 0; i5 < aVar.bNs.size(); i5++) {
+                            Fragment fragment3 = aVar.bNs.get(i5);
                             fragment3.mNextAnim = i3;
-                            this.but.c(fragment3, false);
+                            this.bNc.c(fragment3, false);
                         }
                         break;
                     } else {
                         break;
                     }
                 case 3:
-                    Fragment fragment4 = aVar.buI;
+                    Fragment fragment4 = aVar.bNr;
                     fragment4.mNextAnim = i3;
-                    this.but.c(fragment4, false);
+                    this.bNc.c(fragment4, false);
                     break;
                 case 4:
-                    Fragment fragment5 = aVar.buI;
+                    Fragment fragment5 = aVar.bNr;
                     fragment5.mNextAnim = i3;
-                    this.but.c(fragment5, l.reverseTransit(i2), i);
+                    this.bNc.c(fragment5, l.reverseTransit(i2), i);
                     break;
                 case 5:
-                    Fragment fragment6 = aVar.buI;
+                    Fragment fragment6 = aVar.bNr;
                     fragment6.mNextAnim = i4;
-                    this.but.b(fragment6, l.reverseTransit(i2), i);
+                    this.bNc.b(fragment6, l.reverseTransit(i2), i);
                     break;
                 case 6:
-                    Fragment fragment7 = aVar.buI;
+                    Fragment fragment7 = aVar.bNr;
                     fragment7.mNextAnim = i3;
-                    this.but.e(fragment7, l.reverseTransit(i2), i);
+                    this.bNc.e(fragment7, l.reverseTransit(i2), i);
                     break;
                 case 7:
-                    Fragment fragment8 = aVar.buI;
+                    Fragment fragment8 = aVar.bNr;
                     fragment8.mNextAnim = i3;
-                    this.but.d(fragment8, l.reverseTransit(i2), i);
+                    this.bNc.d(fragment8, l.reverseTransit(i2), i);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown cmd: " + aVar.cmd);
             }
         }
         if (z) {
-            this.but.c(this.but.mCurState, l.reverseTransit(i2), i, true);
+            this.bNc.c(this.bNc.mCurState, l.reverseTransit(i2), i, true);
             bVar = null;
         }
         if (this.mIndex >= 0) {
-            this.but.freeBackStackIndex(this.mIndex);
+            this.bNc.freeBackStackIndex(this.mIndex);
             this.mIndex = -1;
         }
         return bVar;
@@ -660,7 +661,7 @@ public final class e extends m implements Runnable {
 
     private b a(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2, boolean z) {
         b bVar = new b();
-        bVar.buN = new View(this.but.buR.getContext());
+        bVar.bNw = new View(this.bNc.bNA.getContext());
         int i = 0;
         boolean z2 = false;
         while (i < sparseArray.size()) {
@@ -704,7 +705,7 @@ public final class e extends m implements Runnable {
         } else {
             sharedElementEnterTransition = fragment.getSharedElementEnterTransition();
         }
-        return n.Z(sharedElementEnterTransition);
+        return n.X(sharedElementEnterTransition);
     }
 
     private static Object a(Object obj, Fragment fragment, ArrayList<View> arrayList, com.baidu.swan.support.v4.b.a<String, View> aVar, View view) {
@@ -725,13 +726,13 @@ public final class e extends m implements Runnable {
             }
         }
         if (z) {
-            if (fragment.buV != null) {
-                fragment.buV.onMapSharedElements(this.mSharedElementTargetNames, aVar);
+            if (fragment.bNE != null) {
+                fragment.bNE.onMapSharedElements(this.mSharedElementTargetNames, aVar);
             }
             a(bVar, aVar, false);
         } else {
-            if (fragment.buW != null) {
-                fragment.buW.onMapSharedElements(this.mSharedElementTargetNames, aVar);
+            if (fragment.bNF != null) {
+                fragment.bNF.onMapSharedElements(this.mSharedElementTargetNames, aVar);
             }
             b(bVar, aVar, false);
         }
@@ -750,7 +751,7 @@ public final class e extends m implements Runnable {
         Object obj;
         Object a2;
         View view;
-        ViewGroup viewGroup = (ViewGroup) this.but.bvi.onFindViewById(i);
+        ViewGroup viewGroup = (ViewGroup) this.bNc.bNR.onFindViewById(i);
         if (viewGroup == null) {
             return false;
         }
@@ -770,7 +771,7 @@ public final class e extends m implements Runnable {
                     return false;
                 }
                 ArrayList arrayList2 = new ArrayList();
-                Object a5 = a(b2, fragment2, arrayList2, aVar, bVar.buN);
+                Object a5 = a(b2, fragment2, arrayList2, aVar, bVar.bNw);
                 if (this.mSharedElementTargetNames != null && aVar != null) {
                     view = aVar.get(this.mSharedElementTargetNames.get(0));
                     if (view != null) {
@@ -796,16 +797,16 @@ public final class e extends m implements Runnable {
                 }
                 a2 = n.a(a3, a5, obj, z2);
                 if (a2 != null) {
-                    n.a(a3, obj, viewGroup, bVar2, bVar.buN, bVar.buM, bVar.buK, arrayList3, aVar, aVar2, arrayList);
+                    n.a(a3, obj, viewGroup, bVar2, bVar.bNw, bVar.bNv, bVar.bNt, arrayList3, aVar, aVar2, arrayList);
                     a(viewGroup, bVar, i, a2);
-                    n.a(a2, bVar.buN, true);
+                    n.a(a2, bVar.bNw, true);
                     a(bVar, i, a2);
                     n.beginDelayedTransition(viewGroup, a2);
-                    n.a(viewGroup, bVar.buN, a3, arrayList3, a5, arrayList2, obj, arrayList, a2, bVar.buL, aVar2);
+                    n.a(viewGroup, bVar.bNw, a3, arrayList3, a5, arrayList2, obj, arrayList, a2, bVar.bNu, aVar2);
                 }
                 return a2 == null;
             }
-            SharedElementCallback sharedElementCallback = z ? fragment2.buV : fragment.buV;
+            SharedElementCallback sharedElementCallback = z ? fragment2.bNE : fragment.bNE;
             if (sharedElementCallback != null) {
                 sharedElementCallback.onSharedElementStart(new ArrayList(aVar.keySet()), new ArrayList(aVar.values()), null);
             }
@@ -815,7 +816,7 @@ public final class e extends m implements Runnable {
         if (a3 != null) {
         }
         ArrayList arrayList22 = new ArrayList();
-        Object a52 = a(b2, fragment2, arrayList22, aVar, bVar.buN);
+        Object a52 = a(b2, fragment2, arrayList22, aVar, bVar.bNw);
         if (this.mSharedElementTargetNames != null) {
             view = aVar.get(this.mSharedElementTargetNames.get(0));
             if (view != null) {
@@ -848,7 +849,7 @@ public final class e extends m implements Runnable {
                     n.a(obj, arrayList);
                     arrayList.clear();
                     com.baidu.swan.support.v4.b.a a2 = e.this.a(bVar, z, fragment);
-                    n.a(obj, bVar.buN, a2, arrayList);
+                    n.a(obj, bVar.bNw, a2, arrayList);
                     e.this.a(a2, bVar);
                     e.this.a(bVar, fragment, fragment2, z, a2);
                     return true;
@@ -860,7 +861,7 @@ public final class e extends m implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, Fragment fragment, Fragment fragment2, boolean z, com.baidu.swan.support.v4.b.a<String, View> aVar) {
-        SharedElementCallback sharedElementCallback = z ? fragment2.buV : fragment.buV;
+        SharedElementCallback sharedElementCallback = z ? fragment2.bNE : fragment.bNE;
         if (sharedElementCallback != null) {
             sharedElementCallback.onSharedElementEnd(new ArrayList(aVar.keySet()), new ArrayList(aVar.values()), null);
         }
@@ -870,7 +871,7 @@ public final class e extends m implements Runnable {
     public void a(com.baidu.swan.support.v4.b.a<String, View> aVar, b bVar) {
         View view;
         if (this.mSharedElementTargetNames != null && !aVar.isEmpty() && (view = aVar.get(this.mSharedElementTargetNames.get(0))) != null) {
-            bVar.buM.bvA = view;
+            bVar.bNv.bOj = view;
         }
     }
 
@@ -878,13 +879,13 @@ public final class e extends m implements Runnable {
     public com.baidu.swan.support.v4.b.a<String, View> a(b bVar, boolean z, Fragment fragment) {
         com.baidu.swan.support.v4.b.a<String, View> b2 = b(bVar, fragment, z);
         if (z) {
-            if (fragment.buW != null) {
-                fragment.buW.onMapSharedElements(this.mSharedElementTargetNames, b2);
+            if (fragment.bNF != null) {
+                fragment.bNF.onMapSharedElements(this.mSharedElementTargetNames, b2);
             }
             a(bVar, b2, true);
         } else {
-            if (fragment.buV != null) {
-                fragment.buV.onMapSharedElements(this.mSharedElementTargetNames, b2);
+            if (fragment.bNE != null) {
+                fragment.bNE.onMapSharedElements(this.mSharedElementTargetNames, b2);
             }
             b(bVar, b2, true);
         }
@@ -933,18 +934,18 @@ public final class e extends m implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, int i, Object obj) {
-        if (this.but.mAdded != null) {
-            for (int i2 = 0; i2 < this.but.mAdded.size(); i2++) {
-                Fragment fragment = this.but.mAdded.get(i2);
+        if (this.bNc.mAdded != null) {
+            for (int i2 = 0; i2 < this.bNc.mAdded.size(); i2++) {
+                Fragment fragment = this.bNc.mAdded.get(i2);
                 if (fragment.mView != null && fragment.mContainer != null && fragment.mContainerId == i) {
                     if (fragment.mHidden) {
-                        if (!bVar.buL.contains(fragment.mView)) {
+                        if (!bVar.bNu.contains(fragment.mView)) {
                             n.a(obj, fragment.mView, true);
-                            bVar.buL.add(fragment.mView);
+                            bVar.bNu.add(fragment.mView);
                         }
                     } else {
                         n.a(obj, fragment.mView, false);
-                        bVar.buL.remove(fragment.mView);
+                        bVar.bNu.remove(fragment.mView);
                     }
                 }
             }
@@ -969,7 +970,7 @@ public final class e extends m implements Runnable {
             while (true) {
                 int i2 = i;
                 if (i2 < arrayList.size()) {
-                    a(bVar.buK, arrayList.get(i2), arrayList2.get(i2));
+                    a(bVar.bNt, arrayList.get(i2), arrayList2.get(i2));
                     i = i2 + 1;
                 } else {
                     return;
@@ -986,9 +987,9 @@ public final class e extends m implements Runnable {
             if (view != null) {
                 String transitionName = n.getTransitionName(view);
                 if (z) {
-                    a(bVar.buK, str, transitionName);
+                    a(bVar.bNt, str, transitionName);
                 } else {
-                    a(bVar.buK, transitionName, str);
+                    a(bVar.bNt, transitionName, str);
                 }
             }
         }
@@ -1000,25 +1001,25 @@ public final class e extends m implements Runnable {
             String keyAt = aVar.keyAt(i);
             String transitionName = n.getTransitionName(aVar.valueAt(i));
             if (z) {
-                a(bVar.buK, keyAt, transitionName);
+                a(bVar.bNt, keyAt, transitionName);
             } else {
-                a(bVar.buK, transitionName, keyAt);
+                a(bVar.bNt, transitionName, keyAt);
             }
         }
     }
 
     /* loaded from: classes2.dex */
     public class b {
-        public com.baidu.swan.support.v4.b.a<String, String> buK = new com.baidu.swan.support.v4.b.a<>();
-        public ArrayList<View> buL = new ArrayList<>();
-        public n.a buM = new n.a();
-        public View buN;
+        public com.baidu.swan.support.v4.b.a<String, String> bNt = new com.baidu.swan.support.v4.b.a<>();
+        public ArrayList<View> bNu = new ArrayList<>();
+        public n.a bNv = new n.a();
+        public View bNw;
 
         public b() {
         }
     }
 
-    private void c(Closeable closeable) {
+    private void b(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();

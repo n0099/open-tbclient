@@ -1,6 +1,7 @@
 package com.baidu.tieba.write.transmit.model;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumResIdl;
@@ -12,7 +13,7 @@ public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
     private String recommendExt;
 
     public GetRepostForumSocketResMessage() {
-        super(309450);
+        super(CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

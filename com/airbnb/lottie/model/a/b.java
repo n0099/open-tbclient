@@ -16,22 +16,22 @@ public class b extends o<Float, Float> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Float, Float> cF() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.nl) : new com.airbnb.lottie.a.b.c(this.mV);
+    public com.airbnb.lottie.a.b.a<Float, Float> bY() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.fI) : new com.airbnb.lottie.a.b.c(this.fu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
-    /* renamed from: cG */
-    public Float cH() {
-        return (Float) this.nl;
+    /* renamed from: bZ */
+    public Float ca() {
+        return (Float) this.fI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.model.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0009b implements m.a<Float> {
-        static final C0009b nY = new C0009b();
+        static final C0009b gu = new C0009b();
 
         private C0009b() {
         }
@@ -47,7 +47,7 @@ public class b extends o<Float, Float> {
     /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static b cI() {
+        public static b cb() {
             return new b();
         }
 
@@ -56,12 +56,12 @@ public class b extends o<Float, Float> {
         }
 
         public static b a(JSONObject jSONObject, com.airbnb.lottie.e eVar, boolean z) {
-            float bI = z ? eVar.bI() : 1.0f;
+            float bb = z ? eVar.bb() : 1.0f;
             if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
                 eVar.E("Lottie doesn't support expressions.");
             }
-            n.a cZ = n.a(jSONObject, bI, eVar, C0009b.nY).cZ();
-            return new b(cZ.mV, (Float) cZ.nl);
+            n.a cs = n.a(jSONObject, bb, eVar, C0009b.gu).cs();
+            return new b(cs.fu, (Float) cs.fI);
         }
     }
 }

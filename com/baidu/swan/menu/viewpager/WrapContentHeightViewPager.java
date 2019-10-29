@@ -49,11 +49,11 @@ public class WrapContentHeightViewPager extends ViewPager {
             if (view2 != null) {
                 view2.measure(i, i2);
             }
-            setMeasuredDimension(getMeasuredWidth(), d(i2, view2));
+            setMeasuredDimension(getMeasuredWidth(), e(i2, view2));
         }
     }
 
-    private int d(int i, View view) {
+    private int e(int i, View view) {
         int i2 = 0;
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);

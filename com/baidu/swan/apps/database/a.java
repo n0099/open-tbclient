@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes2.dex */
 public class a {
+    public String aOG;
+    public String aOH;
+    public String aOI;
+    public String aOJ;
+    public String aOK;
+    public String aOL;
+    public int aOM;
+    public String aON;
+    public String aOO;
+    public String aOP;
+    public long aOQ;
+    public int aOR;
+    public String aOS;
+    public long aOT = 432000;
+    public boolean aOU;
     public String appId;
     public String appKey;
-    public long avA;
-    public int avB;
-    public int avC;
-    public String avD;
-    public long avE = 432000;
-    public boolean avF;
-    public String avq;
-    public String avr;
-    public String avs;
-    public String avt;
-    public String avu;
-    public String avv;
-    public int avw;
-    public String avx;
-    public String avy;
-    public String avz;
+    public int category;
     public long createTime;
     public String description;
     public int errorCode;
@@ -36,19 +36,19 @@ public class a {
     public String version;
 
     public static boolean e(a aVar) {
-        return (aVar == null || aVar.avB == 0) ? false : true;
+        return (aVar == null || aVar.aOR == 0) ? false : true;
     }
 
-    public boolean Cx() {
-        return (System.currentTimeMillis() - this.createTime) / 1000 > this.avE;
+    public boolean Hr() {
+        return (System.currentTimeMillis() - this.createTime) / 1000 > this.aOT;
     }
 
     public boolean isValid() {
         return !TextUtils.isEmpty(this.appId);
     }
 
-    public String Cy() {
-        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.avq + "', maxSwanVersion='" + this.avr + "', minSwanVersion='" + this.avs + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.avw + ", targetSwanVersion='" + this.avz + "', mAppZipSize=" + this.avA + ", mPendingApsErrcode=" + this.avB + ", category=" + this.avC + ", versionCode='" + this.avD + "', maxAge=" + this.avE + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.avF + '}';
+    public String Hs() {
+        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.aOG + "', maxSwanVersion='" + this.aOH + "', minSwanVersion='" + this.aOI + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.aOM + ", targetSwanVersion='" + this.aOP + "', mAppZipSize=" + this.aOQ + ", mPendingApsErrcode=" + this.aOR + ", category=" + this.category + ", versionCode='" + this.aOS + "', maxAge=" + this.aOT + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.aOU + '}';
     }
 
     public static PMSAppInfo f(a aVar) {
@@ -58,29 +58,29 @@ public class a {
         PMSAppInfo pMSAppInfo = new PMSAppInfo();
         pMSAppInfo.appId = aVar.appId;
         pMSAppInfo.appKey = aVar.appKey;
-        pMSAppInfo.bte = ee(aVar.sign);
-        pMSAppInfo.versionCode = (int) ee(aVar.version);
-        pMSAppInfo.versionName = aVar.avD;
+        pMSAppInfo.bLP = eL(aVar.sign);
+        pMSAppInfo.versionCode = (int) eL(aVar.version);
+        pMSAppInfo.versionName = aVar.aOS;
         pMSAppInfo.description = aVar.description;
         pMSAppInfo.appStatus = aVar.errorCode;
-        pMSAppInfo.btf = aVar.errorDetail;
-        pMSAppInfo.btg = aVar.errorMsg;
-        pMSAppInfo.avq = aVar.avq;
+        pMSAppInfo.bLQ = aVar.errorDetail;
+        pMSAppInfo.bLR = aVar.errorMsg;
+        pMSAppInfo.aOG = aVar.aOG;
         pMSAppInfo.iconUrl = aVar.iconUrl;
         pMSAppInfo.appName = aVar.name;
-        pMSAppInfo.avt = aVar.avt;
-        pMSAppInfo.avu = aVar.avu;
+        pMSAppInfo.aOJ = aVar.aOJ;
+        pMSAppInfo.aOK = aVar.aOK;
         pMSAppInfo.type = aVar.type;
-        pMSAppInfo.bth = aVar.avA;
-        pMSAppInfo.bti = aVar.avB;
-        pMSAppInfo.btj = aVar.avC;
+        pMSAppInfo.bLS = aVar.aOQ;
+        pMSAppInfo.bLT = aVar.aOR;
+        pMSAppInfo.bLU = aVar.category;
         pMSAppInfo.orientation = aVar.orientation;
-        pMSAppInfo.avE = aVar.avE;
+        pMSAppInfo.aOT = aVar.aOT;
         pMSAppInfo.createTime = aVar.createTime;
         return pMSAppInfo;
     }
 
-    private static long ee(String str) {
+    private static long eL(String str) {
         try {
             return Long.parseLong(str);
         } catch (NumberFormatException e) {

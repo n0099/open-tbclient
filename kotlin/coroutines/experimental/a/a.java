@@ -1,9 +1,9 @@
 package kotlin.coroutines.experimental.a;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final Object kvf = new Object();
+    private static final Object kvN = new Object();
 
-    public static final Object cOO() {
-        return kvf;
+    public static final Object cMV() {
+        return kvN;
     }
 }

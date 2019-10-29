@@ -11,7 +11,7 @@ public class au {
         this.mPageContext = tbPageContext;
     }
 
-    public void h(String str, byte[] bArr) {
+    public void g(String str, byte[] bArr) {
         new a(str, bArr).execute(new String[0]);
     }
 
@@ -31,9 +31,9 @@ public class au {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            switch (com.baidu.tbadk.core.util.m.a(this.mUrl, this.mData, au.this.mPageContext.getPageActivity())) {
+            switch (com.baidu.tbadk.core.util.m.saveImageFileByUser(this.mUrl, this.mData, au.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.m.aih();
+                    return com.baidu.tbadk.core.util.m.getSdErrorString();
                 case -1:
                 default:
                     return au.this.mPageContext.getString(R.string.save_fail);

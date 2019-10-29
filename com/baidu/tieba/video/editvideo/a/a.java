@@ -14,18 +14,18 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0432a jyU;
+    private e cfJ;
+    private InterfaceC0527a jyM;
     private List<PendantData> mList;
-    private e mPageContext;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0432a {
+    public interface InterfaceC0527a {
         void a(View view, int i, PendantData pendantData);
     }
 
     public a(e eVar) {
-        this.mPageContext = eVar;
+        this.cfJ = eVar;
     }
 
     public void setData(List<PendantData> list) {
@@ -57,23 +57,23 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.cfJ.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.jyW = (TextView) view.findViewById(R.id.cover_text);
-            bVar.jyX = (TbImageView) view.findViewById(R.id.pendant_image);
-            bVar.jyY = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-            bVar.jyX.setDefaultBgResource(R.color.transparent);
-            bVar.jyX.setDefaultErrorResource(R.color.cp_cont_a);
-            bVar.jyX.setDefaultResource(R.color.cp_cont_a);
+            bVar.jyO = (TextView) view.findViewById(R.id.cover_text);
+            bVar.jyP = (TbImageView) view.findViewById(R.id.pendant_image);
+            bVar.jyQ = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+            bVar.jyP.setDefaultBgResource(R.color.transparent);
+            bVar.jyP.setDefaultErrorResource(R.color.cp_cont_a);
+            bVar.jyP.setDefaultResource(R.color.cp_cont_a);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.jyU != null) {
+                    if (a.this.jyM != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.jyX.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.jyX.getTag();
+                        if (bVar2.jyP.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.jyP.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.jyU.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.jyM.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -86,60 +86,60 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.jyX.setTag(Integer.valueOf(i));
+            bVar.jyP.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.jyW.setVisibility(0);
-                    bVar.jyX.setVisibility(8);
-                    bVar.jyY.setVisibility(8);
-                    bVar.jyW.setTextColor(am.getColor(R.color.cp_cont_e));
-                    bVar.jyW.setText("No");
-                    bVar.jyW.setBackgroundDrawable(am.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.jyO.setVisibility(0);
+                    bVar.jyP.setVisibility(8);
+                    bVar.jyQ.setVisibility(8);
+                    bVar.jyO.setTextColor(am.getColor(R.color.cp_cont_e));
+                    bVar.jyO.setText("No");
+                    bVar.jyO.setBackgroundDrawable(am.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.jyW.setVisibility(0);
-                    bVar.jyX.setVisibility(8);
-                    bVar.jyY.setVisibility(8);
-                    bVar.jyW.setTextColor(am.getColor(R.color.cp_cont_g));
-                    bVar.jyW.setText("T");
-                    bVar.jyW.setBackgroundColor(am.getColor(R.color.cp_link_tip_a));
+                    bVar.jyO.setVisibility(0);
+                    bVar.jyP.setVisibility(8);
+                    bVar.jyQ.setVisibility(8);
+                    bVar.jyO.setTextColor(am.getColor(R.color.cp_cont_g));
+                    bVar.jyO.setText("T");
+                    bVar.jyO.setBackgroundColor(am.getColor(R.color.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.jyW.setVisibility(0);
-                    bVar.jyX.setVisibility(8);
-                    bVar.jyY.setVisibility(8);
-                    bVar.jyW.setTextColor(am.getColor(R.color.cp_cont_g));
-                    bVar.jyW.setText("T");
-                    bVar.jyW.setBackgroundColor(am.getColor(R.color.cp_cont_d));
+                    bVar.jyO.setVisibility(0);
+                    bVar.jyP.setVisibility(8);
+                    bVar.jyQ.setVisibility(8);
+                    bVar.jyO.setTextColor(am.getColor(R.color.cp_cont_g));
+                    bVar.jyO.setText("T");
+                    bVar.jyO.setBackgroundColor(am.getColor(R.color.cp_cont_d));
                     break;
                 case 3:
-                    bVar.jyW.setVisibility(0);
-                    bVar.jyX.setVisibility(8);
-                    bVar.jyY.setVisibility(8);
-                    bVar.jyW.setTextColor(am.getColor(R.color.cp_cont_d));
-                    bVar.jyW.setText("T");
-                    bVar.jyW.setBackgroundDrawable(am.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.jyO.setVisibility(0);
+                    bVar.jyP.setVisibility(8);
+                    bVar.jyQ.setVisibility(8);
+                    bVar.jyO.setTextColor(am.getColor(R.color.cp_cont_d));
+                    bVar.jyO.setText("T");
+                    bVar.jyO.setBackgroundDrawable(am.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 default:
-                    bVar.jyW.setVisibility(8);
-                    bVar.jyX.setVisibility(0);
-                    bVar.jyY.setVisibility(8);
-                    bVar.jyX.startLoad(pendantData.img, 10, false);
+                    bVar.jyO.setVisibility(8);
+                    bVar.jyP.setVisibility(0);
+                    bVar.jyQ.setVisibility(8);
+                    bVar.jyP.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0432a interfaceC0432a) {
-        this.jyU = interfaceC0432a;
+    public void a(InterfaceC0527a interfaceC0527a) {
+        this.jyM = interfaceC0527a;
     }
 
     /* loaded from: classes5.dex */
     public class b {
-        public TextView jyW;
-        public TbImageView jyX;
-        public ProgressBar jyY;
+        public TextView jyO;
+        public TbImageView jyP;
+        public ProgressBar jyQ;
 
         public b() {
         }

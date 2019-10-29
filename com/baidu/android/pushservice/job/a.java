@@ -12,18 +12,18 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 @TargetApi(21)
 /* loaded from: classes3.dex */
 public class a {
-    private static C0034a a;
+    private static C0038a a;
     private static boolean b;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0034a {
+    public static class C0038a {
         private final Context a;
         private final JobScheduler b;
         private boolean c;
 
-        C0034a(Context context) {
+        C0038a(Context context) {
             this.a = context;
             this.b = (JobScheduler) this.a.getSystemService("jobscheduler");
         }
@@ -75,7 +75,7 @@ public class a {
         synchronized (a.class) {
             if (a == null && Build.VERSION.SDK_INT >= 21 && !l.E(context)) {
                 try {
-                    a = new C0034a(context);
+                    a = new C0038a(context);
                 } catch (Exception e) {
                 }
             }

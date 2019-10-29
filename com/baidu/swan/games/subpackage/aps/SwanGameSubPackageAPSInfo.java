@@ -8,26 +8,26 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanGameSubPackageAPSInfo> CREATOR = new Parcelable.Creator<SwanGameSubPackageAPSInfo>() { // from class: com.baidu.swan.games.subpackage.aps.SwanGameSubPackageAPSInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: o */
+        /* renamed from: w */
         public SwanGameSubPackageAPSInfo createFromParcel(Parcel parcel) {
             return new SwanGameSubPackageAPSInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fh */
+        /* renamed from: gc */
         public SwanGameSubPackageAPSInfo[] newArray(int i) {
             return new SwanGameSubPackageAPSInfo[i];
         }
     };
     public String appId;
-    public String appVersion;
-    public int blS;
-    public String blT;
-    public String blU;
-    public String blV;
-    public String blW;
-    public String blX;
+    public String awa;
+    public int bEG;
+    public String bEH;
+    public String bEI;
+    public String bEJ;
+    public String bEK;
+    public String callbackKey;
     public String key;
     public int resultCode;
 
@@ -36,15 +36,15 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
 
     private SwanGameSubPackageAPSInfo(Parcel parcel) {
         this.appId = parcel.readString();
-        this.appVersion = parcel.readString();
+        this.awa = parcel.readString();
         this.key = parcel.readString();
         this.resultCode = parcel.readInt();
-        this.blS = parcel.readInt();
-        this.blT = parcel.readString();
-        this.blU = parcel.readString();
-        this.blV = parcel.readString();
-        this.blW = parcel.readString();
-        this.blX = parcel.readString();
+        this.bEG = parcel.readInt();
+        this.bEH = parcel.readString();
+        this.bEI = parcel.readString();
+        this.bEJ = parcel.readString();
+        this.callbackKey = parcel.readString();
+        this.bEK = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -55,18 +55,18 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.appId);
-        parcel.writeString(this.appVersion);
+        parcel.writeString(this.awa);
         parcel.writeString(this.key);
         parcel.writeInt(this.resultCode);
-        parcel.writeInt(this.blS);
-        parcel.writeString(this.blT);
-        parcel.writeString(this.blU);
-        parcel.writeString(this.blV);
-        parcel.writeString(this.blW);
-        parcel.writeString(this.blX);
+        parcel.writeInt(this.bEG);
+        parcel.writeString(this.bEH);
+        parcel.writeString(this.bEI);
+        parcel.writeString(this.bEJ);
+        parcel.writeString(this.callbackKey);
+        parcel.writeString(this.bEK);
     }
 
     public String toString() {
-        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.blS + ",appRootPath:" + this.blT + ",subPackageRoot:" + this.blU + ",zipPath:" + this.blV + ",callbackKey:" + this.blW + ",subPackagePath:" + this.blX;
+        return "appId:" + this.appId + ",appVersion:" + this.awa + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bEG + ",appRootPath:" + this.bEH + ",subPackageRoot:" + this.bEI + ",zipPath:" + this.bEJ + ",callbackKey:" + this.callbackKey + ",subPackagePath:" + this.bEK;
     }
 }

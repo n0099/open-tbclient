@@ -4,20 +4,18 @@ import android.graphics.PointF;
 import com.airbnb.lottie.a.a.l;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.m;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PolystarShape implements b {
-    private final Type my;
+    private final Type eW;
+    private final m<PointF, PointF> gI;
+    private final com.airbnb.lottie.model.a.b gK;
+    private final com.airbnb.lottie.model.a.b hk;
+    private final com.airbnb.lottie.model.a.b hl;
+    private final com.airbnb.lottie.model.a.b hm;
+    private final com.airbnb.lottie.model.a.b hn;
+    private final com.airbnb.lottie.model.a.b ho;
     private final String name;
-    private final com.airbnb.lottie.model.a.b oQ;
-    private final com.airbnb.lottie.model.a.b oR;
-    private final com.airbnb.lottie.model.a.b oS;
-    private final com.airbnb.lottie.model.a.b oT;
-    private final com.airbnb.lottie.model.a.b oU;
-    private final m<PointF, PointF> on;
-    private final com.airbnb.lottie.model.a.b oq;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -43,50 +41,50 @@ public class PolystarShape implements b {
 
     private PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.my = type;
-        this.oQ = bVar;
-        this.on = mVar;
-        this.oq = bVar2;
-        this.oR = bVar3;
-        this.oS = bVar4;
-        this.oT = bVar5;
-        this.oU = bVar6;
+        this.eW = type;
+        this.hk = bVar;
+        this.gI = mVar;
+        this.gK = bVar2;
+        this.hl = bVar3;
+        this.hm = bVar4;
+        this.hn = bVar5;
+        this.ho = bVar6;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dq() {
-        return this.my;
+    public Type cJ() {
+        return this.eW;
     }
 
-    public com.airbnb.lottie.model.a.b dr() {
-        return this.oQ;
+    public com.airbnb.lottie.model.a.b cK() {
+        return this.hk;
     }
 
-    public m<PointF, PointF> cR() {
-        return this.on;
+    public m<PointF, PointF> ck() {
+        return this.gI;
     }
 
-    public com.airbnb.lottie.model.a.b cT() {
-        return this.oq;
+    public com.airbnb.lottie.model.a.b cm() {
+        return this.gK;
     }
 
-    public com.airbnb.lottie.model.a.b ds() {
-        return this.oR;
+    public com.airbnb.lottie.model.a.b cL() {
+        return this.hl;
     }
 
-    public com.airbnb.lottie.model.a.b dt() {
-        return this.oS;
+    public com.airbnb.lottie.model.a.b cM() {
+        return this.hm;
     }
 
-    public com.airbnb.lottie.model.a.b du() {
-        return this.oT;
+    public com.airbnb.lottie.model.a.b cN() {
+        return this.hn;
     }
 
-    public com.airbnb.lottie.model.a.b dv() {
-        return this.oU;
+    public com.airbnb.lottie.model.a.b cO() {
+        return this.ho;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -103,11 +101,11 @@ public class PolystarShape implements b {
             com.airbnb.lottie.model.a.b bVar2;
             String optString = jSONObject.optString("nm");
             Type forValue = Type.forValue(jSONObject.optInt("sy"));
-            com.airbnb.lottie.model.a.b a = b.a.a(jSONObject.optJSONObject(Config.PLATFORM_TYPE), eVar, false);
+            com.airbnb.lottie.model.a.b a = b.a.a(jSONObject.optJSONObject("pt"), eVar, false);
             m<PointF, PointF> h = com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar);
             com.airbnb.lottie.model.a.b a2 = b.a.a(jSONObject.optJSONObject("r"), eVar, false);
             com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject("or"), eVar);
-            com.airbnb.lottie.model.a.b a3 = b.a.a(jSONObject.optJSONObject(IXAdRequestInfo.OS), eVar, false);
+            com.airbnb.lottie.model.a.b a3 = b.a.a(jSONObject.optJSONObject("os"), eVar, false);
             if (forValue == Type.Star) {
                 bVar2 = b.a.e(jSONObject.optJSONObject("ir"), eVar);
                 bVar = b.a.a(jSONObject.optJSONObject("is"), eVar, false);

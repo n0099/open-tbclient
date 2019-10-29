@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.c.e;
 
 import android.content.Context;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class a {
             this.b = e.b();
         } else {
             try {
-                String obj = f.get("userId").toString();
+                String obj = f.get(TbEnum.SystemMessage.KEY_USER_ID).toString();
                 String obj2 = f.get("sessionId").toString();
                 int intValue = ((Integer) f.get("sessionIndex")).intValue();
                 this.b = obj;
@@ -87,7 +88,7 @@ public class a {
 
     public Map c() {
         HashMap hashMap = new HashMap();
-        hashMap.put("userId", this.b);
+        hashMap.put(TbEnum.SystemMessage.KEY_USER_ID, this.b);
         hashMap.put("sessionId", this.c);
         hashMap.put("previousSessionId", this.d);
         hashMap.put("sessionIndex", Integer.valueOf(this.e));

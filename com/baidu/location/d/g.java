@@ -3,7 +3,7 @@ package com.baidu.location.d;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.bbalbs.common.security.Base64;
-import com.baidu.appsearchlib.Info;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.location.Address;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
@@ -139,7 +139,7 @@ public final class g {
                 return arrayList;
             }
         },
-        SITE("RGCSITE", "site", "addrv", 100, 50000) { // from class: com.baidu.location.d.g.b.3
+        SITE("RGCSITE", "site", "addrv", 100, IMConstants.ERROR_BASE) { // from class: com.baidu.location.d.g.b.3
             @Override // com.baidu.location.d.g.b
             List<String> a(JSONObject jSONObject, String str, int i) {
                 JSONArray jSONArray;
@@ -206,7 +206,7 @@ public final class g {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                                String string = jSONObject2.has(Info.kBaiduPIDKey) ? jSONObject2.getString(Info.kBaiduPIDKey) : null;
+                                String string = jSONObject2.has("pid") ? jSONObject2.getString("pid") : null;
                                 String string2 = jSONObject2.has("ne") ? jSONObject2.getString("ne") : null;
                                 String string3 = jSONObject2.has(IXAdRequestInfo.PHONE_TYPE) ? jSONObject2.getString(IXAdRequestInfo.PHONE_TYPE) : null;
                                 Integer valueOf = jSONObject2.has("rk") ? Integer.valueOf(jSONObject2.getInt("rk")) : null;

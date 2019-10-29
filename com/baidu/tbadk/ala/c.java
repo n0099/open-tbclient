@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
@@ -19,16 +20,16 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener bBp = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener bTX = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-                if (!j.kc()) {
+                if (!j.isNetWorkAvailable()) {
                     l.showToast(view.getContext(), (int) R.string.no_network_guide);
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.bBl;
+                AlaUserInfoData alaUserInfoData = aVar.bTT;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -44,45 +45,45 @@ public class c {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     switch (i) {
                         case 1:
-                            TiebaStatic.log(new an("c11850").bT("uid", currentAccount));
+                            TiebaStatic.log(new an("c11850").bS("uid", currentAccount));
                             break;
                         case 2:
                         case 3:
                         case 4:
-                            TiebaStatic.log(new an("c11851").bT("uid", currentAccount));
+                            TiebaStatic.log(new an("c11851").bS("uid", currentAccount));
                             break;
                         case 5:
-                            TiebaStatic.log(new an("c11852").bT("uid", currentAccount));
+                            TiebaStatic.log(new an("c11852").bS("uid", currentAccount));
                             break;
                         case 7:
                             if (alaUserInfoData.ala_id != 0) {
-                                TiebaStatic.log(new an("c11855").bT("uid", currentAccount).n("click_uid", alaUserInfoData.ala_id).P("live_status", alaUserInfoData.live_status));
+                                TiebaStatic.log(new an("c11855").bS("uid", currentAccount).p("click_uid", alaUserInfoData.ala_id).O("live_status", alaUserInfoData.live_status));
                             }
                             TiebaStatic.log(new an("c12542"));
-                            if (aVar.bBm && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake_n_svg, true).agW();
+                            if (aVar.bTU && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake_n_svg, true).akT();
                                 return;
                             }
                             break;
                     }
-                    String str = AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT;
+                    String str = "tail_light_play";
                     if (aVar.type == 5) {
-                        str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION;
+                        str = "person_attention";
                     } else if (aVar.type == 7) {
-                        str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY;
+                        str = "person_play";
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, str, null, false, "")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, str, null, false, "")));
                 }
             }
         }
     };
 
     public static TextView ck(Context context) {
-        if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
+        if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(bBp);
+        textView.setOnClickListener(bTX);
         return textView;
     }
 }

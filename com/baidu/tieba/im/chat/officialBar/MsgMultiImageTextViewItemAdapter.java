@@ -16,27 +16,26 @@ public class MsgMultiImageTextViewItemAdapter extends com.baidu.tieba.im.chat.e<
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bt */
-    public e.a<MsgMultiImageTextView> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bv */
+    public e.a<MsgMultiImageTextView> b(ViewGroup viewGroup) {
         MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.mPageContext);
-        return new a(msgMultiImageTextView.eY(), msgMultiImageTextView);
+        return new a(msgMultiImageTextView.getConvertView(), msgMultiImageTextView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgMultiImageTextView> aVar) {
-        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgMultiImageTextView bBz = aVar.bBz();
-        bBz.setOnItemViewLongClickListener(this.gBw);
-        bBz.setPosition(i);
-        bBz.dE(this.gBC);
-        bBz.dD(chatMessage.getCacheData().getLastMsgTime());
-        bBz.a(this.mPageContext, chatMessage, viewGroup);
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgMultiImageTextView> aVar) {
+        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
+        MsgMultiImageTextView byk = aVar.byk();
+        byk.setOnItemViewLongClickListener(this.gzv);
+        byk.setPosition(i);
+        byk.db(this.dHl);
+        byk.da(chatMessage.getCacheData().getLastMsgTime());
+        byk.a(this.mPageContext, chatMessage, viewGroup);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        com.baidu.tieba.im.b.a.bHx().a(chatMessage, this.mPageContext.getPageActivity());
+        com.baidu.tieba.im.b.a.bEi().a(chatMessage, this.mPageContext.getPageActivity());
         return view;
     }
 

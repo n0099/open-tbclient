@@ -1,6 +1,5 @@
 package com.baidu.tieba.mainentrance.searchSuggestList;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -12,13 +11,13 @@ public class SearchListHttpResMessage extends TbHttpResponsedMessage {
     public List<String> suggests;
 
     public SearchListHttpResMessage(int i) {
-        super(CmdConfigHttp.CMD_SEARCH_LIST);
+        super(1003196);
         this.suggests = null;
         this.forums = null;
     }
 
     public SearchListHttpResMessage() {
-        super(CmdConfigHttp.CMD_SEARCH_LIST);
+        super(1003196);
         this.suggests = null;
         this.forums = null;
     }

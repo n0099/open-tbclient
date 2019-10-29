@@ -24,13 +24,13 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        String V = c.V(context, "aiapps/pickerRegion.js");
-        if (TextUtils.isEmpty(V)) {
+        String U = c.U(context, "aiapps/pickerRegion.js");
+        if (TextUtils.isEmpty(U)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty regionData");
             return false;
         }
         try {
-            JSONArray jSONArray = new JSONArray(V);
+            JSONArray jSONArray = new JSONArray(U);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("content", jSONArray);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));

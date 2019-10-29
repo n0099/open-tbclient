@@ -2,6 +2,8 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.FillUsernameCallback;
@@ -46,7 +48,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.tencent.open.SocialConstants;
 import com.tencent.open.SocialOperation;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -158,7 +159,7 @@ public final class SapiAccountService implements ISAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String i() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl));
+        arrayList.add(new PassNameValuePair(TableDefine.PaSubscribeColumns.COLUMN_TPL, SapiAccountManager.getInstance().getSapiConfiguration().tpl));
         arrayList.add(new PassNameValuePair("showtype", "phone"));
         arrayList.add(new PassNameValuePair(Config.DEVICE_PART, "wap"));
         arrayList.add(new PassNameValuePair("adapter", "apps"));
@@ -189,14 +190,14 @@ public final class SapiAccountService implements ISAccountService {
     String a(boolean z) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("clientfrom", a));
-        arrayList.add(new PassNameValuePair("tpl", this.b.tpl));
+        arrayList.add(new PassNameValuePair(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.b.tpl));
         arrayList.add(new PassNameValuePair("login_share_strategy", this.b.loginShareStrategy().getStrValue()));
         arrayList.add(new PassNameValuePair("client", "android"));
         if (z) {
             arrayList.add(new PassNameValuePair("adapter", this.b.customActionBarEnabled ? "3" : ""));
         }
         arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-        arrayList.add(new PassNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
+        arrayList.add(new PassNameValuePair("act", this.b.socialBindType.getName()));
         arrayList.add(new PassNameValuePair("hideExtraEntry", String.valueOf(this.b.smsLoginConfig.flagHideExtraEntry.ordinal())));
         arrayList.add(new PassNameValuePair("loginLink", String.valueOf(this.b.smsLoginConfig.flagShowLoginLink.ordinal())));
         arrayList.add(new PassNameValuePair("smsLoginLink", String.valueOf(this.b.smsLoginConfig.flagShowSmsLoginLink.ordinal())));
@@ -226,9 +227,9 @@ public final class SapiAccountService implements ISAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(SocialType socialType, String str, String str2, String str3) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair("display", a));
+        arrayList.add(new PassNameValuePair(LogConfig.KEY_DISPLAY, a));
         arrayList.add(new PassNameValuePair("type", socialType.getType() + ""));
-        arrayList.add(new PassNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
+        arrayList.add(new PassNameValuePair("act", this.b.socialBindType.getName()));
         if (!TextUtils.isEmpty(str3)) {
             arrayList.add(new PassNameValuePair("appid", str3));
         }
@@ -266,7 +267,7 @@ public final class SapiAccountService implements ISAccountService {
     public String a(boolean z, String str) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("type", SocialType.WEIXIN.getType() + ""));
-        arrayList.add(new PassNameValuePair("display", a));
+        arrayList.add(new PassNameValuePair(LogConfig.KEY_DISPLAY, a));
         arrayList.add(new PassNameValuePair("app_key", this.b.wxAppID));
         arrayList.add(new PassNameValuePair("scope", "snsapi_login"));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));
@@ -274,7 +275,7 @@ public final class SapiAccountService implements ISAccountService {
             arrayList.add(new PassNameValuePair("supportGuestAccount", "1"));
         }
         if (z) {
-            arrayList.add(new PassNameValuePair(SocialConstants.PARAM_ACT, "bind"));
+            arrayList.add(new PassNameValuePair("act", "bind"));
             arrayList.add(new PassNameValuePair("wapsec", "center"));
             arrayList.add(new PassNameValuePair("adapter", "3"));
             if (TextUtils.isEmpty(str)) {
@@ -286,7 +287,7 @@ public final class SapiAccountService implements ISAccountService {
                 Log.e(e);
             }
         } else {
-            arrayList.add(new PassNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
+            arrayList.add(new PassNameValuePair("act", this.b.socialBindType.getName()));
         }
         return this.c.r() + "?" + l() + "&" + SapiUtils.createRequestParams(arrayList);
     }
@@ -301,7 +302,7 @@ public final class SapiAccountService implements ISAccountService {
             arrayList.add(new PassNameValuePair("adapter", "3"));
         }
         arrayList.add(new PassNameValuePair("appid", this.b.wxAppID));
-        arrayList.add(new PassNameValuePair("display", a));
+        arrayList.add(new PassNameValuePair(LogConfig.KEY_DISPLAY, a));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));
         return this.c.s() + "?" + l() + "&" + SapiUtils.createRequestParams(arrayList);
     }
@@ -314,7 +315,7 @@ public final class SapiAccountService implements ISAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String b(SocialType socialType) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair("display", a));
+        arrayList.add(new PassNameValuePair(LogConfig.KEY_DISPLAY, a));
         arrayList.add(new PassNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new PassNameValuePair("guidebind", "1"));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));

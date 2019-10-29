@@ -15,53 +15,53 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private ArrayList<a> caR;
-    private boolean ccu;
-    private TextView gXg;
-    private ImageView gXh;
-    private TextView gXi;
-    private TextView gXj;
+    private boolean cqH;
+    private TextView gVh;
+    private ImageView gVi;
+    private TextView gVj;
+    private TextView gVk;
+    private ArrayList<a> networkChangeListeners;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void es(boolean z);
+        void onNetworkChange(boolean z);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.caR = new ArrayList<>();
+        this.networkChangeListeners = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.caR = new ArrayList<>();
+        this.networkChangeListeners = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.caR = new ArrayList<>();
+        this.networkChangeListeners = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.gXh = (ImageView) findViewById(R.id.no_network_icon);
-        this.gXi = (TextView) findViewById(R.id.no_network_guide1);
-        this.gXj = (TextView) findViewById(R.id.no_network_guide2);
-        this.gXg = (TextView) findViewById(R.id.no_network_showmore);
+        this.gVi = (ImageView) findViewById(R.id.no_network_icon);
+        this.gVj = (TextView) findViewById(R.id.no_network_guide1);
+        this.gVk = (TextView) findViewById(R.id.no_network_guide2);
+        this.gVh = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.gXg != null) {
-            this.gXg.setOnClickListener(onClickListener);
+        if (this.gVh != null) {
+            this.gVh.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.ccu) {
-            this.ccu = z;
+        if (z != this.cqH) {
+            this.cqH = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -81,8 +81,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 });
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.caR.size(); i++) {
-                    this.caR.get(i).es(false);
+                for (int i = 0; i < this.networkChangeListeners.size(); i++) {
+                    this.networkChangeListeners.get(i).onNetworkChange(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -103,8 +103,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                     }
                 });
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.caR.size(); i2++) {
-                    this.caR.get(i2).es(true);
+                for (int i2 = 0; i2 < this.networkChangeListeners.size(); i2++) {
+                    this.networkChangeListeners.get(i2).onNetworkChange(true);
                 }
             }
         }
@@ -118,20 +118,20 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.caR.clear();
+        this.networkChangeListeners.clear();
     }
 
     public void onChangeSkinType(int i) {
-        am.c(this.gXh, (int) R.drawable.icon_error);
-        am.k(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
+        am.setImageResource(this.gVi, R.drawable.icon_error);
+        am.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
-            this.gXi.setTextColor(-10523526);
-            this.gXj.setTextColor(-8682095);
-            this.gXg.setTextColor(-10523526);
+            this.gVj.setTextColor(-10523526);
+            this.gVk.setTextColor(-8682095);
+            this.gVh.setTextColor(-10523526);
             return;
         }
-        this.gXi.setTextColor(-14277082);
-        this.gXj.setTextColor(-5065030);
-        this.gXg.setTextColor(-14277082);
+        this.gVj.setTextColor(-14277082);
+        this.gVk.setTextColor(-5065030);
+        this.gVh.setTextColor(-14277082);
     }
 }

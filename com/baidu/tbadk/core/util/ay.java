@@ -1,40 +1,41 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ay {
-    private static String bUU;
-    private static String bUV;
-    private static final HashMap<String, String> bUW = new HashMap<>();
+    private static final HashMap<String, String> mActivityNames = new HashMap<>();
+    private static String mCurrentActivityAllName;
+    private static String mCurrentActivityName;
 
-    public static void oo(String str) {
-        bUV = str;
+    public static void setCurrentActivity(String str) {
+        mCurrentActivityAllName = str;
         if (TextUtils.isEmpty(str)) {
-            bUU = str;
+            mCurrentActivityName = str;
             return;
         }
-        int lastIndexOf = str.lastIndexOf(".");
+        int lastIndexOf = str.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
         if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
             str = str.substring(lastIndexOf + 1, str.length());
         }
         String str2 = "";
-        if (bUW != null) {
-            str2 = bUW.get(str);
+        if (mActivityNames != null) {
+            str2 = mActivityNames.get(str);
         }
         if (str2 == null) {
-            str2 = op(str);
-            if (bUW != null) {
-                bUW.put(str, str2);
+            str2 = getShortName(str);
+            if (mActivityNames != null) {
+                mActivityNames.put(str, str2);
             }
         }
         if (str2 != null) {
-            bUU = str2 + System.currentTimeMillis();
+            mCurrentActivityName = str2 + System.currentTimeMillis();
         }
     }
 
-    private static String op(String str) {
+    private static String getShortName(String str) {
         if (!TextUtils.isEmpty(str)) {
             int length = str.length();
             if ((str.toLowerCase().endsWith(PushConstants.INTENT_ACTIVITY_NAME) || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
@@ -45,11 +46,11 @@ public class ay {
         return str;
     }
 
-    public static String ajI() {
-        return bUU;
+    public static String getCurrentActivity() {
+        return mCurrentActivityName;
     }
 
-    public static String ajJ() {
-        return bUV;
+    public static String getCurrentActivityAllName() {
+        return mCurrentActivityAllName;
     }
 }

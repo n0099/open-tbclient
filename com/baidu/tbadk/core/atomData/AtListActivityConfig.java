@@ -11,9 +11,9 @@ public class AtListActivityConfig extends IntentConfig {
         super(context);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra(IntentConfig.IS_NEED_MULTIPLE, z);
+        getIntent().putExtra("is_need_multiple", z);
         if (i == 12011) {
-            getIntent().putExtra(IntentConfig.SHOW_KEYBOARD, false);
+            getIntent().putExtra("keyboard", false);
         }
     }
 

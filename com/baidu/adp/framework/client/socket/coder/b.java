@@ -7,25 +7,24 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.g;
 import com.baidu.adp.lib.util.u;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b vr = null;
+    private static b mf = null;
 
-    public static b gd() {
-        if (vr == null) {
+    public static b eD() {
+        if (mf == null) {
             synchronized (b.class) {
-                if (vr == null) {
-                    vr = new b();
+                if (mf == null) {
+                    mf = new b();
                 }
             }
         }
-        return vr;
+        return mf;
     }
 
     private b() {
@@ -40,9 +39,9 @@ public class b {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
             byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
             if (encodeExtraDataInBackGround != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.vh);
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.EXTRA_DATA_HEADER_LEN);
                 if (encodeExtraDataInBackGround.length > Integer.MAX_VALUE) {
-                    throw new CoderException(h.uA);
+                    throw new CoderException(h.CODEC_PACK_EXTRA_DATA_FAILED);
                 }
                 allocate.putInt(encodeExtraDataInBackGround.length);
                 allocate.put(encodeExtraDataInBackGround);
@@ -51,60 +50,60 @@ public class b {
                 z3 = true;
             }
             if (encodeInBackGround != null && z) {
-                encodeInBackGround = f(encodeInBackGround, 0, encodeInBackGround.length);
+                encodeInBackGround = compressGzip(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = u.a(d.ge().gg(), encodeInBackGround);
+                encodeInBackGround = u.encryptWithAES(d.eE().getSecretKey(), encodeInBackGround);
             }
-            return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
+            return a.wrapHeaderIntoBody(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         } catch (Throwable th) {
-            throw new CoderException(h.uG);
+            throw new CoderException(h.CODEC_UNKOWN_ERROR);
         }
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.vs == null || cVar.vt == null) {
-            throw new CoderException(h.uu);
+        if (cVar == null || cVar.mg == null || cVar.body == null) {
+            throw new CoderException(h.CODEC_INVALID_MSG);
         }
-        a aVar = cVar.vs;
-        if (aVar.fY() && cVar.vv > 0) {
-            if (d.ge().gg() == null) {
-                throw new CoderException(h.uD);
+        a aVar = cVar.mg;
+        if (aVar.getEncryptType() && cVar.bodyLength > 0) {
+            if (d.eE().getSecretKey() == null) {
+                throw new CoderException(h.CODEC_SECURE_KEY_NOT_READY);
             }
             try {
-                cVar.vt = u.a(d.ge().gg(), cVar.vt, cVar.vu, cVar.vv);
-                cVar.vu = 0;
-                cVar.vv = cVar.vt.length;
+                cVar.body = u.decryptWithAES(d.eE().getSecretKey(), cVar.body, cVar.bodyOffset, cVar.bodyLength);
+                cVar.bodyOffset = 0;
+                cVar.bodyLength = cVar.body.length;
             } catch (Exception e) {
-                throw new CoderException(h.uF);
+                throw new CoderException(h.CODEC_SECURE_DECRYPT_FAILED);
             }
         }
-        if (aVar.fX() && cVar.vv > 0) {
+        if (aVar.getCompressType() && cVar.bodyLength > 0) {
             try {
-                cVar.vt = e(cVar.vt, cVar.vu, cVar.vv);
-                cVar.vu = 0;
-                cVar.vv = cVar.vt.length;
+                cVar.body = uncompressGzip(cVar.body, cVar.bodyOffset, cVar.bodyLength);
+                cVar.bodyOffset = 0;
+                cVar.bodyLength = cVar.body.length;
             } catch (Exception e2) {
-                throw new CoderException(h.uC);
+                throw new CoderException(h.CODEC_UNZIP_FAILED);
             }
         }
         return cVar;
     }
 
     public c g(byte[] bArr) throws CoderException {
-        int fW = a.fW();
-        if (bArr == null || bArr.length < fW) {
-            throw new CoderException(h.uu);
+        int headerLengthInBytes = a.getHeaderLengthInBytes();
+        if (bArr == null || bArr.length < headerLengthInBytes) {
+            throw new CoderException(h.CODEC_INVALID_MSG);
         }
         a f = a.f(bArr);
         if (f == null) {
-            throw new CoderException(h.uu);
+            throw new CoderException(h.CODEC_INVALID_MSG);
         }
         c cVar = new c();
-        cVar.vs = f;
-        cVar.vt = bArr;
-        cVar.vu = fW;
-        cVar.vv = bArr.length - fW;
+        cVar.mg = f;
+        cVar.body = bArr;
+        cVar.bodyOffset = headerLengthInBytes;
+        cVar.bodyLength = bArr.length - headerLengthInBytes;
         return cVar;
     }
 
@@ -122,7 +121,7 @@ public class b {
             newInstance.setOrginalMessage(socketMessage);
             if (z) {
                 try {
-                    newInstance.onDecodeFailedInBackGround(i, bArr, h.ux);
+                    newInstance.onDecodeFailedInBackGround(i, bArr, h.CODEC_UNPACK_FAILED);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -145,34 +144,34 @@ public class b {
             } else {
                 str = th.getMessage();
             }
-            BdStatisticsManager.getInstance().error(IXAdRequestInfo.IMSI, j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(i2), ClientCookie.COMMENT_ATTR, str);
-            throw new CoderException(h.ux);
+            BdStatisticsManager.getInstance().error("im", j, (String) null, "cmd", Integer.valueOf(i), "byteslength", Integer.valueOf(i2), "comment", str);
+            throw new CoderException(h.CODEC_UNPACK_FAILED);
         }
     }
 
-    protected byte[] e(byte[] bArr, int i, int i2) throws Exception {
+    protected byte[] uncompressGzip(byte[] bArr, int i, int i2) throws Exception {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            g.d(byteArrayInputStream, byteArrayOutputStream);
+            g.decompress(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.c(byteArrayOutputStream);
-            com.baidu.adp.lib.g.a.g(byteArrayInputStream);
+            com.baidu.adp.lib.g.a.close((OutputStream) byteArrayOutputStream);
+            com.baidu.adp.lib.g.a.close((InputStream) byteArrayInputStream);
         }
     }
 
-    protected byte[] f(byte[] bArr, int i, int i2) throws Exception {
+    protected byte[] compressGzip(byte[] bArr, int i, int i2) throws Exception {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            g.e(byteArrayInputStream, byteArrayOutputStream);
+            g.compress(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.c(byteArrayOutputStream);
-            com.baidu.adp.lib.g.a.g(byteArrayInputStream);
+            com.baidu.adp.lib.g.a.close((OutputStream) byteArrayOutputStream);
+            com.baidu.adp.lib.g.a.close((InputStream) byteArrayInputStream);
         }
     }
 }

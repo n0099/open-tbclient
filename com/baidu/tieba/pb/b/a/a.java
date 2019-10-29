@@ -3,17 +3,18 @@ package com.baidu.tieba.pb.b.a;
 import android.graphics.Rect;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.imageManager.a;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class a implements c {
-    private ExcContent ieI;
-    private SpannableString ieJ;
+    private ExcContent ido;
+    private SpannableString idp;
 
     public a(ExcContent excContent) {
-        this.ieI = excContent;
+        this.ido = excContent;
     }
 
     @Override // com.baidu.tieba.pb.b.a.d
@@ -22,31 +23,31 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence caI() {
-        return b(this.ieI);
+    public CharSequence bXL() {
+        return b(this.ido);
     }
 
     private SpannableString b(ExcContent excContent) {
         String str;
-        int qq;
-        a.C0264a qN;
-        if (this.ieJ == null && (qq = TbFaceManager.atJ().qq((str = excContent.text))) != 0) {
-            String str2 = "#(" + TbFaceManager.atJ().qs(str) + ")";
-            this.ieJ = new SpannableString(str2 + " ");
-            com.baidu.tbadk.widget.richText.b bVar = new com.baidu.tbadk.widget.richText.b(TbadkCoreApplication.getInst().getContext(), qq);
-            if (TbFaceManager.atJ().qN(str) != null) {
-                int width = (int) (qN.getWidth() * 0.6d);
+        int pz;
+        a.C0296a pV;
+        if (this.idp == null && (pz = TbFaceManager.avt().pz((str = excContent.text))) != 0) {
+            String str2 = "#(" + TbFaceManager.avt().pB(str) + ")";
+            this.idp = new SpannableString(str2 + HanziToPinyin.Token.SEPARATOR);
+            com.baidu.tbadk.widget.richText.b bVar = new com.baidu.tbadk.widget.richText.b(TbadkCoreApplication.getInst().getContext(), pz);
+            if (TbFaceManager.avt().pV(str) != null) {
+                int width = (int) (pV.getWidth() * 0.6d);
                 bVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 bVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            this.ieJ.setSpan(new ImageSpan(bVar, 0), 0, str2.length(), 33);
+            this.idp.setSpan(new ImageSpan(bVar, 0), 0, str2.length(), 33);
         }
-        return this.ieJ;
+        return this.idp;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean caJ() {
+    public boolean bXM() {
         return false;
     }
 }

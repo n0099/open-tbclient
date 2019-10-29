@@ -1,6 +1,7 @@
 package com.baidu.sapi2;
 
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.scheme.SapiScheme;
 import com.baidu.sapi2.utils.Log;
@@ -73,7 +74,7 @@ public final class SapiOptions {
     public List<String> phoneRisksTpls = new ArrayList();
     public Map<String, String> shareDirection = new HashMap();
     public int shareInterGray = 100;
-    public int ctGray = G;
+    public int ctGray = 1000000;
     public String joinQrLoginPrompt = Q;
     private Cache H = new Cache();
     public b gray = new b();
@@ -198,7 +199,7 @@ public final class SapiOptions {
         a a2 = a.a(jSONObject.optJSONObject(h));
         String b2 = a2.b();
         if (!TextUtils.isEmpty(b2)) {
-            String[] split = b2.split("_");
+            String[] split = b2.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             int length = split.length;
             int i3 = 0;
             for (int i4 = 0; i4 < length; i4++) {
@@ -255,7 +256,7 @@ public final class SapiOptions {
         sapiOptions.resetFileExecPer = jSONObject.optBoolean(B, false);
         sapiOptions.sidKeys = jSONObject.optString(D, "");
         sapiOptions.joinQrLoginPrompt = jSONObject.optString(x, Q);
-        sapiOptions.ctGray = jSONObject.optInt(KEY_CHINA_CT_LOGIN_GRAY, G);
+        sapiOptions.ctGray = jSONObject.optInt(KEY_CHINA_CT_LOGIN_GRAY, 1000000);
         sapiOptions.gray = b.a(jSONObject);
         return sapiOptions;
     }
@@ -399,7 +400,7 @@ public final class SapiOptions {
                 if (j == -1) {
                     Random random = new Random();
                     random.setSeed(System.currentTimeMillis());
-                    j = random.nextInt(SapiOptions.G);
+                    j = random.nextInt(1000000);
                     SapiContext.getInstance(confignation.context).put(str, j);
                 }
                 aVar.c = aVar.b >= j;

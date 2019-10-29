@@ -10,66 +10,66 @@ import com.baidu.swan.support.v4.app.m;
 /* loaded from: classes2.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private Fragment akL;
-    private com.baidu.swan.apps.v.b.b akM;
-    private int akN = 0;
-    private int akO = 0;
+    private Fragment aEh;
+    private com.baidu.swan.apps.v.b.b aEi;
+    private int aEj = 0;
+    private int aEk = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        z(a.C0119a.aiapps_hold, a.C0119a.aiapps_slide_out_to_bottom);
+        F(a.C0151a.aiapps_hold, a.C0151a.aiapps_slide_out_to_bottom);
         super.onCreate(bundle);
         setContentView(a.g.aiapps_error_activity);
-        parseIntent(getIntent());
-        vT();
-        vV();
+        C(getIntent());
+        AN();
+        AP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        parseIntent(intent);
+        C(intent);
     }
 
-    private void vT() {
-        m Xl = Xi().Xl();
-        this.akL = new com.baidu.swan.apps.core.d.c();
-        Xl.a(a.f.ai_apps_error_layout, this.akL);
-        Xl.commit();
+    private void AN() {
+        m aca = abX().aca();
+        this.aEh = new com.baidu.swan.apps.core.d.c();
+        aca.a(a.f.ai_apps_error_layout, this.aEh);
+        aca.commit();
     }
 
-    private void parseIntent(Intent intent) {
+    private void C(Intent intent) {
         if (intent != null) {
-            this.akM = com.baidu.swan.apps.v.b.b.F(intent);
+            this.aEi = com.baidu.swan.apps.v.b.b.L(intent);
         }
     }
 
-    public com.baidu.swan.apps.v.b.b vP() {
-        return this.akM;
+    public com.baidu.swan.apps.v.b.b AJ() {
+        return this.aEi;
     }
 
-    private void z(int i, int i2) {
-        this.akN = i;
-        this.akO = i2;
+    private void F(int i, int i2) {
+        this.aEj = i;
+        this.aEk = i2;
     }
 
-    private void vU() {
-        if (this.akN != 0 || this.akO != 0) {
-            overridePendingTransition(this.akN, this.akO);
-            this.akN = 0;
-            this.akO = 0;
+    private void AO() {
+        if (this.aEj != 0 || this.aEk != 0) {
+            overridePendingTransition(this.aEj, this.aEk);
+            this.aEj = 0;
+            this.aEk = 0;
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        vU();
+        AO();
     }
 
-    private void vV() {
+    private void AP() {
         com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
     }
 }

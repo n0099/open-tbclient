@@ -5,7 +5,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -30,17 +29,17 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        final String optString = o.df(unitedSchemeEntity.getParam("params")).optString("cb");
+        final String optString = o.dP(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             c.i("GetSysInfo", "cb is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        bVar.Ml().a((Activity) context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.n.a.1
+        bVar.Rd().a((Activity) context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.n.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
-            public void D(Boolean bool) {
+            public void B(Boolean bool) {
                 if (bool.booleanValue()) {
                     a.this.a(context, optString, callbackHandler);
                     return;
@@ -57,24 +56,24 @@ public class a extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String bd = com.baidu.swan.apps.u.a.Et().bd(appContext);
-        String PR = ac.PR();
-        String ds = com.baidu.tieba.aiapps.apps.a.c.ds(context);
-        String bc = com.baidu.swan.apps.u.a.Et().bc(appContext);
-        String cookie = com.baidu.swan.apps.u.a.EL().Fj().getCookie(".baidu.com");
-        String cu = cu(cookie, "BAIDUID");
-        String cu2 = cu(cookie, "H_WISE_SIDS");
+        String bf = com.baidu.swan.apps.u.a.Jn().bf(appContext);
+        String UH = ac.UH();
+        String db = com.baidu.tieba.aiapps.apps.a.c.db(context);
+        String be = com.baidu.swan.apps.u.a.Jn().be(appContext);
+        String cookie = com.baidu.swan.apps.u.a.JF().Kd().getCookie(".baidu.com");
+        String cn = cn(cookie, "BAIDUID");
+        String cn2 = cn(cookie, "H_WISE_SIDS");
         if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + bd + ", imei = " + PR + ", zid = " + ds + ", uid = " + bc + ", baiDuId = " + cu + ", sid = " + cu2);
+            Log.d("GetSysInfoAction", "cuid = " + bf + ", imei = " + UH + ", zid = " + db + ", uid = " + be + ", baiDuId = " + cn + ", sid = " + cn2);
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(DpStatConstants.KEY_CUID, bd);
-            jSONObject.put("imei", PR);
-            jSONObject.put("zid", ds);
-            jSONObject.put("uid", bc);
-            jSONObject.put("baidu_id", cu);
-            jSONObject.put("sid", cu2);
+            jSONObject.put("cuid", bf);
+            jSONObject.put("imei", UH);
+            jSONObject.put("zid", db);
+            jSONObject.put("uid", be);
+            jSONObject.put("baidu_id", cn);
+            jSONObject.put("sid", cn2);
             c.i("GetSysInfo", "fetch commonSysInfo success");
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {
@@ -84,7 +83,7 @@ public class a extends z {
         }
     }
 
-    private static String cu(String str, String str2) {
+    private static String cn(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

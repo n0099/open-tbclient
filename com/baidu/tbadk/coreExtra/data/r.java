@@ -1,34 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class r {
-    private int cho;
-    private int chp;
-    private int chq;
+    private int FrsMaxCache;
+    private int FrsPn;
+    private int maxCache;
 
-    public int amK() {
-        if (this.cho == 0) {
+    public int getMaxCache() {
+        if (this.maxCache == 0) {
             return Integer.MAX_VALUE;
         }
-        return this.cho;
+        return this.maxCache;
     }
 
-    public void pq(String str) {
-        this.cho = com.baidu.adp.lib.g.b.f(str, 0);
+    public void setMaxCache(String str) {
+        this.maxCache = com.baidu.adp.lib.g.b.toInt(str, 0);
     }
 
-    public int amL() {
-        return this.chp;
+    public int getFrsMaxCache() {
+        return this.FrsMaxCache;
     }
 
-    public void pr(String str) {
-        this.chp = com.baidu.adp.lib.g.b.f(str, 0);
+    public void setFrsMaxCache(String str) {
+        this.FrsMaxCache = com.baidu.adp.lib.g.b.toInt(str, 0);
     }
 
-    public int amM() {
-        return this.chq;
+    public int getFrsPn() {
+        return this.FrsPn;
     }
 
-    public void ps(String str) {
-        this.chq = com.baidu.adp.lib.g.b.f(str, 0);
+    public void setFrsPn(String str) {
+        this.FrsPn = com.baidu.adp.lib.g.b.toInt(str, 0);
     }
 }

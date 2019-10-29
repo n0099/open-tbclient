@@ -8,31 +8,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
 public class c {
-    private static c Zk;
-    private static Context Zl;
-    private static ExecutorService Zm;
+    private static c Jk;
+    private static Context Jl;
+    private static ExecutorService Jm;
     private static boolean al = false;
-    public l Zi;
-    public p Zj;
+    public l Ji;
+    public p Jj;
 
     private c(Context context) {
-        Zl = context;
-        this.Zj = new p(Looper.getMainLooper().getThread(), a.U);
-        this.Zi = new l(new d(this), context);
-        if (Zm == null) {
-            Zm = Executors.newSingleThreadExecutor();
+        Jl = context;
+        this.Jj = new p(Looper.getMainLooper().getThread(), a.U);
+        this.Ji = new l(new d(this), context);
+        if (Jm == null) {
+            Jm = Executors.newSingleThreadExecutor();
         }
     }
 
-    public static c as(Context context) {
-        if (Zk == null) {
+    public static c aj(Context context) {
+        if (Jk == null) {
             synchronized (c.class) {
-                if (Zk == null) {
-                    Zk = new c(context);
+                if (Jk == null) {
+                    Jk = new c(context);
                 }
             }
         }
-        return Zk;
+        return Jk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,23 +42,23 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a rc = a.rc();
-        rc.Ze = c;
-        rc.a(j, j2, j3, j4);
+        a mh = a.mh();
+        mh.Je = c;
+        mh.a(j, j2, j3, j4);
     }
 
     public static void start() {
         al = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.Zo.start();
-            com.baidu.crabsdk.c.a.ch("start FrameMonitor...");
+            e.Jo.start();
+            com.baidu.crabsdk.c.a.bu("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         al = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.Zo.stop();
+            e.Jo.stop();
         }
     }
 }

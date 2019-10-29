@@ -6,38 +6,38 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes2.dex */
 public class c implements b {
-    private List<b> axy = new CopyOnWriteArrayList();
+    private List<b> aQN = new CopyOnWriteArrayList();
 
     public void c(@NonNull b bVar) {
-        this.axy.add(bVar);
+        this.aQN.add(bVar);
     }
 
     public void d(@NonNull b bVar) {
-        this.axy.remove(bVar);
+        this.aQN.remove(bVar);
     }
 
     @Override // com.baidu.swan.apps.o.b
-    public void Dr() {
-        if (this.axy != null && this.axy.size() > 0) {
-            for (b bVar : this.axy) {
-                bVar.Dr();
+    public void Il() {
+        if (this.aQN != null && this.aQN.size() > 0) {
+            for (b bVar : this.aQN) {
+                bVar.Il();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.o.b
-    public void Ds() {
-        if (this.axy != null && this.axy.size() > 0) {
-            for (b bVar : this.axy) {
-                bVar.Ds();
+    public void Im() {
+        if (this.aQN != null && this.aQN.size() > 0) {
+            for (b bVar : this.aQN) {
+                bVar.Im();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.o.b
     public void onActivityResumed() {
-        if (this.axy != null && this.axy.size() > 0) {
-            for (b bVar : this.axy) {
+        if (this.aQN != null && this.aQN.size() > 0) {
+            for (b bVar : this.aQN) {
                 bVar.onActivityResumed();
             }
         }
@@ -45,38 +45,38 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.o.b
     public void onActivityPaused() {
-        if (this.axy != null && this.axy.size() > 0) {
-            for (b bVar : this.axy) {
+        if (this.aQN != null && this.aQN.size() > 0) {
+            for (b bVar : this.aQN) {
                 bVar.onActivityPaused();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.o.b
-    public void Dt() {
-        if (this.axy != null && this.axy.size() > 0) {
-            for (b bVar : this.axy) {
-                bVar.Dt();
+    public void In() {
+        if (this.aQN != null && this.aQN.size() > 0) {
+            for (b bVar : this.aQN) {
+                bVar.In();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.o.b
-    public void Du() {
-        if (this.axy != null && this.axy.size() > 0) {
-            for (b bVar : this.axy) {
-                bVar.Du();
+    public void Io() {
+        if (this.aQN != null && this.aQN.size() > 0) {
+            for (b bVar : this.aQN) {
+                bVar.Io();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.o.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.axy == null || this.axy.size() <= 0) {
+        if (this.aQN == null || this.aQN.size() <= 0) {
             return false;
         }
         boolean z = false;
-        for (b bVar : this.axy) {
+        for (b bVar : this.aQN) {
             z = z || bVar.onKeyDown(i, keyEvent);
         }
         return z;

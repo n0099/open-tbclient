@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.message.chat;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
 /* loaded from: classes.dex */
 public class PersonalChatMessage extends ChatMessage {
     public PersonalChatMessage() {
-        super(205001);
+        super(CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

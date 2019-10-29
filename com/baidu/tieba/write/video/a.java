@@ -12,28 +12,28 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<VideoTitleData> jUf;
+    private List<VideoTitleData> jSd;
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0447a {
-        public View divider;
+    public static class C0542a {
+        public View cfY;
         public TextView title;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.aa(this.jUf)) {
+        if (v.isEmpty(this.jSd)) {
             return 0;
         }
-        return this.jUf.size();
+        return this.jSd.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Dk */
+    /* renamed from: BG */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.c(this.jUf, i);
+        return (VideoTitleData) v.getItem(this.jSd, i);
     }
 
     @Override // android.widget.Adapter
@@ -43,28 +43,28 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0447a c0447a;
+        C0542a c0542a;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.video_activity_title_item, (ViewGroup) null);
-            C0447a c0447a2 = new C0447a();
-            c0447a2.title = (TextView) view.findViewById(R.id.title);
-            c0447a2.divider = view.findViewById(R.id.divider_line);
-            am.j(c0447a2.title, R.color.cp_cont_b);
-            am.l(c0447a2.divider, R.color.cp_bg_line_c);
-            view.setTag(c0447a2);
-            c0447a = c0447a2;
+            C0542a c0542a2 = new C0542a();
+            c0542a2.title = (TextView) view.findViewById(R.id.title);
+            c0542a2.cfY = view.findViewById(R.id.divider_line);
+            am.setViewTextColor(c0542a2.title, (int) R.color.cp_cont_b);
+            am.setBackgroundColor(c0542a2.cfY, R.color.cp_bg_line_c);
+            view.setTag(c0542a2);
+            c0542a = c0542a2;
         } else {
-            c0447a = (C0447a) view.getTag();
+            c0542a = (C0542a) view.getTag();
         }
-        am.k(view, R.drawable.addresslist_item_bg);
+        am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         if (getItem(i) != null) {
-            c0447a.title.setText("#" + getItem(i).name + "#");
+            c0542a.title.setText("#" + getItem(i).name + "#");
         }
         return view;
     }
 
-    public void ey(List<VideoTitleData> list) {
-        this.jUf = list;
+    public void eL(List<VideoTitleData> list) {
+        this.jSd = list;
         notifyDataSetChanged();
     }
 }

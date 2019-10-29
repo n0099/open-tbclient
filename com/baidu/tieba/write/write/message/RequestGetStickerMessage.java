@@ -3,7 +3,7 @@ package com.baidu.tieba.write.write.message;
 import GetSticker.DataReq;
 import GetSticker.GetStickerReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.CommonReq;
 /* loaded from: classes3.dex */
@@ -11,7 +11,7 @@ public class RequestGetStickerMessage extends NetMessage {
     private CommonReq common;
 
     public RequestGetStickerMessage() {
-        super(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
+        super(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST);
     }
 
     public void setCommon(CommonReq commonReq) {
@@ -23,7 +23,7 @@ public class RequestGetStickerMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.common = this.common;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         GetStickerReqIdl.Builder builder2 = new GetStickerReqIdl.Builder();
         builder2.data = builder.build(false);

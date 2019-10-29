@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.g;
 /* loaded from: classes.dex */
 public abstract class b {
-    public static int f(String str, int i) {
+    public static int toInt(String str, int i) {
         if (str != null) {
             try {
                 return Integer.parseInt(str);
@@ -12,7 +12,7 @@ public abstract class b {
         return i;
     }
 
-    public static int h(String str, int i, int i2) {
+    public static int toInt(String str, int i, int i2) {
         if (str != null) {
             try {
                 return Integer.parseInt(str, i2);
@@ -23,7 +23,7 @@ public abstract class b {
         return i;
     }
 
-    public static long e(String str, long j) {
+    public static long toLong(String str, long j) {
         if (str != null) {
             try {
                 return Long.parseLong(str);
@@ -34,7 +34,7 @@ public abstract class b {
         return j;
     }
 
-    public static float c(String str, float f) {
+    public static float toFloat(String str, float f) {
         if (str != null) {
             try {
                 return Float.parseFloat(str);
@@ -45,7 +45,7 @@ public abstract class b {
         return f;
     }
 
-    public static double a(String str, double d) {
+    public static double toDouble(String str, double d) {
         if (str != null) {
             try {
                 return Double.parseDouble(str);
@@ -56,7 +56,7 @@ public abstract class b {
         return d;
     }
 
-    public static boolean d(String str, boolean z) {
+    public static boolean toBoolean(String str, boolean z) {
         if (str != null) {
             try {
                 return Boolean.parseBoolean(str);

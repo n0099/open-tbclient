@@ -9,6 +9,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.adp.widget.ListView.v;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
@@ -23,21 +24,21 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
 /* loaded from: classes6.dex */
 public class a extends v.a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a iut;
-    private static String iuu;
-    public TextView XK;
-    public TextView cbZ;
-    public TextView ccX;
-    public HeadImageView fQo;
-    private final LinearLayout hBl;
-    public ReplyLinearLayout iuo;
-    public TextView iup;
-    protected final LinearLayout iuq;
-    protected final ColumnLayout iur;
-    protected final ColumnLayout ius;
-    private int iuv;
-    public LinearLayout iuw;
-    public TextView iux;
+    private static com.baidu.adp.widget.ImageView.a isU;
+    private static String isV;
+    public TextView HE;
+    public TextView cqn;
+    public TextView crl;
+    public HeadImageView fPI;
+    private final LinearLayout hzU;
+    public ReplyLinearLayout isP;
+    public TextView isQ;
+    protected final LinearLayout isR;
+    protected final ColumnLayout isS;
+    protected final ColumnLayout isT;
+    private int isW;
+    public LinearLayout isX;
+    public TextView isY;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
@@ -45,55 +46,55 @@ public class a extends v.a implements View.OnClickListener {
         super(view);
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.iuo = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-        this.iuo.setIsHost(this.mIsHost);
-        this.iup = (TextView) view.findViewById(R.id.original_post_title);
-        this.iuw = (LinearLayout) view.findViewById(R.id.top_line);
-        this.fQo = (HeadImageView) view.findViewById(R.id.portrait);
-        this.XK = (TextView) view.findViewById(R.id.username);
-        this.cbZ = (TextView) view.findViewById(R.id.reply_time);
-        this.ccX = (TextView) view.findViewById(R.id.forum_name);
-        this.iux = (TextView) view.findViewById(R.id.reply_count);
-        this.hBl = (LinearLayout) view.findViewById(R.id.item_content);
-        this.iur = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.ius = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.iuq = (LinearLayout) view.findViewById(R.id.person_child);
-        this.iuv = l.dip2px(view.getContext(), 42.0f);
-        if (this.hBl != null) {
-            this.hBl.setOnClickListener(this);
+        this.isP = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+        this.isP.setIsHost(this.mIsHost);
+        this.isQ = (TextView) view.findViewById(R.id.original_post_title);
+        this.isX = (LinearLayout) view.findViewById(R.id.top_line);
+        this.fPI = (HeadImageView) view.findViewById(R.id.portrait);
+        this.HE = (TextView) view.findViewById(R.id.username);
+        this.cqn = (TextView) view.findViewById(R.id.reply_time);
+        this.crl = (TextView) view.findViewById(R.id.forum_name);
+        this.isY = (TextView) view.findViewById(R.id.reply_count);
+        this.hzU = (LinearLayout) view.findViewById(R.id.item_content);
+        this.isS = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.isT = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.isR = (LinearLayout) view.findViewById(R.id.person_child);
+        this.isW = l.dip2px(view.getContext(), 42.0f);
+        if (this.hzU != null) {
+            this.hzU.setOnClickListener(this);
         }
-        this.fQo.setOnClickListener(this);
-        this.XK.setOnClickListener(this);
-        this.ccX.setOnClickListener(this);
-        this.iux.setOnClickListener(this);
-        this.iur.setOnClickListener(this);
-        this.ius.setOnClickListener(this);
-        this.iup.setOnClickListener(this);
+        this.fPI.setOnClickListener(this);
+        this.HE.setOnClickListener(this);
+        this.crl.setOnClickListener(this);
+        this.isY.setOnClickListener(this);
+        this.isS.setOnClickListener(this);
+        this.isT.setOnClickListener(this);
+        this.isQ.setOnClickListener(this);
     }
 
-    public void iY(int i) {
-        am.k(this.iup, R.color.cp_bg_line_e);
-        am.l(getView(), R.color.cp_bg_line_c);
-        am.k(this.iuq, R.drawable.daily_recommend_item_selector);
-        am.f(this.XK, R.color.cp_cont_d, 1);
-        am.f(this.cbZ, R.color.cp_cont_d, 1);
-        am.f(this.ccX, R.color.cp_cont_d, 1);
-        am.f(this.iux, R.color.cp_cont_d, 1);
+    public void changeSkin(int i) {
+        am.setBackgroundResource(this.isQ, R.color.cp_bg_line_e);
+        am.setBackgroundColor(getView(), R.color.cp_bg_line_c);
+        am.setBackgroundResource(this.isR, R.drawable.daily_recommend_item_selector);
+        am.setViewTextColor(this.HE, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.cqn, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.crl, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.isY, R.color.cp_cont_d, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String[] strArr;
-        TiebaStatic.log(new an("c12043").P("obj_type", this.mIsHost ? 1 : 2));
-        if (view == this.ccX) {
+        TiebaStatic.log(new an("c12043").O("obj_type", this.mIsHost ? 1 : 2));
+        if (view == this.crl) {
             if (this.mPageContext != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view == this.iup && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+        } else if (view == this.isQ && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                 createNormalCfg.setStartFrom(4);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
             }
         }
     }
@@ -117,7 +118,7 @@ public class a extends v.a implements View.OnClickListener {
         String str4;
         String str5;
         String str6;
-        String aD;
+        String formatTime;
         String str7;
         String valueOf;
         String str8 = null;
@@ -131,7 +132,7 @@ public class a extends v.a implements View.OnClickListener {
                             str6 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
                             strArr[0] = String.valueOf(postInfoList.thread_id);
                             strArr[1] = String.valueOf(postInfoList.post_id);
-                            aD = aq.aD(postInfoList.create_time * 1000);
+                            formatTime = aq.getFormatTime(postInfoList.create_time * 1000);
                             str7 = postInfoList.forum_name;
                             valueOf = String.valueOf(postInfoList.reply_num);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
@@ -141,12 +142,12 @@ public class a extends v.a implements View.OnClickListener {
                             strArr[1] = String.valueOf(postInfoList.content[0].post_id);
                             strArr[2] = String.valueOf(postInfoList.content[0].post_type);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
-                            aD = aq.aD(postInfoList.create_time * 1000);
+                            formatTime = aq.getFormatTime(postInfoList.create_time * 1000);
                             str7 = postInfoList.forum_name;
                             valueOf = String.valueOf(postInfoList.reply_num);
                         }
                         str4 = str6;
-                        str3 = aD;
+                        str3 = formatTime;
                         str2 = str7;
                         str9 = valueOf;
                         str8 = 1;
@@ -194,30 +195,30 @@ public class a extends v.a implements View.OnClickListener {
             }
         }
         if (str8 != null) {
-            this.XK.setText(str4);
-            this.cbZ.setText(str3);
-            this.ccX.setText(str2);
-            this.ccX.setTag(str2);
-            this.iux.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
-            this.ccX.setOnClickListener(this);
-            Dr(str);
-            if (this.hBl != null) {
-                this.hBl.setTag(strArr);
+            this.HE.setText(str4);
+            this.cqn.setText(str3);
+            this.crl.setText(str2);
+            this.crl.setTag(str2);
+            this.isY.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
+            this.crl.setOnClickListener(this);
+            BK(str);
+            if (this.hzU != null) {
+                this.hzU.setTag(strArr);
             }
-            this.iur.setTag(strArr);
-            this.ius.setTag(strArr);
+            this.isS.setTag(strArr);
+            this.isT.setTag(strArr);
         }
     }
 
-    private void Dr(String str) {
-        if (iuu != null && !iuu.equals(str)) {
-            iut = null;
+    private void BK(String str) {
+        if (isV != null && !isV.equals(str)) {
+            isU = null;
         }
-        if (iut != null) {
-            this.fQo.setImageBitmap(iut.nK());
-            iuu = str;
+        if (isU != null) {
+            this.fPI.setImageBitmap(isU.getRawBitmap());
+            isV = str;
             return;
         }
-        this.fQo.startLoad(str, 12, this.iuv, this.iuv, false);
+        this.fPI.a(str, 12, this.isW, this.isW, false);
     }
 }

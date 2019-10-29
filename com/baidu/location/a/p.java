@@ -1,6 +1,7 @@
 package com.baidu.location.a;
 
 import android.location.Location;
+import com.baidu.ala.helper.AlaLiveRtcConfig;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.d.d;
@@ -587,7 +588,7 @@ public class p {
             randomAccessFile.seek(0L);
             randomAccessFile.writeInt(32);
             randomAccessFile.writeInt(2048);
-            randomAccessFile.writeInt(1040);
+            randomAccessFile.writeInt(AlaLiveRtcConfig.NativeErroCode.ERROR_PROTOCAL_SESSION_ID);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(0);

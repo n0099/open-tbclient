@@ -2,29 +2,30 @@ package com.baidu.tbadk.k;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class a implements b {
-    private b cwO;
+    private b cIY;
 
     public a(TbPageContext<?> tbPageContext) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016469, b.class, tbPageContext);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOD_RECOMMEND_CONTROLLER, b.class, tbPageContext);
         if (runTask != null && runTask.getData() != null) {
-            this.cwO = (b) runTask.getData();
+            this.cIY = (b) runTask.getData();
         }
     }
 
     @Override // com.baidu.tbadk.k.b
-    public void qL(String str) {
-        if (this.cwO != null) {
-            this.cwO.qL(str);
+    public void pT(String str) {
+        if (this.cIY != null) {
+            this.cIY.pT(str);
         }
     }
 
     @Override // com.baidu.tbadk.k.b
     public void destory() {
-        if (this.cwO != null) {
-            this.cwO.destory();
+        if (this.cIY != null) {
+            this.cIY.destory();
         }
     }
 }

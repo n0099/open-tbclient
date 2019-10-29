@@ -7,12 +7,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes2.dex */
 final class b {
-    private static final b jK = new b();
-    private final ExecutorService jL;
-    private final ScheduledExecutorService jM;
-    private final Executor jN;
+    private static final b cu = new b();
+    private final ExecutorService cv;
+    private final ScheduledExecutorService cx;
+    private final Executor cy;
 
-    private static boolean aY() {
+    private static boolean aB() {
         String property = System.getProperty("java.runtime.name");
         if (property == null) {
             return false;
@@ -21,48 +21,48 @@ final class b {
     }
 
     private b() {
-        this.jL = !aY() ? Executors.newCachedThreadPool() : bolts.a.aW();
-        this.jM = Executors.newSingleThreadScheduledExecutor();
-        this.jN = new a();
+        this.cv = !aB() ? Executors.newCachedThreadPool() : bolts.a.az();
+        this.cx = Executors.newSingleThreadScheduledExecutor();
+        this.cy = new a();
     }
 
-    public static ExecutorService aZ() {
-        return jK.jL;
+    public static ExecutorService aC() {
+        return cu.cv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Executor ba() {
-        return jK.jN;
+    public static Executor aD() {
+        return cu.cy;
     }
 
     /* loaded from: classes2.dex */
     private static class a implements Executor {
-        private ThreadLocal<Integer> jO;
+        private ThreadLocal<Integer> cz;
 
         private a() {
-            this.jO = new ThreadLocal<>();
+            this.cz = new ThreadLocal<>();
         }
 
-        private int bb() {
-            Integer num = this.jO.get();
+        private int aE() {
+            Integer num = this.cz.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.jO.set(Integer.valueOf(intValue));
+            this.cz.set(Integer.valueOf(intValue));
             return intValue;
         }
 
-        private int bc() {
-            Integer num = this.jO.get();
+        private int aF() {
+            Integer num = this.cz.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.jO.remove();
+                this.cz.remove();
             } else {
-                this.jO.set(Integer.valueOf(intValue));
+                this.cz.set(Integer.valueOf(intValue));
             }
             return intValue;
         }
@@ -70,13 +70,13 @@ final class b {
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             try {
-                if (bb() <= 15) {
+                if (aE() <= 15) {
                     runnable.run();
                 } else {
-                    b.aZ().execute(runnable);
+                    b.aC().execute(runnable);
                 }
             } finally {
-                bc();
+                aF();
             }
         }
     }

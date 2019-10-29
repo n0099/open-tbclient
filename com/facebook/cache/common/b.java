@@ -3,7 +3,7 @@ package com.facebook.cache.common;
 import android.net.Uri;
 /* loaded from: classes2.dex */
 public interface b {
-    String cFa();
+    String cBY();
 
-    boolean x(Uri uri);
+    boolean u(Uri uri);
 }

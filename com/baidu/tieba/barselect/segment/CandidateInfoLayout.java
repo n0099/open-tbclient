@@ -13,6 +13,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -24,13 +26,13 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
 /* loaded from: classes3.dex */
 public class CandidateInfoLayout extends CardBasicLayout {
-    private TextView XK;
-    private View.OnClickListener cmX;
-    private BazhuHeadView eAn;
-    private LinearLayout eAo;
-    private TextView eAp;
-    private ImageView eAq;
-    private TextView eAr;
+    private TextView HE;
+    private View.OnClickListener czV;
+    private BazhuHeadView eIV;
+    private LinearLayout eIW;
+    private TextView eIX;
+    private ImageView eIY;
+    private TextView eIZ;
     private Context mContext;
 
     public CandidateInfoLayout(Context context) {
@@ -39,14 +41,14 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
     public CandidateInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cmX = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.CandidateInfoLayout.1
+        this.czV = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.CandidateInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CandidateInfoLayout.this.eAt != null && CandidateInfoLayout.this.eAt.getUid() != 0) {
-                    long e = b.e(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    long uid = CandidateInfoLayout.this.eAt.getUid();
+                if (CandidateInfoLayout.this.eJb != null && CandidateInfoLayout.this.eJb.getUid() != 0) {
+                    long j = b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
+                    long uid = CandidateInfoLayout.this.eJb.getUid();
                     if (CandidateInfoLayout.this.getContext() instanceof Activity) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(CandidateInfoLayout.this.getContext()).createNormalConfig(uid, uid == e, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(CandidateInfoLayout.this.getContext()).createNormalConfig(uid, uid == j, false)));
                     }
                 }
             }
@@ -60,77 +62,77 @@ public class CandidateInfoLayout extends CardBasicLayout {
         setClipToPadding(false);
         setOrientation(0);
         setGravity(80);
-        setMinimumHeight(l.g(getContext(), R.dimen.tbds90));
+        setMinimumHeight(l.getDimens(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.candidate_info_layout, (ViewGroup) this, true);
-        qY();
+        md();
     }
 
-    private void qY() {
-        this.eAn = (BazhuHeadView) findViewById(R.id.user_avatar);
-        if (this.eAn.getHeadView() != null) {
-            this.eAn.getHeadView().setIsRound(true);
+    private void md() {
+        this.eIV = (BazhuHeadView) findViewById(R.id.user_avatar);
+        if (this.eIV.getHeadView() != null) {
+            this.eIV.getHeadView().setIsRound(true);
         }
-        this.eAo = (LinearLayout) findViewById(R.id.user_name_and_active_status);
-        this.XK = (TextView) findViewById(R.id.user_name);
-        this.eAp = (TextView) findViewById(R.id.vote_id);
-        this.eAr = (TextView) findViewById(R.id.agree_post_reply_num);
-        this.eAq = (ImageView) findViewById(R.id.grade);
+        this.eIW = (LinearLayout) findViewById(R.id.user_name_and_active_status);
+        this.HE = (TextView) findViewById(R.id.user_name);
+        this.eIX = (TextView) findViewById(R.id.vote_id);
+        this.eIZ = (TextView) findViewById(R.id.agree_post_reply_num);
+        this.eIY = (ImageView) findViewById(R.id.grade);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         String str;
         super.setData(i, fVar);
-        if (this.ewD == null || this.eAt == null || this.status < 0) {
+        if (this.eFp == null || this.eJb == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        if (this.status == a.eAJ) {
-            int g = l.g(this.mContext, R.dimen.tbds191);
-            int g2 = l.g(this.mContext, R.dimen.tbds157);
-            int g3 = l.g(this.mContext, R.dimen.tbds6);
-            int g4 = l.g(this.mContext, R.dimen.tbds24);
-            int g5 = l.g(this.mContext, R.dimen.tbds30);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g2, g);
-            layoutParams.setMargins(layoutParams.leftMargin - g3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-            this.eAn.setLayoutParams(layoutParams);
-            this.eAn.iz(true);
-            this.eAn.setBawuLogoView(R.drawable.pic_election_bazhu);
-            this.eAn.setPendantView(R.drawable.icon_crown);
-            this.XK.setTextSize(0, l.g(this.mContext, R.dimen.tbfontsize46));
+        if (this.status == a.eJr) {
+            int dimens = l.getDimens(this.mContext, R.dimen.tbds191);
+            int dimens2 = l.getDimens(this.mContext, R.dimen.tbds157);
+            int dimens3 = l.getDimens(this.mContext, R.dimen.tbds6);
+            int dimens4 = l.getDimens(this.mContext, R.dimen.tbds24);
+            int dimens5 = l.getDimens(this.mContext, R.dimen.tbds30);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens2, dimens);
+            layoutParams.setMargins(layoutParams.leftMargin - dimens3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+            this.eIV.setLayoutParams(layoutParams);
+            this.eIV.iC(true);
+            this.eIV.setBawuLogoView(R.drawable.pic_election_bazhu);
+            this.eIV.setPendantView(R.drawable.icon_crown);
+            this.HE.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize46));
             setGravity(16);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.setMargins(g5, g4, layoutParams2.rightMargin, g3);
-            this.eAn.setLayoutParams(layoutParams);
-            this.eAo.setLayoutParams(layoutParams2);
+            layoutParams2.setMargins(dimens5, dimens4, layoutParams2.rightMargin, dimens3);
+            this.eIV.setLayoutParams(layoutParams);
+            this.eIW.setLayoutParams(layoutParams2);
         } else {
-            this.eAn.iz(false);
+            this.eIV.iC(false);
         }
-        this.eAn.oW(this.eAt.getPortrait());
-        this.eAn.setOnClickListener(this.cmX);
-        this.XK.setText(aq.j(this.eAt.aZk(), 14, "..."));
-        setGrade(this.eAt.aZh());
-        if (this.eAt.aZg() < 1000) {
-            String str2 = "0000" + this.eAt.aZg();
+        this.eIV.ov(this.eJb.getPortrait());
+        this.eIV.setOnClickListener(this.czV);
+        this.HE.setText(aq.cutChineseAndEnglishWithSuffix(this.eJb.getNickname(), 14, StringHelper.STRING_MORE));
+        setGrade(this.eJb.aZl());
+        if (this.eJb.aZk() < 1000) {
+            String str2 = "0000" + this.eJb.aZk();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.eAt.aZg();
+            str = "" + this.eJb.aZk();
         }
-        this.eAp.setText("NO." + str);
-        this.eAr.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), aq.aP(this.eAt.aZf()), aq.aP(this.eAt.getPost_num()), aq.aP(this.eAt.getThread_num())));
+        this.eIX.setText("NO." + str);
+        this.eIZ.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), aq.aU(this.eJb.aZj()), aq.aU(this.eJb.getPost_num()), aq.aU(this.eJb.getThread_num())));
     }
 
     public void setGrade(int i) {
-        am.c(this.eAq, BitmapHelper.getGradeResourceIdInEnterForum(i));
+        am.setImageResource(this.eIY, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
-    public void nE(int i) {
-        am.d(this.XK, R.color.cp_cont_b, 1, i);
-        am.d(this.eAp, R.color.cp_cont_d, 1, i);
-        am.d(this.eAr, R.color.cp_cont_d, 1, i);
-        if (this.eAt != null) {
-            setGrade(this.eAt.aZh());
+    public void mE(int i) {
+        am.setViewTextColor(this.HE, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.eIX, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.eIZ, R.color.cp_cont_d, 1, i);
+        if (this.eJb != null) {
+            setGrade(this.eJb.aZl());
         }
     }
 }

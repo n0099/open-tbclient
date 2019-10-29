@@ -11,12 +11,12 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0443a {
-        void Df(int i);
+    public interface InterfaceC0538a {
+        void BB(int i);
     }
 
-    public static void a(final String str, final int i, final InterfaceC0443a interfaceC0443a) {
-        if (!StringUtils.isNull(str) && interfaceC0443a != null) {
+    public static void a(final String str, final int i, final InterfaceC0538a interfaceC0538a) {
+        if (!StringUtils.isNull(str) && interfaceC0538a != null) {
             final String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
                 z.a(new y<Integer>() { // from class: com.baidu.tieba.write.editor.a.1
@@ -25,19 +25,19 @@ public class a {
                     @Override // com.baidu.tbadk.util.y
                     public Integer doInBackground() {
                         int i2 = i;
-                        l<String> mN = com.baidu.tbadk.core.d.a.agL().mN("tb.write_privacy_state_space" + currentAccount);
-                        if (mN != null) {
-                            i2 = com.baidu.adp.lib.g.b.f(mN.get(str), i);
+                        l<String> nl = com.baidu.tbadk.core.d.a.akN().nl("tb.write_privacy_state_space" + currentAccount);
+                        if (nl != null) {
+                            i2 = com.baidu.adp.lib.g.b.toInt(nl.get(str), i);
                         }
                         return Integer.valueOf(i2);
                     }
                 }, new j<Integer>() { // from class: com.baidu.tieba.write.editor.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.j
-                    /* renamed from: i */
+                    /* renamed from: f */
                     public void onReturnDataInUI(Integer num) {
-                        if (InterfaceC0443a.this != null) {
-                            InterfaceC0443a.this.Df(num.intValue());
+                        if (InterfaceC0538a.this != null) {
+                            InterfaceC0538a.this.BB(num.intValue());
                         }
                     }
                 });
@@ -45,12 +45,12 @@ public class a {
         }
     }
 
-    public static void bw(String str, int i) {
-        l<String> mN;
+    public static void br(String str, int i) {
+        l<String> nl;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount) && (mN = com.baidu.tbadk.core.d.a.agL().mN("tb.write_privacy_state_space" + currentAccount)) != null) {
-                mN.g(str, String.valueOf(i));
+            if (!StringUtils.isNull(currentAccount) && (nl = com.baidu.tbadk.core.d.a.akN().nl("tb.write_privacy_state_space" + currentAccount)) != null) {
+                nl.asyncSetForever(str, String.valueOf(i));
             }
         }
     }

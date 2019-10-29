@@ -3,6 +3,7 @@ package com.baidu.pass.biometrics.base.http.utils;
 import android.content.Context;
 import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
 import com.baidu.pass.biometrics.base.utils.Crypto;
 import java.nio.charset.Charset;
@@ -28,7 +29,7 @@ public class HttpUtils {
             }
         });
         RestNameValuePair restNameValuePair = new RestNameValuePair();
-        restNameValuePair.setName("key");
+        restNameValuePair.setName(TiebaInitialize.Params.KEY);
         try {
             str = Crypto.sha1(context.getPackageName());
         } catch (Exception e) {

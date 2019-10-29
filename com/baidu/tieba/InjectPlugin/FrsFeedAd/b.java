@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> cSg = new SparseArray<>();
-    private Object cSh;
-    private int cSi;
+    private static SparseArray<BdUniqueId> dbA = new SparseArray<>();
+    private Object dbB;
+    private int dbC;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cSg.get(this.cSi);
+        return dbA.get(this.dbC);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object aAN() {
-        return this.cSh;
+    public Object aAX() {
+        return this.dbB;
     }
 
-    public void aj(Object obj) {
-        this.cSh = obj;
+    public void af(Object obj) {
+        this.dbB = obj;
     }
 
-    public int aAO() {
-        return this.cSi;
+    public int aAY() {
+        return this.dbC;
     }
 
-    public void mi(int i) {
-        this.cSi = i;
+    public void ln(int i) {
+        this.dbC = i;
     }
 
-    public static void ar(List<Integer> list) {
-        if (cSg.size() <= 0 && list != null) {
+    public static void aJ(List<Integer> list) {
+        if (dbA.size() <= 0 && list != null) {
             for (Integer num : list) {
-                cSg.put(num.intValue(), BdUniqueId.gen());
+                dbA.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> aAP() {
+    public static List<BdUniqueId> aAZ() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < cSg.size(); i++) {
-            arrayList.add(cSg.valueAt(i));
+        for (int i = 0; i < dbA.size(); i++) {
+            arrayList.add(dbA.valueAt(i));
         }
         return arrayList;
     }
 
     public static int k(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (cSg.size() == 0 || (indexOfValue = cSg.indexOfValue(bdUniqueId)) == -1 || cSg.size() <= indexOfValue) {
+        if (dbA.size() == 0 || (indexOfValue = dbA.indexOfValue(bdUniqueId)) == -1 || dbA.size() <= indexOfValue) {
             return -1;
         }
-        return cSg.keyAt(indexOfValue);
+        return dbA.keyAt(indexOfValue);
     }
 }

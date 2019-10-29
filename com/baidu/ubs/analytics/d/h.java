@@ -1,6 +1,5 @@
 package com.baidu.ubs.analytics.d;
 
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import com.coloros.mcssdk.mode.CommandMessage;
@@ -18,7 +17,7 @@ public final class h {
         JSONArray jSONArray3 = new JSONArray();
         JSONArray jSONArray4 = new JSONArray();
         try {
-            jSONObject2.put(DpStatConstants.KEY_CUID, bVar.n().l());
+            jSONObject2.put("cuid", bVar.n().l());
             jSONObject2.put("imei", bVar.n().getImei());
             jSONObject2.put("osVersion", bVar.n().getOsVersion());
             jSONObject2.put("brandName", bVar.n().r());

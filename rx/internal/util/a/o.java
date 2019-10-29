@@ -1,17 +1,17 @@
 package rx.internal.util.a;
 /* loaded from: classes2.dex */
 abstract class o<E> extends k<E> {
-    protected static final long kEm = ae.j(o.class, "producerIndex");
+    protected static final long kET = ae.i(o.class, "producerIndex");
     private volatile long producerIndex;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long cRj() {
+    public final long cPo() {
         return this.producerIndex;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void fe(long j) {
-        ae.kEs.putOrderedLong(this, kEm, j);
+    public final void ez(long j) {
+        ae.kEZ.putOrderedLong(this, kET, j);
     }
 
     public o(int i) {

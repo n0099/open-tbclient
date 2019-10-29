@@ -17,15 +17,15 @@ public class c extends b {
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (a(context, bVar, unitedSchemeEntity)) {
-            a.C0124a bE = com.baidu.swan.apps.aj.b.a.bE(context);
-            if (bE == null) {
+            a.C0156a bF = com.baidu.swan.apps.aj.b.a.bF(context);
+            if (bF == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;
             }
             if (DEBUG) {
-                Log.d("battery", "/swan/getBatteryInfoSync = level: " + bE.level + " ; plugged: " + bE.aXJ);
+                Log.d("battery", "/swan/getBatteryInfoSync = level: " + bF.level + " ; plugged: " + bF.bqM);
             }
-            JSONObject a = a(bE);
+            JSONObject a = a(bF);
             if (a == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
                 if (DEBUG) {

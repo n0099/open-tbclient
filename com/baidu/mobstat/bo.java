@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import com.baidu.android.imsdk.IMConstants;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -196,7 +197,7 @@ public final class bo {
     }
 
     public static HttpURLConnection d(Context context, String str) throws IOException {
-        return a(context, str, 50000, 50000);
+        return a(context, str, (int) IMConstants.ERROR_BASE, (int) IMConstants.ERROR_BASE);
     }
 
     @SuppressLint({"DefaultLocale"})

@@ -4,34 +4,34 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean cAj = false;
-    private List<String> cAk;
-    private String cAl;
-    private long cAm;
-    public String cAn;
-    public String cAo;
-    public String cAp;
-    private String cAq;
+    public String cLB;
+    private String cLC;
+    private String currentPageKey;
     private long fid;
+    public boolean isRouteStat = false;
+    public String isVertical;
+    public String objID;
     public String objParam1;
     private long pid;
+    private List<String> sorceKeyList;
+    private long stayDurationTime;
     public String task_id;
     private long tid;
 
-    public List<String> avj() {
-        return this.cAk;
+    public List<String> getSorceKeyList() {
+        return this.sorceKeyList;
     }
 
-    public void ao(List<String> list) {
-        this.cAk = list;
+    public void setSorceKeyList(List<String> list) {
+        this.sorceKeyList = list;
     }
 
     public String getCurrentPageKey() {
-        return this.cAl;
+        return this.currentPageKey;
     }
 
-    public void re(String str) {
-        this.cAl = str;
+    public void setCurrentPageKey(String str) {
+        this.currentPageKey = str;
     }
 
     public long getFid() {
@@ -54,12 +54,12 @@ public class d {
         return this.pid;
     }
 
-    public long avk() {
-        return this.cAm;
+    public long getStayDurationTime() {
+        return this.stayDurationTime;
     }
 
-    public void bl(long j) {
-        this.cAm = j;
+    public void setStayDurationTime(long j) {
+        this.stayDurationTime = j;
     }
 
     public void setTaskId(String str) {
@@ -70,15 +70,15 @@ public class d {
         return this.task_id;
     }
 
-    public String avl() {
-        return this.cAq;
+    public String awy() {
+        return this.cLC;
     }
 
-    public void rf(String str) {
-        this.cAq = str;
+    public void qd(String str) {
+        this.cLC = str;
     }
 
-    public boolean avm() {
-        return StringUtils.isNull(this.cAl);
+    public boolean isDirtyData() {
+        return StringUtils.isNull(this.currentPageKey);
     }
 }

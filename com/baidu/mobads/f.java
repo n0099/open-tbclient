@@ -1,13 +1,13 @@
 package com.baidu.mobads;
 /* loaded from: classes5.dex */
 public interface f {
-    void uC();
+    void zA();
 
-    void uD();
+    void zw();
 
-    void uE();
+    void zx();
 
-    void uF();
+    void zy();
 
-    void uG();
+    void zz();
 }

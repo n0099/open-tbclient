@@ -1,34 +1,36 @@
 package com.baidu.swan.games.r;
 
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.games.r.a.d;
 /* loaded from: classes2.dex */
 public class c {
-    public static void jV(String str) {
+    public static void kx(String str) {
         d dVar = new d();
         dVar.errMsg = str;
-        b.Tj().a(new a(10000, dVar));
+        b.Ya().a(new a(10000, dVar));
     }
 
-    public static void jW(String str) {
+    public static void ky(String str) {
         d dVar = new d();
         dVar.errMsg = str;
-        b.Tj().a(new a(20000, dVar));
+        b.Ya().a(new a(MessageConfig.SOCKET_TIME_OUT_MS_2G, dVar));
     }
 
-    public static void bg(String str, String str2) {
+    public static void bn(String str, String str2) {
         com.baidu.swan.games.r.a.b bVar = new com.baidu.swan.games.r.a.b();
         bVar.key = str;
         bVar.errMsg = str2;
-        b.Tj().a(new a(30000, bVar));
+        b.Ya().a(new a(30000, bVar));
     }
 
     public static void e(CallbackHandler callbackHandler, String str) {
         if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
             d dVar = new d();
             dVar.errMsg = str;
-            b.Tj().a(new a(40000, dVar));
+            b.Ya().a(new a(40000, dVar));
         }
     }
 
@@ -36,7 +38,7 @@ public class c {
         if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
             d dVar = new d();
             dVar.errMsg = str;
-            b.Tj().a(new a(50000, dVar));
+            b.Ya().a(new a(IMConstants.ERROR_BASE, dVar));
         }
     }
 
@@ -44,7 +46,7 @@ public class c {
         if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
             d dVar = new d();
             dVar.errMsg = str;
-            b.Tj().a(new a(60000, dVar));
+            b.Ya().a(new a(60000, dVar));
         }
     }
 
@@ -52,24 +54,24 @@ public class c {
         com.baidu.swan.games.r.a.a aVar = new com.baidu.swan.games.r.a.a();
         aVar.url = str;
         aVar.errCode = i;
-        aVar.blG = z ? 1 : 0;
+        aVar.bEu = z ? 1 : 0;
         aVar.errMsg = str2;
-        b.Tj().a(new a(70000, aVar));
+        b.Ya().a(new a(70000, aVar));
     }
 
-    public static void g(String str, int i, String str2) {
+    public static void i(String str, int i, String str2) {
         com.baidu.swan.games.r.a.c cVar = new com.baidu.swan.games.r.a.c();
         cVar.packageName = str;
         cVar.errCode = i;
         cVar.errMsg = str2;
-        b.Tj().a(new a(80000, cVar));
+        b.Ya().a(new a(80000, cVar));
     }
 
     public static void h(CallbackHandler callbackHandler, String str) {
         if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
             d dVar = new d();
             dVar.errMsg = str;
-            b.Tj().a(new a(90000, dVar));
+            b.Ya().a(new a(90000, dVar));
         }
     }
 }

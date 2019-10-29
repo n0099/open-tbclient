@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.mapapi.UIMsg;
@@ -80,7 +81,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{594}, "RO");
             add(new int[]{599}, "HU");
             add(new int[]{600, LBSAuthManager.CODE_UNAUTHENTICATE}, "ZA");
-            add(new int[]{603}, "GH");
+            add(new int[]{ResponseCode.TFE_IMMGR_KVACCESS_NOT_EXIST}, "GH");
             add(new int[]{608}, "BH");
             add(new int[]{609}, "MU");
             add(new int[]{611}, "MA");
@@ -122,7 +123,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{785}, "PE");
             add(new int[]{786}, "EC");
             add(new int[]{789, 790}, "BR");
-            add(new int[]{CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING, 839}, "IT");
+            add(new int[]{800, 839}, "IT");
             add(new int[]{840, 849}, "ES");
             add(new int[]{850}, "CU");
             add(new int[]{858}, "SK");

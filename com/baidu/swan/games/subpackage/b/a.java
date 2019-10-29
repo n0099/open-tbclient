@@ -16,8 +16,8 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class a extends g {
     private static final boolean DEBUG = b.DEBUG;
-    private SwanGameSubPackageAPSInfo blY;
-    private com.baidu.swan.pms.a.a<h> blZ = new c<h>() { // from class: com.baidu.swan.games.subpackage.b.a.1
+    private SwanGameSubPackageAPSInfo bEL;
+    private com.baidu.swan.pms.a.a<h> bEM = new c<h>() { // from class: com.baidu.swan.games.subpackage.b.a.1
         @Override // com.baidu.swan.pms.a.d
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -25,15 +25,15 @@ public class a extends g {
         }
 
         @Override // com.baidu.swan.pms.a.a
-        public String gs() {
-            return com.baidu.swan.games.subpackage.b.e(a.this.blY);
+        public String getDownloadPath() {
+            return com.baidu.swan.games.subpackage.b.e(a.this.bEL);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c, com.baidu.swan.pms.a.a
         /* renamed from: c */
-        public void G(h hVar) {
-            super.G(hVar);
+        public void E(h hVar) {
+            super.E(hVar);
             if (a.DEBUG) {
                 Log.i("SwanGameSubPkgDownloadCallback", "onDownloading");
             }
@@ -47,26 +47,26 @@ public class a extends g {
             if (a.DEBUG) {
                 Log.e("SwanGameSubPkgDownloadCallback", "onDownloadError: " + aVar.toString());
             }
-            com.baidu.swan.games.subpackage.b.b(a.this.blY, 2103);
-            com.baidu.swan.apps.core.pms.b.Bl().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Z(12L).aa(aVar.errorNo).ih("分包下载失败").ii(aVar.toString()));
+            com.baidu.swan.games.subpackage.b.b(a.this.bEL, 2103);
+            com.baidu.swan.apps.core.pms.b.Gg().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().as(12L).at(aVar.errorNo).iK("分包下载失败").iL(aVar.toString()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c, com.baidu.swan.pms.a.a
         /* renamed from: g */
-        public void R(h hVar) {
-            super.R(hVar);
+        public void P(h hVar) {
+            super.P(hVar);
             if (a.DEBUG) {
                 Log.i("SwanGameSubPkgDownloadCallback", "onDownloadProgress: " + hVar.size + ":" + hVar.currentSize);
             }
-            com.baidu.swan.games.subpackage.b.a(a.this.blY, hVar.currentSize, hVar.size);
+            com.baidu.swan.games.subpackage.b.a(a.this.bEL, hVar.currentSize, hVar.size);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c, com.baidu.swan.pms.a.a
         /* renamed from: d */
-        public void E(h hVar) {
-            super.E(hVar);
+        public void C(h hVar) {
+            super.C(hVar);
             if (a.DEBUG) {
                 Log.i("SwanGameSubPkgDownloadCallback", "onDownloadFinish: " + hVar.toString());
             }
@@ -75,7 +75,7 @@ public class a extends g {
     };
 
     public a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo) {
-        this.blY = swanGameSubPackageAPSInfo;
+        this.bEL = swanGameSubPackageAPSInfo;
     }
 
     @Override // com.baidu.swan.pms.a.f
@@ -84,21 +84,21 @@ public class a extends g {
         if (DEBUG) {
             Log.e("SwanGameSubPkgDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        com.baidu.swan.games.subpackage.b.b(this.blY, 2103);
+        com.baidu.swan.games.subpackage.b.b(this.bEL, 2103);
     }
 
     @Override // com.baidu.swan.pms.a.f
-    public void Bn() {
-        super.Bn();
+    public void Gi() {
+        super.Gi();
         if (DEBUG) {
             Log.i("SwanGameSubPkgDownloadCallback", "onNoPackage");
         }
-        com.baidu.swan.games.subpackage.b.b(this.blY, 2102);
+        com.baidu.swan.games.subpackage.b.b(this.bEL, 2102);
     }
 
     @Override // com.baidu.swan.pms.a.f
-    public com.baidu.swan.pms.a.a<h> Bt() {
-        return this.blZ;
+    public com.baidu.swan.pms.a.a<h> Go() {
+        return this.bEM;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,37 +107,37 @@ public class a extends g {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownloadCallback", "onDownloadFinish: 签名校验失败");
             }
-            com.baidu.swan.games.subpackage.b.b(this.blY, 2104);
-            com.baidu.swan.apps.core.pms.b.Bl().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Z(12L).aa(2300L).ih("分包签名校验"));
-        } else if (com.baidu.swan.games.subpackage.b.a(this.blY, hVar.filePath) && com.baidu.swan.games.subpackage.b.a(this.blY)) {
+            com.baidu.swan.games.subpackage.b.b(this.bEL, 2104);
+            com.baidu.swan.apps.core.pms.b.Gg().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().as(12L).at(2300L).iK("分包签名校验"));
+        } else if (com.baidu.swan.games.subpackage.b.a(this.bEL, hVar.filePath) && com.baidu.swan.games.subpackage.b.a(this.bEL)) {
             if (DEBUG) {
                 Log.i("SwanGameSubPkgDownloadCallback", "onDownloadFinish: 解压成功");
             }
-            com.baidu.swan.apps.database.subpackage.a.CO().j(this.blY.appId, this.blY.appVersion, this.blY.blU, this.blY.key);
-            com.baidu.swan.games.subpackage.b.d(this.blY);
-            hVar.appId = this.blY.appId;
-            com.baidu.swan.pms.database.a.Wi().c(hVar);
-            com.baidu.swan.apps.core.pms.b.Bl().a(hVar, PMSDownloadType.ALONE_SUB);
+            com.baidu.swan.apps.database.subpackage.a.HI().m(this.bEL.appId, this.bEL.awa, this.bEL.bEI, this.bEL.key);
+            com.baidu.swan.games.subpackage.b.d(this.bEL);
+            hVar.appId = this.bEL.appId;
+            com.baidu.swan.pms.database.a.aaX().c(hVar);
+            com.baidu.swan.apps.core.pms.b.Gg().a(hVar, PMSDownloadType.ALONE_SUB);
         } else {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownloadCallback", "onDownloadFinish: 解压失败");
             }
-            com.baidu.swan.games.subpackage.b.b(this.blY, 2105);
-            com.baidu.swan.apps.core.pms.b.Bl().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Z(12L).aa(2320L).ih("分包解压失败"));
+            com.baidu.swan.games.subpackage.b.b(this.bEL, 2105);
+            com.baidu.swan.apps.core.pms.b.Gg().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().as(12L).at(2320L).iK("分包解压失败"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(h hVar) {
-        com.baidu.swan.apps.core.pms.b.Bl().a(hVar, new b.InterfaceC0150b() { // from class: com.baidu.swan.games.subpackage.b.a.2
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0150b
+        com.baidu.swan.apps.core.pms.b.Gg().a(hVar, new b.InterfaceC0182b() { // from class: com.baidu.swan.games.subpackage.b.a.2
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0182b
             public void a(PMSDownloadType pMSDownloadType) {
-                com.baidu.swan.games.subpackage.b.d(a.this.blY);
+                com.baidu.swan.games.subpackage.b.d(a.this.bEL);
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0150b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0182b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
-                com.baidu.swan.games.subpackage.b.b(a.this.blY, 2103);
+                com.baidu.swan.games.subpackage.b.b(a.this.bEL, 2103);
             }
         });
     }

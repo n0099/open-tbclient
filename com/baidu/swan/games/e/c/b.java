@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b bgY;
-    private HashMap<String, c> bfx = new HashMap<>();
+    private static volatile b bzQ;
+    private HashMap<String, c> byq = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
-    private final Object bfA = new Object();
-    private com.baidu.swan.games.network.b bfz = com.baidu.swan.games.network.b.SF();
-    private String bfy = f.Rb();
+    private final Object byt = new Object();
+    private com.baidu.swan.games.network.b bys = com.baidu.swan.games.network.b.Xw();
+    private String byr = f.VR();
 
-    public static b RW() {
-        if (bgY == null) {
+    public static b WN() {
+        if (bzQ == null) {
             synchronized (b.class) {
-                if (bgY == null) {
-                    bgY = new b();
+                if (bzQ == null) {
+                    bzQ = new b();
                 }
             }
         }
-        return bgY;
+        return bzQ;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String iU = iU(str);
-            File file = new File(iU(str));
+            String jx = jx(str);
+            File file = new File(jx(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(iU);
+                    valueCallback.onReceiveValue(jx);
                     return;
                 }
                 return;
             }
-            synchronized (this.bfA) {
-                if (!iS(str)) {
-                    iT(str);
+            synchronized (this.byt) {
+                if (!jv(str)) {
+                    jw(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,13 +57,13 @@ public class b implements a {
         }
     }
 
-    private boolean iS(String str) {
-        return this.bfx.containsKey(str);
+    private boolean jv(String str) {
+        return this.byq.containsKey(str);
     }
 
-    private void iT(String str) {
-        c cVar = new c(this.bfz, this.bfy, str, this);
-        this.bfx.put(str, cVar);
+    private void jw(String str) {
+        c cVar = new c(this.bys, this.byr, str, this);
+        this.byq.put(str, cVar);
         cVar.load();
     }
 
@@ -78,10 +78,10 @@ public class b implements a {
     }
 
     @Override // com.baidu.swan.games.e.c.a
-    public void aQ(String str, String str2) {
+    public void aX(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
-        synchronized (this.bfA) {
-            if (iS(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+        synchronized (this.byt) {
+            if (jv(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -89,21 +89,21 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.bfx.remove(str);
+                this.byq.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.e.c.a
-    public void t(int i, String str) {
-        synchronized (this.bfA) {
-            if (iS(str) && this.mCallbackMap.get(str) != null) {
-                this.bfx.remove(str);
+    public void x(int i, String str) {
+        synchronized (this.byt) {
+            if (jv(str) && this.mCallbackMap.get(str) != null) {
+                this.byq.remove(str);
             }
         }
     }
 
-    private String iU(String str) throws MalformedURLException {
-        return this.bfy + f.iQ(str);
+    private String jx(String str) throws MalformedURLException {
+        return this.byr + f.jt(str);
     }
 }

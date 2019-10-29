@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.x.a.a;
 
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.swan.apps.an.z;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -13,11 +13,11 @@ public class g implements com.baidu.swan.apps.model.a {
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
-        if (jSONObject != null && jSONObject.has(CustomDialogData.POS_LEFT) && jSONObject.has("top")) {
-            this.left = z.ad(jSONObject.optInt(CustomDialogData.POS_LEFT));
-            this.top = z.ad(jSONObject.optInt("top"));
-            this.width = jSONObject.has("width") ? Math.abs(z.ad(jSONObject.optInt("width"))) : -1;
-            this.height = jSONObject.has("height") ? Math.abs(z.ad(jSONObject.optInt("height"))) : -1;
+        if (jSONObject != null && jSONObject.has("left") && jSONObject.has(VerticalTranslateLayout.TOP)) {
+            this.left = z.S(jSONObject.optInt("left"));
+            this.top = z.S(jSONObject.optInt(VerticalTranslateLayout.TOP));
+            this.width = jSONObject.has("width") ? Math.abs(z.S(jSONObject.optInt("width"))) : -1;
+            this.height = jSONObject.has("height") ? Math.abs(z.S(jSONObject.optInt("height"))) : -1;
         }
     }
 

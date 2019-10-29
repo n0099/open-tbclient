@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WebpageObject;
@@ -21,7 +22,6 @@ import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.WebPicUploadResult;
 import com.sina.weibo.sdk.web.WebRequestType;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-import com.tencent.open.SocialConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -69,7 +69,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         IRequestService requestService = RequestService.getInstance();
         RequestParam.Builder builder = new RequestParam.Builder(this.context);
         builder.setShortUrl(UPLOAD_PIC_URL);
-        builder.addPostParam(SocialConstants.PARAM_IMG_URL, str);
+        builder.addPostParam("img", str);
         builder.addPostParam("appKey", getBaseData().getAuthInfo().getAppKey());
         requestService.asyncRequest(builder.build(), new SimpleTarget() { // from class: com.sina.weibo.sdk.web.param.ShareWebViewRequestParam.1
             @Override // com.sina.weibo.sdk.network.target.SimpleTarget
@@ -172,7 +172,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     private void getBaseUrl() {
         StringBuilder sb = new StringBuilder();
         if (this.multiMessage.textObject instanceof TextObject) {
-            sb.append(this.multiMessage.textObject.text + " ");
+            sb.append(this.multiMessage.textObject.text + HanziToPinyin.Token.SEPARATOR);
         }
         if (this.multiMessage.mediaObject != null && (this.multiMessage.mediaObject instanceof WebpageObject) && !TextUtils.isEmpty(this.multiMessage.mediaObject.actionUrl)) {
             sb.append(this.multiMessage.mediaObject.actionUrl);

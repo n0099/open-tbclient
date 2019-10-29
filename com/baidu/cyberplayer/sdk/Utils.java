@@ -16,7 +16,6 @@ import android.os.Process;
 import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedInputStream;
@@ -423,7 +422,7 @@ public class Utils {
                             str = "Disconnect";
                         }
                     } else if (type == 1) {
-                        WifiManager wifiManager = (WifiManager) applicationContext.getSystemService(IXAdSystemUtils.NT_WIFI);
+                        WifiManager wifiManager = (WifiManager) applicationContext.getSystemService("wifi");
                         if (wifiManager != null) {
                             WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                             if (connectionInfo != null) {

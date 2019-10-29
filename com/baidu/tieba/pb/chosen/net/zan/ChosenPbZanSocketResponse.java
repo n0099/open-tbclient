@@ -1,12 +1,13 @@
 package com.baidu.tieba.pb.chosen.net.zan;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.ExcZan.ExcZanResIdl;
 /* loaded from: classes5.dex */
 public class ChosenPbZanSocketResponse extends SocketResponsedMessage {
     public ChosenPbZanSocketResponse() {
-        super(309095);
+        super(CmdConfigSocket.CMD_CHOSEN_PB_PRAISE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

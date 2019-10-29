@@ -22,9 +22,9 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
         miPushCommandMessage.command = bundle.getString("command");
         miPushCommandMessage.resultCode = bundle.getLong(KEY_RESULT_CODE);
-        miPushCommandMessage.reason = bundle.getString(KEY_REASON);
+        miPushCommandMessage.reason = bundle.getString("reason");
         miPushCommandMessage.commandArguments = bundle.getStringArrayList(KEY_COMMAND_ARGUMENTS);
-        miPushCommandMessage.category = bundle.getString(KEY_CATEGORY);
+        miPushCommandMessage.category = bundle.getString("category");
         return miPushCommandMessage;
     }
 
@@ -72,11 +72,11 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         Bundle bundle = new Bundle();
         bundle.putString("command", this.command);
         bundle.putLong(KEY_RESULT_CODE, this.resultCode);
-        bundle.putString(KEY_REASON, this.reason);
+        bundle.putString("reason", this.reason);
         if (this.commandArguments != null) {
             bundle.putStringArrayList(KEY_COMMAND_ARGUMENTS, (ArrayList) this.commandArguments);
         }
-        bundle.putString(KEY_CATEGORY, this.category);
+        bundle.putString("category", this.category);
         return bundle;
     }
 

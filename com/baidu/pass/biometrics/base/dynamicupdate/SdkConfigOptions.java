@@ -67,7 +67,7 @@ public class SdkConfigOptions {
                     sdkConfigOptions.zipVersion = jSONObject2.optString("zip_version");
                     sdkConfigOptions.enable = jSONObject2.optBoolean(KEY_SO_ENABLE, true);
                     sdkConfigOptions.grayThreshold = jSONObject2.optInt(KEY_GRAY);
-                    JSONArray jSONArray = jSONObject2.optJSONObject(KEY_SO_FILES).getJSONArray(KEY_SO_FILE);
+                    JSONArray jSONArray = jSONObject2.optJSONObject(KEY_SO_FILES).getJSONArray("file");
                     if (jSONArray != null) {
                         String cpuType = PassBiometricUtil.getCpuType();
                         if (PassBiometricUtil.CPU_TYPE_ARMEABI.equals(cpuType)) {

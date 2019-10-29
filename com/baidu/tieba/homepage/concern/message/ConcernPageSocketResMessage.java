@@ -1,6 +1,7 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.Userlike.DataRes;
 import tbclient.Userlike.UserlikeResIdl;
@@ -9,7 +10,7 @@ public class ConcernPageSocketResMessage extends SocketResponsedMessage {
     private DataRes resultData;
 
     public ConcernPageSocketResMessage() {
-        super(309474);
+        super(CmdConfigSocket.CMD_CONCERN_PAGE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -7,6 +7,7 @@ import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.xiaomi.mipush.sdk.Constants;
@@ -15,7 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private CustomMessageListener fRf = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
+    private TbPageContext cfl;
+    private CustomMessageListener fQy = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -26,35 +28,34 @@ public class a {
                     String optString2 = jSONObject.optString("gameName");
                     String optString3 = jSONObject.optString("gameTime");
                     String optString4 = jSONObject.optString("gameType");
-                    String string = b.ahU().getString("key_match_id_list_" + optString4, "");
-                    String str = "match_id_" + optString4 + "_" + optString;
+                    String string = b.alR().getString("key_match_id_list_" + optString4, "");
+                    String str = "match_id_" + optString4 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optString;
                     String str2 = TextUtils.isEmpty(string) ? str : Constants.ACCEPT_TIME_SEPARATOR_SP + str;
                     if (TextUtils.isEmpty(string) || !string.contains(str)) {
-                        b.ahU().putString("key_match_id_list_" + optString4, string + str2);
+                        b.alR().putString("key_match_id_list_" + optString4, string + str2);
                     }
-                    Intent intent = new Intent(a.this.mContext.getPageActivity(), AlarmReceiver.class);
+                    Intent intent = new Intent(a.this.cfl.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);
                     intent.putExtra("KEY_MATCH_TYPE", optString4);
                     intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.mContext.getPageActivity(), 0, intent, 0);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.cfl.getPageActivity(), 0, intent, 0);
                     Calendar calendar = Calendar.getInstance();
                     long currentTimeMillis = System.currentTimeMillis();
                     calendar.setTimeInMillis(currentTimeMillis);
-                    long e = (com.baidu.adp.lib.g.b.e(optString3, 0L) * 1000) - currentTimeMillis;
-                    if (e > 0) {
-                        calendar.add(14, (int) e);
+                    long j = (com.baidu.adp.lib.g.b.toLong(optString3, 0L) * 1000) - currentTimeMillis;
+                    if (j > 0) {
+                        calendar.add(14, (int) j);
                     }
-                    ((AlarmManager) a.this.mContext.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                    ((AlarmManager) a.this.cfl.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         }
     };
-    private TbPageContext mContext;
 
     public a(TbPageContext tbPageContext) {
-        this.mContext = tbPageContext;
-        this.mContext.registerListener(this.fRf);
+        this.cfl = tbPageContext;
+        this.cfl.registerListener(this.fQy);
     }
 }

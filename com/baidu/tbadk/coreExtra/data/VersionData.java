@@ -3,6 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aq;
 import java.io.Serializable;
@@ -35,7 +36,7 @@ public class VersionData implements Serializable {
                 this.forceUpdate = jSONObject.optInt("force_update", 0);
                 this.strategy = jSONObject.optInt("strategy", 0);
                 this.newVer = jSONObject.optString("new_version", null);
-                this.size = jSONObject.optString("size", null);
+                this.size = jSONObject.optString(TiebaInitialize.LogFields.SIZE, null);
                 String optString = jSONObject.optString("new_four_version", null);
                 if (!aq.isEmpty(optString)) {
                     this.newVer = optString;
@@ -51,7 +52,7 @@ public class VersionData implements Serializable {
                 this.apkMD5RSA = jSONObject.optString("apk_MD5_RSA", null);
                 this.asApkMD5RSA = jSONObject.optString("as_apk_MD5_RSA", null);
                 this.isOfficialVersion = jSONObject.optInt("android_is_official_version", 0) == 1;
-                if (amU()) {
+                if (apv()) {
                     this.hasNewVer = 1;
                     this.newFile = "tieba_" + this.newVer + ".apk";
                 }
@@ -61,7 +62,7 @@ public class VersionData implements Serializable {
         }
     }
 
-    private boolean amU() {
+    private boolean apv() {
         return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isNetworkUrl(this.url) || TextUtils.isEmpty(this.apkMD5RSA) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 

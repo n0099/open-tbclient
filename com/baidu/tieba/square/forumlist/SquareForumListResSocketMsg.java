@@ -1,6 +1,7 @@
 package com.baidu.tieba.square.forumlist;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
 /* loaded from: classes5.dex */
@@ -8,7 +9,7 @@ public class SquareForumListResSocketMsg extends SocketResponsedMessage {
     private GetForumsFromForumClassResIdl mResponseData;
 
     public SquareForumListResSocketMsg() {
-        super(309097);
+        super(CmdConfigSocket.CMD_SQUARE_FORUM_LIST);
     }
 
     public GetForumsFromForumClassResIdl getResponseData() {

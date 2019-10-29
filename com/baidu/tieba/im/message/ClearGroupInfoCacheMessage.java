@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes5.dex */
 public class ClearGroupInfoCacheMessage extends CustomMessage<String> {
     public ClearGroupInfoCacheMessage() {
-        super(2001114);
+        super(CmdConfigCustom.CMD_CLEAR_GROUP_INFO);
     }
 }

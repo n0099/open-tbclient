@@ -7,19 +7,19 @@ import java.io.File;
 public abstract class b implements a {
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public File Di() {
-        return new File(e.Ed(), "extension_core");
+    public File Ic() {
+        return new File(e.IX(), "extension_core");
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String Dj() {
+    public String Id() {
         return "aiapps/extcore/extension-core.zip";
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String Dk() {
+    public String Ie() {
         return "aiapps/extcore/extension-config.json";
     }
 }

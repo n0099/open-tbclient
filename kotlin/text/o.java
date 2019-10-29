@@ -3,7 +3,7 @@ package kotlin.text;
 /* loaded from: classes2.dex */
 public class o extends n {
     public static final <T> void a(Appendable appendable, T t, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
-        kotlin.jvm.internal.p.k(appendable, "$receiver");
+        kotlin.jvm.internal.p.i(appendable, "$receiver");
         if (bVar == null) {
             if (!(t != null ? t instanceof CharSequence : true)) {
                 if (!(t instanceof Character)) {

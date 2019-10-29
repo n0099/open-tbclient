@@ -1,6 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import com.baidu.ubc.UBC;
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
@@ -12,8 +12,8 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public abstract class Utf8AppleDataBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
     String value;
 
     static {
@@ -22,8 +22,8 @@ public abstract class Utf8AppleDataBox extends AppleDataBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("Utf8AppleDataBox.java", Utf8AppleDataBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getValue", "com.googlecode.mp4parser.boxes.apple.Utf8AppleDataBox", "", "", "", "java.lang.String"), 21);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setValue", "com.googlecode.mp4parser.boxes.apple.Utf8AppleDataBox", "java.lang.String", UBC.CONTENT_KEY_VALUE, "", "void"), 25);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getValue", "com.googlecode.mp4parser.boxes.apple.Utf8AppleDataBox", "", "", "", FieldUtil.TYPE_STRING), 21);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setValue", "com.googlecode.mp4parser.boxes.apple.Utf8AppleDataBox", FieldUtil.TYPE_STRING, "value", "", "void"), 25);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

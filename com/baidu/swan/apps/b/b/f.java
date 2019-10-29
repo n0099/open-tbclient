@@ -5,7 +5,51 @@ import java.util.Map;
 import okhttp3.Request;
 /* loaded from: classes2.dex */
 public interface f {
-    String aL(Context context);
+    String BJ();
+
+    boolean BK();
+
+    String BL();
+
+    String BM();
+
+    String BN();
+
+    String BO();
+
+    void BP();
+
+    String BQ();
+
+    String BR();
+
+    String BS();
+
+    String BT();
+
+    String BU();
+
+    String BV();
+
+    String BW();
+
+    String BX();
+
+    String BY();
+
+    String BZ();
+
+    String Ca();
+
+    String Cb();
+
+    String Cc();
+
+    String Cd();
+
+    String Ce();
+
+    String aN(Context context);
 
     Request d(Context context, Map<String, String> map);
 
@@ -22,48 +66,4 @@ public interface f {
     Request i(Context context, Map<String, String> map);
 
     boolean isDebug();
-
-    String wP();
-
-    boolean wQ();
-
-    String wR();
-
-    String wS();
-
-    String wT();
-
-    String wU();
-
-    void wV();
-
-    String wW();
-
-    String wX();
-
-    String wY();
-
-    String wZ();
-
-    String xa();
-
-    String xb();
-
-    String xc();
-
-    String xd();
-
-    String xe();
-
-    String xf();
-
-    String xg();
-
-    String xh();
-
-    String xi();
-
-    String xj();
-
-    String xk();
 }

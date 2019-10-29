@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes2.dex */
 public class a {
@@ -17,21 +17,21 @@ public class a {
         return null;
     }
 
-    public static String HU() {
+    public static String MO() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
-            return IXAdSystemUtils.NT_WIFI;
+            return "wifi";
         }
         if (activeNetworkInfo.getType() == 0) {
-            return o(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
+            return s(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
         }
         return "unknown";
     }
 
-    public static String o(int i, String str) {
+    public static String s(int i, String str) {
         switch (i) {
             case 1:
             case 2:
@@ -39,7 +39,7 @@ public class a {
             case 7:
             case 11:
             case 16:
-                return "2g";
+                return BdNetTypeUtil.NET_TYPENAME_2G;
             case 3:
             case 5:
             case 6:
@@ -50,14 +50,14 @@ public class a {
             case 14:
             case 15:
             case 17:
-                return "3g";
+                return BdNetTypeUtil.NET_TYPENAME_3G;
             case 13:
             case 18:
             case 19:
-                return "4g";
+                return BdNetTypeUtil.NET_TYPENAME_4G;
             default:
                 if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
-                    return "4g";
+                    return BdNetTypeUtil.NET_TYPENAME_4G;
                 }
                 return "unknown";
         }

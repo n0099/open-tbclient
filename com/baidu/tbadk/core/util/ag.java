@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag extends Thread {
-    private String bTH;
-    private boolean bTI;
+    private String cjK;
+    private boolean cjL;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -16,19 +16,19 @@ public class ag extends Thread {
     public ag(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.bTH = null;
+        this.cjK = null;
         this.mObjTp = null;
-        this.bTI = false;
+        this.cjL = false;
         this.mType = str;
-        this.bTI = z;
+        this.cjL = z;
     }
 
     public ag(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.bTH = null;
+        this.cjK = null;
         this.mObjTp = null;
-        this.bTI = false;
+        this.cjL = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -38,28 +38,28 @@ public class ag extends Thread {
         String str;
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            if (this.bTI) {
+            if (this.cjL) {
                 str = TbConfig.IN_PV_ADDRESS;
             } else {
                 str = TbConfig.LOAD_REG_PV_ADDRESS;
             }
             x xVar = new x(TbConfig.SERVER_ADDRESS + str);
-            xVar.o("st_type", this.mType);
+            xVar.addPostData("st_type", this.mType);
             if (this.mParam != null) {
-                xVar.o("st_param", this.mParam);
+                xVar.addPostData("st_param", this.mParam);
             }
-            if (this.bTH != null) {
-                xVar.o("obj", this.bTH);
+            if (this.cjK != null) {
+                xVar.addPostData("obj", this.cjK);
             }
             if (this.mObjTp != null) {
-                xVar.o("obj_tp", this.mObjTp);
+                xVar.addPostData("obj_tp", this.mObjTp);
             }
-            String aim = xVar.aim();
+            String postNetData = xVar.postNetData();
             System.out.println("pv_test !!!");
-            if (aim != null) {
-                Log.i("USEINTERVAL", aim);
+            if (postNetData != null) {
+                Log.i("USEINTERVAL", postNetData);
                 try {
-                    JSONObject jSONObject = new JSONObject(aim);
+                    JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.has("use_duration")) {
                         long optLong = jSONObject.optLong("use_duration");
                         Log.i("USEINTERVAL", "duration " + optLong);

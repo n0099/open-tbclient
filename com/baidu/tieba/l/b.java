@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tieba.l.c;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -25,41 +24,41 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method hzv;
+    private static Method hyj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
-        List<File> g;
+        List<File> f;
         Log.i("MultiDex", "MultiDexExtractor.load(" + applicationInfo.sourceDir + ", " + z + ")");
         File file2 = new File(applicationInfo.sourceDir);
-        long N = N(file2);
-        if (!z && !a(context, file2, N)) {
+        long z2 = z(file2);
+        if (!z && !a(context, file2, z2)) {
             try {
-                g = a(context, file2, file);
+                f = a(context, file2, file);
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().bQf();
+                    ((c.a) context).getSplash().bNf();
                 }
-                g = g(file2, file);
-                b(context, M(file2), N, g.size() + 1);
+                f = f(file2, file);
+                b(context, y(file2), z2, f.size() + 1);
             }
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().bQf();
+                ((c.a) context).getSplash().bNf();
             }
-            g = g(file2, file);
-            b(context, M(file2), N, g.size() + 1);
+            f = f(file2, file);
+            b(context, y(file2), z2, f.size() + 1);
         }
-        Log.i("MultiDex", "load found " + g.size() + " secondary dex files");
-        return g;
+        Log.i("MultiDex", "load found " + f.size() + " secondary dex files");
+        return f;
     }
 
     private static List<File> a(Context context, File file, File file2) throws IOException {
         Log.i("MultiDex", "loading existing secondary dex files");
         String str = file.getName() + ".classes";
-        int i = cp(context).getInt("dex.number", 1);
+        int i = getMultiDexPreferences(context).getInt("dex.number", 1);
         ArrayList arrayList = new ArrayList(i);
         for (int i2 = 2; i2 <= i; i2++) {
             File file3 = new File(file2, str + i2 + ".zip");
@@ -67,7 +66,7 @@ final class b {
                 throw new IOException("Missing extracted secondary dex file '" + file3.getPath() + "'");
             }
             arrayList.add(file3);
-            if (!P(file3)) {
+            if (!B(file3)) {
                 Log.i("MultiDex", "Invalid zip file: " + file3);
                 throw new IOException("Invalid ZIP file.");
             }
@@ -76,11 +75,11 @@ final class b {
     }
 
     private static boolean a(Context context, File file, long j) {
-        SharedPreferences cp = cp(context);
-        return (cp.getLong(DpStatConstants.KEY_TIMESTAMP, -1L) == M(file) && cp.getLong("crc", -1L) == j) ? false : true;
+        SharedPreferences multiDexPreferences = getMultiDexPreferences(context);
+        return (multiDexPreferences.getLong("timestamp", -1L) == y(file) && multiDexPreferences.getLong("crc", -1L) == j) ? false : true;
     }
 
-    private static long M(File file) {
+    private static long y(File file) {
         long lastModified = file.lastModified();
         if (lastModified == -1) {
             return lastModified - 1;
@@ -88,17 +87,17 @@ final class b {
         return lastModified;
     }
 
-    private static long N(File file) throws IOException {
-        long N = d.N(file);
-        if (N == -1) {
-            return N - 1;
+    private static long z(File file) throws IOException {
+        long z = d.z(file);
+        if (z == -1) {
+            return z - 1;
         }
-        return N;
+        return z;
     }
 
-    private static List<File> g(File file, File file2) throws IOException {
+    private static List<File> f(File file, File file2) throws IOException {
         String str = file.getName() + ".classes";
-        g(file2, str);
+        d(file2, str);
         ArrayList arrayList = new ArrayList();
         ZipFile zipFile = new ZipFile(file);
         try {
@@ -113,17 +112,17 @@ final class b {
                 while (i2 < 3 && !z) {
                     int i3 = i2 + 1;
                     a(zipFile, entry, file3, str);
-                    boolean P = P(file3);
-                    Log.i("MultiDex", "Extraction " + (P ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
-                    if (!P) {
+                    boolean B = B(file3);
+                    Log.i("MultiDex", "Extraction " + (B ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
+                    if (!B) {
                         file3.delete();
                         if (file3.exists()) {
                             Log.w("MultiDex", "Failed to delete corrupted secondary dex '" + file3.getPath() + "'");
-                            z = P;
+                            z = B;
                             i2 = i3;
                         }
                     }
-                    z = P;
+                    z = B;
                     i2 = i3;
                 }
                 if (!z) {
@@ -144,20 +143,20 @@ final class b {
     }
 
     private static void b(Context context, long j, long j2, int i) {
-        SharedPreferences.Editor edit = cp(context).edit();
-        edit.putLong(DpStatConstants.KEY_TIMESTAMP, j);
+        SharedPreferences.Editor edit = getMultiDexPreferences(context).edit();
+        edit.putLong("timestamp", j);
         edit.putLong("crc", j2);
         edit.putInt("dex.number", i);
         apply(edit);
     }
 
-    private static SharedPreferences cp(Context context) {
+    private static SharedPreferences getMultiDexPreferences(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
     }
 
-    private static void g(File file, final String str) throws IOException {
-        O(file.getParentFile());
-        O(file);
+    private static void d(File file, final String str) throws IOException {
+        A(file.getParentFile());
+        A(file);
         File[] listFiles = file.listFiles(new FileFilter() { // from class: com.baidu.tieba.l.b.1
             @Override // java.io.FileFilter
             public boolean accept(File file2) {
@@ -178,7 +177,7 @@ final class b {
         }
     }
 
-    private static void O(File file) throws IOException {
+    private static void A(File file) throws IOException {
         file.mkdir();
         if (!file.isDirectory()) {
             File parentFile = file.getParentFile();
@@ -217,7 +216,7 @@ final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean P(File file) {
+    public static boolean B(File file) {
         try {
             try {
                 new ZipFile(file).close();
@@ -242,9 +241,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (hzv != null) {
+        if (hyj != null) {
             try {
-                hzv.invoke(editor, new Object[0]);
+                hyj.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +254,9 @@ final class b {
 
     static {
         try {
-            hzv = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            hyj = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            hzv = null;
+            hyj = null;
         }
     }
 }

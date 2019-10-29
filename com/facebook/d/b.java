@@ -1,22 +1,23 @@
 package com.facebook.d;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.facebook.common.internal.g;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class b {
-    public static int Ey(int i) {
-        return d.Ey(i);
+    public static int CU(int i) {
+        return d.CU(i);
     }
 
-    public static int y(InputStream inputStream) {
+    public static int v(InputStream inputStream) {
         try {
-            int z = z(inputStream);
-            if (z == 0) {
+            int w = w(inputStream);
+            if (w == 0) {
                 return 0;
             }
-            return d.h(inputStream, z);
+            return d.h(inputStream, w);
         } catch (IOException e) {
             return 0;
         }
@@ -29,7 +30,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && Ez(i2)) || i2 == i) {
+            if ((i == 192 && CV(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -42,13 +43,13 @@ public class b {
         return false;
     }
 
-    private static boolean Ez(int i) {
+    private static boolean CV(int i) {
         switch (i) {
             case 192:
-            case 193:
+            case Constants.METHOD_IM_FETCH_CONFIG_MSG /* 193 */:
             case 194:
             case 195:
-            case 197:
+            case Constants.METHOD_IM_DELIVER_CONFIG_MSG /* 197 */:
             case 198:
             case 199:
             case 201:
@@ -58,7 +59,7 @@ public class b {
             case 206:
             case HttpStatus.SC_MULTI_STATUS /* 207 */:
                 return true;
-            case 196:
+            case Constants.METHOD_IM_DELIVER_MSG /* 196 */:
             case 200:
             case 204:
             default:
@@ -66,7 +67,7 @@ public class b {
         }
     }
 
-    private static int z(InputStream inputStream) throws IOException {
+    private static int w(InputStream inputStream) throws IOException {
         int a;
         if (g(inputStream, 225) && c.a(inputStream, 2, false) - 2 > 6) {
             int a2 = c.a(inputStream, 4, false);

@@ -1,7 +1,6 @@
 package com.baidu.tieba.pbextra.praise;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +50,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
                 this.mZanItemDataList = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    this.mZanItemDataList.add(new a(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString(IntentConfig.PORTRAIT), jSONObject2.optString("name_show"), jSONObject2.optLong("zan_time") * 1000));
+                    this.mZanItemDataList.add(new a(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString("portrait"), jSONObject2.optString("name_show"), jSONObject2.optLong("zan_time") * 1000));
                 }
             }
         }

@@ -18,10 +18,10 @@ public class GetBigdayInfoReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
-            builder.scr_h = Integer.valueOf(l.ah(TbadkCoreApplication.getInst().getContext()));
-            builder.scr_w = Integer.valueOf(l.af(TbadkCoreApplication.getInst().getContext()));
+            builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getContext()));
+            builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getContext()));
             GetBigdayReqIdl.Builder builder2 = new GetBigdayReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

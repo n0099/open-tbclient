@@ -8,13 +8,13 @@ import com.xiaomi.channel.commonutils.android.n;
 import com.xiaomi.push.service.XMJobService;
 /* loaded from: classes3.dex */
 public final class a {
-    private static InterfaceC0501a a;
+    private static InterfaceC0602a a;
     private static final String b = XMJobService.class.getCanonicalName();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.xiaomi.push.service.timers.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0501a {
+    public interface InterfaceC0602a {
         void a();
 
         void a(boolean z);

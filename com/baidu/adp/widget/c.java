@@ -12,12 +12,12 @@ import android.text.style.DynamicDrawableSpan;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends DynamicDrawableSpan {
-    private Uri OP;
-    private a OQ;
+    private Uri mContentUri;
     private Context mContext;
     private Drawable mDrawable;
     private Rect mRect;
     private int mResourceId;
+    private a zt;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -32,12 +32,12 @@ public class c extends DynamicDrawableSpan {
         super(i2);
         this.mRect = new Rect();
         this.mResourceId = i;
-        this.OQ = aVar;
+        this.zt = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.mDrawable != null || this.OQ == null) {
+        if (this.mDrawable != null || this.zt == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
@@ -54,15 +54,15 @@ public class c extends DynamicDrawableSpan {
         Drawable drawable = null;
         if (this.mDrawable != null) {
             drawable = this.mDrawable;
-        } else if (this.OQ != null) {
-            drawable = this.OQ.a(this);
+        } else if (this.zt != null) {
+            drawable = this.zt.a(this);
         }
         if (drawable != null) {
             return drawable;
         }
-        if (this.OP != null) {
+        if (this.mContentUri != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.OP);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.mContentUri);
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
@@ -103,7 +103,7 @@ public class c extends DynamicDrawableSpan {
         }
     }
 
-    public void f(int i, int i2, int i3, int i4) {
+    public void setEmptyBounds(int i, int i2, int i3, int i4) {
         this.mRect.set(i, i2, i3, i4);
     }
 }

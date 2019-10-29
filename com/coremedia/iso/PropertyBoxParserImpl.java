@@ -1,8 +1,6 @@
 package com.coremedia.iso;
 
 import com.coremedia.iso.boxes.Box;
-import com.coremedia.iso.boxes.UserBox;
-import com.vivo.push.util.NotifyAdapterUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.InputStream;
@@ -98,7 +96,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
     public void invoke(String str, byte[] bArr, String str2) {
         String property;
         if (bArr != null) {
-            if (!UserBox.TYPE.equals(str)) {
+            if (!"uuid".equals(str)) {
                 throw new RuntimeException("we have a userType but no uuid box type. Something's wrong");
             }
             property = this.mapping.getProperty("uuid[" + Hex.encodeHex(bArr).toUpperCase() + "]");
@@ -106,7 +104,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
                 property = this.mapping.getProperty(String.valueOf(str2) + "-uuid[" + Hex.encodeHex(bArr).toUpperCase() + "]");
             }
             if (property == null) {
-                property = this.mapping.getProperty(UserBox.TYPE);
+                property = this.mapping.getProperty("uuid");
             }
         } else {
             property = this.mapping.getProperty(str);
@@ -117,7 +115,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
             }
         }
         if (property == null) {
-            property = this.mapping.getProperty(NotifyAdapterUtil.PRIMARY_CHANNEL);
+            property = this.mapping.getProperty("default");
         }
         if (property == null) {
             throw new RuntimeException("No box object found for " + str);

@@ -6,33 +6,33 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class l {
     private static final boolean c = com.baidu.swan.apps.b.DEBUG;
-    public JsFunction bfa;
-    public JsFunction bfc;
+    public JsFunction bxU;
+    public JsFunction bxV;
 
     public static l d(com.baidu.swan.games.binding.model.c cVar) {
         if (cVar == null) {
             return null;
         }
         l lVar = new l();
-        lVar.bfa = cVar.ja("success");
-        lVar.bfc = cVar.ja(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        lVar.bxU = cVar.jD("success");
+        lVar.bxV = cVar.jD(LivenessStat.TYPE_FACE_MATCH_FAIL);
         return lVar;
     }
 
     public void a() {
-        if (this.bfa != null) {
-            this.bfa.call();
+        if (this.bxU != null) {
+            this.bxU.call();
         }
     }
 
     public void a(String str) {
-        JSONObject iN = iN(str);
-        if (this.bfc != null) {
-            this.bfc.call(iN);
+        JSONObject jq = jq(str);
+        if (this.bxV != null) {
+            this.bxV.call(jq);
         }
     }
 
-    private JSONObject iN(String str) {
+    private JSONObject jq(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errCode", str);

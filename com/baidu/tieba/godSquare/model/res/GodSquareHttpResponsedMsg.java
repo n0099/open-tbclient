@@ -1,7 +1,6 @@
 package com.baidu.tieba.godSquare.model.res;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.godSquare.model.a;
 import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
 import com.squareup.wire.Wire;
@@ -13,7 +12,7 @@ public class GodSquareHttpResponsedMsg extends HttpResponsedMessage {
     private DataRes mResult;
 
     public GodSquareHttpResponsedMsg() {
-        super(CmdConfigHttp.CMD_GET_HOT_GOD);
+        super(1003099);
     }
 
     public boolean getHasMore() {
@@ -44,7 +43,7 @@ public class GodSquareHttpResponsedMsg extends HttpResponsedMessage {
         if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof GodSquareRequestMsg)) {
             GodSquareRequestMsg godSquareRequestMsg = (GodSquareRequestMsg) getOrginalMessage().getExtra();
             if (godSquareRequestMsg.pn == 1) {
-                new a().j(godSquareRequestMsg.pn + "", bArr);
+                new a().i(godSquareRequestMsg.pn + "", bArr);
             }
         }
     }

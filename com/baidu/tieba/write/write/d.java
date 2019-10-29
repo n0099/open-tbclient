@@ -10,18 +10,18 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    private c jVU;
+    private c jTT;
     private List<String> mDataList;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TbImageView jFR;
-        public TbImageView jFS;
+        public TbImageView jFH;
+        public TbImageView jFI;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.aa(this.mDataList)) {
+        if (v.isEmpty(this.mDataList)) {
             return 0;
         }
         return (int) Math.ceil(this.mDataList.size() / 2.0d);
@@ -30,7 +30,7 @@ public class d extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public String getItem(int i) {
-        return (String) v.c(this.mDataList, i);
+        return (String) v.getItem(this.mDataList, i);
     }
 
     @Override // android.widget.Adapter
@@ -44,31 +44,31 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pic_sticker_item, (ViewGroup) null);
             aVar = new a();
-            aVar.jFR = (TbImageView) view.findViewById(R.id.top_sticker);
-            aVar.jFS = (TbImageView) view.findViewById(R.id.bottom_sticker);
+            aVar.jFH = (TbImageView) view.findViewById(R.id.top_sticker);
+            aVar.jFI = (TbImageView) view.findViewById(R.id.bottom_sticker);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.jFR.setGifIconSupport(false);
-        aVar.jFS.setGifIconSupport(false);
-        aVar.jFR.startLoad(this.mDataList.get(i * 2), 10, true);
-        aVar.jFR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
+        aVar.jFH.setGifIconSupport(false);
+        aVar.jFI.setGifIconSupport(false);
+        aVar.jFH.startLoad(this.mDataList.get(i * 2), 10, true);
+        aVar.jFH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TbImageView tbImageView = (TbImageView) view2;
-                if (d.this.jVU != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().nK() != null) {
-                    d.this.jVU.e(tbImageView.getBdImage().nK(), false);
+                if (d.this.jTT != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().getRawBitmap() != null) {
+                    d.this.jTT.d(tbImageView.getBdImage().getRawBitmap(), false);
                 }
             }
         });
-        aVar.jFS.startLoad(this.mDataList.get((i * 2) + 1), 10, true);
-        aVar.jFS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.2
+        aVar.jFI.startLoad(this.mDataList.get((i * 2) + 1), 10, true);
+        aVar.jFI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TbImageView tbImageView = (TbImageView) view2;
-                if (d.this.jVU != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().nK() != null) {
-                    d.this.jVU.e(tbImageView.getBdImage().nK(), true);
+                if (d.this.jTT != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().getRawBitmap() != null) {
+                    d.this.jTT.d(tbImageView.getBdImage().getRawBitmap(), true);
                 }
             }
         });
@@ -76,11 +76,11 @@ public class d extends BaseAdapter {
     }
 
     public void b(c cVar) {
-        this.jVU = cVar;
+        this.jTT = cVar;
     }
 
     public void setData(List<String> list) {
-        if (!v.aa(list)) {
+        if (!v.isEmpty(list)) {
             this.mDataList = list;
         }
     }

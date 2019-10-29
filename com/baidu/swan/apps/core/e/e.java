@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class e {
     private static final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
-    private a asX;
+    private a aMo;
     private Context mContext;
     private View mCustomView;
     private FrameLayout mFullscreenContainer;
@@ -16,7 +16,7 @@ public class e {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Bc();
+        void FX();
     }
 
     public e(Context context) {
@@ -31,7 +31,7 @@ public class e {
         }
         if (activity != null) {
             if (this.mCustomView != null) {
-                aVar.Bc();
+                aVar.FX();
                 return;
             }
             this.mOriginalOrientation = activity.getRequestedOrientation();
@@ -39,8 +39,8 @@ public class e {
             this.mFullscreenContainer.addView(view, COVER_SCREEN_PARAMS);
             ((FrameLayout) activity.getWindow().getDecorView()).addView(this.mFullscreenContainer, COVER_SCREEN_PARAMS);
             this.mCustomView = view;
-            d(activity, true);
-            this.asX = aVar;
+            e(activity, true);
+            this.aMo = aVar;
             activity.setRequestedOrientation(i);
         }
     }
@@ -50,17 +50,17 @@ public class e {
             Context context = this.mContext;
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
-                d(activity, false);
+                e(activity, false);
                 ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.mFullscreenContainer);
                 this.mFullscreenContainer = null;
                 this.mCustomView = null;
-                this.asX.Bc();
+                this.aMo.FX();
                 activity.setRequestedOrientation(this.mOriginalOrientation);
             }
         }
     }
 
-    public void d(Activity activity, boolean z) {
+    public void e(Activity activity, boolean z) {
         activity.getWindow().setFlags(!z ? 0 : 1024, 1024);
     }
 

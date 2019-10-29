@@ -5,13 +5,13 @@ import java.util.List;
 /* loaded from: classes3.dex */
 final class h extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(com.vivo.push.v vVar) {
-        super(vVar);
+    public h(com.vivo.push.y yVar) {
+        super(yVar);
     }
 
-    @Override // com.vivo.push.s
-    protected final void a(com.vivo.push.v vVar) {
-        com.vivo.push.b.t tVar = (com.vivo.push.b.t) vVar;
+    @Override // com.vivo.push.v
+    protected final void a(com.vivo.push.y yVar) {
+        com.vivo.push.b.t tVar = (com.vivo.push.b.t) yVar;
         ArrayList<String> d = tVar.d();
         List<String> e = tVar.e();
         ArrayList arrayList = new ArrayList();
@@ -40,17 +40,17 @@ final class h extends aa {
         }
         if (arrayList.size() > 0 || arrayList3.size() > 0) {
             if (arrayList.size() > 0) {
-                com.vivo.push.m.a().b(arrayList);
+                com.vivo.push.p.a().b(arrayList);
             }
-            com.vivo.push.m.a().a(tVar.g(), arrayList3.size() > 0 ? 10000 : h);
-            b.post(new i(this, h, arrayList, arrayList3, g));
+            com.vivo.push.p.a().a(tVar.g(), arrayList3.size() > 0 ? 10000 : h);
+            com.vivo.push.w.b(new i(this, h, arrayList, arrayList3, g));
         }
         if (arrayList2.size() > 0 || arrayList4.size() > 0) {
             if (arrayList2.size() > 0) {
-                com.vivo.push.m.a().e();
+                com.vivo.push.p.a().c(arrayList2);
             }
-            com.vivo.push.m.a().a(tVar.g(), h);
-            b.post(new j(this, h, arrayList2, arrayList4, g));
+            com.vivo.push.p.a().a(tVar.g(), h);
+            com.vivo.push.w.b(new j(this, h, arrayList2, arrayList4, g));
         }
     }
 }

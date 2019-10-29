@@ -1,5 +1,7 @@
 package org.apache.thrift;
 
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import java.nio.ByteBuffer;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -170,12 +172,12 @@ public final class b {
         int i = limit - arrayOffset > 128 ? arrayOffset + 128 : limit;
         for (int i2 = arrayOffset; i2 < i; i2++) {
             if (i2 > arrayOffset) {
-                sb.append(" ");
+                sb.append(HanziToPinyin.Token.SEPARATOR);
             }
             sb.append(a(array[i2]));
         }
         if (limit != i) {
-            sb.append("...");
+            sb.append(StringHelper.STRING_MORE);
         }
     }
 

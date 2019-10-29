@@ -1,22 +1,24 @@
 package com.vivo.push;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import com.vivo.push.p;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-final class u extends Handler {
+public final class u implements Runnable {
+    final /* synthetic */ String a;
+    final /* synthetic */ p b;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(Looper looper) {
-        super(looper);
+    public u(p pVar, String str) {
+        this.b = pVar;
+        this.a = str;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        Object obj = message.obj;
-        if (obj instanceof s) {
-            s sVar = (s) obj;
-            com.vivo.push.util.m.c("PushClientThread", "PushClientThread-handleMessage, task = " + sVar);
-            sVar.run();
+    @Override // java.lang.Runnable
+    public final void run() {
+        p.a c;
+        c = this.b.c(this.a);
+        if (c != null) {
+            c.a(1003, new Object[0]);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.GiftInfo;
@@ -46,7 +47,7 @@ public class MyGift extends OrmObject implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.mGiftIcon = jSONObject.optString("icon");
+            this.mGiftIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             this.mGiftNum = jSONObject.optInt("num");
         }
     }

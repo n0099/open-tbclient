@@ -12,17 +12,16 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
 public class LocalAliasTagsManager {
     public static final String DEFAULT_LOCAL_REQUEST_ID = "push_cache_sp";
-    public static final String TAG = "LocalAliasTagsManager";
     private static volatile LocalAliasTagsManager mLocalAliasTagsManager;
     private Context mContext;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ISubscribeAppAliasManager mSubscribeAppAliasManager;
     private ISubscribeAppTagManager mSubscribeAppTagManager;
-    public static final ExecutorService WORK_POOL = Executors.newCachedThreadPool();
+    public static final String TAG = "LocalAliasTagsManager";
+    public static final ExecutorService WORK_POOL = com.vivo.push.util.e.a(TAG);
     private static final Object SLOCK = new Object();
 
     /* loaded from: classes3.dex */
@@ -66,7 +65,7 @@ public class LocalAliasTagsManager {
     }
 
     public void setLocalAlias(String str) {
-        WORK_POOL.execute(new a(this, str));
+        WORK_POOL.execute(new d(this, str));
     }
 
     public List<String> getLocalTags() {
@@ -74,23 +73,23 @@ public class LocalAliasTagsManager {
     }
 
     public void setLocalTags(ArrayList<String> arrayList) {
-        WORK_POOL.execute(new c(this, arrayList));
-    }
-
-    public void init() {
-        WORK_POOL.execute(new d(this));
-    }
-
-    public void delLocalAlias(String str) {
-        WORK_POOL.execute(new e(this, str));
-    }
-
-    public void delLocalTags(ArrayList<String> arrayList) {
         WORK_POOL.execute(new f(this, arrayList));
     }
 
+    public void init() {
+        WORK_POOL.execute(new g(this));
+    }
+
+    public void delLocalAlias(String str) {
+        WORK_POOL.execute(new h(this, str));
+    }
+
+    public void delLocalTags(ArrayList<String> arrayList) {
+        WORK_POOL.execute(new i(this, arrayList));
+    }
+
     public void onReceiverMsg(UnvarnishedMessage unvarnishedMessage, LocalMessageCallback localMessageCallback) {
-        WORK_POOL.execute(new g(this, unvarnishedMessage, localMessageCallback));
+        WORK_POOL.execute(new j(this, unvarnishedMessage, localMessageCallback));
     }
 
     public boolean onReceiverNotification(UPSNotificationMessage uPSNotificationMessage, LocalMessageCallback localMessageCallback) {
@@ -100,8 +99,8 @@ public class LocalAliasTagsManager {
             case 3:
                 SubscribeAppInfo subscribeAppInfo = this.mSubscribeAppAliasManager.getSubscribeAppInfo();
                 if (subscribeAppInfo == null || subscribeAppInfo.getTargetStatus() != 1 || !subscribeAppInfo.getName().equals(tragetContent)) {
-                    m.a().b(DEFAULT_LOCAL_REQUEST_ID, tragetContent);
-                    com.vivo.push.util.m.a(TAG, tragetContent + " has ignored ; current Alias is " + subscribeAppInfo);
+                    p.a().b(DEFAULT_LOCAL_REQUEST_ID, tragetContent);
+                    com.vivo.push.util.p.a(TAG, tragetContent + " has ignored ; current Alias is " + subscribeAppInfo);
                     return true;
                 }
                 break;
@@ -110,8 +109,8 @@ public class LocalAliasTagsManager {
                 if (subscribeTags == null || !subscribeTags.contains(tragetContent)) {
                     ArrayList<String> arrayList = new ArrayList<>();
                     arrayList.add(tragetContent);
-                    m.a().b(DEFAULT_LOCAL_REQUEST_ID, arrayList);
-                    com.vivo.push.util.m.a(TAG, tragetContent + " has ignored ; current tags is " + subscribeTags);
+                    p.a().b(DEFAULT_LOCAL_REQUEST_ID, arrayList);
+                    com.vivo.push.util.p.a(TAG, tragetContent + " has ignored ; current tags is " + subscribeTags);
                     return true;
                 }
                 break;
@@ -121,25 +120,25 @@ public class LocalAliasTagsManager {
 
     public void onDelAlias(List<String> list, String str) {
         if (DEFAULT_LOCAL_REQUEST_ID.equals(str)) {
-            WORK_POOL.execute(new i(this, list));
+            WORK_POOL.execute(new l(this, list));
         }
     }
 
     public void onDelTags(List<String> list, String str) {
         if (DEFAULT_LOCAL_REQUEST_ID.equals(str)) {
-            WORK_POOL.execute(new j(this, list));
+            WORK_POOL.execute(new m(this, list));
         }
     }
 
     public void onSetAlias(List<String> list, String str) {
         if (DEFAULT_LOCAL_REQUEST_ID.equals(str)) {
-            WORK_POOL.execute(new k(this, list));
+            WORK_POOL.execute(new n(this, list));
         }
     }
 
     public void onSetTags(List<String> list, String str) {
         if (DEFAULT_LOCAL_REQUEST_ID.equals(str)) {
-            WORK_POOL.execute(new b(this, list));
+            WORK_POOL.execute(new e(this, list));
         }
     }
 }

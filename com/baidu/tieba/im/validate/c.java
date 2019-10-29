@@ -12,77 +12,77 @@ import com.baidu.tieba.im.data.ValidateItemData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.base.c<ValidateActivity> {
-    private View cCh;
-    private ProgressBar gOr;
-    private BdListView gTA;
-    private a gTB;
-    private ValidateActivity gTt;
-    private ImageView gTz;
+    private View cNq;
+    private ProgressBar gMs;
+    private BdListView gRA;
+    private a gRB;
+    private ValidateActivity gRt;
+    private ImageView gRz;
     private NavigationBar mNavigationBar;
 
     public c(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext());
-        this.gTt = validateActivity;
+        this.gRt = validateActivity;
         initView();
-        this.gTB = new a(this.gTt);
-        this.gTA.setAdapter((ListAdapter) this.gTB);
-        this.gTA.setOnSrollToBottomListener(this.gTt);
+        this.gRB = new a(this.gRt);
+        this.gRA.setAdapter((ListAdapter) this.gRB);
+        this.gRA.setOnSrollToBottomListener(this.gRt);
     }
 
     void initView() {
-        this.cCh = View.inflate(this.gTt.getPageContext().getPageActivity(), R.layout.validate_activity, null);
-        this.gTt.setContentView(this.cCh);
-        this.mNavigationBar = (NavigationBar) this.gTt.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.gTt.getPageContext().getString(R.string.validate));
+        this.cNq = View.inflate(this.gRt.getPageContext().getPageActivity(), R.layout.validate_activity, null);
+        this.gRt.setContentView(this.cNq);
+        this.mNavigationBar = (NavigationBar) this.gRt.findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.gRt.getPageContext().getString(R.string.validate));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.gTt.finish();
+                c.this.gRt.finish();
             }
         });
-        this.gTA = (BdListView) this.cCh.findViewById(R.id.validate_list);
-        this.gOr = (ProgressBar) this.cCh.findViewById(R.id.pro_load);
-        mv(false);
+        this.gRA = (BdListView) this.cNq.findViewById(R.id.validate_list);
+        this.gMs = (ProgressBar) this.cNq.findViewById(R.id.pro_load);
+        mj(false);
     }
 
     @Override // com.baidu.adp.base.c
     public void destroy() {
         super.destroy();
-        if (this.gTB != null) {
-            this.gTB.destroy();
-            this.gTB = null;
+        if (this.gRB != null) {
+            this.gRB.destroy();
+            this.gRB = null;
         }
-        this.gTt = null;
+        this.gRt = null;
     }
 
     public void setData(List<ValidateItemData> list) {
-        if (this.gTB != null) {
-            this.gTB.setData(list);
+        if (this.gRB != null) {
+            this.gRB.setData(list);
         }
     }
 
-    public void mv(boolean z) {
-        this.gOr.setVisibility(z ? 0 : 8);
+    public void mj(boolean z) {
+        this.gMs.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        this.gTt.getLayoutMode().setNightMode(i == 1);
-        this.gTt.getLayoutMode().onModeChanged(this.cCh);
-        this.mNavigationBar.onChangeSkinType(this.gTt.getPageContext(), i);
+        this.gRt.getLayoutMode().setNightMode(i == 1);
+        this.gRt.getLayoutMode().onModeChanged(this.cNq);
+        this.mNavigationBar.onChangeSkinType(this.gRt.getPageContext(), i);
         if (i == 1 || i == 4) {
-            this.gTA.setDivider(new ColorDrawable(this.gTt.getResources().getColor(R.color.common_color_10179)));
-            this.gTA.setDividerHeight(this.gTt.getResources().getDimensionPixelSize(R.dimen.ds2));
+            this.gRA.setDivider(new ColorDrawable(this.gRt.getResources().getColor(R.color.common_color_10179)));
+            this.gRA.setDividerHeight(this.gRt.getResources().getDimensionPixelSize(R.dimen.ds2));
             return;
         }
-        this.gTA.setDivider(new ColorDrawable(this.gTt.getResources().getColor(R.color.common_color_10241)));
-        this.gTA.setDividerHeight(this.gTt.getResources().getDimensionPixelSize(R.dimen.ds2));
+        this.gRA.setDivider(new ColorDrawable(this.gRt.getResources().getColor(R.color.common_color_10241)));
+        this.gRA.setDividerHeight(this.gRt.getResources().getDimensionPixelSize(R.dimen.ds2));
     }
 
-    public ImageView bHK() {
-        return this.gTz;
+    public ImageView bEv() {
+        return this.gRz;
     }
 
-    public a bHL() {
-        return this.gTB;
+    public a bEw() {
+        return this.gRB;
     }
 }

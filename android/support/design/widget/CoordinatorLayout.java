@@ -43,6 +43,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -483,10 +485,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (str.startsWith(".")) {
+        if (str.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
             str = context.getPackageName() + str;
         } else if (str.indexOf(46) < 0 && !TextUtils.isEmpty(WIDGET_PACKAGE_NAME)) {
-            str = WIDGET_PACKAGE_NAME + '.' + str;
+            str = WIDGET_PACKAGE_NAME + BdFileHelper.EXTENSION_SEPARATOR + str;
         }
         try {
             Map<String, Constructor<Behavior>> map = sConstructors.get();

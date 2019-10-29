@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.v;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -38,7 +37,7 @@ public class BdTypeListView extends BdListView implements r<BdTypeListView> {
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (BdTypeListView.this.mTypeAdapter != null) {
-                    BdTypeListView.this.mTypeAdapter.a(adapterView, view, i, j);
+                    BdTypeListView.this.mTypeAdapter.onItemClick(adapterView, view, i, j);
                 }
             }
         });
@@ -46,7 +45,7 @@ public class BdTypeListView extends BdListView implements r<BdTypeListView> {
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (BdTypeListView.this.mTypeAdapter != null) {
-                    return BdTypeListView.this.mTypeAdapter.b(adapterView, view, i, j);
+                    return BdTypeListView.this.mTypeAdapter.onItemLongClick(adapterView, view, i, j);
                 }
                 return false;
             }
@@ -69,11 +68,6 @@ public class BdTypeListView extends BdListView implements r<BdTypeListView> {
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
     @Deprecated
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
-    }
-
-    public void addAdapter(a<m, v.a> aVar) {
-        this.mTypeAdapter.addAdapter(aVar);
-        setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
     @Override // com.baidu.adp.widget.ListView.r

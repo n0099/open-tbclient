@@ -15,52 +15,60 @@ import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.apps.w.d;
 /* loaded from: classes2.dex */
 public interface c extends d.b {
-    com.baidu.swan.apps.ae.b AI();
+    com.baidu.swan.apps.core.d.e AH();
 
-    com.baidu.swan.games.view.b AT();
+    void AK();
 
-    com.baidu.swan.games.view.b AU();
+    void Cf();
 
-    String Ag();
+    void Cg();
 
-    com.baidu.swan.apps.core.d.d Aw();
+    FullScreenFloatView E(Activity activity);
 
-    FullScreenFloatView F(Activity activity);
+    SwanAppPropertyWindow F(Activity activity);
 
-    SwanAppPropertyWindow G(Activity activity);
+    com.baidu.swan.apps.ae.b FD();
 
-    void Gm();
+    com.baidu.swan.games.view.b FO();
 
-    void Gn();
+    com.baidu.swan.games.view.b FP();
 
-    SwanCoreVersion Go();
+    String Fb();
+
+    com.baidu.swan.apps.core.d.d Fr();
+
+    void Lg();
+
+    void Lh();
+
+    SwanCoreVersion Li();
 
     @DebugTrace
-    com.baidu.swan.apps.b.c.a Gp();
+    com.baidu.swan.apps.b.c.a Lj();
 
-    boolean Gq();
+    boolean Lk();
 
-    com.baidu.swan.apps.ae.a.c Gr();
+    com.baidu.swan.apps.ae.a.c Ll();
 
-    String Gs();
+    String Lm();
 
-    String Gt();
+    String Ln();
 
-    String Gu();
+    String Lo();
 
-    SwanAppActivity Gv();
+    SwanAppActivity Lp();
 
-    com.baidu.swan.apps.b.c.d Gw();
-
-    @NonNull
-    Pair<Integer, Integer> Gx();
+    com.baidu.swan.apps.b.c.d Lq();
 
     @NonNull
-    Pair<Integer, Integer> Gy();
+    Pair<Integer, Integer> Lr();
 
-    void I(Intent intent);
+    @NonNull
+    Pair<Integer, Integer> Ls();
 
-    void a(int i, @NonNull String[] strArr, a.InterfaceC0120a interfaceC0120a);
+    void O(Intent intent);
+
+    void a(int i, @NonNull String[] strArr, a.InterfaceC0152a interfaceC0152a);
 
     void a(com.baidu.swan.apps.m.a.a aVar);
 
@@ -72,30 +80,22 @@ public interface c extends d.b {
 
     void b(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.install.b bVar2);
 
-    void bh(Context context);
+    void bj(Context context);
 
-    void bi(Context context);
+    void bk(Context context);
 
     void doRelease();
 
-    com.baidu.swan.apps.b.c.e ea(String str);
+    com.baidu.swan.apps.b.c.e eH(String str);
 
     void exit();
 
     void f(SwanAppActivity swanAppActivity);
 
     @NonNull
-    com.baidu.swan.apps.ae.a.d ff(String str);
+    com.baidu.swan.apps.ae.a.d fM(String str);
 
-    AbsoluteLayout fg(String str);
+    AbsoluteLayout fN(String str);
 
     void showLoadingView();
-
-    com.baidu.swan.apps.core.d.e vN();
-
-    void vQ();
-
-    void xl();
-
-    void xm();
 }

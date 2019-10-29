@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
-import com.sina.weibo.BuildConfig;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.BufferedInputStream;
@@ -46,13 +46,13 @@ public final class ShareUtils {
             try {
                 String packageName = WeiboAppManager.queryWbInfoInternal(context).getPackageName();
                 if (TextUtils.isEmpty(packageName)) {
-                    packageName = BuildConfig.APPLICATION_ID;
+                    packageName = "com.sina.weibo";
                 }
                 str = "/Android/data/" + packageName + "/files/.composerTem/";
                 new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str).mkdirs();
                 Calendar calendar = Calendar.getInstance();
                 try {
-                    if (uri.getScheme().equals("file")) {
+                    if (uri.getScheme().equals(BdStatsConstant.OpSubType.FILE)) {
                         str2 = calendar.getTimeInMillis() + uri.getLastPathSegment();
                         cursor = null;
                     } else {

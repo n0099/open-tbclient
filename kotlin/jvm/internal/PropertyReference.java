@@ -31,7 +31,7 @@ public abstract class PropertyReference extends CallableReference implements kot
         }
         if (obj instanceof PropertyReference) {
             PropertyReference propertyReference = (PropertyReference) obj;
-            return getOwner().equals(propertyReference.getOwner()) && getName().equals(propertyReference.getName()) && getSignature().equals(propertyReference.getSignature()) && p.h(getBoundReceiver(), propertyReference.getBoundReceiver());
+            return getOwner().equals(propertyReference.getOwner()) && getName().equals(propertyReference.getName()) && getSignature().equals(propertyReference.getSignature()) && p.f(getBoundReceiver(), propertyReference.getBoundReceiver());
         } else if (obj instanceof kotlin.reflect.j) {
             return obj.equals(compute());
         } else {

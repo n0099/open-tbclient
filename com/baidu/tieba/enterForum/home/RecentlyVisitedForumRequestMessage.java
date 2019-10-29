@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.util.r;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
     private LinkedList<VisitedForumData> mForumData;
 
     public RecentlyVisitedForumRequestMessage() {
-        super(CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601);
+        super(1003394, CmdConfigSocket.CMD_GET_HISTORY_FORUM);
     }
 
     public LinkedList<VisitedForumData> getForumData() {
@@ -45,14 +45,14 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
                 while (it.hasNext()) {
                     VisitedForumData next = it.next();
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("forum_id", com.baidu.adp.lib.g.b.e(next.getForumId(), 0L));
-                    jSONObject.put("visit_time", next.arW());
+                    jSONObject.put("forum_id", com.baidu.adp.lib.g.b.toLong(next.getForumId(), 0L));
+                    jSONObject.put("visit_time", next.atK());
                     jSONArray.put(jSONObject);
                 }
             }
             builder.history = jSONArray.toString();
             if (z) {
-                r.bindCommonParamsToProtobufData(builder, true);
+                r.a(builder, true);
             }
             GetHistoryForumReqIdl.Builder builder2 = new GetHistoryForumReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -5,40 +5,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class a {
-    private HashMap<String, b> akp = new HashMap<>();
-    private ArrayList<Integer> cWU;
-    private c cWV;
+    private HashMap<String, b> aDL = new HashMap<>();
+    private ArrayList<Integer> dgq;
+    private c dgr;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.cWU = arrayList;
-        this.cWV = cVar;
+        this.dgq = arrayList;
+        this.dgr = cVar;
     }
 
-    public int ag(String str, int i) {
-        if (this.akp == null || aq.isEmpty(str) || this.cWU == null || !this.cWU.contains(Integer.valueOf(i))) {
+    public int X(String str, int i) {
+        if (this.aDL == null || aq.isEmpty(str) || this.dgq == null || !this.dgq.contains(Integer.valueOf(i))) {
             return 0;
         }
-        if (!this.akp.containsKey(str)) {
-            sw(str);
+        if (!this.aDL.containsKey(str)) {
+            rf(str);
         }
-        b bVar = this.akp.get(str);
+        b bVar = this.aDL.get(str);
         if (bVar == null) {
             return 0;
         }
-        return bVar.mt(i);
+        return bVar.ly(i);
     }
 
-    public void sw(String str) {
-        if (this.akp != null && !aq.isEmpty(str) && this.cWV != null) {
-            if (this.akp.containsKey(str)) {
-                b bVar = this.akp.get(str);
-                this.cWV.a(this.cWU, bVar);
-                this.akp.put(str, bVar);
+    public void rf(String str) {
+        if (this.aDL != null && !aq.isEmpty(str) && this.dgr != null) {
+            if (this.aDL.containsKey(str)) {
+                b bVar = this.aDL.get(str);
+                this.dgr.a(this.dgq, bVar);
+                this.aDL.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.cWV.a(this.cWU, bVar2);
-            this.akp.put(str, bVar2);
+            this.dgr.a(this.dgq, bVar2);
+            this.aDL.put(str, bVar2);
         }
     }
 }

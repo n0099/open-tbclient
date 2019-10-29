@@ -19,13 +19,13 @@ public class i extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject bQ(int i) {
-        return super.bQ(i);
+    public /* bridge */ /* synthetic */ com.baidu.swan.apps.canvas.c.a c(UnitedSchemeEntity unitedSchemeEntity) {
+        return super.c(unitedSchemeEntity);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ com.baidu.swan.apps.canvas.c.a c(UnitedSchemeEntity unitedSchemeEntity) {
-        return super.c(unitedSchemeEntity);
+    public /* bridge */ /* synthetic */ JSONObject cM(int i) {
+        return super.cM(i);
     }
 
     public i(j jVar) {
@@ -37,11 +37,11 @@ public class i extends a {
         boolean z = false;
         com.baidu.swan.apps.canvas.c.a c = c(unitedSchemeEntity);
         if (c == null) {
-            unitedSchemeEntity.result = bQ(201);
+            unitedSchemeEntity.result = cM(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update action parse model is null");
         } else {
-            AbsoluteLayout a = a(unitedSchemeEntity, c.aEs);
-            if (a != null && com.baidu.swan.apps.canvas.a.xT().b(a, c)) {
+            AbsoluteLayout a = a(unitedSchemeEntity, c.aXH);
+            if (a != null && com.baidu.swan.apps.canvas.a.CO().b(a, c)) {
                 z = true;
             }
             a(unitedSchemeEntity, callbackHandler, z);

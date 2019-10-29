@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.vivo.push.m;
 import com.vivo.push.model.UnvarnishedMessage;
-import com.vivo.push.util.p;
+import com.vivo.push.p;
+import com.vivo.push.util.s;
 import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
@@ -16,17 +16,17 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     @Override // android.content.BroadcastReceiver
     public final void onReceive(Context context, Intent intent) {
         Context applicationContext = context.getApplicationContext();
-        m.a().a(applicationContext);
+        p.a().a(applicationContext);
         try {
             int intExtra = intent.getIntExtra("method", -1);
-            com.vivo.push.util.m.d("PushMessageReceiver", "PushMessageReceiver " + applicationContext.getPackageName() + " ; type = " + intExtra + " ; requestId = " + intent.getStringExtra("req_id"));
+            com.vivo.push.util.p.d("PushMessageReceiver", "PushMessageReceiver " + applicationContext.getPackageName() + " ; type = " + intExtra + " ; requestId = " + intent.getStringExtra("req_id"));
             try {
-                m.a().a(intent, this);
+                p.a().a(intent, this);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } catch (Exception e2) {
-            com.vivo.push.util.m.b("PushMessageReceiver", "get method error", e2);
+            com.vivo.push.util.p.b("PushMessageReceiver", "get method error", e2);
         }
     }
 
@@ -73,21 +73,21 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     @Override // com.vivo.push.sdk.PushMessageCallback
     public boolean isAllowNet(Context context) {
         if (context == null) {
-            com.vivo.push.util.m.a("PushMessageReceiver", "isAllowNet sContext is null");
+            com.vivo.push.util.p.a("PushMessageReceiver", "isAllowNet sContext is null");
             return false;
         }
         String packageName = context.getPackageName();
         if (TextUtils.isEmpty(packageName)) {
-            com.vivo.push.util.m.a("PushMessageReceiver", "isAllowNet pkgName is null");
+            com.vivo.push.util.p.a("PushMessageReceiver", "isAllowNet pkgName is null");
             return false;
         }
         Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
         intent.setPackage(packageName);
         List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 576);
         if (queryIntentServices == null || queryIntentServices.size() <= 0) {
-            com.vivo.push.util.m.a("PushMessageReceiver", "this is client sdk");
+            com.vivo.push.util.p.a("PushMessageReceiver", "this is client sdk");
             return true;
         }
-        return p.a(context, packageName);
+        return s.a(context, packageName);
     }
 }

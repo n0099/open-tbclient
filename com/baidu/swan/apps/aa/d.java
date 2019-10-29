@@ -13,24 +13,24 @@ import org.json.JSONObject;
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = d.class.getSimpleName();
-    public static volatile d aGq;
-    public String aGn;
-    public String aGo;
-    public String aGp;
-    public com.baidu.swan.apps.aa.a.d aGr;
+    public static volatile d aZF;
+    public String aZC;
+    public String aZD;
+    public String aZE;
+    public com.baidu.swan.apps.aa.a.d aZG;
 
     private d() {
     }
 
-    public static d Ip() {
-        if (aGq == null) {
+    public static d Nj() {
+        if (aZF == null) {
             synchronized (d.class) {
-                if (aGq == null) {
-                    aGq = new d();
+                if (aZF == null) {
+                    aZF = new d();
                 }
             }
         }
-        return aGq;
+        return aZF;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -39,11 +39,11 @@ public class d {
             com.baidu.swan.apps.console.c.i(TAG, "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.swan.apps.u.a.EE().bf(context)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).LU();
+        } else if (!com.baidu.swan.apps.u.a.Jy().bh(context)) {
+            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).QN();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
-        } else if (!g.b("wxPay", com.baidu.swan.apps.model.b.aq(b, b))) {
+        } else if (!g.b("wxPay", com.baidu.swan.apps.model.b.ay(b, b))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
@@ -74,7 +74,7 @@ public class d {
         }
     }
 
-    public static int cR(int i) {
+    public static int dM(int i) {
         switch (i) {
             case -2:
                 return 2;

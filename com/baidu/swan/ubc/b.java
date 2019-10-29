@@ -3,8 +3,6 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -45,23 +43,23 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("bizId", hVar.getId());
-            jSONObject.put(DpStatConstants.KEY_TIMESTAMP, hVar.getTime());
+            jSONObject.put("timestamp", hVar.getTime());
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(hVar.getContent())) {
                 jSONObject.put("content", hVar.getContent());
-            } else if (hVar.XW() != null) {
-                jSONObject.put("content", hVar.XW().toString());
+            } else if (hVar.acL() != null) {
+                jSONObject.put("content", hVar.acL().toString());
             }
-            if (!TextUtils.isEmpty(hVar.XV())) {
-                jSONObject.put(ImageViewerConfig.ABTEST, hVar.XV());
+            if (!TextUtils.isEmpty(hVar.acK())) {
+                jSONObject.put("abtest", hVar.acK());
             }
             if (!TextUtils.isEmpty(hVar.getCategory())) {
                 jSONObject.put("c", hVar.getCategory());
             }
-            if (hVar.XR()) {
+            if (hVar.acG()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.XG().kV(hVar.getId()));
+            jSONObject.put("idtype", d.acv().lx(hVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -135,10 +133,10 @@ public class b {
                             break;
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                        if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                            vVar.le("1");
+                        if (jSONObject.has("abtest")) {
+                            vVar.lG("1");
                         }
-                        long j3 = jSONObject.getLong(DpStatConstants.KEY_TIMESTAMP);
+                        long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
                             if (j3 < j) {
                                 j = j3;
@@ -147,7 +145,7 @@ public class b {
                                 j2 = j3;
                             }
                         }
-                        vVar.aU(jSONObject);
+                        vVar.bs(jSONObject);
                         b = true;
                     } catch (Exception e) {
                         if (bufferedReader != null) {
@@ -168,7 +166,7 @@ public class b {
                         throw th;
                     }
                 }
-                vVar.g(j, j2);
+                vVar.m(j, j2);
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
@@ -207,10 +205,10 @@ public class b {
                                 break;
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                            if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                                vVar.le("1");
+                            if (jSONObject.has("abtest")) {
+                                vVar.lG("1");
                             }
-                            long j3 = jSONObject.getLong(DpStatConstants.KEY_TIMESTAMP);
+                            long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
                                 if (j3 < j) {
                                     j = j3;
@@ -219,7 +217,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            vVar.aU(jSONObject);
+                            vVar.bs(jSONObject);
                             i++;
                         } catch (Exception e) {
                             e = e;
@@ -244,7 +242,7 @@ public class b {
                         throw th;
                     }
                 } while (i < 10);
-                vVar.g(j, j2);
+                vVar.m(j, j2);
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
@@ -264,7 +262,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dp(boolean z) {
+    public void dG(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

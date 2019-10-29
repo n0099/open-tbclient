@@ -5,7 +5,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import com.baidu.ubc.UBC;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.c;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ import java.util.Set;
 class MMSharedPreferences implements SharedPreferences {
     private static final String TAG = "MicroMsg.SDK.SharedPreferences";
     private final ContentResolver cr;
-    private final String[] columns = {"_id", "key", "type", UBC.CONTENT_KEY_VALUE};
+    private final String[] columns = {IMConstants.MSG_ROW_ID, TiebaInitialize.Params.KEY, "type", "value"};
     private final HashMap<String, Object> values = new HashMap<>();
     private REditor editor = null;
 
@@ -80,7 +81,7 @@ class MMSharedPreferences implements SharedPreferences {
                     z = false;
                 } else {
                     contentValues.put("type", Integer.valueOf(i));
-                    contentValues.put(UBC.CONTENT_KEY_VALUE, value.toString());
+                    contentValues.put("value", value.toString());
                     z = true;
                 }
                 if (z) {
@@ -147,7 +148,7 @@ class MMSharedPreferences implements SharedPreferences {
             if (query == null) {
                 return null;
             }
-            Object a = query.moveToFirst() ? c.a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex(UBC.CONTENT_KEY_VALUE))) : null;
+            Object a = query.moveToFirst() ? c.a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
             query.close();
             return a;
         } catch (Exception e) {
@@ -176,9 +177,9 @@ class MMSharedPreferences implements SharedPreferences {
             if (query == null) {
                 return null;
             }
-            int columnIndex = query.getColumnIndex("key");
+            int columnIndex = query.getColumnIndex(TiebaInitialize.Params.KEY);
             int columnIndex2 = query.getColumnIndex("type");
-            int columnIndex3 = query.getColumnIndex(UBC.CONTENT_KEY_VALUE);
+            int columnIndex3 = query.getColumnIndex("value");
             while (query.moveToNext()) {
                 this.values.put(query.getString(columnIndex), c.a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
             }

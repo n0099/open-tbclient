@@ -52,33 +52,33 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     protected void ce(Context context) {
-        this.bsO = new com.baidu.swan.menu.viewpager.a(context).O(f.c.menu_indicator_normal, f.c.menu_indicator_selected).fE((int) getResources().getDimension(f.b.common_grid_indicator_margin));
-        this.bsP[0] = (int) getResources().getDimension(f.b.aiapp_menu_gridview_indicator_height);
-        this.bsP[1] = (int) getResources().getDimension(f.b.aiapp_menu_gridview_indicator_height);
-        addView(this.bsO, VZ());
+        this.bLz = new com.baidu.swan.menu.viewpager.a(context).U(f.c.menu_indicator_normal, f.c.menu_indicator_selected).gz((int) getResources().getDimension(f.b.common_grid_indicator_margin));
+        this.bLA[0] = (int) getResources().getDimension(f.b.aiapp_menu_gridview_indicator_height);
+        this.bLA[1] = (int) getResources().getDimension(f.b.aiapp_menu_gridview_indicator_height);
+        addView(this.bLz, aaO());
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected int VY() {
+    protected int aaN() {
         return (int) getResources().getDimension(f.b.aiapp_menu_gridview_indicator_height);
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected void Wa() {
+    protected void aaP() {
         SlideableGridView.a gridItemAdapter = getGridItemAdapter();
         int pageCount = gridItemAdapter == null ? 0 : gridItemAdapter.getPageCount();
         boolean z = pageCount > 1;
-        int i = !z ? this.bsP[0] : this.bsP[1];
+        int i = !z ? this.bLA[0] : this.bLA[1];
         if (!z) {
-            this.bsO.setVisibility(8);
+            this.bLz.setVisibility(8);
             return;
         }
-        this.bsO.setVisibility(0);
-        this.bsO.fD(pageCount);
-        this.bsO.getLayoutParams().height = i;
+        this.bLz.setVisibility(0);
+        this.bLz.gy(pageCount);
+        this.bLz.getLayoutParams().height = i;
     }
 
     public void setMode(SwanAppMenuMode swanAppMenuMode) {
-        this.bsO.setAlpha(1.0f);
+        this.bLz.setAlpha(1.0f);
     }
 }

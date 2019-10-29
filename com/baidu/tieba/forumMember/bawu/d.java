@@ -5,30 +5,30 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes5.dex */
 public class d {
-    private l<byte[]> duC;
+    private l<byte[]> fre;
 
     public d() {
-        Xv();
+        ack();
     }
 
-    public void Xv() {
-        if (this.duC == null) {
-            this.duC = com.baidu.tbadk.core.d.a.agL().mM("tb.bawu_team_info");
+    public void ack() {
+        if (this.fre == null) {
+            this.fre = com.baidu.tbadk.core.d.a.akN().nk("tb.bawu_team_info");
         }
     }
 
-    public byte[] xi(String str) {
-        l.b<byte[]> aq = (this.duC == null || str == null) ? null : this.duC.aq(str);
-        if (aq == null || aq.value == null) {
+    public byte[] vB(String str) {
+        l.b<byte[]> Y = (this.fre == null || str == null) ? null : this.fre.Y(str);
+        if (Y == null || Y.value == null) {
             return null;
         }
-        return aq.value;
+        return Y.value;
     }
 
-    public void j(String str, byte[] bArr) {
+    public void i(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            Xv();
-            this.duC.a(str, bArr, TbConfig.MILLS_7DAYS);
+            ack();
+            this.fre.set(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

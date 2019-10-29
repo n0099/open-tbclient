@@ -5,7 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public abstract class m {
-    public abstract m P(@AnimRes int i, @AnimRes int i2);
+    public abstract m V(@AnimRes int i, @AnimRes int i2);
 
     public abstract m a(@IdRes int i, Fragment fragment);
 

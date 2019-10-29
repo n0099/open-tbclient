@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    ByteBuffer cPH();
+    ByteBuffer cNO();
 
-    boolean cPI();
+    boolean cNP();
 
-    boolean cPJ();
+    boolean cNQ();
 
-    boolean cPK();
+    boolean cNR();
 
-    boolean cPL();
+    boolean cNS();
 
-    Opcode cPM();
+    Opcode cNT();
 }

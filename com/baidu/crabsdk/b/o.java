@@ -5,9 +5,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 /* loaded from: classes3.dex */
 public final class o {
-    private static PackageManager aaj;
-    private static PackageInfo aak;
-    private static String aal;
+    private static PackageManager Km;
+    private static PackageInfo Kn;
+    private static String Ko;
     private static Context mContext;
 
     public static String F() {
@@ -15,34 +15,34 @@ public final class o {
     }
 
     public static String G() {
-        if (aal == null) {
-            if (aak == null) {
+        if (Ko == null) {
+            if (Kn == null) {
                 return "N/A";
             }
-            aal = aak.applicationInfo.loadLabel(aaj).toString();
+            Ko = Kn.applicationInfo.loadLabel(Km).toString();
         }
-        return aal;
+        return Ko;
     }
 
     public static String H() {
-        return aak == null ? "N/A" : aak.versionName;
+        return Kn == null ? "N/A" : Kn.versionName;
     }
 
     public static int I() {
-        if (aak == null) {
+        if (Kn == null) {
             return 0;
         }
-        return aak.versionCode;
+        return Kn.versionCode;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            aaj = context.getPackageManager();
+            Km = context.getPackageManager();
             try {
-                aak = aaj.getPackageInfo(mContext.getPackageName(), 0);
+                Kn = Km.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
-                com.baidu.crabsdk.c.a.a("PackageCollector.init fail.", e);
+                com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
             }
         }
     }

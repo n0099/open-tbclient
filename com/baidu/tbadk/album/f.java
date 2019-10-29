@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
@@ -20,36 +21,36 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
-    private a bBG;
+    private a bUk;
     private final Context mContext;
-    private final String bBu = TbConfig.getTempDirName();
-    private int bBH = 0;
-    private String[] bBI = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-    private String[] bBJ = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-    private String[] bBK = {"video_id", "_data", "width", "height"};
-    private HashMap<String, com.baidu.tbadk.album.a> bBL = new HashMap<>();
+    private final String TIEBA = TbConfig.getTempDirName();
+    private int mMediaLoaderType = 0;
+    private String[] mAlbumColumns = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+    private String[] mVideoColumns = {IMConstants.MSG_ROW_ID, "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+    private String[] mVideoThumbColumns = {"video_id", "_data", "width", "height"};
+    private HashMap<String, com.baidu.tbadk.album.a> mAlbumHashMap = new HashMap<>();
 
     public f(Context context) {
         this.mContext = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g aax() {
-        this.bBL.clear();
+    public g afj() {
+        this.mAlbumHashMap.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
         List<VideoFileInfo> list = null;
-        if (this.bBH != 2) {
-            list = aay();
+        if (this.mMediaLoaderType != 2) {
+            list = getVideoFileList();
         }
         ArrayList arrayList = new ArrayList();
-        if (!v.aa(imageList)) {
+        if (!v.isEmpty(imageList)) {
             arrayList.addAll(imageList);
         }
-        if (!v.aa(list)) {
+        if (!v.isEmpty(list)) {
             arrayList.addAll(list);
         }
-        if (!v.aa(arrayList)) {
+        if (!v.isEmpty(arrayList)) {
             Collections.sort(arrayList, new Comparator<MediaFileInfo>() { // from class: com.baidu.tbadk.album.f.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -63,20 +64,20 @@ public class f {
                 }
             });
         }
-        ArrayList arrayList2 = new ArrayList(this.bBL.values());
-        if (!v.aa(arrayList2)) {
+        ArrayList arrayList2 = new ArrayList(this.mAlbumHashMap.values());
+        if (!v.isEmpty(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<com.baidu.tbadk.album.a>() { // from class: com.baidu.tbadk.album.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(com.baidu.tbadk.album.a aVar, com.baidu.tbadk.album.a aVar2) {
-                    if (f.this.bBu.equals(aVar.getName())) {
+                    if (f.this.TIEBA.equals(aVar.getName())) {
                         return -1;
                     }
-                    if (f.this.bBu.equals(aVar2.getName())) {
+                    if (f.this.TIEBA.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.aar().getSortTime() - aVar.aar().getSortTime();
+                    long sortTime = aVar2.afe().getSortTime() - aVar.afe().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -84,26 +85,26 @@ public class f {
                 }
             });
         }
-        gVar.bBO = arrayList2;
-        gVar.bBQ = list;
-        gVar.bBP = arrayList;
+        gVar.albumList = arrayList2;
+        gVar.videoFileList = list;
+        gVar.allList = arrayList;
         return gVar;
     }
 
     public List<ImageFileInfo> getImageList() {
         ArrayList arrayList = new ArrayList();
-        List<ImageFileInfo> n = n(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        if (n != null) {
-            arrayList.addAll(n);
+        List<ImageFileInfo> imageListByUri = getImageListByUri(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        if (imageListByUri != null) {
+            arrayList.addAll(imageListByUri);
         }
-        List<ImageFileInfo> n2 = n(MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        if (n2 != null) {
-            arrayList.addAll(n2);
+        List<ImageFileInfo> imageListByUri2 = getImageListByUri(MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        if (imageListByUri2 != null) {
+            arrayList.addAll(imageListByUri2);
         }
         return arrayList;
     }
 
-    private List<ImageFileInfo> n(Uri uri) {
+    private List<ImageFileInfo> getImageListByUri(Uri uri) {
         com.baidu.tbadk.album.a aVar;
         Cursor cursor = null;
         if (this.mContext == null) {
@@ -111,11 +112,11 @@ public class f {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.mContext.getContentResolver().query(uri, this.bBI, "mime_type like 'image/%'", null, "date_added DESC");
+            cursor = this.mContext.getContentResolver().query(uri, this.mAlbumColumns, "mime_type like 'image/%'", null, "date_added DESC");
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
-            com.baidu.adp.lib.g.a.e(cursor);
+            com.baidu.adp.lib.g.a.close(cursor);
         }
         if (cursor == null || !cursor.moveToFirst()) {
             return arrayList;
@@ -134,35 +135,35 @@ public class f {
                 imageFileInfo.setAlbumnId(string);
                 imageFileInfo.setFilePath(string3);
                 imageFileInfo.setIsGif(endsWith);
-                imageFileInfo.setModifyTime(aq.aX(j2));
+                imageFileInfo.setModifyTime(aq.getChineseFormatTimeString(j2));
                 imageFileInfo.setSortTime(j);
                 arrayList.add(imageFileInfo);
-                com.baidu.tbadk.album.a aVar2 = this.bBL.get(string);
+                com.baidu.tbadk.album.a aVar2 = this.mAlbumHashMap.get(string);
                 if (aVar2 == null) {
                     com.baidu.tbadk.album.a aVar3 = new com.baidu.tbadk.album.a();
-                    this.bBL.put(string, aVar3);
+                    this.mAlbumHashMap.put(string, aVar3);
                     aVar = aVar3;
                 } else {
                     aVar = aVar2;
                 }
-                aVar.lz(string);
+                aVar.setAlbumId(string);
                 aVar.setName(string2);
-                aVar.aaq();
-                if (aVar.aar() == null) {
+                aVar.addCount();
+                if (aVar.afe() == null) {
                     aVar.a(imageFileInfo);
                 }
-                List<MediaFileInfo> aat = aVar.aat();
-                if (aVar.aat() == null) {
-                    aat = new ArrayList<>();
-                    aVar.O(aat);
+                List<MediaFileInfo> fileList = aVar.getFileList();
+                if (aVar.getFileList() == null) {
+                    fileList = new ArrayList<>();
+                    aVar.setFileList(fileList);
                 }
-                aat.add(imageFileInfo);
+                fileList.add(imageFileInfo);
             }
         } while (cursor.moveToNext());
         return arrayList;
     }
 
-    private List<VideoFileInfo> aay() {
+    private List<VideoFileInfo> getVideoFileList() {
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
         if (this.mContext == null) {
@@ -172,12 +173,12 @@ public class f {
         HashSet hashSet = new HashSet();
         Cursor cursor2 = null;
         try {
-            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.bBJ, null, null, "date_added DESC");
+            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.mVideoColumns, null, null, "date_added DESC");
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
                         do {
-                            int i = cursor.getInt(cursor.getColumnIndex("_id"));
+                            int i = cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
                             String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
                             String string2 = cursor.getString(cursor.getColumnIndexOrThrow("title"));
                             String string3 = cursor.getString(cursor.getColumnIndexOrThrow("_display_name"));
@@ -188,7 +189,7 @@ public class f {
                             if (!hashSet.contains(string)) {
                                 hashSet.add(string);
                                 File file = new File(string);
-                                if (file != null && file.exists() && file.isFile() && com.baidu.adp.lib.util.f.i(file) > 0) {
+                                if (file != null && file.exists() && file.isFile() && com.baidu.adp.lib.util.f.getFileSize(file) > 0) {
                                     VideoFileInfo videoFileInfo = new VideoFileInfo();
                                     videoFileInfo.videoId = i;
                                     videoFileInfo.videoPath = string;
@@ -204,16 +205,16 @@ public class f {
                         } while (cursor.moveToNext());
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.g.a.e(cursor);
+                    com.baidu.adp.lib.g.a.close(cursor);
                     return arrayList;
                 } catch (Throwable th) {
                     cursor2 = cursor;
                     th = th;
-                    com.baidu.adp.lib.g.a.e(cursor2);
+                    com.baidu.adp.lib.g.a.close(cursor2);
                     throw th;
                 }
             }
-            com.baidu.adp.lib.g.a.e(cursor);
+            com.baidu.adp.lib.g.a.close(cursor);
         } catch (Exception e2) {
             cursor = null;
         } catch (Throwable th2) {
@@ -226,37 +227,37 @@ public class f {
         if (eVar == null) {
             return false;
         }
-        aaz();
-        this.bBH = i;
-        this.bBG = new a(eVar);
-        this.bBG.setPriority(3);
-        this.bBG.execute(new Object[0]);
+        cancelLoadTask();
+        this.mMediaLoaderType = i;
+        this.bUk = new a(eVar);
+        this.bUk.setPriority(3);
+        this.bUk.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e bBN;
+        private final e bUm;
 
         public a(e eVar) {
-            this.bBN = eVar;
+            this.bUm = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
+        /* renamed from: m */
         public g doInBackground(Object... objArr) {
-            return f.this.aax();
+            return f.this.afj();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.bBN != null) {
-                this.bBN.onPreLoad();
+            if (this.bUm != null) {
+                this.bUm.onPreLoad();
             }
         }
 
@@ -266,16 +267,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.bBN != null) {
-                this.bBN.a(gVar);
+            if (this.bUm != null) {
+                this.bUm.a(gVar);
             }
         }
     }
 
-    public void aaz() {
-        if (this.bBG != null) {
-            this.bBG.cancel();
-            this.bBG = null;
+    public void cancelLoadTask() {
+        if (this.bUk != null) {
+            this.bUk.cancel();
+            this.bUk = null;
         }
     }
 }

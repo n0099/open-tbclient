@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
@@ -66,7 +65,7 @@ public class z implements Thread.UncaughtExceptionHandler {
             }
             return false;
         } else if (com.xiaomi.channel.commonutils.network.d.e(this.c)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.d.getLong("last_crash_upload_time_stamp", 0L)) >= ((long) Math.max(60, com.xiaomi.push.service.an.a(this.c).a(com.xiaomi.xmpush.thrift.g.CrashWIFIUploadFrequency.a(), TbConfig.POST_IMAGE_MIDDLE)));
+            return Math.abs((System.currentTimeMillis() / 1000) - this.d.getLong("last_crash_upload_time_stamp", 0L)) >= ((long) Math.max(60, com.xiaomi.push.service.an.a(this.c).a(com.xiaomi.xmpush.thrift.g.CrashWIFIUploadFrequency.a(), 1800)));
         } else {
             return true;
         }

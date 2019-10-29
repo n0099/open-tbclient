@@ -1,12 +1,13 @@
 package com.baidu.tieba.enterForum.multiConcern;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.MultiConcern.MultiConcernResIdl;
 /* loaded from: classes4.dex */
 public class MultiConcernSocketResponseMessage extends SocketResponsedMessage {
     public MultiConcernSocketResponseMessage() {
-        super(309470);
+        super(CmdConfigSocket.CMD_FORUM_MULTI_CONCERN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

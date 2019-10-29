@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class a {
-    private static final a kjy = cIS().cJa();
-    public final boolean kjA;
-    public final boolean kjB;
-    public final boolean kjC;
-    public final boolean kjD;
-    public final Bitmap.Config kjE;
+    private static final a khJ = cFP().cFX();
+    public final int khK;
+    public final boolean khL;
+    public final boolean khM;
+    public final boolean khN;
+    public final boolean khO;
+    public final Bitmap.Config khP;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b kjF;
-    public final int kjz;
+    public final com.facebook.imagepipeline.decoder.b khQ;
 
     public a(b bVar) {
-        this.kjz = bVar.cIT();
-        this.kjA = bVar.cIU();
-        this.kjB = bVar.cIV();
-        this.kjC = bVar.cIW();
-        this.kjD = bVar.cIY();
-        this.kjE = bVar.cIZ();
-        this.kjF = bVar.cIX();
+        this.khK = bVar.cFQ();
+        this.khL = bVar.cFR();
+        this.khM = bVar.cFS();
+        this.khN = bVar.cFT();
+        this.khO = bVar.cFV();
+        this.khP = bVar.cFW();
+        this.khQ = bVar.cFU();
     }
 
-    public static a cIR() {
-        return kjy;
+    public static a cFO() {
+        return khJ;
     }
 
-    public static b cIS() {
+    public static b cFP() {
         return new b();
     }
 
@@ -42,14 +42,14 @@ public class a {
             return false;
         }
         a aVar = (a) obj;
-        return this.kjA == aVar.kjA && this.kjB == aVar.kjB && this.kjC == aVar.kjC && this.kjD == aVar.kjD && this.kjE == aVar.kjE && this.kjF == aVar.kjF;
+        return this.khL == aVar.khL && this.khM == aVar.khM && this.khN == aVar.khN && this.khO == aVar.khO && this.khP == aVar.khP && this.khQ == aVar.khQ;
     }
 
     public int hashCode() {
-        return (((((((this.kjC ? 1 : 0) + (((this.kjB ? 1 : 0) + (((this.kjA ? 1 : 0) + (this.kjz * 31)) * 31)) * 31)) * 31) + (this.kjD ? 1 : 0)) * 31) + this.kjE.ordinal()) * 31) + (this.kjF != null ? this.kjF.hashCode() : 0);
+        return (((((((this.khN ? 1 : 0) + (((this.khM ? 1 : 0) + (((this.khL ? 1 : 0) + (this.khK * 31)) * 31)) * 31)) * 31) + (this.khO ? 1 : 0)) * 31) + this.khP.ordinal()) * 31) + (this.khQ != null ? this.khQ.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.kjz), Boolean.valueOf(this.kjA), Boolean.valueOf(this.kjB), Boolean.valueOf(this.kjC), Boolean.valueOf(this.kjD), this.kjE.name(), this.kjF);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.khK), Boolean.valueOf(this.khL), Boolean.valueOf(this.khM), Boolean.valueOf(this.khN), Boolean.valueOf(this.khO), this.khP.name(), this.khQ);
     }
 }

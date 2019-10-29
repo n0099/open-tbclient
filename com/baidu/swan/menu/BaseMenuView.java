@@ -12,14 +12,14 @@ import android.widget.TextView;
 import com.baidu.swan.menu.f;
 /* loaded from: classes2.dex */
 public abstract class BaseMenuView extends FrameLayout {
-    private TextView brb;
-    private View brc;
-    private final int brd;
+    private TextView bJM;
+    private View bJN;
+    private final int bJO;
     private View mContentView;
     protected Context mContext;
     private View mMaskView;
 
-    public abstract boolean VH();
+    public abstract boolean aaw();
 
     public BaseMenuView(@NonNull Context context) {
         this(context, null);
@@ -34,10 +34,10 @@ public abstract class BaseMenuView extends FrameLayout {
         this.mContext = context;
         View inflate = inflate(context, f.e.aiapp_menu_base_view_layout, this);
         this.mMaskView = inflate.findViewById(f.d.background);
-        this.brb = (TextView) inflate.findViewById(f.d.cancel);
-        this.brc = inflate.findViewById(f.d.divider);
+        this.bJM = (TextView) inflate.findViewById(f.d.cancel);
+        this.bJN = inflate.findViewById(f.d.divider);
         Resources resources = context.getResources();
-        this.brd = ((int) resources.getDimension(f.b.aiapp_menu_cancel_btn_height)) + ((int) resources.getDimension(f.b.aiapp_menu_divider_height));
+        this.bJO = ((int) resources.getDimension(f.b.aiapp_menu_cancel_btn_height)) + ((int) resources.getDimension(f.b.aiapp_menu_divider_height));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -50,23 +50,23 @@ public abstract class BaseMenuView extends FrameLayout {
         if (view != null) {
             int height = view.getHeight();
             if (height != 0) {
-                this.mMaskView.getLayoutParams().height = height + this.brd;
+                this.mMaskView.getLayoutParams().height = height + this.bJO;
             }
             this.mContentView = view;
-            layoutParams.bottomMargin = this.brd;
+            layoutParams.bottomMargin = this.bJO;
             addView(view, layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void fw(int i) {
-        this.mMaskView.getLayoutParams().height = this.brd + i;
+    public void gr(int i) {
+        this.mMaskView.getLayoutParams().height = this.bJO + i;
         this.mMaskView.requestLayout();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.brb.setOnClickListener(onClickListener);
+        this.bJM.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -80,11 +80,11 @@ public abstract class BaseMenuView extends FrameLayout {
         switch (swanAppMenuMode) {
             case NORMAL:
                 this.mMaskView.setBackground(resources.getDrawable(f.c.swan_common_menu_content_bg));
-                this.brc.setBackgroundColor(resources.getColor(f.a.aiapp_menu_split_line_day));
-                this.brb.setBackgroundColor(resources.getColor(f.a.aiapp_menu_cancel_text_color_bg));
-                this.brb.setTextColor(resources.getColorStateList(f.a.aiapp_menu_cancel_text_color_day));
-                this.brc.setAlpha(1.0f);
-                this.brb.setAlpha(1.0f);
+                this.bJN.setBackgroundColor(resources.getColor(f.a.aiapp_menu_split_line_day));
+                this.bJM.setBackgroundColor(resources.getColor(f.a.aiapp_menu_cancel_text_color_bg));
+                this.bJM.setTextColor(resources.getColorStateList(f.a.aiapp_menu_cancel_text_color_day));
+                this.bJN.setAlpha(1.0f);
+                this.bJM.setAlpha(1.0f);
                 return;
             default:
                 return;

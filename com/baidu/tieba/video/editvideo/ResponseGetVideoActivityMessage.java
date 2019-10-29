@@ -1,7 +1,6 @@
 package com.baidu.tieba.video.editvideo;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.video.VideoTitleData;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
     private VideoTitleData mVideoTitleData;
 
     public ResponseGetVideoActivityMessage() {
-        super(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
+        super(1003376);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

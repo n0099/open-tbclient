@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.by;
 import com.baidu.mobstat.cq;
 import java.nio.ByteBuffer;
@@ -74,7 +75,7 @@ public abstract class cd {
         if (b2 == null) {
             throw new cg(byteBuffer.capacity() + 128);
         }
-        String[] split = b2.split(" ", 3);
+        String[] split = b2.split(HanziToPinyin.Token.SEPARATOR, 3);
         if (split.length != 3) {
             throw new cj();
         }

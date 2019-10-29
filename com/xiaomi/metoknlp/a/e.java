@@ -1,5 +1,6 @@
 package com.xiaomi.metoknlp.a;
 
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
@@ -50,7 +51,7 @@ public final class e {
     public static String b() {
         if (b == null || b.isEmpty()) {
             b = c.a("ro.product.model", "");
-            b = b.replaceAll(" ", "");
+            b = b.replaceAll(HanziToPinyin.Token.SEPARATOR, "");
             return b;
         }
         return b;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.forum.detail;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -22,7 +23,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     private List<SimpleThreadInfo> threadInfoList;
 
     public ForumDetailSocketResponse() {
-        super(303021);
+        super(CmdConfigSocket.CMD_FORUM_DETAIL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

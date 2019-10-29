@@ -8,14 +8,14 @@ import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
 /* loaded from: classes3.dex */
 public class a {
-    private List<e> dbD;
-    private List<e> dbE;
+    private List<e> dla;
+    private List<e> dlb;
 
     public List<e> getAddressList() {
-        if (this.dbD == null) {
-            this.dbD = new ArrayList();
+        if (this.dla == null) {
+            this.dla = new ArrayList();
         }
-        return this.dbD;
+        return this.dla;
     }
 
     public boolean a(DataRes dataRes) {
@@ -23,7 +23,7 @@ public class a {
         if (dataRes == null || dataRes.robots_list == null) {
             z = false;
         } else {
-            this.dbE = new ArrayList();
+            this.dlb = new ArrayList();
             boolean z2 = false;
             for (robotsList robotslist : dataRes.robots_list) {
                 if (TextUtils.isEmpty(robotslist.key)) {
@@ -31,13 +31,13 @@ public class a {
                 } else {
                     e eVar = new e();
                     eVar.a(robotslist);
-                    this.dbE.add(eVar);
+                    this.dlb.add(eVar);
                 }
             }
             z = z2;
         }
         if (dataRes != null && dataRes.address_list != null) {
-            this.dbD = new ArrayList();
+            this.dla = new ArrayList();
             boolean z3 = z;
             for (listData listdata : dataRes.address_list) {
                 if (TextUtils.isEmpty(listdata.key)) {
@@ -47,14 +47,14 @@ public class a {
                     eVar2.a(listdata);
                     if (eVar2.getContacts() != null) {
                         for (com.baidu.tbadk.coreExtra.relationship.a aVar : eVar2.getContacts()) {
-                            if (a(this.dbE, aVar)) {
+                            if (a(this.dlb, aVar)) {
                                 aVar.setUserType(1);
                             } else {
                                 aVar.setUserType(0);
                             }
                         }
                     }
-                    this.dbD.add(eVar2);
+                    this.dla.add(eVar2);
                 }
             }
             return z3;

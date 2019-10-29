@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.DelGroup.DelGroupResIdl;
 /* loaded from: classes3.dex */
@@ -12,7 +13,7 @@ public class ResponseDismissGroupMessage extends SocketResponsedMessage {
     }
 
     public ResponseDismissGroupMessage() {
-        super(103104);
+        super(CmdConfigSocket.CMD_DISSMISS_GROUP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

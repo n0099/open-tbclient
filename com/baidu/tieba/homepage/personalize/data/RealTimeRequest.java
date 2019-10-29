@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
@@ -15,7 +15,7 @@ public class RealTimeRequest extends NetMessage {
     private String weight;
 
     public RealTimeRequest() {
-        super(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, 309277);
+        super(1003072, CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK);
     }
 
     public long getTid() {
@@ -76,7 +76,7 @@ public class RealTimeRequest extends NetMessage {
         builder.abtest_tag = this.abtest_tag;
         builder.type = Integer.valueOf(this.type);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         RealtimeReqIdl.Builder builder2 = new RealtimeReqIdl.Builder();
         builder2.data = builder.build(false);

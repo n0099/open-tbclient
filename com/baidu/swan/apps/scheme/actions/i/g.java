@@ -9,73 +9,73 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class g {
-    private static volatile g aUi;
-    private HashMap<String, a> aUj = new HashMap<>();
+    private static volatile g bnm;
+    private HashMap<String, a> bnn = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cK(int i);
+        void dF(int i);
 
-        void fh(String str);
+        void fO(String str);
     }
 
     private g() {
     }
 
-    public static g Nb() {
-        if (aUi == null) {
+    public static g RR() {
+        if (bnm == null) {
             synchronized (g.class) {
-                if (aUi == null) {
-                    aUi = new g();
+                if (bnm == null) {
+                    bnm = new g();
                 }
             }
         }
-        return aUi;
+        return bnm;
     }
 
     public void a(com.baidu.swan.apps.ae.b bVar, String str, String str2, a aVar) {
         boolean z = true;
         if (aVar != null) {
             if (bVar == null || TextUtils.isEmpty(str)) {
-                aVar.cK(2110);
-            } else if (bVar.gH(str)) {
-                aVar.fh(str2);
+                aVar.dF(2110);
+            } else if (bVar.hl(str)) {
+                aVar.fO(str2);
             } else {
-                String gL = bVar.gL(str);
-                if (TextUtils.isEmpty(gL)) {
-                    aVar.cK(2111);
-                } else if (bVar.gI(gL)) {
-                    aVar.fh(str2);
+                String hp = bVar.hp(str);
+                if (TextUtils.isEmpty(hp)) {
+                    aVar.dF(2111);
+                } else if (bVar.hm(hp)) {
+                    aVar.fO(str2);
                 } else {
-                    if (!bVar.gJ(gL)) {
+                    if (!bVar.hn(hp)) {
                         z = false;
-                    } else if (bVar.gK(gL)) {
-                        aVar.fh(str2);
-                        bVar.t(gL, true);
+                    } else if (bVar.ho(hp)) {
+                        aVar.fO(str2);
+                        bVar.w(hp, true);
                         return;
                     }
-                    String gM = bVar.gM(gL);
-                    if (TextUtils.isEmpty(gM)) {
-                        aVar.cK(2112);
+                    String hq = bVar.hq(hp);
+                    if (TextUtils.isEmpty(hq)) {
+                        aVar.dF(2112);
                         return;
                     }
-                    com.baidu.swan.apps.process.messaging.client.a DE = bVar.DE();
-                    if (DE != null) {
+                    com.baidu.swan.apps.process.messaging.client.a Iy = bVar.Iy();
+                    if (Iy != null) {
                         SubPackageAPSInfo subPackageAPSInfo = new SubPackageAPSInfo();
                         String a2 = a(aVar);
                         subPackageAPSInfo.mAppId = bVar.id;
                         subPackageAPSInfo.mAppVersion = bVar.getVersion();
-                        subPackageAPSInfo.mKey = gM;
-                        subPackageAPSInfo.azj = com.baidu.swan.apps.w.e.GJ().Gs();
-                        subPackageAPSInfo.azk = gL;
-                        subPackageAPSInfo.aud = str2;
-                        subPackageAPSInfo.azm = a2;
-                        subPackageAPSInfo.azn = z;
-                        DE.a(6, subPackageAPSInfo);
-                        this.aUj.put(a2, aVar);
+                        subPackageAPSInfo.mKey = hq;
+                        subPackageAPSInfo.aSz = com.baidu.swan.apps.w.e.LD().Lm();
+                        subPackageAPSInfo.aSA = hp;
+                        subPackageAPSInfo.aNu = str2;
+                        subPackageAPSInfo.mCallbackKey = a2;
+                        subPackageAPSInfo.aSC = z;
+                        Iy.a(6, subPackageAPSInfo);
+                        this.bnn.put(a2, aVar);
                         return;
                     }
-                    aVar.cK(2113);
+                    aVar.dF(2113);
                 }
             }
         }
@@ -89,15 +89,15 @@ public class g {
                 subPackageAPSInfo.mAppId = str;
                 subPackageAPSInfo.mAppVersion = str2;
                 subPackageAPSInfo.mKey = str4;
-                subPackageAPSInfo.azj = str5;
-                subPackageAPSInfo.azk = str3;
-                subPackageAPSInfo.aud = str6;
-                subPackageAPSInfo.azm = a2;
+                subPackageAPSInfo.aSz = str5;
+                subPackageAPSInfo.aSA = str3;
+                subPackageAPSInfo.aNu = str6;
+                subPackageAPSInfo.mCallbackKey = a2;
                 aVar.a(6, subPackageAPSInfo);
-                this.aUj.put(a2, aVar2);
+                this.bnn.put(a2, aVar2);
                 return;
             }
-            aVar2.cK(2113);
+            aVar2.dF(2113);
         }
     }
 
@@ -106,13 +106,13 @@ public class g {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SubPackageAPSInfo subPackageAPSInfo = (SubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (subPackageAPSInfo != null && (aVar = this.aUj.get(subPackageAPSInfo.azm)) != null) {
-                com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
-                if (Mh != null) {
-                    Mh.t(subPackageAPSInfo.azk, true);
+            if (subPackageAPSInfo != null && (aVar = this.bnn.get(subPackageAPSInfo.mCallbackKey)) != null) {
+                com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+                if (QZ != null) {
+                    QZ.w(subPackageAPSInfo.aSA, true);
                 }
-                aVar.fh(subPackageAPSInfo.aud);
-                this.aUj.remove(subPackageAPSInfo.azm);
+                aVar.fO(subPackageAPSInfo.aNu);
+                this.bnn.remove(subPackageAPSInfo.mCallbackKey);
             }
         }
     }
@@ -122,9 +122,9 @@ public class g {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SubPackageAPSInfo subPackageAPSInfo = (SubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (subPackageAPSInfo != null && (aVar = this.aUj.get(subPackageAPSInfo.azm)) != null) {
-                aVar.cK(subPackageAPSInfo.mResultCode);
-                this.aUj.remove(subPackageAPSInfo.azm);
+            if (subPackageAPSInfo != null && (aVar = this.bnn.get(subPackageAPSInfo.mCallbackKey)) != null) {
+                aVar.dF(subPackageAPSInfo.mResultCode);
+                this.bnn.remove(subPackageAPSInfo.mCallbackKey);
             }
         }
     }
@@ -133,25 +133,25 @@ public class g {
         if (gVar == null) {
             return false;
         }
-        return b(bVar, gVar.ayO);
+        return b(bVar, gVar.aSe);
     }
 
     public static boolean b(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.ae.a.c cVar) {
         if (bVar == null || TextUtils.isEmpty(bVar.getPage())) {
             return false;
         }
-        String is = aa.is(bVar.getPage());
-        if (!TextUtils.isEmpty(is) && is.startsWith(File.separator)) {
-            is = is.substring(1);
+        String iV = aa.iV(bVar.getPage());
+        if (!TextUtils.isEmpty(iV) && iV.startsWith(File.separator)) {
+            iV = iV.substring(1);
         }
-        if (cVar == null || cVar.aRv == null) {
+        if (cVar == null || cVar.bkz == null) {
             return false;
         }
-        if (cVar.aRv.gS(is)) {
+        if (cVar.bkz.hw(iV)) {
             return false;
         }
-        String str = cVar.aRw.aRK.get(is);
-        return (TextUtils.isEmpty(str) || com.baidu.swan.apps.database.subpackage.a.CO().m(bVar.getAppId(), bVar.getVersion(), str)) ? false : true;
+        String str = cVar.bkA.bkO.get(iV);
+        return (TextUtils.isEmpty(str) || com.baidu.swan.apps.database.subpackage.a.HI().q(bVar.getAppId(), bVar.getVersion(), str)) ? false : true;
     }
 
     private String a(a aVar) {

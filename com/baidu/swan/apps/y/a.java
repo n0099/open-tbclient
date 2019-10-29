@@ -9,8 +9,8 @@ import java.util.TreeSet;
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     protected static final String TAG = a.class.getSimpleName();
-    protected Set<Integer> aEA;
-    double aEz = 1.0d;
+    double aXO = 1.0d;
+    protected Set<Integer> aXP;
 
     public abstract boolean a(Bitmap bitmap, Rect rect);
 
@@ -22,27 +22,27 @@ public abstract class a {
         return rect.top < rect.bottom && rect.bottom <= bitmap.getHeight() && rect.left < rect.right && rect.right <= bitmap.getWidth();
     }
 
-    public void cP(int i) {
-        if (this.aEA == null) {
-            this.aEA = new TreeSet();
+    public void dK(int i) {
+        if (this.aXP == null) {
+            this.aXP = new TreeSet();
         } else {
-            this.aEA.clear();
+            this.aXP.clear();
         }
         if (DEBUG) {
             Log.d(TAG, "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
         }
-        this.aEA.add(Integer.valueOf(i));
+        this.aXP.add(Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void g(double d) {
-        this.aEz = d;
+    public void f(double d) {
+        this.aXO = d;
     }
 
     /* renamed from: com.baidu.swan.apps.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0206a {
-        public static a fB(String str) {
+    public static class C0238a {
+        public static a gf(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case -2129978548:

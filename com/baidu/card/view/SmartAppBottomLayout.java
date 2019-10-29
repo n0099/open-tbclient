@@ -16,40 +16,40 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class SmartAppBottomLayout extends LinearLayout implements i<a> {
-    private ImageView YW;
-    private TextView YX;
+    private ImageView IW;
+    private TextView IX;
     private int mSkinType;
     private View mView;
 
     public SmartAppBottomLayout(Context context) {
         this(context, null);
-        ap(context);
+        initUI(context);
     }
 
     public SmartAppBottomLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        ap(context);
+        initUI(context);
     }
 
-    private void ap(Context context) {
+    private void initUI(Context context) {
         this.mView = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.YW = (ImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
-        this.YX = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
+        this.IW = (ImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
+        this.IX = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
-    public void C(a aVar) {
+    public void z(a aVar) {
     }
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            am.j(this.YX, R.color.cp_cont_d);
-            am.c(this.YW, (int) R.drawable.icon_avatar_smallapp_tie);
+            am.setViewTextColor(this.IX, (int) R.color.cp_cont_d);
+            am.setImageResource(this.IW, R.drawable.icon_avatar_smallapp_tie);
         }
     }
 }

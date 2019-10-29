@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.data.BlackListItemData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     private String list;
 
     public ResponseGetMaskInfoMessage() {
-        super(104103);
+        super(CmdConfigSocket.CMD_GET_MASK_INFO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,10 +34,10 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
                 int size = list != null ? list.size() : 0;
                 for (int i2 = 0; i2 < size; i2++) {
                     BlackListItemData blackListItemData = new BlackListItemData();
-                    blackListItemData.zg(list.get(i2).portrait);
+                    blackListItemData.dk(list.get(i2).portrait);
                     blackListItemData.setUserId(list.get(i2).uid.longValue());
                     blackListItemData.setUserName(list.get(i2).name);
-                    blackListItemData.pM(list.get(i2).nameShow);
+                    blackListItemData.oW(list.get(i2).nameShow);
                     this.blackList.add(blackListItemData);
                 }
             }

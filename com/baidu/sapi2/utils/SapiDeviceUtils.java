@@ -5,7 +5,6 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import java.io.FileInputStream;
 import java.net.NetworkInterface;
@@ -116,7 +115,7 @@ public class SapiDeviceUtils {
             }
             return Config.DEF_MAC_ID;
         }
-        return ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getMacAddress();
+        return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
     public static String getBrandName() {

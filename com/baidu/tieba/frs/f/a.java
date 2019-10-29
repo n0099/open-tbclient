@@ -3,6 +3,7 @@ package com.baidu.tieba.frs.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.m;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.ForumData;
@@ -12,21 +13,21 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, ForumData forumData, List<m> list, boolean z, int i) {
-        if (!v.aa(list)) {
+        if (!v.isEmpty(list)) {
             com.baidu.tieba.InjectPlugin.b.b bVar2 = new com.baidu.tieba.InjectPlugin.b.b(bVar, 5);
-            bVar2.av(list);
+            bVar2.aN(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.rR(forumData.getFirst_class());
-                bVar2.rS(forumData.getSecond_class());
+                bVar2.qB(forumData.getFirst_class());
+                bVar2.qC(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.rT(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.qD(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
-            bVar2.gg(z);
+            bVar2.fV(z);
             bVar2.setPageNum(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
         }
     }
 
@@ -39,11 +40,11 @@ public class a {
     public static void a(com.baidu.tieba.tbadkCore.data.f fVar, List<m> list, List<m> list2) {
         int[] iArr;
         int indexOf;
-        if (fVar != null && v.Z(list) > 0 && v.Z(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.jia) {
-                m mVar = (m) v.c(list, i);
+        if (fVar != null && v.getCount(list) > 0 && v.getCount(list2) > 0) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.jhP) {
+                m mVar = (m) v.getItem(list, i);
                 if (mVar != null && (indexOf = list2.indexOf(mVar)) >= 0) {
-                    fVar.cy(i, indexOf);
+                    fVar.cr(i, indexOf);
                 }
             }
         }

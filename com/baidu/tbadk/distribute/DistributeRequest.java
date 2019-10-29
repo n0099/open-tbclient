@@ -1,7 +1,7 @@
 package com.baidu.tbadk.distribute;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +13,12 @@ public class DistributeRequest extends NetMessage {
     private List<AdReq> adReqList;
 
     public DistributeRequest(List<AdReq> list) {
-        super(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+        super(1003000, CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
         this.adReqList = list;
     }
 
     public DistributeRequest(AdReq adReq) {
-        super(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+        super(1003000, CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
         this.adReqList = new ArrayList();
         this.adReqList.add(adReq);
     }
@@ -35,7 +35,7 @@ public class DistributeRequest extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
         builder.Ad = this.adReqList;
-        r.bindCommonParamsToProtobufData(builder, false);
+        r.a(builder, false);
         builder2.data = builder.build(false);
         return builder2.build(false);
     }

@@ -129,7 +129,7 @@ public class SmsLoginView extends FrameLayout {
     }
 
     public static void notifyStartLogin() {
-        onEvent(StatEvent.LOGIN_SHOW, null);
+        onEvent("show", null);
     }
 
     private void switchNightModeView() {

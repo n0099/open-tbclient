@@ -6,8 +6,6 @@ import android.net.Proxy;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
 import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-import com.baidu.sapi2.result.AddressManageResult;
 /* loaded from: classes5.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
@@ -35,10 +33,10 @@ public class SysUpdateUtil implements SysUpdateObserver {
             return;
         }
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
-        if (lowerCase.equals(IXAdSystemUtils.NT_WIFI) && activeNetworkInfo.isConnected()) {
+        if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
             b = false;
-        } else if (lowerCase.equals(AddressManageResult.KEY_MOBILE) || (lowerCase.equals(IXAdSystemUtils.NT_WIFI) && !NetworkUtil.isWifiConnected(activeNetworkInfo))) {
+        } else if (lowerCase.equals("mobile") || (lowerCase.equals("wifi") && !NetworkUtil.isWifiConnected(activeNetworkInfo))) {
             String extraInfo = activeNetworkInfo.getExtraInfo();
             b = false;
             if (extraInfo != null) {

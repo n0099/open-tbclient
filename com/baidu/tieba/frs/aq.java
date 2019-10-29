@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class aq {
-    private TranslateAnimation mTipInAnimation;
-    private View fAv = null;
-    private int fAw = 2000;
-    private Runnable mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.frs.aq.1
+    private TranslateAnimation atd;
+    private View fzJ = null;
+    private int fzK = 2000;
+    private Runnable ate = new Runnable() { // from class: com.baidu.tieba.frs.aq.1
         @Override // java.lang.Runnable
         public void run() {
             aq.this.hideTip();
         }
     };
-    private ValueAnimator fAx = new ValueAnimator();
+    private ValueAnimator fzL = new ValueAnimator();
 
     public aq() {
-        this.fAx.setFloatValues(1.0f, 0.0f);
-        this.fAx.setDuration(400L);
-        this.fAx.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.aq.2
+        this.fzL.setFloatValues(1.0f, 0.0f);
+        this.fzL.setDuration(400L);
+        this.fzL.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.aq.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (aq.this.fAv != null && valueAnimator != null) {
-                    aq.this.fAv.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (aq.this.fzJ != null && valueAnimator != null) {
+                    aq.this.fzJ.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.fAx.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.aq.3
+        this.fzL.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.aq.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (aq.this.fAv != null) {
-                    aq.this.boO();
-                    aq.this.fAv.setAlpha(1.0f);
+                if (aq.this.fzJ != null) {
+                    aq.this.blS();
+                    aq.this.fzJ.setAlpha(1.0f);
                 }
             }
 
@@ -53,16 +53,16 @@ public class aq {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.mTipInAnimation.setDuration(400L);
-        this.mTipInAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.aq.4
+        this.atd = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.atd.setDuration(400L);
+        this.atd.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.aq.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.g.e.iK().postDelayed(aq.this.mHideTipRunnable, aq.this.fAw);
+                com.baidu.adp.lib.g.e.fZ().postDelayed(aq.this.ate, aq.this.fzK);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,47 +73,47 @@ public class aq {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.fAv = view;
-            boO();
-            viewGroup.addView(this.fAv, layoutParams);
-            this.fAv.setVisibility(0);
-            this.fAw = i;
-            com.baidu.adp.lib.g.e.iK().removeCallbacks(this.mHideTipRunnable);
-            com.baidu.adp.lib.g.e.iK().postDelayed(this.mHideTipRunnable, this.fAw);
+            this.fzJ = view;
+            blS();
+            viewGroup.addView(this.fzJ, layoutParams);
+            this.fzJ.setVisibility(0);
+            this.fzK = i;
+            com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.ate);
+            com.baidu.adp.lib.g.e.fZ().postDelayed(this.ate, this.fzK);
         }
     }
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
-            this.fAv = view;
-            boO();
-            viewGroup.addView(this.fAv, layoutParams);
-            this.fAv.setVisibility(0);
+            this.fzJ = view;
+            blS();
+            viewGroup.addView(this.fzJ, layoutParams);
+            this.fzJ.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.mHideTipRunnable);
-        if (this.fAv != null && this.fAv.getParent() != null && this.fAv.getVisibility() == 0 && !this.fAx.isRunning()) {
-            this.fAx.start();
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.ate);
+        if (this.fzJ != null && this.fzJ.getParent() != null && this.fzJ.getVisibility() == 0 && !this.fzL.isRunning()) {
+            this.fzL.start();
         }
     }
 
-    public void boO() {
-        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.mHideTipRunnable);
-        if (this.fAv != null) {
-            if (this.fAx != null && this.fAx.isRunning()) {
-                this.fAx.cancel();
+    public void blS() {
+        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.ate);
+        if (this.fzJ != null) {
+            if (this.fzL != null && this.fzL.isRunning()) {
+                this.fzL.cancel();
             }
-            this.fAv.clearAnimation();
-            if (this.fAv.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.fAv.getParent()).removeView(this.fAv);
+            this.fzJ.clearAnimation();
+            if (this.fzJ.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.fzJ.getParent()).removeView(this.fzJ);
             }
-            this.fAv.setVisibility(8);
+            this.fzJ.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        boO();
+        blS();
     }
 }

@@ -21,6 +21,8 @@ import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.VersionInfo;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -156,8 +158,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.o.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0093a implements FilenameFilter {
-        C0093a() {
+    public static class C0125a implements FilenameFilter {
+        C0125a() {
         }
 
         @Override // java.io.FilenameFilter
@@ -167,7 +169,7 @@ public class a {
     }
 
     private static void d() {
-        File[] listFiles = new File(d).listFiles(new C0093a());
+        File[] listFiles = new File(d).listFiles(new C0125a());
         if (listFiles != null && listFiles.length > 0) {
             for (File file : listFiles) {
                 file.delete();
@@ -248,10 +250,10 @@ public class a {
     public static int a(String str) {
         try {
             String substring = str.substring(0, str.indexOf(".R.") + 2);
-            int lastIndexOf = str.lastIndexOf(".");
+            int lastIndexOf = str.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
             String substring2 = str.substring(lastIndexOf + 1, str.length());
             String substring3 = str.substring(0, lastIndexOf);
-            return Class.forName(substring + "$" + substring3.substring(substring3.lastIndexOf(".") + 1, substring3.length())).getDeclaredField(substring2).getInt(null);
+            return Class.forName(substring + "$" + substring3.substring(substring3.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR) + 1, substring3.length())).getDeclaredField(substring2).getInt(null);
         } catch (Throwable th) {
             com.baidu.platform.comapi.wnplatform.d.a.a("", th.toString());
             return -1;
@@ -355,7 +357,7 @@ public class a {
                         animation = new AlphaAnimation(context, attributeSet);
                     } else if (name.equals("scale")) {
                         animation = new ScaleAnimation(context, attributeSet);
-                    } else if (name.equals("rotate")) {
+                    } else if (name.equals(RotateImageAction.ACTION_NAME)) {
                         animation = new RotateAnimation(context, attributeSet);
                     } else if (name.equals("translate")) {
                         animation = new TranslateAnimation(context, attributeSet);

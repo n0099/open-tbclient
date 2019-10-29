@@ -1,6 +1,5 @@
 package com.facebook.datasource;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.facebook.common.internal.i;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,26 +9,26 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class f<T> implements i<b<T>> {
-    private final List<i<b<T>>> ked;
+    private final List<i<b<T>>> kcm;
 
     private f(List<i<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.ked = list;
+        this.kcm = list;
     }
 
-    public static <T> f<T> eE(List<i<b<T>>> list) {
+    public static <T> f<T> eR(List<i<b<T>>> list) {
         return new f<>(list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.i
-    /* renamed from: cGu */
+    /* renamed from: cDs */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.ked.hashCode();
+        return this.kcm.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -39,11 +38,11 @@ public class f<T> implements i<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.ked, ((f) obj).ked);
+        return com.facebook.common.internal.f.equal(this.kcm, ((f) obj).kcm);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.aC(this).t(IntentConfig.LIST, this.ked).toString();
+        return com.facebook.common.internal.f.ax(this).q("list", this.kcm).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,70 +51,70 @@ public class f<T> implements i<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> kei;
+        private ArrayList<b<T>> kcr;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int kej;
+        private int kcs;
 
         public a() {
-            int size = f.this.ked.size();
-            this.kej = size;
-            this.kei = new ArrayList<>(size);
+            int size = f.this.kcm.size();
+            this.kcs = size;
+            this.kcr = new ArrayList<>(size);
             for (int i = 0; i < size; i++) {
-                b<T> bVar = (b) ((i) f.this.ked.get(i)).get();
-                this.kei.add(bVar);
-                bVar.a(new C0464a(i), com.facebook.common.b.a.cFH());
-                if (bVar.cGo()) {
+                b<T> bVar = (b) ((i) f.this.kcm.get(i)).get();
+                this.kcr.add(bVar);
+                bVar.a(new C0559a(i), com.facebook.common.b.a.cCF());
+                if (bVar.cDm()) {
                     return;
                 }
             }
         }
 
         @Nullable
-        private synchronized b<T> DF(int i) {
-            return (this.kei == null || i >= this.kei.size()) ? null : this.kei.get(i);
+        private synchronized b<T> Cb(int i) {
+            return (this.kcr == null || i >= this.kcr.size()) ? null : this.kcr.get(i);
         }
 
         @Nullable
-        private synchronized b<T> DG(int i) {
+        private synchronized b<T> Cc(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.kei != null && i < this.kei.size()) {
-                    bVar = this.kei.set(i, null);
+                if (this.kcr != null && i < this.kcr.size()) {
+                    bVar = this.kcr.set(i, null);
                 }
             }
             return bVar;
         }
 
         @Nullable
-        private synchronized b<T> cGx() {
-            return DF(this.kej);
+        private synchronized b<T> cDv() {
+            return Cb(this.kcs);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> cGx;
-            cGx = cGx();
-            return cGx != null ? cGx.getResult() : null;
+            b<T> cDv;
+            cDv = cDv();
+            return cDv != null ? cDv.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean cGo() {
+        public synchronized boolean cDm() {
             boolean z;
-            b<T> cGx = cGx();
-            if (cGx != null) {
-                z = cGx.cGo();
+            b<T> cDv = cDv();
+            if (cDv != null) {
+                z = cDv.cDm();
             }
             return z;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public boolean AM() {
+        public boolean FH() {
             int i = 0;
             synchronized (this) {
-                if (super.AM()) {
-                    ArrayList<b<T>> arrayList = this.kei;
-                    this.kei = null;
+                if (super.FH()) {
+                    ArrayList<b<T>> arrayList = this.kcr;
+                    this.kcr = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
@@ -135,8 +134,8 @@ public class f<T> implements i<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, b<T> bVar) {
             a(i, bVar, bVar.isFinished());
-            if (bVar == cGx()) {
-                a((a) null, i == 0 && bVar.isFinished());
+            if (bVar == cDv()) {
+                b((a) null, i == 0 && bVar.isFinished());
             }
         }
 
@@ -144,21 +143,21 @@ public class f<T> implements i<b<T>> {
         public void b(int i, b<T> bVar) {
             l(c(i, bVar));
             if (i == 0) {
-                t(bVar.cGq());
+                s(bVar.cDo());
             }
         }
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.kej;
-                if (bVar == DF(i) && i != this.kej) {
-                    if (cGx() == null || (z && i < this.kej)) {
-                        this.kej = i;
+                int i2 = this.kcs;
+                if (bVar == Cb(i) && i != this.kcs) {
+                    if (cDv() == null || (z && i < this.kcs)) {
+                        this.kcs = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.kej; i3 > i; i3--) {
-                        l(DG(i3));
+                    for (int i3 = this.kcs; i3 > i; i3--) {
+                        l(Cc(i3));
                     }
                 }
             }
@@ -166,32 +165,32 @@ public class f<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> c(int i, b<T> bVar) {
-            if (bVar == cGx()) {
+            if (bVar == cDv()) {
                 bVar = null;
-            } else if (bVar == DF(i)) {
-                bVar = DG(i);
+            } else if (bVar == Cb(i)) {
+                bVar = Cc(i);
             }
             return bVar;
         }
 
         private void l(b<T> bVar) {
             if (bVar != null) {
-                bVar.AM();
+                bVar.FH();
             }
         }
 
         /* renamed from: com.facebook.datasource.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        private class C0464a implements d<T> {
+        private class C0559a implements d<T> {
             private int mIndex;
 
-            public C0464a(int i) {
+            public C0559a(int i) {
                 this.mIndex = i;
             }
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.cGo()) {
+                if (bVar.cDm()) {
                     a.this.a(this.mIndex, bVar);
                 } else if (bVar.isFinished()) {
                     a.this.b(this.mIndex, bVar);
@@ -210,7 +209,7 @@ public class f<T> implements i<b<T>> {
             @Override // com.facebook.datasource.d
             public void f(b<T> bVar) {
                 if (this.mIndex == 0) {
-                    a.this.aY(bVar.getProgress());
+                    a.this.aB(bVar.getProgress());
                 }
             }
         }

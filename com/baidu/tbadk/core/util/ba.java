@@ -4,6 +4,8 @@ import android.content.Context;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.TbPageContext;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,16 +17,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba bUX = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
+    private static ba cku = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
     };
-    private static final Pattern bVa = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final ConcurrentHashMap<String, b> bUY;
-    private c bUZ;
+    private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private c ckv;
+    private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
     /* loaded from: classes.dex */
     public interface a {
-        int a(TbPageContext<?> tbPageContext, String[] strArr);
+        int deal(TbPageContext<?> tbPageContext, String[] strArr);
     }
 
     /* loaded from: classes.dex */
@@ -43,19 +45,19 @@ public class ba {
 
     private ba() {
         this.mListeners = new LinkedList();
-        this.bUY = new ConcurrentHashMap<>();
-        this.bUZ = null;
+        this.mHandlers = new ConcurrentHashMap<>();
+        this.ckv = null;
     }
 
-    public static SpannableString ai(Context context, String str) {
+    public static SpannableString af(Context context, String str) {
         int start;
-        Matcher matcher = bVa.matcher(str);
+        Matcher matcher = pattern.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
             String group2 = matcher.group();
-            if (!group2.endsWith(" ")) {
-                group2 = group2 + " ";
+            if (!group2.endsWith(HanziToPinyin.Token.SEPARATOR)) {
+                group2 = group2 + HanziToPinyin.Token.SEPARATOR;
             }
             int length = group2.length();
             spannableString.setSpan(new com.baidu.tbadk.widget.richText.c(2, group), matcher.start(), (length + start) - 1, 33);
@@ -63,15 +65,15 @@ public class ba {
         return spannableString;
     }
 
-    public static ba ajK() {
-        return bUX;
+    public static ba amQ() {
+        return cku;
     }
 
     public void a(final a aVar) {
-        if (com.baidu.adp.lib.util.l.ks()) {
+        if (com.baidu.adp.lib.util.l.isMainThread()) {
             b(aVar);
         } else {
-            com.baidu.adp.lib.g.e.iK().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ba.2
+            com.baidu.adp.lib.g.e.fZ().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ba.2
                 @Override // java.lang.Runnable
                 public void run() {
                     ba.this.b(aVar);
@@ -88,27 +90,27 @@ public class ba {
     }
 
     public void a(c cVar) {
-        this.bUZ = cVar;
+        this.ckv = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
         return a(tbPageContext, "", strArr, z, dVar, z2);
     }
 
-    public int b(TbPageContext<?> tbPageContext, String[] strArr) {
-        int a2;
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        int deal;
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.bUY.get(ou(str));
+        b bVar = this.mHandlers.get(getSchemaKey(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, ot(os(str)));
+            bVar.a(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str)));
             return 0;
         }
         for (a aVar : this.mListeners) {
-            if (aVar != null && (a2 = aVar.a(tbPageContext, strArr)) != 3) {
-                return a2;
+            if (aVar != null && (deal = aVar.deal(tbPageContext, strArr)) != 3) {
+                return deal;
             }
         }
         return 3;
@@ -121,9 +123,9 @@ public class ba {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.bUY.get(ou(str2));
+        b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, ot(os(str2)));
+            bVar.a(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str2)));
             return true;
         }
         Iterator<a> it = this.mListeners.iterator();
@@ -133,12 +135,12 @@ public class ba {
                 break;
             }
             a next = it.next();
-            if (next != null && next.a(tbPageContext, strArr) != 3) {
+            if (next != null && next.deal(tbPageContext, strArr) != 3) {
                 z3 = true;
                 break;
             }
         }
-        if (!z3 && this.bUZ != null) {
+        if (!z3 && this.ckv != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -149,7 +151,7 @@ public class ba {
         return z4;
     }
 
-    public static Map<String, String> oq(String str) {
+    public static Map<String, String> getParamPair(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -167,7 +169,7 @@ public class ba {
         return null;
     }
 
-    public static String or(String str) {
+    public static String getParamStr(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -175,7 +177,7 @@ public class ba {
         return split[1];
     }
 
-    public static String os(String str) {
+    public static String getParamStrBehindScheme(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -193,7 +195,7 @@ public class ba {
         }
     }
 
-    private Map<String, String> ot(String str) {
+    private Map<String, String> getInnerParamPair(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -205,7 +207,7 @@ public class ba {
                 hashMap.put(split2[0], split2[1]);
                 return hashMap;
             }
-            hashMap.put("default_param", str);
+            hashMap.put(UrlManager.DEFAULT_PARAM, str);
             return hashMap;
         }
         for (String str2 : split) {
@@ -217,7 +219,7 @@ public class ba {
         return hashMap;
     }
 
-    private String ou(String str) {
+    private String getSchemaKey(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -230,7 +232,7 @@ public class ba {
         return str;
     }
 
-    public boolean c(TbPageContext<?> tbPageContext, String[] strArr) {
+    public boolean b(TbPageContext<?> tbPageContext, String[] strArr) {
         return a(tbPageContext, strArr, false, null, false);
     }
 
@@ -243,21 +245,21 @@ public class ba {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (bVa.matcher(str2).find()) {
-            this.bUZ.a(tbPageContext, str, str2, z, dVar, z2);
+        if (pattern.matcher(str2).find()) {
+            this.ckv.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String ou = ou(str);
-            if (!StringUtils.isNull(ou)) {
-                this.bUY.put(ou, bVar);
+            String schemaKey = getSchemaKey(str);
+            if (!StringUtils.isNull(schemaKey)) {
+                this.mHandlers.put(schemaKey, bVar);
             }
         }
     }
 
-    public boolean ov(String str) {
-        return bVa.matcher(str).find();
+    public boolean UrlValidated(String str) {
+        return pattern.matcher(str).find();
     }
 }

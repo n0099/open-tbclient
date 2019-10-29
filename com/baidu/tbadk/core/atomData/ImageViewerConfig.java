@@ -77,7 +77,7 @@ public class ImageViewerConfig extends IntentConfig {
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5, int i2, boolean z6) {
         ImageUrlData imageUrlData;
         Intent intent = getIntent();
-        intent.putExtra(ABTEST, b.ly("picpage_content_clear"));
+        intent.putExtra("abtest", b.mb("picpage_content_clear"));
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
@@ -86,7 +86,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
             intent.putExtra(PARAM_IS_CDN, z);
-            intent.putExtra(FORUM_NAME, str);
+            intent.putExtra("fname", str);
             intent.putExtra("fid", str2);
             intent.putExtra("tid", str3);
             intent.putExtra(LAST_ID, str4);
@@ -177,7 +177,7 @@ public class ImageViewerConfig extends IntentConfig {
             jSONArray.put(rect.top - i);
             jSONArray.put(rect.right);
             jSONArray.put(rect.bottom - i);
-            getIntent().putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, jSONArray.toString());
+            getIntent().putExtra("source_rect_in_screen", jSONArray.toString());
             return this;
         } catch (Exception e) {
             e.printStackTrace();

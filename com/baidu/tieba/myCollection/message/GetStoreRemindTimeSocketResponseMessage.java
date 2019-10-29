@@ -1,6 +1,7 @@
 package com.baidu.tieba.myCollection.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.Collections;
 import java.util.List;
@@ -10,7 +11,7 @@ public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMess
     public List<String> timeList;
 
     public GetStoreRemindTimeSocketResponseMessage() {
-        super(309117);
+        super(CmdConfigSocket.CMD_GET_STORE_REMIND_TIME);
         this.timeList = Collections.EMPTY_LIST;
     }
 

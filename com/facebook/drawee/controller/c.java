@@ -4,15 +4,15 @@ import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface c<INFO> {
-    void In(String str);
+    void GE(String str);
 
     void a(String str, @Nullable INFO info, @Nullable Animatable animatable);
 
-    void g(String str, Throwable th);
+    void h(String str, Throwable th);
 
-    void k(String str, Throwable th);
+    void l(String str, Throwable th);
 
-    void x(String str, Object obj);
+    void u(String str, Object obj);
 
-    void y(String str, @Nullable INFO info);
+    void v(String str, @Nullable INFO info);
 }

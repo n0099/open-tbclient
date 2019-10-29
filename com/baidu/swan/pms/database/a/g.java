@@ -10,20 +10,20 @@ import java.util.List;
 public class g extends b<h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: p */
-    public h l(Cursor cursor) {
+    /* renamed from: o */
+    public h k(Cursor cursor) {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
-        return q(cursor);
+        return p(cursor);
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<h> j(Cursor cursor) {
+    public List<h> i(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
-                arrayList.add(q(cursor));
+                arrayList.add(p(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -33,23 +33,23 @@ public class g extends b<h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: h */
-    public ContentValues U(h hVar) {
+    public ContentValues S(h hVar) {
         ContentValues g = super.g(hVar);
-        g.put("independent", Integer.valueOf(hVar.btt ? 1 : 0));
-        g.put("sub_pkg_name", hVar.Ht);
+        g.put("independent", Integer.valueOf(hVar.bMe ? 1 : 0));
+        g.put("sub_pkg_name", hVar.ud);
         g.put(Constants.APP_ID, hVar.appId);
         return g;
     }
 
-    private h q(Cursor cursor) {
+    private h p(Cursor cursor) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("independent");
             int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
             int columnIndex3 = cursor.getColumnIndex(Constants.APP_ID);
             h hVar = new h();
             if (a(cursor, hVar)) {
-                hVar.btt = cursor.getInt(columnIndex) == 1;
-                hVar.Ht = cursor.getString(columnIndex2);
+                hVar.bMe = cursor.getInt(columnIndex) == 1;
+                hVar.ud = cursor.getString(columnIndex2);
                 hVar.appId = cursor.getString(columnIndex3);
                 return hVar;
             }

@@ -12,8 +12,8 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class EditAddressView extends LinearLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.tieba.aiapps.apps.address.a.b deA;
-    private ListView dez;
+    private ListView dnT;
+    private com.baidu.tieba.aiapps.apps.address.a.b dnU;
 
     public EditAddressView(Context context, com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         super(context);
@@ -22,40 +22,40 @@ public class EditAddressView extends LinearLayout {
 
     private void a(Context context, com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         setBackgroundColor(0);
-        this.dez = new ListView(context);
-        this.dez.setDividerHeight(0);
-        gv(com.baidu.swan.apps.u.a.EJ().Fi());
-        this.deA = new com.baidu.tieba.aiapps.apps.address.a.b(context);
+        this.dnT = new ListView(context);
+        this.dnT.setDividerHeight(0);
+        gk(com.baidu.swan.apps.u.a.JD().Kc());
+        this.dnU = new com.baidu.tieba.aiapps.apps.address.a.b(context);
         g(bVar);
-        this.dez.setAdapter((ListAdapter) this.deA);
-        addView(this.dez, new LinearLayout.LayoutParams(-1, -1));
+        this.dnT.setAdapter((ListAdapter) this.dnU);
+        addView(this.dnT, new LinearLayout.LayoutParams(-1, -1));
     }
 
-    public void gv(boolean z) {
+    public void gk(boolean z) {
         if (z) {
-            this.dez.setBackgroundColor(Color.parseColor("#161616"));
+            this.dnT.setBackgroundColor(Color.parseColor("#161616"));
         } else {
-            this.dez.setBackgroundColor(Color.parseColor("#0D000000"));
+            this.dnT.setBackgroundColor(Color.parseColor("#0D000000"));
         }
     }
 
     public Map<String, Object> getDeliveryEditData() {
-        return this.deA.getDeliveryEditData();
+        return this.dnU.getDeliveryEditData();
     }
 
     public com.baidu.tieba.aiapps.apps.address.a.b getEditAdapter() {
-        return this.deA;
+        return this.dnU;
     }
 
     public void g(com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         if (bVar != null) {
-            this.deA.setData(com.baidu.tieba.aiapps.apps.address.c.b.e(bVar));
-            this.deA.p(com.baidu.tieba.aiapps.apps.address.c.b.b(bVar));
-            this.deA.q(new HashMap(4));
+            this.dnU.setData(com.baidu.tieba.aiapps.apps.address.c.b.e(bVar));
+            this.dnU.q(com.baidu.tieba.aiapps.apps.address.c.b.b(bVar));
+            this.dnU.r(new HashMap(4));
         }
     }
 
     public void setDeliveryEditChangedListener(b.a aVar) {
-        this.deA.setDeliveryEditChangedListener(aVar);
+        this.dnU.setDeliveryEditChangedListener(aVar);
     }
 }

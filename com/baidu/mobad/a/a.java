@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.os.Handler;
-import android.support.v4.app.NotificationCompat;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContext;
@@ -27,9 +26,9 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes5.dex */
 public class a implements IXAdContext {
-    private IXAdConstants4PDK.VisitorAction agt;
-    private Location agu;
-    private Activity agv;
+    private IXAdConstants4PDK.VisitorAction azQ;
+    private Location azR;
+    private Activity azS;
     private double h;
     private int i;
     private int j;
@@ -37,19 +36,19 @@ public class a implements IXAdContext {
     private String l;
     private RelativeLayout o;
     private HashMap<String, Object> c = new HashMap<>();
-    private IXAdConstants4PDK.ScreenSizeMode agq = IXAdConstants4PDK.ScreenSizeMode.FULL_SCREEN;
-    private IXAdConstants4PDK.VideoState agr = IXAdConstants4PDK.VideoState.IDLE;
-    private IXAdConstants4PDK.ActivityState ags = IXAdConstants4PDK.ActivityState.CREATE;
+    private IXAdConstants4PDK.ScreenSizeMode azN = IXAdConstants4PDK.ScreenSizeMode.FULL_SCREEN;
+    private IXAdConstants4PDK.VideoState azO = IXAdConstants4PDK.VideoState.IDLE;
+    private IXAdConstants4PDK.ActivityState azP = IXAdConstants4PDK.ActivityState.CREATE;
     int a = 0;
     int b = 0;
-    private final IOAdEventDispatcher agw = new com.baidu.mobads.openad.c.c();
-    private final f agx = new f();
-    protected IXAdLogger agp = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    private final IOAdEventDispatcher azT = new com.baidu.mobads.openad.c.c();
+    private final f azU = new f();
+    protected IXAdLogger azM = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     public a(Context context, String str, Location location) {
         this.k = context;
         this.l = str;
-        this.agu = location;
+        this.azR = location;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
@@ -61,30 +60,30 @@ public class a implements IXAdContext {
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void setActivity(Activity activity) {
-        if (activity != null && this.agv == null) {
-            this.agv = activity;
+        if (activity != null && this.azS == null) {
+            this.azS = activity;
             if (this.k == null) {
-                this.k = this.agv.getApplicationContext();
+                this.k = this.azS.getApplicationContext();
             }
         }
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public Activity getActivity() {
-        return this.agv;
+        return this.azS;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void setActivityState(IXAdConstants4PDK.ActivityState activityState) {
-        this.ags = activityState;
-        this.agp.i("XAdContext", activityState.getValue());
-        IXLinearAdSlot ur = this.agx.ur();
-        if (ur != null) {
+        this.azP = activityState;
+        this.azM.i("XAdContext", activityState.getValue());
+        IXLinearAdSlot zl = this.azU.zl();
+        if (zl != null) {
             if (activityState == IXAdConstants4PDK.ActivityState.PAUSE) {
-                ur.pause();
+                zl.pause();
             }
             if (activityState == IXAdConstants4PDK.ActivityState.RESUME) {
-                ur.resume();
+                zl.resume();
             }
         }
     }
@@ -102,10 +101,10 @@ public class a implements IXAdContext {
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void setContentVideoScreenMode(IXAdConstants4PDK.ScreenSizeMode screenSizeMode) {
         IXAdInstanceInfo currentAdInstance;
-        this.agq = screenSizeMode;
-        IXLinearAdSlot ur = this.agx.ur();
-        if (this.agq == IXAdConstants4PDK.ScreenSizeMode.FULL_SCREEN && ur != null && ur.getSlotState() == IXAdConstants4PDK.SlotState.PLAYING && (currentAdInstance = ur.getCurrentAdInstance()) != null) {
-            int playheadTime = (int) ur.getCurrentXAdContainer().getPlayheadTime();
+        this.azN = screenSizeMode;
+        IXLinearAdSlot zl = this.azU.zl();
+        if (this.azN == IXAdConstants4PDK.ScreenSizeMode.FULL_SCREEN && zl != null && zl.getSlotState() == IXAdConstants4PDK.SlotState.PLAYING && (currentAdInstance = zl.getCurrentAdInstance()) != null) {
+            int playheadTime = (int) zl.getCurrentXAdContainer().getPlayheadTime();
             IXAdURIUitls uRIUitls = XAdSDKFoundationFacade.getInstance().getURIUitls();
             ArrayList arrayList = new ArrayList();
             List<String> fullScreenTrackers = currentAdInstance.getFullScreenTrackers();
@@ -113,7 +112,7 @@ public class a implements IXAdContext {
             while (true) {
                 int i2 = i;
                 if (i2 < fullScreenTrackers.size()) {
-                    arrayList.add(uRIUitls.addParameter(fullScreenTrackers.get(i2), NotificationCompat.CATEGORY_PROGRESS, "" + playheadTime));
+                    arrayList.add(uRIUitls.addParameter(fullScreenTrackers.get(i2), "progress", "" + playheadTime));
                     i = i2 + 1;
                 } else {
                     currentAdInstance.setFullScreenTrackers(arrayList);
@@ -137,7 +136,7 @@ public class a implements IXAdContext {
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void setContentVideoState(IXAdConstants4PDK.VideoState videoState) {
-        this.agr = videoState;
+        this.azO = videoState;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
@@ -157,29 +156,29 @@ public class a implements IXAdContext {
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void submitRequest() {
-        IXLinearAdSlot ur = this.agx.ur();
+        IXLinearAdSlot zl = this.azU.zl();
         if (this.i > 0 && this.j > 0) {
-            HashMap<String, String> parameter = ur.getParameter();
+            HashMap<String, String> parameter = zl.getParameter();
             parameter.put(IXAdInternalConstants.PARAMETER_KEY_OF_AD_REQUESTING_TIMEOUT, "" + this.i);
             parameter.put(IXAdInternalConstants.PARAMETER_KEY_OF_AD_CREATIVE_LOADING_TIMEOUT, "" + this.j);
             parameter.put("BASE_WIDTH", "" + this.a);
             parameter.put("BASE_HEIGHT", "" + this.b);
-            ur.setParameter(parameter);
+            zl.setParameter(parameter);
         }
-        ur.request();
+        zl.request();
     }
 
     /* renamed from: com.baidu.mobad.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0071a implements IOAdEventListener {
+    public static class C0103a implements IOAdEventListener {
         private final Context a;
-        private final IOAdEventDispatcher agA;
-        private final IXAdProd agz;
+        private final IXAdProd azW;
+        private final IOAdEventDispatcher azX;
 
-        public C0071a(Context context, IXAdProd iXAdProd, IOAdEventDispatcher iOAdEventDispatcher) {
+        public C0103a(Context context, IXAdProd iXAdProd, IOAdEventDispatcher iOAdEventDispatcher) {
             this.a = context;
-            this.agz = iXAdProd;
-            this.agA = iOAdEventDispatcher;
+            this.azW = iXAdProd;
+            this.azX = iOAdEventDispatcher;
         }
 
         @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
@@ -191,36 +190,36 @@ public class a implements IXAdContext {
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public IXLinearAdSlot newPrerollAdSlot(String str, int i, int i2) {
-        if (!this.agx.cM(str).booleanValue()) {
-            com.baidu.mobads.production.h.b bVar = new com.baidu.mobads.production.h.b(this.agv, str);
-            bVar.setActivity(this.agv);
+        if (!this.azU.dw(str).booleanValue()) {
+            com.baidu.mobads.production.h.b bVar = new com.baidu.mobads.production.h.b(this.azS, str);
+            bVar.setActivity(this.azS);
             bVar.setAdSlotBase(this.o);
             bVar.setId(str);
-            C0071a c0071a = new C0071a(this.k, bVar, this.agw);
+            C0103a c0103a = new C0103a(this.k, bVar, this.azT);
             bVar.removeAllListeners();
-            bVar.addEventListener(com.baidu.mobads.openad.c.b.COMPLETE, c0071a);
-            bVar.addEventListener(IXAdEvent.AD_STARTED, c0071a);
-            bVar.addEventListener(IXAdEvent.AD_STOPPED, c0071a);
-            bVar.addEventListener(IXAdEvent.AD_ERROR, c0071a);
-            bVar.addEventListener("AdUserClick", c0071a);
-            this.agx.a(bVar);
+            bVar.addEventListener(com.baidu.mobads.openad.c.b.COMPLETE, c0103a);
+            bVar.addEventListener(IXAdEvent.AD_STARTED, c0103a);
+            bVar.addEventListener(IXAdEvent.AD_STOPPED, c0103a);
+            bVar.addEventListener(IXAdEvent.AD_ERROR, c0103a);
+            bVar.addEventListener("AdUserClick", c0103a);
+            this.azU.a(bVar);
         }
-        return this.agx.ur();
+        return this.azU.zl();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public IXAdProd getSlotById(String str) {
-        return this.agx.cN(str);
+        return this.azU.dx(str);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void addEventListener(String str, IOAdEventListener iOAdEventListener) {
-        this.agw.addEventListener(str, iOAdEventListener);
+        this.azT.addEventListener(str, iOAdEventListener);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void removeEventListener(String str, IOAdEventListener iOAdEventListener) {
-        this.agw.removeEventListener(str, iOAdEventListener);
+        this.azT.removeEventListener(str, iOAdEventListener);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
@@ -234,7 +233,7 @@ public class a implements IXAdContext {
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void notifyVisitorAction(IXAdConstants4PDK.VisitorAction visitorAction) {
-        this.agt = visitorAction;
+        this.azQ = visitorAction;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext

@@ -2,6 +2,7 @@ package com.baidu.swan.apps.storage.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -24,19 +25,19 @@ public class l extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = optParamsAsJo.optString("key");
+        String optString = optParamsAsJo.optString(TiebaInitialize.Params.KEY);
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
         String optString2 = optParamsAsJo.optString("data");
-        com.baidu.swan.apps.storage.c Mk = bVar.Mk();
-        if (!Mk.NU() && Mk.NV().getString(optString, "").length() < optString2.length()) {
+        com.baidu.swan.apps.storage.c Rc = bVar.Rc();
+        if (!Rc.SK() && Rc.SL().getString(optString, "").length() < optString2.length()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not available");
             return false;
         }
-        Mk.NV().putString(optString, optString2);
-        com.baidu.swan.apps.ak.e.bab.update();
+        Rc.SL().putString(optString, optString2);
+        com.baidu.swan.apps.ak.e.bta.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

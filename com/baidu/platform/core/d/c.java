@@ -1,5 +1,6 @@
 package com.baidu.platform.core.d;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.common.Logger;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
@@ -9,7 +10,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteResult;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -201,7 +201,7 @@ public class c extends k {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
                 return false;
             }
-            switch (optJSONObject.optInt("error")) {
+            switch (optJSONObject.optInt(BdStatsConstant.StatsType.ERROR)) {
                 case 0:
                     JSONObject optJSONObject2 = jSONObject.optJSONObject("cars");
                     if (optJSONObject2 == null) {
@@ -212,7 +212,7 @@ public class c extends k {
                     if (optJSONObject3 == null || optJSONObject4 == null) {
                         return false;
                     }
-                    RouteNode a = a(optJSONObject3.optJSONObject(IntentConfig.START));
+                    RouteNode a = a(optJSONObject3.optJSONObject("start"));
                     ArrayList arrayList = new ArrayList();
                     RouteNode a2 = a(optJSONObject3.optJSONArray("end"), arrayList);
                     List<DrivingRouteLine.DrivingStep> a3 = a(optJSONObject4.optJSONArray("steps"), optJSONObject4.optJSONArray("stepts"));

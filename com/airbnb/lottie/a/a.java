@@ -21,18 +21,18 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a<T> {
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
-    private final e kI;
+    private final e dk;
     @Nullable
-    public final T lI;
+    public final T ej;
     @Nullable
-    public final T lJ;
+    public final T ek;
     @Nullable
-    public final Interpolator lK;
-    public final float lL;
+    public final Interpolator el;
+    public final float em;
     @Nullable
-    public Float lM;
-    private float lN = Float.MIN_VALUE;
-    private float lO = Float.MIN_VALUE;
+    public Float en;
+    private float eo = Float.MIN_VALUE;
+    private float ep = Float.MIN_VALUE;
 
     public static void f(List<? extends a<?>> list) {
         int size = list.size();
@@ -42,78 +42,78 @@ public class a<T> {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).lM = Float.valueOf(list.get(i2 + 1).lL);
+            list.get(i2).en = Float.valueOf(list.get(i2 + 1).em);
             i = i2 + 1;
         }
         a<?> aVar = list.get(size - 1);
-        if (aVar.lI == null) {
+        if (aVar.ej == null) {
             list.remove(aVar);
         }
     }
 
     public a(e eVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
-        this.kI = eVar;
-        this.lI = t;
-        this.lJ = t2;
-        this.lK = interpolator;
-        this.lL = f;
-        this.lM = f2;
+        this.dk = eVar;
+        this.ej = t;
+        this.ek = t2;
+        this.el = interpolator;
+        this.em = f;
+        this.en = f2;
     }
 
-    public float bV() {
-        if (this.lN == Float.MIN_VALUE) {
-            this.lN = (this.lL - ((float) this.kI.bB())) / this.kI.bH();
+    public float bo() {
+        if (this.eo == Float.MIN_VALUE) {
+            this.eo = (this.em - ((float) this.dk.aU())) / this.dk.ba();
         }
-        return this.lN;
+        return this.eo;
     }
 
-    public float bW() {
-        if (this.lO == Float.MIN_VALUE) {
-            if (this.lM == null) {
-                this.lO = 1.0f;
+    public float bp() {
+        if (this.ep == Float.MIN_VALUE) {
+            if (this.en == null) {
+                this.ep = 1.0f;
             } else {
-                this.lO = bV() + ((this.lM.floatValue() - this.lL) / this.kI.bH());
+                this.ep = bo() + ((this.en.floatValue() - this.em) / this.dk.ba());
             }
         }
-        return this.lO;
+        return this.ep;
     }
 
-    public boolean bX() {
-        return this.lK == null;
+    public boolean bq() {
+        return this.el == null;
     }
 
     public boolean g(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return f >= bV() && f < bW();
+        return f >= bo() && f < bp();
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.lI + ", endValue=" + this.lJ + ", startFrame=" + this.lL + ", endFrame=" + this.lM + ", interpolator=" + this.lK + '}';
+        return "Keyframe{startValue=" + this.ej + ", endValue=" + this.ek + ", startFrame=" + this.em + ", endFrame=" + this.en + ", interpolator=" + this.el + '}';
     }
 
     /* renamed from: com.airbnb.lottie.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0005a {
-        private static SparseArrayCompat<WeakReference<Interpolator>> lP;
+        private static SparseArrayCompat<WeakReference<Interpolator>> eq;
 
-        private static SparseArrayCompat<WeakReference<Interpolator>> bZ() {
-            if (lP == null) {
-                lP = new SparseArrayCompat<>();
+        private static SparseArrayCompat<WeakReference<Interpolator>> bs() {
+            if (eq == null) {
+                eq = new SparseArrayCompat<>();
             }
-            return lP;
+            return eq;
         }
 
         @Nullable
         private static WeakReference<Interpolator> k(int i) {
             WeakReference<Interpolator> weakReference;
             synchronized (C0005a.class) {
-                weakReference = bZ().get(i);
+                weakReference = bs().get(i);
             }
             return weakReference;
         }
 
         private static void a(int i, WeakReference<Interpolator> weakReference) {
             synchronized (C0005a.class) {
-                lP.put(i, weakReference);
+                eq.put(i, weakReference);
             }
         }
 

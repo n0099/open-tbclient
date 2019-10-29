@@ -1,50 +1,48 @@
 package com.baidu.tbadk.core.data;
 
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private boolean bGA;
-    private int bGB;
-    private int bGC;
-    private int bGD = 25;
-    private int bGE = 25;
-    private int bGF = 10;
+    private boolean bYl;
+    private int bYm;
+    private int bYn;
+    private int bYo = 25;
+    private int bYp = 25;
+    private int bYq = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.bGD;
+        return this.bYo;
     }
 
     public int getErrRank() {
-        return this.bGE;
+        return this.bYp;
     }
 
     public int getSlowRank() {
-        return this.bGF;
+        return this.bYq;
     }
 
     public boolean ismSwitch() {
-        return this.bGA;
+        return this.bYl;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.bGA != z) {
-            com.baidu.adp.lib.stats.a iF = com.baidu.tbadk.core.util.s.iF();
-            iF.append(SocialConstants.PARAM_ACT, "fallback");
-            iF.append("result", z ? "1" : "0");
-            iF.append("type", "switch");
-            BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, iF);
+        if (this.bYl != z) {
+            com.baidu.adp.lib.stats.a fU = com.baidu.tbadk.core.util.s.fU();
+            fU.append("act", "fallback");
+            fU.append("result", z ? "1" : "0");
+            fU.append("type", "switch");
+            BdStatisticsManager.getInstance().debug("img", fU);
         }
-        this.bGA = z;
+        this.bYl = z;
     }
 
     public int getSlowNumber() {
-        return this.bGB;
+        return this.bYm;
     }
 
     public int getTime() {
@@ -52,7 +50,7 @@ public class m {
     }
 
     public int getErrNumber() {
-        return this.bGC;
+        return this.bYn;
     }
 
     public void parseJson(String str) {
@@ -61,7 +59,7 @@ public class m {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.bGA = false;
+            this.bYl = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -70,30 +68,30 @@ public class m {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.bGA = true;
+                    this.bYl = true;
                 } else {
-                    this.bGA = false;
+                    this.bYl = false;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
+                JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.bGC = optJSONObject.optInt("num");
+                    this.bYn = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.bGB = optJSONObject2.optInt("num");
+                    this.bYm = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.bGD = optJSONObject3.optInt("succ");
-                    this.bGE = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.bGF = optJSONObject3.optInt("slow");
+                    this.bYo = optJSONObject3.optInt("succ");
+                    this.bYp = optJSONObject3.optInt("err");
+                    this.bYq = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.bGB <= 0 || this.bGC <= 0) {
-                    this.bGA = false;
+                if (this.time <= 0 || this.bYm <= 0 || this.bYn <= 0) {
+                    this.bYl = false;
                 }
             } catch (Exception e) {
-                this.bGA = false;
+                this.bYl = false;
                 BdLog.e(e.getMessage());
             }
         }

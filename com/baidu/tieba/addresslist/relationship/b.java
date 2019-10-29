@@ -3,6 +3,7 @@ package com.baidu.tieba.addresslist.relationship;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes3.dex */
 public class b implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -10,6 +11,6 @@ public class b implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2001178, f.aEn().aEo());
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST, f.aEx().aEy());
     }
 }

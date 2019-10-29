@@ -4,6 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.a.j;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.message.ResponseUnLoginMessage;
@@ -11,7 +13,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class d extends j {
     public d() {
-        super(202009);
+        super(CmdConfigSocket.CMD_PUSH_MESSAGE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +26,7 @@ public class d extends j {
             }
             PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
             if (((PushResponseMessage) socketResponsedMessage).getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
-                CustomMessage customMessage = new CustomMessage(2012100);
+                CustomMessage customMessage = new CustomMessage(CmdConfigCustom.DEAL_YY_NOTIFICATION);
                 customMessage.setData(pushResponseMessage.getNotificationData());
                 MessageManager.getInstance().sendMessage(customMessage);
                 return null;

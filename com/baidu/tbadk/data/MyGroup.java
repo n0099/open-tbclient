@@ -1,7 +1,6 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.MyGroupInfo;
@@ -49,7 +48,7 @@ public class MyGroup extends OrmObject implements Serializable {
         if (jSONObject != null) {
             this.mGroupName = jSONObject.optString("group_name");
             this.mGroupId = jSONObject.optLong("group_id");
-            this.mGroupPortrait = jSONObject.optString(IntentConfig.PORTRAIT);
+            this.mGroupPortrait = jSONObject.optString("portrait");
             this.mGroupMemberNum = Integer.valueOf(jSONObject.optInt("member_num"));
         }
     }

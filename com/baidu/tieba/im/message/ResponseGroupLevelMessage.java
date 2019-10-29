@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.data.GroupLevelInfo;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class ResponseGroupLevelMessage extends SocketResponsedMessage {
     private GroupLevelInfo groupLevelInfo;
 
     public ResponseGroupLevelMessage() {
-        super(103006);
+        super(CmdConfigSocket.CMD_REQUEST_GROUPLEVEL_BY_ID);
     }
 
     public ResponseGroupLevelMessage(int i) {

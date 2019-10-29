@@ -1093,7 +1093,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
 
         public int interpolateOutOfBoundsScroll(RecyclerView recyclerView, int i, int i2, int i3, long j) {
-            int interpolation = (int) (sDragScrollInterpolator.getInterpolation(j <= DRAG_SCROLL_ACCELERATION_LIMIT_TIME_MS ? ((float) j) / 2000.0f : 1.0f) * ((int) (getMaxDragScroll(recyclerView) * ((int) Math.signum(i2)) * sDragViewScrollCapInterpolator.getInterpolation(Math.min(1.0f, (Math.abs(i2) * 1.0f) / i)))));
+            int interpolation = (int) (sDragScrollInterpolator.getInterpolation(j <= 2000 ? ((float) j) / 2000.0f : 1.0f) * ((int) (getMaxDragScroll(recyclerView) * ((int) Math.signum(i2)) * sDragViewScrollCapInterpolator.getInterpolation(Math.min(1.0f, (Math.abs(i2) * 1.0f) / i)))));
             if (interpolation == 0) {
                 return i2 > 0 ? 1 : -1;
             }

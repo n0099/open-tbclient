@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
-    private long aHr;
-    private String cXJ;
-    private String hGL;
-    private String jjJ;
-    private List<String> jjK;
+    private String agP;
+    private long baF;
+    private String dhg;
+    private String jjx;
+    private List<String> jjy;
     private long mStartTime;
     private int mType;
 
     public void a(RedpacketRain redpacketRain) {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
-            this.aHr = redpacketRain.end_time.longValue() * 1000;
-            this.cXJ = redpacketRain.jump_url;
-            this.jjJ = redpacketRain.float_url;
-            this.jjK = redpacketRain.dynamic_img;
-            this.hGL = redpacketRain.activity_id;
+            this.baF = redpacketRain.end_time.longValue() * 1000;
+            this.dhg = redpacketRain.jump_url;
+            this.jjx = redpacketRain.float_url;
+            this.jjy = redpacketRain.dynamic_img;
+            this.agP = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -29,23 +29,23 @@ public class o {
     }
 
     public long getEndTime() {
-        return this.aHr;
+        return this.baF;
     }
 
-    public String aDj() {
-        return this.cXJ;
+    public String aDs() {
+        return this.dhg;
     }
 
-    public String cqN() {
-        return this.jjJ;
+    public String coD() {
+        return this.jjx;
     }
 
-    public List<String> cqO() {
-        return this.jjK;
+    public List<String> coE() {
+        return this.jjy;
     }
 
-    public String cqP() {
-        return this.hGL;
+    public String coF() {
+        return this.agP;
     }
 
     public void setStartTime(long j) {
@@ -53,23 +53,23 @@ public class o {
     }
 
     public void setEndTime(long j) {
-        this.aHr = j;
+        this.baF = j;
     }
 
-    public void Fl(String str) {
-        this.cXJ = str;
+    public void DP(String str) {
+        this.dhg = str;
     }
 
-    public void Fm(String str) {
-        this.jjJ = str;
+    public void DQ(String str) {
+        this.jjx = str;
     }
 
-    public void ed(List<String> list) {
-        this.jjK = list;
+    public void eq(List<String> list) {
+        this.jjy = list;
     }
 
-    public void Fn(String str) {
-        this.hGL = str;
+    public void DR(String str) {
+        this.agP = str;
     }
 
     public int getType() {

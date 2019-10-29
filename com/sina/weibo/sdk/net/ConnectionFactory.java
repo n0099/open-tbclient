@@ -3,6 +3,7 @@ package com.sina.weibo.sdk.net;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -49,7 +50,7 @@ public class ConnectionFactory {
         httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
         httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
-        httpURLConnection.setReadTimeout(20000);
+        httpURLConnection.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
         httpURLConnection.setConnectTimeout(25000);
         return httpURLConnection;
     }

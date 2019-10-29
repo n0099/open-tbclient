@@ -1,7 +1,7 @@
 package com.baidu.platform.core.d;
 
 import android.net.http.Headers;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -39,7 +39,7 @@ public class f extends com.baidu.platform.base.d {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("indoor_navi")) == null || (optJSONObject2 = optJSONObject.optJSONObject("option")) == null) {
                 return false;
             }
-            switch (optJSONObject2.optInt("error")) {
+            switch (optJSONObject2.optInt(BdStatsConstant.StatsType.ERROR)) {
                 case 0:
                     JSONArray optJSONArray = optJSONObject.optJSONArray("routes");
                     if (optJSONArray == null || (optJSONObject3 = optJSONArray.optJSONObject(0)) == null) {
@@ -95,7 +95,7 @@ public class f extends com.baidu.platform.base.d {
                                                     JSONObject optJSONObject6 = optJSONArray5.optJSONObject(i4);
                                                     if (optJSONObject6 != null) {
                                                         IndoorRouteLine.IndoorRouteStep.IndoorStepNode indoorStepNode = new IndoorRouteLine.IndoorRouteStep.IndoorStepNode();
-                                                        indoorStepNode.setDetail(optJSONObject6.optString(DpStatConstants.KEY_DETAIL));
+                                                        indoorStepNode.setDetail(optJSONObject6.optString("detail"));
                                                         indoorStepNode.setName(optJSONObject6.optString("name"));
                                                         indoorStepNode.setType(optJSONObject6.optInt("type"));
                                                         indoorStepNode.setLocation(a(optJSONObject6, Headers.LOCATION));

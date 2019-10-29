@@ -7,7 +7,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.browser.ShareWebActivity;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.clientConfig.ClientConfigHttpProtoResponse;
@@ -20,7 +21,6 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.e.k;
 import com.baidu.tbadk.core.util.e.l;
 import com.baidu.tbadk.core.util.e.m;
@@ -35,6 +35,7 @@ import com.baidu.tbadk.core.util.e.u;
 import com.baidu.tbadk.core.util.e.v;
 import com.baidu.tbadk.core.util.e.w;
 import com.baidu.tbadk.core.util.e.x;
+import com.baidu.tbadk.core.util.e.y;
 import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
 import com.baidu.tbadk.t.bj;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -43,6 +44,7 @@ import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
+import com.baidu.tieba.wallet.WalletStaticInit;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class LaunchStatic {
@@ -50,16 +52,16 @@ public class LaunchStatic {
         initRegisterIntent();
         initRegisterTask();
         initRegisterListeners();
-        acd();
-        bj.awg();
+        agp();
+        bj.axl();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.b.bHO();
+        com.baidu.tieba.im.widget.b.bEz();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.bGo();
-        com.baidu.tieba.im.db.i.bDL();
+        ImMemoryCacheRegister.bCZ();
+        com.baidu.tieba.im.db.i.bAv();
         com.baidu.tbadk.browser.d.init();
         h.init();
-        com.baidu.tieba.wallet.d.init();
+        WalletStaticInit.init();
         com.baidu.tbadk.core.diskCache.a.init();
         com.baidu.tbadk.core.frameworkData.d.init();
         com.baidu.tbadk.plugin.a.init();
@@ -76,17 +78,17 @@ public class LaunchStatic {
     }
 
     private static void initRegisterTask() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new CustomMessageTask.CustomRunnable<HashMap<String, String>>() { // from class: com.baidu.tbadk.core.LaunchStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.TIEBA_FATAL_ERROR, new CustomMessageTask.CustomRunnable<HashMap<String, String>>() { // from class: com.baidu.tbadk.core.LaunchStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<String> run(CustomMessage<HashMap<String, String>> customMessage) {
                 HashMap<String, String> data = customMessage.getData();
                 Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), FatalErrorService.class);
-                if (data != null && IntentConfig.START.equals(data.get("type"))) {
-                    intent.putExtra("uname", data.get("uname"));
+                if (data != null && "start".equals(data.get("type"))) {
+                    intent.putExtra(BdStatsConstant.StatsKey.UNAME, data.get(BdStatsConstant.StatsKey.UNAME));
                     intent.putExtra("uid", data.get("uid"));
                     TbadkCoreApplication.getInst().getContext().startService(intent);
                     return null;
-                } else if (IntentConfig.STOP.equals(data)) {
+                } else if ("stop".equals(data)) {
                     TbadkCoreApplication.getInst().getContext().stopService(intent);
                     return null;
                 } else {
@@ -96,15 +98,15 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.atC().registerTask();
+        com.baidu.tbadk.getUserInfo.b.avm().registerTask();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.bq(TbConfig.GET_PAY_CONFIG, 303039));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.bl("c/s/getClientConfig", 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     private static void initRegisterListeners() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2016301) { // from class: com.baidu.tbadk.core.LaunchStatic.2
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tbadk.core.LaunchStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -113,7 +115,7 @@ public class LaunchStatic {
                 }
             }
         });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2010001) { // from class: com.baidu.tbadk.core.LaunchStatic.3
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_DEBUGLOG_SPECIFIED) { // from class: com.baidu.tbadk.core.LaunchStatic.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -124,38 +126,39 @@ public class LaunchStatic {
         });
     }
 
-    private static void acd() {
-        com.baidu.adp.lib.f.c.iE().a(10, new w(true, 10));
-        com.baidu.adp.lib.f.c.iE().a(11, new w(false, 10));
-        com.baidu.adp.lib.f.c.iE().a(39, new u(true, 39));
-        com.baidu.adp.lib.f.c.iE().a(12, new t(false, false, 12));
-        com.baidu.adp.lib.f.c.iE().a(26, new t(true, false, 26));
-        com.baidu.adp.lib.f.c.iE().a(28, new t(false, false, 26));
-        com.baidu.adp.lib.f.c.iE().a(40, new s(false, false, 40));
-        com.baidu.adp.lib.f.c.iE().a(13, new com.baidu.tbadk.core.util.e.g(true, false, false, 13));
-        com.baidu.adp.lib.f.c.iE().a(14, new com.baidu.tbadk.core.util.e.g(false, false, false, 13));
-        com.baidu.adp.lib.f.c.iE().a(15, new com.baidu.tbadk.core.util.e.h(false, 15));
-        com.baidu.adp.lib.f.c.iE().a(16, new com.baidu.tbadk.core.util.e.h(true, 16));
-        com.baidu.adp.lib.f.c.iE().a(17, new r(true, false, false, 17));
-        com.baidu.adp.lib.f.c.iE().a(18, new r(false, false, false, 17));
-        com.baidu.adp.lib.f.c.iE().a(19, new q(19));
-        com.baidu.adp.lib.f.c.iE().a(21, new com.baidu.tbadk.core.util.e.i(21));
-        com.baidu.adp.lib.f.c.iE().a(22, new x(22));
-        com.baidu.adp.lib.f.c.iE().a(24, new n(24));
-        com.baidu.adp.lib.f.c.iE().a(25, new t(false, true, 26));
-        com.baidu.adp.lib.f.c.iE().a(27, new com.baidu.tbadk.core.util.e.c(27));
-        com.baidu.adp.lib.f.c.iE().a(29, new v(true, 29));
-        com.baidu.adp.lib.f.c.iE().a(30, new com.baidu.tbadk.core.util.e.b(true, false, false, 30));
-        com.baidu.adp.lib.f.c.iE().a(31, new com.baidu.tbadk.core.util.e.b(false, false, false, 31));
-        com.baidu.adp.lib.f.c.iE().a(32, new l(32));
-        com.baidu.adp.lib.f.c.iE().a(23, new com.baidu.tbadk.core.voice.a.c());
-        com.baidu.adp.lib.f.c.iE().a(33, new p());
-        com.baidu.adp.lib.f.c.iE().a(34, new com.baidu.tbadk.core.util.e.f());
-        com.baidu.adp.lib.f.c.iE().a(35, new m(160, 160));
-        com.baidu.adp.lib.f.c.iE().a(36, new m());
-        com.baidu.adp.lib.f.c.iE().a(37, new o());
-        com.baidu.adp.lib.f.c.iE().a(38, new k());
-        com.baidu.adp.lib.f.c.iE().a(41, new com.baidu.tbadk.core.util.e.d());
-        com.baidu.adp.lib.f.c.iE().a(42, new w(true, 10, false));
+    private static void agp() {
+        com.baidu.adp.lib.f.c.fT().a(10, new x(true, 10));
+        com.baidu.adp.lib.f.c.fT().a(11, new x(false, 10));
+        com.baidu.adp.lib.f.c.fT().a(39, new v(true, 39));
+        com.baidu.adp.lib.f.c.fT().a(12, new u(false, false, 12));
+        com.baidu.adp.lib.f.c.fT().a(26, new u(true, false, 26));
+        com.baidu.adp.lib.f.c.fT().a(28, new u(false, false, 26));
+        com.baidu.adp.lib.f.c.fT().a(40, new t(false, false, 40));
+        com.baidu.adp.lib.f.c.fT().a(13, new com.baidu.tbadk.core.util.e.g(true, false, false, 13));
+        com.baidu.adp.lib.f.c.fT().a(14, new com.baidu.tbadk.core.util.e.g(false, false, false, 13));
+        com.baidu.adp.lib.f.c.fT().a(15, new com.baidu.tbadk.core.util.e.h(false, 15));
+        com.baidu.adp.lib.f.c.fT().a(16, new com.baidu.tbadk.core.util.e.h(true, 16));
+        com.baidu.adp.lib.f.c.fT().a(17, new s(true, false, false, 17));
+        com.baidu.adp.lib.f.c.fT().a(18, new s(false, false, false, 17));
+        com.baidu.adp.lib.f.c.fT().a(19, new r(19));
+        com.baidu.adp.lib.f.c.fT().a(21, new com.baidu.tbadk.core.util.e.i(21));
+        com.baidu.adp.lib.f.c.fT().a(22, new y(22));
+        com.baidu.adp.lib.f.c.fT().a(24, new o(24));
+        com.baidu.adp.lib.f.c.fT().a(25, new u(false, true, 26));
+        com.baidu.adp.lib.f.c.fT().a(27, new com.baidu.tbadk.core.util.e.c(27));
+        com.baidu.adp.lib.f.c.fT().a(29, new w(true, 29));
+        com.baidu.adp.lib.f.c.fT().a(30, new com.baidu.tbadk.core.util.e.b(true, false, false, 30));
+        com.baidu.adp.lib.f.c.fT().a(31, new com.baidu.tbadk.core.util.e.b(false, false, false, 31));
+        com.baidu.adp.lib.f.c.fT().a(32, new l(32));
+        com.baidu.adp.lib.f.c.fT().a(23, new com.baidu.tbadk.core.voice.a.c());
+        com.baidu.adp.lib.f.c.fT().a(33, new q());
+        com.baidu.adp.lib.f.c.fT().a(34, new com.baidu.tbadk.core.util.e.f());
+        com.baidu.adp.lib.f.c.fT().a(35, new m(160, 160));
+        com.baidu.adp.lib.f.c.fT().a(36, new m());
+        com.baidu.adp.lib.f.c.fT().a(43, new n());
+        com.baidu.adp.lib.f.c.fT().a(37, new p());
+        com.baidu.adp.lib.f.c.fT().a(38, new k());
+        com.baidu.adp.lib.f.c.fT().a(41, new com.baidu.tbadk.core.util.e.d());
+        com.baidu.adp.lib.f.c.fT().a(42, new x(true, 10, false));
     }
 }

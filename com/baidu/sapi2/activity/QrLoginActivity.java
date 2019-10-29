@@ -77,7 +77,7 @@ public class QrLoginActivity extends BaseActivity {
             public void loginStatusChange(boolean z) {
                 QrLoginActivity.this.result.loginStatusChange = z;
                 QrLoginActivity.this.result.setResultCode(0);
-                QrLoginActivity.this.result.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
+                QrLoginActivity.this.result.setResultMsg("成功");
                 QrLoginActivity.this.finishActivity(QrLoginActivity.this.finishPage);
             }
         }, this.url, false);

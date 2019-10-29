@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.gametab;
 
-import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,7 @@ public class AlaGameTabGetNewNotifyResponsedMessage extends JsonHttpResponsedMes
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                 if (jSONObject2 != null) {
-                    this.mData.add(new a(jSONObject2.optInt(MyBookrackActivityConfig.TAB_ID), jSONObject2.optInt("has_new")));
+                    this.mData.add(new a(jSONObject2.optInt("tab_id"), jSONObject2.optInt("has_new")));
                 }
             }
         }

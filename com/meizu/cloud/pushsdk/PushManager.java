@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.a.b;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class PushManager {
     static final String KEY_PUSH_ID = "pushId";
@@ -17,7 +16,7 @@ public class PushManager {
     public static void checkNotificationMessage(Context context) {
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
         com.meizu.cloud.a.a.i(TAG, context.getPackageName() + " checkNotificationMessage cloudVersion_name " + appVersionName);
-        if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith(Constants.VIA_SHARE_TYPE_INFO)) {
+        if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("6")) {
             return;
         }
         Intent intent = new Intent(PushConstants.MZ_PUSH_ON_GET_NOTIFICATION_MESSAGE);
@@ -60,7 +59,7 @@ public class PushManager {
 
     @Deprecated
     public static void register(Context context) {
-        com.meizu.cloud.a.a.eI(context);
+        com.meizu.cloud.a.a.ex(context);
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
         com.meizu.cloud.a.a.i(TAG, context.getPackageName() + " start register cloudVersion_name " + appVersionName);
         Intent intent = new Intent(PushConstants.MZ_PUSH_ON_START_PUSH_REGISTER);
@@ -86,7 +85,7 @@ public class PushManager {
     }
 
     public static void register(Context context, String str, String str2) {
-        com.meizu.cloud.a.a.eI(context);
+        com.meizu.cloud.a.a.ex(context);
         b.a(context).a(str, str2, context.getPackageName());
     }
 

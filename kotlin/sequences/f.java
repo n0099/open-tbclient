@@ -12,20 +12,20 @@ import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public class f extends e {
     public static final <T> kotlin.sequences.c<T> a(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, Boolean> bVar) {
-        p.k(cVar, "$receiver");
-        p.k(bVar, "predicate");
+        p.i(cVar, "$receiver");
+        p.i(bVar, "predicate");
         return new kotlin.sequences.a(cVar, true, bVar);
     }
 
     public static final <T> kotlin.sequences.c<T> b(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, Boolean> bVar) {
-        p.k(cVar, "$receiver");
-        p.k(bVar, "predicate");
+        p.i(cVar, "$receiver");
+        p.i(bVar, "predicate");
         return new kotlin.sequences.a(cVar, false, bVar);
     }
 
     public static final <T, C extends Collection<? super T>> C a(kotlin.sequences.c<? extends T> cVar, C c2) {
-        p.k(cVar, "$receiver");
-        p.k(c2, "destination");
+        p.i(cVar, "$receiver");
+        p.i(c2, "destination");
         for (T t : cVar) {
             c2.add(t);
         }
@@ -33,24 +33,24 @@ public class f extends e {
     }
 
     public static final <T> HashSet<T> a(kotlin.sequences.c<? extends T> cVar) {
-        p.k(cVar, "$receiver");
+        p.i(cVar, "$receiver");
         return (HashSet) kotlin.sequences.d.a(cVar, new HashSet());
     }
 
     public static final <T> List<T> b(kotlin.sequences.c<? extends T> cVar) {
-        p.k(cVar, "$receiver");
+        p.i(cVar, "$receiver");
         return (List) kotlin.sequences.d.a(cVar, new ArrayList());
     }
 
     public static final <T, R> kotlin.sequences.c<R> c(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
-        p.k(cVar, "$receiver");
-        p.k(bVar, "transform");
+        p.i(cVar, "$receiver");
+        p.i(bVar, "transform");
         return new g(cVar, bVar);
     }
 
     /* loaded from: classes2.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object kvL;
+        final /* synthetic */ Object kwt;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
@@ -63,35 +63,35 @@ public class f extends e {
 
     /* loaded from: classes2.dex */
     public static final class b implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object[] kvM;
+        final /* synthetic */ Object[] kwu;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.N(this.kvM))).iterator();
+            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.K(this.kwu))).iterator();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class c implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable kvN;
+        final /* synthetic */ Iterable kwv;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            Collection a = n.a(this.kvN);
+            Collection a = n.a(this.kwv);
             return a.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$3$iterator$1(a)).iterator();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class d implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c kvO;
+        final /* synthetic */ kotlin.sequences.c kww;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            HashSet a = kotlin.sequences.d.a(this.kvO);
+            HashSet a = kotlin.sequences.d.a(this.kww);
             return a.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.ubs.analytics;
 
 import android.content.Context;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.ubs.analytics.a.g;
 import com.baidu.ubs.analytics.d.i;
 import java.util.HashMap;
@@ -14,20 +15,20 @@ public final class d {
     private String h;
     private String i;
     private boolean j;
-    private JSONArray jZR;
+    private JSONArray jXQ;
     private Map<String, g> k;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        public static final d jZS = new d((byte) 0);
+        public static final d jXR = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> cEs() {
+    public final Map<String, g> cBc() {
         return this.k;
     }
 
@@ -39,8 +40,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d cEt() {
-        return a.jZS;
+    public static d cBd() {
+        return a.jXR;
     }
 
     public final void a(Context context) {
@@ -86,20 +87,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult HH(String str) {
-        if (this.jZR == null) {
+    public final SampleResult FY(String str) {
+        if (this.jXQ == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.HU(this.k.get(str).getGroup());
+                return i.Gl(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.jZR.length(); i++) {
-            JSONObject optJSONObject = this.jZR.optJSONObject(i);
+        for (int i = 0; i < this.jXQ.length(); i++) {
+            JSONObject optJSONObject = this.jXQ.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.HU(optJSONObject.optString("group"));
+                return i.Gl(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }
         }
         return SampleResult.OTHERE;

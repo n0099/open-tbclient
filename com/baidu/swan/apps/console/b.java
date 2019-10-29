@@ -2,43 +2,43 @@ package com.baidu.swan.apps.console;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.an.v;
 import com.baidu.swan.apps.storage.b.e;
-import com.baidu.ubc.UBC;
 /* loaded from: classes2.dex */
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.yi().putBoolean(str, z);
+            a.Dd().putBoolean(str, z);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0137b.class, k(str, z));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0169b.class, n(str, z));
         }
     }
 
-    public static void aV(boolean z) {
-        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
-        if (Mh != null) {
-            putBoolean(ds(Mh.getAppKey()), z);
+    public static void bn(boolean z) {
+        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+        if (QZ != null) {
+            putBoolean(eb(QZ.getAppKey()), z);
         }
     }
 
-    public static boolean dr(String str) {
-        return !TextUtils.isEmpty(str) && a.yi().getBoolean(ds(str), false);
+    public static boolean ea(String str) {
+        return !TextUtils.isEmpty(str) && a.Dd().getBoolean(eb(str), false);
     }
 
-    private static String ds(String str) {
-        String bc = com.baidu.swan.apps.u.a.Et().bc(com.baidu.swan.apps.u.a.Eo());
-        return "consoleSwitch" + str + (TextUtils.isEmpty(bc) ? "" : v.c(bc.getBytes(), false));
+    private static String eb(String str) {
+        String be = com.baidu.swan.apps.u.a.Jn().be(com.baidu.swan.apps.u.a.Ji());
+        return "consoleSwitch" + str + (TextUtils.isEmpty(be) ? "" : v.c(be.getBytes(), false));
     }
 
-    public static Bundle k(String str, boolean z) {
+    public static Bundle n(String str, boolean z) {
         Bundle bundle = new Bundle();
-        bundle.putString("key", str);
-        bundle.putBoolean(UBC.CONTENT_KEY_VALUE, z);
+        bundle.putString(TiebaInitialize.Params.KEY, str);
+        bundle.putBoolean("value", z);
         return bundle;
     }
 
@@ -51,25 +51,25 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0136a {
-            private static final a aob = new a();
+        public static final class C0168a {
+            private static final a aHs = new a();
         }
 
-        public static a yi() {
-            return C0136a.aob;
+        public static a Dd() {
+            return C0168a.aHs;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0137b extends ProviderDelegation {
-        private C0137b() {
+    public static class C0169b extends ProviderDelegation {
+        private C0169b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
-            a.yi().putBoolean(bundle.getString("key"), bundle.getBoolean(UBC.CONTENT_KEY_VALUE));
+            a.Dd().putBoolean(bundle.getString(TiebaInitialize.Params.KEY), bundle.getBoolean("value"));
             return Bundle.EMPTY;
         }
     }

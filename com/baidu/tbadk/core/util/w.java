@@ -4,45 +4,46 @@ import android.content.Context;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection bSG;
-    private String bSH;
-    private String[] bSI;
-    private a bSJ;
+    private a cjf;
     private boolean completed;
     private int length;
+    private MediaScannerConnection mConnection;
     private Context mContext;
+    private String mMimeType;
+    private String[] mMimeTypes;
+    private String mPath;
     private String[] mPaths;
-    private String wX;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aiI();
+        void onScanCompeted();
     }
 
     public w(Context context) {
         this.mContext = context;
-        this.bSG = new MediaScannerConnection(this.mContext, this);
+        this.mConnection = new MediaScannerConnection(this.mContext, this);
     }
 
-    public void nR(String str) {
-        this.wX = str;
-        String substring = this.wX.substring(this.wX.lastIndexOf("."));
-        this.bSH = "image/jpeg";
+    public void saveImage(String str) {
+        this.mPath = str;
+        String substring = this.mPath.substring(this.mPath.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR));
+        this.mMimeType = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.bSH = "image/gif";
+            this.mMimeType = "image/gif";
         }
-        this.bSG.connect();
+        this.mConnection.connect();
     }
 
-    public void nS(String str) {
-        this.wX = str;
-        this.bSH = fv(str);
-        this.bSG.connect();
+    public void saveVideo(String str) {
+        this.mPath = str;
+        this.mMimeType = getVideoMimeType(str);
+        this.mConnection.connect();
     }
 
-    private String fv(String str) {
+    private String getVideoMimeType(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -52,37 +53,37 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.wX) && !TextUtils.isEmpty(this.bSH)) {
-            this.bSG.scanFile(this.wX, this.bSH);
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.mMimeType)) {
+            this.mConnection.scanFile(this.mPath, this.mMimeType);
         }
-        if (this.mPaths != null && this.bSI != null && this.mPaths.length == this.bSI.length) {
+        if (this.mPaths != null && this.mMimeTypes != null && this.mPaths.length == this.mMimeTypes.length) {
             int length = this.mPaths.length;
             for (int i = 0; i < length; i++) {
-                this.bSG.scanFile(this.mPaths[i], this.bSI[i]);
+                this.mConnection.scanFile(this.mPaths[i], this.mMimeTypes[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.wX) && !TextUtils.isEmpty(this.bSH) && str.equals(this.wX)) {
-            this.bSG.disconnect();
-            this.wX = null;
-            this.bSH = null;
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.mMimeType) && str.equals(this.mPath)) {
+            this.mConnection.disconnect();
+            this.mPath = null;
+            this.mMimeType = null;
             this.completed = true;
-        } else if (this.mPaths != null && this.bSI != null && this.mPaths.length == this.bSI.length) {
+        } else if (this.mPaths != null && this.mMimeTypes != null && this.mPaths.length == this.mMimeTypes.length) {
             this.length--;
             if (this.length == 0) {
-                this.bSG.disconnect();
+                this.mConnection.disconnect();
                 this.mPaths = null;
-                this.bSI = null;
+                this.mMimeTypes = null;
                 this.completed = true;
             } else {
                 this.completed = false;
             }
         }
-        if (this.completed && this.bSJ != null) {
-            this.bSJ.aiI();
+        if (this.completed && this.cjf != null) {
+            this.cjf.onScanCompeted();
         }
     }
 }

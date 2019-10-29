@@ -1,66 +1,65 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class ao extends com.baidu.tbadk.core.view.userLike.c {
-    private String bXN;
-    public boolean hWc;
-    private int hWd;
-    private int hWe;
+    private String cmS;
+    public boolean hUK;
+    private int hUL;
+    private int hUM;
     public boolean isBigV;
     private TbPageContext mPageContext;
 
     public ao(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.hWc = false;
+        this.hUK = false;
         this.isBigV = false;
-        this.hWd = 0;
-        this.hWd = i;
+        this.hUL = 0;
+        this.hUL = i;
         this.mPageContext = tbPageContext;
-        if (this.hWd == 1) {
-            super.setFromType("4");
-        } else if (this.hWd == 3) {
-            super.setFromType("5");
+        if (this.hUL == 1) {
+            super.mX("4");
+        } else if (this.hUL == 3) {
+            super.mX("5");
         } else {
-            super.setFromType("0");
+            super.mX("0");
         }
     }
 
     public void setTid(String str) {
-        this.bXN = str;
+        this.cmS = str;
     }
 
-    public void yi(int i) {
-        this.hWe = i;
+    public void wO(int i) {
+        this.hUM = i;
     }
 
-    private int bXR() {
+    private int bUT() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
         }
-        if (fromPageKey.equals("a038")) {
+        if (fromPageKey.equals(PageStayDurationConstants.PageName.HOMEPAGE_CONCERN)) {
             return 1;
         }
-        if (fromPageKey.equals("a002")) {
+        if (fromPageKey.equals(PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE)) {
             return 2;
         }
-        if (fromPageKey.equals("a006")) {
+        if (fromPageKey.equals(PageStayDurationConstants.PageName.FRS)) {
             return 3;
         }
-        if (fromPageKey.equals("a011")) {
+        if (fromPageKey.equals(PageStayDurationConstants.PageName.PERSON)) {
             return 4;
         }
-        if (fromPageKey.equals("a033")) {
+        if (fromPageKey.equals(PageStayDurationConstants.PageName.DISCOVER)) {
             return 5;
         }
-        if (fromPageKey.equals("a010")) {
+        if (fromPageKey.equals(PageStayDurationConstants.PageName.HOT_TOPIC)) {
             return 6;
         }
         return 7;
@@ -71,31 +70,31 @@ public class ao extends com.baidu.tbadk.core.view.userLike.c {
         int i = 3;
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
-            String userId = this.cez != null ? this.cez.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12408").P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bXR()).bT(VideoPlayActivityConfig.OBJ_ID, userId).bT("tid", this.bXN));
-            if (this.hWd != 1) {
-                i = this.hWd == 3 ? 2 : 0;
+            String userId = this.csN != null ? this.csN.getUserId() : "";
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12408").O("obj_source", bUT()).bS("obj_id", userId).bS("tid", this.cmS));
+            if (this.hUL != 1) {
+                i = this.hUL == 3 ? 2 : 0;
             }
             com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c12507");
-            anVar.P("obj_locate", i);
-            anVar.bT(VideoPlayActivityConfig.OBJ_ID, userId);
-            anVar.bT("tid", this.bXN);
-            anVar.P("obj_param1", this.hWe);
+            anVar.O("obj_locate", i);
+            anVar.bS("obj_id", userId);
+            anVar.bS("tid", this.cmS);
+            anVar.O("obj_param1", this.hUM);
             if (!com.baidu.tbadk.core.util.aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
+                anVar.bS("obj_source", TbadkCoreApplication.getInst().getTaskId());
             }
             TiebaStatic.log(anVar);
             super.onClick(view);
-            if (this.hWc && this.cez != null) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11924").bT(VideoPlayActivityConfig.OBJ_ID, this.cez.getUserId()));
+            if (this.hUK && this.csN != null) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11924").bS("obj_id", this.csN.getUserId()));
             }
-            if (this.isBigV && this.cez != null) {
-                if (this.hWd == 1) {
+            if (this.isBigV && this.csN != null) {
+                if (this.hUL == 1) {
                     i2 = 1;
-                } else if (this.hWd != 2) {
+                } else if (this.hUL != 2) {
                     i2 = 0;
                 }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12150").P("obj_locate", i2).bT(VideoPlayActivityConfig.OBJ_ID, this.cez.getUserId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12150").O("obj_locate", i2).bS("obj_id", this.csN.getUserId()));
             }
         }
     }

@@ -47,7 +47,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         builder.last_feed_id = Long.valueOf(this.lastFeedId);
         builder.call_from = this.callFrom;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         NewTopicThreadReqIdl.Builder builder2 = new NewTopicThreadReqIdl.Builder();
         builder2.data = builder.build(false);

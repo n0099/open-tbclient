@@ -2,7 +2,6 @@ package com.baidu.tieba.qrcode.lib.zxing;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
@@ -15,7 +14,7 @@ import java.util.EnumMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class a {
-    public static final Map<DecodeHintType, Object> iHJ = new EnumMap(DecodeHintType.class);
+    public static final Map<DecodeHintType, Object> iGf = new EnumMap(DecodeHintType.class);
 
     static {
         ArrayList arrayList = new ArrayList();
@@ -23,16 +22,16 @@ public class a {
         arrayList.add(BarcodeFormat.AZTEC);
         arrayList.add(BarcodeFormat.DATA_MATRIX);
         arrayList.add(BarcodeFormat.PDF_417);
-        iHJ.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        iHJ.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        iHJ.put(DecodeHintType.CHARACTER_SET, "utf-8");
+        iGf.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        iGf.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        iGf.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
-    public static String DW(String str) {
-        return E(DX(str));
+    public static String Cp(String str) {
+        return C(Cq(str));
     }
 
-    public static String E(Bitmap bitmap) {
+    public static String C(Bitmap bitmap) {
         RGBLuminanceSource rGBLuminanceSource;
         try {
             int width = bitmap.getWidth();
@@ -41,14 +40,14 @@ public class a {
             bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
             RGBLuminanceSource rGBLuminanceSource2 = new RGBLuminanceSource(width, height, iArr);
             try {
-                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource2)), iHJ).getText();
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource2)), iGf).getText();
             } catch (Exception e) {
                 e = e;
                 rGBLuminanceSource = rGBLuminanceSource2;
                 e.printStackTrace();
                 if (rGBLuminanceSource != null) {
                     try {
-                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), iHJ).getText();
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), iGf).getText();
                     } catch (Throwable th) {
                         th.printStackTrace();
                         return null;
@@ -62,12 +61,12 @@ public class a {
         }
     }
 
-    private static Bitmap DX(String str) {
+    private static Bitmap Cq(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(str, options);
-            int i = options.outHeight / CyberPlayerManager.MEDIA_INFO_BAD_INTERLEAVING;
+            int i = options.outHeight / 800;
             options.inSampleSize = i > 0 ? i : 1;
             options.inJustDecodeBounds = false;
             return BitmapFactory.decodeFile(str, options);

@@ -1,6 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -9,7 +10,7 @@ import java.util.List;
 public abstract class Overlay {
     protected a listener;
     public com.baidu.mapsdkplatform.comapi.map.h type;
-    String v = System.currentTimeMillis() + "_" + hashCode();
+    String v = System.currentTimeMillis() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + hashCode();
     int w;
     boolean x;
     Bundle y;

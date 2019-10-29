@@ -17,7 +17,6 @@ import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
@@ -37,7 +36,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onSuccess(AccountType accountType) {
             Intent intent = new Intent();
-            intent.putExtra(GiftTabActivityConfig.ACCOUNT_TYPE, accountType.getType());
+            intent.putExtra("account_type", accountType.getType());
             LoadExternalWebViewActivity.this.setResult(-1, intent);
             LoadExternalWebViewActivity.this.finish();
         }
@@ -126,7 +125,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
                 Intent intent = new Intent(LoadExternalWebViewActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                intent.putExtra(LoginActivity.EXTRA_PARAM_USERNAME, result.userName);
+                intent.putExtra("username", result.userName);
                 LoadExternalWebViewActivity.this.startActivityForResult(intent, 2001);
             }
         });
@@ -144,7 +143,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             public void onPreFillUserName(SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult) {
                 Intent intent = new Intent();
                 intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE, LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME);
-                intent.putExtra(LoginActivity.EXTRA_PARAM_USERNAME, preFillUserNameResult.userName);
+                intent.putExtra("username", preFillUserNameResult.userName);
                 LoadExternalWebViewActivity.this.setResult(-1, intent);
             }
         });

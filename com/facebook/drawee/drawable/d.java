@@ -6,10 +6,10 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class d {
     private int mAlpha = -1;
-    private boolean kfS = false;
+    private boolean kea = false;
     private ColorFilter mColorFilter = null;
-    private int kfT = -1;
-    private int kfU = -1;
+    private int keb = -1;
+    private int kec = -1;
 
     public void setAlpha(int i) {
         this.mAlpha = i;
@@ -17,31 +17,31 @@ public class d {
 
     public void setColorFilter(ColorFilter colorFilter) {
         this.mColorFilter = colorFilter;
-        this.kfS = true;
+        this.kea = true;
     }
 
     public void setDither(boolean z) {
-        this.kfT = z ? 1 : 0;
+        this.keb = z ? 1 : 0;
     }
 
     public void setFilterBitmap(boolean z) {
-        this.kfU = z ? 1 : 0;
+        this.kec = z ? 1 : 0;
     }
 
     @SuppressLint({"Range"})
-    public void i(Drawable drawable) {
+    public void g(Drawable drawable) {
         if (drawable != null) {
             if (this.mAlpha != -1) {
                 drawable.setAlpha(this.mAlpha);
             }
-            if (this.kfS) {
+            if (this.kea) {
                 drawable.setColorFilter(this.mColorFilter);
             }
-            if (this.kfT != -1) {
-                drawable.setDither(this.kfT != 0);
+            if (this.keb != -1) {
+                drawable.setDither(this.keb != 0);
             }
-            if (this.kfU != -1) {
-                drawable.setFilterBitmap(this.kfU != 0);
+            if (this.kec != -1) {
+                drawable.setFilterBitmap(this.kec != 0);
             }
         }
     }

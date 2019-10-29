@@ -22,7 +22,7 @@ public class c {
         boolean z4 = true;
         int i2 = 0;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0465a.GenericDraweeHierarchy);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0560a.GenericDraweeHierarchy);
             try {
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 z = true;
@@ -31,56 +31,56 @@ public class c {
                 i = 0;
                 for (int i3 = 0; i3 < indexCount; i3++) {
                     int index = obtainStyledAttributes.getIndex(i3);
-                    if (index == a.C0465a.GenericDraweeHierarchy_actualImageScaleType) {
+                    if (index == a.C0560a.GenericDraweeHierarchy_actualImageScaleType) {
                         bVar.g(a(obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_placeholderImage) {
-                        bVar.m(a(context, obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_pressedStateOverlayImage) {
-                        bVar.s(a(context, obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_progressBarImage) {
-                        bVar.p(a(context, obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_fadeDuration) {
-                        bVar.DQ(obtainStyledAttributes.getInt(index, 0));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_viewAspectRatio) {
-                        bVar.bc(obtainStyledAttributes.getFloat(index, 0.0f));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_placeholderImageScaleType) {
-                        bVar.c(a(obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_retryImage) {
-                        bVar.n(a(context, obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_retryImageScaleType) {
-                        bVar.d(a(obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_failureImage) {
-                        bVar.o(a(context, obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_failureImageScaleType) {
-                        bVar.e(a(obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_progressBarImageScaleType) {
-                        bVar.f(a(obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_progressBarAutoRotateInterval) {
-                        i = obtainStyledAttributes.getInteger(index, i);
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_backgroundImage) {
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_placeholderImage) {
+                        bVar.k(a(context, obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_pressedStateOverlayImage) {
                         bVar.q(a(context, obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_overlayImage) {
-                        bVar.r(a(context, obtainStyledAttributes, index));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundAsCircle) {
-                        a(bVar).sD(obtainStyledAttributes.getBoolean(index, false));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundedCornerRadius) {
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_progressBarImage) {
+                        bVar.n(a(context, obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_fadeDuration) {
+                        bVar.Cm(obtainStyledAttributes.getInt(index, 0));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_viewAspectRatio) {
+                        bVar.aF(obtainStyledAttributes.getFloat(index, 0.0f));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_placeholderImageScaleType) {
+                        bVar.c(a(obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_retryImage) {
+                        bVar.l(a(context, obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_retryImageScaleType) {
+                        bVar.d(a(obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_failureImage) {
+                        bVar.m(a(context, obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_failureImageScaleType) {
+                        bVar.e(a(obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_progressBarImageScaleType) {
+                        bVar.f(a(obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_progressBarAutoRotateInterval) {
+                        i = obtainStyledAttributes.getInteger(index, i);
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_backgroundImage) {
+                        bVar.o(a(context, obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_overlayImage) {
+                        bVar.p(a(context, obtainStyledAttributes, index));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundAsCircle) {
+                        a(bVar).si(obtainStyledAttributes.getBoolean(index, false));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundedCornerRadius) {
                         i2 = obtainStyledAttributes.getDimensionPixelSize(index, i2);
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundTopLeft) {
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundTopLeft) {
                         z3 = obtainStyledAttributes.getBoolean(index, z3);
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundTopRight) {
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundTopRight) {
                         z2 = obtainStyledAttributes.getBoolean(index, z2);
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundBottomLeft) {
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundBottomLeft) {
                         z = obtainStyledAttributes.getBoolean(index, z);
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundBottomRight) {
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundBottomRight) {
                         z4 = obtainStyledAttributes.getBoolean(index, z4);
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundWithOverlayColor) {
-                        a(bVar).DR(obtainStyledAttributes.getColor(index, 0));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundingBorderWidth) {
-                        a(bVar).be(obtainStyledAttributes.getDimensionPixelSize(index, 0));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundingBorderColor) {
-                        a(bVar).DS(obtainStyledAttributes.getColor(index, 0));
-                    } else if (index == a.C0465a.GenericDraweeHierarchy_roundingBorderPadding) {
-                        a(bVar).bf(obtainStyledAttributes.getDimensionPixelSize(index, 0));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundWithOverlayColor) {
+                        a(bVar).Cn(obtainStyledAttributes.getColor(index, 0));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundingBorderWidth) {
+                        a(bVar).aH(obtainStyledAttributes.getDimensionPixelSize(index, 0));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundingBorderColor) {
+                        a(bVar).Co(obtainStyledAttributes.getColor(index, 0));
+                    } else if (index == a.C0560a.GenericDraweeHierarchy_roundingBorderPadding) {
+                        a(bVar).aI(obtainStyledAttributes.getDimensionPixelSize(index, 0));
                     }
                 }
             } finally {
@@ -92,21 +92,21 @@ public class c {
             z3 = true;
             i = 0;
         }
-        if (bVar.cHQ() != null && i > 0) {
-            bVar.p(new com.facebook.drawee.drawable.b(bVar.cHQ(), i));
+        if (bVar.cEO() != null && i > 0) {
+            bVar.n(new com.facebook.drawee.drawable.b(bVar.cEO(), i));
         }
         if (i2 > 0) {
-            a(bVar).k(z3 ? i2 : 0.0f, z2 ? i2 : 0.0f, z4 ? i2 : 0.0f, z ? i2 : 0.0f);
+            a(bVar).j(z3 ? i2 : 0.0f, z2 ? i2 : 0.0f, z4 ? i2 : 0.0f, z ? i2 : 0.0f);
         }
         return bVar;
     }
 
     @ReturnsOwnership
     private static RoundingParams a(b bVar) {
-        if (bVar.cHY() == null) {
+        if (bVar.cEW() == null) {
             bVar.b(new RoundingParams());
         }
-        return bVar.cHY();
+        return bVar.cEW();
     }
 
     @Nullable
@@ -124,21 +124,21 @@ public class c {
             case -1:
                 return null;
             case 0:
-                return n.b.kgG;
+                return n.b.keP;
             case 1:
-                return n.b.kgH;
+                return n.b.keQ;
             case 2:
-                return n.b.kgI;
+                return n.b.keR;
             case 3:
-                return n.b.kgJ;
+                return n.b.keS;
             case 4:
-                return n.b.kgK;
+                return n.b.keT;
             case 5:
-                return n.b.kgL;
+                return n.b.keU;
             case 6:
-                return n.b.kgM;
+                return n.b.keV;
             case 7:
-                return n.b.kgN;
+                return n.b.keW;
             default:
                 throw new RuntimeException("XML attribute not specified!");
         }

@@ -97,7 +97,7 @@ public class SelectForumActivityConfig extends IntentConfig {
         intent.putExtra("title", str2);
         intent.putExtra("image", str3);
         intent.putExtra("desc", str4);
-        intent.putExtra(KEY_SHARE_LINK, str5);
+        intent.putExtra("link", str5);
         intent.putExtra(KEY_SHARE_APPLETS_LINK, str6);
     }
 }

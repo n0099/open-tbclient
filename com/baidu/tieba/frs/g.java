@@ -7,7 +7,7 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 public class g {
     private static UserData mUserData;
 
-    public static UserData bmv() {
+    public static UserData bjB() {
         return mUserData;
     }
 
@@ -18,7 +18,7 @@ public class g {
 
     public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
         if (threadCommentAndPraiseInfoLayout != null) {
-            if (frsViewData != null && frsViewData.frsCurrentTabId != 303 && b(a(frsViewData))) {
+            if (frsViewData != null && frsViewData.frsCurrentTabId != 303 && a(a(frsViewData))) {
                 threadCommentAndPraiseInfoLayout.setManageVisible(true);
             } else {
                 threadCommentAndPraiseInfoLayout.setManageVisible(false);
@@ -28,15 +28,15 @@ public class g {
 
     public static void a(com.baidu.card.b bVar, FrsViewData frsViewData) {
         if (bVar != null) {
-            if (frsViewData != null && frsViewData.frsCurrentTabId != 303 && b(a(frsViewData))) {
-                bVar.bm(4);
+            if (frsViewData != null && frsViewData.frsCurrentTabId != 303 && a(a(frsViewData))) {
+                bVar.aB(4);
             } else {
-                bVar.bn(4);
+                bVar.aC(4);
             }
         }
     }
 
-    public static boolean b(UserData userData) {
+    public static boolean a(UserData userData) {
         if (userData == null) {
             return false;
         }
@@ -51,12 +51,12 @@ public class g {
         }
     }
 
-    public static boolean bmw() {
-        UserData bmv = bmv();
-        if (bmv == null) {
+    public static boolean bjC() {
+        UserData bjB = bjB();
+        if (bjB == null) {
             return false;
         }
-        switch (bmv.getIs_manager()) {
+        switch (bjB.getIs_manager()) {
             case 1:
                 return true;
             default:
@@ -64,8 +64,8 @@ public class g {
         }
     }
 
-    public static boolean bmx() {
-        UserData bmv = bmv();
-        return bmv != null && bmv.getIs_manager() == 3;
+    public static boolean bjD() {
+        UserData bjB = bjB();
+        return bjB != null && bjB.getIs_manager() == 3;
     }
 }

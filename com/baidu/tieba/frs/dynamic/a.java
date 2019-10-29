@@ -23,7 +23,7 @@ public class a implements c {
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public int mErrorNo = 0;
 
-    public StarTrendsResIdl P(byte[] bArr) {
+    public StarTrendsResIdl D(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -42,7 +42,7 @@ public class a implements c {
 
     private void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!v.aa(dataRes.user_list)) {
+            if (!v.isEmpty(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -54,15 +54,15 @@ public class a implements c {
                     }
                 }
             }
-            if (!v.aa(dataRes.thread_list)) {
+            if (!v.isEmpty(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
                         bh bhVar = new bh();
                         bhVar.setUserMap(this.userMap);
                         bhVar.a(threadInfo);
                         bhVar.setCurrentPage(3);
-                        bhVar.afs();
-                        if (bhVar.getType() == bh.bJM || bhVar.getType() == bh.bJZ || bhVar.getType() == bh.bKe || bhVar.getType() == bh.bKa || bhVar.getType() == bh.bKf || bhVar.getType() == bh.bKg) {
+                        bhVar.ajw();
+                        if (bhVar.getType() == bh.cbu || bhVar.getType() == bh.cbH || bhVar.getType() == bh.cbM || bhVar.getType() == bh.cbI || bhVar.getType() == bh.cbN || bhVar.getType() == bh.cbO) {
                             this.threadList.add(bhVar);
                         }
                     }

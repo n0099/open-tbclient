@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements h.c {
-    private am fsw;
-    private com.baidu.tieba.forumMember.member.a.b fsy;
-    private e fsz;
+    private am frJ;
+    private com.baidu.tieba.forumMember.member.a.b frL;
+    private e frM;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.m> fsx = null;
-    private ai fsA = new ai() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+    private List<com.baidu.adp.widget.ListView.m> frK = null;
+    private ai frN = new ai() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
         @Override // com.baidu.tieba.frs.ai
         public void a(int i, int i2, ap apVar, ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-            ForumMemberActivity.this.fsy.hideLoadingView();
-            ForumMemberActivity.this.fsy.completePullRefresh();
+            ForumMemberActivity.this.frL.hideLoadingView();
+            ForumMemberActivity.this.frL.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.m> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -32,24 +32,24 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     }
                 }
             }
-            if (!v.aa(arrayList)) {
-                ForumMemberActivity.this.fsy.aJN();
-                ForumMemberActivity.this.fsx = arrayList;
-                ForumMemberActivity.this.fsy.bV(ForumMemberActivity.this.fsx);
-            } else if (v.aa(ForumMemberActivity.this.fsx) && apVar != null) {
-                ForumMemberActivity.this.fsy.xo(apVar.errMsg);
+            if (!v.isEmpty(arrayList)) {
+                ForumMemberActivity.this.frL.aJo();
+                ForumMemberActivity.this.frK = arrayList;
+                ForumMemberActivity.this.frL.ci(ForumMemberActivity.this.frK);
+            } else if (v.isEmpty(ForumMemberActivity.this.frK) && apVar != null) {
+                ForumMemberActivity.this.frL.vG(apVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a eIX = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a eRC = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void es(boolean z) {
-            ForumMemberActivity.this.fsy.jJ(z);
+        public void onNetworkChange(boolean z) {
+            ForumMemberActivity.this.frL.jx(z);
             if (z) {
-                if (v.aa(ForumMemberActivity.this.fsx)) {
-                    ForumMemberActivity.this.blq();
+                if (v.isEmpty(ForumMemberActivity.this.frK)) {
+                    ForumMemberActivity.this.biw();
                 } else {
-                    ForumMemberActivity.this.fsy.startPullRefresh();
+                    ForumMemberActivity.this.frL.startPullRefresh();
                 }
             }
         }
@@ -59,17 +59,17 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        O(bundle);
-        this.fsy = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.fsy.g(this.eIX);
-        this.fsz = new e();
-        this.fsz.setTag(getUniqueId());
-        this.fsz.init();
-        this.fsz.a(this.fsA);
-        blq();
+        initBundle(bundle);
+        this.frL = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.frL.g(this.eRC);
+        this.frM = new e();
+        this.frM.setTag(getUniqueId());
+        this.frM.init();
+        this.frM.a(this.frN);
+        biw();
     }
 
-    private void O(Bundle bundle) {
+    private void initBundle(Bundle bundle) {
         if (bundle == null) {
             if (getIntent() != null) {
                 this.mForumId = getIntent().getStringExtra("forum_id");
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.fsw = new am();
-        this.fsw.forumId = this.mForumId;
-        this.fsw.forumName = this.mForumName;
+        this.frJ = new am();
+        this.frJ.forumId = this.mForumId;
+        this.frJ.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fsy.onChangeSkinType(i);
+        this.frL.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.fsz.aMd();
-        if (this.fsy != null) {
-            this.fsy.onDestroy();
+        this.frM.aMM();
+        if (this.frL != null) {
+            this.frL.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.h.c
-    public void eu(boolean z) {
-        e eVar = this.fsz;
-        e eVar2 = this.fsz;
-        eVar.a(3, 0, this.fsw);
+    public void onListPullRefresh(boolean z) {
+        e eVar = this.frM;
+        e eVar2 = this.frM;
+        eVar.a(3, 0, this.frJ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (com.baidu.adp.lib.util.j.jQ()) {
-            blq();
+        if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
+            biw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blq() {
-        this.fsy.showLoadingView();
-        e eVar = this.fsz;
-        e eVar2 = this.fsz;
-        eVar.a(3, 0, this.fsw);
+    public void biw() {
+        this.frL.showLoadingView();
+        e eVar = this.frM;
+        e eVar2 = this.frM;
+        eVar.a(3, 0, this.frJ);
     }
 }

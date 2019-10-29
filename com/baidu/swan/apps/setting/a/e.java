@@ -52,11 +52,11 @@ public class e extends z {
             UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10002, "network_error").toString(), str);
             return;
         }
-        com.baidu.swan.apps.ae.e.Mz().aRo.get().wd().wE().x((Activity) context).g(new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
+        com.baidu.swan.apps.ae.e.Rr().bks.get().AX().By().w((Activity) context).g(new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
-            public void D(com.baidu.swan.apps.setting.oauth.g<JSONObject> gVar) {
+            public void B(com.baidu.swan.apps.setting.oauth.g<JSONObject> gVar) {
                 if (gVar.isOk() && gVar.mData != null) {
                     String jSONObject = UnitedSchemeUtility.wrapCallbackParams(gVar.mData, 0).toString();
                     com.baidu.swan.apps.console.c.i("getSwanId", "getSwanId success");
@@ -66,6 +66,6 @@ public class e extends z {
                 com.baidu.swan.apps.console.c.e("getSwanId", "getSwanId failed: internal_error");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), str);
             }
-        }).Ns();
+        }).Si();
     }
 }

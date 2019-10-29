@@ -4,19 +4,19 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import com.baidu.live.adp.lib.cache.BdCacheSQLiteHelper;
 /* loaded from: classes.dex */
 public class p {
-    private final com.baidu.adp.base.a.b yj;
+    private final com.baidu.adp.base.a.b nN;
 
     public p(Context context, com.baidu.adp.base.a.b bVar) {
-        this.yj = bVar;
+        this.nN = bVar;
     }
 
-    public h as(String str) {
+    public h Z(String str) {
         Cursor cursor;
         try {
-            cursor = this.yj.fa().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            cursor = this.nN.getOpenedDatabase().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
             th = th;
             cursor = null;
@@ -25,21 +25,21 @@ public class p {
         } catch (Throwable th2) {
             th = th2;
             try {
-                this.yj.c(th, "get");
-                com.baidu.adp.lib.g.a.e(cursor);
+                this.nN.notifySQLException(th, "get");
+                com.baidu.adp.lib.g.a.close(cursor);
                 return null;
             } finally {
-                com.baidu.adp.lib.g.a.e(cursor);
+                com.baidu.adp.lib.g.a.close(cursor);
             }
         }
         if (cursor.moveToNext()) {
             h hVar = new h();
-            hVar.yw = cursor.getString(0);
-            hVar.yk = cursor.getString(1);
+            hVar.nameSpace = cursor.getString(0);
+            hVar.tableName = cursor.getString(1);
             hVar.maxSize = cursor.getInt(2);
-            hVar.yA = cursor.getString(3);
-            hVar.yB = cursor.getInt(4);
-            hVar.yC = cursor.getLong(5);
+            hVar.cacheType = cursor.getString(3);
+            hVar.cacheVersion = cursor.getInt(4);
+            hVar.lastActiveTime = cursor.getLong(5);
             return hVar;
         }
         return null;
@@ -48,29 +48,29 @@ public class p {
     public void a(h hVar) {
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("nameSpace", hVar.yw);
-            contentValues.put("tableName", hVar.yk);
+            contentValues.put("nameSpace", hVar.nameSpace);
+            contentValues.put("tableName", hVar.tableName);
             contentValues.put("maxSize", Integer.valueOf(hVar.maxSize));
-            contentValues.put("cacheVersion", Integer.valueOf(hVar.yB));
-            contentValues.put("cacheType", hVar.yA);
-            contentValues.put("lastActiveTime", Long.valueOf(hVar.yC));
-            SQLiteDatabase fa = this.yj.fa();
-            if (fa != null && fa.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.yw}) == 0) {
-                fa.insert("cache_meta_info", null, contentValues);
+            contentValues.put("cacheVersion", Integer.valueOf(hVar.cacheVersion));
+            contentValues.put("cacheType", hVar.cacheType);
+            contentValues.put("lastActiveTime", Long.valueOf(hVar.lastActiveTime));
+            SQLiteDatabase openedDatabase = this.nN.getOpenedDatabase();
+            if (openedDatabase != null && openedDatabase.update(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, contentValues, "nameSpace = ?", new String[]{hVar.nameSpace}) == 0) {
+                openedDatabase.insert(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, null, contentValues);
             }
         } catch (Throwable th) {
-            this.yj.c(th, "addOrUpdate");
+            this.nN.notifySQLException(th, "addOrUpdate");
         }
     }
 
-    public int at(String str) {
+    public int delete(String str) {
         try {
-            if (as(str) == null) {
+            if (Z(str) == null) {
                 return 0;
             }
-            return this.yj.fa().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            return this.nN.getOpenedDatabase().delete(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, "nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
-            this.yj.c(th, WriteImageActivityConfig.DELET_FLAG);
+            this.nN.notifySQLException(th, "delete");
             return 0;
         }
     }

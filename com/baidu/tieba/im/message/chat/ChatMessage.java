@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.appsearchlib.Info;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.coreExtra.messageCenter.b;
@@ -125,9 +125,9 @@ public abstract class ChatMessage extends TbSocketMessage implements a, m {
             String optString = jSONObject.optString("face_name");
             String optString2 = jSONObject.optString("url_s");
             String optString3 = jSONObject.optString("url_d");
-            String optString4 = jSONObject.optString(Info.kBaiduPIDKey);
+            String optString4 = jSONObject.optString("pid");
             String optString5 = jSONObject.optString("packet_name");
-            String optString6 = jSONObject.optString("icon");
+            String optString6 = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             int optInt = jSONObject.optInt("size_width");
             int optInt2 = jSONObject.optInt("size_height");
             GifInfo gifInfo = new GifInfo();
@@ -373,7 +373,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (b.anR().aoq() != null && b.anR().aoq().contains(String.valueOf(this.userId)) && this.msgType == 1) {
+        if (b.aqt().aqS() != null && b.aqt().aqS().contains(String.valueOf(this.userId)) && this.msgType == 1) {
             return TYPE_MSG_TEXT_OFFICAL_NOTIFICATION;
         }
         if (this.msgType == 11) {
@@ -411,7 +411,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, m {
             try {
                 JSONArray jSONArray = new JSONArray(this.content);
                 if (jSONArray.length() > 0) {
-                    this.statisticsTaskId = com.baidu.adp.lib.g.b.e(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                    this.statisticsTaskId = com.baidu.adp.lib.g.b.toLong(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                 }
             } catch (Exception e) {
             }

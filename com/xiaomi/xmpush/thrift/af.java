@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.BitSet;
@@ -10,9 +11,9 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, TFie
     private static final org.apache.thrift.protocol.b j = new org.apache.thrift.protocol.b("", (byte) 8, 1);
     private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("", (byte) 2, 2);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b("", (byte) 2, 3);
-    private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("", (byte) 11, 4);
-    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("", (byte) 11, 5);
-    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("", (byte) 11, 6);
+    private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 4);
+    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 5);
+    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 6);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("", (byte) 12, 7);
     private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("", (byte) 12, 8);
     public a a;

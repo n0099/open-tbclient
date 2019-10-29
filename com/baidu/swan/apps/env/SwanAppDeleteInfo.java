@@ -8,34 +8,34 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppDeleteInfo> CREATOR = new Parcelable.Creator<SwanAppDeleteInfo>() { // from class: com.baidu.swan.apps.env.SwanAppDeleteInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: e */
+        /* renamed from: m */
         public SwanAppDeleteInfo createFromParcel(Parcel parcel) {
             return new SwanAppDeleteInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ct */
+        /* renamed from: dp */
         public SwanAppDeleteInfo[] newArray(int i) {
             return new SwanAppDeleteInfo[i];
         }
     };
-    public int awx;
+    public int aPM;
     public String mAppId;
 
     public SwanAppDeleteInfo(String str) {
         this.mAppId = str;
-        this.awx = 0;
+        this.aPM = 0;
     }
 
     public SwanAppDeleteInfo(String str, int i) {
         this.mAppId = str;
-        this.awx = i;
+        this.aPM = i;
     }
 
     private SwanAppDeleteInfo(Parcel parcel) {
         this.mAppId = parcel.readString();
-        this.awx = parcel.readInt();
+        this.aPM = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -46,10 +46,10 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.mAppId);
-        parcel.writeInt(this.awx);
+        parcel.writeInt(this.aPM);
     }
 
     public String toString() {
-        return "mAppId:" + this.mAppId + ",mCheckHisAndFavor:" + this.awx;
+        return "mAppId:" + this.mAppId + ",mCheckHisAndFavor:" + this.aPM;
     }
 }

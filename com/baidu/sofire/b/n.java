@@ -6,7 +6,6 @@ import android.content.Context;
 import android.net.Proxy;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -45,8 +44,8 @@ public final class n {
     private String c;
     private String d;
     byte[] b = new byte[8192];
-    private int e = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
-    private int f = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
+    private int e = 120000;
+    private int f = 120000;
     private boolean g = false;
 
     public n(Context context) {

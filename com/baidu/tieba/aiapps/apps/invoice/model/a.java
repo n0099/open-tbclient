@@ -1,24 +1,23 @@
 package com.baidu.tieba.aiapps.apps.invoice.model;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements c {
-    public List<InvoiceInfo> dfj;
+    public List<InvoiceInfo> doE;
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.model.c
-    public void bh(JSONObject jSONObject) {
+    public void bE(JSONObject jSONObject) {
         JSONArray optJSONArray;
-        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray(IntentConfig.LIST)) != null) {
-            this.dfj = new ArrayList();
+        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("list")) != null) {
+            this.doE = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 InvoiceInfo invoiceInfo = new InvoiceInfo();
-                invoiceInfo.bh(optJSONObject);
-                this.dfj.add(invoiceInfo);
+                invoiceInfo.bE(optJSONObject);
+                this.doE.add(invoiceInfo);
             }
         }
     }

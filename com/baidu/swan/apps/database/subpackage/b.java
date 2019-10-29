@@ -10,29 +10,29 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.swan.apps.database.subpackage.SubPackageTable;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final String awd = AppRuntime.getAppContext().getPackageName() + ".swan.subpackage";
-    public static final Uri awe = Uri.parse("content://" + awd + "/" + SubPackageTable.Table.TABLE_NAME);
-    private static UriMatcher awf = new UriMatcher(-1);
-    private SQLiteOpenHelper awg;
+    public static final String aPs = AppRuntime.getAppContext().getPackageName() + ".swan.subpackage";
+    public static final Uri aPt = Uri.parse("content://" + aPs + "/" + SubPackageTable.Table.TABLE_NAME);
+    private static UriMatcher aPu = new UriMatcher(-1);
+    private SQLiteOpenHelper aPv;
     private Context mContext;
 
     static {
-        awf.addURI(awd, SubPackageTable.Table.TABLE_NAME, 0);
+        aPu.addURI(aPs, SubPackageTable.Table.TABLE_NAME, 0);
     }
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    private String e(Uri uri) {
-        switch (awf.match(uri)) {
+    private String c(Uri uri) {
+        switch (aPu.match(uri)) {
             case 0:
                 return SubPackageTable.Table.TABLE_NAME;
             default:
@@ -42,14 +42,14 @@ public class b {
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        String e = e(uri);
-        if (TextUtils.isEmpty(e)) {
+        String c = c(uri);
+        if (TextUtils.isEmpty(c)) {
             return null;
         }
         if (DEBUG) {
             Log.e("SubPackageProvider", "query");
         }
-        return Ct().getReadableDatabase().query(e, strArr, str, strArr2, null, null, str2, null);
+        return Hn().getReadableDatabase().query(c, strArr, str, strArr2, null, null, str2, null);
     }
 
     @Nullable
@@ -59,27 +59,27 @@ public class b {
 
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        String e = e(uri);
-        if (TextUtils.isEmpty(e) || contentValues == null) {
+        String c = c(uri);
+        if (TextUtils.isEmpty(c) || contentValues == null) {
             return null;
         }
         if (DEBUG) {
             Log.e("SubPackageProvider", "insert:" + contentValues.toString());
         }
-        Ct().getWritableDatabase().insertWithOnConflict(e, null, contentValues, 5);
+        Hn().getWritableDatabase().insertWithOnConflict(c, null, contentValues, 5);
         this.mContext.getContentResolver().notifyChange(uri, null);
         return uri;
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        String e = e(uri);
-        if (TextUtils.isEmpty(e)) {
+        String c = c(uri);
+        if (TextUtils.isEmpty(c)) {
             return 0;
         }
         if (DEBUG) {
-            Log.e("SubPackageProvider", WriteImageActivityConfig.DELET_FLAG);
+            Log.e("SubPackageProvider", "delete");
         }
-        int delete = Ct().getWritableDatabase().delete(e, str, strArr);
+        int delete = Hn().getWritableDatabase().delete(c, str, strArr);
         if (delete > 0) {
             this.mContext.getContentResolver().notifyChange(uri, null);
             return delete;
@@ -88,14 +88,14 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        String e = e(uri);
-        if (TextUtils.isEmpty(e)) {
+        String c = c(uri);
+        if (TextUtils.isEmpty(c)) {
             return 0;
         }
         if (DEBUG) {
-            Log.e("SubPackageProvider", "update");
+            Log.e("SubPackageProvider", IMTrack.DbBuilder.ACTION_UPDATE);
         }
-        int update = Ct().getWritableDatabase().update(e, contentValues, str, strArr);
+        int update = Hn().getWritableDatabase().update(c, contentValues, str, strArr);
         if (update > 0) {
             this.mContext.getContentResolver().notifyChange(uri, null);
             return update;
@@ -103,10 +103,10 @@ public class b {
         return update;
     }
 
-    private SQLiteOpenHelper Ct() {
-        if (this.awg == null) {
-            this.awg = SwanAppDbControl.aX(this.mContext).Ct();
+    private SQLiteOpenHelper Hn() {
+        if (this.aPv == null) {
+            this.aPv = SwanAppDbControl.aZ(this.mContext).Hn();
         }
-        return this.awg;
+        return this.aPv;
     }
 }

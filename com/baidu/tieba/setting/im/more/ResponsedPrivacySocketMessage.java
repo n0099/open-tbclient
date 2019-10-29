@@ -1,6 +1,7 @@
 package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
 /* loaded from: classes.dex */
@@ -8,7 +9,7 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     private a privacyData;
 
     public ResponsedPrivacySocketMessage() {
-        super(303016);
+        super(CmdConfigSocket.CMD_GET_PRIVATE_INFO);
         this.privacyData = new a();
     }
 
@@ -26,28 +27,28 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
         }
         if (getPrivateInfoResIdl.data != null) {
             if (getPrivateInfoResIdl.data.like != null) {
-                this.privacyData.Ad(getPrivateInfoResIdl.data.like.intValue());
+                this.privacyData.yL(getPrivateInfoResIdl.data.like.intValue());
             }
             if (getPrivateInfoResIdl.data.group != null) {
-                this.privacyData.Af(getPrivateInfoResIdl.data.group.intValue());
+                this.privacyData.yN(getPrivateInfoResIdl.data.group.intValue());
             }
             if (getPrivateInfoResIdl.data.post != null) {
-                this.privacyData.Ac(getPrivateInfoResIdl.data.post.intValue());
+                this.privacyData.yK(getPrivateInfoResIdl.data.post.intValue());
             }
             if (getPrivateInfoResIdl.data.location != null) {
-                this.privacyData.Ag(getPrivateInfoResIdl.data.location.intValue());
+                this.privacyData.yO(getPrivateInfoResIdl.data.location.intValue());
             }
             if (getPrivateInfoResIdl.data.user != null) {
                 this.privacyData.b(getPrivateInfoResIdl.data.user);
             }
             if (getPrivateInfoResIdl.data.live != null) {
-                this.privacyData.Ae(getPrivateInfoResIdl.data.live.intValue());
+                this.privacyData.yM(getPrivateInfoResIdl.data.live.intValue());
             }
             if (getPrivateInfoResIdl.data.forum_num != null) {
-                this.privacyData.Ah(getPrivateInfoResIdl.data.forum_num.intValue());
+                this.privacyData.yP(getPrivateInfoResIdl.data.forum_num.intValue());
             }
             if (getPrivateInfoResIdl.data.reply != null) {
-                this.privacyData.Ai(getPrivateInfoResIdl.data.reply.intValue());
+                this.privacyData.yQ(getPrivateInfoResIdl.data.reply.intValue());
             }
         }
     }

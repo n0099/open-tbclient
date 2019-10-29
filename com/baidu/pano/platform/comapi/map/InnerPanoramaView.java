@@ -11,6 +11,8 @@ import com.baidu.lbsapi.panoramaview.ImageMarker;
 import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.lbsapi.panoramaview.PanoramaViewListener;
 import com.baidu.lbsapi.panoramaview.StatisticsCallback;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobstat.Config;
 import com.baidu.pano.platform.comjni.MessageProxy;
 import java.util.HashMap;
@@ -95,15 +97,15 @@ public class InnerPanoramaView extends BaseGLMapView {
         try {
             jSONObject.put("code", i);
             if (i == 101) {
-                jSONObject.put("error", "引擎初始化失败");
+                jSONObject.put(BdStatsConstant.StatsType.ERROR, "引擎初始化失败");
             } else if (i == 102) {
-                jSONObject.put("error", "描述信息加载失败");
+                jSONObject.put(BdStatsConstant.StatsType.ERROR, "描述信息加载失败");
             } else if (i == 103) {
-                jSONObject.put("error", "全景图加载失败");
+                jSONObject.put(BdStatsConstant.StatsType.ERROR, "全景图加载失败");
             } else if (i == 201) {
-                jSONObject.put("error", "该UID下对应的POI没有全景");
+                jSONObject.put(BdStatsConstant.StatsType.ERROR, "该UID下对应的POI没有全景");
             } else if (i == 202) {
-                jSONObject.put("error", "无法显示内景相册, 因为没有引入内景相册插件");
+                jSONObject.put(BdStatsConstant.StatsType.ERROR, "无法显示内景相册, 因为没有引入内景相册插件");
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -286,7 +288,7 @@ public class InnerPanoramaView extends BaseGLMapView {
             return false;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("key", str);
+        bundle.putString(TiebaInitialize.Params.KEY, str);
         bundle.putDouble(Config.EVENT_HEAT_X, d * 100.0d);
         bundle.putDouble("y", d2 * 100.0d);
         bundle.putFloat("z", ((float) d3) * 100.0f);
@@ -382,7 +384,7 @@ public class InnerPanoramaView extends BaseGLMapView {
         if (sqrt <= 10000 && sqrt > 1000) {
             return (sqrt / 1000) + "km";
         }
-        return sqrt + Config.MODEL;
+        return sqrt + "m";
     }
 
     public void a(StatisticsCallback statisticsCallback) {

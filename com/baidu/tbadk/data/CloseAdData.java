@@ -6,28 +6,28 @@ import tbclient.VipCloseAd;
 /* loaded from: classes.dex */
 public class CloseAdData extends OrmObject {
     public static final int ERROR_CODE_NOT_MEMBER = 1990043;
-    private int crr = 1;
-    private int crs;
+    private int cDP = 1;
+    private int cDQ;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.crr = jSONObject.optInt("is_open");
-            this.crs = jSONObject.optInt("vip_close");
+            this.cDP = jSONObject.optInt("is_open");
+            this.cDQ = jSONObject.optInt("vip_close");
         }
     }
 
     public void a(VipCloseAd vipCloseAd) {
         if (vipCloseAd != null) {
-            this.crr = vipCloseAd.is_open.intValue();
-            this.crs = vipCloseAd.vip_close.intValue();
+            this.cDP = vipCloseAd.is_open.intValue();
+            this.cDQ = vipCloseAd.vip_close.intValue();
         }
     }
 
-    public int arE() {
-        return this.crr;
+    public int att() {
+        return this.cDP;
     }
 
-    public int arF() {
-        return this.crs;
+    public int atu() {
+        return this.cDQ;
     }
 }

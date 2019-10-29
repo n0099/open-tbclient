@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import java.io.Serializable;
@@ -43,7 +44,7 @@ public class AccessState implements Serializable {
             try {
                 this.type = jSONObject.optString("type");
                 this.token = jSONObject.optString("token");
-                JSONObject jSONObject2 = jSONObject.getJSONObject("userinfo");
+                JSONObject jSONObject2 = jSONObject.getJSONObject(TableDefine.DB_TABLE_USERINFO);
                 if (jSONObject2 != null) {
                     this.userInfo.strMobile = jSONObject2.optString("strMobile");
                     this.userInfo.strEmail = jSONObject2.optString("strEmail");

@@ -1,12 +1,17 @@
 package com.baidu.c.a.b;
-
-import android.content.Context;
-import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface c {
-    View L(Context context, String str);
+    void a(b bVar);
 
-    boolean a(String str, View view, com.baidu.c.a.a.a aVar);
+    void a(Object obj, g gVar, f fVar);
 
-    boolean a(String str, View view, String str2, String str3);
+    void a(String str, boolean z, e eVar);
+
+    void b(b bVar);
+
+    void dl(String str);
+
+    void quitLiveShow();
+
+    void setPullInterval(int i);
 }

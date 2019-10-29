@@ -1,7 +1,7 @@
 package com.baidu.mobads.vo.a;
 
 import android.content.Context;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdProdInfo;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
@@ -30,20 +30,20 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0075a o;
+    private C0107a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0075a {
+    public static class C0107a {
         String a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0075a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0107a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.a = "";
             this.b = "";
             this.c = "";
@@ -61,9 +61,9 @@ public abstract class a {
         }
     }
 
-    public a(C0075a c0075a) {
-        this(c0075a.a, c0075a.b, c0075a.c);
-        this.o = c0075a;
+    public a(C0107a c0107a) {
+        this(c0107a.a, c0107a.b, c0107a.c);
+        this.o = c0107a;
     }
 
     @Deprecated
@@ -91,7 +91,7 @@ public abstract class a {
         this.f = this.m.getAppId(this.l);
         this.h = this.n.getEncodedSN(this.l);
         this.i = "android";
-        this.g = "android_" + com.baidu.mobads.a.a.c + "_4.1.30";
+        this.g = "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30";
         this.j = str3;
         this.k = XAdSDKFoundationFacade.getInstance().getSystemUtils().getCUID(this.l);
     }
@@ -106,9 +106,9 @@ public abstract class a {
         hashMap.put(IXAdRequestInfo.SN, this.h);
         hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.a);
         hashMap.put("v", this.g);
-        hashMap.put(IXAdRequestInfo.OS, this.i);
+        hashMap.put("os", this.i);
         hashMap.put("prod", this.j);
-        hashMap.put(DpStatConstants.KEY_CUID, this.k);
+        hashMap.put("cuid", this.k);
         hashMap.put(IXAdRequestInfo.P_VER, "8.8079");
         if (this.o != null) {
             hashMap.put("adt", this.o.d);

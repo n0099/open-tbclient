@@ -1,11 +1,9 @@
 package com.baidu.platform.comapi.wnplatform.o;
-
-import com.baidu.mobstat.Config;
 /* loaded from: classes5.dex */
 public class f {
-    public static final String[] a = {Config.MODEL, "km", "米", "公里"};
-    public static final String[] b = {Config.MODEL, "h", "分钟", "小时"};
-    public static final String[] c = {Config.MODEL, "h", "d", "分钟", "小时", "天"};
+    public static final String[] a = {"m", "km", "米", "公里"};
+    public static final String[] b = {"m", "h", "分钟", "小时"};
+    public static final String[] c = {"m", "h", "d", "分钟", "小时", "天"};
 
     /* loaded from: classes5.dex */
     public enum a {

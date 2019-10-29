@@ -45,7 +45,7 @@ public class FragmentTabRootView extends LinearLayout {
         this.mRect.set(0, 0, i, i2);
     }
 
-    public void a(float f, float f2, float f3, float f4, float f5, float f6, int i) {
+    public void refreshMatrix(float f, float f2, float f3, float f4, float f5, float f6, int i) {
         this.mMatrix.reset();
         this.mMatrix.postTranslate(f, f2);
         this.mMatrix.postScale(f3, f4, f5, f6);

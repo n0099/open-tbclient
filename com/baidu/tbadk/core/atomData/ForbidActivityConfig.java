@@ -15,6 +15,6 @@ public class ForbidActivityConfig extends IntentConfig {
         getIntent().putExtra("user_name", str5);
         getIntent().putExtra("post_id", str7);
         getIntent().putExtra("name_show", str6);
-        getIntent().putExtra(IntentConfig.PORTRAIT, str8);
+        getIntent().putExtra("portrait", str8);
     }
 }

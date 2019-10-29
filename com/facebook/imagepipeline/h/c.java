@@ -14,7 +14,12 @@ import java.lang.reflect.Method;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c extends b {
-    private static Method kmL;
+    private static Method kkX;
+
+    @Override // com.facebook.imagepipeline.h.b
+    public /* bridge */ /* synthetic */ com.facebook.common.references.a Z(Bitmap bitmap) {
+        return super.Z(bitmap);
+    }
 
     @Override // com.facebook.imagepipeline.h.b, com.facebook.imagepipeline.h.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.f.d dVar, Bitmap.Config config) {
@@ -27,18 +32,13 @@ public class c extends b {
     }
 
     @Override // com.facebook.imagepipeline.h.b
-    public /* bridge */ /* synthetic */ com.facebook.common.references.a ab(Bitmap bitmap) {
-        return super.ab(bitmap);
-    }
-
-    @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, BitmapFactory.Options options) {
         return a(aVar, aVar.get().size(), null, options);
     }
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, a(aVar, i) ? null : kmJ, options);
+        return a(aVar, i, a(aVar, i) ? null : kkV, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
@@ -60,22 +60,22 @@ public class c extends b {
                     hVar = hVar2;
                 }
                 try {
-                    com.facebook.common.internal.a.g(aVar3, outputStream);
+                    com.facebook.common.internal.a.e(aVar3, outputStream);
                     if (bArr != null) {
                         memoryFile.writeBytes(bArr, 0, i, bArr.length);
                     }
-                    com.facebook.common.references.a.c(aVar);
-                    com.facebook.common.internal.b.q(hVar2);
-                    com.facebook.common.internal.b.q(aVar3);
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
+                    com.facebook.common.internal.b.n(hVar2);
+                    com.facebook.common.internal.b.n(aVar3);
                     com.facebook.common.internal.b.a(outputStream, true);
                     return memoryFile;
                 } catch (Throwable th2) {
                     th = th2;
                     aVar2 = aVar3;
                     hVar = hVar2;
-                    com.facebook.common.references.a.c(aVar);
-                    com.facebook.common.internal.b.q(hVar);
-                    com.facebook.common.internal.b.q(aVar2);
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
+                    com.facebook.common.internal.b.n(hVar);
+                    com.facebook.common.internal.b.n(aVar2);
                     com.facebook.common.internal.b.a(outputStream, true);
                     throw th;
                 }
@@ -91,22 +91,22 @@ public class c extends b {
         }
     }
 
-    private synchronized Method cLJ() {
-        if (kmL == null) {
+    private synchronized Method cIG() {
+        if (kkX == null) {
             try {
-                kmL = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                kkX = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
-                throw k.r(e);
+                throw k.q(e);
             }
         }
-        return kmL;
+        return kkX;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) cLJ().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) cIG().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
-            throw k.r(e);
+            throw k.q(e);
         }
     }
 
@@ -115,9 +115,9 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.kdN.a(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.kbW.a(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
-                throw k.r(e);
+                throw k.q(e);
             }
         } finally {
             if (memoryFile != null) {

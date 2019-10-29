@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.AddMsgRecord.AddMsgRecordResIdl;
 import tbclient.AddMsgRecord.DataRes;
@@ -10,11 +9,11 @@ public class AddMsgRecordHttpProtoResponse extends HttpResponsedMessage {
     private DataRes mData;
 
     public AddMsgRecordHttpProtoResponse() {
-        super(CmdConfigHttp.CMD_ADD_MSG_RECORD);
+        super(1003071);
     }
 
     public AddMsgRecordHttpProtoResponse(int i) {
-        super(CmdConfigHttp.CMD_ADD_MSG_RECORD);
+        super(1003071);
     }
 
     public DataRes getData() {

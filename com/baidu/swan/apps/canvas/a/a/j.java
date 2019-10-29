@@ -13,29 +13,29 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String amR;
-    private int amS;
-    private int amT;
+    private String aGk;
+    private int aGl;
+    private int aGm;
     private Bitmap mBitmap;
     private int mHeight;
     private Matrix mMatrix;
     private int mWidth;
 
     public j(String str) {
-        this.amR = str;
+        this.aGk = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void e(JSONArray jSONArray) {
+    public void parseJson(JSONArray jSONArray) {
     }
 
-    public boolean ya() {
+    public boolean CV() {
         try {
-            JSONObject jSONObject = new JSONObject(this.amR);
-            this.amS = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.amT = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble("y"));
-            this.mWidth = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble("width"));
-            this.mHeight = com.baidu.swan.apps.an.z.ad((float) jSONObject.optDouble("height"));
+            JSONObject jSONObject = new JSONObject(this.aGk);
+            this.aGl = com.baidu.swan.apps.an.z.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.aGm = com.baidu.swan.apps.an.z.S((float) jSONObject.optDouble("y"));
+            this.mWidth = com.baidu.swan.apps.an.z.S((float) jSONObject.optDouble("width"));
+            this.mHeight = com.baidu.swan.apps.an.z.S((float) jSONObject.optDouble("height"));
             String optString = jSONObject.optString("data");
             boolean z = !TextUtils.isEmpty(optString);
             if (z) {
@@ -44,13 +44,13 @@ public class j extends a {
                     this.mBitmap = BitmapFactory.decodeByteArray(decode, 0, decode.length);
                     int width = this.mBitmap.getWidth();
                     int height = this.mBitmap.getHeight();
-                    this.amS = this.amS < 0 ? 0 : this.amS;
-                    this.amT = this.amT >= 0 ? this.amT : 0;
+                    this.aGl = this.aGl < 0 ? 0 : this.aGl;
+                    this.aGm = this.aGm >= 0 ? this.aGm : 0;
                     this.mWidth = this.mWidth <= 0 ? width : this.mWidth;
                     this.mHeight = this.mHeight <= 0 ? height : this.mHeight;
                     this.mMatrix = new Matrix();
                     this.mMatrix.postScale(this.mWidth / this.mBitmap.getWidth(), this.mHeight / this.mBitmap.getHeight());
-                    this.mMatrix.postTranslate(this.amS, this.amT);
+                    this.mMatrix.postTranslate(this.aGl, this.aGm);
                     return z;
                 } catch (Exception e) {
                     if (DEBUG) {
@@ -72,7 +72,7 @@ public class j extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mBitmap != null && this.mMatrix != null) {
-            canvas.drawBitmap(this.mBitmap, this.mMatrix, bVar.Mi);
+            canvas.drawBitmap(this.mBitmap, this.mMatrix, bVar.mBitmapPaint);
         }
     }
 }

@@ -16,9 +16,9 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.wheelview.BdAdapterView;
 /* loaded from: classes2.dex */
 public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
-    Rect aNa;
-    View aNb;
-    a aNc;
+    Rect bgk;
+    View bgl;
+    a bgm;
     SpinnerAdapter mAdapter;
     boolean mBlockLayoutRequests;
     private DataSetObserver mDataSetObserver;
@@ -30,7 +30,7 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
     private Rect mTouchFrame;
     int mWidthMeasureSpec;
 
-    abstract void o(int i, boolean z);
+    abstract void q(int i, boolean z);
 
     protected DataSetObserver getDataSetObserver() {
         return this.mDataSetObserver;
@@ -42,10 +42,10 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
         this.mSelectionTopPadding = 0;
         this.mSelectionRightPadding = 0;
         this.mSelectionBottomPadding = 0;
-        this.aNa = new Rect();
-        this.aNb = null;
-        this.aNc = new a();
-        KM();
+        this.bgk = new Rect();
+        this.bgl = null;
+        this.bgm = new a();
+        PF();
     }
 
     public BdAbsSpinner(Context context, AttributeSet attributeSet) {
@@ -58,10 +58,10 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
         this.mSelectionTopPadding = 0;
         this.mSelectionRightPadding = 0;
         this.mSelectionBottomPadding = 0;
-        this.aNa = new Rect();
-        this.aNb = null;
-        this.aNc = new a();
-        KM();
+        this.bgk = new Rect();
+        this.bgl = null;
+        this.bgm = new a();
+        PF();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.AbsSpinner, i, 0);
         CharSequence[] textArray = obtainStyledAttributes.getTextArray(a.j.AbsSpinner_entriesArray);
         if (textArray != null) {
@@ -72,7 +72,7 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
         obtainStyledAttributes.recycle();
     }
 
-    private void KM() {
+    private void PF() {
         setFocusable(true);
         setWillNotDraw(false);
     }
@@ -129,37 +129,37 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
         boolean z = true;
         int i4 = 0;
         int mode = View.MeasureSpec.getMode(i);
-        this.aNa.left = getPaddingLeft() > this.mSelectionLeftPadding ? getPaddingLeft() : this.mSelectionLeftPadding;
-        this.aNa.top = getPaddingTop() > this.mSelectionTopPadding ? getPaddingTop() : this.mSelectionTopPadding;
-        this.aNa.right = getPaddingRight() > this.mSelectionRightPadding ? getPaddingRight() : this.mSelectionRightPadding;
-        this.aNa.bottom = getPaddingBottom() > this.mSelectionBottomPadding ? getPaddingBottom() : this.mSelectionBottomPadding;
+        this.bgk.left = getPaddingLeft() > this.mSelectionLeftPadding ? getPaddingLeft() : this.mSelectionLeftPadding;
+        this.bgk.top = getPaddingTop() > this.mSelectionTopPadding ? getPaddingTop() : this.mSelectionTopPadding;
+        this.bgk.right = getPaddingRight() > this.mSelectionRightPadding ? getPaddingRight() : this.mSelectionRightPadding;
+        this.bgk.bottom = getPaddingBottom() > this.mSelectionBottomPadding ? getPaddingBottom() : this.mSelectionBottomPadding;
         if (this.mDataChanged) {
             handleDataChanged();
         }
         int selectedItemPosition = getSelectedItemPosition();
         if (selectedItemPosition >= 0 && this.mAdapter != null) {
-            View dg = this.aNc.dg(selectedItemPosition);
-            if (dg == null) {
-                dg = this.mAdapter.getView(selectedItemPosition, null, this);
+            View eb = this.bgm.eb(selectedItemPosition);
+            if (eb == null) {
+                eb = this.mAdapter.getView(selectedItemPosition, null, this);
             }
-            if (dg != null) {
-                this.aNc.c(selectedItemPosition, dg);
+            if (eb != null) {
+                this.bgm.d(selectedItemPosition, eb);
             }
-            if (dg != null) {
-                if (dg.getLayoutParams() == null) {
+            if (eb != null) {
+                if (eb.getLayoutParams() == null) {
                     this.mBlockLayoutRequests = true;
-                    dg.setLayoutParams(generateDefaultLayoutParams());
+                    eb.setLayoutParams(generateDefaultLayoutParams());
                     this.mBlockLayoutRequests = false;
                 }
-                measureChild(dg, i, i2);
-                int ab = ab(dg) + this.aNa.top + this.aNa.bottom;
-                i3 = ac(dg) + this.aNa.left + this.aNa.right;
-                i4 = ab;
+                measureChild(eb, i, i2);
+                int ah = ah(eb) + this.bgk.top + this.bgk.bottom;
+                i3 = ai(eb) + this.bgk.left + this.bgk.right;
+                i4 = ah;
                 z = false;
                 if (z) {
-                    i4 = this.aNa.top + this.aNa.bottom;
+                    i4 = this.bgk.top + this.bgk.bottom;
                     if (mode == 0) {
-                        i3 = this.aNa.left + this.aNa.right;
+                        i3 = this.bgk.left + this.bgk.right;
                     }
                 }
                 setMeasuredDimension(resolveSize(Math.max(i3, getSuggestedMinimumWidth()), i), resolveSize(Math.max(i4, getSuggestedMinimumHeight()), i2));
@@ -175,11 +175,11 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
         this.mWidthMeasureSpec = i;
     }
 
-    int ab(View view) {
+    int ah(View view) {
         return view.getMeasuredHeight();
     }
 
-    int ac(View view) {
+    int ai(View view) {
         return view.getMeasuredWidth();
     }
 
@@ -189,11 +189,11 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void KN() {
+    public void PG() {
         int childCount = getChildCount();
-        a aVar = this.aNc;
+        a aVar = this.bgm;
         for (int i = 0; i < childCount; i++) {
-            aVar.c(this.mFirstPosition + i, getChildAt(i));
+            aVar.d(this.mFirstPosition + i, getChildAt(i));
         }
     }
 
@@ -204,7 +204,7 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
     }
 
     public void setSelection(int i, boolean z) {
-        n(i, z && this.mFirstPosition <= i && i <= (this.mFirstPosition + getChildCount()) + (-1));
+        p(i, z && this.mFirstPosition <= i && i <= (this.mFirstPosition + getChildCount()) + (-1));
         checkSelectionChanged();
     }
 
@@ -222,11 +222,11 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
         invalidate();
     }
 
-    void n(int i, boolean z) {
+    void p(int i, boolean z) {
         if (i != this.mOldSelectedPosition) {
             this.mBlockLayoutRequests = true;
             setNextSelectedPositionInt(i);
-            o(i - this.mSelectedPosition, z);
+            q(i - this.mSelectedPosition, z);
             this.mBlockLayoutRequests = false;
         }
     }
@@ -281,19 +281,19 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.swan.apps.res.ui.wheelview.BdAbsSpinner.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: k */
+            /* renamed from: s */
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: dh */
+            /* renamed from: ec */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         };
-        long aNf;
+        long amv;
         int position;
 
         SavedState(Parcelable parcelable) {
@@ -302,27 +302,27 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
 
         private SavedState(Parcel parcel) {
             super(parcel);
-            this.aNf = parcel.readLong();
+            this.amv = parcel.readLong();
             this.position = parcel.readInt();
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeLong(this.aNf);
+            parcel.writeLong(this.amv);
             parcel.writeInt(this.position);
         }
 
         public String toString() {
-            return "BdAbsSpinner.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " selectedId=" + this.aNf + " position=" + this.position + "}";
+            return "BdAbsSpinner.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " selectedId=" + this.amv + " position=" + this.position + "}";
         }
     }
 
     @Override // android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.aNf = getSelectedItemId();
-        if (savedState.aNf >= 0) {
+        savedState.amv = getSelectedItemId();
+        if (savedState.amv >= 0) {
             savedState.position = getSelectedItemPosition();
         } else {
             savedState.position = -1;
@@ -334,10 +334,10 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
     public void onRestoreInstanceState(Parcelable parcelable) {
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        if (savedState.aNf >= 0) {
+        if (savedState.amv >= 0) {
             this.mDataChanged = true;
             this.mNeedSync = true;
-            this.mSyncRowId = savedState.aNf;
+            this.mSyncRowId = savedState.amv;
             this.mSyncPosition = savedState.position;
             this.mSyncMode = 0;
             requestLayout();
@@ -346,27 +346,27 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
 
     /* loaded from: classes2.dex */
     class a {
-        private SparseArray<View> aNd = new SparseArray<>();
+        private SparseArray<View> bgn = new SparseArray<>();
 
         a() {
         }
 
-        public void c(int i, View view) {
-            this.aNd.put(i, view);
+        public void d(int i, View view) {
+            this.bgn.put(i, view);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public View dg(int i) {
-            View view = this.aNd.get(i);
+        public View eb(int i) {
+            View view = this.bgn.get(i);
             if (view != null) {
-                this.aNd.delete(i);
+                this.bgn.delete(i);
             }
             return view;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void clear() {
-            SparseArray<View> sparseArray = this.aNd;
+            SparseArray<View> sparseArray = this.bgn;
             int size = sparseArray.size();
             for (int i = 0; i < size; i++) {
                 View valueAt = sparseArray.valueAt(i);

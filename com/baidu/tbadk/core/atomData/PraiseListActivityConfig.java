@@ -12,13 +12,13 @@ public class PraiseListActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("thread_id", str);
         getIntent().putExtra("post_id", str2);
-        getIntent().putExtra(IntentConfig.POST_DESC, str3);
-        getIntent().putExtra(IntentConfig.IS_FROM_PB, z);
+        getIntent().putExtra("post_desc", str3);
+        getIntent().putExtra("is_from_pb", z);
     }
 
     public void setIsGraffitiPraiseList() {
         if (getIntent() != null) {
-            getIntent().putExtra(IntentConfig.LIST_TYPE, 1);
+            getIntent().putExtra("list_type", 1);
         }
     }
 

@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.lbsapi.tools.CoordinateConverter;
 import com.baidu.lbsapi.tools.Point;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.pano.platform.b.a;
 import com.baidu.pano.platform.c.e;
 import com.baidu.pano.platform.comapi.a.b;
@@ -106,7 +107,7 @@ public class PanoramaView extends FrameLayout {
                 if (!TextUtils.isEmpty(str2)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str2);
-                        if (jSONObject.getJSONObject("result").optInt("error") == 0) {
+                        if (jSONObject.getJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR) == 0) {
                             if (jSONObject.optString("content") != null && !"".equals(jSONObject.optString("content"))) {
                                 JSONObject jSONObject2 = jSONObject.getJSONArray("content").getJSONObject(0).getJSONObject("poiinfo");
                                 boolean z = jSONObject2.optInt("hasinter") == 1;
@@ -187,7 +188,7 @@ public class PanoramaView extends FrameLayout {
                     if (!TextUtils.isEmpty(str3)) {
                         try {
                             JSONObject jSONObject = new JSONObject(str3);
-                            if (jSONObject.getJSONObject("result").optInt("error") == 0 && jSONObject.optString("content") != null && !"".equals(jSONObject.optString("content"))) {
+                            if (jSONObject.getJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR) == 0 && jSONObject.optString("content") != null && !"".equals(jSONObject.optString("content"))) {
                                 JSONObject jSONObject2 = jSONObject.getJSONArray("content").getJSONObject(0).getJSONObject("poiinfo");
                                 boolean z = jSONObject2.optInt("hasinter") == 1;
                                 String optString = jSONObject2.optString("PID");

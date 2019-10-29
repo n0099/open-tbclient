@@ -1,7 +1,6 @@
 package com.baidu.tieba.aiapps.apps.address.c;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -11,7 +10,7 @@ import org.json.JSONObject;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static List<b> tx(String str) {
+    public static List<b> sg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -19,7 +18,7 @@ public class c {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
             if (optJSONObject != null) {
-                return E(optJSONObject.optJSONArray(IntentConfig.LIST));
+                return M(optJSONObject.optJSONArray("list"));
             }
             return arrayList;
         } catch (JSONException e) {
@@ -31,7 +30,7 @@ public class c {
         }
     }
 
-    public static JSONArray aH(List<b> list) {
+    public static JSONArray ba(List<b> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null) {
             int i = 0;
@@ -50,7 +49,7 @@ public class c {
         return jSONArray;
     }
 
-    public static List<b> E(JSONArray jSONArray) {
+    public static List<b> M(JSONArray jSONArray) {
         if (jSONArray == null) {
             return null;
         }
@@ -58,7 +57,7 @@ public class c {
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
             if (optJSONObject != null) {
-                arrayList.add(b.bf(optJSONObject));
+                arrayList.add(b.bC(optJSONObject));
             }
         }
         return arrayList;

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.F;
@@ -17,14 +18,14 @@ import java.util.List;
 public final class a {
     public static long a = 0;
     private static a b;
-    private C0116a c;
+    private C0148a c;
     private e d;
     private SQLiteDatabase e;
     private Context f;
 
     private a(Context context) {
         this.f = context;
-        this.c = new C0116a(context);
+        this.c = new C0148a(context);
         this.d = new e(context);
         try {
             this.e = this.c.getWritableDatabase();
@@ -51,7 +52,7 @@ public final class a {
         contentValues.put("d", Long.valueOf(aVar.e));
         contentValues.put("e", Integer.valueOf(aVar.g));
         contentValues.put(IXAdRequestInfo.GPS, Integer.valueOf(aVar.f));
-        contentValues.put("f", Integer.valueOf(aVar.h));
+        contentValues.put(BdStatsConstant.StatsKey.FROM, Integer.valueOf(aVar.h));
         contentValues.put("i", Integer.valueOf(aVar.i));
         contentValues.put("j", aVar.j);
         String str = aVar.d;
@@ -277,7 +278,7 @@ public final class a {
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex(IXAdRequestInfo.GPS));
                             aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
-                            aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
+                            aVar.h = cursor.getInt(cursor.getColumnIndex(BdStatsConstant.StatsKey.FROM));
                             aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -355,7 +356,7 @@ public final class a {
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex(IXAdRequestInfo.GPS));
                             aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
-                            aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
+                            aVar.h = cursor.getInt(cursor.getColumnIndex(BdStatsConstant.StatsKey.FROM));
                             aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -421,7 +422,7 @@ public final class a {
         String str;
         Cursor cursor2 = null;
         ArrayList arrayList = new ArrayList();
-        String str2 = z ? "(d < (" + System.currentTimeMillis() + "-f*3600000) and f!= 0)" : "d<=" + (currentTimeMillis - 259200000);
+        String str2 = z ? "(d < (" + System.currentTimeMillis() + "-f*3600000) and f!= 0)" : "d<=" + (currentTimeMillis - com.baidu.live.tbadk.data.Config.THREAD_IMAGE_SAVE_MAX_TIME);
         try {
             if (i == 2) {
                 cursor = this.e.query("r", null, str2, null, null, null, "d desc", "100");
@@ -442,7 +443,7 @@ public final class a {
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex(IXAdRequestInfo.GPS));
                             aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
-                            aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
+                            aVar.h = cursor.getInt(cursor.getColumnIndex(BdStatsConstant.StatsKey.FROM));
                             aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -577,8 +578,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    class C0116a extends SQLiteOpenHelper {
-        public C0116a(Context context) {
+    class C0148a extends SQLiteOpenHelper {
+        public C0148a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

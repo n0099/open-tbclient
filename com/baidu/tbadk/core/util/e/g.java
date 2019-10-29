@@ -5,35 +5,35 @@ import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends a {
-    private boolean Yd;
-    private boolean bWC;
-    private boolean bWD;
-    private int bWH;
+    private boolean HY;
+    private boolean clF;
+    private boolean clG;
+    private int clK;
     private int procType;
 
     public g(boolean z, boolean z2, boolean z3, int i) {
-        this.Yd = true;
-        this.bWC = false;
-        this.bWD = false;
+        this.HY = true;
+        this.clF = false;
+        this.clG = false;
         this.procType = 0;
-        this.bWH = 0;
-        this.Yd = z;
-        this.bWC = z2;
-        this.bWD = z3;
+        this.clK = 0;
+        this.HY = z;
+        this.clF = z2;
+        this.clG = z3;
         this.procType = i;
-        int af = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst());
-        this.bWH = af <= 0 ? 200 : af;
-        if (this.bWH > 480) {
-            this.bWH = CameraInterface.DEFAULT_PREVIEW_HEIGHT;
+        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+        this.clK = equipmentWidth <= 0 ? 200 : equipmentWidth;
+        if (this.clK > 480) {
+            this.clK = CameraInterface.DEFAULT_PREVIEW_HEIGHT;
         }
-        if (this.bWH > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
-            this.bWH = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
+        if (this.clK > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
+            this.clK = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
     public int getWidth() {
-        return this.bWH;
+        return this.clK;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
@@ -43,26 +43,26 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.core.util.e.a
     public int getHeight() {
-        return this.bWH;
+        return this.clK;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
     public boolean isFromCDN() {
-        return this.Yd;
+        return this.HY;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean akg() {
-        return this.bWD;
+    public boolean ani() {
+        return this.clG;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public boolean akh() {
-        return this.bWC;
+    public boolean anj() {
+        return this.clF;
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
-    public int aki() {
+    public int ank() {
         return this.procType;
     }
 }

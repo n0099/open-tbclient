@@ -5,12 +5,12 @@ public class b extends d {
         super("app_quick_config");
     }
 
-    public static b cEp() {
-        return a.jZJ;
+    public static b cAZ() {
+        return a.jXI;
     }
 
     /* loaded from: classes2.dex */
     private static final class a {
-        private static final b jZJ = new b();
+        private static final b jXI = new b();
     }
 }

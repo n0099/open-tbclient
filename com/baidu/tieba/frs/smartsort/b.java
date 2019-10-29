@@ -13,7 +13,7 @@ public class b {
     }
 
     public static boolean a(ArrayList<m> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        if (cardHListViewData == null || v.aa(arrayList) || StringUtils.isNull(str) || i < 0) {
+        if (cardHListViewData == null || v.isEmpty(arrayList) || StringUtils.isNull(str) || i < 0) {
             return false;
         }
         int size = arrayList.size();
@@ -25,7 +25,7 @@ public class b {
         }
         int i3 = i + 1;
         if (i3 > 0) {
-            v.a(arrayList, i3, cardHListViewData);
+            v.add(arrayList, i3, cardHListViewData);
             return true;
         }
         return false;

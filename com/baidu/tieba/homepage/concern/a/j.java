@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int gfp;
-    private static int gfq;
+    private static int geM;
+    private static int geN;
 
     public j(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.gfA);
-        gfp = com.baidu.adp.lib.util.l.g(context, R.dimen.tbds102);
-        gfq = com.baidu.adp.lib.util.l.g(context, R.dimen.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.geX);
+        geM = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
+        geN = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: be */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bg */
+    public a b(ViewGroup viewGroup) {
         View inflate = View.inflate(viewGroup.getContext(), R.layout.concern_tip_layout, null);
-        am.l(inflate, R.color.cp_bg_line_e);
+        am.setBackgroundColor(inflate, R.color.cp_bg_line_e);
         a aVar = new a(inflate);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
@@ -38,39 +38,38 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.gfr.setText(aVar.bYl);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.gfr.getLayoutParams();
-        if (aVar.gfD) {
-            layoutParams.height = gfq;
-            aVar2.fFH.setVisibility(0);
-        } else if (aVar.gfE) {
-            layoutParams.height = gfp;
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
+        aVar2.geO.setText(aVar.tipString);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.geO.getLayoutParams();
+        if (aVar.gfa) {
+            layoutParams.height = geN;
+            aVar2.fEY.setVisibility(0);
+        } else if (aVar.gfb) {
+            layoutParams.height = geM;
         }
-        aVar2.gfr.setLayoutParams(layoutParams);
+        aVar2.geO.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private int ceL;
-        public View fFH;
-        public TextView gfr;
+        private int csX;
+        public View fEY;
+        public TextView geO;
 
         public a(View view) {
             super(view);
-            this.ceL = 3;
-            this.gfr = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.fFH = view.findViewById(R.id.concern_tip_top_line);
+            this.csX = 3;
+            this.geO = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.fEY = view.findViewById(R.id.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.ceL != i) {
-                am.l(getView(), R.color.cp_bg_line_e);
-                am.j(this.gfr, R.color.cp_cont_d);
-                am.k(this.fFH, R.color.cp_bg_line_e);
+            if (this.csX != i) {
+                am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
+                am.setViewTextColor(this.geO, (int) R.color.cp_cont_d);
+                am.setBackgroundResource(this.fEY, R.color.cp_bg_line_e);
             }
         }
     }

@@ -9,33 +9,33 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class f implements o {
-    private final com.google.gson.internal.b kpW;
-    final boolean kry;
+    private final com.google.gson.internal.b koi;
+    final boolean kpK;
 
     public f(com.google.gson.internal.b bVar, boolean z) {
-        this.kpW = bVar;
-        this.kry = z;
+        this.koi = bVar;
+        this.kpK = z;
     }
 
     @Override // com.google.gson.o
     public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Type cNI = aVar.cNI();
-        if (!Map.class.isAssignableFrom(aVar.cNH())) {
+        Type cKF = aVar.cKF();
+        if (!Map.class.isAssignableFrom(aVar.cKE())) {
             return null;
         }
-        Type[] b = C$Gson$Types.b(cNI, C$Gson$Types.g(cNI));
-        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.kpW.b(aVar));
+        Type[] b = C$Gson$Types.b(cKF, C$Gson$Types.g(cKF));
+        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.koi.b(aVar));
     }
 
     private n<?> a(com.google.gson.d dVar, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? m.ksb : dVar.a(com.google.gson.b.a.l(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? m.kqn : dVar.a(com.google.gson.b.a.l(type));
     }
 
     /* loaded from: classes2.dex */
     private final class a<K, V> extends n<Map<K, V>> {
-        private final n<V> krA;
-        private final com.google.gson.internal.d<? extends Map<K, V>> krr;
-        private final n<K> krz;
+        private final com.google.gson.internal.d<? extends Map<K, V>> kpD;
+        private final n<K> kpL;
+        private final n<V> kpM;
 
         @Override // com.google.gson.n
         public /* bridge */ /* synthetic */ void a(com.google.gson.stream.a aVar, Object obj) throws IOException {
@@ -43,9 +43,9 @@ public final class f implements o {
         }
 
         public a(com.google.gson.d dVar, Type type, n<K> nVar, Type type2, n<V> nVar2, com.google.gson.internal.d<? extends Map<K, V>> dVar2) {
-            this.krz = new l(dVar, nVar, type);
-            this.krA = new l(dVar, nVar2, type2);
-            this.krr = dVar2;
+            this.kpL = new l(dVar, nVar, type);
+            this.kpM = new l(dVar, nVar2, type2);
+            this.kpD = dVar2;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.google.gson.n<V> */
@@ -54,60 +54,60 @@ public final class f implements o {
         public void a(com.google.gson.stream.a aVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                aVar.cNG();
-            } else if (!f.this.kry) {
-                aVar.cNE();
+                aVar.cKD();
+            } else if (!f.this.kpK) {
+                aVar.cKB();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    aVar.Ix(String.valueOf(entry.getKey()));
-                    this.krA.a(aVar, entry.getValue());
+                    aVar.GO(String.valueOf(entry.getKey()));
+                    this.kpM.a(aVar, entry.getValue());
                 }
-                aVar.cNF();
+                aVar.cKC();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    com.google.gson.h be = this.krz.be(entry2.getKey());
-                    arrayList.add(be);
+                    com.google.gson.h aZ = this.kpL.aZ(entry2.getKey());
+                    arrayList.add(aZ);
                     arrayList2.add(entry2.getValue());
-                    z = (be.cMX() || be.cMY()) | z;
+                    z = (aZ.cJU() || aZ.cJV()) | z;
                 }
                 if (z) {
-                    aVar.cNC();
+                    aVar.cKz();
                     while (i < arrayList.size()) {
-                        aVar.cNC();
+                        aVar.cKz();
                         com.google.gson.internal.f.b((com.google.gson.h) arrayList.get(i), aVar);
-                        this.krA.a(aVar, arrayList2.get(i));
-                        aVar.cND();
+                        this.kpM.a(aVar, arrayList2.get(i));
+                        aVar.cKA();
                         i++;
                     }
-                    aVar.cND();
+                    aVar.cKA();
                     return;
                 }
-                aVar.cNE();
+                aVar.cKB();
                 while (i < arrayList.size()) {
-                    aVar.Ix(d((com.google.gson.h) arrayList.get(i)));
-                    this.krA.a(aVar, arrayList2.get(i));
+                    aVar.GO(d((com.google.gson.h) arrayList.get(i)));
+                    this.kpM.a(aVar, arrayList2.get(i));
                     i++;
                 }
-                aVar.cNF();
+                aVar.cKC();
             }
         }
 
         private String d(com.google.gson.h hVar) {
-            if (hVar.cMZ()) {
-                com.google.gson.k cNd = hVar.cNd();
-                if (cNd.cNg()) {
-                    return String.valueOf(cNd.cMU());
+            if (hVar.cJW()) {
+                com.google.gson.k cKa = hVar.cKa();
+                if (cKa.cKd()) {
+                    return String.valueOf(cKa.cJR());
                 }
-                if (cNd.cNf()) {
-                    return Boolean.toString(cNd.cMW());
+                if (cKa.cKc()) {
+                    return Boolean.toString(cKa.cJT());
                 }
-                if (cNd.cNh()) {
-                    return cNd.cMV();
+                if (cKa.cKe()) {
+                    return cKa.cJS();
                 }
                 throw new AssertionError();
-            } else if (hVar.cNa()) {
+            } else if (hVar.cJX()) {
                 return "null";
             } else {
                 throw new AssertionError();

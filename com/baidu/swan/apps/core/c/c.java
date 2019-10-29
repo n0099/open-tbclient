@@ -11,32 +11,32 @@ public class c {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void c(boolean z, String str);
+        void d(boolean z, String str);
     }
 
     public static void a(@NonNull com.baidu.swan.apps.ae.b bVar, @NonNull final Context context, @NonNull final a aVar) {
-        com.baidu.swan.apps.u.a.Et().a(bVar.getAppKey(), new c.a() { // from class: com.baidu.swan.apps.core.c.c.1
+        com.baidu.swan.apps.u.a.Jn().a(bVar.getAppKey(), new c.a() { // from class: com.baidu.swan.apps.core.c.c.1
             @Override // com.baidu.swan.apps.u.b.c.a
             public void k(Exception exc) {
                 com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
                 String message = exc.getMessage();
-                aVar.c(false, context.getString(a.h.aiapps_authenticate_fail) + (TextUtils.isEmpty(message) ? "" : "\n" + message));
+                aVar.d(false, context.getString(a.h.aiapps_authenticate_fail) + (TextUtils.isEmpty(message) ? "" : "\n" + message));
             }
 
             @Override // com.baidu.swan.apps.u.b.c.a
-            public void aX(boolean z) {
+            public void bp(boolean z) {
                 if (!z) {
                     com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    aVar.c(false, context.getString(a.h.aiapps_authenticate_fail));
+                    aVar.d(false, context.getString(a.h.aiapps_authenticate_fail));
                     return;
                 }
                 com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "Authentication Success");
-                aVar.c(true, "");
+                aVar.d(true, "");
             }
         });
     }
 
-    public static void S(Context context, String str) {
-        new g.a(context).d(context.getString(a.h.aiapps_debug_switch_title)).gE(str).a(new com.baidu.swan.apps.view.b.a()).b(a.h.aiapps_confirm, null).LB();
+    public static void R(Context context, String str) {
+        new g.a(context).d(context.getString(a.h.aiapps_debug_switch_title)).hi(str).a(new com.baidu.swan.apps.view.b.a()).b(a.h.aiapps_confirm, null).Qu();
     }
 }

@@ -1,5 +1,6 @@
 package com.google.zxing.common;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.google.zxing.FormatException;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +30,7 @@ public enum CharacterSetECI {
     Cp1256(24, "windows-1256"),
     UnicodeBigUnmarked(25, "UTF-16BE", "UnicodeBig"),
     UTF8(26, HTTP.UTF_8),
-    ASCII(new int[]{27, 170}, "US-ASCII"),
+    ASCII(new int[]{27, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID}, "US-ASCII"),
     Big5(28),
     GB18030(29, StringUtils.GB2312, "EUC_CN", "GBK"),
     EUC_KR(30, "EUC-KR");

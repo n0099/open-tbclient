@@ -1,5 +1,6 @@
 package com.xiaomi.push.thrift;
 
+import com.baidu.live.adp.framework.MessageConfig;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public enum a {
@@ -21,7 +22,7 @@ public enum a {
     GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
     GSLB_TCP_ERR_OTHER(10199),
     GSLB_ERR(10999),
-    CONN_SUCCESS(20000),
+    CONN_SUCCESS(MessageConfig.SOCKET_TIME_OUT_MS_2G),
     CONN_TCP_NOACCESS(20101),
     CONN_TCP_NETUNREACH(20102),
     CONN_TCP_CONNREFUSED(20103),
@@ -105,7 +106,7 @@ public enum a {
                 return GSLB_TCP_ERR_OTHER;
             case 10999:
                 return GSLB_ERR;
-            case 20000:
+            case MessageConfig.SOCKET_TIME_OUT_MS_2G /* 20000 */:
                 return CONN_SUCCESS;
             case 20101:
                 return CONN_TCP_NOACCESS;

@@ -6,13 +6,12 @@ import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class i {
-    private Shader amQ;
+    private Shader aGj;
     private int mColor;
     private String mType = "";
 
@@ -21,14 +20,14 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(JSONArray jSONArray) {
-        f(jSONArray);
+        n(jSONArray);
     }
 
     public boolean isValid() {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean xY() {
+    public boolean CT() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 
@@ -36,11 +35,11 @@ public class i {
         return this.mColor;
     }
 
-    public Shader xZ() {
-        return this.amQ;
+    public Shader CU() {
+        return this.aGj;
     }
 
-    public void f(JSONArray jSONArray) {
+    public void n(JSONArray jSONArray) {
         int length;
         try {
             String optString = jSONArray.optString(0);
@@ -63,17 +62,17 @@ public class i {
                         if (optJSONArray3.length() == 4) {
                             iArr[i] = Color.argb(optJSONArray3.optInt(3), optJSONArray3.optInt(0), optJSONArray3.optInt(1), optJSONArray3.optInt(2));
                         }
-                        fArr[i] = (float) optJSONObject.optDouble(IntentConfig.STOP);
+                        fArr[i] = (float) optJSONObject.optDouble("stop");
                     }
                 }
                 if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
                     if (TextUtils.equals(optString, "linearGradient")) {
-                        this.amQ = new LinearGradient(com.baidu.swan.apps.an.z.ad(optJSONObject2.optInt("x0")), com.baidu.swan.apps.an.z.ad(optJSONObject2.optInt("y0")), com.baidu.swan.apps.an.z.ad(optJSONObject2.optInt("x1")), com.baidu.swan.apps.an.z.ad(optJSONObject2.optInt("y1")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.aGj = new LinearGradient(com.baidu.swan.apps.an.z.S(optJSONObject2.optInt("x0")), com.baidu.swan.apps.an.z.S(optJSONObject2.optInt("y0")), com.baidu.swan.apps.an.z.S(optJSONObject2.optInt("x1")), com.baidu.swan.apps.an.z.S(optJSONObject2.optInt("y1")), iArr, fArr, Shader.TileMode.CLAMP);
                         this.mType = "linearGradient";
                         return;
                     }
-                    this.amQ = new RadialGradient(com.baidu.swan.apps.an.z.ad(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.an.z.ad(optJSONObject2.optInt("y")), com.baidu.swan.apps.an.z.ad(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                    this.aGj = new RadialGradient(com.baidu.swan.apps.an.z.S(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.an.z.S(optJSONObject2.optInt("y")), com.baidu.swan.apps.an.z.S(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
                     this.mType = "circularGradient";
                 }
             }

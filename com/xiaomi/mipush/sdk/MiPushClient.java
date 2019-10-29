@@ -9,6 +9,8 @@ import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.live.adp.lib.cache.BdKVCache;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.coloros.mcssdk.mode.Message;
 import com.xiaomi.clientreport.data.Config;
@@ -362,7 +364,7 @@ public abstract class MiPushClient {
                 context.getSharedPreferences("mipush_extra", 4).getBoolean("mipush_registed", true);
             } else {
                 if (1 == PushMessageHelper.getPushMode(context)) {
-                    checkNotNull(miPushClientCallback, "callback");
+                    checkNotNull(miPushClientCallback, BuyTBeanActivityConfig.CALLBACK);
                     miPushClientCallback.onInitializeResult(0L, null, d.a(context).e());
                 } else {
                     ArrayList arrayList = new ArrayList();
@@ -685,7 +687,7 @@ public abstract class MiPushClient {
         if (!TextUtils.isEmpty(str2)) {
             arrayList.add(str2);
         }
-        if (com.xiaomi.push.service.xmpush.a.COMMAND_SET_ALIAS.k.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - aliasSetTime(context, str2)) < 3600000) {
+        if (com.xiaomi.push.service.xmpush.a.COMMAND_SET_ALIAS.k.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - aliasSetTime(context, str2)) < BdKVCache.MILLS_1Hour) {
             if (1 == PushMessageHelper.getPushMode(context)) {
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
             } else {
@@ -693,7 +695,7 @@ public abstract class MiPushClient {
             }
         } else if (com.xiaomi.push.service.xmpush.a.COMMAND_UNSET_ALIAS.k.equalsIgnoreCase(str) && aliasSetTime(context, str2) < 0) {
             com.xiaomi.channel.commonutils.logger.b.a("Don't cancel alias for " + com.xiaomi.channel.commonutils.string.d.a(arrayList.toString(), 3) + " is unseted");
-        } else if (com.xiaomi.push.service.xmpush.a.COMMAND_SET_ACCOUNT.k.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < 3600000) {
+        } else if (com.xiaomi.push.service.xmpush.a.COMMAND_SET_ACCOUNT.k.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < BdKVCache.MILLS_1Hour) {
             if (1 == PushMessageHelper.getPushMode(context)) {
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
             } else {

@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 public class a extends com.baidu.swan.apps.extcore.model.b.b {
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String Dh() {
+    public String Ib() {
         return "key_cur_preset_apps_extension_core_ver";
     }
 }

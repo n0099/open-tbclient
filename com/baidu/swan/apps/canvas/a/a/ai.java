@@ -2,24 +2,25 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import android.text.TextUtils;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class ai extends a {
-    private int amF = 0;
+    private int aFY = 0;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void e(JSONArray jSONArray) {
+    public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 0) {
                 String optString = jSONArray.optString(0);
-                if (TextUtils.equals(optString, "top")) {
-                    this.amF = 1;
+                if (TextUtils.equals(optString, VerticalTranslateLayout.TOP)) {
+                    this.aFY = 1;
                 } else if (TextUtils.equals(optString, "middle")) {
-                    this.amF = 2;
-                } else if (TextUtils.equals(optString, "bottom")) {
-                    this.amF = 3;
+                    this.aFY = 2;
+                } else if (TextUtils.equals(optString, VerticalTranslateLayout.BOTTOM)) {
+                    this.aFY = 3;
                 } else {
-                    this.amF = 0;
+                    this.aFY = 0;
                 }
             }
         } catch (Exception e) {
@@ -31,6 +32,6 @@ public class ai extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        bVar.amF = this.amF;
+        bVar.aFY = this.aFY;
     }
 }

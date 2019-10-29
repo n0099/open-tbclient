@@ -3,12 +3,12 @@ package com.baidu.swan.pms.model;
 import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class h extends e {
-    public String Ht;
     public String appId;
-    public boolean btt;
+    public boolean bMe;
+    public String ud;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean Ws() {
-        return super.Ws() && !TextUtils.isEmpty(this.Ht);
+    public boolean abh() {
+        return super.abh() && !TextUtils.isEmpty(this.ud);
     }
 }

@@ -10,6 +10,6 @@ public class BubbleGroupActivityConfig extends IntentConfig {
 
     public BubbleGroupActivityConfig(Context context, boolean z) {
         super(context);
-        getIntent().putExtra(IntentConfig.MEMBER_BUY_SHOW, z);
+        getIntent().putExtra("member_buy_show", z);
     }
 }

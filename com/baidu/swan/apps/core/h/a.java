@@ -12,55 +12,55 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a atT;
-    private Map<String, c> atU;
+    private static volatile a aNk;
+    private Map<String, c> aNl;
 
-    public static a BI() {
-        if (atT == null) {
+    public static a GC() {
+        if (aNk == null) {
             synchronized (a.class) {
-                if (atT == null) {
-                    atT = new a();
+                if (aNk == null) {
+                    aNk = new a();
                 }
             }
         }
-        return atT;
+        return aNk;
     }
 
-    public void ab(String str, String str2) {
+    public void aj(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            File ae = e.d.ae(str, str2);
-            if (ae.exists()) {
-                String v = com.baidu.swan.c.a.v(new File(ae, "app.json"));
-                if (DEBUG && !TextUtils.isEmpty(v)) {
-                    Log.i("SwanAppPreHandleHelper", "pre handle configData : " + v);
+            File am = e.d.am(str, str2);
+            if (am.exists()) {
+                String l = com.baidu.swan.c.a.l(new File(am, "app.json"));
+                if (DEBUG && !TextUtils.isEmpty(l)) {
+                    Log.i("SwanAppPreHandleHelper", "pre handle configData : " + l);
                 }
-                c gO = c.gO(v);
-                if (this.atU == null) {
-                    this.atU = new HashMap();
+                c hs = c.hs(l);
+                if (this.aNl == null) {
+                    this.aNl = new HashMap();
                 }
-                if (gO != null) {
-                    this.atU.put(str, gO);
+                if (hs != null) {
+                    this.aNl.put(str, hs);
                 }
             }
         }
     }
 
     @Nullable
-    public c dX(String str) {
-        if (this.atU == null || TextUtils.isEmpty(str)) {
+    public c eE(String str) {
+        if (this.aNl == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.atU.get(str);
+        return this.aNl.get(str);
     }
 
-    private void BJ() {
-        this.atU = null;
-        atT = null;
+    private void GD() {
+        this.aNl = null;
+        aNk = null;
     }
 
     public static void release() {
-        if (atT != null) {
-            atT.BJ();
+        if (aNk != null) {
+            aNk.GD();
         }
     }
 }

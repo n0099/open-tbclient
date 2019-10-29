@@ -1,13 +1,14 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.person.b;
 import com.squareup.wire.Wire;
 import tbclient.Personal.PersonalResIdl;
 /* loaded from: classes6.dex */
 public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
     public PersonPolymericSocketResMsg() {
-        super(309408);
+        super(CmdConfigSocket.CMD_PERSON_POLYMERIC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

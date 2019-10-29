@@ -1,0 +1,9 @@
+package com.baidu.tieba.ala.liveroom.messages;
+
+import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
+/* loaded from: classes6.dex */
+public class AlaLivePerfResponseMessage extends JsonHttpResponsedMessage {
+    public AlaLivePerfResponseMessage(int i) {
+        super(i);
+    }
+}

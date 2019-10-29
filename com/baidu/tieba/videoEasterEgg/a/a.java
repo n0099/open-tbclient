@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public interface a {
-    void Y(Intent intent);
+    void ae(Intent intent);
 
     String getID();
 
@@ -22,5 +22,5 @@ public interface a {
 
     String getVideoUrl();
 
-    void y(BdUniqueId bdUniqueId);
+    void z(BdUniqueId bdUniqueId);
 }

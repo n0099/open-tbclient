@@ -1,30 +1,30 @@
 package com.baidu.tieba.pb.chosen.net.zan;
 
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
 /* loaded from: classes5.dex */
 public class a {
     public a() {
-        bTn();
-        bTm();
+        bQo();
+        bQn();
     }
 
-    private void bTn() {
+    private void bQo() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, com.baidu.tieba.tbadkCore.a.a.bq(TbConfig.FINE_PB_PRAISE, 309095));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003007, com.baidu.tieba.tbadkCore.a.a.bl(TbConfig.FINE_PB_PRAISE, CmdConfigSocket.CMD_CHOSEN_PB_PRAISE));
         tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void bTm() {
-        b bVar = new b(309095);
+    private void bQn() {
+        b bVar = new b(CmdConfigSocket.CMD_CHOSEN_PB_PRAISE);
         bVar.setResponsedClass(ChosenPbZanSocketResponse.class);
-        bVar.D(true);
-        bVar.E(false);
+        bVar.setNeedAck(true);
+        bVar.setNeedCompress(false);
         MessageManager.getInstance().registerTask(bVar);
     }
 

@@ -1,5 +1,7 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.io.Serializable;
 import java.util.BitSet;
 import org.apache.thrift.TFieldIdEnum;
@@ -24,23 +26,23 @@ public class t implements Serializable, Cloneable, org.apache.thrift.a<t, TField
     public String r;
     private static final org.apache.thrift.protocol.j s = new org.apache.thrift.protocol.j("PushMessage");
     private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("", (byte) 12, 1);
-    private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("", (byte) 11, 2);
-    private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b w = new org.apache.thrift.protocol.b("", (byte) 11, 4);
+    private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 2);
+    private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 3);
+    private static final org.apache.thrift.protocol.b w = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 4);
     private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b("", (byte) 10, 5);
     private static final org.apache.thrift.protocol.b y = new org.apache.thrift.protocol.b("", (byte) 10, 6);
-    private static final org.apache.thrift.protocol.b z = new org.apache.thrift.protocol.b("", (byte) 11, 7);
-    private static final org.apache.thrift.protocol.b A = new org.apache.thrift.protocol.b("", (byte) 11, 8);
-    private static final org.apache.thrift.protocol.b B = new org.apache.thrift.protocol.b("", (byte) 11, 9);
-    private static final org.apache.thrift.protocol.b C = new org.apache.thrift.protocol.b("", (byte) 11, 10);
-    private static final org.apache.thrift.protocol.b D = new org.apache.thrift.protocol.b("", (byte) 11, 11);
+    private static final org.apache.thrift.protocol.b z = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 7);
+    private static final org.apache.thrift.protocol.b A = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 8);
+    private static final org.apache.thrift.protocol.b B = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 9);
+    private static final org.apache.thrift.protocol.b C = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 10);
+    private static final org.apache.thrift.protocol.b D = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 11);
     private static final org.apache.thrift.protocol.b E = new org.apache.thrift.protocol.b("", (byte) 12, 12);
-    private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b("", (byte) 11, 13);
+    private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 13);
     private static final org.apache.thrift.protocol.b G = new org.apache.thrift.protocol.b("", (byte) 2, 14);
-    private static final org.apache.thrift.protocol.b H = new org.apache.thrift.protocol.b("", (byte) 11, 15);
+    private static final org.apache.thrift.protocol.b H = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 15);
     private static final org.apache.thrift.protocol.b I = new org.apache.thrift.protocol.b("", (byte) 10, 16);
-    private static final org.apache.thrift.protocol.b J = new org.apache.thrift.protocol.b("", (byte) 11, 20);
-    private static final org.apache.thrift.protocol.b K = new org.apache.thrift.protocol.b("", (byte) 11, 21);
+    private static final org.apache.thrift.protocol.b J = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 20);
+    private static final org.apache.thrift.protocol.b K = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 21);
     private BitSet L = new BitSet(4);
     public boolean n = false;
 
@@ -752,7 +754,7 @@ public class t implements Serializable, Cloneable, org.apache.thrift.a<t, TField
         }
         if (o()) {
             sb.append(", ");
-            sb.append("topic:");
+            sb.append(UrlSchemaHelper.SCHEMA_TYPE_TOPIC);
             if (this.k == null) {
                 sb.append("null");
             } else {

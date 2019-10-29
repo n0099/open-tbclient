@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.GroupInfo;
 import protobuf.UpdateGroup.UpdateGroupReqIdl;
@@ -11,7 +12,7 @@ public abstract class RequestUpdateGroupMessage extends TbSocketMessage {
     protected abstract void subEncode(GroupInfo.Builder builder);
 
     public RequestUpdateGroupMessage() {
-        super(103102);
+        super(CmdConfigSocket.CMD_UPDATE_GROUP);
     }
 
     public long getGroupId() {

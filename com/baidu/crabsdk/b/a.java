@@ -12,39 +12,39 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class a {
-    private static Activity ZK;
-    private static long ZO;
-    private static com.baidu.crabsdk.c.b<List> ZL = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
-    private static boolean ZM = false;
-    private static boolean ZN = true;
+    private static Activity JL;
+    private static long JP;
+    private static com.baidu.crabsdk.c.b<List> JM = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
+    private static boolean JN = false;
+    private static boolean JO = true;
     private static int aQ = 0;
-    private static int aR = 0;
-    private static int aS = 0;
+    private static int JQ = 0;
+    private static int JR = 0;
 
     public static void a(Activity activity) {
-        ZM = true;
-        ZK = activity;
+        JN = true;
+        JL = activity;
         ArrayList arrayList = new ArrayList(3);
         arrayList.add(activity.getClass().getName());
         arrayList.add(new Date());
-        ZL.add(arrayList);
-        int size = ZL.size();
+        JM.add(arrayList);
+        int size = JM.size();
         if (size >= 2) {
-            List list = ZL.get(size - 2);
-            if (list.size() == 3 && ((Date) ZL.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
+            List list = JM.get(size - 2);
+            if (list.size() == 3 && ((Date) JM.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
                 aQ++;
             }
         } else {
             aQ++;
         }
-        aR = (aR + 1) % 100;
+        JQ = (JQ + 1) % 100;
     }
 
     @SuppressLint({"NewApi"})
     public static void a(Application application) {
-        if (ZN) {
-            ZN = false;
-            ZO = System.currentTimeMillis();
+        if (JO) {
+            JO = false;
+            JP = System.currentTimeMillis();
             if (Build.VERSION.SDK_INT >= 14) {
                 application.registerActivityLifecycleCallbacks(new b());
             }
@@ -53,21 +53,21 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity) {
-        if (ZK != null && activity != null && ZK.hashCode() == activity.hashCode()) {
-            ZK = null;
+        if (JL != null && activity != null && JL.hashCode() == activity.hashCode()) {
+            JL = null;
         }
-        int i = aR - aS;
-        int size = ZL.size();
+        int i = JQ - JR;
+        int size = JM.size();
         if (i < 0) {
             i += 100;
         }
         if (i > 0 && size >= i) {
-            List list = ZL.get(size - i);
+            List list = JM.get(size - i);
             if (list.size() == 2) {
                 list.add(new Date());
             }
         }
-        aS = (aS + 1) % 100;
+        JR = (JR + 1) % 100;
     }
 
     public static void doActivityStart(Activity activity) {
@@ -82,46 +82,46 @@ public final class a {
         }
     }
 
+    public static byte[] mn() {
+        if (JL == null) {
+            return new byte[0];
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            View decorView = JL.getWindow().getDecorView();
+            decorView.setDrawingCacheEnabled(true);
+            Bitmap drawingCache = decorView.getDrawingCache();
+            if (drawingCache != null) {
+                drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
+            } else {
+                com.baidu.crabsdk.c.a.bu("getScreenshot failed, curActivity " + JL.getClass().getName());
+            }
+            decorView.setDrawingCacheEnabled(false);
+        } catch (RuntimeException e) {
+            com.baidu.crabsdk.c.a.f("getScreenshot failed, curActivity " + JL.getClass().getName(), e);
+        }
+        return byteArrayOutputStream.toByteArray();
+    }
+
     public static long o() {
-        return ZO;
+        return JP;
     }
 
     public static String p() {
         StringBuilder sb = new StringBuilder();
-        int size = ZL.size();
+        int size = JM.size();
         for (int i = 0; i < size; i++) {
-            List list = ZL.get((size - i) - 1);
+            List list = JM.get((size - i) - 1);
             if (list.size() == 3) {
-                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.e((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.e((Date) list.get(2))).append("\n");
+                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.a((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.a((Date) list.get(2))).append("\n");
             } else if (list.size() == 2) {
-                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.e((Date) list.get(1))).append(" to ...\n");
+                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.a((Date) list.get(1))).append(" to ...\n");
             }
         }
         return sb.toString();
     }
 
     public static String q() {
-        return ZK == null ? "N/A" : ZK.getClass().getName();
-    }
-
-    public static byte[] ri() {
-        if (ZK == null) {
-            return new byte[0];
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            View decorView = ZK.getWindow().getDecorView();
-            decorView.setDrawingCacheEnabled(true);
-            Bitmap drawingCache = decorView.getDrawingCache();
-            if (drawingCache != null) {
-                drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
-            } else {
-                com.baidu.crabsdk.c.a.ch("getScreenshot failed, curActivity " + ZK.getClass().getName());
-            }
-            decorView.setDrawingCacheEnabled(false);
-        } catch (RuntimeException e) {
-            com.baidu.crabsdk.c.a.a("getScreenshot failed, curActivity " + ZK.getClass().getName(), e);
-        }
-        return byteArrayOutputStream.toByteArray();
+        return JL == null ? "N/A" : JL.getClass().getName();
     }
 }

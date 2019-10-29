@@ -35,7 +35,7 @@ public class RequestTestCloseMessage extends NetMessage {
         builder.test_id = Long.valueOf(this.testId);
         builder.from_page = Long.valueOf(this.fromPage);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         TestCloseReqIdl.Builder builder2 = new TestCloseReqIdl.Builder();
         builder2.data = builder.build(false);

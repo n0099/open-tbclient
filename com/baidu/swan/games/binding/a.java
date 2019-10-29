@@ -9,32 +9,32 @@ import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
 import com.baidu.swan.apps.scheme.e;
 /* loaded from: classes2.dex */
 public final class a {
-    private SwanAppGlobalJsBridge bfL;
-    private SwanAppJsBridge bfM;
-    private SwanAppUtilsJavaScriptInterface bfN;
+    private SwanAppGlobalJsBridge byE;
+    private SwanAppJsBridge byF;
+    private SwanAppUtilsJavaScriptInterface byG;
     private UnitedSchemeMainDispatcher mMainDispatcher;
 
     public void a(com.baidu.swan.games.e.a aVar, Context context) {
         this.mMainDispatcher = new UnitedSchemeMainDispatcher();
-        this.bfL = new SwanAppGlobalJsBridge(context, this.mMainDispatcher, aVar);
-        aVar.addJavascriptInterface(this.bfL, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
-        this.bfM = new SwanAppJsBridge(context, this.mMainDispatcher, aVar);
-        aVar.addJavascriptInterface(this.bfM, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.byE = new SwanAppGlobalJsBridge(context, this.mMainDispatcher, aVar);
+        aVar.addJavascriptInterface(this.byE, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.byF = new SwanAppJsBridge(context, this.mMainDispatcher, aVar);
+        aVar.addJavascriptInterface(this.byF, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
         e.a(this.mMainDispatcher);
-        this.bfN = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.bfN.setSource("swan_");
-        aVar.addJavascriptInterface(this.bfN, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.byG = new SwanAppUtilsJavaScriptInterface(context, aVar);
+        this.byG.setSource("swan_");
+        aVar.addJavascriptInterface(this.byG, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public void U(Activity activity) {
-        if (this.bfL != null) {
-            this.bfL.setActivityRef(activity);
+    public void T(Activity activity) {
+        if (this.byE != null) {
+            this.byE.setActivityRef(activity);
         }
-        if (this.bfM != null) {
-            this.bfM.setActivityRef(activity);
+        if (this.byF != null) {
+            this.byF.setActivityRef(activity);
         }
-        if (this.bfN != null) {
-            this.bfN.setActivity(activity);
+        if (this.byG != null) {
+            this.byG.setActivity(activity);
         }
     }
 }

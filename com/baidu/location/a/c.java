@@ -27,7 +27,6 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ public class c {
     private String o;
     private boolean p;
     private com.baidu.location.e.a f = new com.baidu.location.e.a();
-    private C0051c h = null;
+    private C0083c h = null;
     private String m = null;
     b c = new b();
     private long q = 0;
@@ -113,11 +112,11 @@ public class c {
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0051c {
+    public class C0083c {
         public List<ScanResult> a;
         private long c;
 
-        public C0051c(List<ScanResult> list) {
+        public C0083c(List<ScanResult> list) {
             this.a = null;
             this.c = 0L;
             this.a = list;
@@ -351,7 +350,7 @@ public class c {
                 this.e = (TelephonyManager) this.d.getSystemService("phone");
                 str2 = this.e.getDeviceId();
                 try {
-                    this.g = (WifiManager) this.d.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI);
+                    this.g = (WifiManager) this.d.getApplicationContext().getSystemService("wifi");
                 } catch (Exception e) {
                     str = str2;
                     str2 = str;
@@ -634,7 +633,7 @@ public class c {
         }
         try {
             this.h = null;
-            this.h = new C0051c(this.g.getScanResults());
+            this.h = new C0083c(this.g.getScanResults());
             str2 = this.h.a(i2);
         } catch (Exception e) {
             str2 = null;

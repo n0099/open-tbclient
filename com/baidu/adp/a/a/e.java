@@ -7,41 +7,41 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int ts;
-    private a tt;
+    private int lu;
+    private a lw;
 
-    public a fg() throws IOException {
+    public a es() throws IOException {
         a aVar = new a();
-        aVar.f2tv = P("/proc/uid_stat/" + this.ts + "/tcp_rcv");
-        aVar.tw = P("/proc/uid_stat/" + this.ts + "/tcp_snd");
-        aVar.tu = d.c(aVar.f2tv + aVar.tw);
+        aVar.ly = O("/proc/uid_stat/" + this.lu + "/tcp_rcv");
+        aVar.lA = O("/proc/uid_stat/" + this.lu + "/tcp_snd");
+        aVar.lx = d.c(aVar.ly + aVar.lA);
         return aVar;
     }
 
-    public a fh() throws IOException {
-        a fg = fg();
-        this.tt.f2tv = d.c(fg.f2tv - d.ff().f2tv);
-        this.tt.tw = d.c(fg.tw - d.ff().tw);
-        this.tt.tu = d.c(fg.tu - d.ff().tu);
-        return this.tt;
+    public a et() throws IOException {
+        a es = es();
+        this.lw.ly = d.c(es.ly - d.er().ly);
+        this.lw.lA = d.c(es.lA - d.er().lA);
+        this.lw.lx = d.c(es.lx - d.er().lx);
+        return this.lw;
     }
 
-    public double P(String str) {
+    public double O(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("cat " + str).getInputStream()));
             try {
                 d = d.c(Long.valueOf(Long.parseLong(bufferedReader.readLine())).longValue() / 1024.0d);
-                n.b((Reader) bufferedReader);
+                n.close((Reader) bufferedReader);
             } catch (Throwable th) {
                 th = th;
                 try {
                     th.printStackTrace();
-                    n.b((Reader) bufferedReader);
+                    n.close((Reader) bufferedReader);
                     return d;
                 } catch (Throwable th2) {
-                    n.b((Reader) bufferedReader);
+                    n.close((Reader) bufferedReader);
                     throw th2;
                 }
             }
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(fh());
+                d.a(et());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!fd()) {
+            if (!ep()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,11 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double tu = 0.0d;
-
-        /* renamed from: tv  reason: collision with root package name */
-        double f2tv = 0.0d;
-        double tw = 0.0d;
+        double lx = 0.0d;
+        double ly = 0.0d;
+        double lA = 0.0d;
 
         public a() {
         }

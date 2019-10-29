@@ -5,16 +5,16 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class f {
-    public static String l(InputStream inputStream) {
-        byte[] m;
+    public static String j(InputStream inputStream) {
+        byte[] k;
         try {
-            m = m(inputStream);
+            k = k(inputStream);
         } catch (Exception e) {
         } finally {
-            a.c(inputStream);
+            a.b(inputStream);
         }
-        if (m != null) {
-            String str = new String(m);
+        if (k != null) {
+            String str = new String(k);
             if (str != null && str.startsWith("\ufeff")) {
                 str = str.substring(1);
             }
@@ -23,7 +23,7 @@ public class f {
         return null;
     }
 
-    public static byte[] m(InputStream inputStream) {
+    public static byte[] k(InputStream inputStream) {
         int i;
         if (inputStream == null) {
             return null;

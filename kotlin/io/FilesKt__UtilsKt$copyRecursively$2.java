@@ -1,5 +1,6 @@
 package kotlin.io;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import java.io.IOException;
 import kotlin.jvm.internal.Lambda;
@@ -19,14 +20,14 @@ final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements kotlin.
     @Override // kotlin.jvm.a.c
     public /* bridge */ /* synthetic */ kotlin.e invoke(File file, IOException iOException) {
         invoke2(file, iOException);
-        return kotlin.e.kuM;
+        return kotlin.e.kvu;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(File file, IOException iOException) {
-        p.k(file, "f");
-        p.k(iOException, "e");
-        if (p.h((OnErrorAction) this.$onError.invoke(file, iOException), OnErrorAction.TERMINATE)) {
+        p.i(file, BdStatsConstant.StatsKey.FROM);
+        p.i(iOException, "e");
+        if (p.f((OnErrorAction) this.$onError.invoke(file, iOException), OnErrorAction.TERMINATE)) {
             throw new TerminateException(file);
         }
     }

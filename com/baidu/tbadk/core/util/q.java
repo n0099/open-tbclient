@@ -5,27 +5,27 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public interface q {
-    void a(BasicNameValuePair basicNameValuePair);
+    void addPostData(String str, String str2);
 
-    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
+    void addPostData(String str, byte[] bArr);
 
-    ArrayList<BasicNameValuePair> ail();
+    void addPostData(BasicNameValuePair basicNameValuePair);
 
-    String aim();
+    void cancelNetConnect();
 
-    byte[] ain();
+    boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    String aio();
+    byte[] getNetData();
 
-    String aip();
+    String getNetString();
 
-    void d(String str, byte[] bArr);
+    ArrayList<BasicNameValuePair> getPostData();
 
-    void ik();
+    String postMultiNetData();
 
-    void in();
+    String postNetData();
 
-    void o(String str, String str2);
+    void setCancel();
 
-    void u(ArrayList<BasicNameValuePair> arrayList);
+    void setPostData(ArrayList<BasicNameValuePair> arrayList);
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.ala;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +11,10 @@ public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
     private List<Object> mOriginData;
 
     public LiveRoomClosedQueryMessage(List<Long> list, List<Object> list2) {
-        super(2921025);
+        super(CmdConfigCustom.CMD_LIVE_VIDEO_CLOSED_QUERY);
         this.mOriginData = new ArrayList();
         this.mIds = new ArrayList();
-        if (!v.aa(list2) && !v.aa(list)) {
+        if (!v.isEmpty(list2) && !v.isEmpty(list)) {
             this.mOriginData.addAll(list2);
             this.mIds.addAll(list);
         }

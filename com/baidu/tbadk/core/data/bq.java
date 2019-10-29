@@ -12,7 +12,7 @@ public class bq {
     private long end_time;
     private long start_time;
 
-    public String agJ() {
+    public String akL() {
         return this.activity_banner;
     }
 
@@ -20,7 +20,7 @@ public class bq {
         return this.activity_url;
     }
 
-    public String agK() {
+    public String akM() {
         return this.activity_button;
     }
 

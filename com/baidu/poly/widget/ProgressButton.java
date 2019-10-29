@@ -13,10 +13,10 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes2.dex */
 public class ProgressButton extends FrameLayout {
-    private TextView ajd;
-    private ImageView aje;
-    private Animation ajf;
+    private ImageView aCA;
+    private Animation aCB;
     private boolean enable;
+    private TextView textView;
 
     public ProgressButton(Context context) {
         this(context, null);
@@ -47,23 +47,23 @@ public class ProgressButton extends FrameLayout {
 
     private void d(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(b.e.button_progress, (ViewGroup) this, true);
-        this.ajd = (TextView) findViewById(b.d.text_view);
-        this.aje = (ImageView) findViewById(b.d.progress_bar);
-        this.ajf = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.textView = (TextView) findViewById(b.d.text_view);
+        this.aCA = (ImageView) findViewById(b.d.progress_bar);
+        this.aCB = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.f.ProgressButton);
-        this.ajd.setTextColor(obtainStyledAttributes.getColor(b.f.ProgressButton_textColor, -1));
+        this.textView.setTextColor(obtainStyledAttributes.getColor(b.f.ProgressButton_textColor, -1));
         obtainStyledAttributes.recycle();
     }
 
     public void setText(String str) {
-        this.ajd.setText(str);
-        this.aje.setVisibility(4);
-        this.ajd.setVisibility(0);
+        this.textView.setText(str);
+        this.aCA.setVisibility(4);
+        this.textView.setVisibility(0);
     }
 
     public void startLoading() {
-        this.aje.setVisibility(0);
-        this.aje.startAnimation(this.ajf);
-        this.ajd.setVisibility(4);
+        this.aCA.setVisibility(0);
+        this.aCA.startAnimation(this.aCB);
+        this.textView.setVisibility(4);
     }
 }

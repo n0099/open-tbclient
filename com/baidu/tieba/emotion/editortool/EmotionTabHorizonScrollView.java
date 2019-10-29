@@ -14,6 +14,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.EmotionCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.EmotionPackageDetailActivityConfig;
@@ -30,42 +31,42 @@ import java.util.ArrayList;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
-    private EditorTools TT;
-    private LinearLayout.LayoutParams bqN;
-    private int bqk;
-    private int ceL;
-    private int cvZ;
-    private int cwa;
-    private TextView cwb;
-    private View cwc;
-    private EmotionLinearLayout eWj;
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> eWk;
-    private EmotionTabWidgetView.a eWl;
-    private LinearLayout eWm;
-    private ImageView eWn;
-    private boolean eWo;
-    private TbImageView eWp;
-    private boolean eWq;
+    private EditorTools Dl;
+    private int apR;
+    private LinearLayout.LayoutParams bJy;
+    private int cIi;
+    private int cIj;
+    private TextView cIk;
+    private View cIl;
+    private int csX;
+    private EmotionLinearLayout eYV;
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> eYW;
+    private EmotionTabWidgetView.a eYX;
+    private LinearLayout eYY;
+    private ImageView eYZ;
+    private boolean eZa;
+    private TbImageView eZb;
+    private boolean eZc;
     private int from;
 
     public EmotionTabHorizonScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bqk = -1;
-        this.eWo = true;
+        this.apR = -1;
+        this.eZa = true;
         init();
     }
 
     public EmotionTabHorizonScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bqk = -1;
-        this.eWo = true;
+        this.apR = -1;
+        this.eZa = true;
         init();
     }
 
     public EmotionTabHorizonScrollView(Context context) {
         super(context);
-        this.bqk = -1;
-        this.eWo = true;
+        this.apR = -1;
+        this.eZa = true;
         init();
     }
 
@@ -73,16 +74,16 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
         removeAllViews();
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
-        this.eWj = new EmotionLinearLayout(getContext());
-        this.eWj.setOrientation(0);
-        this.eWj.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.eWj.setBaselineAligned(false);
-        addView(this.eWj);
-        this.cvZ = getResources().getDimensionPixelSize(R.dimen.ds8);
-        this.cwa = getResources().getDimensionPixelSize(R.dimen.ds10);
-        this.bqN = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds122), -1);
-        this.eWj.setPadding(0, 0, 0, 0);
-        bfs();
+        this.eYV = new EmotionLinearLayout(getContext());
+        this.eYV.setOrientation(0);
+        this.eYV.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.eYV.setBaselineAligned(false);
+        addView(this.eYV);
+        this.cIi = getResources().getDimensionPixelSize(R.dimen.ds8);
+        this.cIj = getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.bJy = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds122), -1);
+        this.eYV.setPadding(0, 0, 0, 0);
+        bdm();
     }
 
     public void setFrom(int i) {
@@ -90,66 +91,66 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
     }
 
     public void setIsInChat(boolean z) {
-        this.eWq = z;
+        this.eZc = z;
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList) {
-        this.eWk = arrayList;
+        this.eYW = arrayList;
     }
 
     private TbImageView b(com.baidu.tbadk.editortools.emotiontool.c cVar) {
         TbImageView tbImageView = new TbImageView(getContext());
         a aVar = new a();
-        aVar.eWu = cVar;
+        aVar.eZg = cVar;
         tbImageView.setAutoChangeStyle(false);
-        aVar.eWs = tbImageView;
-        if (cVar.asC() == EmotionGroupType.SINGLE_FORUM) {
+        aVar.eZe = tbImageView;
+        if (cVar.auo() == EmotionGroupType.SINGLE_FORUM) {
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             tbImageView.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
             relativeLayout.addView(tbImageView);
-            tbImageView.setPadding(this.cwa, this.cvZ, this.cwa, this.cvZ);
+            tbImageView.setPadding(this.cIj, this.cIi, this.cIj, this.cIi);
             ImageView imageView = new ImageView(getContext());
-            am.c(imageView, (int) R.drawable.icon_emotion_recommend);
+            am.setImageResource(imageView, R.drawable.icon_emotion_recommend);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(12);
-            layoutParams.setMargins(0, 0, l.g(getContext(), R.dimen.ds12), l.g(getContext(), R.dimen.ds10));
+            layoutParams.setMargins(0, 0, l.getDimens(getContext(), R.dimen.ds12), l.getDimens(getContext(), R.dimen.ds10));
             relativeLayout.addView(imageView, layoutParams);
             View view = new View(getContext());
-            aVar.eWt = view;
+            aVar.eZf = view;
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds2), -1);
             layoutParams2.addRule(11);
             relativeLayout.addView(view, layoutParams2);
             relativeLayout.setClickable(true);
             relativeLayout.setFocusable(true);
             relativeLayout.setTag(aVar);
-            this.eWj.addView(relativeLayout, this.eWj.getChildCount() - 1, this.bqN);
-            if (cVar.asE() != null) {
-                cVar.asE().a(tbImageView);
+            this.eYV.addView(relativeLayout, this.eYV.getChildCount() - 1, this.bJy);
+            if (cVar.auq() != null) {
+                cVar.auq().drawImageTo(tbImageView);
             }
             tbImageView.setOnClickListener(new c(cVar.getGroupId()));
             tbImageView.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.download_single_forum_emotion) + cVar.getGroupId());
-            if (!this.eWq && (this.ceL == 1 || this.ceL == 4)) {
+            if (!this.eZc && (this.csX == 1 || this.csX == 4)) {
                 view.setBackgroundColor(am.getColor(R.color.common_color_10288));
                 tbImageView.setForegroundColor(am.getColor(R.color.common_color_10287));
             } else {
                 view.setBackgroundColor(getResources().getColor(R.color.common_color_10288));
                 tbImageView.setForegroundColor(getResources().getColor(R.color.common_color_10287));
             }
-            if (this.eWp == null) {
-                this.eWp = tbImageView;
-                this.eWp.setForegroundColor(am.getColor(R.color.common_color_10022));
+            if (this.eZb == null) {
+                this.eZb = tbImageView;
+                this.eZb.setForegroundColor(am.getColor(R.color.common_color_10022));
             }
-            am.g(relativeLayout, R.drawable.bg_emotion_tab_horizonscrollview, this.ceL);
+            am.setBackgroundResource(relativeLayout, R.drawable.bg_emotion_tab_horizonscrollview, this.csX);
         } else {
             LinearLayout linearLayout = new LinearLayout(getContext());
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, -1);
             layoutParams3.weight = 1.0f;
             tbImageView.setLayoutParams(layoutParams3);
             linearLayout.addView(tbImageView);
-            tbImageView.setPadding(this.cwa, this.cvZ, this.cwa, this.cvZ);
+            tbImageView.setPadding(this.cIj, this.cIi, this.cIj, this.cIi);
             View view2 = new View(getContext());
-            aVar.eWt = view2;
+            aVar.eZf = view2;
             LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds2), -1);
             layoutParams4.gravity = 5;
             layoutParams4.weight = 0.0f;
@@ -157,123 +158,123 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
             linearLayout.setClickable(true);
             linearLayout.setFocusable(true);
             linearLayout.setTag(aVar);
-            this.eWj.addView(linearLayout, this.eWj.getChildCount() - 1, this.bqN);
-            EmotionGroupType asC = cVar.asC();
-            if (asC == EmotionGroupType.LOCAL) {
-                if (cVar.asD() != null) {
-                    cVar.asD().a(tbImageView);
+            this.eYV.addView(linearLayout, this.eYV.getChildCount() - 1, this.bJy);
+            EmotionGroupType auo = cVar.auo();
+            if (auo == EmotionGroupType.LOCAL) {
+                if (cVar.aup() != null) {
+                    cVar.aup().drawImageTo(tbImageView);
                 }
-                tbImageView.setOnClickListener(new b(this.eWj.getChildCount() - 3));
+                tbImageView.setOnClickListener(new b(this.eYV.getChildCount() - 3));
                 tbImageView.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.local_emotion));
-            } else if (asC == EmotionGroupType.PROMOTION) {
-                if (cVar.asE() != null) {
-                    cVar.asE().a(tbImageView);
+            } else if (auo == EmotionGroupType.PROMOTION) {
+                if (cVar.auq() != null) {
+                    cVar.auq().drawImageTo(tbImageView);
                 }
                 tbImageView.setOnClickListener(new c(cVar.getGroupId()));
                 tbImageView.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.download_promotion_emotion) + cVar.getGroupId());
-            } else if (asC == EmotionGroupType.BIG_EMOTION) {
-                if (this.eWo) {
-                    if (cVar.asD() != null) {
-                        cVar.asD().a(tbImageView);
+            } else if (auo == EmotionGroupType.BIG_EMOTION) {
+                if (this.eZa) {
+                    if (cVar.aup() != null) {
+                        cVar.aup().drawImageTo(tbImageView);
                     }
-                    tbImageView.setOnClickListener(new b(this.eWj.getChildCount() - 3));
+                    tbImageView.setOnClickListener(new b(this.eYV.getChildCount() - 3));
                 } else {
-                    if (cVar.asE() != null) {
-                        cVar.asE().a(tbImageView);
+                    if (cVar.auq() != null) {
+                        cVar.auq().drawImageTo(tbImageView);
                     }
                     tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHorizonScrollView.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view3) {
-                            BdToast.b(EmotionTabHorizonScrollView.this.getContext(), EmotionTabHorizonScrollView.this.getContext().getResources().getString(R.string.emotion_cant_show)).agW();
+                            BdToast.b(EmotionTabHorizonScrollView.this.getContext(), EmotionTabHorizonScrollView.this.getContext().getResources().getString(R.string.emotion_cant_show)).akT();
                         }
                     });
                 }
                 tbImageView.setContentDescription(cVar.getGroupName());
-            } else if (asC == EmotionGroupType.USER_COLLECT) {
-                if (cVar.asE() != null) {
-                    cVar.asE().a(tbImageView);
+            } else if (auo == EmotionGroupType.USER_COLLECT) {
+                if (cVar.auq() != null) {
+                    cVar.auq().drawImageTo(tbImageView);
                 }
-                tbImageView.setOnClickListener(new b(this.eWj.getChildCount() - 3));
+                tbImageView.setOnClickListener(new b(this.eYV.getChildCount() - 3));
                 tbImageView.setContentDescription("");
-            } else if (asC == EmotionGroupType.SINGLE_FORUM) {
-                if (cVar.asE() != null) {
-                    cVar.asE().a(tbImageView);
+            } else if (auo == EmotionGroupType.SINGLE_FORUM) {
+                if (cVar.auq() != null) {
+                    cVar.auq().drawImageTo(tbImageView);
                 }
                 tbImageView.setOnClickListener(new c(cVar.getGroupId()));
                 tbImageView.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.download_single_forum_emotion) + cVar.getGroupId());
             }
-            if (!this.eWq && (this.ceL == 1 || this.ceL == 4)) {
+            if (!this.eZc && (this.csX == 1 || this.csX == 4)) {
                 view2.setBackgroundColor(am.getColor(R.color.common_color_10288));
                 tbImageView.setForegroundColor(am.getColor(R.color.common_color_10287));
             } else {
                 view2.setBackgroundColor(getResources().getColor(R.color.common_color_10288));
                 tbImageView.setForegroundColor(getResources().getColor(R.color.common_color_10287));
             }
-            if (this.eWp == null) {
-                this.eWp = tbImageView;
-                this.eWp.setForegroundColor(am.getColor(R.color.common_color_10022));
+            if (this.eZb == null) {
+                this.eZb = tbImageView;
+                this.eZb.setForegroundColor(am.getColor(R.color.common_color_10022));
             }
-            am.g(linearLayout, R.drawable.bg_emotion_tab_horizonscrollview, this.ceL);
+            am.setBackgroundResource(linearLayout, R.drawable.bg_emotion_tab_horizonscrollview, this.csX);
         }
         return tbImageView;
     }
 
-    public void bfs() {
-        this.eWn = new ImageView(getContext());
-        this.eWn.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.eWn.setPadding(this.cwa, this.cvZ, this.cwa, this.cvZ);
-        this.eWm = new LinearLayout(getContext());
-        this.eWm.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.face_shop));
+    public void bdm() {
+        this.eYZ = new ImageView(getContext());
+        this.eYZ.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.eYZ.setPadding(this.cIj, this.cIi, this.cIj, this.cIi);
+        this.eYY = new LinearLayout(getContext());
+        this.eYY.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.face_shop));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
         layoutParams.weight = 1.0f;
-        this.eWn.setLayoutParams(layoutParams);
-        am.b(this.eWn, (int) R.drawable.face_store, this.ceL);
-        this.eWm.addView(this.eWn);
+        this.eYZ.setLayoutParams(layoutParams);
+        am.setImageResource(this.eYZ, R.drawable.face_store, this.csX);
+        this.eYY.addView(this.eYZ);
         View view = new View(getContext());
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds2), -1);
         layoutParams2.gravity = 5;
         layoutParams2.weight = 0.0f;
         view.setLayoutParams(layoutParams2);
-        am.h(view, R.color.common_color_10288, this.ceL);
-        this.eWm.addView(view);
-        this.cwb = new TextView(getContext());
-        this.cwb.setGravity(17);
-        this.cwb.setTextSize(10.0f);
-        this.cwb.setText("N");
-        this.cwb.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.eWj.addView(this.eWm, new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds106), -1));
-        this.eWj.setNewView(this.cwb);
+        am.setBackgroundColor(view, R.color.common_color_10288, this.csX);
+        this.eYY.addView(view);
+        this.cIk = new TextView(getContext());
+        this.cIk.setGravity(17);
+        this.cIk.setTextSize(10.0f);
+        this.cIk.setText("N");
+        this.cIk.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        this.eYV.addView(this.eYY, new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds106), -1));
+        this.eYV.setNewView(this.cIk);
         boolean appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(FaceShopActivityConfig.class);
         if (TbadkCoreApplication.getInst().isFaceShopNew() && appResponseToIntentClass) {
-            this.eWj.setNewViewVisible(true);
+            this.eYV.setNewViewVisible(true);
         } else {
-            this.eWj.setNewViewVisible(false);
+            this.eYV.setNewViewVisible(false);
         }
-        this.eWm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHorizonScrollView.2
+        this.eYY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHorizonScrollView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (EmotionTabHorizonScrollView.this.cwb != null) {
-                    EmotionTabHorizonScrollView.this.eWj.setNewViewVisible(false);
+                if (EmotionTabHorizonScrollView.this.cIk != null) {
+                    EmotionTabHorizonScrollView.this.eYV.setNewViewVisible(false);
                 }
                 TbadkCoreApplication.getInst().setFaceShopVersion(TbadkCoreApplication.getInst().getTempFaceShopVersion());
                 TbadkCoreApplication.getInst().setFaceShopNew(false);
-                if (EmotionTabHorizonScrollView.this.TT != null) {
-                    EmotionTabHorizonScrollView.this.TT.b(new com.baidu.tbadk.editortools.a(2, 5, null));
+                if (EmotionTabHorizonScrollView.this.Dl != null) {
+                    EmotionTabHorizonScrollView.this.Dl.b(new com.baidu.tbadk.editortools.a(2, 5, null));
                 }
-                if (j.kc()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EmotionCenterActivityConfig(EmotionTabHorizonScrollView.this.getContext())));
+                if (j.isNetWorkAvailable()) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionCenterActivityConfig(EmotionTabHorizonScrollView.this.getContext())));
                 } else {
                     l.showToast(EmotionTabHorizonScrollView.this.getContext(), (int) R.string.neterror);
                 }
             }
         });
-        this.cwc = new View(getContext());
+        this.cIl = new View(getContext());
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, -1);
         layoutParams3.weight = 1.0f;
-        this.cwc.setLayoutParams(layoutParams3);
-        this.eWj.addView(this.cwc);
+        this.cIl.setLayoutParams(layoutParams3);
+        this.eYV.addView(this.cIl);
         if (!appResponseToIntentClass) {
-            this.eWm.setVisibility(8);
+            this.eYY.setVisibility(8);
         }
     }
 
@@ -282,29 +283,29 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
     }
 
     public void setTabWidgetVisibility(int i, boolean z) {
-        this.eWo = z;
+        this.eZa = z;
         int i2 = i + 1;
-        int childCount = this.eWj.getChildCount();
-        com.baidu.tbadk.editortools.emotiontool.c cVar = this.eWk.get(i2 - 1);
+        int childCount = this.eYV.getChildCount();
+        com.baidu.tbadk.editortools.emotiontool.c cVar = this.eYW.get(i2 - 1);
         if (i2 < childCount) {
-            if (cVar.asC() == EmotionGroupType.BIG_EMOTION || cVar.asC() == EmotionGroupType.USER_COLLECT) {
-                TbImageView tbImageView = (TbImageView) ((LinearLayout) this.eWj.getChildAt(i2)).getChildAt(0);
-                if (!this.eWo) {
+            if (cVar.auo() == EmotionGroupType.BIG_EMOTION || cVar.auo() == EmotionGroupType.USER_COLLECT) {
+                TbImageView tbImageView = (TbImageView) ((LinearLayout) this.eYV.getChildAt(i2)).getChildAt(0);
+                if (!this.eZa) {
                     tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHorizonScrollView.3
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            BdToast.b(EmotionTabHorizonScrollView.this.getContext(), EmotionTabHorizonScrollView.this.getContext().getResources().getString(R.string.emotion_cant_show)).agW();
+                            BdToast.b(EmotionTabHorizonScrollView.this.getContext(), EmotionTabHorizonScrollView.this.getContext().getResources().getString(R.string.emotion_cant_show)).akT();
                         }
                     });
-                    if (cVar.asE() != null) {
-                        cVar.asE().a(tbImageView);
+                    if (cVar.auq() != null) {
+                        cVar.auq().drawImageTo(tbImageView);
                         return;
                     }
                     return;
                 }
                 tbImageView.setOnClickListener(new b(i2 - 1));
-                if (cVar.asD() != null) {
-                    cVar.asD().a(tbImageView);
+                if (cVar.aup() != null) {
+                    cVar.aup().drawImageTo(tbImageView);
                 }
             }
         }
@@ -312,13 +313,13 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
 
     public void setTabWidgetBigEmontionVisibility(boolean z) {
         boolean appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(FaceShopActivityConfig.class);
-        int childCount = this.eWj.getChildCount();
+        int childCount = this.eYV.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.eWj.getChildAt(i);
+            View childAt = this.eYV.getChildAt(i);
             if (childAt != null) {
                 com.baidu.tbadk.editortools.emotiontool.c cVar = null;
                 if (childAt.getTag() instanceof a) {
-                    cVar = ((a) childAt.getTag()).eWu;
+                    cVar = ((a) childAt.getTag()).eZg;
                 }
                 if (a(cVar, z)) {
                     childAt.setVisibility(8);
@@ -328,9 +329,9 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
             }
         }
         if (!z || !appResponseToIntentClass) {
-            this.eWm.setVisibility(8);
+            this.eYY.setVisibility(8);
         } else {
-            this.eWm.setVisibility(0);
+            this.eYY.setVisibility(0);
         }
     }
 
@@ -338,17 +339,17 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
         if (cVar == null) {
             return true;
         }
-        return !z && (cVar.asC() == EmotionGroupType.BIG_EMOTION || cVar.asC() == EmotionGroupType.PROMOTION);
+        return !z && (cVar.auo() == EmotionGroupType.BIG_EMOTION || cVar.auo() == EmotionGroupType.PROMOTION);
     }
 
     public void setCurrentTab(int i) {
         int color;
-        if (i != this.bqk) {
-            if (this.bqk != -1) {
-                LinearLayout linearLayout = (LinearLayout) this.eWj.getChildAt(this.bqk + 1);
+        if (i != this.apR) {
+            if (this.apR != -1) {
+                LinearLayout linearLayout = (LinearLayout) this.eYV.getChildAt(this.apR + 1);
                 TbImageView tbImageView = (TbImageView) linearLayout.getChildAt(0);
                 if (tbImageView != null) {
-                    if (this.ceL == 0) {
+                    if (this.csX == 0) {
                         color = getResources().getColor(R.color.common_color_10287);
                     } else {
                         color = am.getColor(R.color.common_color_10287);
@@ -357,8 +358,8 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
                 }
                 linearLayout.setSelected(false);
             }
-            this.bqk = i;
-            LinearLayout linearLayout2 = (LinearLayout) this.eWj.getChildAt(this.bqk + 1);
+            this.apR = i;
+            LinearLayout linearLayout2 = (LinearLayout) this.eYV.getChildAt(this.apR + 1);
             linearLayout2.setSelected(true);
             int[] iArr = new int[2];
             linearLayout2.getLocationOnScreen(iArr);
@@ -375,104 +376,104 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
                 }
             }
             TbImageView tbImageView2 = (TbImageView) linearLayout2.getChildAt(0);
-            com.baidu.tbadk.editortools.emotiontool.c cVar = this.eWk.get(this.bqk);
-            if (cVar.asD() != null) {
-                cVar.asD().a(tbImageView2);
+            com.baidu.tbadk.editortools.emotiontool.c cVar = this.eYW.get(this.apR);
+            if (cVar.aup() != null) {
+                cVar.aup().drawImageTo(tbImageView2);
             }
             if (tbImageView2 != null) {
                 tbImageView2.setForegroundColor(am.getColor(R.color.common_color_10022));
-                this.eWp = tbImageView2;
+                this.eZb = tbImageView2;
             }
         }
     }
 
     public void reset() {
-        this.bqk = -1;
-        this.eWj.removeAllViews();
-        bfs();
-        jg(this.ceL);
+        this.apR = -1;
+        this.eYV.removeAllViews();
+        bdm();
+        onChangeSkin(this.csX);
     }
 
-    public void jg(int i) {
+    public void onChangeSkin(int i) {
         int color;
-        this.ceL = i;
-        if (this.eWn != null) {
-            am.b(this.eWn, (int) R.drawable.face_store, i);
+        this.csX = i;
+        if (this.eYZ != null) {
+            am.setImageResource(this.eYZ, R.drawable.face_store, i);
         }
-        if (this.eWm != null) {
-            am.g(this.eWm, R.drawable.bg_emotion_tab_horizonscrollview, i);
-            if (this.eWm.getChildCount() > 0) {
-                am.h(this.eWm.getChildAt(1), R.color.common_color_10288, i);
+        if (this.eYY != null) {
+            am.setBackgroundResource(this.eYY, R.drawable.bg_emotion_tab_horizonscrollview, i);
+            if (this.eYY.getChildCount() > 0) {
+                am.setBackgroundColor(this.eYY.getChildAt(1), R.color.common_color_10288, i);
             }
         }
-        if (this.cwc != null) {
-            am.g(this.cwc, R.drawable.bg_emotion_tab_horizonscrollview, i);
+        if (this.cIl != null) {
+            am.setBackgroundResource(this.cIl, R.drawable.bg_emotion_tab_horizonscrollview, i);
         }
-        if (this.cwb != null) {
-            am.g(this.cwb, R.drawable.icon_news_head_prompt_one, i);
-            am.d(this.cwb, R.color.cp_cont_a, 1, i);
+        if (this.cIk != null) {
+            am.setBackgroundResource(this.cIk, R.drawable.icon_news_head_prompt_one, i);
+            am.setViewTextColor(this.cIk, R.color.cp_cont_a, 1, i);
         }
-        int childCount = this.eWj.getChildCount();
+        int childCount = this.eYV.getChildCount();
         for (int i2 = 1; i2 < childCount; i2++) {
-            View childAt = this.eWj.getChildAt(i2);
+            View childAt = this.eYV.getChildAt(i2);
             if (childAt != null) {
-                am.g(childAt, R.drawable.bg_emotion_tab_horizonscrollview, i);
+                am.setBackgroundResource(childAt, R.drawable.bg_emotion_tab_horizonscrollview, i);
                 a aVar = (a) childAt.getTag();
                 if (aVar != null) {
-                    if (aVar.eWs != null) {
+                    if (aVar.eZe != null) {
                         if (i == 0) {
                             color = getResources().getColor(R.color.common_color_10287);
                         } else {
                             color = am.getColor(R.color.common_color_10287);
                         }
-                        aVar.eWs.setForegroundColor(color);
+                        aVar.eZe.setForegroundColor(color);
                     }
-                    if (aVar.eWt != null) {
-                        am.h(aVar.eWt, R.color.common_color_10288, i);
+                    if (aVar.eZf != null) {
+                        am.setBackgroundColor(aVar.eZf, R.color.common_color_10288, i);
                     }
                 }
             }
         }
-        if (this.eWp != null) {
-            this.eWp.setForegroundColor(am.getColor(R.color.common_color_10022));
-            if (this.eWp.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.eWp.getParent()).setSelected(true);
+        if (this.eZb != null) {
+            this.eZb.setForegroundColor(am.getColor(R.color.common_color_10022));
+            if (this.eZb.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.eZb.getParent()).setSelected(true);
             }
         }
     }
 
     public void setOnTabSelectedListener(EmotionTabWidgetView.a aVar) {
-        this.eWl = aVar;
+        this.eYX = aVar;
     }
 
     public void setEditorTools(EditorTools editorTools) {
-        this.TT = editorTools;
+        this.Dl = editorTools;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
-        private final int bRM;
+        private final int mTabIndex;
 
         private b(int i) {
-            this.bRM = i;
+            this.mTabIndex = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if ((view instanceof TbImageView) && ((TbImageView) view) != EmotionTabHorizonScrollView.this.eWp) {
+            if ((view instanceof TbImageView) && ((TbImageView) view) != EmotionTabHorizonScrollView.this.eZb) {
                 ((TbImageView) view).setForegroundColor(am.getColor(R.color.common_color_10022));
-                if (EmotionTabHorizonScrollView.this.eWp != null) {
-                    if (!EmotionTabHorizonScrollView.this.eWq) {
-                        EmotionTabHorizonScrollView.this.eWp.setForegroundColor(am.getColor(R.color.common_color_10287));
+                if (EmotionTabHorizonScrollView.this.eZb != null) {
+                    if (!EmotionTabHorizonScrollView.this.eZc) {
+                        EmotionTabHorizonScrollView.this.eZb.setForegroundColor(am.getColor(R.color.common_color_10287));
                     } else {
-                        EmotionTabHorizonScrollView.this.eWp.setForegroundColor(EmotionTabHorizonScrollView.this.getResources().getColor(R.color.common_color_10287));
+                        EmotionTabHorizonScrollView.this.eZb.setForegroundColor(EmotionTabHorizonScrollView.this.getResources().getColor(R.color.common_color_10287));
                     }
                 }
-                EmotionTabHorizonScrollView.this.eWp = (TbImageView) view;
+                EmotionTabHorizonScrollView.this.eZb = (TbImageView) view;
             }
-            EmotionTabHorizonScrollView.this.setCurrentTab(this.bRM);
-            EmotionTabHorizonScrollView.this.eWl.kE(this.bRM);
+            EmotionTabHorizonScrollView.this.setCurrentTab(this.mTabIndex);
+            EmotionTabHorizonScrollView.this.eYX.jW(this.mTabIndex);
         }
     }
 
@@ -487,8 +488,8 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (com.baidu.adp.lib.g.b.f(this.mGroupId, 0) > 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EmotionPackageDetailActivityConfig(EmotionTabHorizonScrollView.this.getContext(), com.baidu.adp.lib.g.b.f(this.mGroupId, 0), 0)));
+            if (com.baidu.adp.lib.g.b.toInt(this.mGroupId, 0) > 0) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(EmotionTabHorizonScrollView.this.getContext(), com.baidu.adp.lib.g.b.toInt(this.mGroupId, 0), 0)));
             }
         }
     }
@@ -496,9 +497,9 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        TbImageView eWs;
-        View eWt;
-        com.baidu.tbadk.editortools.emotiontool.c eWu;
+        TbImageView eZe;
+        View eZf;
+        com.baidu.tbadk.editortools.emotiontool.c eZg;
 
         private a() {
         }

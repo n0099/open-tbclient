@@ -11,7 +11,6 @@ import com.baidu.swan.apps.an.o;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.u.b.u;
 import com.baidu.swan.ubc.s;
-import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
@@ -93,21 +92,21 @@ public class SwanAppUtilsJavaScriptInterface {
         if (DEBUG) {
             Log.i(TAG, "callShare");
         }
-        JSONObject df = o.df(str2);
+        JSONObject dP = o.dP(str2);
         try {
-            df.put(KEY_SHARE_SNAPSHOT, z);
-            df.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
+            dP.put(KEY_SHARE_SNAPSHOT, z);
+            dP.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.u.a.Ep().a(context, df, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.u.a.Jj().a(context, dP, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void Fn() {
+            public void Kh() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void Fo() {
+            public void Ki() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -133,9 +132,9 @@ public class SwanAppUtilsJavaScriptInterface {
                     }
                     if (l.longValue() >= UBC_MIN_VERSION) {
                         String optString2 = jSONObject.optString("actionId");
-                        String optString3 = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
-                        if (s.Yr() != null) {
-                            s.Yr().b(optString2, optString3, 0);
+                        String optString3 = jSONObject.optString("value");
+                        if (s.adh() != null) {
+                            s.adh().c(optString2, optString3, 0);
                         }
                     }
                 } catch (NumberFormatException e) {

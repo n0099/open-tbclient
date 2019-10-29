@@ -7,107 +7,107 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData cgT;
+    private AntiData cuS;
     private String forumId;
-    private final ArrayList<bh> fuX;
-    private boolean fuY;
-    private b fuZ;
-    private boolean fva;
+    private final ArrayList<bh> fuk;
+    private boolean ful;
+    private b fum;
+    private boolean fun;
 
     /* loaded from: classes.dex */
     public interface b {
-        void E(boolean z, boolean z2);
+        void H(boolean z, boolean z2);
 
-        void blX();
+        void bjd();
 
-        void rq(int i);
+        void qj(int i);
     }
 
     private a() {
-        this.fuY = false;
-        this.fuX = new ArrayList<>();
+        this.ful = false;
+        this.fuk = new ArrayList<>();
     }
 
-    public static a blQ() {
-        return C0320a.fvb;
+    public static a biW() {
+        return C0409a.fuo;
     }
 
-    public boolean blR() {
-        return this.fuY;
+    public boolean biX() {
+        return this.ful;
     }
 
-    public void D(boolean z, boolean z2) {
-        this.fuY = z;
-        if (this.fuZ != null) {
-            this.fuZ.E(this.fuY, z2);
+    public void G(boolean z, boolean z2) {
+        this.ful = z;
+        if (this.fum != null) {
+            this.fum.H(this.ful, z2);
         }
     }
 
-    public boolean ab(bh bhVar) {
+    public boolean Z(bh bhVar) {
         if (bhVar == null) {
             return false;
         }
-        if (this.fuX.size() > 29) {
-            if (this.fuZ != null) {
-                this.fuZ.blX();
+        if (this.fuk.size() > 29) {
+            if (this.fum != null) {
+                this.fum.bjd();
                 return false;
             }
             return false;
         }
-        this.fuX.add(bhVar);
-        if (this.fuZ != null) {
-            this.fuZ.rq(this.fuX.size());
+        this.fuk.add(bhVar);
+        if (this.fum != null) {
+            this.fum.qj(this.fuk.size());
         }
         return true;
     }
 
-    public List<bh> blS() {
-        return this.fuX;
+    public List<bh> biY() {
+        return this.fuk;
     }
 
-    public void ac(bh bhVar) {
-        this.fuX.remove(bhVar);
-        if (this.fuZ != null) {
-            this.fuZ.rq(this.fuX.size());
+    public void aa(bh bhVar) {
+        this.fuk.remove(bhVar);
+        if (this.fum != null) {
+            this.fum.qj(this.fuk.size());
         }
     }
 
     public void clearData() {
-        Iterator<bh> it = this.fuX.iterator();
+        Iterator<bh> it = this.fuk.iterator();
         while (it.hasNext()) {
             bh next = it.next();
             if (next != null) {
-                next.dM(false);
+                next.ec(false);
             }
         }
-        this.fuX.clear();
-        if (this.fuZ != null) {
-            this.fuZ.rq(0);
+        this.fuk.clear();
+        if (this.fum != null) {
+            this.fum.qj(0);
         }
     }
 
     public void reset() {
-        D(false, false);
+        G(false, false);
         clearData();
     }
 
     public void a(b bVar) {
-        this.fuZ = bVar;
+        this.fum = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0320a {
-        private static a fvb = new a();
+    public static class C0409a {
+        private static a fuo = new a();
     }
 
-    public AntiData blT() {
-        return this.cgT;
+    public AntiData biZ() {
+        return this.cuS;
     }
 
     public void b(AntiData antiData) {
-        this.cgT = antiData;
+        this.cuS = antiData;
     }
 
     public String getForumId() {
@@ -118,17 +118,17 @@ public class a {
         this.forumId = str;
     }
 
-    public boolean blU() {
-        return this.fva;
+    public boolean bja() {
+        return this.fun;
     }
 
-    public void jM(boolean z) {
-        this.fva = z;
+    public void jA(boolean z) {
+        this.fun = z;
     }
 
-    public void bX(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.aa(list) && !com.baidu.tbadk.core.util.v.aa(this.fuX)) {
-            Iterator<bh> it = this.fuX.iterator();
+    public void ck(List<String> list) {
+        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.fuk)) {
+            Iterator<bh> it = this.fuk.iterator();
             while (it.hasNext()) {
                 bh next = it.next();
                 int i = 0;
@@ -136,7 +136,7 @@ public class a {
                     int i2 = i;
                     if (i2 >= list.size()) {
                         break;
-                    } else if (!com.baidu.tbadk.core.util.aq.bV(list.get(i2), next.getId())) {
+                    } else if (!com.baidu.tbadk.core.util.aq.equals(list.get(i2), next.getId())) {
                         i = i2 + 1;
                     } else {
                         it.remove();
@@ -144,13 +144,13 @@ public class a {
                     }
                 }
             }
-            if (this.fuZ != null) {
-                this.fuZ.rq(this.fuX.size());
+            if (this.fum != null) {
+                this.fum.qj(this.fuk.size());
             }
         }
     }
 
-    public boolean blV() {
-        return this.cgT != null && this.cgT.isMultiDeleteEnable();
+    public boolean bjb() {
+        return this.cuS != null && this.cuS.isMultiDeleteEnable();
     }
 }

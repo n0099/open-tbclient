@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import com.baidu.ubc.UBC;
 import com.coremedia.iso.IsoTypeReaderVariable;
 import com.coremedia.iso.IsoTypeWriterVariable;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
@@ -9,10 +8,10 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
     int intLength;
     long value;
 
@@ -25,7 +24,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getIntLength", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "", "", "", "int"), 19);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setIntLength", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "int", "intLength", "", "void"), 23);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "", "", "", "long"), 27);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "long", UBC.CONTENT_KEY_VALUE, "", "void"), 31);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "long", "value", "", "void"), 31);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,7 +39,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setIntLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dl(i)));
         this.intLength = i;
     }
 
@@ -50,7 +49,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setValue(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.eS(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.en(j)));
         if (j <= 127 && j > -128) {
             this.intLength = 1;
         } else if (j <= 32767 && j > -32768 && this.intLength < 2) {

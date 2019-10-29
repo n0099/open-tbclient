@@ -1,39 +1,24 @@
 package com.vivo.push.b;
-
-import android.content.Intent;
 /* loaded from: classes3.dex */
-public final class w extends com.vivo.push.v {
-    private int a;
-
+public final class w extends com.vivo.push.y {
     public w() {
-        super(2011);
-        this.a = 0;
+        super(2014);
     }
 
-    public final int d() {
-        return this.a;
+    @Override // com.vivo.push.y
+    protected final void c(com.vivo.push.a aVar) {
     }
 
-    public final void a(int i) {
-        this.a = i;
+    @Override // com.vivo.push.y
+    protected final void d(com.vivo.push.a aVar) {
     }
 
-    @Override // com.vivo.push.v
-    protected final void d(Intent intent) {
-        intent.putExtra("com.bbk.push.ikey.MODE_TYPE", this.a);
-    }
-
-    @Override // com.vivo.push.v
-    protected final void e(Intent intent) {
-        this.a = intent.getIntExtra("com.bbk.push.ikey.MODE_TYPE", 0);
-    }
-
-    @Override // com.vivo.push.v
+    @Override // com.vivo.push.y
     public final String toString() {
-        return "PushModeCommand";
+        return "PushDebugCommand";
     }
 
-    @Override // com.vivo.push.v
+    @Override // com.vivo.push.y
     public final boolean c() {
         return true;
     }

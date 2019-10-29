@@ -7,10 +7,10 @@ import android.support.v4.view.GravityCompat;
 import android.text.TextPaint;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.console.c;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
@@ -31,7 +31,7 @@ public class a {
             if (m != null && m2 != null) {
                 m.a(m2, aVar);
             } else {
-                aVar.eM(63);
+                aVar.fH(63);
             }
         }
         return aVar;
@@ -52,8 +52,8 @@ public class a {
     }
 
     private static void a(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
-        view.setPadding(z.ad((float) aVar.acm), z.ad((float) aVar.acn), z.ad((float) aVar.aco), z.ad((float) aVar.acp));
-        float f = aVar.alA;
+        view.setPadding(z.S((float) aVar.Ml), z.S((float) aVar.Mm), z.S((float) aVar.Mn), z.S((float) aVar.Mo));
+        float f = aVar.aEV;
         if (f >= 0.0f && f <= 1.0f) {
             view.setAlpha(f);
         }
@@ -62,21 +62,21 @@ public class a {
     private static void b(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(aVar.backgroundColor);
-        gradientDrawable.setCornerRadius(aVar.alz);
+        gradientDrawable.setCornerRadius(aVar.aEU);
         gradientDrawable.setStroke(aVar.borderWidth, aVar.borderColor);
         view.setBackground(gradientDrawable);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private static void a(@NonNull TextView textView, @NonNull com.baidu.swan.apps.button.b.b.a aVar) {
-        int ad;
+        int S;
         char c;
         int i;
         boolean z;
         boolean z2;
         textView.setText(aVar.text);
         try {
-            textView.setTextColor(Color.parseColor(aVar.alB));
+            textView.setTextColor(Color.parseColor(aVar.TU));
         } catch (Exception e) {
             c.e("SwanAppNativeViewUtils", "text color occurs exception", e);
         }
@@ -84,8 +84,8 @@ public class a {
         if (i2 > 0) {
             textView.setTextSize(1, i2);
         }
-        if (z.ad((float) aVar.nK) > 0) {
-            textView.setLineSpacing((ad - textView.getLineHeight()) + textView.getLineSpacingExtra(), 1.0f);
+        if (z.S((float) aVar.gg) > 0) {
+            textView.setLineSpacing((S - textView.getLineHeight()) + textView.getLineSpacingExtra(), 1.0f);
         }
         String str = aVar.textAlign;
         switch (str.hashCode()) {
@@ -97,14 +97,14 @@ public class a {
                 c = 65535;
                 break;
             case 3317767:
-                if (str.equals(CustomDialogData.POS_LEFT)) {
+                if (str.equals("left")) {
                     c = 2;
                     break;
                 }
                 c = 65535;
                 break;
             case 108511772:
-                if (str.equals("right")) {
+                if (str.equals(HorizontalTranslateLayout.RIGHT)) {
                     c = 0;
                     break;
                 }
@@ -161,7 +161,7 @@ public class a {
                 }
                 break;
         }
-        String str3 = aVar.alC;
+        String str3 = aVar.aEW;
         switch (str3.hashCode()) {
             case -1039745817:
                 if (str3.equals("normal")) {

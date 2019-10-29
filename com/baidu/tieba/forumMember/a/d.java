@@ -10,6 +10,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -29,7 +30,7 @@ public class d extends h<e, f> {
             public void onClick(View view) {
                 e eVar = (e) view.getTag();
                 TiebaStatic.log("c10624");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(d.this.mContext, eVar.getUserId(), eVar.getName(), "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(d.this.mContext, eVar.getUserId(), eVar.getName(), "")));
             }
         };
     }
@@ -37,35 +38,34 @@ public class d extends h<e, f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aA */
-    public f onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: aC */
+    public f b(ViewGroup viewGroup) {
         return new f(LayoutInflater.from(this.mContext).inflate(R.layout.manito_item_member, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, f fVar) {
-        super.onFillViewHolder(i, view, viewGroup, eVar, fVar);
+    public View a(int i, View view, ViewGroup viewGroup, e eVar, f fVar) {
+        super.a(i, view, viewGroup, (ViewGroup) eVar, (e) fVar);
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
-                am.k(fVar.getView(), R.drawable.frs_member_manito_bg);
-                am.f(fVar.bnr, R.color.cp_cont_f, 1);
-                am.f(fVar.eJF, R.color.cp_cont_d, 1);
-                am.l(fVar.dividerLine, R.color.cp_bg_line_c);
-                am.f(fVar.fss, R.color.cp_cont_d, 1);
+                am.setBackgroundResource(fVar.getView(), R.drawable.frs_member_manito_bg);
+                am.setViewTextColor(fVar.bGd, R.color.cp_cont_f, 1);
+                am.setViewTextColor(fVar.eSk, R.color.cp_cont_d, 1);
+                am.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
+                am.setViewTextColor(fVar.frF, R.color.cp_cont_d, 1);
             }
-            fVar.fsr.startLoad(eVar.blp(), 12, false);
-            fVar.bnr.setText(aa.ac(eVar.getNameShow(), 16));
+            fVar.frE.startLoad(eVar.getHeadUrl(), 12, false);
+            fVar.bGd.setText(aa.interceptString(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.eJF.setText(R.string.god_intro_default);
+                fVar.eSk.setText(R.string.god_intro_default);
             } else {
-                fVar.eJF.setText(aa.ac(eVar.getIntro(), 30));
+                fVar.eSk.setText(aa.interceptString(eVar.getIntro(), 30));
             }
             int color = am.getColor(R.color.cp_cont_h);
-            String aH = aq.aH(eVar.getFansNum());
-            fVar.fss.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), aH), new String[]{aH}, new int[]{color}));
+            String numberUniformFormat = aq.numberUniformFormat(eVar.getFansNum());
+            fVar.frF.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

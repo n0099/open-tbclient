@@ -61,7 +61,7 @@ public class ServiceProxy extends MAService implements c {
         return this.mEntity != null ? this.mEntity.getPackageManager() : super.getPackageManager();
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // com.baidu.megapp.ma.MAService, com.baidu.adp.plugin.a.c
     public Service getService() {
         return this;
     }

@@ -26,39 +26,39 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a aXM;
-    private boolean FB;
-    private BluetoothAdapter aXN;
-    private BluetoothLeScanner aXO;
-    private boolean aXP;
-    private boolean aXQ;
-    private ScanCallback aXR;
-    private BluetoothAdapter.LeScanCallback aXS;
-    private long aXT;
-    private Map<String, com.baidu.swan.apps.aj.c.b.a> aXU;
-    private Map<String, com.baidu.swan.apps.aj.c.b.a> aXV;
-    private Map<com.baidu.swan.apps.aj.c.b.a, BluetoothGatt> aXW;
-    private com.baidu.swan.apps.aj.c.a aXX;
-    private BroadcastReceiver aXZ;
+    private static volatile a bqP;
+    private BluetoothAdapter bqQ;
+    private BluetoothLeScanner bqR;
+    private boolean bqS;
+    private boolean bqT;
+    private ScanCallback bqU;
+    private BluetoothAdapter.LeScanCallback bqV;
+    private long bqW;
+    private Map<String, com.baidu.swan.apps.aj.c.b.a> bqX;
+    private Map<String, com.baidu.swan.apps.aj.c.b.a> bqY;
+    private Map<com.baidu.swan.apps.aj.c.b.a, BluetoothGatt> bqZ;
+    private com.baidu.swan.apps.aj.c.a bra;
+    private BroadcastReceiver brc;
     private Context mContext;
     private Handler mHandler;
+    private boolean sM;
     private static final boolean DEBUG = b.DEBUG;
-    private static int aXY = 1;
+    private static int brb = 1;
 
     @SuppressLint({"MissingPermission"})
-    private boolean Ov() {
-        if (!this.FB || this.aXN == null) {
+    private boolean Tl() {
+        if (!this.sM || this.bqQ == null) {
             return false;
         }
-        return this.aXN.isEnabled();
+        return this.bqQ.isEnabled();
     }
 
     @TargetApi(21)
     private ScanCallback a(boolean z, final boolean z2, final int i) {
         if (!z) {
-            return this.aXR;
+            return this.bqU;
         }
-        this.aXR = new ScanCallback() { // from class: com.baidu.swan.apps.aj.c.a.a.1
+        this.bqU = new ScanCallback() { // from class: com.baidu.swan.apps.aj.c.a.a.1
             @Override // android.bluetooth.le.ScanCallback
             public void onScanResult(int i2, ScanResult scanResult) {
                 ArrayList arrayList = new ArrayList();
@@ -79,7 +79,7 @@ public class a {
                 }
             }
         };
-        return this.aXR;
+        return this.bqU;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,12 +96,12 @@ public class a {
                     com.baidu.swan.apps.aj.c.b.a aVar = new com.baidu.swan.apps.aj.c.b.a();
                     aVar.name = scanResult.getDevice().getName();
                     aVar.deviceId = scanResult.getDevice().getAddress();
-                    aVar.aYd = scanResult.getRssi();
-                    aVar.aYe = a(scanResult);
-                    aVar.aYf = scanResult.getScanRecord().getServiceUuids();
-                    aVar.aYg = scanResult.getScanRecord().getDeviceName();
-                    aVar.aYh = scanResult.getScanRecord().getServiceData();
-                    aVar.aYi = scanResult.getDevice();
+                    aVar.brf = scanResult.getRssi();
+                    aVar.brg = a(scanResult);
+                    aVar.brh = scanResult.getScanRecord().getServiceUuids();
+                    aVar.bri = scanResult.getScanRecord().getDeviceName();
+                    aVar.brj = scanResult.getScanRecord().getServiceData();
+                    aVar.brk = scanResult.getDevice();
                     if (DEBUG) {
                         Log.d("BluetoothManager", "discovery result " + aVar.toJson().toString());
                     }
@@ -127,10 +127,10 @@ public class a {
             byte[] valueAt = manufacturerSpecificData.valueAt(i);
             int keyAt = manufacturerSpecificData.keyAt(i);
             int length = valueAt.length;
-            byte[] er = com.baidu.swan.apps.aj.c.c.a.er(keyAt);
-            int length2 = er.length;
+            byte[] fm = com.baidu.swan.apps.aj.c.c.a.fm(keyAt);
+            int length2 = fm.length;
             byte[] bArr = new byte[length + length2];
-            System.arraycopy(er, 0, bArr, 0, length2);
+            System.arraycopy(fm, 0, bArr, 0, length2);
             System.arraycopy(valueAt, 0, bArr, length2, length);
             arrayList.add(bArr);
         }
@@ -164,59 +164,59 @@ public class a {
             Log.d("BluetoothManager", "report discovery result -- start");
         }
         for (com.baidu.swan.apps.aj.c.b.a aVar : list) {
-            if (aVar == null || aVar.aYi == null || TextUtils.isEmpty(aVar.deviceId)) {
+            if (aVar == null || aVar.brk == null || TextUtils.isEmpty(aVar.deviceId)) {
                 if (DEBUG) {
                     Log.d("BluetoothManager", "report discovery result --- wrong deviceData");
                 }
-            } else if (!z && this.aXU != null && this.aXU.containsKey(aVar.deviceId)) {
+            } else if (!z && this.bqX != null && this.bqX.containsKey(aVar.deviceId)) {
                 if (DEBUG) {
                     Log.d("BluetoothManager", "report discovery result -- duplicate");
                 }
-            } else if (this.aXV != null) {
-                this.aXV.put(aVar.deviceId, aVar);
+            } else if (this.bqY != null) {
+                this.bqY.put(aVar.deviceId, aVar);
             }
         }
-        if (System.currentTimeMillis() - this.aXT < i) {
+        if (System.currentTimeMillis() - this.bqW < i) {
             if (DEBUG) {
                 Log.d("BluetoothManager", "report discovery result -- illegal interval, interval : " + i);
             }
-        } else if (this.aXV == null || this.aXV.size() == 0) {
+        } else if (this.bqY == null || this.bqY.size() == 0) {
             if (DEBUG) {
                 Log.d("BluetoothManager", "report discovery result -- none report device");
             }
         } else {
-            this.aXT = System.currentTimeMillis();
-            JSONObject r = r(0, "ok");
+            this.bqW = System.currentTimeMillis();
+            JSONObject v = v(0, "ok");
             JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, com.baidu.swan.apps.aj.c.b.a> entry : this.aXV.entrySet()) {
+            for (Map.Entry<String, com.baidu.swan.apps.aj.c.b.a> entry : this.bqY.entrySet()) {
                 if ((entry.getValue() instanceof com.baidu.swan.apps.aj.c.b.a) && (entry.getKey() instanceof String)) {
                     com.baidu.swan.apps.aj.c.b.a value = entry.getValue();
                     jSONArray.put(value.toJson());
                     String key = entry.getKey();
-                    this.aXV.remove(key);
-                    if (this.aXU == null) {
-                        this.aXU = new ConcurrentHashMap();
+                    this.bqY.remove(key);
+                    if (this.bqX == null) {
+                        this.bqX = new ConcurrentHashMap();
                     }
-                    this.aXU.put(key, value);
+                    this.bqX.put(key, value);
                 }
             }
             try {
-                r.put("devices", jSONArray);
+                v.put("devices", jSONArray);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            c.i("bluetooth", "report discovery result -- result : " + r.toString());
-            if (this.aXX != null) {
-                this.aXX.f(this.aXX.aXL, r);
+            c.i("bluetooth", "report discovery result -- result : " + v.toString());
+            if (this.bra != null) {
+                this.bra.f(this.bra.bqO, v);
             }
         }
     }
 
     private BluetoothAdapter.LeScanCallback b(boolean z, final boolean z2, final int i) {
         if (!z) {
-            return this.aXS;
+            return this.bqV;
         }
-        this.aXS = new BluetoothAdapter.LeScanCallback() { // from class: com.baidu.swan.apps.aj.c.a.a.2
+        this.bqV = new BluetoothAdapter.LeScanCallback() { // from class: com.baidu.swan.apps.aj.c.a.a.2
             @Override // android.bluetooth.BluetoothAdapter.LeScanCallback
             public void onLeScan(BluetoothDevice bluetoothDevice, int i2, byte[] bArr) {
                 if (a.DEBUG) {
@@ -225,69 +225,69 @@ public class a {
                 a.this.a(bluetoothDevice, i2, bArr, z2, i);
             }
         };
-        return this.aXS;
+        return this.bqV;
     }
 
     @RequiresApi(api = 21)
     @SuppressLint({"MissingPermission"})
-    public JSONObject Ow() {
-        if (!this.FB) {
+    public JSONObject Tm() {
+        if (!this.sM) {
             c.w("bluetooth", "stop discovery -- is not open");
-            return r(10000, "not init");
-        } else if (!Ov()) {
+            return v(10000, "not init");
+        } else if (!Tl()) {
             c.w("bluetooth", "stop discovery -- is not available");
-            return r(10001, "not available");
-        } else if (!this.aXQ) {
+            return v(10001, "not available");
+        } else if (!this.bqT) {
             c.w("bluetooth", "stop discovery -- is not discovery");
-            return r(0, "ok");
+            return v(0, "ok");
         } else {
             if (com.baidu.swan.apps.an.a.hasLollipop()) {
-                if (this.aXO != null) {
+                if (this.bqR != null) {
                     c.i("bluetooth", "stop discovery -- stop success");
-                    if (this.aXQ) {
-                        this.aXQ = false;
-                        Oy();
+                    if (this.bqT) {
+                        this.bqT = false;
+                        To();
                     }
-                    this.aXO.stopScan(a(false, true, 0));
-                    return r(0, "ok");
+                    this.bqR.stopScan(a(false, true, 0));
+                    return v(0, "ok");
                 }
-            } else if (this.aXN != null) {
+            } else if (this.bqQ != null) {
                 c.i("bluetooth", "stop discovery -- stop success");
-                if (this.aXQ) {
-                    this.aXQ = false;
-                    Oy();
+                if (this.bqT) {
+                    this.bqT = false;
+                    To();
                 }
-                this.aXN.stopLeScan(b(false, true, 0));
-                return r(0, "ok");
+                this.bqQ.stopLeScan(b(false, true, 0));
+                return v(0, "ok");
             }
-            return r(10008, "system error");
+            return v(10008, "system error");
         }
     }
 
-    private void Ox() {
-        if (this.aXP) {
-            this.aXP = false;
-            this.mContext.unregisterReceiver(this.aXZ);
+    private void Tn() {
+        if (this.bqS) {
+            this.bqS = false;
+            this.mContext.unregisterReceiver(this.brc);
         }
     }
 
-    private void Oy() {
-        if (this.FB && this.aXX != null) {
-            JSONObject r = r(0, "ok");
+    private void To() {
+        if (this.sM && this.bra != null) {
+            JSONObject v = v(0, "ok");
             try {
-                r.put("available", Ov());
-                r.put("discovering", this.aXQ);
+                v.put("available", Tl());
+                v.put("discovering", this.bqT);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             if (DEBUG) {
-                Log.d("BluetoothManager", "report state change msg --- result : " + r.toString());
+                Log.d("BluetoothManager", "report state change msg --- result : " + v.toString());
             }
-            this.aXX.f(this.aXX.aXK, r);
+            this.bra.f(this.bra.bqN, v);
         }
     }
 
-    private JSONObject r(int i, String str) {
+    private JSONObject v(int i, String str) {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -302,30 +302,30 @@ public class a {
 
     @RequiresApi(api = 21)
     public static void release() {
-        if (aXM != null) {
-            aXM.BJ();
+        if (bqP != null) {
+            bqP.GD();
         }
     }
 
     @RequiresApi(api = 21)
-    private void BJ() {
-        if (this.aXQ) {
-            Ow();
+    private void GD() {
+        if (this.bqT) {
+            Tm();
         }
-        if (this.aXP) {
-            Ox();
+        if (this.bqS) {
+            Tn();
         }
         this.mHandler.removeCallbacksAndMessages(null);
         this.mContext = null;
-        this.aXN = null;
-        this.aXO = null;
-        this.aXR = null;
-        this.aXS = null;
-        this.aXU = null;
-        this.aXV = null;
-        this.aXW = null;
-        this.FB = false;
-        this.aXQ = false;
-        aXM = null;
+        this.bqQ = null;
+        this.bqR = null;
+        this.bqU = null;
+        this.bqV = null;
+        this.bqX = null;
+        this.bqY = null;
+        this.bqZ = null;
+        this.sM = false;
+        this.bqT = false;
+        bqP = null;
     }
 }

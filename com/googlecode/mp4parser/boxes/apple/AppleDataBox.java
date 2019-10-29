@@ -1,7 +1,8 @@
 package com.googlecode.mp4parser.boxes.apple;
 
+import com.baidu.android.imsdk.utils.BaseUtils;
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.tbadk.pay.PayConfig;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
@@ -15,12 +16,12 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -28,7 +29,7 @@ public abstract class AppleDataBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleDataBox.java", AppleDataBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguageString", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "java.lang.String"), 25);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguageString", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", FieldUtil.TYPE_STRING), 25);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getDataType", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 43);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 47);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataCountry", "", "void"), 51);
@@ -77,7 +78,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dl(i)));
         this.dataCountry = i;
     }
 
@@ -87,7 +88,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dl(i)));
         this.dataLanguage = i;
     }
 
@@ -138,7 +139,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("3", "Italian");
         language.put("4", "Dutch");
         language.put("5", "Swedish");
-        language.put(Constants.VIA_SHARE_TYPE_INFO, "Spanish");
+        language.put("6", "Spanish");
         language.put("7", "Danish");
         language.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "Portuguese");
         language.put("9", "Norwegian");
@@ -169,7 +170,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("34", "Flemish");
         language.put("35", "Irish");
         language.put("36", "Albanian");
-        language.put(PayConfig.PAYMENT_POS_KEY_MANGA, "Romanian");
+        language.put("37", "Romanian");
         language.put("38", "Czech");
         language.put("39", "Slovak");
         language.put("40", "Slovenian");
@@ -187,7 +188,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("52", "Georgian");
         language.put("53", "Moldavian");
         language.put("54", "Kirghiz");
-        language.put("55", "Tajiki");
+        language.put(BaseUtils.METHOD_SENDMESSAGE, "Tajiki");
         language.put("56", "Turkmen");
         language.put("57", "Mongolian");
         language.put("58", "MongolianCyr");
@@ -225,7 +226,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("90", "Kinyarwanda");
         language.put("91", "Rundi");
         language.put("92", "Nyanja");
-        language.put("93", "Malagasy");
+        language.put(BaseUtils.METHOD_RECEIVEESSAGE, "Malagasy");
         language.put("94", "Esperanto");
         language.put("128", "Welsh");
         language.put("129", "Basque");

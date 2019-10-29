@@ -1,29 +1,29 @@
 package com.baidu.tbadk.util;
 /* loaded from: classes.dex */
 public class k {
-    public static boolean awu() {
-        return awv();
+    public static boolean axy() {
+        return axz();
     }
 
-    public static boolean awv() {
-        return com.baidu.tbadk.core.util.m.gB() && com.baidu.adp.gif.c.gA();
+    public static boolean axz() {
+        return com.baidu.tbadk.core.util.m.checkSD() && com.baidu.adp.gif.c.eO();
     }
 
-    public static boolean ro(String str) {
+    public static boolean canUseIp(String str) {
         if (str == null) {
             return false;
         }
-        if (rp(str)) {
+        if (isCdn(str)) {
             return true;
         }
         int indexOf = str.indexOf("imgsrc");
         if (indexOf <= 0 || indexOf >= 20) {
-            return (com.baidu.adp.lib.b.d.hS().az("portrait_cdn_open") != 0) && rr(str);
+            return (com.baidu.adp.lib.b.d.ft().af("portrait_cdn_open") != 0) && isPortrait(str);
         }
         return true;
     }
 
-    public static boolean rp(String str) {
+    public static boolean isCdn(String str) {
         if (str == null) {
             return false;
         }
@@ -35,12 +35,12 @@ public class k {
         return true;
     }
 
-    public static boolean rq(String str) {
+    public static boolean ql(String str) {
         int indexOf;
         return str != null && (indexOf = str.indexOf("tiebapic")) > 0 && indexOf < 20;
     }
 
-    public static boolean rr(String str) {
+    public static boolean isPortrait(String str) {
         int indexOf;
         return str != null && (indexOf = str.indexOf("tb.himg")) > 0 && indexOf < 20;
     }

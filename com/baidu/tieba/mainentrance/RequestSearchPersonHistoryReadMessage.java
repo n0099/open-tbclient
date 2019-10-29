@@ -1,9 +1,10 @@
 package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes6.dex */
 public class RequestSearchPersonHistoryReadMessage extends CustomMessage<Object> {
     public RequestSearchPersonHistoryReadMessage() {
-        super(2001191);
+        super(CmdConfigCustom.CMD_READ_SEARCHPERSON_HISTORY);
     }
 }

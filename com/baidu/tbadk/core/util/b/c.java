@@ -1,64 +1,64 @@
 package com.baidu.tbadk.core.util.b;
 /* loaded from: classes.dex */
 public class c {
-    private String Az;
-    private String bWo;
-    private boolean bWp = false;
-    private boolean bWq = false;
-    private boolean bWr = false;
-    private String bWs;
-    private int bWt;
-    private long bWu;
+    private long clA;
+    private String clu;
+    private boolean clv = false;
+    private boolean clw = false;
+    private boolean clx = false;
+    private String cly;
+    private int clz;
+    private String exception;
 
-    public void eh(boolean z) {
-        this.bWp = z;
+    public void em(boolean z) {
+        this.clv = z;
     }
 
-    public boolean aka() {
-        return this.bWq;
+    public boolean ane() {
+        return this.clw;
     }
 
-    public void ei(boolean z) {
-        this.bWq = z;
+    public void en(boolean z) {
+        this.clw = z;
     }
 
-    public void oD(String str) {
-        this.Az = str;
+    public void oe(String str) {
+        this.exception = str;
     }
 
-    public void ej(boolean z) {
-        this.bWr = z;
+    public void eo(boolean z) {
+        this.clx = z;
     }
 
-    public void akb() {
-        this.Az = "";
+    public void anf() {
+        this.exception = "";
     }
 
-    public void oE(String str) {
-        this.bWs = str;
+    public void og(String str) {
+        this.cly = str;
     }
 
-    public String akc() {
-        return this.bWs;
+    public String ang() {
+        return this.cly;
     }
 
-    public void iy(int i) {
-        this.bWt = i;
+    public void ix(int i) {
+        this.clz = i;
     }
 
-    public void bf(long j) {
-        this.bWu = j;
+    public void aX(long j) {
+        this.clA = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.bWp + "-statType_" + this.bWt + "-dnsErr_" + this.Az + "-hasRetry_" + this.bWr + "-cost_" + this.bWu;
+        return "isFromNet_" + this.clv + "-statType_" + this.clz + "-dnsErr_" + this.exception + "-hasRetry_" + this.clx + "-cost_" + this.clA;
     }
 
-    public String akd() {
-        return this.bWo;
+    public String anh() {
+        return this.clu;
     }
 
-    public void oF(String str) {
-        this.bWo = str;
+    public void oh(String str) {
+        this.clu = str;
     }
 }

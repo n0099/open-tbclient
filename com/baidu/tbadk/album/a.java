@@ -4,19 +4,19 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public static final String bBq = String.valueOf(Integer.MAX_VALUE);
-    public static final String bBr = String.valueOf(2147483646);
+    public static final String ALBUM_ID_ALL = String.valueOf(Integer.MAX_VALUE);
+    public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);
     private String albumId;
-    private MediaFileInfo bBs;
-    private List<MediaFileInfo> bBt;
+    private MediaFileInfo bTY;
     private int count;
+    private List<MediaFileInfo> fileList;
     private String name;
 
     public String getAlbumId() {
         return this.albumId;
     }
 
-    public void lz(String str) {
+    public void setAlbumId(String str) {
         this.albumId = str;
     }
 
@@ -32,34 +32,34 @@ public class a {
         return this.count;
     }
 
-    public void lA(String str) {
-        this.count = com.baidu.adp.lib.g.b.f(str, 0);
+    public void setCount(String str) {
+        this.count = com.baidu.adp.lib.g.b.toInt(str, 0);
     }
 
-    public void aaq() {
+    public void addCount() {
         this.count++;
     }
 
-    public ImageFileInfo aar() {
-        if (this.bBs instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.bBs;
+    public ImageFileInfo afe() {
+        if (this.bTY instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.bTY;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.bBs = mediaFileInfo;
+        this.bTY = mediaFileInfo;
     }
 
-    public MediaFileInfo aas() {
-        return this.bBs;
+    public MediaFileInfo aff() {
+        return this.bTY;
     }
 
-    public List<MediaFileInfo> aat() {
-        return this.bBt;
+    public List<MediaFileInfo> getFileList() {
+        return this.fileList;
     }
 
-    public void O(List<MediaFileInfo> list) {
-        this.bBt = list;
+    public void setFileList(List<MediaFileInfo> list) {
+        this.fileList = list;
     }
 }

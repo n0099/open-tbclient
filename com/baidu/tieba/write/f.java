@@ -6,54 +6,54 @@ import android.view.View;
 import com.baidu.tieba.write.e;
 /* loaded from: classes.dex */
 public abstract class f {
-    protected View bRL;
-    protected e.a jPl;
-    protected a jPt;
+    protected View cir;
+    protected e.a jNr;
+    protected a jNz;
     protected View mAnchorView;
     protected Context mContext;
     protected int mState = 4;
-    protected Rect jPR = new Rect();
-    protected Rect jPS = new Rect();
+    protected Rect jNX = new Rect();
+    protected Rect jNY = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void CT(int i);
+        void Bx(int i);
     }
 
-    public abstract void cAA();
+    public abstract void cxI();
 
-    public abstract void cAx();
+    public abstract void cxK();
 
-    public abstract void cAz();
+    public abstract void cxL();
 
     public abstract void onDestroy();
 
     public f(Context context, e.a aVar) {
         this.mContext = context;
-        this.jPl = aVar;
+        this.jNr = aVar;
     }
 
     public void a(a aVar) {
-        this.jPt = aVar;
+        this.jNz = aVar;
     }
 
-    public void b(View view, View view2) {
+    public void c(View view, View view2) {
         this.mAnchorView = view;
-        this.bRL = view2;
-        if (this.bRL != null) {
-            this.bRL.getGlobalVisibleRect(this.jPR);
+        this.cir = view2;
+        if (this.cir != null) {
+            this.cir.getGlobalVisibleRect(this.jNX);
         }
     }
 
     public void show() {
-        cAx();
+        cxI();
     }
 
-    public void bM(boolean z) {
+    public void cd(boolean z) {
         if (z) {
-            cAz();
+            cxK();
         } else {
-            cAA();
+            cxL();
         }
     }
 }

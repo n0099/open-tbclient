@@ -6,24 +6,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a cgi = null;
-    private boolean cgh;
-    private int cgj;
+    private static volatile a cup = null;
+    private boolean cuo;
+    private int cuq;
 
     private a() {
-        this.cgh = false;
-        this.cgj = 0;
+        this.cuo = false;
+        this.cuq = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
-            dVar.L(true);
+            dVar.setSdCard(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (dVar.gD()) {
+            if (dVar.call()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.cgj = Integer.parseInt(content);
+                    this.cuq = Integer.parseInt(content);
                 }
-                if (this.cgj == 1 || this.cgj == 2) {
-                    this.cgh = true;
+                if (this.cuq == 1 || this.cuq == 2) {
+                    this.cuo = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a alY() {
-        if (cgi == null) {
+    public static a aoL() {
+        if (cup == null) {
             synchronized (a.class) {
-                if (cgi == null) {
-                    cgi = new a();
+                if (cup == null) {
+                    cup = new a();
                 }
             }
         }
-        return cgi;
+        return cup;
     }
 
-    public boolean alZ() {
-        return this.cgh;
+    public boolean aoM() {
+        return this.cuo;
     }
 
-    public int ama() {
-        return this.cgj;
+    public int aoN() {
+        return this.cuq;
     }
 
-    public String amb() {
-        return this.cgh ? "pub_env=" + this.cgj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String aoO() {
+        return this.cuo ? "pub_env=" + this.cuq + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

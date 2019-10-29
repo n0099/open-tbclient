@@ -11,13 +11,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class b {
-    public static Bitmap H(String str, boolean z) {
+    public static Bitmap K(String str, boolean z) {
         Bitmap bitmap = null;
-        com.baidu.swan.apps.ae.b Mh = com.baidu.swan.apps.ae.b.Mh();
-        if (Mh != null) {
-            String a = com.baidu.swan.apps.storage.b.a(str, Mh, Mh.getVersion());
+        com.baidu.swan.apps.ae.b QZ = com.baidu.swan.apps.ae.b.QZ();
+        if (QZ != null) {
+            String a = com.baidu.swan.apps.storage.b.a(str, QZ, QZ.getVersion());
             if (!TextUtils.isEmpty(a)) {
-                bitmap = kp(a);
+                bitmap = kR(a);
             }
         }
         if (bitmap == null && z) {
@@ -49,11 +49,11 @@ public class b {
         return bitmap2;
     }
 
-    private static Bitmap kp(String str) {
+    private static Bitmap kR(String str) {
         try {
             FileInputStream fileInputStream = new FileInputStream(new File(str));
             Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream, null, new BitmapFactory.Options());
-            com.baidu.swan.c.a.c(fileInputStream);
+            com.baidu.swan.c.a.b(fileInputStream);
             return decodeStream;
         } catch (IOException | OutOfMemoryError e) {
             e.printStackTrace();

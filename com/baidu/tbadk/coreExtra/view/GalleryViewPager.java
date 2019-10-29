@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
-    private PointF cnx;
-    private DragImageView cny;
+    private PointF cAu;
+    private DragImageView cAv;
 
     public GalleryViewPager(Context context) {
         super(context);
@@ -21,21 +21,21 @@ public class GalleryViewPager extends BaseViewPager {
     }
 
     public void setCurrentView(DragImageView dragImageView) {
-        this.cny = dragImageView;
+        this.cAv = dragImageView;
     }
 
     public DragImageView getCurrentView() {
-        return this.cny;
+        return this.cAv;
     }
 
-    private float[] w(MotionEvent motionEvent) {
+    private float[] r(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.cnx.x, pointF.y - this.cnx.y};
+                return new float[]{pointF.x - this.cAu.x, pointF.y - this.cAu.y};
             case 0:
-                this.cnx = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.cAu = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -45,25 +45,25 @@ public class GalleryViewPager extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.cny != null) {
-                this.cny.axc();
+            if (this.cAv != null) {
+                this.cAv.actionUp();
             }
         }
-        if (this.cny == null) {
+        if (this.cAv == null) {
             return super.onTouchEvent(motionEvent);
         }
-        float[] w = w(motionEvent);
-        if (this.cny.axd()) {
+        float[] r = r(motionEvent);
+        if (this.cAv.pagerCantScroll()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (w != null && this.cny.axj() && w[0] < 0.0f) {
+        if (r != null && this.cAv.onRightSide() && r[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (w != null && this.cny.axk() && w[0] > 0.0f) {
+        if (r != null && this.cAv.onLeftSide() && r[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (w == null) {
-            if (this.cny.axk() || this.cny.axj()) {
+        if (r == null) {
+            if (this.cAv.onLeftSide() || this.cAv.onRightSide()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -76,21 +76,21 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] w = w(motionEvent);
-        if (this.cny == null) {
+        float[] r = r(motionEvent);
+        if (this.cAv == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.cny.axd()) {
+        if (this.cAv.pagerCantScroll()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (w != null && this.cny.axj() && w[0] < 0.0f) {
+        if (r != null && this.cAv.onRightSide() && r[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (w != null && this.cny.axk() && w[0] > 0.0f) {
+        if (r != null && this.cAv.onLeftSide() && r[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (w == null) {
-            if (this.cny.axk() || this.cny.axj()) {
+        if (r == null) {
+            if (this.cAv.onLeftSide() || this.cAv.onRightSide()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

@@ -1,5 +1,6 @@
 package kotlin.sequences;
 
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import kotlin.jvm.internal.Lambda;
 /* loaded from: classes2.dex */
 final class SequencesKt___SequencesKt$requireNoNulls$1 extends Lambda implements kotlin.jvm.a.b<T, T> {
@@ -16,6 +17,6 @@ final class SequencesKt___SequencesKt$requireNoNulls$1 extends Lambda implements
         if (t != 0) {
             return t;
         }
-        throw new IllegalArgumentException("null element found in " + this.receiver$0 + '.');
+        throw new IllegalArgumentException("null element found in " + this.receiver$0 + BdFileHelper.EXTENSION_SEPARATOR);
     }
 }

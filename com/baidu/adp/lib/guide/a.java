@@ -8,18 +8,18 @@ import com.baidu.adp.lib.guide.MaskView;
 class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static View a(LayoutInflater layoutInflater, b bVar) {
-        View a = bVar.a(layoutInflater);
+        View view = bVar.getView(layoutInflater);
         MaskView.a aVar = new MaskView.a(-2, -2);
-        aVar.zQ = bVar.getXOffset();
-        aVar.zR = bVar.getYOffset();
-        aVar.zO = bVar.hT();
-        aVar.zP = bVar.hU();
-        a.setLayoutParams(aVar);
-        return a;
+        aVar.offsetX = bVar.getXOffset();
+        aVar.offsetY = bVar.getYOffset();
+        aVar.targetAnchor = bVar.getAnchor();
+        aVar.targetParentPosition = bVar.getFitPosition();
+        view.setLayoutParams(aVar);
+        return view;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Rect a(View view, int i, int i2) {
+    public static Rect getViewAbsRect(View view, int i, int i2) {
         int[] iArr = new int[2];
         view.getLocationInWindow(iArr);
         Rect rect = new Rect();

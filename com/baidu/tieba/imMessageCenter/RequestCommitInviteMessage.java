@@ -1,5 +1,6 @@
 package com.baidu.tieba.imMessageCenter;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.CommitInviteMsg.CommitInviteMsgReqIdl;
 import protobuf.CommitInviteMsg.DataReq;
@@ -8,7 +9,7 @@ public class RequestCommitInviteMessage extends TbSocketMessage {
     private DataReq mReqData;
 
     public RequestCommitInviteMessage() {
-        super(205002);
+        super(CmdConfigSocket.CMD_COMMIT_INVITE);
     }
 
     public void setReqData(DataReq dataReq) {

@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.live.tbadk.data.Config;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -39,7 +39,7 @@ public final class k {
             HashMap hashMap = new HashMap();
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
-            hashMap.put(IXAdRequestInfo.OS, "android");
+            hashMap.put("os", "android");
             InputStream inputStream2 = null;
             long j = 1000;
             int i = 0;
@@ -93,15 +93,15 @@ public final class k {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean d() {
         long j;
-        long j2 = 259200000;
+        long j2 = Config.THREAD_IMAGE_SAVE_MAX_TIME;
         if (!com.baidu.android.pushservice.g.a.b.c(this.b) || this.d || PushSettings.g(this.b)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
         long e = PushSettings.e(this.b);
         long j3 = currentTimeMillis - e;
-        if (j3 > 259200000) {
-            j = currentTimeMillis - 259200000;
+        if (j3 > Config.THREAD_IMAGE_SAVE_MAX_TIME) {
+            j = currentTimeMillis - Config.THREAD_IMAGE_SAVE_MAX_TIME;
             PushSettings.a(this.b, j);
         } else {
             j2 = j3;

@@ -2,6 +2,7 @@ package com.baidu.platform.comapi.pano;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
@@ -15,7 +16,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0081a<T> {
+    public interface InterfaceC0113a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -32,7 +33,7 @@ public class a {
             if (optJSONObject == null) {
                 return new c(PanoStateError.PANO_NOT_FOUND);
             }
-            if (optJSONObject.optInt("error") == 0) {
+            if (optJSONObject.optInt(BdStatsConstant.StatsType.ERROR) == 0) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("content");
                 if (optJSONArray == null) {
                     return new c(PanoStateError.PANO_NOT_FOUND);
@@ -68,7 +69,7 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0081a<c> interfaceC0081a) {
+    public void a(String str, InterfaceC0113a<c> interfaceC0113a) {
         Uri.Builder builder = new Uri.Builder();
         if (HttpClient.isHttpsEnable) {
             builder.scheme("https");
@@ -82,10 +83,10 @@ public class a {
         a(builder, "action", "0");
         String authToken = HttpClient.getAuthToken();
         if (authToken == null) {
-            interfaceC0081a.a((InterfaceC0081a<c>) new c(PanoStateError.PANO_NO_TOKEN));
+            interfaceC0113a.a((InterfaceC0113a<c>) new c(PanoStateError.PANO_NO_TOKEN));
             return;
         }
         a(builder, "token", authToken);
-        this.a.get(a(builder), new b(this, interfaceC0081a));
+        this.a.get(a(builder), new b(this, interfaceC0113a));
     }
 }

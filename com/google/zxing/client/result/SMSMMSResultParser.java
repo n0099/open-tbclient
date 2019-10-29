@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,7 +14,7 @@ public final class SMSMMSResultParser extends ResultParser {
         String str2;
         String substring;
         String massagedText = getMassagedText(result);
-        if (!massagedText.startsWith("sms:") && !massagedText.startsWith("SMS:") && !massagedText.startsWith("mms:") && !massagedText.startsWith("MMS:")) {
+        if (!massagedText.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS) && !massagedText.startsWith("SMS:") && !massagedText.startsWith("mms:") && !massagedText.startsWith("MMS:")) {
             return null;
         }
         Map<String, String> parseNameValuePairs = parseNameValuePairs(massagedText);

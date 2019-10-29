@@ -7,17 +7,17 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 /* loaded from: classes3.dex */
 public final class g {
-    private static Intent ZZ;
+    private static Intent Kc;
 
     public static void e(Context context) {
-        if (ZZ != null || context == null) {
+        if (Kc != null || context == null) {
             return;
         }
         try {
-            ZZ = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            Kc = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             com.baidu.crabsdk.c.a.v("Battery Broadcast Regist Success");
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("Register Battery Error!", e);
+            com.baidu.crabsdk.c.a.f("Register Battery Error!", e);
         }
     }
 
@@ -44,13 +44,13 @@ public final class g {
     }
 
     public static String v() {
-        if (ZZ == null) {
+        if (Kc == null) {
             return "N/A";
         }
         try {
-            return ((int) ((ZZ.getIntExtra("level", 0) * 100.0f) / ZZ.getIntExtra("scale", 100))) + "%";
+            return ((int) ((Kc.getIntExtra("level", 0) * 100.0f) / Kc.getIntExtra("scale", 100))) + "%";
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("Get Battery Error!", e);
+            com.baidu.crabsdk.c.a.f("Get Battery Error!", e);
             return "N/A";
         }
     }

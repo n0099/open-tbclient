@@ -9,15 +9,15 @@ public class b {
         if (iVar != null) {
             iVar.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.b.1
                 @Override // com.baidu.tieba.j.b
-                public void bJ(JSONObject jSONObject) throws JSONException {
+                public void ci(JSONObject jSONObject) throws JSONException {
                 }
 
                 @Override // com.baidu.tieba.j.b
-                public void bK(JSONObject jSONObject) throws JSONException {
+                public void cj(JSONObject jSONObject) throws JSONException {
                 }
 
                 @Override // com.baidu.tieba.j.b
-                public void bL(JSONObject jSONObject) throws JSONException {
+                public void ck(JSONObject jSONObject) throws JSONException {
                     jSONObject.put("flow_count", j);
                     jSONObject.put("play_position", j2);
                     jSONObject.put("video_duration", j3);

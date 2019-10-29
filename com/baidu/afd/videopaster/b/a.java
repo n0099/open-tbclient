@@ -1,18 +1,18 @@
 package com.baidu.afd.videopaster.b;
 /* loaded from: classes.dex */
 public class a {
-    public int SA = 3;
-    public int Sg;
-    public int Sh;
-    public int Sr;
-    public String Ss;
-    public int St;
-    public int Su;
-    public int Sv;
-    public int Sw;
-    public int Sx;
-    public int Sy;
-    public int Sz;
+    public int BB;
+    public int BC;
+    public int BM;
+    public String BN;
+    public int BO;
+    public int BP;
+    public int BQ;
+    public int BR;
+    public int BS;
+    public int BT;
+    public int BU;
+    public int BV = 3;
     public String extraParam;
     public String tplName;
 }

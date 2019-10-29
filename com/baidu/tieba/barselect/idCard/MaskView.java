@@ -16,31 +16,31 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class MaskView extends View {
-    private int cSr;
-    private int cbm;
-    private Rect eAa;
-    private Drawable eAb;
-    private Paint ezD;
-    private Paint ezZ;
-    private Path lR;
+    private int dbL;
+    private Paint eIH;
+    private Rect eII;
+    private Drawable eIJ;
+    private Paint eIl;
+    private int lineColor;
     private int maskType;
+    private Path path;
 
     public void setLineColor(int i) {
-        this.cbm = i;
+        this.lineColor = i;
     }
 
     public void setMaskColor(int i) {
-        this.cSr = i;
+        this.dbL = i;
     }
 
     public Rect getFrameRect() {
-        return this.maskType == 0 ? new Rect(0, 0, getWidth(), getHeight()) : new Rect(this.eAa);
+        return this.maskType == 0 ? new Rect(0, 0, getWidth(), getHeight()) : new Rect(this.eII);
     }
 
     public Rect getFrameRectExtend() {
-        Rect rect = new Rect(this.eAa);
-        int i = (int) ((this.eAa.right - this.eAa.left) * 0.02f);
-        int i2 = (int) ((this.eAa.bottom - this.eAa.top) * 0.02f);
+        Rect rect = new Rect(this.eII);
+        int i = (int) ((this.eII.right - this.eII.left) * 0.02f);
+        int i2 = (int) ((this.eII.bottom - this.eII.top) * 0.02f);
         rect.left -= i;
         rect.right = i + rect.right;
         rect.top -= i2;
@@ -52,10 +52,10 @@ public class MaskView extends View {
         this.maskType = i;
         switch (i) {
             case 1:
-                this.eAb = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+                this.eIJ = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
                 break;
             case 2:
-                this.eAb = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
+                this.eIJ = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
                 break;
         }
         invalidate();
@@ -70,57 +70,57 @@ public class MaskView extends View {
 
     public MaskView(Context context) {
         super(context);
-        this.cbm = -1;
+        this.lineColor = -1;
         this.maskType = 1;
-        this.cSr = Color.argb(100, 0, 0, 0);
-        this.ezD = new Paint(1);
-        this.ezZ = new Paint(1);
-        this.eAa = new Rect();
-        this.lR = new Path();
+        this.dbL = Color.argb(100, 0, 0, 0);
+        this.eIl = new Paint(1);
+        this.eIH = new Paint(1);
+        this.eII = new Rect();
+        this.path = new Path();
         setLayerType(1, null);
-        this.ezZ.setColor(-1);
-        this.ezZ.setStyle(Paint.Style.STROKE);
-        this.ezZ.setStrokeWidth(6.0f);
-        this.ezD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.eIH.setColor(-1);
+        this.eIH.setStyle(Paint.Style.STROKE);
+        this.eIH.setStrokeWidth(6.0f);
+        this.eIl.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
     public MaskView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cbm = -1;
+        this.lineColor = -1;
         this.maskType = 1;
-        this.cSr = Color.argb(100, 0, 0, 0);
-        this.ezD = new Paint(1);
-        this.ezZ = new Paint(1);
-        this.eAa = new Rect();
-        this.lR = new Path();
+        this.dbL = Color.argb(100, 0, 0, 0);
+        this.eIl = new Paint(1);
+        this.eIH = new Paint(1);
+        this.eII = new Rect();
+        this.path = new Path();
         setLayerType(1, null);
-        this.ezZ.setColor(-1);
-        this.ezZ.setStyle(Paint.Style.STROKE);
-        this.ezZ.setStrokeWidth(6.0f);
-        this.ezD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.eIH.setColor(-1);
+        this.eIH.setStyle(Paint.Style.STROKE);
+        this.eIH.setStrokeWidth(6.0f);
+        this.eIl.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
     public MaskView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cbm = -1;
+        this.lineColor = -1;
         this.maskType = 1;
-        this.cSr = Color.argb(100, 0, 0, 0);
-        this.ezD = new Paint(1);
-        this.ezZ = new Paint(1);
-        this.eAa = new Rect();
-        this.lR = new Path();
+        this.dbL = Color.argb(100, 0, 0, 0);
+        this.eIl = new Paint(1);
+        this.eIH = new Paint(1);
+        this.eII = new Rect();
+        this.path = new Path();
         setLayerType(1, null);
-        this.ezZ.setColor(-1);
-        this.ezZ.setStyle(Paint.Style.STROKE);
-        this.ezZ.setStrokeWidth(6.0f);
-        this.ezD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.eIH.setColor(-1);
+        this.eIH.setStyle(Paint.Style.STROKE);
+        this.eIH.setStrokeWidth(6.0f);
+        this.eIl.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
     private void init() {
-        this.eAb = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+        this.eIJ = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
     }
 
     @Override // android.view.View
@@ -131,10 +131,10 @@ public class MaskView extends View {
             int i6 = (i5 * 400) / 620;
             int i7 = (i - i5) / 2;
             int i8 = (i2 - i6) / 2;
-            this.eAa.left = i7;
-            this.eAa.top = i8;
-            this.eAa.right = i5 + i7;
-            this.eAa.bottom = i6 + i8;
+            this.eII.left = i7;
+            this.eII.top = i8;
+            this.eII.right = i5 + i7;
+            this.eII.bottom = i6 + i8;
         }
     }
 
@@ -142,29 +142,29 @@ public class MaskView extends View {
     @RequiresApi(api = 21)
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Rect rect = this.eAa;
+        Rect rect = this.eII;
         int width = rect.width();
         int height = rect.height();
         int i = rect.left;
         int i2 = rect.top;
         int i3 = rect.right;
         int i4 = rect.bottom;
-        canvas.drawColor(this.cSr);
+        canvas.drawColor(this.dbL);
         a(i, i2, i3, i4, 30.0f, 30.0f, false);
-        canvas.drawPath(this.lR, this.ezZ);
-        canvas.drawPath(this.lR, this.ezD);
+        canvas.drawPath(this.path, this.eIH);
+        canvas.drawPath(this.path, this.eIl);
         if (this.maskType == 1) {
-            this.eAb.setBounds((int) (i + (0.5974155f * width)), (int) (i2 + (0.17405063f * height)), (int) (i + (0.95725644f * width)), (int) (i2 + (0.7531645f * height)));
+            this.eIJ.setBounds((int) (i + (0.5974155f * width)), (int) (i2 + (0.17405063f * height)), (int) (i + (0.95725644f * width)), (int) (i2 + (0.7531645f * height)));
         } else if (this.maskType == 2) {
-            this.eAb.setBounds((int) (i + (0.050695825f * width)), (int) (i2 + (0.07594936f * height)), (int) (i + (0.24850895f * width)), (int) (i2 + (0.41455695f * height)));
+            this.eIJ.setBounds((int) (i + (0.050695825f * width)), (int) (i2 + (0.07594936f * height)), (int) (i + (0.24850895f * width)), (int) (i2 + (0.41455695f * height)));
         }
-        if (this.eAb != null) {
-            this.eAb.draw(canvas);
+        if (this.eIJ != null) {
+            this.eIJ.draw(canvas);
         }
     }
 
     private Path a(float f, float f2, float f3, float f4, float f5, float f6, boolean z) {
-        this.lR.reset();
+        this.path.reset();
         float f7 = f5 < 0.0f ? 0.0f : f5;
         float f8 = f6 < 0.0f ? 0.0f : f6;
         float f9 = f3 - f;
@@ -177,22 +177,22 @@ public class MaskView extends View {
         }
         float f11 = f9 - (2.0f * f7);
         float f12 = f10 - (2.0f * f8);
-        this.lR.moveTo(f3, f2 + f8);
-        this.lR.rQuadTo(0.0f, -f8, -f7, -f8);
-        this.lR.rLineTo(-f11, 0.0f);
-        this.lR.rQuadTo(-f7, 0.0f, -f7, f8);
-        this.lR.rLineTo(0.0f, f12);
+        this.path.moveTo(f3, f2 + f8);
+        this.path.rQuadTo(0.0f, -f8, -f7, -f8);
+        this.path.rLineTo(-f11, 0.0f);
+        this.path.rQuadTo(-f7, 0.0f, -f7, f8);
+        this.path.rLineTo(0.0f, f12);
         if (z) {
-            this.lR.rLineTo(0.0f, f8);
-            this.lR.rLineTo(f9, 0.0f);
-            this.lR.rLineTo(0.0f, -f8);
+            this.path.rLineTo(0.0f, f8);
+            this.path.rLineTo(f9, 0.0f);
+            this.path.rLineTo(0.0f, -f8);
         } else {
-            this.lR.rQuadTo(0.0f, f8, f7, f8);
-            this.lR.rLineTo(f11, 0.0f);
-            this.lR.rQuadTo(f7, 0.0f, f7, -f8);
+            this.path.rQuadTo(0.0f, f8, f7, f8);
+            this.path.rLineTo(f11, 0.0f);
+            this.path.rQuadTo(f7, 0.0f, f7, -f8);
         }
-        this.lR.rLineTo(0.0f, -f12);
-        this.lR.close();
-        return this.lR;
+        this.path.rLineTo(0.0f, -f12);
+        this.path.close();
+        return this.path;
     }
 }

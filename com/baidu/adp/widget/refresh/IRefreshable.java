@@ -14,10 +14,10 @@ public interface IRefreshable {
     public interface a {
         void a(State state);
 
-        void oW();
+        void onPreRefresh();
 
-        void oX();
+        void onRefreshData();
 
-        void oY();
+        void onRefreshUI();
     }
 }

@@ -8,14 +8,14 @@ import com.baidu.searchbox.http.callback.ResponseCallback;
 /* loaded from: classes2.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final String bkd = com.baidu.swan.apps.ae.b.Ms();
+    protected static final String bCR = com.baidu.swan.apps.ae.b.Rk();
 
     public <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
         if (DEBUG) {
             Log.d("requestWithUrlAndBody", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.EL().Fj()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.JF().Kd()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 }

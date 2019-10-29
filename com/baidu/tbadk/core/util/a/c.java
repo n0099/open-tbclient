@@ -4,22 +4,22 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    public int AR;
-    public int bVr;
     public String mErrorString;
-    public String bVs = null;
+    public int mNetErrorCode;
+    public int mServerErrorCode;
+    public String mException = null;
     public boolean mIsGif = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean aiN() {
-        return this.AR == 200;
+    public boolean isNetSuccess() {
+        return this.mNetErrorCode == 200;
     }
 
     public boolean isRequestSuccess() {
-        return this.AR == 200 && this.bVr == 0;
+        return this.mNetErrorCode == 200 && this.mServerErrorCode == 0;
     }
 
-    public boolean il() {
-        return this.AR == 200 || this.AR == 206;
+    public boolean isFileSegSuccess() {
+        return this.mNetErrorCode == 200 || this.mNetErrorCode == 206;
     }
 }

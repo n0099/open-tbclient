@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupLocation.DataReq;
 import protobuf.QueryGroupLocation.QueryGroupLocationReqIdl;
@@ -10,7 +11,7 @@ public class RequestQueryGroupLocMessage extends TbSocketMessage {
     private String lng;
 
     public RequestQueryGroupLocMessage() {
-        super(103010);
+        super(CmdConfigSocket.CMD_QUERY_GROUPLOC);
     }
 
     public long getGroupId() {

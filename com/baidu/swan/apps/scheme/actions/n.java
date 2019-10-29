@@ -31,7 +31,7 @@ public class n extends z {
             z = false;
         } else {
             com.baidu.swan.apps.console.c.i("OpenApp", "open app: url=" + optString);
-            z = com.baidu.swan.apps.an.ac.Z(context, optString);
+            z = com.baidu.swan.apps.an.ac.Y(context, optString);
         }
         boolean optBoolean = c.optBoolean("isNeedDownload", true);
         if (!z && !optBoolean) {
@@ -39,7 +39,7 @@ public class n extends z {
             return false;
         }
         if (!z) {
-            z = com.baidu.swan.apps.an.ac.aa(context, c.optString("download"));
+            z = com.baidu.swan.apps.an.ac.Z(context, c.optString("download"));
         }
         com.baidu.swan.apps.console.c.i("OpenApp", "open app: executeResult=" + z);
         if (z) {

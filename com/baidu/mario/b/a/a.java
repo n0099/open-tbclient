@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v4.view.PointerIconCompat;
 import android.util.Log;
 import com.baidu.mario.b.b.c;
 import com.baidu.mario.b.b.d;
@@ -14,25 +13,25 @@ import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private HandlerThread aeH;
-    private Handler aeI;
-    private com.baidu.mario.b.b.a aeJ;
-    private volatile boolean aeK = false;
-    private e aer;
+    private e axP;
+    private HandlerThread ayf;
+    private Handler ayg;
+    private com.baidu.mario.b.b.a ayh;
+    private volatile boolean ayi = false;
 
     private void a(e eVar, c cVar) {
-        this.aeH = new HandlerThread("AudioRecorderThread");
-        this.aeH.start();
-        this.aeI = new b(this.aeH.getLooper());
-        this.aeJ = new com.baidu.mario.b.b.a();
-        this.aer = eVar;
+        this.ayf = new HandlerThread("AudioRecorderThread");
+        this.ayf.start();
+        this.ayg = new b(this.ayf.getLooper());
+        this.ayh = new com.baidu.mario.b.b.a();
+        this.axP = eVar;
         if (Build.VERSION.SDK_INT >= 18) {
-            this.aeJ.a(cVar);
+            this.ayh.a(cVar);
         }
     }
 
     public boolean isRunning() {
-        return this.aeH != null && this.aeH.isAlive();
+        return this.ayf != null && this.ayf.isAlive();
     }
 
     public boolean a(d dVar, e eVar, c cVar) {
@@ -41,38 +40,38 @@ public class a {
             return false;
         }
         a(eVar, cVar);
-        this.aeI.sendMessage(this.aeI.obtainMessage(1001, dVar));
-        this.aeK = true;
+        this.ayg.sendMessage(this.ayg.obtainMessage(1001, dVar));
+        this.ayi = true;
         return true;
     }
 
-    public void tE() {
-        if (this.aeI != null) {
-            this.aeI.sendMessage(this.aeI.obtainMessage(1002));
+    public void yx() {
+        if (this.ayg != null) {
+            this.ayg.sendMessage(this.ayg.obtainMessage(1002));
         }
     }
 
     public void d(ByteBuffer byteBuffer, int i, long j) {
         if (byteBuffer != null && i > 0) {
-            C0068a c0068a = new C0068a(byteBuffer, i, j);
-            if (this.aeI != null && this.aeK) {
-                this.aeI.sendMessage(this.aeI.obtainMessage(1003, c0068a));
+            C0100a c0100a = new C0100a(byteBuffer, i, j);
+            if (this.ayg != null && this.ayi) {
+                this.ayg.sendMessage(this.ayg.obtainMessage(1003, c0100a));
             }
         }
     }
 
-    public void stopRecording() {
-        if (this.aeI != null && this.aeK) {
-            this.aeK = false;
-            this.aeI.sendMessage(this.aeI.obtainMessage(1004));
+    public void yy() {
+        if (this.ayg != null && this.ayi) {
+            this.ayi = false;
+            this.ayg.sendMessage(this.ayg.obtainMessage(1004));
         }
     }
 
-    public void tF() {
-        if (this.aeI != null) {
-            this.aeI.removeCallbacksAndMessages(null);
-            this.aeI.sendMessage(this.aeI.obtainMessage(1005));
-            this.aeI.sendMessage(this.aeI.obtainMessage(PointerIconCompat.TYPE_CELL));
+    public void yz() {
+        if (this.ayg != null) {
+            this.ayg.removeCallbacksAndMessages(null);
+            this.ayg.sendMessage(this.ayg.obtainMessage(1005));
+            this.ayg.sendMessage(this.ayg.obtainMessage(1006));
         }
     }
 
@@ -90,20 +89,20 @@ public class a {
                     a.this.b((d) message.obj);
                     return;
                 case 1002:
-                    a.this.tG();
+                    a.this.yA();
                     return;
                 case 1003:
-                    C0068a c0068a = (C0068a) message.obj;
-                    a.this.e(c0068a.aeL, c0068a.aeM, c0068a.aeN);
+                    C0100a c0100a = (C0100a) message.obj;
+                    a.this.e(c0100a.ayj, c0100a.ayk, c0100a.ayl);
                     return;
                 case 1004:
-                    a.this.tH();
+                    a.this.yB();
                     return;
                 case 1005:
-                    a.this.tI();
+                    a.this.yC();
                     return;
-                case PointerIconCompat.TYPE_CELL /* 1006 */:
-                    a.this.tJ();
+                case 1006:
+                    a.this.yD();
                     return;
                 default:
                     return;
@@ -114,64 +113,64 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(d dVar) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.aeJ.a(dVar, this.aer);
+            this.ayh.a(dVar, this.axP);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tG() {
+    public void yA() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.aeJ.tQ();
+            this.ayh.yK();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ByteBuffer byteBuffer, int i, long j) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.aeJ.b(false, byteBuffer, i, j);
+            this.ayh.b(false, byteBuffer, i, j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tH() {
+    public void yB() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.aeJ.b(true, (ByteBuffer) null, 0, 0L);
+            this.ayh.b(true, (ByteBuffer) null, 0, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tI() {
+    public void yC() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.aeJ.tP();
-            this.aeJ.tO();
-            this.aeJ = null;
-            this.aer = null;
+            this.ayh.yJ();
+            this.ayh.yI();
+            this.ayh = null;
+            this.axP = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tJ() {
-        if (this.aeI != null) {
-            this.aeI.removeCallbacksAndMessages(null);
-            this.aeI = null;
+    public void yD() {
+        if (this.ayg != null) {
+            this.ayg.removeCallbacksAndMessages(null);
+            this.ayg = null;
         }
-        if (this.aeH != null) {
-            this.aeH.quit();
-            this.aeH = null;
+        if (this.ayf != null) {
+            this.ayf.quit();
+            this.ayf = null;
         }
     }
 
     /* renamed from: com.baidu.mario.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class C0068a {
-        ByteBuffer aeL;
-        int aeM;
-        long aeN;
+    private class C0100a {
+        ByteBuffer ayj;
+        int ayk;
+        long ayl;
 
-        public C0068a(ByteBuffer byteBuffer, int i, long j) {
-            this.aeL = byteBuffer;
-            this.aeM = i;
-            this.aeN = j;
+        public C0100a(ByteBuffer byteBuffer, int i, long j) {
+            this.ayj = byteBuffer;
+            this.ayk = i;
+            this.ayl = j;
         }
     }
 }

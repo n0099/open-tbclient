@@ -14,43 +14,43 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.z;
 /* loaded from: classes2.dex */
 public class LoadingAnimView extends View {
-    private float aLi;
-    private Canvas aLj;
-    private Camera aLk;
+    private Camera apj;
+    private float bex;
     private ValueAnimator mAnimator;
     private Bitmap mBitmap;
+    private Canvas mCanvas;
     private Matrix mMatrix;
     private Paint mPaint;
 
     public LoadingAnimView(Context context) {
         super(context);
-        this.aLi = 0.0f;
+        this.bex = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aLi = 0.0f;
+        this.bex = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aLi = 0.0f;
+        this.bex = 0.0f;
         init();
     }
 
     public void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.aLk = new Camera();
+        this.apj = new Camera();
         this.mMatrix = new Matrix();
         startAnim();
     }
 
     public void startAnim() {
         if (this.mAnimator != null) {
-            Ku();
+            Pn();
         }
         this.mAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.mAnimator.setDuration(750L);
@@ -62,11 +62,11 @@ public class LoadingAnimView extends View {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 0.4f) {
-                    LoadingAnimView.this.aLi = (floatValue / 0.4f) * 0.25f;
+                    LoadingAnimView.this.bex = (floatValue / 0.4f) * 0.25f;
                 } else if (floatValue < 0.6f) {
-                    LoadingAnimView.this.aLi = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
+                    LoadingAnimView.this.bex = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
                 } else {
-                    LoadingAnimView.this.aLi = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
+                    LoadingAnimView.this.bex = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
                 }
                 LoadingAnimView.this.postInvalidate();
             }
@@ -77,28 +77,28 @@ public class LoadingAnimView extends View {
     }
 
     public void stopAnim() {
-        Ku();
+        Pn();
         clearAnimation();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.mBitmap != null && this.aLj != null) {
+        if (this.mBitmap != null && this.mCanvas != null) {
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             int dip2px = z.dip2px(getContext(), 6.0f);
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
             this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_load_footer_image_color));
-            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.aLi - 0.5d))) * 0.3d) + 0.3d)));
-            this.aLj.drawCircle(measuredWidth / 2.0f, measuredHeight / 2.0f, dip2px, this.mPaint);
+            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.bex - 0.5d))) * 0.3d) + 0.3d)));
+            this.mCanvas.drawCircle(measuredWidth / 2.0f, measuredHeight / 2.0f, dip2px, this.mPaint);
             this.mMatrix.reset();
-            this.aLk.save();
-            this.aLk.setLocation(0.0f, 0.0f, -100.0f);
-            this.aLk.rotateY(this.aLi * 360.0f);
-            this.aLk.getMatrix(this.mMatrix);
-            this.aLk.restore();
+            this.apj.save();
+            this.apj.setLocation(0.0f, 0.0f, -100.0f);
+            this.apj.rotateY(this.bex * 360.0f);
+            this.apj.getMatrix(this.mMatrix);
+            this.apj.restore();
             this.mMatrix.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
             this.mMatrix.postTranslate(measuredWidth / 2.0f, measuredHeight / 2.0f);
             canvas.drawBitmap(this.mBitmap, this.mMatrix, null);
@@ -109,10 +109,10 @@ public class LoadingAnimView extends View {
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         this.mBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-        this.aLj = new Canvas(this.mBitmap);
+        this.mCanvas = new Canvas(this.mBitmap);
     }
 
-    private void Ku() {
+    private void Pn() {
         if (this.mAnimator != null) {
             this.mAnimator.setRepeatCount(0);
             this.mAnimator.removeAllUpdateListeners();

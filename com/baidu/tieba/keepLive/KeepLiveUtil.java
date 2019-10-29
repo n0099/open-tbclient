@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.live.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
@@ -32,7 +33,7 @@ public class KeepLiveUtil {
                 Context context2;
                 try {
                     context2 = contextArr[0];
-                    TiebaStatic.log("c12662");
+                    TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
                 } catch (Throwable th) {
                 }
                 if (TbadkCoreApplication.getKeepLiveSwitch(context2)) {
@@ -44,7 +45,7 @@ public class KeepLiveUtil {
                             KeepLiveUtil.mKeepLiveContext = context2;
                         }
                         if (Build.VERSION.SDK_INT >= 23) {
-                            a.c(0, 0, 0, 1, 5);
+                            a.d(0, 0, 0, 1, 5);
                             BdSocketLinkService.startService(false, "restart");
                         } else {
                             GuardServiceObserver.startNativeServiceForUnder23(context2);
@@ -59,7 +60,7 @@ public class KeepLiveUtil {
     }
 
     public static void startRemoteService() {
-        TiebaStatic.log("c12662");
+        TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
         BdSocketLinkService.startService(false, "restart");
     }
 
@@ -95,7 +96,7 @@ public class KeepLiveUtil {
         if (mKeepLiveContext == null) {
             mKeepLiveContext = TbadkCoreApplication.getInst().getApplicationContext();
         }
-        if (!ak.PA()) {
+        if (!ak.Uq()) {
             SyncService.startAccountSync(mKeepLiveContext.getApplicationContext());
         }
     }

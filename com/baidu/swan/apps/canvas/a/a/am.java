@@ -9,15 +9,15 @@ public class am extends a {
     private Path mPath;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void e(JSONArray jSONArray) {
+    public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int ad = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(0));
-                int ad2 = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
-                int ad3 = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(2));
-                int ad4 = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(3));
+                int S = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(0));
+                int S2 = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
+                int S3 = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(2));
+                int S4 = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(3));
                 this.mPath = new Path();
-                this.mPath.addRect(new RectF(ad, ad2, ad + ad3, ad2 + ad4), Path.Direction.CW);
+                this.mPath.addRect(new RectF(S, S2, S + S3, S2 + S4), Path.Direction.CW);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {

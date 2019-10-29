@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.download.DownloadData;
@@ -23,31 +24,31 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class AppDownloadView extends LinearLayout {
     private CustomMessageListener downloadListener;
-    private CustomMessageListener iLq;
-    private ProgressBar iPZ;
-    private ImageView iQa;
-    private TextView iQb;
-    private DownloadData iQc;
+    private CustomMessageListener iKh;
+    private ProgressBar iOV;
+    private ImageView iOW;
+    private TextView iOX;
+    private DownloadData iOY;
     private TextView mTitleView;
 
     public AppDownloadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         this.downloadListener = null;
-        this.iLq = null;
+        this.iKh = null;
         init(context);
     }
 
     public AppDownloadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.downloadListener = null;
-        this.iLq = null;
+        this.iKh = null;
         init(context);
     }
 
     public AppDownloadView(Context context) {
         super(context);
         this.downloadListener = null;
-        this.iLq = null;
+        this.iKh = null;
         init(context);
     }
 
@@ -56,36 +57,36 @@ public class AppDownloadView extends LinearLayout {
         setGravity(16);
         View inflate = LayoutInflater.from(context).inflate(R.layout.app_download_layout, (ViewGroup) this, true);
         this.mTitleView = (TextView) inflate.findViewById(R.id.app_push_title);
-        this.iPZ = (ProgressBar) inflate.findViewById(R.id.frs_app_push_progress);
-        this.iQa = (ImageView) inflate.findViewById(R.id.frs_app_push_control);
-        this.iQb = (TextView) inflate.findViewById(R.id.frs_app_push_percent);
+        this.iOV = (ProgressBar) inflate.findViewById(R.id.frs_app_push_progress);
+        this.iOW = (ImageView) inflate.findViewById(R.id.frs_app_push_control);
+        this.iOX = (TextView) inflate.findViewById(R.id.frs_app_push_percent);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setData(DownloadData downloadData) {
         if (downloadData != null) {
-            this.iQc = (DownloadData) downloadData.clone();
-            if (this.iQc != null) {
-                setTag(this.iQc);
-                o(downloadData);
+            this.iOY = (DownloadData) downloadData.clone();
+            if (this.iOY != null) {
+                setTag(this.iOY);
+                p(downloadData);
             }
         }
     }
 
     public void refreshControlIcon(int i) {
         if (i == 1) {
-            am.c(this.iQa, (int) R.drawable.icon_download_pause);
+            am.setImageResource(this.iOW, R.drawable.icon_download_pause);
         } else {
-            am.c(this.iQa, (int) R.drawable.icon_download_play);
+            am.setImageResource(this.iOW, R.drawable.icon_download_play);
         }
     }
 
-    private void o(DownloadData downloadData) {
+    private void p(DownloadData downloadData) {
         if (downloadData != null) {
             switch (downloadData.getStatus()) {
                 case 1:
                     setVisibility(0);
-                    am.c(this.iQa, (int) R.drawable.icon_download_pause);
+                    am.setImageResource(this.iOW, R.drawable.icon_download_pause);
                     break;
                 case 3:
                     setVisibility(8);
@@ -98,23 +99,23 @@ public class AppDownloadView extends LinearLayout {
                     break;
                 case 7:
                     setVisibility(0);
-                    am.c(this.iQa, (int) R.drawable.icon_download_play);
+                    am.setImageResource(this.iOW, R.drawable.icon_download_play);
                     break;
             }
-            int cd = e.ciQ().cd(downloadData.getId(), downloadData.getName());
-            if (cd >= 0) {
-                zS(cd);
+            int ca = e.cfS().ca(downloadData.getId(), downloadData.getName());
+            if (ca >= 0) {
+                yy(ca);
             } else {
-                zS(0);
+                yy(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zS(int i) {
+    public void yy(int i) {
         int max = Math.max(0, i);
-        this.iPZ.setProgress(max);
-        this.iQb.setText(max + "%");
+        this.iOV.setProgress(max);
+        this.iOX.setText(max + "%");
     }
 
     public static int getStatus(DownloadData downloadData) {
@@ -124,22 +125,22 @@ public class AppDownloadView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aDu();
+        aDD();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        aDt();
+        aDC();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            aDt();
+            aDC();
         } else {
-            aDu();
+            aDD();
         }
     }
 
@@ -148,36 +149,36 @@ public class AppDownloadView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        am.d(this.mTitleView, R.color.cp_cont_c, 1, i);
-        this.iPZ.setProgressDrawable(am.V(i, R.drawable.progress_download_app_layerlist));
-        am.b(this.iQa, (int) R.drawable.icon_download_play, i);
-        am.d(this.iQb, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.mTitleView, R.color.cp_cont_c, 1, i);
+        this.iOV.setProgressDrawable(am.getDrawable(i, (int) R.drawable.progress_download_app_layerlist));
+        am.setImageResource(this.iOW, R.drawable.icon_download_play, i);
+        am.setViewTextColor(this.iOX, R.color.cp_cont_d, 1, i);
     }
 
-    private void aDt() {
+    private void aDC() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().registerListener(this.downloadListener);
         }
-        if (this.iLq != null) {
-            MessageManager.getInstance().registerListener(this.iLq);
+        if (this.iKh != null) {
+            MessageManager.getInstance().registerListener(this.iKh);
         }
     }
 
-    private void aDu() {
+    private void aDD() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }
-        if (this.iLq != null) {
-            MessageManager.getInstance().unRegisterListener(this.iLq);
+        if (this.iKh != null) {
+            MessageManager.getInstance().unRegisterListener(this.iKh);
         }
     }
 
     public void enableDownloadListener() {
         if (this.downloadListener == null) {
-            this.downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.recapp.view.AppDownloadView.1
+            this.downloadListener = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tieba.recapp.view.AppDownloadView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Code restructure failed: missing block: B:13:0x0046, code lost:
-                    if (r5.iQd.iQc.getId().equals(r1.getId()) != false) goto L16;
+                    if (r5.iOZ.iOY.getId().equals(r1.getId()) != false) goto L16;
                  */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 /*
@@ -185,7 +186,7 @@ public class AppDownloadView extends LinearLayout {
                 */
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     DownloadData downloadData;
-                    if ((customResponsedMessage instanceof DownloadMessage) && AppDownloadView.this.iQc != null) {
+                    if ((customResponsedMessage instanceof DownloadMessage) && AppDownloadView.this.iOY != null) {
                         List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                         int i = 0;
                         while (true) {
@@ -194,32 +195,32 @@ public class AppDownloadView extends LinearLayout {
                                 break;
                             }
                             downloadData = data.get(i2);
-                            if (TextUtils.isEmpty(AppDownloadView.this.iQc.getId())) {
+                            if (TextUtils.isEmpty(AppDownloadView.this.iOY.getId())) {
                                 i = i2 + 1;
                             }
                         }
                         downloadData = null;
                         if (downloadData != null) {
-                            AppDownloadView.this.zS(e.ciQ().cd(downloadData.getId(), downloadData.getName()));
+                            AppDownloadView.this.yy(e.cfS().ca(downloadData.getId(), downloadData.getName()));
                             AppDownloadView.this.postInvalidate();
                         }
                     }
                 }
             };
         }
-        if (this.iLq == null) {
-            this.iLq = new CustomMessageListener(2016484) { // from class: com.baidu.tieba.recapp.view.AppDownloadView.2
+        if (this.iKh == null) {
+            this.iKh = new CustomMessageListener(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG) { // from class: com.baidu.tieba.recapp.view.AppDownloadView.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && AppDownloadView.this.iQc != null) {
+                    if (customResponsedMessage != null && AppDownloadView.this.iOY != null) {
                         DownloadData downloadData = (DownloadData) customResponsedMessage.getData();
-                        if (AppDownloadView.this.iQc.getId() != null && downloadData != null && AppDownloadView.this.iQc.getId().equals(downloadData.getId())) {
+                        if (AppDownloadView.this.iOY.getId() != null && downloadData != null && AppDownloadView.this.iOY.getId().equals(downloadData.getId())) {
                             int status = e.getStatus(downloadData);
                             if (status == 7) {
-                                am.c(AppDownloadView.this.iQa, (int) R.drawable.icon_download_pause);
+                                am.setImageResource(AppDownloadView.this.iOW, R.drawable.icon_download_pause);
                             } else if (status == 1) {
-                                am.c(AppDownloadView.this.iQa, (int) R.drawable.icon_download_play);
+                                am.setImageResource(AppDownloadView.this.iOW, R.drawable.icon_download_play);
                             }
                         }
                     }
@@ -230,10 +231,10 @@ public class AppDownloadView extends LinearLayout {
 
     /* loaded from: classes.dex */
     public static abstract class AppDownloadListener implements View.OnClickListener {
-        protected AppDownloadView iQe;
+        protected AppDownloadView iPa;
 
         public void setAppDownloadView(AppDownloadView appDownloadView) {
-            this.iQe = appDownloadView;
+            this.iPa = appDownloadView;
         }
     }
 }

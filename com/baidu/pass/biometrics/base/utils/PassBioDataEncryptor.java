@@ -2,6 +2,7 @@ package com.baidu.pass.biometrics.base.utils;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.debug.Log;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
@@ -45,13 +46,13 @@ public class PassBioDataEncryptor {
             } catch (Exception e2) {
                 e = e2;
                 Log.e(TAG, TAG, e);
-                return TextUtils.join("_", new String[]{str3, str2});
+                return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{str3, str2});
             }
         } catch (Exception e3) {
             str2 = "";
             e = e3;
         }
-        return TextUtils.join("_", new String[]{str3, str2});
+        return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{str3, str2});
     }
 
     private static String getRandomKey(int i) {

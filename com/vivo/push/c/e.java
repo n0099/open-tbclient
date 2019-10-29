@@ -21,11 +21,11 @@ final class e implements Runnable {
         Context context;
         Context context2;
         if (!TextUtils.isEmpty(this.a)) {
-            PushMessageCallback pushMessageCallback = this.c.c;
+            PushMessageCallback pushMessageCallback = this.c.b;
             context2 = this.c.a;
             pushMessageCallback.onReceiveRegId(context2, this.a);
         }
-        PushMessageCallback pushMessageCallback2 = this.c.c;
+        PushMessageCallback pushMessageCallback2 = this.c.b;
         context = this.c.a;
         pushMessageCallback2.onBind(context, this.b.h(), this.b.d());
     }

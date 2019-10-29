@@ -1,5 +1,6 @@
 package com.baidu.tieba.imMessageCenter;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryUserInfos.DataReq;
 import protobuf.QueryUserInfos.QueryUserInfosReqIdl;
@@ -8,7 +9,7 @@ public class RequestQueryUserInfoMessage extends TbSocketMessage {
     DataReq.Builder dataBuilder;
 
     public RequestQueryUserInfoMessage() {
-        super(205003);
+        super(CmdConfigSocket.CMD_QUERY_USER_INFO);
         this.dataBuilder = new DataReq.Builder();
     }
 

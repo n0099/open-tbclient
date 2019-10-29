@@ -9,7 +9,7 @@ public interface c {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void aX(boolean z);
+        void bp(boolean z);
 
         void k(Exception exc);
     }
@@ -20,11 +20,11 @@ public interface c {
 
     void a(String str, a aVar);
 
-    boolean bb(Context context);
+    boolean bd(Context context);
 
-    String bc(Context context);
+    String be(Context context);
 
-    String bd(@NonNull Context context);
+    String bf(@NonNull Context context);
 
-    String be(@NonNull Context context);
+    String bg(@NonNull Context context);
 }

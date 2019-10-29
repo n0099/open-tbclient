@@ -14,7 +14,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public String mUrl;
     private String mUrlTitle;
 
-    public void lE(String str) {
+    public void mf(String str) {
         this.mUrlTitle = str;
     }
 
@@ -34,22 +34,22 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return bz(this.mUrl, "nonavigationbar");
+        return bG(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return bz(this.mUrl, "noshare");
+        return bG(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return bz(this.mUrl, "nomenu");
+        return bG(this.mUrl, "nomenu");
     }
 
-    public boolean lF(String str) {
-        return bz(str, "blank");
+    public boolean mg(String str) {
+        return bG(str, "blank");
     }
 
-    public boolean bz(String str, String str2) {
+    public boolean bG(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;

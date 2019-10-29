@@ -1,7 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
@@ -10,7 +9,7 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
     private DataRes resultData;
 
     public RecPersonalizeHttpResponse(int i) {
-        super(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE);
+        super(1003070);
     }
 
     public DataRes getResultData() {
@@ -28,11 +27,11 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            h.gno = false;
+            h.gmM = false;
             if (h.g(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
-                this.resultData = h.bye();
-                h.gno = true;
-                h.byf();
+                this.resultData = h.bvi();
+                h.gmM = true;
+                h.bvj();
                 return;
             }
             this.resultData = personalizedResIdl.data;

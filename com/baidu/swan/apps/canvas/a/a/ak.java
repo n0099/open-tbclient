@@ -3,30 +3,30 @@ package com.baidu.swan.apps.canvas.a.a;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 class ak implements Cloneable {
-    int anA;
-    int anB;
-    i anl;
-    int anz;
+    i aGD;
+    int aGQ;
+    int aGR;
+    int aGS;
 
     public ak() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(JSONArray jSONArray) {
-        f(jSONArray);
+        n(jSONArray);
     }
 
     public boolean isValid() {
-        return this.anl != null && this.anl.isValid();
+        return this.aGD != null && this.aGD.isValid();
     }
 
-    public void f(JSONArray jSONArray) {
+    public void n(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 3) {
-                this.anz = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(0));
-                this.anA = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
-                this.anB = jSONArray.optInt(2);
-                this.anl = new i(jSONArray.optJSONArray(3));
+                this.aGQ = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(0));
+                this.aGR = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
+                this.aGS = jSONArray.optInt(2);
+                this.aGD = new i(jSONArray.optJSONArray(3));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {

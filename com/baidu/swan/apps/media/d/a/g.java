@@ -12,12 +12,12 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String aEg;
+    protected String aXv;
 
     public abstract boolean a(com.baidu.swan.apps.media.d.a aVar, com.baidu.swan.apps.media.d.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
 
     public g(@NonNull String str) {
-        this.aEg = str;
+        this.aXv = str;
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
@@ -36,7 +36,7 @@ public abstract class g {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.d.c a = com.baidu.swan.apps.media.d.c.a(optParamsAsJo, c.Hr());
+        com.baidu.swan.apps.media.d.c a = com.baidu.swan.apps.media.d.c.a(optParamsAsJo, c.Ml());
         if (!a.isValid()) {
             com.baidu.swan.apps.console.c.e("video", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -49,13 +49,13 @@ public abstract class g {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        com.baidu.swan.apps.media.a p = com.baidu.swan.apps.media.b.p(str, str2, str3);
-        if (p == null && "/swan/video/open".equals(this.aEg)) {
+        com.baidu.swan.apps.media.a t = com.baidu.swan.apps.media.b.t(str, str2, str3);
+        if (t == null && "/swan/video/open".equals(this.aXv)) {
             return new com.baidu.swan.apps.media.d.a(context, str3);
         }
-        if (p == null || !(p.GS() instanceof com.baidu.swan.apps.media.d.a)) {
+        if (t == null || !(t.LM() instanceof com.baidu.swan.apps.media.d.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.d.a) p.GS();
+        return (com.baidu.swan.apps.media.d.a) t.LM();
     }
 }

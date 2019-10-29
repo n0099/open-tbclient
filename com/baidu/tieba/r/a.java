@@ -7,68 +7,68 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a jqt;
-    private InterfaceC0409a jqu = ctg();
+    private static a jql;
+    private InterfaceC0503a jqm = cqV();
 
     /* renamed from: com.baidu.tieba.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0409a {
+    public interface InterfaceC0503a {
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
-        void f(Application application);
+        void g(Application application);
 
         void onPause(Activity activity);
 
         void onResume(Activity activity);
     }
 
-    private boolean ctf() {
-        return com.baidu.tbadk.core.sharedPref.b.ahU().getInt("pref_key_crab_sdk_enable", 1) == 1;
+    private boolean cqU() {
+        return com.baidu.tbadk.core.sharedPref.b.alR().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0409a ctg() {
+    private InterfaceC0503a cqV() {
         CustomResponsedMessage runTask;
-        if (!ctf() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0409a.class)) == null) {
+        if (!cqU() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0503a.class)) == null) {
             return null;
         }
-        return (InterfaceC0409a) runTask.getData();
+        return (InterfaceC0503a) runTask.getData();
     }
 
-    public static a cth() {
-        if (jqt == null) {
+    public static a cqW() {
+        if (jql == null) {
             synchronized (a.class) {
-                if (jqt == null) {
-                    jqt = new a();
+                if (jql == null) {
+                    jql = new a();
                 }
             }
         }
-        return jqt;
+        return jql;
     }
 
-    public void f(Application application) {
-        if (this.jqu != null) {
-            this.jqu.f(application);
+    public void g(Application application) {
+        if (this.jqm != null) {
+            this.jqm.g(application);
         }
     }
 
     public void onPause(Activity activity) {
-        if (this.jqu != null) {
-            this.jqu.onPause(activity);
+        if (this.jqm != null) {
+            this.jqm.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        if (this.jqu != null) {
-            this.jqu.onResume(activity);
+        if (this.jqm != null) {
+            this.jqm.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.jqu != null) {
-            this.jqu.behaviorRecordEvent(motionEvent, activity);
+        if (this.jqm != null) {
+            this.jqm.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

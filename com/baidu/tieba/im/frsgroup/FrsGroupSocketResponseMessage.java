@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
@@ -16,7 +17,7 @@ public class FrsGroupSocketResponseMessage extends SocketResponsedMessage {
     private boolean isNeedUpdateCache;
 
     public FrsGroupSocketResponseMessage() {
-        super(103002);
+        super(CmdConfigSocket.CMD_REQUEST_GROUPS_BYFID);
         this.isNeedUpdateCache = false;
     }
 

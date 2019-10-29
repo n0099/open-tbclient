@@ -8,35 +8,35 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.menu.MainMenuView;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.swan.menu.b {
-    private FrameLayout aVZ = null;
+    private FrameLayout bpd = null;
 
     @Override // com.baidu.swan.menu.b
     public void a(MainMenuView mainMenuView) {
         if (mainMenuView != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            if (com.baidu.swan.apps.u.a.EJ().Fi()) {
-                j(mainMenuView);
+            if (com.baidu.swan.apps.u.a.JD().Kc()) {
+                m(mainMenuView);
             } else {
-                k(mainMenuView);
+                n(mainMenuView);
             }
-            mainMenuView.setCoverView(this.aVZ);
+            mainMenuView.setCoverView(this.bpd);
         }
     }
 
-    private void j(ViewGroup viewGroup) {
+    private void m(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.aVZ == null) {
-                this.aVZ = new FrameLayout(viewGroup.getContext());
-                this.aVZ.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            if (this.bpd == null) {
+                this.bpd = new FrameLayout(viewGroup.getContext());
+                this.bpd.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.aVZ);
-            viewGroup.addView(this.aVZ, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.bpd);
+            viewGroup.addView(this.bpd, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    private void k(ViewGroup viewGroup) {
-        if (viewGroup != null && this.aVZ != null) {
-            viewGroup.removeView(this.aVZ);
-            this.aVZ = null;
+    private void n(ViewGroup viewGroup) {
+        if (viewGroup != null && this.bpd != null) {
+            viewGroup.removeView(this.bpd);
+            this.bpd = null;
         }
     }
 }

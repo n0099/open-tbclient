@@ -14,10 +14,10 @@ public class e implements d {
 
     @Override // com.baidu.poly.a.d
     public void a(final String str, final b bVar, final a<String> aVar) {
-        com.baidu.poly.util.b.k("================ GET ==================");
-        com.baidu.poly.util.b.k("url:", str);
-        com.baidu.poly.util.b.k("headers:", bVar.toString());
-        com.baidu.poly.c.a.e(new Runnable() { // from class: com.baidu.poly.a.e.1
+        com.baidu.poly.util.b.j("================ GET ==================");
+        com.baidu.poly.util.b.j("url:", str);
+        com.baidu.poly.util.b.j("headers:", bVar.toString());
+        com.baidu.poly.c.a.c(new Runnable() { // from class: com.baidu.poly.a.e.1
             /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
                 jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
                 	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
@@ -39,7 +39,7 @@ public class e implements d {
                     java.net.URLConnection r0 = r0.openConnection()     // Catch: java.lang.Throwable -> L3a
                     java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L3a
                     com.baidu.poly.a.b r1 = r3     // Catch: java.lang.Throwable -> L3a
-                    java.util.Map r1 = r1.uJ()     // Catch: java.lang.Throwable -> L3a
+                    java.util.Map r1 = r1.zD()     // Catch: java.lang.Throwable -> L3a
                     java.util.Set r1 = r1.entrySet()     // Catch: java.lang.Throwable -> L3a
                     java.util.Iterator r4 = r1.iterator()     // Catch: java.lang.Throwable -> L3a
                 L1e:
@@ -60,7 +60,7 @@ public class e implements d {
                     com.baidu.poly.a.a r2 = r4     // Catch: java.lang.Throwable -> Lc9
                     if (r2 == 0) goto L54
                     java.lang.String r2 = "GET FAILED"
-                    com.baidu.poly.util.b.f(r2, r0)     // Catch: java.lang.Throwable -> Lc9
+                    com.baidu.poly.util.b.g(r2, r0)     // Catch: java.lang.Throwable -> Lc9
                     com.baidu.poly.a.e r2 = com.baidu.poly.a.e.this     // Catch: java.lang.Throwable -> Lc9
                     android.os.Handler r2 = com.baidu.poly.a.e.a(r2)     // Catch: java.lang.Throwable -> Lc9
                     com.baidu.poly.a.e$1$3 r3 = new com.baidu.poly.a.e$1$3     // Catch: java.lang.Throwable -> Lc9
@@ -80,7 +80,7 @@ public class e implements d {
                     r2 = 299(0x12b, float:4.19E-43)
                     if (r1 > r2) goto L8d
                     java.io.InputStream r0 = r0.getInputStream()     // Catch: java.lang.Throwable -> L3a
-                    java.lang.String r1 = com.baidu.poly.util.a.j(r0)     // Catch: java.lang.Throwable -> Lb7
+                    java.lang.String r1 = com.baidu.poly.util.a.h(r0)     // Catch: java.lang.Throwable -> Lb7
                     com.baidu.poly.a.a r2 = r4     // Catch: java.lang.Throwable -> Lb7
                     if (r2 == 0) goto L85
                     com.baidu.poly.a.e r2 = com.baidu.poly.a.e.this     // Catch: java.lang.Throwable -> Lb7
@@ -95,7 +95,7 @@ public class e implements d {
                     goto L5b
                 L8d:
                     java.io.InputStream r0 = r0.getErrorStream()     // Catch: java.lang.Throwable -> L3a
-                    java.lang.String r2 = com.baidu.poly.util.a.j(r0)     // Catch: java.lang.Throwable -> Lb7
+                    java.lang.String r2 = com.baidu.poly.util.a.h(r0)     // Catch: java.lang.Throwable -> Lb7
                     r3 = 2
                     java.lang.Object[] r3 = new java.lang.Object[r3]     // Catch: java.lang.Throwable -> Lb7
                     r4 = 0
@@ -103,7 +103,7 @@ public class e implements d {
                     r3[r4] = r5     // Catch: java.lang.Throwable -> Lb7
                     r4 = 1
                     r3[r4] = r2     // Catch: java.lang.Throwable -> Lb7
-                    com.baidu.poly.util.b.k(r3)     // Catch: java.lang.Throwable -> Lb7
+                    com.baidu.poly.util.b.j(r3)     // Catch: java.lang.Throwable -> Lb7
                     com.baidu.poly.a.a r3 = r4     // Catch: java.lang.Throwable -> Lb7
                     if (r3 == 0) goto L85
                     com.baidu.poly.a.e r3 = com.baidu.poly.a.e.this     // Catch: java.lang.Throwable -> Lb7

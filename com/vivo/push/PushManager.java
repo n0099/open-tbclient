@@ -2,17 +2,21 @@ package com.vivo.push;
 
 import android.content.Context;
 import com.vivo.push.cache.ClientConfigManagerImpl;
+import com.vivo.push.util.VivoPushException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class PushManager {
     public static final String DEFAULT_REQUEST_ID = "1";
     private static final Object SLOCK = new Object();
+    private static final String TAG = "PushManager";
     private static volatile PushManager sPushClient;
 
     private PushManager(Context context) {
-        m.a().a(context);
+        p.a().a(context);
         LocalAliasTagsManager.getInstance(context).init();
     }
 
@@ -28,20 +32,28 @@ public class PushManager {
     }
 
     public void initialize() {
-        m.a().j();
+        p.a().i();
+    }
+
+    public void setNotifyStyle(int i) {
+        p.a().b(i);
+    }
+
+    public void checkManifest() throws VivoPushException {
+        p.a().b();
     }
 
     private void stopWork() {
-        m.a().k();
+        p.a().j();
     }
 
     void killPush() {
-        m.a().r();
+        p.a().r();
     }
 
     public void reset() {
-        if (com.vivo.push.util.m.a()) {
-            m.a().n();
+        if (com.vivo.push.util.p.a()) {
+            p.a().m();
         }
     }
 
@@ -76,46 +88,46 @@ public class PushManager {
 
     public void bindAlias(String str, IPushActionListener iPushActionListener) {
         checkParam(str);
-        m.a().a(str, iPushActionListener);
+        p.a().a(str, iPushActionListener);
     }
 
     public void unBindAlias(String str, IPushActionListener iPushActionListener) {
         checkParam(str);
-        m.a().b(str, iPushActionListener);
+        p.a().b(str, iPushActionListener);
     }
 
-    public void setTag(String str, String str2) {
+    public void setTopic(String str, String str2) {
         checkParam(str2);
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(str2);
-        m.a().a(str, arrayList);
+        p.a().a(str, arrayList);
     }
 
     public void setTopic(ArrayList<String> arrayList) {
         checkParam(arrayList);
-        m.a().a("1", arrayList);
+        p.a().a("1", arrayList);
     }
 
     public void setTopic(String str, ArrayList<String> arrayList) {
         checkParam(arrayList);
-        m.a().a(str, arrayList);
+        p.a().a(str, arrayList);
     }
 
     public void delTopic(String str, String str2) {
         checkParam(str2);
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(str2);
-        m.a().b(str, arrayList);
+        p.a().b(str, arrayList);
     }
 
     public void delTopic(ArrayList<String> arrayList) {
         checkParam(arrayList);
-        m.a().b("1", arrayList);
+        p.a().b("1", arrayList);
     }
 
     public void delTopic(String str, ArrayList<String> arrayList) {
         checkParam(arrayList);
-        m.a().b(str, arrayList);
+        p.a().b(str, arrayList);
     }
 
     public void turnOnPush() {
@@ -123,7 +135,7 @@ public class PushManager {
     }
 
     public void turnOnPush(IPushActionListener iPushActionListener) {
-        m.a().a(iPushActionListener);
+        p.a().a(iPushActionListener);
     }
 
     public void turnOffPush() {
@@ -131,12 +143,12 @@ public class PushManager {
     }
 
     public void turnOffPush(IPushActionListener iPushActionListener) {
-        m.a().b(iPushActionListener);
+        p.a().b(iPushActionListener);
     }
 
     public void setLocalAlias(String str) {
         checkParam(str);
-        LocalAliasTagsManager.getInstance(m.a().i()).setLocalAlias(str);
+        LocalAliasTagsManager.getInstance(p.a().h()).setLocalAlias(str);
     }
 
     private void setLocalTag(String str) {
@@ -148,13 +160,13 @@ public class PushManager {
 
     public void setLocalTags(ArrayList<String> arrayList) {
         checkParam(arrayList);
-        LocalAliasTagsManager.getInstance(m.a().i()).setLocalTags(arrayList);
+        LocalAliasTagsManager.getInstance(p.a().h()).setLocalTags(arrayList);
     }
 
     public void delLocalAlias() {
-        String localAlias = LocalAliasTagsManager.getInstance(m.a().i()).getLocalAlias();
+        String localAlias = LocalAliasTagsManager.getInstance(p.a().h()).getLocalAlias();
         if (localAlias != null) {
-            LocalAliasTagsManager.getInstance(m.a().i()).delLocalAlias(localAlias);
+            LocalAliasTagsManager.getInstance(p.a().h()).delLocalAlias(localAlias);
         }
     }
 
@@ -167,46 +179,71 @@ public class PushManager {
 
     public void delLocalTags(ArrayList<String> arrayList) {
         checkParam(arrayList);
-        LocalAliasTagsManager.getInstance(m.a().i()).delLocalTags(arrayList);
+        LocalAliasTagsManager.getInstance(p.a().h()).delLocalTags(arrayList);
     }
 
     public boolean isEnablePush() {
-        return ClientConfigManagerImpl.getInstance(m.a().i()).isEnablePush();
+        return ClientConfigManagerImpl.getInstance(p.a().h()).isEnablePush();
     }
 
     public boolean isPushProcess() {
-        return com.vivo.push.util.w.a(m.a().i());
+        return com.vivo.push.util.z.a(p.a().h());
     }
 
     public void enableNet() {
-        m.a().o();
+        p.a().n();
     }
 
     public boolean isEnableNet() {
-        return m.a().q();
+        return p.a().q();
     }
 
     public void disableNet() {
-        m.a().p();
+        p.a().o();
     }
 
     public String getClientId() {
-        return com.vivo.push.util.v.b(m.a().i()).a("com.vivo.pushservice.client_id", null);
+        return com.vivo.push.util.y.b(p.a().h()).a("com.vivo.pushservice.client_id", null);
     }
 
     public String getRegId() {
-        return m.a().g();
+        return p.a().f();
     }
 
     public void setDebugMode(boolean z) {
-        m.a().b(z);
+        p.a().b(z);
+    }
+
+    public void setMode(int i) {
+        p.a().a(i);
     }
 
     public void setSystemModel(boolean z) {
-        m.a().a(z);
+        p.a().a(z);
     }
 
     public String getVersion() {
-        return "2.1.0";
+        return "2.4.0";
+    }
+
+    public void showDebugInfo() {
+        p.a().p();
+    }
+
+    public Map<String, String> getDebugInfo() {
+        return p.a().t();
+    }
+
+    public boolean reportData(Context context, long j, long j2) {
+        com.vivo.push.util.p.d(TAG, "report message: " + j + ", reportType: " + j2);
+        if (j2 <= 0) {
+            return false;
+        }
+        com.vivo.push.b.y yVar = new com.vivo.push.b.y(j2);
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("messageID", String.valueOf(j));
+        yVar.a(hashMap);
+        p.a().a(yVar);
+        return true;
     }
 }

@@ -6,72 +6,72 @@ import com.baidu.swan.games.p.a.a;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a blK;
-    private com.baidu.swan.games.p.a.a blL;
+    private static volatile a bEy;
+    private com.baidu.swan.games.p.a.a bEz;
 
     private a() {
     }
 
-    public static a Tt() {
-        if (blK == null) {
+    public static a Yk() {
+        if (bEy == null) {
             synchronized (a.class) {
-                if (blK == null) {
-                    blK = new a();
+                if (bEy == null) {
+                    bEy = new a();
                 }
             }
         }
-        return blK;
+        return bEy;
     }
 
     public void c(com.baidu.swan.games.p.a.a aVar) {
-        this.blL = aVar;
+        this.bEz = aVar;
     }
 
-    public boolean kd(String str) {
+    public boolean kF(String str) {
         String G = G(str, 1);
         if (TextUtils.isEmpty(G)) {
             return false;
         }
-        if (this.blL != null && this.blL.bkA != null && this.blL.bkA.bkH != null && this.blL.bkA.bkH.containsKey(G)) {
+        if (this.bEz != null && this.bEz.bDo != null && this.bEz.bDo.bDv != null && this.bEz.bDo.bDv.containsKey(G)) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.blL.bkA.bkH.get(G).booleanValue();
+            return this.bEz.bDo.bDv.get(G).booleanValue();
         }
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
-        String Ms = com.baidu.swan.apps.ae.b.Ms();
-        if (com.baidu.swan.apps.ae.b.Mh() != null) {
-            String version = com.baidu.swan.apps.ae.b.Mh().getVersion();
-            if (TextUtils.isEmpty(Ms) || TextUtils.isEmpty(version)) {
+        String Rk = com.baidu.swan.apps.ae.b.Rk();
+        if (com.baidu.swan.apps.ae.b.QZ() != null) {
+            String version = com.baidu.swan.apps.ae.b.QZ().getVersion();
+            if (TextUtils.isEmpty(Rk) || TextUtils.isEmpty(version)) {
                 return false;
             }
-            boolean m = com.baidu.swan.apps.database.subpackage.a.CO().m(Ms, version, G);
-            if (m) {
-                t(G, true);
-                return m;
+            boolean q = com.baidu.swan.apps.database.subpackage.a.HI().q(Rk, version, G);
+            if (q) {
+                w(G, true);
+                return q;
             }
-            return m;
+            return q;
         }
         return false;
     }
 
-    public void t(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.blL != null && this.blL.bkA != null && this.blL.bkA.bkH != null) {
+    public void w(String str, boolean z) {
+        if (!TextUtils.isEmpty(str) && this.bEz != null && this.bEz.bDo != null && this.bEz.bDo.bDv != null) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.blL.bkA.bkH.put(str, Boolean.valueOf(z));
+            this.bEz.bDo.bDv.put(str, Boolean.valueOf(z));
         }
     }
 
-    public String gM(String str) {
+    public String hq(String str) {
         String G = G(str, 1);
-        if (TextUtils.isEmpty(G) || this.blL == null || this.blL.bkB == null || this.blL.bkB.bkI == null) {
+        if (TextUtils.isEmpty(G) || this.bEz == null || this.bEz.bDp == null || this.bEz.bDp.bDw == null) {
             return null;
         }
-        return this.blL.bkB.bkI.get(G);
+        return this.bEz.bDp.bDw.get(G);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002d  */
@@ -82,22 +82,22 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (this.blL == null || this.blL.bkA == null || this.blL.bkA.bkG == null) {
+        if (this.bEz == null || this.bEz.bDo == null || this.bEz.bDo.bDu == null) {
             return null;
         }
-        for (a.C0225a c0225a : this.blL.bkA.bkG) {
-            if (TextUtils.equals(c0225a.name, str) || TextUtils.equals(c0225a.bkE, str)) {
+        for (a.C0257a c0257a : this.bEz.bDo.bDu) {
+            if (TextUtils.equals(c0257a.name, str) || TextUtils.equals(c0257a.bDs, str)) {
                 switch (i) {
                     case 0:
-                        return c0225a.name;
+                        return c0257a.name;
                     case 1:
-                        return c0225a.bkE;
+                        return c0257a.bDs;
                     case 2:
-                        return c0225a.path;
+                        return c0257a.path;
                     case 3:
-                        return c0225a.bkF;
+                        return c0257a.bDt;
                     default:
-                        return c0225a.bkE;
+                        return c0257a.bDs;
                 }
             }
             while (r2.hasNext()) {

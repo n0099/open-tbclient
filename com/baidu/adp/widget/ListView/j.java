@@ -3,20 +3,20 @@ package com.baidu.adp.widget.ListView;
 import android.view.animation.OvershootInterpolator;
 /* loaded from: classes.dex */
 public class j extends OvershootInterpolator {
-    private final float Oh;
+    private final float zc;
 
     public j() {
-        this.Oh = 2.0f;
+        this.zc = 2.0f;
     }
 
     public j(float f) {
         super(f);
-        this.Oh = f;
+        this.zc = f;
     }
 
     @Override // android.view.animation.OvershootInterpolator, android.animation.TimeInterpolator
     public float getInterpolation(float f) {
         float f2 = f - 1.0f;
-        return (((f2 * (this.Oh + 1.0f)) + this.Oh) * (-0.5f) * f2) + 1.0f;
+        return (((f2 * (this.zc + 1.0f)) + this.zc) * (-0.5f) * f2) + 1.0f;
     }
 }

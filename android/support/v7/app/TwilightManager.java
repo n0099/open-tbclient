@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.PermissionChecker;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.util.Calendar;
 /* loaded from: classes2.dex */
 class TwilightManager {
@@ -57,7 +56,7 @@ class TwilightManager {
     }
 
     private Location getLastKnownLocation() {
-        Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_COARSE_LOCATION") == 0 ? getLastKnownLocationForProvider(DpStatConstants.KEY_NETWORK) : null;
+        Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_COARSE_LOCATION") == 0 ? getLastKnownLocationForProvider("network") : null;
         Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_FINE_LOCATION") == 0 ? getLastKnownLocationForProvider("gps") : null;
         if (lastKnownLocationForProvider2 != null && lastKnownLocationForProvider != null) {
             return lastKnownLocationForProvider2.getTime() > lastKnownLocationForProvider.getTime() ? lastKnownLocationForProvider2 : lastKnownLocationForProvider;

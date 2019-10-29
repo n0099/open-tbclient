@@ -10,8 +10,8 @@ public abstract class b implements e, Closeable {
 
     public abstract boolean isClosed();
 
-    public g cKN() {
-        return f.klN;
+    public g cHK() {
+        return f.kjZ;
     }
 
     public boolean isStateful() {
@@ -20,7 +20,7 @@ public abstract class b implements e, Closeable {
 
     protected void finalize() throws Throwable {
         if (!isClosed()) {
-            com.facebook.common.c.a.w("CloseableImage", "finalize: %s %x still open.", getClass().getSimpleName(), Integer.valueOf(System.identityHashCode(this)));
+            com.facebook.common.c.a.g("CloseableImage", "finalize: %s %x still open.", getClass().getSimpleName(), Integer.valueOf(System.identityHashCode(this)));
             try {
                 close();
             } finally {

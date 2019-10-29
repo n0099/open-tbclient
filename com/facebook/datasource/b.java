@@ -4,14 +4,14 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface b<T> {
-    boolean AM();
+    boolean FH();
 
     void a(d<T> dVar, Executor executor);
 
-    boolean cGo();
+    boolean cDm();
 
     @Nullable
-    Throwable cGq();
+    Throwable cDo();
 
     float getProgress();
 

@@ -8,21 +8,21 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 /* loaded from: classes2.dex */
 public final class f extends e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f aXb;
+    private static volatile f bqf;
 
     public f() {
         super("searchbox_webapps_sp");
     }
 
-    public static f Ob() {
-        if (aXb == null) {
+    public static f SR() {
+        if (bqf == null) {
             synchronized (f.class) {
-                if (aXb == null) {
-                    aXb = new f();
+                if (bqf == null) {
+                    bqf = new f();
                 }
             }
         }
-        return aXb;
+        return bqf;
     }
 
     @Override // com.baidu.swan.apps.storage.b.e, android.content.SharedPreferences

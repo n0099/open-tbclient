@@ -8,35 +8,35 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface aa {
+    void a(com.baidu.adp.widget.ListView.s sVar);
+
     void a(com.baidu.tieba.frs.d dVar);
 
     void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bh> bpT();
+    HashMap<Integer, bh> bmY();
 
-    int bpU();
+    int bmZ();
 
-    void bpV();
+    void bna();
 
-    int bpW();
+    int bnb();
 
-    int bpX();
+    int bnc();
 
-    void bpY();
+    void bnd();
 
     List<com.baidu.adp.widget.ListView.m> getDatas();
 
-    void kB(boolean z);
-
-    boolean n(BdUniqueId bdUniqueId);
+    void ko(boolean z);
 
     void notifyDataSetChanged();
+
+    boolean o(BdUniqueId bdUniqueId);
 
     void onDestory();
 
     void setForumName(String str);
 
     void setFromCDN(boolean z);
-
-    void setOnAdapterItemClickListener(com.baidu.adp.widget.ListView.s sVar);
 }

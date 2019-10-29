@@ -7,11 +7,11 @@ public final class a {
         return Build.VERSION.SDK_INT >= 9;
     }
 
-    public static boolean Pi() {
+    public static boolean TY() {
         return Build.VERSION.SDK_INT == 10;
     }
 
-    public static boolean Pj() {
+    public static boolean TZ() {
         return Build.VERSION.SDK_INT == 9;
     }
 
@@ -27,11 +27,11 @@ public final class a {
         return Build.VERSION.SDK_INT >= 21;
     }
 
-    public static boolean Pk() {
+    public static boolean Ua() {
         return Build.VERSION.SDK_INT >= 22;
     }
 
-    public static boolean Pl() {
+    public static boolean Ub() {
         return Build.VERSION.SDK_INT >= 23;
     }
 
@@ -39,7 +39,7 @@ public final class a {
         return Build.VERSION.SDK_INT >= 24;
     }
 
-    public static boolean Pm() {
+    public static boolean Uc() {
         return Build.VERSION.SDK_INT >= 26;
     }
 }

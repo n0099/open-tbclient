@@ -23,7 +23,7 @@ public class RequestRecommendMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.common = this.common;
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         RecommforumReqIdl.Builder builder2 = new RecommforumReqIdl.Builder();
         builder2.data = builder.build(false);

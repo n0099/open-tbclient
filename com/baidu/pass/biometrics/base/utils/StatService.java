@@ -4,8 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
@@ -22,7 +21,7 @@ public final class StatService {
     private static final Map<String, String> commonParams = new HashMap();
 
     static {
-        commonParams.put(Info.kBaiduPIDKey, "111");
+        commonParams.put("pid", "111");
         commonParams.put("type", "1023");
         commonParams.put(Config.DEVICE_PART, "android");
     }
@@ -39,11 +38,11 @@ public final class StatService {
                     map.put("v", String.valueOf(System.currentTimeMillis()));
                     hashMap.put("name", str);
                     hashMap.put("model", Build.MODEL);
-                    hashMap.put("tpl", BeanConstants.tpl);
+                    hashMap.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, BeanConstants.tpl);
                     hashMap.put("clientfrom", "mobilesdk_enhanced");
                     hashMap.put("app_version", PassBioBaseUtil.getVersionName(context));
                     hashMap.put(SapiContext.KEY_SDK_VERSION, PassBiometricDefaultFactory.VERSION_NAME);
-                    hashMap.put(DpStatConstants.KEY_CUID, PassBioBaseUtil.getClientId(context));
+                    hashMap.put("cuid", PassBioBaseUtil.getClientId(context));
                     hashMap.put("v", String.valueOf(System.currentTimeMillis()));
                     if (map != null) {
                         for (Map.Entry<String, String> entry : map.entrySet()) {

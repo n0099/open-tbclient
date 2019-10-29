@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.util.aq;
 import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes.dex */
 public class a {
-    public String bEl;
-    public int bEm;
-    public long bEn;
-    public int bEo;
+    public String bWc;
+    public int bWd;
+    public long bWe;
+    public int bWf;
     public long endTime;
     public String imgUrl;
     public long startTime;
@@ -17,25 +17,25 @@ public class a {
         if (bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
             if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
                 this.imgUrl = bigdayInfo.img_url;
-                this.bEl = bigdayInfo.jump_url;
-                this.bEm = bigdayInfo.img_colour.intValue();
-                this.bEn = bigdayInfo.id.longValue();
-                this.bEo = bigdayInfo.position.intValue();
+                this.bWc = bigdayInfo.jump_url;
+                this.bWd = bigdayInfo.img_colour.intValue();
+                this.bWe = bigdayInfo.id.longValue();
+                this.bWf = bigdayInfo.position.intValue();
                 this.startTime = bigdayInfo.start_time.longValue();
                 this.endTime = bigdayInfo.end_time.longValue();
             }
         }
     }
 
-    public boolean acr() {
-        return !StringUtils.isNULL(this.imgUrl) && this.bEn > 0 && (this.bEo == 1 || this.bEo == 3) && this.startTime > 0 && this.endTime > 0 && this.endTime > this.startTime;
+    public boolean agx() {
+        return !StringUtils.isNULL(this.imgUrl) && this.bWe > 0 && (this.bWf == 1 || this.bWf == 3) && this.startTime > 0 && this.endTime > 0 && this.endTime > this.startTime;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            if (aVar.acr() && acr() && this.bEn == aVar.bEn && aq.bV(this.imgUrl, aVar.imgUrl)) {
-                return ((this.bEl == null && aVar.bEl == null) || aq.bV(this.bEl, aVar.bEl)) && this.bEm == aVar.bEm && this.bEo == aVar.bEo && this.startTime == aVar.startTime && this.endTime == aVar.endTime;
+            if (aVar.agx() && agx() && this.bWe == aVar.bWe && aq.equals(this.imgUrl, aVar.imgUrl)) {
+                return ((this.bWc == null && aVar.bWc == null) || aq.equals(this.bWc, aVar.bWc)) && this.bWd == aVar.bWd && this.bWf == aVar.bWf && this.startTime == aVar.startTime && this.endTime == aVar.endTime;
             }
             return false;
         }

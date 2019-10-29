@@ -3,21 +3,21 @@ package com.baidu.tieba.play;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface i {
-    String V(String str, boolean z);
+    String S(String str, boolean z);
 
-    void aq(Context context, String str);
+    void an(Context context, String str);
 
-    void ar(Context context, String str);
+    void ao(Context context, String str);
 
     void clearCache(Context context);
 
-    void f(Context context, String str, int i);
+    void d(Context context, String str, int i);
 
-    String sn(String str);
+    String qX(String str);
 
-    String so(String str);
+    String qY(String str);
 
-    void sp(String str);
+    void qZ(String str);
 
-    String sq(String str);
+    String ra(String str);
 }

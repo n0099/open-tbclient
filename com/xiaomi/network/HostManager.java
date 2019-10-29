@@ -9,9 +9,7 @@ import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.coremedia.iso.boxes.UserBox;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.channel.commonutils.network.d;
 import com.xiaomi.mipush.sdk.Constants;
@@ -120,7 +118,7 @@ public class HostManager {
             if (activeNetworkInfo == null) {
                 str = "unknown";
             } else if (activeNetworkInfo.getType() == 1) {
-                WifiManager wifiManager = (WifiManager) sAppContext.getSystemService(IXAdSystemUtils.NT_WIFI);
+                WifiManager wifiManager = (WifiManager) sAppContext.getSystemService("wifi");
                 if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
                     str = "WIFI-" + wifiManager.getConnectionInfo().getSSID();
                 }
@@ -219,7 +217,7 @@ public class HostManager {
             arrayList2.add(null);
         }
         try {
-            String str2 = d.e(sAppContext) ? IXAdSystemUtils.NT_WIFI : "wap";
+            String str2 = d.e(sAppContext) ? "wifi" : "wap";
             String remoteFallbackJSON = getRemoteFallbackJSON(arrayList, str2, this.sUserId, isEmpty);
             if (!TextUtils.isEmpty(remoteFallbackJSON)) {
                 JSONObject jSONObject = new JSONObject(remoteFallbackJSON);
@@ -229,7 +227,7 @@ public class HostManager {
                     String string = jSONObject2.getString("province");
                     String string2 = jSONObject2.getString("city");
                     String string3 = jSONObject2.getString("isp");
-                    String string4 = jSONObject2.getString("ip");
+                    String string4 = jSONObject2.getString(TableDefine.UserInfoColumns.COLUMN_IP);
                     String string5 = jSONObject2.getString("country");
                     JSONObject jSONObject3 = jSONObject2.getJSONObject(str2);
                     if (str2.equals("wap")) {
@@ -442,8 +440,8 @@ public class HostManager {
         if (z) {
             arrayList3.add(new com.xiaomi.channel.commonutils.network.a("reserved", "1"));
         }
-        arrayList3.add(new com.xiaomi.channel.commonutils.network.a(UserBox.TYPE, str2));
-        arrayList3.add(new com.xiaomi.channel.commonutils.network.a(IntentConfig.LIST, com.xiaomi.channel.commonutils.string.d.a(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
+        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("uuid", str2));
+        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("list", com.xiaomi.channel.commonutils.string.d.a(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
         Fallback localFallback = getLocalFallback(getHost());
         String format = String.format(Locale.US, "http://%1$s/gslb/?ver=4.0", getHost());
         if (localFallback == null) {

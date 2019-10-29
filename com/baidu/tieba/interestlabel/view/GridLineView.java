@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class GridLineView extends BdGridView {
-    private int hdC;
+    private int hbF;
     private Paint mPaint;
 
     public GridLineView(Context context) {
@@ -34,7 +34,7 @@ public class GridLineView extends BdGridView {
         this.mPaint.setStyle(Paint.Style.STROKE);
         this.mPaint.setColor(am.getColor(R.color.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.hdC = l.g(context, R.dimen.ds26);
+        this.hbF = l.getDimens(context, R.dimen.ds26);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,7 +53,7 @@ public class GridLineView extends BdGridView {
             for (int i2 = 1; i2 <= i; i2++) {
                 canvas.drawLine(0.0f, (height * i2) + top, width, (height * i2) + top, this.mPaint);
                 for (int i3 = 1; i3 < numColumns; i3++) {
-                    canvas.drawLine(width2 * i3, ((i2 - 1) * height) + top + this.hdC, width2 * i3, ((height * i2) + top) - this.hdC, this.mPaint);
+                    canvas.drawLine(width2 * i3, ((i2 - 1) * height) + top + this.hbF, width2 * i3, ((height * i2) + top) - this.hbF, this.mPaint);
                 }
             }
         }

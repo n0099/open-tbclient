@@ -1,9 +1,10 @@
 package com.baidu.tieba.imMessageCenter;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes4.dex */
 public class RequestNewFriendDataMessage extends CustomMessage<Long> {
     public RequestNewFriendDataMessage(long j) {
-        super(2001305, Long.valueOf(j));
+        super((int) CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID, Long.valueOf(j));
     }
 }

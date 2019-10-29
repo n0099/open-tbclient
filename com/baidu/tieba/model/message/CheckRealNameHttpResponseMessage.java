@@ -1,6 +1,5 @@
 package com.baidu.tieba.model.message;
 
-import android.support.v4.app.NotificationManagerCompat;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CheckRealName.CheckRealNameResIdl;
@@ -21,7 +20,7 @@ public class CheckRealNameHttpResponseMessage extends TbHttpResponsedMessage {
                 setErrorString(checkRealNameResIdl.error.errmsg);
                 return;
             }
-            setError(NotificationManagerCompat.IMPORTANCE_UNSPECIFIED);
+            setError(-1000);
         }
     }
 }

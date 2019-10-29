@@ -6,6 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.g.g;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -17,90 +18,90 @@ import com.baidu.tieba.channel.view.ChannelMoreView;
 import com.baidu.tieba.channel.view.k;
 /* loaded from: classes6.dex */
 public class a {
-    private View.OnClickListener cmX = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
+    private View.OnClickListener czV = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != a.this.eKm.getCancelView()) {
-                if (view != a.this.eKm.getLayerView()) {
-                    if (view == a.this.eKm.getUpInfoView()) {
-                        a.this.aWZ();
-                        if (a.this.bbd()) {
-                            a.this.UQ();
+            if (view != a.this.eSR.getCancelView()) {
+                if (view != a.this.eSR.getLayerView()) {
+                    if (view == a.this.eSR.getUpInfoView()) {
+                        a.this.bbh();
+                        if (a.this.bbg()) {
+                            a.this.ZF();
                         }
                         TiebaStatic.log("c11994");
-                    } else if (view == a.this.eKm.getPushView()) {
-                        if (a.this.eKn != null) {
-                            a.this.eKn.a(18, null, null, -1);
+                    } else if (view == a.this.eSR.getPushView()) {
+                        if (a.this.eSS != null) {
+                            a.this.eSS.a(18, null, null, -1);
                         }
-                        if (a.this.bbd()) {
-                            a.this.UQ();
+                        if (a.this.bbg()) {
+                            a.this.ZF();
                         }
                     }
-                } else if (a.this.bbd()) {
-                    a.this.UQ();
+                } else if (a.this.bbg()) {
+                    a.this.ZF();
                 }
-            } else if (a.this.bbd()) {
-                a.this.UQ();
+            } else if (a.this.bbg()) {
+                a.this.ZF();
             }
         }
     };
-    private Runnable cyl;
-    private d eJo;
-    private k eKl;
-    private ChannelMoreView eKm;
-    private ChannelHomeActivity eKn;
+    private d eRT;
+    private k eSQ;
+    private ChannelMoreView eSR;
+    private ChannelHomeActivity eSS;
+    private Runnable runnable;
 
     public a(ChannelHomeActivity channelHomeActivity) {
-        this.eKn = channelHomeActivity;
+        this.eSS = channelHomeActivity;
     }
 
-    public void showPopWindow() {
-        if (this.eJo != null) {
-            if (this.eKl == null) {
-                this.eKm = new ChannelMoreView(this.eKn.getApplicationContext(), this.eJo, this.cmX);
-                this.eKm.setBackGround();
-                this.eKl = new k(this.eKn.getActivity(), this.eKm);
+    public void bbf() {
+        if (this.eRT != null) {
+            if (this.eSQ == null) {
+                this.eSR = new ChannelMoreView(this.eSS.getApplicationContext(), this.eRT, this.czV);
+                this.eSR.setBackGround();
+                this.eSQ = new k(this.eSS.getActivity(), this.eSR);
             }
-            this.eKl.showAtLocation(this.eKn.findViewById(R.id.channel_home_navigation_bar), 17, 0, 0);
+            this.eSQ.showAtLocation(this.eSS.findViewById(R.id.channel_home_navigation_bar), 17, 0, 0);
         }
     }
 
-    public void UQ() {
-        if (this.cyl == null) {
-            this.cyl = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
+    public void ZF() {
+        if (this.runnable == null) {
+            this.runnable = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.eKl != null) {
-                        g.a(a.this.eKl, a.this.eKn.getPageContext().getPageActivity());
-                        a.this.eKl = null;
+                    if (a.this.eSQ != null) {
+                        g.dismissPopupWindow(a.this.eSQ, a.this.eSS.getPageContext().getPageActivity());
+                        a.this.eSQ = null;
                     }
                 }
             };
         }
-        e.iK().postDelayed(this.cyl, 100L);
+        e.fZ().postDelayed(this.runnable, 100L);
     }
 
     public void b(d dVar) {
-        this.eJo = dVar;
+        this.eRT = dVar;
     }
 
-    public boolean bbd() {
-        return this.eKl != null && this.eKl.isShowing();
+    public boolean bbg() {
+        return this.eSQ != null && this.eSQ.isShowing();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eKm != null) {
-            this.eKm.setBackGround();
+        if (this.eSR != null) {
+            this.eSR.setBackGround();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWZ() {
-        if (this.eJo != null && this.eJo.bbh() != null) {
-            ChannelInfo bbh = this.eJo.bbh();
-            String valueOf = String.valueOf(bbh.getUserId());
+    public void bbh() {
+        if (this.eRT != null && this.eRT.bbl() != null) {
+            ChannelInfo bbl = this.eRT.bbl();
+            String valueOf = String.valueOf(bbl.getUserId());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.eKn.getPageContext().getPageActivity()).createNormalConfig(bbh.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.eSS.getPageContext().getPageActivity()).createNormalConfig(bbl.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
         }
     }
 }

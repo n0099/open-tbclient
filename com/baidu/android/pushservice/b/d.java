@@ -11,7 +11,7 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.g;
 import com.baidu.android.pushservice.i.i;
 import com.baidu.android.pushservice.i.l;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.sapi2.SapiContext;
 import com.coloros.mcssdk.PushManager;
 import com.xiaomi.mipush.sdk.Constants;
@@ -442,7 +442,7 @@ public class d extends b {
             e = false;
             long b = i.b(this.a, "cloud_update_config_time", 0) * 24 * 3600 * 1000;
             if (b <= 0) {
-                b = 259200000;
+                b = Config.THREAD_IMAGE_SAVE_MAX_TIME;
             }
             if (l.c() && PushSettings.l(this.a) && !f(this.a)) {
                 try {
@@ -511,7 +511,7 @@ public class d extends b {
                                 hashMap.put("pushSdkInt", ((int) com.baidu.android.pushservice.a.a()) + "");
                             }
                             hashMap.put("manufacture", Build.MANUFACTURER);
-                            hashMap.put(DpStatConstants.KEY_CUID, DeviceId.getCUID(d.this.a));
+                            hashMap.put("cuid", DeviceId.getCUID(d.this.a));
                             hashMap.put(Constants.PACKAGE_NAME, d.this.a.getPackageName());
                             String a2 = d.this.a(hashMap);
                             if (!TextUtils.isEmpty(a2) && (jSONObject = (JSONObject) new JSONObject(a2).get("response_params")) != null) {

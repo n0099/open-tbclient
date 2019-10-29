@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.data.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +27,7 @@ public class c extends b {
         long b = com.baidu.android.pushservice.i.i.b(context, "com.baidu.pushservice.internal.bind.LATEST_TIME");
         final long currentTimeMillis = System.currentTimeMillis();
         long j = currentTimeMillis - b;
-        if (!com.baidu.android.pushservice.i.g.a(context) || j <= 259200000) {
+        if (!com.baidu.android.pushservice.i.g.a(context) || j <= Config.THREAD_IMAGE_SAVE_MAX_TIME) {
             return;
         }
         com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("uploadInternalBindApps", (short) 95) { // from class: com.baidu.android.pushservice.message.a.c.1
@@ -83,7 +84,7 @@ public class c extends b {
                         try {
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("packagename", next);
-                            jSONObject.put("apikey", a);
+                            jSONObject.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, a);
                             jSONObject.put("installtime", w);
                             jSONObject.put("pkgMD5info", l.r(v, next));
                             jSONArray.put(jSONObject);
@@ -109,7 +110,7 @@ public class c extends b {
         String a = PushSettings.a(context);
         String cuid = DeviceId.getCUID(context);
         jSONObject.put("channel_id", a);
-        jSONObject.put(DpStatConstants.KEY_CUID, cuid);
+        jSONObject.put("cuid", cuid);
         jSONObject.put("aksinfo", c);
         return com.baidu.android.pushservice.j.b.a(BaiduAppSSOJni.encryptR(jSONObject.toString().getBytes(), 2), "utf-8");
     }
@@ -133,7 +134,7 @@ public class c extends b {
                         JSONObject jSONObject2 = (JSONObject) jSONArray.get(i3);
                         String string2 = jSONObject2.getString(Constants.PACKAGE_NAME);
                         if (r.contains(string2)) {
-                            String string3 = jSONObject2.getString("apikey");
+                            String string3 = jSONObject2.getString(TableDefine.ZhiDaColumns.COLUMN_APIKEY);
                             if (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !l.x(this.a, string2)) {
                                 a(string3, string2, this.a);
                             }

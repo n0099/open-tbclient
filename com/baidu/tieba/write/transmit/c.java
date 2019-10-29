@@ -15,68 +15,67 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
-    private com.baidu.tieba.write.transmit.a jTI;
-    private s jTJ;
+    private com.baidu.tieba.write.transmit.a jRu;
+    private s jRv;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.jTJ = new s() { // from class: com.baidu.tieba.write.transmit.c.1
+        this.jRv = new s() { // from class: com.baidu.tieba.write.transmit.c.1
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 if (mVar instanceof TransmitForumData) {
                     CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                     boolean isChecked = checkBox.isChecked();
-                    boolean cBS = c.this.jTI != null ? c.this.jTI.cBS() : false;
-                    if (!isChecked && cBS) {
-                        c.this.jTI.cBT();
+                    boolean cyC = c.this.jRu != null ? c.this.jRu.cyC() : false;
+                    if (!isChecked && cyC) {
+                        c.this.jRu.cyD();
                     }
-                    if (isChecked || !cBS) {
+                    if (isChecked || !cyC) {
                         checkBox.setChecked(checkBox.isChecked() ? false : true);
                         ((TransmitForumData) mVar).checked = checkBox.isChecked();
-                        if (c.this.jTI != null) {
-                            c.this.jTI.cBU();
+                        if (c.this.jRu != null) {
+                            c.this.jRu.cyE();
                         }
                     }
                 }
             }
         };
-        setOnAdapterItemClickListener(this.jTJ);
+        a(this.jRv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bZ */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: cb */
+    public a b(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.transmit_forum_layout, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, a aVar) {
-        aVar.ccX.setText(transmitForumData.forumName);
-        aVar.hET.setChecked(transmitForumData.checked);
-        am.j(aVar.ccX, R.color.cp_cont_b);
+    public View a(int i, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, a aVar) {
+        aVar.crl.setText(transmitForumData.forumName);
+        aVar.hDA.setChecked(transmitForumData.checked);
+        am.setViewTextColor(aVar.crl, (int) R.color.cp_cont_b);
         return view;
     }
 
     /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public TextView ccX;
-        public CheckBox hET;
+        public TextView crl;
+        public CheckBox hDA;
 
         public a(View view) {
             super(view);
-            this.ccX = (TextView) view.findViewById(R.id.transmit_forum_name);
-            this.hET = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            this.hET.setButtonDrawable(am.getDrawable(R.drawable.transmit_check_box));
+            this.crl = (TextView) view.findViewById(R.id.transmit_forum_name);
+            this.hDA = (CheckBox) view.findViewById(R.id.transmit_check_box);
+            this.hDA.setButtonDrawable(am.getDrawable(R.drawable.transmit_check_box));
         }
     }
 
     public void a(com.baidu.tieba.write.transmit.a aVar) {
-        this.jTI = aVar;
+        this.jRu = aVar;
     }
 }

@@ -28,6 +28,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.idl.facesdk.FaceInfo;
 import com.baidu.idl.facesdk.FaceSDK;
 import com.baidu.idl.facesdk.FaceTracker;
@@ -62,7 +63,6 @@ import com.baidu.pass.biometrics.face.liveness.view.BioAlertDialog;
 import com.baidu.pass.biometrics.face.liveness.view.ConstrastLoadingView;
 import com.baidu.pass.biometrics.face.liveness.view.CustomAlertDialog;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
-import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -539,8 +539,8 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     private void loadSo() throws Exception {
         Bundle bundle = new Bundle();
-        bundle.putString(UserBox.TYPE, this.passFaceRecogDTO.processid);
-        bundle.putString("tpl", BeanConstants.tpl);
+        bundle.putString("uuid", this.passFaceRecogDTO.processid);
+        bundle.putString(TableDefine.PaSubscribeColumns.COLUMN_TPL, BeanConstants.tpl);
         bundle.putString("productId", this.passFaceRecogDTO.getSpno());
         if (!SoManager.load(this, bundle)) {
             throw new Exception("load so failure");

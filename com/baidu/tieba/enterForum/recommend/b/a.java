@@ -15,102 +15,102 @@ import tbclient.Recommforum.RecommForum;
 import tbclient.Recommforum.TestInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private List<f> fba;
-    private HashMap<String, Integer> fbb;
-    private LinkedHashMap<String, List<b>> fbc;
-    private HashMap<Long, Integer> fbd;
-    private HashMap<String, List<b>> fbe;
+    private List<f> fdL;
+    private HashMap<String, Integer> fdM;
+    private LinkedHashMap<String, List<b>> fdN;
+    private HashMap<Long, Integer> fdO;
+    private HashMap<String, List<b>> fdP;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!v.aa(dataRes.test_info)) {
-                this.fba = new ArrayList();
-                this.fbd = new HashMap<>();
-                this.fbe = new HashMap<>();
+            if (!v.isEmpty(dataRes.test_info)) {
+                this.fdL = new ArrayList();
+                this.fdO = new HashMap<>();
+                this.fdP = new HashMap<>();
                 for (TestInfo testInfo : dataRes.test_info) {
                     if (testInfo != null) {
                         f fVar = new f();
                         fVar.a(testInfo);
-                        this.fba.add(fVar);
-                        if (testInfo.recomm_forum != null && !v.aa(testInfo.recomm_forum.forums)) {
+                        this.fdL.add(fVar);
+                        if (testInfo.recomm_forum != null && !v.isEmpty(testInfo.recomm_forum.forums)) {
                             ArrayList arrayList = new ArrayList();
                             for (RecommendForumInfo recommendForumInfo : testInfo.recomm_forum.forums) {
                                 if (recommendForumInfo != null) {
                                     b bVar = new b();
                                     bVar.b(recommendForumInfo);
-                                    bVar.fbk = 1;
+                                    bVar.fdV = 1;
                                     arrayList.add(bVar);
                                 }
                             }
-                            this.fbd.put(Long.valueOf(fVar.testId), testInfo.recomm_forum.page_size);
-                            this.fbe.put(String.valueOf(fVar.testId) + "|" + testInfo.recomm_forum.title, arrayList);
+                            this.fdO.put(Long.valueOf(fVar.testId), testInfo.recomm_forum.page_size);
+                            this.fdP.put(String.valueOf(fVar.testId) + "|" + testInfo.recomm_forum.title, arrayList);
                         }
                     }
                 }
             }
-            if (!v.aa(dataRes.recomm_forum)) {
-                this.fbb = new HashMap<>();
-                this.fbc = new LinkedHashMap<>();
+            if (!v.isEmpty(dataRes.recomm_forum)) {
+                this.fdM = new HashMap<>();
+                this.fdN = new LinkedHashMap<>();
                 for (RecommForum recommForum : dataRes.recomm_forum) {
-                    if (recommForum != null && !v.aa(recommForum.forums)) {
+                    if (recommForum != null && !v.isEmpty(recommForum.forums)) {
                         ArrayList arrayList2 = new ArrayList();
                         for (RecommendForumInfo recommendForumInfo2 : recommForum.forums) {
                             if (recommendForumInfo2 != null) {
                                 b bVar2 = new b();
                                 bVar2.b(recommendForumInfo2);
-                                bVar2.fbk = 2;
+                                bVar2.fdV = 2;
                                 arrayList2.add(bVar2);
                             }
                         }
-                        this.fbb.put(recommForum.title, recommForum.page_size);
-                        this.fbc.put(recommForum.title, arrayList2);
+                        this.fdM.put(recommForum.title, recommForum.page_size);
+                        this.fdN.put(recommForum.title, arrayList2);
                     }
                 }
             }
         }
     }
 
-    private List<b> wy(String str) {
+    private List<b> uW(String str) {
         ArrayList arrayList = new ArrayList();
-        if (this.fbc != null && this.fbc.size() > 0) {
-            arrayList.addAll(this.fbc.get(str));
+        if (this.fdN != null && this.fdN.size() > 0) {
+            arrayList.addAll(this.fdN.get(str));
         }
         return arrayList;
     }
 
-    private List<b> wz(String str) {
+    private List<b> uX(String str) {
         ArrayList arrayList = new ArrayList();
-        if (this.fbe != null && this.fbe.size() > 0) {
-            arrayList.addAll(this.fbe.get(str));
+        if (this.fdP != null && this.fdP.size() > 0) {
+            arrayList.addAll(this.fdP.get(str));
         }
         return arrayList;
     }
 
-    public List<m> bhd() {
+    public List<m> beX() {
         ArrayList arrayList = new ArrayList();
-        if (this.fbb != null && this.fbb.size() > 0) {
-            for (String str : this.fbb.keySet()) {
+        if (this.fdM != null && this.fdM.size() > 0) {
+            for (String str : this.fdM.keySet()) {
                 if (!StringUtils.isNull(str)) {
-                    int intValue = this.fbb.get(str).intValue();
+                    int intValue = this.fdM.get(str).intValue();
                     d dVar = new d();
                     dVar.setTitle(str);
-                    dVar.qH(intValue);
-                    dVar.bH(wy(str));
+                    dVar.pD(intValue);
+                    dVar.bU(uW(str));
                     arrayList.add(dVar);
-                    arrayList.addAll(dVar.bhh());
+                    arrayList.addAll(dVar.bfb());
                 }
             }
         }
         return arrayList;
     }
 
-    private List<m> dd(long j) {
+    private List<m> cD(long j) {
         if (j <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.fbe != null && this.fbe.size() > 0) {
-            Iterator<String> it = this.fbe.keySet().iterator();
+        if (this.fdP != null && this.fdP.size() > 0) {
+            Iterator<String> it = this.fdP.keySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -120,13 +120,13 @@ public class a {
                     String[] split = next.split("[|]");
                     if (String.valueOf(j).equals(split[0]) && split.length == 2 && !StringUtils.isNull(split[1])) {
                         String str = split[1];
-                        int intValue = this.fbd.get(Long.valueOf(j)).intValue();
+                        int intValue = this.fdO.get(Long.valueOf(j)).intValue();
                         d dVar = new d();
                         dVar.setTitle(str);
-                        dVar.qH(intValue);
-                        dVar.bH(wz(next));
+                        dVar.pD(intValue);
+                        dVar.bU(uX(next));
                         arrayList.add(dVar);
-                        arrayList.addAll(dVar.bhh());
+                        arrayList.addAll(dVar.bfb());
                         break;
                     }
                 }
@@ -135,19 +135,19 @@ public class a {
         return arrayList;
     }
 
-    public List<f> de(long j) {
+    public List<f> cE(long j) {
         int i;
-        if (v.aa(this.fba)) {
+        if (v.isEmpty(this.fdL)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        int size = this.fba.size();
+        int size = this.fdL.size();
         int i2 = 0;
         while (true) {
             if (i2 >= size) {
                 i = 0;
                 break;
-            } else if (this.fba.get(i2).testId == j) {
+            } else if (this.fdL.get(i2).testId == j) {
                 i = i2;
                 break;
             } else {
@@ -155,38 +155,38 @@ public class a {
             }
         }
         if (i == 0) {
-            arrayList.add(this.fba.get(size - 1));
-            arrayList.addAll(this.fba.subList(0, size - 1));
+            arrayList.add(this.fdL.get(size - 1));
+            arrayList.addAll(this.fdL.subList(0, size - 1));
         } else {
-            arrayList.addAll(this.fba.subList(i - 1, size));
-            arrayList.addAll(this.fba.subList(0, i - 1));
+            arrayList.addAll(this.fdL.subList(i - 1, size));
+            arrayList.addAll(this.fdL.subList(0, i - 1));
         }
         return arrayList;
     }
 
-    public List<f> bhe() {
-        return this.fba;
+    public List<f> beY() {
+        return this.fdL;
     }
 
-    public List<m> df(long j) {
+    public List<m> cF(long j) {
         ArrayList arrayList = new ArrayList();
         if (j > 0) {
-            List<m> dd = dd(j);
-            if (dd != null && !v.aa(dd)) {
-                arrayList.addAll(dd);
+            List<m> cD = cD(j);
+            if (cD != null && !v.isEmpty(cD)) {
+                arrayList.addAll(cD);
             }
-            List<m> bhd = bhd();
-            if (bhd != null && !v.aa(bhd)) {
-                arrayList.addAll(bhd);
+            List<m> beX = beX();
+            if (beX != null && !v.isEmpty(beX)) {
+                arrayList.addAll(beX);
             }
         } else {
-            List<m> bhd2 = bhd();
-            if (bhd2 != null && !v.aa(bhd2)) {
-                arrayList.addAll(bhd2);
+            List<m> beX2 = beX();
+            if (beX2 != null && !v.isEmpty(beX2)) {
+                arrayList.addAll(beX2);
             }
         }
         e eVar = new e();
-        eVar.fbt = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+        eVar.fee = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
         arrayList.add(eVar);
         return arrayList;
     }

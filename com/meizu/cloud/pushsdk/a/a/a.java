@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.ubc.UBC;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -175,7 +174,7 @@ public class a {
                             try {
                                 JSONObject jSONObject = new JSONObject(a);
                                 if (jSONObject.getInt("code") == 200) {
-                                    String string = jSONObject.getString(UBC.CONTENT_KEY_VALUE);
+                                    String string = jSONObject.getString("value");
                                     SharedPreferences.Editor edit = this.k.edit();
                                     edit.putString("publicKey", string);
                                     edit.apply();

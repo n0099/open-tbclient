@@ -5,6 +5,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
@@ -17,8 +19,8 @@ public class ClientStartStatic {
     static {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             new a().execute(new Void[0]);
-            MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tieba.tblauncher.ClientStartStatic.1
-                private long bcI;
+            MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.tblauncher.ClientStartStatic.1
+                private long mTimeStamp;
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
@@ -26,13 +28,13 @@ public class ClientStartStatic {
                     Boolean data;
                     if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                         if (data.booleanValue()) {
-                            this.bcI = SystemClock.elapsedRealtime();
+                            this.mTimeStamp = SystemClock.elapsedRealtime();
                             return;
                         }
-                        if (SystemClock.elapsedRealtime() - this.bcI > StatisticConfig.MIN_UPLOAD_INTERVAL) {
+                        if (SystemClock.elapsedRealtime() - this.mTimeStamp > StatisticConfig.MIN_UPLOAD_INTERVAL) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new an("c11894").P("obj_param1", 1));
+                        TiebaStatic.log(new an(TbadkCoreStatisticKey.HOST_START).O("obj_param1", 1));
                     }
                 }
             });
@@ -51,8 +53,8 @@ public class ClientStartStatic {
         public Void doInBackground(Void... voidArr) {
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
                 x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-                xVar.o("type", "1");
-                xVar.aim();
+                xVar.addPostData("type", "1");
+                xVar.postNetData();
             }
             return null;
         }

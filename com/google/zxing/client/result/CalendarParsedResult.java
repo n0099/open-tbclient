@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,7 +24,7 @@ public final class CalendarParsedResult extends ParsedResult {
     private final boolean startAllDay;
     private final String summary;
     private static final Pattern RFC2445_DURATION = Pattern.compile("P(?:(\\d+)W)?(?:(\\d+)D)?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?)?");
-    private static final long[] RFC2445_DURATION_FIELD_UNITS = {604800000, 86400000, 3600000, 60000, 1000};
+    private static final long[] RFC2445_DURATION_FIELD_UNITS = {604800000, 86400000, BdKVCache.MILLS_1Hour, 60000, 1000};
     private static final Pattern DATE_TIME = Pattern.compile("[0-9]{8}(T[0-9]{6}Z?)?");
 
     public CalendarParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String[] strArr, String str7, double d, double d2) {

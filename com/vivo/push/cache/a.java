@@ -2,8 +2,10 @@ package com.vivo.push.cache;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.vivo.push.util.m;
-import com.vivo.push.util.w;
+import android.util.Base64;
+import com.vivo.push.util.g;
+import com.vivo.push.util.p;
+import com.vivo.push.util.z;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,7 +30,7 @@ public final class a extends d<com.vivo.push.model.a> {
                     try {
                         arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
                     } catch (Exception e) {
-                        m.d("AppConfigSettings", "str2Clients E: " + e);
+                        p.d("AppConfigSettings", "str2Clients E: " + e);
                     }
                 }
             }
@@ -37,53 +39,15 @@ public final class a extends d<com.vivo.push.model.a> {
         return arrayList;
     }
 
-    public final void a(com.vivo.push.model.a aVar) {
-        boolean z;
-        synchronized (a) {
-            if (!TextUtils.isEmpty(aVar.a())) {
-                for (T t : this.b) {
-                    if (t.a().equals(aVar.a())) {
-                        t.a(aVar.b());
-                        z = true;
-                        break;
-                    }
-                }
-            }
-            z = false;
-            if (z) {
-                b((List) this.b);
-            }
-        }
-    }
-
     @Override // com.vivo.push.cache.d
-    public final String a(List<com.vivo.push.model.a> list) {
-        if (list == null || list.size() == 0) {
-            return "";
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < list.size()) {
-                com.vivo.push.model.a aVar = list.get(i2);
-                stringBuffer.append(aVar.a());
-                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                stringBuffer.append(aVar.b());
-                if (i2 != list.size() - 1) {
-                    stringBuffer.append("@#");
-                }
-                i = i2 + 1;
-            } else {
-                return stringBuffer.toString();
-            }
-        }
+    final String b(String str) throws Exception {
+        return new String(g.a(g.a(a), g.a(b), Base64.decode(str, 2)), "utf-8");
     }
 
-    public final com.vivo.push.model.a b(String str) {
+    public final com.vivo.push.model.a c(String str) {
         com.vivo.push.model.a aVar;
-        synchronized (a) {
-            Iterator it = this.b.iterator();
+        synchronized (c) {
+            Iterator it = this.d.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     aVar = null;
@@ -104,12 +68,12 @@ public final class a extends d<com.vivo.push.model.a> {
     }
 
     public final int b() {
-        com.vivo.push.model.a b = b("push_mode");
-        if (b == null || TextUtils.isEmpty(b.b())) {
+        com.vivo.push.model.a c = c("push_mode");
+        if (c == null || TextUtils.isEmpty(c.b())) {
             return -1;
         }
         try {
-            return Integer.parseInt(b.b());
+            return Integer.parseInt(c.b());
         } catch (Exception e) {
             return -1;
         }
@@ -119,6 +83,6 @@ public final class a extends d<com.vivo.push.model.a> {
         if (i != -1) {
             return (i & 1) != 0;
         }
-        return w.b("persist.sys.log.ctrl", "no").equals("yes");
+        return z.b("persist.sys.log.ctrl", "no").equals("yes");
     }
 }

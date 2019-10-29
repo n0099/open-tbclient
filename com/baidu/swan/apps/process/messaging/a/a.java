@@ -2,7 +2,6 @@ package com.baidu.swan.apps.process.messaging.a;
 
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
@@ -25,11 +24,11 @@ public class a {
             str2 = bundle2.getString("ai_apps_observer_id", "");
             bundle = bundle2.getBundle("ai_apps_data");
         }
-        com.baidu.swan.apps.process.b.a.b.a(NotificationManagerCompat.IMPORTANCE_UNSPECIFIED, str, str2, bundle);
+        com.baidu.swan.apps.process.b.a.b.a(-1000, str, str2, bundle);
     }
 
     public static void v(Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.client.a.Jv().e(300, bundle);
+        com.baidu.swan.apps.process.messaging.client.a.Op().e(300, bundle);
     }
 
     public static void m(Message message) {
@@ -42,7 +41,7 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.b.b.a.b bVar = new com.baidu.swan.apps.process.b.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.i(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.b.b.b.a.Js().a(bVar);
+        com.baidu.swan.apps.process.b.b.b.a.Om().a(bVar);
     }
 
     public static void n(Message message) {
@@ -83,6 +82,6 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.b.b.a.b bVar = new com.baidu.swan.apps.process.b.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.i(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.b.b.b.a.Js().a(bVar);
+        com.baidu.swan.apps.process.b.b.b.a.Om().a(bVar);
     }
 }

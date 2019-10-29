@@ -7,43 +7,43 @@ import kotlin.collections.y;
 import kotlin.collections.z;
 /* loaded from: classes2.dex */
 public final class i {
-    public static final kotlin.collections.l ae(byte[] bArr) {
-        p.k(bArr, "array");
+    public static final kotlin.collections.l T(byte[] bArr) {
+        p.i(bArr, "array");
         return new b(bArr);
     }
 
     public static final kotlin.collections.m c(char[] cArr) {
-        p.k(cArr, "array");
+        p.i(cArr, "array");
         return new c(cArr);
     }
 
     public static final ag b(short[] sArr) {
-        p.k(sArr, "array");
+        p.i(sArr, "array");
         return new k(sArr);
     }
 
-    public static final y m(int[] iArr) {
-        p.k(iArr, "array");
+    public static final y i(int[] iArr) {
+        p.i(iArr, "array");
         return new f(iArr);
     }
 
     public static final z b(long[] jArr) {
-        p.k(jArr, "array");
+        p.i(jArr, "array");
         return new j(jArr);
     }
 
     public static final w k(float[] fArr) {
-        p.k(fArr, "array");
+        p.i(fArr, "array");
         return new e(fArr);
     }
 
     public static final u j(double[] dArr) {
-        p.k(dArr, "array");
+        p.i(dArr, "array");
         return new d(dArr);
     }
 
     public static final kotlin.collections.k c(boolean[] zArr) {
-        p.k(zArr, "array");
+        p.i(zArr, "array");
         return new a(zArr);
     }
 }

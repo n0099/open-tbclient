@@ -1,6 +1,5 @@
 package com.baidu.tieba.godRecommends;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetRecommendGod.GetRecommendGodResIdl;
@@ -9,7 +8,7 @@ public class GodRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     private c godRecommendData;
 
     public GodRecommendHttpResponseMessage() {
-        super(CmdConfigHttp.CMD_GET_GOD_RECOMMEND);
+        super(1003375);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -10,7 +10,6 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.c;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -45,7 +44,7 @@ public class b {
                 jSONObject2.put("time", a2.get(str));
                 jSONArray.put(jSONObject2);
             }
-            jSONObject.put(IntentConfig.LIST, jSONArray);
+            jSONObject.put("list", jSONArray);
         } catch (JSONException e) {
             Log.i(e);
         }
@@ -147,6 +146,6 @@ public class b {
 
     public boolean a() {
         JSONObject v2FaceLoginCheckResults = SapiContext.getInstance(this.e).getV2FaceLoginCheckResults();
-        return v2FaceLoginCheckResults != null && v2FaceLoginCheckResults.has(IntentConfig.LIST) && v2FaceLoginCheckResults.optJSONArray(IntentConfig.LIST).length() > 0 && SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
+        return v2FaceLoginCheckResults != null && v2FaceLoginCheckResults.has("list") && v2FaceLoginCheckResults.optJSONArray("list").length() > 0 && SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
     }
 }

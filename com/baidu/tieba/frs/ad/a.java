@@ -9,47 +9,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private FrsADFragment fAK;
-    private BdTypeRecyclerView fAL;
-    private d fAM;
-    private l fAN;
-    private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> agQ = new ArrayList();
+    private d fAa;
+    private l fAb;
+    private FrsADFragment fzY;
+    private BdTypeRecyclerView fzZ;
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.fAK = frsADFragment;
-        this.fAL = bdTypeRecyclerView;
-        initAdapters();
+        this.fzY = frsADFragment;
+        this.fzZ = bdTypeRecyclerView;
+        sX();
     }
 
-    private void initAdapters() {
-        this.fAM = new d(this.fAK.getPageContext(), c.fBa, this.fAK.getUniqueId());
-        this.fAN = new l(this.fAK.getPageContext(), m.fyV);
-        this.mAdapters.add(this.fAM);
-        this.mAdapters.add(this.fAN);
-        this.fAL.addAdapters(this.mAdapters);
+    private void sX() {
+        this.fAa = new d(this.fzY.getPageContext(), c.fAo, this.fzY.getUniqueId());
+        this.fAb = new l(this.fzY.getPageContext(), m.fyi);
+        this.agQ.add(this.fAa);
+        this.agQ.add(this.fAb);
+        this.fzZ.addAdapters(this.agQ);
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-        this.fAL.setData(arrayList);
+        this.fzZ.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        this.fAL.getAdapter().notifyDataSetChanged();
+        this.fzZ.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.agQ) {
             if (aVar instanceof h) {
                 ((h) aVar).release();
             }
         }
     }
 
-    public void setOnAdapterItemClickListener(s sVar) {
-        if (this.mAdapters != null && this.mAdapters.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
+    public void a(s sVar) {
+        if (this.agQ != null && this.agQ.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.agQ) {
                 if (aVar != null && (aVar instanceof h)) {
-                    aVar.setOnAdapterItemClickListener(sVar);
+                    aVar.a(sVar);
                 }
             }
         }

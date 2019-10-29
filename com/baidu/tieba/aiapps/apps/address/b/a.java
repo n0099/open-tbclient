@@ -3,13 +3,12 @@ package com.baidu.tieba.aiapps.apps.address.b;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.searchbox.http.request.PostFormRequest;
 import com.baidu.swan.apps.an.j;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.aiapps.apps.c.d;
 import com.vivo.push.PushClientConstants;
 import java.util.ArrayList;
@@ -23,72 +22,72 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String ddp;
-    private List<com.baidu.tieba.aiapps.apps.address.c.b> ddt = new ArrayList();
-    private Bundle ddw;
+    private String dmK;
+    private List<com.baidu.tieba.aiapps.apps.address.c.b> dmO = new ArrayList();
+    private Bundle dmQ;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class c {
-        private static final a dea = new a();
+        private static final a dnv = new a();
     }
 
-    public static a aFt() {
-        return c.dea;
+    public static a aFF() {
+        return c.dnv;
     }
 
     public void H(Bundle bundle) {
-        this.ddw = bundle;
-        if (this.ddw != null) {
-            String string = this.ddw.getString("openSource");
+        this.dmQ = bundle;
+        if (this.dmQ != null) {
+            String string = this.dmQ.getString("openSource");
             if (!TextUtils.isEmpty(string)) {
-                this.ddp = string;
+                this.dmK = string;
             }
         }
     }
 
     public void a(com.baidu.tieba.aiapps.apps.address.b.b bVar) {
-        new b(bVar, IntentConfig.LIST);
+        new b(bVar, "list");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        if (TextUtils.equals(this.ddp, "aiapp")) {
-            linkedHashMap.put("ma_id", this.ddw.getString("appId"));
-            linkedHashMap.put("app_key", this.ddw.getString("appKey"));
-            linkedHashMap.put("host_pkgname", this.ddw.getString(PushClientConstants.TAG_PKG_NAME));
-            linkedHashMap.put("host_key_hash", this.ddw.getString("keyHash"));
-            linkedHashMap.put("stoken", this.ddw.getString("stoken"));
-            linkedHashMap.put("host_api_key", com.baidu.swan.apps.u.a.EA().wW());
+        if (TextUtils.equals(this.dmK, "aiapp")) {
+            linkedHashMap.put("ma_id", this.dmQ.getString("appId"));
+            linkedHashMap.put("app_key", this.dmQ.getString("appKey"));
+            linkedHashMap.put("host_pkgname", this.dmQ.getString(PushClientConstants.TAG_PKG_NAME));
+            linkedHashMap.put("host_key_hash", this.dmQ.getString("keyHash"));
+            linkedHashMap.put("stoken", this.dmQ.getString("stoken"));
+            linkedHashMap.put("host_api_key", com.baidu.swan.apps.u.a.Ju().BQ());
         }
-        a(null, bVar, linkedHashMap, IntentConfig.LIST);
+        a(null, bVar, linkedHashMap, "list");
     }
 
-    public List<com.baidu.tieba.aiapps.apps.address.c.b> aFu() {
-        String ac = com.baidu.swan.c.a.ac(AppRuntime.getAppContext(), "delivery_data.json");
-        if (!TextUtils.isEmpty(ac)) {
+    public List<com.baidu.tieba.aiapps.apps.address.c.b> aFG() {
+        String ab = com.baidu.swan.c.a.ab(AppRuntime.getAppContext(), "delivery_data.json");
+        if (!TextUtils.isEmpty(ab)) {
             try {
-                this.ddt = com.baidu.tieba.aiapps.apps.address.c.c.E(new JSONArray(ac));
+                this.dmO = com.baidu.tieba.aiapps.apps.address.c.c.M(new JSONArray(ab));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return this.ddt;
+        return this.dmO;
     }
 
-    public void aFv() {
+    public void aFH() {
         j.a(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.address.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.c.a.c(AppRuntime.getAppContext(), "delivery_data.json", com.baidu.tieba.aiapps.apps.address.c.c.aH(a.this.ddt).toString(), 0);
+                com.baidu.swan.c.a.c(AppRuntime.getAppContext(), "delivery_data.json", com.baidu.tieba.aiapps.apps.address.c.c.ba(a.this.dmO).toString(), 0);
             }
         }, "saveCacheToLocal");
     }
 
-    public List<com.baidu.tieba.aiapps.apps.address.c.b> aFw() {
-        if (this.ddt == null) {
-            this.ddt = new ArrayList();
+    public List<com.baidu.tieba.aiapps.apps.address.c.b> aFI() {
+        if (this.dmO == null) {
+            this.dmO = new ArrayList();
         }
-        return this.ddt;
+        return this.dmO;
     }
 
     public void a(com.baidu.tieba.aiapps.apps.address.c.b bVar, com.baidu.tieba.aiapps.apps.address.b.b bVar2) {
@@ -99,7 +98,7 @@ public class a {
             }
             return;
         }
-        a(bVar, bVar2, a(bVar), "add");
+        a(bVar, bVar2, a(bVar), IMTrack.DbBuilder.ACTION_ADD);
     }
 
     public void b(com.baidu.tieba.aiapps.apps.address.c.b bVar, com.baidu.tieba.aiapps.apps.address.b.b bVar2) {
@@ -110,7 +109,7 @@ public class a {
             }
             return;
         }
-        a(bVar, bVar2, a(bVar), WriteImageActivityConfig.DELET_FLAG);
+        a(bVar, bVar2, a(bVar), "delete");
     }
 
     public void c(com.baidu.tieba.aiapps.apps.address.c.b bVar, com.baidu.tieba.aiapps.apps.address.b.b bVar2) {
@@ -121,7 +120,7 @@ public class a {
             }
             return;
         }
-        a(bVar, bVar2, a(bVar), "update");
+        a(bVar, bVar2, a(bVar), IMTrack.DbBuilder.ACTION_UPDATE);
     }
 
     public void d(com.baidu.tieba.aiapps.apps.address.c.b bVar, com.baidu.tieba.aiapps.apps.address.b.b bVar2) {
@@ -136,7 +135,7 @@ public class a {
     }
 
     public void a(com.baidu.tieba.aiapps.apps.address.c.b bVar, com.baidu.tieba.aiapps.apps.address.b.b bVar2, Map<String, String> map, String str) {
-        if (bVar == null && !TextUtils.equals(str, IntentConfig.LIST)) {
+        if (bVar == null && !TextUtils.equals(str, "list")) {
             if (DEBUG) {
                 Log.d("DeliveryDataManager", "requestPostDelivery: deliveryAddr is null");
                 return;
@@ -156,8 +155,8 @@ public class a {
                 }
             }
         }
-        String tt = tt(str);
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(tt)).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.EL().Fj())).build().executeAsyncOnUIBack(bVar3);
+        String sc = sc(str);
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(sc)).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.JF().Kd())).build().executeAsyncOnUIBack(bVar3);
     }
 
     private Map<String, String> a(com.baidu.tieba.aiapps.apps.address.c.b bVar) {
@@ -169,23 +168,23 @@ public class a {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 hashMap.put("name", bVar.userName);
             }
-            if (!TextUtils.isEmpty(bVar.deg)) {
-                hashMap.put("phone", bVar.deg);
+            if (!TextUtils.isEmpty(bVar.dnB)) {
+                hashMap.put("phone", bVar.dnB);
             }
-            if (bVar.dei != null && !TextUtils.isEmpty(bVar.dei.code)) {
-                hashMap.put("l1", bVar.dei.code);
+            if (bVar.dnD != null && !TextUtils.isEmpty(bVar.dnD.code)) {
+                hashMap.put("l1", bVar.dnD.code);
             }
-            if (bVar.dej != null && !TextUtils.isEmpty(bVar.dej.code)) {
-                hashMap.put("l2", bVar.dej.code);
+            if (bVar.dnE != null && !TextUtils.isEmpty(bVar.dnE.code)) {
+                hashMap.put("l2", bVar.dnE.code);
             }
-            if (bVar.dek != null && !TextUtils.isEmpty(bVar.dek.code)) {
-                hashMap.put("l3", bVar.dek.code);
+            if (bVar.dnF != null && !TextUtils.isEmpty(bVar.dnF.code)) {
+                hashMap.put("l3", bVar.dnF.code);
             }
-            if (!TextUtils.isEmpty(bVar.del)) {
-                hashMap.put("street", bVar.del);
+            if (!TextUtils.isEmpty(bVar.dnG)) {
+                hashMap.put("street", bVar.dnG);
             }
-            if (!TextUtils.isEmpty(bVar.dem)) {
-                hashMap.put("zipcode", bVar.dem);
+            if (!TextUtils.isEmpty(bVar.dnH)) {
+                hashMap.put("zipcode", bVar.dnH);
             }
         }
         return hashMap;
@@ -194,11 +193,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class b extends StringResponseCallback {
-        private com.baidu.tieba.aiapps.apps.address.b.b ddZ;
+        private com.baidu.tieba.aiapps.apps.address.b.b dnu;
         private String mType;
 
         public b(com.baidu.tieba.aiapps.apps.address.b.b bVar, String str) {
-            this.ddZ = bVar;
+            this.dnu = bVar;
             this.mType = str;
         }
 
@@ -206,38 +205,38 @@ public class a {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: x */
         public void onSuccess(String str, int i) {
-            if (this.ddZ != null) {
-                this.ddZ.aFp();
+            if (this.dnu != null) {
+                this.dnu.aFB();
                 if (!TextUtils.isEmpty(str) && i == 200) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
                         if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                            this.ddZ.tr(jSONObject.optString("tipmsg"));
+                            this.dnu.sa(jSONObject.optString("tipmsg"));
                             return;
                         }
                         String str2 = this.mType;
                         char c = 65535;
                         switch (str2.hashCode()) {
                             case -1335458389:
-                                if (str2.equals(WriteImageActivityConfig.DELET_FLAG)) {
+                                if (str2.equals("delete")) {
                                     c = 4;
                                     break;
                                 }
                                 break;
                             case -838846263:
-                                if (str2.equals("update")) {
+                                if (str2.equals(IMTrack.DbBuilder.ACTION_UPDATE)) {
                                     c = 2;
                                     break;
                                 }
                                 break;
                             case 96417:
-                                if (str2.equals("add")) {
+                                if (str2.equals(IMTrack.DbBuilder.ACTION_ADD)) {
                                     c = 1;
                                     break;
                                 }
                                 break;
                             case 3322014:
-                                if (str2.equals(IntentConfig.LIST)) {
+                                if (str2.equals("list")) {
                                     c = 0;
                                     break;
                                 }
@@ -251,22 +250,22 @@ public class a {
                         }
                         switch (c) {
                             case 0:
-                                List<com.baidu.tieba.aiapps.apps.address.c.b> tx = com.baidu.tieba.aiapps.apps.address.c.c.tx(str);
-                                a.this.ddt = tx;
-                                this.ddZ.g(tx, i);
-                                a.this.aFv();
+                                List<com.baidu.tieba.aiapps.apps.address.c.b> sg = com.baidu.tieba.aiapps.apps.address.c.c.sg(str);
+                                a.this.dmO = sg;
+                                this.dnu.d(sg, i);
+                                a.this.aFH();
                                 return;
                             case 1:
-                                this.ddZ.ak(str, i);
+                                this.dnu.ab(str, i);
                                 return;
                             case 2:
-                                this.ddZ.al(str, i);
+                                this.dnu.ac(str, i);
                                 return;
                             case 3:
-                                this.ddZ.al(str, i);
+                                this.dnu.ac(str, i);
                                 return;
                             case 4:
-                                this.ddZ.am(str, i);
+                                this.dnu.ad(str, i);
                                 return;
                             default:
                                 return;
@@ -275,47 +274,47 @@ public class a {
                         if (a.DEBUG) {
                             e.printStackTrace();
                         }
-                        this.ddZ.onFailure();
+                        this.dnu.onFailure();
                         return;
                     }
                 }
-                this.ddZ.onFailure();
+                this.dnu.onFailure();
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (this.ddZ != null) {
-                this.ddZ.aFp();
-                this.ddZ.onFailure();
+            if (this.dnu != null) {
+                this.dnu.aFB();
+                this.dnu.onFailure();
             }
         }
     }
 
-    private String tt(String str) {
+    private String sc(String str) {
         String str2 = "";
         char c2 = 65535;
         switch (str.hashCode()) {
             case -1335458389:
-                if (str.equals(WriteImageActivityConfig.DELET_FLAG)) {
+                if (str.equals("delete")) {
                     c2 = 4;
                     break;
                 }
                 break;
             case -838846263:
-                if (str.equals("update")) {
+                if (str.equals(IMTrack.DbBuilder.ACTION_UPDATE)) {
                     c2 = 2;
                     break;
                 }
                 break;
             case 96417:
-                if (str.equals("add")) {
+                if (str.equals(IMTrack.DbBuilder.ACTION_ADD)) {
                     c2 = 1;
                     break;
                 }
                 break;
             case 3322014:
-                if (str.equals(IntentConfig.LIST)) {
+                if (str.equals("list")) {
                     c2 = 0;
                     break;
                 }
@@ -329,7 +328,7 @@ public class a {
         }
         switch (c2) {
             case 0:
-                if (TextUtils.equals(this.ddp, "aiapp")) {
+                if (TextUtils.equals(this.dmK, "aiapp")) {
                     str2 = "/oa_list";
                     break;
                 } else {
@@ -350,32 +349,32 @@ public class a {
                 break;
         }
         if (!TextUtils.isEmpty(str2)) {
-            return d.ty(d.aFY() + str2);
+            return d.sh(d.aGl() + str2);
         }
         return str2;
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0292a implements com.baidu.tieba.aiapps.apps.address.b.b {
+    public static class C0324a implements com.baidu.tieba.aiapps.apps.address.b.b {
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void aFp() {
+        public void aFB() {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void al(String str, int i) {
+        public void ac(String str, int i) {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void am(String str, int i) {
+        public void ad(String str, int i) {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void ak(String str, int i) {
+        public void ab(String str, int i) {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void g(List<com.baidu.tieba.aiapps.apps.address.c.b> list, int i) {
+        public void d(List<com.baidu.tieba.aiapps.apps.address.c.b> list, int i) {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
@@ -383,7 +382,7 @@ public class a {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void tr(String str) {
+        public void sa(String str) {
         }
     }
 }

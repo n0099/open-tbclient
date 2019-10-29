@@ -1,6 +1,5 @@
 package com.vivo.push.b;
 
-import android.content.Intent;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -12,19 +11,19 @@ public final class a extends c {
         this.a = arrayList;
     }
 
-    @Override // com.vivo.push.b.c, com.vivo.push.v
-    public final void d(Intent intent) {
-        super.d(intent);
-        intent.putStringArrayListExtra(CommandMessage.TYPE_TAGS, this.a);
+    @Override // com.vivo.push.b.c, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a(CommandMessage.TYPE_TAGS, this.a);
     }
 
-    @Override // com.vivo.push.b.c, com.vivo.push.v
-    public final void e(Intent intent) {
-        super.e(intent);
-        this.a = intent.getStringArrayListExtra(CommandMessage.TYPE_TAGS);
+    @Override // com.vivo.push.b.c, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.a = aVar.b(CommandMessage.TYPE_TAGS);
     }
 
-    @Override // com.vivo.push.b.c, com.vivo.push.v
+    @Override // com.vivo.push.b.c, com.vivo.push.y
     public final String toString() {
         return "AliasCommand:" + b();
     }

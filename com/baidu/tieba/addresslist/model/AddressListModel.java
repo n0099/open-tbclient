@@ -2,6 +2,8 @@ package com.baidu.tieba.addresslist.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.addresslist.b.a;
@@ -9,53 +11,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a dbB;
+    private a dkY;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.dbB = a.aDT();
+        this.dkY = a.aEc();
     }
 
-    public void a(a.InterfaceC0282a interfaceC0282a) {
-        this.dbB.a(interfaceC0282a);
+    public void a(a.InterfaceC0314a interfaceC0314a) {
+        this.dkY.a(interfaceC0314a);
     }
 
-    public void b(a.InterfaceC0282a interfaceC0282a) {
-        this.dbB.b(interfaceC0282a);
+    public void b(a.InterfaceC0314a interfaceC0314a) {
+        this.dkY.b(interfaceC0314a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> aEl() {
-        return this.dbB.aDU();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> aEv() {
+        return this.dkY.aEd();
     }
 
-    public void aEm() {
-        sendMessage(new CustomMessage(2001178));
+    public void aEw() {
+        sendMessage(new CustomMessage(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST));
     }
 
-    public void aEh() {
-        super.sendMessage(new RequestGetAddressListMessage(304001));
+    public void aEr() {
+        super.sendMessage(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));
     }
 
-    public void aD(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.dbB.aA(list);
+    public void aW(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
+        this.dkY.aS(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.dbB.a(aVar);
+        this.dkY.a(aVar);
     }
 
-    public void bS(long j) {
-        this.dbB.bS(j);
+    public void bH(long j) {
+        this.dkY.bH(j);
     }
 
-    public int th(String str) {
+    public int rQ(String str) {
         int i;
-        if (c.pN(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> aDU = this.dbB.aDU();
-            if (aDU != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : aDU) {
-                    if (str.equals(aVar.aqh())) {
-                        i = aDU.indexOf(aVar);
+        if (c.oX(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> aEd = this.dkY.aEd();
+            if (aEd != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : aEd) {
+                    if (str.equals(aVar.asb())) {
+                        i = aEd.indexOf(aVar);
                         break;
                     }
                 }

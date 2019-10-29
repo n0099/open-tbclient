@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -50,14 +51,14 @@ public class SwanAppNetworkUtils {
     public static void a(Context context, CallbackHandler callbackHandler, String str) {
         if (context != null && !TextUtils.isEmpty(str) && callbackHandler != null) {
             boolean isNetworkConnected = isNetworkConnected(context);
-            String HU = HU();
+            String MO = MO();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("isConnected", isNetworkConnected);
-                if (TextUtils.equals(HU, "no")) {
-                    HU = IXAdSystemUtils.NT_NONE;
+                if (TextUtils.equals(MO, "no")) {
+                    MO = IXAdSystemUtils.NT_NONE;
                 }
-                jSONObject.put("networkType", HU);
+                jSONObject.put("networkType", MO);
                 if (DEBUG) {
                     Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
                 }
@@ -73,7 +74,7 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String o(int i, String str) {
+    public static String s(int i, String str) {
         if (DEBUG) {
             Log.d("NetWorkUtils", "——> getNetworkType: netType " + i + " subTypeName " + str);
         }
@@ -84,7 +85,7 @@ public class SwanAppNetworkUtils {
             case 7:
             case 11:
             case 16:
-                return "2g";
+                return BdNetTypeUtil.NET_TYPENAME_2G;
             case 3:
             case 5:
             case 6:
@@ -95,14 +96,14 @@ public class SwanAppNetworkUtils {
             case 14:
             case 15:
             case 17:
-                return "3g";
+                return BdNetTypeUtil.NET_TYPENAME_3G;
             case 13:
             case 18:
             case 19:
-                return "4g";
+                return BdNetTypeUtil.NET_TYPENAME_4G;
             default:
                 if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
-                    return "4g";
+                    return BdNetTypeUtil.NET_TYPENAME_4G;
                 }
                 return "unknown";
         }
@@ -127,56 +128,56 @@ public class SwanAppNetworkUtils {
         return null;
     }
 
-    public static String HU() {
+    public static String MO() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
-            return IXAdSystemUtils.NT_WIFI;
+            return "wifi";
         }
         if (activeNetworkInfo.getType() == 0) {
-            return o(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
+            return s(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
         }
         return "unknown";
     }
 
-    public static NetType HV() {
-        String HU = HU();
+    public static NetType MP() {
+        String MO = MO();
         char c = 65535;
-        switch (HU.hashCode()) {
+        switch (MO.hashCode()) {
             case -840472412:
-                if (HU.equals("unknow")) {
+                if (MO.equals("unknow")) {
                     c = 5;
                     break;
                 }
                 break;
             case 1653:
-                if (HU.equals("2g")) {
+                if (MO.equals(BdNetTypeUtil.NET_TYPENAME_2G)) {
                     c = 0;
                     break;
                 }
                 break;
             case 1684:
-                if (HU.equals("3g")) {
+                if (MO.equals(BdNetTypeUtil.NET_TYPENAME_3G)) {
                     c = 1;
                     break;
                 }
                 break;
             case 1715:
-                if (HU.equals("4g")) {
+                if (MO.equals(BdNetTypeUtil.NET_TYPENAME_4G)) {
                     c = 2;
                     break;
                 }
                 break;
             case 3521:
-                if (HU.equals("no")) {
+                if (MO.equals("no")) {
                     c = 4;
                     break;
                 }
                 break;
             case 3649301:
-                if (HU.equals(IXAdSystemUtils.NT_WIFI)) {
+                if (MO.equals("wifi")) {
                     c = 3;
                     break;
                 }
@@ -201,10 +202,10 @@ public class SwanAppNetworkUtils {
     /* loaded from: classes2.dex */
     public enum NetType {
         NONE("no"),
-        WIFI(IXAdSystemUtils.NT_WIFI),
-        _2G("2g"),
-        _3G("3g"),
-        _4G("4g"),
+        WIFI("wifi"),
+        _2G(BdNetTypeUtil.NET_TYPENAME_2G),
+        _3G(BdNetTypeUtil.NET_TYPENAME_3G),
+        _4G(BdNetTypeUtil.NET_TYPENAME_4G),
         UNKOWN("unknow");
         
         public final String type;

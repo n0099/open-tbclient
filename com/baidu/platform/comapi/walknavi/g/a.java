@@ -32,7 +32,6 @@ import com.baidu.platform.comapi.walknavi.segmentbrowse.widget.TestLinearLayout;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.widget.TestScaleView;
 import com.baidu.platform.comapi.wnplatform.h.e;
 import com.baidu.platform.comapi.wnplatform.o.f;
-import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.tieba.R;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.math.BigDecimal;
@@ -76,7 +75,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private com.baidu.platform.comapi.walknavi.g.b.a n = null;
     private Handler o = new Handler();
     private boolean p = true;
-    private CountDownTimerC0086a q = null;
+    private CountDownTimerC0118a q = null;
     private int v = 0;
     private boolean w = false;
     private boolean z = false;
@@ -139,7 +138,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     private void D() {
         int b2 = com.baidu.platform.comapi.walknavi.b.a().D().b();
-        com.baidu.platform.comapi.wnplatform.d.a.a(AddressManageResult.KEY_TAG, "traffic size:" + b2);
+        com.baidu.platform.comapi.wnplatform.d.a.a("tag", "traffic size:" + b2);
         if (b2 != 0) {
             int[] iArr = new int[b2];
             int[] iArr2 = new int[b2];
@@ -254,7 +253,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     private void E() {
         int a = com.baidu.platform.comapi.walknavi.b.a().D().a();
-        com.baidu.platform.comapi.wnplatform.d.a.a(AddressManageResult.KEY_TAG, "all size:" + a);
+        com.baidu.platform.comapi.wnplatform.d.a.a("tag", "all size:" + a);
         if (a > 2) {
             int[] iArr = new int[a - 2];
             int[] iArr2 = new int[a - 2];
@@ -541,7 +540,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             }
             this.l = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_action_bar_home_description)).b().b(new e(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_action_mode_done)).a(new d(this));
             if (z) {
-                this.q = new CountDownTimerC0086a(7000L, 1000L, this.i, this.l);
+                this.q = new CountDownTimerC0118a(7000L, 1000L, this.i, this.l);
                 this.q.start();
             }
             if (!this.l.isShowing() && this.i != null && !this.i.isFinishing()) {
@@ -953,11 +952,11 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class CountDownTimerC0086a extends CountDownTimer {
+    public class CountDownTimerC0118a extends CountDownTimer {
         Activity a;
         com.baidu.platform.comapi.walknavi.widget.a b;
 
-        public CountDownTimerC0086a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+        public CountDownTimerC0118a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
             this.a = activity;
             this.b = aVar;

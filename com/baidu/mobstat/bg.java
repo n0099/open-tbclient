@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.bt;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.FileOutputStream;
@@ -195,7 +194,7 @@ public class bg {
         arrayList.add(new Pair("appKey", "" + str));
         arrayList.add(new Pair("packageName", context.getPackageName()));
         arrayList.add(new Pair("appVersion", bw.g(context)));
-        arrayList.add(new Pair(DpStatConstants.KEY_CUID, CooperService.instance().getCUID(context, false)));
+        arrayList.add(new Pair("cuid", CooperService.instance().getCUID(context, false)));
         arrayList.add(new Pair("imei", CooperService.instance().getDevicImei(context)));
         arrayList.add(new Pair("platform", "Android"));
         arrayList.add(new Pair("model", android.os.Build.MODEL));

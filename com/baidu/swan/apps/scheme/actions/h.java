@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -28,50 +27,50 @@ public class h extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.v.b.b vP = bVar.vP();
-        if (vP == null || !vP.isValid()) {
+        com.baidu.swan.apps.v.b.b AJ = bVar.AJ();
+        if (AJ == null || !AJ.isValid()) {
             com.baidu.swan.apps.console.c.e("appInfo", "launch info is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appid", vP.getAppId());
-            jSONObject.put("appname", vP.Cz());
-            if (!TextUtils.isEmpty(vP.getIconUrl())) {
-                jSONObject.put("iconUrl", vP.getIconUrl());
+            jSONObject.put("appid", AJ.getAppId());
+            jSONObject.put("appname", AJ.Ht());
+            if (!TextUtils.isEmpty(AJ.getIconUrl())) {
+                jSONObject.put("iconUrl", AJ.getIconUrl());
             }
-            if (!TextUtils.isEmpty(vP.FL())) {
-                jSONObject.put("appLaunchScheme", vP.FL());
+            if (!TextUtils.isEmpty(AJ.KF())) {
+                jSONObject.put("appLaunchScheme", AJ.KF());
             }
-            if (vP.Ga() != null) {
-                String str = vP.Ga().description;
+            if (AJ.KU() != null) {
+                String str = AJ.KU().description;
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("appDesc", str);
                 }
             }
-            String bd = com.baidu.swan.apps.u.a.Et().bd(context);
-            jSONObject.put(DpStatConstants.KEY_CUID, bd);
-            jSONObject.put("mtjCuid", bd);
-            jSONObject.put("clkid", vP.FP());
-            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vP.FK());
-            jSONObject.put("appId", vP.getAppId());
-            Bundle FO = vP.FO();
-            if (FO != null) {
-                String string = FO.getString("extraData");
+            String bf = com.baidu.swan.apps.u.a.Jn().bf(context);
+            jSONObject.put("cuid", bf);
+            jSONObject.put("mtjCuid", bf);
+            jSONObject.put("clkid", AJ.KJ());
+            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, AJ.KE());
+            jSONObject.put("appId", AJ.getAppId());
+            Bundle KI = AJ.KI();
+            if (KI != null) {
+                String string = KI.getString("extraData");
                 if (!TextUtils.isEmpty(string)) {
                     jSONObject.put("extraData", new JSONObject(string));
                 }
-                if (!TextUtils.isEmpty(FO.getString("srcAppId"))) {
-                    jSONObject.put("srcAppId", FO.getString("srcAppId"));
+                if (!TextUtils.isEmpty(KI.getString("srcAppId"))) {
+                    jSONObject.put("srcAppId", KI.getString("srcAppId"));
                 }
-                if (!TextUtils.isEmpty(FO.getString("srcAppPage"))) {
-                    jSONObject.put("srcAppPage", FO.getString("srcAppPage"));
+                if (!TextUtils.isEmpty(KI.getString("srcAppPage"))) {
+                    jSONObject.put("srcAppPage", KI.getString("srcAppPage"));
                 }
                 String str2 = "sys";
-                SwanAppActivity Gv = com.baidu.swan.apps.w.e.GJ().Gv();
-                if (Gv != null) {
-                    str2 = Gv.vM();
+                SwanAppActivity Lp = com.baidu.swan.apps.w.e.LD().Lp();
+                if (Lp != null) {
+                    str2 = Lp.AG();
                 }
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "sys";

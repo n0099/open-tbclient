@@ -2,6 +2,7 @@ package com.baidu.swan.pms.e;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.io.IOException;
 import org.json.JSONObject;
@@ -15,11 +16,11 @@ public class c {
         return dir;
     }
 
-    public static String bm(String str, String str2) {
-        return C(str, str2, File.separator);
+    public static String bt(String str, String str2) {
+        return G(str, str2, File.separator);
     }
 
-    public static String C(String str, String str2, String str3) {
+    public static String G(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -38,11 +39,11 @@ public class c {
         return str2;
     }
 
-    public static File bn(String str, String str2) {
+    public static File bu(String str, String str2) {
         File file = new File(str);
         if (file.exists() || file.mkdirs()) {
-            String bm = bm(str, str2);
-            String str3 = bm;
+            String bt = bt(str, str2);
+            String str3 = bt;
             for (int i = 0; i < 1000; i++) {
                 File file2 = new File(str3);
                 try {
@@ -54,14 +55,14 @@ public class c {
                         e.printStackTrace();
                     }
                 }
-                str3 = bm + "_" + i;
+                str3 = bt + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
             }
             return null;
         }
         return null;
     }
 
-    public static String n(String... strArr) {
+    public static String m(String... strArr) {
         JSONObject jSONObject = new JSONObject();
         if (strArr != null) {
             try {

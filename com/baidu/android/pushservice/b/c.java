@@ -1,6 +1,6 @@
 package com.baidu.android.pushservice.b;
 
-import com.baidu.ubc.UBC;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -57,8 +57,8 @@ public class c {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                     e eVar = new e();
-                    eVar.a(jSONObject2.getString("key"));
-                    eVar.b(jSONObject2.getString(UBC.CONTENT_KEY_VALUE));
+                    eVar.a(jSONObject2.getString(TiebaInitialize.Params.KEY));
+                    eVar.b(jSONObject2.getString("value"));
                     String string2 = jSONObject2.getString("match");
                     if (string2.equalsIgnoreCase("above")) {
                         eVar.a(0);
@@ -76,8 +76,8 @@ public class c {
                 for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                     JSONObject jSONObject3 = jSONArray2.getJSONObject(i2);
                     f fVar = new f();
-                    fVar.a(jSONObject3.getString("key"));
-                    fVar.b(jSONObject3.getString(UBC.CONTENT_KEY_VALUE));
+                    fVar.a(jSONObject3.getString(TiebaInitialize.Params.KEY));
+                    fVar.b(jSONObject3.getString("value"));
                     String string3 = jSONObject3.getString("match");
                     if (string3.equalsIgnoreCase("above")) {
                         fVar.a(0);

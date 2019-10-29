@@ -1,40 +1,32 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class bx extends com.baidu.adp.lib.b.a {
-    public static final String[] cDg = {"com.baidu.tieba.voice"};
-
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected void initData() {
-        this.mName = "voice";
-        this.yZ = cDg;
+    protected void C(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "voice";
+        return "movideo_split";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hI() {
-        return cDg;
+    protected String[] fi() {
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hJ() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hK() {
+    protected int fj() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hL() {
-        return 10;
+    protected int fk() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int fl() {
+        return 0;
     }
 }

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
@@ -13,10 +14,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class e {
-    private static WeakReference<byte[]> Kx;
     private static Object mSync = new Object();
+    private static WeakReference<byte[]> xg;
 
-    public static Signature[] cb(String str) throws CertificateEncodingException, IOException {
+    public static Signature[] bj(String str) throws CertificateEncodingException, IOException {
         byte[] bArr;
         byte[] bArr2;
         WeakReference<byte[]> weakReference;
@@ -26,9 +27,9 @@ public final class e {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = Kx;
+            WeakReference<byte[]> weakReference2 = xg;
             if (weakReference2 != null) {
-                Kx = null;
+                xg = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -85,7 +86,7 @@ public final class e {
             }
             jarFile.close();
             synchronized (mSync) {
-                Kx = weakReference;
+                xg = weakReference;
             }
             if (certificateArr2 != null && certificateArr2.length > 0) {
                 int length = certificateArr2.length;
@@ -129,11 +130,11 @@ public final class e {
                     }
                 } while (bufferedInputStream.read(bArr, 0, bArr.length) != -1);
                 Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
-                com.baidu.adp.lib.g.a.g(bufferedInputStream);
+                com.baidu.adp.lib.g.a.close((InputStream) bufferedInputStream);
                 return certificates;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.adp.lib.g.a.g(null);
+                com.baidu.adp.lib.g.a.close((InputStream) null);
                 throw th;
             }
         } catch (IOException e5) {
@@ -142,7 +143,7 @@ public final class e {
             e = e6;
         } catch (Throwable th3) {
             th = th3;
-            com.baidu.adp.lib.g.a.g(null);
+            com.baidu.adp.lib.g.a.close((InputStream) null);
             throw th;
         }
     }

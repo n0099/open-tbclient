@@ -1,6 +1,7 @@
 package com.baidu.tieba.mainentrance.searchSuggestList;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.SearchSug.ForumInfo;
@@ -11,7 +12,7 @@ public class SearchListSocketResMessage extends SocketResponsedMessage {
     public List<String> suggests;
 
     public SearchListSocketResMessage() {
-        super(309438);
+        super(CmdConfigSocket.CMD_SEARCH_LIST);
         this.suggests = null;
         this.forums = null;
     }

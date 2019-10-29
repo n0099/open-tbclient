@@ -16,17 +16,17 @@ public class c {
             i = 0;
         }
         layoutParams.leftMargin = i + bVar.getLeft();
-        layoutParams.topMargin = i2 + bVar.Hz();
+        layoutParams.topMargin = i2 + bVar.Mt();
         return layoutParams;
     }
 
     public static void a(@NonNull b bVar, @NonNull com.baidu.swan.apps.model.a.a.b bVar2) {
-        bVar.eQ(bVar2.getLeft());
-        bVar.eR(bVar2.Hz());
+        bVar.fL(bVar2.getLeft());
+        bVar.fM(bVar2.Mt());
         if (bVar2.isFixed()) {
-            bVar.eO(1);
+            bVar.fJ(1);
         } else {
-            bVar.eP(1);
+            bVar.fK(1);
         }
     }
 }

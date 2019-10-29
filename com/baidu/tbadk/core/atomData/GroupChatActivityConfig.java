@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -35,9 +36,9 @@ public class GroupChatActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra(GROUP_AUTHOR_ID, String.valueOf(groupData.getAuthorId()));
         intent.putExtra(GROUP_OBJ_TP, str2);
-        intent.putExtra("chat_mode", 0);
-        intent.putExtra("group", groupData);
-        intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra(TbEnum.ParamKey.CHAT_MODE, 0);
+        intent.putExtra(TbEnum.ParamKey.GROUP, groupData);
+        intent.putExtra("is_accept_notify", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
@@ -54,9 +55,9 @@ public class GroupChatActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra(GROUP_AUTHOR_ID, String.valueOf(groupData.getAuthorId()));
         intent.putExtra(GROUP_OBJ_TP, str2);
-        intent.putExtra("chat_mode", 0);
-        intent.putExtra("group", groupData);
-        intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra(TbEnum.ParamKey.CHAT_MODE, 0);
+        intent.putExtra(TbEnum.ParamKey.GROUP, groupData);
+        intent.putExtra("is_accept_notify", true);
         if (str3 != null) {
             intent.putExtra(AUTO_SEND_TEXT_MSG, str3);
         }

@@ -26,7 +26,7 @@ public class GameVideoRequestMessage extends NetMessage {
         builder.load_type = Integer.valueOf(this.load_type);
         builder.page_thread_count = Integer.valueOf(this.page_thread_count);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         RecomVerticalReqIdl.Builder builder2 = new RecomVerticalReqIdl.Builder();
         builder2.data = builder.build(false);

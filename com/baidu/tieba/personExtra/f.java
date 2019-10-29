@@ -4,6 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class f implements CustomMessageTask.CustomRunnable<String> {
@@ -12,11 +13,11 @@ public class f implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
             return null;
         }
-        String str = com.baidu.tbadk.core.d.a.agL().mN("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
+        String str = com.baidu.tbadk.core.d.a.akN().nl("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
         ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
         if (str != null) {
             try {
-                responsePersonBarByUidLocalMessage.decodeInBackGround(2001183, str);
+                responsePersonBarByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY, str);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

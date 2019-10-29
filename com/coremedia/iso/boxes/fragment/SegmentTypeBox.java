@@ -1,6 +1,7 @@
 package com.coremedia.iso.boxes.fragment;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -16,12 +17,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SegmentTypeBox extends AbstractBox {
     public static final String TYPE = "styp";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
     private List<String> compatibleBrands;
     private String majorBrand;
     private long minorVersion;
@@ -32,8 +33,8 @@ public class SegmentTypeBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SegmentTypeBox.java", SegmentTypeBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getMajorBrand", "com.coremedia.iso.boxes.fragment.SegmentTypeBox", "", "", "", "java.lang.String"), 85);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setMajorBrand", "com.coremedia.iso.boxes.fragment.SegmentTypeBox", "java.lang.String", "majorBrand", "", "void"), 94);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getMajorBrand", "com.coremedia.iso.boxes.fragment.SegmentTypeBox", "", "", "", FieldUtil.TYPE_STRING), 85);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setMajorBrand", "com.coremedia.iso.boxes.fragment.SegmentTypeBox", FieldUtil.TYPE_STRING, "majorBrand", "", "void"), 94);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setMinorVersion", "com.coremedia.iso.boxes.fragment.SegmentTypeBox", "int", "minorVersion", "", "void"), 103);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getMinorVersion", "com.coremedia.iso.boxes.fragment.SegmentTypeBox", "", "", "", "long"), 113);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getCompatibleBrands", "com.coremedia.iso.boxes.fragment.SegmentTypeBox", "", "", "", "java.util.List"), 122);
@@ -89,7 +90,7 @@ public class SegmentTypeBox extends AbstractBox {
     }
 
     public void setMinorVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.EO(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.Dl(i)));
         this.minorVersion = i;
     }
 

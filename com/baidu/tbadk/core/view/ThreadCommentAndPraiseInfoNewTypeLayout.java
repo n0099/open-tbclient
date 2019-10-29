@@ -30,17 +30,17 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updatePraiseNum(bh bhVar) {
         super.updatePraiseNum(bhVar);
-        if (this.bXh != null && this.ccw) {
-            if (this.bXh.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bXh.getLayoutParams();
+        if (this.cmm != null && this.cqJ) {
+            if (this.cmm.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmm.getLayoutParams();
                 layoutParams.width = -2;
                 layoutParams.leftMargin = 0;
                 layoutParams.weight = 0.0f;
-                this.bXh.setLayoutParams(layoutParams);
+                this.cmm.setLayoutParams(layoutParams);
             }
-            ImageView imageView = this.bXh.bYd;
+            ImageView imageView = this.cmm.cng;
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams2.leftMargin = this.cbX;
+            layoutParams2.leftMargin = this.cql;
             imageView.setLayoutParams(layoutParams2);
         }
     }
@@ -49,14 +49,14 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void r(bh bhVar) {
         super.r(bhVar);
-        if (this.cce != null && this.ccA) {
-            this.cce.setVisibility(0);
-            if (this.cce.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cce.getLayoutParams();
+        if (this.cqs != null && this.cqN) {
+            this.cqs.setVisibility(0);
+            if (this.cqs.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqs.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.cbX;
+                layoutParams.leftMargin = this.cql;
                 layoutParams.weight = 0.0f;
-                this.cce.setLayoutParams(layoutParams);
+                this.cqs.setLayoutParams(layoutParams);
             }
         }
     }
@@ -65,12 +65,12 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void q(bh bhVar) {
         super.q(bhVar);
-        if (this.cch != null && this.ccC && this.cch.getLayoutParams() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cch.getLayoutParams();
+        if (this.cqv != null && this.cqP && this.cqv.getLayoutParams() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqv.getLayoutParams();
             layoutParams.width = -2;
-            layoutParams.leftMargin = this.cbX;
+            layoutParams.leftMargin = this.cql;
             layoutParams.weight = 0.0f;
-            this.cch.setLayoutParams(layoutParams);
+            this.cqv.setLayoutParams(layoutParams);
         }
     }
 
@@ -78,14 +78,14 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void s(bh bhVar) {
         super.s(bhVar);
-        if (this.cco != null && this.ccD) {
-            this.cco.setVisibility(0);
-            if (this.cco.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cco.getLayoutParams();
+        if (this.cqC != null && this.cqQ) {
+            this.cqC.setVisibility(0);
+            if (this.cqC.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cqC.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.cbX;
+                layoutParams.leftMargin = this.cql;
                 layoutParams.weight = 0.0f;
-                this.cco.setLayoutParams(layoutParams);
+                this.cqC.setLayoutParams(layoutParams);
             }
         }
     }

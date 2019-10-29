@@ -8,6 +8,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
 public class d {
@@ -16,7 +17,7 @@ public class d {
         try {
             str = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
         } catch (Exception e) {
-            Log.i("error", e.getMessage());
+            Log.i(BdStatsConstant.StatsType.ERROR, e.getMessage());
             str = "";
         }
         if (str == null || str.equals("")) {
@@ -29,19 +30,19 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String aEz() {
+    public static String aEJ() {
         return Build.VERSION.RELEASE;
     }
 
-    public static Integer da(Context context) {
+    public static Integer cM(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
     }
 
-    public static Integer db(Context context) {
+    public static Integer cN(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
     }
 
-    public static Integer dc(Context context) {
+    public static Integer cO(Context context) {
         int value;
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
@@ -52,7 +53,7 @@ public class d {
             }
             if (typeName.equalsIgnoreCase("MOBILE")) {
                 if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
-                    value = dd(context) ? WirelessNetworkType.MOBILE_3G.getValue() : WirelessNetworkType.MOBILE_2G.getValue();
+                    value = cP(context) ? WirelessNetworkType.MOBILE_3G.getValue() : WirelessNetworkType.MOBILE_2G.getValue();
                 } else {
                     value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
                 }
@@ -63,7 +64,7 @@ public class d {
         return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
     }
 
-    private static boolean dd(Context context) {
+    private static boolean cP(Context context) {
         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
             case 0:
                 return false;

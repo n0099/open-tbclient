@@ -1,28 +1,29 @@
 package com.baidu.adp.lib.util;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class p {
-    public static String Ez = "yyyy-MM-dd HH:mm:ss";
-    public static HashMap<String, String> EA = new HashMap<>();
+    public static String dateFormat = "yyyy-MM-dd HH:mm:ss";
+    public static HashMap<String, String> PrimitiveTypes = new HashMap<>();
 
     static {
-        EA.put("java.lang.String", "java.lang.String");
-        EA.put("java.lang.Integer", "java.lang.Integer");
-        EA.put("java.lang.Double", "java.lang.Double");
-        EA.put("java.lang.Float", "java.lang.Float");
-        EA.put("java.lang.Boolean", "java.lang.Boolean");
-        EA.put("java.lang.Character", "java.lang.Character");
-        EA.put("java.lang.Short", "java.lang.Short");
-        EA.put("java.lang.Long", "java.lang.Long");
-        EA.put("java.lang.Byte", "java.lang.Byte");
-        EA.put("java.util.Date", "java.util.Date");
-        EA.put("java.lang.Integer", "java.lang.Integer");
-        EA.put("java.lang.Integer", "java.lang.Integer");
+        PrimitiveTypes.put(FieldUtil.TYPE_STRING, FieldUtil.TYPE_STRING);
+        PrimitiveTypes.put(FieldUtil.TYPE_INTEGER, FieldUtil.TYPE_INTEGER);
+        PrimitiveTypes.put(FieldUtil.TYPE_DOUBLE, FieldUtil.TYPE_DOUBLE);
+        PrimitiveTypes.put(FieldUtil.TYPE_FLOAT, FieldUtil.TYPE_FLOAT);
+        PrimitiveTypes.put(FieldUtil.TYPE_BOOLEAN, FieldUtil.TYPE_BOOLEAN);
+        PrimitiveTypes.put(FieldUtil.TYPE_CHARACTER, FieldUtil.TYPE_CHARACTER);
+        PrimitiveTypes.put(FieldUtil.TYPE_SHORT, FieldUtil.TYPE_SHORT);
+        PrimitiveTypes.put(FieldUtil.TYPE_LONG, FieldUtil.TYPE_LONG);
+        PrimitiveTypes.put(FieldUtil.TYPE_BYTE, FieldUtil.TYPE_BYTE);
+        PrimitiveTypes.put(FieldUtil.TYPE_DATE, FieldUtil.TYPE_DATE);
+        PrimitiveTypes.put(FieldUtil.TYPE_INTEGER, FieldUtil.TYPE_INTEGER);
+        PrimitiveTypes.put(FieldUtil.TYPE_INTEGER, FieldUtil.TYPE_INTEGER);
     }
 
-    public static Object a(Object obj, Field field) {
+    public static Object forceGetProperty(Object obj, Field field) {
         Object obj2 = null;
         if (obj != null && field != null) {
             boolean isAccessible = field.isAccessible();

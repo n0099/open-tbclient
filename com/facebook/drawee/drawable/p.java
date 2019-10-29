@@ -4,7 +4,7 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 /* loaded from: classes2.dex */
 public interface p {
-    void b(RectF rectF);
+    void a(RectF rectF);
 
-    void e(Matrix matrix);
+    void d(Matrix matrix);
 }

@@ -6,7 +6,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.d.a.a;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -15,7 +18,6 @@ import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.SsoHashCallback;
 import com.baidu.sapi2.dto.WebLoginDTO;
-import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.SsoHashResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
@@ -26,7 +28,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.ArrayList;
@@ -109,7 +110,7 @@ public class OauthActivity extends BaseActivity {
         }
         Uri parse = Uri.parse(str);
         parse.getHost();
-        for (String str2 : new String[]{Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter(IntentConfig.CMD)), Uri.decode(parse.getQueryParameter("tpl"))}) {
+        for (String str2 : new String[]{Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter(TableDefine.PaSubscribeColumns.COLUMN_TPL))}) {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
@@ -192,8 +193,8 @@ public class OauthActivity extends BaseActivity {
                 Intent intent = new Intent();
                 if (OauthActivity.this.oauthType == 0) {
                     Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str.substring(str.indexOf("#") + 1, str.length()));
-                    if (urlParamsToMap.containsKey("error")) {
-                        OauthActivity.this.setResult(0, OauthActivity.this.buildFailureIntent(-204, urlParamsToMap.get("error")));
+                    if (urlParamsToMap.containsKey(BdStatsConstant.StatsType.ERROR)) {
+                        OauthActivity.this.setResult(0, OauthActivity.this.buildFailureIntent(-204, urlParamsToMap.get(BdStatsConstant.StatsType.ERROR)));
                     } else {
                         JSONObject jSONObject = new JSONObject();
                         try {
@@ -317,7 +318,7 @@ public class OauthActivity extends BaseActivity {
                 hashMap.put("suppcheck", "1");
                 if (OauthActivity.this.oauthType == 0) {
                     hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_token");
-                    hashMap.put("display", AddressManageResult.KEY_MOBILE);
+                    hashMap.put(LogConfig.KEY_DISPLAY, "mobile");
                     hashMap.put("scope", OauthActivity.this.scope);
                     hashMap.put("sso_hash", ssoHashResult.ssoHash);
                     hashMap.put("client_id", OauthActivity.this.callingAppId);

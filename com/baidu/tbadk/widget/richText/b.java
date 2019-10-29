@@ -15,8 +15,8 @@ public class b extends BitmapDrawable {
     private String mKey;
     private Rect mRect = null;
     private Matrix mMatrix = null;
-    private int cNq = 0;
-    private int cNr = 0;
+    private int cWI = 0;
+    private int cWJ = 0;
 
     public b(Context context, int i) {
         this.mId = 0;
@@ -45,19 +45,19 @@ public class b extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.ImageView.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.c atK = com.baidu.tbadk.imageManager.c.atK();
-            com.baidu.adp.widget.ImageView.a qS = (atK == null || this.mKey == null) ? null : atK.qS(this.mKey);
-            if (qS == null) {
+            com.baidu.tbadk.imageManager.c avu = com.baidu.tbadk.imageManager.c.avu();
+            com.baidu.adp.widget.ImageView.a pY = (avu == null || this.mKey == null) ? null : avu.pY(this.mKey);
+            if (pY == null) {
                 Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
                 if (resBitmap != null) {
-                    qS = new com.baidu.adp.widget.ImageView.a(resBitmap, false, (String) null);
+                    pY = new com.baidu.adp.widget.ImageView.a(resBitmap, false, (String) null);
                 }
-                if (atK != null && qS != null && this.mKey != null) {
-                    atK.c(this.mKey, qS);
+                if (avu != null && pY != null && this.mKey != null) {
+                    avu.c(this.mKey, pY);
                 }
-                aVar = qS;
+                aVar = pY;
             } else {
-                aVar = qS;
+                aVar = pY;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();
@@ -65,10 +65,10 @@ public class b extends BitmapDrawable {
                 if (width > 0 && height > 0 && this.mRect != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > 0 || width > 0 || this.cNq != 0 || this.cNr != 0) {
+                    if (height > 0 || width > 0 || this.cWI != 0 || this.cWJ != 0) {
                         if (this.mMatrix == null) {
                             this.mMatrix = new Matrix();
-                            this.mMatrix.postTranslate(this.cNq, this.cNr);
+                            this.mMatrix.postTranslate(this.cWI, this.cWJ);
                             float f = (this.mRect.right - this.mRect.left) / width;
                             float f2 = (this.mRect.bottom - this.mRect.top) / height;
                             if (f >= f2) {
@@ -78,9 +78,9 @@ public class b extends BitmapDrawable {
                                 this.mMatrix.postScale(f, f);
                             }
                         }
-                        aVar.a(canvas, this.mMatrix, null);
+                        aVar.drawImageTo(canvas, this.mMatrix, null);
                     } else {
-                        aVar.a(canvas, 0.0f, 0.0f, (Paint) null);
+                        aVar.drawImageTo(canvas, 0.0f, 0.0f, (Paint) null);
                     }
                     canvas.restore();
                 }

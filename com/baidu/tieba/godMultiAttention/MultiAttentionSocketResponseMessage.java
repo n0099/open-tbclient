@@ -1,6 +1,7 @@
 package com.baidu.tieba.godMultiAttention;
 
 import com.baidu.adp.framework.message.Message;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -12,7 +13,7 @@ public class MultiAttentionSocketResponseMessage extends TbSocketReponsedMessage
     private boolean isAttentionAll;
 
     public MultiAttentionSocketResponseMessage() {
-        super(309388);
+        super(CmdConfigSocket.MULTI_ATTENTION_SOCKET_CMD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

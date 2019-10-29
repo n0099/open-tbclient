@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
@@ -124,6 +125,6 @@ public final class UPCEANExtension5Support {
         int parseInt = Integer.parseInt(str.substring(1));
         String valueOf = String.valueOf(parseInt / 100);
         int i = parseInt % 100;
-        return str2 + valueOf + '.' + (i < 10 ? "0" + i : String.valueOf(i));
+        return str2 + valueOf + BdFileHelper.EXTENSION_SEPARATOR + (i < 10 ? "0" + i : String.valueOf(i));
     }
 }

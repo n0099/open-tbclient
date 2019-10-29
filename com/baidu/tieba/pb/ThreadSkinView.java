@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -17,8 +17,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo hIl;
-    private a.C0425a hIm;
+    private SkinInfo hGR;
+    private a.C0520a hGS;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,32 +40,32 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0425a c0425a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0520a c0520a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.hIl != skinInfo && c0425a != null) {
-            this.hIm = c0425a;
-            this.hIm.nX("action_type");
-            this.hIm.eo(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.hIm.eo("obj_url", skinInfo.url);
-            this.hIm.eo("obj_name", skinInfo.monitor_id);
-            this.hIm.eo("action_type", "VIEW_TRUE");
-            this.hIm.save();
+        if (this.hGR != skinInfo && c0520a != null) {
+            this.hGS = c0520a;
+            this.hGS.delete("action_type");
+            this.hGS.ea("obj_id", skinInfo.obj_id);
+            this.hGS.ea(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
+            this.hGS.ea("obj_name", skinInfo.monitor_id);
+            this.hGS.ea("action_type", "VIEW_TRUE");
+            this.hGS.save();
         }
-        this.hIl = skinInfo;
-        int af = l.af(tbPageContext.getPageActivity());
+        this.hGR = skinInfo;
+        int equipmentWidth = l.getEquipmentWidth(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.width = af;
+        layoutParams.width = equipmentWidth;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
             String[] split = skinInfo.skin_size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length > 1) {
-                int f = com.baidu.adp.lib.g.b.f(split[0].trim(), -1);
-                int f2 = com.baidu.adp.lib.g.b.f(split[1].trim(), -1);
-                if (f > 0 && f2 > 0) {
-                    layoutParams.height = (int) ((f2 / f) * layoutParams.width);
+                int i = com.baidu.adp.lib.g.b.toInt(split[0].trim(), -1);
+                int i2 = com.baidu.adp.lib.g.b.toInt(split[1].trim(), -1);
+                if (i > 0 && i2 > 0) {
+                    layoutParams.height = (int) ((i2 / i) * layoutParams.width);
                 } else {
                     layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.ds80);
                 }
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hIl != null && !StringUtils.isNull(this.hIl.url)) {
-            if (this.hIm != null) {
-                this.hIm.nX("action_type");
-                this.hIm.eo("action_type", "CLICK");
-                this.hIm.save();
+        if (this.hGR != null && !StringUtils.isNull(this.hGR.url)) {
+            if (this.hGS != null) {
+                this.hGS.delete("action_type");
+                this.hGS.ea("action_type", "CLICK");
+                this.hGS.save();
             }
-            ba.ajK().c(this.mTbPageContext, new String[]{this.hIl.url});
+            ba.amQ().b(this.mTbPageContext, new String[]{this.hGR.url});
         }
     }
 }

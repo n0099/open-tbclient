@@ -13,8 +13,15 @@ import java.util.zip.DeflaterOutputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class c {
-    private static SimpleDateFormat aat;
-    private static PackageManager aau;
+    private static SimpleDateFormat Kw;
+    private static PackageManager Kx;
+
+    public static String a(Date date) {
+        if (Kw == null) {
+            Kw = new SimpleDateFormat("MM-dd HH:mm:ss");
+        }
+        return Kw.format(date);
+    }
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
         if (z) {
@@ -24,7 +31,7 @@ public final class c {
         }
     }
 
-    public static byte[] cl(String str) {
+    public static byte[] by(String str) {
         Deflater deflater;
         DeflaterOutputStream deflaterOutputStream;
         byte[] bArr = null;
@@ -53,7 +60,7 @@ public final class c {
                                 }
                             } catch (Exception e3) {
                                 e = e3;
-                                a.a("Compress error!", e);
+                                a.f("Compress error!", e);
                                 if (deflaterOutputStream != null) {
                                     try {
                                         deflaterOutputStream.close();
@@ -109,13 +116,6 @@ public final class c {
         return bArr;
     }
 
-    public static String e(Date date) {
-        if (aat == null) {
-            aat = new SimpleDateFormat("MM-dd HH:mm:ss");
-        }
-        return aat.format(date);
-    }
-
     public static String f(Throwable th) {
         if (th == null) {
             a.w("getErrorLine thr is null.");
@@ -144,21 +144,21 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (aau == null) {
-            aau = context.getPackageManager();
+        if (Kx == null) {
+            Kx = context.getPackageManager();
         }
         try {
-            return aau.checkPermission(str, context.getPackageName()) == 0;
+            return Kx.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
     }
 
-    public static String r(long j) {
-        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
+    public static String mt() {
+        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 
-    public static String ro() {
-        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
+    public static String q(long j) {
+        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 }

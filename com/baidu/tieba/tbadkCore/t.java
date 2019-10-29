@@ -2,7 +2,9 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
@@ -12,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    private String ciH;
+    private String blockUrl;
     private int cur_score;
     private int errorCode;
     private String errorMsg;
@@ -21,8 +23,8 @@ public class t {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> jhu = new ArrayList();
-    private int jht = 0;
+    private List<FeedForumData> jhk = new ArrayList();
+    private int jhj = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -41,11 +43,11 @@ public class t {
         this.fid = str;
     }
 
-    public int coa() {
+    public int clQ() {
         return this.user_level;
     }
 
-    public void AR(int i) {
+    public void zz(int i) {
         if (i >= 0) {
             this.user_level = i;
         }
@@ -55,7 +57,7 @@ public class t {
         try {
             JSONObject jSONObject = new JSONObject(str);
             parserJson(jSONObject.optJSONObject(Config.LAUNCH_INFO));
-            K(jSONObject.optJSONArray("feed_forum"));
+            R(jSONObject.optJSONArray("feed_forum"));
             this.errorCode = jSONObject.optInt("error_code");
             this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
         } catch (Exception e) {
@@ -66,35 +68,35 @@ public class t {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.jht = jSONObject.optInt("is_black", 0);
+                this.jhj = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
                 setLevelName(jSONObject.optString("level_name", ""));
                 setLevelupScore(jSONObject.optInt("levelup_score", 0));
                 setCurScore(jSONObject.optInt("cur_score", 0));
-                ba(jSONObject);
+                parseBlockAnti(jSONObject);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    private void ba(JSONObject jSONObject) {
+    private void parseBlockAnti(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ciH = jSONObject.optString("block_dealurl");
+            this.blockUrl = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             if (!StringUtils.isNull(optString)) {
                 this.mBlockPopInfoData = new BlockPopInfoData();
                 this.mBlockPopInfoData.block_info = optString;
-                this.mBlockPopInfoData.ahead_url = this.ciH;
+                this.mBlockPopInfoData.ahead_url = this.blockUrl;
                 this.mBlockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
                 this.mBlockPopInfoData.ok_info = jSONObject.optString("block_cancel");
             }
         }
     }
 
-    public void K(JSONArray jSONArray) {
+    public void R(JSONArray jSONArray) {
         int i = 0;
         while (true) {
             try {
@@ -106,11 +108,11 @@ public class t {
                     feedForumData.setForumName(jSONObject.optString("forum_name"));
                     feedForumData.setMemberCount(jSONObject.optInt("member_count", 0));
                     feedForumData.setPostNum(jSONObject.optInt("post_num", 0));
-                    feedForumData.setAvatar(jSONObject.optString("avatar"));
-                    feedForumData.setReason(jSONObject.optString("reason"));
+                    feedForumData.setAvatar(jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR));
+                    feedForumData.setReason(jSONObject.optString(TiebaInitialize.LogFields.REASON));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.jhu.add(feedForumData);
+                    this.jhk.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -154,8 +156,8 @@ public class t {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> cpG() {
-        return this.jhu;
+    public List<FeedForumData> cnx() {
+        return this.jhk;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -166,8 +168,8 @@ public class t {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String cpQ() {
-        return this.ciH;
+    public String cnH() {
+        return this.blockUrl;
     }
 
     public int getErrorCode() {

@@ -1,13 +1,12 @@
 package com.baidu.tieba.pb.chosen.net.zan;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.ExcZan.ExcZanResIdl;
 /* loaded from: classes5.dex */
 public class ChosenPbZanHttpResponse extends HttpResponsedMessage {
     public ChosenPbZanHttpResponse(int i) {
-        super(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE);
+        super(1003007);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

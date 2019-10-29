@@ -19,10 +19,10 @@ public class l extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        boolean aD = bVar.Mm().aD(context);
+        boolean isLogin = bVar.Re().isLogin(context);
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("isLogin", aD);
+            jSONObject.put("isLogin", isLogin);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {

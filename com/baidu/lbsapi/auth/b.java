@@ -8,7 +8,6 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -194,7 +193,7 @@ class b {
                 }
                 return null;
             }
-            WifiInfo connectionInfo = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
             str = connectionInfo.getMacAddress();
             try {
                 if (!TextUtils.isEmpty(str)) {

@@ -22,5 +22,5 @@ public interface b {
     com.baidu.swan.apps.setting.oauth.a.c c(Activity activity, String str);
 
     @NonNull
-    com.baidu.swan.apps.setting.oauth.a.d x(Activity activity);
+    com.baidu.swan.apps.setting.oauth.a.d w(Activity activity);
 }

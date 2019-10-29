@@ -1,16 +1,16 @@
 package com.baidu.tieba.homepage.daily.b;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private String ggt;
-    private String mImgUrl;
+    private String arY;
+    private String gfQ;
     private String mTitle;
 
-    public void mx(String str) {
-        this.mImgUrl = str;
+    public void mU(String str) {
+        this.arY = str;
     }
 
-    public void yy(String str) {
-        this.ggt = str;
+    public void wR(String str) {
+        this.gfQ = str;
     }
 
     public void setTitle(String str) {
@@ -19,11 +19,11 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.mImgUrl;
+        return this.arY;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String acU() {
-        return this.ggt;
+    public String aha() {
+        return this.gfQ;
     }
 }

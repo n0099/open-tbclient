@@ -1,5 +1,6 @@
 package com.baidu.tieba.addresslist.relationship;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.GetAddressList.GetAddressListReqIdl;
 import tbclient.GetAddressList.ReqData;
@@ -18,7 +19,7 @@ public class RequestGetAddressListMessage extends TbSocketMessage {
     }
 
     public RequestGetAddressListMessage(int i) {
-        super(304001);
+        super(CmdConfigSocket.CMD_GET_ADDRESSLIST);
         this.mTimestamp = 0;
     }
 

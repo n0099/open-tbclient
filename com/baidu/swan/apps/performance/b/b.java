@@ -7,7 +7,7 @@ public class b implements com.baidu.swan.apps.an.d.a<HybridUbcFlow> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.an.d.a
     /* renamed from: a */
-    public void D(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.fX("670").ar("preload_scene", "1").j("from", "swan").a(HybridUbcFlow.ExtensionType.COMPONENT_REPORTER, new d()).a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, new c());
+    public void B(HybridUbcFlow hybridUbcFlow) {
+        hybridUbcFlow.gC("670").az("preload_scene", "1").g("from", "swan").a(HybridUbcFlow.ExtensionType.COMPONENT_REPORTER, new d()).a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, new c());
     }
 }

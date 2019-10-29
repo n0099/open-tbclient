@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.os.Message;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.m;
 import java.io.File;
@@ -47,10 +48,10 @@ public class ClearTempService extends BdBaseService {
                     public void run() {
                         super.run();
                         try {
-                            File file = new File(m.Dz + "/" + TbConfig.getTempDirName() + "/image");
-                            File file2 = new File(m.Dz + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
-                            File file3 = new File(m.Dz + "/" + TbConfig.getTempDirName() + "/voice");
-                            File file4 = new File(m.Dz + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
+                            File file = new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/image");
+                            File file2 = new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
+                            File file3 = new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/voice");
+                            File file4 = new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/imRecord");
                             ClearTempService.this.deleteCache(file, false);
                             ClearTempService.this.deleteDir(file2);
                             ClearTempService.this.deleteDir(file3);
@@ -85,7 +86,7 @@ public class ClearTempService extends BdBaseService {
                     } else if (length > 0 && i < length) {
                         if (!file2.delete()) {
                         }
-                    } else if (time - listFiles[i].lastModified() > 259200000 && !file2.delete()) {
+                    } else if (time - listFiles[i].lastModified() > Config.THREAD_IMAGE_SAVE_MAX_TIME && !file2.delete()) {
                     }
                 }
             }
@@ -98,7 +99,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = m.Dz + "/" + TbConfig.getTempDirName() + "/image";
+        String str = m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/image";
         for (int i = 0; i < 20; i++) {
             File file = new File(str + "/" + i);
             if (file.exists() && file.isDirectory()) {
@@ -115,7 +116,7 @@ public class ClearTempService extends BdBaseService {
             if (listFiles != null) {
                 int i = 0;
                 while (i < listFiles.length && !this.interrupted) {
-                    i = (time - listFiles[i].lastModified() <= 259200000 || !listFiles[i].delete()) ? i + 1 : i + 1;
+                    i = (time - listFiles[i].lastModified() <= Config.THREAD_IMAGE_SAVE_MAX_TIME || !listFiles[i].delete()) ? i + 1 : i + 1;
                 }
             }
         } catch (Throwable th) {

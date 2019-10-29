@@ -1,6 +1,5 @@
 package org.java_websocket.framing;
 
-import android.support.v4.view.PointerIconCompat;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
@@ -10,10 +9,10 @@ public class i extends e {
     }
 
     @Override // org.java_websocket.framing.e, org.java_websocket.framing.f
-    public void cPF() throws InvalidDataException {
-        super.cPF();
-        if (!org.java_websocket.e.c.s(cPH())) {
-            throw new InvalidDataException((int) PointerIconCompat.TYPE_CROSSHAIR, "Received text is no valid utf8 string!");
+    public void cNM() throws InvalidDataException {
+        super.cNM();
+        if (!org.java_websocket.e.c.s(cNO())) {
+            throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
     }
 }

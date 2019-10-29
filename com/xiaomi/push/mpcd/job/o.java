@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.xiaomi.push.service.an;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -87,7 +86,7 @@ public class o extends g {
         try {
             this.e = this.d.getSharedPreferences("mipush_extra", 4);
             String string = this.e.getString("last_wifi_ssid", "");
-            WifiManager wifiManager = (WifiManager) this.d.getSystemService(IXAdSystemUtils.NT_WIFI);
+            WifiManager wifiManager = (WifiManager) this.d.getSystemService("wifi");
             if (wifiManager.isWifiEnabled() && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                 SharedPreferences.Editor edit = this.e.edit();
                 edit.putString("last_wifi_ssid", connectionInfo.getSSID());

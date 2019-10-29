@@ -2,24 +2,25 @@ package com.faceunity.a;
 
 import android.media.AudioRecord;
 import android.support.annotation.NonNull;
+import com.baidu.ala.livePlayer.StreamConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class b {
-    private static b kpj;
-    private boolean kpk;
+    private static b knv;
+    private boolean knw;
     private AudioRecord mAudioRecord;
-    private static final int[] kpg = {1, 0, 5, 7, 6};
-    public static int kph = 48000;
+    private static final int[] kns = {1, 0, 5, 7, 6};
+    public static int knt = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int kpi = 24;
+    public static int knu = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(kph, 16, 2);
-        int i = SAMPLES_PER_FRAME * kpi;
+        int minBufferSize = AudioRecord.getMinBufferSize(knt, 16, 2);
+        int i = SAMPLES_PER_FRAME * knu;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : kpg) {
+        for (int i2 : kns) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, kph, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, knt, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -30,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.kpk) {
-            this.kpk = true;
+        if (!this.knw) {
+            this.knw = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -46,13 +47,13 @@ public class b {
         return this.mAudioRecord.read(byteBuffer, i);
     }
 
-    public void tE() {
+    public void yx() {
         if (this.mAudioRecord != null) {
-            if (kpj != null && !kpj.cMR()) {
-                kpj.release();
+            if (knv != null && !knv.cJO()) {
+                knv.release();
             }
             this.mAudioRecord.startRecording();
-            kpj = this;
+            knv = this;
         }
     }
 
@@ -62,11 +63,11 @@ public class b {
         }
     }
 
-    public boolean cMR() {
-        return this.kpk;
+    public boolean cJO() {
+        return this.knw;
     }
 
-    public AudioRecord cMS() {
+    public AudioRecord cJP() {
         return this.mAudioRecord;
     }
 }

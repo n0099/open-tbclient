@@ -1,6 +1,7 @@
 package com.xiaomi.metoknlp.devicediscover;
 
 import android.content.Context;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes3.dex */
 public class c {
@@ -46,7 +47,7 @@ public class c {
             return;
         }
         try {
-            String[] split = b.split("_");
+            String[] split = b.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             this.b = str;
             this.c = Long.valueOf(split[1]).longValue();
             this.d = Long.valueOf(split[2]).longValue();
@@ -91,7 +92,7 @@ public class c {
     public String toString() {
         if (this.b != null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.b).append("_").append(this.c).append("_").append(this.d).append("_").append(this.e).append("_").append(this.f);
+            sb.append(this.b).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.c).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.d).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.e).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.f);
             return sb.toString();
         }
         return "";

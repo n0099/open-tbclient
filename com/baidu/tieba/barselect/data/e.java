@@ -3,45 +3,45 @@ package com.baidu.tieba.barselect.data;
 import tbclient.ElectionInfo.Basic;
 /* loaded from: classes3.dex */
 public class e {
-    private long exS;
-    private long exT;
-    private long exU;
-    private long exV;
-    private int exW;
-    private int exX;
-    private boolean exY;
+    private long eGB;
+    private long eGC;
+    private long eGD;
+    private long eGE;
+    private int eGF;
+    private int eGG;
+    private boolean eGH;
     private int status = 0;
 
-    public int aZm() {
-        return this.exW;
+    public int aZp() {
+        return this.eGF;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int aZn() {
-        return this.exX;
-    }
-
-    public long aZo() {
-        return this.exS;
-    }
-
-    public long aZp() {
-        return this.exU;
-    }
-
-    public long aZq() {
-        return this.exV;
+    public int aZq() {
+        return this.eGG;
     }
 
     public long aZr() {
-        return this.exT;
+        return this.eGB;
     }
 
-    public boolean aZs() {
-        return this.exY;
+    public long aZs() {
+        return this.eGD;
+    }
+
+    public long aZt() {
+        return this.eGE;
+    }
+
+    public long aZu() {
+        return this.eGC;
+    }
+
+    public boolean aZv() {
+        return this.eGH;
     }
 
     public static e a(Basic basic) {
@@ -49,18 +49,18 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.cG(vS(basic.remind_time));
+        eVar.cu(uv(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
-        eVar.py(basic.candidate_num.intValue());
-        eVar.pz(basic.total_vote_num.intValue());
-        eVar.cE(vS(basic.begin_apply_time));
-        eVar.cH(vS(basic.begin_vote_time));
-        eVar.cF(vS(basic.begin_public_time));
-        eVar.ix(basic.is_voted.booleanValue());
+        eVar.oA(basic.candidate_num.intValue());
+        eVar.oB(basic.total_vote_num.intValue());
+        eVar.cs(uv(basic.begin_apply_time));
+        eVar.cv(uv(basic.begin_vote_time));
+        eVar.ct(uv(basic.begin_public_time));
+        eVar.iA(basic.is_voted.booleanValue());
         return eVar;
     }
 
-    private static long vS(String str) {
+    private static long uv(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {
@@ -69,35 +69,35 @@ public class e {
         }
     }
 
-    public void py(int i) {
-        this.exW = i;
+    public void oA(int i) {
+        this.eGF = i;
     }
 
-    public void cE(long j) {
-        this.exS = j;
+    public void cs(long j) {
+        this.eGB = j;
     }
 
-    public void cF(long j) {
-        this.exU = j;
+    public void ct(long j) {
+        this.eGD = j;
     }
 
-    public void cG(long j) {
-        this.exV = j;
+    public void cu(long j) {
+        this.eGE = j;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void pz(int i) {
-        this.exX = i;
+    public void oB(int i) {
+        this.eGG = i;
     }
 
-    public void cH(long j) {
-        this.exT = j;
+    public void cv(long j) {
+        this.eGC = j;
     }
 
-    public void ix(boolean z) {
-        this.exY = z;
+    public void iA(boolean z) {
+        this.eGH = z;
     }
 }

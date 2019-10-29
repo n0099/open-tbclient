@@ -1,95 +1,93 @@
 package com.baidu.tbadk.core.util;
-
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar bUF = null;
-    private boolean bUG = false;
-    private boolean bUH = false;
-    private int bUI = TbConfig.POST_IMAGE_SMALL;
-    private String bUJ = String.valueOf(45);
+    private static ar ckr = null;
+    private boolean mIsWifiCache = false;
+    private boolean mFrsShowBigImage = false;
+    private int mPostImageSize = 1500;
+    private String mUrlQuality = String.valueOf(45);
 
-    public static ar ajw() {
-        if (bUF == null) {
+    public static ar amO() {
+        if (ckr == null) {
             synchronized (ar.class) {
-                if (bUF == null) {
-                    bUF = new ar();
+                if (ckr == null) {
+                    ckr = new ar();
                 }
             }
         }
-        return bUF;
+        return ckr;
     }
 
     public ar() {
-        ajz();
-        ajx();
+        updateNetworkStatusCache();
+        updateAll();
     }
 
-    private void ajx() {
-        ajE();
-        ajF();
-        ajG();
+    private void updateAll() {
+        updateFrsShowBigImage();
+        updateUrlQuality();
+        updatePostImageSize();
     }
 
-    public void ed(boolean z) {
-        this.bUH = z;
+    public void setFrsShowBigImage(boolean z) {
+        this.mFrsShowBigImage = z;
     }
 
-    public boolean ajy() {
-        return this.bUH;
+    public boolean isFrsShowBigImage() {
+        return this.mFrsShowBigImage;
     }
 
-    public void ee(boolean z) {
-        this.bUG = z;
-        ajx();
+    public void setNetworkIsWifi(boolean z) {
+        this.mIsWifiCache = z;
+        updateAll();
     }
 
-    private void ajz() {
-        this.bUG = com.baidu.adp.lib.util.j.kd();
+    private void updateNetworkStatusCache() {
+        this.mIsWifiCache = com.baidu.adp.lib.util.j.isWifiNet();
     }
 
-    public boolean ajA() {
-        return this.bUG;
+    public boolean getIsWifi() {
+        return this.mIsWifiCache;
     }
 
-    public String ajB() {
-        return this.bUJ;
+    public String getUrlQuality() {
+        return this.mUrlQuality;
     }
 
-    public int ajC() {
-        ajG();
-        return this.bUI;
+    public int getPostImageSize() {
+        updatePostImageSize();
+        return this.mPostImageSize;
     }
 
-    public int ajD() {
-        return TbConfig.POST_IMAGE_HIGHT_LIMIT;
+    public int getPostImageHeightLimit() {
+        return 18000;
     }
 
-    public void ajE() {
+    public void updateFrsShowBigImage() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.ace().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.ace().getViewImageQuality() != 1 : !this.bUG) {
+        if (com.baidu.tbadk.core.i.agq().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.agq().getViewImageQuality() != 1 : !this.mIsWifiCache) {
             z = false;
         }
-        ed(z);
+        setFrsShowBigImage(z);
     }
 
-    public void ajF() {
+    public void updateUrlQuality() {
         String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.i.ace().getViewImageQuality() == 0) {
-            if (ajA()) {
+        if (com.baidu.tbadk.core.i.agq().getViewImageQuality() == 0) {
+            if (getIsWifi()) {
                 valueOf = String.valueOf(80);
             }
-        } else if (com.baidu.tbadk.core.i.ace().getViewImageQuality() == 1) {
+        } else if (com.baidu.tbadk.core.i.agq().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.bUJ = valueOf;
+        this.mUrlQuality = valueOf;
     }
 
-    public void ajG() {
+    public void updatePostImageSize() {
         int i = 2000;
-        switch (com.baidu.tbadk.core.i.ace().acf()) {
+        switch (com.baidu.tbadk.core.i.agq().getUploadImageQuality()) {
             case 0:
-                if (!ajA()) {
+                if (!getIsWifi()) {
                     i = 1500;
                     break;
                 }
@@ -106,10 +104,10 @@ public class ar {
                 i = 1800;
                 break;
         }
-        this.bUI = i;
+        this.mPostImageSize = i;
     }
 
-    public static boolean ajH() {
-        return m.gB() && com.baidu.adp.gif.c.gA();
+    public static boolean amP() {
+        return m.checkSD() && com.baidu.adp.gif.c.eO();
     }
 }

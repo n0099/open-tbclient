@@ -1,36 +1,32 @@
 package com.baidu.tbadk.t;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class ca extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001310));
+    protected void C(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "switch_xiaomipush_sdk";
+        return "webp_enable";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hI() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hJ() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hK() {
+    protected int fj() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hL() {
+    protected int fk() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] fi() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int fl() {
         return 10;
     }
 }

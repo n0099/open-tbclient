@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgResIdl;
@@ -11,7 +12,7 @@ public class ResponsedPersonalMsgReadMessage extends TbSocketReponsedMessage {
     private int toUserType;
 
     public ResponsedPersonalMsgReadMessage() {
-        super(205006);
+        super(CmdConfigSocket.CMD_PERSONAL_SEND_MSG_HAS_READ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -11,7 +11,6 @@ import com.baidu.swan.apps.ae.b;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -81,7 +80,7 @@ public class a extends z {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
-                String optString = optParamsAsJo.optString(UBC.CONTENT_KEY_VALUE);
+                String optString = optParamsAsJo.optString("value");
                 if (!TextUtils.isEmpty(optString)) {
                     try {
                         f = Float.parseFloat(optString);
@@ -94,7 +93,7 @@ public class a extends z {
                     z = false;
                     break;
                 } else {
-                    com.baidu.swan.apps.aj.d.b.a.Oz().a(activity, f);
+                    com.baidu.swan.apps.aj.d.b.a.Tp().a(activity, f);
                     jSONObject = null;
                     z = true;
                     break;
@@ -103,7 +102,7 @@ public class a extends z {
             case 1:
                 jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(UBC.CONTENT_KEY_VALUE, String.valueOf(com.baidu.swan.apps.aj.d.b.a.Oz().N(activity)));
+                    jSONObject.put("value", String.valueOf(com.baidu.swan.apps.aj.d.b.a.Tp().M(activity)));
                     z = true;
                     break;
                 } catch (JSONException e2) {
@@ -118,7 +117,7 @@ public class a extends z {
                     return false;
                 }
                 try {
-                    com.baidu.swan.apps.aj.d.b.a.Oz().e(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                    com.baidu.swan.apps.aj.d.b.a.Tp().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
                     jSONObject = null;
                     z = true;
                     break;

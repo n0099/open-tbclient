@@ -11,6 +11,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.utils.IBase64;
 import com.baidu.mobads.interfaces.utils.IXAdPackageUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
@@ -228,7 +229,7 @@ public class n implements IXAdPackageUtils {
         sb.append("&mac=" + base64.encode(systemUtils.getMacAddress(context)));
         sb.append("&cuid=" + systemUtils.getCUID(context));
         sb.append("&pack=" + context.getPackageName());
-        sb.append("&v=" + ("android_" + com.baidu.mobads.a.a.c + "_4.1.30"));
+        sb.append("&v=" + ("android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30"));
         sb.append("&targetscheme=" + encodeUrl);
         sb.append("&pk=" + str2);
         try {
@@ -253,7 +254,7 @@ public class n implements IXAdPackageUtils {
         intent.addFlags(268435456);
         String encodeUrl = uRIUitls.encodeUrl(str);
         List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 65536);
-        String str5 = "&sn=" + systemUtils.getEncodedSN(context) + "&fb_act=" + i2 + "&pack=" + context.getPackageName() + "&v=" + ("android_" + com.baidu.mobads.a.a.c + "_4.1.30") + "&targetscheme=" + encodeUrl + "&pk=" + str2;
+        String str5 = "&sn=" + systemUtils.getEncodedSN(context) + "&fb_act=" + i2 + "&pack=" + context.getPackageName() + "&v=" + ("android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30") + "&targetscheme=" + encodeUrl + "&pk=" + str2;
         if (queryIntentActivities.size() > 0) {
             String str6 = "";
             str3 = ("&open=true") + "&n=" + queryIntentActivities.size();
@@ -318,7 +319,7 @@ public class n implements IXAdPackageUtils {
         sb.append("&bdr=" + Build.VERSION.SDK_INT);
         sb.append("&cuid=" + systemUtils.getCUID(context));
         sb.append("&pack=" + context.getPackageName());
-        sb.append("&v=" + ("android_" + com.baidu.mobads.a.a.c + "_4.1.30"));
+        sb.append("&v=" + ("android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30"));
         sb.append("&pk=" + str);
         try {
             com.baidu.mobads.openad.d.c cVar = new com.baidu.mobads.openad.d.c(uRIUitls.addParameters(commonUtils.vdUrl(sb.toString(), 372), null), "");

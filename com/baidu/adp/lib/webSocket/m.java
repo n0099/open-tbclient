@@ -15,34 +15,34 @@ import java.util.Map;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class m extends Thread {
-    private static long Gi = 0;
-    private final l FA;
-    private final e.a Fs;
-    private final Handler Gf;
-    private final ByteBuffer Gg;
-    private final d Gh;
-    private boolean Gj;
-    private int Gk;
-    private a Gl;
-    private int Gm;
-    private final f Gn;
-    private int Go;
-    private long Gp;
-    private long Gq;
+    private static long tw = 0;
     private int mState;
     private boolean mStopped;
+    private final e.a sD;
+    private final l sL;
+    private int tA;
+    private a tB;
+    private int tC;
+    private final f tD;
+    private int tE;
+    private long tF;
+    private long tG;
+    private final Handler ts;
+    private final ByteBuffer tt;
+    private final d tu;
+    private boolean tz;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int Gr;
-        public boolean Gs;
-        public int Gt;
-        public int Gu;
-        public int Gv;
-        public int Gw;
-        public byte[] Gx;
-        public byte[] Gy;
+        public int tH;
+        public boolean tI;
+        public int tJ;
+        public int tK;
+        public int tL;
+        public int tM;
+        public byte[] tN;
+        public byte[] tO;
 
         private a() {
         }
@@ -51,41 +51,41 @@ public class m extends Thread {
     public m(Handler handler, e.a aVar, l lVar, String str) {
         super(str);
         this.mStopped = false;
-        this.Gj = false;
-        this.Gn = new f();
-        this.Go = 0;
-        this.Gp = 0L;
-        this.Gq = 0L;
-        this.Gf = handler;
-        this.Fs = aVar;
-        this.FA = lVar;
-        this.Gg = ByteBuffer.allocateDirect(lVar.lh() + 14);
-        this.Gh = new d(lVar.li());
-        this.Gl = null;
+        this.tz = false;
+        this.tD = new f();
+        this.tE = 0;
+        this.tF = 0L;
+        this.tG = 0L;
+        this.ts = handler;
+        this.sD = aVar;
+        this.sL = lVar;
+        this.tt = ByteBuffer.allocateDirect(lVar.hG() + 14);
+        this.tu = new d(lVar.hH());
+        this.tB = null;
         this.mState = 1;
     }
 
-    protected void w(Object obj) {
-        this.Gp = 0L;
-        this.Gq = 0L;
-        Message obtainMessage = this.Gf.obtainMessage();
+    protected void t(Object obj) {
+        this.tF = 0L;
+        this.tG = 0L;
+        Message obtainMessage = this.ts.obtainMessage();
         obtainMessage.obj = obj;
-        this.Gf.sendMessage(obtainMessage);
+        this.ts.sendMessage(obtainMessage);
     }
 
-    private boolean lp() throws Exception {
+    private boolean hO() throws Exception {
         int i;
         String str;
         int i2;
         long j;
         byte[] bArr = null;
-        if (this.Gl == null) {
-            if (this.Gg.position() >= 2) {
-                byte b = this.Gg.get(0);
+        if (this.tB == null) {
+            if (this.tt.position() >= 2) {
+                byte b = this.tt.get(0);
                 boolean z = (b & 128) != 0;
                 int i3 = (b & 112) >> 4;
                 int i4 = b & 15;
-                byte b2 = this.Gg.get(1);
+                byte b2 = this.tt.get(1);
                 boolean z2 = (b2 & 128) != 0;
                 int i5 = b2 & Byte.MAX_VALUE;
                 if (i3 != 0) {
@@ -110,10 +110,10 @@ public class m extends Thread {
                 } else if (i4 != 0 && i4 != 1 && i4 != 2) {
                     throw new WebSocketException("data frame using reserved opcode " + i4);
                 } else {
-                    if (!this.Gj && i4 == 0) {
+                    if (!this.tz && i4 == 0) {
                         throw new WebSocketException("received continuation data frame outside fragmented message");
                     }
-                    if (this.Gj && i4 != 0) {
+                    if (this.tz && i4 != 0) {
                         throw new WebSocketException("received non-continuation data frame while inside fragmented message");
                     }
                 }
@@ -126,59 +126,59 @@ public class m extends Thread {
                 } else {
                     throw new Exception("BdLogic error");
                 }
-                if (this.Gg.position() >= i2) {
+                if (this.tt.position() >= i2) {
                     if (i5 == 126) {
-                        j = ((this.Gg.get(2) & 255) << 8) | (this.Gg.get(3) & 255);
+                        j = ((this.tt.get(2) & 255) << 8) | (this.tt.get(3) & 255);
                         if (j < 126) {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                     } else if (i5 == 127) {
-                        if ((this.Gg.get(2) & 128) != 0) {
+                        if ((this.tt.get(2) & 128) != 0) {
                             throw new WebSocketException("invalid data frame length (> 2^63)");
                         }
-                        j = ((this.Gg.get(2) & 255) << 56) | ((this.Gg.get(3) & 255) << 48) | ((this.Gg.get(4) & 255) << 40) | ((this.Gg.get(5) & 255) << 32) | ((this.Gg.get(6) & 255) << 24) | ((this.Gg.get(7) & 255) << 16) | ((this.Gg.get(8) & 255) << 8) | (this.Gg.get(9) & 255);
+                        j = ((this.tt.get(2) & 255) << 56) | ((this.tt.get(3) & 255) << 48) | ((this.tt.get(4) & 255) << 40) | ((this.tt.get(5) & 255) << 32) | ((this.tt.get(6) & 255) << 24) | ((this.tt.get(7) & 255) << 16) | ((this.tt.get(8) & 255) << 8) | (this.tt.get(9) & 255);
                         if (j < 65536) {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                     } else {
                         j = i5;
                     }
-                    this.Gl = new a();
-                    this.Gl.Gr = i4;
-                    this.Gl.Gs = z;
-                    this.Gl.Gt = i3;
-                    this.Gl.Gv = (int) j;
-                    this.Gl.Gu = i2;
-                    this.Gl.Gw = this.Gl.Gu + this.Gl.Gv;
-                    this.Gl.Gx = null;
-                    int position = this.Gg.position();
-                    this.Gl.Gy = new byte[this.Gl.Gu];
-                    this.Gg.position(0);
-                    this.Gg.get(this.Gl.Gy, 0, this.Gl.Gu);
-                    this.Gg.position(this.Gl.Gu);
-                    this.Gg.limit(position);
-                    this.Gg.compact();
-                    return this.Gl.Gv == 0 || this.Gg.position() >= this.Gl.Gv;
+                    this.tB = new a();
+                    this.tB.tH = i4;
+                    this.tB.tI = z;
+                    this.tB.tJ = i3;
+                    this.tB.tL = (int) j;
+                    this.tB.tK = i2;
+                    this.tB.tM = this.tB.tK + this.tB.tL;
+                    this.tB.tN = null;
+                    int position = this.tt.position();
+                    this.tB.tO = new byte[this.tB.tK];
+                    this.tt.position(0);
+                    this.tt.get(this.tB.tO, 0, this.tB.tK);
+                    this.tt.position(this.tB.tK);
+                    this.tt.limit(position);
+                    this.tt.compact();
+                    return this.tB.tL == 0 || this.tt.position() >= this.tB.tL;
                 }
                 return false;
             }
             return false;
-        } else if (this.Gm >= this.Gl.Gv) {
-            if (this.Gl.Gr > 7) {
-                if (this.Gl.Gr == 8) {
-                    if (this.Gl.Gv < 2) {
+        } else if (this.tC >= this.tB.tL) {
+            if (this.tB.tH > 7) {
+                if (this.tB.tH == 8) {
+                    if (this.tB.tL < 2) {
                         i = 1005;
                         str = null;
                     } else {
-                        i = (this.Gl.Gy[1] & 255) + ((this.Gl.Gy[0] & 255) * 256);
+                        i = (this.tB.tO[1] & 255) + ((this.tB.tO[0] & 255) * 256);
                         if (i < 1000 || ((i >= 1000 && i <= 2999 && i != 1000 && i != 1001 && i != 1002 && i != 1003 && i != 1007 && i != 1008 && i != 1009 && i != 1010 && i != 1011) || i >= 5000)) {
                             throw new WebSocketException("invalid close code " + i);
                         }
-                        if (this.Gl.Gv > 2) {
-                            byte[] bArr2 = new byte[this.Gl.Gv - 2];
-                            System.arraycopy(this.Gl.Gy, 2, bArr2, 0, this.Gl.Gv - 2);
+                        if (this.tB.tL > 2) {
+                            byte[] bArr2 = new byte[this.tB.tL - 2];
+                            System.arraycopy(this.tB.tO, 2, bArr2, 0, this.tB.tL - 2);
                             f fVar = new f();
-                            fVar.p(bArr2);
+                            fVar.h(bArr2);
                             if (!fVar.isValid()) {
                                 throw new WebSocketException("invalid close reasons (not UTF-8)");
                             }
@@ -187,138 +187,138 @@ public class m extends Thread {
                             str = null;
                         }
                     }
-                    f(i, str);
-                } else if (this.Gl.Gr == 9) {
-                    r(this.Gh.toByteArray());
-                } else if (this.Gl.Gr == 10) {
-                    s(this.Gh.toByteArray());
+                    e(i, str);
+                } else if (this.tB.tH == 9) {
+                    j(this.tu.toByteArray());
+                } else if (this.tB.tH == 10) {
+                    k(this.tu.toByteArray());
                 } else {
                     throw new Exception("BdLogic error");
                 }
             } else {
-                if (!this.Gj) {
-                    this.Gj = true;
-                    this.Gk = this.Gl.Gr;
-                    if (this.Gk == 1 && this.FA.lm()) {
-                        this.Gn.reset();
+                if (!this.tz) {
+                    this.tz = true;
+                    this.tA = this.tB.tH;
+                    if (this.tA == 1 && this.sL.hL()) {
+                        this.tD.reset();
                     }
                 }
-                if (this.Gk == 1 && this.FA.lm() && !this.Gn.p(this.Gh.toByteArray())) {
+                if (this.tA == 1 && this.sL.hL() && !this.tD.h(this.tu.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
-                if (this.Gl.Gs) {
-                    if (this.Gk == 1) {
-                        if (this.FA.lm() && !this.Gn.isValid()) {
+                if (this.tB.tI) {
+                    if (this.tA == 1) {
+                        if (this.sL.hL() && !this.tD.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.FA.lg()) {
-                            q(this.Gh.toByteArray());
+                        if (this.sL.hF()) {
+                            i(this.tu.toByteArray());
                         } else {
-                            S(new String(this.Gh.toByteArray(), HTTP.UTF_8));
+                            onTextMessage(new String(this.tu.toByteArray(), HTTP.UTF_8));
                         }
-                    } else if (this.Gk == 2) {
-                        t(this.Gh.toByteArray());
+                    } else if (this.tA == 2) {
+                        l(this.tu.toByteArray());
                     } else {
                         throw new Exception("BdLogic error");
                     }
-                    this.Gj = false;
-                    this.Gh.reset();
+                    this.tz = false;
+                    this.tu.reset();
                 }
             }
-            this.Gl = null;
-            this.Gm = 0;
-            return this.Gg.position() > 0;
+            this.tB = null;
+            this.tC = 0;
+            return this.tt.position() > 0;
         } else {
-            int position2 = this.Gg.position();
-            if (this.Gl.Gv - this.Gm < position2) {
-                position2 = this.Gl.Gv - this.Gm;
+            int position2 = this.tt.position();
+            if (this.tB.tL - this.tC < position2) {
+                position2 = this.tB.tL - this.tC;
             }
-            int position3 = this.Gg.position();
-            if (this.Gl.Gv > 0) {
+            int position3 = this.tt.position();
+            if (this.tB.tL > 0) {
                 bArr = new byte[position2];
-                this.Gg.position(0);
-                this.Gg.get(bArr, 0, position2);
+                this.tt.position(0);
+                this.tt.get(bArr, 0, position2);
             }
-            this.Gg.position(position2);
-            this.Gg.limit(position3);
-            this.Gg.compact();
+            this.tt.position(position2);
+            this.tt.limit(position3);
+            this.tt.compact();
             if (bArr != null) {
-                this.Gh.write(bArr);
+                this.tu.write(bArr);
             }
-            this.Gm = position2 + this.Gm;
-            return this.Gm >= this.Gl.Gv;
+            this.tC = position2 + this.tC;
+            return this.tC >= this.tB.tL;
         }
     }
 
     protected void a(boolean z, Map<String, String> map) {
-        w(new k.q(z, map));
+        t(new k.q(z, map));
     }
 
-    protected void f(int i, String str) {
-        w(new k.c(i, str));
+    protected void e(int i, String str) {
+        t(new k.c(i, str));
     }
 
-    protected void r(byte[] bArr) {
-        w(new k.j(bArr));
+    protected void j(byte[] bArr) {
+        t(new k.j(bArr));
     }
 
-    protected void s(byte[] bArr) {
-        w(new k.C0019k(bArr));
+    protected void k(byte[] bArr) {
+        t(new k.C0019k(bArr));
     }
 
-    protected void S(String str) {
-        w(new k.s(str));
+    protected void onTextMessage(String str) {
+        t(new k.s(str));
     }
 
-    protected void q(byte[] bArr) {
-        w(new k.m(bArr));
+    protected void i(byte[] bArr) {
+        t(new k.m(bArr));
     }
 
-    protected void t(byte[] bArr) {
-        this.Gq = System.currentTimeMillis();
-        w(new k.a(bArr, this.Gp, this.Gq));
+    protected void l(byte[] bArr) {
+        this.tG = System.currentTimeMillis();
+        t(new k.a(bArr, this.tF, this.tG));
     }
 
-    private boolean lq() throws UnsupportedEncodingException {
+    private boolean hP() throws UnsupportedEncodingException {
         boolean z;
         boolean z2;
         boolean z3 = false;
-        int position = this.Gg.position() - 4;
+        int position = this.tt.position() - 4;
         while (true) {
             if (position < 0) {
                 break;
-            } else if (this.Gg.get(position + 0) != 13 || this.Gg.get(position + 1) != 10 || this.Gg.get(position + 2) != 13 || this.Gg.get(position + 3) != 10) {
+            } else if (this.tt.get(position + 0) != 13 || this.tt.get(position + 1) != 10 || this.tt.get(position + 2) != 13 || this.tt.get(position + 3) != 10) {
                 position--;
             } else {
-                int position2 = this.Gg.position();
+                int position2 = this.tt.position();
                 Map<String, String> map = null;
-                if (this.Gg.get(0) == 72 && this.Gg.get(1) == 84 && this.Gg.get(2) == 84 && this.Gg.get(3) == 80) {
-                    Pair<Integer, String> lr = lr();
-                    if (((Integer) lr.first).intValue() >= 300) {
-                        w(new k.p(((Integer) lr.first).intValue(), (String) lr.second));
+                if (this.tt.get(0) == 72 && this.tt.get(1) == 84 && this.tt.get(2) == 84 && this.tt.get(3) == 80) {
+                    Pair<Integer, String> hQ = hQ();
+                    if (((Integer) hQ.first).intValue() >= 300) {
+                        t(new k.p(((Integer) hQ.first).intValue(), (String) hQ.second));
                         z = true;
                     } else {
                         z = false;
                     }
                     if (position > 0) {
-                        this.Gg.position(0);
+                        this.tt.position(0);
                         byte[] bArr = new byte[position];
-                        this.Gg.get(bArr);
-                        map = u(bArr);
+                        this.tt.get(bArr);
+                        map = m(bArr);
                     }
                 } else {
                     z = false;
                 }
-                this.Gg.position(position + 4);
-                this.Gg.limit(position2);
-                this.Gg.compact();
-                if (this.Go < this.Fs.kQ() && map.size() == 0) {
-                    this.Go++;
+                this.tt.position(position + 4);
+                this.tt.limit(position2);
+                this.tt.compact();
+                if (this.tE < this.sD.hp() && map.size() == 0) {
+                    this.tE++;
                     return true;
                 }
-                this.Go = 0;
+                this.tE = 0;
                 if (!z) {
-                    z2 = this.Gg.position() > 0;
+                    z2 = this.tt.position() > 0;
                     this.mState = 3;
                 } else {
                     this.mState = 0;
@@ -332,7 +332,7 @@ public class m extends Thread {
         return z3;
     }
 
-    private Map<String, String> u(byte[] bArr) throws UnsupportedEncodingException {
+    private Map<String, String> m(byte[] bArr) throws UnsupportedEncodingException {
         String str = new String(bArr, HTTP.UTF_8);
         HashMap hashMap = new HashMap();
         String[] split = str.split("\r\n");
@@ -347,38 +347,38 @@ public class m extends Thread {
         return hashMap;
     }
 
-    private Pair<Integer, String> lr() throws UnsupportedEncodingException {
+    private Pair<Integer, String> hQ() throws UnsupportedEncodingException {
         int i = 4;
-        while (i < this.Gg.position() && this.Gg.get(i) != 32) {
+        while (i < this.tt.position() && this.tt.get(i) != 32) {
             i++;
         }
         int i2 = i + 1;
-        while (i2 < this.Gg.position() && this.Gg.get(i2) != 32) {
+        while (i2 < this.tt.position() && this.tt.get(i2) != 32) {
             i2++;
         }
         int i3 = i + 1;
         int i4 = 0;
         for (int i5 = 0; i3 + i5 < i2; i5++) {
-            i4 = (i4 * 10) + (this.Gg.get(i3 + i5) - 48);
+            i4 = (i4 * 10) + (this.tt.get(i3 + i5) - 48);
         }
         int i6 = i2 + 1;
         int i7 = i6;
-        while (i7 < this.Gg.position() && this.Gg.get(i7) != 13) {
+        while (i7 < this.tt.position() && this.tt.get(i7) != 13) {
             i7++;
         }
         int i8 = i7 - i6;
         byte[] bArr = new byte[i8];
-        this.Gg.position(i6);
-        this.Gg.get(bArr, 0, i8);
+        this.tt.position(i6);
+        this.tt.get(bArr, 0, i8);
         return new Pair<>(Integer.valueOf(i4), new String(bArr, HTTP.UTF_8));
     }
 
-    private boolean ls() throws Exception {
+    private boolean hR() throws Exception {
         if (this.mState == 3 || this.mState == 2) {
-            return lp();
+            return hO();
         }
         if (this.mState == 1) {
-            return lq();
+            return hP();
         }
         if (this.mState == 0) {
         }
@@ -388,7 +388,7 @@ public class m extends Thread {
     public void quit() {
         this.mStopped = true;
         try {
-            this.Fs.close();
+            this.sD.close();
         } catch (Throwable th) {
             BdLog.e(th);
         }
@@ -398,54 +398,54 @@ public class m extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            this.Gg.clear();
+            this.tt.clear();
             do {
                 try {
-                    int read = this.Fs.read(this.Gg);
+                    int read = this.sD.read(this.tt);
                     if (read > 0) {
-                        if (this.Gp <= 0) {
-                            this.Gp = System.currentTimeMillis();
+                        if (this.tF <= 0) {
+                            this.tF = System.currentTimeMillis();
                         }
                         synchronized (m.class) {
-                            Gi += read;
+                            tw += read;
                         }
                     }
                     if (read > 0) {
                         do {
-                        } while (ls());
+                        } while (hR());
                     } else if (read < 0) {
-                        w(new k.d(new SocketException("len < 0")));
+                        t(new k.d(new SocketException("len < 0")));
                         this.mStopped = true;
                     }
                 } catch (SocketTimeoutException e) {
-                    if (!com.baidu.adp.lib.util.j.kc()) {
+                    if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                         this.mStopped = true;
-                        w(new k.d(new SocketException("not net")));
+                        t(new k.d(new SocketException("not net")));
                         return;
                     }
                 }
             } while (!this.mStopped);
         } catch (SocketException e2) {
-            w(new k.d(e2));
+            t(new k.d(e2));
         } catch (WebSocketException e3) {
-            w(new k.l(e3));
+            t(new k.l(e3));
         } catch (Exception e4) {
-            w(new k.f(e4));
+            t(new k.f(e4));
         } finally {
             this.mStopped = true;
         }
     }
 
-    public void kX() {
+    public void hw() {
         synchronized (m.class) {
-            Gi = 0L;
+            tw = 0L;
         }
     }
 
     public long getDownFlowSize() {
         long j;
         synchronized (m.class) {
-            j = Gi;
+            j = tw;
         }
         return j;
     }

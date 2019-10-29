@@ -7,10 +7,11 @@ import android.net.Proxy;
 import android.os.Environment;
 import android.os.Process;
 import android.os.StatFs;
+import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.mobstat.Config;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.Map;
@@ -69,13 +70,13 @@ public class Utils {
     }
 
     public static String b(Context context) {
-        String str = a(context) + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+        String str = a(context) + File.separator + BuildConfig.FLAVOR + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-        if (a() < Config.FULL_TRACE_LOG_LIMIT) {
+        if (a() < 10485760) {
             str = str2;
         }
         new File(str).mkdirs();
-        return str + File.separator + "video_session_log_" + CyberPlayerManager.getCoreVersion() + ".log";
+        return str + File.separator + "video_session_log_" + CyberPlayerManager.getCoreVersion() + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     }
 
     public static void b(byte[] bArr, int i, byte[] bArr2) {

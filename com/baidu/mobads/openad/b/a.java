@@ -2,6 +2,7 @@ package com.baidu.mobads.openad.b;
 
 import android.content.Context;
 import android.os.Environment;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
@@ -30,7 +31,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
     protected IOAdDownloader.DownloadStatus i;
     protected volatile int j;
     protected int k;
-    protected ArrayList<RunnableC0073a> l;
+    protected ArrayList<RunnableC0105a> l;
     private String n;
     private String o;
     protected Boolean f = true;
@@ -322,7 +323,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                 int i62 = -1;
                 int i72 = 0;
                 if (this.e <= 1) {
-                    int round = Math.round((this.h / this.e) / 102400.0f) * 102400;
+                    int round = Math.round((this.h / this.e) / 102400.0f) * BdStatsConstant.MAX_WRITE_LOG_SIZE;
                     while (i62 < this.h) {
                         int i8 = i62 + 1;
                         if (i62 + round < this.h) {
@@ -340,11 +341,11 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                 }
             }
             for (h hVar2 : arrayList2) {
-                RunnableC0073a runnableC0073a = new RunnableC0073a(hVar2.c(), this.c, hVar2.f(), hVar2.d(), hVar2.e(), hVar2.a());
+                RunnableC0105a runnableC0105a = new RunnableC0105a(hVar2.c(), this.c, hVar2.f(), hVar2.d(), hVar2.e(), hVar2.a());
                 if (hVar2.d() == 0 && hVar2.a() == 0) {
-                    runnableC0073a.a(httpURLConnection);
+                    runnableC0105a.a(httpURLConnection);
                 }
-                this.l.add(runnableC0073a);
+                this.l.add(runnableC0105a);
             }
         }
         if (this.f.booleanValue()) {
@@ -422,9 +423,9 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                         this.m = new g(this.a);
                     }
                     ArrayList arrayList4 = new ArrayList();
-                    Iterator<RunnableC0073a> it = this.l.iterator();
+                    Iterator<RunnableC0105a> it = this.l.iterator();
                     while (it.hasNext()) {
-                        RunnableC0073a next = it.next();
+                        RunnableC0105a next = it.next();
                         arrayList4.add(new h(next.a, url, str, next.d, next.e, next.f));
                         XAdSDKFoundationFacade.getInstance().getAdLogger().d("Downloader", "save to db: start=" + next.d + ";end =" + next.e + ";complete=" + next.f);
                     }
@@ -605,14 +606,14 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         }
     }
 
-    protected void a(ArrayList<RunnableC0073a> arrayList) {
+    protected void a(ArrayList<RunnableC0105a> arrayList) {
         XAdSDKFoundationFacade.getInstance().getIoUtils().renameFile(this.d + this.g + ".tmp", this.d + this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.mobads.openad.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC0073a implements Runnable {
+    public class RunnableC0105a implements Runnable {
         protected int a;
         protected URL b;
         protected String c;
@@ -625,7 +626,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         private volatile int k = 0;
         protected boolean g = false;
 
-        public RunnableC0073a(int i, URL url, String str, int i2, int i3, int i4) {
+        public RunnableC0105a(int i, URL url, String str, int i2, int i3, int i4) {
             this.a = i;
             this.b = url;
             this.c = str;
@@ -929,9 +930,9 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                     }
                     try {
                         randomAccessFile.seek(i);
-                        byte[] bArr = new byte[102400];
+                        byte[] bArr = new byte[BdStatsConstant.MAX_WRITE_LOG_SIZE];
                         while (true) {
-                            if (a.this.i != IOAdDownloader.DownloadStatus.DOWNLOADING || (read = bufferedInputStream.read(bArr, 0, 102400)) == -1 || i >= this.e || i2 != this.k) {
+                            if (a.this.i != IOAdDownloader.DownloadStatus.DOWNLOADING || (read = bufferedInputStream.read(bArr, 0, BdStatsConstant.MAX_WRITE_LOG_SIZE)) == -1 || i >= this.e || i2 != this.k) {
                                 break;
                             }
                             randomAccessFile.write(bArr, 0, read);

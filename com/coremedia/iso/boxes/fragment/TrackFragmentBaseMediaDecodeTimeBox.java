@@ -1,5 +1,6 @@
 package com.coremedia.iso.boxes.fragment;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -10,9 +11,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     public static final String TYPE = "tfdt";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
     private long baseMediaDecodeTime;
 
     static {
@@ -23,7 +24,7 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
         b bVar = new b("TrackFragmentBaseMediaDecodeTimeBox.java", TrackFragmentBaseMediaDecodeTimeBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getBaseMediaDecodeTime", "com.coremedia.iso.boxes.fragment.TrackFragmentBaseMediaDecodeTimeBox", "", "", "", "long"), 65);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setBaseMediaDecodeTime", "com.coremedia.iso.boxes.fragment.TrackFragmentBaseMediaDecodeTimeBox", "long", "baseMediaDecodeTime", "", "void"), 69);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.fragment.TrackFragmentBaseMediaDecodeTimeBox", "", "", "", "java.lang.String"), 74);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.fragment.TrackFragmentBaseMediaDecodeTimeBox", "", "", "", FieldUtil.TYPE_STRING), 74);
     }
 
     public TrackFragmentBaseMediaDecodeTimeBox() {
@@ -61,7 +62,7 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     }
 
     public void setBaseMediaDecodeTime(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.eS(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.en(j)));
         this.baseMediaDecodeTime = j;
     }
 

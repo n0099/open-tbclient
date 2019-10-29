@@ -1,5 +1,6 @@
 package com.baidu.tbadk.game;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.GetGameDetail.DataReq;
 import tbclient.GetGameDetail.GetGameDetailReqIdl;
@@ -8,7 +9,7 @@ public class RequestGameDetailMessage extends TbSocketMessage {
     private String mGameId;
 
     public RequestGameDetailMessage() {
-        super(303009);
+        super(CmdConfigSocket.CMD_GET_GAME_DETAIL);
     }
 
     public void setGameId(String str) {

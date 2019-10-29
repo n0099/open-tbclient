@@ -6,7 +6,6 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -18,39 +17,39 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class j {
-    private k eGB;
-    private com.baidu.tbadk.core.dialog.i irC;
-    private com.baidu.tbadk.core.dialog.g irD;
-    private a irE;
-    private SmartApp irz;
+    private k ePi;
+    private SmartApp ipZ;
+    private com.baidu.tbadk.core.dialog.i iqc;
+    private com.baidu.tbadk.core.dialog.g iqd;
+    private a iqe;
     private Context mContext;
     private TbPageContext mPageContext;
-    private k.b irF = new k.b() { // from class: com.baidu.tieba.personExtra.j.1
+    private k.b iqf = new k.b() { // from class: com.baidu.tieba.personExtra.j.1
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            if (j.this.irz != null) {
+            if (j.this.ipZ != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-                httpMessage.addParam("swan_app_key", j.this.irz.id);
+                httpMessage.addParam("swan_app_key", j.this.ipZ.id);
                 MessageManager.getInstance().sendMessage(httpMessage);
-                if (j.this.irE != null) {
-                    j.this.irE.Dm(j.this.irz.id);
+                if (j.this.iqe != null) {
+                    j.this.iqe.BF(j.this.ipZ.id);
                 }
                 an anVar = new an("c13436");
-                anVar.n("uid", TbadkCoreApplication.getCurrentAccountId());
-                anVar.n(VideoPlayActivityConfig.OBJ_ID, j.this.irz.swan_app_id.longValue());
-                anVar.bT("obj_name", j.this.irz.name);
+                anVar.p("uid", TbadkCoreApplication.getCurrentAccountId());
+                anVar.p("obj_id", j.this.ipZ.swan_app_id.longValue());
+                anVar.bS("obj_name", j.this.ipZ.name);
                 TiebaStatic.log(anVar);
-                if (j.this.irC != null) {
-                    j.this.irC.dismiss();
+                if (j.this.iqc != null) {
+                    j.this.iqc.dismiss();
                 }
             }
         }
     };
-    private List<com.baidu.tbadk.core.dialog.g> bxl = new ArrayList();
+    private List<com.baidu.tbadk.core.dialog.g> bPS = new ArrayList();
 
     /* loaded from: classes6.dex */
     public interface a {
-        void Dm(String str);
+        void BF(String str);
     }
 
     static {
@@ -60,30 +59,30 @@ public class j {
     public j(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.eGB = new k(this.mContext);
+        this.ePi = new k(this.mContext);
     }
 
     public void create() {
-        if (this.irC == null) {
-            this.irD = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.eGB);
-            this.irD.a(this.irF);
-            this.bxl.add(this.irD);
-            this.eGB.W(this.bxl);
-            this.irC = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.eGB);
+        if (this.iqc == null) {
+            this.iqd = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.ePi);
+            this.iqd.a(this.iqf);
+            this.bPS.add(this.iqd);
+            this.ePi.at(this.bPS);
+            this.iqc = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.ePi);
         }
     }
 
     public void a(a aVar) {
-        this.irE = aVar;
+        this.iqe = aVar;
     }
 
     public void c(SmartApp smartApp) {
-        this.irz = smartApp;
+        this.ipZ = smartApp;
     }
 
     public void show() {
-        if (this.irC != null) {
-            this.irC.showDialog();
+        if (this.iqc != null) {
+            this.iqc.showDialog();
         }
     }
 }

@@ -3,78 +3,77 @@ package com.baidu.tbadk.p;
 import android.os.Process;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static volatile m cBB;
-    private static String cBy = "tb_perfor_samllflow_time";
-    private long cBA;
-    private boolean cBw = false;
-    private long cBz = 86400;
-    private long cBx = com.baidu.tbadk.core.sharedPref.b.ahU().getLong(cBy, 0);
+    private static String cMH = "tb_perfor_samllflow_time";
+    private static volatile m cMK;
+    private long cMJ;
+    private boolean cMF = false;
+    private long cMI = 86400;
+    private long cMG = com.baidu.tbadk.core.sharedPref.b.alR().getLong(cMH, 0);
 
-    public static m avH() {
-        if (cBB == null) {
+    public static m awN() {
+        if (cMK == null) {
             synchronized (m.class) {
-                if (cBB == null) {
-                    cBB = new m();
+                if (cMK == null) {
+                    cMK = new m();
                 }
             }
         }
-        return cBB;
+        return cMK;
     }
 
     private m() {
-        this.cBA = 0L;
-        this.cBA = this.cBz;
+        this.cMJ = 0L;
+        this.cMJ = this.cMI;
     }
 
-    public boolean avI() {
-        if (!this.cBw || (System.currentTimeMillis() - this.cBx) / 1000 <= this.cBA) {
-            return this.cBw;
+    public boolean awO() {
+        if (!this.cMF || (System.currentTimeMillis() - this.cMG) / 1000 <= this.cMJ) {
+            return this.cMF;
         }
         return false;
     }
 
-    public void fI(boolean z) {
+    public void fx(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.cBx || currentTimeMillis - this.cBx >= this.cBA) {
-                this.cBx = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.ahU().putLong(cBy, this.cBx);
+            if (0 == this.cMG || currentTimeMillis - this.cMG >= this.cMJ) {
+                this.cMG = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.alR().putLong(cMH, this.cMG);
             }
         } else {
-            this.cBx = 0L;
-            com.baidu.tbadk.core.sharedPref.b.ahU().putLong(cBy, this.cBx);
+            this.cMG = 0L;
+            com.baidu.tbadk.core.sharedPref.b.alR().putLong(cMH, this.cMG);
         }
-        this.cBw = z;
+        this.cMF = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.avN().avO();
+            n.awS().awT();
         }
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.j.kc()) {
+        if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.j.kd()) {
+        if (com.baidu.adp.lib.util.j.isWifiNet()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.j.kf()) {
+        if (com.baidu.adp.lib.util.j.is4GNet()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.j.kg()) {
+        if (com.baidu.adp.lib.util.j.is3GNet()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.j.kh()) {
+        if (!com.baidu.adp.lib.util.j.is2GNet()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String kW(int i) {
+    public static String kh(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -87,7 +86,7 @@ public class m {
         return "WIFI";
     }
 
-    public long avJ() {
+    public long awP() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -97,8 +96,8 @@ public class m {
         }
     }
 
-    public l kX(int i) {
-        if (avI()) {
+    public l ki(int i) {
+        if (awO()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -110,7 +109,7 @@ public class m {
                     return oVar2;
                 case 1002:
                     j jVar = new j();
-                    jVar.subType = IXAdRequestInfo.IMSI;
+                    jVar.subType = "im";
                     return jVar;
                 case 1003:
                 default:
@@ -128,9 +127,9 @@ public class m {
         return null;
     }
 
-    public void bn(long j) {
+    public void bc(long j) {
         if (j > 0) {
-            this.cBA = j;
+            this.cMJ = j;
         }
     }
 
@@ -143,7 +142,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int avK() {
+    public int getCpuUsageStatistic() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;
@@ -202,7 +201,7 @@ public class m {
                             str2 = str;
                             if (str2 != null) {
                             }
-                            return com.baidu.adp.lib.g.b.f(str2, -1);
+                            return com.baidu.adp.lib.g.b.toInt(str2, -1);
                         } catch (Throwable th) {
                             th = th;
                             process = process2;
@@ -260,6 +259,6 @@ public class m {
                 str2 = split2[0];
             }
         }
-        return com.baidu.adp.lib.g.b.f(str2, -1);
+        return com.baidu.adp.lib.g.b.toInt(str2, -1);
     }
 }

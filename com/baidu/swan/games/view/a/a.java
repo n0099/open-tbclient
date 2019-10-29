@@ -1,7 +1,7 @@
 package com.baidu.swan.games.view.a;
 /* loaded from: classes2.dex */
 public interface a {
-    void QQ();
+    void VG();
 
-    void QR();
+    void VH();
 }

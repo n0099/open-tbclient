@@ -1,9 +1,9 @@
 package com.xiaomi.smack.util;
 
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.tencent.connect.common.Constants;
 import com.xiaomi.push.service.as;
 import com.xiaomi.push.service.bb;
 import com.xiaomi.smack.l;
@@ -48,7 +48,7 @@ public class a {
             if (next == 2) {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
-                if (name.equals("error")) {
+                if (name.equals(BdStatsConstant.StatsType.ERROR)) {
                     hVar = d(xmlPullParser);
                 } else {
                     bVar = new com.xiaomi.smack.packet.b();
@@ -111,7 +111,7 @@ public class a {
                         throw new l("error while receiving a encrypted message with wrong format");
                     }
                     String text = xmlPullParser.getText();
-                    if ("5".equals(attributeValue) || Constants.VIA_SHARE_TYPE_INFO.equals(attributeValue)) {
+                    if ("5".equals(attributeValue) || "6".equals(attributeValue)) {
                         com.xiaomi.smack.packet.c cVar = new com.xiaomi.smack.packet.c();
                         cVar.l(attributeValue);
                         cVar.b(true);
@@ -213,7 +213,7 @@ public class a {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
-                } else if (name.equals("error")) {
+                } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
                     cVar2.a(d(xmlPullParser));
                 } else {
                     cVar2.a(a(name, namespace, xmlPullParser));
@@ -272,14 +272,14 @@ public class a {
                     } catch (IllegalArgumentException e3) {
                         fVar.a(0);
                     }
-                } else if (name.equals(SmsLoginView.StatEvent.LOGIN_SHOW)) {
+                } else if (name.equals("show")) {
                     String nextText = xmlPullParser.nextText();
                     try {
                         fVar.a(f.a.valueOf(nextText));
                     } catch (IllegalArgumentException e4) {
                         System.err.println("Found invalid presence mode " + nextText);
                     }
-                } else if (name.equals("error")) {
+                } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
                     fVar.a(d(xmlPullParser));
                 } else {
                     fVar.a(a(name, namespace, xmlPullParser));
@@ -298,7 +298,7 @@ public class a {
             int next = xmlPullParser.next();
             if (next == 2) {
                 gVar = new com.xiaomi.smack.packet.g(xmlPullParser.getName());
-            } else if (next == 3 && xmlPullParser.getName().equals("error")) {
+            } else if (next == 3 && xmlPullParser.getName().equals(BdStatsConstant.StatsType.ERROR)) {
                 z = true;
             }
         }
@@ -314,8 +314,8 @@ public class a {
         while (i < xmlPullParser.getAttributeCount()) {
             String attributeValue = xmlPullParser.getAttributeName(i).equals("code") ? xmlPullParser.getAttributeValue("", "code") : str3;
             String attributeValue2 = xmlPullParser.getAttributeName(i).equals("type") ? xmlPullParser.getAttributeValue("", "type") : str2;
-            if (xmlPullParser.getAttributeName(i).equals("reason")) {
-                str = xmlPullParser.getAttributeValue("", "reason");
+            if (xmlPullParser.getAttributeName(i).equals(TiebaInitialize.LogFields.REASON)) {
+                str = xmlPullParser.getAttributeValue("", TiebaInitialize.LogFields.REASON);
             }
             i++;
             str2 = attributeValue2;
@@ -339,7 +339,7 @@ public class a {
                     }
                 }
             } else if (next == 3) {
-                if (xmlPullParser.getName().equals("error")) {
+                if (xmlPullParser.getName().equals(BdStatsConstant.StatsType.ERROR)) {
                     z = true;
                 }
             } else if (next == 4) {

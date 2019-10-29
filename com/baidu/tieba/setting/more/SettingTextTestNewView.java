@@ -3,6 +3,7 @@ package com.baidu.tieba.setting.more;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
@@ -15,7 +16,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        o(0, 0, l.g(context, R.dimen.ds30), 0);
+        p(0, 0, l.getDimens(context, R.dimen.ds30), 0);
     }
 
     public void refresh() {
@@ -26,14 +27,14 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.cpe.setText("new");
-            this.cpe.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
-            am.k(this.cpe, R.drawable.icon_news_text_prompt);
+            this.cBZ.setText("new");
+            this.cBZ.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
+            am.setBackgroundResource(this.cBZ, R.drawable.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.cpe.setText((TbConfig.getVersionType() != 1 || aq.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
-        this.cpe.setBackgroundDrawable(null);
-        this.cpe.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+        this.cBZ.setText((TbConfig.getVersionType() != 1 || aq.isEmpty(TbConfig.getSubVersion())) ? version : version + DefaultConfig.TOKEN_SEPARATOR + TbConfig.getSubVersion());
+        this.cBZ.setBackgroundDrawable(null);
+        this.cBZ.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }
 }

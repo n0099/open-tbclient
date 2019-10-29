@@ -21,7 +21,7 @@ final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements 
     }
 
     public final boolean invoke(x<? extends T> xVar) {
-        p.k(xVar, AdvanceSetting.NETWORK_TYPE);
+        p.i(xVar, AdvanceSetting.NETWORK_TYPE);
         return ((Boolean) this.$predicate.invoke(Integer.valueOf(xVar.getIndex()), xVar.getValue())).booleanValue();
     }
 }

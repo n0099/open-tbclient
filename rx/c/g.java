@@ -4,9 +4,9 @@ import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
 /* loaded from: classes2.dex */
 public class g {
-    private static final g kFb = new g();
+    private static final g kFI = new g();
 
-    public static rx.g cRC() {
+    public static rx.g cPH() {
         return a(new RxThreadFactory("RxComputationScheduler-"));
     }
 
@@ -17,7 +17,7 @@ public class g {
         return new rx.internal.schedulers.b(threadFactory);
     }
 
-    public static rx.g cRD() {
+    public static rx.g cPI() {
         return b(new RxThreadFactory("RxIoScheduler-"));
     }
 
@@ -28,7 +28,7 @@ public class g {
         return new rx.internal.schedulers.a(threadFactory);
     }
 
-    public static rx.g cRE() {
+    public static rx.g cPJ() {
         return c(new RxThreadFactory("RxNewThreadScheduler-"));
     }
 
@@ -39,15 +39,15 @@ public class g {
         return new rx.internal.schedulers.f(threadFactory);
     }
 
-    public rx.g cRF() {
+    public rx.g cPK() {
         return null;
     }
 
-    public rx.g cRG() {
+    public rx.g cPL() {
         return null;
     }
 
-    public rx.g cRH() {
+    public rx.g cPM() {
         return null;
     }
 
@@ -56,7 +56,7 @@ public class g {
         return aVar;
     }
 
-    public static g cRI() {
-        return kFb;
+    public static g cPN() {
+        return kFI;
     }
 }

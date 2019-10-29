@@ -52,7 +52,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ObjectAnimator aB(View view) {
+    public static ObjectAnimator aH(View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 0.0f);
         ofFloat.setDuration(200L);
         ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -68,6 +68,6 @@ public class d {
     }
 
     private static long e(BaseMenuView baseMenuView) {
-        return baseMenuView.VH() ? 240L : 200L;
+        return baseMenuView.aaw() ? 240L : 200L;
     }
 }

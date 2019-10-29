@@ -2,15 +2,16 @@ package com.baidu.ubs.analytics.a;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 final class h {
-    private SQLiteDatabase jZU = f.cEv().cEw();
+    private SQLiteDatabase jXT = f.cBf().cBg();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<i> cEu() {
-        Cursor rawQuery = this.jZU.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+    public final List<i> cBe() {
+        Cursor rawQuery = this.jXT.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             i iVar = new i();
@@ -19,7 +20,7 @@ final class h {
             iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
             iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
             iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-            iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+            iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex(IMConstants.MSG_ROW_ID)));
             arrayList.add(iVar);
         }
         rawQuery.close();
@@ -28,6 +29,6 @@ final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.jZU.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        this.jXT.execSQL("delete from tb_ab_netlog where _id <= " + i);
     }
 }

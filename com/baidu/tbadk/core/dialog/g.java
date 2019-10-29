@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g implements j {
-    private String anb;
-    private boolean bOA;
-    private k bOv;
-    private View bOw;
-    private int bOx;
-    private int bOy;
-    private k.b bOz;
+    private View cfA;
+    private int cfB;
+    private int cfC;
+    private k.b cfD;
+    private boolean cfE;
+    private k cfz;
     private int mId;
     private final View.OnClickListener mOnClickListener;
+    private String mText;
     private int mTextColor;
     public TextView mTextView;
     private View mView;
@@ -31,22 +31,22 @@ public class g implements j {
 
     public g(String str, k kVar) {
         this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        this.bOx = R.color.cp_bg_line_k;
-        this.bOy = 17;
-        this.bOA = false;
+        this.cfB = R.color.cp_bg_line_k;
+        this.cfC = 17;
+        this.cfE = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.bOz != null) {
-                    g.this.bOz.onClick();
+                if (g.this.cfD != null) {
+                    g.this.cfD.onClick();
                 }
-                if (g.this.bOv != null && g.this.bOv.ahg() != null) {
-                    g.this.bOv.ahg().a(g.this.bOv, g.this.mId, g.this.mTextView);
+                if (g.this.cfz != null && g.this.cfz.ald() != null) {
+                    g.this.cfz.ald().a(g.this.cfz, g.this.mId, g.this.mTextView);
                 }
             }
         };
-        this.anb = str;
-        this.bOv = kVar;
+        this.mText = str;
+        this.cfz = kVar;
         this.mId = hashCode();
         initView();
         initListener();
@@ -54,23 +54,23 @@ public class g implements j {
 
     public g(int i, String str, k kVar) {
         this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        this.bOx = R.color.cp_bg_line_k;
-        this.bOy = 17;
-        this.bOA = false;
+        this.cfB = R.color.cp_bg_line_k;
+        this.cfC = 17;
+        this.cfE = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.bOz != null) {
-                    g.this.bOz.onClick();
+                if (g.this.cfD != null) {
+                    g.this.cfD.onClick();
                 }
-                if (g.this.bOv != null && g.this.bOv.ahg() != null) {
-                    g.this.bOv.ahg().a(g.this.bOv, g.this.mId, g.this.mTextView);
+                if (g.this.cfz != null && g.this.cfz.ald() != null) {
+                    g.this.cfz.ald().a(g.this.cfz, g.this.mId, g.this.mTextView);
                 }
             }
         };
         this.mId = i;
-        this.anb = str;
-        this.bOv = kVar;
+        this.mText = str;
+        this.cfz = kVar;
         initView();
         initListener();
     }
@@ -81,38 +81,38 @@ public class g implements j {
     }
 
     public void setText(String str) {
-        this.anb = str;
-        this.mTextView.setText(this.anb);
+        this.mText = str;
+        this.mTextView.setText(this.mText);
     }
 
     public void a(k.b bVar) {
-        this.bOz = bVar;
+        this.cfD = bVar;
         initListener();
     }
 
     public void setTextColor(int i) {
         this.mTextColor = i;
-        am.j(this.mTextView, i);
+        am.setViewTextColor(this.mTextView, i);
     }
 
     @Override // com.baidu.tbadk.core.dialog.j
     public void onChangeSkinType() {
-        am.k(this.mTextView, this.bOx);
-        am.j(this.mTextView, this.mTextColor);
-        am.l(this.bOw, R.color.cp_bg_line_c);
+        am.setBackgroundResource(this.mTextView, this.cfB);
+        am.setViewTextColor(this.mTextView, this.mTextColor);
+        am.setBackgroundColor(this.cfA, R.color.cp_bg_line_c);
     }
 
     private void initView() {
-        if (this.bOv != null && this.bOv.getContext() != null) {
-            this.mView = LayoutInflater.from(this.bOv.getContext()).inflate(R.layout.popup_dialog_view_item, this.bOv.ahf(), false);
+        if (this.cfz != null && this.cfz.getContext() != null) {
+            this.mView = LayoutInflater.from(this.cfz.getContext()).inflate(R.layout.popup_dialog_view_item, this.cfz.alc(), false);
             this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
-            this.mTextView.setText(this.anb);
-            this.mTextView.setGravity(this.bOy);
-            this.bOw = this.mView.findViewById(R.id.divider_line);
-            if (this.bOA) {
-                this.bOw.setVisibility(0);
+            this.mTextView.setText(this.mText);
+            this.mTextView.setGravity(this.cfC);
+            this.cfA = this.mView.findViewById(R.id.divider_line);
+            if (this.cfE) {
+                this.cfA.setVisibility(0);
             } else {
-                this.bOw.setVisibility(8);
+                this.cfA.setVisibility(8);
             }
             onChangeSkinType();
         }

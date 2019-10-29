@@ -3,7 +3,9 @@ package com.baidu.crabsdk.sender;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.crabsdk.CrabSDK;
+import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.vivo.push.PushClientConstants;
 import java.io.File;
@@ -35,24 +37,24 @@ public class NativeCrashHandler {
 
     public final void ae() {
         try {
-            com.baidu.crabsdk.c.a.ci("Load native so.");
+            com.baidu.crabsdk.c.a.bv("Load native so.");
             if (mContext == null) {
-                com.baidu.crabsdk.c.a.ch("NativeCrashHandler openNativeCrashHandler failed context is null!");
+                com.baidu.crabsdk.c.a.bu("NativeCrashHandler openNativeCrashHandler failed context is null!");
             } else {
                 String str = mContext.getApplicationInfo().nativeLibraryDir + "/" + System.mapLibraryName("crab_native");
                 if (TextUtils.isEmpty(str) || new File(str).exists()) {
                     System.loadLibrary("crab_native");
                     this.bR = true;
                     CrabSDK.NDK_VERSION = "3.1.2";
-                    com.baidu.crabsdk.c.a.ch("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
+                    com.baidu.crabsdk.c.a.bu("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
                 } else {
-                    com.baidu.crabsdk.c.a.ch("NativeCrashHandler openNativeCrashHandler failed so file is not exists! dir is " + str + " " + Build.CPU_ABI);
+                    com.baidu.crabsdk.c.a.bu("NativeCrashHandler openNativeCrashHandler failed so file is not exists! dir is " + str + HanziToPinyin.Token.SEPARATOR + Build.CPU_ABI);
                 }
             }
         } catch (Exception e) {
             this.bR = false;
             CrabSDK.NDK_VERSION = LivenessStat.TYPE_STRING_DEFAULT;
-            com.baidu.crabsdk.c.a.a("loadSysLib Error!", e);
+            com.baidu.crabsdk.c.a.f("loadSysLib Error!", e);
         } catch (UnsatisfiedLinkError e2) {
             this.bR = false;
             CrabSDK.NDK_VERSION = LivenessStat.TYPE_STRING_DEFAULT;
@@ -73,27 +75,27 @@ public class NativeCrashHandler {
                     } else {
                         jSONObject.put("appVN", com.baidu.crabsdk.a.o);
                     }
-                    jSONObject.put("soLibs", i.cv(context.getApplicationInfo().nativeLibraryDir));
+                    jSONObject.put("soLibs", i.bI(context.getApplicationInfo().nativeLibraryDir));
                     jSONObject.put("procName", CrabSDK.CURRENT_PNAME);
                     if (com.baidu.crabsdk.a.L) {
-                        jSONObject.put("filter", 2);
+                        jSONObject.put(FilterImageAction.ACTION_NAME, 2);
                     } else {
-                        jSONObject.put("filter", 1);
+                        jSONObject.put(FilterImageAction.ACTION_NAME, 1);
                     }
-                    String cn = com.baidu.crabsdk.c.d.cn(jSONObject.toString());
-                    if (cn != null) {
+                    String bA = com.baidu.crabsdk.c.d.bA(jSONObject.toString());
+                    if (bA != null) {
                         NativeCrashHandler nativeCrashHandler = bQ;
                         if (nativeCrashHandler.bR) {
-                            nativeCrashHandler.nRequiredVarParams(cn);
+                            nativeCrashHandler.nRequiredVarParams(bA);
                         } else {
                             com.baidu.crabsdk.c.a.w("call before failed! native lib init failed");
                         }
                     }
                 } catch (Exception e3) {
-                    com.baidu.crabsdk.c.a.a("call native method nRequiredVarParams error!!", e3);
+                    com.baidu.crabsdk.c.a.f("call native method nRequiredVarParams error!!", e3);
                 }
             } catch (Exception e4) {
-                com.baidu.crabsdk.c.a.a("Save some var in .crab error!", e4);
+                com.baidu.crabsdk.c.a.f("Save some var in .crab error!", e4);
             }
         }
     }

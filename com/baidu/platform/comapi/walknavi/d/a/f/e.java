@@ -63,10 +63,10 @@ public final class e {
         jSONObject2.put("osType", "android");
         jSONObject2.put("engine_version", com.baidu.platform.comapi.walknavi.d.a.g.b.a());
         jSONObject2.put(Constants.APP_ID, com.baidu.platform.comapi.walknavi.d.a.g.b.a(context));
-        jSONObject2.put("device_id", Build.MODEL);
+        jSONObject2.put(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, Build.MODEL);
         jSONObject2.put("system_version", Build.VERSION.SDK_INT);
         jSONObject2.put("user_id", a.toString());
-        jSONObject2.put("publish_id", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_INFO);
+        jSONObject2.put("publish_id", "6");
         if (!com.baidu.platform.comapi.walknavi.d.a.b.a) {
             jSONObject2.put("update_check", 1);
         }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.bh;
@@ -18,19 +19,19 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
-    private static final int VT = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds70) * 2);
-    private View.OnClickListener bXj;
-    public final int ccO;
-    private TextView ccP;
+    private static final int FI = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds70) * 2);
+    private bh cbq;
+    private View.OnClickListener cmo;
+    public final int crb;
+    private TextView crd;
     private Context mContext;
     private int mFrom;
     private int mSkinType;
     private View mView;
-    private bh threadData;
 
     public ThreadForumEnterButton(Context context) {
         super(context);
-        this.ccO = 0;
+        this.crb = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -38,7 +39,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ccO = 0;
+        this.crb = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -47,55 +48,55 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     private void init(Context context) {
         this.mContext = context;
         this.mView = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.ccP = (TextView) this.mView.findViewById(R.id.forum_name_text);
-        this.ccP.setOnClickListener(this);
+        this.crd = (TextView) this.mView.findViewById(R.id.forum_name_text);
+        this.crd.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.threadData.aeH())) {
-            view.setTag(this.threadData);
+        if (!StringUtils.isNull(this.cbq.aiL())) {
+            view.setTag(this.cbq);
             if (this.mFrom == 0) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.threadData.aeH(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.cbq.aiL(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
             } else if (this.mFrom == 1) {
             }
-            if (this.bXj != null) {
-                this.bXj.onClick(view);
+            if (this.cmo != null) {
+                this.cmo.onClick(view);
             }
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bXj = onClickListener;
+        this.cmo = onClickListener;
     }
 
     public void onChangeSkinType() {
-        if (this.threadData != null) {
+        if (this.cbq != null) {
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
             }
-            int Qv = com.baidu.tbadk.util.e.Qv();
-            am.l(this.ccP, Qv);
+            int Vl = com.baidu.tbadk.util.e.Vl();
+            am.setBackgroundColor(this.crd, Vl);
             if (this.mSkinType == 0) {
-                am.j(this.ccP, R.color.cp_cont_b);
+                am.setViewTextColor(this.crd, (int) R.color.cp_cont_b);
             } else {
-                this.ccP.setTextColor(com.baidu.tbadk.util.e.lc(Qv));
+                this.crd.setTextColor(com.baidu.tbadk.util.e.kn(Vl));
             }
         }
     }
 
     public void y(bh bhVar) {
         if (bhVar != null) {
-            String aeH = bhVar.aeH();
-            if (StringUtils.isNull(aeH)) {
+            String aiL = bhVar.aiL();
+            if (StringUtils.isNull(aiL)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.threadData = bhVar;
-            this.ccP.setText(((Object) TextUtils.ellipsize(aeH, this.ccP.getPaint(), VT - this.ccP.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+            this.cbq = bhVar;
+            this.crd.setText(((Object) TextUtils.ellipsize(aiL, this.crd.getPaint(), FI - this.crd.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             onChangeSkinType();
             return;
         }
@@ -103,15 +104,15 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     }
 
     public void a(bh bhVar, int i) {
-        if (this.ccP != null && bhVar != null && i > 0) {
-            this.threadData = bhVar;
-            float paddingLeft = (i - (this.ccP.getPaddingLeft() * 2)) - this.ccP.getPaint().measureText(getResources().getString(R.string.forum));
-            String aeH = bhVar.aeH();
-            if (StringUtils.isNull(aeH)) {
+        if (this.crd != null && bhVar != null && i > 0) {
+            this.cbq = bhVar;
+            float paddingLeft = (i - (this.crd.getPaddingLeft() * 2)) - this.crd.getPaint().measureText(getResources().getString(R.string.forum));
+            String aiL = bhVar.aiL();
+            if (StringUtils.isNull(aiL)) {
                 setVisibility(8);
                 return;
             }
-            this.ccP.setText(((Object) TextUtils.ellipsize(aeH, this.ccP.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+            this.crd.setText(((Object) TextUtils.ellipsize(aiL, this.crd.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             setVisibility(0);
             onChangeSkinType();
             return;

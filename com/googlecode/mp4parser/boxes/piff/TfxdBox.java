@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.boxes.piff;
 
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
@@ -10,8 +9,8 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class TfxdBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
     public long fragmentAbsoluteDuration;
     public long fragmentAbsoluteTime;
 
@@ -26,7 +25,7 @@ public class TfxdBox extends AbstractFullBox {
     }
 
     public TfxdBox() {
-        super(UserBox.TYPE);
+        super("uuid");
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox

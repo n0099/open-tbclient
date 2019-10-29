@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import android.support.v4.view.PointerIconCompat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -107,7 +106,7 @@ public abstract class cc extends bz implements by, Runnable {
                     this.a.b();
                 } catch (RuntimeException e2) {
                     a(e2);
-                    this.a.b(PointerIconCompat.TYPE_CELL, e2.getMessage());
+                    this.a.b(1006, e2.getMessage());
                 }
             }
             this.a.b();

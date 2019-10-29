@@ -19,13 +19,13 @@ public class AlaMasterLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra("live_forum_name", str);
         getIntent().putExtra("live_forum_id", str2);
         getIntent().putExtra("user_id", str3);
-        getIntent().putExtra(CREATE_MASTER_LIVE_TYPE, 1);
-        getIntent().putExtra(SPECIAL_FORIM_TYPE, str4);
+        getIntent().putExtra("create_master_live_type", 1);
+        getIntent().putExtra("special_forum_type", str4);
     }
 
     public AlaMasterLiveRoomActivityConfig(Context context, Serializable serializable) {
         super(context);
         getIntent().putExtra("live_info_core", serializable);
-        getIntent().putExtra(CREATE_MASTER_LIVE_TYPE, 2);
+        getIntent().putExtra("create_master_live_type", 2);
     }
 }

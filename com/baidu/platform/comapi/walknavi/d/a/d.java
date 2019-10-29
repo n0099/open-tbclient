@@ -1,7 +1,6 @@
 package com.baidu.platform.comapi.walknavi.d.a;
 
 import android.content.Context;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.ar.npc.BaiduArView;
@@ -154,7 +153,7 @@ public class d implements ArBridge.d {
         a(1001);
         a(1003);
         a(1005);
-        a(PointerIconCompat.TYPE_CROSSHAIR);
+        a(1007);
     }
 
     @Override // com.baidu.ar.npc.ArBridge.d
@@ -186,7 +185,7 @@ public class d implements ArBridge.d {
             case 1005:
                 this.c.a(6, hashMap);
                 return;
-            case PointerIconCompat.TYPE_CROSSHAIR /* 1007 */:
+            case 1007:
                 this.c.a(7, hashMap);
                 return;
             case 1901:

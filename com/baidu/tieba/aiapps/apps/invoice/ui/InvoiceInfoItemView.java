@@ -13,12 +13,12 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private String btw;
-    private View cVw;
-    private TextView dfT;
-    private EditText dfU;
-    private String dfV;
-    private boolean dfW;
+    private String bMh;
+    private View deR;
+    private TextView dpo;
+    private EditText dpp;
+    private String dpq;
+    private boolean dpr;
     private Context mContext;
     private RelativeLayout mRootView;
 
@@ -40,112 +40,112 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, R.layout.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(R.id.item_root_view);
         this.mRootView.setBackground(getResources().getDrawable(R.color.invoice_edit_view_bg));
-        this.dfT = (TextView) findViewById(R.id.invoice_info_desc);
-        this.dfU = (EditText) findViewById(R.id.invoice_info_content);
-        this.cVw = findViewById(R.id.divider_line);
-        this.dfT.setTextColor(getResources().getColor(R.color.invoice_info_desc));
-        this.dfU.setTextColor(getResources().getColor(R.color.invoice_info_content));
-        this.dfU.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
-        this.cVw.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
+        this.dpo = (TextView) findViewById(R.id.invoice_info_desc);
+        this.dpp = (EditText) findViewById(R.id.invoice_info_content);
+        this.deR = findViewById(R.id.divider_line);
+        this.dpo.setTextColor(getResources().getColor(R.color.invoice_info_desc));
+        this.dpp.setTextColor(getResources().getColor(R.color.invoice_info_content));
+        this.dpp.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
+        this.deR.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.dfW = aVar.dfW;
-            this.dfT.setText(aVar.aZR);
-            this.dfU.setHint(aVar.dfY);
-            if (!aVar.dfZ) {
-                this.dfU.setSingleLine();
+            this.dpr = aVar.dpr;
+            this.dpo.setText(aVar.mDesc);
+            this.dpp.setHint(aVar.dpt);
+            if (!aVar.dpu) {
+                this.dpp.setSingleLine();
             } else {
-                aVar.dfX |= 131072;
+                aVar.dps |= 131072;
             }
-            this.dfU.setInputType(aVar.dfX);
-            if (!TextUtils.isEmpty(aVar.dga)) {
-                this.dfU.setKeyListener(DigitsKeyListener.getInstance(aVar.dga));
+            this.dpp.setInputType(aVar.dps);
+            if (!TextUtils.isEmpty(aVar.dpv)) {
+                this.dpp.setKeyListener(DigitsKeyListener.getInstance(aVar.dpv));
             }
-            this.dfV = aVar.dfV;
-            this.btw = aVar.btw;
+            this.dpq = aVar.dpq;
+            this.bMh = aVar.bMh;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.dfU != null) {
-            return this.dfU.getText().toString().trim();
+        if (this.dpp != null) {
+            return this.dpp.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.dfU != null) {
-            this.dfU.setText(charSequence);
+        if (this.dpp != null) {
+            this.dpp.setText(charSequence);
         }
     }
 
-    public boolean aGw() {
-        return this.dfW;
+    public boolean aGJ() {
+        return this.dpr;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.dfU != null && textWatcher != null) {
-            this.dfU.addTextChangedListener(textWatcher);
+        if (this.dpp != null && textWatcher != null) {
+            this.dpp.addTextChangedListener(textWatcher);
         }
     }
 
     public void e(TextWatcher textWatcher) {
-        if (this.dfU != null) {
-            this.dfU.removeTextChangedListener(textWatcher);
+        if (this.dpp != null) {
+            this.dpp.removeTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String aZR;
-        private String btw;
-        private String dfV;
-        private boolean dfW = false;
-        private int dfX = 1;
-        private String dfY;
-        private boolean dfZ;
-        private String dga;
+        private String bMh;
+        private String dpq;
+        private boolean dpr = false;
+        private int dps = 1;
+        private String dpt;
+        private boolean dpu;
+        private String dpv;
+        private String mDesc;
 
-        public a gx(boolean z) {
-            this.dfW = z;
+        public a gm(boolean z) {
+            this.dpr = z;
             return this;
         }
 
-        public a tB(String str) {
-            this.aZR = str;
+        public a sk(String str) {
+            this.mDesc = str;
             return this;
         }
 
-        public a mM(int i) {
-            this.dfX = i;
+        public a lR(int i) {
+            this.dps = i;
             return this;
         }
 
-        public a tC(String str) {
-            this.dfY = str;
+        public a sl(String str) {
+            this.dpt = str;
             return this;
         }
 
-        public a tD(String str) {
-            this.dfV = str;
+        public a sm(String str) {
+            this.dpq = str;
             return this;
         }
 
-        public a tE(String str) {
-            this.btw = str;
+        public a sn(String str) {
+            this.bMh = str;
             return this;
         }
 
-        public a gy(boolean z) {
-            this.dfZ = z;
+        public a gn(boolean z) {
+            this.dpu = z;
             return this;
         }
 
-        public a tF(String str) {
-            this.dga = str;
+        public a so(String str) {
+            this.dpv = str;
             return this;
         }
     }

@@ -10,15 +10,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ag {
-    private BdSwipeRefreshLayout dra;
+    private BdSwipeRefreshLayout dyk;
     private String forumId;
-    private View fvt;
-    private RecyclerView fvu;
+    private View fuG;
+    private RecyclerView fuH;
     private int tabId;
 
     @Override // android.support.v4.app.Fragment
@@ -27,38 +26,38 @@ public class FrsAllThreadFragment extends BaseFragment implements ag {
         Bundle arguments = getArguments();
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
-            this.tabId = arguments.getInt(MyBookrackActivityConfig.TAB_ID);
+            this.tabId = arguments.getInt("tab_id");
         }
-        bmr();
-        return this.fvt;
+        bjx();
+        return this.fuG;
     }
 
     public void setView(View view) {
-        this.fvt = view;
-        this.fvu = (RecyclerView) this.fvt.findViewById(R.id.frs_lv_thread);
-        this.dra = (BdSwipeRefreshLayout) this.fvt.findViewById(R.id.frs_pull_refresh_layout);
-        bmr();
+        this.fuG = view;
+        this.fuH = (RecyclerView) this.fuG.findViewById(R.id.frs_lv_thread);
+        this.dyk = (BdSwipeRefreshLayout) this.fuG.findViewById(R.id.frs_pull_refresh_layout);
+        bjx();
     }
 
-    private void bmr() {
-        if (this.fvt != null && (this.fvt.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.fvt.getParent()).removeView(this.fvt);
-            this.fvt.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void bjx() {
+        if (this.fuG != null && (this.fuG.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.fuG.getParent()).removeView(this.fuG);
+            this.fuG.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void bms() {
-        if (this.fvu != null) {
-            this.fvu.scrollToPosition(0);
+    public void bjy() {
+        if (this.fuH != null) {
+            this.fuH.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void aKN() {
-        if (this.dra != null) {
-            bms();
-            this.dra.setRefreshing(true);
+    public void aKh() {
+        if (this.dyk != null) {
+            bjy();
+            this.dyk.setRefreshing(true);
         }
     }
 
@@ -72,6 +71,6 @@ public class FrsAllThreadFragment extends BaseFragment implements ag {
     }
 
     private void ak(int i, String str) {
-        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c13008").bT("fid", this.forumId).bT("obj_type", str).P("obj_locate", i).bT("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c13008").bS("fid", this.forumId).bS("obj_type", str).O("obj_locate", i).bS("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 }

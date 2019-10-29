@@ -1,7 +1,6 @@
 package com.baidu.tieba.channel.message;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.channel.data.a;
 import org.json.JSONObject;
@@ -12,7 +11,7 @@ public class ResponseNetUserVideoListMessage extends JsonHttpResponsedMessage {
     private String mErrMsg;
 
     public ResponseNetUserVideoListMessage(int i) {
-        super(CmdConfigHttp.CMD_GET_USER_VIDEO_LIST);
+        super(1003312);
         this.mErrCode = 0;
         this.mErrMsg = "";
     }

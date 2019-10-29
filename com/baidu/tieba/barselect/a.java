@@ -16,6 +16,7 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CandidateSearchActivityConfig;
@@ -37,59 +38,59 @@ import com.baidu.tieba.barselect.view.VoteCountDownCard;
 import com.baidu.tieba.barselect.view.VoteStatusCard;
 /* loaded from: classes3.dex */
 public class a {
-    private View.OnClickListener bCL;
-    private LinearLayoutManager bqh;
-    private NoNetworkView dpy;
-    private PbListView dpz;
-    private h dqr;
-    private BarVoteActivity ewC;
-    private int ewI;
-    private RelativeLayout ewL;
-    private ViewGroup ewM;
-    private TbImageView ewN;
-    private View ewO;
-    private View ewP;
-    private View ewQ;
-    private TextView ewR;
-    private BdRecyclerView ewS;
-    private VoteStatusCard ewT;
-    private View ewU;
-    private TextView ewV;
-    private TextView ewW;
-    private VoteCountDownCard ewX;
-    private VoteCandidateCard ewY;
-    private SearchView ewZ;
-    private d exa;
-    private FloatMyRecordCard exb;
-    private TextView exc;
-    private int exd;
-    private ViewGroup exe;
+    private RelativeLayout aqs;
+    private View arb;
+    private LinearLayoutManager bIT;
+    private View.OnClickListener bVg;
+    private NoNetworkView dwI;
+    private PbListView dwJ;
+    private h dxB;
+    private View eFA;
+    private TextView eFB;
+    private BdRecyclerView eFC;
+    private VoteStatusCard eFD;
+    private View eFE;
+    private TextView eFF;
+    private TextView eFG;
+    private VoteCountDownCard eFH;
+    private VoteCandidateCard eFI;
+    private SearchView eFJ;
+    private d eFK;
+    private FloatMyRecordCard eFL;
+    private TextView eFM;
+    private int eFN;
+    private ViewGroup eFO;
+    private BarVoteActivity eFo;
+    private int eFu;
+    private ViewGroup eFx;
+    private TbImageView eFy;
+    private View eFz;
     private boolean hasMore;
     private View mListContainer;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private int mScrollState;
     private f mVoteData;
-    private int ceL = 3;
+    private int csX = 3;
     private int status = -1;
-    private int ewJ = 0;
-    private float ewK = 0.0f;
-    private View.OnClickListener exf = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.a.1
+    private int eFv = 0;
+    private float eFw = 0.0f;
+    private View.OnClickListener eFP = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (j.jQ()) {
-                if (a.this.dqr != null) {
-                    a.this.dqr.dettachView(a.this.mListContainer);
-                    a.this.dqr = null;
+            if (j.isNetworkAvailableForImmediately()) {
+                if (a.this.dxB != null) {
+                    a.this.dxB.dettachView(a.this.mListContainer);
+                    a.this.dxB = null;
                 }
-                a.this.ewC.reload();
-                if (a.this.ewS != null) {
-                    a.this.ewS.setVisibility(0);
+                a.this.eFo.reload();
+                if (a.this.eFC != null) {
+                    a.this.eFC.setVisibility(0);
                 }
             }
         }
     };
-    RecyclerView.OnScrollListener exg = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.barselect.a.4
+    RecyclerView.OnScrollListener eFQ = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.barselect.a.4
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
@@ -99,263 +100,263 @@ public class a {
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
-            if ((a.this.mScrollState == 1 || a.this.mScrollState == 2) && a.this.ewM != null && a.this.mNavigationBar != null && a.this.mNavigationBar.getBarBgView() != null && a.this.mNavigationBar.getBackImageView() != null) {
-                a.this.ewK = Math.abs(a.this.ewM.getTop()) / a.this.ewI;
-                a.this.mNavigationBar.getBarBgView().setAlpha(a.this.ewK);
-                a.this.ewQ.setAlpha(a.this.ewK);
-                if (a.this.ewK > 0.5d) {
-                    if (a.this.ewJ == 0) {
-                        am.b(a.this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg_s, a.this.ceL);
-                        am.d(a.this.ewR, R.color.cp_cont_b, 1, a.this.ceL);
-                        am.d(a.this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, a.this.ceL);
-                        a.this.ewJ = 1;
+            if ((a.this.mScrollState == 1 || a.this.mScrollState == 2) && a.this.eFx != null && a.this.mNavigationBar != null && a.this.mNavigationBar.getBarBgView() != null && a.this.mNavigationBar.getBackImageView() != null) {
+                a.this.eFw = Math.abs(a.this.eFx.getTop()) / a.this.eFu;
+                a.this.mNavigationBar.getBarBgView().setAlpha(a.this.eFw);
+                a.this.eFA.setAlpha(a.this.eFw);
+                if (a.this.eFw > 0.5d) {
+                    if (a.this.eFv == 0) {
+                        am.setImageResource(a.this.mNavigationBar.getBackImageView(), R.drawable.icon_return_bg_s, a.this.csX);
+                        am.setViewTextColor(a.this.eFB, R.color.cp_cont_b, 1, a.this.csX);
+                        am.setViewTextColor(a.this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, a.this.csX);
+                        a.this.eFv = 1;
                     }
-                    a.this.mNavigationBar.getBackImageView().setAlpha((a.this.ewK * 2.0f) - 1.0f);
-                    a.this.ewR.setAlpha((a.this.ewK * 2.0f) - 1.0f);
-                    a.this.mNavigationBar.mCenterText.setAlpha((a.this.ewK * 2.0f) - 1.0f);
-                } else if (a.this.ewK <= 0.5d) {
-                    if (a.this.ewJ == 1) {
-                        am.b(a.this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg, a.this.ceL);
-                        am.d(a.this.ewR, R.color.cp_cont_a, 1, a.this.ceL);
-                        am.d(a.this.mNavigationBar.mCenterText, R.color.cp_cont_a, 1, a.this.ceL);
-                        a.this.ewJ = 0;
+                    a.this.mNavigationBar.getBackImageView().setAlpha((a.this.eFw * 2.0f) - 1.0f);
+                    a.this.eFB.setAlpha((a.this.eFw * 2.0f) - 1.0f);
+                    a.this.mNavigationBar.mCenterText.setAlpha((a.this.eFw * 2.0f) - 1.0f);
+                } else if (a.this.eFw <= 0.5d) {
+                    if (a.this.eFv == 1) {
+                        am.setImageResource(a.this.mNavigationBar.getBackImageView(), R.drawable.icon_return_bg, a.this.csX);
+                        am.setViewTextColor(a.this.eFB, R.color.cp_cont_a, 1, a.this.csX);
+                        am.setViewTextColor(a.this.mNavigationBar.mCenterText, R.color.cp_cont_a, 1, a.this.csX);
+                        a.this.eFv = 0;
                     }
-                    a.this.mNavigationBar.getBackImageView().setAlpha(1.0f - (a.this.ewK * 2.0f));
-                    a.this.ewR.setAlpha(1.0f - (a.this.ewK * 2.0f));
-                    a.this.mNavigationBar.mCenterText.setAlpha(1.0f - (a.this.ewK * 2.0f));
+                    a.this.mNavigationBar.getBackImageView().setAlpha(1.0f - (a.this.eFw * 2.0f));
+                    a.this.eFB.setAlpha(1.0f - (a.this.eFw * 2.0f));
+                    a.this.mNavigationBar.mCenterText.setAlpha(1.0f - (a.this.eFw * 2.0f));
                 }
             }
         }
     };
-    private BdListView.e dAJ = new BdListView.e() { // from class: com.baidu.tieba.barselect.a.5
+    private BdListView.e dJx = new BdListView.e() { // from class: com.baidu.tieba.barselect.a.5
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (a.this.ewS != null) {
-                a.this.ewS.stopScroll();
+            if (a.this.eFC != null) {
+                a.this.eFC.stopScroll();
             }
-            if (a.this.dpz != null && a.this.ewC != null) {
-                if (j.kc()) {
-                    if (a.this.status == com.baidu.tieba.barselect.a.d.eAN) {
-                        a.this.dpz.iZ(l.g(a.this.ewC, R.dimen.tbds152));
+            if (a.this.dwJ != null && a.this.eFo != null) {
+                if (j.isNetWorkAvailable()) {
+                    if (a.this.status == com.baidu.tieba.barselect.a.d.eJv) {
+                        a.this.dwJ.showEmptyView(l.getDimens(a.this.eFo, R.dimen.tbds152));
                     }
-                    a.this.ewS.setNextPage(a.this.dpz);
-                    a.this.dpz.setOnClickListener(null);
+                    a.this.eFC.setNextPage(a.this.dwJ);
+                    a.this.dwJ.setOnClickListener(null);
                     if (a.this.hasMore) {
-                        a.this.dpz.showLoading();
-                        a.this.ewC.aYU();
+                        a.this.dwJ.showLoading();
+                        a.this.eFo.aYY();
                         return;
                     }
-                    a.this.dpz.setText(a.this.ewC.getResources().getString(R.string.list_has_no_more));
-                    a.this.dpz.akS();
+                    a.this.dwJ.setText(a.this.eFo.getResources().getString(R.string.list_has_no_more));
+                    a.this.dwJ.endLoadData();
                     return;
                 }
-                a.this.ewS.setNextPage(null);
+                a.this.eFC.setNextPage(null);
             }
         }
     };
-    private VoteCountDownCard.a exh = new VoteCountDownCard.a() { // from class: com.baidu.tieba.barselect.a.6
+    private VoteCountDownCard.a eFR = new VoteCountDownCard.a() { // from class: com.baidu.tieba.barselect.a.6
         @Override // com.baidu.tieba.barselect.view.VoteCountDownCard.a
         public void onRefresh() {
-            if (a.this.ewC != null) {
-                a.this.ewC.refresh();
+            if (a.this.eFo != null) {
+                a.this.eFo.refresh();
             }
         }
     };
 
     public a(BarVoteActivity barVoteActivity) {
-        this.ewC = barVoteActivity;
-        this.ewL = (RelativeLayout) LayoutInflater.from(this.ewC.getPageContext().getPageActivity()).inflate(R.layout.bar_vote_activity, (ViewGroup) null);
-        this.ewC.addContentView(this.ewL, new FrameLayout.LayoutParams(-1, -1));
-        this.ewC.showLoadingView(this.ewL, false, l.g(this.ewC, R.dimen.ds400));
-        this.mListContainer = this.ewL.findViewById(R.id.list_container);
-        this.exe = (ViewGroup) this.ewL.findViewById(R.id.no_data_container);
-        this.ewP = this.ewL.findViewById(R.id.nav_bar_container);
-        this.ewQ = this.ewL.findViewById(R.id.nav_bar_shadow);
-        this.ewQ.setAlpha(0.0f);
-        this.mNavigationBar = (NavigationBar) this.ewL.findViewById(R.id.vote_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.ewC.getResources().getString(R.string.bar_manager_recruit));
+        this.eFo = barVoteActivity;
+        this.aqs = (RelativeLayout) LayoutInflater.from(this.eFo.getPageContext().getPageActivity()).inflate(R.layout.bar_vote_activity, (ViewGroup) null);
+        this.eFo.addContentView(this.aqs, new FrameLayout.LayoutParams(-1, -1));
+        this.eFo.showLoadingView(this.aqs, false, l.getDimens(this.eFo, R.dimen.ds400));
+        this.mListContainer = this.aqs.findViewById(R.id.list_container);
+        this.eFO = (ViewGroup) this.aqs.findViewById(R.id.no_data_container);
+        this.eFz = this.aqs.findViewById(R.id.nav_bar_container);
+        this.eFA = this.aqs.findViewById(R.id.nav_bar_shadow);
+        this.eFA.setAlpha(0.0f);
+        this.mNavigationBar = (NavigationBar) this.aqs.findViewById(R.id.vote_navigation_bar);
+        this.mNavigationBar.setCenterTextTitle(this.eFo.getResources().getString(R.string.bar_manager_recruit));
         if (this.mNavigationBar.getBarBgView() != null) {
             this.mNavigationBar.getBarBgView().setAlpha(0.0f);
         }
-        this.ewI = l.g(this.ewC, R.dimen.tbds402);
+        this.eFu = l.getDimens(this.eFo, R.dimen.tbds402);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.ewR = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.ewC).findViewById(R.id.right_textview);
-        this.ewR.setText(R.string.bar_election_rule);
-        this.ewR.setOnClickListener(this.ewC);
-        this.ewS = (BdRecyclerView) this.ewL.findViewById(R.id.vote_list);
-        this.bqh = new LinearLayoutManager(this.ewC);
-        this.ewS.setLayoutManager(this.bqh);
-        this.exa = new d(barVoteActivity.getPageContext());
-        this.ewS.setAdapter(this.exa);
-        this.ewM = (ViewGroup) LayoutInflater.from(this.ewC).inflate(R.layout.vote_header_view, (ViewGroup) null, false);
-        this.ewM.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.ewN = (TbImageView) this.ewM.findViewById(R.id.head_main_iv);
-        this.ewN.setLayoutParams(new LinearLayout.LayoutParams(-1, (l.af(this.ewC) * 884) / 1076));
-        this.ewS.addHeaderView(this.ewM);
-        this.ewS.addOnScrollListener(this.exg);
-        this.ewS.setOnSrollToBottomListener(this.dAJ);
-        this.exd = this.ewC.getResources().getDimensionPixelSize(R.dimen.tbds134);
-        this.ewO = new View(this.ewC);
-        this.ewO.setLayoutParams(new AbsListView.LayoutParams(-1, this.exd));
-        this.ewO.setVisibility(4);
-        this.ewS.addFooterView(this.ewO);
-        this.ewT = (VoteStatusCard) this.ewM.findViewById(R.id.vote_status_card);
-        this.ewU = this.ewM.findViewById(R.id.vote_ueg_tip_container);
-        this.ewU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.a.2
+        this.eFB = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.eFo).findViewById(R.id.right_textview);
+        this.eFB.setText(R.string.bar_election_rule);
+        this.eFB.setOnClickListener(this.eFo);
+        this.eFC = (BdRecyclerView) this.aqs.findViewById(R.id.vote_list);
+        this.bIT = new LinearLayoutManager(this.eFo);
+        this.eFC.setLayoutManager(this.bIT);
+        this.eFK = new d(barVoteActivity.getPageContext());
+        this.eFC.setAdapter(this.eFK);
+        this.eFx = (ViewGroup) LayoutInflater.from(this.eFo).inflate(R.layout.vote_header_view, (ViewGroup) null, false);
+        this.eFx.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.eFy = (TbImageView) this.eFx.findViewById(R.id.head_main_iv);
+        this.eFy.setLayoutParams(new LinearLayout.LayoutParams(-1, (l.getEquipmentWidth(this.eFo) * 884) / 1076));
+        this.eFC.addHeaderView(this.eFx);
+        this.eFC.addOnScrollListener(this.eFQ);
+        this.eFC.setOnSrollToBottomListener(this.dJx);
+        this.eFN = this.eFo.getResources().getDimensionPixelSize(R.dimen.tbds134);
+        this.arb = new View(this.eFo);
+        this.arb.setLayoutParams(new AbsListView.LayoutParams(-1, this.eFN));
+        this.arb.setVisibility(4);
+        this.eFC.addFooterView(this.arb);
+        this.eFD = (VoteStatusCard) this.eFx.findViewById(R.id.vote_status_card);
+        this.eFE = this.eFx.findViewById(R.id.vote_ueg_tip_container);
+        this.eFE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(a.this.ewC);
-                View inflate = LayoutInflater.from(a.this.ewC.getPageContext().getPageActivity()).inflate(R.layout.bar_vote_dialog_content, (ViewGroup) null);
-                ((TextView) inflate.findViewById(R.id.bdalert_content)).setText(a.this.ewC.getResources().getString(R.string.vote_ueg_tip_detail_1) + "\n" + a.this.ewC.getResources().getString(R.string.vote_ueg_tip_detail_2));
-                aVar.aH(inflate);
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(a.this.eFo);
+                View inflate = LayoutInflater.from(a.this.eFo.getPageContext().getPageActivity()).inflate(R.layout.bar_vote_dialog_content, (ViewGroup) null);
+                ((TextView) inflate.findViewById(R.id.bdalert_content)).setText(a.this.eFo.getResources().getString(R.string.vote_ueg_tip_detail_1) + "\n" + a.this.eFo.getResources().getString(R.string.vote_ueg_tip_detail_2));
+                aVar.aM(inflate);
                 aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.barselect.a.2.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(a.this.ewC.getPageContext()).agO();
+                aVar.b(a.this.eFo.getPageContext()).akO();
             }
         });
-        this.ewV = (TextView) this.ewM.findViewById(R.id.vote_ueg_tip_tv);
-        this.ewW = (TextView) this.ewM.findViewById(R.id.vote_ueg_tip_img);
-        this.ewX = (VoteCountDownCard) this.ewM.findViewById(R.id.vote_count_down_card);
-        this.ewX.setOnRefreshListener(this.exh);
-        this.ewY = (VoteCandidateCard) this.ewM.findViewById(R.id.vote_for_mine);
-        this.ewZ = (SearchView) this.ewM.findViewById(R.id.vote_search_view);
-        this.ewZ.p(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.a.3
+        this.eFF = (TextView) this.eFx.findViewById(R.id.vote_ueg_tip_tv);
+        this.eFG = (TextView) this.eFx.findViewById(R.id.vote_ueg_tip_img);
+        this.eFH = (VoteCountDownCard) this.eFx.findViewById(R.id.vote_count_down_card);
+        this.eFH.setOnRefreshListener(this.eFR);
+        this.eFI = (VoteCandidateCard) this.eFx.findViewById(R.id.vote_for_mine);
+        this.eFJ = (SearchView) this.eFx.findViewById(R.id.vote_search_view);
+        this.eFJ.s(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CandidateSearchActivityConfig(a.this.ewC, a.this.ewC.fid + "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CandidateSearchActivityConfig(a.this.eFo, a.this.eFo.fid + "")));
             }
         });
-        this.exb = (FloatMyRecordCard) this.ewL.findViewById(R.id.float_my_record_card);
-        this.exc = (TextView) this.ewM.findViewById(R.id.vote_tip);
-        this.dpz = new PbListView(this.ewC);
-        this.dpz.getView();
-        this.dpz.iX(R.color.cp_bg_line_e);
-        this.dpz.setHeight(l.g(this.ewC, R.dimen.tbds182));
-        this.dpz.akO();
-        this.dpz.setTextSize(R.dimen.tbfontsize33);
-        this.dpz.setTextColor(am.getColor(R.color.cp_cont_j));
-        this.dpz.iW(R.color.cp_cont_e);
-        this.dpz.akV();
-        this.dpy = (NoNetworkView) this.ewL.findViewById(R.id.no_network_view);
+        this.eFL = (FloatMyRecordCard) this.aqs.findViewById(R.id.float_my_record_card);
+        this.eFM = (TextView) this.eFx.findViewById(R.id.vote_tip);
+        this.dwJ = new PbListView(this.eFo);
+        this.dwJ.getView();
+        this.dwJ.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.dwJ.setHeight(l.getDimens(this.eFo, R.dimen.tbds182));
+        this.dwJ.setLineGone();
+        this.dwJ.setTextSize(R.dimen.tbfontsize33);
+        this.dwJ.setTextColor(am.getColor(R.color.cp_cont_j));
+        this.dwJ.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.dwJ.anL();
+        this.dwI = (NoNetworkView) this.aqs.findViewById(R.id.no_network_view);
     }
 
     public void setData(f fVar) {
-        com.baidu.tieba.barselect.data.e aZv;
+        com.baidu.tieba.barselect.data.e aZy;
         if (fVar != null) {
             this.hasMore = fVar.getHasMore();
-            if (fVar.aZv() != null && (aZv = fVar.aZv()) != null) {
-                this.status = aZv.getStatus();
-                if (this.status == com.baidu.tieba.barselect.a.d.eAN) {
-                    this.ewZ.setVisibility(8);
-                    this.exc.setVisibility(8);
-                    this.ewY.setVisibility(8);
+            if (fVar.aZy() != null && (aZy = fVar.aZy()) != null) {
+                this.status = aZy.getStatus();
+                if (this.status == com.baidu.tieba.barselect.a.d.eJv) {
+                    this.eFJ.setVisibility(8);
+                    this.eFM.setVisibility(8);
+                    this.eFI.setVisibility(8);
                 }
             }
-            this.ewT.setData(fVar);
-            this.ewX.setData(fVar);
-            if (this.status == com.baidu.tieba.barselect.a.d.eAM) {
-                this.ewY.setData(VoteCandidateCard.eAW, fVar);
+            this.eFD.setData(fVar);
+            this.eFH.setData(fVar);
+            if (this.status == com.baidu.tieba.barselect.a.d.eJu) {
+                this.eFI.setData(VoteCandidateCard.eJE, fVar);
             }
-            if (this.exa != null) {
+            if (this.eFK != null) {
                 this.mVoteData = fVar;
-                this.exa.a(fVar);
+                this.eFK.a(fVar);
             }
-            if (this.status == com.baidu.tieba.barselect.a.d.eAN) {
-                this.exb.setVisibility(0);
-                this.exb.setData(fVar);
-                this.ewU.setVisibility(0);
+            if (this.status == com.baidu.tieba.barselect.a.d.eJv) {
+                this.eFL.setVisibility(0);
+                this.eFL.setData(fVar);
+                this.eFE.setVisibility(0);
             } else {
-                this.exb.setVisibility(8);
-                this.ewU.setVisibility(8);
+                this.eFL.setVisibility(8);
+                this.eFE.setVisibility(8);
             }
-            aZd();
-            C(TbadkCoreApplication.getInst().getSkinType(), true);
+            aZh();
+            A(TbadkCoreApplication.getInst().getSkinType(), true);
         }
     }
 
-    public void nE(int i) {
-        C(i, false);
+    public void mE(int i) {
+        A(i, false);
     }
 
-    public void C(int i, boolean z) {
-        if (z || this.ceL != i) {
-            this.ceL = i;
-            if (this.dqr != null) {
-                this.dqr.onChangeSkinType();
+    public void A(int i, boolean z) {
+        if (z || this.csX != i) {
+            this.csX = i;
+            if (this.dxB != null) {
+                this.dxB.onChangeSkinType();
             }
-            am.h(this.ewL, R.color.cp_bg_line_d, i);
-            am.h(this.ewS, R.color.cp_bg_line_c, i);
+            am.setBackgroundColor(this.aqs, R.color.cp_bg_line_d, i);
+            am.setBackgroundColor(this.eFC, R.color.cp_bg_line_c, i);
             if (this.mNavigationBar != null) {
-                am.h(this.mNavigationBar.getBarBgView(), R.color.cp_bg_line_h, i);
-                if (this.ewK > 0.5d) {
-                    am.b(this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg_s, i);
-                    am.d(this.ewR, R.color.cp_cont_b, 1, i);
-                    am.d(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, i);
-                } else if (this.ewK <= 0.5d) {
-                    if (this.mVoteData == null || this.mVoteData.aZv() == null || this.mVoteData.aZv().getStatus() > 2 || this.mVoteData.aZv().getStatus() < 1) {
-                        am.b(this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg_s, i);
-                        am.d(this.ewR, R.color.cp_cont_b, 1, i);
-                        am.d(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, i);
+                am.setBackgroundColor(this.mNavigationBar.getBarBgView(), R.color.cp_bg_line_h, i);
+                if (this.eFw > 0.5d) {
+                    am.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.icon_return_bg_s, i);
+                    am.setViewTextColor(this.eFB, R.color.cp_cont_b, 1, i);
+                    am.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, i);
+                } else if (this.eFw <= 0.5d) {
+                    if (this.mVoteData == null || this.mVoteData.aZy() == null || this.mVoteData.aZy().getStatus() > 2 || this.mVoteData.aZy().getStatus() < 1) {
+                        am.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.icon_return_bg_s, i);
+                        am.setViewTextColor(this.eFB, R.color.cp_cont_b, 1, i);
+                        am.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, i);
                     } else {
-                        am.b(this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg, i);
-                        am.d(this.ewR, R.color.cp_cont_a, 1, i);
-                        am.d(this.mNavigationBar.mCenterText, R.color.cp_cont_a, 1, i);
+                        am.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.icon_return_bg, i);
+                        am.setViewTextColor(this.eFB, R.color.cp_cont_a, 1, i);
+                        am.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_a, 1, i);
                     }
                 }
-                am.g(this.ewQ, R.drawable.top_view_shadow, i);
+                am.setBackgroundResource(this.eFA, R.drawable.top_view_shadow, i);
             }
-            am.b(this.ewN, (int) R.drawable.pic_bg_recruit, i);
-            this.ewT.nE(i);
-            this.ewX.nE(i);
-            this.ewY.nE(i);
-            this.ewZ.nE(i);
-            am.d(this.exc, R.color.cp_cont_d, 1, i);
-            am.d(this.ewV, R.color.cp_cont_c, 1, i);
-            am.g(this.ewW, R.drawable.icon_common_explain12_gray66, i);
-            this.exb.nE(i);
-            if (this.dpz != null) {
-                this.dpz.setTextColor(am.getColor(i, R.color.cp_cont_j));
-                this.dpz.iY(i);
+            am.setImageResource(this.eFy, R.drawable.pic_bg_recruit, i);
+            this.eFD.mE(i);
+            this.eFH.mE(i);
+            this.eFI.mE(i);
+            this.eFJ.mE(i);
+            am.setViewTextColor(this.eFM, R.color.cp_cont_d, 1, i);
+            am.setViewTextColor(this.eFF, R.color.cp_cont_c, 1, i);
+            am.setBackgroundResource(this.eFG, R.drawable.icon_common_explain12_gray66, i);
+            this.eFL.mE(i);
+            if (this.dwJ != null) {
+                this.dwJ.setTextColor(am.getColor(i, R.color.cp_cont_j));
+                this.dwJ.changeSkin(i);
             }
-            this.dpy.onChangeSkinType(this.ewC.getPageContext(), i);
-            if (this.exa != null) {
-                this.exa.notifyDataSetChanged();
+            this.dwI.onChangeSkinType(this.eFo.getPageContext(), i);
+            if (this.eFK != null) {
+                this.eFK.notifyDataSetChanged();
             }
         }
     }
 
-    public void aZd() {
-        if (this.status == com.baidu.tieba.barselect.a.d.eAN) {
-            this.dpz.iZ(l.g(this.ewC, R.dimen.tbds152));
+    public void aZh() {
+        if (this.status == com.baidu.tieba.barselect.a.d.eJv) {
+            this.dwJ.showEmptyView(l.getDimens(this.eFo, R.dimen.tbds152));
         }
-        this.dpz.setOnClickListener(this.ewC);
-        this.ewS.setNextPage(this.dpz);
+        this.dwJ.setOnClickListener(this.eFo);
+        this.eFC.setNextPage(this.dwJ);
         if (this.hasMore) {
-            this.dpz.akU();
+            this.dwJ.showEndLoadData();
             return;
         }
-        this.dpz.setText(this.ewC.getResources().getString(R.string.list_has_no_more));
-        this.dpz.akS();
+        this.dwJ.setText(this.eFo.getResources().getString(R.string.list_has_no_more));
+        this.dwJ.endLoadData();
     }
 
     public View getRootView() {
-        return this.ewL;
+        return this.aqs;
     }
 
     public BdRecyclerView getListView() {
-        return this.ewS;
+        return this.eFC;
     }
 
-    public PbListView aZe() {
-        return this.dpz;
+    public PbListView aZi() {
+        return this.dwJ;
     }
 
-    public void d(View.OnClickListener onClickListener) {
-        this.bCL = onClickListener;
+    public void e(View.OnClickListener onClickListener) {
+        this.bVg = onClickListener;
     }
 
     public void hideNoDataView() {
@@ -364,42 +365,42 @@ public class a {
         }
     }
 
-    public void vP(String str) {
-        if (this.dqr != null) {
-            this.dqr.dettachView(this.mListContainer);
-            this.dqr = null;
+    public void us(String str) {
+        if (this.dxB != null) {
+            this.dxB.dettachView(this.mListContainer);
+            this.dxB = null;
         }
-        this.ewC.hideLoadingView(getRootView());
+        this.eFo.hideLoadingView(getRootView());
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.ewC, this.exe, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.d.oX(str), null);
-            this.mNoDataView.setOnClickListener(this.bCL);
+            this.mNoDataView = NoDataViewFactory.a(this.eFo, this.eFO, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.d.ow(str), null);
+            this.mNoDataView.setOnClickListener(this.bVg);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.oX(str));
-        this.mNoDataView.onChangeSkinType(this.ewC.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.ow(str));
+        this.mNoDataView.onChangeSkinType(this.eFo.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }
 
-    public void aJM() {
-        if (this.ewS != null) {
-            this.ewS.setVisibility(8);
+    public void aJn() {
+        if (this.eFC != null) {
+            this.eFC.setVisibility(8);
         }
-        this.ewC.hideLoadingView(getRootView());
+        this.eFo.hideLoadingView(getRootView());
         if (this.mNoDataView != null) {
             hideNoDataView();
         }
-        if (this.dqr == null) {
-            this.dqr = new h(this.ewC, this.exf);
+        if (this.dxB == null) {
+            this.dxB = new h(this.eFo, this.eFP);
         }
-        this.dqr.kO(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds340));
-        this.dqr.qY(TbadkCoreApplication.getInst().getString(R.string.neterror));
-        this.dqr.attachView(this.mListContainer, true);
-        this.dqr.atW();
-        this.dqr.onChangeSkinType();
+        this.dxB.setLayoutMargin(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds340));
+        this.dxB.setSubText(TbadkCoreApplication.getInst().getString(R.string.neterror));
+        this.dxB.attachView(this.mListContainer, true);
+        this.dxB.showRefreshButton();
+        this.dxB.onChangeSkinType();
     }
 
     public void onDestroy() {
-        if (this.ewX != null) {
-            this.ewX.onDestroy();
+        if (this.eFH != null) {
+            this.eFH.onDestroy();
         }
     }
 }

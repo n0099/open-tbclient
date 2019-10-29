@@ -16,6 +16,7 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.play.c.e;
 import com.xiaomi.mipush.sdk.Constants;
@@ -321,7 +322,7 @@ public final class IjkMediaPlayerLocal extends AbstractMediaPlayer {
         AssetFileDescriptor assetFileDescriptor;
         Throwable th;
         String scheme = uri.getScheme();
-        if ("file".equals(scheme)) {
+        if (BdStatsConstant.OpSubType.FILE.equals(scheme)) {
             setDataSource(uri.getPath());
         } else if ("content".equals(scheme) && TbConfig.SETTINGFILE.equals(uri.getAuthority()) && (uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.getDefaultType(uri))) == null) {
             throw new FileNotFoundException("Failed to resolve default ringtone");
@@ -804,7 +805,7 @@ public final class IjkMediaPlayerLocal extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.cn(message.arg1, message.arg2);
+                    e.cg(message.arg1, message.arg2);
                     ijkMediaPlayerLocal.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:

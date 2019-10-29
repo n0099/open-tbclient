@@ -3,6 +3,7 @@ package android.support.v7.widget;
 import android.support.v4.util.Pools;
 import android.support.v7.widget.OpReorderer;
 import android.support.v7.widget.RecyclerView;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -608,7 +609,7 @@ public class AdapterHelper implements OpReorderer.Callback {
         String cmdToString() {
             switch (this.cmd) {
                 case 1:
-                    return "add";
+                    return IMTrack.DbBuilder.ACTION_ADD;
                 case 2:
                     return "rm";
                 case 3:

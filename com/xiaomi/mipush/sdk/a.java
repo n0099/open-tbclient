@@ -6,7 +6,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import java.util.HashSet;
 import java.util.Set;
@@ -52,7 +51,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (intExtra == 3000) {
             com.xiaomi.push.service.clientReport.d.a(activity.getApplicationContext()).a(com.xiaomi.push.service.clientReport.c.a(intExtra), stringExtra, 3008, "App calls by business message is visiable");
         } else if (intExtra == 1000) {
-            com.xiaomi.push.service.clientReport.d.a(activity.getApplicationContext()).a(com.xiaomi.push.service.clientReport.c.a(intExtra), stringExtra, PointerIconCompat.TYPE_TEXT, "app calls by notification message is visiable");
+            com.xiaomi.push.service.clientReport.d.a(activity.getApplicationContext()).a(com.xiaomi.push.service.clientReport.c.a(intExtra), stringExtra, 1008, "app calls by notification message is visiable");
         }
     }
 

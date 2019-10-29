@@ -37,11 +37,11 @@ public final class j {
                 }
             }
         } catch (IOException e) {
-            com.baidu.crabsdk.c.a.a("collectLogCat failed.", e);
+            com.baidu.crabsdk.c.a.f("collectLogCat failed.", e);
         } catch (Exception e2) {
-            com.baidu.crabsdk.c.a.a("collectLogCat failed!", e2);
+            com.baidu.crabsdk.c.a.f("collectLogCat failed!", e2);
         } catch (OutOfMemoryError e3) {
-            com.baidu.crabsdk.c.a.a("collectLogCat oom.", e3);
+            com.baidu.crabsdk.c.a.f("collectLogCat oom.", e3);
         }
         return bVar.toString();
     }

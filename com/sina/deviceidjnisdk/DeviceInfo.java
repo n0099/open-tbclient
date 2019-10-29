@@ -6,7 +6,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes2.dex */
 public class DeviceInfo {
     @SuppressLint({"MissingPermission"})
@@ -44,7 +43,7 @@ public class DeviceInfo {
         WifiInfo connectionInfo;
         if (isPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE")) {
             try {
-                WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI);
+                WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                 if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                     str = connectionInfo.getMacAddress();
                 }

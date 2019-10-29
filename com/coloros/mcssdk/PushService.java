@@ -104,7 +104,7 @@ public class PushService extends Service implements MessageCallback {
             case CommandMessage.COMMAND_UNSET_ACCOUNTS /* 12303 */:
                 PushManager.getInstance().getPushCallback().onUnsetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
                 return;
-            case CommandMessage.COMMAND_GET_PUSH_STATUS /* 12306 */:
+            case 12306:
                 PushManager.getInstance().getPushCallback().onGetPushStatus(commandMessage.getResponseCode(), com.coloros.mcssdk.c.e.a(commandMessage.getContent()));
                 return;
             case CommandMessage.COMMAND_GET_NOTIFICATION_STATUS /* 12309 */:

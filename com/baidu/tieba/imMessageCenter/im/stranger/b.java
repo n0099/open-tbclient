@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends c<StrangerListActivity> {
-    private NoNetworkView dpy;
-    private BdListView gEo;
-    private StrangerListActivity gWZ;
-    private StrangerListAdapter gXf;
-    private ImageView mDeleteBtn;
+    private NoNetworkView dwI;
+    private BdListView gCo;
+    private StrangerListActivity gUZ;
+    private StrangerListAdapter gVf;
+    private ImageView gVg;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
     public b(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext());
         strangerListActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.gWZ = strangerListActivity;
+        this.gUZ = strangerListActivity;
         l(strangerListActivity);
         m(strangerListActivity);
     }
@@ -33,34 +33,34 @@ public class b extends c<StrangerListActivity> {
         this.mNavigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.stranger_list_activity_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.mDeleteBtn = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.gWZ);
-        SvgManager.ajv().a(this.mDeleteBtn, R.drawable.icon_pure_topbar_delete_n_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.gVg = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.gUZ);
+        SvgManager.amN().a(this.gVg, R.drawable.icon_pure_topbar_delete_n_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.mRootView = (ViewGroup) strangerListActivity.findViewById(R.id.root_view);
-        this.dpy = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
+        this.dwI = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
     }
 
     public void onChangeSkinType(int i) {
-        this.gWZ.getLayoutMode().setNightMode(i == 1);
-        this.gWZ.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.gWZ.getPageContext(), i);
-        this.dpy.onChangeSkinType(this.gWZ.getPageContext(), i);
-        this.gXf.notifyDataSetChanged();
-        SvgManager.ajv().a(this.mDeleteBtn, R.drawable.icon_pure_topbar_delete_n_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.gUZ.getLayoutMode().setNightMode(i == 1);
+        this.gUZ.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.gUZ.getPageContext(), i);
+        this.dwI.onChangeSkinType(this.gUZ.getPageContext(), i);
+        this.gVf.notifyDataSetChanged();
+        SvgManager.amN().a(this.gVg, R.drawable.icon_pure_topbar_delete_n_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private void m(StrangerListActivity strangerListActivity) {
-        this.gEo = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
-        this.gEo.setOnItemClickListener(strangerListActivity);
-        this.gEo.setOnItemLongClickListener(strangerListActivity);
-        this.gXf = new StrangerListAdapter(strangerListActivity);
-        this.gEo.setAdapter((ListAdapter) this.gXf);
+        this.gCo = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
+        this.gCo.setOnItemClickListener(strangerListActivity);
+        this.gCo.setOnItemLongClickListener(strangerListActivity);
+        this.gVf = new StrangerListAdapter(strangerListActivity);
+        this.gCo.setAdapter((ListAdapter) this.gVf);
     }
 
-    public StrangerListAdapter bII() {
-        return this.gXf;
+    public StrangerListAdapter bFs() {
+        return this.gVf;
     }
 
-    public View bIJ() {
-        return this.mDeleteBtn;
+    public View bFt() {
+        return this.gVg;
     }
 }

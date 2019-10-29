@@ -1,6 +1,8 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
 import tbclient.GetAddressList.GetAddressListResIdl;
@@ -17,7 +19,7 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     }
 
     public ResponseGetAddressListMessage() {
-        super(304001);
+        super(CmdConfigSocket.CMD_GET_ADDRESSLIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +30,7 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             if (getAddressListResIdl.data != null) {
                 this.mAddressListData = new a();
                 if (this.mAddressListData.a(getAddressListResIdl.data)) {
-                    com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                    com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }
             if (getAddressListResIdl.error != null) {

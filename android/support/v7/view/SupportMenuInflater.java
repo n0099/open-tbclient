@@ -100,7 +100,7 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = r11.getName();
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0062, code lost:
-        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_GROUP) == false) goto L20;
+        if (r3.equals("group") == false) goto L20;
      */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0064, code lost:
         r7.readGroup(r12);
@@ -138,7 +138,7 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00a2, code lost:
-        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_GROUP) == false) goto L40;
+        if (r3.equals("group") == false) goto L40;
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x00a4, code lost:
         r7.resetGroup();

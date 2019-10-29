@@ -8,6 +8,7 @@ import android.media.ExifInterface;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -45,7 +46,7 @@ public class e extends z {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("type", "1");
-            final int ac = ac(jSONObject);
+            final int aA = aA(jSONObject);
             final String optString2 = jSONObject.optString("message");
             if (TextUtils.isEmpty(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -85,7 +86,7 @@ public class e extends z {
                     ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.d.e.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, ac, optBoolean);
+                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aA, optBoolean);
                         }
                     });
                     break;
@@ -93,7 +94,7 @@ public class e extends z {
                     ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.d.e.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, ac, a, optBoolean);
+                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aA, a, optBoolean);
                         }
                     });
                     break;
@@ -101,7 +102,7 @@ public class e extends z {
                     ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.d.e.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.b(context, callbackHandler, unitedSchemeEntity, optString2, ac, optBoolean);
+                            e.this.b(context, callbackHandler, unitedSchemeEntity, optString2, aA, optBoolean);
                         }
                     });
                     break;
@@ -120,29 +121,29 @@ public class e extends z {
         }
     }
 
-    private int ac(JSONObject jSONObject) {
-        int hd = hd(jSONObject.optString("time")) / 1000;
-        if (hd <= 0) {
+    private int aA(JSONObject jSONObject) {
+        int hG = hG(jSONObject.optString("time")) / 1000;
+        if (hG <= 0) {
             return 2;
         }
-        return hd;
+        return hG;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).dK(i).co(z).dG(2).LU();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).eF(i).cF(z).eB(2).QN();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).d(drawable).dK(i).co(z).LX();
+        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).b(drawable).eF(i).cF(z).QQ();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).dK(i).co(z).LY();
+        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).eF(i).cF(z).QR();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
@@ -176,12 +177,12 @@ public class e extends z {
             }
         }
         if (i2 > i) {
-            stringBuffer.append("...");
+            stringBuffer.append(StringHelper.STRING_MORE);
         }
         return stringBuffer.toString();
     }
 
-    private int hd(String str) {
+    private int hG(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -200,16 +201,16 @@ public class e extends z {
         if (DEBUG) {
             Log.e("ShowToastAction", "imagePath = " + str);
         }
-        ExifInterface hg = hg(str);
-        if (hg == null) {
+        ExifInterface hJ = hJ(str);
+        if (hJ == null) {
             if (DEBUG) {
                 Log.e("ShowToastAction", "exifInterface is null");
                 return null;
             }
             return null;
         }
-        int intValue = Integer.valueOf(hg.getAttribute("ImageWidth")).intValue();
-        int intValue2 = Integer.valueOf(hg.getAttribute("ImageLength")).intValue();
+        int intValue = Integer.valueOf(hJ.getAttribute("ImageWidth")).intValue();
+        int intValue2 = Integer.valueOf(hJ.getAttribute("ImageLength")).intValue();
         if (DEBUG) {
             Log.e("ShowToastAction", "width = " + intValue + "， height = " + intValue2);
         }
@@ -233,7 +234,7 @@ public class e extends z {
         return bitmapDrawable;
     }
 
-    private ExifInterface hg(String str) {
+    private ExifInterface hJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

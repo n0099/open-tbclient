@@ -12,12 +12,13 @@ public class f extends com.baidu.adp.framework.a.d {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
-    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    /* renamed from: d */
+    public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
             TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.ahN().ahP() && tbHttpMessageTask.isNeedLogin()) {
+            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.alK().alM() && tbHttpMessageTask.isNeedLogin()) {
                 httpMessage.addParam("reloin_key", "reloin_value");
-                ReloginManager.ahN().a(httpMessage);
+                ReloginManager.alK().a(httpMessage);
                 return null;
             }
             return httpMessage;

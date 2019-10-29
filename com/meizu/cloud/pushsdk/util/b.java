@@ -2,11 +2,13 @@ package com.meizu.cloud.pushsdk.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes3.dex */
 public class b {
     public static String a(Context context, String str) {
-        return a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + "_" + PushConstants.KEY_PUSH_ID);
+        return a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID);
     }
 
     public static String a(Context context, String str, String str2) {
@@ -14,7 +16,7 @@ public class b {
     }
 
     public static void a(Context context, int i, String str) {
-        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + "_" + PushConstants.KEY_PUSH_ID_EXPIRE_TIME, i);
+        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID_EXPIRE_TIME, i);
     }
 
     public static void a(Context context, String str, int i) {
@@ -38,7 +40,7 @@ public class b {
     }
 
     public static int b(Context context, String str) {
-        return b(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + "_" + PushConstants.KEY_PUSH_ID_EXPIRE_TIME);
+        return b(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID_EXPIRE_TIME);
     }
 
     public static int b(Context context, String str, String str2) {
@@ -50,7 +52,7 @@ public class b {
     }
 
     public static void b(Context context, String str, String str2, int i) {
-        a(context, "mz_push_preference", str + "." + str2, i);
+        a(context, "mz_push_preference", str + DefaultConfig.TOKEN_SEPARATOR + str2, i);
     }
 
     public static void b(Context context, String str, boolean z) {
@@ -86,7 +88,7 @@ public class b {
     }
 
     public static void f(Context context, String str, String str2) {
-        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str2 + "_" + PushConstants.KEY_PUSH_ID, str);
+        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID, str);
     }
 
     public static boolean f(Context context, String str) {
@@ -102,7 +104,7 @@ public class b {
     }
 
     public static int h(Context context, String str, String str2) {
-        return b(context, "mz_push_preference", str + "." + str2);
+        return b(context, "mz_push_preference", str + DefaultConfig.TOKEN_SEPARATOR + str2);
     }
 
     public static boolean h(Context context, String str) {
@@ -114,7 +116,7 @@ public class b {
     }
 
     public static boolean i(Context context, String str, String str2) {
-        return d(context, "mz_push_preference", str + "." + str2);
+        return d(context, "mz_push_preference", str + DefaultConfig.TOKEN_SEPARATOR + str2);
     }
 
     public static int j(Context context, String str) {

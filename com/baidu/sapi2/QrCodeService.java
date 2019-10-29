@@ -2,6 +2,8 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.QrLoginStatusCheckCallback;
 import com.baidu.sapi2.callback.SapiCallback;
@@ -17,7 +19,6 @@ import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Map;
@@ -125,7 +126,7 @@ public class QrCodeService extends AbstractService {
         final QrLoginStatusCheckResult qrLoginStatusCheckResult = new QrLoginStatusCheckResult();
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("apiver", "v3");
-        httpHashMapWrap.put("callback", "cb");
+        httpHashMapWrap.put(BuyTBeanActivityConfig.CALLBACK, "cb");
         httpHashMapWrap.put("channel_id", qrLoginStstusCheckDTO.channelId);
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         this.a = new HttpClientWrap();
@@ -201,7 +202,7 @@ public class QrCodeService extends AbstractService {
 
     protected void getQrLoginResult(final QrLoginStatusCheckCallback qrLoginStatusCheckCallback, final QrLoginStatusCheckResult qrLoginStatusCheckResult, String str, String str2, final boolean z) {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put("display", "pcsdk");
+        httpHashMapWrap.put(LogConfig.KEY_DISPLAY, "pcsdk");
         httpHashMapWrap.put("qrcode", "1");
         httpHashMapWrap.put("bduss", str);
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
@@ -271,7 +272,7 @@ public class QrCodeService extends AbstractService {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str);
         httpHashMapWrap.put("sign", urlParamsToMap.get("sign"));
-        httpHashMapWrap.put(IntentConfig.CMD, str2);
+        httpHashMapWrap.put("cmd", str2);
         SapiAccount session = ServiceManager.getInstance().getIsAccountManager().getSession();
         if (session != null) {
             httpHashMapWrap.put("bduss", session.bduss);

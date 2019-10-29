@@ -6,19 +6,19 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class m implements com.facebook.common.memory.g {
-    private final com.facebook.common.memory.j kiA;
-    private final k kml;
+    private final com.facebook.common.memory.j kgK;
+    private final k kkx;
 
     public m(k kVar, com.facebook.common.memory.j jVar) {
-        this.kml = kVar;
-        this.kiA = jVar;
+        this.kkx = kVar;
+        this.kgK = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.g
-    /* renamed from: w */
-    public l r(InputStream inputStream) throws IOException {
-        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.kml);
+    /* renamed from: t */
+    public l o(InputStream inputStream) throws IOException {
+        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.kkx);
         try {
             return a(inputStream, nativePooledByteBufferOutputStream);
         } finally {
@@ -28,15 +28,15 @@ public class m implements com.facebook.common.memory.g {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.g
-    /* renamed from: ac */
-    public l X(byte[] bArr) {
-        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.kml, bArr.length);
+    /* renamed from: R */
+    public l M(byte[] bArr) {
+        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.kkx, bArr.length);
         try {
             try {
                 nativePooledByteBufferOutputStream.write(bArr, 0, bArr.length);
-                return nativePooledByteBufferOutputStream.cFT();
+                return nativePooledByteBufferOutputStream.cCR();
             } catch (IOException e) {
-                throw com.facebook.common.internal.k.r(e);
+                throw com.facebook.common.internal.k.q(e);
             }
         } finally {
             nativePooledByteBufferOutputStream.close();
@@ -47,7 +47,7 @@ public class m implements com.facebook.common.memory.g {
     @Override // com.facebook.common.memory.g
     /* renamed from: c */
     public l b(InputStream inputStream, int i) throws IOException {
-        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.kml, i);
+        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.kkx, i);
         try {
             return a(inputStream, nativePooledByteBufferOutputStream);
         } finally {
@@ -56,21 +56,21 @@ public class m implements com.facebook.common.memory.g {
     }
 
     l a(InputStream inputStream, NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream) throws IOException {
-        this.kiA.g(inputStream, nativePooledByteBufferOutputStream);
-        return nativePooledByteBufferOutputStream.cFT();
+        this.kgK.e(inputStream, nativePooledByteBufferOutputStream);
+        return nativePooledByteBufferOutputStream.cCR();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.g
-    /* renamed from: cLn */
-    public NativePooledByteBufferOutputStream cFS() {
-        return new NativePooledByteBufferOutputStream(this.kml);
+    /* renamed from: cIk */
+    public NativePooledByteBufferOutputStream cCQ() {
+        return new NativePooledByteBufferOutputStream(this.kkx);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.g
-    /* renamed from: Em */
-    public NativePooledByteBufferOutputStream DD(int i) {
-        return new NativePooledByteBufferOutputStream(this.kml, i);
+    /* renamed from: CI */
+    public NativePooledByteBufferOutputStream BZ(int i) {
+        return new NativePooledByteBufferOutputStream(this.kkx, i);
     }
 }

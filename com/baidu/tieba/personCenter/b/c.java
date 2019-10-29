@@ -6,31 +6,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.personCenter.data.f;
 /* loaded from: classes4.dex */
 public class c {
-    a imR;
-    private BdTypeListView mListView;
+    private BdTypeListView dvB;
+    a ilA;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.mListView = bdTypeListView;
-        this.imR = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.dvB = bdTypeListView;
+        this.ilA = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void b(f fVar) {
-        this.mListView.setData(fVar.fQB);
+        this.dvB.setData(fVar.fPU);
     }
 
     public void notifyDataSetChanged() {
-        this.imR.onChangeSkinType();
+        this.ilA.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.imR.onChangeSkinType();
+        this.ilA.onChangeSkinType();
     }
 
-    public void cch() {
-        this.imR.cch();
+    public void bZj() {
+        this.ilA.bZj();
     }
 
-    public void cci() {
-        this.imR.cci();
+    public void bZk() {
+        this.ilA.bZk();
     }
 }

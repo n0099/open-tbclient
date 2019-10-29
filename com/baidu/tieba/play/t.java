@@ -3,85 +3,87 @@ package com.baidu.tieba.play;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 /* loaded from: classes.dex */
 public class t {
-    private static i izY = null;
-    private static boolean izZ = true;
-    private static boolean iAa = true;
+    private static i iyv = null;
+    private static boolean iyw = true;
+    private static boolean iyx = true;
 
-    private static i cfI() {
-        if (izY == null) {
-            izZ = com.baidu.tbadk.core.sharedPref.b.ahU().getBoolean("prefs_save_paled_video", true);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016479, i.class);
+    private static i ccJ() {
+        if (iyv == null) {
+            iyw = com.baidu.tbadk.core.sharedPref.b.alR().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
             if (runTask != null) {
-                izY = (i) runTask.getData();
+                iyv = (i) runTask.getData();
             }
         }
-        return izY;
+        return iyv;
     }
 
-    public static String aw(String str, boolean z) {
+    public static String ar(String str, boolean z) {
         if (z) {
-            if (iAa && cfI() != null) {
-                return cfI().V(str, true);
+            if (iyx && ccJ() != null) {
+                return ccJ().S(str, true);
             }
             return str;
-        } else if (iAa && izZ && cfI() != null) {
-            return cfI().sn(str);
+        } else if (iyx && iyw && ccJ() != null) {
+            return ccJ().qX(str);
         } else {
             return str;
         }
     }
 
-    public static String so(String str) {
-        if (cfI() != null) {
-            return cfI().so(str);
+    public static String qY(String str) {
+        if (ccJ() != null) {
+            return ccJ().qY(str);
         }
         return null;
     }
 
-    public static void f(Context context, String str, int i) {
-        if (cfI() != null) {
-            cfI().f(context, str, i);
+    public static void d(Context context, String str, int i) {
+        if (ccJ() != null) {
+            ccJ().d(context, str, i);
         }
     }
 
-    public static void aq(Context context, String str) {
-        if (cfI() != null) {
-            cfI().aq(context, str);
+    public static void an(Context context, String str) {
+        if (ccJ() != null) {
+            ccJ().an(context, str);
         }
     }
 
-    public static void ar(Context context, String str) {
-        if (iAa && izZ && cfI() != null) {
-            cfI().ar(context, str);
+    public static void ao(Context context, String str) {
+        if (iyx && iyw && ccJ() != null) {
+            ccJ().ao(context, str);
         }
     }
 
-    public static void sp(String str) {
-        if (iAa && izZ && cfI() != null) {
-            cfI().sp(str);
+    public static void qZ(String str) {
+        if (iyx && iyw && ccJ() != null) {
+            ccJ().qZ(str);
         }
     }
 
     public static void clearCache(Context context) {
-        if (cfI() != null) {
-            cfI().clearCache(context);
+        if (ccJ() != null) {
+            ccJ().clearCache(context);
         }
     }
 
-    public static String sq(String str) {
-        if (cfI() != null) {
-            return cfI().sq(str);
+    public static String ra(String str) {
+        if (ccJ() != null) {
+            return ccJ().ra(str);
         }
         return null;
     }
 
-    public static void qk(boolean z) {
-        izZ = z;
+    public static void pR(boolean z) {
+        iyw = z;
     }
 
-    public static void cfJ() {
-        iAa = com.baidu.adp.lib.b.d.hS().az("android_video_cache_open") == 1;
+    public static void ccK() {
+        iyx = com.baidu.adp.lib.b.d.ft().af("android_video_cache_open") == 1;
     }
 }

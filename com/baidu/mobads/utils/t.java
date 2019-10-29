@@ -3,6 +3,7 @@ package com.baidu.mobads.utils;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Build;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import java.io.UnsupportedEncodingException;
@@ -153,24 +154,24 @@ public class t implements IXAdURIUitls {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public Boolean isHttpProtocol(String str) {
-        return a(str, "http:");
+        return a(str, UrlSchemaHelper.SCHEMA_TYPE_HTTP);
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public Boolean isHttpsProtocol(String str) {
-        return a(str, "https:");
+        return a(str, UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public String replaceURLWithSupportProtocol(String str) {
-        if (AdSettings.us().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()) && isHttpProtocol(str).booleanValue()) {
+        if (AdSettings.zm().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()) && isHttpProtocol(str).booleanValue()) {
             return str.replaceFirst("(?i)http", "https");
         }
         return str;
     }
 
     public Boolean a(String str) {
-        return Boolean.valueOf(a(str, "sms:").booleanValue() || a(str, "smsto:").booleanValue() || a(str, "mms:").booleanValue());
+        return Boolean.valueOf(a(str, UrlSchemaHelper.SCHEMA_TYPE_SMS).booleanValue() || a(str, "smsto:").booleanValue() || a(str, "mms:").booleanValue());
     }
 
     private Boolean a(String str, String str2) {

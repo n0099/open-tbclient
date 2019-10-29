@@ -15,7 +15,7 @@ public class ImagesInvalidService extends BdBaseService {
     private DiskFileOperate mDiskFileOperate = null;
 
     public static void setSuccess(boolean z) {
-        com.baidu.tbadk.core.diskCache.a.dY(z);
+        com.baidu.tbadk.core.diskCache.a.setIsSuccess(z);
     }
 
     @Override // android.app.Service
@@ -27,13 +27,13 @@ public class ImagesInvalidService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mDiskFileOperate = new a(TbConfig.IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
-        d.gC().c(this.mDiskFileOperate);
+        d.eP().c(this.mDiskFileOperate);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        d.gC().d(this.mDiskFileOperate);
+        d.eP().d(this.mDiskFileOperate);
         this.mDiskFileOperate = null;
     }
 
@@ -44,13 +44,13 @@ public class ImagesInvalidService extends BdBaseService {
         }
 
         @Override // com.baidu.adp.lib.Disk.a
-        public boolean e(File file) {
-            return file != null && file.lastModified() + ImagesInvalidService.FILE_VALID_TIME < System.currentTimeMillis();
+        public boolean compare(File file) {
+            return file != null && file.lastModified() + 259200000 < System.currentTimeMillis();
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-        public void G(boolean z) {
-            super.G(z);
+        public void callback(boolean z) {
+            super.callback(z);
             com.baidu.tbadk.core.diskCache.a.stopService();
             ImagesInvalidReceiver.broadcast(z);
         }

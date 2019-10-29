@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
 
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.json.JSONObject;
@@ -59,7 +60,7 @@ public class ao {
             jSONObject.put("at", 1);
             DecimalFormat decimalFormat = new DecimalFormat("0.0");
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-            decimalFormatSymbols.setDecimalSeparator('.');
+            decimalFormatSymbols.setDecimalSeparator(BdFileHelper.EXTENSION_SEPARATOR);
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
             jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f));
             jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.g));

@@ -605,7 +605,7 @@ public class b {
         bundle2.putString("from", h);
         bundle2.putString(Config.INPUT_DEF_PKG, g);
         bundle2.putString("cls", i);
-        bundle2.putInt(Config.TRACE_VISIT_RECENT_COUNT, i4);
+        bundle2.putInt("count", i4);
         bundle.putBundle("base_params", bundle2);
         Bundle bundle3 = new Bundle();
         bundle3.putString("launch_from", "sdk_[" + g + "]");

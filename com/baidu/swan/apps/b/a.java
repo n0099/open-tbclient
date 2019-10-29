@@ -7,27 +7,27 @@ import com.baidu.swan.apps.q.a.b.a.g;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private d alb;
+    private d aEx;
 
     @NonNull
-    public d wd() {
-        if (this.alb == null) {
-            this.alb = we();
+    public d AX() {
+        if (this.aEx == null) {
+            this.aEx = AY();
         }
-        return this.alb;
+        return this.aEx;
     }
 
-    public d we() {
+    public d AY() {
         return new g();
     }
 
     /* renamed from: com.baidu.swan.apps.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0130a implements com.baidu.swan.apps.an.d.b<a> {
+    public static class C0162a implements com.baidu.swan.apps.an.d.b<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.an.d.b
-        /* renamed from: wf */
-        public a wg() {
+        /* renamed from: AZ */
+        public a Ba() {
             return new a();
         }
     }

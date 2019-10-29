@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.map.MapViewLayoutParams;
@@ -56,13 +58,13 @@ public final class MapView extends ViewGroup {
 
     static {
         p.append(3, 2000000);
-        p.append(4, 1000000);
+        p.append(4, Integer.valueOf((int) MessageConfig.BASE_SEGMENT_LENGTH));
         p.append(5, 500000);
         p.append(6, 200000);
         p.append(7, 100000);
-        p.append(8, 50000);
+        p.append(8, Integer.valueOf((int) IMConstants.ERROR_BASE));
         p.append(9, 25000);
-        p.append(10, 20000);
+        p.append(10, Integer.valueOf((int) MessageConfig.SOCKET_TIME_OUT_MS_2G));
         p.append(11, 10000);
         p.append(12, 5000);
         p.append(13, 2000);

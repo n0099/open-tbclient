@@ -2,6 +2,7 @@ package com.xiaomi.push.service;
 
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.coremedia.iso.boxes.AuthorBox;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.HostManager;
@@ -80,7 +81,7 @@ public class ar {
             if (p != null) {
                 String m = dVar.m();
                 String a = p.a("type");
-                String a2 = p.a("reason");
+                String a2 = p.a(TiebaInitialize.LogFields.REASON);
                 com.xiaomi.channel.commonutils.logger.b.a("kicked by server, chid=" + l + " res=" + as.b.a(m) + " type=" + a + " reason=" + a2);
                 if (!"wait".equals(a)) {
                     this.a.a(l, m, 3, a2, a);
@@ -134,7 +135,7 @@ public class ar {
                     }
                     return;
                 } else if ("CONF".equals(bVar.b())) {
-                    bh.a().a(b.C0498b.b(bVar.k()));
+                    bh.a().a(b.C0599b.b(bVar.k()));
                     return;
                 } else if (TextUtils.equals("U", bVar.b())) {
                     b.k b3 = b.k.b(bVar.k());

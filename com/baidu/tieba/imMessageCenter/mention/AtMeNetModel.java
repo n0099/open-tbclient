@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetModel;
 /* loaded from: classes4.dex */
 public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
@@ -10,13 +10,13 @@ public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int auN() {
-        return CmdConfigHttp.REPLYME_HTTP_CMD;
+    protected int awg() {
+        return 1002200;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String auP() {
-        return "c/u/feed/atme";
+    protected String awi() {
+        return Config.ATME_ADDRESS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
@@ -25,7 +25,7 @@ public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int auO() {
+    protected int awh() {
         return 0;
     }
 }

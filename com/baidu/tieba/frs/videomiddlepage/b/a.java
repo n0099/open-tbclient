@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
@@ -25,42 +26,42 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.view.SpannableClickTextView;
 /* loaded from: classes4.dex */
 public class a {
-    private static final int fWw = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int fVR = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
-        int g;
+        int dimens;
         if (context != null && textView != null && !StringUtils.isNull(str)) {
             int color = am.getColor(R.color.cp_cont_j);
             String str4 = str + "  ";
             TextPaint paint = textView.getPaint();
-            int g2 = l.aj(context)[0] - (l.g(context, R.dimen.tbds48) * 2);
-            int g3 = l.g(context, R.dimen.tbds116);
-            int c = l.c(paint, " 广告");
-            int c2 = l.c(paint, "...  ");
-            int c3 = l.c(paint, str4);
-            int g4 = c3 + g3 + c + l.g(context, R.dimen.tbds30);
-            if (g4 >= g2 * 2) {
-                str4 = a(paint, str4, ((((g2 * 2) - g3) - c) - c2) - g) + "...  ";
-            } else if (g4 >= g2 && c3 < g2 && g4 >= g2) {
+            int dimens2 = l.getScreenDimensions(context)[0] - (l.getDimens(context, R.dimen.tbds48) * 2);
+            int dimens3 = l.getDimens(context, R.dimen.tbds116);
+            int textWidth = l.getTextWidth(paint, " 广告");
+            int textWidth2 = l.getTextWidth(paint, "...  ");
+            int textWidth3 = l.getTextWidth(paint, str4);
+            int dimens4 = textWidth3 + dimens3 + textWidth + l.getDimens(context, R.dimen.tbds30);
+            if (dimens4 >= dimens2 * 2) {
+                str4 = a(paint, str4, ((((dimens2 * 2) - dimens3) - textWidth) - textWidth2) - dimens) + "...  ";
+            } else if (dimens4 >= dimens2 && textWidth3 < dimens2 && dimens4 >= dimens2) {
                 str4 = str4.trim() + "\n";
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str4);
-            SpannableString spannableString = new SpannableString("_");
-            spannableString.setSpan(new C0331a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
+            SpannableString spannableString = new SpannableString(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+            spannableString.setSpan(new C0420a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.frs.videomiddlepage.b.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
                         an anVar = new an("c13313");
-                        anVar.bT("tid", str3);
+                        anVar.bS("tid", str3);
                         TiebaStatic.log(anVar);
-                        com.baidu.tbadk.browser.a.b(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
+                        com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
                 }
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(fWw, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(fVR, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
@@ -70,54 +71,56 @@ public class a {
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
             }
             an anVar = new an("c13312");
-            anVar.bT("tid", str3);
+            anVar.bS("tid", str3);
             TiebaStatic.log(anVar);
         }
     }
 
     public static String a(Paint paint, String str, int i) {
         String str2 = str;
-        for (int length = str.length() - 1; l.c(paint, str2) > i && length > 0; length--) {
+        for (int length = str.length() - 1; l.getTextWidth(paint, str2) > i && length > 0; length--) {
             str2 = str.substring(0, length);
         }
         return str2;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    private static class b extends ReplacementSpan {
-        private int fWA;
-        private int fWz;
+    public static class b extends ReplacementSpan {
+        private int fVU;
+        private int fVV;
 
         public b(int i, int i2) {
-            this.fWz = i;
-            this.fWA = i2;
+            this.fVU = i;
+            this.fVV = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
         public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            return (int) c(paint).measureText(charSequence.subSequence(i, i2).toString());
+            return (int) b(paint).measureText(charSequence.subSequence(i, i2).toString());
         }
 
         @Override // android.text.style.ReplacementSpan
         public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
             CharSequence subSequence = charSequence.subSequence(i, i2);
-            TextPaint c = c(paint);
-            Paint.FontMetricsInt fontMetricsInt = c.getFontMetricsInt();
-            canvas.drawText(subSequence.toString(), f, i4 - (((fontMetricsInt.ascent + ((fontMetricsInt.descent + i4) + i4)) / 2) - ((i5 + i3) / 2)), c);
+            TextPaint b = b(paint);
+            Paint.FontMetricsInt fontMetricsInt = b.getFontMetricsInt();
+            canvas.drawText(subSequence.toString(), f, i4 - (((fontMetricsInt.ascent + ((fontMetricsInt.descent + i4) + i4)) / 2) - ((i5 + i3) / 2)), b);
         }
 
-        private TextPaint c(Paint paint) {
+        private TextPaint b(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.fWz);
-            textPaint.setColor(this.fWA);
+            textPaint.setTextSize(this.fVU);
+            textPaint.setColor(this.fVV);
             return textPaint;
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.videomiddlepage.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0331a extends ImageSpan {
-        public C0331a(Context context, int i) {
+    public static class C0420a extends ImageSpan {
+        public C0420a(Context context, int i) {
             super(context, i);
         }
 

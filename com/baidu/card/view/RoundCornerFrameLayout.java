@@ -21,93 +21,93 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
-    private float YP;
-    private Paint YQ;
-    private ImageView YR;
-    private Bitmap YS;
-    private ColorFilter YT;
-    private ColorFilter YU;
+    private float IO;
+    private Paint IP;
+    private ImageView IQ;
+    private Bitmap IR;
+    private ColorFilter IS;
+    private ColorFilter IT;
+    private RectF iu;
     private int mSkinType;
-    private RectF qe;
 
     public RoundCornerFrameLayout(Context context) {
         super(context);
-        this.YR = null;
+        this.IQ = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.YR = null;
+        this.IQ = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.YR = null;
+        this.IQ = null;
         this.mSkinType = 3;
         init();
     }
 
     private void init() {
         setWillNotDraw(false);
-        this.qe = new RectF();
-        this.YP = getResources().getDimension(R.dimen.tbds20);
-        this.YQ = new Paint();
-        this.YQ.setStrokeWidth(0.0f);
-        this.YQ.setStrokeCap(Paint.Cap.ROUND);
-        this.YQ.setAntiAlias(true);
-        this.YQ.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.YR = new ImageView(getContext());
-        this.YR.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.iu = new RectF();
+        this.IO = getResources().getDimension(R.dimen.tbds20);
+        this.IP = new Paint();
+        this.IP.setStrokeWidth(0.0f);
+        this.IP.setStrokeCap(Paint.Cap.ROUND);
+        this.IP.setAntiAlias(true);
+        this.IP.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.IQ = new ImageView(getContext());
+        this.IQ.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void setCorner(float f) {
-        this.YP = f;
-        if (this.YS != null) {
-            this.YS.recycle();
-            rb();
+        this.IO = f;
+        if (this.IR != null) {
+            this.IR.recycle();
+            mg();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.YR != null && this.mSkinType != i) {
+        if (this.IQ != null && this.mSkinType != i) {
             this.mSkinType = i;
-            this.YT = new k(am.getColor(R.color.cp_bg_line_d));
-            this.YU = new k(am.getColor(R.color.cp_bg_line_e));
-            this.YR.setColorFilter(this.YT);
+            this.IS = new k(am.getColor(R.color.cp_bg_line_d));
+            this.IT = new k(am.getColor(R.color.cp_bg_line_e));
+            this.IQ.setColorFilter(this.IS);
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         if ((i != i3 || i2 != i4) && i > 0 && i2 > 0) {
-            if (this.YS != null && !this.YS.isRecycled()) {
-                this.YS.recycle();
+            if (this.IR != null && !this.IR.isRecycled()) {
+                this.IR.recycle();
             }
-            rb();
+            mg();
         }
     }
 
-    public void aE(boolean z) {
-        if (this.YR != null) {
-            this.YR.setColorFilter(z ? this.YU : this.YT);
+    public void Z(boolean z) {
+        if (this.IQ != null) {
+            this.IQ.setColorFilter(z ? this.IT : this.IS);
         }
     }
 
-    private void rb() {
+    private void mg() {
         if (getMeasuredHeight() > 0 && getMeasuredWidth() > 0) {
-            this.qe.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.iu.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
             try {
-                this.YS = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                this.IR = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
             } catch (OutOfMemoryError e) {
                 BdLog.e(e);
                 System.gc();
                 TbadkCoreApplication.getInst().onLowMemory();
                 try {
-                    this.YS = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                    this.IR = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
                 } catch (OutOfMemoryError e2) {
                     BdLog.e(e);
                     System.gc();
@@ -115,13 +115,13 @@ public class RoundCornerFrameLayout extends FrameLayout {
                     return;
                 }
             }
-            Canvas canvas = new Canvas(this.YS);
+            Canvas canvas = new Canvas(this.IR);
             canvas.drawColor(ViewCompat.MEASURED_STATE_MASK);
-            this.YQ.setColor(-1);
-            canvas.drawRoundRect(this.qe, this.YP, this.YP, this.YQ);
-            this.YR.setImageBitmap(this.YS);
-            if (this.YR.getParent() == null) {
-                addView(this.YR);
+            this.IP.setColor(-1);
+            canvas.drawRoundRect(this.iu, this.IO, this.IO, this.IP);
+            this.IQ.setImageBitmap(this.IR);
+            if (this.IQ.getParent() == null) {
+                addView(this.IQ);
             }
         }
     }
@@ -129,22 +129,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        if (this.YR != null && view != this.YR) {
-            if (this.YR.getParent() != null) {
-                ((ViewGroup) this.YR.getParent()).removeView(this.YR);
+        if (this.IQ != null && view != this.IQ) {
+            if (this.IQ.getParent() != null) {
+                ((ViewGroup) this.IQ.getParent()).removeView(this.IQ);
             }
-            super.addView(this.YR);
+            super.addView(this.IQ);
         }
     }
 
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.YR != null) {
-            if (this.YR.getParent() != null) {
-                ((ViewGroup) this.YR.getParent()).removeView(this.YR);
+        if (this.IQ != null) {
+            if (this.IQ.getParent() != null) {
+                ((ViewGroup) this.IQ.getParent()).removeView(this.IQ);
             }
-            super.addView(this.YR);
+            super.addView(this.IQ);
         }
     }
 }

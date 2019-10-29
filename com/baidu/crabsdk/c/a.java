@@ -3,38 +3,31 @@ package com.baidu.crabsdk.c;
 import android.util.Log;
 /* loaded from: classes3.dex */
 public final class a {
-    public static String aar = "CRAB";
-    public static String aas = "CRAB-NA";
+    public static String Ku = "CRAB";
+    public static String Kv = "CRAB-NA";
 
-    public static int a(String str, Throwable th) {
+    public static int bu(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(aar, ck(str), th);
+            return Log.i(Ku, bx(str));
         }
         return -1;
     }
 
-    public static int ch(String str) {
+    public static int bv(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.i(aar, ck(str));
+            return Log.d(Kv, bx(str));
         }
         return -1;
     }
 
-    public static int ci(String str) {
+    public static int bw(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(aas, ck(str));
+            return Log.w(Ku, bx(str));
         }
         return -1;
     }
 
-    public static int cj(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.w(aar, ck(str));
-        }
-        return -1;
-    }
-
-    private static String ck(String str) {
+    private static String bx(String str) {
         String str2;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace != null) {
@@ -49,16 +42,23 @@ public final class a {
         return str2 == null ? str : str2 + " - " + str;
     }
 
+    public static int f(String str, Throwable th) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.e(Ku, bx(str), th);
+        }
+        return -1;
+    }
+
     public static int v(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(aar, ck(str));
+            return Log.d(Ku, bx(str));
         }
         return -1;
     }
 
     public static int w(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(aar, ck(str));
+            return Log.e(Ku, bx(str));
         }
         return -1;
     }

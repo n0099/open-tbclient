@@ -109,7 +109,7 @@ class NotificationCompatApi21 {
         for (int i = 0; i < parcelableArr.length; i++) {
             Bundle bundle2 = new Bundle();
             bundle2.putString("text", unreadConversation.getMessages()[i]);
-            bundle2.putString(KEY_AUTHOR, str);
+            bundle2.putString("author", str);
             parcelableArr[i] = bundle2;
         }
         bundle.putParcelableArray(KEY_MESSAGES, parcelableArr);

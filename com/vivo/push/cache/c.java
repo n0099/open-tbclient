@@ -3,21 +3,26 @@ package com.vivo.push.cache;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.vivo.push.util.m;
-import com.vivo.push.util.t;
+import com.vivo.push.util.g;
+import com.vivo.push.util.h;
+import com.vivo.push.util.p;
+import com.vivo.push.util.w;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes3.dex */
 public abstract class c<T> {
-    public static final String CRPYT_IV = "2015120111293300";
-    public static final String CRPYT_KEY = "1234567890651321";
     protected static final String TAG = "IAppManager";
     protected Context mContext;
+    public static final byte[] CRPYT_IV_BYTE = {34, 32, 33, 37, 33, 34, 32, 33, 33, 33, 34, 41, 35, 35, 32, 32};
+    public static final byte[] CRPYT_KEY_BYTE = {33, 34, 35, 36, 37, 38, 39, 40, 41, 32, 38, 37, 33, 35, 34, 33};
     protected static final Object sAppLock = new Object();
     private static int MAX_CLIENT_SAVE_LENGTH = 10000;
     protected Set<T> mAppDatas = new HashSet();
-    private t mSharePreferenceManager = t.b();
+    private w mSharePreferenceManager = w.b();
 
     protected abstract String generateStrByType();
 
@@ -34,24 +39,25 @@ public abstract class c<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void loadData() {
         synchronized (sAppLock) {
-            com.vivo.push.util.e.a(generateStrByType());
+            h.a(generateStrByType());
             this.mAppDatas.clear();
             String a = this.mSharePreferenceManager.a(generateStrByType());
             if (TextUtils.isEmpty(a)) {
-                m.d(TAG, "AppManager init strApps empty.");
+                p.d(TAG, "AppManager init strApps empty.");
             } else if (a.length() > MAX_CLIENT_SAVE_LENGTH) {
-                m.d(TAG, "sync  strApps lenght too large");
+                p.d(TAG, "sync  strApps lenght too large");
                 clearData();
             } else {
                 try {
-                    String str = new String(com.vivo.push.util.d.b(CRPYT_IV, CRPYT_KEY, Base64.decode(a, 0)), "utf-8");
-                    m.d(TAG, "AppManager init strApps : " + str);
+                    String str = new String(g.a(g.a(CRPYT_IV_BYTE), g.a(CRPYT_KEY_BYTE), Base64.decode(a, 2)), "utf-8");
+                    p.d(TAG, "AppManager init strApps : " + str);
                     Set<T> parseAppStr = parseAppStr(str);
                     if (parseAppStr != null) {
                         this.mAppDatas.addAll(parseAppStr);
                     }
                 } catch (Exception e) {
-                    m.d(TAG, m.a(e));
+                    clearData();
+                    p.d(TAG, p.a(e));
                 }
             }
         }
@@ -123,17 +129,23 @@ public abstract class c<T> {
         String str = null;
         String appStr = toAppStr(set);
         try {
-            String encodeToString = Base64.encodeToString(com.vivo.push.util.d.a(CRPYT_IV, CRPYT_KEY, appStr.getBytes("utf-8")), 0);
+            String a = g.a(CRPYT_IV_BYTE);
+            String a2 = g.a(CRPYT_KEY_BYTE);
+            byte[] bytes = appStr.getBytes("utf-8");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes("utf-8"), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes("utf-8")));
+            String encodeToString = Base64.encodeToString(cipher.doFinal(bytes), 2);
             if (!TextUtils.isEmpty(encodeToString) && encodeToString.length() > MAX_CLIENT_SAVE_LENGTH) {
-                m.d(TAG, "sync  strApps lenght too large");
+                p.d(TAG, "sync  strApps lenght too large");
                 clearData();
             } else {
-                m.d(TAG, "sync  strApps: " + encodeToString);
+                p.d(TAG, "sync  strApps: " + encodeToString);
                 this.mSharePreferenceManager.a(generateStrByType(), encodeToString);
                 str = appStr;
             }
         } catch (Exception e) {
-            m.d(TAG, m.a(e));
+            p.d(TAG, p.a(e));
             clearData();
         }
         return str;

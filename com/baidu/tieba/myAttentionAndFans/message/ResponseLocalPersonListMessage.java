@@ -1,13 +1,14 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.as;
 /* loaded from: classes5.dex */
 public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Object> {
     private as data;
 
     public ResponseLocalPersonListMessage() {
-        super(2001188);
+        super(CmdConfigCustom.CMD_READ_PERSON_LIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

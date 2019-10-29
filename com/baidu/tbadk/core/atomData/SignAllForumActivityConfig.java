@@ -10,6 +10,6 @@ public class SignAllForumActivityConfig extends IntentConfig {
 
     public SignAllForumActivityConfig(Context context, boolean z) {
         super(context);
-        getIntent().putExtra(IntentConfig.MEMBER_BUY_SHOW, z);
+        getIntent().putExtra("member_buy_show", z);
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.r;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
@@ -22,7 +22,7 @@ public class RecPersonalizeRequest extends NetMessage {
     private int threadCount;
 
     public RecPersonalizeRequest() {
-        super(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+        super(1003070, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED);
         this.requestTime = 0;
         this.sourceFrom = "";
     }
@@ -78,7 +78,7 @@ public class RecPersonalizeRequest extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        r.bindCommonParamsToProtobufData(builder, true, false, true);
+        r.a(builder, true, false, true);
         builder.need_tags = 0;
         builder.load_type = Integer.valueOf(this.loadType);
         builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -86,9 +86,9 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = 0;
-        builder.scr_w = Integer.valueOf(l.af(TbadkCoreApplication.getInst()));
-        builder.scr_h = Integer.valueOf(l.ah(TbadkCoreApplication.getInst()));
-        builder.scr_dip = Double.valueOf(l.ai(TbadkCoreApplication.getInst()));
+        builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
+        builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
+        builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(j.netType());

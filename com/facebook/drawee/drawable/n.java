@@ -9,14 +9,14 @@ public class n {
 
     /* loaded from: classes2.dex */
     public interface b {
-        public static final b kgG = i.kgO;
-        public static final b kgH = h.kgO;
-        public static final b kgI = f.kgO;
-        public static final b kgJ = g.kgO;
-        public static final b kgK = c.kgO;
-        public static final b kgL = e.kgO;
-        public static final b kgM = d.kgO;
-        public static final b kgN = j.kgO;
+        public static final b keP = i.keX;
+        public static final b keQ = h.keX;
+        public static final b keR = f.keX;
+        public static final b keS = g.keX;
+        public static final b keT = c.keX;
+        public static final b keU = e.keX;
+        public static final b keV = d.keX;
+        public static final b keW = j.keX;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -27,7 +27,7 @@ public class n {
     }
 
     @Nullable
-    public static m l(Drawable drawable) {
+    public static m j(Drawable drawable) {
         if (drawable == null) {
             return null;
         }
@@ -35,15 +35,15 @@ public class n {
             return (m) drawable;
         }
         if (drawable instanceof com.facebook.drawee.drawable.c) {
-            return l(((com.facebook.drawee.drawable.c) drawable).getDrawable());
+            return j(((com.facebook.drawee.drawable.c) drawable).getDrawable());
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int cHq = aVar.cHq();
-            for (int i2 = 0; i2 < cHq; i2++) {
-                m l = l(aVar.getDrawable(i2));
-                if (l != null) {
-                    return l;
+            int cEo = aVar.cEo();
+            for (int i2 = 0; i2 < cEo; i2++) {
+                m j2 = j(aVar.getDrawable(i2));
+                if (j2 != null) {
+                    return j2;
                 }
             }
         }
@@ -63,7 +63,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class i extends a {
-        public static final b kgO = new i();
+        public static final b keX = new i();
 
         private i() {
         }
@@ -81,7 +81,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class h extends a {
-        public static final b kgO = new h();
+        public static final b keX = new h();
 
         private h() {
         }
@@ -100,7 +100,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class f extends a {
-        public static final b kgO = new f();
+        public static final b keX = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class g extends a {
-        public static final b kgO = new g();
+        public static final b keX = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class c extends a {
-        public static final b kgO = new c();
+        public static final b keX = new c();
 
         private c() {
         }
@@ -157,7 +157,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class e extends a {
-        public static final b kgO = new e();
+        public static final b keX = new e();
 
         private e() {
         }
@@ -177,7 +177,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class d extends a {
-        public static final b kgO = new d();
+        public static final b keX = new d();
 
         private d() {
         }
@@ -205,7 +205,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class j extends a {
-        public static final b kgO = new j();
+        public static final b keX = new j();
 
         private j() {
         }

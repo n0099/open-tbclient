@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import com.baidu.mobstat.bt;
-import com.baidu.ubc.UBC;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -122,7 +121,7 @@ public class an {
                         jSONArray2.put(jSONObject2);
                         jSONObject.put("path", jSONArray2);
                         jSONObject.put("type", b2);
-                        jSONObject.put(UBC.CONTENT_KEY_VALUE, bj.a(view));
+                        jSONObject.put("value", bj.a(view));
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put(Config.EVENT_HEAT_X, ah.a(activity, e.left));
                         jSONObject3.put("y", ah.a(activity, e.top));

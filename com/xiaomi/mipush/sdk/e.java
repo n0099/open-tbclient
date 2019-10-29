@@ -1,7 +1,6 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.support.v4.view.PointerIconCompat;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class e implements com.xiaomi.push.service.awake.module.g {
@@ -27,7 +26,7 @@ public class e implements com.xiaomi.push.service.awake.module.g {
     public void c(Context context, HashMap<String, String> hashMap) {
         com.xiaomi.channel.commonutils.logger.b.a("MoleInfo：\u3000" + com.xiaomi.push.service.awake.a.b(hashMap));
         String str = hashMap.get("awake_info");
-        if (String.valueOf((int) PointerIconCompat.TYPE_CROSSHAIR).equals(hashMap.get("event_type"))) {
+        if (String.valueOf(1007).equals(hashMap.get("event_type"))) {
             o.a(context, str);
         }
     }

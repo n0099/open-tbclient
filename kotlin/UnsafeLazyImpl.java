@@ -8,16 +8,16 @@ public final class UnsafeLazyImpl<T> implements Serializable, a<T> {
     private kotlin.jvm.a.a<? extends T> initializer;
 
     public UnsafeLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
-        p.k(aVar, "initializer");
+        p.i(aVar, "initializer");
         this.initializer = aVar;
-        this._value = d.kuL;
+        this._value = d.kvt;
     }
 
     public T getValue() {
-        if (this._value == d.kuL) {
+        if (this._value == d.kvt) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar == null) {
-                p.cOR();
+                p.cMY();
             }
             this._value = aVar.invoke();
             this.initializer = null;
@@ -26,7 +26,7 @@ public final class UnsafeLazyImpl<T> implements Serializable, a<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != d.kuL;
+        return this._value != d.kvt;
     }
 
     public String toString() {

@@ -17,7 +17,7 @@ public class d implements com.baidu.swan.game.ad.b.b {
     public void a(String str, ResponseCallback<com.baidu.swan.game.ad.a.b> responseCallback) {
         this.a = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
         if (this.a) {
-            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.EL().Fj()).build().executeAsync(responseCallback);
+            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.JF().Kd()).build().executeAsync(responseCallback);
             return;
         }
         HttpManager.getDefault(this.b).getRequest().url(str).build().executeAsync(responseCallback);
@@ -27,7 +27,7 @@ public class d implements com.baidu.swan.game.ad.b.b {
     public void a(String str) {
         this.a = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
         if (this.a) {
-            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.EL().Fj()).build().executeAsync(null);
+            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.JF().Kd()).build().executeAsync(null);
             return;
         }
         HttpManager.getDefault(this.b).getRequest().url(str).build().executeAsync(null);

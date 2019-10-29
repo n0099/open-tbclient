@@ -1,150 +1,111 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
+import android.content.res.Resources;
+import android.os.Build;
 import android.text.TextUtils;
-import com.vivo.push.cache.ClientConfigManagerImpl;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.vivo.push.model.InsideNotificationItem;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
-public final class i extends AsyncTask<String, Void, List<Bitmap>> {
-    private Context a;
-    private InsideNotificationItem b;
-    private long c;
-    private boolean d;
-    private int e = 0;
+public final class i implements BaseNotifyDataAdapter {
+    private Resources a;
+    private String b;
+    private String c;
+    private String d;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // android.os.AsyncTask
-    protected final /* synthetic */ void onPostExecute(List<Bitmap> list) {
-        List<Bitmap> list2 = list;
-        super.onPostExecute(list2);
-        m.c("ImageDownTask", "onPostExecute");
-        if (this.b == null) {
-            return;
+    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    public final void init(Context context) {
+        String replace;
+        this.b = context.getPackageName();
+        this.a = context.getResources();
+        this.c = k.a();
+        String str = Build.VERSION.RELEASE;
+        if (TextUtils.isEmpty(str)) {
+            replace = null;
+        } else {
+            replace = str.replace(DefaultConfig.TOKEN_SEPARATOR, "");
         }
-        t.b().a("com.vivo.push.notify_key", this.c);
-        NotifyAdapterUtil.pushNotification(this.a, list2, this.b, this.c, this.e);
+        this.d = replace;
     }
 
-    public i(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
-        this.a = context;
-        this.b = insideNotificationItem;
-        this.c = j;
-        this.d = z;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [71=5, 73=4, 76=4] */
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public List<Bitmap> doInBackground(String... strArr) {
-        InputStream inputStream;
-        Bitmap bitmap;
-        InputStream inputStream2;
-        int i = 0;
-        InputStream inputStream3 = null;
-        this.e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
-        if (!this.d) {
-            m.d("ImageDownTask", "bitmap is not display by forbid net");
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
+    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    public final int getDefaultNotifyIcon() {
+        int i;
+        String str = this.d;
         while (true) {
-            int i2 = i;
-            if (i2 >= 2) {
-                return arrayList;
-            }
-            String str = strArr[i2];
-            m.d("ImageDownTask", "imgUrl=" + str + " i=" + i2);
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                    httpURLConnection.setConnectTimeout(30000);
-                    httpURLConnection.setDoInput(true);
-                    httpURLConnection.setUseCaches(false);
-                    httpURLConnection.connect();
-                    int responseCode = httpURLConnection.getResponseCode();
-                    m.c("ImageDownTask", "code=" + responseCode);
-                    if (responseCode == 200) {
-                        inputStream = httpURLConnection.getInputStream();
-                        try {
-                            try {
-                                bitmap = BitmapFactory.decodeStream(inputStream);
-                                inputStream2 = inputStream;
-                            } catch (Throwable th) {
-                                inputStream3 = inputStream;
-                                th = th;
-                                if (inputStream3 != null) {
-                                    try {
-                                        inputStream3.close();
-                                    } catch (Exception e) {
-                                    }
-                                }
-                                throw th;
-                            }
-                        } catch (MalformedURLException e2) {
-                            m.a("ImageDownTask", "MalformedURLException");
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                    bitmap = null;
-                                } catch (Exception e3) {
-                                    bitmap = null;
-                                }
-                                arrayList.add(bitmap);
-                                i = i2 + 1;
-                            }
-                            bitmap = null;
-                            arrayList.add(bitmap);
-                            i = i2 + 1;
-                        } catch (IOException e4) {
-                            m.a("ImageDownTask", "IOException");
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                    bitmap = null;
-                                } catch (Exception e5) {
-                                    bitmap = null;
-                                }
-                                arrayList.add(bitmap);
-                                i = i2 + 1;
-                            }
-                            bitmap = null;
-                            arrayList.add(bitmap);
-                            i = i2 + 1;
-                        }
-                    } else {
-                        inputStream2 = null;
-                        bitmap = null;
-                    }
-                    if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (Exception e6) {
-                        }
-                    }
-                } catch (MalformedURLException e7) {
-                    inputStream = null;
-                } catch (IOException e8) {
-                    inputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
+            if (Build.VERSION.SDK_INT < 26) {
+                i = -1;
+                break;
+            } else if (TextUtils.isEmpty(str)) {
+                p.d("DefaultNotifyDataAdapter", "systemVersion is not suit ");
+                i = -1;
+                break;
+            } else {
+                String str2 = "vivo_push_ard" + str + "_notifyicon";
+                int identifier = this.a.getIdentifier(str2, "drawable", this.b);
+                if (identifier > 0) {
+                    p.d("DefaultNotifyDataAdapter", "get notify icon : " + str2);
+                    i = identifier;
+                    break;
                 }
-                arrayList.add(bitmap);
-            } else if (i2 == 0) {
-                arrayList.add(null);
+                p.d("DefaultNotifyDataAdapter", "get notify error icon : " + str2);
+                str = str.substring(0, str.length() - 1);
             }
-            i = i2 + 1;
         }
+        return i != -1 ? i : a(this.c);
+    }
+
+    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    public final int getDefaultSmallIconId() {
+        int i;
+        String str = this.d;
+        while (true) {
+            if (Build.VERSION.SDK_INT < 26) {
+                i = -1;
+                break;
+            } else if (TextUtils.isEmpty(str)) {
+                p.d("DefaultNotifyDataAdapter", "systemVersion is not suit ");
+                i = -1;
+                break;
+            } else {
+                String str2 = "vivo_push_ard" + str + "_icon";
+                int identifier = this.a.getIdentifier(str2, "drawable", this.b);
+                if (identifier > 0) {
+                    p.d("DefaultNotifyDataAdapter", "get small icon : " + str2);
+                    i = identifier;
+                    break;
+                }
+                p.d("DefaultNotifyDataAdapter", "get small error icon : " + str2);
+                str = str.substring(0, str.length() - 1);
+            }
+        }
+        return i != -1 ? i : b(this.c);
+    }
+
+    private int a(String str) {
+        while (!TextUtils.isEmpty(str)) {
+            int identifier = this.a.getIdentifier("vivo_push_rom" + str + "_notifyicon", "drawable", this.b);
+            if (identifier > 0) {
+                return identifier;
+            }
+            str = str.substring(0, str.length() - 1);
+        }
+        return this.a.getIdentifier("vivo_push_notifyicon", "drawable", this.b);
+    }
+
+    private int b(String str) {
+        while (!TextUtils.isEmpty(str)) {
+            int identifier = this.a.getIdentifier("vivo_push_rom" + str + "_icon", "drawable", this.b);
+            if (identifier > 0) {
+                return identifier;
+            }
+            str = str.substring(0, str.length() - 1);
+        }
+        return this.a.getIdentifier("vivo_push_icon", "drawable", this.b);
+    }
+
+    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    public final int getNotifyMode(InsideNotificationItem insideNotificationItem) {
+        return Build.VERSION.SDK_INT >= 21 ? 2 : 1;
     }
 }

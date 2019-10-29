@@ -6,7 +6,7 @@ import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize bSF = null;
+    private static LocalViewSize cje = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -15,17 +15,17 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize aiD() {
-        if (bSF == null) {
-            bSF = new LocalViewSize();
+    public static LocalViewSize amo() {
+        if (cje == null) {
+            cje = new LocalViewSize();
         }
-        return bSF;
+        return cje;
     }
 
     private LocalViewSize() {
     }
 
-    public void ae(Context context) {
+    public void initial(Context context) {
         this.mContext = context;
     }
 
@@ -60,28 +60,28 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int aiE() {
-        int af = com.baidu.adp.lib.util.l.af(this.mContext);
-        if (af >= 1080) {
+    public int getEquipmentWidth() {
+        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
+        if (equipmentWidth >= 1080) {
             return 1080;
         }
-        if (af < 720 || af >= 1080) {
+        if (equipmentWidth < 720 || equipmentWidth >= 1080) {
             return CameraInterface.DEFAULT_PREVIEW_HEIGHT;
         }
         return 720;
     }
 
-    public ImageSize aiF() {
+    public ImageSize amp() {
         int i = 240;
-        int af = com.baidu.adp.lib.util.l.af(this.mContext);
-        if (af < 240) {
-            i = af / 3;
-        } else if (af <= 320) {
+        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
+        if (equipmentWidth < 240) {
+            i = equipmentWidth / 3;
+        } else if (equipmentWidth <= 320) {
             i = 80;
-        } else if (af <= 480) {
+        } else if (equipmentWidth <= 480) {
             i = 160;
-        } else if (af > 720) {
-            i = af / 3;
+        } else if (equipmentWidth > 720) {
+            i = equipmentWidth / 3;
         }
         ImageSize imageSize = new ImageSize();
         imageSize.height = i;
@@ -89,15 +89,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize aiG() {
+    public ImageSize amq() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.util.l.ah(this.mContext);
-        imageSize.width = com.baidu.adp.lib.util.l.af(this.mContext);
+        imageSize.height = com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext);
+        imageSize.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
         return imageSize;
     }
 
-    public int aiH() {
-        ImageSize aiF = aiF();
-        return aiF.height >= aiF.width ? aiF.height : aiF.width;
+    public int getMsgSPicMaxSizeInt() {
+        ImageSize amp = amp();
+        return amp.height >= amp.width ? amp.height : amp.width;
     }
 }

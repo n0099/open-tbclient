@@ -4,17 +4,16 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean cxX;
+    private static boolean cJN;
 
     static {
-        cxX = false;
-        cxX = b.ahU().getInt("key_lcs_log_switch", 0) == 1;
-        if (cxX) {
+        cJN = false;
+        cJN = b.alR().getInt("key_lcs_log_switch", 0) == 1;
+        if (cJN) {
             registerTask();
         }
     }
@@ -27,14 +26,14 @@ public class a {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static void c(int i, int i2, int i3, int i4, int i5) {
+    public static void d(int i, int i2, int i3, int i4, int i5) {
         e(i, i2, i3, i4, i5, 0);
     }
 
     public static void e(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (cxX) {
+        if (cJN) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
-            httpMessage.addParam(IntentConfig.CMD, i);
+            httpMessage.addParam("cmd", i);
             httpMessage.addParam("lcs_status", i2);
             httpMessage.addParam("online_status", i3);
             httpMessage.addParam("status_change_name", i4);

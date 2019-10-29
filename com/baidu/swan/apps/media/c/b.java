@@ -10,20 +10,20 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String aCY;
-    public static String aCZ;
-    public static String aDa;
-    public static String aDb;
-    private UnitedSchemeEntity aAL;
-    private CallbackHandler aAM;
+    public static String aWn;
+    public static String aWo;
+    public static String aWp;
+    public static String aWq;
+    private UnitedSchemeEntity aTZ;
+    private CallbackHandler aUa;
 
     private b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4) {
-        this.aAM = callbackHandler;
-        this.aAL = unitedSchemeEntity;
-        aCY = str;
-        aDa = str4;
-        aCZ = str2;
-        aDb = str3;
+        this.aUa = callbackHandler;
+        this.aTZ = unitedSchemeEntity;
+        aWn = str;
+        aWp = str4;
+        aWo = str2;
+        aWq = str3;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -46,21 +46,21 @@ public class b {
         return bVar;
     }
 
-    public void fq(String str) {
+    public void fW(String str) {
         f(str, null);
     }
 
     public void f(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.aAM, this.aAL, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.aUa, this.aTZ, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }
         }
     }
 
-    public void n(int i, String str) {
+    public void r(int i, String str) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -69,7 +69,7 @@ public class b {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            f(aDb, jSONObject);
+            f(aWq, jSONObject);
         }
     }
 }

@@ -14,60 +14,60 @@ import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class b {
-    private static b bWl = null;
+    private static b clr = null;
     private HashMap<String, a> mCache = new HashMap<>();
 
     private b() {
     }
 
-    public static b ajZ() {
-        if (bWl == null) {
+    public static b and() {
+        if (clr == null) {
             synchronized (b.class) {
-                if (bWl == null) {
-                    bWl = new b();
+                if (clr == null) {
+                    clr = new b();
                 }
             }
         }
-        return bWl;
+        return clr;
     }
 
-    public c oB(String str) {
+    public c oc(String str) {
         c cVar = new c();
         a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.be(System.currentTimeMillis()) && aVar.ajY() != null && aVar.ajY().size() > 0) {
-            cVar.oF(aVar.ajY().get(0));
+        if (aVar != null && !aVar.aW(System.currentTimeMillis()) && aVar.anc() != null && aVar.anc().size() > 0) {
+            cVar.oh(aVar.anc().get(0));
         }
         return cVar;
     }
 
-    public c oC(String str) {
+    public c od(String str) {
         c cVar = new c();
         if (k.isEmpty(str)) {
             return cVar;
         }
         a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.be(System.currentTimeMillis()) && aVar.ajY() != null && aVar.ajY().size() > 0) {
-            cVar.oF(aVar.ajY().get(0));
+        if (aVar != null && !aVar.aW(System.currentTimeMillis()) && aVar.anc() != null && aVar.anc().size() > 0) {
+            cVar.oh(aVar.anc().get(0));
             return cVar;
         }
         int i = 0;
         while (i < 2) {
-            cVar.akb();
-            cVar.ej(i == 1);
+            cVar.anf();
+            cVar.eo(i == 1);
             long currentTimeMillis = System.currentTimeMillis();
             a a = a(str, cVar);
-            cVar.bf(System.currentTimeMillis() - currentTimeMillis);
-            if (a != null && a.ajY() != null && a.ajY().size() > 0) {
-                a.bd(300L);
+            cVar.aX(System.currentTimeMillis() - currentTimeMillis);
+            if (a != null && a.anc() != null && a.anc().size() > 0) {
+                a.aV(300L);
                 this.mCache.put(str, a);
-                cVar.oF(a.ajY().get(0));
+                cVar.oh(a.anc().get(0));
                 return cVar;
             }
             a aVar2 = this.mCache.get(str);
-            if (aVar2 == null || aVar2.ajY() == null || aVar2.ajY().size() <= 0) {
+            if (aVar2 == null || aVar2.anc() == null || aVar2.anc().size() <= 0) {
                 i++;
             } else {
-                cVar.oF(aVar2.ajY().get(0));
+                cVar.oh(aVar2.anc().get(0));
                 return cVar;
             }
         }
@@ -95,10 +95,10 @@ public class b {
         if (k.isEmpty(str)) {
             return null;
         }
-        cVar.eh(true);
+        cVar.em(true);
         StringBuffer stringBuffer = new StringBuffer();
         try {
-            if (cVar.aka()) {
+            if (cVar.ane()) {
                 HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL("http://180.76.76.112/v2/0011/?dn=" + str).openConnection();
                 try {
                     httpURLConnection3.setDoOutput(true);
@@ -116,7 +116,7 @@ public class b {
                     inputStream = null;
                     e = e;
                     httpURLConnection = httpURLConnection3;
-                    cVar.oD(e.getClass().getName());
+                    cVar.oe(e.getClass().getName());
                     if (e instanceof SSLException) {
                     }
                     e.printStackTrace();
@@ -158,7 +158,7 @@ public class b {
                     public boolean verify(String str2, SSLSession sSLSession) {
                         boolean verify = HttpsURLConnection.getDefaultHostnameVerifier().verify("httpsdns.baidu.com", sSLSession);
                         if (!verify) {
-                            cVar.ei(true);
+                            cVar.en(true);
                         }
                         return verify;
                     }
@@ -182,9 +182,9 @@ public class b {
                                 stringBuffer.append(readLine);
                             } catch (Exception e2) {
                                 e = e2;
-                                cVar.oD(e.getClass().getName());
+                                cVar.oe(e.getClass().getName());
                                 if (e instanceof SSLException) {
-                                    cVar.ei(true);
+                                    cVar.en(true);
                                 }
                                 e.printStackTrace();
                                 if (inputStreamReader != null) {
@@ -229,13 +229,13 @@ public class b {
                     }
                     a aVar = new a();
                     aVar.setStartTime(System.currentTimeMillis());
-                    cVar.akb();
-                    a oA = aVar.oA(stringBuffer.toString());
+                    cVar.anf();
+                    a ob = aVar.ob(stringBuffer.toString());
                     if (inputStreamReader != null) {
                         try {
                             inputStreamReader.close();
                         } catch (Exception e5) {
-                            return oA;
+                            return ob;
                         }
                     }
                     if (inputStream != null) {
@@ -246,9 +246,9 @@ public class b {
                     }
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
-                        return oA;
+                        return ob;
                     }
-                    return oA;
+                    return ob;
                 } catch (Exception e6) {
                     e = e6;
                     bufferedReader = null;

@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes4.dex */
 public final class c {
-    public static byte[] K(byte[] bArr) {
+    public static byte[] y(byte[] bArr) {
         byte[] bArr2;
         Exception e;
         ByteArrayOutputStream byteArrayOutputStream;

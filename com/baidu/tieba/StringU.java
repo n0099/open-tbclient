@@ -5,20 +5,20 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
 public class StringU {
-    private static boolean cUY;
+    private static boolean deu;
 
     private static native String toUpper(String str);
 
     static {
         try {
-            cUY = h.jN().h("stringu", 2);
-            if (cUY) {
-                am("stringu_so_load_success", null);
+            deu = h.gX().loadLibrary("stringu", 2);
+            if (deu) {
+                au("stringu_so_load_success", null);
             } else {
-                am("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
+                au("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
             }
         } catch (Exception e) {
-            am("stringu_so_load_fail", e.getMessage());
+            au("stringu_so_load_fail", e.getMessage());
         }
     }
 
@@ -27,18 +27,18 @@ public class StringU {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String rV(String str) {
+    public static String qF(String str) {
         String str2;
         String str3 = "";
-        if (cUY && !TextUtils.isEmpty(str)) {
+        if (deu && !TextUtils.isEmpty(str)) {
             try {
                 str3 = toUpper(str);
                 if (TextUtils.isEmpty(str3)) {
-                    am("stringu_m_result_null", null);
+                    au("stringu_m_result_null", null);
                 }
                 str2 = str3;
             } catch (Exception e) {
-                am("stringu_m_call_fail", e.getMessage());
+                au("stringu_m_call_fail", e.getMessage());
             }
             return str2 != null ? "" : str2;
         }
@@ -47,7 +47,7 @@ public class StringU {
         }
     }
 
-    private static void am(String str, String str2) {
+    private static void au(String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
             BdStatisticsManager.getInstance().eventStat(null, str, null, 1, new Object[0]);
         } else {

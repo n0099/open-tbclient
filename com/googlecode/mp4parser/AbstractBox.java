@@ -6,7 +6,6 @@ import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import com.googlecode.mp4parser.util.CastUtils;
 import com.googlecode.mp4parser.util.Logger;
@@ -98,13 +97,13 @@ public abstract class AbstractBox implements Box {
                 writableByteChannel.write((ByteBuffer) allocate.rewind());
                 return;
             }
-            ByteBuffer allocate2 = ByteBuffer.allocate((isSmallBox() ? 8 : 16) + (UserBox.TYPE.equals(getType()) ? 16 : 0));
+            ByteBuffer allocate2 = ByteBuffer.allocate((isSmallBox() ? 8 : 16) + ("uuid".equals(getType()) ? 16 : 0));
             getHeader(allocate2);
             writableByteChannel.write((ByteBuffer) allocate2.rewind());
             writableByteChannel.write((ByteBuffer) this.content.position(0));
             return;
         }
-        ByteBuffer allocate3 = ByteBuffer.allocate((isSmallBox() ? 8 : 16) + (UserBox.TYPE.equals(getType()) ? 16 : 0));
+        ByteBuffer allocate3 = ByteBuffer.allocate((isSmallBox() ? 8 : 16) + ("uuid".equals(getType()) ? 16 : 0));
         getHeader(allocate3);
         writableByteChannel.write((ByteBuffer) allocate3.rewind());
         this.dataSource.transferTo(this.contentStartPosition, this.memMapSize, writableByteChannel);
@@ -142,7 +141,7 @@ public abstract class AbstractBox implements Box {
         } else {
             j = this.content != null ? this.content.limit() : 0;
         }
-        return (this.deadBytes != null ? this.deadBytes.limit() : 0) + j + (UserBox.TYPE.equals(getType()) ? 16 : 0) + (j >= 4294967288L ? 8 : 0) + 8;
+        return (this.deadBytes != null ? this.deadBytes.limit() : 0) + j + ("uuid".equals(getType()) ? 16 : 0) + (j >= 4294967288L ? 8 : 0) + 8;
     }
 
     @Override // com.coremedia.iso.boxes.Box
@@ -213,7 +212,7 @@ public abstract class AbstractBox implements Box {
 
     private boolean isSmallBox() {
         int i = 8;
-        if (UserBox.TYPE.equals(getType())) {
+        if ("uuid".equals(getType())) {
             i = 24;
         }
         if (!this.isRead) {
@@ -234,7 +233,7 @@ public abstract class AbstractBox implements Box {
             byteBuffer.put(IsoFile.fourCCtoBytes(getType()));
             IsoTypeWriter.writeUInt64(byteBuffer, getSize());
         }
-        if (UserBox.TYPE.equals(getType())) {
+        if ("uuid".equals(getType())) {
             byteBuffer.put(getUserType());
         }
     }

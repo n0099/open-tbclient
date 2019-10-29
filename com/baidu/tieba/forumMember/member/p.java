@@ -4,47 +4,47 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes5.dex */
 public class p implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId ftl = BdUniqueId.gen();
-    private String fto;
-    private String ftp;
-    private int ftm = -1;
-    private int ftn = -1;
-    private int ftq = -1;
+    public static final BdUniqueId fsy = BdUniqueId.gen();
+    private String fsB;
+    private String fsC;
+    private int fsz = -1;
+    private int fsA = -1;
+    private int fsD = -1;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return ftl;
+        return fsy;
     }
 
-    public void rj(int i) {
-        this.ftm = i;
+    public void qc(int i) {
+        this.fsz = i;
     }
 
-    public void rk(int i) {
-        this.ftq = i;
+    public void qd(int i) {
+        this.fsD = i;
     }
 
-    public int blu() {
-        return this.ftn;
+    public int biA() {
+        return this.fsA;
     }
 
-    public void rl(int i) {
-        this.ftn = i;
+    public void qe(int i) {
+        this.fsA = i;
     }
 
-    public void xm(String str) {
-        this.fto = str;
+    public void vE(String str) {
+        this.fsB = str;
     }
 
-    public String blv() {
-        return this.ftp;
+    public String biB() {
+        return this.fsC;
     }
 
-    public void xn(String str) {
-        this.ftp = str;
+    public void vF(String str) {
+        this.fsC = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.fto) || StringUtils.isNull(this.ftp) || this.ftm < 0 || this.ftn < 0;
+        return StringUtils.isNull(this.fsB) || StringUtils.isNull(this.fsC) || this.fsz < 0 || this.fsA < 0;
     }
 }

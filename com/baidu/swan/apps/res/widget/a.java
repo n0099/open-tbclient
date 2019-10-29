@@ -11,20 +11,20 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
-    public static final int aNZ = Color.parseColor("#80000000");
-    public static final boolean aOa = Lq();
-    private static int aOb;
+    public static final int bhh = Color.parseColor("#80000000");
+    public static final boolean bhi = Qj();
+    private static int bhj;
 
     static {
-        aOb = 0;
+        bhj = 0;
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            aOb = 1;
+            bhj = 1;
         } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
-            aOb = 2;
+            bhj = 2;
         }
     }
 
-    private static boolean Lq() {
+    private static boolean Qj() {
         boolean z = Build.VERSION.SDK_INT >= 21;
         if (DEBUG) {
             return z & t.getBoolean("sp_key_immersion_switch", z);
@@ -32,7 +32,7 @@ public class a {
         return z;
     }
 
-    public static void a(Dialog dialog) {
+    public static void b(Dialog dialog) {
         if (Build.VERSION.SDK_INT >= 21) {
             int color = dialog.getContext().getResources().getColor(a.c.aiapps_dialog_immersion_status_bar_color);
             Window window = dialog.getWindow();
@@ -42,7 +42,7 @@ public class a {
         }
     }
 
-    public static boolean b(Dialog dialog) {
+    public static boolean c(Dialog dialog) {
         return ((dialog.getWindow().getAttributes().systemUiVisibility | dialog.getWindow().getDecorView().getSystemUiVisibility()) & 2) != 0;
     }
 }

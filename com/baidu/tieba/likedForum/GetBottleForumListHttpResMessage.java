@@ -1,7 +1,6 @@
 package com.baidu.tieba.likedForum;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
@@ -11,7 +10,7 @@ public class GetBottleForumListHttpResMessage extends HttpResponsedMessage {
     public List<ForumInfo> mBottleForumList;
 
     public GetBottleForumListHttpResMessage() {
-        super(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST);
+        super(1003316);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

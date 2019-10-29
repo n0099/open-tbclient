@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public final class c {
-    public static boolean U(Context context, String str) {
+    public static boolean T(Context context, String str) {
         boolean z = false;
         if (context != null && !TextUtils.isEmpty(str)) {
             InputStream inputStream = null;
@@ -43,7 +43,7 @@ public final class c {
         return z;
     }
 
-    public static String V(Context context, String str) {
+    public static String U(Context context, String str) {
         Throwable th;
         InputStream inputStream;
         String str2 = null;
@@ -52,22 +52,22 @@ public final class c {
                 inputStream = context.getAssets().open(str);
                 if (inputStream != null) {
                     try {
-                        str2 = com.baidu.swan.c.e.k(inputStream);
-                        com.baidu.swan.c.a.c(inputStream);
+                        str2 = com.baidu.swan.c.e.i(inputStream);
+                        com.baidu.swan.c.a.b(inputStream);
                     } catch (IOException e) {
                         e = e;
                         if (com.baidu.swan.apps.b.DEBUG) {
                             Log.w("AssetUtils", "loadPresetDatas", e);
                         }
-                        com.baidu.swan.c.a.c(inputStream);
+                        com.baidu.swan.c.a.b(inputStream);
                         return str2;
                     }
                 } else {
-                    com.baidu.swan.c.a.c(inputStream);
+                    com.baidu.swan.c.a.b(inputStream);
                 }
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.swan.c.a.c(null);
+                com.baidu.swan.c.a.b(null);
                 throw th;
             }
         } catch (IOException e2) {
@@ -75,7 +75,7 @@ public final class c {
             inputStream = null;
         } catch (Throwable th3) {
             th = th3;
-            com.baidu.swan.c.a.c(null);
+            com.baidu.swan.c.a.b(null);
             throw th;
         }
         return str2;

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EnterForumInfoMessage extends CustomResponsedMessage<List<String>> {
@@ -15,7 +16,7 @@ public class EnterForumInfoMessage extends CustomResponsedMessage<List<String>> 
     }
 
     public EnterForumInfoMessage(int i, List<String> list) {
-        super(2001329, list);
+        super(CmdConfigCustom.CMD_ENTER_FORUM_INFO, list);
         this.likeForumData = list;
     }
 }

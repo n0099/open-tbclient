@@ -1,7 +1,6 @@
 package com.baidu.location;
 
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 /* loaded from: classes3.dex */
 public final class LocationClientOption {
@@ -49,7 +48,7 @@ public final class LocationClientOption {
 
     public LocationClientOption() {
         this.coorType = CoordinateType.GCJ02;
-        this.addrType = DpStatConstants.KEY_DETAIL;
+        this.addrType = "detail";
         this.openGps = false;
         this.scanSpan = 0;
         this.timeOut = 12000;
@@ -77,7 +76,7 @@ public final class LocationClientOption {
 
     public LocationClientOption(LocationClientOption locationClientOption) {
         this.coorType = CoordinateType.GCJ02;
-        this.addrType = DpStatConstants.KEY_DETAIL;
+        this.addrType = "detail";
         this.openGps = false;
         this.scanSpan = 0;
         this.timeOut = 12000;

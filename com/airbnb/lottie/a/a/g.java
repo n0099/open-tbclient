@@ -18,45 +18,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class g implements d, a.InterfaceC0007a {
-    private final com.airbnb.lottie.f kB;
-    private final com.airbnb.lottie.a.b.a<Integer, Integer> lW;
-    private final com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.c, com.airbnb.lottie.model.content.c> mj;
-    private final GradientType mo;
-    private final com.airbnb.lottie.a.b.a<PointF, PointF> mp;
-    private final com.airbnb.lottie.a.b.a<PointF, PointF> mq;
-    private final int mr;
+    private final com.airbnb.lottie.f dh;
+    private final com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.c, com.airbnb.lottie.model.content.c> eJ;
+    private final GradientType eO;
+    private final com.airbnb.lottie.a.b.a<PointF, PointF> eP;
+    private final com.airbnb.lottie.a.b.a<PointF, PointF> eQ;
+    private final int eR;
+    private final com.airbnb.lottie.a.b.a<Integer, Integer> ex;
     private final String name;
-    private final LongSparseArray<LinearGradient> mk = new LongSparseArray<>();
-    private final LongSparseArray<RadialGradient> ml = new LongSparseArray<>();
-    private final Matrix mm = new Matrix();
-    private final Path lR = new Path();
+    private final LongSparseArray<LinearGradient> eK = new LongSparseArray<>();
+    private final LongSparseArray<RadialGradient> eL = new LongSparseArray<>();
+    private final Matrix eM = new Matrix();
+    private final Path path = new Path();
     private final Paint paint = new Paint(1);
-    private final RectF mn = new RectF();
-    private final List<k> lZ = new ArrayList();
+    private final RectF eN = new RectF();
+    private final List<k> eA = new ArrayList();
 
     public g(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.d dVar) {
         this.name = dVar.getName();
-        this.kB = fVar;
-        this.mo = dVar.dd();
-        this.lR.setFillType(dVar.de());
-        this.mr = (int) (fVar.bQ().getDuration() / 32);
-        this.mj = dVar.df().cF();
-        this.mj.b(this);
-        aVar.a(this.mj);
-        this.lW = dVar.cU().cF();
-        this.lW.b(this);
-        aVar.a(this.lW);
-        this.mp = dVar.dg().cF();
-        this.mp.b(this);
-        aVar.a(this.mp);
-        this.mq = dVar.dh().cF();
-        this.mq.b(this);
-        aVar.a(this.mq);
+        this.dh = fVar;
+        this.eO = dVar.cw();
+        this.path.setFillType(dVar.cx());
+        this.eR = (int) (fVar.bj().getDuration() / 32);
+        this.eJ = dVar.cy().bY();
+        this.eJ.b(this);
+        aVar.a(this.eJ);
+        this.ex = dVar.cn().bY();
+        this.ex.b(this);
+        aVar.a(this.ex);
+        this.eP = dVar.cz().bY();
+        this.eP.b(this);
+        aVar.a(this.eP);
+        this.eQ = dVar.cA().bY();
+        this.eQ.b(this);
+        aVar.a(this.eQ);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void ca() {
-        this.kB.invalidateSelf();
+    public void bt() {
+        this.dh.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -67,7 +67,7 @@ public class g implements d, a.InterfaceC0007a {
             if (i2 < list2.size()) {
                 b bVar = list2.get(i2);
                 if (bVar instanceof k) {
-                    this.lZ.add((k) bVar);
+                    this.eA.add((k) bVar);
                 }
                 i = i2 + 1;
             } else {
@@ -78,33 +78,33 @@ public class g implements d, a.InterfaceC0007a {
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        Shader cf;
+        Shader by;
         com.airbnb.lottie.d.beginSection("GradientFillContent#draw");
-        this.lR.reset();
-        for (int i2 = 0; i2 < this.lZ.size(); i2++) {
-            this.lR.addPath(this.lZ.get(i2).cd(), matrix);
+        this.path.reset();
+        for (int i2 = 0; i2 < this.eA.size(); i2++) {
+            this.path.addPath(this.eA.get(i2).bw(), matrix);
         }
-        this.lR.computeBounds(this.mn, false);
-        if (this.mo == GradientType.Linear) {
-            cf = ce();
+        this.path.computeBounds(this.eN, false);
+        if (this.eO == GradientType.Linear) {
+            by = bx();
         } else {
-            cf = cf();
+            by = by();
         }
-        this.mm.set(matrix);
-        cf.setLocalMatrix(this.mm);
-        this.paint.setShader(cf);
-        this.paint.setAlpha((int) (((this.lW.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f));
-        canvas.drawPath(this.lR, this.paint);
+        this.eM.set(matrix);
+        by.setLocalMatrix(this.eM);
+        this.paint.setShader(by);
+        this.paint.setAlpha((int) (((this.ex.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f));
+        canvas.drawPath(this.path, this.paint);
         com.airbnb.lottie.d.D("GradientFillContent#draw");
     }
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.lR.reset();
-        for (int i = 0; i < this.lZ.size(); i++) {
-            this.lR.addPath(this.lZ.get(i).cd(), matrix);
+        this.path.reset();
+        for (int i = 0; i < this.eA.size(); i++) {
+            this.path.addPath(this.eA.get(i).bw(), matrix);
         }
-        this.lR.computeBounds(rectF, false);
+        this.path.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
     }
 
@@ -117,42 +117,42 @@ public class g implements d, a.InterfaceC0007a {
         return this.name;
     }
 
-    private LinearGradient ce() {
-        int cg = cg();
-        LinearGradient linearGradient = this.mk.get(cg);
+    private LinearGradient bx() {
+        int bz = bz();
+        LinearGradient linearGradient = this.eK.get(bz);
         if (linearGradient == null) {
-            PointF value = this.mp.getValue();
-            PointF value2 = this.mq.getValue();
-            com.airbnb.lottie.model.content.c value3 = this.mj.getValue();
-            LinearGradient linearGradient2 = new LinearGradient(value.x, value.y, value2.x, value2.y, value3.getColors(), value3.dc(), Shader.TileMode.CLAMP);
-            this.mk.put(cg, linearGradient2);
+            PointF value = this.eP.getValue();
+            PointF value2 = this.eQ.getValue();
+            com.airbnb.lottie.model.content.c value3 = this.eJ.getValue();
+            LinearGradient linearGradient2 = new LinearGradient(value.x, value.y, value2.x, value2.y, value3.getColors(), value3.cv(), Shader.TileMode.CLAMP);
+            this.eK.put(bz, linearGradient2);
             return linearGradient2;
         }
         return linearGradient;
     }
 
-    private RadialGradient cf() {
-        int cg = cg();
-        RadialGradient radialGradient = this.ml.get(cg);
+    private RadialGradient by() {
+        int bz = bz();
+        RadialGradient radialGradient = this.eL.get(bz);
         if (radialGradient == null) {
-            PointF value = this.mp.getValue();
-            PointF value2 = this.mq.getValue();
-            com.airbnb.lottie.model.content.c value3 = this.mj.getValue();
+            PointF value = this.eP.getValue();
+            PointF value2 = this.eQ.getValue();
+            com.airbnb.lottie.model.content.c value3 = this.eJ.getValue();
             int[] colors = value3.getColors();
-            float[] dc = value3.dc();
+            float[] cv = value3.cv();
             float f = value.x;
             float f2 = value.y;
-            RadialGradient radialGradient2 = new RadialGradient(f, f2, (float) Math.hypot(value2.x - f, value2.y - f2), colors, dc, Shader.TileMode.CLAMP);
-            this.ml.put(cg, radialGradient2);
+            RadialGradient radialGradient2 = new RadialGradient(f, f2, (float) Math.hypot(value2.x - f, value2.y - f2), colors, cv, Shader.TileMode.CLAMP);
+            this.eL.put(bz, radialGradient2);
             return radialGradient2;
         }
         return radialGradient;
     }
 
-    private int cg() {
-        int round = Math.round(this.mp.getProgress() * this.mr);
-        int round2 = Math.round(this.mq.getProgress() * this.mr);
-        int round3 = Math.round(this.mj.getProgress() * this.mr);
+    private int bz() {
+        int round = Math.round(this.eP.getProgress() * this.eR);
+        int round2 = Math.round(this.eQ.getProgress() * this.eR);
+        int round3 = Math.round(this.eJ.getProgress() * this.eR);
         int i = 17;
         if (round != 0) {
             i = round * 527;

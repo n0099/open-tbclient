@@ -10,17 +10,17 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static String bxT;
+    private static String bQz;
 
     private static String ci(Context context) {
-        return V(context, "channels/tnconfig.ini");
+        return U(context, "channels/tnconfig.ini");
     }
 
-    public static String YF() {
-        if (TextUtils.isEmpty(bxT)) {
-            bxT = cj(AppRuntime.getAppContext());
+    public static String adu() {
+        if (TextUtils.isEmpty(bQz)) {
+            bQz = cj(AppRuntime.getAppContext());
         }
-        return bxT;
+        return bQz;
     }
 
     private static String cj(Context context) {
@@ -41,7 +41,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String V(Context context, String str) {
+    private static String U(Context context, String str) {
         InputStream inputStream;
         Throwable th;
         String str2 = null;
@@ -55,20 +55,20 @@ public class c {
         }
         if (inputStream != null) {
             try {
-                str2 = e.k(inputStream);
-                a.c(inputStream);
+                str2 = e.i(inputStream);
+                a.b(inputStream);
             } catch (IOException e2) {
-                a.c(inputStream);
+                a.b(inputStream);
                 if (!TextUtils.isEmpty(str2)) {
                 }
             } catch (Throwable th3) {
                 th = th3;
-                a.c(inputStream);
+                a.b(inputStream);
                 throw th;
             }
             return !TextUtils.isEmpty(str2) ? "1023091a" : str2;
         }
-        a.c(inputStream);
+        a.b(inputStream);
         return null;
     }
 }

@@ -13,25 +13,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes5.dex */
 public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
-    private static Long gMa = 0L;
-    private static final Long gMb = Long.valueOf((long) ReportUserInfoModel.TIME_INTERVAL);
-    private final GroupCardActivity gLY;
-    private a gLZ;
+    private static Long gJZ = 0L;
+    private static final Long gKa = Long.valueOf((long) ReportUserInfoModel.TIME_INTERVAL);
+    private final GroupCardActivity gJX;
+    private a gJY;
     private String imageUrl;
     private final long mGroupId;
 
-    public static void bFk() {
-        gMa = 0L;
+    public static void bBV() {
+        gJZ = 0L;
     }
 
     public GroupCardModel(long j, GroupCardActivity groupCardActivity) {
         super(groupCardActivity.getPageContext());
-        this.gLZ = null;
+        this.gJY = null;
         this.imageUrl = TbConfig.SERVER_ADDRESS + "c/p/groupShareImg?group_id=";
         this.mGroupId = j;
         this.imageUrl += this.mGroupId;
-        this.imageUrl += "&w=" + LocalViewSize.aiD().aiE();
-        this.gLY = groupCardActivity;
+        this.imageUrl += "&w=" + LocalViewSize.amo().getEquipmentWidth();
+        this.gJX = groupCardActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,16 +44,16 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
         return false;
     }
 
-    public String bY(int i, int i2) {
-        if (System.currentTimeMillis() - gMa.longValue() > gMb.longValue()) {
-            gMa = Long.valueOf(System.currentTimeMillis());
+    public String bR(int i, int i2) {
+        if (System.currentTimeMillis() - gJZ.longValue() > gKa.longValue()) {
+            gJZ = Long.valueOf(System.currentTimeMillis());
         }
-        return this.imageUrl + "&t=" + gMa;
+        return this.imageUrl + "&t=" + gJZ;
     }
 
     public void saveImage() {
-        this.gLZ = new a();
-        this.gLZ.execute(new String[0]);
+        this.gJY = new a();
+        this.gJY.execute(new String[0]);
     }
 
     /* loaded from: classes5.dex */
@@ -69,31 +69,31 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            Bitmap nK;
+            Bitmap rawBitmap;
             try {
                 if (this.mUrl == null || this.mUrl.length() <= 0) {
-                    return GroupCardModel.this.gLY.getPageContext().getString(R.string.save_fail);
+                    return GroupCardModel.this.gJX.getPageContext().getString(R.string.save_fail);
                 }
-                String ol = as.ol(this.mUrl);
-                if (ol == null) {
-                    return GroupCardModel.this.gLY.getPageContext().getString(R.string.save_fail);
+                String nameMd5FromUrl = as.getNameMd5FromUrl(this.mUrl);
+                if (nameMd5FromUrl == null) {
+                    return GroupCardModel.this.gJX.getPageContext().getString(R.string.save_fail);
                 }
-                String str = ol + ".jpg";
-                for (int i = 0; m.nk(str) && i < 10000; i++) {
-                    str = ol + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
+                String str = nameMd5FromUrl + ".jpg";
+                for (int i = 0; m.CheckFile(str) && i < 10000; i++) {
+                    str = nameMd5FromUrl + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                 }
-                com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.iE().b(this.mUrl + "&t=" + GroupCardModel.gMa, 10, new Object[0]);
-                if (aVar != null && (nK = aVar.nK()) != null) {
-                    String a = m.a((String) null, str, nK, 80);
+                com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.fT().loadResourceFromMemery(this.mUrl + "&t=" + GroupCardModel.gJZ, 10, new Object[0]);
+                if (aVar != null && (rawBitmap = aVar.getRawBitmap()) != null) {
+                    String a = m.a(null, str, rawBitmap, 80);
                     if (a != null) {
-                        new w(GroupCardModel.this.gLY.getPageContext().getPageActivity()).nR(a);
-                        return GroupCardModel.this.gLY.getPageContext().getString(R.string.save_image_to_album);
+                        new w(GroupCardModel.this.gJX.getPageContext().getPageActivity()).saveImage(a);
+                        return GroupCardModel.this.gJX.getPageContext().getString(R.string.save_image_to_album);
                     }
-                    return m.aih();
+                    return m.getSdErrorString();
                 }
-                return GroupCardModel.this.gLY.getPageContext().getString(R.string.save_fail);
+                return GroupCardModel.this.gJX.getPageContext().getString(R.string.save_fail);
             } catch (Exception e) {
-                return GroupCardModel.this.gLY.getPageContext().getString(R.string.save_fail);
+                return GroupCardModel.this.gJX.getPageContext().getString(R.string.save_fail);
             }
         }
 
@@ -102,8 +102,8 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            GroupCardModel.this.gLY.showToast(str);
-            GroupCardModel.this.gLZ = null;
+            GroupCardModel.this.gJX.showToast(str);
+            GroupCardModel.this.gJY = null;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -114,7 +114,7 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            GroupCardModel.this.gLZ = null;
+            GroupCardModel.this.gJY = null;
             super.cancel(true);
         }
     }

@@ -2,31 +2,31 @@ package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class bt extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
+    protected void C(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_video_player_reuseable";
+        return "video_middle_page_three";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hI() {
+    protected String[] fi() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hJ() {
-        return com.baidu.tbadk.core.sharedPref.b.ahU().getInt("key_video_player_reuse_switch", 0);
+    protected int fj() {
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hK() {
+    protected int fk() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hL() {
+    protected int fl() {
         return 10;
     }
 }

@@ -8,23 +8,23 @@ import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d Dw = null;
+    private static d rB = null;
     private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config Dx = Bitmap.Config.RGB_565;
+    private Bitmap.Config mBitmapConfig = Bitmap.Config.RGB_565;
 
-    public static synchronized d jJ() {
+    public static synchronized d gW() {
         d dVar;
         synchronized (d.class) {
-            if (Dw == null) {
-                Dw = new d();
+            if (rB == null) {
+                rB = new d();
             }
-            dVar = Dw;
+            dVar = rB;
         }
         return dVar;
     }
 
-    public void ae(Context context) {
+    public void initial(Context context) {
         this.mContext = context;
     }
 
@@ -35,7 +35,7 @@ public class d {
         this.mBitmapHash.clear();
     }
 
-    public Bitmap aT(String str) {
+    public Bitmap getImageAbsolutePath(String str) {
         return BitmapFactory.decodeFile(str);
     }
 
@@ -48,7 +48,7 @@ public class d {
         }
     }
 
-    public Bitmap b(Bitmap bitmap, int i, int i2) {
+    public Bitmap resizeBitmap(Bitmap bitmap, int i, int i2) {
         float f;
         if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
             return null;

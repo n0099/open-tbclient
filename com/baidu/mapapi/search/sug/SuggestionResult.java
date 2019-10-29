@@ -2,6 +2,7 @@ package com.baidu.mapapi.search.sug;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.PoiChildrenInfo;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -130,7 +131,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
                     if (i2 >= this.poiChildrenInfoList.size()) {
                         break;
                     }
-                    stringBuffer.append(" ").append(i2).append(" ");
+                    stringBuffer.append(HanziToPinyin.Token.SEPARATOR).append(i2).append(HanziToPinyin.Token.SEPARATOR);
                     PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i2);
                     if (poiChildrenInfo == null) {
                         stringBuffer.append("null");

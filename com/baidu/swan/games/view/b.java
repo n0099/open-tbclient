@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class b {
-    private FrameLayout bmj;
-    private boolean bmk;
+    private FrameLayout bEW;
+    private boolean bEX;
 
     public b(@NonNull FrameLayout frameLayout) {
-        this.bmj = frameLayout;
+        this.bEW = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.b bVar) {
@@ -19,47 +19,47 @@ public class b {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
-        layoutParams.topMargin = bVar.Hz();
-        this.bmj.addView(view, layoutParams);
+        layoutParams.topMargin = bVar.Mt();
+        this.bEW.addView(view, layoutParams);
         return true;
     }
 
-    public boolean an(View view) {
-        if (!as(view)) {
+    public boolean at(View view) {
+        if (!ay(view)) {
             return false;
         }
-        this.bmj.removeView(view);
+        this.bEW.removeView(view);
         return true;
     }
 
     public boolean b(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        if (!as(view)) {
+        if (!ay(view)) {
             return false;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
-        layoutParams.topMargin = bVar.Hz();
-        this.bmj.updateViewLayout(view, layoutParams);
+        layoutParams.topMargin = bVar.Mt();
+        this.bEW.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.bmk;
+        return this.bEX;
     }
 
-    public void cV(boolean z) {
-        this.bmk = z;
+    public void dm(boolean z) {
+        this.bEX = z;
     }
 
-    public boolean as(View view) {
-        return view != null && view.getParent() == this.bmj && this.bmj.indexOfChild(view) >= 0;
+    public boolean ay(View view) {
+        return view != null && view.getParent() == this.bEW && this.bEW.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.bmj.getContext();
+        return this.bEW.getContext();
     }
 
-    public FrameLayout TC() {
-        return this.bmj;
+    public FrameLayout Yt() {
+        return this.bEW;
     }
 }

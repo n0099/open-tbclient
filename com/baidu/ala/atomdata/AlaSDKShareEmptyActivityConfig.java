@@ -1,0 +1,29 @@
+package com.baidu.ala.atomdata;
+
+import android.content.Context;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.c.e;
+/* loaded from: classes6.dex */
+public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
+    public static final String PACKAGE_NAME_QQ = "com.tencent.mobileqq";
+    public static final String PACKAGE_NAME_SINA_WEIBO = "com.sina.weibo";
+    public static final String PACKAGE_NAME_WEIXIN = "com.tencent.mm";
+    public static final int SHARE_ACTION_PANEL = 1;
+    public static final int SHARE_ACTION_SINGLE_CHANNEL = 2;
+    public static final String SHARE_ALA_SDK_ACTION_KEY = "action";
+    public static final String SHARE_ALA_SDK_CHANNEL_KEY = "channel";
+    public static final String SHARE_ALA_SDK_CONTENT_KEY = "content";
+    public static final String SHARE_ALA_SDK_IMAGEURI_KEY = "imageuri";
+    public static final String SHARE_ALA_SDK_LINKURL_KEY = "linkurl";
+    public static final String SHARE_ALA_SDK_TITLE_KEY = "title";
+
+    public AlaSDKShareEmptyActivityConfig(Context context, e eVar, int i, int i2) {
+        super(context);
+        getIntent().putExtra("title", eVar.title);
+        getIntent().putExtra("content", eVar.content);
+        getIntent().putExtra(SHARE_ALA_SDK_IMAGEURI_KEY, eVar.imageUrl);
+        getIntent().putExtra(SHARE_ALA_SDK_LINKURL_KEY, eVar.linkUrl);
+        getIntent().putExtra("channel", i);
+        getIntent().putExtra("action", i2);
+    }
+}

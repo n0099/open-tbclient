@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class c {
-    private TbPageContext mContext;
+    private TbPageContext cfl;
 
     public c(TbPageContext tbPageContext) {
-        this.mContext = tbPageContext;
+        this.cfl = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
         socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, com.baidu.tieba.tbadkCore.a.a.bq(TbConfig.URL_COMMIT_CARD_INFO, 309643));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, com.baidu.tieba.tbadkCore.a.a.bl(TbConfig.URL_COMMIT_CARD_INFO, 309643));
         tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void n(String str, int i, String str2) {
+    public void l(String str, int i, String str2) {
         CommitCardInfoReqMsg commitCardInfoReqMsg = new CommitCardInfoReqMsg();
         commitCardInfoReqMsg.resource_id = str;
         commitCardInfoReqMsg.card_type = i;
         commitCardInfoReqMsg.image_info = str2;
-        commitCardInfoReqMsg.setTag(this.mContext.getUniqueId());
+        commitCardInfoReqMsg.setTag(this.cfl.getUniqueId());
         MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
     }
 }

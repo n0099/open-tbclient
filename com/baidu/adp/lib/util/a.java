@@ -13,7 +13,7 @@ public class a {
         return 0;
     }
 
-    public static void aS(String str) {
+    public static void copyToClipboard(String str) {
         if (str == null) {
             str = "";
         }

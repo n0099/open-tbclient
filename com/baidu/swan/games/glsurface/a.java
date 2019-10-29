@@ -8,22 +8,22 @@ import java.util.Queue;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bit;
-    private Queue<DuMixGameSurfaceView> biu = new ArrayDeque();
+    private static volatile a bBh;
+    private Queue<DuMixGameSurfaceView> bBi = new ArrayDeque();
 
-    public static a Sn() {
-        if (bit == null) {
+    public static a Xe() {
+        if (bBh == null) {
             synchronized (a.class) {
-                if (bit == null) {
-                    bit = new a();
+                if (bBh == null) {
+                    bBh = new a();
                 }
             }
         }
-        return bit;
+        return bBh;
     }
 
     public DuMixGameSurfaceView bZ(Context context) {
-        if (this.biu.isEmpty()) {
+        if (this.bBi.isEmpty()) {
             if (DEBUG) {
                 Log.d("SwanGameSurfaceView", "obtainSurfaceView crateNew.");
             }
@@ -32,12 +32,12 @@ public class a {
         if (DEBUG) {
             Log.d("SwanGameSurfaceView", "obtainSurfaceView take from pool.");
         }
-        return this.biu.remove();
+        return this.bBi.remove();
     }
 
     public void f(DuMixGameSurfaceView duMixGameSurfaceView) {
-        if (!this.biu.contains(duMixGameSurfaceView)) {
-            this.biu.add(duMixGameSurfaceView);
+        if (!this.bBi.contains(duMixGameSurfaceView)) {
+            this.bBi.add(duMixGameSurfaceView);
         }
     }
 

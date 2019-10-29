@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
+import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
 /* loaded from: classes5.dex */
@@ -23,7 +24,7 @@ public class f extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(11)
     public ObjectAnimator a(Marker marker) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(marker, "rotate", this.g);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(marker, RotateImageAction.ACTION_NAME, this.g);
         if (ofFloat != null) {
             ofFloat.setRepeatCount(this.f);
             ofFloat.setRepeatMode(c());

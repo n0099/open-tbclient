@@ -21,15 +21,15 @@ public class BuyTBeanActivityConfig extends IntentConfig {
 
     public BuyTBeanActivityConfig(Context context, long j) {
         super(context);
-        getIntent().putExtra(GIFT_TBEAN, j);
+        getIntent().putExtra("gift_tbean", j);
     }
 
     public BuyTBeanActivityConfig(Context context, long j, int i, String str, PageDialogHelper.PayForm payForm) {
         super(context);
-        getIntent().putExtra(GIFT_TBEAN, j);
+        getIntent().putExtra("gift_tbean", j);
         getIntent().putExtra("scene_id", str);
         getIntent().putExtra("pay_type", i);
-        getIntent().putExtra(PAY_FORM, payForm);
+        getIntent().putExtra("pay_form", payForm);
     }
 
     public void setReferPageAndClickZone(String str, String str2) {

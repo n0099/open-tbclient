@@ -14,11 +14,11 @@ import java.nio.channels.FileChannel;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean wQ() {
-        return com.baidu.swan.apps.u.a.EA().wQ();
+    public static boolean BK() {
+        return com.baidu.swan.apps.u.a.Ju().BK();
     }
 
-    public static void d(File file, File file2) throws IOException {
+    public static void c(File file, File file2) throws IOException {
         FileChannel fileChannel;
         FileChannel channel;
         FileChannel channel2;
@@ -58,11 +58,11 @@ public class a {
         }
     }
 
-    public static void dw(String str) {
+    public static void ef(String str) {
         b(str, null, null, true);
     }
 
-    public static void k(String str, String str2, String str3) {
+    public static void o(String str, String str2, String str3) {
         b(str, str2, str3, false);
     }
 
@@ -129,9 +129,9 @@ public class a {
                 bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
                 try {
                     if (file3.exists()) {
-                        d(file3, file);
+                        c(file3, file);
                     } else {
-                        d(file, file3);
+                        c(file, file3);
                     }
                     BufferedWriter bufferedWriter3 = new BufferedWriter(new FileWriter(file2));
                     boolean z2 = false;

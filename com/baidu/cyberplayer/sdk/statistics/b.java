@@ -17,11 +17,11 @@ public class b {
     public b(Context context) {
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
         this.b = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, DpStatConstants.KEY_TIMESTAMP, System.currentTimeMillis()));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", Utils.f()));
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, DpStatConstants.KEY_NETWORK, networkStatisticsData));
+        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
     }
 
     private JSONObject a(JSONObject jSONObject) throws JSONException {

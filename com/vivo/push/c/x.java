@@ -6,15 +6,18 @@ import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
 final class x implements Runnable {
     final /* synthetic */ Context a;
-    final /* synthetic */ s b;
+    final /* synthetic */ Map b;
+    final /* synthetic */ s c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(s sVar, Context context) {
-        this.b = sVar;
+    public x(s sVar, Context context, Map map) {
+        this.c = sVar;
         this.a = context;
+        this.b = map;
     }
 
     @Override // java.lang.Runnable
@@ -26,24 +29,26 @@ final class x implements Runnable {
                 for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                     ComponentName componentName = runningTaskInfo.topActivity;
                     if (componentName.getPackageName().equals(packageName)) {
-                        com.vivo.push.util.m.d("OnNotificationArrivedTask", "topClassName=" + componentName.getClassName());
+                        com.vivo.push.util.p.d("OnNotificationClickTask", "topClassName=" + componentName.getClassName());
                         Intent intent = new Intent();
                         intent.setComponent(componentName);
                         intent.setFlags(270532608);
+                        s.b(intent, this.b);
                         this.a.startActivity(intent);
                         return;
                     }
                 }
             }
         } catch (Exception e) {
-            com.vivo.push.util.m.a("OnNotificationArrivedTask", "start recentIntent is error", e);
+            com.vivo.push.util.p.a("OnNotificationClickTask", "start recentIntent is error", e);
         }
         Intent launchIntentForPackage = this.a.getPackageManager().getLaunchIntentForPackage(this.a.getPackageName());
         if (launchIntentForPackage != null) {
             launchIntentForPackage.setFlags(268435456);
+            s.b(launchIntentForPackage, this.b);
             this.a.startActivity(launchIntentForPackage);
             return;
         }
-        com.vivo.push.util.m.a("OnNotificationArrivedTask", "LaunchIntent is null");
+        com.vivo.push.util.p.a("OnNotificationClickTask", "LaunchIntent is null");
     }
 }

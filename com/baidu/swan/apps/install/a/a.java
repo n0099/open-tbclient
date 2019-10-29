@@ -36,8 +36,8 @@ import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static CharSequence ayX = "._";
-    private static final String ayY = com.baidu.swan.apps.u.a.EA().wY();
+    private static CharSequence aSn = "._";
+    private static final String aSo = com.baidu.swan.apps.u.a.Ju().BS();
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [188=5] */
     /* JADX WARN: Removed duplicated region for block: B:46:0x0158 A[Catch: all -> 0x018a, TRY_LEAVE, TryCatch #3 {all -> 0x018a, blocks: (B:8:0x0017, B:10:0x0042, B:14:0x004e, B:16:0x0072, B:20:0x007e, B:22:0x0098, B:24:0x009e, B:26:0x00a2, B:27:0x00ab, B:29:0x00b5, B:31:0x00c1, B:33:0x00e7, B:35:0x00eb, B:37:0x0117, B:41:0x0129, B:40:0x0126, B:39:0x0121, B:48:0x0166, B:50:0x0169, B:51:0x0173, B:18:0x0075, B:12:0x0045, B:44:0x014e, B:46:0x0158), top: B:65:0x0012 }] */
@@ -45,9 +45,9 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static C0159a a(BufferedInputStream bufferedInputStream, File file) {
+    public static C0191a a(BufferedInputStream bufferedInputStream, File file) {
         DataInputStream dataInputStream;
-        C0159a c0159a = new C0159a(false);
+        C0191a c0191a = new C0191a(false);
         if (file != null && bufferedInputStream != null) {
             b bVar = new b();
             try {
@@ -55,26 +55,26 @@ public class a {
                     dataInputStream = new DataInputStream(bufferedInputStream);
                     try {
                         bVar.versionCode = a(dataInputStream);
-                        bVar.ayZ = a(dataInputStream);
-                        bVar.aza = a(dataInputStream);
-                        bVar.azb = a(dataInputStream);
-                        bVar.azc = b(dataInputStream);
-                        dataInputStream.readFully(bVar.azd);
-                        byte[] z = z(bVar.azd);
-                        if (z == null || z.length <= 0) {
-                            c0159a.atR = "cipher is null";
-                            com.baidu.swan.c.a.c(dataInputStream);
+                        bVar.aSp = a(dataInputStream);
+                        bVar.aSq = a(dataInputStream);
+                        bVar.aSr = a(dataInputStream);
+                        bVar.aSs = b(dataInputStream);
+                        dataInputStream.readFully(bVar.aSt);
+                        byte[] r = r(bVar.aSt);
+                        if (r == null || r.length <= 0) {
+                            c0191a.aNi = "cipher is null";
+                            com.baidu.swan.c.a.b(dataInputStream);
                         } else {
-                            byte[] bArr = new byte[bVar.aza];
+                            byte[] bArr = new byte[bVar.aSq];
                             dataInputStream.readFully(bArr);
                             byte[] bArr2 = new byte[16];
                             byte[] bArr3 = new byte[16];
-                            System.arraycopy(z, 0, bArr2, 0, 16);
-                            System.arraycopy(z, 16, bArr3, 0, 16);
+                            System.arraycopy(r, 0, bArr2, 0, 16);
+                            System.arraycopy(r, 16, bArr3, 0, 16);
                             byte[] c = c(bArr, bArr2, bArr3);
                             if (c == null || c.length <= 0) {
-                                c0159a.atR = "index array length <= 0";
-                                com.baidu.swan.c.a.c(dataInputStream);
+                                c0191a.aNi = "index array length <= 0";
+                                com.baidu.swan.c.a.b(dataInputStream);
                             } else {
                                 DataInputStream dataInputStream2 = new DataInputStream(new ByteArrayInputStream(c));
                                 DataInputStream dataInputStream3 = new DataInputStream(new GZIPInputStream(dataInputStream));
@@ -84,17 +84,17 @@ public class a {
                                     for (int i = 0; i < 4; i++) {
                                         c cVar = new c("BundleDecrypt" + i, file, countDownLatch);
                                         cVar.start();
-                                        handlerArr[i] = cVar.En();
+                                        handlerArr[i] = cVar.Jh();
                                     }
-                                    for (int i2 = 0; i2 < bVar.ayZ; i2++) {
+                                    for (int i2 = 0; i2 < bVar.aSp; i2++) {
                                         b.a aVar = new b.a();
                                         aVar.offset = a(dataInputStream2);
                                         aVar.size = a(dataInputStream2);
-                                        aVar.aze = a(dataInputStream2);
-                                        byte[] bArr4 = new byte[aVar.aze];
+                                        aVar.aSu = a(dataInputStream2);
+                                        byte[] bArr4 = new byte[aVar.aSu];
                                         dataInputStream2.readFully(bArr4);
                                         aVar.path = new String(bArr4, "utf-8");
-                                        if (aVar.size <= 0 || aVar.path.contains(ayX)) {
+                                        if (aVar.size <= 0 || aVar.path.contains(aSn)) {
                                             dataInputStream3.skipBytes(aVar.size);
                                         } else {
                                             byte[] bArr5 = new byte[aVar.size];
@@ -112,38 +112,38 @@ public class a {
                                         handler.sendEmptyMessage(200);
                                     }
                                     countDownLatch.await();
-                                    com.baidu.swan.c.a.c(dataInputStream2);
-                                    com.baidu.swan.c.a.c(dataInputStream3);
-                                    c0159a.isSuccess = true;
-                                    com.baidu.swan.c.a.c(dataInputStream);
+                                    com.baidu.swan.c.a.b(dataInputStream2);
+                                    com.baidu.swan.c.a.b(dataInputStream3);
+                                    c0191a.isSuccess = true;
+                                    com.baidu.swan.c.a.b(dataInputStream);
                                 } else {
                                     if (DEBUG) {
                                         Log.e("BundleDecrypt", "create destination directory fail");
                                     }
-                                    c0159a.atR = "create destination directory failed";
-                                    com.baidu.swan.c.a.c(dataInputStream);
+                                    c0191a.aNi = "create destination directory failed";
+                                    com.baidu.swan.c.a.b(dataInputStream);
                                 }
                             }
                         }
                     } catch (IOException e) {
                         e = e;
-                        c0159a.atR = e.getLocalizedMessage();
+                        c0191a.aNi = e.getLocalizedMessage();
                         if (DEBUG) {
                             Log.e("BundleDecrypt", "decrypt bundle fail", e);
                         }
-                        com.baidu.swan.c.a.c(dataInputStream);
-                        return c0159a;
+                        com.baidu.swan.c.a.b(dataInputStream);
+                        return c0191a;
                     } catch (InterruptedException e2) {
                         e = e2;
-                        c0159a.atR = e.getLocalizedMessage();
+                        c0191a.aNi = e.getLocalizedMessage();
                         if (DEBUG) {
                         }
-                        com.baidu.swan.c.a.c(dataInputStream);
-                        return c0159a;
+                        com.baidu.swan.c.a.b(dataInputStream);
+                        return c0191a;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.swan.c.a.c(null);
+                    com.baidu.swan.c.a.b(null);
                     throw th;
                 }
             } catch (IOException e3) {
@@ -154,11 +154,11 @@ public class a {
                 dataInputStream = null;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.swan.c.a.c(null);
+                com.baidu.swan.c.a.b(null);
                 throw th;
             }
         }
-        return c0159a;
+        return c0191a;
     }
 
     private static int a(DataInputStream dataInputStream) throws IOException {
@@ -173,9 +173,9 @@ public class a {
         return ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).getLong();
     }
 
-    private static PublicKey Em() {
+    private static PublicKey Jg() {
         try {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(ayY.getBytes("utf-8"), 0)));
+            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(aSo.getBytes("utf-8"), 0)));
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
             if (DEBUG) {
                 Log.e("BundleDecrypt", e.getMessage());
@@ -197,10 +197,10 @@ public class a {
         }
     }
 
-    private static byte[] z(byte[] bArr) {
+    private static byte[] r(byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(2, Em());
+            cipher.init(2, Jg());
             return cipher.doFinal(bArr);
         } catch (InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e) {
             if (DEBUG) {
@@ -210,7 +210,7 @@ public class a {
         }
     }
 
-    public static BufferedInputStream r(File file) {
+    public static BufferedInputStream h(File file) {
         IOException e;
         BufferedInputStream bufferedInputStream;
         if (file == null || !file.exists()) {
@@ -227,14 +227,14 @@ public class a {
                 if (DEBUG) {
                     Log.e("BundleDecrypt", "bundle encryption check fail", e);
                 }
-                com.baidu.swan.c.a.c(bufferedInputStream);
+                com.baidu.swan.c.a.b(bufferedInputStream);
                 return null;
             }
         } catch (IOException e3) {
             e = e3;
             bufferedInputStream = null;
         }
-        com.baidu.swan.c.a.c(bufferedInputStream);
+        com.baidu.swan.c.a.b(bufferedInputStream);
         return null;
     }
 
@@ -247,7 +247,7 @@ public class a {
         return false;
     }
 
-    public static void cB(int i) {
+    public static void dw(int i) {
         File file = new File(Environment.getExternalStorageDirectory() + "/decryptLog.csv");
         try {
             if (!file.exists()) {
@@ -264,11 +264,11 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.install.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0159a {
-        public String atR = "";
+    public static class C0191a {
+        public String aNi = "";
         public boolean isSuccess;
 
-        public C0159a(boolean z) {
+        public C0191a(boolean z) {
             this.isSuccess = z;
         }
     }

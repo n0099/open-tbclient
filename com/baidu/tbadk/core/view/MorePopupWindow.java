@@ -110,9 +110,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int af = com.baidu.adp.lib.util.l.af(context);
-        this.mContentView.getLayoutParams().width = af;
-        setWidth(af);
+        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context);
+        this.mContentView.getLayoutParams().width = equipmentWidth;
+        setWidth(equipmentWidth);
     }
 
     public void setWindowHeight(int i) {
@@ -121,7 +121,7 @@ public class MorePopupWindow extends PopupWindow {
 
     public void showWindowInRightBottomOfHost() {
         if (isShowing()) {
-            com.baidu.adp.lib.g.g.a(this, this.mActivity);
+            com.baidu.adp.lib.g.g.dismissPopupWindow(this, this.mActivity);
         } else if (this.mHostView != null) {
             com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff, 0);
         }
@@ -129,7 +129,7 @@ public class MorePopupWindow extends PopupWindow {
 
     public void showWindowInRightBottomOfHost(int i) {
         if (isShowing()) {
-            com.baidu.adp.lib.g.g.a(this, this.mActivity);
+            com.baidu.adp.lib.g.g.dismissPopupWindow(this, this.mActivity);
         } else if (this.mHostView != null) {
             com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff - i, 0);
         }
@@ -137,7 +137,7 @@ public class MorePopupWindow extends PopupWindow {
 
     public void showWindowInCustomPosition(int i, int i2) {
         if (isShowing()) {
-            com.baidu.adp.lib.g.g.a(this, this.mActivity);
+            com.baidu.adp.lib.g.g.dismissPopupWindow(this, this.mActivity);
         } else if (this.mHostView != null) {
             com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, i, i2);
         }
@@ -157,9 +157,9 @@ public class MorePopupWindow extends PopupWindow {
             setWidth(measuredWidth);
             this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.ds4));
             setHeight(this.mWindowHeight);
-            int[] aj = com.baidu.adp.lib.util.l.aj(this.mActivity);
-            if (aj != null && aj.length > 1 && aj[0] > measuredWidth) {
-                this.mShowRightTopXOff = aj[0] - measuredWidth;
+            int[] screenDimensions = com.baidu.adp.lib.util.l.getScreenDimensions(this.mActivity);
+            if (screenDimensions != null && screenDimensions.length > 1 && screenDimensions[0] > measuredWidth) {
+                this.mShowRightTopXOff = screenDimensions[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

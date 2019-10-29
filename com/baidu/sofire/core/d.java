@@ -10,7 +10,9 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
@@ -213,7 +215,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         ApkInfo apkInfo;
         try {
             if (!this.a.s() && jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray(com.tencent.connect.common.Constants.VIA_SHARE_TYPE_INFO);
+                JSONArray optJSONArray = jSONObject.optJSONArray("6");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     this.a.r();
                 }
@@ -222,13 +224,13 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                     int optInt = optJSONObject.optInt("errno");
                     int optInt2 = optJSONObject.optInt("l");
                     if (optInt == 1) {
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(DpStatConstants.KEY_DETAIL);
+                        JSONObject optJSONObject2 = optJSONObject.optJSONObject("detail");
                         PackageInfo packageInfo = new PackageInfo();
                         packageInfo.packageName = optJSONObject2.optString("p");
                         packageInfo.versionName = optJSONObject2.optString("v");
                         ApplicationInfo applicationInfo = new ApplicationInfo();
                         applicationInfo.className = optJSONObject2.optString("n");
-                        if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
+                        if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
                             applicationInfo.className = packageInfo.packageName + applicationInfo.className;
                         }
                         applicationInfo.theme = optJSONObject2.optInt("t");
@@ -241,7 +243,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                 if (jSONObject2 != null) {
                                     ActivityInfo activityInfo = new ActivityInfo();
                                     activityInfo.name = jSONObject2.optString("n");
-                                    if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
+                                    if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
                                         activityInfo.name = packageInfo.packageName + activityInfo.name;
                                     }
                                     activityInfo.packageName = packageInfo.packageName;
@@ -694,7 +696,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                             Class<?> a3 = fVar.a("com.baidu.sofire.engine.EngineImpl");
                             if (a3 == null) {
                                 com.baidu.sofire.b.a();
-                                Class<?> a4 = fVar.a("java.lang.String");
+                                Class<?> a4 = fVar.a(FieldUtil.TYPE_STRING);
                                 HashMap hashMap4 = new HashMap();
                                 hashMap4.put("0", 9);
                                 hashMap4.put("1", String.valueOf(i));
@@ -732,7 +734,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                     this.h.a(c2);
                                     com.baidu.sofire.b.a();
                                     int g3 = this.h.g(c2.key);
-                                    new StringBuilder().append(c2.key).append(" ").append(g3);
+                                    new StringBuilder().append(c2.key).append(HanziToPinyin.Token.SEPARATOR).append(g3);
                                     com.baidu.sofire.b.a();
                                     if (g3 < 3 && g3 != -1) {
                                         this.h.b(c2.key, g3 + 1);
@@ -836,7 +838,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             Class<?> a2 = fVar.a("com.baidu.sofire.engine.EngineImpl");
             if (a2 == null) {
                 com.baidu.sofire.b.a();
-                Class<?> a3 = fVar.a("java.lang.String");
+                Class<?> a3 = fVar.a(FieldUtil.TYPE_STRING);
                 HashMap hashMap3 = new HashMap();
                 hashMap3.put("0", 6);
                 hashMap3.put("1", new StringBuilder().append(c2.key).toString());
@@ -927,7 +929,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             com.baidu.sofire.b.a();
             HashMap hashMap = new HashMap();
             hashMap.put("0", Integer.toString(i));
-            hashMap.put("1", !TextUtils.isEmpty(str) ? str : " ");
+            hashMap.put("1", !TextUtils.isEmpty(str) ? str : HanziToPinyin.Token.SEPARATOR);
             hashMap.put("2", "0");
             com.baidu.sofire.b.e.a(b, "1003136", hashMap);
             if (TextUtils.isEmpty(str)) {
@@ -1091,7 +1093,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         com.baidu.sofire.b.a();
         HashMap hashMap = new HashMap();
         hashMap.put("0", Integer.toString(i));
-        hashMap.put("1", !TextUtils.isEmpty(str) ? str : " ");
+        hashMap.put("1", !TextUtils.isEmpty(str) ? str : HanziToPinyin.Token.SEPARATOR);
         hashMap.put("2", "1");
         com.baidu.sofire.b.e.a(b, "1003136", hashMap);
         try {

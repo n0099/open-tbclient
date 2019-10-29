@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes3.dex */
 public class aa {
+    public int Pi;
     public int accountType;
-    public long bHJ;
-    public int bHK;
-    public String bHL;
-    public long bHM;
-    public long bHN;
-    public int bHO;
-    public int bHP;
-    public int bHQ;
+    public int bZA;
+    public int bZB;
+    public long bZu;
+    public String bZv;
+    public long bZw;
+    public long bZx;
+    public int bZy;
+    public int bZz;
     public long beginTime;
     public String desc;
     public long endTime;
-    public int giftCount;
     public int id;
     public String name;
     public long postId;

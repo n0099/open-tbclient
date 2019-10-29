@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class OrmObject extends a {
     public static final OrmObject objectWithBundle(Bundle bundle, Class<?> cls) {
-        OrmObject ormObject = (OrmObject) com.baidu.adp.lib.OrmObject.a.a.f(cls);
+        OrmObject ormObject = (OrmObject) com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(cls);
         if (ormObject == null || !ormObject.fillByBundle(bundle)) {
             return null;
         }
@@ -24,7 +24,7 @@ public class OrmObject extends a {
     }
 
     public static final OrmObject objectWithIntent(Intent intent, Class<?> cls) {
-        OrmObject ormObject = (OrmObject) com.baidu.adp.lib.OrmObject.a.a.f(cls);
+        OrmObject ormObject = (OrmObject) com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(cls);
         if (ormObject == null || !ormObject.fillByIntent(intent)) {
             return null;
         }
@@ -40,7 +40,7 @@ public class OrmObject extends a {
     }
 
     public static final OrmObject objectWithJson(JSONObject jSONObject, Class<?> cls) {
-        OrmObject ormObject = (OrmObject) com.baidu.adp.lib.OrmObject.a.a.f(cls);
+        OrmObject ormObject = (OrmObject) com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(cls);
         if (ormObject == null || !ormObject.fillByJsonObject(jSONObject)) {
             return null;
         }
@@ -76,7 +76,7 @@ public class OrmObject extends a {
     }
 
     public static final OrmObject objectWithMap(Map<String, Object> map, Class<?> cls) {
-        OrmObject ormObject = (OrmObject) com.baidu.adp.lib.OrmObject.a.a.f(cls);
+        OrmObject ormObject = (OrmObject) com.baidu.adp.lib.OrmObject.a.a.newEmptyParamsInstance(cls);
         if (ormObject == null || !ormObject.fillByMap(map)) {
             return null;
         }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.chosen.unlike;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.Unlike.UnlikeResIdl;
 /* loaded from: classes5.dex */
@@ -9,11 +8,11 @@ public class UnlikeHttpResponse extends HttpResponsedMessage {
     private long threadId;
 
     public UnlikeHttpResponse() {
-        super(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE);
+        super(1003017);
     }
 
     public UnlikeHttpResponse(int i) {
-        super(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE);
+        super(1003017);
     }
 
     public long getThreadId() {

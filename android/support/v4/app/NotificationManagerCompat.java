@@ -135,7 +135,10 @@ public final class NotificationManagerCompat {
     }
 
     public int getImportance() {
-        return Build.VERSION.SDK_INT >= 24 ? this.mNotificationManager.getImportance() : IMPORTANCE_UNSPECIFIED;
+        if (Build.VERSION.SDK_INT >= 24) {
+            return this.mNotificationManager.getImportance();
+        }
+        return -1000;
     }
 
     public static Set<String> getEnabledListenerPackages(Context context) {

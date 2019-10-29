@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.DelGroupUsers.DelGroupUsersResIdl;
 /* loaded from: classes3.dex */
@@ -16,7 +17,7 @@ public class ResponseRemoveMembersMessage extends SocketResponsedMessage {
     }
 
     public ResponseRemoveMembersMessage() {
-        super(103112);
+        super(CmdConfigSocket.CMD_REMOVE_MEMBERS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

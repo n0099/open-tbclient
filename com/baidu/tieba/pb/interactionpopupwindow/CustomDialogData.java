@@ -56,7 +56,7 @@ public class CustomDialogData implements IBaseDialogData {
                 button.text = optJSONObject2.optString("text");
                 button.action = optJSONObject2.optString("action");
                 button.image = optJSONObject2.optString("image");
-                if (optJSONObject2.optString("position").equals(POS_LEFT)) {
+                if (optJSONObject2.optString("position").equals("left")) {
                     customDialogData.leftButton = button;
                 } else {
                     customDialogData.rightButton = button;

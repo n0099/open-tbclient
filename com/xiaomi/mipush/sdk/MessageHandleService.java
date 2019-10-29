@@ -5,7 +5,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -104,7 +103,7 @@ public class MessageHandleService extends Service {
                             return;
                         } else {
                             if (intExtra == 1000) {
-                                com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(b2, PointerIconCompat.TYPE_CROSSHAIR, "call notification callBack");
+                                com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(b2, 1007, "call notification callBack");
                             } else {
                                 com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(b2, 3007, "call business callBack");
                             }

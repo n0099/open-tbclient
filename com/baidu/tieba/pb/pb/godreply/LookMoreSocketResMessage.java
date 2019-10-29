@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb.pb.godreply;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.squareup.wire.Wire;
@@ -13,7 +14,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
     public List<PostData> list;
 
     public LookMoreSocketResMessage() {
-        super(309446);
+        super(CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE);
         this.list = new ArrayList();
     }
 
@@ -30,7 +31,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             for (Post post : list) {
                 PostData postData = new PostData();
                 postData.a(post, TbadkCoreApplication.getInst());
-                postData.jji = 102;
+                postData.jiW = 102;
                 this.list.add(postData);
             }
         }

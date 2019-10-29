@@ -2,9 +2,9 @@ package com.baidu.tieba.godMultiAttention;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.tbadkCore.a.a;
 import java.util.List;
@@ -13,7 +13,7 @@ public class MultiAttentionModel extends BdBaseModel {
     private boolean mIsLoading;
 
     static {
-        a.b(CmdConfigHttp.MULTI_ATTENTION_HTTP_CMD, 309388, TbConfig.MULTI_FOLLOW, MultiAttentionHttpResponseMessage.class, MultiAttentionSocketResponseMessage.class);
+        a.b(1003105, CmdConfigSocket.MULTI_ATTENTION_SOCKET_CMD, TbConfig.MULTI_FOLLOW, MultiAttentionHttpResponseMessage.class, MultiAttentionSocketResponseMessage.class);
     }
 
     public MultiAttentionModel(TbPageContext<?> tbPageContext) {
@@ -30,7 +30,7 @@ public class MultiAttentionModel extends BdBaseModel {
         return false;
     }
 
-    public void bvn() {
+    public void bsr() {
         this.mIsLoading = false;
     }
 
@@ -40,7 +40,7 @@ public class MultiAttentionModel extends BdBaseModel {
     }
 
     public void m(List<String> list, boolean z) {
-        if (!v.aa(list) && !this.mIsLoading) {
+        if (!v.isEmpty(list) && !this.mIsLoading) {
             MultiAttentionRequestMessage multiAttentionRequestMessage = new MultiAttentionRequestMessage();
             multiAttentionRequestMessage.setPortraitList(list);
             multiAttentionRequestMessage.setAttentionAll(z);

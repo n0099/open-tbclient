@@ -3,6 +3,7 @@ package com.baidu.platform.base;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -99,7 +100,7 @@ public abstract class a {
                 } else if (jSONObject.has("status_sp")) {
                     i = jSONObject.getInt("status_sp");
                 } else if (jSONObject.has("result")) {
-                    i = jSONObject.optJSONObject("result").optInt("error");
+                    i = jSONObject.optJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR);
                 }
             } catch (JSONException e) {
                 Log.e("BaseSearch", "Create JSONObject failed when get response result status");

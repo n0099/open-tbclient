@@ -3,6 +3,7 @@ package com.baidu.tieba.pb.pb.sub;
 import android.content.Context;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.pb.data.k;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
@@ -16,7 +17,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     }
 
     public SubPbSocketResponseMessage() {
-        super(302002);
+        super(CmdConfigSocket.CMD_SUBPB_FLOOR);
         this.pbFloorData = null;
         this.treatDelPage = false;
     }
@@ -39,7 +40,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 kVar = k.a(pbFloorResIdl.data, context);
                 if (kVar != null) {
-                    kVar.hLq = pbFloorResIdl.error;
+                    kVar.hJW = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

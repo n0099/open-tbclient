@@ -2,20 +2,21 @@ package com.baidu.ubs.analytics.a;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 final class c {
-    private SQLiteDatabase jZU = f.cEv().cEw();
+    private SQLiteDatabase jXT = f.cBf().cBg();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(a aVar) {
-        this.jZU.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
+        this.jXT.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<a> cEu() {
-        Cursor rawQuery = this.jZU.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+    public final List<a> cBe() {
+        Cursor rawQuery = this.jXT.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             a aVar = new a();
@@ -25,7 +26,7 @@ final class c {
             aVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
             aVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
             aVar.s(rawQuery.getString(rawQuery.getColumnIndex("_productLine")));
-            aVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+            aVar.setId(rawQuery.getInt(rawQuery.getColumnIndex(IMConstants.MSG_ROW_ID)));
             arrayList.add(aVar);
         }
         rawQuery.close();
@@ -34,6 +35,6 @@ final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.jZU.execSQL("delete from tb_ab_click_log where _id <= " + i);
+        this.jXT.execSQL("delete from tb_ab_click_log where _id <= " + i);
     }
 }

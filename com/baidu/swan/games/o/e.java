@@ -9,45 +9,45 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes2.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.b bft;
+    private com.baidu.swan.games.e.b bym;
     @V8JavascriptField
     public JsObject canvas = null;
 
     public e(com.baidu.swan.games.e.b bVar) {
-        this.bft = bVar;
-        SK();
-        SL();
+        this.bym = bVar;
+        XB();
+        XC();
     }
 
-    private boolean SK() {
-        return bf(com.baidu.swan.games.i.a.bd(com.baidu.swan.apps.w.e.GJ().Gs(), "swan-game-open-data.js"), "swan-game-open-data.js");
+    private boolean XB() {
+        return bm(com.baidu.swan.games.i.a.bk(com.baidu.swan.apps.w.e.LD().Lm(), "swan-game-open-data.js"), "swan-game-open-data.js");
     }
 
-    private boolean SL() {
-        String Gs = com.baidu.swan.apps.w.e.GJ().Gs();
-        String SO = f.SM().SO();
+    private boolean XC() {
+        String Lm = com.baidu.swan.apps.w.e.LD().Lm();
+        String XF = f.XD().XF();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + Gs);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + SO);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + Lm);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + XF);
         }
-        return bf(Gs, SO);
+        return bm(Lm, XF);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.bft.RJ().RV();
+        this.bym.WA().WM();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.bft.RL().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.bym.WC().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
-    private boolean bf(String str, String str2) {
-        if (!f.SM().SN() || TextUtils.isEmpty(str)) {
+    private boolean bm(String str, String str2) {
+        if (!f.XD().XE() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.bft.RJ().aV(str, str2);
+        this.bym.WA().bc(str, str2);
         return true;
     }
 }

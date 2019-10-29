@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroupUsers.AddGroupUsersReqIdl;
 import protobuf.AddGroupUsers.DataReq;
@@ -15,7 +16,7 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
     private String userIds;
 
     public RequestAddGroupUserMessage() {
-        super(103111);
+        super(CmdConfigSocket.CMD_ADD_GROUP_USER);
     }
 
     public long getInviterUserId() {

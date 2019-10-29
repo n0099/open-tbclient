@@ -7,7 +7,7 @@ public class u {
     private String link_url;
     private long start_time;
 
-    public String amN() {
+    public String apo() {
         return this.link_url;
     }
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.constant.WBConstants;
@@ -167,7 +168,7 @@ public class BaseSsoHandler {
                     this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
                     return;
                 }
-                String safeString = Utility.safeString(intent.getStringExtra("error"));
+                String safeString = Utility.safeString(intent.getStringExtra(BdStatsConstant.StatsType.ERROR));
                 String safeString2 = Utility.safeString(intent.getStringExtra(PushMessageHelper.ERROR_TYPE));
                 String safeString3 = Utility.safeString(intent.getStringExtra("error_description"));
                 LogUtil.d(TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);

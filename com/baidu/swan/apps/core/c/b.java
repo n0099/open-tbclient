@@ -6,25 +6,25 @@ import java.util.HashMap;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void zs() {
-        e ea = com.baidu.swan.apps.w.e.GJ().ea(com.baidu.swan.apps.w.e.GJ().Ag());
-        if (ea != null) {
+    public static void En() {
+        e eH = com.baidu.swan.apps.w.e.LD().eH(com.baidu.swan.apps.w.e.LD().Fb());
+        if (eH != null) {
             com.baidu.swan.apps.console.c.i("ConsoleMessageHelper", "send full San request");
-            ea.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+            eH.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
         }
     }
 
-    public static void dI(String str) {
-        Z("sanFullData2Console", str);
+    public static void eq(String str) {
+        ah("sanFullData2Console", str);
     }
 
-    public static void dJ(String str) {
-        Z("sanIncData2Console", str);
+    public static void er(String str) {
+        ah("sanIncData2Console", str);
     }
 
-    private static void Z(String str, String str2) {
+    private static void ah(String str, String str2) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("data", str2);
-        com.baidu.swan.apps.w.e.GJ().a(com.baidu.swan.apps.w.e.GJ().Gp().xz(), new com.baidu.swan.apps.m.a.b(str, hashMap));
+        com.baidu.swan.apps.w.e.LD().a(com.baidu.swan.apps.w.e.LD().Lj().Ct(), new com.baidu.swan.apps.m.a.b(str, hashMap));
     }
 }

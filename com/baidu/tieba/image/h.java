@@ -1,10 +1,9 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
@@ -16,17 +15,17 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
 public class h {
-    private LinkedList<f> haY;
+    private LinkedList<f> gZb;
     private String fid = null;
-    private int haX = 0;
-    private AdvertAppInfo haZ = null;
+    private int gZa = 0;
+    private AdvertAppInfo gZc = null;
 
     public h() {
-        this.haY = null;
-        this.haY = new LinkedList<>();
+        this.gZb = null;
+        this.gZb = new LinkedList<>();
     }
 
-    public void ap(String str, boolean z) {
+    public void al(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -34,12 +33,12 @@ public class h {
         }
     }
 
-    public LinkedList<f> bJO() {
-        return this.haY;
+    public LinkedList<f> bGy() {
+        return this.gZb;
     }
 
     public int getImageNum() {
-        return this.haX;
+        return this.gZa;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -49,7 +48,7 @@ public class h {
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
                 }
-                this.haX = jSONObject.optInt("pic_amount", 0);
+                this.gZa = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -57,8 +56,8 @@ public class h {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.haX) {
-                                this.haY.addLast(fVar);
+                            if (index >= 1 && index <= this.gZa) {
+                                this.gZb.addLast(fVar);
                             }
                         }
                     } else {
@@ -66,20 +65,20 @@ public class h {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.haX) {
-                                this.haY.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.gZa) {
+                                this.gZb.addFirst(fVar2);
                             }
                         }
                     }
                 }
-                bA(jSONObject);
+                bZ(jSONObject);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    private void bA(JSONObject jSONObject) {
+    private void bZ(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("app");
         if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
@@ -89,7 +88,7 @@ public class h {
             builder.pos = Integer.valueOf(optJSONObject.optInt("pos", 0));
             builder.icon_url = optJSONObject.optString("icon_url");
             builder.icon_link = optJSONObject.optString("icon_link");
-            builder.app_name = optJSONObject.optString(DpStatConstants.KEY_APP_NAME);
+            builder.app_name = optJSONObject.optString("app_name");
             builder.app_desc = optJSONObject.optString("app_desc");
             builder.p_name = optJSONObject.optString("p_name");
             builder.p_url = optJSONObject.optString("p_url");
@@ -99,37 +98,37 @@ public class h {
             builder.ad_id = optJSONObject.optString(LegoListActivityConfig.AD_ID);
             builder.id = optJSONObject.optString("id");
             builder.name = optJSONObject.optString("name");
-            builder.url_type = Integer.valueOf(optJSONObject.optInt("url_type", 0));
+            builder.url_type = Integer.valueOf(optJSONObject.optInt(ConstantData.Logo.LOGO_JUMP_URL_TPYE, 0));
             builder.url = optJSONObject.optString("url");
             builder.ios_url = optJSONObject.optString("ios_url");
-            builder.apk_url = optJSONObject.optString("apk_url");
-            builder.apk_name = optJSONObject.optString("apk_name");
+            builder.apk_url = optJSONObject.optString(ConstantData.Logo.LOGO_AD_APK_URL);
+            builder.apk_name = optJSONObject.optString(ConstantData.Logo.LOGO_AD_APK_PACKAGE_NAME);
             builder.pos_name = optJSONObject.optString("pos_name");
             builder.first_name = optJSONObject.optString("first_name");
             builder.second_name = optJSONObject.optString("second_name");
             builder.cpid = Integer.valueOf(optJSONObject.optInt("cpid", 0));
-            builder.abtest = optJSONObject.optString(ImageViewerConfig.ABTEST);
+            builder.abtest = optJSONObject.optString("abtest");
             builder.plan_id = Integer.valueOf(optJSONObject.optInt("plan_id", 0));
             builder.user_id = optJSONObject.optString("user_id");
             builder.price = optJSONObject.optString("price");
             builder.verify = optJSONObject.optString(SmsLoginView.StatEvent.BEGIN_LOGIN);
             builder.ext_info = optJSONObject.optString("ext_info");
             builder.pos_name = optJSONObject.optString("pos_name");
-            GoodsInfo bB = bB(optJSONObject);
-            if (bB != null) {
+            GoodsInfo ca = ca(optJSONObject);
+            if (ca != null) {
                 builder.goods_info = new ArrayList();
-                builder.goods_info.add(bB);
+                builder.goods_info.add(ca);
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.haZ = new AdvertAppInfo();
-            this.haZ.a(build);
-            this.haZ.adPosition = "c0111";
-            this.haZ.bFH = this.fid;
+            this.gZc = new AdvertAppInfo();
+            this.gZc.a(build);
+            this.gZc.adPosition = "c0111";
+            this.gZc.bXz = this.fid;
         }
     }
 
-    private GoodsInfo bB(JSONObject jSONObject) {
+    private GoodsInfo ca(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
         if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
@@ -158,7 +157,7 @@ public class h {
         return builder.build(true);
     }
 
-    public AdvertAppInfo bJP() {
-        return this.haZ;
+    public AdvertAppInfo bGz() {
+        return this.gZc;
     }
 }

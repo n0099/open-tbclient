@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
+import com.baidu.live.tbadk.img.effect.FilterImageAction;
+import com.baidu.live.tbadk.img.effect.ResizeImageAction;
+import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.ImageUploadResult;
@@ -42,14 +45,14 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public String toCachedKey(boolean z) {
         if (getImageType() == 1) {
-            return com.baidu.adp.lib.f.c.iE().e(this.filePath, 20);
+            return com.baidu.adp.lib.f.c.fT().genCacheKey(this.filePath, 20);
         }
         if (z) {
             if (this._cacheKey_all == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("persist_");
                 sb.append(this.filePath);
-                if (v.Z(this.persistActionsList) > 0) {
+                if (v.getCount(this.persistActionsList) > 0) {
                     Iterator<ImageOperation> it = this.persistActionsList.iterator();
                     while (it.hasNext()) {
                         ImageOperation next = it.next();
@@ -58,7 +61,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         }
                     }
                 }
-                if (v.Z(this.pageActionsList) > 0) {
+                if (v.getCount(this.pageActionsList) > 0) {
                     Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
                     while (it2.hasNext()) {
                         ImageOperation next2 = it2.next();
@@ -213,7 +216,7 @@ public class ImageFileInfo extends MediaFileInfo {
         if (this.persistActionsList != null && !this.persistActionsList.isEmpty()) {
             Iterator<ImageOperation> it = this.persistActionsList.iterator();
             while (it.hasNext()) {
-                if (!"resize".equals(it.next().actionName)) {
+                if (!ResizeImageAction.ACTION_NAME.equals(it.next().actionName)) {
                     return true;
                 }
             }
@@ -221,7 +224,7 @@ public class ImageFileInfo extends MediaFileInfo {
         if (this.pageActionsList != null && !this.pageActionsList.isEmpty()) {
             Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
             while (it2.hasNext()) {
-                if (!"resize".equals(it2.next().actionName)) {
+                if (!ResizeImageAction.ACTION_NAME.equals(it2.next().actionName)) {
                     return true;
                 }
             }
@@ -345,7 +348,7 @@ public class ImageFileInfo extends MediaFileInfo {
             Iterator<ImageOperation> it = getPageActionsList().iterator();
             while (it.hasNext()) {
                 ImageOperation next = it.next();
-                if ("rotate".equals(next.actionName)) {
+                if (RotateImageAction.ACTION_NAME.equals(next.actionName)) {
                     if (imageFileInfo != null) {
                         imageFileInfo.setIsGif(false);
                     }
@@ -363,7 +366,7 @@ public class ImageFileInfo extends MediaFileInfo {
             Iterator<ImageOperation> it = getPageActionsList().iterator();
             while (it.hasNext()) {
                 ImageOperation next = it.next();
-                if (!"filter".equals(next.actionName) && (!z || !"resize".equals(next.actionName))) {
+                if (!FilterImageAction.ACTION_NAME.equals(next.actionName) && (!z || !ResizeImageAction.ACTION_NAME.equals(next.actionName))) {
                     imageFileInfo.addPageAction(next);
                 }
             }
@@ -372,7 +375,7 @@ public class ImageFileInfo extends MediaFileInfo {
             Iterator<ImageOperation> it2 = getPersistActionsList().iterator();
             while (it2.hasNext()) {
                 ImageOperation next2 = it2.next();
-                if (!"filter".equals(next2.actionName) && (!z || !"resize".equals(next2.actionName))) {
+                if (!FilterImageAction.ACTION_NAME.equals(next2.actionName) && (!z || !ResizeImageAction.ACTION_NAME.equals(next2.actionName))) {
                     imageFileInfo.addPageAction(next2);
                 }
             }

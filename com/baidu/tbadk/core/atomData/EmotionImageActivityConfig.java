@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class EmotionImageActivityConfig extends IntentConfig {
@@ -10,7 +9,7 @@ public class EmotionImageActivityConfig extends IntentConfig {
         super(context);
         Intent intent = getIntent();
         intent.addFlags(268435456);
-        intent.putExtra(Info.kBaiduPIDKey, str);
+        intent.putExtra("pid", str);
         intent.putExtra("panme", str2);
         intent.putExtra("iconUrl", str3);
         intent.putExtra("gifUrl", str5);

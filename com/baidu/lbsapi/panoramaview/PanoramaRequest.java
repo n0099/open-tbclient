@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.lbsapi.model.BaiduPanoData;
 import com.baidu.lbsapi.model.BaiduPoiPanoData;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.pano.platform.c.c;
 import com.baidu.pano.platform.c.f;
 import com.baidu.pano.platform.c.i;
@@ -85,7 +86,7 @@ public class PanoramaRequest {
                         baiduPanoData.setName(optString2);
                     }
                 }
-                baiduPanoData.setErrorCode(jSONObject.has("result") ? jSONObject.getJSONObject("result").optInt("error", 404) : 404);
+                baiduPanoData.setErrorCode(jSONObject.has("result") ? jSONObject.getJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR, 404) : 404);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -123,7 +124,7 @@ public class PanoramaRequest {
                         }
                     }
                 }
-                baiduPoiPanoData.setErrorCode(jSONObject.has("result") ? jSONObject.getJSONObject("result").optInt("error", 404) : 404);
+                baiduPoiPanoData.setErrorCode(jSONObject.has("result") ? jSONObject.getJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR, 404) : 404);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

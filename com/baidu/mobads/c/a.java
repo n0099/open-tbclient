@@ -6,6 +6,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdProdInfo;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
@@ -62,7 +65,7 @@ public class a {
     public void a(String str) {
         if (!TextUtils.isEmpty(str) && str.contains("temp_for_feed_response_html")) {
             if (!f) {
-                a("temp_for_feed_response_html", "405", b + "___" + c);
+                a("temp_for_feed_response_html", TbEnum.SystemMessage.EVENT_ID_DELETE_FRIEND, b + "___" + c);
                 f = true;
                 return;
             }
@@ -91,7 +94,7 @@ public class a {
             builder = new Uri.Builder();
         }
         try {
-            builder.appendQueryParameter("type", str2).appendQueryParameter(IXAdRequestInfo.P_VER, "8.8079").appendQueryParameter("appsid", adConstants.getAppSid()).appendQueryParameter("v", "android_" + com.baidu.mobads.a.a.c + "_4.1.30").appendQueryParameter("reason", str).appendQueryParameter(IXAdRequestInfo.OSV, Build.VERSION.RELEASE).appendQueryParameter(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT).appendQueryParameter(IXAdRequestInfo.BRAND, "" + commonUtils.getTextEncoder(Build.BRAND)).appendQueryParameter("pack", adConstants.getAppPackageNameOfPublisher());
+            builder.appendQueryParameter("type", str2).appendQueryParameter(IXAdRequestInfo.P_VER, "8.8079").appendQueryParameter("appsid", adConstants.getAppSid()).appendQueryParameter("v", "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30").appendQueryParameter(TiebaInitialize.LogFields.REASON, str).appendQueryParameter(IXAdRequestInfo.OSV, Build.VERSION.RELEASE).appendQueryParameter(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT).appendQueryParameter(IXAdRequestInfo.BRAND, "" + commonUtils.getTextEncoder(Build.BRAND)).appendQueryParameter("pack", adConstants.getAppPackageNameOfPublisher());
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
         }

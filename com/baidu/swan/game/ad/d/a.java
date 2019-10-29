@@ -16,7 +16,7 @@ public class a {
 
     public static void b(com.baidu.swan.game.ad.a.a aVar, b bVar) {
         if (aVar != null) {
-            for (String str : aVar.QJ()) {
+            for (String str : aVar.Vz()) {
                 a(k(str, 0, 0), bVar);
             }
         }
@@ -24,7 +24,7 @@ public class a {
 
     public static void c(com.baidu.swan.game.ad.a.a aVar, b bVar) {
         if (aVar != null) {
-            for (String str : aVar.QK()) {
+            for (String str : aVar.VA()) {
                 a(k(str, 0, 0), bVar);
             }
         }

@@ -1,24 +1,23 @@
 package com.baidu.swan.games.c;
 
 import android.support.annotation.NonNull;
-import com.baidu.sapi2.views.SmsLoginView;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.m.a.b {
-    private String bgi;
-    private String bgj;
+    private String bzb;
+    private String bzc;
     private String data;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.bgi = str2;
-        this.bgj = str3;
+        this.bzb = str2;
+        this.bzc = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.m.a.b, com.baidu.swan.apps.m.a.a
-    public String ex(String str) {
-        String str2 = this.bgi;
+    public String fe(String str) {
+        String str2 = this.bzb;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:
@@ -42,9 +41,9 @@ public class c extends com.baidu.swan.apps.m.a.b {
         }
         switch (c) {
             case 0:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.bgj, JSONObject.quote(com.baidu.swan.apps.an.e.a(com.baidu.swan.apps.an.e.Po(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.bzc, JSONObject.quote(com.baidu.swan.apps.an.e.a(com.baidu.swan.apps.an.e.Ue(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
             case 1:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.bgj, JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.bzc, JSONObject.quote(this.data));
             case 2:
                 return String.format("%s.message = { type:'act',act:'%s' };", str, this.data);
             default:
@@ -52,15 +51,15 @@ public class c extends com.baidu.swan.apps.m.a.b {
         }
     }
 
-    public static com.baidu.swan.apps.m.a.b cO(boolean z) {
-        return new c("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? SmsLoginView.StatEvent.LOGIN_SHOW : "hide");
+    public static com.baidu.swan.apps.m.a.b df(boolean z) {
+        return new c("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? "show" : "hide");
     }
 
-    public static com.baidu.swan.apps.m.a.b aR(String str, String str2) {
+    public static com.baidu.swan.apps.m.a.b aY(String str, String str2) {
         return new c("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
     }
 
-    public static com.baidu.swan.apps.m.a.b aS(String str, String str2) {
+    public static com.baidu.swan.apps.m.a.b aZ(String str, String str2) {
         return new c("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
     }
 }

@@ -17,7 +17,7 @@ import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.meizu.cloud.pushsdk.base.k;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.Method;
@@ -97,7 +97,7 @@ public class MzSystemUtils {
     public static String getBSSID(Context context) {
         WifiInfo connectionInfo;
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                 return connectionInfo.getBSSID();
             }
@@ -322,12 +322,12 @@ public class MzSystemUtils {
     public static int getSubId(Context context, int i) {
         Cursor cursor;
         try {
-            cursor = context.getContentResolver().query(Uri.parse("content://telephony/siminfo"), new String[]{"_id", "sim_id"}, "sim_id = ?", new String[]{String.valueOf(i)}, null);
+            cursor = context.getContentResolver().query(Uri.parse("content://telephony/siminfo"), new String[]{IMConstants.MSG_ROW_ID, "sim_id"}, "sim_id = ?", new String[]{String.valueOf(i)}, null);
             if (cursor != null) {
                 try {
                     try {
                         if (cursor.moveToFirst()) {
-                            int i2 = cursor.getInt(cursor.getColumnIndex("_id"));
+                            int i2 = cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
                             if (cursor != null) {
                                 cursor.close();
                                 return i2;
@@ -386,7 +386,7 @@ public class MzSystemUtils {
     public static String getWifiMac(Context context) {
         WifiInfo connectionInfo;
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                 return connectionInfo.getMacAddress();
             }

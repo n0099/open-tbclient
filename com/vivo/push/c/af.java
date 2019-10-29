@@ -16,7 +16,7 @@ final class af implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        PushMessageCallback pushMessageCallback = this.b.c;
+        PushMessageCallback pushMessageCallback = this.b.b;
         context = this.b.a;
         pushMessageCallback.onUnBind(context, this.a.h(), this.a.d());
     }

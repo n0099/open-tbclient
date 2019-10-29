@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.pb.data.k;
 import com.squareup.wire.Wire;
@@ -17,7 +16,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     }
 
     public SubPbHttpResponseMessage(int i) {
-        super(CmdConfigHttp.SubPb_HTTP_CMD);
+        super(1002100);
         this.pbFloorData = null;
         this.treatDelPage = false;
     }
@@ -41,7 +40,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 kVar = k.a(pbFloorResIdl.data, context);
                 if (kVar != null) {
-                    kVar.hLq = pbFloorResIdl.error;
+                    kVar.hJW = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

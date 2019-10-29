@@ -9,6 +9,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.live.adp.framework.MessageConfig;
 /* loaded from: classes.dex */
 public class d {
     public static void init() {
@@ -16,9 +17,9 @@ public class d {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.f
             /* renamed from: d */
-            public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.e.c.arn().kf(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.e.c.arn().aro());
+            public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.e.c.atf().isAPIAvailableNow(socketMessage.getCmd())) {
+                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.e.c.atf().getLongConnectionFailedErrno());
                     return null;
                 }
                 return socketMessage;
@@ -32,17 +33,17 @@ public class d {
             /* renamed from: d */
             public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage != null) {
-                    com.baidu.tbadk.coreExtra.e.c.arn().kh(socketResponsedMessage.getCmd());
+                    com.baidu.tbadk.coreExtra.e.c.atf().onAPISuccessed(socketResponsedMessage.getCmd());
                 }
                 return socketResponsedMessage;
             }
         });
-        CustomMessageListener customMessageListener = new CustomMessageListener(2000999) { // from class: com.baidu.tbadk.core.frameworkData.d.3
+        CustomMessageListener customMessageListener = new CustomMessageListener(MessageConfig.NET_AUTO_SOCKET_FAIL) { // from class: com.baidu.tbadk.core.frameworkData.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                    com.baidu.tbadk.coreExtra.e.c.arn().kg(((Integer) customResponsedMessage.getData()).intValue());
+                    com.baidu.tbadk.coreExtra.e.c.atf().onAPIFailed(((Integer) customResponsedMessage.getData()).intValue());
                 }
             }
         };

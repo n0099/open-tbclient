@@ -8,35 +8,36 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean cGg;
+    private boolean checkSelection;
 
     public TbListTextView(Context context) {
         super(context);
-        this.cGg = true;
+        this.checkSelection = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cGg = true;
+        this.checkSelection = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cGg = true;
+        this.checkSelection = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.cGg = z;
+        this.checkSelection = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.cGg) {
+        if (!this.checkSelection) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -49,81 +50,81 @@ public class TbListTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            am(i, i2);
+            fixOnMeasure(i, i2);
         }
     }
 
-    private void am(int i, int i2) {
+    private void fixOnMeasure(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
-            a(new SpannableStringBuilder(text), i, i2);
+            fixSpannedWithSpaces(new SpannableStringBuilder(text), i, i2);
         } else {
-            an(i, i2);
+            fallbackToString(i, i2);
         }
     }
 
-    private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        a b = b(spannableStringBuilder, i, i2);
-        if (b.cGh) {
-            a(i, i2, spannableStringBuilder, b);
+    private void fixSpannedWithSpaces(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+        a a2 = a(spannableStringBuilder, i, i2);
+        if (a2.fixed) {
+            a(i, i2, spannableStringBuilder, a2);
         } else {
-            an(i, i2);
+            fallbackToString(i, i2);
         }
     }
 
-    private a b(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private a a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
         ArrayList arrayList = new ArrayList(spans.length);
         ArrayList arrayList2 = new ArrayList(spans.length);
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
-            if (a(spannableStringBuilder, spanStart - 1)) {
-                spannableStringBuilder.insert(spanStart, " ");
+            if (isNotSpace(spannableStringBuilder, spanStart - 1)) {
+                spannableStringBuilder.insert(spanStart, HanziToPinyin.Token.SEPARATOR);
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
-            if (a(spannableStringBuilder, spanEnd)) {
-                spannableStringBuilder.insert(spanEnd, " ");
+            if (isNotSpace(spannableStringBuilder, spanEnd)) {
+                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
                 arrayList2.add(obj);
             }
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
-                return a.d(arrayList, arrayList2);
+                setTextAndMeasure(spannableStringBuilder, i, i2);
+                return a.e(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.axF();
+        return a.ayp();
     }
 
-    private boolean a(CharSequence charSequence, int i) {
+    private boolean isNotSpace(CharSequence charSequence, int i) {
         return charSequence == null || i < 0 || i >= charSequence.length() || charSequence.charAt(i) != ' ';
     }
 
-    private void a(CharSequence charSequence, int i, int i2) {
+    private void setTextAndMeasure(CharSequence charSequence, int i, int i2) {
         setText(charSequence);
         super.onMeasure(i, i2);
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.cGj) {
+        for (Object obj : aVar.spansWithSpacesAfter) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
+                setTextAndMeasure(spannableStringBuilder, i, i2);
             } catch (IndexOutOfBoundsException e) {
-                spannableStringBuilder.insert(spanEnd, " ");
+                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.cGi) {
+        for (Object obj2 : aVar.spansWithSpacesBefore) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
+                setTextAndMeasure(spannableStringBuilder, i, i2);
                 z = false;
             } catch (IndexOutOfBoundsException e2) {
-                spannableStringBuilder.insert(spanStart - 1, " ");
+                spannableStringBuilder.insert(spanStart - 1, HanziToPinyin.Token.SEPARATOR);
                 z = true;
             }
         }
@@ -133,29 +134,29 @@ public class TbListTextView extends TextView {
         }
     }
 
-    private void an(int i, int i2) {
-        a(getText().toString(), i, i2);
+    private void fallbackToString(int i, int i2) {
+        setTextAndMeasure(getText().toString(), i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean cGh;
-        public final List<Object> cGi;
-        public final List<Object> cGj;
+        public final boolean fixed;
+        public final List<Object> spansWithSpacesAfter;
+        public final List<Object> spansWithSpacesBefore;
 
-        public static a d(List<Object> list, List<Object> list2) {
+        public static a e(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a axF() {
+        public static a ayp() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.cGh = z;
-            this.cGi = list;
-            this.cGj = list2;
+            this.fixed = z;
+            this.spansWithSpacesBefore = list;
+            this.spansWithSpacesAfter = list2;
         }
     }
 }

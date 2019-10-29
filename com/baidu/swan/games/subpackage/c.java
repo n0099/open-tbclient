@@ -7,60 +7,60 @@ import com.baidu.swan.games.subpackage.aps.SwanGameSubPackageAPSInfo;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class c {
-    private static c blM;
-    private HashMap<String, a> blN = new HashMap<>();
+    private static c bEA;
+    private HashMap<String, a> bEB = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Tv();
-
-        void cK(int i);
+        void Ym();
 
         void d(int i, long j, long j2);
+
+        void dF(int i);
     }
 
     private c() {
     }
 
-    public static c Tu() {
-        if (blM == null) {
+    public static c Yl() {
+        if (bEA == null) {
             synchronized (c.class) {
-                if (blM == null) {
-                    blM = new c();
+                if (bEA == null) {
+                    bEA = new c();
                 }
             }
         }
-        return blM;
+        return bEA;
     }
 
     public void a(String str, a aVar) {
-        com.baidu.swan.apps.ae.b Mh;
-        if (aVar != null && !TextUtils.isEmpty(str) && (Mh = com.baidu.swan.apps.ae.b.Mh()) != null) {
-            if (com.baidu.swan.games.subpackage.a.Tt().kd(str)) {
-                aVar.Tv();
+        com.baidu.swan.apps.ae.b QZ;
+        if (aVar != null && !TextUtils.isEmpty(str) && (QZ = com.baidu.swan.apps.ae.b.QZ()) != null) {
+            if (com.baidu.swan.games.subpackage.a.Yk().kF(str)) {
+                aVar.Ym();
                 return;
             }
-            String gM = com.baidu.swan.games.subpackage.a.Tt().gM(str);
-            if (TextUtils.isEmpty(gM)) {
-                aVar.cK(2112);
+            String hq = com.baidu.swan.games.subpackage.a.Yk().hq(str);
+            if (TextUtils.isEmpty(hq)) {
+                aVar.dF(2112);
                 return;
             }
-            com.baidu.swan.apps.process.messaging.client.a DE = Mh.DE();
-            if (DE != null) {
+            com.baidu.swan.apps.process.messaging.client.a Iy = QZ.Iy();
+            if (Iy != null) {
                 SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = new SwanGameSubPackageAPSInfo();
                 String a2 = a(aVar);
-                swanGameSubPackageAPSInfo.appId = Mh.id;
-                swanGameSubPackageAPSInfo.appVersion = Mh.getVersion();
-                swanGameSubPackageAPSInfo.key = gM;
-                swanGameSubPackageAPSInfo.blT = e.GJ().Gs();
-                swanGameSubPackageAPSInfo.blU = com.baidu.swan.games.subpackage.a.Tt().G(str, 1);
-                swanGameSubPackageAPSInfo.blW = a2;
-                swanGameSubPackageAPSInfo.blX = com.baidu.swan.games.subpackage.a.Tt().G(str, 2);
-                DE.a(11, swanGameSubPackageAPSInfo);
-                this.blN.put(a2, aVar);
+                swanGameSubPackageAPSInfo.appId = QZ.id;
+                swanGameSubPackageAPSInfo.awa = QZ.getVersion();
+                swanGameSubPackageAPSInfo.key = hq;
+                swanGameSubPackageAPSInfo.bEH = e.LD().Lm();
+                swanGameSubPackageAPSInfo.bEI = com.baidu.swan.games.subpackage.a.Yk().G(str, 1);
+                swanGameSubPackageAPSInfo.callbackKey = a2;
+                swanGameSubPackageAPSInfo.bEK = com.baidu.swan.games.subpackage.a.Yk().G(str, 2);
+                Iy.a(11, swanGameSubPackageAPSInfo);
+                this.bEB.put(a2, aVar);
                 return;
             }
-            aVar.cK(2113);
+            aVar.dF(2113);
         }
     }
 
@@ -69,10 +69,10 @@ public class c {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (swanGameSubPackageAPSInfo != null && (aVar = this.blN.get(swanGameSubPackageAPSInfo.blW)) != null) {
-                com.baidu.swan.games.subpackage.a.Tt().t(swanGameSubPackageAPSInfo.blU, true);
-                aVar.Tv();
-                this.blN.remove(swanGameSubPackageAPSInfo.blW);
+            if (swanGameSubPackageAPSInfo != null && (aVar = this.bEB.get(swanGameSubPackageAPSInfo.callbackKey)) != null) {
+                com.baidu.swan.games.subpackage.a.Yk().w(swanGameSubPackageAPSInfo.bEI, true);
+                aVar.Ym();
+                this.bEB.remove(swanGameSubPackageAPSInfo.callbackKey);
             }
         }
     }
@@ -82,9 +82,9 @@ public class c {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (swanGameSubPackageAPSInfo != null && (aVar = this.blN.get(swanGameSubPackageAPSInfo.blW)) != null) {
-                aVar.cK(swanGameSubPackageAPSInfo.resultCode);
-                this.blN.remove(swanGameSubPackageAPSInfo.blW);
+            if (swanGameSubPackageAPSInfo != null && (aVar = this.bEB.get(swanGameSubPackageAPSInfo.callbackKey)) != null) {
+                aVar.dF(swanGameSubPackageAPSInfo.resultCode);
+                this.bEB.remove(swanGameSubPackageAPSInfo.callbackKey);
             }
         }
     }
@@ -96,11 +96,11 @@ public class c {
             long j = bundle.getLong("aigames_sub_package_bytes_read_key");
             long j2 = bundle.getLong("aigames_sub_package_content_length_key");
             String string = bundle.getString("aigames_sub_package_callback_key");
-            if (!TextUtils.isEmpty(string) && (aVar = this.blN.get(string)) != null) {
+            if (!TextUtils.isEmpty(string) && (aVar = this.bEB.get(string)) != null) {
                 if (j2 == -1 && j != 0) {
                     aVar.d(0, j, j2);
                 } else if (j2 <= 0 || j > j2 || j == 0) {
-                    aVar.cK(2114);
+                    aVar.dF(2114);
                 } else {
                     int floor = (int) Math.floor((100 * j) / j2);
                     if (floor != 100) {

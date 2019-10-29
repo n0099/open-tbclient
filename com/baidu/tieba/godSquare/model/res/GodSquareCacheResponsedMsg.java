@@ -1,6 +1,7 @@
 package com.baidu.tieba.godSquare.model.res;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;
@@ -13,7 +14,7 @@ public class GodSquareCacheResponsedMsg extends CustomResponsedMessage<Object> {
     }
 
     public GodSquareCacheResponsedMsg() {
-        super(2016446);
+        super(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE);
     }
 
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {

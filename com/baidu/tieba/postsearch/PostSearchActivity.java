@@ -5,15 +5,13 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes6.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String fuk;
-    private g iEy;
-    private d iEz;
+    public String ftx;
+    private g iCU;
+    private d iCV;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -23,7 +21,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.zl(i);
+            PostSearchActivity.this.xQ(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -35,58 +33,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iEy = new g(this);
-        this.iEy.initView();
-        this.iEy.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.iEz = new d(this);
+        this.iCU = new g(this);
+        this.iCU.initView();
+        this.iCU.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.iCV = new d(this);
         initData();
     }
 
-    public void ko(String str) {
-        this.fuk = str;
-        this.iEy.zr(1);
-        this.iEz.chs();
-        this.iEy.showLoadingView();
+    public void kQ(String str) {
+        this.ftx = str;
+        this.iCU.xW(1);
+        this.iCV.cer();
+        this.iCU.showLoadingView();
     }
 
-    public void DJ(String str) {
-        this.iEy.DJ(str);
+    public void Cc(String str) {
+        this.iCU.Cc(str);
     }
 
-    public void chc() {
-        this.iEy.aB(this.iEz.iEX);
+    public void ceb() {
+        this.iCU.aF(this.iCV.iDt);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.bHg())) {
-            this.iEy.hideLoadingView();
-            this.iEy.chw();
+        if (i == 1 && (bVar == null || !bVar.bDR())) {
+            this.iCU.hideLoadingView();
+            this.iCU.cev();
             return;
         }
-        this.iEy.hideLoadingView();
-        this.iEy.chk();
-        this.iEy.a(i, bVar, z);
+        this.iCU.hideLoadingView();
+        this.iCU.cej();
+        this.iCU.a(i, bVar, z);
     }
 
-    public boolean chd() {
-        return this.iEy.chd();
+    public boolean cec() {
+        return this.iCU.cec();
     }
 
-    public void cgY() {
-        this.iEy.cgY();
+    public void hideSoftKeyPad() {
+        this.iCU.hideSoftKeyPad();
     }
 
-    public d che() {
-        return this.iEz;
+    public d ced() {
+        return this.iCV;
     }
 
-    public g chf() {
-        return this.iEy;
+    public g cee() {
+        return this.iCU;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.iEy.onChangeSkinType(i);
+        this.iCU.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,20 +93,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.iEz.chp();
+        this.iCV.ceo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.iEy != null) {
-            this.iEy.onDestroy();
+        if (this.iCU != null) {
+            this.iCU.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zl(int i) {
+    public void xQ(int i) {
         int i2 = 0;
         switch (i) {
             case 0:
@@ -121,10 +119,10 @@ public class PostSearchActivity extends BaseFragmentActivity {
                 i2 = 3;
                 break;
         }
-        an bT = new an("c12404").bT("fid", this.mForumId).bT(ImageViewerConfig.FORUM_NAME, this.mForumName).bT("uid", TbadkCoreApplication.getCurrentAccount());
+        an bS = new an("c12404").bS("fid", this.mForumId).bS("fname", this.mForumName).bS("uid", TbadkCoreApplication.getCurrentAccount());
         if (i2 != 0) {
-            bT.P(MyBookrackActivityConfig.TAB_ID, i2);
+            bS.O("tab_id", i2);
         }
-        TiebaStatic.log(bT);
+        TiebaStatic.log(bS);
     }
 }

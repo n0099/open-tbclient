@@ -1,7 +1,5 @@
 package org.java_websocket;
 
-import android.support.v4.view.PointerIconCompat;
-import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -38,7 +36,7 @@ public abstract class a extends b {
                 while (it.hasNext()) {
                     WebSocket webSocket = (WebSocket) it.next();
                     if (webSocket instanceof c) {
-                        ((c) webSocket).cPs();
+                        ((c) webSocket).cNz();
                     }
                 }
             } catch (Exception e) {
@@ -81,24 +79,24 @@ public abstract class a extends b {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
         this.connectionLostTimerTask = new TimerTask() { // from class: org.java_websocket.a.1
-            private ArrayList<WebSocket> kwE = new ArrayList<>();
+            private ArrayList<WebSocket> kxm = new ArrayList<>();
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                this.kwE.clear();
+                this.kxm.clear();
                 try {
-                    this.kwE.addAll(a.this.getConnections());
-                    long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * TbConfig.POST_IMAGE_SMALL);
-                    Iterator<WebSocket> it = this.kwE.iterator();
+                    this.kxm.addAll(a.this.getConnections());
+                    long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * 1500);
+                    Iterator<WebSocket> it = this.kxm.iterator();
                     while (it.hasNext()) {
                         WebSocket next = it.next();
                         if (next instanceof c) {
                             c cVar = (c) next;
-                            if (cVar.cPr() < currentTimeMillis) {
+                            if (cVar.cNy() < currentTimeMillis) {
                                 if (c.DEBUG) {
                                     System.out.println("Closing connection due to no pong received: " + next.toString());
                                 }
-                                cVar.closeConnection(PointerIconCompat.TYPE_CELL, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
+                                cVar.closeConnection(1006, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
                             } else if (cVar.isOpen()) {
                                 cVar.sendPing();
                             } else if (c.DEBUG) {
@@ -111,7 +109,7 @@ public abstract class a extends b {
                         System.out.println("Exception during connection lost ping: " + e.getMessage());
                     }
                 }
-                this.kwE.clear();
+                this.kxm.clear();
             }
         };
         this.connectionLostTimer.scheduleAtFixedRate(this.connectionLostTimerTask, this.connectionLostTimeout * 1000, this.connectionLostTimeout * 1000);

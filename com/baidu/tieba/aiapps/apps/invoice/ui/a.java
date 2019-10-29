@@ -10,9 +10,9 @@ import com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class a extends RecyclerView.Adapter<C0295a> {
-    private List<InvoiceInfo> dfj = new ArrayList();
-    private b dgp;
+public class a extends RecyclerView.Adapter<C0327a> {
+    private List<InvoiceInfo> doE = new ArrayList();
+    private b dpK;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,27 +29,27 @@ public class a extends RecyclerView.Adapter<C0295a> {
         this.mContext = context;
     }
 
-    public void aF(List<InvoiceInfo> list) {
-        int aGC;
+    public void aY(List<InvoiceInfo> list) {
+        int aGP;
         if (list != null && list.size() > 0) {
-            this.dfj.clear();
-            this.dfj.addAll(list);
-            if (this.dfj.get(0).mIsDefault != 1 && (aGC = aGC()) >= 0) {
-                a(this.dfj.get(aGC), false);
+            this.doE.clear();
+            this.doE.addAll(list);
+            if (this.doE.get(0).mIsDefault != 1 && (aGP = aGP()) >= 0) {
+                a(this.doE.get(aGP), false);
             }
             notifyDataSetChanged();
         }
     }
 
-    public void ca(long j) {
-        if (this.dfj != null && this.dfj.size() > 0) {
-            for (int i = 0; i < this.dfj.size(); i++) {
-                InvoiceInfo invoiceInfo = this.dfj.get(i);
+    public void bP(long j) {
+        if (this.doE != null && this.doE.size() > 0) {
+            for (int i = 0; i < this.doE.size(); i++) {
+                InvoiceInfo invoiceInfo = this.doE.get(i);
                 if (invoiceInfo != null && invoiceInfo.mId == j) {
-                    this.dfj.remove(i);
+                    this.doE.remove(i);
                     notifyItemRemoved(i);
-                    if (i != this.dfj.size()) {
-                        notifyItemRangeChanged(0, this.dfj.size());
+                    if (i != this.doE.size()) {
+                        notifyItemRangeChanged(0, this.doE.size());
                         return;
                     }
                     return;
@@ -59,41 +59,41 @@ public class a extends RecyclerView.Adapter<C0295a> {
     }
 
     public void m(InvoiceInfo invoiceInfo) {
-        if (this.dfj != null && invoiceInfo != null) {
-            this.dfj.add(0, invoiceInfo);
+        if (this.doE != null && invoiceInfo != null) {
+            this.doE.add(0, invoiceInfo);
             notifyItemInserted(0);
         }
     }
 
-    public void cb(long j) {
-        int cc;
-        if (this.dfj != null && (cc = cc(j)) >= 0) {
-            int aGC = aGC();
-            if (aGC >= 0) {
-                this.dfj.get(aGC).mIsDefault = 0;
-                notifyItemChanged(aGC);
+    public void bQ(long j) {
+        int bR;
+        if (this.doE != null && (bR = bR(j)) >= 0) {
+            int aGP = aGP();
+            if (aGP >= 0) {
+                this.doE.get(aGP).mIsDefault = 0;
+                notifyItemChanged(aGP);
             }
-            this.dfj.get(cc).mIsDefault = 1;
-            notifyItemChanged(cc);
+            this.doE.get(bR).mIsDefault = 1;
+            notifyItemChanged(bR);
         }
     }
 
     public void n(InvoiceInfo invoiceInfo) {
-        int cc;
-        if (this.dfj != null && (cc = cc(invoiceInfo.mId)) >= 0) {
-            this.dfj.set(cc, invoiceInfo);
-            notifyItemChanged(cc);
+        int bR;
+        if (this.doE != null && (bR = bR(invoiceInfo.mId)) >= 0) {
+            this.doE.set(bR, invoiceInfo);
+            notifyItemChanged(bR);
             a(invoiceInfo, true);
         }
     }
 
     public void a(InvoiceInfo invoiceInfo, boolean z) {
-        if (this.dfj != null && this.dfj.size() > 1 && invoiceInfo != null) {
-            for (int i = 0; i < this.dfj.size(); i++) {
-                InvoiceInfo invoiceInfo2 = this.dfj.get(i);
+        if (this.doE != null && this.doE.size() > 1 && invoiceInfo != null) {
+            for (int i = 0; i < this.doE.size(); i++) {
+                InvoiceInfo invoiceInfo2 = this.doE.get(i);
                 if (invoiceInfo2 != null && invoiceInfo2.equals(invoiceInfo)) {
-                    this.dfj.remove(i);
-                    this.dfj.add(0, invoiceInfo2);
+                    this.doE.remove(i);
+                    this.doE.add(0, invoiceInfo2);
                     if (z) {
                         notifyItemMoved(i, 0);
                         return;
@@ -104,17 +104,17 @@ public class a extends RecyclerView.Adapter<C0295a> {
         }
     }
 
-    private int aGC() {
-        if (this.dfj == null) {
+    private int aGP() {
+        if (this.doE == null) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.dfj.size()) {
+            if (i2 >= this.doE.size()) {
                 return -1;
             }
-            InvoiceInfo invoiceInfo = this.dfj.get(i2);
+            InvoiceInfo invoiceInfo = this.doE.get(i2);
             if (invoiceInfo == null || invoiceInfo.mIsDefault != 1) {
                 i = i2 + 1;
             } else {
@@ -123,17 +123,17 @@ public class a extends RecyclerView.Adapter<C0295a> {
         }
     }
 
-    private int cc(long j) {
-        if (this.dfj == null) {
+    private int bR(long j) {
+        if (this.doE == null) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.dfj.size()) {
+            if (i2 >= this.doE.size()) {
                 return -1;
             }
-            InvoiceInfo invoiceInfo = this.dfj.get(i2);
+            InvoiceInfo invoiceInfo = this.doE.get(i2);
             if (invoiceInfo == null || invoiceInfo.mId != j) {
                 i = i2 + 1;
             } else {
@@ -143,59 +143,59 @@ public class a extends RecyclerView.Adapter<C0295a> {
     }
 
     public void a(b bVar) {
-        this.dgp = bVar;
+        this.dpK = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: k */
-    public C0295a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        C0295a c0295a = new C0295a(LayoutInflater.from(this.mContext).inflate(R.layout.invoice_list_item_view, viewGroup, false));
+    /* renamed from: i */
+    public C0327a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        C0327a c0327a = new C0327a(LayoutInflater.from(this.mContext).inflate(R.layout.invoice_list_item_view, viewGroup, false));
         if (i == 0) {
-            c0295a.dgr.aGD();
+            c0327a.dpM.aGQ();
         } else if (i == 1) {
-            c0295a.dgr.aGE();
+            c0327a.dpM.aGR();
         }
-        return c0295a;
+        return c0327a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(C0295a c0295a, int i) {
-        final InvoiceInfo invoiceInfo = this.dfj.get(i);
+    public void onBindViewHolder(C0327a c0327a, int i) {
+        final InvoiceInfo invoiceInfo = this.doE.get(i);
         if (invoiceInfo != null) {
-            if (c0295a.getItemViewType() == 0) {
-                c0295a.dgr.setCompanyInfo(invoiceInfo.mTitle, invoiceInfo.dfk);
-            } else if (c0295a.getItemViewType() == 1) {
-                c0295a.dgr.setPersonageInfo(invoiceInfo.mTitle);
+            if (c0327a.getItemViewType() == 0) {
+                c0327a.dpM.setCompanyInfo(invoiceInfo.mTitle, invoiceInfo.doF);
+            } else if (c0327a.getItemViewType() == 1) {
+                c0327a.dpM.setPersonageInfo(invoiceInfo.mTitle);
             }
             if (invoiceInfo.mIsDefault == 1) {
-                c0295a.dgr.gz(true);
+                c0327a.dpM.go(true);
             } else {
-                c0295a.dgr.gz(false);
+                c0327a.dpM.go(false);
             }
-            c0295a.dgr.setEditClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.1
+            c0327a.dpM.setEditClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.dgp != null) {
-                        a.this.dgp.b(view, invoiceInfo);
+                    if (a.this.dpK != null) {
+                        a.this.dpK.b(view, invoiceInfo);
                     }
                 }
             });
-            c0295a.dgr.setItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.2
+            c0327a.dpM.setItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.dgp != null) {
-                        a.this.dgp.a(view, invoiceInfo);
+                    if (a.this.dpK != null) {
+                        a.this.dpK.a(view, invoiceInfo);
                     }
                 }
             });
-            c0295a.dgr.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.3
+            c0327a.dpM.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.3
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    if (a.this.dgp != null) {
-                        a.this.dgp.c(view, invoiceInfo);
+                    if (a.this.dpK != null) {
+                        a.this.dpK.c(view, invoiceInfo);
                         return true;
                     }
                     return true;
@@ -206,16 +206,16 @@ public class a extends RecyclerView.Adapter<C0295a> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.dfj != null) {
-            return this.dfj.size();
+        if (this.doE != null) {
+            return this.doE.size();
         }
         return 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.dfj != null) {
-            InvoiceInfo invoiceInfo = this.dfj.get(i);
+        if (this.doE != null) {
+            InvoiceInfo invoiceInfo = this.doE.get(i);
             if (invoiceInfo != null && invoiceInfo.mType == 0) {
                 return 0;
             }
@@ -229,12 +229,12 @@ public class a extends RecyclerView.Adapter<C0295a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.aiapps.apps.invoice.ui.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0295a extends RecyclerView.ViewHolder {
-        InvoiceListItemView dgr;
+    public class C0327a extends RecyclerView.ViewHolder {
+        InvoiceListItemView dpM;
 
-        public C0295a(View view) {
+        public C0327a(View view) {
             super(view);
-            this.dgr = (InvoiceListItemView) view.findViewById(R.id.invoice_list_item);
+            this.dpM = (InvoiceListItemView) view.findViewById(R.id.invoice_list_item);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -46,8 +47,8 @@ public class PersonalChatActivityConfig extends IntentConfig {
         userData.setName_show(str2);
         this.mUserData = userData;
         Intent intent = getIntent();
-        intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        intent.putExtra("chat_mode", 1);
+        intent.putExtra("is_accept_notify", true);
+        intent.putExtra(TbEnum.ParamKey.CHAT_MODE, 1);
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KEY_IS_FRIEND, i2);
@@ -64,8 +65,8 @@ public class PersonalChatActivityConfig extends IntentConfig {
         userData.setUserType(i3);
         this.mUserData = userData;
         Intent intent = getIntent();
-        intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        intent.putExtra("chat_mode", 1);
+        intent.putExtra("is_accept_notify", true);
+        intent.putExtra(TbEnum.ParamKey.CHAT_MODE, 1);
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KEY_IS_FRIEND, i2);

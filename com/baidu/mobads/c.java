@@ -4,15 +4,15 @@ import com.baidu.mobads.interfaces.IXAdResponseInfo;
 /* loaded from: classes5.dex */
 public class c {
     private String a;
-    private IXAdResponseInfo agV;
+    private IXAdResponseInfo aAt;
     private boolean d;
 
-    public String uy() {
+    public String zs() {
         return this.a;
     }
 
     public void e(IXAdResponseInfo iXAdResponseInfo) {
         this.d = false;
-        this.agV = iXAdResponseInfo;
+        this.aAt = iXAdResponseInfo;
     }
 }

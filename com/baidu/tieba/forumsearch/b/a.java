@@ -4,33 +4,33 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    private ArrayList<String> fuC;
-    private BdUniqueId mType;
-    public static final BdUniqueId fuz = BdUniqueId.gen();
-    public static final BdUniqueId fuA = BdUniqueId.gen();
-    public static final BdUniqueId fuB = BdUniqueId.gen();
+    public static final BdUniqueId ftM = BdUniqueId.gen();
+    public static final BdUniqueId ftN = BdUniqueId.gen();
+    public static final BdUniqueId ftO = BdUniqueId.gen();
+    private ArrayList<String> ftP;
+    private BdUniqueId xL;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.mType;
+        return this.xL;
     }
 
-    public void setType(BdUniqueId bdUniqueId) {
-        this.mType = bdUniqueId;
+    public void n(BdUniqueId bdUniqueId) {
+        this.xL = bdUniqueId;
     }
 
     public a() {
-        this.mType = fuA;
-        this.mType = fuA;
+        this.xL = ftN;
+        this.xL = ftN;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.mType = fuA;
-        this.fuC = arrayList;
-        this.mType = fuz;
+        this.xL = ftN;
+        this.ftP = arrayList;
+        this.xL = ftM;
     }
 
-    public ArrayList<String> blK() {
-        return this.fuC;
+    public ArrayList<String> biQ() {
+        return this.ftP;
     }
 }

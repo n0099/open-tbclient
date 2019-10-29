@@ -17,19 +17,19 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class p {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String ddc = "cookieMap";
-    public static String ddd = "ptokenDomains";
-    public static String dde = "bdussDomains";
+    public static String dmx = "cookieMap";
+    public static String dmy = "ptokenDomains";
+    public static String dmz = "bdussDomains";
 
-    public static void du(Context context) {
+    public static void dd(Context context) {
         if (ProcessUtils.isMainProcess()) {
             a(context, null);
         } else {
-            dv(context);
+            de(context);
         }
     }
 
-    private static void dv(Context context) {
+    private static void de(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, e.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             a(context, callOnMainWithContentProvider);
@@ -48,10 +48,10 @@ public class p {
                 stringArrayList = null;
                 map = c.j(context, hashMap);
             } else {
-                Map<String, String> map2 = delegateResult.mResult.getSerializable(ddc) != null ? (Map) delegateResult.mResult.getSerializable(ddc) : null;
-                stringArrayList = delegateResult.mResult.containsKey(dde) ? delegateResult.mResult.getStringArrayList(dde) : null;
-                if (delegateResult.mResult.containsKey(ddd)) {
-                    arrayList = delegateResult.mResult.getStringArrayList(ddd);
+                Map<String, String> map2 = delegateResult.mResult.getSerializable(dmx) != null ? (Map) delegateResult.mResult.getSerializable(dmx) : null;
+                stringArrayList = delegateResult.mResult.containsKey(dmz) ? delegateResult.mResult.getStringArrayList(dmz) : null;
+                if (delegateResult.mResult.containsKey(dmy)) {
+                    arrayList = delegateResult.mResult.getStringArrayList(dmy);
                     map = map2;
                 } else {
                     map = map2;
@@ -92,7 +92,7 @@ public class p {
             } else {
                 buildBDUSSCookie = SapiUtils.buildBDUSSCookie(str2, str);
             }
-            t("http://www." + str2, buildBDUSSCookie, false);
+            v("http://www." + str2, buildBDUSSCookie, false);
         }
     }
 
@@ -114,11 +114,11 @@ public class p {
             } else {
                 buildPtokenCookie = SapiUtils.buildPtokenCookie(str2, str);
             }
-            t("http://www." + str2, buildPtokenCookie, false);
+            v("http://www." + str2, buildPtokenCookie, false);
         }
     }
 
-    private static void t(String str, String str2, boolean z) {
+    private static void v(String str, String str2, boolean z) {
         CookieManager.getInstance().setCookie(str, CookieManager.getInstance().getCookie(".baidu.com"));
         if (z) {
             CookieSyncManager.getInstance().sync();

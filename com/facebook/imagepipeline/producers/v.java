@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import com.baidu.android.imsdk.IMConstants;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +14,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class v extends y {
-    private static final String[] aCu = {"_id", "_data"};
+    private static final String[] aVJ = {IMConstants.MSG_ROW_ID, "_data"};
     private final ContentResolver mContentResolver;
 
     public v(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
@@ -23,27 +24,27 @@ public class v extends y {
 
     @Override // com.facebook.imagepipeline.producers.y
     protected com.facebook.imagepipeline.f.d h(ImageRequest imageRequest) throws IOException {
-        com.facebook.imagepipeline.f.d Q;
+        com.facebook.imagepipeline.f.d N;
         InputStream openContactPhotoInputStream;
-        Uri cMx = imageRequest.cMx();
-        if (!com.facebook.common.util.d.B(cMx)) {
-            return (!com.facebook.common.util.d.C(cMx) || (Q = Q(cMx)) == null) ? e(this.mContentResolver.openInputStream(cMx), -1) : Q;
+        Uri cJu = imageRequest.cJu();
+        if (!com.facebook.common.util.d.y(cJu)) {
+            return (!com.facebook.common.util.d.z(cJu) || (N = N(cJu)) == null) ? e(this.mContentResolver.openInputStream(cJu), -1) : N;
         }
-        if (cMx.toString().endsWith("/photo")) {
-            openContactPhotoInputStream = this.mContentResolver.openInputStream(cMx);
+        if (cJu.toString().endsWith("/photo")) {
+            openContactPhotoInputStream = this.mContentResolver.openInputStream(cJu);
         } else {
-            openContactPhotoInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, cMx);
+            openContactPhotoInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, cJu);
             if (openContactPhotoInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + cMx);
+                throw new IOException("Contact photo does not exist: " + cJu);
             }
         }
         return e(openContactPhotoInputStream, -1);
     }
 
     @Nullable
-    private com.facebook.imagepipeline.f.d Q(Uri uri) throws IOException {
+    private com.facebook.imagepipeline.f.d N(Uri uri) throws IOException {
         com.facebook.imagepipeline.f.d dVar = null;
-        Cursor query = this.mContentResolver.query(uri, aCu, null, null, null);
+        Cursor query = this.mContentResolver.query(uri, aVJ, null, null, null);
         if (query != null) {
             try {
                 if (query.getCount() != 0) {
@@ -68,7 +69,7 @@ public class v extends y {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String cLV() {
+    protected String cIS() {
         return "LocalContentUriFetchProducer";
     }
 }

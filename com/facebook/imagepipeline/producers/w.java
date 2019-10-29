@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
+import com.baidu.android.imsdk.IMConstants;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,11 +16,11 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class w extends y implements au<com.facebook.imagepipeline.f.d> {
     private final ContentResolver mContentResolver;
-    private static final Class<?> kbD = w.class;
-    private static final String[] aCu = {"_id", "_data"};
-    private static final String[] knH = {"_data"};
-    private static final Rect knI = new Rect(0, 0, 512, 384);
-    private static final Rect knJ = new Rect(0, 0, 96, 96);
+    private static final Class<?> jZN = w.class;
+    private static final String[] aVJ = {IMConstants.MSG_ROW_ID, "_data"};
+    private static final String[] klT = {"_data"};
+    private static final Rect klU = new Rect(0, 0, 512, 384);
+    private static final Rect klV = new Rect(0, 0, 96, 96);
 
     public w(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         super(executor, gVar);
@@ -28,14 +29,14 @@ public class w extends y implements au<com.facebook.imagepipeline.f.d> {
 
     @Override // com.facebook.imagepipeline.producers.au
     public boolean a(com.facebook.imagepipeline.common.c cVar) {
-        return av.a(knI.width(), knI.height(), cVar);
+        return av.a(klU.width(), klU.height(), cVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.y
     protected com.facebook.imagepipeline.f.d h(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.f.d a;
-        Uri cMx = imageRequest.cMx();
-        if (!com.facebook.common.util.d.C(cMx) || (a = a(cMx, imageRequest.cMA())) == null) {
+        Uri cJu = imageRequest.cJu();
+        if (!com.facebook.common.util.d.z(cJu) || (a = a(cJu, imageRequest.cJx())) == null) {
             return null;
         }
         return a;
@@ -44,7 +45,7 @@ public class w extends y implements au<com.facebook.imagepipeline.f.d> {
     @Nullable
     private com.facebook.imagepipeline.f.d a(Uri uri, com.facebook.imagepipeline.common.c cVar) throws IOException {
         com.facebook.imagepipeline.f.d a;
-        Cursor query = this.mContentResolver.query(uri, aCu, null, null, null);
+        Cursor query = this.mContentResolver.query(uri, aVJ, null, null, null);
         if (query == null) {
             return null;
         }
@@ -54,10 +55,10 @@ public class w extends y implements au<com.facebook.imagepipeline.f.d> {
             }
             query.moveToFirst();
             String string = query.getString(query.getColumnIndex("_data"));
-            if (cVar == null || (a = a(cVar, query.getInt(query.getColumnIndex("_id")))) == null) {
+            if (cVar == null || (a = a(cVar, query.getInt(query.getColumnIndex(IMConstants.MSG_ROW_ID)))) == null) {
                 return null;
             }
-            a.DY(It(string));
+            a.Cu(GK(string));
             return a;
         } finally {
             query.close();
@@ -72,7 +73,7 @@ public class w extends y implements au<com.facebook.imagepipeline.f.d> {
         int b = b(cVar);
         if (b != 0) {
             try {
-                cursor = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, b, knH);
+                cursor = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, b, klT);
                 if (cursor != null) {
                     try {
                         cursor.moveToFirst();
@@ -107,10 +108,10 @@ public class w extends y implements au<com.facebook.imagepipeline.f.d> {
     }
 
     private static int b(com.facebook.imagepipeline.common.c cVar) {
-        if (av.a(knJ.width(), knJ.height(), cVar)) {
+        if (av.a(klV.width(), klV.height(), cVar)) {
             return 3;
         }
-        if (av.a(knI.width(), knI.height(), cVar)) {
+        if (av.a(klU.width(), klU.height(), cVar)) {
             return 1;
         }
         return 0;
@@ -124,16 +125,16 @@ public class w extends y implements au<com.facebook.imagepipeline.f.d> {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String cLV() {
+    protected String cIS() {
         return "LocalContentUriThumbnailFetchProducer";
     }
 
-    private static int It(String str) {
+    private static int GK(String str) {
         if (str != null) {
             try {
-                return com.facebook.d.b.Ey(new ExifInterface(str).getAttributeInt("Orientation", 1));
+                return com.facebook.d.b.CU(new ExifInterface(str).getAttributeInt("Orientation", 1));
             } catch (IOException e) {
-                com.facebook.common.c.a.b(kbD, e, "Unable to retrieve thumbnail rotation for %s", str);
+                com.facebook.common.c.a.b(jZN, e, "Unable to retrieve thumbnail rotation for %s", str);
                 return 0;
             }
         }

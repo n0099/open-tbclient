@@ -4,10 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes5.dex */
 public class TbTitleActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2003006, new CustomMessageTask.CustomRunnable<TbTitleActivityConfig>() { // from class: com.baidu.tieba.forumMember.tbtitle.TbTitleActivityStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_TBTITLE_ACTIVITY, new CustomMessageTask.CustomRunnable<TbTitleActivityConfig>() { // from class: com.baidu.tieba.forumMember.tbtitle.TbTitleActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<TbTitleActivityConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {

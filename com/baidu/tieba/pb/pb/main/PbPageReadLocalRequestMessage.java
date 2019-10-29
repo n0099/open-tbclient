@@ -2,6 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes4.dex */
 public class PbPageReadLocalRequestMessage extends CustomMessage<Object> {
     private String cacheKey;
@@ -11,7 +12,7 @@ public class PbPageReadLocalRequestMessage extends CustomMessage<Object> {
     private int updateType;
 
     public PbPageReadLocalRequestMessage() {
-        super(2004003);
+        super(CmdConfigCustom.PB_PAGE_CACHE_CMD);
     }
 
     public Context getContext() {

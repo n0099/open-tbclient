@@ -4,14 +4,14 @@ import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b<INFO> implements c<INFO> {
-    private static final c<Object> kfu = new b();
+    private static final c<Object> kdC = new b();
 
-    public static <INFO> c<INFO> cHo() {
-        return (c<INFO>) kfu;
+    public static <INFO> c<INFO> cEm() {
+        return (c<INFO>) kdC;
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void x(String str, Object obj) {
+    public void u(String str, Object obj) {
     }
 
     @Override // com.facebook.drawee.controller.c
@@ -19,18 +19,18 @@ public class b<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void y(String str, @Nullable INFO info) {
+    public void v(String str, @Nullable INFO info) {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void k(String str, Throwable th) {
+    public void l(String str, Throwable th) {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void g(String str, Throwable th) {
+    public void h(String str, Throwable th) {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void In(String str) {
+    public void GE(String str) {
     }
 }

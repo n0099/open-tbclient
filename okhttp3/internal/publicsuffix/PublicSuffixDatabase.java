@@ -1,5 +1,6 @@
 package okhttp3.internal.publicsuffix;
 
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
@@ -46,7 +47,7 @@ public final class PublicSuffixDatabase {
         StringBuilder sb = new StringBuilder();
         String[] split2 = str.split("\\.");
         while (length < split2.length) {
-            sb.append(split2[length]).append('.');
+            sb.append(split2[length]).append(BdFileHelper.EXTENSION_SEPARATOR);
             length++;
         }
         sb.deleteCharAt(sb.length() - 1);

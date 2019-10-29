@@ -5,11 +5,11 @@ import java.util.concurrent.ScheduledFuture;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class an implements Runnable {
-    final /* synthetic */ MiTinyDataClient.a.C0495a a;
+    final /* synthetic */ MiTinyDataClient.a.C0596a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(MiTinyDataClient.a.C0495a c0495a) {
-        this.a = c0495a;
+    public an(MiTinyDataClient.a.C0596a c0596a) {
+        this.a = c0596a;
     }
 
     @Override // java.lang.Runnable

@@ -5,22 +5,22 @@ import com.airbnb.lottie.model.a.h;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k implements b {
+    private final com.airbnb.lottie.model.a.h hw;
     private final int index;
     private final String name;
-    private final com.airbnb.lottie.model.a.h pe;
 
     private k(String str, int i, com.airbnb.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.pe = hVar;
+        this.hw = hVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.airbnb.lottie.model.a.h dD() {
-        return this.pe;
+    public com.airbnb.lottie.model.a.h cW() {
+        return this.hw;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -29,7 +29,7 @@ public class k implements b {
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.pe.hasAnimation() + '}';
+        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.hw.hasAnimation() + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

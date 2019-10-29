@@ -1,5 +1,6 @@
 package okhttp3;
 
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -333,10 +334,10 @@ public final class Cookie {
     }
 
     private static String parseDomain(String str) {
-        if (str.endsWith(".")) {
+        if (str.endsWith(DefaultConfig.TOKEN_SEPARATOR)) {
             throw new IllegalArgumentException();
         }
-        if (str.startsWith(".")) {
+        if (str.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
             str = str.substring(1);
         }
         String canonicalizeHost = Util.canonicalizeHost(str);
@@ -472,7 +473,7 @@ public final class Cookie {
         if (!this.hostOnly) {
             sb.append("; domain=");
             if (z) {
-                sb.append(".");
+                sb.append(DefaultConfig.TOKEN_SEPARATOR);
             }
             sb.append(this.domain);
         }

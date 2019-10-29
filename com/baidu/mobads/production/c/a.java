@@ -28,12 +28,12 @@ public class a extends com.baidu.mobads.production.b {
         super(context);
         this.w = null;
         this.x = baiduNativeH5AdView;
-        setId(this.x.getAdPlacement().uy());
+        setId(this.x.getAdPlacement().zs());
         setActivity(context);
         setAdSlotBase(this.x);
         this.o = IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS;
         this.w = new b(getApplicationContext(), getActivity(), this.o);
-        this.w.d(this.x.getAdPlacement().uy());
+        this.w.d(this.x.getAdPlacement().zs());
         h adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
         ArrayList arrayList = new ArrayList();
         arrayList.add(adConstants.getSupportedActionType4RequestingLandingPage());

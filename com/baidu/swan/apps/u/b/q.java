@@ -10,5 +10,5 @@ public interface q {
 
     void a(com.baidu.swan.apps.ae.b bVar, String str, com.baidu.swan.apps.aa.a.b bVar2);
 
-    boolean bf(Context context);
+    boolean bh(Context context);
 }

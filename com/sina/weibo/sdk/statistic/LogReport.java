@@ -64,7 +64,7 @@ public class LogReport {
             mParams.put("packagename", mPackageName);
             mParams.put("key_hash", mKeyHash);
             mParams.put("version", mVersionName);
-            mParams.put(LogBuilder.KEY_CHANNEL, mChannel);
+            mParams.put("channel", mChannel);
         } catch (JSONException e) {
             e.printStackTrace();
         }

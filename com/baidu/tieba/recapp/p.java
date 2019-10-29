@@ -16,9 +16,9 @@ import com.baidu.tieba.recapp.view.AdCriusCloseView;
 import com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes3.dex */
-public class p implements com.baidu.c.a.b.b {
-    @Override // com.baidu.c.a.b.b
-    public View K(Context context, String str) {
+public class p implements com.baidu.b.a.b.b {
+    @Override // com.baidu.b.a.b.b
+    public View I(Context context, String str) {
         if ("head".equalsIgnoreCase(str)) {
             HeadImageView headImageView = new HeadImageView(context);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -62,14 +62,14 @@ public class p implements com.baidu.c.a.b.b {
         }
     }
 
-    @Override // com.baidu.c.a.b.b
-    public boolean a(String str, View view, com.baidu.c.a.a.a aVar, boolean z) {
+    @Override // com.baidu.b.a.b.b
+    public boolean a(String str, View view, com.baidu.b.a.a.a aVar, boolean z) {
         if (aVar == null) {
             return false;
         }
         if (view instanceof HeadImageView) {
-            if (aVar.abe > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.abe * view.getResources().getDisplayMetrics().density));
+            if (aVar.Lj > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.Lj * view.getResources().getDisplayMetrics().density));
             } else {
                 ((HeadImageView) view).setRadius(0);
             }
@@ -79,19 +79,19 @@ public class p implements com.baidu.c.a.b.b {
         if ("time".equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.abj);
+                textView.setTextColor(aVar.Lo);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.abk * view.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.Lp * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
         } else if (view instanceof JumpButton) {
             ((JumpButton) view).setText(aVar.text);
             return true;
         } else if ("download".equalsIgnoreCase(str) && (view instanceof ApkDownloadView)) {
-            if (TextUtils.equals("pb-banner", aVar.abl)) {
+            if (TextUtils.equals("pb-banner", aVar.Lq)) {
                 ((ApkDownloadView) view).setIsPbDownload(true);
-                ((ApkDownloadView) view).setTextSize((int) aVar.abk);
+                ((ApkDownloadView) view).setTextSize((int) aVar.Lp);
             } else {
                 ((ApkDownloadView) view).setIsPbDownload(false);
             }

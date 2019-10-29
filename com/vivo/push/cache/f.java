@@ -2,7 +2,9 @@ package com.vivo.push.cache;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.vivo.push.util.m;
+import android.util.Base64;
+import com.vivo.push.util.g;
+import com.vivo.push.util.p;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,7 +28,7 @@ public final class f extends d<com.vivo.push.model.a> {
                 try {
                     arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
                 } catch (Exception e) {
-                    m.d("PushConfigSettings", "str2Clients E: " + e);
+                    p.d("PushConfigSettings", "str2Clients E: " + e);
                 }
             }
         }
@@ -34,38 +36,14 @@ public final class f extends d<com.vivo.push.model.a> {
     }
 
     @Override // com.vivo.push.cache.d
-    public final String a(List<com.vivo.push.model.a> list) {
-        if (list == null || list.size() <= 0) {
-            return "";
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < list.size()) {
-                com.vivo.push.model.a aVar = list.get(i2);
-                stringBuffer.append(aVar.a());
-                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                stringBuffer.append(aVar.b());
-                if (i2 != list.size() - 1) {
-                    stringBuffer.append("@#");
-                }
-                i = i2 + 1;
-            } else {
-                return stringBuffer.toString();
-            }
-        }
-    }
-
-    @Override // com.vivo.push.cache.d
     protected final String a() {
         return "com.vivo.pushservice.other";
     }
 
-    public final String b(String str) {
+    public final String c(String str) {
         String str2;
-        synchronized (a) {
-            Iterator it = this.b.iterator();
+        synchronized (c) {
+            Iterator it = this.d.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str2 = null;
@@ -79,5 +57,10 @@ public final class f extends d<com.vivo.push.model.a> {
             }
         }
         return str2;
+    }
+
+    @Override // com.vivo.push.cache.d
+    final String b(String str) throws Exception {
+        return new String(g.a(g.a(a), g.a(b), Base64.decode(str, 2)), "utf-8");
     }
 }

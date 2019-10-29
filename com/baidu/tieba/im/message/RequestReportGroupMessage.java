@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.ReportGroup.DataReq;
 import protobuf.ReportGroup.ReportGroupReqIdl;
@@ -9,7 +10,7 @@ public class RequestReportGroupMessage extends TbSocketMessage {
     private int mReportType;
 
     public RequestReportGroupMessage() {
-        super(103103);
+        super(CmdConfigSocket.CMD_REPORT_GROUP);
     }
 
     public long getGroupId() {

@@ -24,8 +24,8 @@ public class a {
 
     /* renamed from: com.xiaomi.metoknlp.geofencing.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class HandlerC0493a extends Handler {
-        public HandlerC0493a(Looper looper) {
+    private class HandlerC0594a extends Handler {
+        public HandlerC0594a(Looper looper) {
             super(looper);
         }
 
@@ -83,7 +83,7 @@ public class a {
         a(context);
         HandlerThread handlerThread = new HandlerThread("GeoFencingServiceWrapper");
         handlerThread.start();
-        this.g = new HandlerC0493a(handlerThread.getLooper());
+        this.g = new HandlerC0594a(handlerThread.getLooper());
         if (this.c) {
             return;
         }

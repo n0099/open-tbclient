@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SmsService;
@@ -96,7 +97,7 @@ public class SapiCoreUtil {
                 parseExecutePer = "701";
                 str = "chmod 701 " + file;
             } else if (parseExecutePer.substring(2, 3).equals("0")) {
-                str = "chmod " + parseExecutePer.substring(0, 2) + "1 " + file;
+                str = "chmod " + parseExecutePer.substring(0, 2) + "1" + HanziToPinyin.Token.SEPARATOR + file;
             }
             Log.e(TAG, "chmodFile", CommandMessage.COMMAND, str, "originPer", parseExecutePer);
             if (str != null) {

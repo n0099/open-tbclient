@@ -10,6 +10,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.text.TextUtils;
 import android.widget.TextView;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class d extends TextView {
@@ -80,7 +81,7 @@ public class d extends TextView {
                         int i3 = (int) ((((length * a5) + a4) - this.c) / a5);
                         if (i3 > 0 && i3 < length - 1) {
                             for (int i4 = length - i3; i4 < length; i4++) {
-                                a3.c[i4] = '.';
+                                a3.c[i4] = BdFileHelper.EXTENSION_SEPARATOR;
                             }
                         }
                     }
@@ -138,7 +139,7 @@ public class d extends TextView {
                             int i8 = (int) ((((length2 * a7) + a6) - this.c) / a7);
                             if (i8 > 0 && i8 < length2 - 1) {
                                 for (int i9 = length2 - i8; i9 < length2; i9++) {
-                                    cVar.c[i9] = '.';
+                                    cVar.c[i9] = BdFileHelper.EXTENSION_SEPARATOR;
                                 }
                             }
                         }

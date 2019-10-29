@@ -37,7 +37,7 @@ public class b extends z {
             this.mCallbackMap = new HashMap<>();
         }
         this.mCallbackMap.put(optString, optString3);
-        if (!com.baidu.swan.apps.textarea.c.a.OS().ib(optString2).a(new b.a() { // from class: com.baidu.swan.apps.textarea.a.b.1
+        if (!com.baidu.swan.apps.textarea.c.a.TI().iF(optString2).a(new b.a() { // from class: com.baidu.swan.apps.textarea.a.b.1
             @Override // com.baidu.swan.apps.textarea.c.b.a
             public void d(String str, JSONObject jSONObject) {
                 b.this.a(str, callbackHandler, 0, jSONObject);

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int ceL;
-    protected int jhy;
-    protected int jhz;
+    private int csX;
+    protected int jho;
+    protected int jhp;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -21,10 +21,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ceL = 3;
-        this.jhy = (int) context.getResources().getDimension(R.dimen.ds18);
-        this.jhz = (int) context.getResources().getDimension(R.dimen.ds6);
-        setPadding(this.jhy, this.jhz, this.jhy, this.jhz);
+        this.csX = 3;
+        this.jho = (int) context.getResources().getDimension(R.dimen.ds18);
+        this.jhp = (int) context.getResources().getDimension(R.dimen.ds6);
+        setPadding(this.jho, this.jhp, this.jho, this.jhp);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(R.dimen.ds24));
@@ -37,9 +37,9 @@ public class EditorInfoView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        if (i != this.ceL) {
-            am.j(this, R.color.cp_cont_f);
-            this.ceL = i;
+        if (i != this.csX) {
+            am.setViewTextColor(this, (int) R.color.cp_cont_f);
+            this.csX = i;
         }
     }
 }

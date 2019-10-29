@@ -2,6 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -57,7 +58,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> mN;
+        l<String> nl;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -67,8 +68,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (mN = com.baidu.tbadk.core.d.a.agL().mN("tb.my_pages")) != null) {
-                        mN.a("personal_myfollow_" + str, parseToString, 604800000L);
+                    if (parseToString != null && (nl = com.baidu.tbadk.core.d.a.akN().nl("tb.my_pages")) != null) {
+                        nl.set("personal_myfollow" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

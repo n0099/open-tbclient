@@ -3,42 +3,43 @@ package com.baidu.tbadk.editortools;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class MoreDeskView extends CommonTabHost {
-    LinkedList<g> csW;
-    private SparseIntArray ctx;
-    private boolean cty;
+    private SparseIntArray cFG;
+    private boolean cFH;
+    LinkedList<g> cFf;
 
     public MoreDeskView(Context context) {
         super(context);
-        this.ctx = new SparseIntArray();
-        this.cty = true;
+        this.cFG = new SparseIntArray();
+        this.cFH = true;
         setBackgroundColorId(R.color.cp_bg_line_d);
         setToolId(2);
     }
 
     public MoreDeskView(Context context, boolean z) {
         super(context);
-        this.ctx = new SparseIntArray();
-        this.cty = true;
+        this.cFG = new SparseIntArray();
+        this.cFH = true;
         setBackgroundColorId(R.color.cp_bg_line_d);
         setToolId(2);
-        this.cty = z;
+        this.cFH = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void k(LinkedList<g> linkedList) {
-        this.csW = linkedList;
+    public void g(LinkedList<g> linkedList) {
+        this.cFf = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.l
     public void init() {
         setShowDelete(false);
         h hVar = new h();
-        hVar.k(this.csW);
+        hVar.g(this.cFf);
         b(hVar);
     }
 
@@ -47,12 +48,12 @@ public class MoreDeskView extends CommonTabHost {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            asy();
+            auk();
         }
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.ctx.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.cFG.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -61,26 +62,26 @@ public class MoreDeskView extends CommonTabHost {
             if (TextUtils.isEmpty(str)) {
                 intValue = 0;
             } else {
-                intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.g.b.f(str, 1);
+                intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.g.b.toInt(str, 1);
             }
         }
-        this.ctx.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.cFG.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void asy() {
+    private void auk() {
         int i = 0;
-        for (int i2 = 0; i2 < this.ctx.size(); i2++) {
-            i += this.ctx.valueAt(i2);
+        for (int i2 = 0; i2 < this.cFG.size(); i2++) {
+            i += this.cFG.valueAt(i2);
         }
         if (i > 0) {
-            b(new a(2, 2, " "));
+            b(new a(2, 2, HanziToPinyin.Token.SEPARATOR));
         } else {
             b(new a(2, 2, null));
         }
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.l
-    public void ql() {
-        super.ql();
+    public void le() {
+        super.le();
     }
 }

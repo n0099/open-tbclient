@@ -6,6 +6,7 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.util.SelectImageHelper;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes.dex */
@@ -31,11 +32,11 @@ public class af {
         }
     }
 
-    private static Bitmap le(int i) {
+    private static Bitmap photoResult(int i) {
         Exception e;
         try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.m.nl("camera.jpg"));
-            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap("camera.jpg", i);
+            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.m.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
+            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
             if (readPictureDegree != 0 && subSampleBitmap != null) {
                 try {
                     return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
@@ -51,7 +52,7 @@ public class af {
         }
     }
 
-    private static Bitmap e(Context context, String str, int i) {
+    private static Bitmap AlbumImageResult(Context context, String str, int i) {
         try {
             return BitmapHelper.loadResizedBitmap(str, i, i);
         } catch (Exception e) {
@@ -60,7 +61,7 @@ public class af {
         }
     }
 
-    private static Bitmap a(Context context, Uri uri, int i) {
+    private static Bitmap AlbumImageResult(Context context, Uri uri, int i) {
         try {
             return BitmapHelper.subSampleBitmap(context, uri, i);
         } catch (Exception e) {
@@ -69,13 +70,13 @@ public class af {
         }
     }
 
-    public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
+    public static Bitmap ImageResult(int i, Context context, Uri uri, String str, int i2) {
         if (i == 12001) {
-            return le(i2);
+            return photoResult(i2);
         }
         if (!TextUtils.isEmpty(str)) {
-            return e(context, str, i2);
+            return AlbumImageResult(context, str, i2);
         }
-        return a(context, uri, i2);
+        return AlbumImageResult(context, uri, i2);
     }
 }

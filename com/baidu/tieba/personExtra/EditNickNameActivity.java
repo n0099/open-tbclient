@@ -11,6 +11,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -25,10 +27,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
-    private boolean DG;
-    private com.baidu.tbadk.core.dialog.a TW;
-    private com.baidu.tbadk.m.g dly;
-    private final String ipq = "https://tieba.baidu.com/n/interact/modifyname";
+    private com.baidu.tbadk.core.dialog.a Do;
+    private com.baidu.tbadk.m.g dEq;
+    private final String inP = "https://tieba.baidu.com/n/interact/modifyname";
+    private boolean mLoadSuccess;
     private NavigationBar mNavigationBar;
     private TbPageContext<EditNickNameActivity> mPageContext;
     private com.baidu.tbadk.m.h mRefreshView;
@@ -50,7 +52,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
         setContentView(R.layout.edit_nickname_activity);
         initView();
-        com.baidu.tbadk.browser.a.cl(getApplicationContext());
+        com.baidu.tbadk.browser.a.initCookie(getApplicationContext());
     }
 
     private void initView() {
@@ -64,7 +66,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EditNickNameActivity.this.ccN();
+                EditNickNameActivity.this.onBackClick();
             }
         });
     }
@@ -73,14 +75,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1 || i == 4) {
-            this.mWebView.loadUrl(uo(this.mUrl));
+            this.mWebView.loadUrl(sY(this.mUrl));
         } else {
             this.mWebView.loadUrl(this.mUrl);
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 
-    private String uo(String str) {
+    private String sY(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -98,65 +100,65 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Df(String str) {
+    public void By(String str) {
         if (this.mWebView != null && this.mWebView.canGoBack()) {
             this.mWebView.goBack();
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921033, str));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MODIFY_NICKNAME_SUCCEED, str));
         }
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccN() {
-        if (this.DG && this.mWebView != null && !TextUtils.isEmpty(this.mWebView.getUrl()) && this.mWebView.getUrl().contains("https://tieba.baidu.com/n/interact/modifyname")) {
+    public void onBackClick() {
+        if (this.mLoadSuccess && this.mWebView != null && !TextUtils.isEmpty(this.mWebView.getUrl()) && this.mWebView.getUrl().contains("https://tieba.baidu.com/n/interact/modifyname")) {
             this.mWebView.loadUrl("javascript:__js_bridge_modify_name_back_action()");
         } else {
-            Df(null);
+            By(null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccO() {
+    public void bZP() {
         this.mWebView.loadUrl("javascript:__js_bridge_modify_name_save_action()");
     }
 
     public void showLoadingView() {
         if (this.mPageContext != null && this.mRootView != null) {
-            this.dly = new com.baidu.tbadk.m.g(this.mPageContext.getPageActivity());
-            this.dly.attachView(this.mRootView, false);
-            this.dly.onChangeSkinType();
+            this.dEq = new com.baidu.tbadk.m.g(this.mPageContext.getPageActivity());
+            this.dEq.attachView(this.mRootView, false);
+            this.dEq.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.dly != null) {
-            this.dly.dettachView(this.mRootView);
-            this.dly = null;
+        if (this.dEq != null) {
+            this.dEq.dettachView(this.mRootView);
+            this.dEq = null;
         }
     }
 
-    public void aJM() {
+    public void aJn() {
         String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.m.h(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    EditNickNameActivity.this.aLX();
+                    EditNickNameActivity.this.aLc();
                 }
             });
             this.mRefreshView.onChangeSkinType();
         }
         this.mWebView.setVisibility(8);
-        this.mRefreshView.qY(string);
+        this.mRefreshView.setSubText(string);
         this.mRefreshView.attachView(this.mRootView, false);
-        this.mRefreshView.atW();
-        this.mRefreshView.kO(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds280));
+        this.mRefreshView.showRefreshButton();
+        this.mRefreshView.setLayoutMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds280));
     }
 
-    public void aLY() {
+    public void aLd() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mRootView);
             this.mRefreshView = null;
@@ -164,8 +166,8 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         this.mWebView.setVisibility(0);
     }
 
-    public void aLX() {
-        if (this.DG) {
+    public void aLc() {
+        if (this.mLoadSuccess) {
             this.mWebView.loadUrl("javascript:window.reload_page()");
         } else {
             this.mWebView.loadUrl(this.mUrl);
@@ -175,7 +177,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            ccN();
+            onBackClick();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -190,14 +192,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             if (!StringUtils.isNull(str)) {
-                if (EditNickNameActivity.this.uq(str)) {
+                if (EditNickNameActivity.this.ta(str)) {
                     return true;
                 }
-                int b = ba.ajK().b(EditNickNameActivity.this.mPageContext, new String[]{str});
-                if (b == 1) {
+                int a = ba.amQ().a(EditNickNameActivity.this.mPageContext, new String[]{str});
+                if (a == 1) {
                     EditNickNameActivity.this.finish();
                     return true;
-                } else if (b != 0) {
+                } else if (a != 0) {
                     EditNickNameActivity.this.mWebView.loadUrl(str);
                     return true;
                 } else {
@@ -221,33 +223,33 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                 EditNickNameActivity.this.mNavigationBar.setCenterTextTitle(title);
             }
             EditNickNameActivity.this.hideLoadingView();
-            if (com.baidu.adp.lib.util.j.kc()) {
-                EditNickNameActivity.this.aLY();
-                EditNickNameActivity.this.DG = true;
+            if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
+                EditNickNameActivity.this.aLd();
+                EditNickNameActivity.this.mLoadSuccess = true;
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
-            EditNickNameActivity.this.aJM();
+            EditNickNameActivity.this.aJn();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean uq(String str) {
-        return Dg(str);
+    public boolean ta(String str) {
+        return Bz(str);
     }
 
-    private boolean Dg(String str) {
-        String bj = k.bj(str);
-        if (bj.contains("modifyname://") && bj.contains("data=")) {
+    private boolean Bz(String str) {
+        String urlDecode = k.getUrlDecode(str);
+        if (urlDecode.contains(UrlSchemaHelper.SCHEMA_TYPE_MODIFY_NAME) && urlDecode.contains("data=")) {
             try {
-                JSONObject jSONObject = new JSONObject(bj.substring("data=".length() + bj.indexOf("data=")));
+                JSONObject jSONObject = new JSONObject(urlDecode.substring("data=".length() + urlDecode.indexOf("data=")));
                 boolean z = jSONObject.optInt("isclose") == 1;
                 String optString = jSONObject.optString("nickname");
                 if (z) {
-                    Df(optString);
+                    By(optString);
                 } else {
                     showDialog();
                 }
@@ -260,25 +262,25 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     private void showDialog() {
-        if (this.TW == null) {
-            this.TW = new com.baidu.tbadk.core.dialog.a(getActivity());
-            this.TW.mQ(getPageContext().getResources().getString(R.string.modify_user_dialog_msg));
-            this.TW.a(R.string.save, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.3
+        if (this.Do == null) {
+            this.Do = new com.baidu.tbadk.core.dialog.a(getActivity());
+            this.Do.nn(getPageContext().getResources().getString(R.string.modify_user_dialog_msg));
+            this.Do.a(R.string.save, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    EditNickNameActivity.this.ccO();
+                    EditNickNameActivity.this.bZP();
                 }
             });
-            this.TW.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.4
+            this.Do.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    EditNickNameActivity.this.Df(null);
+                    EditNickNameActivity.this.By(null);
                 }
             });
-            this.TW.b(getPageContext());
+            this.Do.b(getPageContext());
         }
-        this.TW.agO();
+        this.Do.akO();
     }
 }

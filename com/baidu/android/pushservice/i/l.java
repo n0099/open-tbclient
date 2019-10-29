@@ -30,13 +30,14 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.c.c;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.coloros.mcssdk.PushManager;
 import com.coloros.mcssdk.callback.PushCallback;
@@ -881,7 +882,7 @@ public final class l {
     }
 
     public static boolean a(String str, Context context) {
-        if (TextUtils.isEmpty(str) || str.contains(" ")) {
+        if (TextUtils.isEmpty(str) || str.contains(HanziToPinyin.Token.SEPARATOR)) {
             Log.e("BDPushSDK-Utility", "api_key is  incorrect, please check ! ");
             return false;
         }
@@ -1735,7 +1736,7 @@ public final class l {
                     str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str3);
                 }
                 if (upperCase.contains("HUAWEI") && !TextUtils.isEmpty(str2)) {
-                    String substring = str2.substring(str2.indexOf("_") + 1, str2.length());
+                    String substring = str2.substring(str2.indexOf(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + 1, str2.length());
                     return (substring.matches("\\d+\\.\\d+$") || Build.VERSION.SDK_INT < 21) ? substring : "3.1";
                 } else if (upperCase.contains("MEIZU")) {
                     str = TextUtils.isEmpty(str2) ? Build.DISPLAY : str2;
@@ -2279,7 +2280,7 @@ public final class l {
         NetworkInfo c2;
         String str = "";
         if (context != null && (c2 = g.c(context)) != null && c2.isConnectedOrConnecting()) {
-            if (!c2.getTypeName().toLowerCase().equals(IXAdSystemUtils.NT_WIFI)) {
+            if (!c2.getTypeName().toLowerCase().equals("wifi")) {
                 str = "2G";
                 switch (c2.getSubtype()) {
                     case 3:
@@ -2467,7 +2468,7 @@ public final class l {
             }
             String a2 = com.baidu.android.pushservice.a.b.a(e);
             if (!TextUtils.isEmpty(a2) && a2.contains(str)) {
-                String replace = a2.replace(" ", "");
+                String replace = a2.replace(HanziToPinyin.Token.SEPARATOR, "");
                 if (replace.charAt(replace.indexOf(str) + str.length()) == ',') {
                     return true;
                 }

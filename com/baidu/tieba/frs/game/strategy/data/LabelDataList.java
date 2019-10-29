@@ -9,11 +9,11 @@ import tbclient.ForumSubLabel;
 public class LabelDataList extends ArrayList<a> {
     public void parseProtu(List<ForumSubLabel> list) {
         clear();
-        if (!v.aa(list)) {
+        if (!v.isEmpty(list)) {
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
                     a aVar = new a();
-                    aVar.bGk = forumSubLabel.id.intValue();
+                    aVar.labelId = forumSubLabel.id.intValue();
                     aVar.labelName = forumSubLabel.sub_label_name;
                     add(aVar);
                 }
@@ -25,7 +25,7 @@ public class LabelDataList extends ArrayList<a> {
     }
 
     public void setSelectedIndex(int i) {
-        a aVar = (a) v.c(this, i);
+        a aVar = (a) v.getItem(this, i);
         if (aVar != null) {
             aVar.isSelect = true;
             Iterator<a> it = iterator();
@@ -43,13 +43,13 @@ public class LabelDataList extends ArrayList<a> {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null && next.isSelect) {
-                return next.bGk;
+                return next.labelId;
             }
         }
-        a aVar = (a) v.c(this, 0);
+        a aVar = (a) v.getItem(this, 0);
         if (aVar != null) {
             aVar.isSelect = true;
-            return aVar.bGk;
+            return aVar.labelId;
         }
         return 0;
     }
@@ -58,7 +58,7 @@ public class LabelDataList extends ArrayList<a> {
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.bGk == i) {
+            if (next != null && next.labelId == i) {
                 return next.labelName;
             }
         }

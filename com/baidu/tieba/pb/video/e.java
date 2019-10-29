@@ -9,10 +9,10 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.b.a;
 import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.data.bn;
@@ -25,122 +25,122 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class e {
-    public int bNk;
-    public BaseActivity cXM;
-    private View.OnClickListener dbz = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.e.1
+    public int ceT;
+    private View.OnClickListener dkW = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.e.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
-                if (view == e.this.ifc || view == e.this.ifd || view == e.this.ife) {
-                    if (e.this.dzj != null) {
-                        e.this.cXM.sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(e.this.cXM.getActivity(), e.this.dzj.channelId, 2)));
+                if (view == e.this.idK || view == e.this.idL || view == e.this.idM) {
+                    if (e.this.idT != null) {
+                        e.this.mActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(e.this.mActivity.getActivity(), e.this.idT.channelId, 2)));
                     }
-                    TiebaStatic.log(new an("c11923").P(VideoPlayActivityConfig.OBJ_ID, 1));
-                } else if (view == e.this.ifj) {
-                    if (l.kt()) {
-                        if (e.this.dzj != null && e.this.dzj.channelId > 0) {
+                    TiebaStatic.log(new an("c11923").O("obj_id", 1));
+                } else if (view == e.this.idR) {
+                    if (l.isNetOk()) {
+                        if (e.this.idT != null && e.this.idT.channelId > 0) {
                             if (!TbadkCoreApplication.isLogin()) {
-                                bc.cE(e.this.cXM.getActivity());
+                                bc.skipToLoginActivity(e.this.mActivity.getActivity());
                                 return;
                             }
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0249a.a(e.this.dzj.channelId, e.this.cXM.getUniqueId())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0281a.a(e.this.idT.channelId, e.this.mActivity.getUniqueId())));
                             return;
                         }
                         return;
                     }
-                    e.this.cXM.showToast(R.string.no_network_guide);
+                    e.this.mActivity.showToast(R.string.no_network_guide);
                 }
             }
         }
     };
-    private bn dzj;
-    public HeadImageView ifc;
-    public TextView ifd;
-    public ImageView ife;
-    public LinearLayout iff;
-    public TextView ifg;
-    public TextView ifh;
-    public LinearLayout ifi;
-    public TextView ifj;
-    public RelativeLayout ifk;
+    public HeadImageView idK;
+    public TextView idL;
+    public ImageView idM;
+    public LinearLayout idN;
+    public TextView idO;
+    public TextView idP;
+    public LinearLayout idQ;
+    public TextView idR;
+    public RelativeLayout idS;
+    private bn idT;
+    public BaseActivity mActivity;
     public View rootView;
 
     public e(BaseActivity baseActivity, View view) {
         if (baseActivity != null && view != null) {
-            this.cXM = baseActivity;
+            this.mActivity = baseActivity;
             this.rootView = view;
-            this.ifc = (HeadImageView) this.rootView.findViewById(R.id.pb_video_channel_photo);
-            this.ifd = (TextView) this.rootView.findViewById(R.id.pb_video_channel_name);
-            this.ife = (ImageView) this.rootView.findViewById(R.id.pb_video_channel_icon);
-            this.iff = (LinearLayout) this.rootView.findViewById(R.id.pb_video_channel_panel);
-            this.ifg = (TextView) this.rootView.findViewById(R.id.pb_video_channel_publish_time);
-            this.ifh = (TextView) this.rootView.findViewById(R.id.pb_video_channel_location_address);
-            this.ifi = (LinearLayout) this.rootView.findViewById(R.id.pb_video_channel_sub_panel);
-            this.ifj = (TextView) this.rootView.findViewById(R.id.pb_video_order_button);
-            this.ifk = (RelativeLayout) this.rootView.findViewById(R.id.video_pb_header_channel_info_root);
-            this.ifc.setImageDrawable(null);
-            this.ifc.setRadius(l.g(baseActivity.getActivity(), R.dimen.ds40));
-            this.ifc.setOnClickListener(this.dbz);
-            this.ife.setOnClickListener(this.dbz);
-            this.ifj.setOnClickListener(this.dbz);
-            this.ifd.setOnClickListener(this.dbz);
+            this.idK = (HeadImageView) this.rootView.findViewById(R.id.pb_video_channel_photo);
+            this.idL = (TextView) this.rootView.findViewById(R.id.pb_video_channel_name);
+            this.idM = (ImageView) this.rootView.findViewById(R.id.pb_video_channel_icon);
+            this.idN = (LinearLayout) this.rootView.findViewById(R.id.pb_video_channel_panel);
+            this.idO = (TextView) this.rootView.findViewById(R.id.pb_video_channel_publish_time);
+            this.idP = (TextView) this.rootView.findViewById(R.id.pb_video_channel_location_address);
+            this.idQ = (LinearLayout) this.rootView.findViewById(R.id.pb_video_channel_sub_panel);
+            this.idR = (TextView) this.rootView.findViewById(R.id.pb_video_order_button);
+            this.idS = (RelativeLayout) this.rootView.findViewById(R.id.video_pb_header_channel_info_root);
+            this.idK.setImageDrawable(null);
+            this.idK.setRadius(l.getDimens(baseActivity.getActivity(), R.dimen.ds40));
+            this.idK.setOnClickListener(this.dkW);
+            this.idM.setOnClickListener(this.dkW);
+            this.idR.setOnClickListener(this.dkW);
+            this.idL.setOnClickListener(this.dkW);
         }
     }
 
-    public void az(bh bhVar) {
-        if (bhVar != null && bhVar.afM() != null && this.rootView != null) {
-            this.dzj = bhVar.afM();
-            this.ifg.setText(aq.aD(bhVar.getCreateTime()));
-            this.ifh.setText(bhVar.getAddress());
-            this.ifd.setText(this.dzj.channelName);
-            this.ifc.startLoad(this.dzj.channelAvatar, 10, false);
-            if (this.dzj.bNk == 1) {
-                this.bNk = 0;
+    public void ax(bh bhVar) {
+        if (bhVar != null && bhVar.ajP() != null && this.rootView != null) {
+            this.idT = bhVar.ajP();
+            this.idO.setText(aq.getFormatTime(bhVar.getCreateTime()));
+            this.idP.setText(bhVar.getAddress());
+            this.idL.setText(this.idT.channelName);
+            this.idK.startLoad(this.idT.channelAvatar, 10, false);
+            if (this.idT.ceT == 1) {
+                this.ceT = 0;
             } else {
-                this.bNk = this.dzj.bNk;
+                this.ceT = this.idT.ceT;
             }
             if (!TbadkCoreApplication.isLogin()) {
-                this.bNk = 2;
+                this.ceT = 2;
             }
-            w(this.bNk, this.dzj.channelId);
-            aqs();
+            w(this.ceT, this.idT.channelId);
+            asm();
         }
     }
 
-    public void aqs() {
-        this.cXM.getLayoutMode().onModeChanged(this.rootView);
-        if (this.bNk == 1) {
-            this.ifj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            am.j(this.ifj, R.color.cp_cont_d);
-            this.ifj.setText(R.string.has_ordered_channel);
-            this.ifj.setVisibility(0);
-        } else if (this.bNk == 2) {
-            this.ifj.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.j(this.ifj, R.color.btn_forum_focus_color);
-            this.ifj.setVisibility(0);
-            this.ifj.setText(R.string.order_video_channel);
+    public void asm() {
+        this.mActivity.getLayoutMode().onModeChanged(this.rootView);
+        if (this.ceT == 1) {
+            this.idR.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            am.setViewTextColor(this.idR, (int) R.color.cp_cont_d);
+            this.idR.setText(R.string.has_ordered_channel);
+            this.idR.setVisibility(0);
+        } else if (this.ceT == 2) {
+            this.idR.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.setViewTextColor(this.idR, (int) R.color.btn_forum_focus_color);
+            this.idR.setVisibility(0);
+            this.idR.setText(R.string.order_video_channel);
         } else {
-            this.ifj.setVisibility(8);
+            this.idR.setVisibility(8);
         }
-        am.j(this.ifd, R.color.cp_cont_f);
-        am.j(this.ifg, R.color.cp_cont_f);
-        am.j(this.ifh, R.color.cp_cont_f);
-        am.k(this.ife, R.drawable.icon_weiba);
+        am.setViewTextColor(this.idL, (int) R.color.cp_cont_f);
+        am.setViewTextColor(this.idO, (int) R.color.cp_cont_f);
+        am.setViewTextColor(this.idP, (int) R.color.cp_cont_f);
+        am.setBackgroundResource(this.idM, R.drawable.icon_weiba);
     }
 
     public void w(int i, long j) {
-        if (this.dzj != null && j > 0 && j == this.dzj.channelId) {
+        if (this.idT != null && j > 0 && j == this.idT.channelId) {
             if (i == 1) {
-                this.ifj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                am.j(this.ifj, R.color.cp_cont_d);
-                this.ifj.setClickable(false);
-                this.ifj.setText(R.string.has_ordered_channel);
+                this.idR.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                am.setViewTextColor(this.idR, (int) R.color.cp_cont_d);
+                this.idR.setClickable(false);
+                this.idR.setText(R.string.has_ordered_channel);
                 return;
             }
-            this.ifj.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.j(this.ifj, R.color.btn_forum_focus_color);
-            this.ifj.setClickable(true);
-            this.ifj.setText(R.string.order_video_channel);
+            this.idR.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.setViewTextColor(this.idR, (int) R.color.btn_forum_focus_color);
+            this.idR.setClickable(true);
+            this.idR.setText(R.string.order_video_channel);
         }
     }
 
@@ -148,7 +148,7 @@ public class e {
         return this.rootView;
     }
 
-    public View caM() {
-        return this.ifj;
+    public View bXP() {
+        return this.idR;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetMemberInfo.GetMemberInfoResIdl;
@@ -20,7 +21,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     private com.baidu.tieba.tbadkCore.t mUserInfo;
 
     public ForumMemberSocketResponseMessage() {
-        super(301004);
+        super(CmdConfigSocket.CMD_FRS_MEMBER_TAB);
         this.isNeedUpdateCache = false;
     }
 
@@ -40,7 +41,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                         this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.AR(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.zz(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                         this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;
@@ -66,7 +67,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
             }
             if (forumMemberRequestMessage != null) {
-                new d().j(forumMemberRequestMessage.getForumName() + "", bArr);
+                new d().i(forumMemberRequestMessage.getForumName() + "", bArr);
             }
         }
     }

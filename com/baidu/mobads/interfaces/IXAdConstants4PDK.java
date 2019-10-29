@@ -1,4 +1,7 @@
 package com.baidu.mobads.interfaces;
+
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.log.LogConfig;
 /* loaded from: classes5.dex */
 public interface IXAdConstants4PDK {
     public static final String EVENT_ERROR = "EVENT_ERROR";
@@ -129,7 +132,7 @@ public interface IXAdConstants4PDK {
         PLAYING("playing"),
         PAUSED("paused"),
         COMPLETED("completed"),
-        ERROR("error");
+        ERROR(BdStatsConstant.StatsType.ERROR);
         
         private final String a;
 
@@ -159,7 +162,7 @@ public interface IXAdConstants4PDK {
         SLOT_TYPE_BANNER("banner"),
         SLOT_TYPE_SPLASH("rsplash"),
         SLOT_TYPE_INTERSTITIAL("int"),
-        SLOT_TYPE_FEEDS("feed"),
+        SLOT_TYPE_FEEDS(LogConfig.KEY_FEED),
         SLOT_TYPE_PREROLL("preroll"),
         SLOT_TYPE_MIDROLL("midroll"),
         SLOT_TYPE_POSTROLL("postroll"),

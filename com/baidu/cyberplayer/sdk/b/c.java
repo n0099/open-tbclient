@@ -124,7 +124,7 @@ public class c {
             public void onInstallError(int i2, int i3, String str2) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("loadcode", Integer.toString(i3));
-                hashMap.put(DpStatConstants.KEY_DETAIL, str2);
+                hashMap.put("detail", str2);
                 hashMap.put("processname", Utils.b(CyberPlayerManager.getApplicationContext()));
                 c.this.a(hashMap);
                 Message obtainMessage = c.this.g.obtainMessage();

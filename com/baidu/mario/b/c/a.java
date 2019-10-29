@@ -5,14 +5,14 @@ import java.io.File;
 public class a {
     private static final String TAG = a.class.getSimpleName();
 
-    public static void cG(String str) {
+    public static void dr(String str) {
         File parentFile = new File(str).getParentFile();
         if (!parentFile.exists()) {
             parentFile.mkdirs();
         }
     }
 
-    public static boolean cH(String str) {
+    public static boolean ds(String str) {
         return new File(str).delete();
     }
 }

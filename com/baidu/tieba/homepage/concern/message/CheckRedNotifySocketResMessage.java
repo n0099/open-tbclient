@@ -1,6 +1,7 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.RedNotify.RedNotifyResIdl;
 /* loaded from: classes4.dex */
@@ -8,7 +9,7 @@ public class CheckRedNotifySocketResMessage extends SocketResponsedMessage {
     private boolean isShowRedNotify;
 
     public CheckRedNotifySocketResMessage() {
-        super(309476);
+        super(CmdConfigSocket.CMD_CONCERN_CHECK_RED_NOTIFY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

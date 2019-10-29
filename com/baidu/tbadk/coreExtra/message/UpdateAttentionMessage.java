@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.a.c;
@@ -12,26 +13,26 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean Hs;
-        public c bVm;
-        public JSONObject ciF;
-        public boolean ciG;
-        public String ciH;
-        public BlockPopInfoData ciI;
+        public String blockUrl;
+        public c ckC;
+        public BlockPopInfoData cwD;
         public String errorString;
+        public boolean hasShownForbiddenAlert;
         public boolean isAttention;
+        public boolean isSucc;
+        public JSONObject resultJson;
         public String showMsg;
         public String toUid;
         public boolean isGod = false;
         public boolean isShowMessage = false;
         public int status = 0;
 
-        public void R(String str, boolean z) {
+        public void parserJson(String str, boolean z) {
             boolean z2 = true;
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.ciF = jSONObject;
+                    this.resultJson = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject(Config.LAUNCH_INFO);
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");
@@ -41,7 +42,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         }
                         this.isShowMessage = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
-                        ba(optJSONObject);
+                        parseBlockAnti(optJSONObject);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -49,32 +50,32 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
         }
 
-        private void ba(JSONObject jSONObject) {
+        private void parseBlockAnti(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.ciH = jSONObject.optString("block_dealurl");
+                this.blockUrl = jSONObject.optString("block_dealurl");
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!aq.isEmpty(optString) && !aq.isEmpty(this.ciH) && !aq.isEmpty(optString2) && !aq.isEmpty(optString3)) {
-                    this.ciI = new BlockPopInfoData();
-                    this.ciI.block_info = optString;
-                    this.ciI.ahead_url = this.ciH;
-                    this.ciI.ahead_info = optString2;
-                    this.ciI.ok_info = optString3;
+                if (!aq.isEmpty(optString) && !aq.isEmpty(this.blockUrl) && !aq.isEmpty(optString2) && !aq.isEmpty(optString3)) {
+                    this.cwD = new BlockPopInfoData();
+                    this.cwD.block_info = optString;
+                    this.cwD.ahead_url = this.blockUrl;
+                    this.cwD.ahead_info = optString2;
+                    this.cwD.ok_info = optString3;
                 }
             }
         }
     }
 
     public UpdateAttentionMessage(a aVar) {
-        super(2001115, aVar);
+        super(CmdConfigCustom.CMD_UPDATE_ATTENTION, aVar);
     }
 
     public boolean isSucc() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().Hs;
+        return getData().isSucc;
     }
 
     public boolean isAttention() {

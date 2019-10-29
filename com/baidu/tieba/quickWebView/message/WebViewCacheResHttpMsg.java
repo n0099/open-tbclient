@@ -1,6 +1,5 @@
 package com.baidu.tieba.quickWebView.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
@@ -11,7 +10,7 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     private String mVersion;
 
     public WebViewCacheResHttpMsg() {
-        super(CmdConfigHttp.WEBVIEW_CACHE_INFO);
+        super(1003365);
     }
 
     public String getCacheDownloadUrl() {

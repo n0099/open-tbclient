@@ -4,7 +4,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import java.util.LinkedList;
 import java.util.Map;
@@ -18,12 +17,12 @@ public class d {
         void onSuccess(String str);
     }
 
-    public static boolean acq() {
-        return com.baidu.adp.lib.b.d.hS().az("android_stoken_new") == 1;
+    public static boolean isVerification() {
+        return com.baidu.adp.lib.b.d.ft().af("android_stoken_new") == 1;
     }
 
     public static String c(AccountData accountData) {
-        if (accountData != null && acq()) {
+        if (accountData != null && isVerification()) {
             return accountData.getStoken();
         }
         return null;
@@ -32,7 +31,7 @@ public class d {
     public void a(String str, final a aVar) {
         if (!StringUtils.isNull(str)) {
             LinkedList linkedList = new LinkedList();
-            linkedList.add(TbConfig.PassConfig.TPL);
+            linkedList.add("tb");
             SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.tbadk.core.a.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -52,7 +51,7 @@ public class d {
                         }
                         return;
                     }
-                    String str2 = map.get(TbConfig.PassConfig.TPL);
+                    String str2 = map.get("tb");
                     if (StringUtils.isNULL(str2)) {
                         if (aVar != null) {
                             aVar.onFailed();

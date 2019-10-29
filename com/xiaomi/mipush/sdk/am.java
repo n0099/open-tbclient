@@ -5,11 +5,11 @@ import com.xiaomi.mipush.sdk.MiTinyDataClient;
 /* loaded from: classes3.dex */
 public class am implements Runnable {
     final /* synthetic */ com.xiaomi.xmpush.thrift.f a;
-    final /* synthetic */ MiTinyDataClient.a.C0495a b;
+    final /* synthetic */ MiTinyDataClient.a.C0596a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(MiTinyDataClient.a.C0495a c0495a, com.xiaomi.xmpush.thrift.f fVar) {
-        this.b = c0495a;
+    public am(MiTinyDataClient.a.C0596a c0596a, com.xiaomi.xmpush.thrift.f fVar) {
+        this.b = c0596a;
         this.a = fVar;
     }
 

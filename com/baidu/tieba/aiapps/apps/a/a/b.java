@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -29,7 +30,7 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        final String optString = optParamsAsJo.optString("tpl");
+        final String optString = optParamsAsJo.optString(TableDefine.PaSubscribeColumns.COLUMN_TPL);
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("GetStokenAction", "empty tpl");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty tpl");
@@ -43,21 +44,21 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            bVar.Ml().a((Activity) context, "mapp_i_get_stoken", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1
+            bVar.Rd().a((Activity) context, "mapp_i_get_stoken", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
-                public void D(Boolean bool) {
+                public void B(Boolean bool) {
                     if (!bool.booleanValue()) {
                         callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied").toString());
-                    } else if (TextUtils.isEmpty(com.baidu.tieba.aiapps.apps.a.c.dl(context))) {
+                    } else if (TextUtils.isEmpty(com.baidu.tieba.aiapps.apps.a.c.cW(context))) {
                         callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "bduss is invalid").toString());
                     } else {
                         com.baidu.tieba.aiapps.apps.a.c.a((Activity) context, new com.baidu.swan.apps.an.d.a<Bundle>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.swan.apps.an.d.a
                             /* renamed from: o */
-                            public void D(Bundle bundle) {
+                            public void B(Bundle bundle) {
                                 JSONObject wrapCallbackParams;
                                 if (bundle != null && !TextUtils.isEmpty(bundle.getString(optString))) {
                                     String string = bundle.getString(optString);

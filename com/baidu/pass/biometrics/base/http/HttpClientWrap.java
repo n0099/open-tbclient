@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.http.utils.HttpUtils;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
@@ -197,7 +198,7 @@ public class HttpClientWrap {
         hashMap.put(PARAM_UA, PassBiometricUtil.getUA(context, BeanConstants.tpl));
         hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("appid", BeanConstants.appid);
-        hashMap.put("tpl", BeanConstants.tpl);
+        hashMap.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, BeanConstants.tpl);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(PARAM_CUID_2, PhoneUtils.getCUID2(context));

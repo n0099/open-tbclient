@@ -1,6 +1,5 @@
 package org.java_websocket.framing;
 
-import android.support.v4.view.PointerIconCompat;
 import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidFrameException;
@@ -22,7 +21,7 @@ public class b extends d {
             this.code = 1005;
             this.reason = "";
         }
-        cPG();
+        cNN();
     }
 
     public void setReason(String str) {
@@ -30,7 +29,7 @@ public class b extends d {
             str = "";
         }
         this.reason = str;
-        cPG();
+        cNN();
     }
 
     public int getCloseCode() {
@@ -47,10 +46,10 @@ public class b extends d {
     }
 
     @Override // org.java_websocket.framing.d, org.java_websocket.framing.f
-    public void cPF() throws InvalidDataException {
-        super.cPF();
+    public void cNM() throws InvalidDataException {
+        super.cNM();
         if (this.code == 1007 && this.reason == null) {
-            throw new InvalidDataException((int) PointerIconCompat.TYPE_CROSSHAIR, "Received text is no valid utf8 string!");
+            throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
         if (this.code == 1005 && this.reason.length() > 0) {
             throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
@@ -88,29 +87,29 @@ public class b extends d {
                     this.reason = org.java_websocket.e.c.r(byteBuffer);
                     byteBuffer.position(position);
                 } catch (IllegalArgumentException e) {
-                    throw new InvalidDataException(PointerIconCompat.TYPE_CROSSHAIR);
+                    throw new InvalidDataException(1007);
                 }
             } catch (InvalidDataException e2) {
-                this.code = PointerIconCompat.TYPE_CROSSHAIR;
+                this.code = 1007;
                 this.reason = null;
             }
         }
     }
 
-    private void cPG() {
-        byte[] IW = org.java_websocket.e.c.IW(this.reason);
+    private void cNN() {
+        byte[] Hn = org.java_websocket.e.c.Hn(this.reason);
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.putInt(this.code);
         allocate.position(2);
-        ByteBuffer allocate2 = ByteBuffer.allocate(IW.length + 2);
+        ByteBuffer allocate2 = ByteBuffer.allocate(Hn.length + 2);
         allocate2.put(allocate);
-        allocate2.put(IW);
+        allocate2.put(Hn);
         allocate2.rewind();
         super.q(allocate2);
     }
 
     @Override // org.java_websocket.framing.f, org.java_websocket.framing.Framedata
-    public ByteBuffer cPH() {
-        return this.code == 1005 ? org.java_websocket.e.b.cPR() : super.cPH();
+    public ByteBuffer cNO() {
+        return this.code == 1005 ? org.java_websocket.e.b.cNY() : super.cNO();
     }
 }

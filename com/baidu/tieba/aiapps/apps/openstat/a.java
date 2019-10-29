@@ -10,7 +10,7 @@ public class a implements l {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.ubc.l
-    public boolean s(JSONArray jSONArray) {
+    public boolean A(JSONArray jSONArray) {
         if (DEBUG) {
             Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
         }
@@ -25,7 +25,7 @@ public class a implements l {
         HashMap hashMap = new HashMap(2);
         hashMap.put("officialNo", "1");
         hashMap.put("containerNo", "2");
-        com.baidu.tieba.aiapps.apps.openstat.imupload.b.aHE().a(hashMap, jSONArray.toString().getBytes(), token, cVar);
+        com.baidu.tieba.aiapps.apps.openstat.imupload.b.aHR().a(hashMap, jSONArray.toString().getBytes(), token, cVar);
         if (DEBUG) {
             Log.d("OpenBehaviorUploader", "errorCode : " + cVar.errorCode);
             Log.d("OpenBehaviorUploader", "errorMsg : " + cVar.errMsg);
@@ -34,7 +34,7 @@ public class a implements l {
             case 1:
             case 2:
             case 4:
-                com.baidu.swan.b.c.YD();
+                com.baidu.swan.b.c.ads();
                 return false;
             case 3:
             default:

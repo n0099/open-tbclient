@@ -60,7 +60,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
         }
-        this.customToast = com.baidu.tbadk.core.util.e.aic();
+        this.customToast = com.baidu.tbadk.core.util.e.alW();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -143,7 +143,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            ay.oo(getClass().getName());
+            ay.setCurrentActivity(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -157,15 +157,15 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
                 this.mRefreshView = new com.baidu.tbadk.m.h(getPageContext().getContext(), onClickListener);
             }
             this.mRefreshView.setTitle(str);
-            this.mRefreshView.qY(str2);
+            this.mRefreshView.setSubText(str2);
             this.mRefreshView.setButtonText(str3);
             this.mRefreshView.attachView(view, z);
-            this.mRefreshView.atW();
+            this.mRefreshView.showRefreshButton();
         }
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
-        setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.ds300));
+        setNetRefreshViewEmotionMarginTop(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds300));
     }
 
     public void showNetRefreshView(View view, String str, boolean z) {
@@ -176,16 +176,16 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.m.h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.qY(str);
+        this.mRefreshView.setSubText(str);
         this.mRefreshView.attachView(view, z);
-        this.mRefreshView.aud();
+        this.mRefreshView.hideRefreshButton();
     }
 
     public void setNetRefreshViewTopMargin(int i) {
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.m.h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.kO(i);
+        this.mRefreshView.setLayoutMargin(i);
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -198,7 +198,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNetRefreshViewEmotionMarginTop(int i) {
         if (this.mRefreshView != null && this.mRefreshView.isViewAttached()) {
-            this.mRefreshView.kO(i);
+            this.mRefreshView.setLayoutMargin(i);
         }
     }
 
@@ -268,18 +268,18 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (isPrimary() && this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.o.d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.bl(currentTimeMillis);
-            com.baidu.tbadk.o.e.avn().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            pageStayDurationItem.setStayDurationTime(currentTimeMillis);
+            com.baidu.tbadk.o.e.awz().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
-        com.baidu.adp.lib.f.c.iE().e(this.mId);
+        com.baidu.adp.lib.f.c.fT().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.lib.f.c.iE().e(this.mId);
+        com.baidu.adp.lib.f.c.fT().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -507,8 +507,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         } else if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.o.d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.bl(currentTimeMillis);
-            com.baidu.tbadk.o.e.avn().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            pageStayDurationItem.setStayDurationTime(currentTimeMillis);
+            com.baidu.tbadk.o.e.awz().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
         boolean isLogin = TbadkCoreApplication.isLogin();
@@ -552,8 +552,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             com.baidu.tbadk.o.a aVar = (com.baidu.tbadk.o.a) getActivity();
             ArrayList arrayList = (ArrayList) aVar.getCurrentPageSourceKeyList();
             if (!StringUtils.isNull(aVar.getCurrentPageKey())) {
-                if (aVar.getPageStayFilter() == null || aVar.getPageStayFilter().avh()) {
-                    if (v.aa(arrayList)) {
+                if (aVar.getPageStayFilter() == null || aVar.getPageStayFilter().isCurrentPageCanBeAddToSourceTrace()) {
+                    if (v.isEmpty(arrayList)) {
                         arrayList = new ArrayList();
                     }
                     arrayList.add(aVar.getCurrentPageKey());
@@ -571,14 +571,14 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         ArrayList arrayList;
         ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
         String currentPageKey = getCurrentPageKey();
-        if (v.aa(arrayList2)) {
+        if (v.isEmpty(arrayList2)) {
             arrayList = null;
         } else {
             ArrayList arrayList3 = new ArrayList();
             arrayList3.addAll(arrayList2);
             arrayList = arrayList3;
         }
-        if ((getPageStayFilter() == null || getPageStayFilter().avh()) && !StringUtils.isNull(currentPageKey)) {
+        if ((getPageStayFilter() == null || getPageStayFilter().isCurrentPageCanBeAddToSourceTrace()) && !StringUtils.isNull(currentPageKey)) {
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }
@@ -596,8 +596,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.o.d();
         }
-        this.pageStayDurationItem.re(getCurrentPageKey());
-        this.pageStayDurationItem.ao(getCurrentPageSourceKeyList());
+        this.pageStayDurationItem.setCurrentPageKey(getCurrentPageKey());
+        this.pageStayDurationItem.setSorceKeyList(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;
     }
 
@@ -629,7 +629,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         }
     }
 
-    protected void onNetRefreshButtonClicked() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onNetRefreshButtonClicked() {
     }
 
     public void HidenSoftKeyPad(InputMethodManager inputMethodManager, View view) {

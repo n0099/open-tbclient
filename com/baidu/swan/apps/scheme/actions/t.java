@@ -13,21 +13,21 @@ public class t extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.performance.e.am("postMessage", "PostMsgAction handle");
+        com.baidu.swan.apps.performance.e.au("postMessage", "PostMsgAction handle");
         String str = unitedSchemeEntity.getParams().get("params");
         if (TextUtils.isEmpty(str)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.m.a.d ey = com.baidu.swan.apps.m.a.d.ey(str);
-        if (ey == null) {
+        com.baidu.swan.apps.m.a.d ff = com.baidu.swan.apps.m.a.d.ff(str);
+        if (ff == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        com.baidu.swan.apps.performance.e.am("postMessage", "PostEvent start");
-        com.baidu.swan.apps.w.e.GJ().a(ey, true);
-        com.baidu.swan.apps.performance.e.am("postMessage", "PostEvent end.");
+        com.baidu.swan.apps.performance.e.au("postMessage", "PostEvent start");
+        com.baidu.swan.apps.w.e.LD().a(ff, true);
+        com.baidu.swan.apps.performance.e.au("postMessage", "PostEvent end.");
         return true;
     }
 }

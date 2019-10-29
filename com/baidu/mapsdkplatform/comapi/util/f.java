@@ -14,12 +14,11 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.android.imsdk.BuildConfig;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.sina.weibo.sdk.statistic.LogBuilder;
 import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,8 +44,8 @@ public class f {
     private static final String A = f.class.getSimpleName();
     private static com.baidu.mapsdkplatform.comjni.util.a B = new com.baidu.mapsdkplatform.comjni.util.a();
     static String a = "02";
-    static String n = "baidu";
-    static String o = "baidu";
+    static String n = BuildConfig.FLAVOR;
+    static String o = BuildConfig.FLAVOR;
     static String p = "";
     static String q = "";
     static String r = "";
@@ -87,16 +86,16 @@ public class f {
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
         bundle.putString("resid", a);
-        bundle.putString(LogBuilder.KEY_CHANNEL, n);
+        bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
         bundle.putString("mb", g());
         bundle.putString("sv", i());
-        bundle.putString(IXAdRequestInfo.OS, k());
+        bundle.putString("os", k());
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
-        bundle.putString(DpStatConstants.KEY_CUID, o());
+        bundle.putString("cuid", o());
         bundle.putByteArray(SocialOperation.GAME_SIGNATURE, a(w));
         bundle.putString("pcn", w.getPackageName());
         bundle.putInt("screen_x", h());
@@ -146,14 +145,14 @@ public class f {
             try {
                 LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
                 D = locationManager.isProviderEnabled("gps") ? 1 : 0;
-                E = locationManager.isProviderEnabled(DpStatConstants.KEY_NETWORK) ? 1 : 0;
+                E = locationManager.isProviderEnabled("network") ? 1 : 0;
                 F.put("resid", AppMD5.encodeUrlParamsValue(a));
-                F.put(LogBuilder.KEY_CHANNEL, AppMD5.encodeUrlParamsValue(m()));
+                F.put("channel", AppMD5.encodeUrlParamsValue(m()));
                 F.put("mb", AppMD5.encodeUrlParamsValue(g()));
                 F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-                F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
+                F.put("os", AppMD5.encodeUrlParamsValue(k()));
                 F.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
-                F.put(DpStatConstants.KEY_CUID, AppMD5.encodeUrlParamsValue(o()));
+                F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
                 F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
                 Map<String, String> map = F;
                 Integer valueOf = Integer.valueOf(j());
@@ -164,12 +163,12 @@ public class f {
             } catch (Exception e2) {
                 Log.w("baidumapsdk", "LocationManager error");
                 F.put("resid", AppMD5.encodeUrlParamsValue(a));
-                F.put(LogBuilder.KEY_CHANNEL, AppMD5.encodeUrlParamsValue(m()));
+                F.put("channel", AppMD5.encodeUrlParamsValue(m()));
                 F.put("mb", AppMD5.encodeUrlParamsValue(g()));
                 F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-                F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
+                F.put("os", AppMD5.encodeUrlParamsValue(k()));
                 F.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
-                F.put(DpStatConstants.KEY_CUID, AppMD5.encodeUrlParamsValue(o()));
+                F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
                 F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
                 Map<String, String> map2 = F;
                 Integer valueOf2 = Integer.valueOf(j());
@@ -183,16 +182,16 @@ public class f {
             }
         } catch (Throwable th) {
             F.put("resid", AppMD5.encodeUrlParamsValue(a));
-            F.put(LogBuilder.KEY_CHANNEL, AppMD5.encodeUrlParamsValue(m()));
+            F.put("channel", AppMD5.encodeUrlParamsValue(m()));
             F.put("mb", AppMD5.encodeUrlParamsValue(g()));
             F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-            F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
+            F.put("os", AppMD5.encodeUrlParamsValue(k()));
             Map<String, String> map3 = F;
             Object[] objArr = new Object[2];
             objArr[r2] = Integer.valueOf(l());
             objArr[r1] = Integer.valueOf(l());
             map3.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", objArr)));
-            F.put(DpStatConstants.KEY_CUID, AppMD5.encodeUrlParamsValue(o()));
+            F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
             F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
             Map<String, String> map4 = F;
             Object[] objArr2 = new Object[2];
@@ -222,11 +221,11 @@ public class f {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             e = VersionInfo.getApiVersion();
             if (e != null && !e.equals("")) {
-                e = e.replace('_', '.');
+                e = e.replace('_', BdFileHelper.EXTENSION_SEPARATOR);
             }
             f = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
-            e = "1.0.0";
+            e = com.baidu.searchbox.aps.megapp_interface.BuildConfig.VERSION_NAME;
             f = 1;
         }
     }
@@ -277,16 +276,16 @@ public class f {
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
         bundle.putString("resid", a);
-        bundle.putString(LogBuilder.KEY_CHANNEL, n);
+        bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
         bundle.putString("mb", g());
         bundle.putString("sv", i());
-        bundle.putString(IXAdRequestInfo.OS, k());
+        bundle.putString("os", k());
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
-        bundle.putString(DpStatConstants.KEY_CUID, o());
+        bundle.putString("cuid", o());
         bundle.putString("pcn", w.getPackageName());
         bundle.putInt("screen_x", h());
         bundle.putInt("screen_y", j());

@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.mobstat.Config;
 import java.util.HashMap;
 import java.util.Map;
@@ -130,7 +131,7 @@ public class EventAnalysis {
                     String value = entry.getValue();
                     if (!TextUtils.isEmpty(key) && !TextUtils.isEmpty(value) && !a(value, 1024)) {
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put(Config.APP_KEY, key);
+                        jSONObject3.put("k", key);
                         jSONObject3.put("v", value);
                         jSONArray3.put(jSONObject3);
                     }
@@ -184,7 +185,7 @@ public class EventAnalysis {
             long optLong = jSONObject.optLong("ss");
             String string = jSONObject.getString("i");
             String string2 = jSONObject.getString("l");
-            long j = jSONObject.getLong("t") / 3600000;
+            long j = jSONObject.getLong("t") / BdKVCache.MILLS_1Hour;
             String optString = jSONObject.optString("s");
             int optInt = jSONObject.optInt("at");
             String optString2 = jSONObject.optString("h");
@@ -245,7 +246,7 @@ public class EventAnalysis {
                 long optLong = jSONObject2.optLong("ss");
                 String string = jSONObject2.getString("i");
                 String string2 = jSONObject2.getString("l");
-                long j3 = jSONObject2.getLong("t") / 3600000;
+                long j3 = jSONObject2.getLong("t") / BdKVCache.MILLS_1Hour;
                 try {
                     i4 = jSONObject2.getInt("d");
                 } catch (JSONException e) {

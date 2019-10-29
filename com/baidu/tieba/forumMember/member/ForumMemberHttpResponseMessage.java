@@ -40,7 +40,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
                         this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.AR(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.zz(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                         this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;
@@ -66,7 +66,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
             }
             if (forumMemberRequestMessage != null) {
-                new d().j(forumMemberRequestMessage.getForumName() + "", bArr);
+                new d().i(forumMemberRequestMessage.getForumName() + "", bArr);
             }
         }
     }

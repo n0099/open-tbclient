@@ -13,40 +13,40 @@ import java.nio.channels.WritableByteChannel;
 /* loaded from: classes2.dex */
 public class c extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final File ayG;
+    private final File aRW;
 
     public c(File file) {
         super("dump");
-        this.ayG = file;
+        this.aRW = file;
     }
 
     @Override // com.baidu.swan.apps.install.g.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        com.baidu.swan.apps.v.c.a eY = com.baidu.swan.apps.v.c.a.eY(bundle.getString("launch_id"));
-        eY.Gc().fb("DumpFileProcessor").cI(1);
+        com.baidu.swan.apps.v.c.a fF = com.baidu.swan.apps.v.c.a.fF(bundle.getString("launch_id"));
+        fF.KW().fI("DumpFileProcessor").dD(1);
         try {
             try {
                 a((ReadableByteChannel) sourceChannel);
-                eY.ak("DumpFileProcessor", "done");
+                fF.as("DumpFileProcessor", "done");
                 return true;
             } catch (IOException e) {
-                eY.ak("DumpFileProcessor", "done with exception: " + e.toString());
+                fF.as("DumpFileProcessor", "done with exception: " + e.toString());
                 if (DEBUG) {
                     e.printStackTrace();
                 }
                 com.baidu.swan.apps.an.b.b.a(sourceChannel);
-                com.baidu.swan.c.a.c(null);
+                com.baidu.swan.c.a.b(null);
                 return false;
             }
         } finally {
             com.baidu.swan.apps.an.b.b.a(sourceChannel);
-            com.baidu.swan.c.a.c(null);
+            com.baidu.swan.c.a.b(null);
         }
     }
 
     private void a(ReadableByteChannel readableByteChannel) throws IOException {
-        WritableByteChannel newChannel = Channels.newChannel(new FileOutputStream(this.ayG, false));
-        ByteBuffer allocate = ByteBuffer.allocate(com.baidu.swan.apps.core.pms.a.Bk());
+        WritableByteChannel newChannel = Channels.newChannel(new FileOutputStream(this.aRW, false));
+        ByteBuffer allocate = ByteBuffer.allocate(com.baidu.swan.apps.core.pms.a.Gf());
         while (readableByteChannel.read(allocate) != -1) {
             allocate.flip();
             newChannel.write(allocate);

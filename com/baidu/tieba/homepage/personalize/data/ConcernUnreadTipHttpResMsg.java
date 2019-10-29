@@ -1,7 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.UnreadTip.UnreadTipResIdl;
 /* loaded from: classes4.dex */
@@ -9,7 +8,7 @@ public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
     public e mData;
 
     public ConcernUnreadTipHttpResMsg() {
-        super(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP);
+        super(1003387);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

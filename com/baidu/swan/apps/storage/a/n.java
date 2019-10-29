@@ -21,12 +21,12 @@ public class n extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        com.baidu.swan.apps.storage.c Mk = bVar.Mk();
+        com.baidu.swan.apps.storage.c Rc = bVar.Rc();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("keys", new JSONArray((Collection) Mk.NV().getAll().keySet()));
-            jSONObject.put("currentSize", Mk.NX() / 1024);
-            jSONObject.put("limitSize", Mk.NY() / 1024);
+            jSONObject.put("keys", new JSONArray((Collection) Rc.SL().getAll().keySet()));
+            jSONObject.put("currentSize", Rc.SN() / 1024);
+            jSONObject.put("limitSize", Rc.SO() / 1024);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         } catch (JSONException e) {

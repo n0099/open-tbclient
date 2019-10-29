@@ -9,37 +9,37 @@ import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends DiskFileOperate {
     protected Bitmap mBitmap;
-    protected BitmapFactory.Options xi;
-    protected a xj;
-    protected boolean xk;
+    protected BitmapFactory.Options mOptions;
+    protected a nb;
+    protected boolean nc;
 
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.xi = null;
-        this.xj = null;
-        this.xk = true;
-        this.xj = new a();
+        this.mOptions = null;
+        this.nb = null;
+        this.nc = true;
+        this.nb = new a();
     }
 
-    public void N(boolean z) {
-        this.xk = z;
+    public void y(boolean z) {
+        this.nc = z;
     }
 
     public boolean isGif() {
-        return this.xj.mIsGif;
+        return this.nb.mIsGif;
     }
 
-    public void O(boolean z) {
-        this.xj.mIsGif = z;
+    public void setGif(boolean z) {
+        this.nb.mIsGif = z;
     }
 
-    public boolean gY() {
-        return this.xj.xo;
+    public boolean isHighQuality() {
+        return this.nb.mIsHighQuality;
     }
 
-    public void P(boolean z) {
-        this.xj.xo = z;
+    public void setHighQuality(boolean z) {
+        this.nb.mIsHighQuality = z;
     }
 
     public Bitmap getBitmap() {
@@ -49,30 +49,30 @@ public class c extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!isGif() && l.k(bArr)) {
-            O(true);
+        if (!isGif() && l.isGif(bArr)) {
+            setGif(true);
         }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] gL() {
-        if (this.mData == null || !this.xk) {
+    public byte[] buildFormatData() {
+        if (this.mData == null || !this.nc) {
             return null;
         }
-        return this.xj.toByteArray();
+        return this.nb.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean i(byte[] bArr) {
-        if (bArr != null && this.xj.j(bArr)) {
-            if (this.xj.xn == 0 || this.xj.xn >= System.currentTimeMillis()) {
-                if (this.xi == null) {
-                    this.xi = new BitmapFactory.Options();
-                    this.xi.inPreferredConfig = Bitmap.Config.RGB_565;
+    public boolean formatData(byte[] bArr) {
+        if (bArr != null && this.nb.paserFromByte(bArr)) {
+            if (this.nb.mValidTime == 0 || this.nb.mValidTime >= System.currentTimeMillis()) {
+                if (this.mOptions == null) {
+                    this.mOptions = new BitmapFactory.Options();
+                    this.mOptions.inPreferredConfig = Bitmap.Config.RGB_565;
                 }
                 int headerSize = a.getHeaderSize();
                 try {
-                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.xi);
+                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.mOptions);
                 } catch (Error e) {
                     BdLog.e(e.getMessage());
                 }
@@ -83,7 +83,7 @@ public class c extends DiskFileOperate {
         return false;
     }
 
-    public byte[] gZ() {
+    public byte[] getFormatedData() {
         int headerSize = a.getHeaderSize();
         byte[] bArr = new byte[this.mData.length - headerSize];
         System.arraycopy(this.mData, headerSize, bArr, 0, bArr.length);
@@ -93,11 +93,11 @@ public class c extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte xl = Byte.MIN_VALUE;
-        private static byte xm = Byte.MIN_VALUE;
+        private static byte GIF_FLAG = Byte.MIN_VALUE;
+        private static byte HQ_FLAG = Byte.MIN_VALUE;
         boolean mIsGif = false;
-        long xn = 0;
-        boolean xo = true;
+        long mValidTime = 0;
+        boolean mIsHighQuality = true;
 
         a() {
         }
@@ -109,25 +109,25 @@ public class c extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600511);
-            allocate.put(this.mIsGif ? (byte) (xl | 0) : (byte) 0);
-            allocate.putLong(this.xn);
-            allocate.put(this.xo ? (byte) 0 : (byte) (xm | 0));
+            allocate.put(this.mIsGif ? (byte) (GIF_FLAG | 0) : (byte) 0);
+            allocate.putLong(this.mValidTime);
+            allocate.put(this.mIsHighQuality ? (byte) 0 : (byte) (HQ_FLAG | 0));
             allocate.flip();
             return allocate.array();
         }
 
-        public boolean j(byte[] bArr) {
+        public boolean paserFromByte(byte[] bArr) {
             if (bArr == null || bArr.length < getHeaderSize()) {
                 return false;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600511) {
-                if ((wrap.get() & xl) != 0) {
+                if ((wrap.get() & GIF_FLAG) != 0) {
                     this.mIsGif = true;
                 }
-                this.xn = wrap.getLong();
-                if ((wrap.get() & xm) != 0) {
-                    this.xo = false;
+                this.mValidTime = wrap.getLong();
+                if ((wrap.get() & HQ_FLAG) != 0) {
+                    this.mIsHighQuality = false;
                 }
                 return true;
             }

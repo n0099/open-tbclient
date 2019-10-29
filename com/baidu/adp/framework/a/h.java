@@ -11,8 +11,4 @@ public abstract class h<T> extends com.baidu.adp.framework.d {
     public int getCmd() {
         return this.mCmd;
     }
-
-    public void setCmd(int i) {
-        this.mCmd = i;
-    }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.game;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GameInfo;
@@ -11,7 +12,7 @@ public class ResponseGameDetailMessage extends TbSocketReponsedMessage {
     private RankInfo mRankInfo;
 
     public ResponseGameDetailMessage() {
-        super(303009);
+        super(CmdConfigSocket.CMD_GET_GAME_DETAIL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

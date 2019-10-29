@@ -12,15 +12,15 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String kuF = "";
+    private String kvn = "";
     private String from = "";
-    private String kuG = "";
-    private String kuH = "";
-    private String kuI = "";
-    private String kuJ = "";
+    private String kvo = "";
+    private String kvp = "";
+    private String kvq = "";
+    private String kvr = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String IF(String str) {
+    private String GW(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -28,7 +28,7 @@ public class b implements Cloneable {
         }
     }
 
-    public String sO(boolean z) {
+    public String st(boolean z) {
         if (this.extra.isEmpty()) {
             return "";
         }
@@ -41,37 +41,37 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return IF(jSONObject.toString());
+            return GW(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
-    public String sP(boolean z) {
-        return z ? IF(this.kuI) : this.kuI;
+    public String su(boolean z) {
+        return z ? GW(this.kvq) : this.kvq;
     }
 
-    public String sQ(boolean z) {
-        return z ? IF(this.kuG) : this.kuG;
+    public String sv(boolean z) {
+        return z ? GW(this.kvo) : this.kvo;
     }
 
-    public void IG(String str) {
-        this.kuG = str;
+    public void GX(String str) {
+        this.kvo = str;
     }
 
-    public String sR(boolean z) {
-        return z ? IF(this.kuH) : this.kuH;
+    public String sw(boolean z) {
+        return z ? GW(this.kvp) : this.kvp;
     }
 
-    public String sS(boolean z) {
-        return z ? IF(this.from) : this.from;
+    public String sx(boolean z) {
+        return z ? GW(this.from) : this.from;
     }
 
     public void setFrom(String str) {
         this.from = str;
     }
 
-    public String sT(boolean z) {
-        return z ? IF(this.appKey) : this.appKey;
+    public String sy(boolean z) {
+        return z ? GW(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -86,12 +86,12 @@ public class b implements Cloneable {
         this.appContext = context.getApplicationContext();
     }
 
-    public String sU(boolean z) {
-        return z ? IF(this.kuF) : this.kuF;
+    public String sz(boolean z) {
+        return z ? GW(this.kvn) : this.kvn;
     }
 
-    public boolean cOs() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.kuG)) ? false : true;
+    public boolean cMz() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.kvo)) ? false : true;
     }
 
     public Object clone() {

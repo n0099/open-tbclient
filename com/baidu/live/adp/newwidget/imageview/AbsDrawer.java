@@ -1,0 +1,215 @@
+package com.baidu.live.adp.newwidget.imageview;
+
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PointF;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+/* loaded from: classes6.dex */
+public abstract class AbsDrawer {
+    private static final int DEFAULT_PAINT_FLAGS = 6;
+    private static final Matrix.ScaleToFit[] sS2FArray = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
+    private static final int IMAGE_COLORFILTER_NIGHT = -5000269;
+    private static final PorterDuffColorFilter sColorFilterForSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
+    protected Paint mPaint = new Paint(6);
+    protected Paint mBorderPaint = new Paint();
+    protected Paint mForegroundPaint = new Paint();
+    protected Matrix mDrawMatrix = new Matrix();
+    protected RectF mBounds = new RectF();
+    protected RectF mBorderRect = new RectF();
+    private RectF mTempSrc = new RectF();
+    private RectF mTempDst = new RectF();
+    private RectF mTempForNinePatch = new RectF();
+    protected DrawerArgs mArgs = new DrawerArgs();
+    private float[] mValues = new float[9];
+    private PointF mPoint = new PointF();
+    protected RectF mForegroundRect = new RectF();
+
+    public abstract void applyBounds(DisplayImage displayImage, ImageView imageView);
+
+    public abstract void drawBorder(Canvas canvas, ImageView imageView);
+
+    public abstract void drawContentReal(Canvas canvas, DisplayImage displayImage, ImageView imageView);
+
+    public abstract void drawForeground(Canvas canvas, ImageView imageView);
+
+    public AbsDrawer() {
+        this.mBorderPaint.setStyle(Paint.Style.STROKE);
+        this.mBorderPaint.setAntiAlias(true);
+        this.mPaint.setAntiAlias(true);
+        this.mForegroundPaint.setAntiAlias(true);
+        this.mForegroundPaint.setStyle(Paint.Style.FILL);
+    }
+
+    public void computeBounds(DisplayImage displayImage, ImageView imageView, ImageView.ScaleType scaleType) {
+        float min;
+        float f;
+        float f2;
+        float f3 = 0.0f;
+        if (imageView.getWidth() != 0 && imageView.getHeight() != 0) {
+            int width = displayImage.getWidth();
+            int height = displayImage.getHeight();
+            int width2 = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+            int height2 = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+            if (scaleType == ImageView.ScaleType.MATRIX) {
+                this.mBounds.set(0.0f, 0.0f, width, height);
+                applyBounds(displayImage, imageView);
+                return;
+            }
+            boolean z = (width <= 0 || width2 == width) && (height <= 0 || height2 == height);
+            this.mDrawMatrix.reset();
+            if (ImageView.ScaleType.FIT_XY == scaleType || z) {
+                this.mBounds.set(0.0f, 0.0f, width2, height2);
+            } else {
+                this.mBounds.set(0.0f, 0.0f, width, height);
+                if (ImageView.ScaleType.CENTER == scaleType) {
+                    this.mDrawMatrix.setTranslate((width2 - width) * 0.5f, (height2 - height) * 0.5f);
+                } else if (ImageView.ScaleType.CENTER_CROP == scaleType) {
+                    if (width * height2 > width2 * height) {
+                        f = height2 / height;
+                        f3 = (width2 - (width * f)) * 0.5f;
+                        f2 = 0.0f;
+                    } else {
+                        f = width2 / width;
+                        f2 = (height2 - (height * f)) * 0.5f;
+                    }
+                    this.mDrawMatrix.setScale(f, f);
+                    this.mDrawMatrix.postTranslate(f3, f2);
+                } else if (ImageView.ScaleType.CENTER_INSIDE == scaleType) {
+                    if (width <= width2 && height <= height2) {
+                        min = 1.0f;
+                    } else {
+                        min = Math.min(width2 / width, height2 / height);
+                    }
+                    this.mDrawMatrix.setScale(min, min);
+                    this.mDrawMatrix.postTranslate((width2 - (width * min)) * 0.5f, (height2 - (height * min)) * 0.5f);
+                } else {
+                    this.mTempSrc.set(0.0f, 0.0f, width, height);
+                    this.mTempDst.set(0.0f, 0.0f, width2, height2);
+                    this.mDrawMatrix.setRectToRect(this.mTempSrc, this.mTempDst, scaleTypeToScaleToFit(scaleType));
+                }
+            }
+            applyBounds(displayImage, imageView);
+        }
+    }
+
+    public void drawContent(Canvas canvas, DisplayImage displayImage, ImageView imageView) {
+        updatePaint();
+        int save = canvas.save();
+        int scrollX = imageView.getScrollX();
+        int scrollY = imageView.getScrollY();
+        int paddingLeft = imageView.getPaddingLeft();
+        int paddingRight = imageView.getPaddingRight();
+        int paddingTop = imageView.getPaddingTop();
+        int paddingBottom = imageView.getPaddingBottom();
+        canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + imageView.getRight()) - imageView.getLeft()) - paddingRight, ((scrollY + imageView.getBottom()) - imageView.getTop()) - paddingBottom);
+        canvas.translate(paddingLeft, paddingTop);
+        int save2 = canvas.save();
+        if (this.mArgs.mExtraMatrix != null) {
+            canvas.concat(this.mArgs.mExtraMatrix);
+        }
+        if (displayImage.bdImg != null && displayImage.bdImg.isNinePatchBitmap()) {
+            if ((displayImage.bdImg.getRawBitmap().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || displayImage.bdImg.getRawBitmap().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.mDrawMatrix != null) {
+                canvas.concat(this.mDrawMatrix);
+            }
+            this.mTempForNinePatch.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+            displayImage.bdImg.drawNinePatchImage(canvas, this.mTempForNinePatch);
+        } else {
+            drawContentReal(canvas, displayImage, imageView);
+        }
+        canvas.restoreToCount(save2);
+        drawBorder(canvas, imageView);
+        canvas.restoreToCount(save);
+    }
+
+    protected void drawBackground(Canvas canvas, ImageView imageView) {
+        Drawable background = imageView.getBackground();
+        if (background != null) {
+            int scrollX = imageView.getScrollX();
+            int scrollY = imageView.getScrollY();
+            background.setBounds(0, 0, imageView.getWidth(), imageView.getHeight());
+            if ((scrollX | scrollY) == 0) {
+                drawBackgroundReal(canvas, background);
+                return;
+            }
+            canvas.translate(scrollX, scrollY);
+            drawBackgroundReal(canvas, background);
+            canvas.translate(-scrollX, -scrollY);
+        }
+    }
+
+    public void drawBackground(Canvas canvas, ImageView imageView, Drawable drawable) {
+        if (drawable != null) {
+            int scrollX = imageView.getScrollX();
+            int scrollY = imageView.getScrollY();
+            drawable.setBounds(0, 0, imageView.getWidth(), imageView.getHeight());
+            if ((scrollX | scrollY) == 0) {
+                drawBackgroundReal(canvas, drawable);
+                return;
+            }
+            canvas.translate(scrollX, scrollY);
+            drawBackgroundReal(canvas, drawable);
+            canvas.translate(-scrollX, -scrollY);
+        }
+    }
+
+    protected void drawBackgroundReal(Canvas canvas, Drawable drawable) {
+        drawable.draw(canvas);
+    }
+
+    public void updateArgs(DrawerArgs drawerArgs) {
+        this.mArgs = drawerArgs;
+    }
+
+    public DrawerArgs getArgs() {
+        return this.mArgs;
+    }
+
+    public Matrix getDrawMatrix() {
+        return this.mDrawMatrix;
+    }
+
+    public void setDrawMatrix(Matrix matrix) {
+        this.mDrawMatrix = matrix;
+    }
+
+    public RectF getBounds() {
+        return this.mBounds;
+    }
+
+    private void updatePaint() {
+        this.mPaint.setAlpha((int) (255.0f * this.mArgs.mAlpha));
+        if (this.mArgs.mIsNight) {
+            this.mPaint.setColorFilter(sColorFilterForSkin);
+        } else {
+            this.mPaint.setColorFilter(null);
+        }
+        this.mBorderPaint.setColor(this.mArgs.mBorderColor);
+        this.mBorderPaint.setStrokeWidth(this.mArgs.mBorderWidth);
+    }
+
+    private static Matrix.ScaleToFit scaleTypeToScaleToFit(ImageView.ScaleType scaleType) {
+        int i = 1;
+        if (scaleType != ImageView.ScaleType.FIT_XY) {
+            if (scaleType == ImageView.ScaleType.FIT_START) {
+                i = 2;
+            } else if (scaleType == ImageView.ScaleType.FIT_CENTER) {
+                i = 3;
+            } else if (scaleType == ImageView.ScaleType.FIT_END) {
+                i = 4;
+            }
+        }
+        return sS2FArray[i - 1];
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public PointF applyMatrix(float f, float f2, Matrix matrix) {
+        matrix.getValues(this.mValues);
+        this.mPoint.set((int) ((this.mValues[0] * f) + (this.mValues[1] * f2) + this.mValues[2]), (int) ((this.mValues[3] * f) + (this.mValues[4] * f2) + this.mValues[5]));
+        return this.mPoint;
+    }
+}

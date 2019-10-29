@@ -9,9 +9,9 @@ public interface l extends b {
 
     void init();
 
-    void onChangeSkinType(int i);
+    void le();
 
-    void ql();
+    void onChangeSkinType(int i);
 
     void setEditorTools(EditorTools editorTools);
 

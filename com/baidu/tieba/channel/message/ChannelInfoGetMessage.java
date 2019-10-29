@@ -1,7 +1,7 @@
 package com.baidu.tieba.channel.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.GetChannelInfo.DataReq;
 import tbclient.GetChannelInfo.GetChannelInfoReqIdl;
@@ -12,7 +12,7 @@ public class ChannelInfoGetMessage extends NetMessage {
     private int ps;
 
     public ChannelInfoGetMessage(long j, int i, int i2) {
-        super(CmdConfigHttp.CMD_CHANNEL_GET_INFO, 309437);
+        super(1003307, CmdConfigSocket.CMD_CHANNEL_GET_INFO);
         this.channelId = j;
         this.pn = i;
         this.ps = i2;
@@ -25,7 +25,7 @@ public class ChannelInfoGetMessage extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.ps = Integer.valueOf(this.ps);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         GetChannelInfoReqIdl.Builder builder2 = new GetChannelInfoReqIdl.Builder();
         builder2.data = builder.build(false);

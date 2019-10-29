@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.UpdateForumMask.DataReq;
 import protobuf.UpdateForumMask.UpdateForumMaskReqIdl;
@@ -10,7 +11,7 @@ public class RequestUpdateForumMask extends TbSocketMessage {
     private int type;
 
     public RequestUpdateForumMask() {
-        super(104106);
+        super(CmdConfigSocket.CMD_UPDATE_FORUM_MAST_STAT);
     }
 
     public int getType() {

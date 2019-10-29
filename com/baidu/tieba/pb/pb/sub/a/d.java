@@ -18,39 +18,38 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bL */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: bN */
+    public a b(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.sub_pb_reply_num_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.viewholder).ieF.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
-        ((a) this.viewholder).onChangeSkinType();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
+        ((a) this.xN).idk.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.xN).onChangeSkinType();
         return aVar.getView();
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private View eEX;
-        private TextView ieF;
+        private View eND;
+        private TextView idk;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.ieF = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.eEX = view.findViewById(R.id.floor_reply_top_line);
+            this.idk = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.eND = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                am.j(this.ieF, R.color.cp_cont_b);
-                am.l(this.eEX, R.color.cp_bg_line_c);
-                am.l(this.ieF, R.color.cp_bg_line_d);
+                am.setViewTextColor(this.idk, (int) R.color.cp_cont_b);
+                am.setBackgroundColor(this.eND, R.color.cp_bg_line_c);
+                am.setBackgroundColor(this.idk, R.color.cp_bg_line_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

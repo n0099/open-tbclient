@@ -33,8 +33,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.sapi2.result.AddressManageResult;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -132,10 +132,10 @@ public class AuthAgent extends BaseApi {
                     AuthAgent.this.b.setOpenId(string3);
                     com.tencent.connect.a.a.d(this.d, AuthAgent.this.b);
                 }
-                String string4 = jSONObject.getString(Constants.PARAM_PLATFORM_ID);
+                String string4 = jSONObject.getString("pf");
                 if (string4 != null) {
                     try {
-                        this.d.getSharedPreferences(Constants.PREFERENCE_PF, 0).edit().putString(Constants.PARAM_PLATFORM_ID, string4).commit();
+                        this.d.getSharedPreferences(Constants.PREFERENCE_PF, 0).edit().putString("pf", string4).commit();
                     } catch (Exception e) {
                         e.printStackTrace();
                         f.b("openSDK_LOG.AuthAgent", "OpenUi, TokenListener() onComplete error", e);
@@ -202,14 +202,14 @@ public class AuthAgent extends BaseApi {
         a2.putString("scope", this.d);
         a2.putString("client_id", this.b.getAppId());
         if (isOEM) {
-            a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
-            a2.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
+            a2.putString("pf", Constants.DEFAULT_PF);
         }
         String str = (System.currentTimeMillis() / 1000) + "";
         a2.putString("sign", h.b(e.a(), str));
         a2.putString("time", str);
-        a2.putString("display", AddressManageResult.KEY_MOBILE);
+        a2.putString(LogConfig.KEY_DISPLAY, "mobile");
         a2.putString(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "token");
         a2.putString(WBConstants.AUTH_PARAMS_REDIRECT_URL, "auth://tauth.qq.com/");
         a2.putString("cancel_display", "1");
@@ -261,9 +261,9 @@ public class AuthAgent extends BaseApi {
             a2.putString("scope", this.d);
             a2.putString("client_id", this.b.getAppId());
             if (isOEM) {
-                a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+                a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
             } else {
-                a2.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
+                a2.putString("pf", Constants.DEFAULT_PF);
             }
             a2.putString("need_pay", "1");
             a2.putString(Constants.KEY_APP_NAME, h.a(e.a()));
@@ -281,11 +281,11 @@ public class AuthAgent extends BaseApi {
                     a(activity, b2, Constants.REQUEST_LOGIN);
                 }
                 f.c("openSDK_LOG.AuthAgent", "startActionActivity() -- end, found activity for loginIntent");
-                d.a().a(0, "LOGIN_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
+                d.a().a(0, "LOGIN_CHECK_SDK", "1000", this.b.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
                 return true;
             }
         }
-        d.a().a(1, "LOGIN_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "startActionActivity fail");
+        d.a().a(1, "LOGIN_CHECK_SDK", "1000", this.b.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "startActionActivity fail");
         f.c("openSDK_LOG.AuthAgent", "startActionActivity() -- end, no target activity for loginIntent");
         return false;
     }

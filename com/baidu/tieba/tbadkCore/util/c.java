@@ -4,19 +4,20 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c extends d {
-    private volatile HashMap<String, Long> jlq;
+    private volatile HashMap<String, Long> jlg;
 
     static {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.tbadkCore.util.c.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.tbadkCore.util.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().crv();
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().cpo();
                 }
             }
         });
@@ -24,14 +25,14 @@ public class c extends d {
 
     public c(int i) {
         super(i);
-        this.jlq = new HashMap<>();
+        this.jlg = new HashMap<>();
     }
 
-    public long Fw(String str) {
+    public long Ea(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.jlq.get(str) != null ? this.jlq.get(str).longValue() : 0L;
+                longValue = this.jlg.get(str) != null ? this.jlg.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -41,10 +42,10 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.d
-    public void crv() {
+    public void cpo() {
         synchronized (this) {
-            this.jlr.clear();
-            this.jlq.clear();
+            this.jlh.clear();
+            this.jlg.clear();
         }
     }
 }

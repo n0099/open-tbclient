@@ -1,29 +1,29 @@
 package kotlin.coroutines.experimental;
 
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import kotlin.TypeCastException;
 import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a implements d {
-    private final d kva;
-    private final d.b kvb;
+    private final d kvI;
+    private final d.b kvJ;
 
     public a(d dVar, d.b bVar) {
-        p.k(dVar, CustomDialogData.POS_LEFT);
-        p.k(bVar, "element");
-        this.kva = dVar;
-        this.kvb = bVar;
+        p.i(dVar, "left");
+        p.i(bVar, "element");
+        this.kvI = dVar;
+        this.kvJ = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        p.k(cVar, "key");
+        p.i(cVar, TiebaInitialize.Params.KEY);
         a aVar = this;
         while (true) {
-            E e = (E) aVar.kvb.a(cVar);
+            E e = (E) aVar.kvJ.a(cVar);
             if (e == null) {
-                d dVar = aVar.kva;
+                d dVar = aVar.kvI;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -37,34 +37,34 @@ public final class a implements d {
 
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
-        p.k(cVar, "operation");
-        return cVar.invoke((Object) this.kva.a(r, cVar), this.kvb);
+        p.i(cVar, "operation");
+        return cVar.invoke((Object) this.kvI.a(r, cVar), this.kvJ);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        p.k(cVar, "key");
-        if (this.kvb.a(cVar) != null) {
-            return this.kva;
+        p.i(cVar, TiebaInitialize.Params.KEY);
+        if (this.kvJ.a(cVar) != null) {
+            return this.kvI;
         }
-        d b = this.kva.b(cVar);
-        return b == this.kva ? this : b == e.kve ? this.kvb : new a(b, this.kvb);
+        d b = this.kvI.b(cVar);
+        return b == this.kvI ? this : b == e.kvM ? this.kvJ : new a(b, this.kvJ);
     }
 
     private final int size() {
-        if (this.kva instanceof a) {
-            return ((a) this.kva).size() + 1;
+        if (this.kvI instanceof a) {
+            return ((a) this.kvI).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return p.h(a((d.c<d.b>) bVar.cON()), bVar);
+        return p.f(a((d.c<d.b>) bVar.cMU()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.kvb)) {
-            d dVar = aVar.kva;
+        while (a(aVar.kvJ)) {
+            d dVar = aVar.kvI;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -81,7 +81,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.kva.hashCode() + this.kvb.hashCode();
+        return this.kvI.hashCode() + this.kvJ.hashCode();
     }
 
     public String toString() {

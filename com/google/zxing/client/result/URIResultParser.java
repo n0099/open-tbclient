@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.google.zxing.Result;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +25,7 @@ public final class URIResultParser extends ResultParser {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean isBasicallyValidURI(String str) {
-        if (str.contains(" ")) {
+        if (str.contains(HanziToPinyin.Token.SEPARATOR)) {
             return false;
         }
         Matcher matcher = URL_WITH_PROTOCOL_PATTERN.matcher(str);

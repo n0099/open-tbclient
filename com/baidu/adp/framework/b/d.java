@@ -10,47 +10,47 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
-    private g vU;
+    private g mr;
 
     public d(MessageManager messageManager) {
         super(messageManager);
-        this.vU = null;
-        this.vU = new g(messageManager);
-        this.vQ = com.baidu.adp.framework.c.c.gp();
+        this.mr = null;
+        this.mr = new g(messageManager);
+        this.mp = com.baidu.adp.framework.c.c.eJ();
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.vU.removeMessage(bdUniqueId);
+        this.mr.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.vU.removeMessage(i, bdUniqueId);
+        this.mr.removeMessage(i, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        this.vU.a(socketMessage, socketMessageTask);
+        this.mr.a(socketMessage, socketMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.c
     /* renamed from: c */
-    public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return this.tC.getController().b(socketMessage, socketMessageTask);
+    public SocketMessage d(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        return this.lD.getController().b(socketMessage, socketMessageTask);
     }
 
     public LinkedList<SocketMessage> a(BdUniqueId bdUniqueId) {
-        return this.vU.a(bdUniqueId);
+        return this.mr.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<SocketMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.vU.findMessage(i, bdUniqueId);
+        return this.mr.findMessage(i, bdUniqueId);
     }
 
     public g getSocketClient() {
-        return this.vU;
+        return this.mr;
     }
 }

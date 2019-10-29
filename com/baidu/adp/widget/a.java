@@ -10,14 +10,14 @@ public final class a {
             return (f2 * f2 * f2 * f2 * f2) + 1.0f;
         }
     };
-    public static final Interpolator KE = new Interpolator() { // from class: com.baidu.adp.widget.a.2
+    public static final Interpolator sReverseInterpolator = new Interpolator() { // from class: com.baidu.adp.widget.a.2
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f) {
             return f * f * f * f * f;
         }
     };
 
-    public static int a(float f, float f2, boolean z) {
+    public static int computeInterpolator(float f, float f2, boolean z) {
         if (z) {
             return (int) (f - (sInterpolator.getInterpolation(f2 / (f2 - f)) * f));
         }

@@ -1,6 +1,7 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import android.support.v7.widget.helper.ItemTouchHelper;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
@@ -249,7 +250,7 @@ public final class GeneralAppIdDecoder {
                 c = '-';
                 break;
             case 243:
-                c = '.';
+                c = BdFileHelper.EXTENSION_SEPARATOR;
                 break;
             case 244:
                 c = '/';
@@ -320,7 +321,7 @@ public final class GeneralAppIdDecoder {
                 c = '-';
                 break;
             case 61:
-                c = '.';
+                c = BdFileHelper.EXTENSION_SEPARATOR;
                 break;
             case 62:
                 c = '/';

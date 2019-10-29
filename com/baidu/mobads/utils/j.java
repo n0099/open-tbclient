@@ -1,5 +1,6 @@
 package com.baidu.mobads.utils;
 
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.io.File;
 import java.util.Arrays;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,7 +30,7 @@ public class j implements Runnable {
                 for (int length = listFiles.length - 1; length >= 0; length--) {
                     File file2 = listFiles[length];
                     if (file2.exists()) {
-                        if (System.currentTimeMillis() - file2.lastModified() <= 2592000000L) {
+                        if (System.currentTimeMillis() - file2.lastModified() <= BdKVCache.MILLS_30Days) {
                             j = i.a;
                             if (file2.length() + j2 > j) {
                                 file2.delete();

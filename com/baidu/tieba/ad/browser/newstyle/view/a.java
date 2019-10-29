@@ -1,88 +1,53 @@
 package com.baidu.tieba.ad.browser.newstyle.view;
 
 import android.support.annotation.NonNull;
-import android.view.View;
+import android.text.TextUtils;
 import com.baidu.tieba.ad.download.AdDownloadData;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
-import com.baidu.tieba.ad.download.c;
+import com.baidu.tieba.ad.download.d;
+import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class a extends com.baidu.tieba.ad.download.mvp.a<ApkDownloadBannerView, AdDownloadData> {
-    private static final String TAG = a.class.getSimpleName();
-
-    public a(@NonNull ApkDownloadBannerView apkDownloadBannerView, @NonNull AdDownloadData adDownloadData) {
-        super(apkDownloadBannerView, adDownloadData);
-        aDC().getActionBar().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.newstyle.view.a.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                a.this.aDw();
-            }
-        });
-    }
-
-    @Override // com.baidu.tieba.ad.download.mvp.a
-    public void a(@NonNull DownloadStatus downloadStatus) {
-        super.a(downloadStatus);
-        ApkDownloadBannerView aDC = aDC();
-        if (downloadStatus != DownloadStatus.STATUS_NONE && !aDC.isShowing()) {
-            aDC.setVisibility(0);
-        }
-        AdDownloadData aDD = aDD();
-        if (aDD != null) {
-            aDD.extra().setStatus(downloadStatus);
-        }
-    }
-
-    @Override // com.baidu.tieba.ad.download.mvp.a
-    public void cw(int i) {
-        super.cw(i);
-        AdDownloadData aDD = aDD();
-        if (aDD != null) {
-            aDD.extra().setPercent(i);
-            if (aDD.extra().getStatus() != DownloadStatus.STATUS_NONE && !aDC().isShowing()) {
-                aDC().setVisibility(0);
-            }
-        }
+public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
+    public a(@NonNull b bVar, @NonNull AdDownloadData adDownloadData, String str) {
+        super(bVar, adDownloadData, str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ad.download.mvp.a
-    public void a(@NonNull AdDownloadData adDownloadData) {
-        super.a((a) adDownloadData);
-        ApkDownloadBannerView aDC = aDC();
-        if (adDownloadData.extra().getStatus() != DownloadStatus.STATUS_NONE && !aDC.isShowing()) {
-            aDC.setVisibility(0);
-        }
-        aDC.a(adDownloadData.extra().getStatus(), adDownloadData.extra().getPercent());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aDw() {
-        AdDownloadData aDD = aDD();
-        if (aDD != null) {
-            DownloadStatus status = aDD.extra().getStatus();
-            DownloadCacheKey sK = c.aDA().sK(aDD.adId());
-            switch (status) {
+    public void a(AdDownloadData adDownloadData) {
+        if (adDownloadData != null) {
+            DownloadStatus currentState = adDownloadData.getCurrentState();
+            DownloadCacheKey rt = d.aDI().rt(adDownloadData.adId());
+            switch (currentState) {
                 case STATUS_NONE:
-                    if (sK != null) {
-                        c.aDA().c(sK, null);
+                    if (rt != null) {
+                        d.aDI().c(rt, null);
                         return;
                     }
                     return;
                 case STATUS_DOWNLOADING:
-                    c.aDA().sH(aDD.adId());
+                    d.aDI().rq(adDownloadData.adId());
                     return;
                 case STATUS_PAUSED:
-                    c.aDA().sI(aDD.adId());
+                    d.aDI().rr(adDownloadData.adId());
                     return;
                 case STATUS_SUCCESS:
-                    if (sK != null) {
-                        c.aDA().a(aDC().getContext(), sK, aDD.extra().getDownloadFilePath());
+                    if (rt != null) {
+                        String downloadFilePath = adDownloadData.extra().getDownloadFilePath();
+                        if (!TextUtils.isEmpty(downloadFilePath) && new File(downloadFilePath).exists()) {
+                            d.aDI().a(aDK().getRealView().getContext(), rt, adDownloadData.extra().getDownloadFilePath());
+                            return;
+                        }
+                        adDownloadData.extra().setStatus(DownloadStatus.STATUS_NONE);
+                        a(adDownloadData);
                         return;
                     }
                     return;
                 case STATUS_INSTALL_SUCCESS:
-                    c.aDA().ax(aDC().getContext(), aDD.pkgName());
+                    d.aDI().au(aDK().getRealView().getContext(), adDownloadData.pkgName());
                     return;
                 default:
                     return;

@@ -4,94 +4,94 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final boolean yr;
-    protected final e ys;
+    protected final e nR;
+    protected final boolean prefixNameSpaceToKey;
 
-    public abstract g<T> aj(String str);
-
-    public abstract void ak(String str);
-
-    protected abstract void al(String str);
+    public abstract g<T> W(String str);
 
     public abstract void c(g<T> gVar);
 
+    public abstract void removeByUniqueKey(String str);
+
+    protected abstract void removeExpiredItem(String str);
+
     public d(e eVar, boolean z) {
-        this.ys = eVar;
-        this.yr = z;
+        this.nR = eVar;
+        this.prefixNameSpaceToKey = z;
     }
 
-    protected String j(String str, String str2) {
-        if (this.yr) {
+    protected String buildUniqueKey(String str, String str2) {
+        if (this.prefixNameSpaceToKey) {
             return str + "@" + str2;
         }
         return str2;
     }
 
-    protected g<T> k(String str, String str2) {
-        String j = j(str, str2);
-        g<T> aj = aj(j);
-        if (aj == null) {
+    protected g<T> j(String str, String str2) {
+        String buildUniqueKey = buildUniqueKey(str, str2);
+        g<T> W = W(buildUniqueKey);
+        if (W == null) {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (aj.yz < System.currentTimeMillis()) {
-            al(j);
+        } else if (W.timeToExpire < System.currentTimeMillis()) {
+            removeExpiredItem(buildUniqueKey);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
-            if (this.ys.ht()) {
-                aj.yy = System.currentTimeMillis();
-                c(aj);
+            if (this.nR.shouldUpdateLastHitTime()) {
+                W.lastHitTime = System.currentTimeMillis();
+                c(W);
             }
             if (BdLog.isDebugMode()) {
             }
-            return aj;
+            return W;
         }
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public T l(String str, String str2) {
-        g<T> k = k(str, str2);
-        if (k == null) {
+    public T get(String str, String str2) {
+        g<T> j = j(str, str2);
+        if (j == null) {
             return null;
         }
-        return k.value;
+        return j.value;
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public l.b<T> m(String str, String str2) {
-        g<T> k = k(str, str2);
-        if (k == null) {
+    public l.b<T> k(String str, String str2) {
+        g<T> j = j(str, str2);
+        if (j == null) {
             return null;
         }
         l.b<T> bVar = new l.b<>();
         bVar.key = str2;
-        bVar.value = k.value;
-        bVar.yz = k.yz;
-        bVar.yM = k.yx;
+        bVar.value = j.value;
+        bVar.timeToExpire = j.timeToExpire;
+        bVar.lastSaveTime = j.saveTime;
         return bVar;
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public void a(String str, String str2, T t, long j) {
+    public void set(String str, String str2, T t, long j) {
         g<T> gVar = new g<>();
-        gVar.yv = j(str, str2);
-        gVar.yw = str;
-        gVar.yz = j;
+        gVar.uniqueKey = buildUniqueKey(str, str2);
+        gVar.nameSpace = str;
+        gVar.timeToExpire = j;
         gVar.value = t;
-        gVar.yy = System.currentTimeMillis();
-        gVar.yx = System.currentTimeMillis();
+        gVar.lastHitTime = System.currentTimeMillis();
+        gVar.saveTime = System.currentTimeMillis();
         c(gVar);
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public void n(String str, String str2) {
-        ak(j(str, str2));
+    public void remove(String str, String str2) {
+        removeByUniqueKey(buildUniqueKey(str, str2));
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e hr() {
-        return this.ys;
+    public e fb() {
+        return this.nR;
     }
 }

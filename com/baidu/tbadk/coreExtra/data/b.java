@@ -3,64 +3,64 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private boolean cgl;
-    private String cgm;
-    private String cgn;
-    private String cgo;
-    private String cgp;
-    private boolean cgq;
-    private String cgr;
-    private boolean cgs;
-    private String cgt;
+    private String dotTimestamp;
+    private String enterForumText;
+    private String feedText;
+    private String h5Url;
+    private String myTabText;
+    private boolean personItemSwitch;
+    private String personItemText;
+    private boolean switchTurn;
+    private boolean userSatisfy;
 
-    public boolean ame() {
-        return this.cgl;
+    public boolean isSwitchTurn() {
+        return this.switchTurn;
     }
 
-    public void eC(boolean z) {
-        this.cgl = z;
+    public void setSwitchTurn(boolean z) {
+        this.switchTurn = z;
     }
 
-    public boolean amf() {
-        return this.cgs;
+    public boolean isPersonItemSwitch() {
+        return this.personItemSwitch;
     }
 
-    public String amg() {
-        return this.cgt;
+    public String getPersonItemText() {
+        return this.personItemText;
     }
 
-    public String amh() {
-        return this.cgr;
+    public String getH5Url() {
+        return this.h5Url;
     }
 
-    public boolean ami() {
-        return this.cgq;
+    public boolean isUserSatisfy() {
+        return this.userSatisfy;
     }
 
-    public String amj() {
-        return this.cgp;
+    public String getDotTimestamp() {
+        return this.dotTimestamp;
     }
 
-    public String amk() {
-        return this.cgo;
+    public String getMyTabText() {
+        return this.myTabText;
     }
 
-    public String aml() {
-        return this.cgm;
+    public String getFeedText() {
+        return this.feedText;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            eC(jSONObject.optInt("switch") == 1);
-            this.cgm = jSONObject.optString("feed_text");
-            this.cgn = jSONObject.optString("enter_forum_text");
-            this.cgo = jSONObject.optString("my_tab_text");
+            setSwitchTurn(jSONObject.optInt("switch") == 1);
+            this.feedText = jSONObject.optString("feed_text");
+            this.enterForumText = jSONObject.optString("enter_forum_text");
+            this.myTabText = jSONObject.optString("my_tab_text");
             long optLong = jSONObject.optLong("dot_timestamp");
-            this.cgp = optLong == 0 ? "" : optLong + "";
-            this.cgq = jSONObject.optInt("user_satisfy") == 1;
-            this.cgr = jSONObject.optString("h5_url");
-            this.cgs = jSONObject.optInt("person_item_switch") == 1;
-            this.cgt = jSONObject.optString("person_item_text");
+            this.dotTimestamp = optLong == 0 ? "" : optLong + "";
+            this.userSatisfy = jSONObject.optInt("user_satisfy") == 1;
+            this.h5Url = jSONObject.optString("h5_url");
+            this.personItemSwitch = jSONObject.optInt("person_item_switch") == 1;
+            this.personItemText = jSONObject.optString("person_item_text");
         }
     }
 }

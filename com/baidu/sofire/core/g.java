@@ -11,6 +11,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.sofire.MyReceiver;
@@ -142,10 +144,10 @@ public final class g {
                         sb.append(str);
                     }
                 } else {
-                    sb.append("_");
+                    sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 }
             } else {
-                sb.append("_");
+                sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             }
             int countCategories = intentFilter.countCategories();
             if (countCategories > 0) {
@@ -162,10 +164,10 @@ public final class g {
                         sb.append(str2);
                     }
                 } else {
-                    sb.append("_");
+                    sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 }
             } else {
-                sb.append("_");
+                sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             }
             if (intentFilter.countDataTypes() > 0) {
                 ArrayList<String> arrayList3 = new ArrayList();
@@ -181,10 +183,10 @@ public final class g {
                         sb.append(str3);
                     }
                 } else {
-                    sb.append("_");
+                    sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 }
             } else {
-                sb.append("_");
+                sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             }
             int countDataSchemes = intentFilter.countDataSchemes();
             if (countDataSchemes > 0) {
@@ -201,10 +203,10 @@ public final class g {
                         sb.append(str4);
                     }
                 } else {
-                    sb.append("_");
+                    sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 }
             } else {
-                sb.append("_");
+                sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             }
             return sb.toString();
         } catch (Throwable th) {
@@ -395,7 +397,7 @@ public final class g {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("pk", str);
-            jSONObject.put(Config.MODEL, str2);
+            jSONObject.put("m", str2);
             jSONArray.put(jSONObject);
             String jSONArray2 = jSONArray.toString();
             com.baidu.sofire.b.a();
@@ -412,7 +414,7 @@ public final class g {
             packageInfo.versionName = optJSONObject.optString("v");
             ApplicationInfo applicationInfo = new ApplicationInfo();
             applicationInfo.className = optJSONObject.optString("n");
-            if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
+            if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
                 applicationInfo.className = packageInfo.packageName + applicationInfo.className;
             }
             applicationInfo.theme = optJSONObject.optInt("t");
@@ -425,7 +427,7 @@ public final class g {
                     if (jSONObject2 != null) {
                         ActivityInfo activityInfo = new ActivityInfo();
                         activityInfo.name = jSONObject2.optString("n");
-                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
+                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
                             activityInfo.name = packageInfo.packageName + activityInfo.name;
                         }
                         activityInfo.packageName = packageInfo.packageName;
@@ -1273,7 +1275,7 @@ public final class g {
                 }
             }
         }
-        new StringBuilder("_").append(pair.first);
+        new StringBuilder(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(pair.first);
         com.baidu.sofire.b.a();
         if (((Boolean) pair.first).booleanValue()) {
             return true;

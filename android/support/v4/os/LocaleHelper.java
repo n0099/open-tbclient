@@ -1,6 +1,7 @@
 package android.support.v4.os;
 
 import android.support.annotation.RestrictTo;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -22,8 +23,8 @@ final class LocaleHelper {
             if (split.length == 1) {
                 return new Locale(split[0]);
             }
-        } else if (str.contains("_")) {
-            String[] split2 = str.split("_");
+        } else if (str.contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) {
+            String[] split2 = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             if (split2.length > 2) {
                 return new Locale(split2[0], split2[1], split2[2]);
             }

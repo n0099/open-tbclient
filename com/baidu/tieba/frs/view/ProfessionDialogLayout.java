@@ -15,8 +15,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ProfessionDialogLayout extends LinearLayout {
-    private View.OnClickListener fYD;
-    private View.OnClickListener fYE;
+    private View.OnClickListener fXY;
+    private View.OnClickListener fXZ;
     private Context mContext;
 
     public ProfessionDialogLayout(Context context) {
@@ -39,52 +39,52 @@ public class ProfessionDialogLayout extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
         setOrientation(1);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
-        am.j((TextView) findViewById(R.id.desc_1), R.color.cp_cont_j);
-        am.j((TextView) findViewById(R.id.desc_2), R.color.cp_cont_j);
-        am.j((TextView) findViewById(R.id.button), R.color.cp_link_tip_a);
+        am.setViewTextColor((TextView) findViewById(R.id.desc_1), (int) R.color.cp_cont_j);
+        am.setViewTextColor((TextView) findViewById(R.id.desc_2), (int) R.color.cp_cont_j);
+        am.setViewTextColor((TextView) findViewById(R.id.button), (int) R.color.cp_link_tip_a);
         setImageAttribute(tbImageView);
-        am.c(tbImageView, (int) R.drawable.img_frs_professinal_popup);
+        am.setImageResource(tbImageView, R.drawable.img_frs_professinal_popup);
         TbImageView tbImageView2 = (TbImageView) findViewById(R.id.close_btn);
-        am.c(tbImageView2, (int) R.drawable.icon_prefession_popup_close_n);
+        am.setImageResource(tbImageView2, R.drawable.icon_prefession_popup_close_n);
         tbImageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.fYE != null) {
-                    ProfessionDialogLayout.this.fYE.onClick(view);
+                if (ProfessionDialogLayout.this.fXZ != null) {
+                    ProfessionDialogLayout.this.fXZ.onClick(view);
                 }
             }
         });
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.fYD != null) {
-                    ProfessionDialogLayout.this.fYD.onClick(view);
+                if (ProfessionDialogLayout.this.fXY != null) {
+                    ProfessionDialogLayout.this.fXY.onClick(view);
                 }
             }
         });
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.fYD = onClickListener;
+        this.fXY = onClickListener;
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.fYE = onClickListener;
+        this.fXZ = onClickListener;
     }
 
     private void setImageAttribute(TbImageView tbImageView) {
-        int af;
-        int g = l.g(this.mContext, R.dimen.ds40);
+        int equipmentWidth;
+        int dimens = l.getDimens(this.mContext, R.dimen.ds40);
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            af = l.ah(this.mContext) - (g * 2);
+            equipmentWidth = l.getEquipmentHeight(this.mContext) - (dimens * 2);
         } else {
-            af = l.af(this.mContext) - (g * 2);
+            equipmentWidth = l.getEquipmentWidth(this.mContext) - (dimens * 2);
         }
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         layoutParams.width = -1;
-        layoutParams.height = (af * 558) / 992;
+        layoutParams.height = (equipmentWidth * 558) / 992;
         tbImageView.setLayoutParams(layoutParams);
-        tbImageView.setRadius(l.g(this.mContext, R.dimen.ds16));
+        tbImageView.setRadius(l.getDimens(this.mContext, R.dimen.ds16));
         tbImageView.setConrers(3);
         tbImageView.setIsBitmapPic(true);
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.f;
 import com.meizu.cloud.pushsdk.util.c;
@@ -34,7 +35,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<f> {
         String message;
         File file = null;
         com.meizu.cloud.a.a.flush();
-        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + fVar.d().b().a() + "_" + fVar.d().b().d() + ".zip";
+        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + fVar.d().b().a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + fVar.d().b().d() + ".zip";
         try {
             new b(str).a(fVar.c());
             message = null;

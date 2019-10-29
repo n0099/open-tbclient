@@ -9,68 +9,68 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> Ku = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> PRIMITIVE_MAP = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
-        public final T Kv;
         public final Class<? extends T> clazz;
+        public final T obj;
     }
 
     static {
-        Ku.put(Boolean.class, Boolean.TYPE);
-        Ku.put(Byte.class, Byte.TYPE);
-        Ku.put(Character.class, Character.TYPE);
-        Ku.put(Short.class, Short.TYPE);
-        Ku.put(Integer.class, Integer.TYPE);
-        Ku.put(Float.class, Float.TYPE);
-        Ku.put(Long.class, Long.TYPE);
-        Ku.put(Double.class, Double.TYPE);
-        Ku.put(Boolean.TYPE, Boolean.TYPE);
-        Ku.put(Byte.TYPE, Byte.TYPE);
-        Ku.put(Character.TYPE, Character.TYPE);
-        Ku.put(Short.TYPE, Short.TYPE);
-        Ku.put(Integer.TYPE, Integer.TYPE);
-        Ku.put(Float.TYPE, Float.TYPE);
-        Ku.put(Long.TYPE, Long.TYPE);
-        Ku.put(Double.TYPE, Double.TYPE);
+        PRIMITIVE_MAP.put(Boolean.class, Boolean.TYPE);
+        PRIMITIVE_MAP.put(Byte.class, Byte.TYPE);
+        PRIMITIVE_MAP.put(Character.class, Character.TYPE);
+        PRIMITIVE_MAP.put(Short.class, Short.TYPE);
+        PRIMITIVE_MAP.put(Integer.class, Integer.TYPE);
+        PRIMITIVE_MAP.put(Float.class, Float.TYPE);
+        PRIMITIVE_MAP.put(Long.class, Long.TYPE);
+        PRIMITIVE_MAP.put(Double.class, Double.TYPE);
+        PRIMITIVE_MAP.put(Boolean.TYPE, Boolean.TYPE);
+        PRIMITIVE_MAP.put(Byte.TYPE, Byte.TYPE);
+        PRIMITIVE_MAP.put(Character.TYPE, Character.TYPE);
+        PRIMITIVE_MAP.put(Short.TYPE, Short.TYPE);
+        PRIMITIVE_MAP.put(Integer.TYPE, Integer.TYPE);
+        PRIMITIVE_MAP.put(Float.TYPE, Float.TYPE);
+        PRIMITIVE_MAP.put(Long.TYPE, Long.TYPE);
+        PRIMITIVE_MAP.put(Double.TYPE, Double.TYPE);
     }
 
-    public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        return (T) d(obj, str, objArr);
+    public static <T> T callMethod(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        return (T) callMethodOrThrow(obj, str, objArr);
     }
 
-    public static <T> T d(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        return (T) e(obj.getClass(), str, g(objArr)).invoke(obj, h(objArr));
+    public static <T> T callMethodOrThrow(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+        return (T) getDeclaredMethod(obj.getClass(), str, getParameterTypes(objArr)).invoke(obj, getParameters(objArr));
     }
 
-    public static void a(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
+    public static void setField(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
         declaredField.set(obj, obj2);
     }
 
-    private static Method e(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
-        Method b = b(cls.getDeclaredMethods(), str, clsArr);
-        if (b != null) {
-            b.setAccessible(true);
+    private static Method getDeclaredMethod(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
+        Method findMethodByName = findMethodByName(cls.getDeclaredMethods(), str, clsArr);
+        if (findMethodByName != null) {
+            findMethodByName.setAccessible(true);
         }
-        return b;
+        return findMethodByName;
     }
 
-    private static Method b(Method[] methodArr, String str, Class<?>[] clsArr) throws NoSuchMethodException {
+    private static Method findMethodByName(Method[] methodArr, String str, Class<?>[] clsArr) throws NoSuchMethodException {
         if (str == null) {
             throw new NullPointerException("Method name must not be null.");
         }
         for (Method method : methodArr) {
-            if (method.getName().equals(str) && b(method.getParameterTypes(), clsArr)) {
+            if (method.getName().equals(str) && compareClassLists(method.getParameterTypes(), clsArr)) {
                 return method;
             }
         }
         throw new NoSuchMethodException(str);
     }
 
-    private static boolean b(Class<?>[] clsArr, Class<?>[] clsArr2) {
+    private static boolean compareClassLists(Class<?>[] clsArr, Class<?>[] clsArr2) {
         if (clsArr == null) {
             return clsArr2 == null || clsArr2.length == 0;
         }
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (Ku.containsKey(clsArr[i]) && Ku.get(clsArr[i]).equals(Ku.get(clsArr2[i]))) {
+                if (PRIMITIVE_MAP.containsKey(clsArr[i]) && PRIMITIVE_MAP.get(clsArr[i]).equals(PRIMITIVE_MAP.get(clsArr2[i]))) {
                     return true;
                 }
             }
@@ -92,7 +92,7 @@ public class d {
         }
     }
 
-    public static Object d(Object obj, Object obj2) {
+    public static Object combineArray(Object obj, Object obj2) {
         if (obj == null) {
             return obj2;
         }
@@ -124,7 +124,7 @@ public class d {
         return obj;
     }
 
-    private static Class<?>[] g(Object[] objArr) {
+    private static Class<?>[] getParameterTypes(Object[] objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -145,7 +145,7 @@ public class d {
         }
     }
 
-    private static Object[] h(Object[] objArr) {
+    private static Object[] getParameters(Object[] objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -158,7 +158,7 @@ public class d {
             }
             Object obj = objArr[i2];
             if (obj != null && (obj instanceof a)) {
-                objArr2[i2] = ((a) obj).Kv;
+                objArr2[i2] = ((a) obj).obj;
             } else {
                 objArr2[i2] = obj;
             }
@@ -166,7 +166,7 @@ public class d {
         }
     }
 
-    public static Method b(Object obj, String str, Class<?>[] clsArr) {
+    public static Method getDeclaredMethod(Object obj, String str, Class<?>[] clsArr) {
         for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
             try {
                 return cls.getDeclaredMethod(str, clsArr);
@@ -177,11 +177,11 @@ public class d {
     }
 
     public static Object invokeMethod(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
-        Method b = b(obj, str, clsArr);
-        if (b != null) {
+        Method declaredMethod = getDeclaredMethod(obj, str, clsArr);
+        if (declaredMethod != null) {
             try {
-                b.setAccessible(true);
-                return b.invoke(obj, objArr);
+                declaredMethod.setAccessible(true);
+                return declaredMethod.invoke(obj, objArr);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (IllegalArgumentException e2) {
@@ -193,7 +193,7 @@ public class d {
         return null;
     }
 
-    public static Object a(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
+    public static Object getField(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
         return declaredField.get(obj);

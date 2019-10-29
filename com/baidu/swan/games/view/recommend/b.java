@@ -5,26 +5,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private List<RecommendButtonApiProxy> bmZ = new ArrayList();
+    private List<RecommendButtonApiProxy> bFL = new ArrayList();
 
     public synchronized void a(RecommendButtonApiProxy recommendButtonApiProxy) {
-        this.bmZ.add(recommendButtonApiProxy);
+        this.bFL.add(recommendButtonApiProxy);
     }
 
     public synchronized void b(RecommendButtonApiProxy recommendButtonApiProxy) {
-        this.bmZ.remove(recommendButtonApiProxy);
+        this.bFL.remove(recommendButtonApiProxy);
     }
 
-    public synchronized void by(boolean z) {
-        for (RecommendButtonApiProxy recommendButtonApiProxy : this.bmZ) {
-            recommendButtonApiProxy.by(z);
+    public synchronized void bQ(boolean z) {
+        for (RecommendButtonApiProxy recommendButtonApiProxy : this.bFL) {
+            recommendButtonApiProxy.bQ(z);
         }
     }
 
     public synchronized void destroy() {
-        for (RecommendButtonApiProxy recommendButtonApiProxy : this.bmZ) {
-            recommendButtonApiProxy.Uq();
+        for (RecommendButtonApiProxy recommendButtonApiProxy : this.bFL) {
+            recommendButtonApiProxy.Zf();
         }
-        this.bmZ.clear();
+        this.bFL.clear();
     }
 }

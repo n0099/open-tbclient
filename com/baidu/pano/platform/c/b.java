@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.Config;
 import java.io.File;
 import java.lang.reflect.Method;
@@ -140,7 +141,7 @@ public final class b {
                     try {
                         try {
                             String nextLine = scanner.nextLine();
-                            if (nextLine.startsWith("/dev/block/vold/") && (split2 = nextLine.replace('\t', ' ').split(" ")) != null && split2.length > 0) {
+                            if (nextLine.startsWith("/dev/block/vold/") && (split2 = nextLine.replace('\t', ' ').split(HanziToPinyin.Token.SEPARATOR)) != null && split2.length > 0) {
                                 arrayList.add(split2[1]);
                             }
                         } catch (Throwable th) {
@@ -177,7 +178,7 @@ public final class b {
                 while (scanner.hasNext()) {
                     try {
                         String nextLine2 = scanner.nextLine();
-                        if (nextLine2.startsWith("dev_mount") && (split = nextLine2.replace('\t', ' ').split(" ")) != null && split.length > 0) {
+                        if (nextLine2.startsWith("dev_mount") && (split = nextLine2.replace('\t', ' ').split(HanziToPinyin.Token.SEPARATOR)) != null && split.length > 0) {
                             String str = split[2];
                             if (str.contains(":")) {
                                 str = str.substring(0, str.indexOf(":"));

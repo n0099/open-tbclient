@@ -1,66 +1,19 @@
 package com.vivo.push.util;
 
-import android.content.Context;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class m {
-    public static final l a = new k();
-    private static boolean b = w.b("persist.sys.log.ctrl", "no").equals("yes");
-    private static boolean c;
-
-    public static boolean a() {
-        return b;
-    }
-
-    public static void a(boolean z) {
-        b = z;
-        c = z;
-    }
-
-    public static int a(String str, String str2) {
-        return a.a(str, str2);
-    }
-
-    public static int a(String str, Throwable th) {
-        return a.a(str, th);
-    }
-
-    public static int a(String str, String str2, Throwable th) {
-        return a.a(str, str2, th);
-    }
-
-    public static int b(String str, String str2) {
-        return a.b(str, str2);
-    }
-
-    public static int c(String str, String str2) {
-        return a.c(str, str2);
-    }
-
-    public static int d(String str, String str2) {
-        return a.d(str, str2);
-    }
-
-    public static int b(String str, String str2, Throwable th) {
-        return a.b(str, str2, th);
-    }
-
-    public static int e(String str, String str2) {
-        return a.e(str, str2);
-    }
-
-    public static String a(Throwable th) {
-        return a.a(th);
-    }
-
-    public static void a(Context context, String str) {
-        a.a(context, str);
-    }
-
-    public static void b(Context context, String str) {
-        a.b(context, str);
-    }
-
-    public static void c(Context context, String str) {
-        a.c(context, str);
+    public static Map<String, String> a(JSONObject jSONObject) throws JSONException {
+        HashMap hashMap = new HashMap();
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            hashMap.put(next, jSONObject.getString(next));
+        }
+        return hashMap;
     }
 }

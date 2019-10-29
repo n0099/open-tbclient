@@ -7,6 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaDatabase;
@@ -18,38 +19,38 @@ import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes3.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private a iTH;
-    private b iTI;
-    private BaseActivity.LoadDataCallBack iTJ;
+    private a iTs;
+    private b iTt;
+    private BaseActivity.LoadDataCallBack iTu;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.iTH = null;
-        this.iTI = null;
+        this.iTs = null;
+        this.iTt = null;
         this.mContext = null;
-        this.iTJ = null;
+        this.iTu = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void aZQ() {
-        if (this.iTH == null) {
-            this.iTH = new a();
-            this.iTH.execute(new String[0]);
+    public void aZT() {
+        if (this.iTs == null) {
+            this.iTs = new a();
+            this.iTs.execute(new String[0]);
         }
     }
 
-    public void ckM() {
+    public void ciy() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void ckN() {
-        if (this.iTI == null) {
-            this.iTI = new b();
-            this.iTI.execute(new String[0]);
+    public void ciz() {
+        if (this.iTt == null) {
+            this.iTt = new b();
+            this.iTt.execute(new String[0]);
         }
     }
 
@@ -68,9 +69,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.iTH = null;
-            if (SystemHelpSettingModel.this.iTJ != null) {
-                SystemHelpSettingModel.this.iTJ.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.iTs = null;
+            if (SystemHelpSettingModel.this.iTu != null) {
+                SystemHelpSettingModel.this.iTu.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -78,12 +79,12 @@ public class SystemHelpSettingModel extends BdBaseModel {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().fc();
-            com.baidu.tbadk.core.voice.a.b.alK();
+            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().deleteDatabase();
+            com.baidu.tbadk.core.voice.a.b.aoy();
             try {
-                m.nK("image");
-                m.nK(TbConfig.IMAGE_CACHE_DIR_NAME);
-                ap.ajr().ajs();
+                m.nJ("image");
+                m.nJ(TbConfig.IMAGE_CACHE_DIR_NAME);
+                ap.amL().amM();
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -103,12 +104,12 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             com.baidu.adp.lib.Disk.b bVar = new com.baidu.adp.lib.Disk.b();
-            String a = bVar.a("image", true, false, true);
-            String aij = m.aij();
-            String str = aij + "voice";
-            long jw = m.jw(aij + TbConfig.TMP_DATABASE_NAME) + m.N(a, false) + m.N(str, false) + m.N(bVar.a(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
-            float f = 0.0f + ((float) jw);
-            if (jw >= 10485.76d) {
+            String checkDir = bVar.checkDir("image", true, false, true);
+            String cacheDir = m.getCacheDir();
+            String str = cacheDir + "voice";
+            long fileSize = m.getFileSize(cacheDir + "tieba_database.db") + m.getDirectorySize(checkDir, false) + m.getDirectorySize(str, false) + m.getDirectorySize(bVar.checkDir(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
+            float f = 0.0f + ((float) fileSize);
+            if (fileSize >= 10485.76d) {
                 return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + SystemHelpSettingModel.this.mContext.getString(R.string.mebibyte);
             }
             return "";
@@ -119,9 +120,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.iTI = null;
-            if (SystemHelpSettingModel.this.iTJ != null) {
-                SystemHelpSettingModel.this.iTJ.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.iTt = null;
+            if (SystemHelpSettingModel.this.iTu != null) {
+                SystemHelpSettingModel.this.iTu.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -137,6 +138,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.iTJ = loadDataCallBack;
+        this.iTu = loadDataCallBack;
     }
 }

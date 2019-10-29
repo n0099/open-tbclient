@@ -11,31 +11,31 @@ public class WriteUrlModel extends NewWriteModel {
         super(tbPageContext);
     }
 
-    public void aJ(Intent intent) {
+    public void aN(Intent intent) {
         if (intent != null) {
             WriteData writeData = new WriteData();
             writeData.setType(intent.getIntExtra("type", 0));
             writeData.setForumId(intent.getStringExtra("forum_id"));
             writeData.setForumName(intent.getStringExtra("forum_name"));
             writeData.setCallFrom(intent.getStringExtra("KEY_CALL_FROM"));
-            setWriteData(writeData);
+            d(writeData);
         }
     }
 
-    public void g(String str, String str2, String str3, String str4, String str5, String str6) {
-        WriteData writeData = getWriteData();
-        if (writeData != null) {
+    public void e(String str, String str2, String str3, String str4, String str5, String str6) {
+        WriteData clc = clc();
+        if (clc != null) {
             cancelLoadData();
-            writeData.setTitle(str);
-            writeData.setIsNoTitle(StringUtils.isNull(str));
-            writeData.setContent(str2);
-            writeData.setLinkUrl(str3);
-            writeData.setLinkUrlCode(str4);
-            writeData.setIsLinkThread(true);
-            writeData.setPostLatLng(true);
-            writeData.setLat(str5);
-            writeData.setLng(str6);
-            startPostWrite();
+            clc.setTitle(str);
+            clc.setIsNoTitle(StringUtils.isNull(str));
+            clc.setContent(str2);
+            clc.setLinkUrl(str3);
+            clc.setLinkUrlCode(str4);
+            clc.setIsLinkThread(true);
+            clc.setPostLatLng(true);
+            clc.setLat(str5);
+            clc.setLng(str6);
+            cpE();
         }
     }
 }

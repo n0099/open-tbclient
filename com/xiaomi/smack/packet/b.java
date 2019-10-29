@@ -1,6 +1,7 @@
 package com.xiaomi.smack.packet;
 
 import android.os.Bundle;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +15,7 @@ public class b extends d {
         public static final a a = new a("get");
         public static final a b = new a("set");
         public static final a c = new a("result");
-        public static final a d = new a("error");
+        public static final a d = new a(BdStatsConstant.StatsType.ERROR);
         public static final a e = new a(CommandMessage.COMMAND);
         private String f;
 

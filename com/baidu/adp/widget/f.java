@@ -4,15 +4,15 @@ import android.graphics.Canvas;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public interface f {
-    void aJ(int i);
+    void animate(int i);
 
     boolean dispatchTouchEvent(MotionEvent motionEvent);
 
     void draw(Canvas canvas);
 
-    boolean l(MotionEvent motionEvent);
+    boolean interceptionTouchEvent(MotionEvent motionEvent);
 
-    boolean m(MotionEvent motionEvent);
+    void measure(int i, int i2);
 
-    void r(int i, int i2);
+    boolean touchEvent(MotionEvent motionEvent);
 }

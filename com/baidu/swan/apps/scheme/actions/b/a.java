@@ -15,13 +15,13 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends z {
-    public static final String aTe = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    public static final String aTf = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    public static final String bmi = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    public static final String bmj = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     /* renamed from: com.baidu.swan.apps.scheme.actions.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0182a {
-        void ab(JSONObject jSONObject);
+    public interface InterfaceC0214a {
+        void az(JSONObject jSONObject);
     }
 
     public a(j jVar) {
@@ -39,7 +39,7 @@ public class a extends z {
             }
             return false;
         }
-        final String optString = o.df(unitedSchemeEntity.getParam("params")).optString("cb");
+        final String optString = o.dP(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             c.e("history", "none cb");
             if (DEBUG) {
@@ -55,11 +55,11 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            bVar.Ml().a((Activity) context, "mapp_i_get_history", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.a.1
+            bVar.Rd().a((Activity) context, "mapp_i_get_history", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
-                public void D(Boolean bool) {
+                public void B(Boolean bool) {
                     if (bool.booleanValue()) {
                         a.this.b(unitedSchemeEntity, callbackHandler, optString);
                         return;
@@ -79,9 +79,9 @@ public class a extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
         c.i("history", "start get history");
-        com.baidu.swan.apps.database.a.b.a(new InterfaceC0182a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.2
-            @Override // com.baidu.swan.apps.scheme.actions.b.a.InterfaceC0182a
-            public void ab(JSONObject jSONObject) {
+        com.baidu.swan.apps.database.a.b.a(new InterfaceC0214a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.2
+            @Override // com.baidu.swan.apps.scheme.actions.b.a.InterfaceC0214a
+            public void az(JSONObject jSONObject) {
                 if (jSONObject == null || jSONObject.length() == 0) {
                     c.i("history", "none history");
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(null, 0).toString(), str);

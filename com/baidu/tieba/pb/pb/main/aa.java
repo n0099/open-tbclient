@@ -14,37 +14,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.view.TextSizeSeekBar;
 /* loaded from: classes4.dex */
 public class aa extends com.baidu.adp.base.c<PbActivity> {
-    private TextView brb;
-    private final float hUb;
-    private TextView hUc;
-    private TextView hUd;
-    private TextView hUe;
-    private TextView hUf;
-    private TextView hUg;
-    private TextView hUh;
-    private TextView hUi;
-    private TextView hUj;
-    private TextView hUk;
-    private TextView hUl;
-    private TextView hUm;
-    private PbActivity hUn;
-    private FlowLayout hUo;
-    private LinearLayout hUp;
-    private TextSizeSeekBar hUq;
-    public boolean hUr;
-    public boolean hUs;
+    private TextView bJM;
+    private final float hSJ;
+    private TextView hSK;
+    private TextView hSL;
+    private TextView hSM;
+    private TextView hSN;
+    private TextView hSO;
+    private TextView hSP;
+    private TextView hSQ;
+    private TextView hSR;
+    private TextView hSS;
+    private TextView hST;
+    private TextView hSU;
+    private PbActivity hSV;
+    private FlowLayout hSW;
+    private LinearLayout hSX;
+    private TextSizeSeekBar hSY;
+    public boolean hSZ;
+    public boolean hTa;
     private View.OnClickListener mClickListener;
     private View mView;
 
     public aa(PbActivity pbActivity, View.OnClickListener onClickListener) {
         super(pbActivity.getPageContext());
-        this.hUb = 0.5f;
+        this.hSJ = 0.5f;
         this.mView = null;
-        this.hUc = null;
-        this.hUk = null;
-        this.hUn = null;
+        this.hSK = null;
+        this.hSS = null;
+        this.hSV = null;
         this.mClickListener = null;
-        this.hUn = pbActivity;
+        this.hSV = pbActivity;
         this.mClickListener = onClickListener;
         initUI();
     }
@@ -53,198 +53,198 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         return this.mView;
     }
 
-    public TextView bXx() {
-        return this.hUc;
+    public TextView bUz() {
+        return this.hSK;
     }
 
-    public TextView bXy() {
-        return this.hUk;
+    public TextView bUA() {
+        return this.hSS;
     }
 
     public TextView getCancelView() {
-        return this.brb;
+        return this.bJM;
     }
 
-    public TextView bXz() {
-        return this.hUm;
+    public TextView bUB() {
+        return this.hSU;
     }
 
-    public TextView bXA() {
-        return this.hUg;
+    public TextView bUC() {
+        return this.hSO;
     }
 
-    public TextView bXB() {
-        return this.hUe;
+    public TextView bUD() {
+        return this.hSM;
     }
 
-    public TextView bXC() {
-        return this.hUj;
+    public TextView bUE() {
+        return this.hSR;
     }
 
-    public TextView bXD() {
-        return this.hUd;
+    public TextView bUF() {
+        return this.hSL;
     }
 
-    public TextView bXE() {
-        return this.hUf;
+    public TextView bUG() {
+        return this.hSN;
     }
 
-    public TextView bXF() {
-        return this.hUh;
+    public TextView bUH() {
+        return this.hSP;
     }
 
-    public TextView bXG() {
-        return this.hUi;
+    public TextView bUI() {
+        return this.hSQ;
     }
 
-    public TextView bXH() {
-        return this.hUl;
+    public TextView bUJ() {
+        return this.hST;
     }
 
     public void release() {
     }
 
-    public void oL(boolean z) {
+    public void ou(boolean z) {
         if (z) {
-            this.hUk.setVisibility(0);
+            this.hSS.setVisibility(0);
         } else {
-            this.hUk.setVisibility(8);
+            this.hSS.setVisibility(8);
         }
     }
 
     public void v(boolean z, String str) {
         if (z) {
-            this.hUl.setVisibility(0);
-            this.hUl.setText(str);
+            this.hST.setVisibility(0);
+            this.hST.setText(str);
             return;
         }
-        this.hUl.setVisibility(8);
-    }
-
-    public void W(boolean z, boolean z2) {
-        this.hUm.setVisibility(z ? 0 : 8);
-        if (z2) {
-            this.hUm.setText(R.string.group_info_intro_more);
-        } else {
-            this.hUm.setText(R.string.view_host);
-        }
-    }
-
-    public void X(boolean z, boolean z2) {
-        this.hUg.setVisibility(z ? 0 : 8);
-        if (z2) {
-            this.hUg.setText(R.string.cancel_top);
-        } else {
-            this.hUg.setText(R.string.top);
-        }
+        this.hST.setVisibility(8);
     }
 
     public void Y(boolean z, boolean z2) {
-        this.hUj.setVisibility(z ? 0 : 8);
+        this.hSU.setVisibility(z ? 0 : 8);
         if (z2) {
-            this.hUj.setText(R.string.cancel_good);
+            this.hSU.setText(R.string.group_info_intro_more);
         } else {
-            this.hUj.setText(R.string.commit_good);
+            this.hSU.setText(R.string.view_host);
         }
-    }
-
-    public void oM(boolean z) {
-        this.hUe.setVisibility(z ? 0 : 8);
-    }
-
-    public void oN(boolean z) {
-        this.hUd.setVisibility(z ? 0 : 8);
-    }
-
-    public void oO(boolean z) {
-        this.hUf.setVisibility(z ? 0 : 8);
     }
 
     public void Z(boolean z, boolean z2) {
-        this.hUh.setVisibility(z ? 0 : 8);
-        this.hUs = z2;
+        this.hSO.setVisibility(z ? 0 : 8);
         if (z2) {
-            this.hUh.setText(R.string.view_reverse);
+            this.hSO.setText(R.string.cancel_top);
         } else {
-            this.hUh.setText(R.string.default_sort);
+            this.hSO.setText(R.string.top);
         }
-        this.hUh.setText(R.string.sort_selector);
     }
 
     public void aa(boolean z, boolean z2) {
-        this.hUi.setVisibility(z ? 0 : 8);
+        this.hSR.setVisibility(z ? 0 : 8);
         if (z2) {
-            this.hUi.setText(R.string.normal_mode);
+            this.hSR.setText(R.string.cancel_good);
         } else {
-            this.hUi.setText(R.string.eyeshield_mode);
+            this.hSR.setText(R.string.commit_good);
         }
     }
 
-    public void oP(boolean z) {
-        this.hUc.setVisibility(z ? 0 : 8);
+    public void ov(boolean z) {
+        this.hSM.setVisibility(z ? 0 : 8);
+    }
+
+    public void ow(boolean z) {
+        this.hSL.setVisibility(z ? 0 : 8);
+    }
+
+    public void ox(boolean z) {
+        this.hSN.setVisibility(z ? 0 : 8);
+    }
+
+    public void ab(boolean z, boolean z2) {
+        this.hSP.setVisibility(z ? 0 : 8);
+        this.hTa = z2;
+        if (z2) {
+            this.hSP.setText(R.string.view_reverse);
+        } else {
+            this.hSP.setText(R.string.default_sort);
+        }
+        this.hSP.setText(R.string.sort_selector);
+    }
+
+    public void ac(boolean z, boolean z2) {
+        this.hSQ.setVisibility(z ? 0 : 8);
+        if (z2) {
+            this.hSQ.setText(R.string.normal_mode);
+        } else {
+            this.hSQ.setText(R.string.eyeshield_mode);
+        }
+    }
+
+    public void oy(boolean z) {
+        this.hSK.setVisibility(z ? 0 : 8);
     }
 
     private void initUI() {
-        this.mView = LayoutInflater.from(this.hUn.getPageContext().getPageActivity()).inflate(R.layout.pb_more_pop_view, (ViewGroup) null);
-        this.hUc = (TextView) this.mView.findViewById(R.id.pb_more_view_item_jump);
-        this.hUc.setOnClickListener(this.mClickListener);
-        this.hUk = (TextView) this.mView.findViewById(R.id.pb_more_view_item_report);
-        this.hUk.setOnClickListener(this.mClickListener);
-        this.hUl = (TextView) this.mView.findViewById(R.id.pb_more_view_item_fans_call);
-        this.hUl.setOnClickListener(this.mClickListener);
-        this.hUd = (TextView) this.mView.findViewById(R.id.pb_more_view_item_jump_top);
-        this.hUd.setOnClickListener(this.mClickListener);
-        this.hUe = (TextView) this.mView.findViewById(R.id.pb_more_view_item_delete);
-        this.hUe.setOnClickListener(this.mClickListener);
-        this.hUf = (TextView) this.mView.findViewById(R.id.pb_more_view_item_forbidden);
-        this.hUf.setOnClickListener(this.mClickListener);
-        this.hUh = (TextView) this.mView.findViewById(R.id.pb_more_view_item_reversed);
-        this.hUh.setOnClickListener(this.mClickListener);
-        this.hUi = (TextView) this.mView.findViewById(R.id.pb_more_view_item_night_style);
-        this.hUi.setOnClickListener(this.mClickListener);
-        this.hUg = (TextView) this.mView.findViewById(R.id.pb_more_view_item_make_top);
-        this.hUg.setOnClickListener(this.mClickListener);
-        this.hUj = (TextView) this.mView.findViewById(R.id.pb_more_view_item_add_good);
-        this.hUj.setOnClickListener(this.mClickListener);
-        this.hUm = (TextView) this.mView.findViewById(R.id.pb_more_view_item_host_only);
-        this.hUm.setOnClickListener(this.mClickListener);
-        this.hUo = (FlowLayout) this.mView.findViewById(R.id.pb_more_flowlayout);
-        this.hUq = (TextSizeSeekBar) this.mView.findViewById(R.id.pb_more_text_size_seekbar);
-        this.hUp = (LinearLayout) this.mView.findViewById(R.id.size_seek_bar_group);
-        this.brb = (TextView) this.mView.findViewById(R.id.pb_more_cancel);
-        this.brb.setOnClickListener(this.mClickListener);
+        this.mView = LayoutInflater.from(this.hSV.getPageContext().getPageActivity()).inflate(R.layout.pb_more_pop_view, (ViewGroup) null);
+        this.hSK = (TextView) this.mView.findViewById(R.id.pb_more_view_item_jump);
+        this.hSK.setOnClickListener(this.mClickListener);
+        this.hSS = (TextView) this.mView.findViewById(R.id.pb_more_view_item_report);
+        this.hSS.setOnClickListener(this.mClickListener);
+        this.hST = (TextView) this.mView.findViewById(R.id.pb_more_view_item_fans_call);
+        this.hST.setOnClickListener(this.mClickListener);
+        this.hSL = (TextView) this.mView.findViewById(R.id.pb_more_view_item_jump_top);
+        this.hSL.setOnClickListener(this.mClickListener);
+        this.hSM = (TextView) this.mView.findViewById(R.id.pb_more_view_item_delete);
+        this.hSM.setOnClickListener(this.mClickListener);
+        this.hSN = (TextView) this.mView.findViewById(R.id.pb_more_view_item_forbidden);
+        this.hSN.setOnClickListener(this.mClickListener);
+        this.hSP = (TextView) this.mView.findViewById(R.id.pb_more_view_item_reversed);
+        this.hSP.setOnClickListener(this.mClickListener);
+        this.hSQ = (TextView) this.mView.findViewById(R.id.pb_more_view_item_night_style);
+        this.hSQ.setOnClickListener(this.mClickListener);
+        this.hSO = (TextView) this.mView.findViewById(R.id.pb_more_view_item_make_top);
+        this.hSO.setOnClickListener(this.mClickListener);
+        this.hSR = (TextView) this.mView.findViewById(R.id.pb_more_view_item_add_good);
+        this.hSR.setOnClickListener(this.mClickListener);
+        this.hSU = (TextView) this.mView.findViewById(R.id.pb_more_view_item_host_only);
+        this.hSU.setOnClickListener(this.mClickListener);
+        this.hSW = (FlowLayout) this.mView.findViewById(R.id.pb_more_flowlayout);
+        this.hSY = (TextSizeSeekBar) this.mView.findViewById(R.id.pb_more_text_size_seekbar);
+        this.hSX = (LinearLayout) this.mView.findViewById(R.id.size_seek_bar_group);
+        this.bJM = (TextView) this.mView.findViewById(R.id.pb_more_cancel);
+        this.bJM.setOnClickListener(this.mClickListener);
     }
 
     public void setBackGround() {
-        com.baidu.tbadk.core.util.am.l(this.hUo, R.color.cp_bg_line_k);
-        com.baidu.tbadk.core.util.am.k(this.hUp, R.drawable.bg_pb_more_dialog);
-        com.baidu.tbadk.core.util.am.k(this.brb, R.color.cp_bg_line_k);
-        com.baidu.tbadk.core.util.am.f(this.brb, R.drawable.pb_more_pop_cancel_text_selector, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUc, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUk, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUl, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUm, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUd, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUe, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUg, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUj, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUf, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUh, R.color.cp_cont_f, 1);
-        com.baidu.tbadk.core.util.am.f(this.hUi, R.color.cp_cont_f, 1);
-        this.hUo.setHorizontalSpacing(((((WindowManager) this.hUn.getSystemService("window")).getDefaultDisplay().getWidth() - TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds64)) - (TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds100) * 5)) / 4);
-        this.hUc.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_jump_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_report_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, com.baidu.tbadk.core.util.am.getDrawable(R.drawable.call_fans_selector), (Drawable) null, (Drawable) null);
-        this.hUd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_initial_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUe.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(this.hUr ? R.drawable.icon_pure_pb_recommend_report_n_svg : R.drawable.icon_pure_pb_recommend_delete_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_top_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_best_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUi.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_night_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUf.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_block_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUh.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_sort_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        this.hUm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.ajv().a(R.drawable.icon_pure_pb_recommend_host_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
-        if (this.hUq != null) {
-            this.hUq.onChangeSkinType();
+        com.baidu.tbadk.core.util.am.setBackgroundColor(this.hSW, R.color.cp_bg_line_k);
+        com.baidu.tbadk.core.util.am.setBackgroundResource(this.hSX, R.drawable.bg_pb_more_dialog);
+        com.baidu.tbadk.core.util.am.setBackgroundResource(this.bJM, R.color.cp_bg_line_k);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.bJM, R.drawable.pb_more_pop_cancel_text_selector, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSK, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSS, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hST, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSU, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSL, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSM, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSO, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSR, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSN, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSP, R.color.cp_cont_f, 1);
+        com.baidu.tbadk.core.util.am.setViewTextColor(this.hSQ, R.color.cp_cont_f, 1);
+        this.hSW.setHorizontalSpacing(((((WindowManager) this.hSV.getSystemService("window")).getDefaultDisplay().getWidth() - TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds64)) - (TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds100) * 5)) / 4);
+        this.hSK.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_jump_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hSS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_report_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hST.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, com.baidu.tbadk.core.util.am.getDrawable(R.drawable.call_fans_selector), (Drawable) null, (Drawable) null);
+        this.hSL.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_initial_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hSM.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(this.hSZ ? R.drawable.icon_pure_pb_recommend_report_n_svg : R.drawable.icon_pure_pb_recommend_delete_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hSO.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_top_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hSR.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_best_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hSQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_night_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hSN.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_block_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hSP.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_sort_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        this.hSU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SvgManager.amN().a(R.drawable.icon_pure_pb_recommend_host_n_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null);
+        if (this.hSY != null) {
+            this.hSY.onChangeSkinType();
         }
     }
 }

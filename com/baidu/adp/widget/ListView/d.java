@@ -10,9 +10,9 @@ import com.baidu.adp.widget.ListView.v;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public a Nc = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
+    public a xU = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.Nc = aVar;
+        this.xU = aVar;
     }
 
-    public int oe() {
+    public int getHeadersCount() {
         return this.mHeaderViewInfos.size();
     }
 
-    public int og() {
+    public int getFootersCount() {
         return this.mFooterViewInfos.size();
     }
 
     public void addHeaderView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.Ne = new v.a(view);
+            cVar.xW = new v.a(view);
             cVar.data = obj;
-            cVar.Nf = z;
+            cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("HEADER");
@@ -58,9 +58,9 @@ public class d {
     public void addFooterView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.Ne = new v.a(view);
+            cVar.xW = new v.a(view);
             cVar.data = obj;
-            cVar.Nf = z;
+            cVar.isSelectable = z;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("FOOTER");
@@ -72,13 +72,13 @@ public class d {
         }
     }
 
-    public boolean B(View view) {
+    public boolean removeHeader(View view) {
         if (view == null) {
             return false;
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.Ne != null && cVar.Ne.itemView == view) {
+            if (cVar != null && cVar.xW != null && cVar.xW.itemView == view) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -86,13 +86,13 @@ public class d {
         return false;
     }
 
-    public boolean C(View view) {
+    public boolean removeFooter(View view) {
         if (view == null) {
             return false;
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.Ne != null && cVar.Ne.itemView == view) {
+            if (cVar != null && cVar.xW != null && cVar.xW.itemView == view) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -100,7 +100,7 @@ public class d {
         return false;
     }
 
-    public v.a aK(int i) {
+    public v.a af(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -108,7 +108,7 @@ public class d {
                 if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mHeaderViewInfos.get(i3).Ne;
+                    return this.mHeaderViewInfos.get(i3).xW;
                 }
             } else {
                 return null;
@@ -116,7 +116,7 @@ public class d {
         }
     }
 
-    public v.a aL(int i) {
+    public v.a ag(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -124,7 +124,7 @@ public class d {
                 if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mFooterViewInfos.get(i3).Ne;
+                    return this.mFooterViewInfos.get(i3).xW;
                 }
             } else {
                 return null;
@@ -132,7 +132,7 @@ public class d {
         }
     }
 
-    public v.a ak(Context context) {
+    public v.a ac(Context context) {
         TextView textView = new TextView(context);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 15.0f);
@@ -150,11 +150,11 @@ public class d {
 
     /* loaded from: classes.dex */
     public class c {
-        public v.a Ne;
-        public boolean Nf;
         public Object data;
         public long id;
+        public boolean isSelectable;
         public int type;
+        public v.a xW;
 
         public c() {
         }

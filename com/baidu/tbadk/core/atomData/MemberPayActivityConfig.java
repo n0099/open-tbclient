@@ -57,7 +57,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("member_type", i);
         getIntent().putExtra("close", z);
         getIntent().putExtra("from", i2);
-        getIntent().putExtra(FROM_SCENE, i3);
+        getIntent().putExtra("from_scene", i3);
     }
 
     public MemberPayActivityConfig(Context context, int i, String str, int i2) {
@@ -115,7 +115,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     }
 
     public void setFromScence(int i) {
-        getIntent().putExtra(FROM_SCENE, i);
+        getIntent().putExtra("from_scene", i);
     }
 
     public void setStType(String str) {

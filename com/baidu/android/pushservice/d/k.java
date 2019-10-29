@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.d;
 
 import android.content.Context;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import java.util.HashMap;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
@@ -22,7 +21,7 @@ public class k extends c {
             a(30602);
             return;
         }
-        hashMap.put("method", WriteImageActivityConfig.DELET_FLAG);
+        hashMap.put("method", "delete");
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < length; i++) {
             jSONArray.put(this.d[i]);

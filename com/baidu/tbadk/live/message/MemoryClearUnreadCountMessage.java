@@ -1,10 +1,11 @@
 package com.baidu.tbadk.live.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class MemoryClearUnreadCountMessage extends CustomResponsedMessage<a> {
     public MemoryClearUnreadCountMessage(a aVar) {
-        super(2016006, aVar);
+        super(CmdConfigCustom.MEMORY_MODIFY_UNREAD_COUNT, aVar);
     }
 
     /* loaded from: classes.dex */

@@ -13,7 +13,7 @@ public class b extends RecyclerView.Adapter<c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: o */
+    /* renamed from: m */
     public c onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new c(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.view_candidate_item, (ViewGroup) null));
     }
@@ -22,7 +22,7 @@ public class b extends RecyclerView.Adapter<c> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(c cVar, int i) {
-        if (cVar != null && !v.aa(this.mDataList)) {
+        if (cVar != null && !v.isEmpty(this.mDataList)) {
             cVar.a(this.mDataList.get(i));
         }
     }

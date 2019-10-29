@@ -6,57 +6,57 @@ public final class b {
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int loading_rotate = 2130968669;
+        public static final int loading_rotate = 2130968678;
     }
 
     /* renamed from: com.baidu.poly.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0098b {
-        public static final int duxiaomancolor = 2131559432;
+    public static final class C0130b {
+        public static final int duxiaomancolor = 2131559595;
     }
 
     /* loaded from: classes.dex */
     public static final class c {
-        public static final int channel_checked = 2130839040;
-        public static final int channel_close = 2130839041;
-        public static final int channel_closenew = 2130839042;
-        public static final int loading = 2130841752;
-        public static final int pay_view_bg = 2130841971;
-        public static final int popup_view_bg = 2130842210;
-        public static final int tip_view_bg = 2130842726;
-        public static final int unchecked = 2130842808;
+        public static final int channel_checked = 2130839281;
+        public static final int channel_close = 2130839282;
+        public static final int channel_closenew = 2130839283;
+        public static final int loading = 2130842277;
+        public static final int pay_view_bg = 2130842502;
+        public static final int popup_view_bg = 2130842767;
+        public static final int tip_view_bg = 2130843782;
+        public static final int unchecked = 2130843867;
     }
 
     /* loaded from: classes.dex */
     public static final class d {
-        public static final int bg_view = 2131695503;
-        public static final int channel_desc_view = 2131695513;
-        public static final int channel_icon_view = 2131695511;
-        public static final int channel_list_container = 2131695505;
-        public static final int channel_list_scroll_view = 2131695508;
-        public static final int channel_list_view = 2131695509;
-        public static final int channel_name_view = 2131695512;
-        public static final int channel_select_view = 2131695514;
-        public static final int close_button = 2131695507;
-        public static final int finish_payment = 2131695515;
-        public static final int pay_button = 2131695510;
-        public static final int pay_text = 2131695506;
-        public static final int popup_view = 2131695504;
-        public static final int progress_bar = 2131690876;
-        public static final int repayment = 2131695516;
-        public static final int text_view = 2131690875;
-        public static final int tip_loading_view = 2131695522;
-        public static final int tip_text_view = 2131695523;
-        public static final int tip_view = 2131691908;
+        public static final int bg_view = 2131696901;
+        public static final int channel_desc_view = 2131696911;
+        public static final int channel_icon_view = 2131696909;
+        public static final int channel_list_container = 2131696903;
+        public static final int channel_list_scroll_view = 2131696906;
+        public static final int channel_list_view = 2131696907;
+        public static final int channel_name_view = 2131696910;
+        public static final int channel_select_view = 2131696912;
+        public static final int close_button = 2131696905;
+        public static final int finish_payment = 2131696913;
+        public static final int pay_button = 2131696908;
+        public static final int pay_text = 2131696904;
+        public static final int popup_view = 2131696902;
+        public static final int progress_bar = 2131691853;
+        public static final int repayment = 2131696914;
+        public static final int text_view = 2131690980;
+        public static final int tip_loading_view = 2131696965;
+        public static final int tip_text_view = 2131696966;
+        public static final int tip_view = 2131692894;
     }
 
     /* loaded from: classes.dex */
     public static final class e {
-        public static final int button_progress = 2130903300;
-        public static final int view_channel_list = 2130904425;
-        public static final int view_channel_list_item = 2130904426;
-        public static final int view_confirm_finish = 2130904427;
-        public static final int view_tip = 2130904432;
+        public static final int button_progress = 2130903489;
+        public static final int view_channel_list = 2130904803;
+        public static final int view_channel_list_item = 2130904804;
+        public static final int view_confirm_finish = 2130904805;
+        public static final int view_tip = 2130904816;
     }
 
     /* loaded from: classes.dex */

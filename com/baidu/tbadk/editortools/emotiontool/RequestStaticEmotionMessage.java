@@ -1,13 +1,14 @@
 package com.baidu.tbadk.editortools.emotiontool;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class RequestStaticEmotionMessage extends CustomMessage<Object> {
     private String groupID;
     private String sharpText;
 
     public RequestStaticEmotionMessage(String str, String str2) {
-        super(2004604);
+        super(CmdConfigCustom.EMOTION_LOAD_STATIC_EMOTION);
         this.groupID = str;
         this.sharpText = str2;
     }

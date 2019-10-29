@@ -1,13 +1,12 @@
 package com.googlecode.mp4parser.boxes.piff;
 
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.AbstractTrackEncryptionBox;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();
@@ -19,7 +18,7 @@ public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
     }
 
     public PiffTrackEncryptionBox() {
-        super(UserBox.TYPE);
+        super("uuid");
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox

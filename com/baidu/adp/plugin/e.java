@@ -7,45 +7,45 @@ import com.baidu.adp.plugin.pluginBase.PluginBaseThirdService;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static volatile e HQ = null;
-    private HashMap<String, Class<?>> HP;
-    private int HR = 0;
-    private int HS = 0;
+    private static volatile e uD = null;
+    private HashMap<String, Class<?>> uC;
+    private int uE = 0;
+    private int uF = 0;
 
-    public static e lI() {
-        if (HQ == null) {
+    public static e ia() {
+        if (uD == null) {
             synchronized (e.class) {
-                if (HQ == null) {
-                    HQ = new e();
+                if (uD == null) {
+                    uD = new e();
                 }
             }
         }
-        return HQ;
+        return uD;
     }
 
     private e() {
-        this.HP = null;
-        this.HP = new HashMap<>();
+        this.uC = null;
+        this.uC = new HashMap<>();
     }
 
-    public Class<?> j(Class<?> cls) {
+    public Class<?> h(Class<?> cls) {
         String str;
-        Class<?> cls2 = this.HP.get(cls.getName());
+        Class<?> cls2 = this.uC.get(cls.getName());
         if (cls2 == null) {
             if (PluginBaseRemoteService.class.isAssignableFrom(cls)) {
-                if (this.HS == 10) {
+                if (this.uF == 10) {
                     BdLog.e("can not find service,Has started 10 Remoteservice");
                     return null;
                 }
-                this.HS++;
-                str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.HS;
+                this.uF++;
+                str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.uF;
             } else if (PluginBaseService.class.isAssignableFrom(cls)) {
-                if (this.HR == 20) {
+                if (this.uE == 20) {
                     BdLog.e("can not find service,Has started 20 service");
                     return null;
                 }
-                this.HR++;
-                str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.HR;
+                this.uE++;
+                str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.uE;
             } else if (!PluginBaseThirdService.class.isAssignableFrom(cls)) {
                 str = "";
             } else {
@@ -53,7 +53,7 @@ public class e {
             }
             try {
                 cls2 = Class.forName(str);
-                this.HP.put(cls.getName(), cls2);
+                this.uC.put(cls.getName(), cls2);
                 return cls2;
             } catch (Exception e) {
                 BdLog.e(e);

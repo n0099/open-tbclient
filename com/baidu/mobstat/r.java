@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 class r extends j {
@@ -43,7 +44,7 @@ class r extends j {
     private ArrayList<i> a(Cursor cursor) {
         ArrayList<i> arrayList = new ArrayList<>();
         if (cursor != null && cursor.getCount() != 0) {
-            int columnIndex = cursor.getColumnIndex("_id");
+            int columnIndex = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
             int columnIndex2 = cursor.getColumnIndex("time");
             int columnIndex3 = cursor.getColumnIndex("content");
             while (cursor.moveToNext()) {

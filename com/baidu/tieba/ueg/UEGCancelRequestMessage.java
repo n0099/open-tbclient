@@ -24,9 +24,9 @@ public class UEGCancelRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.e(this.uId, 0L));
+        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.toLong(this.uId, 0L));
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         QueryBlockAndAppealInfoReqIdl.Builder builder2 = new QueryBlockAndAppealInfoReqIdl.Builder();
         builder2.data = builder.build(false);

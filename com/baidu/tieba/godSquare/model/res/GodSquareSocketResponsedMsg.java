@@ -1,6 +1,7 @@
 package com.baidu.tieba.godSquare.model.res;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.godSquare.model.a;
 import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
 import com.squareup.wire.Wire;
@@ -20,7 +21,7 @@ public class GodSquareSocketResponsedMsg extends SocketResponsedMessage {
     }
 
     public GodSquareSocketResponsedMsg() {
-        super(309315);
+        super(CmdConfigSocket.CMD_GET_HOT_GOD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +44,7 @@ public class GodSquareSocketResponsedMsg extends SocketResponsedMessage {
         if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof GodSquareRequestMsg)) {
             GodSquareRequestMsg godSquareRequestMsg = (GodSquareRequestMsg) getOrginalMessage().getExtra();
             if (godSquareRequestMsg.pn == 1) {
-                new a().j(godSquareRequestMsg.pn + "", bArr);
+                new a().i(godSquareRequestMsg.pn + "", bArr);
             }
         }
     }

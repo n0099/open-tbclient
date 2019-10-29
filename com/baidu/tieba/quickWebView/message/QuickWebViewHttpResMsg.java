@@ -1,6 +1,5 @@
 package com.baidu.tieba.quickWebView.message;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 /* loaded from: classes.dex */
 public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
@@ -11,7 +10,7 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
     }
 
     public QuickWebViewHttpResMsg() {
-        super(CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        super(1003364);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

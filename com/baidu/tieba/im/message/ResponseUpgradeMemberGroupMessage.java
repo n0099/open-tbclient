@@ -1,12 +1,13 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.UpgradeMemberGroup.UpgradeMemberGroupResIdl;
 /* loaded from: classes3.dex */
 public class ResponseUpgradeMemberGroupMessage extends SocketResponsedMessage {
     public ResponseUpgradeMemberGroupMessage() {
-        super(103105);
+        super(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

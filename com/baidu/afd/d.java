@@ -7,27 +7,27 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.lego.card.b.b, com.baidu.tieba.lego.card.view.i {
-    private ICardInfo Rk;
-    public g Rl;
-    public boolean Rm;
-    private AdvertAppInfo Ro;
+    private ICardInfo AH;
+    public g AI;
+    public boolean AJ;
+    private AdvertAppInfo AM;
     private e adModel;
-    private boolean Rn = false;
+    private boolean AK = false;
     private BdUniqueId tag = BdUniqueId.gen();
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.Rl = gVar;
+        dVar.AI = gVar;
         return dVar;
     }
 
-    public ICardInfo ph() {
-        return this.Rk;
+    public ICardInfo kc() {
+        return this.AH;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return ph() != null ? b.Rd : b.Rc;
+        return kc() != null ? b.AA : b.Az;
     }
 
     public BdUniqueId getTag() {
@@ -36,56 +36,56 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     @Override // com.baidu.tieba.lego.card.view.i
     public void setAutoPlay(boolean z) {
-        if (ph() instanceof com.baidu.tieba.lego.card.view.i) {
-            ((com.baidu.tieba.lego.card.view.i) ph()).setAutoPlay(z);
+        if (kc() instanceof com.baidu.tieba.lego.card.view.i) {
+            ((com.baidu.tieba.lego.card.view.i) kc()).setAutoPlay(z);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.i
     public void setWaitConfirm(boolean z) {
-        if (ph() instanceof com.baidu.tieba.lego.card.view.i) {
-            ((com.baidu.tieba.lego.card.view.i) ph()).setWaitConfirm(z);
+        if (kc() instanceof com.baidu.tieba.lego.card.view.i) {
+            ((com.baidu.tieba.lego.card.view.i) kc()).setWaitConfirm(z);
         }
     }
 
     public void a(e eVar) {
         this.adModel = eVar;
-        this.Rk = eVar != null ? eVar.Rq : null;
-        if (this.Rk instanceof h) {
-            ((h) this.Rk).setAdFacadeData(this);
+        this.AH = eVar != null ? eVar.AO : null;
+        if (this.AH instanceof h) {
+            ((h) this.AH).setAdFacadeData(this);
         }
-        this.Rn = true;
+        this.AK = true;
     }
 
-    public AdvertAppInfo pi() {
-        if (this.Ro == null) {
-            this.Ro = new AdvertAppInfo();
-            if (this.Rl != null) {
-                Map<String, String> pg = this.Rl.pg();
-                this.Ro.adPosition = String.valueOf(this.Rl.pf());
-                this.Ro.tid = pg != null ? pg.get("thread_id") : "";
-                this.Ro.setFid(pg != null ? Long.valueOf(pg.get("forum_id")).longValue() : 0L);
+    public AdvertAppInfo kd() {
+        if (this.AM == null) {
+            this.AM = new AdvertAppInfo();
+            if (this.AI != null) {
+                Map<String, String> kb = this.AI.kb();
+                this.AM.adPosition = String.valueOf(this.AI.ka());
+                this.AM.tid = kb != null ? kb.get("thread_id") : "";
+                this.AM.setFid(kb != null ? Long.valueOf(kb.get("forum_id")).longValue() : 0L);
             }
-            this.Ro.extensionInfo = this.adModel != null ? this.adModel.ext : "";
-            this.Ro.page = "VIDEO_LIST";
+            this.AM.extensionInfo = this.adModel != null ? this.adModel.ext : "";
+            this.AM.page = "VIDEO_LIST";
         }
-        return this.Ro;
+        return this.AM;
     }
 
     public int getPageNum() {
-        if (this.Rl != null) {
-            return this.Rl.pe();
+        if (this.AI != null) {
+            return this.AI.jZ();
         }
         return 0;
     }
 
-    public e pj() {
+    public e ke() {
         return this.adModel;
     }
 
-    public void pk() {
-        if (!this.Rn) {
-            com.baidu.tieba.recapp.report.c.cjE().a(com.baidu.tieba.recapp.report.f.a(this, ParseError.ERROR_SMOOTH_SCROLL));
+    public void kf() {
+        if (!this.AK) {
+            com.baidu.tieba.recapp.report.c.cgI().a(com.baidu.tieba.recapp.report.f.a(this, ParseError.ERROR_SMOOTH_SCROLL));
             return;
         }
         com.baidu.tbadk.core.data.c.a(this);
@@ -93,9 +93,9 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.Rk == null || !(this.Rk instanceof com.baidu.tieba.lego.card.b.b)) {
+        if (this.AH == null || !(this.AH instanceof com.baidu.tieba.lego.card.b.b)) {
             return null;
         }
-        return ((com.baidu.tieba.lego.card.b.b) this.Rk).getParallelCharge();
+        return ((com.baidu.tieba.lego.card.b.b) this.AH).getParallelCharge();
     }
 }

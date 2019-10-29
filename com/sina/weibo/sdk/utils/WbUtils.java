@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -41,11 +42,11 @@ public class WbUtils {
     public static String generateUA(Context context, String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(Build.MANUFACTURER).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(Build.MODEL);
-        sb.append("_");
+        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(Build.VERSION.RELEASE);
-        sb.append("_");
+        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append("weibosdk");
-        sb.append("_");
+        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(WbSdkVersion.WEIBO_SDK_VERSION_CODE);
         sb.append("_android");
         return sb.toString();

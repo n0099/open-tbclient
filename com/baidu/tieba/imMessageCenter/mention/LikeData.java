@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.data.GodUserData;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -26,7 +25,7 @@ public class LikeData implements Serializable {
                 this.mIsVerify = jSONObject.optInt("is_verify");
                 this.mName = jSONObject.optString("name");
                 this.mNameShow = jSONObject.optString("name_show");
-                this.mPortrait = jSONObject.optString(IntentConfig.PORTRAIT);
+                this.mPortrait = jSONObject.optString("portrait");
                 this.mIsMyFriend = jSONObject.optInt("is_friend");
             } catch (Exception e) {
                 BdLog.detailException(e);

@@ -5,50 +5,50 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.PrivatePopInfo;
 /* loaded from: classes.dex */
 public class PrivateForumPopInfoData extends OrmObject {
-    private String bIQ = null;
-    private String bIR = null;
-    private String bIS = null;
-    private Integer bIT = null;
+    private String cax = null;
+    private String cay = null;
+    private String caz = null;
+    private Integer caA = null;
 
-    public void mt(String str) {
-        this.bIQ = str;
+    public void mQ(String str) {
+        this.cax = str;
     }
 
-    public String adF() {
-        return this.bIQ;
+    public String ahJ() {
+        return this.cax;
     }
 
-    public void mu(String str) {
-        this.bIR = str;
+    public void mR(String str) {
+        this.cay = str;
     }
 
-    public String adG() {
-        return this.bIR;
+    public String ahK() {
+        return this.cay;
     }
 
-    public void mv(String str) {
-        this.bIS = str;
+    public void mS(String str) {
+        this.caz = str;
     }
 
-    public String adH() {
-        return this.bIS;
+    public String ahL() {
+        return this.caz;
     }
 
     public void b(Integer num) {
-        this.bIT = num;
+        this.caA = num;
     }
 
-    public Integer adI() {
-        return this.bIT;
+    public Integer ahM() {
+        return this.caA;
     }
 
     public void a(PrivatePopInfo privatePopInfo) {
         if (privatePopInfo != null) {
             try {
-                this.bIQ = privatePopInfo.pop_type;
-                this.bIR = privatePopInfo.pop_content;
-                this.bIS = privatePopInfo.pop_url;
-                this.bIT = privatePopInfo.pop_forum_id;
+                this.cax = privatePopInfo.pop_type;
+                this.cay = privatePopInfo.pop_content;
+                this.caz = privatePopInfo.pop_url;
+                this.caA = privatePopInfo.pop_forum_id;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

@@ -4,12 +4,12 @@ import android.util.SparseIntArray;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class r {
-    public final SparseIntArray kmA;
-    public final int kmB;
-    public final int kmC;
-    public final int kmD;
-    public final int kmy;
-    public final int kmz;
+    public final int kkK;
+    public final int kkL;
+    public final SparseIntArray kkM;
+    public final int kkN;
+    public final int kkO;
+    public final int kkP;
 
     public r(int i, int i2, @Nullable SparseIntArray sparseIntArray) {
         this(i, i2, sparseIntArray, 0, Integer.MAX_VALUE, -1);
@@ -17,11 +17,11 @@ public class r {
 
     public r(int i, int i2, @Nullable SparseIntArray sparseIntArray, int i3, int i4, int i5) {
         com.facebook.common.internal.g.checkState(i >= 0 && i2 >= i);
-        this.kmz = i;
-        this.kmy = i2;
-        this.kmA = sparseIntArray;
-        this.kmB = i3;
-        this.kmC = i4;
-        this.kmD = i5;
+        this.kkL = i;
+        this.kkK = i2;
+        this.kkM = sparseIntArray;
+        this.kkN = i3;
+        this.kkO = i4;
+        this.kkP = i5;
     }
 }

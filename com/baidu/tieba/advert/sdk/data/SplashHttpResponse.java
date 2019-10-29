@@ -40,12 +40,12 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
     }
 
     private void dealVideoAd() {
-        if (m.gB()) {
-            b tm = b.tm(com.baidu.tieba.advert.sdk.c.a.aEE());
+        if (m.checkSD()) {
+            b rV = b.rV(com.baidu.tieba.advert.sdk.c.a.aEO());
             if (!this.adInfo.shouldDownloadVideo()) {
-                this.adInfo.videoLocalPath = tm.videoLocalPath;
+                this.adInfo.videoLocalPath = rV.videoLocalPath;
                 com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
-            } else if (j.kc() && j.kd()) {
+            } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
                 com.baidu.tieba.advert.sdk.b.a searchTask = searchTask(this.adInfo.adVideoUrl);
                 if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
                     com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);

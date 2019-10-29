@@ -1,6 +1,5 @@
 package com.vivo.push.b;
 
-import android.content.Intent;
 import android.text.TextUtils;
 import com.vivo.push.model.UnvarnishedMessage;
 /* loaded from: classes3.dex */
@@ -12,19 +11,19 @@ public final class o extends v {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.v
-    public final void d(Intent intent) {
-        super.d(intent);
-        intent.putExtra("msg_v1", this.a.unpackToJson());
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a("msg_v1", this.a.unpackToJson());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.v
-    public final void e(Intent intent) {
-        super.e(intent);
-        String stringExtra = intent.getStringExtra("msg_v1");
-        if (!TextUtils.isEmpty(stringExtra)) {
-            this.a = new UnvarnishedMessage(stringExtra);
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        String a = aVar.a("msg_v1");
+        if (!TextUtils.isEmpty(a)) {
+            this.a = new UnvarnishedMessage(a);
             this.a.setMsgId(f());
         }
     }
@@ -40,7 +39,7 @@ public final class o extends v {
         return this.a;
     }
 
-    @Override // com.vivo.push.b.s, com.vivo.push.v
+    @Override // com.vivo.push.b.s, com.vivo.push.y
     public final String toString() {
         return "OnMessageCommand";
     }

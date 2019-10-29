@@ -24,13 +24,13 @@ public class JumpButton extends TextView {
     }
 
     private void init() {
-        am.k(this, R.drawable.btn_jump_border_bg);
-        am.f(this, R.color.btn_forum_focus_color, 1);
-        int g = l.g(getContext(), R.dimen.ds144);
-        int g2 = l.g(getContext(), R.dimen.ds50);
-        setWidth(g);
-        setHeight(g2);
+        am.setBackgroundResource(this, R.drawable.btn_jump_border_bg);
+        am.setViewTextColor(this, R.color.btn_forum_focus_color, 1);
+        int dimens = l.getDimens(getContext(), R.dimen.ds144);
+        int dimens2 = l.getDimens(getContext(), R.dimen.ds50);
+        setWidth(dimens);
+        setHeight(dimens2);
         setGravity(17);
-        setTextSize(0, l.g(getContext(), R.dimen.fontsize24));
+        setTextSize(0, l.getDimens(getContext(), R.dimen.fontsize24));
     }
 }

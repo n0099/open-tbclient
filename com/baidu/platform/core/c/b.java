@@ -7,7 +7,6 @@ import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiIndoorInfo;
 import com.baidu.mapapi.search.poi.PoiIndoorResult;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.sapi2.result.AddressManageResult;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +44,7 @@ public class b extends com.baidu.platform.base.d {
                                         poiIndoorInfo.phone = jSONObject2.optString("phone");
                                         poiIndoorInfo.price = jSONObject2.optInt("price");
                                         poiIndoorInfo.starLevel = jSONObject2.optInt("star_level");
-                                        poiIndoorInfo.tag = jSONObject2.optString(AddressManageResult.KEY_TAG);
+                                        poiIndoorInfo.tag = jSONObject2.optString("tag");
                                         poiIndoorInfo.uid = jSONObject2.optString("uid");
                                         poiIndoorInfo.groupNum = jSONObject2.optInt("tuan_nums");
                                         int parseInt = Integer.parseInt(jSONObject2.optString("twp"));

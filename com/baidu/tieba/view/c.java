@@ -8,12 +8,12 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class c extends LinkMovementMethod {
-    private static c jKi;
-    private int amS;
-    private int amT;
+    private static c jJX;
+    private int aGl;
+    private int aGm;
     private int color = -1;
-    private com.baidu.tbadk.widget.richText.c jKg;
-    private long jKh;
+    private com.baidu.tbadk.widget.richText.c jJV;
+    private long jJW;
 
     public void setColor(int i) {
         this.color = i;
@@ -21,54 +21,54 @@ public class c extends LinkMovementMethod {
 
     @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
     public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        com.baidu.tbadk.widget.richText.c a = a(textView, spannable, motionEvent);
-        if (a == null && motionEvent.getAction() == 0) {
+        com.baidu.tbadk.widget.richText.c b = b(textView, spannable, motionEvent);
+        if (b == null && motionEvent.getAction() == 0) {
             return super.onTouchEvent(textView, spannable, motionEvent);
         }
-        if (a != null) {
-            this.jKg = a;
+        if (b != null) {
+            this.jJV = b;
         }
         if (this.color > -1) {
-            this.jKg.setColor(this.color);
+            this.jJV.setColor(this.color);
         }
         if (motionEvent.getAction() == 0) {
-            this.amS = (int) motionEvent.getX();
-            this.amT = (int) motionEvent.getY();
-            this.jKh = System.currentTimeMillis();
-            if (this.jKg != null) {
-                this.jKg.lK(1);
-                Selection.setSelection(spannable, spannable.getSpanStart(this.jKg), spannable.getSpanEnd(this.jKg));
+            this.aGl = (int) motionEvent.getX();
+            this.aGm = (int) motionEvent.getY();
+            this.jJW = System.currentTimeMillis();
+            if (this.jJV != null) {
+                this.jJV.kP(1);
+                Selection.setSelection(spannable, spannable.getSpanStart(this.jJV), spannable.getSpanEnd(this.jJV));
             }
             textView.invalidate();
         } else if (motionEvent.getAction() == 2) {
-            if (this.jKg != null && (Math.abs(this.amS - motionEvent.getX()) > 20.0f || Math.abs(this.amT - motionEvent.getY()) > 20.0f)) {
-                this.jKg.lK(2);
+            if (this.jJV != null && (Math.abs(this.aGl - motionEvent.getX()) > 20.0f || Math.abs(this.aGm - motionEvent.getY()) > 20.0f)) {
+                this.jJV.kP(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.jKg != null) {
-                this.jKg.lK(2);
+            if (this.jJV != null) {
+                this.jJV.kP(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
-            if (a(this.amS, this.amT, motionEvent.getX(), motionEvent.getY(), this.jKh, System.currentTimeMillis(), 500L)) {
+            if (a(this.aGl, this.aGm, motionEvent.getX(), motionEvent.getY(), this.jJW, System.currentTimeMillis(), 500L)) {
                 return true;
             }
         }
         return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public static c czb() {
-        if (jKi == null) {
-            jKi = new c();
+    public static c cwP() {
+        if (jJX == null) {
+            jJX = new c();
         }
-        return jKi;
+        return jJX;
     }
 
-    private com.baidu.tbadk.widget.richText.c a(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+    private com.baidu.tbadk.widget.richText.c b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
         if (motionEvent == null || motionEvent.getAction() == 3) {
-            return this.jKg;
+            return this.jJV;
         }
         int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
         int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();

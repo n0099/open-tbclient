@@ -16,49 +16,49 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends v.a {
-    public TextView bCB;
-    public int ceL;
-    public View imb;
-    public HTypeListView imc;
-    public e imd;
+    public TextView bUW;
+    public int csX;
+    public View ikL;
+    public HTypeListView ikM;
+    public e ikN;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.ceL = 3;
+        this.csX = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.imb = view.findViewById(R.id.divider_view_under_photo_album);
-        this.bCB = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.imc = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.imd = new e(this.mPageContext, this.imc);
+        this.ikL = view.findViewById(R.id.divider_view_under_photo_album);
+        this.bUW = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.ikM = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.ikN = new e(this.mPageContext, this.ikM);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.imd.setDatas(dN(fVar.getPhotoAlbum()));
+            this.ikN.setDatas(ea(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<m> dN(List<m> list) {
-        if (com.baidu.tbadk.core.util.v.Z(list) > 0) {
+    private List<m> ea(List<m> list) {
+        if (com.baidu.tbadk.core.util.v.getCount(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.g(this.mPageContext.getPageActivity(), R.dimen.ds32), l.g(this.mPageContext.getPageActivity(), R.dimen.ds120));
-            com.baidu.tbadk.core.util.v.a(arrayList, 0, dVar);
-            com.baidu.tbadk.core.util.v.b(arrayList, dVar);
+            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds120));
+            com.baidu.tbadk.core.util.v.add(arrayList, 0, dVar);
+            com.baidu.tbadk.core.util.v.add(arrayList, dVar);
             return arrayList;
         }
         return list;
     }
 
-    public void atI() {
-        if (this.ceL != TbadkCoreApplication.getInst().getSkinType()) {
-            this.ceL = TbadkCoreApplication.getInst().getSkinType();
-            am.l(this.rootView, R.color.cp_bg_line_d);
-            am.l(this.imb, R.color.cp_bg_line_c);
-            am.f(this.bCB, R.color.cp_cont_d, 1);
-            this.imd.notifyDataSetChanged();
+    public void avs() {
+        if (this.csX != TbadkCoreApplication.getInst().getSkinType()) {
+            this.csX = TbadkCoreApplication.getInst().getSkinType();
+            am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
+            am.setBackgroundColor(this.ikL, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.bUW, R.color.cp_cont_d, 1);
+            this.ikN.notifyDataSetChanged();
         }
     }
 }

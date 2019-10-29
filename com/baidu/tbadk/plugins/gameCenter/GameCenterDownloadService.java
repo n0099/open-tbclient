@@ -7,13 +7,14 @@ import android.os.IBinder;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        if (a.awa() != null) {
+        if (a.axf() != null) {
             try {
-                return a.awa().onBind(intent);
+                return a.axf().onBind(intent);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -24,10 +25,10 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016519, this));
-        if (a.awa() != null) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PROXY_GAME_DOWNLOAD_SERVICE_READY, this));
+        if (a.axf() != null) {
             try {
-                a.awa().onCreate();
+                a.axf().onCreate();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -37,9 +38,9 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (a.awa() != null) {
+        if (a.axf() != null) {
             try {
-                a.awa().onStart(intent, i);
+                a.axf().onStart(intent, i);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -48,9 +49,9 @@ public class GameCenterDownloadService extends Service {
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        if (a.awa() != null) {
+        if (a.axf() != null) {
             try {
-                return a.awa().onStartCommand(intent, i, i2);
+                return a.axf().onStartCommand(intent, i, i2);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -61,9 +62,9 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public void onRebind(Intent intent) {
         super.onRebind(intent);
-        if (a.awa() != null) {
+        if (a.axf() != null) {
             try {
-                a.awa().onRebind(intent);
+                a.axf().onRebind(intent);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -72,9 +73,9 @@ public class GameCenterDownloadService extends Service {
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        if (a.awa() != null) {
+        if (a.axf() != null) {
             try {
-                return a.awa().onUnbind(intent);
+                return a.axf().onUnbind(intent);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -85,9 +86,9 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (a.awa() != null) {
+        if (a.axf() != null) {
             try {
-                a.awa().onDestroy();
+                a.axf().onDestroy();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -97,16 +98,16 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        if (a.awa() != null) {
-            a.awa().onLowMemory();
+        if (a.axf() != null) {
+            a.axf().onLowMemory();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (a.awa() != null) {
-            a.awa().onConfigurationChanged(configuration);
+        if (a.axf() != null) {
+            a.axf().onConfigurationChanged(configuration);
         }
     }
 }

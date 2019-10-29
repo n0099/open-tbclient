@@ -247,7 +247,7 @@ public class DataCore {
             jSONObject2.put(Config.WIFI_LOCATION, jSONArray);
             jSONObject2.put(Config.SEQUENCE_INDEX, 0);
             jSONObject2.put("sign", CooperService.instance().getUUID());
-            jSONObject2.put(Config.APP_KEY, str);
+            jSONObject2.put("k", str);
             jSONObject.put(Config.HEADER_PART, jSONObject2);
             try {
                 jSONObject.put(Config.PRINCIPAL_PART, jSONArray);
@@ -459,7 +459,7 @@ public class DataCore {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(Config.TRACE_VISIT_RECENT_DAY, j);
-                jSONObject.put(Config.TRACE_VISIT_RECENT_COUNT, j2);
+                jSONObject.put("count", j2);
                 arrayList.add(jSONObject);
             } catch (Exception e2) {
             }

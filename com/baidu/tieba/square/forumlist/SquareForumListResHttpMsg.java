@@ -1,6 +1,5 @@
 package com.baidu.tieba.square.forumlist;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
@@ -9,7 +8,7 @@ public class SquareForumListResHttpMsg extends TbHttpResponsedMessage {
     private GetForumsFromForumClassResIdl mResponseData;
 
     public SquareForumListResHttpMsg(int i) {
-        super(CmdConfigHttp.CMD_SQUARE_FORUM_LIST);
+        super(1003060);
     }
 
     public GetForumsFromForumClassResIdl getResponseData() {

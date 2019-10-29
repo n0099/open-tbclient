@@ -1,5 +1,6 @@
 package kotlin.io;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
@@ -12,6 +13,6 @@ public final class AccessDeniedException extends FileSystemException {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AccessDeniedException(File file, File file2, String str) {
         super(file, file2, str);
-        p.k(file, "file");
+        p.i(file, BdStatsConstant.OpSubType.FILE);
     }
 }

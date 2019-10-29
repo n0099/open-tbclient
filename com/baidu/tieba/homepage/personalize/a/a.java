@@ -3,58 +3,62 @@ package com.baidu.tieba.homepage.personalize.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.i>> {
-    private BdUniqueId cyA;
-    private com.baidu.tieba.card.i glE;
+    private BdUniqueId cKf;
+    private com.baidu.tieba.card.i glc;
     private TbPageContext<?> mPageContext;
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.v$a] */
+    @Override // com.baidu.adp.widget.ListView.a
+    protected /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.i> aVar) {
+        return a2(i, view, viewGroup, bVar, (com.baidu.tieba.card.a.a) aVar);
+    }
+
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.gng);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.gmE);
         this.mPageContext = tbPageContext;
-        this.glE = new com.baidu.tieba.card.i(this.mPageContext);
-        this.glE.p("c10714", "c10739", "c10712", "c10738");
-        this.glE.setFrom("home");
+        this.glc = new com.baidu.tieba.card.i(this.mPageContext);
+        this.glc.r("c10714", "c10739", "c10712", "c10738");
+        this.glc.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.cyA = bdUniqueId;
-        if (this.glE != null) {
-            this.glE.j(this.cyA);
+        this.cKf = bdUniqueId;
+        if (this.glc != null) {
+            this.glc.j(this.cKf);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.baX() == null) {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
+        if (aVar.baZ() == null) {
             return null;
         }
-        aVar.baX().a(bVar);
-        com.baidu.tieba.card.t.bat().c(new an("c10714").bT("obj_param3", com.baidu.tieba.card.n.bak()));
+        aVar.baZ().a(bVar);
+        com.baidu.tieba.card.t.baw().c(new an("c10714").bS(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.ban()));
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.glE == null) {
-            this.glE = new com.baidu.tieba.card.i(this.mPageContext);
-            this.glE.j(this.cyA);
-            this.glE.p("c10714", "c10739", "c10712", "c10738");
+    /* renamed from: as */
+    public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
+        if (this.glc == null) {
+            this.glc = new com.baidu.tieba.card.i(this.mPageContext);
+            this.glc.j(this.cKf);
+            this.glc.r("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.glE);
+        return new com.baidu.tieba.card.a.a(this.glc);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.glE != null) {
-            this.glE.onChangeSkinType(this.mPageContext, i);
+        if (this.glc != null) {
+            this.glc.onChangeSkinType(this.mPageContext, i);
         }
     }
 }

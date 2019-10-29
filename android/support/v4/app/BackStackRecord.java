@@ -8,6 +8,7 @@ import android.support.v4.util.LogWriter;
 import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.View;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
@@ -82,7 +83,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             sb.append(this.mIndex);
         }
         if (this.mName != null) {
-            sb.append(" ");
+            sb.append(HanziToPinyin.Token.SEPARATOR);
             sb.append(this.mName);
         }
         sb.append("}");
@@ -186,7 +187,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 printWriter.print(i);
                 printWriter.print(": ");
                 printWriter.print(str2);
-                printWriter.print(" ");
+                printWriter.print(HanziToPinyin.Token.SEPARATOR);
                 printWriter.println(op.fragment);
                 if (z) {
                     if (op.enterAnim != 0 || op.exitAnim != 0) {

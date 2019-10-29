@@ -1,5 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
@@ -11,7 +12,7 @@ public class CheckPostRequestMessage extends TbSocketMessage {
     private long tid;
 
     public CheckPostRequestMessage() {
-        super(303010);
+        super(CmdConfigSocket.CMD_CHECK_POST);
     }
 
     public long getPid() {

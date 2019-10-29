@@ -26,12 +26,12 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public WebViewActivityConfig(Context context, String str, String str2, boolean z) {
         super(context);
-        getIntent().putExtra(TAG_TITLE, str);
-        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
-        getIntent().putExtra(TAG_COOKIE, z);
-        getIntent().putExtra(TAG_ENABLE_JS, true);
-        getIntent().putExtra(TAG_NAV_BAR, true);
-        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
+        getIntent().putExtra("tag_title", str);
+        getIntent().putExtra("tag_url", addTiebaParams(str2));
+        getIntent().putExtra("tag_cookie", z);
+        getIntent().putExtra("tag_enable_js", true);
+        getIntent().putExtra("tag_navigation_bar", true);
+        getIntent().putExtra("tag_style_immersive_sticky", true);
         if (!(getContext() instanceof Activity)) {
             getIntent().addFlags(268435456);
         }
@@ -40,12 +40,12 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public WebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
         super(context);
-        getIntent().putExtra(TAG_TITLE, str);
-        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
-        getIntent().putExtra(TAG_NAV_BAR, z);
-        getIntent().putExtra(TAG_COOKIE, z2);
-        getIntent().putExtra(TAG_ENABLE_JS, z3);
-        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
+        getIntent().putExtra("tag_title", str);
+        getIntent().putExtra("tag_url", addTiebaParams(str2));
+        getIntent().putExtra("tag_navigation_bar", z);
+        getIntent().putExtra("tag_cookie", z2);
+        getIntent().putExtra("tag_enable_js", z3);
+        getIntent().putExtra("tag_style_immersive_sticky", true);
         if (!(getContext() instanceof Activity)) {
             getIntent().addFlags(268435456);
         }
@@ -54,12 +54,12 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public WebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         super(context);
-        getIntent().putExtra(TAG_TITLE, str);
-        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
-        getIntent().putExtra(TAG_NAV_BAR, z);
-        getIntent().putExtra(TAG_COOKIE, z2);
-        getIntent().putExtra(TAG_ENABLE_JS, z3);
-        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z4);
+        getIntent().putExtra("tag_title", str);
+        getIntent().putExtra("tag_url", addTiebaParams(str2));
+        getIntent().putExtra("tag_navigation_bar", z);
+        getIntent().putExtra("tag_cookie", z2);
+        getIntent().putExtra("tag_enable_js", z3);
+        getIntent().putExtra("tag_style_immersive_sticky", z4);
         if (!(getContext() instanceof Activity)) {
             getIntent().addFlags(268435456);
         }
@@ -77,7 +77,7 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public void setFixTitle(boolean z) {
         if (getIntent() != null) {
-            getIntent().putExtra(TAG_FIX_TITLE, z);
+            getIntent().putExtra("tag_fix_title", z);
         }
     }
 

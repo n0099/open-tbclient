@@ -12,25 +12,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF dA = hVar.dA();
-        path.moveTo(dA.x, dA.y);
-        PointF pointF = new PointF(dA.x, dA.y);
+        PointF cT = hVar.cT();
+        path.moveTo(cT.x, cT.y);
+        PointF pointF = new PointF(cT.x, cT.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.dB().size()) {
+            if (i2 >= hVar.cU().size()) {
                 break;
             }
-            com.airbnb.lottie.model.c cVar = hVar.dB().get(i2);
-            PointF cz = cVar.cz();
-            PointF cA = cVar.cA();
-            PointF cB = cVar.cB();
-            if (cz.equals(pointF) && cA.equals(cB)) {
-                path.lineTo(cB.x, cB.y);
+            com.airbnb.lottie.model.c cVar = hVar.cU().get(i2);
+            PointF bS = cVar.bS();
+            PointF bT = cVar.bT();
+            PointF bU = cVar.bU();
+            if (bS.equals(pointF) && bT.equals(bU)) {
+                path.lineTo(bU.x, bU.y);
             } else {
-                path.cubicTo(cz.x, cz.y, cA.x, cA.y, cB.x, cB.y);
+                path.cubicTo(bS.x, bS.y, bT.x, bT.y, bU.x, bU.y);
             }
-            pointF.set(cB.x, cB.y);
+            pointF.set(bU.x, bU.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {
@@ -51,14 +51,14 @@ public class e {
     }
 
     public static int k(float f, float f2) {
-        return k((int) f, (int) f2);
+        return f((int) f, (int) f2);
     }
 
-    public static int k(int i, int i2) {
-        return i - (l(i, i2) * i2);
+    public static int f(int i, int i2) {
+        return i - (g(i, i2) * i2);
     }
 
-    private static int l(int i, int i2) {
+    private static int g(int i, int i2) {
         int i3 = i / i2;
         if ((i ^ i2) < 0 && i3 * i2 != i) {
             return i3 - 1;

@@ -6,7 +6,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
@@ -17,7 +17,6 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
-import com.tencent.open.SocialConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
@@ -75,7 +74,7 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("net", "" + systemUtils.getNetworkCatagory(this.d));
             hashMap.put("n", "" + getN());
             hashMap.put("at", "" + getAt());
-            hashMap.put("v", f() + "_" + com.baidu.mobads.a.a.c + "_4.1.30");
+            hashMap.put("v", f() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30");
             hashMap.put(IXAdRequestInfo.CS, "");
             hashMap.put("pk", commonUtils.getAppPackage(this.d));
             hashMap.put(IXAdRequestInfo.SDK_VALID, "sdk_8.8079");
@@ -110,7 +109,7 @@ public abstract class d implements IXAdRequestInfo {
             }
             hashMap.put(IXAdRequestInfo.CELL_ID, str);
             hashMap.put(IXAdRequestInfo.NETWORK_OPERATOR, systemUtils.getNetworkOperator(this.d));
-            hashMap.put(IXAdRequestInfo.IMSI, commonUtils.getSubscriberId(this.d));
+            hashMap.put("im", commonUtils.getSubscriberId(this.d));
             try {
                 double[] gps = systemUtils.getGPS(this.d);
                 String str4 = "";
@@ -140,12 +139,12 @@ public abstract class d implements IXAdRequestInfo {
                 str3 = str2;
             }
             hashMap.put(IXAdRequestInfo.WIFI, str3);
-            hashMap.put("swi", "" + (IXAdSystemUtils.NT_WIFI.equals(systemUtils.getNetworkType(this.d)) ? 1 : 0));
+            hashMap.put("swi", "" + ("wifi".equals(systemUtils.getNetworkType(this.d)) ? 1 : 0));
             hashMap.put("tab", systemUtils.isTablet(this.d) ? "1" : "0");
             hashMap.put("sdc", systemUtils.getAppSDC() + Constants.ACCEPT_TIME_SEPARATOR_SP + systemUtils.getMem());
-            hashMap.put(SocialConstants.PARAM_ACT, getAct());
+            hashMap.put("act", getAct());
             hashMap.put("prod", getProd());
-            hashMap.put(IXAdRequestInfo.OS, "android");
+            hashMap.put("os", "android");
             hashMap.put(IXAdRequestInfo.OSV, Build.VERSION.RELEASE);
             hashMap.put(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT);
             hashMap.put("apinfo", commonUtils.getBaiduMapsInfo(this.d));
@@ -159,12 +158,12 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("android_id", systemUtils.getAndroidId(this.d));
             hashMap.put("imei", systemUtils.getIMEI(this.d));
             hashMap.put("mac", systemUtils.getMacAddress(this.d));
-            hashMap.put(DpStatConstants.KEY_CUID, systemUtils.getCUID(this.d));
+            hashMap.put("cuid", systemUtils.getCUID(this.d));
             hashMap.put("snfrom", systemUtils.getSnFrom(this.d));
             hashMap.put(IXAdRequestInfo.P_VER, "8.8079");
             hashMap.put("req_id", commonUtils.createRequestId(this.d, getApid()));
             hashMap.put("cssid", systemUtils.isWifiConnected(this.d).booleanValue() ? systemUtils.getWifiConnected(this.d) : "");
-            if (AdSettings.us().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
+            if (AdSettings.zm().equals(AdSettings.b.HTTPS_PROTOCOL_TYPE.a())) {
                 hashMap.put("rpt", String.valueOf(AdSettings.b.HTTPS_PROTOCOL_TYPE.a()));
             }
             hashMap.put(IXAdRequestInfo.APP_VERSION_NAME, "" + b(this.d));

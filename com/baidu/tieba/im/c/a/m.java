@@ -3,6 +3,7 @@ package com.baidu.tieba.im.c.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
 import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
 import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
@@ -13,10 +14,10 @@ public class m implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.d.a.agL().mM("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
+        byte[] bArr = com.baidu.tbadk.core.d.a.akN().nk("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
         ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
         try {
-            responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);
+            responseOfficialBarMenuLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_OFFICIAL_BAR_MENU_LOCAL, bArr);
         } catch (Exception e) {
             e.printStackTrace();
         }

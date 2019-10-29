@@ -8,14 +8,14 @@ import java.util.List;
 public class c implements a {
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> t(@Nullable List<String> list) {
+    public List<String> S(@Nullable List<String> list) {
         if (list == null) {
             return null;
         }
-        List<com.baidu.swan.apps.database.a> CC = com.baidu.swan.apps.database.favorite.a.CC();
-        if (CC.size() != 0) {
+        List<com.baidu.swan.apps.database.a> Hw = com.baidu.swan.apps.database.favorite.a.Hw();
+        if (Hw.size() != 0) {
             HashSet hashSet = new HashSet();
-            for (com.baidu.swan.apps.database.a aVar : CC) {
+            for (com.baidu.swan.apps.database.a aVar : Hw) {
                 hashSet.add(aVar.appId);
             }
             list.removeAll(hashSet);

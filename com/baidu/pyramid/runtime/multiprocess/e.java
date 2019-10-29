@@ -6,7 +6,7 @@ import android.content.Context;
 public class e {
     private static Application sApplication;
 
-    public static void b(Application application) {
+    public static void c(Application application) {
         sApplication = application;
     }
 

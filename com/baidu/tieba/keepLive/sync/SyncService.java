@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.live.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
@@ -25,14 +26,14 @@ public class SyncService extends Service {
     public void onCreate() {
         super.onCreate();
         try {
-            TiebaStatic.log("c12662");
+            TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
         } catch (Throwable th) {
         }
         TbadkCoreApplication.getInst();
         if (TbadkCoreApplication.getKeepLiveSwitch(this)) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    com.baidu.tbadk.lcs.a.c(0, 0, 0, 1, 5);
+                    com.baidu.tbadk.lcs.a.d(0, 0, 0, 1, 5);
                     BdSocketLinkService.startService(false, "restart");
                 } else {
                     GuardServiceObserver.startNativeServiceForUnder23(this);
@@ -44,7 +45,7 @@ public class SyncService extends Service {
                 }
                 return;
             } catch (Throwable th2) {
-                com.baidu.tbadk.lcs.a.c(0, 0, 0, 1, 5);
+                com.baidu.tbadk.lcs.a.d(0, 0, 0, 1, 5);
                 BdSocketLinkService.startService(false, "restart");
                 return;
             }

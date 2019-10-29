@@ -14,67 +14,67 @@ import com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 /* loaded from: classes4.dex */
 public class f implements View.OnClickListener {
-    private LikeModel cer;
-    private InterestFrsData.Tag jpH;
-    private NewUserGuideActivity jqj;
-    private a jqk;
-    private y jql;
+    private LikeModel csF;
+    private InterestFrsData.Tag jpz;
+    private NewUserGuideActivity jqb;
+    private a jqc;
+    private y jqd;
 
     public f(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, final NewUserGuideMainFragment.a aVar) {
-        this.jqj = newUserGuideActivity;
-        this.jpH = tag;
+        this.jqb = newUserGuideActivity;
+        this.jpz = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.jqk = new e(this.jqj.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.jqc = new e(this.jqb.getPageContext().getPageActivity(), R.style.NewUserDialog);
         } else if (btype == 2) {
-            this.jqk = new b(this.jqj.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.jqc = new b(this.jqb.getPageContext().getPageActivity(), R.style.NewUserDialog);
         } else if (btype == 3) {
-            this.jqk = new d(this.jqj.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.jqc = new d(this.jqb.getPageContext().getPageActivity(), R.style.NewUserDialog);
         }
-        this.cer = new LikeModel(newUserGuideActivity.getPageContext());
-        this.cer.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.1
+        this.csF = new LikeModel(newUserGuideActivity.getPageContext());
+        this.csF.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.1
             @Override // com.baidu.adp.base.d
-            public void m(Object obj) {
+            public void callback(Object obj) {
                 if (obj == null) {
-                    f.this.jqj.showToast(R.string.neterror);
+                    f.this.jqb.showToast(R.string.neterror);
                 } else if (obj instanceof t) {
-                    int f = com.baidu.adp.lib.g.b.f(((t) obj).getFid(), 0);
-                    f.this.jqk.BD(f);
-                    f.this.S(f, true);
-                    f.this.jqj.rx(true);
-                    f.this.jqj.rw(true);
-                    TiebaStatic.eventStat(f.this.jqj.getPageContext().getPageActivity(), "notlogin_12", "click", 1, new Object[0]);
+                    int i = com.baidu.adp.lib.g.b.toInt(((t) obj).getFid(), 0);
+                    f.this.jqc.Aj(i);
+                    f.this.Q(i, true);
+                    f.this.jqb.rg(true);
+                    f.this.jqb.rf(true);
+                    TiebaStatic.eventStat(f.this.jqb.getPageContext().getPageActivity(), "notlogin_12", "click", 1, new Object[0]);
                 }
             }
         });
-        this.jql = new y();
-        this.jql.a(new y.a() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.2
+        this.jqd = new y();
+        this.jqd.a(new y.a() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.2
             @Override // com.baidu.tieba.tbadkCore.y.a
-            public void w(String str, long j) {
-                int f = com.baidu.adp.lib.g.b.f(String.valueOf(j), 0);
-                f.this.jqk.BE(f);
-                f.this.S(f, false);
+            public void A(String str, long j) {
+                int i = com.baidu.adp.lib.g.b.toInt(String.valueOf(j), 0);
+                f.this.jqc.Ak(i);
+                f.this.Q(i, false);
             }
 
             @Override // com.baidu.tieba.tbadkCore.y.a
-            public void x(String str, long j) {
-                f.this.jqj.showToast(R.string.error);
+            public void B(String str, long j) {
+                f.this.jqb.showToast(R.string.error);
             }
         });
-        this.jqk.setOnClickListener(this);
-        this.jqk.a(this.jpH);
-        ((Dialog) this.jqk).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.3
+        this.jqc.setOnClickListener(this);
+        this.jqc.a(this.jpz);
+        ((Dialog) this.jqc).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                aVar.ctb();
+                aVar.cqQ();
             }
         });
     }
 
-    public void S(int i, boolean z) {
-        for (int i2 = 0; i2 < this.jpH.getCard_list().size(); i2++) {
-            if (this.jpH.getCard_list().get(i2).getFid() == i) {
-                this.jpH.getCard_list().get(i2).setIs_like(z ? 1 : 0);
+    public void Q(int i, boolean z) {
+        for (int i2 = 0; i2 < this.jpz.getCard_list().size(); i2++) {
+            if (this.jpz.getCard_list().get(i2).getFid() == i) {
+                this.jpz.getCard_list().get(i2).setIs_like(z ? 1 : 0);
                 return;
             }
         }
@@ -83,23 +83,23 @@ public class f implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.box_close_layout) {
-            this.jqk.hide();
+            this.jqc.hide();
         } else if ((view.getId() == R.id.ll_like || view.getId() == R.id.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
             if (card.getIs_like() == 1) {
-                this.jql.E(card.getFname(), card.getFid());
+                this.jqd.I(card.getFname(), card.getFid());
             } else {
-                this.cer.ae(card.getFname(), String.valueOf(card.getFid()), "newuser");
+                this.csF.ag(card.getFname(), String.valueOf(card.getFid()), "newuser");
             }
         }
     }
 
     public void show() {
-        if (this.jqj == null || g.t(this.jqj.getPageContext().getPageActivity())) {
+        if (this.jqb == null || g.isActivityCanShowDialogOrPopupWindow(this.jqb.getPageContext().getPageActivity())) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
             scaleAnimation.setDuration(350L);
-            this.jqk.getRootView().setAnimation(scaleAnimation);
-            this.jqk.show();
+            this.jqc.getRootView().setAnimation(scaleAnimation);
+            this.jqc.show();
         }
     }
 }

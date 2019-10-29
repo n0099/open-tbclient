@@ -9,6 +9,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
@@ -17,21 +18,21 @@ import java.util.LinkedList;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class i {
-    private static i gHn;
-    private static long gHq = -1;
-    private static int gHr = 0;
-    private a gHo = new a();
-    private b gHp = null;
+    private static i gFl;
+    private static long gFo = -1;
+    private static int gFp = 0;
+    private a gFm = new a();
+    private b gFn = null;
 
-    public static i bDL() {
-        if (gHn == null) {
+    public static i bAv() {
+        if (gFl == null) {
             synchronized (i.class) {
-                if (gHn == null) {
-                    gHn = new i();
+                if (gFl == null) {
+                    gFl = new i();
                 }
             }
         }
-        return gHn;
+        return gFl;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -45,8 +46,8 @@ public class i {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    i.bDL().gHo.removeMessages(1);
-                    i.bDL().execute();
+                    i.bAv().gFm.removeMessages(1);
+                    i.bAv().execute();
                     return;
                 default:
                     return;
@@ -55,16 +56,16 @@ public class i {
     }
 
     private i() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tieba.im.db.i.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.im.db.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        i.this.gHo.sendMessageDelayed(i.this.gHo.obtainMessage(1), StatisticConfig.MIN_UPLOAD_INTERVAL);
+                        i.this.gFm.sendMessageDelayed(i.this.gFm.obtainMessage(1), StatisticConfig.MIN_UPLOAD_INTERVAL);
                         return;
                     }
-                    i.this.gHo.removeMessages(1);
+                    i.this.gFm.removeMessages(1);
                     i.this.stop();
                 }
             }
@@ -73,21 +74,21 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.gHp != null) {
-            this.gHp.cancel();
-            this.gHp = null;
+        if (this.gFn != null) {
+            this.gFn.cancel();
+            this.gFn = null;
         }
-        this.gHp = new b();
-        this.gHp.setParallel(TiebaIMConfig.getParallel());
-        this.gHp.setPriority(4);
-        this.gHp.execute(new String[0]);
+        this.gFn = new b();
+        this.gFn.setParallel(TiebaIMConfig.getParallel());
+        this.gFn.setPriority(4);
+        this.gFn.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.gHp != null) {
-            this.gHp.cancel();
-            this.gHp = null;
+        if (this.gFn != null) {
+            this.gFn.cancel();
+            this.gFn = null;
         }
     }
 
@@ -102,48 +103,48 @@ public class i {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> bDP = j.bDM().bDP();
-            if (bDP == null || bDP.size() == 0) {
+            LinkedList<ImMessageCenterPojo> bAA = j.bAx().bAA();
+            if (bAA == null || bAA.size() == 0) {
                 return false;
             }
-            if (i.gHq < 0) {
+            if (i.gFo < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    long unused = i.gHq = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (i.gHq > IjkMediaMeta.AV_CH_WIDE_LEFT) {
-                        int unused2 = i.gHr = 5000;
-                    } else if (i.gHq > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
-                        int unused3 = i.gHr = 3000;
+                    long unused = i.gFo = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (i.gFo > IjkMediaMeta.AV_CH_WIDE_LEFT) {
+                        int unused2 = i.gFp = 5000;
+                    } else if (i.gFo > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+                        int unused3 = i.gFp = 3000;
                     } else {
-                        int unused4 = i.gHr = 1000;
+                        int unused4 = i.gFp = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (i.gHr < 1000) {
-                int unused5 = i.gHr = 1000;
+            if (i.gFp < 1000) {
+                int unused5 = i.gFp = 1000;
             }
             try {
-                h.bDI().bDJ();
-                for (ImMessageCenterPojo imMessageCenterPojo : bDP) {
+                h.bAs().bAt();
+                for (ImMessageCenterPojo imMessageCenterPojo : bAA) {
                     if (isCancelled()) {
-                        h.bDI().bDK();
+                        h.bAs().bAu();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.bDB().aH(imMessageCenterPojo.getGid(), i.gHr);
+                        c.bAl().aC(imMessageCenterPojo.getGid(), i.gFp);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.bDU().aH(imMessageCenterPojo.getGid(), i.gHr);
+                        m.bAF().aC(imMessageCenterPojo.getGid(), i.gFp);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.bDS().aH(imMessageCenterPojo.getGid(), i.gHr);
+                        l.bAD().aC(imMessageCenterPojo.getGid(), i.gFp);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.bDC().aH(imMessageCenterPojo.getGid(), i.gHr);
+                        d.bAm().aC(imMessageCenterPojo.getGid(), i.gFp);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                h.bDI().bDK();
+                h.bAs().bAu();
             }
             return true;
         }

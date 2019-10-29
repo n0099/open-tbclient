@@ -4,53 +4,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile b azw;
-    private List<a> azx = new ArrayList();
+    private static volatile b aSK;
+    private List<a> aSL = new ArrayList();
 
     /* loaded from: classes2.dex */
     public interface a {
-        boolean vW();
+        boolean AQ();
 
-        boolean vX();
+        boolean AR();
     }
 
     private b() {
     }
 
-    public static b Fr() {
-        if (azw == null) {
+    public static b Kl() {
+        if (aSK == null) {
             synchronized (b.class) {
-                if (azw == null) {
-                    azw = new b();
+                if (aSK == null) {
+                    aSK = new b();
                 }
             }
         }
-        return azw;
+        return aSK;
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.azx.contains(aVar)) {
-            this.azx.add(aVar);
+        if (aVar != null && !this.aSL.contains(aVar)) {
+            this.aSL.add(aVar);
         }
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.azx.remove(aVar);
+            this.aSL.remove(aVar);
         }
     }
 
-    public void Fs() {
-        for (a aVar : this.azx) {
-            if (aVar != null && aVar.vW()) {
+    public void Km() {
+        for (a aVar : this.aSL) {
+            if (aVar != null && aVar.AQ()) {
                 return;
             }
         }
     }
 
-    public void Ft() {
-        for (a aVar : this.azx) {
-            if (aVar != null && aVar.vX()) {
+    public void Kn() {
+        for (a aVar : this.aSL) {
+            if (aVar != null && aVar.AR()) {
                 return;
             }
         }

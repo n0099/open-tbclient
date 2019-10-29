@@ -20,7 +20,7 @@ public abstract class d {
     }
 
     @Deprecated
-    public <T> Throwable S(Throwable th) {
+    public <T> Throwable R(Throwable th) {
         return th;
     }
 

@@ -1,12 +1,13 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes3.dex */
 public class ImSystemShowNotifyMessage extends CustomResponsedMessage<String> {
     private String curSysMid;
 
     public ImSystemShowNotifyMessage(String str) {
-        super(2001124);
+        super(CmdConfigCustom.CMD_IM_SYSTEM_SHOW_NOTIFY);
         this.curSysMid = str;
     }
 

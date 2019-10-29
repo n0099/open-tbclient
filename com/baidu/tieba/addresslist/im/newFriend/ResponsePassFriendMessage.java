@@ -1,6 +1,7 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.PassFriend.PassFriendResIdl;
 /* loaded from: classes3.dex */
@@ -44,7 +45,7 @@ public class ResponsePassFriendMessage extends SocketResponsedMessage {
     }
 
     public ResponsePassFriendMessage() {
-        super(304101);
+        super(CmdConfigSocket.CMD_PASS_NEW_FRIEND);
     }
 
     public long getFriendId() {

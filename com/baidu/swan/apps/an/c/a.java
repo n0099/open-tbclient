@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.an.c;
 /* loaded from: classes2.dex */
 public abstract class a implements Runnable {
-    private b bbh;
+    private b buh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(b bVar) {
-        this.bbh = bVar;
+        this.buh = bVar;
         return this;
     }
 
     public void finish() {
-        if (this.bbh != null) {
-            this.bbh.a(this);
-            this.bbh = null;
+        if (this.buh != null) {
+            this.buh.a(this);
+            this.buh = null;
         }
     }
 }

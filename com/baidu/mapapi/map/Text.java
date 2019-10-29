@@ -3,6 +3,9 @@ package com.baidu.mapapi.map;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -50,7 +53,7 @@ public final class Text extends Overlay {
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("font_color", Color.argb(this.d >>> 24, this.d & 255, (this.d >> 8) & 255, (this.d >> 16) & 255));
         bundle.putInt("bg_color", Color.argb(this.c >>> 24, this.c & 255, (this.c >> 8) & 255, (this.c >> 16) & 255));
-        bundle.putInt("font_size", this.e);
+        bundle.putInt(SharedPrefConfig.PREFS_FONT_SIZE, this.e);
         if (this.f != null) {
             EnvDrawText.registFontCache(this.f.hashCode(), this.f);
             bundle.putInt("type_face", this.f.hashCode());
@@ -80,8 +83,8 @@ public final class Text extends Overlay {
                 break;
         }
         bundle.putFloat("align_y", f2);
-        bundle.putFloat("rotate", this.i);
-        bundle.putInt("update", this.j);
+        bundle.putFloat(RotateImageAction.ACTION_NAME, this.i);
+        bundle.putInt(IMTrack.DbBuilder.ACTION_UPDATE, this.j);
         return bundle;
     }
 

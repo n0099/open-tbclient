@@ -2,7 +2,7 @@ package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -26,13 +26,13 @@ public class p extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = optParamsAsJo.optString("groupId", LivenessStat.TYPE_STRING_DEFAULT);
+        String optString = optParamsAsJo.optString(TbEnum.SystemMessage.KEY_GROUP_ID, LivenessStat.TYPE_STRING_DEFAULT);
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
             return false;
         }
         try {
-            optParamsAsJo.putOpt(DpStatConstants.KEY_TIMESTAMP, Long.valueOf(System.currentTimeMillis()));
+            optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
             optParamsAsJo.putOpt("eventType", "0");
         } catch (JSONException e) {
             if (DEBUG) {

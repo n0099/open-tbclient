@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> jCk = new ArrayList<>();
-    private boolean jCl = false;
+    private ArrayList<d> jCc = new ArrayList<>();
+    private boolean jCd = false;
     private Context mContext;
 
     public a(Context context) {
@@ -21,25 +21,25 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.jCl = true;
-        this.jCk.clear();
+        this.jCd = true;
+        this.jCc.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.jCk.addAll(list);
+            this.jCc.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void Gt(String str) {
-        if (this.jCk != null && !TextUtils.isEmpty(str)) {
+    public void EV(String str) {
+        if (this.jCc != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.jCk.size()) {
-                    d dVar = this.jCk.get(i2);
+                if (i2 < this.jCc.size()) {
+                    d dVar = this.jCc.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.jCk.remove(i2);
+                        this.jCc.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.aa(this.jCk)) {
+        if (v.isEmpty(this.jCc)) {
             return 0;
         }
-        return this.jCk.size();
+        return this.jCc.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Cp */
+    /* renamed from: AV */
     public d getItem(int i) {
-        if (this.jCk == null || this.jCk.isEmpty() || i < 0 || i >= this.jCk.size()) {
+        if (this.jCc == null || this.jCc.isEmpty() || i < 0 || i >= this.jCc.size()) {
             return null;
         }
-        return this.jCk.get(i);
+        return this.jCc.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -93,12 +93,12 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.jCk != null && this.jCk.size() > i) {
-            localVideoInfoView.a(this.jCk.get(i));
-        } else if (i == 0 && this.jCl) {
-            localVideoInfoView.rK(true);
+        if (this.jCc != null && this.jCc.size() > i) {
+            localVideoInfoView.a(this.jCc.get(i));
+        } else if (i == 0 && this.jCd) {
+            localVideoInfoView.rt(true);
         } else {
-            localVideoInfoView.rK(false);
+            localVideoInfoView.rt(false);
         }
         return view2;
     }

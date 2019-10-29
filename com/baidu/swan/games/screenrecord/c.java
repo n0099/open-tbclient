@@ -1,29 +1,29 @@
 package com.baidu.swan.games.screenrecord;
 
 import android.util.Log;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.apps.statistic.e;
 import com.baidu.swan.games.screenrecord.b;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes2.dex */
 public class c extends EventTargetImpl implements com.baidu.mario.b.b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private int bkS;
-    private b.C0227b bkT;
-    private String bkU;
+    private int bDG;
+    private b.C0259b bDH;
+    private String bDI;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.bkS = -1;
-        this.bkT = new b.C0227b();
-        d.SX().SY().setGameRecordCallback(this);
+        this.bDG = -1;
+        this.bDH = new b.C0259b();
+        d.XO().XP().setGameRecordCallback(this);
     }
 
-    private void l(String str, Object obj) {
+    private void i(String str, Object obj) {
         if (DEBUG) {
             Log.i("GameRecorderApi", "dispatchEvent:" + str);
         }
@@ -31,26 +31,26 @@ public class c extends EventTargetImpl implements com.baidu.mario.b.b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ff(int i) {
-        this.bkS = i;
+    public void ga(int i) {
+        this.bDG = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jT(String str) {
-        this.bkU = str;
+    public void kv(String str) {
+        this.bDI = str;
     }
 
     @Override // com.baidu.mario.b.b
     public void onStart() {
-        l(IntentConfig.START, this.bkS == -1 ? this.bkT : new b.c(this.bkS));
+        i("start", this.bDG == -1 ? this.bDH : new b.c(this.bDG));
         f fVar = new f();
-        fVar.mType = IntentConfig.START;
+        fVar.mType = "start";
         e.c(fVar);
     }
 
     @Override // com.baidu.mario.b.b
     public void onPause() {
-        l("pause", this.bkT);
+        i("pause", this.bDH);
         f fVar = new f();
         fVar.mType = "pause";
         e.c(fVar);
@@ -58,21 +58,21 @@ public class c extends EventTargetImpl implements com.baidu.mario.b.b {
 
     @Override // com.baidu.mario.b.b
     public void onResume() {
-        l("resume", this.bkT);
+        i("resume", this.bDH);
         f fVar = new f();
         fVar.mType = "resume";
         e.c(fVar);
     }
 
     @Override // com.baidu.mario.b.b
-    public void h(int i, String str) {
+    public void l(int i, String str) {
         if (DEBUG) {
-            Log.d("GameRecorderApi", "schemeVideoPath:" + this.bkU);
+            Log.d("GameRecorderApi", "schemeVideoPath:" + this.bDI);
         }
-        l(IntentConfig.STOP, new b.d(this.bkU));
+        i("stop", new b.d(this.bDI));
         f fVar = new f();
-        fVar.mType = IntentConfig.STOP;
-        fVar.k("dura", String.valueOf(i / 1000.0f));
+        fVar.mType = "stop";
+        fVar.h("dura", String.valueOf(i / 1000.0f));
         e.c(fVar);
     }
 
@@ -81,6 +81,6 @@ public class c extends EventTargetImpl implements com.baidu.mario.b.b {
         if (DEBUG) {
             Log.d("GameRecorderApi", "onError:" + i);
         }
-        l("error", new b.a("internal error"));
+        i(BdStatsConstant.StatsType.ERROR, new b.a("internal error"));
     }
 }

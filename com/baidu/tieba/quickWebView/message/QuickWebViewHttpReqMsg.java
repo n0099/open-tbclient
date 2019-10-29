@@ -1,7 +1,6 @@
 package com.baidu.tieba.quickWebView.message;
 
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class QuickWebViewHttpReqMsg extends HttpMessage {
     public long begin;
@@ -9,7 +8,7 @@ public class QuickWebViewHttpReqMsg extends HttpMessage {
     public String url;
 
     public QuickWebViewHttpReqMsg() {
-        super(CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        super(1003364);
         this.url = null;
     }
 }

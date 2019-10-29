@@ -12,73 +12,73 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b {
-    private KeyguardManager jwR;
-    private PowerManager jwS;
-    private PowerManager.WakeLock jwT;
-    private KeyguardManager.KeyguardLock jwU;
+    private KeyguardManager jwJ;
+    private PowerManager jwK;
+    private PowerManager.WakeLock jwL;
+    private KeyguardManager.KeyguardLock jwM;
     private Context mContext;
 
     public b() {
         try {
             this.mContext = TbadkCoreApplication.getInst().getApp();
-            this.jwS = (PowerManager) this.mContext.getSystemService("power");
-            this.jwT = this.jwS.newWakeLock(268435462, "ScreenLockNotify");
-            this.jwT.setReferenceCounted(false);
-            this.jwR = (KeyguardManager) this.mContext.getSystemService("keyguard");
-            this.jwU = this.jwR.newKeyguardLock("ScreenLockUtils");
+            this.jwK = (PowerManager) this.mContext.getSystemService("power");
+            this.jwL = this.jwK.newWakeLock(268435462, "ScreenLockNotify");
+            this.jwL.setReferenceCounted(false);
+            this.jwJ = (KeyguardManager) this.mContext.getSystemService("keyguard");
+            this.jwM = this.jwJ.newKeyguardLock("ScreenLockUtils");
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public void cuE() {
+    public void cst() {
         try {
-            this.jwU.reenableKeyguard();
-            if (this.jwT != null) {
-                this.jwT.release();
-                this.jwT = null;
+            this.jwM.reenableKeyguard();
+            if (this.jwL != null) {
+                this.jwL.release();
+                this.jwL = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public void cuF() {
+    public void csu() {
         try {
-            if (this.jwT == null) {
-                this.jwT = this.jwS.newWakeLock(268435462, "ScreenLockNotify");
-                this.jwT.setReferenceCounted(false);
+            if (this.jwL == null) {
+                this.jwL = this.jwK.newWakeLock(268435462, "ScreenLockNotify");
+                this.jwL.setReferenceCounted(false);
             }
-            if (this.jwT != null) {
-                this.jwT.acquire(10000L);
-                this.jwU.disableKeyguard();
+            if (this.jwL != null) {
+                this.jwL.acquire(10000L);
+                this.jwM.disableKeyguard();
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public boolean cuG() {
+    public boolean csv() {
         try {
-            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.jwR, new Object[0])).booleanValue();
+            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.jwJ, new Object[0])).booleanValue();
         } catch (Throwable th) {
             th.printStackTrace();
             return false;
         }
     }
 
-    public boolean cuH() {
-        return this.jwS.isScreenOn();
+    public boolean csw() {
+        return this.jwK.isScreenOn();
     }
 
-    public static Drawable cuI() {
+    public static Drawable csx() {
         Bitmap bitmap;
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         try {
             Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
             if (drawable != null && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null) {
-                int min = Math.min(l.af(inst), bitmap.getWidth());
-                int min2 = Math.min(l.ah(inst), bitmap.getHeight());
+                int min = Math.min(l.getEquipmentWidth(inst), bitmap.getWidth());
+                int min2 = Math.min(l.getEquipmentHeight(inst), bitmap.getHeight());
                 try {
                     return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
                 } catch (Throwable th) {

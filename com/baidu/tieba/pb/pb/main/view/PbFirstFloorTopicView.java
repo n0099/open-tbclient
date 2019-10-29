@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int fAG;
-    private int fAJ;
+    private int fzU;
+    private int fzX;
     private Context mContext;
     private int mWidth;
 
@@ -38,27 +38,27 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.fAJ = l.g(this.mContext, R.dimen.ds8);
-        this.mWidth = l.af(this.mContext);
-        this.fAG = l.af(this.mContext) / 2;
+        this.fzX = l.getDimens(this.mContext, R.dimen.ds8);
+        this.mWidth = l.getEquipmentWidth(this.mContext);
+        this.fzU = l.getEquipmentWidth(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
         LinearLayout linearLayout;
-        if (!v.aa(arrayList)) {
+        if (!v.isEmpty(arrayList)) {
             if (getChildCount() > 0) {
                 removeAllViews();
             }
-            int Z = v.Z(arrayList);
+            int count = v.getCount(arrayList);
             LinearLayout linearLayout2 = null;
             int i = 0;
-            while (i < Z) {
+            while (i < count) {
                 if (i % 2 == 0) {
-                    linearLayout = bZE();
+                    linearLayout = bWG();
                 } else {
                     if (linearLayout2 != null) {
-                        b(linearLayout2, (String) v.c(arrayList, i - 1));
-                        b(linearLayout2, (String) v.c(arrayList, i));
+                        b(linearLayout2, (String) v.getItem(arrayList, i - 1));
+                        b(linearLayout2, (String) v.getItem(arrayList, i));
                     }
                     linearLayout = linearLayout2;
                 }
@@ -66,8 +66,8 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 linearLayout2 = linearLayout;
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.fAG = this.mWidth;
-                b(linearLayout2, (String) v.c(arrayList, Z - 1));
+                this.fzU = this.mWidth;
+                b(linearLayout2, (String) v.getItem(arrayList, count - 1));
             }
         }
     }
@@ -76,23 +76,23 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         TextView textView = new TextView(this.mContext);
         textView.setText(str);
         textView.setGravity(17);
-        am.l(textView, R.color.cp_bg_line_c);
-        am.j(textView, R.color.black_alpha100);
+        am.setBackgroundColor(textView, R.color.cp_bg_line_c);
+        am.setViewTextColor(textView, (int) R.color.black_alpha100);
         textView.setTextSize(0, getResources().getDimension(R.dimen.ds28));
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.fAG);
+        textView.setWidth(this.fzU);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.fAJ;
-        layoutParams.rightMargin = this.fAJ;
+        layoutParams.leftMargin = this.fzX;
+        layoutParams.rightMargin = this.fzX;
     }
 
-    private LinearLayout bZE() {
+    private LinearLayout bWG() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        am.l(linearLayout, R.color.transparent);
+        am.setBackgroundColor(linearLayout, R.color.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));
         linearLayout.setGravity(17);
         addView(linearLayout);

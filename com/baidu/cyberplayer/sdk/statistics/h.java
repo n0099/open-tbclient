@@ -27,7 +27,7 @@ public class h {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            jSONObject.remove(DpStatConstants.KEY_CUID);
+            jSONObject.remove("cuid");
             CyberLog.i("DpStatSessionImpl", "all session = " + jSONObject.toString());
         }
         return str;
@@ -59,10 +59,10 @@ public class h {
         this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "decode_mode", String.valueOf(iVar.getDecodeMode()));
         this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_FILE_CACHE, "0");
         this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_P_ID, String.valueOf(iVar.b()));
-        this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_NETWORK, DpNetworkUtils.getNetworkStatisticsData(CyberPlayerManager.getApplicationContext()));
+        this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "network", DpNetworkUtils.getNetworkStatisticsData(CyberPlayerManager.getApplicationContext()));
         this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_NETWORK_STATUS, DpNetworkUtils.a(CyberPlayerManager.getApplicationContext()));
         this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "url", iVar.a());
-        this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_TIMESTAMP, String.valueOf(iVar.b()));
+        this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "timestamp", String.valueOf(iVar.b()));
         this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "duration", String.valueOf(iVar.getDuration()));
         this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_REAL_PLAY_TIME, String.valueOf(iVar.getPlayedTime()));
     }

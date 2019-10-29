@@ -11,58 +11,58 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private ab fJq = new ab() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
+    private BdTypeListView dvB;
+    private String mForumId;
+    private String mForumName;
+    private TbPageContext mPageContext;
+    private ab fII = new ab() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
         @Override // com.baidu.tieba.card.ab
         public void a(View view, com.baidu.tieba.card.data.b bVar) {
             super.a(view, bVar);
             a.this.notifyDataSetChanged();
         }
     };
-    private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private String mForumId;
-    private String mForumName;
-    private BdTypeListView mListView;
-    private TbPageContext mPageContext;
+    private List<com.baidu.adp.widget.ListView.a> agQ = new ArrayList();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
         this.mPageContext = tbPageContext;
-        this.mListView = bdTypeListView;
+        this.dvB = bdTypeListView;
         this.mForumId = str;
         this.mForumName = str2;
-        initAdapters();
+        sX();
     }
 
-    private void initAdapters() {
+    private void sX() {
         b bVar = new b(this.mPageContext, this.mForumId, this.mForumName);
-        bVar.e(this.fJq);
-        this.mAdapters.add(bVar);
+        bVar.e(this.fII);
+        this.agQ.add(bVar);
         c cVar = new c(this.mPageContext, this.mForumId);
-        cVar.e(this.fJq);
-        this.mAdapters.add(cVar);
-        this.mAdapters.add(new h(this.mPageContext, this.mForumId));
-        this.mAdapters.add(new f(this.mPageContext, this.mForumId));
-        this.mAdapters.add(new i(this.mPageContext, com.baidu.tieba.e.h.eUf, this.mPageContext.getUniqueId(), this.mForumId));
+        cVar.e(this.fII);
+        this.agQ.add(cVar);
+        this.agQ.add(new h(this.mPageContext, this.mForumId));
+        this.agQ.add(new f(this.mPageContext, this.mForumId));
+        this.agQ.add(new i(this.mPageContext, com.baidu.tieba.e.h.eWU, this.mPageContext.getUniqueId(), this.mForumId));
         e eVar = new e(this.mPageContext, this.mForumId);
-        eVar.e(this.fJq);
-        this.mAdapters.add(eVar);
-        this.mAdapters.add(new d(this.mPageContext, com.baidu.tieba.e.c.eTT, this.mPageContext.getUniqueId(), this.mForumId));
-        this.mAdapters.add(new g(this.mPageContext, com.baidu.tieba.e.f.eUb, this.mPageContext.getUniqueId(), this.mForumId));
-        w wVar = new w(this.mPageContext, q.fzo, this.mPageContext.getUniqueId());
-        wVar.bqb();
+        eVar.e(this.fII);
+        this.agQ.add(eVar);
+        this.agQ.add(new d(this.mPageContext, com.baidu.tieba.e.c.eWI, this.mPageContext.getUniqueId(), this.mForumId));
+        this.agQ.add(new g(this.mPageContext, com.baidu.tieba.e.f.eWQ, this.mPageContext.getUniqueId(), this.mForumId));
+        w wVar = new w(this.mPageContext, q.fyC, this.mPageContext.getUniqueId());
+        wVar.bng();
         wVar.setForumId(this.mForumId);
-        this.mAdapters.add(wVar);
-        this.mListView.addAdapters(this.mAdapters);
+        this.agQ.add(wVar);
+        this.dvB.addAdapters(this.agQ);
     }
 
     public void setData(List<m> list) {
-        if (this.mListView != null) {
-            this.mListView.setData(list);
+        if (this.dvB != null) {
+            this.dvB.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.mListView.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.mListView.getAdapter().notifyDataSetChanged();
+        if (this.dvB.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.dvB.getAdapter().notifyDataSetChanged();
         }
     }
 }

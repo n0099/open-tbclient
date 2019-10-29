@@ -13,7 +13,7 @@ final class g<T> implements Iterator<T> {
     }
 
     public g(T[] tArr) {
-        p.k(tArr, "array");
+        p.i(tArr, "array");
         this.array = tArr;
     }
 

@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.cache.BdCacheNSItem;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -17,7 +19,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends SQLiteOpenHelper {
-    protected static final String[] a = {"key"};
+    protected static final String[] a = {TiebaInitialize.Params.KEY};
     protected static f b;
 
     public static synchronized f a() {
@@ -80,7 +82,7 @@ public class f extends SQLiteOpenHelper {
                             if (cursor.getCount() > 0) {
                                 cursor.moveToFirst();
                                 do {
-                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(cursor.getBlob(cursor.getColumnIndex("blob")));
+                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(cursor.getBlob(cursor.getColumnIndex(BdCacheNSItem.CACHE_TYPE_BLOB)));
                                     try {
                                         objectInputStream = new ObjectInputStream(byteArrayInputStream);
                                         try {
@@ -272,7 +274,7 @@ public class f extends SQLiteOpenHelper {
                                             byteArrayOutputStream.close();
                                         } catch (IOException e6) {
                                         }
-                                        contentValues.put("blob", byteArrayOutputStream.toByteArray());
+                                        contentValues.put(BdCacheNSItem.CACHE_TYPE_BLOB, byteArrayOutputStream.toByteArray());
                                         writableDatabase.insert("via_cgi_report", null, contentValues);
                                         contentValues.clear();
                                     } catch (Throwable th2) {
@@ -290,7 +292,7 @@ public class f extends SQLiteOpenHelper {
                                         }
                                         throw th;
                                     }
-                                    contentValues.put("blob", byteArrayOutputStream.toByteArray());
+                                    contentValues.put(BdCacheNSItem.CACHE_TYPE_BLOB, byteArrayOutputStream.toByteArray());
                                     writableDatabase.insert("via_cgi_report", null, contentValues);
                                 }
                                 contentValues.clear();

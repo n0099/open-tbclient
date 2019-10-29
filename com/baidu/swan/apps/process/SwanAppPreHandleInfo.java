@@ -7,20 +7,20 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppPreHandleInfo> CREATOR = new Parcelable.Creator<SwanAppPreHandleInfo>() { // from class: com.baidu.swan.apps.process.SwanAppPreHandleInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: j */
+        /* renamed from: r */
         public SwanAppPreHandleInfo createFromParcel(Parcel parcel) {
             return new SwanAppPreHandleInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cS */
+        /* renamed from: dN */
         public SwanAppPreHandleInfo[] newArray(int i) {
             return new SwanAppPreHandleInfo[i];
         }
     };
     public String appId;
-    public int avC;
+    public int category;
     public String iconUrl;
     public String version;
 
@@ -31,11 +31,11 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
         this.iconUrl = parcel.readString();
         this.appId = parcel.readString();
         this.version = parcel.readString();
-        this.avC = parcel.readInt();
+        this.category = parcel.readInt();
     }
 
     public String toString() {
-        return "SwanAppPreHandleInfo{iconUrl='" + this.iconUrl + "appId=" + this.appId + "version=" + this.version + "category" + this.avC + '}';
+        return "SwanAppPreHandleInfo{iconUrl='" + this.iconUrl + "appId=" + this.appId + "version=" + this.version + "category" + this.category + '}';
     }
 
     @Override // android.os.Parcelable
@@ -48,6 +48,6 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
         parcel.writeString(this.iconUrl);
         parcel.writeString(this.appId);
         parcel.writeString(this.version);
-        parcel.writeInt(this.avC);
+        parcel.writeInt(this.category);
     }
 }

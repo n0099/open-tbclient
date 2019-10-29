@@ -1,86 +1,103 @@
 package com.vivo.push.util;
 
-import android.text.TextUtils;
-import com.vivo.push.model.InsideNotificationItem;
-import com.vivo.push.model.UPSNotificationMessage;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import android.os.Process;
+import android.util.Log;
 /* loaded from: classes3.dex */
-public final class n {
-    public static UPSNotificationMessage a(InsideNotificationItem insideNotificationItem) {
-        UPSNotificationMessage uPSNotificationMessage = new UPSNotificationMessage();
-        uPSNotificationMessage.setTargetType(insideNotificationItem.getTargetType());
-        uPSNotificationMessage.setTragetContext(insideNotificationItem.getTragetContent());
-        uPSNotificationMessage.setTitle(insideNotificationItem.getTitle());
-        uPSNotificationMessage.setContent(insideNotificationItem.getContent());
-        uPSNotificationMessage.setNotifyType(insideNotificationItem.getNotifyType());
-        uPSNotificationMessage.setPurePicUrl(insideNotificationItem.getPurePicUrl());
-        uPSNotificationMessage.setIconUrl(insideNotificationItem.getIconUrl());
-        uPSNotificationMessage.setCoverUrl(insideNotificationItem.getCoverUrl());
-        uPSNotificationMessage.setSkipContent(insideNotificationItem.getSkipContent());
-        uPSNotificationMessage.setSkipType(insideNotificationItem.getSkipType());
-        uPSNotificationMessage.setShowTime(insideNotificationItem.isShowTime());
-        uPSNotificationMessage.setMsgId(insideNotificationItem.getMsgId());
-        uPSNotificationMessage.setParams(insideNotificationItem.getParams());
-        return uPSNotificationMessage;
+public final class n implements o {
+    private static final String a = "(" + Process.myPid() + ")";
+
+    @Override // com.vivo.push.util.o
+    public final int a(String str, String str2) {
+        return Log.e("VivoPush." + str, a + str2);
     }
 
-    public static String b(InsideNotificationItem insideNotificationItem) {
-        JSONArray jSONArray = new JSONArray();
-        jSONArray.put(insideNotificationItem.getTargetType());
-        jSONArray.put(insideNotificationItem.getTragetContent());
-        jSONArray.put(insideNotificationItem.getTitle());
-        jSONArray.put(insideNotificationItem.getContent());
-        jSONArray.put(insideNotificationItem.getNotifyType());
-        jSONArray.put(insideNotificationItem.getPurePicUrl());
-        jSONArray.put(insideNotificationItem.getIconUrl());
-        jSONArray.put(insideNotificationItem.getCoverUrl());
-        jSONArray.put(insideNotificationItem.getSkipContent());
-        jSONArray.put(insideNotificationItem.getSkipType());
-        jSONArray.put(insideNotificationItem.isShowTime());
-        jSONArray.put(insideNotificationItem.getParams() == null ? new HashMap<>() : insideNotificationItem.getParams());
-        jSONArray.put(insideNotificationItem.getMessageType());
-        jSONArray.put(insideNotificationItem.getReactPackage());
-        jSONArray.put(insideNotificationItem.isShowBigPicOnMobileNet());
-        jSONArray.put(insideNotificationItem.getSuitReactVersion());
-        return jSONArray.toString();
+    @Override // com.vivo.push.util.o
+    public final int a(String str, String str2, Throwable th) {
+        return Log.e("VivoPush." + str, a + str2, th);
     }
 
-    public static InsideNotificationItem a(String str) {
-        InsideNotificationItem insideNotificationItem = new InsideNotificationItem();
-        try {
-            if (TextUtils.isEmpty(str)) {
-                m.a("MessageConvertUtil", "notify msg pack to obj is null");
-                return null;
+    @Override // com.vivo.push.util.o
+    public final int b(String str, String str2) {
+        return Log.w("VivoPush." + str, a + str2);
+    }
+
+    @Override // com.vivo.push.util.o
+    public final int c(String str, String str2) {
+        return Log.d("VivoPush." + str, a + str2);
+    }
+
+    @Override // com.vivo.push.util.o
+    public final int d(String str, String str2) {
+        if (p.a()) {
+            return Log.i("VivoPush." + str, a + str2);
+        }
+        return -1;
+    }
+
+    @Override // com.vivo.push.util.o
+    public final int b(String str, String str2, Throwable th) {
+        if (p.a()) {
+            return Log.i("VivoPush." + str, a + str2, th);
+        }
+        return -1;
+    }
+
+    @Override // com.vivo.push.util.o
+    public final int e(String str, String str2) {
+        if (p.a()) {
+            return Log.v("VivoPush." + str, a + str2);
+        }
+        return -1;
+    }
+
+    @Override // com.vivo.push.util.o
+    public final String a(Throwable th) {
+        return Log.getStackTraceString(th);
+    }
+
+    @Override // com.vivo.push.util.o
+    public final void a(Context context, String str) {
+        if (p.a()) {
+            a(context, str, 0);
+        }
+    }
+
+    @Override // com.vivo.push.util.o
+    public final void b(Context context, String str) {
+        if (p.a()) {
+            a(context, str, 1);
+        }
+    }
+
+    @Override // com.vivo.push.util.o
+    public final void c(Context context, String str) {
+        if (p.a()) {
+            a(context, str, 2);
+        }
+    }
+
+    private void a(Context context, String str, int i) {
+        com.vivo.push.b.n nVar = new com.vivo.push.b.n();
+        nVar.b(str);
+        nVar.a(i);
+        if (i > 0) {
+            d("LogController", str);
+        }
+        if (z.a(context)) {
+            nVar.a(true);
+            for (String str2 : s.c(context)) {
+                a(context, nVar, str2);
             }
-            JSONArray jSONArray = new JSONArray(str);
-            insideNotificationItem.setTargetType(jSONArray.getInt(0));
-            insideNotificationItem.setTragetContext(jSONArray.getString(1));
-            insideNotificationItem.setTitle(jSONArray.getString(2));
-            insideNotificationItem.setContent(jSONArray.getString(3));
-            insideNotificationItem.setNotifyType(jSONArray.getInt(4));
-            insideNotificationItem.setPurePicUrl(jSONArray.getString(5));
-            insideNotificationItem.setIconUrl(jSONArray.getString(6));
-            insideNotificationItem.setCoverUrl(jSONArray.getString(7));
-            insideNotificationItem.setSkipContent(jSONArray.getString(8));
-            insideNotificationItem.setSkipType(jSONArray.getInt(9));
-            insideNotificationItem.setShowTime(jSONArray.getBoolean(10));
-            if (jSONArray.length() > 11) {
-                insideNotificationItem.setParams(j.a(new JSONObject(jSONArray.getString(11))));
-            }
-            if (jSONArray.length() > 15) {
-                insideNotificationItem.setMessageType(jSONArray.getInt(12));
-                insideNotificationItem.setReactPackage(jSONArray.getString(13));
-                insideNotificationItem.setIsShowBigPicOnMobileNet(jSONArray.getBoolean(14));
-                insideNotificationItem.setSuitReactVersion(jSONArray.getString(15));
-                return insideNotificationItem;
-            }
-            return insideNotificationItem;
-        } catch (JSONException e) {
-            m.a("MessageConvertUtil", "notify msg pack to obj error", e);
-            return insideNotificationItem;
+            return;
+        }
+        nVar.a(false);
+        a(context, nVar, context.getPackageName());
+    }
+
+    private static void a(Context context, com.vivo.push.b.n nVar, String str) {
+        if (str.contains("test") || str.equals(s.b(context))) {
+            com.vivo.push.a.a.a(context, nVar, str);
         }
     }
 }

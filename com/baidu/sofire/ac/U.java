@@ -8,6 +8,9 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.a.a;
@@ -267,8 +270,8 @@ public class U extends Thread {
                             String string = eVar2.a.getString("pdcgts", "");
                             if (TextUtils.isEmpty(string)) {
                                 str = String.valueOf(currentTimeMillis);
-                            } else if (string.split("_").length < 20) {
-                                str = string + "_" + String.valueOf(currentTimeMillis);
+                            } else if (string.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).length < 20) {
+                                str = string + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + String.valueOf(currentTimeMillis);
                             }
                             new StringBuilder().append(str);
                             b.a();
@@ -304,7 +307,7 @@ public class U extends Thread {
                                 this.mCloudKeyMap.put(Integer.valueOf(optInt), optString);
                             }
                             String optString2 = optJSONObject2.optString("u");
-                            String optString3 = optJSONObject2.optString(Config.MODEL);
+                            String optString3 = optJSONObject2.optString("m");
                             String optString4 = optJSONObject2.optString("sm");
                             if (optString3 != null) {
                                 optString3 = optString3.toLowerCase();
@@ -328,7 +331,7 @@ public class U extends Thread {
                                 packageInfo.versionName = optString;
                                 ApplicationInfo applicationInfo = new ApplicationInfo();
                                 applicationInfo.className = optJSONObject2.optString("n");
-                                if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
+                                if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
                                     applicationInfo.className = next + applicationInfo.className;
                                 }
                                 applicationInfo.theme = optJSONObject2.optInt("t");
@@ -342,7 +345,7 @@ public class U extends Thread {
                                             if (jSONObject != null) {
                                                 ActivityInfo activityInfo = new ActivityInfo();
                                                 activityInfo.name = jSONObject.optString("n");
-                                                if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
+                                                if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
                                                     activityInfo.name = next + activityInfo.name;
                                                 }
                                                 activityInfo.packageName = next;
@@ -426,7 +429,7 @@ public class U extends Thread {
                                         }
                                         if (!this.loadedPluginDB.e(apkInfo4.key)) {
                                             if (z5) {
-                                                new StringBuilder().append(apkInfo2.versionName).append(" ").append(apkInfo2.key).append(" nl is t");
+                                                new StringBuilder().append(apkInfo2.versionName).append(HanziToPinyin.Token.SEPARATOR).append(apkInfo2.key).append(" nl is t");
                                                 b.a();
                                                 apkInfo2.isNextLoad = true;
                                             }
@@ -575,7 +578,7 @@ public class U extends Thread {
                 hashMap.put("5", this.mCloudKeyMap.values());
             }
             if (this.mUnloadPluginsList != null) {
-                hashMap.put(com.tencent.connect.common.Constants.VIA_SHARE_TYPE_INFO, this.mUnloadPluginsList);
+                hashMap.put("6", this.mUnloadPluginsList);
             }
             if (this.mDownloadPluginsList != null) {
                 hashMap.put("7", this.mDownloadPluginsList);
@@ -696,7 +699,7 @@ public class U extends Thread {
             return;
         }
         int g = this.loadedPluginDB.g(apkInfo.key);
-        new StringBuilder("new plugin now loadStatus :").append(apkInfo.key).append(" ").append(g);
+        new StringBuilder("new plugin now loadStatus :").append(apkInfo.key).append(HanziToPinyin.Token.SEPARATOR).append(g);
         b.a();
         if (g < 3 && g != -1) {
             this.loadedPluginDB.b(apkInfo.key, g + 1);
@@ -906,7 +909,7 @@ public class U extends Thread {
                 z4 = handlePluginDownload;
             }
             if (z4) {
-                new StringBuilder().append(apkInfo.versionName).append(" ").append(apkInfo.key);
+                new StringBuilder().append(apkInfo.versionName).append(HanziToPinyin.Token.SEPARATOR).append(apkInfo.key);
                 b.a();
                 pluginUpdate(file3, apkInfo, k);
             } else {

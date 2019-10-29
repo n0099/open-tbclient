@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import com.baidu.adp.lib.g.f;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.j;
 import com.baidu.tieba.dnsproxy.e;
@@ -17,12 +19,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public class d {
-    private static d eVa = null;
+    private static d eXQ = null;
     private BroadcastReceiver receiver = new BroadcastReceiver() { // from class: com.baidu.tieba.dnsproxy.a.d.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
-                String stringExtra = intent.getStringExtra("ip");
+                String stringExtra = intent.getStringExtra(TableDefine.UserInfoColumns.COLUMN_IP);
                 boolean booleanExtra = intent.getBooleanExtra("result", false);
                 int intExtra = intent.getIntExtra("speed", -1);
                 if (!TextUtils.isEmpty(stringExtra)) {
@@ -35,26 +37,26 @@ public class d {
             }
         }
     };
-    private Object eVb = new Object();
-    private Map<String, a> eVc = null;
-    private a eVd = null;
-    private boolean eVe = false;
+    private Object eXR = new Object();
+    private Map<String, a> eXS = null;
+    private a eXT = null;
+    private boolean eXU = false;
 
-    public static final d bfc() {
-        if (eVa == null) {
+    public static final d bcX() {
+        if (eXQ == null) {
             synchronized (d.class) {
-                if (eVa == null) {
-                    eVa = new d();
+                if (eXQ == null) {
+                    eXQ = new d();
                 }
             }
         }
-        return eVa;
+        return eXQ;
     }
 
     private d() {
     }
 
-    public void ZT() {
+    public void open() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
             TbadkCoreApplication.getInst().registerReceiver(this.receiver, new IntentFilter("action_sub_process_ip_data_change"));
@@ -62,13 +64,13 @@ public class d {
             TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
             TbadkCoreApplication.getInst().registerReceiver(this.receiver, new IntentFilter("action_main_process_ip_data_change"));
         }
-        if (!this.eVe) {
-            c.beY().a(new j<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.d.2
+        if (!this.eXU) {
+            c.bcT().a(new j<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.j
                 /* renamed from: a */
                 public void onReturnDataInUI(final WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
-                    e.beP().p(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.2.1
+                    e.bcK().m(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             HashMap hashMap = new HashMap();
@@ -80,24 +82,24 @@ public class d {
                                     }
                                 }
                             }
-                            synchronized (d.this.eVb) {
-                                if (d.this.eVc == null) {
-                                    d.this.eVc = new ConcurrentHashMap();
+                            synchronized (d.this.eXR) {
+                                if (d.this.eXS == null) {
+                                    d.this.eXS = new ConcurrentHashMap();
                                 }
-                                d.this.eVc.clear();
-                                d.this.eVc.putAll(hashMap);
+                                d.this.eXS.clear();
+                                d.this.eXS.putAll(hashMap);
                             }
-                            d.this.eVe = true;
-                            d.this.bfe();
+                            d.this.eXU = true;
+                            d.this.bcZ();
                             ArrayList<a> arrayList = new ArrayList();
-                            for (Map.Entry entry : d.this.eVc.entrySet()) {
-                                if (d.this.eVd != entry.getValue() && System.currentTimeMillis() - ((a) entry.getValue()).eUO > 604800000) {
+                            for (Map.Entry entry : d.this.eXS.entrySet()) {
+                                if (d.this.eXT != entry.getValue() && System.currentTimeMillis() - ((a) entry.getValue()).eXE > 604800000) {
                                     arrayList.add(entry.getValue());
-                                    com.baidu.tieba.dnsproxy.d.beO().T("conpoint_remove", "out_time", (String) entry.getKey());
+                                    com.baidu.tieba.dnsproxy.d.bcJ().U("conpoint_remove", "out_time", (String) entry.getKey());
                                 }
                             }
                             for (a aVar : arrayList) {
-                                d.this.eVc.remove(aVar.name);
+                                d.this.eXS.remove(aVar.name);
                             }
                         }
                     });
@@ -110,139 +112,139 @@ public class d {
         TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
     }
 
-    public void bfd() {
-        bfe();
+    public void bcY() {
+        bcZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bfe() {
-        if (this.eVe) {
-            String beX = a.beX();
-            if (!TextUtils.isEmpty(beX)) {
-                if (!this.eVc.containsKey(beX)) {
-                    e.beP().jj(false);
+    public void bcZ() {
+        if (this.eXU) {
+            String bcS = a.bcS();
+            if (!TextUtils.isEmpty(bcS)) {
+                if (!this.eXS.containsKey(bcS)) {
+                    e.bcK().iZ(false);
                     return;
                 }
-                this.eVd = this.eVc.get(beX);
-                if (this.eVd == null) {
-                    e.beP().jj(false);
+                this.eXT = this.eXS.get(bcS);
+                if (this.eXT == null) {
+                    e.bcK().iZ(false);
                     return;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.eVd.eUP > 3600000 && currentTimeMillis - this.eVd.eUO < 3600000) {
-                    e.beP().jj(false);
+                if (currentTimeMillis - this.eXT.eXF > BdKVCache.MILLS_1Hour && currentTimeMillis - this.eXT.eXE < BdKVCache.MILLS_1Hour) {
+                    e.bcK().iZ(false);
                 }
             }
         }
     }
 
-    public float cL(String str, String str2) {
-        if (!this.eVe || this.eVd == null) {
+    public float cz(String str, String str2) {
+        if (!this.eXU || this.eXT == null) {
             return 0.0f;
         }
-        b bVar = this.eVd.eUM.get(str2);
+        b bVar = this.eXT.eXC.get(str2);
         if (bVar == null) {
             return 0.0f;
         }
-        return bVar.eUQ;
+        return bVar.eXG;
     }
 
-    public float cM(String str, String str2) {
-        if (!this.eVe || this.eVd == null) {
+    public float cA(String str, String str2) {
+        if (!this.eXU || this.eXT == null) {
             return 10000.0f;
         }
-        b bVar = this.eVd.eUN.get(str2);
+        b bVar = this.eXT.eXD.get(str2);
         if (bVar == null) {
             return 10000.0f;
         }
-        return bVar.eUQ;
+        return bVar.eXG;
     }
 
-    public void ah(String str, boolean z) {
+    public void ad(String str, boolean z) {
         i(str, z, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(final String str, final boolean z, final boolean z2) {
-        if (this.eVe && !TextUtils.isEmpty(str)) {
-            e.beP().p(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.3
+        if (this.eXU && !TextUtils.isEmpty(str)) {
+            e.bcK().m(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.3
                 @Override // java.lang.Runnable
                 public void run() {
                     HashMap hashMap;
-                    if (d.this.eVd != null) {
-                        b bVar = d.this.eVd.eUM.get(str);
+                    if (d.this.eXT != null) {
+                        b bVar = d.this.eXT.eXC.get(str);
                         if (bVar == null) {
                             bVar = new b();
                             bVar.address = str;
-                            d.this.eVd.eUM.put(str, bVar);
+                            d.this.eXT.eXC.put(str, bVar);
                         }
-                        bVar.qn(z ? 1 : 0);
-                        synchronized (d.this.eVb) {
-                            hashMap = new HashMap(d.this.eVc);
+                        bVar.pi(z ? 1 : 0);
+                        synchronized (d.this.eXR) {
+                            hashMap = new HashMap(d.this.eXS);
                         }
-                        c.beY().v(hashMap);
+                        c.bcT().u(hashMap);
                     }
                     if (z2) {
                         Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
                         intent.setPackage(TbadkCoreApplication.getInst().getApp().getPackageName());
-                        intent.putExtra("ip", str);
+                        intent.putExtra(TableDefine.UserInfoColumns.COLUMN_IP, str);
                         intent.putExtra("result", z);
-                        f.g(TbadkCoreApplication.getInst().getContext(), intent);
+                        f.sendBroadcast(TbadkCoreApplication.getInst().getContext(), intent);
                     }
                 }
             });
         }
     }
 
-    public void c(String str, int i, boolean z) {
+    public void b(String str, int i, boolean z) {
         a(str, i, z, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final int i, final boolean z, final boolean z2) {
-        if (this.eVe && !TextUtils.isEmpty(str)) {
-            e.beP().p(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.4
+        if (this.eXU && !TextUtils.isEmpty(str)) {
+            e.bcK().m(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.4
                 @Override // java.lang.Runnable
                 public void run() {
                     HashMap hashMap;
-                    if (d.this.eVd == null) {
-                        String beX = a.beX();
-                        if (!TextUtils.isEmpty(beX)) {
+                    if (d.this.eXT == null) {
+                        String bcS = a.bcS();
+                        if (!TextUtils.isEmpty(bcS)) {
                             a aVar = new a();
-                            aVar.name = beX;
-                            d.this.eVd = aVar;
-                            d.this.eVc.put(beX, aVar);
+                            aVar.name = bcS;
+                            d.this.eXT = aVar;
+                            d.this.eXS.put(bcS, aVar);
                         }
                     }
-                    if (d.this.eVd != null) {
-                        b bVar = d.this.eVd.eUM.get(str);
+                    if (d.this.eXT != null) {
+                        b bVar = d.this.eXT.eXC.get(str);
                         if (bVar == null) {
                             bVar = new b();
                             bVar.address = str;
-                            d.this.eVd.eUM.put(str, bVar);
+                            d.this.eXT.eXC.put(str, bVar);
                         }
-                        bVar.qn(z ? 1 : 0);
+                        bVar.pi(z ? 1 : 0);
                         if (z) {
-                            b bVar2 = d.this.eVd.eUN.get(str);
+                            b bVar2 = d.this.eXT.eXD.get(str);
                             if (bVar2 == null) {
                                 bVar2 = new b();
                                 bVar2.address = str;
-                                d.this.eVd.eUN.put(str, bVar2);
+                                d.this.eXT.eXD.put(str, bVar2);
                             }
-                            bVar2.qn(i);
+                            bVar2.pi(i);
                         }
-                        synchronized (d.this.eVb) {
-                            hashMap = new HashMap(d.this.eVc);
+                        synchronized (d.this.eXR) {
+                            hashMap = new HashMap(d.this.eXS);
                         }
-                        c.beY().v(hashMap);
+                        c.bcT().u(hashMap);
                     }
                     if (z2) {
                         Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
                         intent.setPackage(TbadkCoreApplication.getInst().getApp().getPackageName());
-                        intent.putExtra("ip", str);
+                        intent.putExtra(TableDefine.UserInfoColumns.COLUMN_IP, str);
                         intent.putExtra("result", z);
                         intent.putExtra("speed", i);
-                        f.g(TbadkCoreApplication.getInst().getContext(), intent);
+                        f.sendBroadcast(TbadkCoreApplication.getInst().getContext(), intent);
                     }
                 }
             });

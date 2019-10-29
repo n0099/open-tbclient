@@ -13,13 +13,13 @@ import com.baidu.swan.menu.viewpager.SwanAppMenuSlidableGridView;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MainMenuView extends BaseMenuView {
-    private List<j> aPP;
-    private SwanAppMenuSlidableGridView brf;
-    private i brg;
-    private int brh;
-    private boolean bri;
-    private SwanAppMenuMode brj;
-    private View brk;
+    private SwanAppMenuSlidableGridView bJQ;
+    private i bJR;
+    private int bJS;
+    private boolean bJT;
+    private SwanAppMenuMode bJU;
+    private View bJV;
+    private List<j> mItems;
 
     public MainMenuView(@NonNull Context context) {
         this(context, null);
@@ -31,61 +31,61 @@ public class MainMenuView extends BaseMenuView {
 
     public MainMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
-        this.bri = false;
+        this.bJT = false;
         LinearLayout linearLayout = new LinearLayout(context, attributeSet, i);
         linearLayout.setOrientation(1);
         new LinearLayout.LayoutParams(-1, -2);
-        this.brf = new SwanAppMenuSlidableGridView(context, attributeSet, i);
+        this.bJQ = new SwanAppMenuSlidableGridView(context, attributeSet, i);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.brf.setPadding(0, (int) this.mContext.getResources().getDimension(f.b.aiapp_menu_gridview_padding_top), 0, 0);
-        linearLayout.addView(this.brf, layoutParams);
+        this.bJQ.setPadding(0, (int) this.mContext.getResources().getDimension(f.b.aiapp_menu_gridview_padding_top), 0, 0);
+        linearLayout.addView(this.bJQ, layoutParams);
         a(linearLayout, new FrameLayout.LayoutParams(-1, -2));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean VH() {
-        return this.aPP != null && this.aPP.size() > 0 && this.aPP.size() > 4;
+    public boolean aaw() {
+        return this.mItems != null && this.mItems.size() > 0 && this.mItems.size() > 4;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.menu.BaseMenuView
     public void setMode(SwanAppMenuMode swanAppMenuMode) {
-        this.brj = swanAppMenuMode;
-        this.brf.setMode(swanAppMenuMode);
+        this.bJU = swanAppMenuMode;
+        this.bJQ.setMode(swanAppMenuMode);
         super.setMode(swanAppMenuMode);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        this.brf.setCurrentPage(0);
+        this.bJQ.setCurrentPage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMenuStyle(int i) {
-        this.brh = i;
+        this.bJS = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void B(List<j> list) {
-        this.aPP = list;
-        this.brf.setGridViewPading(0, 0, 0, 0);
-        this.brf.setIndicatorColor(f.c.menu_indicator_normal, f.c.menu_indicator_selected);
-        this.brf.setBackground(null);
-        if (this.brg == null) {
-            this.brg = new i(this.mContext);
-            this.brf.setGridItemAdapter(this.brg);
+    public void aa(List<j> list) {
+        this.mItems = list;
+        this.bJQ.setGridViewPading(0, 0, 0, 0);
+        this.bJQ.setIndicatorColor(f.c.menu_indicator_normal, f.c.menu_indicator_selected);
+        this.bJQ.setBackground(null);
+        if (this.bJR == null) {
+            this.bJR = new i(this.mContext);
+            this.bJQ.setGridItemAdapter(this.bJR);
         }
-        this.brg.setMenuStyle(this.brh);
-        this.brg.dj(this.bri);
-        this.brg.setData(list);
-        this.brg.Wb();
-        this.aPP = list;
+        this.bJR.setMenuStyle(this.bJS);
+        this.bJR.dA(this.bJT);
+        this.bJR.setData(list);
+        this.bJR.aaQ();
+        this.mItems = list;
     }
 
     public void setDismissCallback(a aVar) {
     }
 
-    public void VI() {
+    public void aax() {
     }
 
     public void setStatisticSource(String str) {
@@ -96,10 +96,10 @@ public class MainMenuView extends BaseMenuView {
 
     @Nullable
     public View getCoverView() {
-        return this.brk;
+        return this.bJV;
     }
 
     public void setCoverView(View view) {
-        this.brk = view;
+        this.bJV = view;
     }
 }

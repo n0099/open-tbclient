@@ -1,13 +1,14 @@
 package com.baidu.tbadk.o;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.util.v;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static String an(List<String> list) {
-        if (v.Z(list) <= 0) {
+    public static String toSourceTraceString(List<String> list) {
+        if (v.getCount(list) <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
@@ -22,7 +23,7 @@ public class c {
                         z2 = true;
                     }
                     if (z2) {
-                        sb.append("_");
+                        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                     }
                     sb.append(next);
                 }
@@ -33,10 +34,10 @@ public class c {
         }
     }
 
-    public static List<String> e(List<String> list, int i) {
-        int Z = v.Z(list);
-        if (Z > 0 && i >= 0 && Z > i) {
-            return v.c(list, Z - i, Z);
+    public static List<String> trimToSize(List<String> list, int i) {
+        int count = v.getCount(list);
+        if (count > 0 && i >= 0 && count > i) {
+            return v.subList(list, count - i, count);
         }
         return list;
     }

@@ -6,10 +6,10 @@ import android.util.Log;
 /* loaded from: classes2.dex */
 public abstract class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int aHF;
-    public Bundle aHE = new Bundle();
-    public String aHG = "";
-    public Bundle aHH = new Bundle();
+    public int baT;
+    public Bundle baS = new Bundle();
+    public String baU = "";
+    public Bundle baV = new Bundle();
 
     public abstract void u(@NonNull Bundle bundle);
 
@@ -17,11 +17,11 @@ public abstract class a {
         if (DEBUG) {
             Log.d("MDelegate-Delegation", "messenger delegation finish");
         }
-        if (!com.baidu.swan.apps.process.b.b.d.a.gn(this.aHG)) {
+        if (!com.baidu.swan.apps.process.b.b.d.a.gS(this.baU)) {
             if (DEBUG) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.aHF + " observer: " + this.aHG);
+                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.baT + " observer: " + this.baU);
             }
-            b.a(this.aHF, this.aHG, this.aHH);
+            b.a(this.baT, this.baU, this.baV);
         }
     }
 }

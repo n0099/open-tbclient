@@ -9,11 +9,11 @@ import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
 /* loaded from: classes2.dex */
 public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
-    final rx.d<T1> kzb;
-    final rx.d<T2> kzc;
-    final rx.functions.f<? super T1, ? extends rx.d<D1>> kzd;
-    final rx.functions.f<? super T2, ? extends rx.d<D2>> kze;
-    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> kzf;
+    final rx.d<T1> kzJ;
+    final rx.d<T2> kzK;
+    final rx.functions.f<? super T1, ? extends rx.d<D1>> kzL;
+    final rx.functions.f<? super T2, ? extends rx.d<D2>> kzM;
+    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> kzN;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -48,8 +48,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             d dVar = new d();
             this.group.add(bVar);
             this.group.add(dVar);
-            OnSubscribeGroupJoin.this.kzb.a((rx.j<? super T1>) bVar);
-            OnSubscribeGroupJoin.this.kzc.a((rx.j<? super T2>) dVar);
+            OnSubscribeGroupJoin.this.kzJ.a((rx.j<? super T1>) bVar);
+            OnSubscribeGroupJoin.this.kzK.a((rx.j<? super T2>) dVar);
         }
 
         @Override // rx.k
@@ -110,23 +110,23 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 int i;
                 ArrayList<Object> arrayList;
                 try {
-                    PublishSubject cRP = PublishSubject.cRP();
-                    rx.b.d dVar = new rx.b.d(cRP);
+                    PublishSubject cPU = PublishSubject.cPU();
+                    rx.b.d dVar = new rx.b.d(cPU);
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
                         i = resultManager.leftIds;
                         resultManager.leftIds = i + 1;
                         ResultManager.this.leftMap().put(Integer.valueOf(i), dVar);
                     }
-                    rx.d a = rx.d.a((d.a) new a(cRP, ResultManager.this.cancel));
+                    rx.d a = rx.d.a((d.a) new a(cPU, ResultManager.this.cancel));
                     a aVar = new a(i);
                     ResultManager.this.group.add(aVar);
-                    OnSubscribeGroupJoin.this.kzd.call(t1).a((rx.j<? super D1>) aVar);
-                    R j = OnSubscribeGroupJoin.this.kzf.j(t1, a);
+                    OnSubscribeGroupJoin.this.kzL.call(t1).a((rx.j<? super D1>) aVar);
+                    R h = OnSubscribeGroupJoin.this.kzN.h(t1, a);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.rightMap.values());
                     }
-                    ResultManager.this.subscriber.onNext(j);
+                    ResultManager.this.subscriber.onNext(h);
                     for (Object obj : arrayList) {
                         dVar.onNext(obj);
                     }
@@ -174,7 +174,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                     }
                     c cVar = new c(i);
                     ResultManager.this.group.add(cVar);
-                    OnSubscribeGroupJoin.this.kze.call(t2).a((rx.j<? super D2>) cVar);
+                    OnSubscribeGroupJoin.this.kzM.call(t2).a((rx.j<? super D2>) cVar);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                     }
@@ -275,8 +275,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
     /* loaded from: classes2.dex */
     static final class a<T> implements d.a<T> {
-        final RefCountSubscription kzh;
-        final rx.d<T> kzi;
+        final RefCountSubscription kzP;
+        final rx.d<T> kzQ;
 
         @Override // rx.functions.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -284,28 +284,28 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         }
 
         public a(rx.d<T> dVar, RefCountSubscription refCountSubscription) {
-            this.kzh = refCountSubscription;
-            this.kzi = dVar;
+            this.kzP = refCountSubscription;
+            this.kzQ = dVar;
         }
 
         public void call(rx.j<? super T> jVar) {
-            rx.k cRU = this.kzh.cRU();
-            C0514a c0514a = new C0514a(jVar, cRU);
-            c0514a.add(cRU);
-            this.kzi.a((rx.j) c0514a);
+            rx.k cPZ = this.kzP.cPZ();
+            C0615a c0615a = new C0615a(jVar, cPZ);
+            c0615a.add(cPZ);
+            this.kzQ.a((rx.j) c0615a);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public final class C0514a extends rx.j<T> {
-            private final rx.k kzj;
+        public final class C0615a extends rx.j<T> {
+            private final rx.k kzR;
             final rx.j<? super T> subscriber;
 
-            public C0514a(rx.j<? super T> jVar, rx.k kVar) {
+            public C0615a(rx.j<? super T> jVar, rx.k kVar) {
                 super(jVar);
                 this.subscriber = jVar;
-                this.kzj = kVar;
+                this.kzR = kVar;
             }
 
             @Override // rx.e
@@ -316,13 +316,13 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             @Override // rx.e
             public void onError(Throwable th) {
                 this.subscriber.onError(th);
-                this.kzj.unsubscribe();
+                this.kzR.unsubscribe();
             }
 
             @Override // rx.e
             public void onCompleted() {
                 this.subscriber.onCompleted();
-                this.kzj.unsubscribe();
+                this.kzR.unsubscribe();
             }
         }
     }

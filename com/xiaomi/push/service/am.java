@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import com.baidu.live.adp.framework.MessageConfig;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -115,12 +117,13 @@ public class am {
         HttpURLConnection httpURLConnection2;
         InputStream inputStream2;
         a aVar;
+        int i = BdStatsConstant.MAX_WRITE_LOG_SIZE;
         HttpURLConnection httpURLConnection3 = null;
         try {
             HttpURLConnection httpURLConnection4 = (HttpURLConnection) new URL(str).openConnection();
             try {
                 httpURLConnection4.setConnectTimeout(8000);
-                httpURLConnection4.setReadTimeout(20000);
+                httpURLConnection4.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
                 httpURLConnection4.connect();
                 int contentLength = httpURLConnection4.getContentLength();
                 if (!z || contentLength <= 102400) {
@@ -136,7 +139,9 @@ public class am {
                         inputStream = httpURLConnection4.getInputStream();
                         try {
                             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                            int i = z ? 102400 : 2048000;
+                            if (!z) {
+                                i = 2048000;
+                            }
                             byte[] bArr = new byte[1024];
                             while (i > 0) {
                                 int read = inputStream.read(bArr, 0, 1024);
@@ -148,7 +153,7 @@ public class am {
                             }
                             if (i <= 0) {
                                 com.xiaomi.channel.commonutils.logger.b.a("length 102400 exhausted.");
-                                a aVar2 = new a(null, 102400);
+                                a aVar2 = new a(null, BdStatsConstant.MAX_WRITE_LOG_SIZE);
                                 com.xiaomi.channel.commonutils.file.b.a(inputStream);
                                 if (httpURLConnection4 != null) {
                                     httpURLConnection4.disconnect();

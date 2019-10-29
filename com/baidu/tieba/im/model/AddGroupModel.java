@@ -2,6 +2,7 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.im.message.RequestAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
@@ -140,13 +141,13 @@ public class AddGroupModel extends BdBaseModel<Object> {
         requestAddGroupMessage.setFlag(this.flag);
         switch (this.sourceFrom) {
             case 1011:
-                requestAddGroupMessage.setPage_from_dim("neargp");
+                requestAddGroupMessage.setPage_from_dim(TbEnum.CreateGroupSource.FROM_NEAR_GROUP);
                 break;
             case 1012:
-                requestAddGroupMessage.setPage_from_dim("mygp");
+                requestAddGroupMessage.setPage_from_dim(TbEnum.CreateGroupSource.FROM_MY_GROUP);
                 break;
             case 1013:
-                requestAddGroupMessage.setPage_from_dim("bargp");
+                requestAddGroupMessage.setPage_from_dim(TbEnum.CreateGroupSource.FROM_BAR_GROUP);
                 break;
             case 1014:
                 requestAddGroupMessage.setPage_from_dim("");

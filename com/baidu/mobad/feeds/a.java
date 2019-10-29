@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public final class a implements IXAdFeedsRequestParameters {
     private final String a;
-    protected String ago;
+    protected String azL;
     private int b;
     private boolean c;
     private Map<String, String> d;
@@ -60,7 +60,7 @@ public final class a implements IXAdFeedsRequestParameters {
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public String getAdPlacementId() {
-        return this.ago;
+        return this.azL;
     }
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters

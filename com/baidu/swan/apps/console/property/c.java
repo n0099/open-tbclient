@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends z {
-    private a aoM;
+    private a aId;
 
     public c(j jVar) {
         super(jVar, "/swan/perfCat");
@@ -60,24 +60,24 @@ public class c extends z {
         }
         switch (c) {
             case 0:
-                if (this.aoM == null) {
-                    this.aoM = new a();
+                if (this.aId == null) {
+                    this.aId = new a();
                 }
-                this.aoM.startMonitor();
+                this.aId.startMonitor();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 com.baidu.swan.apps.console.c.i("SwanAppPropertyLogAction", " Start property log：");
                 return true;
             case 1:
                 JSONObject jSONObject = new JSONObject();
-                if (this.aoM == null) {
+                if (this.aId == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppPropertyLogAction", "Property log never start");
                 } else {
-                    String ys = this.aoM.ys();
-                    this.aoM = null;
-                    e.GJ().Ag();
+                    String Dn = this.aId.Dn();
+                    this.aId = null;
+                    e.LD().Fb();
                     try {
-                        jSONObject.put("wvID", e.GJ().Ag());
-                        jSONObject.put("path", ys);
+                        jSONObject.put("wvID", e.LD().Fb());
+                        jSONObject.put("path", Dn);
                     } catch (JSONException e) {
                         if (DEBUG) {
                             e.printStackTrace();
@@ -94,8 +94,8 @@ public class c extends z {
                 if (optParamsAsJo == null) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
                 } else {
-                    if (this.aoM != null) {
-                        this.aoM.bT(optParamsAsJo.optInt("duration"));
+                    if (this.aId != null) {
+                        this.aId.cP(optParamsAsJo.optInt("duration"));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 }

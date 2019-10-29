@@ -1,5 +1,7 @@
 package com.baidu.adp.lib.util;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.adp.lib.util.SecureHelper;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
@@ -17,47 +19,47 @@ import javax.crypto.spec.PBEKeySpec;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class u {
-    public static final Charset EC = Charset.forName(HTTP.UTF_8);
-    private static final byte[] ED = {-92, 11, -56, 52, -42, -107, -13, 19};
+    public static final Charset defaultCharset = Charset.forName(HTTP.UTF_8);
+    private static final byte[] salt = {-92, Constants.GZIP_CAST_TYPE, -56, 52, -42, -107, -13, 19};
 
-    public static PublicKey o(byte[] bArr) throws Exception {
+    public static PublicKey loadRSAPublicKey(byte[] bArr) throws Exception {
         return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
     }
 
-    public static byte[] b(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
+    public static byte[] encryptWithRSA(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, publicKey);
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] b(Key key, byte[] bArr) throws GeneralSecurityException {
+    public static byte[] decryptWithRSA(Key key, byte[] bArr) throws GeneralSecurityException {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, key);
         return cipher.doFinal(bArr);
     }
 
-    public static SecretKey bo(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static SecretKey newAESKey(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         char[] cArr = new char[str.length()];
         for (int i = 0; i < cArr.length; i++) {
             cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, ED, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, salt, 5, 256));
     }
 
-    public static byte[] a(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+    public static byte[] encryptWithAES(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
+        Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
         cipher.init(1, secretKey);
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+    public static byte[] decryptWithAES(SecretKey secretKey, byte[] bArr, int i, int i2) throws GeneralSecurityException {
+        Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
         cipher.init(2, secretKey);
         return cipher.doFinal(bArr, i, i2);
     }
 
-    public static String at(int i) {
+    public static String newRandomString(int i) {
         String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
         if (bigInteger.length() > i) {
             return bigInteger.substring(0, bigInteger.length());

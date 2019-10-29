@@ -1,6 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.CheckPost.CheckPostResIdl;
 /* loaded from: classes4.dex */
@@ -12,7 +13,7 @@ public class CheckPostResponseMessage extends SocketResponsedMessage {
     private long repostId;
 
     public CheckPostResponseMessage() {
-        super(303010);
+        super(CmdConfigSocket.CMD_CHECK_POST);
     }
 
     public long getPostState() {

@@ -1,7 +1,6 @@
 package com.baidu.tieba.write.transmit.model;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumResIdl;
@@ -13,7 +12,7 @@ public class GetRepostForumHttpResMessage extends HttpResponsedMessage {
     private String recommendExt;
 
     public GetRepostForumHttpResMessage() {
-        super(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM);
+        super(1003323);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

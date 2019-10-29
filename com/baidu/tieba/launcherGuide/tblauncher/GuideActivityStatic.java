@@ -4,6 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 /* loaded from: classes5.dex */
@@ -18,7 +19,7 @@ class GuideActivityStatic {
                 if (customMessage != null && customMessage.getData() != null) {
                     customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), GuideActivity.class);
                     if (!customMessage.getData().startActivity(GuideActivity.class)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(customMessage.getData().getContext()).createNormalCfg(1)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(customMessage.getData().getContext()).createNormalCfg(1)));
                     }
                 }
                 return null;

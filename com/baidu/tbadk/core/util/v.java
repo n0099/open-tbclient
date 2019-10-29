@@ -3,52 +3,52 @@ package com.baidu.tbadk.core.util;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v {
-    public static <T> void Y(List<T> list) {
+    public static <T> void clear(List<T> list) {
         if (list != null) {
             list.clear();
         }
     }
 
-    public static <T> int Z(List<T> list) {
+    public static <T> int getCount(List<T> list) {
         if (list == null || list.isEmpty()) {
             return 0;
         }
         return list.size();
     }
 
-    public static <T> T c(List<T> list, int i) {
+    public static <T> T getItem(List<T> list, int i) {
         if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
             return null;
         }
         return list.get(i);
     }
 
-    public static <T> int a(List<T> list, T t) {
+    public static <T> int getPosition(List<T> list, T t) {
         if (list == null || list.isEmpty() || t == null) {
             return -1;
         }
         return list.indexOf(t);
     }
 
-    public static <T> boolean aa(List<T> list) {
-        return Z(list) <= 0;
+    public static <T> boolean isEmpty(List<T> list) {
+        return getCount(list) <= 0;
     }
 
-    public static <T> T d(List<T> list, int i) {
+    public static <T> T remove(List<T> list, int i) {
         if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
             return null;
         }
         return list.remove(i);
     }
 
-    public static <T> boolean b(List<T> list, T t) {
+    public static <T> boolean add(List<T> list, T t) {
         if (list == null) {
             return false;
         }
         return list.add(t);
     }
 
-    public static <T> boolean a(List<T> list, int i, T t) {
+    public static <T> boolean add(List<T> list, int i, T t) {
         if (list == null || i > list.size() || i < 0) {
             return false;
         }
@@ -56,7 +56,7 @@ public class v {
         return true;
     }
 
-    public static <T> boolean a(List<T> list, int i, List<T> list2) {
+    public static <T> boolean addAll(List<T> list, int i, List<T> list2) {
         if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
             return false;
         }
@@ -64,22 +64,22 @@ public class v {
         return true;
     }
 
-    public static <T> List<T> c(List<T> list, int i, int i2) {
-        int Z = Z(list);
-        if (Z > 0 && i >= 0 && i2 <= Z) {
+    public static <T> List<T> subList(List<T> list, int i, int i2) {
+        int count = getCount(list);
+        if (count > 0 && i >= 0 && i2 <= count) {
             return list.subList(i, i2);
         }
         return null;
     }
 
-    public static <T> void d(List<T> list, int i, int i2) {
-        int Z = Z(list);
-        if (Z > 0 && i >= 0 && i2 <= Z) {
-            Y(list.subList(i, i2));
+    public static <T> void removeSubList(List<T> list, int i, int i2) {
+        int count = getCount(list);
+        if (count > 0 && i >= 0 && i2 <= count) {
+            clear(list.subList(i, i2));
         }
     }
 
-    public static <T> boolean c(List<T> list, List<T> list2) {
+    public static <T> boolean equalList(List<T> list, List<T> list2) {
         if (list == list2) {
             return true;
         }

@@ -10,27 +10,27 @@ import com.baidu.swan.apps.database.subpackage.SubPackageTable;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a awc;
+    private static volatile a aPr;
     private Context mContext = AppRuntime.getAppContext();
 
     private a() {
     }
 
-    public static a CO() {
-        if (awc == null) {
+    public static a HI() {
+        if (aPr == null) {
             synchronized (a.class) {
-                if (awc == null) {
-                    awc = new a();
+                if (aPr == null) {
+                    aPr = new a();
                 }
             }
         }
-        return awc;
+        return aPr;
     }
 
-    public void ac(String str, String str2) {
+    public void ak(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                int delete = this.mContext.getContentResolver().delete(b.awe, SubPackageTable.Table.app_id + "=? AND " + SubPackageTable.Table.version + "=?", new String[]{str, str2});
+                int delete = this.mContext.getContentResolver().delete(b.aPt, SubPackageTable.Table.app_id + "=? AND " + SubPackageTable.Table.version + "=?", new String[]{str, str2});
                 if (DEBUG) {
                     Log.e("SubPackageInfoHelper", "clearSubPackageInfo:" + delete);
                 }
@@ -42,16 +42,16 @@ public class a {
         }
     }
 
-    public void eq(String str) {
+    public void eX(String str) {
         if (!TextUtils.isEmpty(str)) {
-            int delete = this.mContext.getContentResolver().delete(b.awe, SubPackageTable.Table.app_id + "=?", new String[]{str});
+            int delete = this.mContext.getContentResolver().delete(b.aPt, SubPackageTable.Table.app_id + "=?", new String[]{str});
             if (DEBUG) {
                 Log.e("SubPackageInfoHelper", "clearAllVersionSubPackageInfo:" + delete);
             }
         }
     }
 
-    public void j(String str, String str2, String str3, String str4) {
+    public void m(String str, String str2, String str3, String str4) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(SubPackageTable.Table.app_id.toString(), str);
         contentValues.put(SubPackageTable.Table.version.toString(), str2);
@@ -59,7 +59,7 @@ public class a {
         contentValues.put(SubPackageTable.Table.is_exist.toString(), (Integer) 1);
         contentValues.put(SubPackageTable.Table.aps_package_name.toString(), str4);
         try {
-            this.mContext.getContentResolver().insert(b.awe, contentValues);
+            this.mContext.getContentResolver().insert(b.aPt, contentValues);
         } catch (IllegalArgumentException e) {
             if (DEBUG) {
                 Log.e("SubPackageInfoHelper", e.getMessage());
@@ -71,11 +71,11 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean m(String str, String str2, String str3) {
+    public boolean q(String str, String str2, String str3) {
         Cursor cursor;
         boolean z = false;
         try {
-            cursor = this.mContext.getContentResolver().query(b.awe, new String[]{SubPackageTable.Table.is_exist.toString()}, SubPackageTable.Table.app_id + "=? AND " + SubPackageTable.Table.package_name + "=? AND " + SubPackageTable.Table.version + "=?", new String[]{str, str3, str2}, null);
+            cursor = this.mContext.getContentResolver().query(b.aPt, new String[]{SubPackageTable.Table.is_exist.toString()}, SubPackageTable.Table.app_id + "=? AND " + SubPackageTable.Table.package_name + "=? AND " + SubPackageTable.Table.version + "=?", new String[]{str, str3, str2}, null);
             if (cursor != null) {
                 try {
                     try {
@@ -85,25 +85,25 @@ public class a {
                     } catch (Exception e) {
                         e = e;
                         Log.e("SubPackageInfoHelper", "isSubPackageExist:" + e.getMessage());
-                        com.baidu.swan.c.a.c(cursor);
+                        com.baidu.swan.c.a.b(cursor);
                         if (DEBUG) {
                         }
                         return z;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.swan.c.a.c(cursor);
+                    com.baidu.swan.c.a.b(cursor);
                     throw th;
                 }
             }
-            com.baidu.swan.c.a.c(cursor);
+            com.baidu.swan.c.a.b(cursor);
         } catch (Exception e2) {
             e = e2;
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            com.baidu.swan.c.a.c(cursor);
+            com.baidu.swan.c.a.b(cursor);
             throw th;
         }
         if (DEBUG) {

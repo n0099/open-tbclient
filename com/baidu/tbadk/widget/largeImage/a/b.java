@@ -10,145 +10,145 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private final int cJo;
-    private final RectF cJs;
-    private final int cJt;
-    private final int cJu;
-    private a cJx;
-    private final Rect cJy;
-    private final RectF cJq = new RectF();
-    private final Rect cJr = new Rect();
-    private float cJv = 1.0f;
-    private final List<a> cJw = new ArrayList();
+    private a cTq;
+    private final int mBlockSize;
+    private final Rect mOriginalBitmapRect;
+    private final int mRealHeight;
+    private final int mRealWidth;
+    private final RectF mStartWindow;
+    private final RectF mWindowInOriginalBitmapRecF = new RectF();
+    private final Rect mWindowInOriginalBitmap = new Rect();
+    private float mScaleLevel = 1.0f;
+    private final List<a> mBlockBitmapList = new ArrayList();
     private final Matrix mMatrix = new Matrix();
 
     public b(int i, int i2, int[] iArr) {
-        this.cJu = i2;
-        this.cJt = i;
-        this.cJs = new RectF(0.0f, 0.0f, i, i2);
-        this.cJy = new Rect(0, 0, iArr[0], iArr[1]);
-        this.cJo = i / 2;
+        this.mRealHeight = i2;
+        this.mRealWidth = i;
+        this.mStartWindow = new RectF(0.0f, 0.0f, i, i2);
+        this.mOriginalBitmapRect = new Rect(0, 0, iArr[0], iArr[1]);
+        this.mBlockSize = i / 2;
     }
 
-    public int qf() {
-        return this.cJo;
+    public int getBlockSize() {
+        return this.mBlockSize;
     }
 
-    public Rect aye() {
-        return this.cJy;
+    public Rect getOriginalBitmapRect() {
+        return this.mOriginalBitmapRect;
     }
 
     public Rect a(a aVar) {
         if (aVar == null) {
             return null;
         }
-        return aVar.ayc();
+        return aVar.getPositionInOriginBitmap();
     }
 
-    public Point[] ayf() {
-        ayh();
-        int ayd = ayd();
-        int i = (this.cJr.top / ayd) / this.cJo;
-        int i2 = (this.cJr.left / ayd) / this.cJo;
+    public Point[] getStartAndEndPosition() {
+        getWindowInOriginalBitmap();
+        int sampleScale = getSampleScale();
+        int i = (this.mWindowInOriginalBitmap.top / sampleScale) / this.mBlockSize;
+        int i2 = (this.mWindowInOriginalBitmap.left / sampleScale) / this.mBlockSize;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.cJr.bottom / ayd) / this.cJo) * ayd) + 1;
-        point2.x = (ayd * ((this.cJr.right / ayd) / this.cJo)) + 1;
+        point2.y = (((this.mWindowInOriginalBitmap.bottom / sampleScale) / this.mBlockSize) * sampleScale) + 1;
+        point2.x = (sampleScale * ((this.mWindowInOriginalBitmap.right / sampleScale) / this.mBlockSize)) + 1;
         return new Point[]{point, point2};
     }
 
-    public a ayg() {
-        return new a(this.cJo);
+    public a ayJ() {
+        return new a(this.mBlockSize);
     }
 
-    public Rect ayh() {
-        this.mMatrix.mapRect(this.cJq, this.cJs);
-        a(this.cJr, this.cJq);
-        return this.cJr;
+    public Rect getWindowInOriginalBitmap() {
+        this.mMatrix.mapRect(this.mWindowInOriginalBitmapRecF, this.mStartWindow);
+        transFormRectToRectF(this.mWindowInOriginalBitmap, this.mWindowInOriginalBitmapRecF);
+        return this.mWindowInOriginalBitmap;
     }
 
-    private void a(Rect rect, RectF rectF) {
+    private void transFormRectToRectF(Rect rect, RectF rectF) {
         rect.set(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
     }
 
     public int getRealWidth() {
-        return this.cJt;
+        return this.mRealWidth;
     }
 
-    public int ayi() {
-        return this.cJu;
+    public int getRealHeight() {
+        return this.mRealHeight;
     }
 
-    public List<a> ayj() {
-        return this.cJw;
+    public List<a> getBlockBitmapList() {
+        return this.mBlockBitmapList;
     }
 
-    public void ar(float f) {
-        this.cJv = f;
+    public void setScaleLevel(float f) {
+        this.mScaleLevel = f;
     }
 
-    public float ayk() {
-        return this.cJv;
+    public float getScaleLevel() {
+        return this.mScaleLevel;
     }
 
-    public int ayd() {
+    public int getSampleScale() {
         int i = 1;
-        while (i < Math.round(this.cJv)) {
+        while (i < Math.round(this.mScaleLevel)) {
             i *= 2;
         }
         return i;
     }
 
-    public void r(Bitmap bitmap) {
+    public void setThumbnail(Bitmap bitmap) {
         if (bitmap != null) {
-            this.cJx = new a(bitmap);
-            this.cJx.q(0, 0, this.cJt, this.cJu);
+            this.cTq = new a(bitmap);
+            this.cTq.setDstRect(0, 0, this.mRealWidth, this.mRealHeight);
         }
     }
 
-    public a ayl() {
-        return this.cJx;
+    public a ayK() {
+        return this.cTq;
     }
 
-    public void u(float f, float f2) {
+    public void moveWindow(float f, float f2) {
         this.mMatrix.postTranslate(f, f2);
     }
 
-    public void as(float f) {
+    public void postScaleWindow(float f) {
         this.mMatrix.postScale(f, f);
     }
 
-    public void b(float f, float f2, float f3) {
+    public void postScaleWindow(float f, float f2, float f3) {
         this.mMatrix.postScale(f, f, f2, f3);
     }
 
-    public boolean w(int i, int i2, int i3) {
-        if (i3 == ayd()) {
-            return x(i, i2, i3).intersect(this.cJr);
+    public boolean checkIsVisiable(int i, int i2, int i3) {
+        if (i3 == getSampleScale()) {
+            return getRect(i, i2, i3).intersect(this.mWindowInOriginalBitmap);
         }
         return false;
     }
 
-    public Rect x(int i, int i2, int i3) {
-        int i4 = this.cJo * i3 * i2;
-        int i5 = this.cJo * i3 * i;
-        return new Rect(i4, i5, (this.cJo * i3) + i4, (this.cJo * i3) + i5);
+    public Rect getRect(int i, int i2, int i3) {
+        int i4 = this.mBlockSize * i3 * i2;
+        int i5 = this.mBlockSize * i3 * i;
+        return new Rect(i4, i5, (this.mBlockSize * i3) + i4, (this.mBlockSize * i3) + i5);
     }
 
-    public void h(Rect rect) {
+    public void checkAndResizeBitmapRegion(Rect rect) {
         if (rect.left < 0) {
             rect.left = 0;
         }
         if (rect.top < 0) {
             rect.top = 0;
         }
-        if (rect.right > this.cJy.right) {
-            rect.right = this.cJy.right;
+        if (rect.right > this.mOriginalBitmapRect.right) {
+            rect.right = this.mOriginalBitmapRect.right;
         }
-        if (rect.bottom > this.cJy.bottom) {
-            rect.bottom = this.cJy.bottom;
+        if (rect.bottom > this.mOriginalBitmapRect.bottom) {
+            rect.bottom = this.mOriginalBitmapRect.bottom;
         }
     }
 }

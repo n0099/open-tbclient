@@ -1,9 +1,9 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.model.message.ShareReportHttpResponseMessage;
 import com.baidu.tieba.model.message.ShareReportNetMessage;
 import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
@@ -11,12 +11,12 @@ import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
 public class ShareReportModel extends BdBaseModel {
     public ShareReportModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        bvF();
+        bsK();
     }
 
-    private void bvF() {
-        com.baidu.tieba.tbadkCore.a.a.a(309480, ShareReportSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
+    private void bsK() {
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SHARE_REPORT, ShareReportSocketResponseMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SHARE_REPORT, 1003363, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -29,10 +29,10 @@ public class ShareReportModel extends BdBaseModel {
         return false;
     }
 
-    public void r(String str, String str2, int i) {
+    public void p(String str, String str2, int i) {
         ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
-        shareReportNetMessage.setFid(com.baidu.adp.lib.g.b.e(str, 0L));
-        shareReportNetMessage.setTid(com.baidu.adp.lib.g.b.e(str2, 0L));
+        shareReportNetMessage.setFid(com.baidu.adp.lib.g.b.toLong(str, 0L));
+        shareReportNetMessage.setTid(com.baidu.adp.lib.g.b.toLong(str2, 0L));
         shareReportNetMessage.setFrom(i);
         sendMessage(shareReportNetMessage);
     }

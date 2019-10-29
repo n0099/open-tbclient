@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -141,7 +142,7 @@ public class StringUtils {
     }
 
     public static boolean isValidPassWord(String str) {
-        if (TextUtils.isEmpty(str) || str.contains(" ")) {
+        if (TextUtils.isEmpty(str) || str.contains(HanziToPinyin.Token.SEPARATOR)) {
             return false;
         }
         return str.matches(PASSWORD_PREFIX);

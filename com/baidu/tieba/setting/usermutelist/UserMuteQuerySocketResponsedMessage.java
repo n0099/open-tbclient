@@ -1,6 +1,7 @@
 package com.baidu.tieba.setting.usermutelist;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.UserMuteQuery.DataRes;
 import tbclient.UserMuteQuery.UserMuteQueryResIdl;
@@ -9,7 +10,7 @@ public class UserMuteQuerySocketResponsedMessage extends SocketResponsedMessage 
     private DataRes mResult;
 
     public UserMuteQuerySocketResponsedMessage(int i) {
-        super(303028);
+        super(CmdConfigSocket.CMD_USER_MUTE_QUERY);
     }
 
     public DataRes getResult() {

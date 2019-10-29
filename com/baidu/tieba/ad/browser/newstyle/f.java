@@ -8,6 +8,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f implements com.baidu.tieba.tbadkCore.e.b {
     private final TbPageContext<?> mTbPageContext;
-    private final CustomMessageListener installListener = new CustomMessageListener(2002501) { // from class: com.baidu.tieba.ad.browser.newstyle.f.1
+    private final CustomMessageListener installListener = new CustomMessageListener(CmdConfigCustom.CMD_PACKAGE_ADDED) { // from class: com.baidu.tieba.ad.browser.newstyle.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -33,8 +34,8 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
             }
         }
     };
-    private final CustomMessageListener downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.ad.browser.newstyle.f.2
-        private boolean bCY;
+    private final CustomMessageListener downloadListener = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tieba.ad.browser.newstyle.f.2
+        private boolean bVt;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -45,16 +46,16 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.bCY) {
-                                    this.bCY = true;
+                                if (!this.bVt) {
+                                    this.bVt = true;
                                     f.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 f.this.callDownloadListener(2);
-                                this.bCY = false;
+                                this.bVt = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 f.this.callDownloadListener(0);
-                                this.bCY = false;
+                                this.bVt = false;
                             }
                         }
                     }
@@ -140,11 +141,11 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
         if (StringUtils.isNull(str) || (split = str.split("\\.")) == null || split.length == 0) {
             return false;
         }
-        int f = com.baidu.adp.lib.g.b.f(split[0], 0);
-        if (f > 3) {
+        int i = com.baidu.adp.lib.g.b.toInt(split[0], 0);
+        if (i > 3) {
             return true;
         }
-        return split.length >= 2 && f == 3 && com.baidu.adp.lib.g.b.f(split[1], 0) >= 2;
+        return split.length >= 2 && i == 3 && com.baidu.adp.lib.g.b.toInt(split[1], 0) >= 2;
     }
 
     private String downLoadAPK(String str, long j, String str2) {
@@ -182,7 +183,7 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.ase().b("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.atT().b("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -216,7 +217,7 @@ public class f implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private String isEnableWebViewTouch(Boolean bool) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002503, bool));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_COMMON_WEBVIEW_ENABLE_TOUCH, bool));
         return "";
     }
 

@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.net.Uri;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
@@ -230,7 +229,7 @@ public class aw {
                                         a5.putExtra("messageId", str);
                                     }
                                     this.b.startActivity(a5);
-                                    com.xiaomi.push.service.clientReport.d.a(this.b).a(com.xiaomi.push.service.clientReport.c.a(i), str, PointerIconCompat.TYPE_CELL, "notification message is clicked typeId " + str3);
+                                    com.xiaomi.push.service.clientReport.d.a(this.b).a(com.xiaomi.push.service.clientReport.c.a(i), str, 1006, "notification message is clicked typeId " + str3);
                                     if (str3.equals(com.xiaomi.push.service.aw.c)) {
                                         com.xiaomi.push.service.clientReport.d.a(this.b).a(com.xiaomi.push.service.clientReport.c.a(i), str, "try open web page typeId " + str3);
                                     }

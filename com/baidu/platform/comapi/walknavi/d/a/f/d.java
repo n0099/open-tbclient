@@ -2,6 +2,7 @@ package com.baidu.platform.comapi.walknavi.d.a.f;
 
 import android.os.AsyncTask;
 import android.text.TextUtils;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.platform.comapi.walknavi.d.a.f.f;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -29,7 +30,7 @@ public class d extends AsyncTask<String, Void, String> implements c {
     public String doInBackground(String... strArr) {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.b).openConnection();
-            httpURLConnection.setConnectTimeout(20000);
+            httpURLConnection.setConnectTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
             httpURLConnection.setReadTimeout(30000);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);

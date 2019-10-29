@@ -4,13 +4,13 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.share.ShareAccountAccessor;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -99,11 +99,11 @@ public class SapiAccount implements Parcelable, Cloneable {
             jSONObject.put("displayname", this.displayname);
             jSONObject.put("username", this.username);
             jSONObject.put("email", this.email);
-            jSONObject.put(e, this.phone);
+            jSONObject.put("phone", this.phone);
             jSONObject.put("bduss", this.bduss);
             jSONObject.put("app", this.app);
             jSONObject.put(g, this.ptoken);
-            jSONObject.put(h, this.stoken);
+            jSONObject.put("stoken", this.stoken);
             jSONObject.put("extra", this.extra);
             return jSONObject;
         } catch (JSONException e2) {
@@ -135,11 +135,11 @@ public class SapiAccount implements Parcelable, Cloneable {
         sapiAccount.displayname = jSONObject.optString("displayname");
         sapiAccount.username = jSONObject.optString("username");
         sapiAccount.email = jSONObject.optString("email");
-        sapiAccount.phone = jSONObject.optString(e);
+        sapiAccount.phone = jSONObject.optString("phone");
         sapiAccount.bduss = jSONObject.optString("bduss");
         sapiAccount.app = jSONObject.optString("app");
         sapiAccount.ptoken = jSONObject.optString(g);
-        sapiAccount.stoken = jSONObject.optString(h);
+        sapiAccount.stoken = jSONObject.optString("stoken");
         sapiAccount.extra = jSONObject.optString("extra");
         if (SapiUtils.isValidAccount(sapiAccount)) {
             return sapiAccount;
@@ -188,11 +188,11 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public AccountType getAccountType() {
-        return AccountType.getAccountType(a(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType()));
+        return AccountType.getAccountType(a("account_type", AccountType.UNKNOWN.getType()));
     }
 
     public String getShareAccountTpl() {
-        return a("tpl", "");
+        return a(TableDefine.PaSubscribeColumns.COLUMN_TPL, "");
     }
 
     public String getSocialPortrait() {
@@ -330,7 +330,7 @@ public class SapiAccount implements Parcelable, Cloneable {
                 jSONObject.put(EXTRA_SOCIAL_PORTRAIT, this.d);
                 jSONObject.put(EXTRA_TPL_STOKEN_LIST, new JSONObject(this.dispersionCertification.tplStokenMap));
                 jSONObject.put(EXTRA_IS_GUEST_ACCOUNT, this.e);
-                jSONObject.put(EXTRA_TPL, this.f);
+                jSONObject.put("tpl", this.f);
                 jSONObject.put("pkg", this.g);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -350,7 +350,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             extraProperty.d = jSONObject.optString(EXTRA_SOCIAL_PORTRAIT);
             extraProperty.dispersionCertification = DispersionCertification.fromJSONObject(jSONObject);
             extraProperty.e = jSONObject.optString(EXTRA_IS_GUEST_ACCOUNT);
-            extraProperty.f = jSONObject.optString(EXTRA_TPL);
+            extraProperty.f = jSONObject.optString("tpl");
             extraProperty.g = jSONObject.optString("pkg");
             return extraProperty;
         }

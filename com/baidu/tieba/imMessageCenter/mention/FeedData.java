@@ -1,10 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -158,7 +156,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             jSONObject.put("type", this.type);
             jSONObject.put("title", this.title);
             jSONObject.put("time", this.time / 1000);
-            jSONObject.put(ImageViewerConfig.FORUM_NAME, this.fname);
+            jSONObject.put("fname", this.fname);
             jSONObject.put("content", this.content);
             jSONObject.put("quote_content", this.quote_content);
             jSONObject.put("thread_id", this.thread_id);
@@ -173,19 +171,19 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("id", this.replyer.getUserId());
             jSONObject2.put("name", this.replyer.getUserName());
-            jSONObject2.put(IntentConfig.PORTRAIT, this.replyer.getPortrait());
+            jSONObject2.put("portrait", this.replyer.getPortrait());
             jSONObject2.put("gender", this.replyer.getGender());
             jSONObject.put("replyer", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
             jSONObject2.put("id", this.threadAuthor.getUserId());
             jSONObject2.put("name", this.threadAuthor.getUserName());
-            jSONObject2.put(IntentConfig.PORTRAIT, this.threadAuthor.getPortrait());
+            jSONObject2.put("portrait", this.threadAuthor.getPortrait());
             jSONObject2.put("gender", this.threadAuthor.getGender());
             jSONObject.put("thread_author_user", jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("id", this.quote_user.getUserId());
             jSONObject4.put("name", this.quote_user.getUserName());
-            jSONObject4.put(IntentConfig.PORTRAIT, this.quote_user.getPortrait());
+            jSONObject4.put("portrait", this.quote_user.getPortrait());
             jSONObject4.put("gender", this.quote_user.getGender());
             jSONObject.put("quote_user", jSONObject4);
             jSONObject.put("is_share_thread", this.mIsShareThread ? 1 : 0);
@@ -208,7 +206,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.type = jSONObject.optInt("type", 0);
                 this.title = jSONObject.optString("title");
                 this.time = jSONObject.optLong("time", 0L) * 1000;
-                this.fname = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                this.fname = jSONObject.optString("fname");
                 this.content = jSONObject.optString("content");
                 this.quote_content = jSONObject.optString("quote_content");
                 this.thread_id = jSONObject.optString("thread_id");

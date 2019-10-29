@@ -1,5 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.SetLocation.SetLocationResIdl;
@@ -8,7 +9,7 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     private com.baidu.tbadk.coreExtra.relationship.b lbsInfo;
 
     public ResponsePersonalLbsInfoMessage() {
-        super(205101);
+        super(CmdConfigSocket.CMD_PERSONAL_CHAT_LBS_INFO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

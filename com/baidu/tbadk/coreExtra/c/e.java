@@ -15,86 +15,86 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e {
-    public static final String cmi = m.Dz + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int bMX;
-    public String clE;
-    public Bundle clH;
-    public String clK;
-    public String clL;
-    public int clR;
-    public String clS;
-    public String clT;
-    public String clU;
-    private Bundle clW;
-    public String cmb;
-    public String cmf;
-    public int cmg;
-    public String cmh;
+    public static final String czh = m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int ceG;
+    public String cyE;
+    public Bundle cyH;
+    public String cyK;
+    public String cyL;
+    public int cyR;
+    public String cyS;
+    public String cyT;
+    public String cyU;
+    private Bundle cyW;
+    public String czb;
+    public String cze;
+    public int czf;
+    public String czg;
     public String fid;
     public String imageUrl;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String topic;
     public String uid;
-    public boolean cls = false;
-    public boolean clt = false;
-    public boolean clu = false;
-    public boolean clv = false;
-    public boolean clw = false;
-    public boolean clx = false;
-    public boolean cly = false;
-    public boolean clz = false;
-    public boolean clA = false;
-    public boolean clB = false;
-    public boolean clC = false;
-    public String clD = "";
-    public int clM = 0;
-    public int clN = 3;
-    public int clO = 0;
-    public int clP = 0;
-    public int clQ = 0;
+    public boolean cys = false;
+    public boolean cyt = false;
+    public boolean cyu = false;
+    public boolean cyv = false;
+    public boolean cyw = false;
+    public boolean cyx = false;
+    public boolean cyy = false;
+    public boolean cyz = false;
+    public boolean cyA = false;
+    public boolean cyB = false;
+    public boolean cyC = false;
+    public String cyD = "";
+    public int cyM = 0;
+    public int cyN = 3;
+    public int cyO = 0;
+    public int cyP = 0;
+    public int cyQ = 0;
     public int shareType = 0;
-    public boolean clX = true;
-    public boolean clY = true;
-    public boolean clZ = true;
-    public int cma = 0;
-    public boolean cmc = true;
-    public boolean cme = false;
+    public boolean cyX = true;
+    public boolean cyY = true;
+    public boolean cyZ = true;
+    public int cza = 0;
+    public boolean czc = true;
+    public boolean czd = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String clF = null;
+    public String cyF = null;
     public Uri imageUri = null;
-    public Location clI = null;
-    private WeakReference<Bitmap> clV = null;
-    public String clJ = null;
+    public Location cyI = null;
+    private WeakReference<Bitmap> cyV = null;
+    public String cyJ = null;
     public String extData = null;
-    public String clG = null;
+    public String cyG = null;
 
-    public Bundle aqk() {
-        return this.clW;
+    public Bundle ase() {
+        return this.cyW;
     }
 
     public void E(Bundle bundle) {
-        this.clW = bundle;
+        this.cyW = bundle;
     }
 
-    public Bitmap aql() {
+    public Bitmap asf() {
         Bitmap bitmap;
-        if (this.clV == null || (bitmap = this.clV.get()) == null || bitmap.isRecycled()) {
+        if (this.cyV == null || (bitmap = this.cyV.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
-    public void n(Bitmap bitmap) {
-        this.clV = new WeakReference<>(bitmap);
+    public void p(Bitmap bitmap) {
+        this.cyV = new WeakReference<>(bitmap);
     }
 
-    public byte[] aqm() {
+    public byte[] asg() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.clV == null || (bitmap = this.clV.get()) == null || bitmap.isRecycled()) {
+        if (this.cyV == null || (bitmap = this.cyV.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -112,16 +112,16 @@ public class e {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [249=4, 250=4, 252=4, 253=4] */
-    public void aqn() {
+    public void ash() {
         FileOutputStream fileOutputStream = null;
-        if (this.clV == null) {
+        if (this.cyV == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                if (m.gB()) {
-                    File file = new File(cmi);
+                if (m.checkSD()) {
+                    File file = new File(czh);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -129,14 +129,14 @@ public class e {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] aqm = aqm();
-                    if (aqm != null) {
+                    byte[] asg = asg();
+                    if (asg != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(aqm);
+                            fileOutputStream3.write(asg);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.clV = null;
+                            this.cyV = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

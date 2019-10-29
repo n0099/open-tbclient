@@ -10,8 +10,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public class r {
-    public static boolean bK(String str, String str2) {
-        return c(new File(str), str2);
+    public static boolean unZipFiles(String str, String str2) {
+        return unZipFiles(new File(str), str2);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4, 65=4, 66=4, 59=5, 60=4, 61=4] */
@@ -21,7 +21,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean c(File file, String str) {
+    public static boolean unZipFiles(File file, String str) {
         ZipFile zipFile;
         InputStream inputStream;
         FileOutputStream fileOutputStream;

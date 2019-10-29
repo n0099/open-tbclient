@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,31 +17,31 @@ import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class c {
-    private static String aQz = null;
-    private static String aQA = null;
-    private static String aQB = null;
-    private static boolean aQj = com.baidu.swan.apps.b.DEBUG;
+    private static String bjD = null;
+    private static String bjE = null;
+    private static String bjF = null;
+    private static boolean bjo = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean bt(Context context) {
-        return (bu(context) || LP()) || bv(context);
+    public static boolean bu(Context context) {
+        return (bv(context) || QI()) || bw(context);
     }
 
-    private static boolean bu(Context context) {
-        if (LQ()) {
-            return (LO() && isFloatWindowOpAllowed(context)) ? false : true;
+    private static boolean bv(Context context) {
+        if (QJ()) {
+            return (QH() && isFloatWindowOpAllowed(context)) ? false : true;
         }
         return false;
     }
 
-    private static boolean LO() {
+    private static boolean QH() {
         String[] split;
-        if (aQA == null) {
-            aQA = gG("ro.build.version.incremental");
+        if (bjE == null) {
+            bjE = hk("ro.build.version.incremental");
         }
-        if (aQj) {
-            Log.d("ToastUtils", "sMiuiVersion = " + aQA);
+        if (bjo) {
+            Log.d("ToastUtils", "sMiuiVersion = " + bjE);
         }
-        if (!TextUtils.isEmpty(aQA) && (split = aQA.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+        if (!TextUtils.isEmpty(bjE) && (split = bjE.split(DefaultConfig.TOKEN_SEPARATOR)) != null && split.length >= 1 && split[0].length() >= 2) {
             String substring = split[0].substring(1);
             if (TextUtils.isEmpty(substring)) {
                 return false;
@@ -54,51 +55,51 @@ public class c {
         return false;
     }
 
-    private static boolean LP() {
+    private static boolean QI() {
         return Build.VERSION.SDK_INT >= 25;
     }
 
-    private static boolean LQ() {
-        if (aQz == null) {
-            aQz = gG("ro.miui.ui.version.name");
+    private static boolean QJ() {
+        if (bjD == null) {
+            bjD = hk("ro.miui.ui.version.name");
         }
-        if (aQj) {
-            Log.d("ToastUtils", "OsName = " + aQz);
+        if (bjo) {
+            Log.d("ToastUtils", "OsName = " + bjD);
         }
-        return !TextUtils.isEmpty(aQz);
+        return !TextUtils.isEmpty(bjD);
     }
 
-    public static boolean LR() {
-        if (aQB == null) {
-            aQB = gG("ro.build.version.opporom");
+    public static boolean QK() {
+        if (bjF == null) {
+            bjF = hk("ro.build.version.opporom");
         }
-        if (aQj) {
-            Log.d("ToastUtils", "OsName = " + aQB);
+        if (bjo) {
+            Log.d("ToastUtils", "OsName = " + bjF);
         }
-        return !TextUtils.isEmpty(aQB);
+        return !TextUtils.isEmpty(bjF);
     }
 
-    private static boolean bv(Context context) {
-        return LS() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
+    private static boolean bw(Context context) {
+        return QL() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
     }
 
-    private static boolean LS() {
+    private static boolean QL() {
         return Build.FINGERPRINT.contains("Flyme") || Pattern.compile("Flyme", 2).matcher(Build.DISPLAY).find();
     }
 
     public static void a(Toast toast, @StyleRes int i) {
-        Object d;
+        Object c;
         try {
-            Object d2 = d(toast, "mTN");
-            if (d2 != null && (d = d(d2, "mParams")) != null && (d instanceof WindowManager.LayoutParams)) {
-                ((WindowManager.LayoutParams) d).windowAnimations = i;
+            Object c2 = c(toast, "mTN");
+            if (c2 != null && (c = c(c2, "mParams")) != null && (c instanceof WindowManager.LayoutParams)) {
+                ((WindowManager.LayoutParams) c).windowAnimations = i;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static Object d(Object obj, String str) throws NoSuchFieldException, IllegalAccessException {
+    private static Object c(Object obj, String str) throws NoSuchFieldException, IllegalAccessException {
         Field declaredField;
         if (obj == null || (declaredField = obj.getClass().getDeclaredField(str)) == null) {
             return null;
@@ -125,7 +126,7 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [461=4] */
-    private static String gG(String str) {
+    private static String hk(String str) {
         BufferedReader bufferedReader;
         Throwable th;
         try {

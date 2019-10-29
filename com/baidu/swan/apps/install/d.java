@@ -7,40 +7,40 @@ import java.nio.channels.Pipe;
 /* loaded from: classes2.dex */
 public class d extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String ayH;
-    private final com.baidu.swan.pms.a.b ayI;
+    private final String aRX;
+    private final com.baidu.swan.pms.a.b aRY;
 
     public d(String str, com.baidu.swan.pms.a.b bVar) {
         super("check_sign");
-        this.ayH = str;
-        this.ayI = bVar;
+        this.aRX = str;
+        this.aRY = bVar;
     }
 
     @Override // com.baidu.swan.apps.install.g.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        com.baidu.swan.apps.ak.a ii;
-        com.baidu.swan.apps.v.c.a eY = com.baidu.swan.apps.v.c.a.eY(bundle.getString("launch_id"));
-        eY.Gc().fb("SignChecker").cI(1);
+        com.baidu.swan.apps.ak.a iL;
+        com.baidu.swan.apps.v.c.a fF = com.baidu.swan.apps.v.c.a.fF(bundle.getString("launch_id"));
+        fF.KW().fI("SignChecker").dD(1);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            ii = com.baidu.swan.apps.core.pms.c.a.a(sourceChannel, this.ayH, this.ayI);
+            iL = com.baidu.swan.apps.core.pms.c.a.a(sourceChannel, this.aRX, this.aRY);
         } catch (IOException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            ii = new com.baidu.swan.apps.ak.a().Z(11L).aa(2300L).ii("inputStream IOException:" + e.toString());
-            com.baidu.swan.apps.ak.e.Pd().b(ii);
-            eY.ak("SignChecker", ii.toString());
+            iL = new com.baidu.swan.apps.ak.a().as(11L).at(2300L).iL("inputStream IOException:" + e.toString());
+            com.baidu.swan.apps.ak.e.TT().b(iL);
+            fF.as("SignChecker", iL.toString());
         } finally {
             com.baidu.swan.apps.an.b.b.a(sourceChannel);
         }
-        eY.ak("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-        boolean z = ii == null;
-        if (ii != null) {
-            eY.ak("SignChecker", ii.toString());
-            El().putLong("result_error_code", ii.OZ());
+        fF.as("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
+        boolean z = iL == null;
+        if (iL != null) {
+            fF.as("SignChecker", iL.toString());
+            Jf().putLong("result_error_code", iL.TP());
         }
-        eY.ak("SignChecker", "done: " + z);
+        fF.as("SignChecker", "done: " + z);
         return z;
     }
 }

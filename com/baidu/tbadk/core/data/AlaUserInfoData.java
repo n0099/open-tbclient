@@ -3,8 +3,6 @@ package com.baidu.tbadk.core.data;
 import android.net.http.Headers;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
 /* loaded from: classes.dex */
@@ -37,11 +35,11 @@ public class AlaUserInfoData extends OrmObject {
             try {
                 this.ala_id = jSONObject.optLong("ala_id");
                 this.user_name = jSONObject.optString("user_name");
-                this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
+                this.portrait = jSONObject.optString("portrait");
                 this.enter_live = jSONObject.optLong("enter_live");
                 this.anchor_live = jSONObject.optLong("anchor_live");
                 this.description = jSONObject.optString("description");
-                this.sex = jSONObject.optString(MyGiftListActivityConfig.USER_SEX);
+                this.sex = jSONObject.optString("sex");
                 this.live_status = jSONObject.optInt("live_status");
                 this.live_id = jSONObject.optLong("live_id");
                 this.location = jSONObject.optString(Headers.LOCATION);

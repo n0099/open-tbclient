@@ -8,6 +8,18 @@ import com.baidu.swan.apps.b.c.d;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 /* loaded from: classes2.dex */
 public interface c<T extends d> extends m, e<T> {
+    boolean Ck();
+
+    PullToRefreshBaseWebView Cl();
+
+    f Cm();
+
+    boolean Cn();
+
+    void Co();
+
+    com.baidu.swan.apps.view.d.a Cp();
+
     void a(ViewGroup viewGroup, View view);
 
     void a(FrameLayout frameLayout, com.baidu.swan.apps.ae.a.d dVar);
@@ -26,23 +38,11 @@ public interface c<T extends d> extends m, e<T> {
 
     boolean b(com.baidu.swan.apps.scheme.actions.k.d dVar);
 
-    void bN(int i);
-
-    boolean bO(int i);
-
     boolean c(com.baidu.swan.apps.scheme.actions.k.d dVar);
 
-    com.baidu.swan.apps.canvas.c.g de(String str);
+    void cJ(int i);
 
-    boolean xq();
+    boolean cK(int i);
 
-    PullToRefreshBaseWebView xr();
-
-    f xs();
-
-    boolean xt();
-
-    void xu();
-
-    com.baidu.swan.apps.view.d.a xv();
+    com.baidu.swan.apps.canvas.c.g dO(String str);
 }

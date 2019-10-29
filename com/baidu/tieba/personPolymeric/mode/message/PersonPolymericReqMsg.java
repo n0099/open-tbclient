@@ -2,8 +2,8 @@ package com.baidu.tieba.personPolymeric.mode.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.i;
 import com.baidu.tbadk.util.r;
 import com.baidu.tieba.person.b;
@@ -15,7 +15,7 @@ public class PersonPolymericReqMsg extends NetMessage {
     private long uid;
 
     public PersonPolymericReqMsg() {
-        super(CmdConfigHttp.CMD_PERSON_POLYMERIC, 309408);
+        super(1003181, CmdConfigSocket.CMD_PERSON_POLYMERIC);
     }
 
     public void setUid(long j) {
@@ -43,12 +43,12 @@ public class PersonPolymericReqMsg extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.uid = Long.valueOf(this.uid);
         builder.pn = Integer.valueOf(this.pn);
-        builder.scr_w = Integer.valueOf(l.af(TbadkCoreApplication.getInst().getApp()));
-        builder.scr_h = Integer.valueOf(l.ah(TbadkCoreApplication.getInst().getApp()));
-        builder.q_type = Integer.valueOf(i.ace().getViewImageQuality());
-        builder.scr_dip = Double.valueOf(l.ai(TbadkCoreApplication.getInst().getApp()));
+        builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
+        builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
+        builder.q_type = Integer.valueOf(i.agq().getViewImageQuality());
+        builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp()));
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
         builder2.data = builder.build(false);

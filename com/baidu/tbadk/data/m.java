@@ -3,37 +3,37 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId XD = BdUniqueId.gen();
-    private String crW;
-    private String crX;
-    private boolean crY = false;
+    public static final BdUniqueId Hx = BdUniqueId.gen();
+    private String cEg;
+    private String cEh;
+    private boolean cEi = false;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return XD;
+        return Hx;
     }
 
-    public String arR() {
-        return this.crW;
+    public String atF() {
+        return this.cEg;
     }
 
-    public void qh(String str) {
-        this.crW = str;
+    public void pr(String str) {
+        this.cEg = str;
     }
 
     public String getSmallUrl() {
-        return this.crX;
+        return this.cEh;
     }
 
-    public void qi(String str) {
-        this.crX = str;
+    public void ps(String str) {
+        this.cEh = str;
     }
 
-    public boolean arS() {
-        return this.crY;
+    public boolean atG() {
+        return this.cEi;
     }
 
-    public void fd(boolean z) {
-        this.crY = z;
+    public void eX(boolean z) {
+        this.cEi = z;
     }
 }

@@ -11,8 +11,7 @@ import android.net.wifi.WifiManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
@@ -98,10 +97,10 @@ public class c {
         int i = e ? 1 : 0;
         String cuid = this.e.getCUID(this.g);
         a("v", i());
-        a(IXAdRequestInfo.IMSI, this.e.getIMEI(this.g));
+        a("im", this.e.getIMEI(this.g));
         a("aid", this.e.getAndroidId(this.g));
-        a(Config.MODEL, a(this.e.getMacAddress(this.g)));
-        a(DpStatConstants.KEY_CUID, cuid);
+        a("m", a(this.e.getMacAddress(this.g)));
+        a("cuid", cuid);
         a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(a.a(this.g)));
         a("oi", Integer.valueOf(j()));
         a("src", 1);
@@ -143,7 +142,7 @@ public class c {
 
     private int f() {
         try {
-            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo == null) {
                 return 0;
             }
@@ -156,7 +155,7 @@ public class c {
 
     private String g() {
         try {
-            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService("wifi")).getConnectionInfo();
             String ssid = connectionInfo == null ? "" : connectionInfo.getSSID();
             if (ssid.startsWith("\"") && ssid.endsWith("\"")) {
                 return ssid.substring(1, ssid.length() - 1);
@@ -169,7 +168,7 @@ public class c {
 
     private String h() {
         try {
-            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo == null) {
                 return null;
             }
@@ -186,7 +185,7 @@ public class c {
             PackageInfo packageInfo = this.g.getPackageManager().getPackageInfo(this.g.getPackageName(), 0);
             String str2 = packageInfo == null ? null : packageInfo.versionName;
             if (str2 != null) {
-                str = str2.replace(".", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                str = str2.replace(DefaultConfig.TOKEN_SEPARATOR, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 return str;
             }
             return null;

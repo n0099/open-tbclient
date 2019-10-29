@@ -8,20 +8,20 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i implements b {
+    @Nullable
+    private final com.airbnb.lottie.model.a.a gD;
+    @Nullable
+    private final com.airbnb.lottie.model.a.d gL;
+    private final Path.FillType gV;
+    private final boolean hv;
     private final String name;
-    private final Path.FillType oC;
-    @Nullable
-    private final com.airbnb.lottie.model.a.a oh;
-    @Nullable
-    private final com.airbnb.lottie.model.a.d or;
-    private final boolean pd;
 
     private i(String str, boolean z, Path.FillType fillType, @Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.pd = z;
-        this.oC = fillType;
-        this.oh = aVar;
-        this.or = dVar;
+        this.hv = z;
+        this.gV = fillType;
+        this.gD = aVar;
+        this.gL = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,17 +42,17 @@ public class i implements b {
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.a dC() {
-        return this.oh;
+    public com.airbnb.lottie.model.a.a cV() {
+        return this.gD;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.d cU() {
-        return this.or;
+    public com.airbnb.lottie.model.a.d cn() {
+        return this.gL;
     }
 
-    public Path.FillType de() {
-        return this.oC;
+    public Path.FillType cx() {
+        return this.gV;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -61,6 +61,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=" + (this.oh == null ? "null" : Integer.toHexString(this.oh.cH().intValue())) + ", fillEnabled=" + this.pd + ", opacity=" + (this.or == null ? "null" : this.or.cH()) + '}';
+        return "ShapeFill{color=" + (this.gD == null ? "null" : Integer.toHexString(this.gD.ca().intValue())) + ", fillEnabled=" + this.hv + ", opacity=" + (this.gL == null ? "null" : this.gL.ca()) + '}';
     }
 }

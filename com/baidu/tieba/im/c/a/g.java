@@ -3,55 +3,56 @@ package com.baidu.tieba.im.c.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.LoadHistoryMessage;
 import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
-    private com.baidu.tieba.im.db.c gSY;
+    private com.baidu.tieba.im.db.c gQY;
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.bDB(), 2001145);
+        a(com.baidu.tieba.im.db.c.bAl(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {
-        this.gSY = cVar;
+        this.gQY = cVar;
         this.mCmd = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage)) {
-            return wb(this.mCmd);
+            return uH(this.mCmd);
         }
-        if (this.gSY == null) {
-            return wb(this.mCmd);
+        if (this.gQY == null) {
+            return uH(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> d = this.gSY.d(data.id, data.gPQ, data.gPR, data.limit);
-        if (d == null) {
-            return wb(this.mCmd);
+        LinkedList<ChatMessage> e = this.gQY.e(data.id, data.gNR, data.gNS, data.limit);
+        if (e == null) {
+            return uH(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-        if (data.gPQ == null) {
+        if (data.gNR == null) {
             aVar.isFirst = true;
         } else {
             aVar.isFirst = false;
         }
-        aVar.msgList = d;
+        aVar.msgList = e;
         aVar.id = data.id;
         try {
-            loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
-        } catch (Exception e) {
-            e.printStackTrace();
+            loadHistoryResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar);
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage wb(int i) {
+    private LoadHistoryResponsedMessage uH(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

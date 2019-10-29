@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final FileFilter aHC = new FileFilter() { // from class: com.baidu.swan.apps.process.b.1
+    private static final FileFilter baQ = new FileFilter() { // from class: com.baidu.swan.apps.process.b.1
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             String name = file.getName();
@@ -31,25 +31,25 @@ public class b {
         }
     };
 
-    public static float bo(Context context) {
-        float bp = (bp(context) + Jm()) / 2.0f;
+    public static float bq(Context context) {
+        float br = (br(context) + Og()) / 2.0f;
         if (DEBUG) {
-            Log.d("SwanPerformanceEvaluation", "deviceLevel -> " + bp);
+            Log.d("SwanPerformanceEvaluation", "deviceLevel -> " + br);
         }
-        return bp;
+        return br;
     }
 
-    private static float Jm() {
+    private static float Og() {
         float f;
         float f2;
-        int Jp = Jp();
-        int Jn = Jn();
+        int Oj = Oj();
+        int Oh = Oh();
         if (DEBUG) {
-            Log.d("SwanPerformanceEvaluation", "cpu max freqKHz -> " + Jp);
-            Log.d("SwanPerformanceEvaluation", "cpu max cores -> " + Jn);
+            Log.d("SwanPerformanceEvaluation", "cpu max freqKHz -> " + Oj);
+            Log.d("SwanPerformanceEvaluation", "cpu max cores -> " + Oh);
         }
-        if (Jp != -1) {
-            float f3 = ((Jp / 1000.0f) - 1200.0f) / 1600.0f;
+        if (Oj != -1) {
+            float f3 = ((Oj / 1000.0f) - 1200.0f) / 1600.0f;
             if (f3 <= 0.0f) {
                 f3 = 0.0f;
             }
@@ -63,8 +63,8 @@ public class b {
         } else {
             f = 0.5f;
         }
-        if (Jn != -1) {
-            float f4 = ((Jn - 2) * 1.0f) / 6.0f;
+        if (Oh != -1) {
+            float f4 = ((Oh - 2) * 1.0f) / 6.0f;
             if (f4 <= 0.0f) {
                 f4 = 0.0f;
             }
@@ -78,15 +78,15 @@ public class b {
         return (f + f2) / 2.0f;
     }
 
-    private static float bp(Context context) {
-        long bq = bq(context);
+    private static float br(Context context) {
+        long bs = bs(context);
         if (DEBUG) {
-            Log.d("SwanPerformanceEvaluation", "mem in byte -> " + bq);
+            Log.d("SwanPerformanceEvaluation", "mem in byte -> " + bs);
         }
-        if (bq == -1) {
+        if (bs == -1) {
             return 0.5f;
         }
-        float f = ((((float) bq) / 1048576.0f) - 1000.0f) / 7000.0f;
+        float f = ((((float) bs) / 1048576.0f) - 1000.0f) / 7000.0f;
         float f2 = f > 0.0f ? f : 0.0f;
         float f3 = f2 < 1.0f ? f2 : 1.0f;
         if (DEBUG) {
@@ -96,25 +96,25 @@ public class b {
         return f3;
     }
 
-    public static int Jn() {
+    public static int Oh() {
         if (Build.VERSION.SDK_INT <= 10) {
             return 1;
         }
         try {
-            int gk = gk("/sys/devices/system/cpu/possible");
-            if (gk == -1) {
-                gk = gk("/sys/devices/system/cpu/present");
+            int gP = gP("/sys/devices/system/cpu/possible");
+            if (gP == -1) {
+                gP = gP("/sys/devices/system/cpu/present");
             }
-            if (gk == -1) {
-                return Jo();
+            if (gP == -1) {
+                return Oi();
             }
-            return gk;
+            return gP;
         } catch (NullPointerException | SecurityException e) {
             return -1;
         }
     }
 
-    private static int gk(String str) {
+    private static int gP(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -129,36 +129,36 @@ public class b {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
             String readLine = bufferedReader.readLine();
             bufferedReader.close();
-            int gl = gl(readLine);
-            com.baidu.swan.c.a.c(fileInputStream);
-            return gl;
+            int gQ = gQ(readLine);
+            com.baidu.swan.c.a.b(fileInputStream);
+            return gQ;
         } catch (IOException e2) {
-            com.baidu.swan.c.a.c(fileInputStream);
+            com.baidu.swan.c.a.b(fileInputStream);
             return -1;
         } catch (Throwable th3) {
             th = th3;
-            com.baidu.swan.c.a.c(fileInputStream);
+            com.baidu.swan.c.a.b(fileInputStream);
             throw th;
         }
     }
 
-    private static int gl(String str) {
+    private static int gQ(String str) {
         if (str == null || !str.matches("0-[\\d]+$")) {
             return -1;
         }
         return Integer.valueOf(str.substring(2)).intValue() + 1;
     }
 
-    private static int Jo() {
-        return new File("/sys/devices/system/cpu/").listFiles(aHC).length;
+    private static int Oi() {
+        return new File("/sys/devices/system/cpu/").listFiles(baQ).length;
     }
 
-    public static int Jp() {
+    public static int Oj() {
         int i;
         try {
-            int Jn = Jn();
+            int Oh = Oh();
             i = -1;
-            for (int i2 = 0; i2 < Jn; i2++) {
+            for (int i2 = 0; i2 < Oh; i2++) {
                 File file = new File("/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/cpuinfo_max_freq");
                 if (file.exists() && file.canRead()) {
                     byte[] bArr = new byte[128];
@@ -248,7 +248,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static long bq(Context context) {
+    private static long bs(Context context) {
         long j;
         FileInputStream fileInputStream;
         if (Build.VERSION.SDK_INT >= 16) {
@@ -271,14 +271,14 @@ public class b {
             fileInputStream = new FileInputStream("/proc/meminfo");
             try {
                 j = a("MemTotal", fileInputStream) * 1024;
-                com.baidu.swan.c.a.c(fileInputStream);
+                com.baidu.swan.c.a.b(fileInputStream);
             } catch (FileNotFoundException e) {
-                com.baidu.swan.c.a.c(fileInputStream);
+                com.baidu.swan.c.a.b(fileInputStream);
                 return j > 0 ? j : -1L;
             } catch (Throwable th) {
                 th = th;
                 fileInputStream2 = fileInputStream;
-                com.baidu.swan.c.a.c(fileInputStream2);
+                com.baidu.swan.c.a.b(fileInputStream2);
                 throw th;
             }
         } catch (FileNotFoundException e2) {

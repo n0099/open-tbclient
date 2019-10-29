@@ -1,12 +1,13 @@
 package com.baidu.tieba.interestlabel.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.SubTagList.SubTagListResIdl;
 /* loaded from: classes5.dex */
 public class ResponseSocketSubLabelMessage extends SocketResponsedMessage {
     public ResponseSocketSubLabelMessage() {
-        super(309468);
+        super(CmdConfigSocket.CMD_SUB_INTEREST_LABEL_LIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

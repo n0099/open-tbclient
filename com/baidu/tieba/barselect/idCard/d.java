@@ -13,25 +13,25 @@ public interface d {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void M(byte[] bArr);
+        void A(byte[] bArr);
     }
 
     void a(b bVar);
 
     void a(e eVar);
 
-    Rect aZH();
-
-    void aZI();
-
-    void aZx();
+    void aZA();
 
     @ICameraControl.FlashMode
-    int aZy();
+    int aZB();
 
-    View aZz();
+    View aZC();
 
-    void pA(@ICameraControl.FlashMode int i);
+    Rect aZK();
+
+    void aZL();
+
+    void oC(@ICameraControl.FlashMode int i);
 
     void pause();
 

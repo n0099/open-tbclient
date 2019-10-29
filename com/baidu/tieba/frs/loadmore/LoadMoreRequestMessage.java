@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.loadmore;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.util.r;
 import tbclient.ThreadList.AdParam;
@@ -26,7 +26,7 @@ public class LoadMoreRequestMessage extends NetMessage {
     private String thread_ids;
 
     public LoadMoreRequestMessage() {
-        super(CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
+        super(1001704, CmdConfigSocket.CMD_FRS_LOAD_MORE);
     }
 
     public void setLastClickTid(long j) {
@@ -67,20 +67,20 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.thread_ids = this.thread_ids;
         builder.forum_id = Long.valueOf(this.forum_id);
         builder.need_abstract = Integer.valueOf(this.need_abstract);
-        builder.user_id = Long.valueOf(b.e(TbadkCoreApplication.getCurrentAccount(), 0L));
+        builder.user_id = Long.valueOf(b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L));
         builder.forum_name = this.forumName;
         builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-        int af = l.af(TbadkCoreApplication.getInst());
-        int ah = l.ah(TbadkCoreApplication.getInst());
+        int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
+        int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
         builder.pn = Integer.valueOf(this.pn);
         builder.st_type = Integer.valueOf(this.st_type);
-        builder.scr_h = Integer.valueOf(ah);
-        builder.scr_w = Integer.valueOf(af);
-        builder.q_type = Integer.valueOf(ar.ajw().ajy() ? 2 : 1);
+        builder.scr_h = Integer.valueOf(equipmentHeight);
+        builder.scr_w = Integer.valueOf(equipmentWidth);
+        builder.q_type = Integer.valueOf(ar.amO().isFrsShowBigImage() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        r.bindCommonParamsToProtobufData(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cjz().cjC();
+        r.a(builder, true, false, true);
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cgD().cgG();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);

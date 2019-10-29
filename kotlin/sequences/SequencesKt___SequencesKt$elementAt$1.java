@@ -1,5 +1,6 @@
 package kotlin.sequences;
 
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import kotlin.jvm.internal.Lambda;
 /* loaded from: classes2.dex */
 final class SequencesKt___SequencesKt$elementAt$1 extends Lambda implements kotlin.jvm.a.b {
@@ -17,6 +18,6 @@ final class SequencesKt___SequencesKt$elementAt$1 extends Lambda implements kotl
     }
 
     public final Void invoke(int i) {
-        throw new IndexOutOfBoundsException("Sequence doesn't contain element at index " + this.$index + '.');
+        throw new IndexOutOfBoundsException("Sequence doesn't contain element at index " + this.$index + BdFileHelper.EXTENSION_SEPARATOR);
     }
 }

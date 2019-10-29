@@ -34,7 +34,7 @@ public class CompleteTaskReqMsg extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.shoubaicuid = TbadkCoreApplication.getInst().getCuidGalaxy2();
         builder.compelete_id = Base64.encodeToString(this.completeId.getBytes(), 2);
-        r.bindCommonParamsToProtobufData(builder, true, true, false);
+        r.a(builder, true, true, false);
         CompleteTaskReqIdl.Builder builder2 = new CompleteTaskReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -4,26 +4,26 @@ import com.baidu.swan.apps.an.x;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class b {
-    public static File De() {
-        return new File(x.PD().get(0).wX, "baidu/aigames_debug_game_core/");
+    public static File HY() {
+        return new File(x.Ut().get(0).mPath, "baidu/aigames_debug_game_core/");
     }
 
-    public static String Si() {
-        return x.PD().get(0).wX + File.separator + "baidu/aigames_debug_game_core/";
+    public static String WZ() {
+        return x.Ut().get(0).mPath + File.separator + "baidu/aigames_debug_game_core/";
     }
 
-    public static void Df() {
-        File De = De();
-        if (De.exists()) {
-            com.baidu.swan.c.a.deleteFile(De);
+    public static void HZ() {
+        File HY = HY();
+        if (HY.exists()) {
+            com.baidu.swan.c.a.deleteFile(HY);
         }
     }
 
-    public static File Dg() {
-        File De = De();
-        if (!De.exists()) {
-            De.mkdirs();
+    public static File Ia() {
+        File HY = HY();
+        if (!HY.exists()) {
+            HY.mkdirs();
         }
-        return new File(De, "debugGameCore.zip");
+        return new File(HY, "debugGameCore.zip");
     }
 }

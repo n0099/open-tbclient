@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
+import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes2.dex */
 public class g {
-    private a beO;
+    private a bxI;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -25,7 +25,7 @@ public class g {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void iM(String str);
+        void jp(String str);
     }
 
     public g(@NonNull JsObject jsObject) {
@@ -45,13 +45,13 @@ public class g {
                         }
                         break;
                     case 115029:
-                        if (propertyName.equals("top")) {
+                        if (propertyName.equals(VerticalTranslateLayout.TOP)) {
                             c = 1;
                             break;
                         }
                         break;
                     case 3317767:
-                        if (propertyName.equals(CustomDialogData.POS_LEFT)) {
+                        if (propertyName.equals("left")) {
                             c = 0;
                             break;
                         }
@@ -86,12 +86,12 @@ public class g {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.beO != null) {
-            this.beO.iM(str);
+        if (this.bxI != null) {
+            this.bxI.jp(str);
         }
     }
 
     public void a(a aVar) {
-        this.beO = aVar;
+        this.bxI = aVar;
     }
 }

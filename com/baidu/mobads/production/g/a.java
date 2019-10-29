@@ -148,8 +148,8 @@ public class a extends com.baidu.mobads.production.b {
         if (!this.z) {
             HashMap hashMap3 = new HashMap();
             if (iXAdContainer.getAdContainerContext() != null && iXAdContainer.getAdContainerContext().getAdInstanceInfo() != null) {
-                hashMap3.put(com.baidu.mobads.d.agY, Integer.valueOf(iXAdContainer.getAdContainerContext().getAdInstanceInfo().getPattern()));
-                hashMap3.put(com.baidu.mobads.d.agZ, Float.valueOf(iXAdContainer.getAdContainerContext().getAdInstanceInfo().getBtnPosition()));
+                hashMap3.put(com.baidu.mobads.d.aAw, Integer.valueOf(iXAdContainer.getAdContainerContext().getAdInstanceInfo().getPattern()));
+                hashMap3.put(com.baidu.mobads.d.aAx, Float.valueOf(iXAdContainer.getAdContainerContext().getAdInstanceInfo().getBtnPosition()));
             }
             dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_LOADED, hashMap3));
             start();

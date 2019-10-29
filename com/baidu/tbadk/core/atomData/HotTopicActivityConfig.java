@@ -21,7 +21,7 @@ public class HotTopicActivityConfig extends IntentConfig {
     public HotTopicActivityConfig createNormalConfig(String str, String str2, String str3) {
         Intent intent = getIntent();
         intent.putExtra("topic_id", str);
-        intent.putExtra(IntentConfig.TOPIC_NAME, str2);
+        intent.putExtra("topic_name", str2);
         if (StringUtils.isNull(str3)) {
             str3 = "1";
         }
@@ -30,9 +30,9 @@ public class HotTopicActivityConfig extends IntentConfig {
     }
 
     public void setExtra(long j, String str, String str2, long j2) {
-        getIntent().putExtra(IntentConfig.TOPIC_FID, j);
-        getIntent().putExtra(IntentConfig.TOPIC_FIRST_DIR, str);
-        getIntent().putExtra(IntentConfig.TOPIC_SECOND_DIR, str2);
+        getIntent().putExtra("topic_fid", j);
+        getIntent().putExtra("topic_first_dir", str);
+        getIntent().putExtra("topic_second_dir", str2);
         getIntent().putExtra(IntentConfig.TOPIC_TID, j2);
     }
 }

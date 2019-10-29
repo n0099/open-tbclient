@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -15,7 +16,7 @@ public class FrsProfessionIntroActivityConfig extends IntentConfig {
     public FrsProfessionIntroActivityConfig(Context context, String str) {
         super(context);
         getIntent().putExtra(KEY_PATTEN_BACKGROUND, str);
-        setRequestCode(25041);
+        setRequestCode(RequestResponseCode.REQUEST_DO_PAY);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

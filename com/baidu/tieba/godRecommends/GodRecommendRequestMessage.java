@@ -1,7 +1,7 @@
 package com.baidu.tieba.godRecommends;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.r;
 import tbclient.GetRecommendGod.DataReq;
 import tbclient.GetRecommendGod.GetRecommendGodReqIdl;
@@ -10,15 +10,15 @@ public class GodRecommendRequestMessage extends NetMessage {
     public String userId;
 
     public GodRecommendRequestMessage() {
-        super(CmdConfigHttp.CMD_GET_GOD_RECOMMEND, 309471);
+        super(1003375, CmdConfigSocket.CMD_GET_GOD_RECOMMEND);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.e(this.userId, 0L));
+        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.toLong(this.userId, 0L));
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         GetRecommendGodReqIdl.Builder builder2 = new GetRecommendGodReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -156,7 +156,7 @@ public class ActivityChooserModel extends DataSetObservable {
                     return null;
                 }
             }
-            addHistoricalRecord(new HistoricalRecord(componentName, System.currentTimeMillis(), (float) DEFAULT_HISTORICAL_RECORD_WEIGHT));
+            addHistoricalRecord(new HistoricalRecord(componentName, System.currentTimeMillis(), 1.0f));
             return intent;
         }
     }
@@ -186,7 +186,7 @@ public class ActivityChooserModel extends DataSetObservable {
             if (activityResolveInfo2 != null) {
                 f = (activityResolveInfo2.weight - activityResolveInfo.weight) + 5.0f;
             } else {
-                f = DEFAULT_HISTORICAL_RECORD_WEIGHT;
+                f = 1.0f;
             }
             addHistoricalRecord(new HistoricalRecord(new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name), System.currentTimeMillis(), f));
         }
@@ -411,7 +411,7 @@ public class ActivityChooserModel extends DataSetObservable {
                 activityResolveInfo.weight = 0.0f;
                 map.put(new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name), activityResolveInfo);
             }
-            float f2 = ActivityChooserModel.DEFAULT_HISTORICAL_RECORD_WEIGHT;
+            float f2 = 1.0f;
             int size2 = list2.size() - 1;
             while (size2 >= 0) {
                 HistoricalRecord historicalRecord = list2.get(size2);
@@ -461,7 +461,7 @@ public class ActivityChooserModel extends DataSetObservable {
                                 if (!TAG_HISTORICAL_RECORD.equals(newPullParser.getName())) {
                                     throw new XmlPullParserException("Share records file not well-formed.");
                                 }
-                                list.add(new HistoricalRecord(newPullParser.getAttributeValue(null, "activity"), Long.parseLong(newPullParser.getAttributeValue(null, "time")), Float.parseFloat(newPullParser.getAttributeValue(null, ATTRIBUTE_WEIGHT))));
+                                list.add(new HistoricalRecord(newPullParser.getAttributeValue(null, "activity"), Long.parseLong(newPullParser.getAttributeValue(null, "time")), Float.parseFloat(newPullParser.getAttributeValue(null, "weight"))));
                             }
                         }
                     } catch (Throwable th) {
@@ -522,7 +522,7 @@ public class ActivityChooserModel extends DataSetObservable {
                             newSerializer.startTag(null, ActivityChooserModel.TAG_HISTORICAL_RECORD);
                             newSerializer.attribute(null, "activity", historicalRecord.activity.flattenToString());
                             newSerializer.attribute(null, "time", String.valueOf(historicalRecord.time));
-                            newSerializer.attribute(null, ActivityChooserModel.ATTRIBUTE_WEIGHT, String.valueOf(historicalRecord.weight));
+                            newSerializer.attribute(null, "weight", String.valueOf(historicalRecord.weight));
                             newSerializer.endTag(null, ActivityChooserModel.TAG_HISTORICAL_RECORD);
                         }
                         newSerializer.endTag(null, ActivityChooserModel.TAG_HISTORICAL_RECORDS);

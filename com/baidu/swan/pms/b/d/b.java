@@ -1,66 +1,66 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class b extends e {
-    private String bui;
-    private int buj;
-    private String buk;
-    private long bul;
-    private String bum;
-    private String wX;
+    private String bMS;
+    private int bMT;
+    private String bMU;
+    private long bMV;
+    private String bMW;
+    private String mPath;
 
     public b(String str, int i) {
         super(i);
-        this.buj = -1;
-        this.bul = -1L;
-        this.bui = str;
+        this.bMT = -1;
+        this.bMV = -1L;
+        this.bMS = str;
     }
 
-    public b ky(String str) {
-        this.buk = str;
+    public b la(String str) {
+        this.bMU = str;
         return this;
     }
 
-    public b fM(int i) {
-        this.buj = i;
+    public b gH(int i) {
+        this.bMT = i;
         return this;
     }
 
-    public b ah(long j) {
-        this.bul = j;
+    public b aA(long j) {
+        this.bMV = j;
         return this;
     }
 
-    public b kz(String str) {
-        this.bum = str;
+    public b lb(String str) {
+        this.bMW = str;
         return this;
     }
 
-    public b kA(String str) {
-        this.wX = str;
+    public b lc(String str) {
+        this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.bui;
+        return this.bMS;
     }
 
-    public int WO() {
-        return this.buj;
+    public int abD() {
+        return this.bMT;
     }
 
-    public long WP() {
-        return this.bul;
+    public long abE() {
+        return this.bMV;
     }
 
-    public String WQ() {
-        return this.buk;
+    public String abF() {
+        return this.bMU;
     }
 
-    public String WR() {
-        return this.bum;
+    public String abG() {
+        return this.bMW;
     }
 
     public String getPath() {
-        return this.wX;
+        return this.mPath;
     }
 }

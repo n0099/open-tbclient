@@ -30,8 +30,8 @@ import org.json.JSONObject;
 public class b {
     private static Class<?> d;
     private Activity a;
+    private Method[] aAs = null;
     private Object c;
-    private Method[] e = null;
     private static boolean b = false;
     private static AtomicBoolean f = new AtomicBoolean(false);
 
@@ -39,16 +39,16 @@ public class b {
         this.a = activity;
     }
 
-    public static boolean ux() {
+    public static boolean zr() {
         return f.get();
     }
 
-    private Method cP(String str) {
+    private Method dz(String str) {
         Method[] methodArr;
-        if (this.e == null) {
+        if (this.aAs == null) {
             return null;
         }
-        for (Method method : this.e) {
+        for (Method method : this.aAs) {
             if (method.getName().equals(str)) {
                 method.setAccessible(true);
                 return method;
@@ -57,7 +57,7 @@ public class b {
         return null;
     }
 
-    public void g(String str, Object... objArr) {
+    public void f(String str, Object... objArr) {
         try {
             com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
@@ -65,12 +65,12 @@ public class b {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method cP = cP(str);
-            if (cP != null) {
+            Method dz = dz(str);
+            if (dz != null) {
                 if (objArr == null || objArr.length == 0) {
-                    cP.invoke(null, new Object[0]);
+                    dz.invoke(null, new Object[0]);
                 } else {
-                    cP.invoke(null, objArr);
+                    dz.invoke(null, objArr);
                 }
             }
         } catch (Exception e) {
@@ -86,12 +86,12 @@ public class b {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method cP = cP(str);
-            if (cP != null) {
+            Method dz = dz(str);
+            if (dz != null) {
                 if (objArr == null || objArr.length == 0) {
-                    cP.invoke(this.c, new Object[0]);
+                    dz.invoke(this.c, new Object[0]);
                 } else {
-                    cP.invoke(this.c, objArr);
+                    dz.invoke(this.c, objArr);
                 }
             }
         } catch (Exception e) {
@@ -99,7 +99,7 @@ public class b {
         }
     }
 
-    private boolean h(String str, Object... objArr) {
+    private boolean g(String str, Object... objArr) {
         try {
             com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
@@ -107,12 +107,12 @@ public class b {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method cP = cP(str);
-            if (cP != null) {
+            Method dz = dz(str);
+            if (dz != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return ((Boolean) cP.invoke(this.c, new Object[0])).booleanValue();
+                    return ((Boolean) dz.invoke(this.c, new Object[0])).booleanValue();
                 }
-                return ((Boolean) cP.invoke(this.c, objArr)).booleanValue();
+                return ((Boolean) dz.invoke(this.c, objArr)).booleanValue();
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -120,7 +120,7 @@ public class b {
         return false;
     }
 
-    private Object j(String str, Object... objArr) {
+    private Object h(String str, Object... objArr) {
         try {
             com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
@@ -128,12 +128,12 @@ public class b {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method cP = cP(str);
-            if (cP != null) {
+            Method dz = dz(str);
+            if (dz != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return cP.invoke(this.c, new Object[0]);
+                    return dz.invoke(this.c, new Object[0]);
                 }
-                return cP.invoke(this.c, objArr);
+                return dz.invoke(this.c, objArr);
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -142,15 +142,15 @@ public class b {
     }
 
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return h("dispatchKeyEvent", keyEvent);
+        return g("dispatchKeyEvent", keyEvent);
     }
 
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return h("dispatchTouchEvent", motionEvent);
+        return g("dispatchTouchEvent", motionEvent);
     }
 
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        return h("dispatchTrackballEvent", motionEvent);
+        return g("dispatchTrackballEvent", motionEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -177,7 +177,7 @@ public class b {
     }
 
     public boolean onContextItemSelected(MenuItem menuItem) {
-        return h("onContextItemSelected", menuItem);
+        return g("onContextItemSelected", menuItem);
     }
 
     public void onContextMenuClosed(Menu menu) {
@@ -189,7 +189,7 @@ public class b {
         try {
             f.set(true);
             Intent intent = this.a.getIntent();
-            if (AppActivity.uv() && intent.getParcelableExtra("EXTRA_DATA") == null) {
+            if (AppActivity.zp() && intent.getParcelableExtra("EXTRA_DATA") == null) {
                 XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo((String) null, new XAdInstanceInfo(new JSONObject()));
                 b(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra("EXTRA_DATA_STRING"));
                 b(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra("EXTRA_DATA_STRING_COM"));
@@ -200,11 +200,11 @@ public class b {
             if (d2 != null) {
                 d = Class.forName("com.baidu.mobads.container.landingpage.App2Activity", true, d2);
             } else {
-                d = cQ("com.baidu.mobads.container.landingpage.App2Activity");
+                d = dA("com.baidu.mobads.container.landingpage.App2Activity");
             }
-            this.e = d.getDeclaredMethods();
+            this.aAs = d.getDeclaredMethods();
             this.c = d.getConstructor(Activity.class).newInstance(this.a);
-            g("canLpShowWhenLocked", Boolean.valueOf(b));
+            f("canLpShowWhenLocked", Boolean.valueOf(b));
             com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().e(e);
@@ -212,7 +212,7 @@ public class b {
         a("onCreate", bundle);
     }
 
-    public Class<?> cQ(String str) {
+    public Class<?> dA(String str) {
         Class<?> cls = null;
         com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
         try {
@@ -229,28 +229,28 @@ public class b {
     }
 
     public CharSequence onCreateDescription() {
-        return (CharSequence) j("onCreateDescription", new Object[0]);
+        return (CharSequence) h("onCreateDescription", new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Dialog onCreateDialog(int i) {
-        Dialog dialog = (Dialog) j("onCreateDialog", Integer.valueOf(i));
+        Dialog dialog = (Dialog) h("onCreateDialog", Integer.valueOf(i));
         if (dialog != null) {
         }
         return dialog;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        return h("onCreateOptionsMenu", menu);
+        return g("onCreateOptionsMenu", menu);
     }
 
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        return h("onCreatePanelMenu", Integer.valueOf(i), menu);
+        return g("onCreatePanelMenu", Integer.valueOf(i), menu);
     }
 
     public View onCreatePanelView(int i) {
         try {
-            return (View) j("onCreatePanelView", Integer.valueOf(i));
+            return (View) h("onCreatePanelView", Integer.valueOf(i));
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -258,12 +258,12 @@ public class b {
     }
 
     public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
-        return h("onCreateThumbnail", bitmap, canvas);
+        return g("onCreateThumbnail", bitmap, canvas);
     }
 
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         try {
-            return (View) j("onCreateView", str, context, attributeSet);
+            return (View) h("onCreateView", str, context, attributeSet);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -277,15 +277,15 @@ public class b {
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return h("onKeyDown", Integer.valueOf(i), keyEvent);
+        return g("onKeyDown", Integer.valueOf(i), keyEvent);
     }
 
     public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        return h("onKeyMultiple", Integer.valueOf(i), Integer.valueOf(i2), keyEvent);
+        return g("onKeyMultiple", Integer.valueOf(i), Integer.valueOf(i2), keyEvent);
     }
 
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return h("onKeyUp", Integer.valueOf(i), keyEvent);
+        return g("onKeyUp", Integer.valueOf(i), keyEvent);
     }
 
     public void onLowMemory() {
@@ -293,11 +293,11 @@ public class b {
     }
 
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return h("onMenuItemSelected", Integer.valueOf(i), menuItem);
+        return g("onMenuItemSelected", Integer.valueOf(i), menuItem);
     }
 
     public boolean onMenuOpened(int i, Menu menu) {
-        return h("onMenuOpened", Integer.valueOf(i), menu);
+        return g("onMenuOpened", Integer.valueOf(i), menu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -306,7 +306,7 @@ public class b {
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        return h("onOptionsItemSelected", menuItem);
+        return g("onOptionsItemSelected", menuItem);
     }
 
     public void onOptionsMenuClosed(Menu menu) {
@@ -338,11 +338,11 @@ public class b {
     }
 
     public boolean onPrepareOptionsMenu(Menu menu) {
-        return h("onPrepareOptionsMenu", menu);
+        return g("onPrepareOptionsMenu", menu);
     }
 
     public boolean onPreparePanel(int i, View view, Menu menu) {
-        return h("onPreparePanel", Integer.valueOf(i), view, menu);
+        return g("onPreparePanel", Integer.valueOf(i), view, menu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -361,7 +361,7 @@ public class b {
     }
 
     public Object onRetainNonConfigurationInstance() {
-        return j("onRetainNonConfigurationInstance", new Object[0]);
+        return h("onRetainNonConfigurationInstance", new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -370,7 +370,7 @@ public class b {
     }
 
     public boolean onSearchRequested() {
-        return h("onSearchRequested", new Object[0]);
+        return g("onSearchRequested", new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -389,11 +389,11 @@ public class b {
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return h("onTouchEvent", motionEvent);
+        return g("onTouchEvent", motionEvent);
     }
 
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        return h("onTrackballEvent", motionEvent);
+        return g("onTrackballEvent", motionEvent);
     }
 
     public void onUserInteraction() {

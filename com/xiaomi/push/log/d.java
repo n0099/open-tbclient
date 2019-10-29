@@ -15,12 +15,12 @@ public class d extends k.b {
 
     @Override // com.xiaomi.channel.commonutils.misc.k.b
     public void b() {
-        b.C0496b c0496b = (b.C0496b) this.b.a.peek();
-        if (c0496b == null || !c0496b.d()) {
+        b.C0597b c0597b = (b.C0597b) this.b.a.peek();
+        if (c0597b == null || !c0597b.d()) {
             return;
         }
-        if (this.b.a.remove(c0496b)) {
-            this.a = c0496b;
+        if (this.b.a.remove(c0597b)) {
+            this.a = c0597b;
         }
         if (this.a != null) {
             this.a.b();

@@ -20,7 +20,7 @@ public interface v {
         void b(v vVar);
     }
 
-    void Fp();
+    void Kj();
 
     void a(com.baidu.swan.apps.media.d.c cVar);
 
@@ -36,13 +36,13 @@ public interface v {
 
     void b(com.baidu.swan.apps.media.d.c cVar);
 
-    v bg(Context context);
+    void bJ(boolean z);
 
-    void br(boolean z);
+    void bK(boolean z);
 
-    void bs(boolean z);
+    v bi(Context context);
 
-    void eI(String str);
+    void fp(String str);
 
     int getCurrentPosition();
 

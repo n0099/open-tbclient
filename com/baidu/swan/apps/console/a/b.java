@@ -24,12 +24,12 @@ public class b extends z {
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
         com.baidu.swan.apps.console.c.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-        if (!d.yp()) {
+        if (!d.Dk()) {
             com.baidu.swan.apps.console.c.e("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        SwanAppActivity Gv = e.GJ().Gv();
+        SwanAppActivity Lp = e.LD().Lp();
         char c = 65535;
         switch (str.hashCode()) {
             case 1183295719:
@@ -48,16 +48,16 @@ public class b extends z {
         switch (c) {
             case 0:
                 com.baidu.swan.apps.console.c.i("RemoteDebugAction", "Remote Debug reload");
-                if (Gv != null) {
-                    Gv.recreate();
+                if (Lp != null) {
+                    Lp.recreate();
                 }
                 return true;
             case 1:
-                if (Gv != null) {
+                if (Lp != null) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        Gv.finishAndRemoveTask();
+                        Lp.finishAndRemoveTask();
                     } else {
-                        Gv.finish();
+                        Lp.finish();
                     }
                     System.exit(0);
                 }

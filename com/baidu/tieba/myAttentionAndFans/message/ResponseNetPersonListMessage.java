@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.d.a;
 import com.baidu.tbadk.core.data.as;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.Map;
@@ -18,7 +18,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     private String mErrMsg;
 
     public ResponseNetPersonListMessage(int i) {
-        super(CmdConfigHttp.PIC_PERSONAL_LIST);
+        super(1002004);
         this.mErrCode = 0;
         this.mErrMsg = "";
     }
@@ -64,9 +64,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> mN = a.agL().mN("tb.my_pages");
-                    if (mN != null) {
-                        mN.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
+                    l<String> nl = a.akN().nl("tb.my_pages");
+                    if (nl != null) {
+                        nl.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
                     }
                 }
             }

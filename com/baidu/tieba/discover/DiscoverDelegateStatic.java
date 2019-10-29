@@ -8,6 +8,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
@@ -20,13 +21,13 @@ public class DiscoverDelegateStatic extends b {
 
     static {
         if (!isAdded) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007013));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_REFRESH_TABS));
         }
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921010, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<BaseFragment> run(CustomMessage<BaseFragment> customMessage) {
-                return new CustomResponsedMessage<>(2921010, new DiscoverFragment());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new DiscoverFragment());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -39,32 +40,32 @@ public class DiscoverDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c auf() {
+    public c avy() {
         c cVar = new c();
-        cVar.cyG = new DiscoverFragment();
+        cVar.frag = new DiscoverFragment();
         cVar.type = 10;
-        cVar.bXX = R.string.home_discover;
-        cVar.bXY = R.drawable.s_icon_tabbar_discover;
+        cVar.textResId = R.string.home_discover;
+        cVar.drawableResId = R.drawable.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator cP(Context context) {
-        this.cys = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+    public TbFragmentTabIndicator cB(Context context) {
+        this.cKb = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.czd = this.cys;
-        aVar.zQ = l.dip2px(context, 3.0f);
-        aVar.czb = R.drawable.icon_news_down_bar_one;
-        this.cys.a("emotion", aVar);
-        return this.cys;
+        aVar.cKv = this.cKb;
+        aVar.offsetX = l.dip2px(context, 3.0f);
+        aVar.bgDayRes = R.drawable.icon_news_down_bar_one;
+        this.cKb.a("emotion", aVar);
+        return this.cKb;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void aue() {
+    public void onAdd() {
         isAdded = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void fv() {
+    public void onRemove() {
     }
 }

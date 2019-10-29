@@ -13,19 +13,18 @@ public class g extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.i, h> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aC */
-    public h onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: aE */
+    public h b(ViewGroup viewGroup) {
         return new h(new View(this.mContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.i iVar, h hVar) {
-        super.onFillViewHolder(i, view, viewGroup, iVar, hVar);
-        hVar.rh(iVar.getHeight());
-        hVar.iV(iVar.bmz());
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.i iVar, h hVar) {
+        super.a(i, view, viewGroup, (ViewGroup) iVar, (com.baidu.tieba.frs.i) hVar);
+        hVar.qa(iVar.getHeight());
+        hVar.setBackground(iVar.bjF());
         return view;
     }
 }

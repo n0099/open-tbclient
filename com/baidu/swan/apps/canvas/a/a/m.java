@@ -8,12 +8,12 @@ public class m extends a {
     private Rect mRect;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void e(JSONArray jSONArray) {
+    public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int ad = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(0));
-                int ad2 = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
-                this.mRect = new Rect(ad, ad2, com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(2)) + ad, com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(3)) + ad2);
+                int S = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(0));
+                int S2 = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
+                this.mRect = new Rect(S, S2, com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(2)) + S, com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(3)) + S2);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {

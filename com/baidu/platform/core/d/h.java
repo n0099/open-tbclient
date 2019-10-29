@@ -1,7 +1,6 @@
 package com.baidu.platform.core.d;
 
 import android.net.http.Headers;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -75,7 +74,7 @@ public class h extends com.baidu.platform.base.d {
         JSONObject optJSONObject3 = jSONObject.optJSONObject("vehicle_info");
         if (optJSONObject3 != null) {
             int optInt = optJSONObject3.optInt("type");
-            JSONObject optJSONObject4 = optJSONObject3.optJSONObject(DpStatConstants.KEY_DETAIL);
+            JSONObject optJSONObject4 = optJSONObject3.optJSONObject("detail");
             switch (optInt) {
                 case 1:
                     transitStep.setVehileType(MassTransitRouteLine.TransitStep.StepVehicleInfoType.ESTEP_TRAIN);

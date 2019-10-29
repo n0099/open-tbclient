@@ -16,7 +16,7 @@ final class z implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        PushMessageCallback pushMessageCallback = this.b.c;
+        PushMessageCallback pushMessageCallback = this.b.b;
         context = this.b.a;
         pushMessageCallback.onPublish(context, this.a.h(), this.a.g());
     }

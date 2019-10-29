@@ -2,16 +2,16 @@ package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class ai extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void hN() {
-        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.za, this.zd);
-        bVar.a(this.zc, this.yZ, this.zb);
-        bVar.g(hM());
-        bVar.Q(true);
-        com.baidu.adp.lib.b.d.hS().a(bVar);
+    protected void fn() {
+        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.of, this.oi);
+        bVar.a(this.oh, this.oe, this.og);
+        bVar.g(fm());
+        bVar.z(true);
+        com.baidu.adp.lib.b.d.ft().a(bVar);
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
+    protected void C(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -20,22 +20,22 @@ public class ai extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hI() {
+    protected String[] fi() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hJ() {
+    protected int fj() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hK() {
+    protected int fk() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hL() {
+    protected int fl() {
         return 10;
     }
 }

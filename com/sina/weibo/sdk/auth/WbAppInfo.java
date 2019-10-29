@@ -1,11 +1,10 @@
 package com.sina.weibo.sdk.auth;
 
 import android.text.TextUtils;
-import com.sina.weibo.BuildConfig;
 /* loaded from: classes2.dex */
 public class WbAppInfo {
     private int supportVersion;
-    private String packageName = BuildConfig.APPLICATION_ID;
+    private String packageName = "com.sina.weibo";
     private String authActivityName = "com.sina.weibo.SSOActivity";
 
     public String getPackageName() {

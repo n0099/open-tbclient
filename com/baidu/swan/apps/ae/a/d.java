@@ -3,34 +3,33 @@ package com.baidu.swan.apps.ae.a;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.vivo.push.util.NotifyAdapterUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int aRS;
-    public String aRT;
-    public String aRU;
-    public String aRV;
-    public boolean aRW;
-    public String aRX;
-    public boolean aRY;
-    public boolean aRZ;
-    public String aSa;
-    public boolean aSb;
+    public int bkW;
+    public String bkX;
+    public String bkY;
+    public String bkZ;
+    public boolean bla;
+    public String blb;
+    public boolean blc;
+    public boolean bld;
+    public String ble;
+    public boolean blf;
     public int mBackgroundColor;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static d X(JSONObject jSONObject) {
+    public static d av(JSONObject jSONObject) {
         if (jSONObject == null) {
-            return MN();
+            return RF();
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("window");
         if (optJSONObject == null) {
-            return MN();
+            return RF();
         }
-        return Y(optJSONObject);
+        return aw(optJSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -49,39 +48,39 @@ public class d {
         return dVar;
     }
 
-    private static d Y(JSONObject jSONObject) {
+    private static d aw(JSONObject jSONObject) {
         d dVar = new d();
-        dVar.aRS = c.cE(jSONObject.optString("navigationBarBackgroundColor"));
-        dVar.aRT = jSONObject.optString("navigationBarTitleText");
-        dVar.aRU = jSONObject.optString("navigationBarTextStyle", "black");
-        dVar.aRV = jSONObject.optString("backgroundTextStyle", "black");
-        dVar.mBackgroundColor = c.cE(jSONObject.optString("backgroundColor"));
-        dVar.aRW = jSONObject.optBoolean("enablePullDownRefresh");
-        dVar.aRX = jSONObject.optString("onReachBottomDistance");
-        dVar.aRY = jSONObject.optBoolean("enableOpacityNavigationBar");
-        dVar.aRZ = jSONObject.optBoolean("enableOpacityNavigationBarText");
-        dVar.aSa = jSONObject.optString("navigationStyle", NotifyAdapterUtil.PRIMARY_CHANNEL);
-        dVar.aSb = jSONObject.optBoolean("navigationHomeButtonHidden");
+        dVar.bkW = c.bR(jSONObject.optString("navigationBarBackgroundColor"));
+        dVar.bkX = jSONObject.optString("navigationBarTitleText");
+        dVar.bkY = jSONObject.optString("navigationBarTextStyle", "black");
+        dVar.bkZ = jSONObject.optString("backgroundTextStyle", "black");
+        dVar.mBackgroundColor = c.bR(jSONObject.optString("backgroundColor"));
+        dVar.bla = jSONObject.optBoolean("enablePullDownRefresh");
+        dVar.blb = jSONObject.optString("onReachBottomDistance");
+        dVar.blc = jSONObject.optBoolean("enableOpacityNavigationBar");
+        dVar.bld = jSONObject.optBoolean("enableOpacityNavigationBarText");
+        dVar.ble = jSONObject.optString("navigationStyle", "default");
+        dVar.blf = jSONObject.optBoolean("navigationHomeButtonHidden");
         return dVar;
     }
 
     private static d a(JSONObject jSONObject, @NonNull d dVar) {
         d dVar2 = new d();
-        dVar2.aRS = jSONObject.has("navigationBarBackgroundColor") ? c.cE(jSONObject.optString("navigationBarBackgroundColor")) : dVar.aRS;
-        dVar2.aRT = jSONObject.optString("navigationBarTitleText", dVar.aRT);
-        dVar2.aRU = jSONObject.optString("navigationBarTextStyle", dVar.aRU);
-        dVar2.aRV = jSONObject.optString("backgroundTextStyle", dVar.aRV);
-        dVar2.mBackgroundColor = jSONObject.has("backgroundColor") ? c.cE(jSONObject.optString("backgroundColor")) : dVar.mBackgroundColor;
-        dVar2.aRW = jSONObject.optBoolean("enablePullDownRefresh", dVar.aRW);
-        dVar2.aRX = jSONObject.optString("onReachBottomDistance", dVar.aRX);
-        dVar2.aRY = jSONObject.optBoolean("enableOpacityNavigationBar", dVar.aRY);
-        dVar2.aRZ = jSONObject.optBoolean("enableOpacityNavigationBarText", dVar.aRZ);
-        dVar2.aSa = jSONObject.optString("navigationStyle", dVar.aSa);
-        dVar2.aSb = jSONObject.optBoolean("navigationHomeButtonHidden", dVar.aSb);
+        dVar2.bkW = jSONObject.has("navigationBarBackgroundColor") ? c.bR(jSONObject.optString("navigationBarBackgroundColor")) : dVar.bkW;
+        dVar2.bkX = jSONObject.optString("navigationBarTitleText", dVar.bkX);
+        dVar2.bkY = jSONObject.optString("navigationBarTextStyle", dVar.bkY);
+        dVar2.bkZ = jSONObject.optString("backgroundTextStyle", dVar.bkZ);
+        dVar2.mBackgroundColor = jSONObject.has("backgroundColor") ? c.bR(jSONObject.optString("backgroundColor")) : dVar.mBackgroundColor;
+        dVar2.bla = jSONObject.optBoolean("enablePullDownRefresh", dVar.bla);
+        dVar2.blb = jSONObject.optString("onReachBottomDistance", dVar.blb);
+        dVar2.blc = jSONObject.optBoolean("enableOpacityNavigationBar", dVar.blc);
+        dVar2.bld = jSONObject.optBoolean("enableOpacityNavigationBarText", dVar.bld);
+        dVar2.ble = jSONObject.optString("navigationStyle", dVar.ble);
+        dVar2.blf = jSONObject.optBoolean("navigationHomeButtonHidden", dVar.blf);
         return dVar2;
     }
 
-    public static d MN() {
+    public static d RF() {
         if (DEBUG) {
             Log.e("WindowConfig", "WindowConfig createNullObject() " + Log.getStackTraceString(new Exception()));
         }
@@ -92,6 +91,6 @@ public class d {
         if (dVar == null) {
             return false;
         }
-        return dVar.aRY || TextUtils.equals(dVar.aSa, "custom");
+        return dVar.blc || TextUtils.equals(dVar.ble, "custom");
     }
 }

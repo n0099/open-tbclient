@@ -7,83 +7,83 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.a;
 /* loaded from: classes3.dex */
 public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
-    private x<T> Xi;
-    private s Xj;
-    private com.baidu.tieba.card.ab<T> Xk;
-    private m Xl;
-    private w Xm;
+    private x<T> Ha;
+    private s Hb;
+    private com.baidu.tieba.card.ab<T> Hc;
+    private m Hd;
+    private w He;
     private BdUniqueId mId;
 
     public z(x<T> xVar) {
         super(xVar.getView());
-        this.Xk = null;
-        this.Xi = xVar;
+        this.Hc = null;
+        this.Ha = xVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.v.a
     public View getView() {
-        return this.Xi.getView();
+        return this.Ha.getView();
     }
 
-    public x<T> qQ() {
-        return this.Xi;
+    public x<T> lV() {
+        return this.Ha;
     }
 
-    public s qR() {
-        if (this.Xj == null) {
-            this.Xj = new s(((TbPageContextSupport) this.Xi.getView().getContext()).getPageContext());
-            this.Xj.Wt.setUniqueId(this.mId);
+    public s lW() {
+        if (this.Hb == null) {
+            this.Hb = new s(((TbPageContextSupport) this.Ha.getView().getContext()).getPageContext());
+            this.Hb.Gj.setUniqueId(this.mId);
         }
-        this.Xi.a(this.Xj);
-        return this.Xj;
+        this.Ha.a(this.Hb);
+        return this.Hb;
     }
 
-    public m qS() {
-        return aD(true);
+    public m lX() {
+        return Y(true);
     }
 
-    public m aD(boolean z) {
-        if (this.Xl == null) {
-            this.Xl = new m(this.Xi.getContext());
+    public m Y(boolean z) {
+        if (this.Hd == null) {
+            this.Hd = new m(this.Ha.getContext());
         }
-        this.Xl.g(this.mId);
-        this.Xl.aB(z);
-        this.Xi.a(this.Xl);
-        return this.Xl;
+        this.Hd.g(this.mId);
+        this.Hd.W(z);
+        this.Ha.a(this.Hd);
+        return this.Hd;
     }
 
-    public w qT() {
-        if (this.Xm == null) {
-            this.Xm = new w(((TbPageContextSupport) this.Xi.getView().getContext()).getPageContext());
-            this.Xm.setPageId(this.mId);
+    public w lY() {
+        if (this.He == null) {
+            this.He = new w(((TbPageContextSupport) this.Ha.getView().getContext()).getPageContext());
+            this.He.setPageId(this.mId);
         }
-        this.Xi.a(this.Xm);
-        return this.Xm;
+        this.Ha.a(this.He);
+        return this.He;
     }
 
     public void a(T t) {
         boolean z = false;
         if (t == null) {
-            this.Xi.getView().setVisibility(8);
+            this.Ha.getView().setVisibility(8);
             return;
         }
-        this.Xi.getView().setVisibility(0);
-        if (this.Xj != null && this.Xj.Wt != null) {
-            if (!t.isSelf() && t.acE() != null) {
-                this.Xj.C(t.acE());
-                this.Xj.Wt.setVisibility(0);
+        this.Ha.getView().setVisibility(0);
+        if (this.Hb != null && this.Hb.Gj != null) {
+            if (!t.isSelf() && t.agK() != null) {
+                this.Hb.z(t.agK());
+                this.Hb.Gj.setVisibility(0);
                 z = true;
-            } else if (this.Xj != null && this.Xj.Wt != null) {
-                this.Xj.Wt.setVisibility(8);
+            } else if (this.Hb != null && this.Hb.Gj != null) {
+                this.Hb.Gj.setVisibility(8);
             }
         }
-        this.Xi.b((x<T>) t);
-        if (this.Xm != null) {
-            this.Xm.aC(z);
-            this.Xm.C(t.acC());
+        this.Ha.b((x<T>) t);
+        if (this.He != null) {
+            this.He.X(z);
+            this.He.z(t.agI());
         }
-        if (this.Xl != null) {
-            this.Xl.C(t.acC());
+        if (this.Hd != null) {
+            this.Hd.z(t.agI());
         }
     }
 
@@ -92,6 +92,6 @@ public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
     }
 
     public void c(com.baidu.tieba.card.ab<T> abVar) {
-        this.Xi.a(abVar);
+        this.Ha.b(abVar);
     }
 }

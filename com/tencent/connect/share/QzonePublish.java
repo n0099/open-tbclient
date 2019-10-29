@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.live.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -51,18 +52,18 @@ public class QzonePublish extends BaseApi {
         if (bundle == null) {
             iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_NULL_ERROR, null));
             f.e("openSDK_LOG.QzonePublish", "-->publishToQzone, params is null");
-            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_NULL_ERROR);
+            d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_NULL_ERROR);
         } else if (!j.e(activity)) {
             iUiListener.onError(new UiError(-15, Constants.MSG_PARAM_VERSION_TOO_LOW, null));
             f.e("openSDK_LOG.QzonePublish", "-->publishToQzone, this is not support below qq 5.9.5");
-            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publicToQzone, this is not support below qq 5.9.5");
+            d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publicToQzone, this is not support below qq 5.9.5");
             new TDialog(activity, "", a(""), null, this.b).show();
         } else {
             String a = j.a(activity);
             if (a == null) {
                 a = bundle.getString("appName");
             } else if (a.length() > 20) {
-                a = a.substring(0, 20) + "...";
+                a = a.substring(0, 20) + StringHelper.STRING_MORE;
             }
             if (!TextUtils.isEmpty(a)) {
                 bundle.putString("appName", a);
@@ -120,7 +121,7 @@ public class QzonePublish extends BaseApi {
             } else {
                 iUiListener.onError(new UiError(-5, Constants.MSG_SHARE_TYPE_ERROR, null));
                 f.e("openSDK_LOG.QzonePublish", "publishToQzone() error--end请选择支持的分享类型");
-                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publishToQzone() 请选择支持的分享类型");
+                d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publishToQzone() 请选择支持的分享类型");
             }
         }
     }
@@ -227,11 +228,11 @@ public class QzonePublish extends BaseApi {
                 intent.putExtra(PushConstants.PACKAGE_NAME, activity.getPackageName());
                 if (!a(intent)) {
                     a(activity, Constants.REQUEST_QZONE_SHARE, intent, false);
-                    d.a().a(0, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent success");
+                    d.a().a(0, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent success");
                     d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", str5, "0", "1", "0");
                 } else {
                     f.e("openSDK_LOG.QzonePublish", "doPublishToQzone() target activity not found");
-                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
+                    d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
                     d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "3", "1", str5, "0", "1", "0");
                 }
                 f.c("openSDK_LOG", "doPublishToQzone() --end");

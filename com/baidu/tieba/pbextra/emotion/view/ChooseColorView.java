@@ -11,11 +11,11 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ChooseColorView extends View {
-    private Paint GF;
-    private int GW;
-    private int iko;
-    private boolean ikp;
-    private Bitmap ikq;
+    private int iiY;
+    private boolean iiZ;
+    private Bitmap ija;
+    private int mBorderColor;
+    private Paint mBorderPaint;
     private float mBorderWidth;
     private Paint mPaint;
     private int mRadius;
@@ -30,8 +30,8 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iko = ViewCompat.MEASURED_STATE_MASK;
-        this.GW = -1;
+        this.iiY = ViewCompat.MEASURED_STATE_MASK;
+        this.mBorderColor = -1;
         this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
         init();
     }
@@ -39,18 +39,18 @@ public class ChooseColorView extends View {
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.iko);
-        this.GF = new Paint();
-        this.GF.setColor(this.GW);
-        this.GF.setAntiAlias(true);
-        this.GF.setStyle(Paint.Style.STROKE);
-        this.GF.setStrokeWidth(this.mBorderWidth);
-        this.ikq = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
+        this.mPaint.setColor(this.iiY);
+        this.mBorderPaint = new Paint();
+        this.mBorderPaint.setColor(this.mBorderColor);
+        this.mBorderPaint.setAntiAlias(true);
+        this.mBorderPaint.setStyle(Paint.Style.STROKE);
+        this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
+        this.ija = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.iko = i;
-        this.mPaint.setColor(this.iko);
+        this.iiY = i;
+        this.mPaint.setColor(this.iiY);
     }
 
     public void setRadius(int i) {
@@ -58,11 +58,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.iko;
+        return this.iiY;
     }
 
     public void setIsChooseView(boolean z) {
-        this.ikp = z;
+        this.iiZ = z;
         invalidate();
     }
 
@@ -70,9 +70,9 @@ public class ChooseColorView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.GF);
-        if (this.ikp) {
-            canvas.drawBitmap(this.ikq, getWidth() - this.ikq.getWidth(), 0.0f, (Paint) null);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
+        if (this.iiZ) {
+            canvas.drawBitmap(this.ija, getWidth() - this.ija.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

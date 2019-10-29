@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public static String[] awp() {
-        String string = com.baidu.tbadk.core.sharedPref.b.ahU().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+    public static String[] axu() {
+        String string = com.baidu.tbadk.core.sharedPref.b.alR().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
         }
@@ -14,9 +14,9 @@ public class d {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a rn = a.rn(str);
-                if (rn != null && !StringUtils.isNull(rn.forumName)) {
-                    arrayList.add(rn.forumName);
+                a qk = a.qk(str);
+                if (qk != null && !StringUtils.isNull(qk.forumName)) {
+                    arrayList.add(qk.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -44,7 +44,7 @@ public class d {
             return this.forumName + "#" + this.level;
         }
 
-        public static a rn(String str) {
+        public static a qk(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -56,7 +56,7 @@ public class d {
                     return aVar;
                 } else if (split.length == 2) {
                     aVar.forumName = split[0];
-                    aVar.level = com.baidu.adp.lib.g.b.f(split[1], -1);
+                    aVar.level = com.baidu.adp.lib.g.b.toInt(split[1], -1);
                     return aVar;
                 } else {
                     return aVar;

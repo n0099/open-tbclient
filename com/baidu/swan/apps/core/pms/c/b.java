@@ -9,16 +9,16 @@ import java.util.List;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void a(String str, int i, List<h> list) {
+    public static void b(String str, int i, List<h> list) {
         if (!TextUtils.isEmpty(str) && list != null && !list.isEmpty()) {
             for (h hVar : list) {
-                if (hVar != null && hVar.Ws()) {
+                if (hVar != null && hVar.abh()) {
                     SubPackageAPSInfo subPackageAPSInfo = new SubPackageAPSInfo();
-                    subPackageAPSInfo.mKey = hVar.btp;
+                    subPackageAPSInfo.mKey = hVar.bMa;
                     subPackageAPSInfo.mAppId = str;
                     subPackageAPSInfo.mAppVersion = String.valueOf(i);
-                    subPackageAPSInfo.azk = hVar.Ht;
-                    subPackageAPSInfo.azj = e.d.ae(str, String.valueOf(i)).getPath();
+                    subPackageAPSInfo.aSA = hVar.ud;
+                    subPackageAPSInfo.aSz = e.d.am(str, String.valueOf(i)).getPath();
                     com.baidu.swan.apps.core.a.d.a.a(subPackageAPSInfo, hVar.sign, hVar.filePath, false);
                 }
             }

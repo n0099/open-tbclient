@@ -1,21 +1,21 @@
 package org.java_websocket.c;
 /* loaded from: classes2.dex */
 public class e extends g implements i {
-    private short kxu;
-    private String kxv;
+    private short kyc;
+    private String kyd;
 
     @Override // org.java_websocket.c.h
-    public String cPN() {
-        return this.kxv;
+    public String cNU() {
+        return this.kyd;
     }
 
     @Override // org.java_websocket.c.i
-    public void IS(String str) {
-        this.kxv = str;
+    public void Hj(String str) {
+        this.kyd = str;
     }
 
     @Override // org.java_websocket.c.i
     public void i(short s) {
-        this.kxu = s;
+        this.kyc = s;
     }
 }

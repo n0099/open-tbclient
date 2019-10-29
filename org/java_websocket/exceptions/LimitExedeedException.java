@@ -1,15 +1,13 @@
 package org.java_websocket.exceptions;
-
-import android.support.v4.view.PointerIconCompat;
 /* loaded from: classes2.dex */
 public class LimitExedeedException extends InvalidDataException {
     private static final long serialVersionUID = 6908339749836826785L;
 
     public LimitExedeedException() {
-        super(PointerIconCompat.TYPE_VERTICAL_TEXT);
+        super(1009);
     }
 
     public LimitExedeedException(String str) {
-        super((int) PointerIconCompat.TYPE_VERTICAL_TEXT, str);
+        super(1009, str);
     }
 }

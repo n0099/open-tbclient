@@ -28,21 +28,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    private static String bxQ;
+    private static String bQw;
 
-    public static void YD() {
-        bxQ = null;
+    public static void ads() {
+        bQw = null;
     }
 
     public static String getToken() {
-        if (TextUtils.isEmpty(bxQ)) {
+        if (TextUtils.isEmpty(bQw)) {
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7PADDING");
                 SecureRandom secureRandom = SecureRandom.getInstance(com.coloros.mcssdk.c.a.c);
                 byte[] bArr = new byte[cipher.getBlockSize()];
                 secureRandom.nextBytes(bArr);
                 cipher.init(1, new SecretKeySpec("dde4b1f8a9e6b814".getBytes(HTTP.UTF_8), "AES"), new IvParameterSpec(bArr));
-                bq(Base64.encodeToString(bArr, 11), Base64.encodeToString(cipher.doFinal("1.2".getBytes(HTTP.UTF_8)), 11));
+                bx(Base64.encodeToString(bArr, 11), Base64.encodeToString(cipher.doFinal("1.2".getBytes(HTTP.UTF_8)), 11));
             } catch (UnsupportedEncodingException e) {
             } catch (InvalidAlgorithmParameterException e2) {
             } catch (InvalidKeyException e3) {
@@ -52,10 +52,10 @@ public class c {
             } catch (NoSuchPaddingException e7) {
             }
         }
-        return bxQ;
+        return bQw;
     }
 
-    private static void bq(String str, String str2) {
+    private static void bx(String str, String str2) {
         HttpUrl parse = HttpUrl.parse("https://mbd.baidu.com/ma/log/token");
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && parse != null) {
             new OkHttpClient().newCall(new Request.Builder().url(parse.newBuilder().addQueryParameter("iv", str).addQueryParameter("data", str2).build()).build()).enqueue(new Callback() { // from class: com.baidu.swan.b.c.1
@@ -69,15 +69,15 @@ public class c {
                     ResponseBody body = response.body();
                     if (body != null) {
                         try {
-                            JSONObject jSONObject = new JSONObject(e.k(body.byteStream())).getJSONObject("data");
-                            br(jSONObject.getString("token_data"), jSONObject.getString("token_iv"));
+                            JSONObject jSONObject = new JSONObject(e.i(body.byteStream())).getJSONObject("data");
+                            by(jSONObject.getString("token_data"), jSONObject.getString("token_iv"));
                         } catch (NoSuchAlgorithmException e) {
                         } catch (JSONException e2) {
                         }
                     }
                 }
 
-                private void br(String str3, String str4) throws NoSuchAlgorithmException {
+                private void by(String str3, String str4) throws NoSuchAlgorithmException {
                     if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
                         byte[] decode = Base64.decode(str3, 11);
                         byte[] decode2 = Base64.decode(str4, 11);
@@ -86,7 +86,7 @@ public class c {
                             IvParameterSpec ivParameterSpec = new IvParameterSpec(decode2);
                             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7PADDING");
                             cipher.init(2, secretKeySpec, ivParameterSpec);
-                            String unused = c.bxQ = new String(cipher.doFinal(decode), HTTP.UTF_8);
+                            String unused = c.bQw = new String(cipher.doFinal(decode), HTTP.UTF_8);
                         } catch (UnsupportedEncodingException e) {
                         } catch (InvalidAlgorithmParameterException e2) {
                         } catch (InvalidKeyException e3) {

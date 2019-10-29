@@ -5,49 +5,50 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.g.h;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
 /* loaded from: classes.dex */
 public class b {
-    private static b cwq;
-    private UserData cwr;
+    private static b cIz;
+    private UserData cIA;
 
     private b() {
     }
 
-    public static b atC() {
-        if (cwq == null) {
+    public static b avm() {
+        if (cIz == null) {
             synchronized (b.class) {
-                if (cwq == null) {
-                    cwq = new b();
+                if (cIz == null) {
+                    cIz = new b();
                 }
             }
         }
-        return cwq;
+        return cIz;
     }
 
     public void registerTask() {
-        com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_USER_INFO, GetUserInfoSocketResponseMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_USER_INFO, 1003001, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void atD() {
-        GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
+    public void avn() {
+        GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(1003001, CmdConfigSocket.CMD_GET_USER_INFO);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.b.e(currentAccountObj.getID(), 0L));
+            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.b.toLong(currentAccountObj.getID(), 0L));
         }
-        getUserInfoRequstData.setScreenWidth(l.af(TbadkCoreApplication.getInst().getApp()));
+        getUserInfoRequstData.setScreenWidth(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
         MessageManager.getInstance().sendMessage(getUserInfoRequstData);
     }
 
     public void a(UserData userData) {
-        this.cwr = userData;
+        this.cIA = userData;
         if (userData != null) {
             final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
@@ -79,22 +80,22 @@ public class b {
             }
             CloseAdData closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.arE());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.arF());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.att());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.atu());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            h.iL().c(new Runnable() { // from class: com.baidu.tbadk.getUserInfo.b.1
+            h.ga().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.getUserInfo.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.baidu.tbadk.core.a.b.b(currentAccountObj);
                 }
             });
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }
 
-    public UserData atE() {
-        return this.cwr;
+    public UserData avo() {
+        return this.cIA;
     }
 }

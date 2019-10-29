@@ -36,66 +36,66 @@ public class AlbumActivityConfig extends IntentConfig {
 
     public AlbumActivityConfig(Context context, String str) {
         super(context);
-        getIntent().putExtra(CAMERA_REQUEST_FROM, 0);
-        getIntent().putExtra(WRITE_IMAGES_INFO, str);
+        getIntent().putExtra("camera_request_from", 0);
+        getIntent().putExtra("write_images_info", str);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
     public AlbumActivityConfig(Context context, boolean z, String str) {
         super(context);
-        getIntent().putExtra(CAMERA_REQUEST_FROM, 0);
-        getIntent().putExtra(WRITE_IMAGES_INFO, str);
-        getIntent().putExtra(USE_ORIGINAL_IMG, z);
+        getIntent().putExtra("camera_request_from", 0);
+        getIntent().putExtra("write_images_info", str);
+        getIntent().putExtra("use_original_img", z);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
     public AlbumActivityConfig(Context context, String str, String str2) {
         this(context, str);
-        getIntent().putExtra(CAMERA_PHOTO_NAME, str2);
+        getIntent().putExtra("camera_photo_name", str2);
     }
 
     public AlbumActivityConfig(Context context, String str, String str2, boolean z) {
         this(context, str);
-        getIntent().putExtra(CAMERA_PHOTO_NAME, str2);
-        getIntent().putExtra(USE_ORIGINAL_IMG, z);
+        getIntent().putExtra("camera_photo_name", str2);
+        getIntent().putExtra("use_original_img", z);
     }
 
     public AlbumActivityConfig(Context context, String str, boolean z) {
         this(context, str);
-        getIntent().putExtra(AUTO_PHOTO_NAME, z);
+        getIntent().putExtra("auto_photo_name", z);
     }
 
     public AlbumActivityConfig(Context context, String str, boolean z, boolean z2) {
         this(context, str);
-        getIntent().putExtra(AUTO_PHOTO_NAME, z);
-        getIntent().putExtra(USE_ORIGINAL_IMG, z2);
+        getIntent().putExtra("auto_photo_name", z);
+        getIntent().putExtra("use_original_img", z2);
     }
 
     public AlbumActivityConfig(Context context, String str, int i) {
         this(context, str);
-        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+        getIntent().putExtra("camera_request_from", i);
     }
 
     public AlbumActivityConfig(Context context, String str, String str2, int i) {
         this(context, str, str2);
-        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+        getIntent().putExtra("camera_request_from", i);
     }
 
     public void setRequestFrom(int i) {
         if (getIntent() != null) {
-            getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+            getIntent().putExtra("camera_request_from", i);
         }
     }
 
     public void setAlbumThread(int i) {
         if (getIntent() != null) {
-            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
+            getIntent().putExtra("album_thread", i);
         }
     }
 
     public void setFromWrite(boolean z) {
         if (getIntent() != null) {
-            getIntent().putExtra(IntentConfig.KEY_FROM_WRITEACTIVITY, z);
+            getIntent().putExtra("from_write", z);
         }
     }
 

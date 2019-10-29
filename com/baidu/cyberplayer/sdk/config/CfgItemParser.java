@@ -3,6 +3,7 @@ package com.baidu.cyberplayer.sdk.config;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.cyberplayer.sdk.Keep;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -58,7 +59,7 @@ public class CfgItemParser {
                     String[] split = str.split(str2);
                     int length = split.length;
                     for (int i = 0; i < length; i++) {
-                        if (TextUtils.isEmpty(split[i]) || split[i].equals(".")) {
+                        if (TextUtils.isEmpty(split[i]) || split[i].equals(DefaultConfig.TOKEN_SEPARATOR)) {
                             split[i] = null;
                         }
                     }
@@ -91,7 +92,7 @@ public class CfgItemParser {
                     if (this.e == 0 && a(str, this.a[i], "\\.", "*")) {
                         return true;
                     }
-                    if (this.e == 1 && str.contains("." + this.a[i])) {
+                    if (this.e == 1 && str.contains(DefaultConfig.TOKEN_SEPARATOR + this.a[i])) {
                         return true;
                     }
                 }

@@ -9,22 +9,22 @@ public class a extends com.baidu.e.b.a {
 
     /* renamed from: com.baidu.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0049a {
+    public interface InterfaceC0055a {
         void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
     }
 
     public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        if (com.baidu.e.a.uH()) {
+        if (com.baidu.e.a.zB()) {
             b.requestPermissions(activity, strArr, i);
-        } else if (activity instanceof InterfaceC0049a) {
-            a(activity, strArr, i, (InterfaceC0049a) activity);
+        } else if (activity instanceof InterfaceC0055a) {
+            a(activity, strArr, i, (InterfaceC0055a) activity);
         }
     }
 
-    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0049a interfaceC0049a) {
-        if (com.baidu.e.a.uH()) {
+    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0055a interfaceC0055a) {
+        if (com.baidu.e.a.zB()) {
             b.requestPermissions(activity, strArr, i);
-        } else if (!activity.isFinishing() && interfaceC0049a != null) {
+        } else if (!activity.isFinishing() && interfaceC0055a != null) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.e.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -35,14 +35,14 @@ public class a extends com.baidu.e.b.a {
                     for (int i2 = 0; i2 < length; i2++) {
                         iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
                     }
-                    interfaceC0049a.onRequestPermissionsResult(i, strArr, iArr);
+                    interfaceC0055a.onRequestPermissionsResult(i, strArr, iArr);
                 }
             });
         }
     }
 
     public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
-        if (com.baidu.e.a.uH()) {
+        if (com.baidu.e.a.zB()) {
             return b.shouldShowRequestPermissionRationale(activity, str);
         }
         return false;

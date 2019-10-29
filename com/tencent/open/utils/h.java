@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -83,7 +84,7 @@ public class h {
             String a = j.a(messageDigest.digest());
             messageDigest.reset();
             com.tencent.open.a.f.a("openSDK_LOG.SystemUtils", "-->sign: " + a);
-            messageDigest.update(j.i(packageName + "_" + a + "_" + str + ""));
+            messageDigest.update(j.i(packageName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + ""));
             str2 = j.a(messageDigest.digest());
             try {
                 messageDigest.reset();

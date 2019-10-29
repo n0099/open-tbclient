@@ -3,7 +3,6 @@ package com.baidu.swan.game.ad.c;
 import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.tencent.connect.common.Constants;
-import com.tencent.open.SocialConstants;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class e extends d {
@@ -23,7 +22,7 @@ public class e extends d {
     @Override // com.baidu.swan.game.ad.c.d
     protected HashMap<String, String> a() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put(SocialConstants.PARAM_ACT, this.f);
+        hashMap.put("act", this.f);
         hashMap.put("prod", this.c);
         hashMap.put("at", this.d);
         hashMap.put(IXAdRequestInfo.FET, this.e);

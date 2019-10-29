@@ -5,27 +5,27 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements e {
-    private List<Long> aHs = new ArrayList();
-    private long aHr = -1;
+    private List<Long> baG = new ArrayList();
+    private long baF = -1;
 
     @Override // com.baidu.swan.apps.performance.c.e
-    public void N(long j) {
-        if (this.aHs != null) {
-            this.aHs.add(Long.valueOf(j));
+    public void ag(long j) {
+        if (this.baG != null) {
+            this.baG.add(Long.valueOf(j));
         }
     }
 
     @Override // com.baidu.swan.apps.performance.c.e
-    public void O(long j) {
-        this.aHr = j;
+    public void ah(long j) {
+        this.baF = j;
     }
 
     @Override // com.baidu.swan.apps.performance.c.e
-    public long IV() {
-        if (this.aHs == null || this.aHs.size() <= 0 || this.aHr < 0) {
+    public long NP() {
+        if (this.baG == null || this.baG.size() <= 0 || this.baF < 0) {
             return -1L;
         }
-        return this.aHr - ((Long) Collections.min(this.aHs)).longValue();
+        return this.baF - ((Long) Collections.min(this.baG)).longValue();
     }
 
     @Override // com.baidu.swan.apps.performance.c.e

@@ -1,6 +1,8 @@
 package com.baidu.ubs.analytics.d;
 
 import android.util.Log;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,48 +10,48 @@ import java.util.TimeZone;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class b {
-    private static boolean jZL;
-    private static boolean kaL;
-    private static StringBuffer kaM = new StringBuffer();
+    private static boolean jXK;
+    private static boolean jYL;
+    private static StringBuffer jYM = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.cEt() != null) {
-            jZL = !a.cEP();
-            kaL = true;
-            kaM.append("ABsdkLog-");
-            kaM.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            kaM.append("_");
+        if (com.baidu.ubs.analytics.d.cBd() != null) {
+            jXK = !a.cBC();
+            jYL = true;
+            jYM.append("ABsdkLog-");
+            jYM.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            jYM.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             try {
-                kaM.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.cEt().getContext()).getBytes(HTTP.UTF_8)));
+                jYM.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.cBd().getContext()).getBytes(HTTP.UTF_8)));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
                 j.a(e2);
             }
-            kaM.append(".log");
+            jYM.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
         }
     }
 
-    public static String cER() {
-        return kaM.toString();
+    public static String cBE() {
+        return jYM.toString();
     }
 
-    public static void HN(String str) {
-        if (jZL) {
+    public static void Ge(String str) {
+        if (jXK) {
             Log.w("BaiDuUbs", str);
         }
         a("w", "BaiDuUbs", str);
     }
 
-    public static void HO(String str) {
-        if (jZL) {
+    public static void Gf(String str) {
+        if (jXK) {
             Log.e("BaiDuUbs", str);
         }
         a("e", "BaiDuUbs", str);
     }
 
     private static void a(final String str, final String str2, final String str3) {
-        if (kaL) {
+        if (jYL) {
             c.a(new d() { // from class: com.baidu.ubs.analytics.d.b.1
                 @Override // com.baidu.ubs.analytics.d.d
                 protected final void a() {
@@ -63,7 +65,7 @@ public final class b {
                     stringBuffer.append(str2);
                     stringBuffer.append("\t");
                     stringBuffer.append(str3);
-                    g.b(stringBuffer.toString(), a.kaI, b.kaM.toString());
+                    g.b(stringBuffer.toString(), a.jYI, b.jYM.toString());
                 }
             });
         }

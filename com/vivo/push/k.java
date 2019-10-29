@@ -1,25 +1,21 @@
 package com.vivo.push;
 
-import com.vivo.push.cache.ISubscribeAppAliasManager;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.vivo.push.LocalAliasTagsManager;
 /* loaded from: classes3.dex */
-public final class k implements Runnable {
-    final /* synthetic */ List a;
-    final /* synthetic */ LocalAliasTagsManager b;
+final class k implements Runnable {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(LocalAliasTagsManager localAliasTagsManager, List list) {
-        this.b = localAliasTagsManager;
-        this.a = list;
+    public k(j jVar) {
+        this.a = jVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        if (this.a != null && this.a.size() > 0) {
-            iSubscribeAppAliasManager = this.b.mSubscribeAppAliasManager;
-            iSubscribeAppAliasManager.setAliasSuccess((String) this.a.get(0));
-        }
+        Context context;
+        LocalAliasTagsManager.LocalMessageCallback localMessageCallback = this.a.b;
+        context = this.a.c.mContext;
+        localMessageCallback.onTransmissionMessage(context, this.a.a);
     }
 }

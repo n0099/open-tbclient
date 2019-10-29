@@ -6,28 +6,28 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 /* loaded from: classes2.dex */
 public class c extends Dialog {
-    private boolean arn;
+    private boolean aKD;
 
     public c(@NonNull Context context, @StyleRes int i) {
         super(context, i);
-        this.arn = com.baidu.swan.apps.res.widget.a.aOa;
+        this.aKD = com.baidu.swan.apps.res.widget.a.bhi;
     }
 
-    public void bY(boolean z) {
-        this.arn = com.baidu.swan.apps.res.widget.a.aOa && z;
+    public void cp(boolean z) {
+        this.aKD = com.baidu.swan.apps.res.widget.a.bhi && z;
     }
 
     @Override // android.app.Dialog
     public void show() {
-        if (this.arn) {
-            com.baidu.swan.apps.res.widget.a.a(this);
+        if (this.aKD) {
+            com.baidu.swan.apps.res.widget.a.b(this);
         }
-        boolean b = com.baidu.swan.apps.res.widget.a.b(this);
-        if (b) {
+        boolean c = com.baidu.swan.apps.res.widget.a.c(this);
+        if (c) {
             getWindow().setFlags(8, 8);
         }
         super.show();
-        if (b) {
+        if (c) {
             getWindow().clearFlags(8);
         }
     }

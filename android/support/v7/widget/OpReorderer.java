@@ -2,8 +2,9 @@ package android.support.v7.widget;
 
 import android.support.v7.widget.AdapterHelper;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-class OpReorderer {
+public class OpReorderer {
     final Callback mCallback;
 
     /* JADX INFO: Access modifiers changed from: package-private */

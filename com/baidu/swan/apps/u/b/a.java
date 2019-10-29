@@ -9,31 +9,31 @@ public abstract class a implements com.baidu.swan.apps.b.b.f {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wT() {
+    public String BN() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wU() {
+    public String BO() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public void wV() {
+    public void BP() {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String aL(Context context) {
+    public String aN(Context context) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wX() {
+    public String BR() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String wZ() {
+    public String BT() {
         return "https://ossapi.baidu.com/pms";
     }
 }

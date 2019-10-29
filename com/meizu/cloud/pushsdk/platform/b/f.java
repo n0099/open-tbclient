@@ -3,6 +3,7 @@ package com.meizu.cloud.pushsdk.platform.b;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
@@ -51,7 +52,7 @@ public class f extends c<PushSwitchStatus> {
     }
 
     private void f(boolean z) {
-        this.m.put(this.h + "_" + this.c, Boolean.valueOf(z));
+        this.m.put(this.h + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, Boolean.valueOf(z));
     }
 
     private boolean p() {
@@ -71,7 +72,7 @@ public class f extends c<PushSwitchStatus> {
     }
 
     private boolean t() {
-        Boolean bool = this.m.get(this.h + "_" + this.c);
+        Boolean bool = this.m.get(this.h + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c);
         boolean booleanValue = bool != null ? bool.booleanValue() : true;
         com.meizu.cloud.a.a.e("Strategy", "isSyncPushStatus " + this.h + " switch type->" + this.c + " flag->" + booleanValue);
         return booleanValue;

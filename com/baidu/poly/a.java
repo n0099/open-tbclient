@@ -5,17 +5,16 @@ import android.os.Bundle;
 import com.baidu.poly.a.d;
 import com.baidu.poly.a.e;
 import com.baidu.poly.widget.ChannelListView;
-import com.sina.weibo.sdk.statistic.LogBuilder;
 /* loaded from: classes2.dex */
 public class a {
-    private ChannelListView ahn;
+    private ChannelListView aAL;
     private Context context;
 
     /* loaded from: classes2.dex */
     public static class b {
-        public static int aht = 1;
-        public static int ahu = 2;
-        public static int ahv = 3;
+        public static int aAR = 1;
+        public static int aAS = 2;
+        public static int aAT = 3;
     }
 
     public a(Context context, d dVar, com.baidu.poly.b.c cVar, com.baidu.poly.d.a aVar, int i) {
@@ -24,11 +23,11 @@ public class a {
         }
         this.context = context;
         dVar = dVar == null ? new e() : dVar;
-        cVar = cVar == null ? com.baidu.poly.b.a.aA(context) : cVar;
+        cVar = cVar == null ? com.baidu.poly.b.a.aE(context) : cVar;
         com.baidu.poly.a.a.a.a(dVar, i);
         com.baidu.poly.b.b.a(cVar);
         com.baidu.poly.d.b.b(aVar);
-        if (i == b.aht) {
+        if (i == b.aAR) {
             com.baidu.poly.util.b.enable(false);
         }
     }
@@ -37,26 +36,26 @@ public class a {
         if (bundle == null) {
             throw new NullPointerException("arguments can not be null");
         }
-        if (this.ahn == null || !this.ahn.vd()) {
-            this.ahn = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
+        if (this.aAL == null || !this.aAL.zX()) {
+            this.aAL = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
                 @Override // com.baidu.poly.widget.ChannelListView.a
                 public void onClose() {
-                    a.this.ahn = null;
+                    a.this.aAL = null;
                 }
-            }).vc();
+            }).zW();
         }
     }
 
     private Bundle i(Bundle bundle) {
         bundle.putString("deviceType", "ANDROID");
-        bundle.putString(LogBuilder.KEY_CHANNEL, "cashiersdk");
+        bundle.putString("channel", "cashiersdk");
         return bundle;
     }
 
-    public boolean uI() {
-        if (this.ahn != null) {
-            this.ahn.detach();
-            this.ahn = null;
+    public boolean zC() {
+        if (this.aAL != null) {
+            this.aAL.detach();
+            this.aAL = null;
             return true;
         }
         return false;
@@ -76,24 +75,24 @@ public class a {
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0094a {
-        private d ahp;
-        private com.baidu.poly.b.c ahq;
-        private com.baidu.poly.d.a ahr;
-        private int ahs = b.aht;
+    public static class C0126a {
+        private d aAN;
+        private com.baidu.poly.b.c aAO;
+        private com.baidu.poly.d.a aAP;
+        private int aAQ = b.aAR;
 
-        public C0094a a(com.baidu.poly.d.a aVar) {
-            this.ahr = aVar;
+        public C0126a a(com.baidu.poly.d.a aVar) {
+            this.aAP = aVar;
             return this;
         }
 
-        public C0094a bE(int i) {
-            this.ahs = i;
+        public C0126a cA(int i) {
+            this.aAQ = i;
             return this;
         }
 
-        public a az(Context context) {
-            return new a(context, this.ahp, this.ahq, this.ahr, this.ahs);
+        public a aD(Context context) {
+            return new a(context, this.aAN, this.aAO, this.aAP, this.aAQ);
         }
     }
 }

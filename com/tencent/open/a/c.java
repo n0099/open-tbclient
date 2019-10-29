@@ -1,5 +1,6 @@
 package com.tencent.open.a;
 
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class c {
@@ -7,7 +8,7 @@ public class c {
     public static int b = 60;
     public static String c = "OpenSDK.Client.File.Tracer";
     public static String d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
-    public static String e = ".log";
+    public static String e = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     public static long f = 8388608;
     public static int g = 262144;
     public static int h = 1024;

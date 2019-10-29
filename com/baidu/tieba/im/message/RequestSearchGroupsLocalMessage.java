@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import protobuf.SearchGroup.DataReq;
 import protobuf.SearchGroup.SearchGroupReqIdl;
 /* loaded from: classes3.dex */
@@ -8,7 +9,7 @@ public class RequestSearchGroupsLocalMessage extends CustomMessage<Object> {
     private long groupId;
 
     public RequestSearchGroupsLocalMessage() {
-        super(2001205);
+        super(CmdConfigCustom.CMD_CACHE_REQUEST_SEARCH_GROUP);
     }
 
     public long getGroupId() {

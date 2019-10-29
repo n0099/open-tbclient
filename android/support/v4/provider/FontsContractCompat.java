@@ -28,7 +28,8 @@ import android.support.v4.util.LruCache;
 import android.support.v4.util.Preconditions;
 import android.support.v4.util.SimpleArrayMap;
 import android.widget.TextView;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -206,7 +207,7 @@ public class FontsContractCompat {
             return this.mTtcIndex;
         }
 
-        @IntRange(from = 1, to = TbConfig.APP_ENTER_BACKGROUND_INTERVAL)
+        @IntRange(from = 1, to = 1000)
         public int getWeight() {
             return this.mWeight;
         }
@@ -465,19 +466,19 @@ public class FontsContractCompat {
         Uri withAppendedId;
         ArrayList arrayList2 = new ArrayList();
         Uri build = new Uri.Builder().scheme("content").authority(str).build();
-        Uri build2 = new Uri.Builder().scheme("content").authority(str).appendPath("file").build();
+        Uri build2 = new Uri.Builder().scheme("content").authority(str).appendPath(BdStatsConstant.OpSubType.FILE).build();
         try {
             if (Build.VERSION.SDK_INT > 16) {
-                query = context.getContentResolver().query(build, new String[]{"_id", Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null, cancellationSignal);
+                query = context.getContentResolver().query(build, new String[]{IMConstants.MSG_ROW_ID, Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null, cancellationSignal);
             } else {
-                query = context.getContentResolver().query(build, new String[]{"_id", Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null);
+                query = context.getContentResolver().query(build, new String[]{IMConstants.MSG_ROW_ID, Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null);
             }
             if (query != null) {
                 try {
                     if (query.getCount() > 0) {
                         int columnIndex = query.getColumnIndex("result_code");
                         arrayList = new ArrayList();
-                        int columnIndex2 = query.getColumnIndex("_id");
+                        int columnIndex2 = query.getColumnIndex(IMConstants.MSG_ROW_ID);
                         int columnIndex3 = query.getColumnIndex(Columns.FILE_ID);
                         int columnIndex4 = query.getColumnIndex(Columns.TTC_INDEX);
                         int columnIndex5 = query.getColumnIndex(Columns.WEIGHT);

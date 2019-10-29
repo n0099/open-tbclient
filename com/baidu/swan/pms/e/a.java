@@ -6,15 +6,16 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class a {
-    public static String WV() {
+    public static String abK() {
         return "Android";
     }
 
-    public static int WW() {
+    public static int abL() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.widthPixels;
@@ -22,7 +23,7 @@ public class a {
         return 0;
     }
 
-    public static int WX() {
+    public static int abM() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.heightPixels;
@@ -43,7 +44,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return "0.0";
         }
-        return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
     private static DisplayMetrics getDisplayMetrics() {

@@ -2,6 +2,7 @@ package com.tencent.open.a;
 
 import android.text.format.Time;
 import android.util.Log;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public final class h {
@@ -31,7 +32,7 @@ public final class h {
         Time time = new Time();
         time.set(j);
         StringBuilder sb = new StringBuilder();
-        sb.append(a(i)).append('/').append(time.format("%Y-%m-%d %H:%M:%S")).append('.');
+        sb.append(a(i)).append('/').append(time.format("%Y-%m-%d %H:%M:%S")).append(BdFileHelper.EXTENSION_SEPARATOR);
         if (j2 < 10) {
             sb.append("00");
         } else if (j2 < 100) {

@@ -24,7 +24,6 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
 import android.view.InflateException;
-import com.baidu.ubc.UBC;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
@@ -434,7 +433,7 @@ public class AnimatorInflaterCompat {
     private static int inferValueTypeOfKeyframe(Resources resources, Resources.Theme theme, AttributeSet attributeSet, XmlPullParser xmlPullParser) {
         int i = 0;
         TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_KEYFRAME);
-        TypedValue peekNamedValue = TypedArrayUtils.peekNamedValue(obtainAttributes, xmlPullParser, UBC.CONTENT_KEY_VALUE, 0);
+        TypedValue peekNamedValue = TypedArrayUtils.peekNamedValue(obtainAttributes, xmlPullParser, "value", 0);
         if ((peekNamedValue != null) && isColorType(peekNamedValue.type)) {
             i = 3;
         }
@@ -562,7 +561,7 @@ public class AnimatorInflaterCompat {
         TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_KEYFRAME);
         Keyframe keyframe = null;
         float namedFloat = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "fraction", 3, -1.0f);
-        TypedValue peekNamedValue = TypedArrayUtils.peekNamedValue(obtainAttributes, xmlPullParser, UBC.CONTENT_KEY_VALUE, 0);
+        TypedValue peekNamedValue = TypedArrayUtils.peekNamedValue(obtainAttributes, xmlPullParser, "value", 0);
         boolean z = peekNamedValue != null;
         if (i == 4) {
             i = (z && isColorType(peekNamedValue.type)) ? 3 : 0;
@@ -570,11 +569,11 @@ public class AnimatorInflaterCompat {
         if (z) {
             switch (i) {
                 case 0:
-                    keyframe = Keyframe.ofFloat(namedFloat, TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, UBC.CONTENT_KEY_VALUE, 0, 0.0f));
+                    keyframe = Keyframe.ofFloat(namedFloat, TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "value", 0, 0.0f));
                     break;
                 case 1:
                 case 3:
-                    keyframe = Keyframe.ofInt(namedFloat, TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, UBC.CONTENT_KEY_VALUE, 0, 0));
+                    keyframe = Keyframe.ofInt(namedFloat, TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, "value", 0, 0));
                     break;
             }
         } else {

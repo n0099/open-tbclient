@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String bwI;
-    private String bwJ;
-    private int bwK;
-    private String bwL;
-    private int bwM;
-    private int bwN;
-    private String bwO;
+    private String bPp;
+    private String bPq;
+    private int bPr;
+    private String bPs;
+    private int bPt;
+    private int bPu;
+    private String bPv;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,42 +15,42 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.bwI = str2;
-        this.bwJ = str3;
-        this.bwK = i;
+        this.bPp = str2;
+        this.bPq = str3;
+        this.bPr = i;
         this.mType = str4;
-        this.bwL = str5;
+        this.bPs = str5;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String XK() {
-        return this.bwI;
+    public String acz() {
+        return this.bPp;
     }
 
-    public String XL() {
-        return this.bwJ;
+    public String acA() {
+        return this.bPq;
     }
 
     public int getTimeout() {
-        return this.bwK;
+        return this.bPr;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String XM() {
-        return this.bwL;
+    public String acB() {
+        return this.bPs;
     }
 
-    public int XN() {
+    public int acC() {
         return this.mRate;
     }
 
-    public void fZ(int i) {
+    public void gU(int i) {
         this.mRate = i;
     }
 
@@ -62,27 +62,27 @@ class h {
         this.mCategory = str;
     }
 
-    public int XO() {
-        return this.bwM;
+    public int acD() {
+        return this.bPt;
     }
 
-    public void ga(int i) {
-        this.bwM = i;
+    public void gV(int i) {
+        this.bPt = i;
     }
 
-    public int XP() {
-        return this.bwN;
+    public int acE() {
+        return this.bPu;
     }
 
-    public void gb(int i) {
-        this.bwN = i;
+    public void gW(int i) {
+        this.bPu = i;
     }
 
-    public String XQ() {
-        return this.bwO;
+    public String acF() {
+        return this.bPv;
     }
 
-    public void kW(String str) {
-        this.bwO = str;
+    public void ly(String str) {
+        this.bPv = str;
     }
 }

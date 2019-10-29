@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
 import protobuf.GroupPermission;
@@ -10,7 +11,7 @@ public class ResponseUserPermissionMessage extends SocketResponsedMessage {
     private GroupPermData groupPermData;
 
     public ResponseUserPermissionMessage() {
-        super(103008);
+        super(CmdConfigSocket.CMD_GET_USER_PERMISSION);
     }
 
     public GroupPermData getGroupPermData() {

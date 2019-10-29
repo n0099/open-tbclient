@@ -6,25 +6,23 @@ import com.baidu.tbadk.core.dialog.a;
 public interface a {
     void b(a.b bVar);
 
-    boolean bCW();
+    String bEn();
 
-    View bCu();
+    View bEo();
 
-    View bDg();
+    void bEp();
 
-    String bHC();
+    int bEq();
 
-    View bHD();
+    boolean bEr();
 
-    void bHE();
+    boolean bzH();
 
-    int bHF();
+    View bzR();
 
-    boolean bHG();
+    View bzf();
 
     void c(a.b bVar);
-
-    void clearText();
 
     long getGroupId();
 
@@ -40,5 +38,7 @@ public interface a {
 
     void showDialog();
 
-    void zW(String str);
+    void tH();
+
+    void yo(String str);
 }

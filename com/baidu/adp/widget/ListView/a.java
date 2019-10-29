@@ -13,29 +13,29 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.v.a;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends v.a> {
-    private q<m> mAdapter;
-    protected s mAdapterItemClickListener;
-    protected t mAdapterItemLongClickListener;
     protected Context mContext;
-    private com.baidu.adp.widget.a.a mImagePreloadSizeData = new com.baidu.adp.widget.a.a();
     protected BdUniqueId mPageId;
-    protected BdUniqueId mType;
-    protected V viewholder;
+    protected s xJ;
+    protected t xK;
+    protected BdUniqueId xL;
+    private q<m> xM;
+    protected V xN;
+    private com.baidu.adp.widget.a.a xO = new com.baidu.adp.widget.a.a();
 
-    protected abstract V onCreateViewHolder(ViewGroup viewGroup);
+    protected abstract View a(int i, View view, ViewGroup viewGroup, T t, V v);
 
-    protected abstract View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v);
+    protected abstract V b(ViewGroup viewGroup);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.mType = bdUniqueId;
+        this.xL = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         this.mContext = context;
-        this.mType = bdUniqueId;
+        this.xL = bdUniqueId;
         this.mPageId = bdUniqueId2;
     }
 
@@ -44,51 +44,43 @@ public abstract class a<T, V extends v.a> {
     public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
         if (needCreateNewHolder(view)) {
-            this.viewholder = (V) onCreateViewHolder(viewGroup);
-            view2 = this.viewholder.getView();
+            this.xN = (V) b(viewGroup);
+            view2 = this.xN.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.viewholder.getClass().getName());
+                BdLog.i("convertView is creating" + this.xN.getClass().getName());
             }
         } else {
             view2 = view;
         }
-        return onFillViewHolder(i, view2, viewGroup, t, (v.a) view2.getTag());
+        return a(i, view2, viewGroup, t, (v.a) view2.getTag());
     }
 
     private boolean needCreateNewHolder(View view) {
-        return view == null || view.getTag() == null || this.viewholder == null || !this.viewholder.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.viewholder.getClass());
+        return view == null || view.getTag() == null || this.xN == null || !this.xN.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.xN.getClass());
     }
 
-    public V onCreateViewHolder(ViewGroup viewGroup, T t) {
-        return onCreateViewHolder(viewGroup);
+    public V a(ViewGroup viewGroup, T t) {
+        return b(viewGroup);
     }
 
-    public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t) {
-        onFillViewHolder(i, v.getView(), viewGroup, t, v);
+    public void a(int i, ViewGroup viewGroup, V v, T t) {
+        a(i, v.getView(), viewGroup, t, v);
     }
 
-    public void setOnAdapterItemClickListener(s sVar) {
-        this.mAdapterItemClickListener = sVar;
+    public void a(s sVar) {
+        this.xJ = sVar;
     }
 
-    public s getOnAdapterItemClickListener() {
-        return this.mAdapterItemClickListener;
+    public s jE() {
+        return this.xJ;
     }
 
-    public void setOnAdapterItemLongClickListener(t tVar) {
-        this.mAdapterItemLongClickListener = tVar;
-    }
-
-    public t getOnAdapterItemLongClickListener() {
-        return this.mAdapterItemLongClickListener;
+    public t jF() {
+        return this.xK;
     }
 
     public BdUniqueId getType() {
-        return this.mType;
-    }
-
-    public void setType(BdUniqueId bdUniqueId) {
-        this.mType = bdUniqueId;
+        return this.xL;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
@@ -96,35 +88,21 @@ public abstract class a<T, V extends v.a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAdapter(q<m> qVar) {
-        this.mAdapter = qVar;
+    public void a(q<m> qVar) {
+        this.xM = qVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.mAdapter != null) {
-            this.mAdapter.notifyDataSetChanged();
+        if (this.xM != null) {
+            this.xM.notifyDataSetChanged();
         }
     }
 
     public m getItem(int i) {
-        if (this.mAdapter != null) {
-            return this.mAdapter.getItem(i);
+        if (this.xM != null) {
+            return this.xM.getItem(i);
         }
         return null;
-    }
-
-    public int getPositionByType(int i) {
-        if (this.mAdapter == null || this.mType == null) {
-            return -1;
-        }
-        return this.mAdapter.v(i, this.mType.getId());
-    }
-
-    public int getCount() {
-        if (this.mAdapter != null) {
-            return this.mAdapter.getCount();
-        }
-        return 0;
     }
 
     public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
@@ -137,15 +115,11 @@ public abstract class a<T, V extends v.a> {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
-    public boolean setPreloadSize(int i, int i2, int i3) {
-        return this.mImagePreloadSizeData.setPreloadSize(i, i2, i3);
+    public boolean g(int i, int i2, int i3) {
+        return this.xO.g(i, i2, i3);
     }
 
-    public com.baidu.adp.widget.a.c getPreloadSize(int i) {
-        return this.mImagePreloadSizeData.getPreloadSize(i);
-    }
-
-    public boolean isPreloadSizeReady(int i) {
-        return this.mImagePreloadSizeData.isPreloadSizeReady(i);
+    public boolean ab(int i) {
+        return this.xO.ab(i);
     }
 }

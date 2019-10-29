@@ -8,18 +8,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes4.dex */
 public class a extends PopupWindow {
-    private InterfaceC0337a gjv;
-    private TbPageContext mContext;
+    private TbPageContext cfl;
+    private InterfaceC0426a giS;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0337a {
-        void bxa();
+    public interface InterfaceC0426a {
+        void buf();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
         super(view, i, i2);
-        this.mContext = tbPageContext;
+        this.cfl = tbPageContext;
     }
 
     @Override // android.widget.PopupWindow
@@ -27,7 +27,7 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bb.ac(this.mContext.getPageActivity())[1] - rect.bottom);
+            setHeight(bb.getScreenFullSize(this.cfl.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view);
     }
@@ -37,25 +37,25 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bb.ac(this.mContext.getPageActivity())[1] - rect.bottom);
+            setHeight(bb.getScreenFullSize(this.cfl.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.gjv != null) {
-            this.gjv.bxa();
+        if (this.giS != null) {
+            this.giS.buf();
         } else {
             super.dismiss();
         }
     }
 
-    public void bxj() {
+    public void aNF() {
         super.dismiss();
     }
 
-    public void a(InterfaceC0337a interfaceC0337a) {
-        this.gjv = interfaceC0337a;
+    public void a(InterfaceC0426a interfaceC0426a) {
+        this.giS = interfaceC0426a;
     }
 }

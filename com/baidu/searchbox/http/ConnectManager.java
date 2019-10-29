@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes2.dex */
 public class ConnectManager {
@@ -87,8 +89,8 @@ public class ConnectManager {
             networkInfo = null;
         }
         if (networkInfo != null) {
-            if (IXAdSystemUtils.NT_WIFI.equals(networkInfo.getTypeName().toLowerCase())) {
-                this.mNetType = IXAdSystemUtils.NT_WIFI;
+            if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
+                this.mNetType = "wifi";
                 this.mUseWap = false;
             } else {
                 checkApn(context, networkInfo);
@@ -133,7 +135,7 @@ public class ConnectManager {
             return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
-            return IXAdSystemUtils.NT_WIFI;
+            return "wifi";
         }
         if (activeNetworkInfo.getType() == 0) {
             int subtype = activeNetworkInfo.getSubtype();
@@ -146,7 +148,7 @@ public class ConnectManager {
                 case 4:
                 case 7:
                 case 11:
-                    sb.append("2g");
+                    sb.append(BdNetTypeUtil.NET_TYPENAME_2G);
                     break;
                 case 3:
                 case 5:
@@ -157,17 +159,17 @@ public class ConnectManager {
                 case 12:
                 case 14:
                 case 15:
-                    sb.append("3g");
+                    sb.append(BdNetTypeUtil.NET_TYPENAME_3G);
                     break;
                 case 13:
-                    sb.append("4g");
+                    sb.append(BdNetTypeUtil.NET_TYPENAME_4G);
                     break;
                 default:
                     sb.append(activeNetworkInfo.getTypeName());
                     break;
             }
-            return sb.append("_").append(lowerCase).append("_").append(subtypeName).toString();
+            return sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(lowerCase).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(subtypeName).toString();
         }
-        return activeNetworkInfo.getTypeName() + "_" + activeNetworkInfo.getSubtypeName();
+        return activeNetworkInfo.getTypeName() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + activeNetworkInfo.getSubtypeName();
     }
 }

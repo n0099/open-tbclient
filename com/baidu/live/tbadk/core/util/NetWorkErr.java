@@ -1,0 +1,46 @@
+package com.baidu.live.tbadk.core.util;
+/* loaded from: classes6.dex */
+public class NetWorkErr {
+    public static final int ERROR_CONTENT_WITH_SENSITIVE_WORD = 220015;
+    public static final int ERROR_FORBID_POST_LIVE = 220012;
+    public static final int ERROR_GET_FLOWER_MORE_LIMIT = 146021;
+    public static final int ERROR_MUTE_EYONG_LIMIT = 220017;
+    public static final int ERROR_NOT_MEMBER = 1990043;
+    public static final int ERROR_NOT_VIP = 1990056;
+    public static final int ERROR_POST_FREQUENTLY = 220034;
+    public static final int ERROR_REPLY_PRIVACY_MY_ATTENTION = 238009;
+    public static final int ERROR_REPLY_PRIVACY_MY_FANS = 238010;
+    public static final int ERR_PHONE_GBLOCK_ERROR = 3250012;
+    public static final int ERR_UNREALNAME_AUTH = 1990055;
+    public static final int FORBID_BAWU = 3250004;
+    public static final int FORBID_BLOCK = 3250002;
+    public static final int FORBID_SYSTEM = 3250001;
+    public static final int FORBID_SYSTEM_INNER = 3250003;
+    public static final int FORUM_FORBID = 340001;
+    public static final int GET_FORUM_LIST_ERROR = 110001;
+    public static final int HAVE_SIGNED = 160002;
+    public static final int NEED_ACCOUNT_ACEESS = 227001;
+    public static final int NEED_UEG_VALIDATE = 220009;
+    public static final int NEED_VCODE = 5;
+    public static final int NETWORK_CANCEL = -14;
+    public static final int NETWORK_DATA_TOO_BIG = -11;
+    public static final int NETWORK_ERR = -1;
+    public static final int NETWORK_HTTP_EXCEPTION = -18;
+    public static final int NETWORK_IGNORE = -2;
+    public static final int NETWORK_IO_EXCEPTION = -19;
+    public static final int NETWORK_MEMORY_SMALL = -16;
+    public static final int NETWORK_NO_DATA_RECEIVED = -17;
+    public static final int NETWORK_OK = 0;
+    public static final int NETWORK_OUTOFMEMORY = -15;
+    public static final int NETWORK_SOCKET_EXCEPTION = -12;
+    public static final int NETWORK_SOCKET_TIMEOUT = -13;
+    public static final int NETWORK_UNKNOWN = -10;
+    public static final int NO_MORE_IMAGE = 40;
+    public static final int THREAD_NOT_EXIST = 4;
+    public static final int USERNAME_CANT_USE = 36;
+    public static final int USERNAME_OR_PASSWD_ERROR = 2;
+    public static final int USER_HAS_LIKE_FORUM = 22;
+    public static final int USER_NOT_LOGIN = 1;
+    public static final int USER_OR_THREAD_BLOCKED = 350008;
+    public static final int VCODE_INPUT_ERROR = 6;
+}

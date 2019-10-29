@@ -10,7 +10,7 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        return a(aVar.aEs, aVar.id, aVar2);
+        return a(aVar.aXH, aVar.id, aVar2);
     }
 
     public static SwanAppNAViewContainer a(String str, String str2, @Nullable com.baidu.swan.apps.view.container.a aVar) {
@@ -18,16 +18,16 @@ public class b {
             return null;
         }
         if (aVar == null) {
-            aVar = c.iF(str);
+            aVar = c.ji(str);
         }
         if (aVar == null) {
             return null;
         }
-        com.baidu.swan.apps.view.container.a.a Ql = aVar.Ql();
-        if (Ql == null || Ql.Qo() == null) {
+        com.baidu.swan.apps.view.container.a.a Vb = aVar.Vb();
+        if (Vb == null || Vb.Ve() == null) {
             return null;
         }
-        for (View view : Ql.Qo()) {
+        for (View view : Vb.Ve()) {
             if (view instanceof SwanAppNAViewContainer) {
                 SwanAppNAViewContainer swanAppNAViewContainer = (SwanAppNAViewContainer) view;
                 if (TextUtils.equals(swanAppNAViewContainer.getViewId(), str2)) {

@@ -38,16 +38,16 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     }
 
     private void init() {
-        int g = l.g(this.mContext, R.dimen.ds24);
-        setPadding(g, 0, g, 0);
+        int dimens = l.getDimens(this.mContext, R.dimen.ds24);
+        setPadding(dimens, 0, dimens, 0);
         setButtonDrawable((Drawable) null);
     }
 
-    public void akZ() {
+    public void anO() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            am.k(this, R.drawable.btn_home_neg_feedback_reason_selector);
-            am.f(this, R.drawable.text_home_neg_feedback_reason_selector, 4);
+            am.setBackgroundResource(this, R.drawable.btn_home_neg_feedback_reason_selector);
+            am.setViewTextColor(this, R.drawable.text_home_neg_feedback_reason_selector, 4);
             this.mSkinType = skinType;
         }
     }

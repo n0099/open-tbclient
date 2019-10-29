@@ -7,7 +7,6 @@ import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.ubc.s;
-import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -18,63 +17,63 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String EW() {
-        return com.baidu.swan.apps.u.a.EA().wZ();
+    public String JQ() {
+        return com.baidu.swan.apps.u.a.Ju().BT();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String EX() {
-        return com.baidu.swan.apps.u.a.Et().bd(AppRuntime.getAppContext());
+    public String JR() {
+        return com.baidu.swan.apps.u.a.Jn().bf(AppRuntime.getAppContext());
     }
 
     @Override // com.baidu.swan.pms.b
-    public String EY() {
-        return com.baidu.swan.apps.u.a.EA().getHostName();
+    public String JS() {
+        return com.baidu.swan.apps.u.a.Ju().getHostName();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String EZ() {
+    public String JT() {
         return ac.getVersionName();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String Fa() {
+    public String JU() {
         return c.getVersion();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String Fb() {
-        return com.baidu.swan.apps.swancore.b.dW(0);
+    public String JV() {
+        return com.baidu.swan.apps.swancore.b.eR(0);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String Fc() {
-        ExtensionCore Cn = com.baidu.swan.apps.extcore.a.CX().Cn();
-        if (Cn != null) {
-            String str = Cn.axq;
+    public String JW() {
+        ExtensionCore Hh = com.baidu.swan.apps.extcore.a.HR().Hh();
+        if (Hh != null) {
+            String str = Hh.aQF;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";
     }
 
     @Override // com.baidu.swan.pms.b
-    public String Fd() {
-        return com.baidu.swan.apps.swancore.b.dW(1);
+    public String JX() {
+        return com.baidu.swan.apps.swancore.b.eR(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String Fe() {
+    public String JY() {
         return "";
     }
 
     @Override // com.baidu.swan.pms.b
-    public CookieManager Ff() {
-        return com.baidu.swan.apps.u.a.EL().Fj();
+    public CookieManager JZ() {
+        return com.baidu.swan.apps.u.a.JF().Kd();
     }
 
     @Override // com.baidu.swan.pms.b
     public boolean A(String str, int i) {
-        return com.baidu.swan.apps.u.a.EU().j(str, i);
+        return com.baidu.swan.apps.u.a.JO().l(str, i);
     }
 
     @Override // com.baidu.swan.pms.b
@@ -86,7 +85,7 @@ public class a implements com.baidu.swan.pms.b {
             if (!TextUtils.isEmpty(str3)) {
                 jSONObject2.put("page", str3);
             }
-            jSONObject2.put(UBC.CONTENT_KEY_VALUE, String.valueOf(i));
+            jSONObject2.put("value", String.valueOf(i));
             if (jSONObject != null) {
                 jSONObject2.put("ext", jSONObject);
             }

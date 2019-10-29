@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadkCore.location;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.GetPoisByLocation.DataReq;
 import tbclient.GetPoisByLocation.GetPoisByLocationReqIdl;
@@ -9,7 +10,7 @@ public class LocationSocketRequestMessage extends TbSocketMessage {
     private String lng;
 
     public LocationSocketRequestMessage() {
-        super(303017);
+        super(CmdConfigSocket.CMD_GET_LOCATION);
     }
 
     public String getLat() {

@@ -1,21 +1,19 @@
 package com.vivo.push.b;
-
-import android.content.Intent;
 /* loaded from: classes3.dex */
-public final class f extends com.vivo.push.v {
+public final class f extends com.vivo.push.y {
     public f() {
         super(0);
     }
 
-    @Override // com.vivo.push.v
-    protected final void d(Intent intent) {
+    @Override // com.vivo.push.y
+    protected final void c(com.vivo.push.a aVar) {
     }
 
-    @Override // com.vivo.push.v
-    protected final void e(Intent intent) {
+    @Override // com.vivo.push.y
+    protected final void d(com.vivo.push.a aVar) {
     }
 
-    @Override // com.vivo.push.v
+    @Override // com.vivo.push.y
     public final String toString() {
         return "DefaultCommand";
     }

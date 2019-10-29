@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.Serializable;
 import java.util.BitSet;
 import org.apache.thrift.TFieldIdEnum;
@@ -7,7 +8,7 @@ import org.apache.thrift.TFieldIdEnum;
 public class l implements Serializable, Cloneable, org.apache.thrift.a<l, TFieldIdEnum> {
     private static final org.apache.thrift.protocol.j e = new org.apache.thrift.protocol.j("GPS");
     private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b("", (byte) 12, 1);
-    private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("", (byte) 11, 2);
+    private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 2);
     private static final org.apache.thrift.protocol.b h = new org.apache.thrift.protocol.b("", (byte) 10, 3);
     private static final org.apache.thrift.protocol.b i = new org.apache.thrift.protocol.b("", (byte) 4, 4);
     public o a;

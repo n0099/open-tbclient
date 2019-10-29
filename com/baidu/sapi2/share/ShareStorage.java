@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -260,7 +261,7 @@ public class ShareStorage {
             storageModel.url = jSONObject.optString("url");
             storageModel.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
             storageModel.app = jSONObject.optString("app");
-            storageModel.tpl = jSONObject.optString("tpl");
+            storageModel.tpl = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_TPL);
             storageModel.a = jSONObject.optString("uid");
             storageModel.pkg = jSONObject.optString(Config.INPUT_DEF_PKG);
             storageModel.b = jSONObject.optInt(FrsActivityConfig.FLAG, -1);
@@ -293,7 +294,7 @@ public class ShareStorage {
                 jSONObject.put("url", this.url);
                 jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, this.displayname);
                 jSONObject.put("app", this.app);
-                jSONObject.put("tpl", this.tpl);
+                jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.tpl);
                 jSONObject.put("uid", this.a);
                 jSONObject.put(Config.INPUT_DEF_PKG, this.pkg);
                 jSONObject.put(FrsActivityConfig.FLAG, this.b);

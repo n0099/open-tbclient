@@ -8,8 +8,8 @@ public class PersonListActivityConfig extends IntentConfig {
 
     public PersonListActivityConfig(Context context, boolean z, String str, int i) {
         super(context);
-        getIntent().putExtra(FOLLOW, z);
+        getIntent().putExtra("follow", z);
         getIntent().putExtra("user_id", str);
-        getIntent().putExtra(IntentConfig.USER_SEX, i);
+        getIntent().putExtra("user_sex", i);
     }
 }

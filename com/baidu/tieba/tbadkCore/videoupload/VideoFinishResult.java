@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -18,7 +19,7 @@ public class VideoFinishResult implements Serializable {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
                     this.errorNo = optJSONObject.optInt("errno");
                     this.errorMessage = optJSONObject.optString("errmsg");

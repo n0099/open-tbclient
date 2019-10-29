@@ -12,9 +12,9 @@ public interface g {
     public interface b {
         void a(a aVar);
 
-        void atw();
+        void avg();
 
-        void d(List<com.baidu.tieba.card.data.b> list, boolean z, boolean z2);
+        void e(List<com.baidu.tieba.card.data.b> list, boolean z, boolean z2);
 
         void hideLoadingView();
 

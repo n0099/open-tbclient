@@ -2,6 +2,7 @@ package com.baidu.pano.platform.a;
 
 import android.os.SystemClock;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -44,7 +45,7 @@ public class w {
             } else {
                 String className = stackTrace[i].getClassName();
                 String substring = className.substring(className.lastIndexOf(46) + 1);
-                str2 = substring.substring(substring.lastIndexOf(36) + 1) + "." + stackTrace[i].getMethodName();
+                str2 = substring.substring(substring.lastIndexOf(36) + 1) + DefaultConfig.TOKEN_SEPARATOR + stackTrace[i].getMethodName();
                 break;
             }
         }
@@ -55,18 +56,18 @@ public class w {
     /* loaded from: classes5.dex */
     public static class a {
         public static final boolean a = w.b;
-        private final List<C0078a> b = new ArrayList();
+        private final List<C0110a> b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0078a {
+        public static class C0110a {
             public final String a;
             public final long b;
             public final long c;
 
-            public C0078a(String str, long j, long j2) {
+            public C0110a(String str, long j, long j2) {
                 this.a = str;
                 this.b = j;
                 this.c = j2;
@@ -77,7 +78,7 @@ public class w {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.b.add(new C0078a(str, j, SystemClock.elapsedRealtime()));
+            this.b.add(new C0110a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
@@ -87,9 +88,9 @@ public class w {
                 long j = this.b.get(0).c;
                 w.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0078a c0078a : this.b) {
-                    long j3 = c0078a.c;
-                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0078a.b), c0078a.a);
+                for (C0110a c0110a : this.b) {
+                    long j3 = c0110a.c;
+                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0110a.b), c0110a.a);
                     j2 = j3;
                 }
             }

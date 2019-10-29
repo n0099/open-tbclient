@@ -20,7 +20,7 @@ import java.util.Queue;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class f {
-    public static final h r(Object obj) {
+    public static final h p(Object obj) {
         if (obj == null) {
             return null;
         }
@@ -73,7 +73,7 @@ public class f {
         if (obj instanceof Set) {
             return new o((Set) obj);
         }
-        if (com.baidu.adp.lib.OrmObject.a.a.d(cls, OrmObject.class)) {
+        if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(cls, OrmObject.class)) {
             return new m((OrmObject) obj);
         }
         return null;

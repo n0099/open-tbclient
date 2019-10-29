@@ -4,6 +4,8 @@ import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.s;
+import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.live.tbadk.img.ImageUploadStrategy;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
@@ -12,6 +14,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
+import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
@@ -19,27 +22,27 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private a cxO;
-    private Object cxP;
-    private e cxQ;
+    private a cJK;
+    private e cJL;
     private String from;
     private boolean isCancelled;
+    private Object progressObject;
     private int smallHeight;
     private int smallWidth;
-    private int cxN = 512000;
+    private int chunkSize = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(String str, Object obj, long j, long j2);
+        void onImageDataSentInBackground(String str, Object obj, long j, long j2);
     }
 
     public f(String str) {
         this.from = str;
     }
 
-    public void p(int i, int i2, int i3, int i4) {
+    public void setServersideResize(int i, int i2, int i3, int i4) {
         this.bigWidth = i;
         this.bigHeight = i2;
         this.smallWidth = i3;
@@ -47,17 +50,17 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.cxO = aVar;
-        this.cxP = obj;
+        this.cJK = aVar;
+        this.progressObject = obj;
         if (aVar != null) {
-            this.cxN = 10240;
+            this.chunkSize = 10240;
         }
     }
 
     public void cancel() {
         this.isCancelled = true;
         if (this.mNetwork != null) {
-            this.mNetwork.ik();
+            this.mNetwork.cancelNetConnect();
         }
     }
 
@@ -120,17 +123,17 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.cxQ == null) {
-            this.cxQ = new e();
+        if (this.cJL == null) {
+            this.cJL = new e();
         }
-        return f(this.cxQ.c(imageFileInfo, z), z, z2);
+        return f(this.cJL.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
         return a(imageFileInfo, false, z);
     }
 
-    public ImageUploadResult T(String str, boolean z) {
+    public ImageUploadResult Q(String str, boolean z) {
         return f(str, false, z);
     }
 
@@ -164,7 +167,7 @@ public class f {
         r5 = r13;
      */
     /* JADX WARN: Code restructure failed: missing block: B:145:0x0463, code lost:
-        r10 = com.baidu.tbadk.core.util.TbErrInfo.ERR_IMG_SEND;
+        r10 = -1002;
      */
     /* JADX WARN: Code restructure failed: missing block: B:146:0x0467, code lost:
         r11 = r5.getMessage();
@@ -198,10 +201,10 @@ public class f {
         r11 = r4.error_msg;
      */
     /* JADX WARN: Code restructure failed: missing block: B:43:0x01ad, code lost:
-        com.baidu.tbadk.core.e.a.a(com.tencent.open.SocialConstants.PARAM_IMG_URL, -1, -1, "imageUpload", r10, r11, org.apache.http.cookie.ClientCookie.COMMENT_ATTR, r20.toString());
+        com.baidu.tbadk.core.e.a.a("img", -1, -1, "imageUpload", r10, r11, "comment", r20.toString());
      */
     /* JADX WARN: Code restructure failed: missing block: B:44:0x01c9, code lost:
-        com.baidu.adp.lib.g.a.b(r13);
+        com.baidu.adp.lib.g.a.close(r13);
         r25.mNetwork = null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:92:0x033e, code lost:
@@ -254,22 +257,22 @@ public class f {
                 long length = file.length();
                 long j = 0;
                 try {
-                    if (length > 5242880) {
+                    if (length > ImageUploadStrategy.FILE_SIZE_5M) {
                         ImageUploadResult imageUploadResult4 = new ImageUploadResult();
                         imageUploadResult4.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                         imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_size_over);
-                        com.baidu.adp.lib.g.a.b(null);
+                        com.baidu.adp.lib.g.a.close((Closeable) null);
                         this.mNetwork = null;
                         return imageUploadResult4;
                     }
-                    String h = s.h(m.z(file));
+                    String md5 = s.toMd5(m.GetStreamFromFile(file));
                     sb.append("path=");
                     sb.append(str);
                     sb.append("|length=");
                     sb.append(length);
                     sb.append("|md5=");
-                    sb.append(h);
-                    if (length == 0 || h == null) {
+                    sb.append(md5);
+                    if (length == 0 || md5 == null) {
                         ImageUploadResult imageUploadResult5 = new ImageUploadResult();
                         imageUploadResult5.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                         imageUploadResult5.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_not_exist);
@@ -277,8 +280,8 @@ public class f {
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = h + this.cxN;
-                        long j2 = length % ((long) this.cxN) == 0 ? length / this.cxN : (length / this.cxN) + 1;
+                        String str2 = md5 + this.chunkSize;
+                        long j2 = length % ((long) this.chunkSize) == 0 ? length / this.chunkSize : (length / this.chunkSize) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -312,64 +315,64 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i3 < j2) {
-                                                    i4 = this.cxN;
+                                                    i4 = this.chunkSize;
                                                 } else if (i3 == j2) {
-                                                    i4 = (int) (length - (this.cxN * (j2 - 1)));
+                                                    i4 = (int) (length - (this.chunkSize * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i4) {
                                                     bArr2 = new byte[i4];
                                                 }
-                                                randomAccessFile2.seek(this.cxN * (i3 - 1));
+                                                randomAccessFile2.seek(this.chunkSize * (i3 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i4);
                                                 bArr = bArr2;
                                             }
                                             this.mNetwork = new x(TbConfig.UPLOAD_IMG_URL);
-                                            this.mNetwork.o("resourceId", str2);
-                                            this.mNetwork.o("chunkNo", String.valueOf(i3));
+                                            this.mNetwork.addPostData("resourceId", str2);
+                                            this.mNetwork.addPostData("chunkNo", String.valueOf(i3));
                                             if (i3 >= j2) {
-                                                this.mNetwork.o("isFinish", String.valueOf(1));
+                                                this.mNetwork.addPostData("isFinish", String.valueOf(1));
                                             } else {
-                                                this.mNetwork.o("isFinish", String.valueOf(0));
+                                                this.mNetwork.addPostData("isFinish", String.valueOf(0));
                                             }
                                             if (this.bigWidth > 0 && this.bigHeight > 0) {
-                                                this.mNetwork.o("width", String.valueOf(this.bigWidth));
-                                                this.mNetwork.o("height", String.valueOf(this.bigHeight));
+                                                this.mNetwork.addPostData("width", String.valueOf(this.bigWidth));
+                                                this.mNetwork.addPostData("height", String.valueOf(this.bigHeight));
                                             }
                                             if (this.smallWidth > 0 && this.smallHeight > 0) {
-                                                this.mNetwork.o("smallWidth", String.valueOf(this.smallWidth));
-                                                this.mNetwork.o("smallHeight", String.valueOf(this.smallHeight));
+                                                this.mNetwork.addPostData("smallWidth", String.valueOf(this.smallWidth));
+                                                this.mNetwork.addPostData("smallHeight", String.valueOf(this.smallHeight));
                                             }
-                                            this.mNetwork.o("groupId", String.valueOf(this.groupId));
-                                            this.mNetwork.o("alt", "json");
+                                            this.mNetwork.addPostData(TbEnum.SystemMessage.KEY_GROUP_ID, String.valueOf(this.groupId));
+                                            this.mNetwork.addPostData("alt", "json");
                                             if (bArr != null) {
-                                                this.mNetwork.d("chunk", bArr);
+                                                this.mNetwork.addPostData("chunk", bArr);
                                             }
                                             if (z) {
-                                                this.mNetwork.o("saveOrigin", "1");
+                                                this.mNetwork.addPostData("saveOrigin", "1");
                                             } else {
-                                                this.mNetwork.o("saveOrigin", "0");
+                                                this.mNetwork.addPostData("saveOrigin", "0");
                                             }
                                             if (z2) {
-                                                int acg = i.ace().acg();
-                                                if (acg != 0) {
-                                                    this.mNetwork.o("pic_water_type", String.valueOf(acg));
+                                                int imageWaterType = i.agq().getImageWaterType();
+                                                if (imageWaterType != 0) {
+                                                    this.mNetwork.addPostData("pic_water_type", String.valueOf(imageWaterType));
                                                 }
                                                 String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                                                if (!StringUtils.isNull(currentAccountName) && acg == 1) {
-                                                    this.mNetwork.o("user_name", currentAccountName);
+                                                if (!StringUtils.isNull(currentAccountName) && imageWaterType == 1) {
+                                                    this.mNetwork.addPostData("user_name", currentAccountName);
                                                 }
-                                                String ach = i.ace().ach();
-                                                if (!StringUtils.isNull(ach) && acg == 2) {
-                                                    this.mNetwork.o("forum_name", ach);
+                                                String forumNameForWaterImage = i.agq().getForumNameForWaterImage();
+                                                if (!StringUtils.isNull(forumNameForWaterImage) && imageWaterType == 2) {
+                                                    this.mNetwork.addPostData("forum_name", forumNameForWaterImage);
                                                 }
                                             }
-                                            String ach2 = i.ace().ach();
-                                            if (!StringUtils.isNull(ach2)) {
-                                                this.mNetwork.o("small_flow_fname", ach2);
+                                            String forumNameForWaterImage2 = i.agq().getForumNameForWaterImage();
+                                            if (!StringUtils.isNull(forumNameForWaterImage2)) {
+                                                this.mNetwork.addPostData("small_flow_fname", forumNameForWaterImage2);
                                             }
-                                            String aip = this.mNetwork.aip();
-                                            imageUploadResult3 = ImageUploadResult.parser(aip);
-                                            if (aip == null || imageUploadResult3 == null) {
+                                            String postMultiNetData = this.mNetwork.postMultiNetData();
+                                            imageUploadResult3 = ImageUploadResult.parser(postMultiNetData);
+                                            if (postMultiNetData == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {
@@ -379,9 +382,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
-                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.cxN) : j4;
-                                                    if (this.cxO != null) {
-                                                        this.cxO.a(str, this.cxP, j5, length);
+                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.chunkSize) : j4;
+                                                    if (this.cJK != null) {
+                                                        this.cJK.onImageDataSentInBackground(str, this.progressObject, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;
@@ -421,12 +424,12 @@ public class f {
                         } catch (Throwable th) {
                             randomAccessFile3 = randomAccessFile2;
                             th = th;
-                            com.baidu.adp.lib.g.a.b(randomAccessFile3);
+                            com.baidu.adp.lib.g.a.close(randomAccessFile3);
                             this.mNetwork = null;
                             throw th;
                         }
                     }
-                    com.baidu.adp.lib.g.a.b(randomAccessFile2);
+                    com.baidu.adp.lib.g.a.close(randomAccessFile2);
                     this.mNetwork = null;
                     return imageUploadResult2;
                 } catch (Exception e5) {

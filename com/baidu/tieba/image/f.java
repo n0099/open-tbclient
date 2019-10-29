@@ -1,23 +1,23 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
     private AgreeData agreeData;
-    private boolean haV;
+    private boolean gYY;
     private boolean isBlockedPic;
     private boolean isFirstPost;
     private boolean isLongPic;
-    private String haT = null;
+    private String gYW = null;
     private String imageUrl = null;
-    private String cNt = null;
+    private String cWL = null;
     private int width = 0;
     private int height = 0;
-    private String haU = null;
+    private String gYX = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
@@ -25,17 +25,17 @@ public class f {
     private long overAllIndex = 0;
     private String postId = null;
     private String commentNum = null;
-    private JSONArray haW = null;
+    private JSONArray gYZ = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String bJG() {
-        return this.haT;
+    public String bGq() {
+        return this.gYW;
     }
 
-    public String bJH() {
+    public String bGr() {
         return this.postId;
     }
 
@@ -51,12 +51,12 @@ public class f {
         return this.index;
     }
 
-    public String azr() {
-        return this.cNt;
+    public String azA() {
+        return this.cWL;
     }
 
-    public String azx() {
-        return this.haU;
+    public String azG() {
+        return this.gYX;
     }
 
     public long getOriginalSize() {
@@ -71,11 +71,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean bJI() {
-        return this.haV;
+    public boolean bGs() {
+        return this.gYY;
     }
 
-    public boolean bJJ() {
+    public boolean bGt() {
         return this.isBlockedPic;
     }
 
@@ -83,23 +83,23 @@ public class f {
         return this.isLongPic;
     }
 
-    public long bJK() {
+    public long bGu() {
         return this.overAllIndex;
     }
 
-    public String bJL() {
+    public String bGv() {
         return this.commentNum;
     }
 
-    public AgreeData ags() {
+    public AgreeData akv() {
         return this.agreeData;
     }
 
-    public JSONArray bJM() {
-        return this.haW;
+    public JSONArray bGw() {
+        return this.gYZ;
     }
 
-    public boolean bJN() {
+    public boolean bGx() {
         return this.isFirstPost;
     }
 
@@ -108,7 +108,7 @@ public class f {
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
             this.postId = jSONObject.optString("post_id");
-            this.haV = jSONObject.optInt("show_original_btn") == 1;
+            this.gYY = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
@@ -127,16 +127,16 @@ public class f {
                 this.agreeData.hasAgree = z;
                 this.agreeData.diffAgreeNum = optInt - optInt2;
             }
-            this.haW = jSONObject.optJSONArray("post_content");
-            JSONObject optJSONObject3 = jSONObject.optJSONObject(SocialConstants.PARAM_IMG_URL);
+            this.gYZ = jSONObject.optJSONArray("post_content");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
-                this.haT = optJSONObject.optString("id");
+                this.gYW = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.cNt = optJSONObject.optString("big_cdn_src", null);
-                this.haU = optJSONObject.optString("original_src");
-                this.originalSize = optJSONObject.optInt("size");
+                this.cWL = optJSONObject.optString("big_cdn_src", null);
+                this.gYX = optJSONObject.optString("original_src");
+                this.originalSize = optJSONObject.optInt(TiebaInitialize.LogFields.SIZE);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");
             if (optJSONObject4 != null) {

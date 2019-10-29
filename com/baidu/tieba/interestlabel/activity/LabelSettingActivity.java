@@ -3,6 +3,7 @@ package com.baidu.tieba.interestlabel.activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import com.baidu.adp.lib.util.j;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
@@ -14,38 +15,38 @@ import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements a {
-    private LabelSettingView hds;
-    private LabelSettingModel hdt;
+    private LabelSettingView hbv;
+    private LabelSettingModel hbw;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hds = new LabelSettingView(getPageContext(), this);
-        this.hdt = new LabelSettingModel(getPageContext());
-        setContentView(this.hds);
-        this.hdt.a(this);
-        bKk();
+        this.hbv = new LabelSettingView(getPageContext(), this);
+        this.hbw = new LabelSettingModel(getPageContext());
+        setContentView(this.hbv);
+        this.hbw.a(this);
+        bGU();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void bKk() {
-        if (!j.jQ()) {
-            this.hds.hideLoadingView();
-            this.hds.jx(true);
+    public void bGU() {
+        if (!j.isNetworkAvailableForImmediately()) {
+            this.hbv.hideLoadingView();
+            this.hbv.jm(true);
             return;
         }
-        this.hds.aJN();
-        this.hds.cY(true);
-        this.hdt.bKq();
+        this.hbv.aJo();
+        this.hbv.dp(true);
+        this.hbw.bHa();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void di(List<Integer> list) {
-        if (!j.jQ()) {
+    public void dv(List<Integer> list) {
+        if (!j.isNetworkAvailableForImmediately()) {
             showToast(R.string.neterror);
         } else {
-            this.hdt.dj(list);
+            this.hbw.dw(list);
         }
     }
 
@@ -53,17 +54,17 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public void a(LabelRequestEnum labelRequestEnum, b bVar, int i) {
         switch (labelRequestEnum) {
             case GET_LABEL:
-                this.hds.hideLoadingView();
-                if (bVar == null || v.aa(bVar.bKo())) {
-                    this.hds.jx(true);
+                this.hbv.hideLoadingView();
+                if (bVar == null || v.isEmpty(bVar.bGY())) {
+                    this.hbv.jm(true);
                     return;
                 }
-                this.hds.aJN();
-                this.hds.setData(bVar);
+                this.hbv.aJo();
+                this.hbv.setData(bVar);
                 return;
             case SUB_LABEL:
                 if (i == 0) {
-                    com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("set_recommend_label", true);
+                    com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
                     finish();
                     return;
                 }
@@ -77,13 +78,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.hds.onChangeSkinType();
+        this.hbv.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.hds != null && this.hds.bKA()) {
-            this.hds.showDialog();
+        if (i == 4 && this.hbv != null && this.hbv.bHk()) {
+            this.hbv.showDialog();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

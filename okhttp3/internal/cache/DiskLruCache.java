@@ -1,5 +1,7 @@
 package okhttp3.internal.cache;
 
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.File;
@@ -212,7 +214,7 @@ public final class DiskLruCache implements Closeable, Flushable {
             this.lruEntries.put(substring, entry);
         }
         if (indexOf2 != -1 && indexOf == CLEAN.length() && str.startsWith(CLEAN)) {
-            String[] split = str.substring(indexOf2 + 1).split(" ");
+            String[] split = str.substring(indexOf2 + 1).split(HanziToPinyin.Token.SEPARATOR);
             entry.readable = true;
             entry.currentEditor = null;
             entry.setLengths(split);
@@ -744,7 +746,7 @@ public final class DiskLruCache implements Closeable, Flushable {
             this.lengths = new long[DiskLruCache.this.valueCount];
             this.cleanFiles = new File[DiskLruCache.this.valueCount];
             this.dirtyFiles = new File[DiskLruCache.this.valueCount];
-            StringBuilder append = new StringBuilder(str).append('.');
+            StringBuilder append = new StringBuilder(str).append(BdFileHelper.EXTENSION_SEPARATOR);
             int length = append.length();
             for (int i = 0; i < DiskLruCache.this.valueCount; i++) {
                 append.append(i);

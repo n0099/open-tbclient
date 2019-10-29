@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DelGroup.DataReq;
 import protobuf.DelGroup.DelGroupReqIdl;
@@ -8,7 +9,7 @@ public class RequestDismissGroupMessage extends TbSocketMessage {
     private long groupId;
 
     public RequestDismissGroupMessage() {
-        super(103104);
+        super(CmdConfigSocket.CMD_DISSMISS_GROUP);
     }
 
     public long getGroupId() {

@@ -3,21 +3,21 @@ package com.baidu.swan.apps.console.a;
 import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class d {
-    private static String aon;
+    private static String aHE;
 
-    public static boolean yp() {
-        return !TextUtils.isEmpty(aon);
+    public static boolean Dk() {
+        return !TextUtils.isEmpty(aHE);
     }
 
-    public static String yq() {
-        return aon + "/swan-core/master/master.html";
+    public static String Dl() {
+        return aHE + "/swan-core/master/master.html";
     }
 
-    public static String yr() {
-        return aon + "/swan-core/slaves/slaves.html";
+    public static String Dm() {
+        return aHE + "/swan-core/slaves/slaves.html";
     }
 
     public static void setWebUrl(String str) {
-        aon = str;
+        aHE = str;
     }
 }

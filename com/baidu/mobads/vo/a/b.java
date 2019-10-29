@@ -5,7 +5,7 @@ import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class b extends a {
     public b() {
-        super(new a.C0075a(null, null));
+        super(new a.C0107a(null, null));
     }
 
     @Override // com.baidu.mobads.vo.a.a

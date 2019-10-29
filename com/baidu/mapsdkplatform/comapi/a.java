@@ -6,6 +6,7 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
@@ -62,7 +63,7 @@ public class a implements PermissionCheck.c {
     private void f() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        intentFilter.addAction("android.net.wifi.WIFI_STATE_CHANGED");
+        intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
         if (this.b == null || this.d == null) {
             return;
         }

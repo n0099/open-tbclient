@@ -1,5 +1,6 @@
 package okhttp3;
 
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.net.URL;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -130,9 +131,9 @@ public final class Request {
                 throw new NullPointerException("url == null");
             }
             if (str.regionMatches(true, 0, "ws:", 0, 3)) {
-                str = "http:" + str.substring(3);
+                str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
             } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
-                str = "https:" + str.substring(4);
+                str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
             }
             return url(HttpUrl.get(str));
         }

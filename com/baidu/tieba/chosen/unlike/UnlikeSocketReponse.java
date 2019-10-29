@@ -1,5 +1,6 @@
 package com.baidu.tieba.chosen.unlike;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Unlike.UnlikeResIdl;
@@ -8,7 +9,7 @@ public class UnlikeSocketReponse extends TbSocketReponsedMessage {
     private long threadId;
 
     public UnlikeSocketReponse(int i) {
-        super(307007);
+        super(CmdConfigSocket.CMD_HOT_THREAD_UNLIKE);
     }
 
     public long getThreadId() {

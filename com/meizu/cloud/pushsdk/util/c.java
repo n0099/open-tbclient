@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.PushManager;
 import com.meizu.cloud.pushsdk.c.b.f;
@@ -15,7 +16,6 @@ import com.meizu.cloud.pushsdk.handler.a.b.d;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -41,7 +41,7 @@ public class c {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            return d.a().a(jSONObject.has("task_id") ? jSONObject.getString("task_id") : null).d(jSONObject.has("device_id") ? jSONObject.getString("device_id") : null).c(jSONObject.has("push_timestamp") ? jSONObject.getString("push_timestamp") : null).b(jSONObject.has("seq_id") ? jSONObject.getString("seq_id") : null).a();
+            return d.a().a(jSONObject.has("task_id") ? jSONObject.getString("task_id") : null).d(jSONObject.has(Constants.KEY_DEVICE_ID) ? jSONObject.getString(Constants.KEY_DEVICE_ID) : null).c(jSONObject.has("push_timestamp") ? jSONObject.getString("push_timestamp") : null).b(jSONObject.has(BdStatsConstant.StatsKey.SEQUENCEID) ? jSONObject.getString(BdStatsConstant.StatsKey.SEQUENCEID) : null).a();
         } catch (Exception e) {
             com.meizu.cloud.a.a.e("UxIPUtils", "the platformExtra parse error");
             return dVar;
@@ -90,8 +90,8 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("taskId", str3);
         hashMap.put("deviceId", str2);
-        hashMap.put(DpStatConstants.KEY_TIMESTAMP, String.valueOf(System.currentTimeMillis() / 1000));
-        hashMap.put(Constants.PACKAGE_NAME, str);
+        hashMap.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        hashMap.put(com.xiaomi.mipush.sdk.Constants.PACKAGE_NAME, str);
         hashMap.put("pushsdk_version", str4);
         hashMap.put("push_info", str5);
         hashMap.put("push_info_type", String.valueOf(i));

@@ -1,11 +1,10 @@
 package com.vivo.push.b;
 
-import android.content.Intent;
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
-public final class p extends com.vivo.push.v {
+public final class p extends com.vivo.push.y {
     private String a;
     private long b;
     private InsideNotificationItem c;
@@ -33,27 +32,27 @@ public final class p extends com.vivo.push.v {
         return this.c;
     }
 
-    @Override // com.vivo.push.v
-    protected final void d(Intent intent) {
-        intent.putExtra(Constants.PACKAGE_NAME, this.a);
-        intent.putExtra("notify_id", this.b);
-        intent.putExtra("notification_v1", com.vivo.push.util.n.b(this.c));
+    @Override // com.vivo.push.y
+    protected final void c(com.vivo.push.a aVar) {
+        aVar.a(Constants.PACKAGE_NAME, this.a);
+        aVar.a("notify_id", this.b);
+        aVar.a("notification_v1", com.vivo.push.util.q.b(this.c));
     }
 
-    @Override // com.vivo.push.v
-    protected final void e(Intent intent) {
-        this.a = intent.getStringExtra(Constants.PACKAGE_NAME);
-        this.b = intent.getLongExtra("notify_id", -1L);
-        String stringExtra = intent.getStringExtra("notification_v1");
-        if (!TextUtils.isEmpty(stringExtra)) {
-            this.c = com.vivo.push.util.n.a(stringExtra);
+    @Override // com.vivo.push.y
+    protected final void d(com.vivo.push.a aVar) {
+        this.a = aVar.a(Constants.PACKAGE_NAME);
+        this.b = aVar.b("notify_id", -1L);
+        String a = aVar.a("notification_v1");
+        if (!TextUtils.isEmpty(a)) {
+            this.c = com.vivo.push.util.q.a(a);
         }
         if (this.c != null) {
             this.c.setMsgId(this.b);
         }
     }
 
-    @Override // com.vivo.push.v
+    @Override // com.vivo.push.y
     public final String toString() {
         return "OnNotificationClickCommand";
     }

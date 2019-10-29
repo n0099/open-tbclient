@@ -1,13 +1,14 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.ar;
 /* loaded from: classes6.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     private ar mData;
 
     public ResponsePersonFriendByUidLocalMessage() {
-        super(2001182);
+        super(CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY);
     }
 
     public ResponsePersonFriendByUidLocalMessage(int i) {

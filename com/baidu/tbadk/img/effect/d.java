@@ -1,6 +1,7 @@
 package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
+import com.baidu.live.tbadk.img.effect.ResizeImageAction;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
@@ -10,12 +11,12 @@ public class d extends b {
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
-        return "resize";
+        return ResizeImageAction.ACTION_NAME;
     }
 
-    public static ImageOperation al(int i, int i2) {
+    public static ImageOperation ao(int i, int i2) {
         ImageOperation imageOperation = new ImageOperation();
-        imageOperation.actionName = "resize";
+        imageOperation.actionName = ResizeImageAction.ACTION_NAME;
         imageOperation.actionParam = i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2;
         return imageOperation;
     }
@@ -25,24 +26,24 @@ public class d extends b {
         if (str != null) {
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length == 2) {
-                this.maxWidth = com.baidu.adp.lib.g.b.f(split[0], 0);
-                this.maxHeight = com.baidu.adp.lib.g.b.f(split[1], 0);
+                this.maxWidth = com.baidu.adp.lib.g.b.toInt(split[0], 0);
+                this.maxHeight = com.baidu.adp.lib.g.b.toInt(split[1], 0);
             }
         }
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+    public Bitmap processImage(Bitmap bitmap, boolean z) throws Exception {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.atK().kJ(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.avu().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap qX(String str) throws Exception {
-        return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
+    public Bitmap processImage(String str) throws Exception {
+        return processImage(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 
     public int getMaxWidth() {

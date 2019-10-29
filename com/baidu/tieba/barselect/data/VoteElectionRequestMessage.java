@@ -33,7 +33,7 @@ public class VoteElectionRequestMessage extends NetMessage {
         builder.fid = Long.valueOf(this.fid);
         builder.rn = Integer.valueOf(this.rn);
         builder.pn = Integer.valueOf(this.pn);
-        r.bindCommonParamsToProtobufData(builder, false);
+        r.a(builder, false);
         ElectionInfoReqIdl.Builder builder2 = new ElectionInfoReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

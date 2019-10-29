@@ -7,58 +7,58 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends b {
-    private a Hm;
-    protected Path Hk = new Path();
-    protected Paint Hl = null;
-    protected boolean Hn = false;
+    private a tZ;
+    protected Path mDefaultPath = new Path();
+    protected Paint mPathStrokePaint = null;
+    protected boolean isPathAvailable = false;
 
     /* loaded from: classes.dex */
     public interface a {
-        Path a(RectF rectF);
+        void drawWhenPathAvailable(Canvas canvas);
 
-        void e(Canvas canvas);
+        Path makePath(RectF rectF);
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(c cVar, ImageView imageView, ImageView.ScaleType scaleType) {
-        Path a2;
+        Path makePath;
         super.a(cVar, imageView, scaleType);
-        if (this.Hm != null && (a2 = this.Hm.a(lv())) != null) {
-            this.Hk.set(a2);
-            if (this.Hl == null) {
-                this.Hl = new Paint();
-                this.Hl.setStyle(Paint.Style.STROKE);
-                this.Hl.setAntiAlias(true);
-                this.Hl.setColor(637534208);
-                this.Hl.setDither(true);
-                this.Hl.setStrokeWidth(2.0f);
+        if (this.tZ != null && (makePath = this.tZ.makePath(getBounds())) != null) {
+            this.mDefaultPath.set(makePath);
+            if (this.mPathStrokePaint == null) {
+                this.mPathStrokePaint = new Paint();
+                this.mPathStrokePaint.setStyle(Paint.Style.STROKE);
+                this.mPathStrokePaint.setAntiAlias(true);
+                this.mPathStrokePaint.setColor(637534208);
+                this.mPathStrokePaint.setDither(true);
+                this.mPathStrokePaint.setStrokeWidth(2.0f);
             }
-            lA();
+            onFinishComputeBounds();
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(Canvas canvas, c cVar, ImageView imageView) {
         super.a(canvas, cVar, imageView);
-        if (this.Hn) {
-            canvas.drawPath(this.Hk, this.Hl);
-            if (this.Hm != null) {
-                this.Hm.e(canvas);
+        if (this.isPathAvailable) {
+            canvas.drawPath(this.mDefaultPath, this.mPathStrokePaint);
+            if (this.tZ != null) {
+                this.tZ.drawWhenPathAvailable(canvas);
             }
         }
     }
 
-    public void lA() {
+    public void onFinishComputeBounds() {
     }
 
-    public void lB() {
+    public void releaseMemory() {
     }
 
     public void a(a aVar) {
-        this.Hm = aVar;
+        this.tZ = aVar;
     }
 
-    public void ah(boolean z) {
-        this.Hn = z;
+    public void setPathAvailable(boolean z) {
+        this.isPathAvailable = z;
     }
 }

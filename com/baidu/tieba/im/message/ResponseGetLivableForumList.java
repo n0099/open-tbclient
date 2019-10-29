@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.ForumData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
     private String tips;
 
     public ResponseGetLivableForumList() {
-        super(107129);
+        super(CmdConfigSocket.CMD_GET_LIVABLE_FORUM_LIST);
         this.available = false;
         this.data = new ArrayList<>();
     }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.message;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DebugCommitMsg.DataReq;
 import protobuf.DebugCommitMsg.DebugCommitMsgReqIdl;
@@ -12,7 +13,7 @@ public class TbDebugOnlineMessage extends TbSocketMessage {
     private String to;
 
     public TbDebugOnlineMessage(boolean z, String str, String str2, String str3) {
-        super(205102);
+        super(CmdConfigSocket.CMD_DEBUG_ONLINE_DEBUG);
         this.bSender = true;
         this.bSender = z;
         this.from = str;

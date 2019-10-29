@@ -16,17 +16,16 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.b> onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: as */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.b> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personCenter.view.b(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.data.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.b> aVar) {
-        aVar.baX().a(eVar);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.data.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.b> aVar) {
+        aVar.baZ().a(eVar);
         return aVar.getView();
     }
 }

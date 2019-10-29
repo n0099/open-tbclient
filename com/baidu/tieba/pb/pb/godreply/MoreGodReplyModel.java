@@ -12,54 +12,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
-    private final PbModel hMj;
-    private int hMk;
-    private int hMl;
-    private z.a hMm;
-    private final z.a hMn;
+    private final PbModel hKN;
+    private int hKO;
+    private int hKP;
+    private z.a hKQ;
+    private final z.a hKR;
     private boolean isLoading;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.hMk = -1;
-        this.hMl = -1;
-        this.hMn = new z.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.hKO = -1;
+        this.hKP = -1;
+        this.hKR = new z.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.z.a
-            public void aj(List<PostData> list) {
+            public void aD(List<PostData> list) {
                 MoreGodReplyModel.this.isLoading = false;
-                m bTJ = MoreGodReplyModel.this.hMj.getPbData().bTJ();
-                if (bTJ != null) {
-                    List<PostData> list2 = bTJ.hLr;
+                m bQK = MoreGodReplyModel.this.hKN.getPbData().bQK();
+                if (bQK != null) {
+                    List<PostData> list2 = bQK.hJX;
                     int size = list2.size();
-                    if (!v.aa(list)) {
+                    if (!v.isEmpty(list)) {
                         for (PostData postData : list) {
                             if (postData != null && !MoreGodReplyModel.a(list2, postData)) {
                                 list2.add(postData);
                             }
                         }
                     }
-                    MoreGodReplyModel.this.hMj.a(MoreGodReplyModel.this.hMj.getPbData(), size);
+                    MoreGodReplyModel.this.hKN.a(MoreGodReplyModel.this.hKN.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.hMk > 0) {
-                    MoreGodReplyModel.this.hMl = MoreGodReplyModel.this.hMk;
+                if (MoreGodReplyModel.this.hKO > 0) {
+                    MoreGodReplyModel.this.hKP = MoreGodReplyModel.this.hKO;
                 }
-                if (MoreGodReplyModel.this.hMm != null) {
-                    MoreGodReplyModel.this.hMm.aj(list);
+                if (MoreGodReplyModel.this.hKQ != null) {
+                    MoreGodReplyModel.this.hKQ.aD(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.z.a
-            public void m(int i, String str, String str2) {
+            public void n(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.hMm != null) {
-                    MoreGodReplyModel.this.hMm.m(i, str, str2);
+                if (MoreGodReplyModel.this.hKQ != null) {
+                    MoreGodReplyModel.this.hKQ.n(i, str, str2);
                 }
             }
         };
-        this.hMj = pbModel;
-        this.hMj.bXb().b(this.hMn);
+        this.hKN = pbModel;
+        this.hKN.bUd().b(this.hKR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,52 +79,52 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean bUD() {
-        m bTJ;
-        com.baidu.tieba.pb.data.d pbData = this.hMj.getPbData();
-        if (pbData == null || (bTJ = pbData.bTJ()) == null) {
+    public boolean bRE() {
+        m bQK;
+        com.baidu.tieba.pb.data.d pbData = this.hKN.getPbData();
+        if (pbData == null || (bQK = pbData.bQK()) == null) {
             return false;
         }
-        if (this.hMl < 0) {
-            this.hMl = bTJ.getCount();
+        if (this.hKP < 0) {
+            this.hKP = bQK.getCount();
         }
-        List<Long> list = bTJ.hLs;
+        List<Long> list = bQK.hJY;
         int size = list.size();
-        int i = this.hMl;
-        if (size <= i || bTJ.hLr.size() >= 100) {
+        int i = this.hKP;
+        if (size <= i || bQK.hJX.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.hMk = min;
+        this.hKO = min;
         this.isLoading = true;
-        this.hMj.bXb().dI(list.subList(i, min));
+        this.hKN.bUd().dV(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
 
-    public boolean pQ() {
+    public boolean isLoading() {
         return this.isLoading;
     }
 
-    public PbModel bUE() {
-        return this.hMj;
+    public PbModel bRF() {
+        return this.hKN;
     }
 
-    public List<com.baidu.adp.widget.ListView.m> bUF() {
-        com.baidu.tieba.pb.data.d pbData = this.hMj.getPbData();
-        if (pbData == null || pbData.bTJ() == null || v.aa(pbData.bTJ().hLr)) {
+    public List<com.baidu.adp.widget.ListView.m> bRG() {
+        com.baidu.tieba.pb.data.d pbData = this.hKN.getPbData();
+        if (pbData == null || pbData.bQK() == null || v.isEmpty(pbData.bQK().hJX)) {
             return null;
         }
-        m bTJ = pbData.bTJ();
+        m bQK = pbData.bQK();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = bTJ.hLr;
+        List<PostData> list = bQK.hJX;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.jjk = i < size + (-1);
+                postData.jiY = i < size + (-1);
             }
             i++;
         }
@@ -143,19 +143,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(z.a aVar) {
-        this.hMm = aVar;
+        this.hKQ = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean KF() {
-        m bTJ;
-        com.baidu.tieba.pb.data.d pbData = this.hMj.getPbData();
-        if (pbData == null || (bTJ = pbData.bTJ()) == null) {
+    public boolean Py() {
+        m bQK;
+        com.baidu.tieba.pb.data.d pbData = this.hKN.getPbData();
+        if (pbData == null || (bQK = pbData.bQK()) == null) {
             return false;
         }
-        if (this.hMl < 0) {
-            this.hMl = bTJ.getCount();
+        if (this.hKP < 0) {
+            this.hKP = bQK.getCount();
         }
-        return bTJ.hLs.size() > this.hMl && bTJ.hLr.size() < 100;
+        return bQK.hJY.size() > this.hKP && bQK.hJX.size() < 100;
     }
 }

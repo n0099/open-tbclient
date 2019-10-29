@@ -1,5 +1,7 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.HashMap;
@@ -22,13 +24,13 @@ public class u implements Serializable, Cloneable, org.apache.thrift.a<u, TField
     public boolean l;
     public Map<String, String> m;
     private static final org.apache.thrift.protocol.j n = new org.apache.thrift.protocol.j("PushMetaInfo");
-    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("", (byte) 11, 1);
+    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 1);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("", (byte) 10, 2);
-    private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("", (byte) 11, 4);
-    private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("", (byte) 11, 5);
+    private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 3);
+    private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 4);
+    private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 5);
     private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("", (byte) 8, 6);
-    private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("", (byte) 11, 7);
+    private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("", Constants.GZIP_CAST_TYPE, 7);
     private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("", (byte) 8, 8);
     private static final org.apache.thrift.protocol.b w = new org.apache.thrift.protocol.b("", (byte) 8, 9);
     private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b("", (byte) 13, 10);
@@ -514,7 +516,7 @@ public class u implements Serializable, Cloneable, org.apache.thrift.a<u, TField
         }
         if (this.j != null && t()) {
             eVar.a(x);
-            eVar.a(new org.apache.thrift.protocol.d((byte) 11, (byte) 11, this.j.size()));
+            eVar.a(new org.apache.thrift.protocol.d(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.j.size()));
             for (Map.Entry<String, String> entry : this.j.entrySet()) {
                 eVar.a(entry.getKey());
                 eVar.a(entry.getValue());
@@ -524,7 +526,7 @@ public class u implements Serializable, Cloneable, org.apache.thrift.a<u, TField
         }
         if (this.k != null && v()) {
             eVar.a(y);
-            eVar.a(new org.apache.thrift.protocol.d((byte) 11, (byte) 11, this.k.size()));
+            eVar.a(new org.apache.thrift.protocol.d(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.k.size()));
             for (Map.Entry<String, String> entry2 : this.k.entrySet()) {
                 eVar.a(entry2.getKey());
                 eVar.a(entry2.getValue());
@@ -539,7 +541,7 @@ public class u implements Serializable, Cloneable, org.apache.thrift.a<u, TField
         }
         if (this.m != null && y()) {
             eVar.a(A);
-            eVar.a(new org.apache.thrift.protocol.d((byte) 11, (byte) 11, this.m.size()));
+            eVar.a(new org.apache.thrift.protocol.d(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.m.size()));
             for (Map.Entry<String, String> entry3 : this.m.entrySet()) {
                 eVar.a(entry3.getKey());
                 eVar.a(entry3.getValue());
@@ -679,7 +681,7 @@ public class u implements Serializable, Cloneable, org.apache.thrift.a<u, TField
         sb.append(this.b);
         if (g()) {
             sb.append(", ");
-            sb.append("topic:");
+            sb.append(UrlSchemaHelper.SCHEMA_TYPE_TOPIC);
             if (this.c == null) {
                 sb.append("null");
             } else {

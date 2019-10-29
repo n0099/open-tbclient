@@ -5,5 +5,5 @@ import java.util.List;
 public interface c {
     boolean a(j jVar);
 
-    void d(int i, List<j> list);
+    void e(int i, List<j> list);
 }

@@ -16,13 +16,13 @@ public class q {
     private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.q.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TbPageContext<?> ZO;
+            TbPageContext<?> aeD;
             Object tag = view.getTag();
             if (tag instanceof CompleteTaskToastData) {
                 CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                if (!TextUtils.isEmpty(completeTaskToastData.url) && (ZO = q.ZO()) != null) {
-                    ba.ajK().c(ZO, new String[]{completeTaskToastData.url});
-                    com.baidu.tbadk.BdToken.completeTask.c.S(completeTaskToastData.activityId, completeTaskToastData.missionId);
+                if (!TextUtils.isEmpty(completeTaskToastData.url) && (aeD = q.aeD()) != null) {
+                    ba.amQ().b(aeD, new String[]{completeTaskToastData.url});
+                    com.baidu.tbadk.BdToken.completeTask.c.Y(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
         }
@@ -34,7 +34,7 @@ public class q {
 
     public static void i(int i, long j) {
         if (isMainProcess()) {
-            c.Zk().i(i, j);
+            c.adZ().i(i, j);
         } else {
             a(i, j, "onActivity");
         }
@@ -42,7 +42,7 @@ public class q {
 
     public static void a(int i, int i2, long j) {
         if (isMainProcess()) {
-            c.Zk().k(i, j);
+            c.adZ().k(i, j);
         } else {
             b(i, i2, j, "onResume");
         }
@@ -50,7 +50,7 @@ public class q {
 
     public static void m(int i, long j) {
         if (isMainProcess()) {
-            c.Zk().Zp();
+            c.adZ().aee();
         } else {
             a(i, j, "onPause");
         }
@@ -58,7 +58,7 @@ public class q {
 
     public static void n(int i, long j) {
         if (isMainProcess()) {
-            c.Zk().Zr();
+            c.adZ().aeg();
         } else {
             a(i, j, "onTouch");
         }
@@ -81,7 +81,7 @@ public class q {
         com.baidu.tbadk.n.b.a("broadcast_type_mission_message", bundle);
     }
 
-    public static TbPageContext ZO() {
+    public static TbPageContext aeD() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof BaseActivity) {
             return ((BaseActivity) currentActivity).getPageContext();
@@ -93,15 +93,15 @@ public class q {
     }
 
     public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
-        TbPageContext ZO;
-        if (completeTaskToastData == null || (ZO = ZO()) == null || ZO.getUniqueId() == null || completeTaskToastData.pageId != ZO.getUniqueId().getId()) {
+        TbPageContext aeD;
+        if (completeTaskToastData == null || (aeD = aeD()) == null || aeD.getUniqueId() == null || completeTaskToastData.pageId != aeD.getUniqueId().getId()) {
             return null;
         }
-        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(ZO.getPageActivity(), completeTaskToastData.message);
-        d.hK(completeTaskToastData.duration);
+        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(aeD.getPageActivity(), completeTaskToastData.message);
+        d.m22if(completeTaskToastData.duration);
         d.setOnClickListener(mOnClickListener);
         d.setTag(completeTaskToastData);
-        d.aha();
+        d.akX();
         return d;
     }
 

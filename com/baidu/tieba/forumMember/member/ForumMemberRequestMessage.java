@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.GetMemberInfo.DataReq;
 import tbclient.GetMemberInfo.GetMemberInfoReqIdl;
 /* loaded from: classes5.dex */
@@ -10,7 +10,7 @@ public class ForumMemberRequestMessage extends NetMessage {
     private String forumName;
 
     public ForumMemberRequestMessage() {
-        super(CmdConfigHttp.FRS_MEMBER_TAB_CMD, 301004);
+        super(1001706, CmdConfigSocket.CMD_FRS_MEMBER_TAB);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -18,7 +18,7 @@ public class ForumMemberRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         if (z) {
-            com.baidu.tbadk.util.r.bindCommonParamsToProtobufData(builder, true);
+            com.baidu.tbadk.util.r.a(builder, true);
         }
         GetMemberInfoReqIdl.Builder builder2 = new GetMemberInfoReqIdl.Builder();
         builder2.data = builder.build(false);

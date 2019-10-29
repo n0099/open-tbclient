@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 /* loaded from: classes5.dex */
 public class b {
     public static int a() {
@@ -26,7 +27,7 @@ public class b {
                 if (packageInfo != null) {
                     String str = packageInfo.versionName;
                     if (!TextUtils.isEmpty(str)) {
-                        sb.append("_");
+                        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                         sb.append(str);
                         a.a("appId = " + sb.toString());
                     }

@@ -7,17 +7,17 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean cqQ = false;
-    private int cqR = 0;
+    private boolean cDp = false;
+    private int cDq = 0;
 
-    public void qc(String str) {
+    public void pm(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.cqQ = false;
-        this.cqR = 0;
+        this.cDp = false;
+        this.cDq = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -44,11 +44,11 @@ public class f {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.f(String.valueOf(str3), 8000)), getTimeout());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.toInt(String.valueOf(str3), 8000)), getTimeout());
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.cqQ = true;
+                                this.cDp = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -79,19 +79,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.cqQ && i4 > 0) {
-                    this.cqR = i3 / i4;
+                if (this.cDp && i4 > 0) {
+                    this.cDq = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.cqQ;
+        return this.cDp;
     }
 
-    public int art() {
-        return this.cqR;
+    public int ati() {
+        return this.cDq;
     }
 
     private int getTimeout() {

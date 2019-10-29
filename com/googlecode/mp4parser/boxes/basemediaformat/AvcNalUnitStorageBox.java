@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.basemediaformat;
 
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.boxes.h264.AvcConfigurationBox;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
@@ -10,14 +11,14 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class AvcNalUnitStorageBox extends AbstractBox {
     public static final String TYPE = "avcn";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_7 = null;
     AvcConfigurationBox.AVCDecoderConfigurationRecord avcDecoderConfigurationRecord;
 
     static {
@@ -33,7 +34,7 @@ public class AvcNalUnitStorageBox extends AbstractBox {
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getSequenceParameterSetsAsStrings", "com.googlecode.mp4parser.boxes.basemediaformat.AvcNalUnitStorageBox", "", "", "", "java.util.List"), 60);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getSequenceParameterSetExtsAsStrings", "com.googlecode.mp4parser.boxes.basemediaformat.AvcNalUnitStorageBox", "", "", "", "java.util.List"), 64);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getPictureParameterSetsAsStrings", "com.googlecode.mp4parser.boxes.basemediaformat.AvcNalUnitStorageBox", "", "", "", "java.util.List"), 68);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.basemediaformat.AvcNalUnitStorageBox", "", "", "", "java.lang.String"), 88);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.basemediaformat.AvcNalUnitStorageBox", "", "", "", FieldUtil.TYPE_STRING), 88);
     }
 
     public AvcNalUnitStorageBox() {

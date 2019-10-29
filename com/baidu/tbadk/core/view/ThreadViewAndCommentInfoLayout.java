@@ -13,40 +13,40 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    public int ccG;
-    private TextView ccc;
-    private TextView cdN;
-    private boolean cdO;
-    private boolean cdP;
-    private boolean cdQ;
-    private boolean cdR;
-    private boolean cdS;
+    public int cqT;
+    private TextView cqq;
+    private TextView csb;
+    private boolean csc;
+    private boolean csd;
+    private boolean cse;
+    private boolean csf;
+    private boolean csg;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.cdO = false;
-        this.cdP = false;
-        this.cdQ = false;
-        this.cdR = false;
-        this.cdS = false;
+        this.csc = false;
+        this.csd = false;
+        this.cse = false;
+        this.csf = false;
+        this.csg = false;
         init(context);
     }
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cdO = false;
-        this.cdP = false;
-        this.cdQ = false;
-        this.cdR = false;
-        this.cdS = false;
+        this.csc = false;
+        this.csd = false;
+        this.cse = false;
+        this.csf = false;
+        this.csg = false;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.cdN = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.ccc = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.csb = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.cqq = (TextView) inflate.findViewById(R.id.thread_comment_num);
         this.mContext = context;
     }
 
@@ -64,70 +64,70 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void E(bh bhVar) {
-        if (this.cdN != null && bhVar != null && this.cdQ && bhVar.aeV() != null && bhVar.afQ()) {
-            this.cdN.setVisibility(0);
-            this.cdN.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), aq.aH(bhVar.aeV().audience_count)));
+        if (this.csb != null && bhVar != null && this.cse && bhVar.aiZ() != null && bhVar.ajT()) {
+            this.csb.setVisibility(0);
+            this.csb.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), aq.numberUniformFormat(bhVar.aiZ().audience_count)));
         }
     }
 
     private void F(bh bhVar) {
-        if (this.cdN != null && bhVar != null && this.cdO) {
-            if (bhVar.aeu() >= 0) {
-                this.cdN.setVisibility(0);
-                this.cdN.setText(String.format(this.mContext.getString(R.string.person_view_num), aq.aH(bhVar.aeu())));
+        if (this.csb != null && bhVar != null && this.csc) {
+            if (bhVar.aiy() >= 0) {
+                this.csb.setVisibility(0);
+                this.csb.setText(String.format(this.mContext.getString(R.string.person_view_num), aq.numberUniformFormat(bhVar.aiy())));
                 return;
             }
-            this.cdN.setVisibility(8);
+            this.csb.setVisibility(8);
         }
     }
 
     private void G(bh bhVar) {
-        if (this.ccc != null && bhVar != null && this.cdP) {
-            if (bhVar.aet() >= 0) {
-                this.ccc.setVisibility(0);
-                this.ccc.setText(String.format(this.mContext.getString(R.string.comment_num_tip), aq.aH(bhVar.aet())));
+        if (this.cqq != null && bhVar != null && this.csd) {
+            if (bhVar.aix() >= 0) {
+                this.cqq.setVisibility(0);
+                this.cqq.setText(String.format(this.mContext.getString(R.string.comment_num_tip), aq.numberUniformFormat(bhVar.aix())));
                 return;
             }
-            this.ccc.setVisibility(8);
+            this.cqq.setVisibility(8);
         }
     }
 
     private void H(bh bhVar) {
-        if (this.ccc != null && bhVar != null && this.cdR && bhVar.afQ()) {
-            this.ccc.setVisibility(0);
-            this.ccc.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), aq.aH(bhVar.afV())));
+        if (this.cqq != null && bhVar != null && this.csf && bhVar.ajT()) {
+            this.cqq.setVisibility(0);
+            this.cqq.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), aq.numberUniformFormat(bhVar.ajY())));
         }
     }
 
     private void q(bh bhVar) {
-        if (this.ccc != null && bhVar != null && this.cdS && bhVar.afQ()) {
-            this.ccc.setVisibility(0);
-            this.ccc.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), aq.aH((bhVar.aeV() == null || bhVar.aeV().share_info == null) ? 0 : bhVar.aeV().share_info.share_count)));
+        if (this.cqq != null && bhVar != null && this.csg && bhVar.ajT()) {
+            this.cqq.setVisibility(0);
+            this.cqq.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), aq.numberUniformFormat((bhVar.aiZ() == null || bhVar.aiZ().share_info == null) ? 0 : bhVar.aiZ().share_info.share_count)));
         }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.cdO = z;
+        this.csc = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.cdP = z;
+        this.csd = z;
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.cdQ = z;
+        this.cse = z;
     }
 
     public void setIsShowZanNum(boolean z) {
-        this.cdR = z;
+        this.csf = z;
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.cdS = z;
+        this.csg = z;
     }
 
     public void onChangeSkinType() {
-        am.j(this.cdN, R.color.cp_cont_d);
-        am.j(this.ccc, R.color.cp_cont_d);
+        am.setViewTextColor(this.csb, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.cqq, (int) R.color.cp_cont_d);
     }
 }

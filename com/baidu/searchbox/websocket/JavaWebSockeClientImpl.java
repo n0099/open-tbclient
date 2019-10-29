@@ -1,5 +1,6 @@
 package com.baidu.searchbox.websocket;
 
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -27,23 +28,23 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         JavaWebSockeClientImpl$connect$1 javaWebSockeClientImpl$connect$12;
         JavaWebSockeClientImpl javaWebSockeClientImpl;
         final WebSocketRequest webSocketRequest2;
-        ArrayList bi;
+        ArrayList bd;
         final IWebSocketListener iWebSocketListener2;
         final URI uri;
         org.java_websocket.drafts.a aVar4;
-        p.k(webSocketRequest, "request");
-        p.k(iWebSocketListener, "listener");
+        p.i(webSocketRequest, "request");
+        p.i(iWebSocketListener, "listener");
         URI create = URI.create(webSocketRequest.getUrl());
-        List cOA = n.cOA();
+        List cMH = n.cMH();
         List<String> protocols = webSocketRequest.getProtocols();
         if (protocols == null) {
-            list = cOA;
+            list = cMH;
             aVar2 = aVar;
             aVar3 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
             webSocketRequest2 = webSocketRequest;
-            bi = n.bi(new b(""));
+            bd = n.bd(new b(""));
             iWebSocketListener2 = iWebSocketListener;
             uri = create;
             aVar4 = aVar;
@@ -53,29 +54,29 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             for (String str : list2) {
                 arrayList.add(new b(str));
             }
-            list = cOA;
+            list = cMH;
             aVar2 = aVar;
             aVar3 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
             webSocketRequest2 = webSocketRequest;
-            bi = arrayList;
+            bd = arrayList;
             iWebSocketListener2 = iWebSocketListener;
             uri = create;
             aVar4 = aVar;
         }
-        new org.java_websocket.drafts.a(list, bi);
+        new org.java_websocket.drafts.a(list, bd);
         final org.java_websocket.drafts.a aVar5 = aVar4;
         final Map<String, String> headers = webSocketRequest.getHeaders();
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(h hVar) {
-                Iterator<String> cPO;
+                Iterator<String> cNV;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (cPO = hVar.cPO()) != null) {
-                    while (cPO.hasNext()) {
-                        String next = cPO.next();
-                        hashMap.put(next, hVar.IT(next));
+                if (hVar != null && (cNV = hVar.cNV()) != null) {
+                    while (cNV.hasNext()) {
+                        String next = cNV.next();
+                        hashMap.put(next, hVar.Hk(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -89,25 +90,25 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                 if (str2 == null) {
                     str2 = "";
                 }
-                jSONObject.put("reason", str2);
+                jSONObject.put(TiebaInitialize.LogFields.REASON, str2);
                 iWebSocketListener3.onClose(jSONObject);
             }
 
             @Override // org.java_websocket.a.a
             public void onMessage(String str2) {
-                p.k(str2, "p0");
+                p.i(str2, "p0");
                 IWebSocketListener.this.onMessage(str2);
             }
 
             @Override // org.java_websocket.a.a
             public void onMessage(ByteBuffer byteBuffer) {
-                p.k(byteBuffer, "bytes");
+                p.i(byteBuffer, "bytes");
                 IWebSocketListener.this.onMessage(byteBuffer);
             }
 
             @Override // org.java_websocket.a.a
             public void onError(Exception exc) {
-                p.k(exc, "p0");
+                p.i(exc, "p0");
                 IWebSocketListener.this.onError(exc, null);
             }
         };
@@ -117,43 +118,43 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             int intValue = connectionLostTimeout.intValue();
             a aVar6 = this.webSocketClient;
             if (aVar6 == null) {
-                p.II("webSocketClient");
+                p.GZ("webSocketClient");
             }
             aVar6.setConnectionLostTimeout(intValue);
         }
         a aVar7 = this.webSocketClient;
         if (aVar7 == null) {
-            p.II("webSocketClient");
+            p.GZ("webSocketClient");
         }
         aVar7.connect();
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void close(int i, String str) {
-        p.k(str, "reason");
+        p.i(str, TiebaInitialize.LogFields.REASON);
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.II("webSocketClient");
+            p.GZ("webSocketClient");
         }
         aVar.close();
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void send(String str) {
-        p.k(str, "message");
+        p.i(str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.II("webSocketClient");
+            p.GZ("webSocketClient");
         }
         aVar.send(str);
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void send(ByteBuffer byteBuffer) {
-        p.k(byteBuffer, "data");
+        p.i(byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.II("webSocketClient");
+            p.GZ("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

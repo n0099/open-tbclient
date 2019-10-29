@@ -136,7 +136,7 @@ public class AccountRealNameActivity extends BaseActivity {
         super.onClose();
         if (this.realNameResult.juniorRealNameSuc || this.realNameResult.seniorRealNameSuc) {
             this.realNameResult.setResultCode(0);
-            this.realNameResult.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
+            this.realNameResult.setResultMsg("成功");
         } else {
             this.realNameResult.setResultCode(-301);
             this.realNameResult.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);

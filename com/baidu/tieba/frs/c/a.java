@@ -9,7 +9,7 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes4.dex */
 public class a extends h<ICardInfo, b> {
-    private ICardInfo fNV;
+    private ICardInfo fNo;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -18,9 +18,9 @@ public class a extends h<ICardInfo, b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
-    public b onCreateViewHolder(ViewGroup viewGroup) {
-        e a = com.baidu.tieba.lego.card.b.bLa().a(this.mPageContext, this.fNV, 1);
+    /* renamed from: bc */
+    public b b(ViewGroup viewGroup) {
+        e a = com.baidu.tieba.lego.card.b.bHK().a(this.mPageContext, this.fNo, 1);
         if (a == null) {
             return null;
         }
@@ -31,12 +31,11 @@ public class a extends h<ICardInfo, b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo, b bVar) {
-        super.onFillViewHolder(i, view, viewGroup, iCardInfo, bVar);
+    public View a(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo, b bVar) {
+        super.a(i, view, viewGroup, (ViewGroup) iCardInfo, (ICardInfo) bVar);
         View view2 = bVar.getView();
         if (view2 != null && iCardInfo != null) {
-            ((e) view2).ao(iCardInfo);
+            ((e) view2).al(iCardInfo);
         }
         return view2;
     }
@@ -45,7 +44,7 @@ public class a extends h<ICardInfo, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.fNV = iCardInfo;
+        this.fNo = iCardInfo;
         return super.getView(i, view, viewGroup, iCardInfo);
     }
 }

@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.a<c> {
-    private static final int gnv = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds105);
-    private static final int gnw = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-    private TextView gnx;
-    private String gny;
-    private c gnz;
+    private static final int gmU = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds105);
+    private static final int gmV = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+    private TextView gmW;
+    private String gmX;
+    private c gmY;
     private final TbPageContext<?> mPageContext;
     private View mRoot;
     private int mSkinType;
@@ -29,28 +29,28 @@ public class a extends com.baidu.tieba.card.a<c> {
         this.mSkinType = 3;
         this.mPageContext = tbPageContext;
         this.mRoot = getView();
-        this.gnx = (TextView) this.mRoot.findViewById(R.id.read_progress_bar_time);
-        this.gny = this.mPageContext.getResources().getString(R.string.home_read_here);
+        this.gmW = (TextView) this.mRoot.findViewById(R.id.read_progress_bar_time);
+        this.gmX = this.mPageContext.getResources().getString(R.string.home_read_here);
         this.mRoot.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aZU() != null) {
-                    a.this.aZU().a(view, a.this.gnz);
+                if (a.this.aZX() != null) {
+                    a.this.aZX().a(view, a.this.gmY);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byh() {
+    public void bvl() {
         final ViewGroup.LayoutParams layoutParams = this.mRoot.getLayoutParams();
-        if (layoutParams != null && layoutParams.height != gnv) {
+        if (layoutParams != null && layoutParams.height != gmU) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.2
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    a.this.gnx.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    layoutParams.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.gnv - a.gnw)) + a.gnw);
+                    a.this.gmW.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    layoutParams.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.gmU - a.gmV)) + a.gmV);
                     a.this.mRoot.setLayoutParams(layoutParams);
                 }
             });
@@ -62,9 +62,9 @@ public class a extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.j(this.gnx, R.color.cp_link_tip_a);
-            this.gnx.setCompoundDrawablesWithIntrinsicBounds(SvgManager.ajv().a(R.drawable.icon_mask_card_refresh_n_svg, null), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.k(this.mRoot, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.gmW, (int) R.color.cp_link_tip_a);
+            this.gmW.setCompoundDrawablesWithIntrinsicBounds(SvgManager.amN().a(R.drawable.icon_mask_card_refresh_n_svg, null), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.setBackgroundResource(this.mRoot, R.color.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -78,21 +78,21 @@ public class a extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null && this.mRoot.getLayoutParams() != null) {
-            if (!cVar.gnE) {
-                this.mRoot.getLayoutParams().height = gnw;
+            if (!cVar.gnd) {
+                this.mRoot.getLayoutParams().height = gmV;
                 this.mRoot.requestLayout();
-                this.gnx.setAlpha(0.0f);
+                this.gmW.setAlpha(0.0f);
             }
-            if (this.mRoot.getLayoutParams().height != gnv) {
-                cVar.gnE = true;
-                e.iK().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.b.a.3
+            if (this.mRoot.getLayoutParams().height != gmU) {
+                cVar.gnd = true;
+                e.fZ().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.b.a.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.byh();
+                        a.this.bvl();
                     }
                 }, 1600L);
             }
-            this.gnx.setText(aq.aF(cVar.bcI) + this.gny);
+            this.gmW.setText(aq.getFormatTimeShort(cVar.mTimeStamp) + this.gmX);
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }

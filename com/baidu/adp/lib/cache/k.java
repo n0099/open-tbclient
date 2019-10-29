@@ -3,17 +3,17 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.l;
 /* loaded from: classes.dex */
 public interface k<T> {
-    void a(String str, String str2, T t, long j);
+    void clearAndClose(String str);
 
-    void an(String str);
+    e fb();
 
-    void ao(String str);
+    T get(String str, String str2);
 
-    e hr();
+    l.b<T> k(String str, String str2);
 
-    T l(String str, String str2);
+    void remove(String str, String str2);
 
-    l.b<T> m(String str, String str2);
+    void set(String str, String str2, T t, long j);
 
-    void n(String str, String str2);
+    void startup(String str);
 }

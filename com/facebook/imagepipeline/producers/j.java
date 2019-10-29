@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public interface j<T> {
-    void B(Throwable th);
+    void A(Throwable th);
 
-    void aS(float f);
+    void av(float f);
 
-    void cFJ();
+    void cCH();
 
-    void e(T t, boolean z);
+    void f(T t, boolean z);
 }

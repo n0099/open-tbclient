@@ -3,47 +3,47 @@ package com.baidu.tbadk.img.effect;
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.plugins.MotuPlugin;
 /* loaded from: classes.dex */
 public class a extends b {
-    private String cxR = "";
+    private String filterLabel = "";
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
-        return "filter";
+        return FilterImageAction.ACTION_NAME;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.cxR = str;
+            this.filterLabel = str;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [96=4, 97=4] */
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+    public Bitmap processImage(Bitmap bitmap, boolean z) throws Exception {
         Bitmap createOneKeyFilterAndApply;
         Bitmap bitmap2 = null;
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.atK().kJ(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if ("normal".equals(this.cxR)) {
+        com.baidu.tbadk.imageManager.c.avu().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if ("normal".equals(this.filterLabel)) {
             return bitmap;
         }
         MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
         if (bitmap.isMutable()) {
             if (motuPlugin != null) {
                 try {
-                    createOneKeyFilterAndApply = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.cxR, bitmap);
+                    createOneKeyFilterAndApply = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.filterLabel, bitmap);
                 } catch (Throwable th) {
-                    TiebaStatic.imgError(TbErrInfo.ERR_IMG_LOAD_BITMAP, "motou filter failed: " + th.toString(), "");
+                    TiebaStatic.imgError(-1008, "motou filter failed: " + th.toString(), "");
                     if (BdLog.isDebugMode()) {
                         th.printStackTrace();
                     }
@@ -62,7 +62,7 @@ public class a extends b {
                 try {
                     if (motuPlugin != null) {
                         try {
-                            bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.cxR, copy);
+                            bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.filterLabel, copy);
                         } catch (IllegalStateException e) {
                             BdLog.e(e.toString());
                             e.printStackTrace();

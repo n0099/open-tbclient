@@ -2,7 +2,6 @@ package com.baidu.swan.apps.statistic.a;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.an.ac;
 import org.json.JSONException;
@@ -10,52 +9,52 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int aHj = 35;
-    private boolean aHl = false;
-    private JSONObject aWp;
+    private static int bax = 35;
+    private boolean baz = false;
+    private JSONObject bpt;
 
     public d() {
         this.mSource = "NA";
     }
 
     public d a(@NonNull com.baidu.swan.apps.ak.a aVar) {
-        this.mType = String.valueOf(aVar.OZ());
-        aC(DpStatConstants.KEY_DETAIL, aVar.OY().toString());
+        this.mType = String.valueOf(aVar.TP());
+        aK("detail", aVar.TO().toString());
         return this;
     }
 
-    public d cy(boolean z) {
-        this.aHl = z;
+    public d cP(boolean z) {
+        this.baz = z;
         return this;
     }
 
-    public d hx(String str) {
+    public d ia(String str) {
         this.mFrom = str;
         return this;
     }
 
-    public d hy(String str) {
+    public d ib(String str) {
         this.mAppId = str;
         return this;
     }
 
-    public d hz(String str) {
+    public d ic(String str) {
         this.mSource = str;
         return this;
     }
 
-    public d hA(String str) {
-        this.azQ = str;
+    public d ie(String str) {
+        this.aTe = str;
         return this;
     }
 
-    public d aC(String str, String str2) {
+    public d aK(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.aWp == null) {
-                this.aWp = new JSONObject();
+            if (this.bpt == null) {
+                this.bpt = new JSONObject();
             }
             try {
-                this.aWp.put(str, str2);
+                this.bpt.put(str, str2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -65,17 +64,17 @@ public class d extends f {
 
     public d s(com.baidu.swan.apps.v.b.b bVar) {
         if (bVar != null) {
-            if (!TextUtils.isEmpty(bVar.FK())) {
-                this.mSource = bVar.FK();
+            if (!TextUtils.isEmpty(bVar.KE())) {
+                this.mSource = bVar.KE();
             }
             if (!TextUtils.isEmpty(bVar.getAppId())) {
                 this.mAppId = bVar.getAppId();
             }
-            if (!TextUtils.isEmpty(bVar.FL())) {
-                this.aWw = bVar.FL();
+            if (!TextUtils.isEmpty(bVar.KF())) {
+                this.bpA = bVar.KF();
             }
             if (!TextUtils.isEmpty(bVar.getPage())) {
-                this.aWy = bVar.getPage();
+                this.bpC = bVar.getPage();
             }
         }
         return this;
@@ -89,11 +88,11 @@ public class d extends f {
             if (!TextUtils.isEmpty(cVar.mAppId)) {
                 this.mAppId = cVar.mAppId;
             }
-            if (!TextUtils.isEmpty(cVar.azU)) {
-                this.aWw = cVar.azU;
+            if (!TextUtils.isEmpty(cVar.aTi)) {
+                this.bpA = cVar.aTi;
             }
-            if (!TextUtils.isEmpty(cVar.azQ)) {
-                this.aWy = cVar.azQ;
+            if (!TextUtils.isEmpty(cVar.aTe)) {
+                this.bpC = cVar.aTe;
             }
         }
         return this;
@@ -101,18 +100,18 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.aWq == null) {
-            this.aWq = new JSONObject();
+        if (this.bpu == null) {
+            this.bpu = new JSONObject();
         }
         try {
-            if (this.aWp != null) {
-                if (this.aHl) {
-                    String eD = ac.eD(aHj);
-                    if (!TextUtils.isEmpty(eD)) {
-                        this.aWp.put("stacktrace", eD);
+            if (this.bpt != null) {
+                if (this.baz) {
+                    String fy = ac.fy(bax);
+                    if (!TextUtils.isEmpty(fy)) {
+                        this.bpt.put("stacktrace", fy);
                     }
                 }
-                this.aWq.put(Config.LAUNCH_INFO, this.aWp);
+                this.bpu.put(Config.LAUNCH_INFO, this.bpt);
             }
         } catch (JSONException e) {
             if (DEBUG) {

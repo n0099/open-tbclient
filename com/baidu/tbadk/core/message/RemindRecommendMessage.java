@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class RemindRecommendMessage extends CustomResponsedMessage<Boolean> {
     public boolean isLocal;
@@ -10,11 +11,11 @@ public class RemindRecommendMessage extends CustomResponsedMessage<Boolean> {
     public String url;
 
     public RemindRecommendMessage() {
-        super(2001355);
+        super(CmdConfigCustom.CMD_SCREEN_DIALOG);
     }
 
     public RemindRecommendMessage(String str, String str2, String str3, String str4) {
-        super(2001355);
+        super(CmdConfigCustom.CMD_SCREEN_DIALOG);
         this.name = str;
         this.url = str3;
         this.title = str2;

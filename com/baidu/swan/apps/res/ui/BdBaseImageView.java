@@ -41,7 +41,7 @@ public class BdBaseImageView extends ImageView {
     public void draw(Canvas canvas) {
         if (shouldDecorate()) {
             s.a(getContext(), getDrawable());
-            this.mColorFilter = s.bL(getContext());
+            this.mColorFilter = s.bM(getContext());
             this.mFlagShouldDecorate = false;
         }
         super.draw(canvas);
@@ -57,10 +57,10 @@ public class BdBaseImageView extends ImageView {
     }
 
     private boolean shouldDecorate() {
-        return this.mFlagShouldDecorate || this.mColorFilter != s.bL(getContext());
+        return this.mFlagShouldDecorate || this.mColorFilter != s.bM(getContext());
     }
 
     private boolean hasDecorateColorFilter() {
-        return Color.alpha(s.bL(getContext())) != 0;
+        return Color.alpha(s.bM(getContext())) != 0;
     }
 }

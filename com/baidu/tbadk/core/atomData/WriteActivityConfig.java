@@ -123,8 +123,8 @@ public class WriteActivityConfig extends IntentConfig {
 
     public void setForumDir(String str, String str2) {
         Intent intent = getIntent();
-        intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
-        intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
+        intent.putExtra("forum_first_dir", str);
+        intent.putExtra("forum_second_dir", str2);
     }
 
     public void addHotTopicInfo(PostTopicData postTopicData) {
@@ -172,7 +172,7 @@ public class WriteActivityConfig extends IntentConfig {
 
     public void setAlbumThread(int i) {
         if (getIntent() != null) {
-            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
+            getIntent().putExtra("album_thread", i);
         }
     }
 

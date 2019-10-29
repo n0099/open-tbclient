@@ -3,6 +3,7 @@ package com.baidu.tieba.recapp.lego;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.e;
 import com.baidu.tieba.lego.card.exception.CardParseException;
@@ -33,23 +34,23 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void bLb() {
-        hgH.put(17, hgH.size() + 1);
-        hgH.put(26, hgH.size() + 1);
-        hgH.put(25, hgH.size() + 1);
-        hgH.put(27, hgH.size() + 1);
-        hgH.put(31, hgH.size() + 1);
-        hgH.put(32, hgH.size() + 1);
-        hgH.put(33, hgH.size() + 1);
-        hgH.put(99, hgH.size() + 1);
-        hgI.put(17, BdUniqueId.gen());
-        hgI.put(26, BdUniqueId.gen());
-        hgI.put(25, BdUniqueId.gen());
-        hgI.put(27, BdUniqueId.gen());
-        hgI.put(31, BdUniqueId.gen());
-        hgI.put(32, BdUniqueId.gen());
-        hgI.put(33, BdUniqueId.gen());
-        hgI.put(99, BdUniqueId.gen());
+    protected void bHL() {
+        heM.put(17, heM.size() + 1);
+        heM.put(26, heM.size() + 1);
+        heM.put(25, heM.size() + 1);
+        heM.put(27, heM.size() + 1);
+        heM.put(31, heM.size() + 1);
+        heM.put(32, heM.size() + 1);
+        heM.put(33, heM.size() + 1);
+        heM.put(99, heM.size() + 1);
+        heN.put(17, BdUniqueId.gen());
+        heN.put(26, BdUniqueId.gen());
+        heN.put(25, BdUniqueId.gen());
+        heN.put(27, BdUniqueId.gen());
+        heN.put(31, BdUniqueId.gen());
+        heN.put(32, BdUniqueId.gen());
+        heN.put(33, BdUniqueId.gen());
+        heN.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -63,7 +64,7 @@ class a extends e {
             case 17:
                 return new AdCard(jSONObject);
             case 25:
-                if (MessageManager.getInstance().findTask(2016481) != null) {
+                if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_VR_LOGO_CAN_OPEN) != null) {
                     return new DistributeVrVideoCard(jSONObject);
                 }
                 return null;
@@ -91,7 +92,7 @@ class a extends e {
             case 26:
                 return e(tbPageContext, iCardInfo, i);
             case 25:
-                if (MessageManager.getInstance().findTask(2016481) != null) {
+                if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_VR_LOGO_CAN_OPEN) != null) {
                     return new DistributeVrVideoCardView(tbPageContext);
                 }
                 return null;

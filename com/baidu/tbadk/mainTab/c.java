@@ -3,15 +3,15 @@ package com.baidu.tbadk.mainTab;
 import android.support.v4.app.Fragment;
 /* loaded from: classes.dex */
 public class c {
-    public static int cyI = 1;
-    public static int cyJ = 2;
-    public static int cyK = 3;
-    public static int cyL = 4;
-    public int bXX;
-    public int bXY;
-    public Fragment cyG;
-    public int cyH;
-    public int cyM = cyI;
-    public int kE;
+    public int animationResId;
+    public int backgroundId;
+    public int drawableResId;
+    public Fragment frag;
+    public int showIconType = SHOWICON;
+    public int textResId;
     public int type;
+    public static int SHOWICON = 1;
+    public static int SHOWTEXT = 2;
+    public static int SHOWBOTH = 3;
+    public static int cKi = 4;
 }

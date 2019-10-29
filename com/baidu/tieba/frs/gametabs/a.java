@@ -17,49 +17,49 @@ import com.baidu.tieba.R;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends n {
-    private l bQt;
-    private String eHo;
+    private l chw;
+    private String ePT;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.bQt = lVar;
-        this.eHo = str;
+        this.chw = lVar;
+        this.ePT = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String abp() {
+    public String afV() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(ahG = false, value = "downloadGame")
+    @o(alD = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
             String optString2 = jSONObject.optString("downloadUrl");
             String optString3 = jSONObject.optString("imageUrl");
             if (!StringUtils.isNull(optString)) {
-                if (!j.kc()) {
+                if (!j.isNetWorkAvailable()) {
                     UtilHelper.showToast(getContext(), (int) R.string.neterror);
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    xM(optString);
+                    we(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.ciQ().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.Eg(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.cfS().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.CB(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new an("c12775").bT("fid", StringUtils.isNull(this.eHo) ? "" : this.eHo));
+                TiebaStatic.log(new an("c12775").bS("fid", StringUtils.isNull(this.ePT) ? "" : this.ePT));
             }
         }
     }
 
-    private void xM(String str) {
+    private void we(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.bQt.getContext() instanceof Activity)) {
+            if (!(this.chw.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.bQt.getContext().startActivity(intent);
+            this.chw.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

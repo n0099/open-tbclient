@@ -6,25 +6,25 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String aWo;
+    private String bps;
     private int mErrCode;
     private String mMsg;
 
     public c(int i, String str, String str2) {
         this.mErrCode = i;
-        this.aWo = str;
+        this.bps = str;
         this.mMsg = str2;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.aWq == null) {
-            this.aWq = new JSONObject();
+        if (this.bpu == null) {
+            this.bpu = new JSONObject();
         }
         try {
-            this.aWq.put("errorno", this.mErrCode);
-            this.aWq.put("url", this.aWo);
-            this.aWq.put("msg", this.mMsg);
+            this.bpu.put("errorno", this.mErrCode);
+            this.bpu.put("url", this.bps);
+            this.bpu.put("msg", this.mMsg);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("SwanAppReqeustEvent", Log.getStackTraceString(e));

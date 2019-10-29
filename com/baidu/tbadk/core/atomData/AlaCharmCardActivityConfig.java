@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -18,12 +19,12 @@ public class AlaCharmCardActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("user_name", str);
         getIntent().putExtra("user_id", str2);
-        getIntent().putExtra(CHARM_VALUE, str3);
+        getIntent().putExtra("charm_value", str3);
         getIntent().putExtra("group_id", str4);
         getIntent().putExtra("live_id", str5);
-        getIntent().putExtra(LIVE_OWNER_FLAG, z);
-        getIntent().putExtra(LIVE_OWNER_UID, str6);
-        setRequestCode(25015);
+        getIntent().putExtra("live_owner_flag", z);
+        getIntent().putExtra("live_owner_uid", str6);
+        setRequestCode(RequestResponseCode.REQUEST_ALA_PERSON_CHARM_CARD);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

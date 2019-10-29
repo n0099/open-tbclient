@@ -2,6 +2,7 @@ package com.baidu.swan.apps.aj.g.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -45,11 +46,11 @@ public class a extends z {
             if ("ui".equals(optString2)) {
                 i = 2;
             } else {
-                i = "game".equals(optString2) ? 1 : 3;
+                i = ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(optString2) ? 1 : 3;
             }
             c.d("StartDeviceMotionAction", "startSensor===");
-            if (!com.baidu.swan.apps.aj.g.a.OG().a(i, new a.InterfaceC0127a() { // from class: com.baidu.swan.apps.aj.g.a.a.1
-                @Override // com.baidu.swan.apps.aj.g.a.InterfaceC0127a
+            if (!com.baidu.swan.apps.aj.g.a.Tw().a(i, new a.InterfaceC0159a() { // from class: com.baidu.swan.apps.aj.g.a.a.1
+                @Override // com.baidu.swan.apps.aj.g.a.InterfaceC0159a
                 public void h(float[] fArr) {
                     if (fArr != null && fArr.length == 3) {
                         a.this.a(unitedSchemeEntity, callbackHandler, optString, fArr);

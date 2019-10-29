@@ -10,27 +10,27 @@ public class SwanAppCores extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppCores> CREATOR = new Parcelable.Creator<SwanAppCores>() { // from class: com.baidu.swan.apps.extcore.cores.SwanAppCores.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: f */
+        /* renamed from: n */
         public SwanAppCores createFromParcel(Parcel parcel) {
             return new SwanAppCores(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cu */
+        /* renamed from: dq */
         public SwanAppCores[] newArray(int i) {
             return new SwanAppCores[i];
         }
     };
-    private SwanCoreVersion auL;
-    private ExtensionCore auM;
+    private SwanCoreVersion aOc;
+    private ExtensionCore aOd;
 
     public SwanAppCores() {
     }
 
     private SwanAppCores(Parcel parcel) {
-        this.auL = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
-        this.auM = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
+        this.aOc = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
+        this.aOd = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
     }
 
     @Override // android.os.Parcelable
@@ -40,27 +40,27 @@ public class SwanAppCores extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.auL, i);
-        parcel.writeParcelable(this.auM, i);
+        parcel.writeParcelable(this.aOc, i);
+        parcel.writeParcelable(this.aOd, i);
     }
 
     public String toString() {
-        return "SwanAppCores{mSwanCoreVersion=" + this.auL + ", mExtensionCore=" + this.auM + '}';
+        return "SwanAppCores{mSwanCoreVersion=" + this.aOc + ", mExtensionCore=" + this.aOd + '}';
     }
 
-    public SwanCoreVersion Cm() {
-        return this.auL;
+    public SwanCoreVersion Hg() {
+        return this.aOc;
     }
 
     public void a(SwanCoreVersion swanCoreVersion) {
-        this.auL = swanCoreVersion;
+        this.aOc = swanCoreVersion;
     }
 
-    public ExtensionCore Cn() {
-        return this.auM;
+    public ExtensionCore Hh() {
+        return this.aOd;
     }
 
     public void a(ExtensionCore extensionCore) {
-        this.auM = extensionCore;
+        this.aOd = extensionCore;
     }
 }

@@ -5,18 +5,18 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public final class b {
-    private int KY;
-    private int KZ;
-    private WeakReference<View> dhT;
-    private int dhU;
-    private int dhV = 0;
+    private WeakReference<View> dro;
+    private int drp;
+    private int drq = 0;
+    private int mMeasuredHeight;
+    private int mMeasuredWidth;
     private int mVideoHeight;
     private int mVideoSarDen;
     private int mVideoSarNum;
     private int mVideoWidth;
 
     public b(View view) {
-        this.dhT = new WeakReference<>(view);
+        this.dro = new WeakReference<>(view);
     }
 
     public void setVideoSize(int i, int i2) {
@@ -30,7 +30,7 @@ public final class b {
     }
 
     public void setVideoRotation(int i) {
-        this.dhU = i;
+        this.drp = i;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:68:0x0104, code lost:
@@ -39,19 +39,19 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void aJ(int i, int i2) {
+    public void aK(int i, int i2) {
         int i3;
         float f;
         float f2;
         int i4;
         int i5;
-        if (this.dhU == 90 || this.dhU == 270) {
+        if (this.drp == 90 || this.drp == 270) {
             i = i2;
             i2 = i;
         }
         int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
         int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
-        if (this.dhV != 3) {
+        if (this.drq != 3) {
             if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
                 int mode = View.MeasureSpec.getMode(i);
                 int size = View.MeasureSpec.getSize(i);
@@ -59,10 +59,10 @@ public final class b {
                 int size2 = View.MeasureSpec.getSize(i2);
                 if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
                     float f3 = size / size2;
-                    switch (this.dhV) {
+                    switch (this.drq) {
                         case 4:
                             f = 1.7777778f;
-                            if (this.dhU == 90 || this.dhU == 270) {
+                            if (this.drp == 90 || this.drp == 270) {
                                 f2 = 1.0f / 1.7777778f;
                                 break;
                             }
@@ -70,7 +70,7 @@ public final class b {
                             break;
                         case 5:
                             f = 1.3333334f;
-                            if (this.dhU == 90 || this.dhU == 270) {
+                            if (this.drp == 90 || this.drp == 270) {
                                 f2 = 1.0f / 1.3333334f;
                                 break;
                             }
@@ -86,7 +86,7 @@ public final class b {
                             break;
                     }
                     boolean z = f2 > f3;
-                    switch (this.dhV) {
+                    switch (this.drq) {
                         case 0:
                         case 4:
                         case 5:
@@ -162,19 +162,19 @@ public final class b {
                 i = defaultSize;
             }
         }
-        this.KY = i;
-        this.KZ = i2;
+        this.mMeasuredWidth = i;
+        this.mMeasuredHeight = i2;
     }
 
-    public int aHp() {
-        return this.KY;
+    public int aHC() {
+        return this.mMeasuredWidth;
     }
 
-    public int aHq() {
-        return this.KZ;
+    public int aHD() {
+        return this.mMeasuredHeight;
     }
 
     public void setAspectRatio(int i) {
-        this.dhV = i;
+        this.drq = i;
     }
 }

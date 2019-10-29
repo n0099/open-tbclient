@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.UUID;
 /* loaded from: classes2.dex */
 public class a {
-    public static final ParcelUuid aYj = ParcelUuid.fromString("00000000-0000-1000-8000-00805F9B34FB");
+    public static final ParcelUuid brl = ParcelUuid.fromString("00000000-0000-1000-8000-00805F9B34FB");
 
     public static com.baidu.swan.apps.aj.c.b.a a(BluetoothDevice bluetoothDevice, int i, byte[] bArr) {
         com.baidu.swan.apps.aj.c.b.a aVar = new com.baidu.swan.apps.aj.c.b.a();
         if (bluetoothDevice != null && bArr != null) {
-            aVar.aYi = bluetoothDevice;
-            aVar.aYd = i;
+            aVar.brk = bluetoothDevice;
+            aVar.brf = i;
             aVar.name = bluetoothDevice.getName();
             aVar.deviceId = bluetoothDevice.getAddress();
             return a(aVar, bArr);
@@ -62,7 +62,7 @@ public class a {
                                 break;
                             case 8:
                             case 9:
-                                str = new String(j(bArr, i6, i5));
+                                str = new String(h(bArr, i6, i5));
                                 break;
                             case 10:
                                 byte b = bArr[i6];
@@ -75,15 +75,15 @@ public class a {
                                 } else {
                                     i = i7 == 33 ? 16 : 2;
                                 }
-                                ParcelUuid D = D(j(bArr, i6, i));
-                                if (D == null) {
+                                ParcelUuid v = v(h(bArr, i6, i));
+                                if (v == null) {
                                     break;
                                 } else {
-                                    arrayMap.put(D, j(bArr, i6 + i, i5 - i));
+                                    arrayMap.put(v, h(bArr, i6 + i, i5 - i));
                                     break;
                                 }
                             case 255:
-                                arrayList2.add(j(bArr, i6, i5));
+                                arrayList2.add(h(bArr, i6, i5));
                                 break;
                         }
                         i2 = i6 + i5;
@@ -91,10 +91,10 @@ public class a {
                         if (arrayList.isEmpty()) {
                             arrayList = null;
                         }
-                        aVar.aYe = arrayList2;
-                        aVar.aYf = arrayList;
-                        aVar.aYg = str;
-                        aVar.aYh = arrayMap;
+                        aVar.brg = arrayList2;
+                        aVar.brh = arrayList;
+                        aVar.bri = str;
+                        aVar.brj = arrayMap;
                         return aVar;
                     }
                 } catch (Exception e) {
@@ -103,10 +103,10 @@ public class a {
             }
             if (arrayList.isEmpty()) {
             }
-            aVar.aYe = arrayList2;
-            aVar.aYf = arrayList;
-            aVar.aYg = str;
-            aVar.aYh = arrayMap;
+            aVar.brg = arrayList2;
+            aVar.brh = arrayList;
+            aVar.bri = str;
+            aVar.brj = arrayMap;
             return aVar;
         }
         return aVar;
@@ -116,9 +116,9 @@ public class a {
         int i4 = i2;
         int i5 = i;
         while (i4 > 0) {
-            ParcelUuid D = D(j(bArr, i5, i3));
-            if (D != null) {
-                list.add(D);
+            ParcelUuid v = v(h(bArr, i5, i3));
+            if (v != null) {
+                list.add(v);
                 i4 -= i3;
                 i5 += i3;
             }
@@ -126,13 +126,13 @@ public class a {
         return i5;
     }
 
-    private static byte[] j(byte[] bArr, int i, int i2) {
+    private static byte[] h(byte[] bArr, int i, int i2) {
         byte[] bArr2 = new byte[i2];
         System.arraycopy(bArr, i, bArr2, 0, i2);
         return bArr2;
     }
 
-    public static ParcelUuid D(byte[] bArr) {
+    public static ParcelUuid v(byte[] bArr) {
         long j;
         if (bArr == null) {
             return null;
@@ -148,12 +148,12 @@ public class a {
             } else {
                 j = (bArr[0] & 255) + ((bArr[1] & 255) << 8) + ((bArr[2] & 255) << 16) + ((bArr[3] & 255) << 24);
             }
-            return new ParcelUuid(new UUID(aYj.getUuid().getMostSignificantBits() + (j << 32), aYj.getUuid().getLeastSignificantBits()));
+            return new ParcelUuid(new UUID(brl.getUuid().getMostSignificantBits() + (j << 32), brl.getUuid().getLeastSignificantBits()));
         }
         return null;
     }
 
-    public static byte[] er(int i) {
+    public static byte[] fm(int i) {
         return new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255)};
     }
 }

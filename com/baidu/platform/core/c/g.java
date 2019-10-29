@@ -2,7 +2,6 @@ package com.baidu.platform.core.c;
 
 import android.net.http.Headers;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -14,7 +13,6 @@ import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.base.SearchType;
-import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +99,7 @@ public class g extends com.baidu.platform.base.d {
                 poiInfo.setStreetId(jSONObject2.optString("street_id"));
                 poiInfo.setUid(jSONObject2.optString("uid"));
                 poiInfo.setPhoneNum(jSONObject2.optString("telephone"));
-                poiInfo.setDetail(jSONObject2.optInt(DpStatConstants.KEY_DETAIL));
+                poiInfo.setDetail(jSONObject2.optInt("detail"));
                 poiInfo.setLocation(a(jSONObject2.optJSONObject(Headers.LOCATION)));
                 String optString = jSONObject2.optString("detail_info");
                 if (optString != null && optString.length() != 0) {
@@ -122,7 +120,7 @@ public class g extends com.baidu.platform.base.d {
                 return null;
             }
             poiDetailInfo.setDistance(jSONObject.optInt("distance", 0));
-            poiDetailInfo.setTag(jSONObject.optString(AddressManageResult.KEY_TAG));
+            poiDetailInfo.setTag(jSONObject.optString("tag"));
             poiDetailInfo.setDetailUrl(jSONObject.optString("detail_url"));
             poiDetailInfo.setType(jSONObject.optString("type"));
             poiDetailInfo.setPrice(jSONObject.optDouble("price", 0.0d));
@@ -166,7 +164,7 @@ public class g extends com.baidu.platform.base.d {
                 poiChildrenInfo.setUid(optJSONObject.optString("uid"));
                 poiChildrenInfo.setName(optJSONObject.optString("name"));
                 poiChildrenInfo.setShowName(optJSONObject.optString("show_name"));
-                poiChildrenInfo.setTag(optJSONObject.optString(AddressManageResult.KEY_TAG));
+                poiChildrenInfo.setTag(optJSONObject.optString("tag"));
                 poiChildrenInfo.setLocation(a(optJSONObject.optJSONObject(Headers.LOCATION)));
                 poiChildrenInfo.setAddress(optJSONObject.optString("address"));
                 arrayList.add(poiChildrenInfo);

@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.push;
 
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -14,7 +15,7 @@ public class PushResponseMessage extends ResponsePullMessage {
     private al notificationData;
 
     public PushResponseMessage() {
-        super(202009);
+        super(CmdConfigSocket.CMD_PUSH_MESSAGE);
     }
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage

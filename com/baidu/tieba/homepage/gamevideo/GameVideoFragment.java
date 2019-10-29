@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
@@ -17,50 +18,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class GameVideoFragment extends BaseFragment implements ae {
-    private c giT;
+    private c gir;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.giT == null) {
-            this.giT = new c(getPageContext(), getUniqueId());
+        if (this.gir == null) {
+            this.gir = new c(getPageContext(), getUniqueId());
         }
-        this.giT.init();
+        this.gir.init();
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.giT == null || this.giT.getView() == null) {
+        if (this.gir == null || this.gir.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.giT.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.giT.getView().getParent()).removeView(this.giT.getView());
+        if (this.gir.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.gir.getView().getParent()).removeView(this.gir.getView());
         }
-        return this.giT.getView();
+        return this.gir.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.giT != null) {
-            this.giT.loadData();
+        if (this.gir != null) {
+            this.gir.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJO() {
-        if (this.giT != null) {
-            this.giT.aJO();
+    public void vU() {
+        if (this.gir != null) {
+            this.gir.vU();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJP() {
+    public void aJp() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aJQ() {
+    public void aJq() {
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -72,15 +73,15 @@ public class GameVideoFragment extends BaseFragment implements ae {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void akZ() {
+    public void anO() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.giT != null) {
-            this.giT.akZ();
+        if (this.gir != null) {
+            this.gir.anO();
         }
     }
 
@@ -94,24 +95,24 @@ public class GameVideoFragment extends BaseFragment implements ae {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.giT != null) {
-            this.giT.setPrimary(isPrimary());
+        if (this.gir != null) {
+            this.gir.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.giT != null) {
-            this.giT.onPause();
+        if (this.gir != null) {
+            this.gir.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.giT != null) {
-            this.giT.onDestroy();
+        if (this.gir != null) {
+            this.gir.onDestroy();
         }
     }
 
@@ -123,8 +124,8 @@ public class GameVideoFragment extends BaseFragment implements ae {
         } else {
             arrayList = new ArrayList();
         }
-        if (!"a001".equals(v.c(arrayList, arrayList.size() - 1))) {
-            arrayList.add("a001");
+        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(v.getItem(arrayList, arrayList.size() - 1))) {
+            arrayList.add(PageStayDurationConstants.PageName.HOMEPAGE);
         }
         return arrayList;
     }

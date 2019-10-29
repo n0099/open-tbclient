@@ -11,7 +11,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 /* loaded from: classes.dex */
 public class DpNetworkUtils {
     public static String a(Context context) {
@@ -24,7 +24,7 @@ public class DpNetworkUtils {
                 String extraInfo = b.getExtraInfo();
                 return TextUtils.isEmpty(extraInfo) ? "Disconnect" : extraInfo;
             } else if (type == 1) {
-                WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null || (rssi = connectionInfo.getRssi()) <= -127) ? "Disconnect" : "wifi:" + rssi;
             } else {
                 return "N/A";
@@ -133,6 +133,6 @@ public class DpNetworkUtils {
             CyberLog.e("DpNetworkUtils", "network changed: " + th);
             i3 = 99;
         }
-        return i + "_" + i3;
+        return i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3;
     }
 }

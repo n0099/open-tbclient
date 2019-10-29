@@ -23,7 +23,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized boolean e(String str, String str2, boolean z) {
+    public static synchronized boolean h(String str, String str2, boolean z) {
         boolean z2;
         FileChannel fileChannel;
         boolean z3;
@@ -156,7 +156,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String eH(String str) {
+    public static synchronized String fo(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
         Throwable th;

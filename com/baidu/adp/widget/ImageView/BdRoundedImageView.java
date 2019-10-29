@@ -11,23 +11,23 @@ import android.widget.ImageView;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class BdRoundedImageView extends ImageView {
-    private static final ImageView.ScaleType[] Mm = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
-    private boolean Mj;
-    private ColorStateList Mk;
-    private ImageView.ScaleType Ml;
-    private int Mn;
-    private boolean Mo;
-    private Drawable Mp;
+    private static final ImageView.ScaleType[] sScaleTypeArray = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
+    private Drawable mBackgroundDrawable;
+    private ColorStateList mBorderColor;
     private int mBorderWidth;
+    private int mCornerRadius;
     private Drawable mDrawable;
+    private boolean mOval;
+    private boolean mRoundBackground;
+    private ImageView.ScaleType mScaleType;
 
     public BdRoundedImageView(Context context) {
         super(context);
-        this.Mn = 0;
+        this.mCornerRadius = 0;
         this.mBorderWidth = 0;
-        this.Mk = ColorStateList.valueOf(0);
-        this.Mo = false;
-        this.Mj = false;
+        this.mBorderColor = ColorStateList.valueOf(0);
+        this.mRoundBackground = false;
+        this.mOval = false;
     }
 
     public BdRoundedImageView(Context context, AttributeSet attributeSet) {
@@ -36,32 +36,32 @@ public class BdRoundedImageView extends ImageView {
 
     public BdRoundedImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Mn = 0;
+        this.mCornerRadius = 0;
         this.mBorderWidth = 0;
-        this.Mk = ColorStateList.valueOf(0);
-        this.Mo = false;
-        this.Mj = false;
+        this.mBorderColor = ColorStateList.valueOf(0);
+        this.mRoundBackground = false;
+        this.mOval = false;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.BdRoundedImageView, i, 0);
         int i2 = obtainStyledAttributes.getInt(R.styleable.BdRoundedImageView_android_scaleType, -1);
         if (i2 >= 0) {
-            setScaleType(Mm[i2]);
+            setScaleType(sScaleTypeArray[i2]);
         }
-        this.Mn = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BdRoundedImageView_corner_radius, -1);
+        this.mCornerRadius = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BdRoundedImageView_corner_radius, -1);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BdRoundedImageView_border_width, -1);
-        if (this.Mn < 0) {
-            this.Mn = 0;
+        if (this.mCornerRadius < 0) {
+            this.mCornerRadius = 0;
         }
         if (this.mBorderWidth < 0) {
             this.mBorderWidth = 0;
         }
-        this.Mk = obtainStyledAttributes.getColorStateList(R.styleable.BdRoundedImageView_border_color);
-        if (this.Mk == null) {
-            this.Mk = ColorStateList.valueOf(0);
+        this.mBorderColor = obtainStyledAttributes.getColorStateList(R.styleable.BdRoundedImageView_border_color);
+        if (this.mBorderColor == null) {
+            this.mBorderColor = ColorStateList.valueOf(0);
         }
-        this.Mo = obtainStyledAttributes.getBoolean(R.styleable.BdRoundedImageView_round_background, false);
-        this.Mj = obtainStyledAttributes.getBoolean(R.styleable.BdRoundedImageView_is_oval, false);
-        nT();
-        nU();
+        this.mRoundBackground = obtainStyledAttributes.getBoolean(R.styleable.BdRoundedImageView_round_background, false);
+        this.mOval = obtainStyledAttributes.getBoolean(R.styleable.BdRoundedImageView_is_oval, false);
+        updateDrawableAttrs();
+        updateBackgroundDrawableAttrs();
         obtainStyledAttributes.recycle();
     }
 
@@ -73,7 +73,7 @@ public class BdRoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public ImageView.ScaleType getScaleType() {
-        return this.Ml;
+        return this.mScaleType;
     }
 
     @Override // android.widget.ImageView
@@ -81,8 +81,8 @@ public class BdRoundedImageView extends ImageView {
         if (scaleType == null) {
             throw new NullPointerException();
         }
-        if (this.Ml != scaleType) {
-            this.Ml = scaleType;
+        if (this.mScaleType != scaleType) {
+            this.mScaleType = scaleType;
             switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[scaleType.ordinal()]) {
                 case 1:
                 case 2:
@@ -97,8 +97,8 @@ public class BdRoundedImageView extends ImageView {
                     super.setScaleType(scaleType);
                     break;
             }
-            nT();
-            nU();
+            updateDrawableAttrs();
+            updateBackgroundDrawableAttrs();
             invalidate();
         }
     }
@@ -144,8 +144,8 @@ public class BdRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         if (drawable != null) {
-            this.mDrawable = b.b(drawable);
-            nT();
+            this.mDrawable = b.fromDrawable(drawable);
+            updateDrawableAttrs();
         } else {
             this.mDrawable = null;
         }
@@ -156,30 +156,30 @@ public class BdRoundedImageView extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         if (bitmap != null && !bitmap.isRecycled()) {
             this.mDrawable = new b(bitmap);
-            nT();
+            updateDrawableAttrs();
         } else {
             this.mDrawable = null;
         }
         super.setImageDrawable(this.mDrawable);
     }
 
-    private void nT() {
-        a(this.mDrawable, false);
+    private void updateDrawableAttrs() {
+        updateAttrs(this.mDrawable, false);
     }
 
-    private void nU() {
-        a(this.Mp, true);
+    private void updateBackgroundDrawableAttrs() {
+        updateAttrs(this.mBackgroundDrawable, true);
     }
 
-    private void a(Drawable drawable, boolean z) {
+    private void updateAttrs(Drawable drawable, boolean z) {
         if (drawable != null) {
             if (drawable instanceof b) {
-                ((b) drawable).b(this.Ml).L((this.Mo || !z) ? this.Mn : 0.0f).aI((this.Mo || !z) ? this.mBorderWidth : 0).a(this.Mk).aq(this.Mj);
+                ((b) drawable).a(this.mScaleType).E((this.mRoundBackground || !z) ? this.mCornerRadius : 0.0f).ae((this.mRoundBackground || !z) ? this.mBorderWidth : 0).a(this.mBorderColor).O(this.mOval);
             } else if (drawable instanceof LayerDrawable) {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 int numberOfLayers = layerDrawable.getNumberOfLayers();
                 for (int i = 0; i < numberOfLayers; i++) {
-                    a(layerDrawable.getDrawable(i), z);
+                    updateAttrs(layerDrawable.getDrawable(i), z);
                 }
             }
         }
@@ -187,20 +187,20 @@ public class BdRoundedImageView extends ImageView {
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
-        this.Mp = b.b(drawable);
-        nU();
-        super.setBackgroundDrawable(this.Mp);
+        this.mBackgroundDrawable = b.fromDrawable(drawable);
+        updateBackgroundDrawableAttrs();
+        super.setBackgroundDrawable(this.mBackgroundDrawable);
     }
 
     public int getCornerRadius() {
-        return this.Mn;
+        return this.mCornerRadius;
     }
 
     public void setCornerRadius(int i) {
-        if (this.Mn != i) {
-            this.Mn = i;
-            nT();
-            nU();
+        if (this.mCornerRadius != i) {
+            this.mCornerRadius = i;
+            updateDrawableAttrs();
+            updateBackgroundDrawableAttrs();
         }
     }
 
@@ -211,14 +211,14 @@ public class BdRoundedImageView extends ImageView {
     public void setBorderWidth(int i) {
         if (this.mBorderWidth != i) {
             this.mBorderWidth = i;
-            nT();
-            nU();
+            updateDrawableAttrs();
+            updateBackgroundDrawableAttrs();
             invalidate();
         }
     }
 
     public int getBorderColor() {
-        return this.Mk.getDefaultColor();
+        return this.mBorderColor.getDefaultColor();
     }
 
     public void setBorderColor(int i) {
@@ -226,17 +226,17 @@ public class BdRoundedImageView extends ImageView {
     }
 
     public ColorStateList getBorderColors() {
-        return this.Mk;
+        return this.mBorderColor;
     }
 
     public void setBorderColors(ColorStateList colorStateList) {
-        if (!this.Mk.equals(colorStateList)) {
+        if (!this.mBorderColor.equals(colorStateList)) {
             if (colorStateList == null) {
                 colorStateList = ColorStateList.valueOf(0);
             }
-            this.Mk = colorStateList;
-            nT();
-            nU();
+            this.mBorderColor = colorStateList;
+            updateDrawableAttrs();
+            updateBackgroundDrawableAttrs();
             if (this.mBorderWidth > 0) {
                 invalidate();
             }
@@ -244,9 +244,9 @@ public class BdRoundedImageView extends ImageView {
     }
 
     public void setOval(boolean z) {
-        this.Mj = z;
-        nT();
-        nU();
+        this.mOval = z;
+        updateDrawableAttrs();
+        updateBackgroundDrawableAttrs();
         invalidate();
     }
 
@@ -257,9 +257,9 @@ public class BdRoundedImageView extends ImageView {
     }
 
     public void setRoundBackground(boolean z) {
-        if (this.Mo != z) {
-            this.Mo = z;
-            nU();
+        if (this.mRoundBackground != z) {
+            this.mRoundBackground = z;
+            updateBackgroundDrawableAttrs();
             invalidate();
         }
     }

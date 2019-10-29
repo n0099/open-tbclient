@@ -1,6 +1,5 @@
 package com.vivo.push.b;
 
-import android.content.Intent;
 import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,22 +23,22 @@ public final class t extends s {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.v
-    public final void d(Intent intent) {
-        super.d(intent);
-        intent.putStringArrayListExtra("content", this.a);
-        intent.putStringArrayListExtra(PushConstants.EXTRA_ERROR_CODE, this.b);
+    @Override // com.vivo.push.b.s, com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a("content", this.a);
+        aVar.a(PushConstants.EXTRA_ERROR_CODE, this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.s, com.vivo.push.v
-    public final void e(Intent intent) {
-        super.e(intent);
-        this.a = intent.getStringArrayListExtra("content");
-        this.b = intent.getStringArrayListExtra(PushConstants.EXTRA_ERROR_CODE);
+    @Override // com.vivo.push.b.s, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.a = aVar.b("content");
+        this.b = aVar.b(PushConstants.EXTRA_ERROR_CODE);
     }
 
-    @Override // com.vivo.push.b.s, com.vivo.push.v
+    @Override // com.vivo.push.b.s, com.vivo.push.y
     public final String toString() {
         return "OnSetTagsCommand";
     }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetMemberInfo.GetMemberInfoResIdl;
@@ -19,7 +20,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
     private com.baidu.tieba.tbadkCore.t mUserInfo;
 
     public ForumMemberReadCacheResponseMessage() {
-        super(2003009);
+        super(CmdConfigCustom.CMD_FRS_MEMBER_INFO_CACHE);
         this.mIsPrivateForum = false;
         this.mIsBawuShow = false;
     }
@@ -37,7 +38,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
                     this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                     this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                     this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                    this.mUserInfo.AR(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                    this.mUserInfo.zz(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                     this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                 }
                 this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;

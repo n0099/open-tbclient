@@ -6,28 +6,28 @@ import org.json.JSONObject;
 import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes.dex */
 public class bo {
+    private int Ws;
     private String activity_all_icon;
     private String activity_half_icon;
-    private int activity_type;
     private String activity_url;
-    private long bGm;
+    private long bXX;
 
     public String getActivityUrl() {
         return this.activity_url;
     }
 
-    public String agF() {
+    public String akH() {
         return this.activity_all_icon;
     }
 
-    public String agG() {
+    public String akI() {
         return this.activity_half_icon;
     }
 
     public void a(YuleActivity yuleActivity) {
         if (yuleActivity != null) {
-            this.bGm = yuleActivity.activity_id.longValue();
-            this.activity_type = yuleActivity.activity_type.intValue();
+            this.bXX = yuleActivity.activity_id.longValue();
+            this.Ws = yuleActivity.activity_type.intValue();
             this.activity_url = yuleActivity.activity_url;
             this.activity_all_icon = yuleActivity.activity_all_icon;
             this.activity_half_icon = yuleActivity.activity_half_icon;
@@ -37,8 +37,8 @@ public class bo {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bGm = jSONObject.optLong("activity_id");
-                this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.bXX = jSONObject.optLong("activity_id");
+                this.Ws = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.activity_url = jSONObject.optString("activity_url");
                 this.activity_all_icon = jSONObject.optString("activity_all_icon");
                 this.activity_half_icon = jSONObject.optString("activity_half_icon");

@@ -10,11 +10,11 @@ public interface a {
 
     boolean a(f fVar, int i);
 
-    void cf(String str);
+    void bm(String str);
 
-    void qn();
+    void lg();
 
-    boolean qo();
+    boolean lh();
 
     void release();
 

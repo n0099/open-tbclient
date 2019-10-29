@@ -7,18 +7,18 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile boolean adn = false;
-    private e adg;
-    private a adk;
-    private f adl;
+    private static volatile boolean awL = false;
+    private e awE;
+    private a awI;
+    private f awJ;
     private AudioRecord mAudioRecord;
-    private byte[] adh = null;
-    private ArrayList<ByteBuffer> adi = null;
-    private int adj = 0;
-    private boolean adm = false;
+    private byte[] awF = null;
+    private ArrayList<ByteBuffer> awG = null;
+    private int awH = 0;
+    private boolean awK = false;
 
     public void a(a aVar) {
-        this.adk = aVar;
+        this.awI = aVar;
     }
 
     public void b(e eVar) {
@@ -27,36 +27,36 @@ class c {
             eVar.setAudioBufferSize(((minBufferSize / 1024) + 1) * 1024 * 2);
         }
         this.mAudioRecord = new AudioRecord(eVar.getAudioSource(), eVar.getSampleRate(), eVar.getChannelConfig(), eVar.getAudioFormat(), eVar.getAudioBufferSize());
-        this.adg = eVar;
-        this.adm = false;
-        if (this.adk != null) {
-            this.adk.onAudioSetup(true);
+        this.awE = eVar;
+        this.awK = false;
+        if (this.awI != null) {
+            this.awI.onAudioSetup(true);
         }
     }
 
-    public void ss() {
-        sv();
-        sw();
+    public void xn() {
+        xq();
+        xr();
     }
 
-    public void st() {
-        adn = false;
+    public void xo() {
+        awL = false;
     }
 
-    public void su() {
-        if (!adn) {
+    public void xp() {
+        if (!awL) {
             this.mAudioRecord.release();
             this.mAudioRecord = null;
-            if (this.adk != null) {
-                this.adk.onAudioRelease();
+            if (this.awI != null) {
+                this.awI.onAudioRelease();
             }
-            this.adk = null;
-            this.adl = null;
+            this.awI = null;
+            this.awJ = null;
         }
     }
 
-    public e sr() {
-        return this.adg;
+    public e xm() {
+        return this.awE;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
@@ -64,7 +64,7 @@ class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void sv() {
+    private void xq() {
         boolean z = true;
         if (this.mAudioRecord.getState() == 1) {
             try {
@@ -77,88 +77,88 @@ class c {
                 Log.e(TAG, "startAudioRecord error!!!");
                 e.printStackTrace();
             }
-            adn = z;
+            awL = z;
             if (z) {
-                aF(false);
+                aX(false);
                 return;
             }
             return;
         }
         z = false;
-        adn = z;
+        awL = z;
         if (z) {
         }
     }
 
-    private void sw() {
+    private void xr() {
         int i;
-        if (this.adg.getFrameSize() > 0) {
-            if (this.adi == null) {
-                this.adi = new ArrayList<>();
-                for (int i2 = 0; i2 < this.adg.getFrameBufferCount(); i2++) {
-                    this.adi.add(ByteBuffer.allocate(this.adg.getFrameSize()));
+        if (this.awE.getFrameSize() > 0) {
+            if (this.awG == null) {
+                this.awG = new ArrayList<>();
+                for (int i2 = 0; i2 < this.awE.getFrameBufferCount(); i2++) {
+                    this.awG.add(ByteBuffer.allocate(this.awE.getFrameSize()));
                 }
             }
-            this.adj = 0;
-            if (this.adh == null) {
-                this.adh = new byte[this.adg.getFrameSize()];
+            this.awH = 0;
+            if (this.awF == null) {
+                this.awF = new byte[this.awE.getFrameSize()];
             }
             int i3 = 0;
-            while (adn) {
+            while (awL) {
                 long nanoTime = System.nanoTime();
-                int read = this.mAudioRecord.read(this.adh, 0, this.adh.length);
-                if (this.adm) {
-                    ByteBuffer byteBuffer = this.adi.get(this.adj);
+                int read = this.mAudioRecord.read(this.awF, 0, this.awF.length);
+                if (this.awK) {
+                    ByteBuffer byteBuffer = this.awG.get(this.awH);
                     if (read == -3) {
                         Log.e(TAG, "Audio read error");
-                    } else if (this.adk != null && byteBuffer != null && byteBuffer.capacity() >= read) {
+                    } else if (this.awI != null && byteBuffer != null && byteBuffer.capacity() >= read) {
                         byteBuffer.clear();
                         byteBuffer.position(0);
-                        byteBuffer.put(this.adh, 0, read);
+                        byteBuffer.put(this.awF, 0, read);
                         byteBuffer.flip();
-                        this.adk.onAudioFrameAvailable(byteBuffer, read, nanoTime);
+                        this.awI.onAudioFrameAvailable(byteBuffer, read, nanoTime);
                     }
-                    this.adj++;
-                    this.adj %= this.adg.getFrameBufferCount();
-                    if (this.adl != null) {
-                        this.adl.onRealtimeVolume((int) d.x(this.adh));
+                    this.awH++;
+                    this.awH %= this.awE.getFrameBufferCount();
+                    if (this.awJ != null) {
+                        this.awJ.onRealtimeVolume((int) d.p(this.awF));
                     }
                     i = i3;
                 } else {
-                    s(i3);
+                    L(i3);
                     i = i3 + 1;
                 }
                 i3 = i;
             }
-            this.adi = null;
-            this.adh = null;
+            this.awG = null;
+            this.awF = null;
             try {
                 this.mAudioRecord.stop();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.adk != null) {
-                this.adk.onAudioStop(true);
+            if (this.awI != null) {
+                this.awI.onAudioStop(true);
             }
         }
     }
 
-    private void s(long j) {
+    private void L(long j) {
         if (j < 20) {
-            if (d.w(this.adh) != 0.0d) {
-                aF(true);
-                this.adm = true;
+            if (d.o(this.awF) != 0.0d) {
+                aX(true);
+                this.awK = true;
                 return;
             }
             return;
         }
-        aF(false);
-        this.adm = true;
+        aX(false);
+        this.awK = true;
     }
 
-    private void aF(boolean z) {
-        if (this.adk != null) {
-            this.adk.onAudioStart(z);
+    private void aX(boolean z) {
+        if (this.awI != null) {
+            this.awI.onAudioStart(z);
         }
     }
 }

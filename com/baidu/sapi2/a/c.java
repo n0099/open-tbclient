@@ -2,6 +2,7 @@ package com.baidu.sapi2.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -68,7 +69,7 @@ public class c {
         if (chinaMobileOauthGray == -1) {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
-            chinaMobileOauthGray = random.nextInt(1000000);
+            chinaMobileOauthGray = random.nextInt(MessageConfig.BASE_SEGMENT_LENGTH);
             SapiContext.getInstance(context).setChinaMobileOauthGray(chinaMobileOauthGray);
         }
         return chinaMobileOauthGray <= i;
@@ -82,7 +83,7 @@ public class c {
         if (chinaTelecomGray == -1) {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
-            chinaTelecomGray = random.nextInt(1000000);
+            chinaTelecomGray = random.nextInt(MessageConfig.BASE_SEGMENT_LENGTH);
             SapiContext.getInstance(context).setChinaTelecomGray(chinaTelecomGray);
         }
         return chinaTelecomGray <= i;

@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 public class RGStateOverview extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().Q().c(R.drawable.aiapps_favorite_guide_close);
+        b.a().Q().c(R.drawable.aiapps_favorite_guide_checkbox_selected);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState

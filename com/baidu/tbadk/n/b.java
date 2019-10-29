@@ -23,29 +23,29 @@ import com.baidu.tieba.tbadkCore.data.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class b {
-    private static b czf = null;
-    private a czg;
+    private static b cKx = null;
+    private a cKy;
 
-    public static b auq() {
-        if (czf == null) {
+    public static b avJ() {
+        if (cKx == null) {
             synchronized (b.class) {
-                if (czf == null) {
-                    czf = new b();
+                if (cKx == null) {
+                    cKx = new b();
                 }
             }
         }
-        return czf;
+        return cKx;
     }
 
-    public void c(Application application) {
+    public void d(Application application) {
         if (application != null) {
             try {
-                if (this.czg == null) {
-                    this.czg = new a();
+                if (this.cKy == null) {
+                    this.cKy = new a();
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.setPriority(1000);
                     intentFilter.addAction("com.baidu.tieba.action.mutiProcess");
-                    application.registerReceiver(this.czg, intentFilter);
+                    application.registerReceiver(this.cKy, intentFilter);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -54,14 +54,14 @@ public class b {
     }
 
     public static void a(String str, Parcelable parcelable) {
-        auq().a(str, parcelable, null);
+        avJ().a(str, parcelable, null);
     }
 
-    public static void a(String str, Serializable serializable) {
-        auq().b(str, serializable);
+    public static void b(String str, Serializable serializable) {
+        avJ().c(str, serializable);
     }
 
-    public Intent rc(String str) {
+    public Intent qb(String str) {
         Intent intent = new Intent();
         intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
         intent.setAction("com.baidu.tieba.action.mutiProcess");
@@ -71,21 +71,21 @@ public class b {
 
     private void a(String str, Parcelable parcelable, String str2) {
         try {
-            Intent rc = rc(str);
-            rc.putExtra("broadcast_data", parcelable);
-            rc.putExtra("process_id", Process.myPid());
-            rc.putExtra("broadcast_extra_data", str2);
-            TbadkCoreApplication.getInst().sendBroadcast(rc);
+            Intent qb = qb(str);
+            qb.putExtra("broadcast_data", parcelable);
+            qb.putExtra("process_id", Process.myPid());
+            qb.putExtra("broadcast_extra_data", str2);
+            TbadkCoreApplication.getInst().sendBroadcast(qb);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void b(String str, Serializable serializable) {
+    private void c(String str, Serializable serializable) {
         try {
-            Intent rc = rc(str);
-            rc.putExtra("broadcast_data", serializable);
-            TbadkCoreApplication.getInst().sendBroadcast(rc);
+            Intent qb = qb(str);
+            qb.putExtra("broadcast_data", serializable);
+            TbadkCoreApplication.getInst().sendBroadcast(qb);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,32 +102,32 @@ public class b {
             if (intent != null && Process.myPid() != intent.getIntExtra("process_id", -1) && "com.baidu.tieba.action.mutiProcess".equals(intent.getAction())) {
                 String stringExtra = intent.getStringExtra("broadcast_type");
                 if ("broadcast_type_agree".equals(stringExtra)) {
-                    b.this.U(intent);
+                    b.this.aa(intent);
                 } else if ("broadcast_type_thread_history".equals(stringExtra)) {
-                    b.this.T(intent);
+                    b.this.Z(intent);
                 } else if ("broadcast_type_mission_message".equals(stringExtra)) {
-                    b.this.V(intent);
+                    b.this.ab(intent);
                 } else if ("broadcast_type_share_toast_status".equals(stringExtra)) {
-                    b.this.X(intent);
+                    b.this.ad(intent);
                 } else if ("broadcast_type_mission_completed".equals(stringExtra)) {
-                    b.this.W(intent);
+                    b.this.ac(intent);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void T(Intent intent) {
+    public void Z(Intent intent) {
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("broadcast_data");
             if (serializableExtra instanceof String) {
-                n.vW((String) serializableExtra);
+                n.uz((String) serializableExtra);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void U(Intent intent) {
+    public void aa(Intent intent) {
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("broadcast_data");
             String stringExtra = intent.getStringExtra("broadcast_extra_data");
@@ -144,7 +144,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void V(Intent intent) {
+    public void ab(Intent intent) {
         if (TbadkCoreApplication.getInst().isMainProcess(true) && intent != null) {
             Parcelable parcelableExtra = intent.getParcelableExtra("broadcast_data");
             if (parcelableExtra instanceof Bundle) {
@@ -154,21 +154,21 @@ public class b {
                 String string = bundle.getString("key_message_type");
                 if ("onResume".equals(string)) {
                     int i2 = bundle.getInt("key_pageType");
-                    c.Zk().i(i, j);
-                    c.Zk().k(i2, j);
+                    c.adZ().i(i, j);
+                    c.adZ().k(i2, j);
                 } else if ("onPause".equals(string)) {
-                    c.Zk().Zp();
+                    c.adZ().aee();
                 } else if ("onTouch".equals(string)) {
-                    c.Zk().Zr();
+                    c.adZ().aeg();
                 } else if ("onActivity".equals(string)) {
-                    c.Zk().i(i, j);
+                    c.adZ().i(i, j);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void W(Intent intent) {
+    public void ac(Intent intent) {
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("broadcast_data");
             if (serializableExtra instanceof CompleteTaskToastData) {
@@ -182,7 +182,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void X(Intent intent) {
+    public void ad(Intent intent) {
         Bundle bundle;
         int i;
         if (TbadkCoreApplication.getInst().isMainProcess(true) && intent != null) {

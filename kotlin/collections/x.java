@@ -10,7 +10,7 @@ public final class x<T> {
                 return false;
             }
             x xVar = (x) obj;
-            if (!(this.index == xVar.index) || !kotlin.jvm.internal.p.h(this.value, xVar.value)) {
+            if (!(this.index == xVar.index) || !kotlin.jvm.internal.p.f(this.value, xVar.value)) {
                 return false;
             }
         }

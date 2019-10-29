@@ -3,10 +3,10 @@ package rx.functions;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes2.dex */
 public final class Actions {
-    private static final b kyl = new b();
+    private static final b kyT = new b();
 
-    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> cQp() {
-        return kyl;
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> cOv() {
+        return kyT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,7 +24,7 @@ public final class Actions {
         }
 
         @Override // rx.functions.c
-        public void i(T0 t0, T1 t1) {
+        public void g(T0 t0, T1 t1) {
         }
     }
 
@@ -59,7 +59,7 @@ public final class Actions {
         }
     }
 
-    public static rx.functions.b<Throwable> cQq() {
+    public static rx.functions.b<Throwable> cOw() {
         return NotImplemented.INSTANCE;
     }
 }

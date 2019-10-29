@@ -5,55 +5,55 @@ import android.view.Choreographer;
 @TargetApi(16)
 /* loaded from: classes.dex */
 public class a implements Choreographer.FrameCallback {
-    private long aHr;
+    private long baF;
     private long mStartTime;
-    private long cAB = 0;
-    private int cAC = 0;
+    private long cLK = 0;
+    private int cLL = 0;
     private int mFps = -1;
-    private boolean cAD = false;
+    private boolean cLM = false;
 
     public void start() {
         this.mStartTime = System.currentTimeMillis();
-        this.aHr = this.mStartTime + 1000;
-        this.cAB = 0L;
-        this.cAC = 0;
+        this.baF = this.mStartTime + 1000;
+        this.cLK = 0L;
+        this.cLL = 0;
         this.mFps = -1;
-        this.cAD = false;
+        this.cLM = false;
         Choreographer.getInstance().postFrameCallback(this);
     }
 
     public void stop() {
-        this.cAD = true;
+        this.cLM = true;
         Choreographer.getInstance().removeFrameCallback(this);
-        bm(System.currentTimeMillis());
-        this.cAC = 0;
+        bb(System.currentTimeMillis());
+        this.cLL = 0;
         this.mStartTime = 0L;
     }
 
     @Override // android.view.Choreographer.FrameCallback
     public void doFrame(long j) {
-        if (this.cAB != 0) {
-            long j2 = (j - this.cAB) / 1000000;
+        if (this.cLK != 0) {
+            long j2 = (j - this.cLK) / 1000000;
             if (j2 > 16 && j2 < 960) {
-                this.cAC = (int) ((j2 / 16) + this.cAC);
+                this.cLL = (int) ((j2 / 16) + this.cLL);
             }
         }
-        this.cAB = j;
+        this.cLK = j;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis < this.aHr && !this.cAD) {
+        if (currentTimeMillis < this.baF && !this.cLM) {
             Choreographer.getInstance().postFrameCallback(this);
             return;
         }
-        bm(currentTimeMillis);
-        this.cAC = 0;
+        bb(currentTimeMillis);
+        this.cLL = 0;
         this.mStartTime = 0L;
     }
 
-    private void bm(long j) {
+    private void bb(long j) {
         if (this.mStartTime > 0) {
             long j2 = j - this.mStartTime;
             if (j2 > 0 && this.mFps <= 0) {
-                this.mFps = (int) (60 - ((this.cAC * 1000) / j2));
+                this.mFps = (int) (60 - ((this.cLL * 1000) / j2));
             }
         }
     }

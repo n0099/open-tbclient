@@ -5,23 +5,23 @@ import java.util.Deque;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public class ar {
-    private boolean koA = false;
-    private final Deque<Runnable> koB = new ArrayDeque();
+    private boolean kmM = false;
+    private final Deque<Runnable> kmN = new ArrayDeque();
     private final Executor mExecutor;
 
     public ar(Executor executor) {
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
     }
 
-    public synchronized void v(Runnable runnable) {
-        if (this.koA) {
-            this.koB.add(runnable);
+    public synchronized void s(Runnable runnable) {
+        if (this.kmM) {
+            this.kmN.add(runnable);
         } else {
             this.mExecutor.execute(runnable);
         }
     }
 
-    public synchronized void remove(Runnable runnable) {
-        this.koB.remove(runnable);
+    public synchronized void t(Runnable runnable) {
+        this.kmN.remove(runnable);
     }
 }

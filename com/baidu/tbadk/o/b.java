@@ -1,46 +1,47 @@
 package com.baidu.tbadk.o;
 
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean cAi = com.baidu.tbadk.core.sharedPref.b.ahU().getBoolean("page_stay_duration_switch", false);
+    private boolean isSwitchOpen = com.baidu.tbadk.core.sharedPref.b.alR().getBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, false);
 
-    public abstract boolean avh();
+    public abstract int getMaxCost();
 
-    public abstract int avi();
+    public abstract boolean isCurrentPageCanBeAddToSourceTrace();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.avm()) {
+        if (dVar == null || dVar.isDirtyData()) {
             return false;
         }
-        if (dVar.cAj) {
-            dVar.ao(c.e(dVar.avj(), 6));
+        if (dVar.isRouteStat) {
+            dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), 6));
         } else {
-            int avq = avi() > e.avn().avq() ? e.avn().avq() : avi();
-            dVar.ao(c.e(dVar.avj(), avq <= 5 ? avq : 5));
+            int maxCostFromServer = getMaxCost() > e.awz().getMaxCostFromServer() ? e.awz().getMaxCostFromServer() : getMaxCost();
+            dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), maxCostFromServer <= 5 ? maxCostFromServer : 5));
         }
         return true;
     }
 
-    private void fE(boolean z) {
-        if (this.cAi != z) {
-            com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean("page_stay_duration_switch", true);
-            this.cAi = z;
+    private void updataSwitchStaus(boolean z) {
+        if (this.isSwitchOpen != z) {
+            com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, true);
+            this.isSwitchOpen = z;
         }
     }
 
     public boolean isSwitchOpen() {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-            return this.cAi;
+            return this.isSwitchOpen;
         }
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-            fE(false);
+            updataSwitchStaus(false);
             return false;
-        } else if (!e.avn().avp()) {
-            fE(false);
+        } else if (!e.awz().isSmallFlowOpen()) {
+            updataSwitchStaus(false);
             return false;
         } else {
-            fE(true);
+            updataSwitchStaus(true);
             return true;
         }
     }

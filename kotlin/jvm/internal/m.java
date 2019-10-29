@@ -5,30 +5,30 @@ import java.util.List;
 import kotlin.jvm.KotlinReflectionNotSupportedError;
 /* loaded from: classes2.dex */
 public final class m implements l, kotlin.reflect.c<Object> {
-    private final Class<?> kvs;
+    private final Class<?> kwa;
 
     public m(Class<?> cls) {
-        p.k(cls, "jClass");
-        this.kvs = cls;
+        p.i(cls, "jClass");
+        this.kwa = cls;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> cOP() {
-        return this.kvs;
+    public Class<?> cMW() {
+        return this.kwa;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        cOQ();
+        cMX();
         throw null;
     }
 
-    private final Void cOQ() {
+    private final Void cMX() {
         throw new KotlinReflectionNotSupportedError();
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof m) && p.h(kotlin.jvm.a.a(this), kotlin.jvm.a.a((kotlin.reflect.c) obj));
+        return (obj instanceof m) && p.f(kotlin.jvm.a.a(this), kotlin.jvm.a.a((kotlin.reflect.c) obj));
     }
 
     public int hashCode() {
@@ -36,6 +36,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return cOP().toString() + " (Kotlin reflection is not available)";
+        return cMW().toString() + " (Kotlin reflection is not available)";
     }
 }

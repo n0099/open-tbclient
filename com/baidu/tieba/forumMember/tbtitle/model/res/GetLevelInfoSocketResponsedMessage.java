@@ -1,6 +1,7 @@
 package com.baidu.tieba.forumMember.tbtitle.model.res;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.forumMember.tbtitle.model.cache.a;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
 import com.squareup.wire.Wire;
@@ -11,7 +12,7 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
     private DataRes mResult;
 
     public GetLevelInfoSocketResponsedMessage() {
-        super(301005);
+        super(CmdConfigSocket.CMD_GET_LEVEL_INFO);
     }
 
     public DataRes getmResult() {
@@ -39,7 +40,7 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
             getLevelInfoRequestMessage = (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
         }
         if (getLevelInfoRequestMessage != null) {
-            new a().j(getLevelInfoRequestMessage.getForumId() + "", bArr);
+            new a().i(getLevelInfoRequestMessage.getForumId() + "", bArr);
         }
     }
 }

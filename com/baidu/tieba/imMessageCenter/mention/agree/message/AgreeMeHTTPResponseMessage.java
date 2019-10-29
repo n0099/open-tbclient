@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.imMessageCenter.mention.base.a;
 import com.squareup.wire.Wire;
@@ -14,7 +13,7 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public boolean hasMore;
 
     public AgreeMeHTTPResponseMessage() {
-        super(CmdConfigHttp.AGREE_ME_HTTP_CMD);
+        super(1002211);
         this.datas = new ArrayList<>();
     }
 
@@ -46,7 +45,7 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            com.baidu.tbadk.core.d.a.agL().bD("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).g("agree_me_cache_key", bArr);
+            com.baidu.tbadk.core.d.a.akN().bJ("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever("agree_me_cache_key", bArr);
         }
     }
 }

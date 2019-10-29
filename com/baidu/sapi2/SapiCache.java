@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.a.c;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
@@ -327,7 +328,7 @@ public final class SapiCache {
                 Process process = null;
                 try {
                     try {
-                        process = Runtime.getRuntime().exec("chmod " + packageDirExecutePer + " " + this.d.getApplicationInfo().dataDir);
+                        process = Runtime.getRuntime().exec("chmod " + packageDirExecutePer + HanziToPinyin.Token.SEPARATOR + this.d.getApplicationInfo().dataDir);
                         if (process.waitFor() == 0) {
                             SapiContext.getInstance(this.d).setPackageDirExecutePer("");
                         }

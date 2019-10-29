@@ -9,21 +9,21 @@ import java.io.RandomAccessFile;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class g {
-    private static String[] kaT = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File kaU = null;
-    private static RandomAccessFile kaV = null;
+    private static String[] jYT = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File jYU = null;
+    private static RandomAccessFile jYV = null;
 
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (cEU() && f(str2, str3)) {
+            if (cBH() && f(str2, str3)) {
                 try {
-                    kaU = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(kaU, "rwd");
-                    kaV = randomAccessFile;
-                    randomAccessFile.seek(kaU.length());
-                    kaV.write((str + "\r\n").getBytes(HTTP.UTF_8));
-                    kaV.close();
+                    jYU = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(jYU, "rwd");
+                    jYV = randomAccessFile;
+                    randomAccessFile.seek(jYU.length());
+                    jYV.write((str + "\r\n").getBytes(HTTP.UTF_8));
+                    jYV.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -33,17 +33,17 @@ public final class g {
         return z;
     }
 
-    public static synchronized String M(String str, String str2) {
+    public static synchronized String E(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (cEU()) {
-                if (HS(str + str2)) {
+            if (cBH()) {
+                if (Gj(str + str2)) {
                     try {
-                        kaU = new File(str + str2);
-                        kaV = new RandomAccessFile(kaU, "r");
+                        jYU = new File(str + str2);
+                        jYV = new RandomAccessFile(jYU, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = kaV.readLine();
+                            String readLine = jYV.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -51,14 +51,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            kaV.close();
+                            jYV.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            kaV.close();
+                            jYV.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -72,39 +72,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean cEU() {
+    private static boolean cBH() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.cEt().getContext().checkCallingOrSelfPermission(kaT[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.cBd().getContext().checkCallingOrSelfPermission(jYT[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
-    public static boolean HS(String str) {
+    public static boolean Gj(String str) {
         File file = new File(str);
-        kaU = file;
+        jYU = file;
         return file.exists();
     }
 
-    public static boolean HT(String str) {
+    public static boolean Gk(String str) {
         File file = new File(str);
-        kaU = file;
+        jYU = file;
         return file.delete();
     }
 
     private static boolean f(String str, String str2) {
         try {
-            kaU = new File(str);
-            if (!HS(str)) {
-                kaU.mkdirs();
+            jYU = new File(str);
+            if (!Gj(str)) {
+                jYU.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            kaU = file;
+            jYU = file;
             if (file.exists()) {
                 return true;
             }
-            return kaU.createNewFile();
+            return jYU.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

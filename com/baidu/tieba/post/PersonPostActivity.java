@@ -12,12 +12,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.p;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -35,25 +38,25 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMess
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 /* loaded from: classes6.dex */
 public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.c, b, d {
-    private NoNetworkView dpy;
-    protected VoiceManager fwa;
-    private int[] gQv;
-    private String gQx;
-    private RelativeLayout iDB;
-    private ImageView iDC;
-    private ImageView iDD;
-    private PersonPostAdapter iDE;
-    private String isk;
+    private NoNetworkView dwI;
+    protected VoiceManager fvn;
+    private int[] gOw;
+    private String gOy;
+    private RelativeLayout iBX;
+    private ImageView iBY;
+    private ImageView iBZ;
+    private PersonPostAdapter iCa;
+    private String iqK;
     private NavigationBar mNavigationBar;
     private int mSex;
     private int mSkinType;
     private FragmentTabHost mTabHost;
     private String mUid;
-    private int dFo = -1;
-    int gQw = 0;
+    private int dKv = -1;
+    int gOx = 0;
     private boolean isHost = false;
-    private View cgb = null;
-    private final CustomMessageListener hbD = new CustomMessageListener(2016493) { // from class: com.baidu.tieba.post.PersonPostActivity.3
+    private View mBack = null;
+    private final CustomMessageListener gZG = new CustomMessageListener(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY) { // from class: com.baidu.tieba.post.PersonPostActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.post.PersonPostActivity */
         /* JADX WARN: Multi-variable type inference failed */
@@ -62,7 +65,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             if (customResponsedMessage != null) {
                 String str = (String) customResponsedMessage.getData();
                 if (!TextUtils.isEmpty(str)) {
-                    ba.ajK().c(PersonPostActivity.this.getPageContext(), new String[]{str});
+                    ba.amQ().b(PersonPostActivity.this.getPageContext(), new String[]{str});
                 }
             }
         }
@@ -72,32 +75,32 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        cdt();
-        if (!com.baidu.adp.lib.util.j.kc()) {
+        cau();
+        if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         }
         setContentView(R.layout.person_post_activity);
-        this.fwa = getVoiceManager();
-        if (this.fwa != null) {
-            this.fwa.onCreate(getPageContext());
+        this.fvn = getVoiceManager();
+        if (this.fvn != null) {
+            this.fvn.onCreate(getPageContext());
         }
-        this.isk = getIntent().getStringExtra(PersonPostActivityConfig.KEY_PORTRAIT_URL);
+        this.iqK = getIntent().getStringExtra(PersonPostActivityConfig.KEY_PORTRAIT_URL);
         this.mUid = getIntent().getStringExtra("key_uid");
         this.mSex = getIntent().getIntExtra("key_sex", 0);
         this.mUid = this.mUid == null ? "" : this.mUid;
         if (this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.gQx = getPageContext().getString(R.string.me);
+            this.gOy = getPageContext().getString(R.string.me);
             this.isHost = true;
         } else {
             switch (getIntent().getIntExtra("key_sex", 0)) {
                 case 1:
-                    this.gQx = getPageContext().getString(R.string.he);
+                    this.gOy = getPageContext().getString(R.string.he);
                     break;
                 case 2:
-                    this.gQx = getPageContext().getString(R.string.she);
+                    this.gOy = getPageContext().getString(R.string.she);
                     break;
                 default:
-                    this.gQx = getPageContext().getString(R.string.ta);
+                    this.gOy = getPageContext().getString(R.string.ta);
                     break;
             }
         }
@@ -105,16 +108,16 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         if (this.mUid == null) {
             finish();
         } else {
-            X(bundle);
+            W(bundle);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.iDE != null) {
-            int count = this.iDE.getCount();
+        if (this.iCa != null) {
+            int count = this.iCa.getCount();
             for (int i3 = 0; i3 < count; i3++) {
-                Fragment item = this.iDE.getItem(i3);
+                Fragment item = this.iCa.getItem(i3);
                 if (item instanceof PersonThreadFragment) {
                     ((PersonThreadFragment) item).onActivityResult(i, i2, intent);
                 }
@@ -122,81 +125,81 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    private void X(Bundle bundle) {
+    private void W(Bundle bundle) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.text_post));
-        this.cgb = (View) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
-        this.cgb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.post.PersonPostActivity.1
+        this.mBack = (View) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
+        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.post.PersonPostActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PersonPostActivity.this.finish();
             }
         });
-        this.iDB = (RelativeLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.person_post_naviagtion_bar_recycle_bin, (View.OnClickListener) null);
-        this.iDB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.post.PersonPostActivity.2
+        this.iBX = (RelativeLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.person_post_naviagtion_bar_recycle_bin, (View.OnClickListener) null);
+        this.iBX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.post.PersonPostActivity.2
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.post.PersonPostActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonPostActivity.this.qm(false);
-                ba.ajK().c(PersonPostActivity.this.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/pmc"});
+                PersonPostActivity.this.pT(false);
+                ba.amQ().b(PersonPostActivity.this.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/pmc"});
             }
         });
-        this.iDC = (ImageView) this.iDB.findViewById(R.id.iv_recycle_bin);
-        this.iDD = (ImageView) this.iDB.findViewById(R.id.iv_recycle_bin_red_tip);
-        if (com.baidu.tbadk.core.sharedPref.b.ahU().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_person_post_recycle_bin_red_tip_show"), false)) {
-            this.iDD.setVisibility(0);
+        this.iBY = (ImageView) this.iBX.findViewById(R.id.iv_recycle_bin);
+        this.iBZ = (ImageView) this.iBX.findViewById(R.id.iv_recycle_bin_red_tip);
+        if (com.baidu.tbadk.core.sharedPref.b.alR().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.KEY_PERSON_POST_RECYCLE_BIN_RED_TIP_SHOW), false)) {
+            this.iBZ.setVisibility(0);
         } else {
-            this.iDD.setVisibility(8);
+            this.iBZ.setVisibility(8);
         }
-        this.dpy = (NoNetworkView) findViewById(R.id.person_post_no_network_view);
-        this.gQv = new int[]{0, 1};
-        this.iDE = new PersonPostAdapter(this);
+        this.dwI = (NoNetworkView) findViewById(R.id.person_post_no_network_view);
+        this.gOw = new int[]{0, 1};
+        this.iCa = new PersonPostAdapter(this);
         this.mTabHost = (FragmentTabHost) findViewById(R.id.tab_host);
         this.mTabHost.setup(getSupportFragmentManager());
         this.mTabHost.setOnPageChangeListener(this);
         this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.ds100));
-        this.mTabHost.getFragmentTabWidget().setDviderRectWidth(com.baidu.adp.lib.util.l.g(getActivity(), R.dimen.ds64));
+        this.mTabHost.getFragmentTabWidget().setDviderRectWidth(com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.ds64));
         initTabSpec();
-        ((RelativeLayout.LayoutParams) this.mTabHost.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.g(getActivity(), R.dimen.ds88), 0, 0);
+        ((RelativeLayout.LayoutParams) this.mTabHost.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.ds88), 0, 0);
         if (bundle != null) {
-            this.dFo = bundle.getInt("CurrTabIndex");
+            this.dKv = bundle.getInt("CurrTabIndex");
         } else {
-            this.dFo = 0;
+            this.dKv = 0;
         }
-        this.mTabHost.setCurrentTab(this.dFo);
+        this.mTabHost.setCurrentTab(this.dKv);
     }
 
     private void a(Fragment fragment, int i, String str) {
         if (fragment != null) {
             FragmentTabHost.b bVar = new FragmentTabHost.b();
             FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-            bVar.bRr = fragment;
+            bVar.mContentFragment = fragment;
             bVar.mType = i;
             fragmentTabIndicator.setText(str);
-            fragmentTabIndicator.cyu = R.color.s_actionbar_text_color;
+            fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-            bVar.bRq = fragmentTabIndicator;
+            bVar.cim = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }
 
     private void initTabSpec() {
-        if (this.iDE != null) {
-            int count = this.iDE.getCount();
+        if (this.iCa != null) {
+            int count = this.iCa.getCount();
             for (int i = 0; i < count; i++) {
-                Fragment item = this.iDE.getItem(i);
-                int vX = this.iDE.vX(i);
+                Fragment item = this.iCa.getItem(i);
+                int uD = this.iCa.uD(i);
                 if (item != null) {
-                    if (vX == 0) {
+                    if (uD == 0) {
                         a(item, 0, getPageContext().getString(R.string.person_post_thread_new));
-                    } else if (vX == 1) {
+                    } else if (uD == 1) {
                         a(item, 1, getPageContext().getString(R.string.reply));
                     }
                 }
             }
-            this.mTabHost.ahW();
+            this.mTabHost.initViewPagerWithNoType();
         }
     }
 
@@ -204,10 +207,10 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        MessageManager.getInstance().registerListener(this.hbD);
-        this.fwa = getVoiceManager();
-        if (this.fwa != null) {
-            this.fwa.onResume(getPageContext());
+        MessageManager.getInstance().registerListener(this.gZG);
+        this.fvn = getVoiceManager();
+        if (this.fvn != null) {
+            this.fvn.onResume(getPageContext());
         }
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
@@ -219,22 +222,22 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.hbD);
-        this.fwa = getVoiceManager();
-        if (this.fwa != null) {
-            this.fwa.onPause(getPageContext());
+        MessageManager.getInstance().unRegisterListener(this.gZG);
+        this.fvn = getVoiceManager();
+        if (this.fvn != null) {
+            this.fvn.onPause(getPageContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.fwa = getVoiceManager();
-        if (this.fwa != null) {
-            this.fwa.onDestory(getPageContext());
+        this.fvn = getVoiceManager();
+        if (this.fvn != null) {
+            this.fvn.onDestory(getPageContext());
         }
         try {
-            PersonExtraStatic.cdt();
+            PersonExtraStatic.cau();
             super.onDestroy();
         } catch (Exception e) {
         }
@@ -244,9 +247,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.fwa = getVoiceManager();
-        if (this.fwa != null) {
-            this.fwa.onStart(getPageContext());
+        this.fvn = getVoiceManager();
+        if (this.fvn != null) {
+            this.fvn.onStart(getPageContext());
         }
     }
 
@@ -254,9 +257,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.fwa = getVoiceManager();
-        if (this.fwa != null) {
-            this.fwa.onStop(getPageContext());
+        this.fvn = getVoiceManager();
+        if (this.fvn != null) {
+            this.fvn.onStop(getPageContext());
         }
     }
 
@@ -264,29 +267,29 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return this.mUid;
     }
 
-    public String bGM() {
-        return this.gQx;
+    public String bDx() {
+        return this.gOy;
     }
 
     public String getPortraitUrl() {
-        return this.isk;
+        return this.iqK;
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putInt("CurrTabIndex", this.dFo);
-        this.fwa = getVoiceManager();
-        if (this.fwa != null) {
-            this.fwa.onSaveInstanceState(getPageContext().getPageActivity());
+        bundle.putInt("CurrTabIndex", this.dKv);
+        this.fvn = getVoiceManager();
+        if (this.fvn != null) {
+            this.fvn.onSaveInstanceState(getPageContext().getPageActivity());
         }
         super.onSaveInstanceState(bundle);
     }
 
-    public String cgy() {
+    public String cdy() {
         if (this.isHost) {
             return getPageContext().getString(R.string.person_post_lv_empty_host);
         }
-        return String.format(getPageContext().getString(R.string.person_post_lv_empty_guest), bGM());
+        return String.format(getPageContext().getString(R.string.person_post_lv_empty_guest), bDx());
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -299,11 +302,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (i >= 0 && i < 2 && i != this.dFo) {
-            this.dFo = i;
-            if (this.gQv[i] == 0) {
+        if (i >= 0 && i < 2 && i != this.dKv) {
+            this.dKv = i;
+            if (this.gOw[i] == 0) {
                 TiebaStatic.eventStat(getPageContext().getContext(), this.isHost ? "pp_my_thread" : "pp_his_thread", "click", 1, new Object[0]);
-            } else if (this.gQv[i] == 1) {
+            } else if (this.gOw[i] == 1) {
                 TiebaStatic.eventStat(getPageContext().getContext(), this.isHost ? "pp_my_reply" : "pp_his_reply", "click", 1, new Object[0]);
             }
         }
@@ -312,19 +315,19 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.dpy.onChangeSkinType(getPageContext(), i);
+        this.dwI.onChangeSkinType(getPageContext(), i);
         this.mTabHost.setNeedShowThemeStyle(false);
         this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(0);
         this.mTabHost.onChangeSkinType(i);
         if (this.mTabHost.getFragmentTabWidget() != null) {
-            am.l(this.mTabHost.getFragmentTabWidget(), R.color.cp_bg_line_d);
+            am.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), R.color.cp_bg_line_d);
         }
-        SvgManager.ajv().a(this.iDC, R.drawable.icon_pure_topbar_delete_n_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.iDD.setImageDrawable(am.V(i, R.drawable.person_center_red_tip_shape));
-        if (this.iDE != null) {
-            int count = this.iDE.getCount();
+        SvgManager.amN().a(this.iBY, R.drawable.icon_pure_topbar_delete_n_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.iBZ.setImageDrawable(am.getDrawable(i, (int) R.drawable.person_center_red_tip_shape));
+        if (this.iCa != null) {
+            int count = this.iCa.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.iDE.getItem(i2);
+                Fragment item = this.iCa.getItem(i2);
                 if (item != null && (item instanceof BaseFragment)) {
                     ((BaseFragment) item).changeSkinType(i);
                 }
@@ -334,23 +337,23 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public p onGetPreLoadListView() {
-        if (this.iDE != null) {
-            PersonThreadFragment cgz = this.iDE.cgz();
-            h cgC = cgz != null ? cgz.cgC() : null;
-            if (cgC == null || cgC.cgJ() == null) {
+        if (this.iCa != null) {
+            PersonThreadFragment cdz = this.iCa.cdz();
+            h cdC = cdz != null ? cdz.cdC() : null;
+            if (cdC == null || cdC.cdJ() == null) {
                 return null;
             }
-            return cgC.cgJ().getPreLoadHandle();
+            return cdC.cdJ().getPreLoadHandle();
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.fwa == null) {
-            this.fwa = VoiceManager.instance();
+        if (this.fvn == null) {
+            this.fvn = VoiceManager.instance();
         }
-        return this.fwa;
+        return this.fvn;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -358,9 +361,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return null;
     }
 
-    private void cdt() {
-        com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.bq("c/u/feed/userpost", 303002));
+    private void cau() {
+        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_USER_POST_PAGE, UserPostPageSocketResponsedMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001503, com.baidu.tieba.tbadkCore.a.a.bl(Config.USER_POST_ADDRESS, CmdConfigSocket.CMD_USER_POST_PAGE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -370,14 +373,14 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     }
 
     @Override // com.baidu.tieba.post.d
-    public void cgx() {
-        if (this.iDE != null) {
+    public void cdx() {
+        if (this.iCa != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.iDE.getCount()) {
-                    if (this.iDE.getItem(i2) instanceof c) {
-                        ((c) this.iDE.getItem(i2)).cgw();
+                if (i2 < this.iCa.getCount()) {
+                    if (this.iCa.getItem(i2) instanceof c) {
+                        ((c) this.iCa.getItem(i2)).cdw();
                     }
                     i = i2 + 1;
                 } else {
@@ -388,14 +391,14 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     }
 
     @Override // com.baidu.tieba.post.b
-    public void qm(boolean z) {
-        if (this.iDD != null) {
-            if (z && this.iDD.getVisibility() == 8) {
-                this.iDD.setVisibility(0);
-                com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_person_post_recycle_bin_red_tip_show"), true);
-            } else if (!z && this.iDD.getVisibility() == 0) {
-                this.iDD.setVisibility(8);
-                com.baidu.tbadk.core.sharedPref.b.ahU().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_person_post_recycle_bin_red_tip_show"), false);
+    public void pT(boolean z) {
+        if (this.iBZ != null) {
+            if (z && this.iBZ.getVisibility() == 8) {
+                this.iBZ.setVisibility(0);
+                com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.KEY_PERSON_POST_RECYCLE_BIN_RED_TIP_SHOW), true);
+            } else if (!z && this.iBZ.getVisibility() == 0) {
+                this.iBZ.setVisibility(8);
+                com.baidu.tbadk.core.sharedPref.b.alR().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.KEY_PERSON_POST_RECYCLE_BIN_RED_TIP_SHOW), false);
             }
         }
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.play.c;
 
-import com.coremedia.iso.boxes.UserBox;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public class f {
     private List<a> mList = new ArrayList();
 
-    public void ac(String str, String str2, String str3) {
+    public void ad(String str, String str2, String str3) {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String cgq() {
+    public String cdq() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).cgr());
+                jSONObject.put(i + "", this.mList.get(i).cdr());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,21 +28,21 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String iCQ;
+        public final String iBm;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.iCQ = str3;
+            this.iBm = str3;
         }
 
-        public JSONObject cgr() {
+        public JSONObject cdr() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(UserBox.TYPE, this.uuid);
-                jSONObject.put("error", this.error);
-                jSONObject.put("sub_error", this.iCQ);
+                jSONObject.put("uuid", this.uuid);
+                jSONObject.put(BdStatsConstant.StatsType.ERROR, this.error);
+                jSONObject.put("sub_error", this.iBm);
             } catch (Exception e) {
                 e.printStackTrace();
             }

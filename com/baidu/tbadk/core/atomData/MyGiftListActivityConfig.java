@@ -16,7 +16,7 @@ public class MyGiftListActivityConfig extends IntentConfig {
     public MyGiftListActivityConfig(Context context, String str, String str2, String str3, int i) {
         super(context);
         getIntent().putExtra("id", str);
-        getIntent().putExtra(USER_SEX, i);
+        getIntent().putExtra("sex", i);
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra("name_show", str3);
     }
@@ -24,7 +24,7 @@ public class MyGiftListActivityConfig extends IntentConfig {
     public MyGiftListActivityConfig(Context context, String str, String str2, String str3, int i, int i2) {
         super(context);
         getIntent().putExtra("id", str);
-        getIntent().putExtra(USER_SEX, i);
+        getIntent().putExtra("sex", i);
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra("name_show", str3);
         getIntent().putExtra("user_type", i2);
@@ -33,7 +33,7 @@ public class MyGiftListActivityConfig extends IntentConfig {
     public MyGiftListActivityConfig(Context context, String str, String str2, String str3, int i, String str4) {
         super(context);
         getIntent().putExtra("id", str);
-        getIntent().putExtra(USER_SEX, i);
+        getIntent().putExtra("sex", i);
         getIntent().putExtra("st_type", str4);
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra("name_show", str3);

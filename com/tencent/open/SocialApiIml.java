@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -144,10 +145,10 @@ public class SocialApiIml extends BaseApi {
             bundle.putString("openid", openId);
         }
         try {
-            bundle.putString(Constants.PARAM_PLATFORM_ID, e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0).getString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF));
+            bundle.putString("pf", e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0).getString("pf", Constants.DEFAULT_PF));
         } catch (Exception e) {
             e.printStackTrace();
-            bundle.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
+            bundle.putString("pf", Constants.DEFAULT_PF);
         }
         String str3 = str2 + HttpUtils.encodeUrl(bundle);
         f.b("openSDK_LOG.SocialApiIml", "OpenUi, showDialog TDialog");
@@ -221,7 +222,7 @@ public class SocialApiIml extends BaseApi {
         settings.setDomStorageEnabled(true);
         settings.setJavaScriptEnabled(true);
         settings.setDatabaseEnabled(true);
-        String str2 = "<!DOCTYPE HTML><html lang=\"en-US\"><head><meta charset=\"UTF-8\"><title>localStorage Test</title><script type=\"text/javascript\">document.domain = 'qq.com';localStorage[\"" + this.b.getOpenId() + "_" + this.b.getAppId() + "\"]=\"" + str + "\";</script></head><body></body></html>";
+        String str2 = "<!DOCTYPE HTML><html lang=\"en-US\"><head><meta charset=\"UTF-8\"><title>localStorage Test</title><script type=\"text/javascript\">document.domain = 'qq.com';localStorage[\"" + this.b.getOpenId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b.getAppId() + "\"]=\"" + str + "\";</script></head><body></body></html>";
         String a2 = g.a().a(context, "http://qzs.qq.com");
         bVar.loadDataWithBaseURL(a2, str2, "text/html", "utf-8", a2);
     }

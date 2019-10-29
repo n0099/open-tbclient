@@ -85,7 +85,7 @@ public final class f {
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, Config.MODEL, this.a);
+        a(jSONObject, "m", this.a);
         a(jSONObject, "i", this.b);
         a(jSONObject, Config.APP_VERSION_CODE, this.c);
         a(jSONObject, Config.OS, this.d);

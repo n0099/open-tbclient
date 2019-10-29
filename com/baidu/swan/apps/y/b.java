@@ -6,7 +6,7 @@ import android.graphics.Rect;
 class b extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        g(0.5d);
+        f(0.5d);
     }
 
     @Override // com.baidu.swan.apps.y.a
@@ -22,7 +22,7 @@ class b extends a {
         int height = rect.height() - 2;
         int i2 = width / 3;
         int i3 = height / i2;
-        int ceil = (int) Math.ceil(i3 * 3 * this.aEz);
+        int ceil = (int) Math.ceil(i3 * 3 * this.aXO);
         int i4 = 0;
         int i5 = 0;
         while (true) {

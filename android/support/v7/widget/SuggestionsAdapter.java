@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -499,7 +500,7 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
             strArr = null;
         }
         if (i > 0) {
-            fragment.appendQueryParameter("limit", String.valueOf(i));
+            fragment.appendQueryParameter(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(i));
         }
         return this.mContext.getContentResolver().query(fragment.build(), null, suggestSelection, strArr, null);
     }

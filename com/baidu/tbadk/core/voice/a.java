@@ -4,17 +4,16 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.f;
 import com.baidu.adp.lib.util.q;
-import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String alJ() {
-        return q.kD();
+    public static String aox() {
+        return q.guid();
     }
 
-    public static String pd(String str) {
+    public static String oC(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -22,14 +21,14 @@ public class a {
     }
 
     public static String getVoiceFilePath(String str) {
-        return m.O(str, 1);
+        return m.getStoreFile(str, 1);
     }
 
-    public static String pe(String str) {
-        return f.aV(pd(str));
+    public static String oD(String str) {
+        return f.getFilePath(oC(str));
     }
 
-    public static boolean aZ(String str) {
+    public static boolean delFile(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -41,7 +40,7 @@ public class a {
             return false;
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "FileHelper DelFile error: " + th.getMessage(), str);
+            TiebaStatic.voiceError(-1103, "FileHelper DelFile error: " + th.getMessage(), str);
             return false;
         }
     }

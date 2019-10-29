@@ -24,7 +24,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.model.c
-    public void bh(JSONObject jSONObject) {
+    public void bE(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mId = jSONObject.optLong("id");
         }

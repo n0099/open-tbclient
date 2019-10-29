@@ -1,6 +1,7 @@
 package com.baidu.sofire.b;
 
 import android.text.TextUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.tencent.connect.common.Constants;
 import java.io.File;
@@ -10,7 +11,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
 public final class p {
-    private static final String[] a = {"0", "1", "2", "3", "4", "5", Constants.VIA_SHARE_TYPE_INFO, "7", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", Config.APP_VERSION_CODE, "b", "c", "d", "e", "f"};
+    private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", Config.APP_VERSION_CODE, "b", "c", "d", "e", BdStatsConstant.StatsKey.FROM};
 
     private static String d(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();

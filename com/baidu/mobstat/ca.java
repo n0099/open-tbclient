@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import android.support.v4.view.PointerIconCompat;
 import com.baidu.mobstat.by;
 import com.baidu.mobstat.cd;
 import com.baidu.mobstat.cq;
@@ -115,7 +114,7 @@ public class ca implements by {
                 f(ByteBuffer.wrap(dc.a(this.i.a(this))));
                 a(-3, "");
             } catch (ch e2) {
-                c(PointerIconCompat.TYPE_CELL, "remote peer closed connection before flashpolicy could be transmitted", true);
+                c(1006, "remote peer closed connection before flashpolicy could be transmitted", true);
             }
             return false;
         }
@@ -216,7 +215,7 @@ public class ca implements by {
                                 int max = Math.max(this.n.c().limit() - 64, 0);
                                 this.n.a(cqVar);
                                 if (!dc.a(this.n.c(), max)) {
-                                    throw new ch(PointerIconCompat.TYPE_CROSSHAIR);
+                                    throw new ch(1007);
                                 }
                             }
                             this.n = null;
@@ -224,13 +223,13 @@ public class ca implements by {
                             throw new ch(1002, "Continuous frame sequence was not started.");
                         }
                         if (f == cq.a.TEXT && !dc.b(cqVar.c())) {
-                            throw new ch(PointerIconCompat.TYPE_CROSSHAIR);
+                            throw new ch(1007);
                         }
                         if (f == cq.a.CONTINUOUS && this.n != null && this.n.f() == cq.a.TEXT) {
                             int max2 = Math.max(this.n.c().limit() - 64, 0);
                             this.n.a(cqVar);
                             if (!dc.a(this.n.c(), max2)) {
-                                throw new ch(PointerIconCompat.TYPE_CROSSHAIR);
+                                throw new ch(1007);
                             }
                         }
                         try {
@@ -288,7 +287,7 @@ public class ca implements by {
                             }
                         } catch (ch e2) {
                             this.i.a(this, e2);
-                            b(PointerIconCompat.TYPE_CELL, "generated frame is invalid", false);
+                            b(1006, "generated frame is invalid", false);
                         }
                     }
                     a(new co(i, str));
@@ -377,7 +376,7 @@ public class ca implements by {
         } else if (this.l.b() == cd.a.ONEWAY) {
             a(1000, true);
         } else {
-            a(PointerIconCompat.TYPE_CELL, true);
+            a(1006, true);
         }
     }
 

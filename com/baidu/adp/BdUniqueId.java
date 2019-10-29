@@ -11,8 +11,8 @@ public class BdUniqueId {
     public static synchronized BdUniqueId gen() {
         BdUniqueId bdUniqueId;
         synchronized (BdUniqueId.class) {
-            if (sBaseId < MIN_ID) {
-                sBaseId = MIN_ID;
+            if (sBaseId < 1000000) {
+                sBaseId = 1000000;
             }
             bdUniqueId = new BdUniqueId();
             bdUniqueId.mId = sBaseId;

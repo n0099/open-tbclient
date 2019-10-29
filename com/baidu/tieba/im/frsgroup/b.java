@@ -6,17 +6,17 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class b extends v.a {
-    public View divider;
-    public TextView gIC;
-    public View gzG;
+    public View cfY;
+    public TextView gGA;
+    public View gxD;
     public View rootView;
 
     public b(View view, View.OnClickListener onClickListener) {
         super(view);
         this.rootView = view;
-        this.gzG = view.findViewById(R.id.divider_top);
-        this.gIC = (TextView) view.findViewById(R.id.create_item_text);
-        this.divider = view.findViewById(R.id.divider);
+        this.gxD = view.findViewById(R.id.divider_top);
+        this.gGA = (TextView) view.findViewById(R.id.create_item_text);
+        this.cfY = view.findViewById(R.id.divider);
         this.rootView.setOnClickListener(onClickListener);
     }
 }

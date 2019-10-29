@@ -25,7 +25,7 @@ public class a extends z {
             com.baidu.swan.apps.console.c.i("AdLanding", "adLanding: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!g.b("adLanding", com.baidu.swan.apps.model.b.aq(b, b))) {
+        } else if (!g.b("adLanding", com.baidu.swan.apps.model.b.ay(b, b))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {

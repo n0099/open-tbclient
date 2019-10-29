@@ -2,7 +2,6 @@ package com.baidu.sapi2.bio;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pass.biometrics.base.PassBiometric;
 import com.baidu.pass.biometrics.base.PassBiometricFactory;
 import com.baidu.pass.biometrics.face.liveness.PassFaceOperation;
@@ -70,7 +69,7 @@ public class BiometricsManager {
         PassFaceOperation passFaceOperation = new PassFaceOperation();
         passFaceOperation.operationType = PassFaceOperation.OperationType.RECOGNIZE;
         passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, str);
-        passFaceRecogDTO.extraParamsMap.put(DpStatConstants.KEY_CUID, SapiUtils.getClientId(context));
+        passFaceRecogDTO.extraParamsMap.put("cuid", SapiUtils.getClientId(context));
         passFaceRecogDTO.imageFlag = str2;
         if (map != null) {
             passFaceRecogDTO.extraParamsMap.putAll(map);

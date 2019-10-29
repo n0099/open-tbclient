@@ -6,7 +6,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.sina.weibo.BuildConfig;
+import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
@@ -94,15 +95,15 @@ public class Utility {
         StringBuilder sb = new StringBuilder();
         String packageName = context.getPackageName();
         String str = "weibosdk";
-        if (!TextUtils.isEmpty(packageName) && packageName.contains(BuildConfig.APPLICATION_ID)) {
-            str = "weibo";
+        if (!TextUtils.isEmpty(packageName) && packageName.contains("com.sina.weibo")) {
+            str = LogConfig.LIVE_SHARE_HK_WEIBO;
         }
         sb.append(Build.MANUFACTURER).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(Build.MODEL);
         sb.append("__");
         sb.append(str);
         sb.append("__");
         try {
-            sb.append(WbSdkVersion.WEIBO_SDK_VERSION_CODE.replaceAll("\\s+", "_"));
+            sb.append(WbSdkVersion.WEIBO_SDK_VERSION_CODE.replaceAll("\\s+", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS));
         } catch (Exception e) {
             sb.append("unknown");
         }

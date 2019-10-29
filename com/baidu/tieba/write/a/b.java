@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private final ArrayList<MetaData> jSh = new ArrayList<>();
-    private HashMap<String, String> jSi = null;
+    private final ArrayList<MetaData> jPT = new ArrayList<>();
+    private HashMap<String, String> jPU = null;
 
-    public void d(JSONObject jSONObject, boolean z) {
+    public void e(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.jSi == null) {
-                        this.jSi = new HashMap<>();
+                    if (this.jPU == null) {
+                        this.jPU = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.jSh.add(metaData);
+                        this.jPT.add(metaData);
                         if (z) {
-                            this.jSi.put(metaData.getName_show(), metaData.getPortrait());
+                            this.jPU.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,15 +40,15 @@ public class b {
         }
     }
 
-    public void Hk(String str) {
+    public void FB(String str) {
         try {
-            d(new JSONObject(str), true);
+            e(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> cBG() {
-        return this.jSh;
+    public ArrayList<MetaData> cyq() {
+        return this.jPT;
     }
 }

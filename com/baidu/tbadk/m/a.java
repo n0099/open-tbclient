@@ -18,7 +18,7 @@ public class a {
     public void attachView(View view, boolean z) {
         if (view != null && this.attachedView != null && this.attachedView.getParent() == null) {
             this.isAttached = true;
-            e.bg(view).a(view, this.attachedView, z);
+            e.bg(view).attachView(view, this.attachedView, z);
             onViewAttached();
         }
     }

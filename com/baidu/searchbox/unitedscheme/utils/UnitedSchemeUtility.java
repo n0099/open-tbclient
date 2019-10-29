@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
@@ -222,7 +223,7 @@ public final class UnitedSchemeUtility {
     public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
         String path;
         if (callbackHandler != null && unitedSchemeEntity != null && jSONObject != null && (jSONObject.optInt("status") <= 0 || ((path = unitedSchemeEntity.getUri().getPath()) != null && !path.toLowerCase().startsWith("/feed/iswebp")))) {
-            String param = unitedSchemeEntity.getParam("callback");
+            String param = unitedSchemeEntity.getParam(BuyTBeanActivityConfig.CALLBACK);
             if ((!TextUtils.isEmpty(param) || (callbackHandler instanceof NullableCallbackHandler)) && !unitedSchemeEntity.isCallbackInvoked()) {
                 safeCallback(callbackHandler, unitedSchemeEntity, jSONObject.toString(), param);
                 unitedSchemeEntity.markCallbackInvoked();

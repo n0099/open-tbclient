@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float eVl;
-    private float eVm;
-    private float eVn;
-    private float eVo;
-    private InterfaceC0316a ebT;
+    private float alA;
+    private float alB;
+    private float aly;
+    private float alz;
+    private InterfaceC0405a eYb;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.ebT.aY(i, i2);
+                    a.this.eYb.v(i, i2);
                     return true;
                 case 1:
-                    a.this.ebT.aZ(i, i2);
+                    a.this.eYb.w(i, i2);
                     return true;
                 case 2:
-                    a.this.ebT.ba(i, i2);
+                    a.this.eYb.x(i, i2);
                     return true;
                 default:
                     return false;
@@ -34,58 +34,58 @@ public class a {
 
     /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0316a {
-        void aY(int i, int i2);
+    public interface InterfaceC0405a {
+        void v(int i, int i2);
 
-        void aZ(int i, int i2);
+        void w(int i, int i2);
 
-        void ba(int i, int i2);
+        void x(int i, int i2);
     }
 
-    public void a(InterfaceC0316a interfaceC0316a) {
-        this.ebT = interfaceC0316a;
+    public void a(InterfaceC0405a interfaceC0405a) {
+        this.eYb = interfaceC0405a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.eVn = motionEvent.getRawX();
-                this.eVo = motionEvent.getRawY();
-                this.eVl = this.eVn;
-                this.eVm = this.eVo;
+                this.alA = motionEvent.getRawX();
+                this.alB = motionEvent.getRawY();
+                this.aly = this.alA;
+                this.alz = this.alB;
                 return true;
             case 1:
             case 3:
-                if (this.ebT != null) {
-                    int i = (int) (this.eVl - this.eVn);
-                    if (Math.abs(i) >= Math.abs((int) (this.eVm - this.eVo))) {
-                        bo(i, (int) this.eVn);
+                if (this.eYb != null) {
+                    int i = (int) (this.aly - this.alA);
+                    if (Math.abs(i) >= Math.abs((int) (this.alz - this.alB))) {
+                        u(i, (int) this.alA);
                     }
                 }
-                this.eVn = 0.0f;
-                this.eVo = 0.0f;
+                this.alA = 0.0f;
+                this.alB = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i2 = (int) (rawX - this.eVl);
-                int i3 = (int) (rawY - this.eVm);
-                if (this.ebT != null) {
+                int i2 = (int) (rawX - this.aly);
+                int i3 = (int) (rawY - this.alz);
+                if (this.eYb != null) {
                     if (i3 > 0) {
-                        bm(i2, i3);
+                        s(i2, i3);
                     } else {
-                        bn(i2, i3);
+                        t(i2, i3);
                     }
                 }
-                this.eVl = rawX;
-                this.eVm = rawY;
+                this.aly = rawX;
+                this.alz = rawY;
                 return true;
             default:
                 return true;
         }
     }
 
-    public void bm(int i, int i2) {
+    public void s(int i, int i2) {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(0)) {
             Message message = new Message();
@@ -96,7 +96,7 @@ public class a {
         }
     }
 
-    public void bn(int i, int i2) {
+    public void t(int i, int i2) {
         this.mHandler.removeMessages(0);
         if (!this.mHandler.hasMessages(1)) {
             Message message = new Message();
@@ -107,7 +107,7 @@ public class a {
         }
     }
 
-    public void bo(int i, int i2) {
+    public void u(int i, int i2) {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(2)) {
             Message message = new Message();

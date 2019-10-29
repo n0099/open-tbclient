@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.SetCommonForumState.SetCommonForumStateResIdl;
@@ -9,7 +8,7 @@ public class ResponseSetCommForumStateHttpMessage extends TbHttpResponsedMessage
     private SetCommonForumStateResIdl mResponseData;
 
     public ResponseSetCommForumStateHttpMessage() {
-        super(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE);
+        super(1003151);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,8 +1,10 @@
 package com.baidu.mario.a;
+
+import com.baidu.ala.livePlayer.StreamConfig;
 /* loaded from: classes2.dex */
 public class e {
     private int mAudioSource = 1;
-    private int mSampleRate = 16000;
+    private int mSampleRate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_16K;
     private int mChannelConfig = 16;
     private int mAudioFormat = 2;
     private int mFrameSize = 1024;

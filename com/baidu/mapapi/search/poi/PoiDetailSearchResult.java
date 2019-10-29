@@ -2,6 +2,7 @@ package com.baidu.mapapi.search.poi;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mapapi.search.core.PoiDetailInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
@@ -47,7 +48,7 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
             if (i2 >= this.a.size()) {
                 return stringBuffer.toString();
             }
-            stringBuffer.append(" ").append(i2).append(" ");
+            stringBuffer.append(HanziToPinyin.Token.SEPARATOR).append(i2).append(HanziToPinyin.Token.SEPARATOR);
             PoiDetailInfo poiDetailInfo = this.a.get(i2);
             if (poiDetailInfo != null) {
                 stringBuffer.append(poiDetailInfo.toString());

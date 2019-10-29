@@ -22,7 +22,7 @@ public class ADRequestMessage extends NetMessage {
         builder.fid = Long.valueOf(this.fid);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            r.bindCommonParamsToProtobufData(builder, true);
+            r.a(builder, true);
         }
         GetADListReqIdl.Builder builder2 = new GetADListReqIdl.Builder();
         builder2.data = builder.build(false);

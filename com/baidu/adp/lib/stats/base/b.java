@@ -8,19 +8,19 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
-    public static File[] d(boolean z, boolean z2) {
+    public static File[] c(boolean z, boolean z2) {
         File[] listFiles;
         DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
-        diskFileOperate.L(z);
+        diskFileOperate.setSdCard(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.gC().b(diskFileOperate);
-        File[] listFiles2 = (diskFileOperate.gQ() == null || diskFileOperate.gQ().listFiles() == null) ? null : diskFileOperate.gQ().listFiles();
+        com.baidu.adp.lib.Disk.d.eP().b(diskFileOperate);
+        File[] listFiles2 = (diskFileOperate.getFileInfo() == null || diskFileOperate.getFileInfo().listFiles() == null) ? null : diskFileOperate.getFileInfo().listFiles();
         if (z2) {
             DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate2.L(z);
+            diskFileOperate2.setSdCard(z);
             diskFileOperate2.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            com.baidu.adp.lib.Disk.d.gC().b(diskFileOperate2);
-            if (diskFileOperate2.gQ() != null && (listFiles = diskFileOperate2.gQ().listFiles()) != null && listFiles.length != 0) {
+            com.baidu.adp.lib.Disk.d.eP().b(diskFileOperate2);
+            if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
                 if (listFiles2 == null || listFiles2.length == 0) {
                     return listFiles;
                 }
@@ -33,11 +33,11 @@ public class b {
         return listFiles2;
     }
 
-    public static ArrayList<c> ae(boolean z) {
+    public static ArrayList<c> I(boolean z) {
         ArrayList<c> arrayList = new ArrayList<>();
-        File[] d = d(z, true);
-        if (d != null) {
-            for (File file : d) {
+        File[] c = c(z, true);
+        if (c != null) {
+            for (File file : c) {
                 if (file.isFile()) {
                     String name = file.getName();
                     if (!TextUtils.isEmpty(name)) {
@@ -51,8 +51,8 @@ public class b {
 
     public static void a(ArrayList<String> arrayList, boolean z) {
         e eVar = new e(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-        eVar.L(z);
+        eVar.setSdCard(z);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.gC().c(eVar);
+        com.baidu.adp.lib.Disk.d.eP().c(eVar);
     }
 }

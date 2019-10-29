@@ -3,31 +3,31 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    public static byte vh = 4;
-    private static byte vi = Byte.MIN_VALUE;
-    private static byte vj = 64;
-    private static byte vk = 8;
-    private static byte vl = 4;
     private int command;
-    private int vp;
-    private boolean vm = false;
-    private boolean vn = false;
-    private boolean vo = false;
-    private boolean vq = false;
+    private int sequenceId;
+    public static byte EXTRA_DATA_HEADER_LEN = 4;
+    private static byte ENCRYPT_FLAG = Byte.MIN_VALUE;
+    private static byte COMPRESS_FLAG = 64;
+    private static byte LCS_SWITCH_HTTP_FLAG = 8;
+    private static byte EXTRA_DATA_FLAG = 4;
+    private boolean encrypt = false;
+    private boolean compress = false;
+    private boolean lcsSwitchHttp = false;
+    private boolean hasExtraData = false;
 
-    public static int fW() {
+    public static int getHeaderLengthInBytes() {
         return 9;
     }
 
-    public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + fW());
-        byte b = z ? (byte) (vi | 0) : (byte) 0;
+    public static byte[] wrapHeaderIntoBody(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + getHeaderLengthInBytes());
+        byte b = z ? (byte) (ENCRYPT_FLAG | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | vj);
+            b = (byte) (b | COMPRESS_FLAG);
         }
-        byte b2 = (byte) (b | vk);
+        byte b2 = (byte) (b | LCS_SWITCH_HTTP_FLAG);
         if (z3) {
-            b2 = (byte) (b2 | vl);
+            b2 = (byte) (b2 | EXTRA_DATA_FLAG);
         }
         allocate.put(b2);
         allocate.putInt(i);
@@ -40,47 +40,47 @@ public class a {
     }
 
     public static a f(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fW());
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderLengthInBytes());
         a aVar = new a();
         byte b = wrap.get();
-        if ((vi & b) != 0) {
-            aVar.vm = true;
+        if ((ENCRYPT_FLAG & b) != 0) {
+            aVar.encrypt = true;
         }
-        if ((vj & b) != 0) {
-            aVar.vn = true;
+        if ((COMPRESS_FLAG & b) != 0) {
+            aVar.compress = true;
         }
-        if ((vk & b) != 0) {
-            aVar.vo = true;
+        if ((LCS_SWITCH_HTTP_FLAG & b) != 0) {
+            aVar.lcsSwitchHttp = true;
         }
-        if ((b & vl) != 0) {
-            aVar.vq = true;
+        if ((b & EXTRA_DATA_FLAG) != 0) {
+            aVar.hasExtraData = true;
         }
         aVar.command = wrap.getInt();
-        aVar.vp = wrap.getInt();
+        aVar.sequenceId = wrap.getInt();
         return aVar;
     }
 
-    public boolean fX() {
-        return this.vn;
+    public boolean getCompressType() {
+        return this.compress;
     }
 
     public int getCommand() {
         return this.command;
     }
 
-    public boolean fY() {
-        return this.vm;
+    public boolean getEncryptType() {
+        return this.encrypt;
     }
 
-    public int fZ() {
-        return this.vp;
+    public int getSequenceID() {
+        return this.sequenceId;
     }
 
-    public boolean ga() {
-        return this.vo;
+    public boolean getLcsSwitchHttp() {
+        return this.lcsSwitchHttp;
     }
 
-    public boolean gb() {
-        return this.vq;
+    public boolean getHasExtraData() {
+        return this.hasExtraData;
     }
 }

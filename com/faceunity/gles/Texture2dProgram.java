@@ -2,11 +2,12 @@ package com.faceunity.gles;
 
 import android.opengl.GLES20;
 import android.util.Log;
+import com.baidu.ala.liveRecorder.video.gles.GlUtil;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 /* loaded from: classes5.dex */
 public class Texture2dProgram {
-    private ProgramType kpO;
+    private ProgramType koa;
     private float mColorAdjust;
     private float[] mKernel = new float[9];
     private int mProgramHandle;
@@ -29,7 +30,7 @@ public class Texture2dProgram {
     }
 
     public Texture2dProgram(ProgramType programType) {
-        this.kpO = programType;
+        this.koa = programType;
         switch (programType) {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;
@@ -53,7 +54,7 @@ public class Texture2dProgram {
         if (this.mProgramHandle == 0) {
             throw new RuntimeException("Unable to create program");
         }
-        Log.d("Grafika", "Created program " + this.mProgramHandle + " (" + programType + ")");
+        Log.d(GlUtil.TAG, "Created program " + this.mProgramHandle + " (" + programType + ")");
         this.maPositionLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
         d.checkLocation(this.maPositionLoc, "aPosition");
         this.maTextureCoordLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aTextureCoord");
@@ -78,7 +79,7 @@ public class Texture2dProgram {
     }
 
     public void release() {
-        Log.d("Grafika", "deleting program " + this.mProgramHandle);
+        Log.d(GlUtil.TAG, "deleting program " + this.mProgramHandle);
         GLES20.glDeleteProgram(this.mProgramHandle);
         this.mProgramHandle = -1;
     }

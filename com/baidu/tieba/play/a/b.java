@@ -5,7 +5,7 @@ import com.baidu.tieba.play.QuickVideoView;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 /* loaded from: classes.dex */
 public class b {
-    public static a y(Context context, int i) {
+    public static a x(Context context, int i) {
         return i == 1 ? new TbCyberVideoView(context) : new QuickVideoView(context);
     }
 }

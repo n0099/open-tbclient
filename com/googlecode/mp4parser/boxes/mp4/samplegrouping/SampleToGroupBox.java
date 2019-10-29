@@ -1,7 +1,8 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.adp.lib.util.FieldUtil;
 import com.baidu.location.BDLocation;
-import com.baidu.tbadk.BaseActivity;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -15,12 +16,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SampleToGroupBox extends AbstractFullBox {
     public static final String TYPE = "sbgp";
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0507a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0608a ajc$tjp_5 = null;
     List<Entry> entries;
     private String groupingType;
     private String groupingTypeParameter;
@@ -31,12 +32,12 @@ public class SampleToGroupBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SampleToGroupBox.java", SampleToGroupBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", "java.lang.String"), BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "java.lang.String", "groupingType", "", "void"), 154);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getGroupingTypeParameter", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", "java.lang.String"), 158);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setGroupingTypeParameter", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "java.lang.String", "groupingTypeParameter", "", "void"), BDLocation.TypeServerDecryptError);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", FieldUtil.TYPE_STRING), 150);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", FieldUtil.TYPE_STRING, "groupingType", "", "void"), 154);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getGroupingTypeParameter", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", FieldUtil.TYPE_STRING), 158);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setGroupingTypeParameter", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", FieldUtil.TYPE_STRING, "groupingTypeParameter", "", "void"), BDLocation.TypeServerDecryptError);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", "java.util.List"), 166);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "java.util.List", "entries", "", "void"), 170);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "java.util.List", "entries", "", "void"), Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID);
     }
 
     public SampleToGroupBox() {

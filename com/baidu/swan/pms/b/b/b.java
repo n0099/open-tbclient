@@ -12,25 +12,25 @@ public class b extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.b.d
-    /* renamed from: aF */
-    public com.baidu.swan.pms.b.c.b aD(JSONObject jSONObject) {
-        return com.baidu.swan.pms.e.d.aL(jSONObject);
+    /* renamed from: bd */
+    public com.baidu.swan.pms.b.c.b bb(JSONObject jSONObject) {
+        return com.baidu.swan.pms.e.d.bj(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a V(com.baidu.swan.pms.b.c.b bVar) {
-        this.btz.Br();
+    public com.baidu.swan.pms.model.a T(com.baidu.swan.pms.b.c.b bVar) {
+        this.bMk.Gm();
         com.baidu.swan.pms.e.e eVar = new com.baidu.swan.pms.e.e();
-        a(bVar.buh, eVar);
-        if (eVar.WY() == 0) {
-            this.btz.Bn();
+        a(bVar.bMR, eVar);
+        if (eVar.abN() == 0) {
+            this.bMk.Gi();
             return null;
         }
-        this.btz.a(eVar);
-        com.baidu.swan.pms.b.a.a.a(bVar, this.btz);
+        this.bMk.a(eVar);
+        com.baidu.swan.pms.b.a.a.a(bVar, this.bMk);
         return null;
     }
 
@@ -38,15 +38,15 @@ public class b extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.b> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: b */
-    public boolean W(com.baidu.swan.pms.b.c.b bVar) {
+    public boolean U(com.baidu.swan.pms.b.c.b bVar) {
         if (bVar == null) {
             return false;
         }
-        return bVar.buh == null || bVar.buh.Ws();
+        return bVar.bMR == null || bVar.bMR.abh();
     }
 
     @Override // com.baidu.swan.pms.b.d
-    protected String Wu() {
+    protected String abj() {
         return "getplugin";
     }
 }

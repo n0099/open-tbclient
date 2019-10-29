@@ -6,7 +6,6 @@ import com.baidu.searchbox.plugin.api.InvokeCallback;
 import com.baidu.searchbox.plugin.api.InvokeListener;
 import com.baidu.searchbox.plugin.api.PluginInvoker;
 import com.baidu.searchbox.process.ipc.delegate.activity.PluginBaseDelegation;
-import com.sina.weibo.sdk.statistic.LogBuilder;
 /* loaded from: classes2.dex */
 public class b extends PluginBaseDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.PluginBaseDelegation
@@ -17,7 +16,7 @@ public class b extends PluginBaseDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
         String string = this.mParams.getString("params");
-        String string2 = this.mParams.getString(LogBuilder.KEY_CHANNEL);
+        String string2 = this.mParams.getString("channel");
         InvokeCallback invokeCallback = new InvokeCallback() { // from class: com.baidu.poly.d.b.b.1
         };
         if (PayChannel.WECHAT.equalsIgnoreCase(string2)) {

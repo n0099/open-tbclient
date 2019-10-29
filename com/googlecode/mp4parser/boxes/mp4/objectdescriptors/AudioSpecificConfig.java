@@ -1,5 +1,7 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
+import com.baidu.ala.livePlayer.StreamConfig;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeWriter;
 import java.io.IOException;
@@ -60,14 +62,14 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
         samplingFrequencyIndexMap.put(2, 64000);
-        samplingFrequencyIndexMap.put(3, 48000);
-        samplingFrequencyIndexMap.put(4, 44100);
-        samplingFrequencyIndexMap.put(5, 32000);
+        samplingFrequencyIndexMap.put(3, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K));
+        samplingFrequencyIndexMap.put(4, Integer.valueOf((int) StreamConfig.Audio.AUDIO_FREQUENCY));
+        samplingFrequencyIndexMap.put(5, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K));
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
-        samplingFrequencyIndexMap.put(8, 16000);
+        samplingFrequencyIndexMap.put(8, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_16K));
         samplingFrequencyIndexMap.put(9, 12000);
-        samplingFrequencyIndexMap.put(10, 11025);
+        samplingFrequencyIndexMap.put(10, Integer.valueOf((int) RequestResponseCode.REQUEST_LOGIN_PB_AT));
         samplingFrequencyIndexMap.put(11, 8000);
         audioObjectTypeMap.put(1, "AAC main");
         audioObjectTypeMap.put(2, "AAC LC");

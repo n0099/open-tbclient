@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel hBM;
+    private MarkModel hAv;
 
     public b(BaseActivity baseActivity) {
-        this.hBM = null;
-        this.hBM = new MarkModel(baseActivity);
+        this.hAv = null;
+        this.hAv = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.hBM = null;
-        this.hBM = new MarkModel(baseFragmentActivity);
+        this.hAv = null;
+        this.hAv = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void dx(boolean z) {
-        this.hBM.dx(z);
+    public void dO(boolean z) {
+        this.hAv.dO(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String aaE() {
-        return this.hBM.aaE();
+    public String afl() {
+        return this.hAv.afl();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0247a interfaceC0247a) {
-        this.hBM.a(interfaceC0247a);
+    public void a(a.InterfaceC0279a interfaceC0279a) {
+        this.hAv.a(interfaceC0279a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aaG() {
-        this.hBM.aaG();
+    public void afn() {
+        this.hAv.afn();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aaH() {
-        this.hBM.aaH();
+    public void afo() {
+        this.hAv.afo();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData aaI() {
-        return this.hBM.aaI();
+    public MarkData afp() {
+        return this.hAv.afp();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.hBM.a(markData);
+        this.hAv.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean aaF() {
-        return this.hBM.aaF();
+    public boolean afm() {
+        return this.hAv.afm();
     }
 }

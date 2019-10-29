@@ -1,5 +1,6 @@
 package com.baidu.mapapi.cloud;
 
+import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.UnsupportedEncodingException;
@@ -48,7 +49,7 @@ public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
             }
             if (this.filter != null && !this.filter.equals("")) {
                 sb.append("&");
-                sb.append("filter");
+                sb.append(FilterImageAction.ACTION_NAME);
                 sb.append("=");
                 sb.append(this.filter);
             }

@@ -2,6 +2,7 @@ package com.baidu.tieba.location.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes5.dex */
@@ -9,7 +10,7 @@ public class LocationSearchResponseMessage extends SocketResponsedMessage {
     private a mLocationData;
 
     public LocationSearchResponseMessage() {
-        super(303018);
+        super(CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

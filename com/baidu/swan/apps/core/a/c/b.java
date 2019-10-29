@@ -6,41 +6,41 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b aqD;
-    private boolean aqE = false;
-    private boolean aqF = false;
+    private static b aJT;
+    private boolean aJU = false;
+    private boolean aJV = false;
     private boolean mIsCanceled = false;
-    private boolean aqG = false;
-    private boolean aqH = false;
-    private int aqI = 3000;
-    private HashMap<String, Long> aqJ = new HashMap<>();
-    private boolean aqK = false;
+    private boolean aJW = false;
+    private boolean aJX = false;
+    private int aJY = 3000;
+    private HashMap<String, Long> aJZ = new HashMap<>();
+    private boolean aKa = false;
 
-    public static b zq() {
-        if (aqD == null) {
+    public static b El() {
+        if (aJT == null) {
             synchronized (b.class) {
-                if (aqD == null) {
-                    aqD = new b();
+                if (aJT == null) {
+                    aJT = new b();
                 }
             }
         }
-        return aqD;
+        return aJT;
     }
 
     private b() {
     }
 
-    public boolean dF(String str) {
+    public boolean en(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.aqJ == null || !this.aqJ.containsKey(str) || currentTimeMillis - this.aqJ.get(str).longValue() > 18000000) {
+        if (this.aJZ == null || !this.aJZ.containsKey(str) || currentTimeMillis - this.aJZ.get(str).longValue() > 18000000) {
             if (DEBUG) {
-                if (this.aqJ == null || !this.aqJ.containsKey(str)) {
+                if (this.aJZ == null || !this.aJZ.containsKey(str)) {
                     Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 } else {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.aqJ.get(str) + " ，id = " + str);
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.aJZ.get(str) + " ，id = " + str);
                 }
             }
             return false;
@@ -51,7 +51,7 @@ public final class b {
         return true;
     }
 
-    public boolean zr() {
-        return this.aqF;
+    public boolean Em() {
+        return this.aJV;
     }
 }

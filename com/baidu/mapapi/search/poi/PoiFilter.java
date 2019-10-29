@@ -3,7 +3,6 @@ package com.baidu.mapapi.search.poi;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -25,19 +24,19 @@ public final class PoiFilter implements Parcelable {
         private String e;
 
         public Builder() {
-            PoiFilter.f.put(SortName.HotelSortName.DEFAULT, NotifyAdapterUtil.PRIMARY_CHANNEL);
+            PoiFilter.f.put(SortName.HotelSortName.DEFAULT, "default");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
-            PoiFilter.f.put(SortName.CaterSortName.DEFAULT, NotifyAdapterUtil.PRIMARY_CHANNEL);
+            PoiFilter.f.put(SortName.CaterSortName.DEFAULT, "default");
             PoiFilter.f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
             PoiFilter.f.put(SortName.CaterSortName.CATER_PRICE, "price");
             PoiFilter.f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
             PoiFilter.f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
             PoiFilter.f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
-            PoiFilter.f.put(SortName.LifeSortName.DEFAULT, NotifyAdapterUtil.PRIMARY_CHANNEL);
+            PoiFilter.f.put(SortName.LifeSortName.DEFAULT, "default");
             PoiFilter.f.put(SortName.LifeSortName.PRICE, "price");
             PoiFilter.f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
             PoiFilter.f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");

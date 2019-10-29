@@ -11,8 +11,8 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class AiAppGuideActivity extends BaseActivity {
-    private ImageView cVo;
-    private GifView cmF;
+    private GifView czE;
+    private ImageView deJ;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -28,15 +28,15 @@ public class AiAppGuideActivity extends BaseActivity {
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         setContentView(R.layout.activity_aiapp_guide);
-        this.cmF = (GifView) findViewById(R.id.view_gif);
-        this.cmF.setGifRaw(R.raw.aiapp_guide);
-        this.cVo = (ImageView) findViewById(R.id.img_close);
-        this.cVo.setOnClickListener(this.mOnClickListener);
-        int af = l.af(getActivity()) - (l.g(getActivity(), R.dimen.tbds44) * 2);
-        ViewGroup.LayoutParams layoutParams = this.cmF.getLayoutParams();
-        layoutParams.width = af;
-        layoutParams.height = (int) (((af * 828) * 1.0f) / 760.0f);
-        this.cmF.setLayoutParams(layoutParams);
+        this.czE = (GifView) findViewById(R.id.view_gif);
+        this.czE.setGifRaw(R.raw.aiapp_guide);
+        this.deJ = (ImageView) findViewById(R.id.img_close);
+        this.deJ.setOnClickListener(this.mOnClickListener);
+        int equipmentWidth = l.getEquipmentWidth(getActivity()) - (l.getDimens(getActivity(), R.dimen.tbds44) * 2);
+        ViewGroup.LayoutParams layoutParams = this.czE.getLayoutParams();
+        layoutParams.width = equipmentWidth;
+        layoutParams.height = (int) (((equipmentWidth * 828) * 1.0f) / 760.0f);
+        this.czE.setLayoutParams(layoutParams);
     }
 
     @Override // android.app.Activity
@@ -48,6 +48,6 @@ public class AiAppGuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        am.c(this.cVo, (int) R.drawable.icon_use_close_n);
+        am.setImageResource(this.deJ, R.drawable.icon_use_close_n);
     }
 }

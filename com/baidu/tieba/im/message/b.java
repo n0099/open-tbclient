@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e;
@@ -8,7 +9,7 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.framework.a.a {
     public b() {
-        super(2016007);
+        super(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

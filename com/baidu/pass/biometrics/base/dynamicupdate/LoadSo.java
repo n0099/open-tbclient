@@ -6,7 +6,6 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.common.logging.Log;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.coremedia.iso.boxes.UserBox;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -120,8 +119,8 @@ public class LoadSo {
 
         private Map<String, String> prepareData() {
             if (LoadSo.this.bundle != null) {
-                this.uuid = LoadSo.this.bundle.getString(UserBox.TYPE);
-                this.tpl = LoadSo.this.bundle.getString(LIVENESS_TPL);
+                this.uuid = LoadSo.this.bundle.getString("uuid");
+                this.tpl = LoadSo.this.bundle.getString("tpl");
                 this.productId = LoadSo.this.bundle.getString("productId");
             }
             HashMap hashMap = new HashMap();
@@ -134,7 +133,7 @@ public class LoadSo {
             hashMap.put(EXCEPTION_ZIP_VERSION, this.execptionZipVersion);
             hashMap.put(LIVENESS_PROCESS_ID, this.uuid);
             hashMap.put(LIVENESS_SUBPRO, this.productId);
-            hashMap.put(LIVENESS_TPL, this.tpl);
+            hashMap.put("tpl", this.tpl);
             hashMap.put(LIVENESS_CUID, PassBiometricUtil.getClientId(LoadSo.this.context));
             hashMap.put(LIVENESS_DEVICE_MODEL, PassBiometricUtil.getOSModel());
             hashMap.put(LIVENESS_PHONO_SYS, PassBiometricUtil.getOSVersion());

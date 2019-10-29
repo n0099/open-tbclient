@@ -93,7 +93,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra("is_start_for_result", "1");
-            intent.putExtra(IntentConfig.REQUEST_CODE, i);
+            intent.putExtra("request_code", i);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
@@ -238,7 +238,7 @@ public class PbVideoActivityConfig extends IntentConfig {
         intent.putExtra("from_mark", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra("is_start_for_result", "1");
-        intent.putExtra(IntentConfig.REQUEST_CODE, i);
+        intent.putExtra("request_code", i);
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
         return this;
@@ -270,9 +270,9 @@ public class PbVideoActivityConfig extends IntentConfig {
         if (bhVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bhVar.getTid());
-            intent.putExtra("is_good", bhVar.aey());
-            intent.putExtra("is_top", bhVar.aex());
-            intent.putExtra("thread_time", bhVar.aev());
+            intent.putExtra("is_good", bhVar.aiC());
+            intent.putExtra("is_top", bhVar.aiB());
+            intent.putExtra("thread_time", bhVar.aiz());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -280,12 +280,12 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("from_forum_name", str);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra("is_start_for_result", "1");
-            intent.putExtra(IntentConfig.REQUEST_CODE, i);
+            intent.putExtra("request_code", i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bhVar.aeo() == null ? 0L : bhVar.aeo().getNum()));
-            if (bhVar.aeC() != null && bhVar.aeC().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bhVar.aeC().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bhVar.aeC().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bhVar.ais() == null ? 0L : bhVar.ais().getNum()));
+            if (bhVar.aiG() != null && bhVar.aiG().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bhVar.aiG().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bhVar.aiG().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
